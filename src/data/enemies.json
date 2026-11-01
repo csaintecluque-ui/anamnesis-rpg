@@ -1,6 +1,7 @@
 [
   {
     "id": "golem-ferraille",
+    "tile": "golem",
     "name": "Golem de Ferraille",
     "hp": 44,
     "defense": 14,
@@ -13,6 +14,7 @@
   },
   {
     "id": "rodeur-epine",
+    "tile": "rodeur-epine",
     "name": "Rôdeur-Épine",
     "hp": 14,
     "defense": 12,

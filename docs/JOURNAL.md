@@ -15,10 +15,10 @@
 
 ## Prochaine étape
 
-1. Pilote validé par Cyril (style et héros) le 2026-11-01. **Lots 1 (8 sols) et 2 (12 décors) générés et intégrés** :
-   23 tuiles peintes sur 25 dans `public/tiles/tiles.png` (`npm run art` puis `npm run tiles`). 14 crédits dépensés
-   depuis le début, reste 96. Suite : **lot 3 (personnages : Ilyane, Tobias, Ingrid, Golem, Rôdeur-Épine)**, environ
-   2,5 crédits ; demande du code : PNJ et ennemis du combat partagent aujourd'hui la seule tuile `pnj`.
+1. Pilote validé par Cyril (style et héros) le 2026-11-01. **Lots 1 à 3 générés et intégrés** (sols, décors,
+   personnages) : 28 tuiles peintes sur 29 dans `public/tiles/tiles.png` (`npm run art` puis `npm run tiles`) ;
+   chaque PNJ et chaque ennemi a sa tuile. 16,5 crédits dépensés, reste 93,5. Suite : **lot 4 (portraits de
+   dialogue)**, environ 4,5 crédits et du code (afficher un portrait dans le panneau de dialogue), puis lot 5.
 2. Après les visuels : proposer le périmètre du jalon 2 (contenu).
 
 ## Points ouverts

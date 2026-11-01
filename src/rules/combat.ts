@@ -31,6 +31,8 @@ export interface EnemyDef {
   initiativeBonus: number;
   xp: number;
   defeatText: string;
+  /** Tile drawn for this enemy (name in scripts/tiles-def.mjs). */
+  tile: string;
 }
 
 export const WEAPONS = weaponData as WeaponDef[];

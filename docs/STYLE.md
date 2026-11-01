@@ -54,7 +54,7 @@ Pour les tuiles, décors et personnages, on ajoute : `isometric 2:1 view, single
 background`. À éviter dans tous les prompts : `text, letters, logo, watermark, blood, gore, modern firearms, screens,
 photorealistic`.
 
-## Personnages (descriptions visuelles proposées, à valider)
+## Personnages (descriptions visuelles proposées ; héros validé, les autres utilisées pour le lot 3 le 2026-11-01)
 
 Le canon donne leur rôle, pas leur apparence. Tout ce qui suit est une **proposition**.
 

@@ -65,6 +65,8 @@ export class CombatScene extends Phaser.Scene {
   private state!: GameState;
   private config!: CombatStartData;
   private combatants: Combatant[] = [];
+  /** Tile name drawn for each combatant, by combatant id. */
+  private tileNames = new Map<string, string>();
   private order: Combatant[] = [];
   private turnIndex = 0;
   private arena!: Arena;
@@ -113,6 +115,7 @@ export class CombatScene extends Phaser.Scene {
     const enemyDefs = data.enemyIds.map((id) => findEnemy(id)!);
     const enemies = enemyDefs.map((def, i) => makeEnemyCombatant(def, `${def.id}-${i}`, data.enemyTiles[i]));
     this.combatants = [hero, ...enemies];
+    this.tileNames = new Map([[hero.id, 'heros'], ...enemies.map((c, i): [string, string] => [c.id, enemyDefs[i].tile])]);
     numberDuplicateNames(this.combatants);
     this.hovered = null;
     const initiativeBonus = new Map<string, number>(enemies.map((c, i) => [c.id, enemyDefs[i].initiativeBonus]));
@@ -179,12 +182,11 @@ export class CombatScene extends Phaser.Scene {
 
   private addToken(c: Combatant): void {
     const f = this.feet(c.tile);
-    const frame = c.side === 'heroes' ? this.frames.heros : this.frames.pnj;
+    const frame = this.frames[this.tileNames.get(c.id) ?? 'pnj'] ?? this.frames.pnj;
     const image = this.add.image(f.x, f.y, 'tiles', frame).setOrigin(0.5, 1).setScale(LAYOUT.arenaScale).setDepth(f.y + 1);
-    if (c.side === 'enemies') image.setTint(c.id.startsWith('golem') ? 0x8a8276 : 0xb5653a);
     const hpBar = this.add.graphics().setDepth(6000);
     const name = this.add
-      .text(f.x, f.y - 70 * LAYOUT.arenaScale, c.name, { fontFamily: FONT_SERIF, fontSize: '16px', color: CSS.parchment, stroke: CSS.ink, strokeThickness: 3 })
+      .text(f.x, f.y - 104 * LAYOUT.arenaScale, c.name, { fontFamily: FONT_SERIF, fontSize: '16px', color: CSS.parchment, stroke: CSS.ink, strokeThickness: 3 })
       .setOrigin(0.5, 1)
       .setDepth(6001)
       .setVisible(false);
@@ -208,7 +210,7 @@ export class CombatScene extends Phaser.Scene {
     token.image.setPosition(f.x, f.y).setDepth(f.y + 1).setAlpha(c.defeated ? 0.25 : 1);
 
     const x = f.x - HP_BAR_WIDTH / 2;
-    const y = f.y - 64 * LAYOUT.arenaScale;
+    const y = f.y - 98 * LAYOUT.arenaScale;
     const ratio = c.maxHp > 0 ? c.hp / c.maxHp : 0;
     token.hpBar.clear();
     if (!c.defeated) {

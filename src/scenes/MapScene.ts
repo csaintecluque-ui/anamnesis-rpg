@@ -145,10 +145,11 @@ export class MapScene extends Phaser.Scene {
   private drawNpcs(): void {
     for (const npc of this.map.objects.filter((o) => o.type === 'pnj')) {
       const f = this.feet(npc);
-      const image = this.add.image(f.x, f.y, 'tiles', this.map.frames.pnj).setOrigin(0.5, 1).setDepth(f.y);
+      const frame = this.map.frames[npc.name] ?? this.map.frames.pnj;
+      const image = this.add.image(f.x, f.y, 'tiles', frame).setOrigin(0.5, 1).setDepth(f.y);
       this.interactables.push({ object: npc, image });
       this.add
-        .text(f.x, f.y - 62, npcName(npc), { fontFamily: FONT_SERIF, fontSize: '13px', color: CSS.parchment, stroke: CSS.ink, strokeThickness: 3 })
+        .text(f.x, f.y - 94, npcName(npc), { fontFamily: FONT_SERIF, fontSize: '13px', color: CSS.parchment, stroke: CSS.ink, strokeThickness: 3 })
         .setOrigin(0.5, 1)
         .setDepth(100000);
     }
@@ -332,7 +333,7 @@ export class MapScene extends Phaser.Scene {
 function hitsBody(image: Phaser.GameObjects.Image, x: number, y: number): boolean {
   const left = image.x - 18;
   const right = image.x + 18;
-  const top = image.y - 62;
+  const top = image.y - 92;
   const bottom = image.y - 4;
   return x >= left && x <= right && y >= top && y <= bottom;
 }

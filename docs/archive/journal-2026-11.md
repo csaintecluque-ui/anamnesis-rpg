@@ -588,3 +588,7 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   décor, option `matte` (fond clair raté : damier peint derrière la maison, halo blanc autour du wagon), opacité
   (Écho à 70 %), Faille en texture sans raccord. 23 tuiles peintes sur 25. Vérifié en rendu des deux cartes ; la
   Faille est presque cachée par un arbre placé devant (déjà le cas avant).
+- Lot 3 lancé par Cyril : Ilyane (portrait du pilote en référence), Tobias, Ingrid, Golem, Rôdeur-Épine ; 2,5 crédits,
+  93,5 restants, tous gardés. Code : une tuile par PNJ (par son nom) et par ennemi (champ `tile` d'`enemies.json`),
+  teinte des ennemis retirée, noms, barres de vie et zone de clic remontés ; test ajouté (183 tests). Vérifié dans le
+  jeu, carte et combat.

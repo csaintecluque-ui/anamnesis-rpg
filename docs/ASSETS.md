@@ -154,10 +154,33 @@ d'abord été refusées par Higgsfield (`429 rate_limit_reached`, rien de débit
 l'échelle, pied posé sur la case, ombre d'encre ajoutée. Deux images avaient un fond « transparent » raté : la maison
 (damier gris peint derrière elle, alpha 93 % partout) et le wagon (halo blanc) ; l'option `matte` du script efface le
 fond clair relié au bord et rend le reste opaque. L'Écho est rendu à 70 % d'opacité. 23 tuiles peintes sur 25 (restent
-le PNJ générique et le Golem, lot 3).
+le PNJ générique et le Golem, lot 3 : fait).
 
 Remarques :
 - Le Tronc d'Arbre-Titan occupe 2 × 2 cases faites de la même tuile : l'ensemble se lit comme une masse de racines.
   Un vrai décor sur plusieurs cases demanderait de découper une grande image ; hors plan.
 - Le wagon occupe 2 cases : on voit deux wagons renversés côte à côte.
 - Sur la carte de la Gare, la Faille (case 20, 9) est presque cachée par un arbre placé devant (déjà le cas avant).
+
+### Lot 3 : personnages (2026-11-01, 5 images, 2,5 crédits, solde 93,5)
+
+Tous gardés au premier essai, fond transparent propre. Réglages : Higgsfield MCP, `gpt_image_2_5`, 1k, qualité
+moyenne, transparent. Prompt = bloc commun + isométrique (« single character / creature centered ») + sujet + « stands
+directly on the bottom of the image: no ground, no base, no cast shadow on the ground » + à éviter. Descriptions :
+`docs/STYLE.md` (« Personnages »). Ilyane : son portrait du pilote donné en référence (`image_references`) pour garder
+le même visage et la même cape.
+
+| Fichier (`assets/raw/lot3/`) | Format | Sujet du prompt | Coût |
+|---|---|---|---|
+| `ilyane.png` | 2:3 | « Full-body character, three-quarter front view, standing: the same woman as in the reference portrait, Ilyane, a kind middle-aged guardian of memories from a forest people, same face, same braided greying hair with leaves, same cloak patterned with bark and leaves, holding her light wooden staff topped with a softly glowing cyan crystal, warm benevolent expression » | 0,5 |
+| `tobias.png` | 2:3 | « Tobias, a jovial stocky merchant from an industrial empire, leather apron over a waistcoat with brass buttons, rolled-up sleeves, small tools hanging at his belt, holding up a lamp with a glowing cyan crystal, friendly smile » | 0,5 |
+| `ingrid.png` | 2:3 | « Ingrid, a determined woman engineer from an industrial empire, brass protective goggles pushed up on her forehead, sturdy work jacket reinforced with copper plates and rivets, work trousers and boots, rolled-up plans under one arm, confident stance » | 0,5 |
+| `golem.png` | 1:1 | « a Scrap Golem, a massive half-mechanical half-magical automaton assembled from rusty scrap iron plates and old machine parts, gears and pipes, with veins of glowing cyan tellurian light between the plates and two calm cyan glowing eyes, hulking and impressive but not scary » | 0,5 |
+| `rodeur-epine.png` | 1:1 | « standing on four legs: a Thorn Prowler, a lean and agile wild canine creature whose back and tail are covered with long flexible thorny spines in green and brown like brambles, alert ears, lively stance ready to pounce, mouth closed, impressive but not frightening » | 0,5 |
+
+**Code** : quatre tuiles ajoutées en fin de planche (`ilyane`, `tobias`, `ingrid`, `rodeur-epine`, les numéros des
+autres tuiles ne changent pas). Sur la carte, un PNJ prend la tuile de son nom (repli : `pnj`) ; en combat, un ennemi
+prend la tuile de son champ `tile` (`src/data/enemies.json`) et n'est plus teinté. Noms, barres de vie et zone de clic
+remontés à la hauteur des nouveaux personnages. Test : chaque PNJ et chaque ennemi a sa tuile. Vérifié dans le jeu
+(Marché avec Ilyane et Tobias ; combat du Golem et des deux Rôdeurs-Épine). Seule la tuile `pnj` générique reste
+provisoire (repli, plus utilisée par les cartes actuelles).

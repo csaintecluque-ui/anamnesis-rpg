@@ -3,6 +3,7 @@ import gardeboisJson from '../data/maps/gardebois.json';
 import gareEngloutieJson from '../data/maps/gare-engloutie.json';
 import npcData from '../data/npcs.json';
 import type { Tile } from './iso';
+import { ENEMIES } from '../rules/combat';
 import { findPath } from './pathfinding';
 import { findObject, isWalkable, parseTiledMap, tileKey, type TiledMapJson } from './tiledMap';
 
@@ -148,5 +149,17 @@ describe('La Gare Engloutie map (Tiled data)', () => {
       for (const col of [0, gareEngloutie.width - 1]) if (isWalkable(gareEngloutie, { col, row })) openings.push(`${col},${row}`);
     }
     expect(openings.sort()).toEqual(['0,9']);
+  });
+});
+
+describe('character tiles', () => {
+  it('gives every map NPC the tile named after it', () => {
+    for (const map of [gardebois, gareEngloutie]) {
+      for (const npc of map.objects.filter((o) => o.type === 'pnj')) expect(map.frames[npc.name], npc.name).toBeDefined();
+    }
+  });
+
+  it('gives every enemy an existing tile', () => {
+    for (const enemy of ENEMIES) expect(gardebois.frames[enemy.tile], enemy.id).toBeDefined();
   });
 });

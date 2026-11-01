@@ -13,6 +13,10 @@ const PARCHMENT = '#EAD9B8';
 
 const diamond = (fill, stroke = 'rgba(0,0,0,0.18)') =>
   `<path d="M32 64 L64 80 L32 96 L0 80 Z" fill="${fill}" stroke="${stroke}" stroke-width="1"/>`;
+const figure = (body, skin) =>
+  shadow(12, 5) +
+  `<path d="M22 82 Q20 60 32 56 Q44 60 42 82 Z" fill="${body}" stroke="${PARCHMENT}" stroke-width="2"/>` +
+  `<circle cx="32" cy="48" r="9" fill="${skin}" stroke="${PARCHMENT}" stroke-width="2"/>`;
 const shadow = (rx = 18, ry = 7) => `<ellipse cx="32" cy="82" rx="${rx}" ry="${ry}" fill="rgba(0,0,0,0.35)"/>`;
 
 export const TILES = [
@@ -161,10 +165,7 @@ export const TILES = [
   {
     name: 'pnj',
     sprite: true,
-    svg:
-      shadow(12, 5) +
-      `<path d="M22 82 Q20 60 32 56 Q44 60 42 82 Z" fill="${COPPER}" stroke="${PARCHMENT}" stroke-width="2"/>` +
-      `<circle cx="32" cy="48" r="9" fill="#d9b28e" stroke="${PARCHMENT}" stroke-width="2"/>`,
+    svg: figure(COPPER, '#d9b28e'),
   },
   // --- La Gare Engloutie (docs/univers/lieux/gare-engloutie.md, à valider) --
   {
@@ -229,6 +230,7 @@ export const TILES = [
   },
   {
     name: 'golem',
+    art: { src: 'lot3/golem.png', kind: 'standing', maxHeight: 88, foot: 88, shadow: { rx: 22, ry: 8 } },
     blocking: true,
     svg:
       diamond('#334023') +
@@ -247,5 +249,31 @@ export const TILES = [
       `<path d="M22 82 Q20 62 30 56 Q40 62 38 82 Z" fill="${PARCHMENT}" opacity="0.35"/>` +
       `<circle cx="30" cy="52" r="7" fill="${PARCHMENT}" opacity="0.35"/>` +
       `<path d="M42 84 Q40 68 46 62 Q52 68 50 84 Z" fill="${PARCHMENT}" opacity="0.2"/>`,
+  },
+  // --- Personnages nommés (phase 2, lot 3), ajoutés en fin de planche pour garder les numéros des autres tuiles.
+  // Un PNJ de carte prend la tuile de son nom, un ennemi la tuile de son champ `tile` (src/data/enemies.json).
+  {
+    name: 'ilyane',
+    sprite: true,
+    art: { src: 'lot3/ilyane.png', kind: 'standing', maxWidth: 60, maxHeight: 80, foot: 84, shadow: true },
+    svg: figure('#4d6b3a', '#d9b28e'),
+  },
+  {
+    name: 'tobias',
+    sprite: true,
+    art: { src: 'lot3/tobias.png', kind: 'standing', maxWidth: 60, maxHeight: 80, foot: 84, shadow: true },
+    svg: figure(COPPER, '#d9b28e'),
+  },
+  {
+    name: 'ingrid',
+    sprite: true,
+    art: { src: 'lot3/ingrid.png', kind: 'standing', maxWidth: 60, maxHeight: 80, foot: 84, shadow: true },
+    svg: figure('#6a6058', '#d9b28e'),
+  },
+  {
+    name: 'rodeur-epine',
+    sprite: true,
+    art: { src: 'lot3/rodeur-epine.png', kind: 'standing', maxWidth: 60, maxHeight: 52, foot: 86, shadow: { rx: 20, ry: 6 } },
+    svg: shadow(16, 5) + '<path d="M14 82 L18 66 Q32 56 48 64 L52 82 Z" fill="#5a6b3a" stroke="#1B1512" stroke-width="1.5"/>',
   },
 ];

@@ -561,3 +561,6 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   Higgsfield (`npx skills add higgsfield-ai/skills`) n'ont pas été installés : refusés par la protection automatique
   de la session ; le CLI suffit. Modèle retenu : GPT Image 2.5 (fond transparent natif). Coût estimé : pilote
   6 crédits, plan complet ≈ 51 crédits.
+- Feu vert de Cyril pour le pilote. Les 4 générations par le CLI sont refusées (`only_mcp_usage_on_trial_is_available` :
+  compte en essai, seul le connecteur MCP est permis) ; aucun crédit débité. Script du pilote prêt (prompts dans la
+  fiche de style). `assets/raw/` ajouté au `.gitignore`.

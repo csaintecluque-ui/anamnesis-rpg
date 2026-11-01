@@ -11,3 +11,6 @@ playwright-report/
 # Lore canonique de Cyril : local uniquement, jamais publié
 docs/Lore/
 docs/Carte Anamnesis.png
+
+# Images brutes générées (phase 2) : lourdes, gardées en local ; seules les versions réduites sont publiées
+assets/raw/

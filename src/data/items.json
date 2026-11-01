@@ -1,0 +1,66 @@
+[
+  {
+    "id": "dague",
+    "name": "Dague",
+    "description": "Une lame courte, facile à porter.",
+    "weightKg": 1,
+    "price": 10,
+    "slot": "main"
+  },
+  {
+    "id": "epee-longue",
+    "name": "Épée longue",
+    "description": "L’arme de corps à corps de l’atelier Cendrefer.",
+    "weightKg": 3,
+    "price": 35,
+    "slot": "main"
+  },
+  {
+    "id": "arc",
+    "name": "Arc",
+    "description": "Bois de Verdantis et corde de Ferros.",
+    "weightKg": 2,
+    "price": 30,
+    "slot": "main"
+  },
+  {
+    "id": "armure-cuir",
+    "name": "Armure de cuir",
+    "description": "Légère, elle ne gêne pas la marche.",
+    "weightKg": 8,
+    "price": 40,
+    "slot": "armure",
+    "armorBonus": 1
+  },
+  {
+    "id": "armure-ferraille",
+    "name": "Armure de ferraille",
+    "description": "Lourde, forgée à Ferros ; elle a vu la Faille de près.",
+    "weightKg": 15,
+    "price": 90,
+    "slot": "armure",
+    "armorBonus": 2
+  },
+  {
+    "id": "lampe-cristal",
+    "name": "Lampe à cristal",
+    "description": "Elle ne s’éteint pas sous terre, dit Tobias.",
+    "weightKg": 1,
+    "price": 15
+  },
+  {
+    "id": "corde",
+    "name": "Corde",
+    "description": "Dix mètres de corde de Ferros, solide.",
+    "weightKg": 2,
+    "price": 5
+  },
+  {
+    "id": "bandage",
+    "name": "Bandage",
+    "description": "Soigne une petite blessure.",
+    "weightKg": 0.5,
+    "price": 8,
+    "healHp": 8
+  }
+]

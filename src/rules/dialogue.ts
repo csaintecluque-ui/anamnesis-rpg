@@ -17,7 +17,9 @@ export type Effect =
   | { startQuest: string }
   | { completeQuest: string }
   | { giveXp: number }
-  | { learnRecit: string };
+  | { learnRecit: string }
+  /** No state change: tells DialogueScene to open the Troc with this NPC instead of closing (GDD §3). */
+  | { openTrade: true };
 
 export interface DialogueOption {
   text: string;
@@ -126,12 +128,18 @@ export function applyEffects(state: GameState, effects: Effect[] = []): string[]
         learnRecit(state.character, effect.learnRecit);
         notices.push(`Récit retenu : ${findRecit(effect.learnRecit)?.titre ?? effect.learnRecit}`);
       }
+    } else if ('openTrade' in effect) {
+      // Handled by DialogueScene, which opens the Troc instead of closing; no state change here.
     } else if (state.character) {
       state.character.xp += effect.giveXp;
       notices.push(`+${effect.giveXp} points d’expérience`);
     }
   }
   return notices;
+}
+
+export function opensTrade(effects?: Effect[]): boolean {
+  return !!effects?.some((e) => 'openTrade' in e);
 }
 
 function questName(id: string): string {

@@ -48,6 +48,17 @@ export interface CharacterDraft {
   feat: FeatId | null;
 }
 
+/** Two hands and armour (GDD §3). */
+export type Slot = 'mainGauche' | 'mainDroite' | 'armure';
+export const SLOTS: Slot[] = ['mainGauche', 'mainDroite', 'armure'];
+
+export interface InventorySlotState {
+  itemId: string;
+  count: number;
+}
+
+export type Equipment = Record<Slot, string | null>;
+
 export interface Character {
   name: string;
   origin: 'human';
@@ -59,6 +70,10 @@ export interface Character {
   hp: number;
   /** Récits recueillis (GDD §4, piste B), plafonnés par talesRetained. */
   recits: string[];
+  /** La monnaie de Ferros (LORE.md §11). */
+  fers: number;
+  inventory: InventorySlotState[];
+  equipment: Equipment;
 }
 
 export interface CharacterStats {
@@ -194,6 +209,9 @@ export function isDraftComplete(d: CharacterDraft): boolean {
   return Object.values(draftErrors(d)).every((errors) => errors.length === 0);
 }
 
+/** Starting funds (LORE.md §11) : less than Tobias's laissez-passer, on purpose — see GDD §6. */
+export const STARTING_FERS = 15;
+
 export function finalizeCharacter(d: CharacterDraft): Character {
   if (!isDraftComplete(d) || !d.feat) throw new Error('Character draft is incomplete');
   const character: Character = {
@@ -206,6 +224,9 @@ export function finalizeCharacter(d: CharacterDraft): Character {
     skills: finalSkills(d),
     hp: 0,
     recits: [],
+    fers: STARTING_FERS,
+    inventory: [],
+    equipment: { mainGauche: null, mainDroite: null, armure: null },
   };
   character.hp = characterStats(character).maxHp;
   return character;
@@ -248,5 +269,24 @@ export function characterError(raw: unknown): string | null {
     if (!Number.isInteger(v) || (v as number) < 0 || (v as number) > SKILL_RANK_MAX) return 'compétences invalides.';
   }
   if (!Array.isArray(c.recits) || c.recits.some((r) => typeof r !== 'string')) return 'récits invalides.';
+  if (typeof c.fers !== 'number' || !(c.fers >= 0)) return 'monnaie invalide.';
+  if (
+    !Array.isArray(c.inventory) ||
+    c.inventory.some(
+      (s) =>
+        typeof s !== 'object' ||
+        s === null ||
+        typeof (s as Record<string, unknown>).itemId !== 'string' ||
+        !Number.isInteger((s as Record<string, unknown>).count) ||
+        ((s as Record<string, unknown>).count as number) < 1,
+    )
+  ) {
+    return 'inventaire invalide.';
+  }
+  const equipment = c.equipment as Record<string, unknown> | undefined;
+  for (const slot of SLOTS) {
+    const v = equipment?.[slot];
+    if (v !== null && typeof v !== 'string') return 'équipement invalide.';
+  }
   return null;
 }

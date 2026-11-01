@@ -1,7 +1,7 @@
-import { characterError } from '../rules/character';
+import { characterError, STARTING_FERS } from '../rules/character';
 import { findLocation, type GameState } from '../state/gameState';
 
-export const SAVE_VERSION = 5;
+export const SAVE_VERSION = 6;
 export const SAVE_MAX_CHARS = 1_000_000;
 const GAME_MARKER = 'anamnesis';
 
@@ -41,6 +41,14 @@ const MIGRATIONS: Record<number, (save: Record<string, unknown>) => Record<strin
   4: (save) => {
     if (!isRecord(save.state)) return save;
     const character = isRecord(save.state.character) ? { ...save.state.character, recits: [] } : save.state.character;
+    return { ...save, state: { ...save.state, character } };
+  },
+  // v5 predates the inventory (GDD §3): starting funds, nothing carried or equipped.
+  5: (save) => {
+    if (!isRecord(save.state)) return save;
+    const character = isRecord(save.state.character)
+      ? { ...save.state.character, fers: STARTING_FERS, inventory: [], equipment: { mainGauche: null, mainDroite: null, armure: null } }
+      : save.state.character;
     return { ...save, state: { ...save.state, character } };
   },
 };

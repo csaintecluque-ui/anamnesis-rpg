@@ -7,6 +7,7 @@ import { HudScene } from './scenes/HudScene';
 import { MapScene } from './scenes/MapScene';
 import { SlotsScene } from './scenes/SlotsScene';
 import { TitleScene } from './scenes/TitleScene';
+import { TradeScene } from './scenes/TradeScene';
 import { COLORS, GAME_HEIGHT, GAME_WIDTH } from './ui/theme';
 
 const game = new Phaser.Game({
@@ -21,8 +22,8 @@ const game = new Phaser.Game({
     mode: Phaser.Scale.FIT,
     autoCenter: Phaser.Scale.CENTER_BOTH,
   },
-  // Order matters: later scenes draw on top and receive input first (Combat and Dialogue above the HUD above the map).
-  scene: [BootScene, TitleScene, CreationScene, MapScene, HudScene, DialogueScene, CombatScene, SlotsScene],
+  // Order matters: later scenes draw on top and receive input first (Combat, Trade and Dialogue above the HUD above the map).
+  scene: [BootScene, TitleScene, CreationScene, MapScene, HudScene, DialogueScene, TradeScene, CombatScene, SlotsScene],
 });
 
 // Development only: lets browser checks locate things on screen. Never present in the published build.

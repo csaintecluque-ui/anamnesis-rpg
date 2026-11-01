@@ -39,6 +39,7 @@ export class HudScene extends Phaser.Scene {
       width: 240,
       height: 76,
     });
+    addTextButton(this, GAME_WIDTH - 400, 50, 'Inventaire', () => this.openInventory(), { width: 220, height: 76 });
 
     this.toastBg = this.add.rectangle(GAME_WIDTH / 2, GAME_HEIGHT - 60, 900, 80, 0x1b1512, 0.85).setStrokeStyle(2, 0xc9804f, 0.8).setVisible(false);
     this.toastText = this.add
@@ -61,6 +62,11 @@ export class HudScene extends Phaser.Scene {
       this.toastText.setVisible(false);
       this.toastBg.setVisible(false);
     });
+  }
+
+  private openInventory(): void {
+    this.scene.pause('Map');
+    this.scene.launch('Trade', {});
   }
 
   private backToTitle(): void {

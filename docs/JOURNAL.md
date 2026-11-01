@@ -309,3 +309,36 @@
 1. Inventaire, troc avec Tobias, montée de niveau.
 2. Couverture dérivée du terrain ; fuite liée à une position de l'arène plutôt qu'un bouton sans condition ;
    arène tirée de la carte explorée plutôt qu'un espace dédié — si Cyril souhaite aller plus loin que le provisoire.
+
+## 2026-11-01 — Inventaire et troc
+
+- Catalogue d'objets (`src/data/items.json`) : Dague, Épée longue, Arc, Armure de cuir, Armure de ferraille,
+  Lampe à cristal, Corde, Bandage — poids, prix en Fers (monnaie de Ferros, déjà validée via le dialogue de Tobias),
+  emplacement (main/armure) ou effet (bonus de Défense, soin). Monnaie de départ : 15 Fers, moins que le
+  laissez-passer (50 Fers), à dessein (GDD §6).
+- Règles en code pur et testées (`src/rules/inventory.ts`, 15 tests) : poids porté contre la Charge, achat/vente
+  (vente à moitié prix, arrondie en dessous), équiper/déséquiper (deux mains + armure), objets de soin.
+- **L'Armure équipée agit vraiment sur le combat** : son bonus de Défense s'ajoute à celle du héros
+  (`makeHeroCombatant`). Les armes équipées n'ont pas encore d'effet en combat (le héros se bat toujours avec
+  Épée longue et Arc, comme depuis la session précédente) : à raccorder plus tard.
+- `TradeScene` : écran de troc/inventaire (acheter, vendre, équiper, utiliser), ouvert soit depuis le bouton
+  « Inventaire » du HUD (ses propres objets seulement), soit depuis le dialogue de Tobias (« Voir l'étal. »,
+  achat compris). Nouvel effet de dialogue `openTrade`, générique (n'importe quel PNJ pourra l'utiliser).
+  Pour l'instant, tous les marchands vendraient le même catalogue : à valider si des objets doivent être exclusifs
+  à un lieu.
+- Sauvegarde **v6** : `character.fers`, `inventory`, `equipment`. Migration des v5 (15 Fers, rien porté).
+- Tests : 143 au total (+20, carte et dialogues inclus). `npm run typecheck`, `npm run build` et `npm test` au vert.
+- Vérifié dans le navigateur (paysage téléphone 844 × 390) : le bouton Inventaire du HUD ouvre l'écran (sans achat
+  possible) ; depuis Tobias, « Que racontent… » → « Voir l'étal. » ouvre bien le troc avec achat ; acheter une
+  Épée longue dépense les Fers et l'ajoute à l'inventaire ; l'équiper puis la vendre la retire proprement de
+  l'équipement et rembourse la moitié du prix ; fermer l'écran rend la main à la carte et au HUD. Aucune erreur
+  dans la console sur une session de navigateur propre.
+- Limite connue de la session de vérification (pas du jeu) : le navigateur de test, en arrière-plan, perd parfois
+  son contexte graphique (WebGL) après quelques secondes d'inactivité et affiche des tuiles « manquantes » ;
+  les données sous-jacentes restent toujours correctes (vérifié par lecture d'état). Un onglet au premier plan,
+  comme dans le jeu réel, n'est pas concerné.
+
+### Reste à faire (jalon 1)
+
+1. Montée de niveau (l'expérience s'accumule déjà).
+2. Raccorder les armes équipées au combat ; catalogues de troc propres à chaque marchand, si souhaité.

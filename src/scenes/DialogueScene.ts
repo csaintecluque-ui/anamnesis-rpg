@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import { DIALOGUES } from '../data/dialogues';
 import npcData from '../data/npcs.json';
-import { END, applyEffects, startNode, visibleOptions, type Dialogue, type OptionView } from '../rules/dialogue';
+import { END, applyEffects, opensTrade, startNode, visibleOptions, type Dialogue, type OptionView } from '../rules/dialogue';
 import type { GameState } from '../state/gameState';
 import { COLORS, CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
 
@@ -95,6 +95,11 @@ export class DialogueScene extends Phaser.Scene {
     frame.on('pointerout', () => text.setColor(CSS.parchment));
     frame.on('pointerup', () => {
       this.notices.push(...applyEffects(this.state, view.option.effects));
+      if (opensTrade(view.option.effects)) {
+        this.scene.stop();
+        this.scene.launch('Trade', { npcId: this.dialogue.speaker });
+        return;
+      }
       this.show(view.option.next);
     });
   }

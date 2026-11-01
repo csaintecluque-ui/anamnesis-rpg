@@ -8,6 +8,7 @@ import {
   applyEffects,
   conditionMet,
   dialogueProblems,
+  opensTrade,
   startNode,
   visibleOptions,
   type Dialogue,
@@ -137,6 +138,14 @@ describe('dialogue files', () => {
       .flatMap((n) => n.options)
       .find((o) => o.effects?.some((e) => 'setFlag' in e && e.setFlag === 'laissez-passer'));
     expect(passOption?.requires).toContainEqual({ skill: 'diplomacy', min: 2 });
+  });
+
+  it('Tobias opens the Troc from his stall, available to everyone (GDD §3)', () => {
+    const d = DIALOGUES.tobias;
+    const tradeOption = Object.values(d.nodes)
+      .flatMap((n) => n.options)
+      .find((o) => opensTrade(o.effects));
+    expect(tradeOption?.requires ?? []).toEqual([]);
   });
 
   it('the Écho grants the Récit du savant Corvan only with Mémoire 4, and completes the dialogue either way', () => {

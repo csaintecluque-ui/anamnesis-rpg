@@ -1,5 +1,13 @@
 [
   {
+    "id": "dague",
+    "name": "Dague",
+    "skill": "melee",
+    "attribute": "body",
+    "range": 1,
+    "damage": { "count": 1, "sides": 4 }
+  },
+  {
     "id": "epee-longue",
     "name": "Épée longue",
     "skill": "melee",

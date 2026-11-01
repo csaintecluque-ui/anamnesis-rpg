@@ -167,6 +167,7 @@ Commence par : « accueil »
 
 > Que des gens voient des trains et des flammes. Les Verdantins disent que c’est la faute de Ferros, forcément. Moi, je dis que la peur fait vendre les rumeurs… et pas les lampes.
 
+- « Voir l’étal. » → **fin** _(+undefined XP)_
 - « Parlons d’autre chose. » → accueil
 - « Au revoir. » → **fin**
 

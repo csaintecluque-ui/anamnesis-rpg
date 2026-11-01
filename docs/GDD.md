@@ -250,10 +250,32 @@ Les trois pistes reposent sur des lois et des phénomènes du monde, pas sur la 
   - **état de l'histoire** `flag`, `notFlag`, `quest` (`none` / `active` / `done`) : l'option est **masquée** tant que
     la condition est fausse.
 - **Effets** (sur un nœud à l'affichage, ou sur une option choisie) : `setFlag`, `startQuest`, `completeQuest`,
-  `giveXp`. Les messages (« Nouvelle quête : … », « +25 points d'expérience ») s'affichent en haut du panneau.
+  `giveXp`, `learnRecit` (§4), `openTrade` (§10 : ouvre le Troc avec ce PNJ au lieu de refermer le dialogue).
+  Les messages (« Nouvelle quête : … », « +25 points d'expérience », « Récit retenu : … ») s'affichent en haut du panneau.
 - **Contrôles automatiques** (tests) : nœuds et quêtes connus, aucune impasse, aucun nœud inaccessible, longueurs
   respectées, et chaque PNJ de la carte a son dialogue.
 - **Relecture** : `npm run dialogues` régénère `docs/DIALOGUES.md`, une version lisible pour relire les textes.
 - **Écran** : panneau en bas de l'écran ; la carte est en pause et rien ne passe au travers.
 - **Sauvegarde v4** : l'état contient `flags` (repères d'histoire) et `quests`.
 - **Expérience** : elle s'accumule déjà (`character.xp`) ; la montée de niveau viendra avec son étape.
+
+## 10. Inventaire et troc (GDD §3)
+
+- **Objets** (`src/data/items.json`) : nom, description, poids (kg), prix (en Fers, la monnaie de Ferros — LORE.md §11),
+  et selon le cas un emplacement (`main` ou `armure`), un bonus de Défense (armures) ou des PV soignés (objets de soin).
+  Catalogue de départ : Dague, Épée longue, Arc (les mêmes armes que le combat — voir la limite ci-dessous), Armure de
+  cuir, Armure de ferraille, Lampe à cristal, Corde, Bandage.
+- **Monnaie de départ** : 15 Fers (`STARTING_FERS`), volontairement **moins** que le laissez-passer de Tobias
+  (cinquante Fers) : convaincre reste la voie la plus sûre tôt dans la tranche.
+- **Poids** : chaque objet porté (équipé ou non) compte dans la Charge (§1). Acheter au-delà de la Charge est refusé.
+- **Équipement** : deux mains et une armure (`character.equipment`). Équiper un objet le retire de tout autre
+  emplacement qu'il occupait. L'Armure équipée ajoute son bonus à la Défense — **y compris en combat** (`combat.ts`
+  lit `armorBonus`). Les armes équipées n'ont pas encore d'effet en combat : voir §5, « Précisions d'implémentation ».
+- **Troc** : acheter dépense des Fers ; vendre rapporte la moitié du prix, arrondi à l'entier inférieur. Pour l'instant,
+  **chaque marchand vend le même petit catalogue** (`ITEMS` en entier) — pas encore de catalogue propre à Tobias ; à
+  valider avec Cyril si des objets doivent rester exclusifs à un lieu ou un PNJ.
+- **Écran** : `TradeScene`, ouvert soit depuis le bouton « Inventaire » du HUD (pas d'achat possible, seulement
+  consulter/équiper/utiliser/vendre ses propres objets), soit depuis un dialogue dont une option porte l'effet
+  `openTrade` (Tobias : « Voir l'étal. »), avec achat en plus.
+- **Sauvegarde v6** : l'état du personnage contient `fers`, `inventory` (objets possédés et leur quantité) et
+  `equipment` (ce qui est équipé dans chaque emplacement).

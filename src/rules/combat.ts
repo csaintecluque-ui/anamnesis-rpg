@@ -3,6 +3,7 @@ import weaponData from '../data/weapons.json';
 import type { Tile } from '../engine/iso';
 import { attributeModifier, type AttributeId, type SkillId } from './attributes';
 import { characterStats, findFeat, type Character } from './character';
+import { armorBonus } from './inventory';
 
 export interface Dice {
   count: number;
@@ -134,7 +135,7 @@ export function makeHeroCombatant(character: Character, tile: Tile): Combatant {
     side: 'heroes',
     hp: character.hp,
     maxHp: stats.maxHp,
-    defense: stats.defense,
+    defense: stats.defense + armorBonus(character),
     actionPoints: stats.actionPoints,
     maxActionPoints: stats.actionPoints,
     initiative: 0,

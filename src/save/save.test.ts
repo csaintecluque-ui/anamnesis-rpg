@@ -4,6 +4,7 @@ import {
   changeSkill,
   createDraft,
   finalizeCharacter,
+  STARTING_FERS,
   toggleOriginBonus,
   type Character,
   type CharacterDraft,
@@ -148,6 +149,20 @@ describe('save codec', () => {
     if (parsed.ok) expect(parsed.value.state.character).toMatchObject({ recits: [] });
   });
 
+  it('migrates a version 5 save by giving starting funds and an empty inventory', () => {
+    const { fers: _f, inventory: _i, equipment: _e, ...v5Character } = state.character!;
+    const v5State = { ...state, character: v5Character };
+    const parsed = parseSave(JSON.stringify({ game: 'anamnesis', version: 5, savedAt: NOW.toISOString(), state: v5State }));
+    expect(parsed.ok).toBe(true);
+    if (parsed.ok) {
+      expect(parsed.value.state.character).toMatchObject({
+        fers: STARTING_FERS,
+        inventory: [],
+        equipment: { mainGauche: null, mainDroite: null, armure: null },
+      });
+    }
+  });
+
   it.each([
     ['a non-true flag', { flags: { 'laissez-passer': 'oui' } }, 'repères'],
     ['an unknown quest status', { quests: { 'dernier-train': 'peut-être' } }, 'quêtes'],
@@ -172,6 +187,17 @@ describe('save codec', () => {
     const broken = parseSave(JSON.stringify({ ...base, state: { ...state, character: { ...state.character, recits: 'savant-corvan' } } }));
     expect(broken.ok).toBe(false);
     if (!broken.ok) expect(broken.error).toContain('récits invalides');
+  });
+
+  it.each([
+    ['negative Fers', { fers: -1 }, 'monnaie invalide'],
+    ['an inventory slot without a count', { inventory: [{ itemId: 'corde' }] }, 'inventaire invalide'],
+    ['an equipment slot holding a number', { equipment: { mainGauche: 1, mainDroite: null, armure: null } }, 'équipement invalide'],
+  ])('rejects a character with %s', (_label, change, message) => {
+    const base = { game: 'anamnesis', version: SAVE_VERSION, savedAt: NOW.toISOString() };
+    const broken = parseSave(JSON.stringify({ ...base, state: { ...state, character: { ...state.character, ...change } } }));
+    expect(broken.ok).toBe(false);
+    if (!broken.ok) expect(broken.error).toContain(message);
   });
 
   it('rejects an invalid date', () => {

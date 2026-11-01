@@ -75,3 +75,16 @@ le contenu (maisons, PNJ, quêtes).
 
 **Code** : choix de l'avatar à la première étape (avec le nom), grille de 6 portraits ; l'avatar est enregistré dans
 le personnage (sauvegarde v7, l'ancienne sauvegarde prend le héros actuel) ; la carte et le combat utilisent sa planche.
+
+## Étape 4 : contenu (proposition du 2026-11-01, à valider)
+
+Détail et statut : `docs/univers/lieux/gardebois.md` et `docs/univers/personnages/pnj.md` (« Jalon 2 »).
+
+- **3 maisons à visiter + la réserve** : chacune une petite carte intérieure (porte sur la carte de Gardebois → intérieur
+  → retour devant la porte, comme le passage vers la Gare).
+- **5 PNJ** (aubergiste, mère, fille, herboriste, apprenti) et **3 quêtes secondaires**, chacune avec plusieurs
+  façons de la résoudre (compétences, Mémoire, combat).
+- **Images** : un petit jeu d'intérieur (parquet, murs, porte, lit, table, étagères, cheminée, comptoir, tonneaux :
+  ≈ 10 images, 5 crédits), les 5 PNJ en pied et en portrait (≈ 10 crédits), 3 herbes et la caisse (≈ 1 crédit),
+  l'Écho de la berceuse (≈ 0,5). **≈ 17 crédits** sur 35 ; PNJ sans marche (ils restent sur place).
+

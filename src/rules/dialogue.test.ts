@@ -290,3 +290,12 @@ describe('dialogue files', () => {
     expect(recitOptionVisible).toMatchObject({ enabled: true });
   });
 });
+
+describe('dialogue portraits', () => {
+  it('points every portrait of npcs.json to a file in public/', () => {
+    const files = Object.keys(import.meta.glob('/public/portraits/*'));
+    const portraits = npcData.flatMap((n) => ('portrait' in n ? [n.portrait] : []));
+    expect(portraits.length).toBeGreaterThan(0);
+    for (const p of portraits) expect(files, p).toContain(`/public/${p}`);
+  });
+});

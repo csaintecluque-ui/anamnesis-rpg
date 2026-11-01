@@ -15,10 +15,10 @@
 
 ## Prochaine étape
 
-1. Pilote validé par Cyril (style et héros) le 2026-11-01. **Lots 1 à 3 générés et intégrés** (sols, décors,
-   personnages) : 28 tuiles peintes sur 29 dans `public/tiles/tiles.png` (`npm run art` puis `npm run tiles`) ;
-   chaque PNJ et chaque ennemi a sa tuile. 16,5 crédits dépensés, reste 93,5. Suite : **lot 4 (portraits de
-   dialogue)**, environ 4,5 crédits et du code (afficher un portrait dans le panneau de dialogue), puis lot 5.
+1. Pilote validé par Cyril (style et héros) le 2026-11-01. **Lots 1 à 4 générés et intégrés** (sols, décors,
+   personnages, portraits de dialogue) : 28 tuiles peintes sur 29, 4 portraits dans le panneau de dialogue.
+   21 crédits dépensés, reste 89. Suite : **lot 5 (illustrations : écran titre, intérieur de l'Écho)**, environ
+   5,5 crédits au premier essai, et du code (afficher l'illustration de l'Écho : où et quand, à décider avec Cyril).
 2. Après les visuels : proposer le périmètre du jalon 2 (contenu).
 
 ## Points ouverts

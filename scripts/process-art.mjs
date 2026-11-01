@@ -1,4 +1,5 @@
-// Turns the generated images (assets/raw/, local only) into 64×96 game frames in assets/tiles/ (committed).
+// Turns the generated images (assets/raw/, local only) into 64×96 game frames in assets/tiles/ and dialogue
+// portraits in public/portraits/ (both committed).
 // Usage: npm run art  then  npm run tiles. A tile whose raw image is missing keeps its last processed frame.
 // Method and history: docs/ASSETS.md.
 import { existsSync, mkdirSync } from 'node:fs';
@@ -166,6 +167,15 @@ async function standingFrame(src, { maxWidth = W, maxHeight, foot, shadow = fals
     .png();
 }
 
+// Dialogue portraits (public/portraits/, path in src/data/npcs.json), from these raw images.
+const PORTRAITS = {
+  ilyane: 'pilote/ilyane.png',
+  tobias: 'lot4/tobias.png',
+  ingrid: 'lot4/ingrid.png',
+  'echo-dernier-train': 'lot4/echo-dernier-train.png',
+};
+const PORTRAIT_SIZE = 320;
+
 mkdirSync(OUT, { recursive: true });
 for (const tile of TILES.filter((t) => t.art)) {
   const { src, kind } = tile.art;
@@ -177,4 +187,19 @@ for (const tile of TILES.filter((t) => t.art)) {
   const frame = kind === 'ground' ? await groundFrame(srcUrl, tile.art.seam ?? 'both') : await standingFrame(srcUrl, tile.art);
   await frame.toFile(fileURLToPath(new URL(`${tile.name}.png`, OUT)));
   console.log(`${tile.name} ← ${src}`);
+}
+
+const PORTRAIT_OUT = new URL('../public/portraits/', import.meta.url);
+mkdirSync(PORTRAIT_OUT, { recursive: true });
+for (const [id, src] of Object.entries(PORTRAITS)) {
+  const srcUrl = new URL(src, RAW);
+  if (!existsSync(srcUrl)) {
+    console.warn(`portrait ${id} : image brute absente (${src}), inchangé`);
+    continue;
+  }
+  await sharp(fileURLToPath(srcUrl))
+    .resize(PORTRAIT_SIZE, PORTRAIT_SIZE, { kernel: 'lanczos3' })
+    .jpeg({ quality: 85, mozjpeg: true })
+    .toFile(fileURLToPath(new URL(`${id}.jpg`, PORTRAIT_OUT)));
+  console.log(`portrait ${id} ← ${src}`);
 }

@@ -8,6 +8,9 @@ import { DIGIT_KEYS, onKeys } from '../ui/keys';
 import { COLORS, CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
 
 const MARGIN = 60;
+/** Side of the speaker's portrait, at the top left of the panel; name and text move right of it. */
+const PORTRAIT = 150;
+const PORTRAIT_GAP = 24;
 const OPTION_MIN_HEIGHT = 62;
 const OPTION_GAP = 8;
 const OPTIONS_BOTTOM = GAME_HEIGHT - 30;
@@ -25,6 +28,8 @@ export class DialogueScene extends Phaser.Scene {
   private rollNotice: string | null = null;
   /** Larger text needs more room: the panel then rises up to just under the HUD bar. */
   private panelTop = 200;
+  /** Left edge of the name and text: after the portrait when the speaker has one. */
+  private textLeft = MARGIN;
   /** What pressing 1, 2, 3… does on the current node (undefined for a greyed option). */
   private choices: ((() => void) | undefined)[] = [];
 
@@ -46,7 +51,18 @@ export class DialogueScene extends Phaser.Scene {
       .setOrigin(0, 0)
       .setStrokeStyle(2, COLORS.copper, 0.7);
     const npc = npcData.find((n) => n.id === this.dialogue.speaker);
-    this.add.text(MARGIN, this.panelTop + 24, npc?.name ?? this.dialogue.speaker, {
+    const portrait = `portrait-${this.dialogue.speaker}`;
+    this.textLeft = MARGIN;
+    if (this.textures.exists(portrait)) {
+      const top = this.panelTop + 24;
+      this.add.image(MARGIN, top, portrait).setOrigin(0, 0).setDisplaySize(PORTRAIT, PORTRAIT);
+      this.add
+        .rectangle(MARGIN, top, PORTRAIT, PORTRAIT)
+        .setOrigin(0, 0)
+        .setStrokeStyle(2, COLORS.copper, 0.7);
+      this.textLeft = MARGIN + PORTRAIT + PORTRAIT_GAP;
+    }
+    this.add.text(this.textLeft, this.panelTop + 24, npc?.name ?? this.dialogue.speaker, {
       fontFamily: FONT_SERIF,
       fontSize: fontPx(28),
       color: CSS.copper,
@@ -80,7 +96,7 @@ export class DialogueScene extends Phaser.Scene {
 
     let textTop = this.panelTop + 74 * textScale();
     if (this.rollNotice) {
-      const line = this.add.text(MARGIN, textTop, this.rollNotice, {
+      const line = this.add.text(this.textLeft, textTop, this.rollNotice, {
         fontFamily: FONT_SERIF,
         fontSize: fontPx(22),
         fontStyle: 'italic',
@@ -92,12 +108,12 @@ export class DialogueScene extends Phaser.Scene {
     }
 
     this.layer.add(
-      this.add.text(MARGIN, textTop, node.text, {
+      this.add.text(this.textLeft, textTop, node.text, {
         fontFamily: FONT_SERIF,
         fontSize: fontPx(26),
         color: CSS.parchment,
         lineSpacing: 6,
-        wordWrap: { width: GAME_WIDTH - 2 * MARGIN },
+        wordWrap: { width: GAME_WIDTH - MARGIN - this.textLeft },
       }),
     );
 

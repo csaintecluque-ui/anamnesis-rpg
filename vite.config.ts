@@ -49,7 +49,7 @@ export default defineConfig({
         ],
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,svg,png,json,woff2,mp3,ogg}'],
+        globPatterns: ['**/*.{js,css,html,svg,png,jpg,json,woff2,mp3,ogg}'],
         // Phaser alone weighs ~1.2 MB; leave room for game data and audio.
         maximumFileSizeToCacheInBytes: 8 * 1024 * 1024,
       },

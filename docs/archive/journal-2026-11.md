@@ -592,3 +592,8 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   93,5 restants, tous gardés. Code : une tuile par PNJ (par son nom) et par ennemi (champ `tile` d'`enemies.json`),
   teinte des ennemis retirée, noms, barres de vie et zone de clic remontés ; test ajouté (183 tests). Vérifié dans le
   jeu, carte et combat.
+- Lot 4 lancé par Cyril : portraits de Tobias, Ingrid et de l'Écho du dernier train, en haute qualité avec leur
+  sprite en référence (4,5 crédits, 89 restants), tous gardés. Code : portraits en JPEG 320 px dans
+  `public/portraits/`, champ `portrait` d'`npcs.json`, affichage en haut à gauche du panneau de dialogue, `.jpg`
+  ajoutés au cache hors ligne, test (184 tests). Vérifié dans le jeu, avec un contrôle de mise en page sur les
+  37 répliques dans les deux tailles de texte.

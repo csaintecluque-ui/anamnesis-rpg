@@ -184,3 +184,23 @@ prend la tuile de son champ `tile` (`src/data/enemies.json`) et n'est plus teint
 remontés à la hauteur des nouveaux personnages. Test : chaque PNJ et chaque ennemi a sa tuile. Vérifié dans le jeu
 (Marché avec Ilyane et Tobias ; combat du Golem et des deux Rôdeurs-Épine). Seule la tuile `pnj` générique reste
 provisoire (repli, plus utilisée par les cartes actuelles).
+
+### Lot 4 : portraits de dialogue (2026-11-01, 3 images, 4,5 crédits, solde 89)
+
+Tous gardés au premier essai. Réglages : Higgsfield MCP, `gpt_image_2_5`, 1k, **haute qualité**, opaque, 1:1. Prompt =
+bloc commun + « Bust portrait for a dialogue panel, three-quarter view: » + sujet + « plain uniform dark ink background
+color #1B1512 » + à éviter (comme le portrait d'Ilyane du pilote). Chaque portrait reçoit en référence
+(`image_references`) le sprite du même personnage (lot 3, ou l'Écho du lot 2) pour garder visage et tenue.
+
+| Fichier (`assets/raw/lot4/`) | Sujet du prompt | Coût |
+|---|---|---|
+| `tobias.png` | « Tobias, the same man as in the reference image, same face, hair and beard, a jovial stocky merchant from an industrial empire, leather apron over a waistcoat with brass buttons, holding up a lamp with a glowing cyan crystal near his face, warm friendly smile » | 1,5 |
+| `ingrid.png` | « Ingrid, the same woman as in the reference image, same face and red hair, a determined woman engineer from an industrial empire, brass protective goggles pushed up on her forehead, work jacket reinforced with copper plates and rivets, rolled-up plans under her arm, confident and slightly defiant gaze » | 1,5 |
+| `echo-dernier-train.png` | Bloc commun allégé (« gentle soft light… hopeful, wondrous and melancholic mood ») + « the Echo of the last train, the same ghostly travellers as in the reference image seen closer, from the chest up: a child in front looking toward the viewer with a hopeful gaze, an adult with a hat and another child behind, all rendered as pale luminous blue translucent silhouettes with soft golden outlines, slightly blurred like a fading memory, faint golden sparks drifting » | 1,5 |
+
+**Code** : `npm run art` réduit les portraits en JPEG 320 × 320 dans `public/portraits/` (20 Ko chacun) ; le champ
+`portrait` de `src/data/npcs.json` les désigne ; `BootScene` les charge ; le panneau de dialogue affiche celui de
+l'interlocuteur (150 × 150, cadre cuivre) en haut à gauche, nom et texte décalés à sa droite. Les `.jpg` entrent dans le
+cache hors ligne (`vite.config.ts`). Test : chaque portrait déclaré existe. Vérifié dans le jeu : sur les 37 répliques,
+en texte normal et grand, le texte ne touche jamais les choix (121 px d'écart au moins) et les choix restent sous le
+portrait (106 px au moins, avec un personnage neuf).

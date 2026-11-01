@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/csaintec/anamnesis-rpg.git"
+    "url": "git+https://github.com/csaintecluque-ui/anamnesis-rpg.git"
   },
   "dependencies": {
     "phaser": "3.90.0"

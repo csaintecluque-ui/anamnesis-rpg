@@ -118,3 +118,15 @@
 - Coquille dans `assets/brand/logo-small.svg` (trait parasite) : non corrigée, accord de Cyril requis.
   Ce logo sert de favicon.
 - Chronologie du canon non arbitrée (`LORE.md` §10, points 6 à 13).
+
+## 2026-11-01 — Transfert du dépôt vers `csaintecluque-ui`
+
+- Le dépôt avait été créé avec le compte `csaintec`, déjà connecté à `gh` sur la machine. Ce compte appartient
+  bien à Cyril, mais son compte principal est `csaintecluque-ui`.
+- Transfert demandé depuis `csaintec`, puis accepté par Cyril. Le dépôt est désormais
+  https://github.com/csaintecluque-ui/anamnesis-rpg, et le site https://csaintecluque-ui.github.io/anamnesis-rpg/
+  (l'ancienne adresse `csaintec.github.io` ne fonctionne plus).
+- `gh` connaît les deux comptes ; le compte **actif** est `csaintecluque-ui`. Le remote git local pointe vers le
+  nouveau dépôt.
+- La configuration git globale signe toujours `csaintec <csaintecluque@proton.me>` : non modifiée, au choix de Cyril.
+- Après le transfert : réinstaller l'icône sur l'iPhone depuis la nouvelle adresse.

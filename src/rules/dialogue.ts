@@ -17,6 +17,7 @@ export type Effect =
   | { startQuest: string }
   | { completeQuest: string }
   | { giveXp: number }
+  | { giveFers: number }
   | { learnRecit: string }
   /** No state change: tells DialogueScene to open the Troc with this NPC instead of closing (GDD §3). */
   | { openTrade: true };
@@ -130,6 +131,11 @@ export function applyEffects(state: GameState, effects: Effect[] = []): string[]
       }
     } else if ('openTrade' in effect) {
       // Handled by DialogueScene, which opens the Troc instead of closing; no state change here.
+    } else if ('giveFers' in effect) {
+      if (state.character) {
+        state.character.fers += effect.giveFers;
+        notices.push(`+${effect.giveFers} Fers`);
+      }
     } else if (state.character) {
       state.character.xp += effect.giveXp;
       notices.push(`+${effect.giveXp} points d’expérience`);

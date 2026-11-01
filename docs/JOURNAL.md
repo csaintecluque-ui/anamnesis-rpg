@@ -374,3 +374,35 @@ combat, inventaire et troc, montée de niveau, PWA installable.
    explorée plutôt qu'un espace dédié.
 4. Catalogues de troc propres à chaque marchand.
 5. Les points en suspens listés plus haut (coquille du logo, chronologie du canon, contenus « à valider »).
+
+## 2026-11-01 — Menu pause, options, HUD et Fers
+
+Retours de Cyril : le bouton Inventaire débordait sur le nom du lieu ; il faut un moyen de gagner des Fers pour
+tester le troc ; feu vert pour le menu pause et les options.
+
+- **HUD réorganisé** : « Menu » à gauche, « Inventaire » à droite, nom du lieu et ligne d'état au centre, sans
+  chevauchement. « ← Titre » et « Sauvegarder » passent dans le menu pause. La ligne d'état affiche aussi les Fers.
+- **Menu pause** (`PauseScene`) : Reprendre, Sauvegarder, Options, Retour au titre (sauvegarde auto).
+- **Options** (`OptionsScene`, depuis le titre ou la pause) : volume (0–100 %) et taille du texte (Normale /
+  Grande), enregistrés sur l'appareil (`src/settings.ts`). Le volume est appliqué au moteur audio mais le jeu n'a pas
+  encore de sons. La taille Grande agrandit les dialogues et les messages ; le panneau de dialogue remonte et les
+  options prennent la hauteur de leur texte, pour ne jamais se chevaucher.
+- **Gagner des Fers** : 30 Fers pour chaque résolution de « Le Dernier Train » (parole, Récit, combat), et une caisse
+  de prospection à la Gare avec une bourse de 25 Fers (une seule fois). Nouvel effet de dialogue `giveFers`.
+  Textes et montants à valider (`LORE.md` §11).
+- Tests : 158 au total (+7 : réglages, effet `giveFers`, récompense identique des trois résolutions, caisse vidée
+  après usage). `npm run typecheck`, `npm run build` et `npm test` au vert.
+- Vérifié dans le navigateur (paysage téléphone 844 × 390) : HUD sans chevauchement ; Menu → Pause → Options →
+  Retour → Reprendre ; volume et taille enregistrés et rechargés ; dialogue d'Ingrid à 4 options et dialogue
+  d'Ilyane avec option grisée en taille Grande, sans chevauchement ; caisse : 15 → 40 Fers, affichés en direct ;
+  Options depuis l'écran titre. Aucune erreur dans la console.
+
+### Reste à faire (jalon 1)
+
+Tous les points de `CLAUDE.md` §4 sont couverts. Avant de passer au jalon suivant, il faut la validation de Cyril
+(test sur iPhone, et les contenus « à valider » de `LORE.md` §11). Pistes ensuite :
+
+1. Raccorder les armes équipées au combat.
+2. Couverture dérivée du terrain ; fuite liée à une position ; arène tirée de la carte explorée.
+3. Catalogues de troc propres à chaque marchand.
+4. Points en suspens : coquille du logo, chronologie du canon.

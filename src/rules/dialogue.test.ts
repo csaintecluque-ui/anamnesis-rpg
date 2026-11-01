@@ -140,6 +140,33 @@ describe('dialogue files', () => {
     expect(passOption?.requires).toContainEqual({ skill: 'diplomacy', min: 2 });
   });
 
+  it('gives Fers and reports them', () => {
+    const s = stateWith(3, 0);
+    const before = s.character!.fers;
+    expect(applyEffects(s, [{ giveFers: 30 }])).toEqual(['+30 Fers']);
+    expect(s.character!.fers).toBe(before + 30);
+  });
+
+  it('every resolution of Le Dernier Train pays the same reward', () => {
+    const resolutions = Object.values(DIALOGUES.ingrid.nodes)
+      .flatMap((n) => n.options)
+      .filter((o) => o.effects?.some((e) => 'completeQuest' in e));
+    expect(resolutions).toHaveLength(3);
+    for (const o of resolutions) {
+      expect(o.effects).toContainEqual({ giveXp: 40 });
+      expect(o.effects).toContainEqual({ giveFers: 30 });
+    }
+  });
+
+  it('the crate at the Gare pays once, then stays empty', () => {
+    const d = DIALOGUES['caisse-prospection'];
+    const s = stateWith(3, 0);
+    expect(startNode(d, s)).toBe('pleine');
+    const take = d.nodes.pleine.options.find((o) => o.effects?.some((e) => 'giveFers' in e))!;
+    applyEffects(s, take.effects);
+    expect(startNode(d, s)).toBe('vide');
+  });
+
   it('Tobias opens the Troc from his stall, available to everyone (GDD §3)', () => {
     const d = DIALOGUES.tobias;
     const tradeOption = Object.values(d.nodes)

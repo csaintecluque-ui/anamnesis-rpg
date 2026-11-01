@@ -36,7 +36,7 @@ export class TitleScene extends Phaser.Scene {
         },
       },
       { label: 'Charger', enabled: true, action: () => this.scene.start('Slots', { mode: 'load' }) },
-      { label: 'Options', enabled: false },
+      { label: 'Options', enabled: true, action: () => this.scene.launch('Options') },
     ];
 
     entries.forEach((entry, i) => {

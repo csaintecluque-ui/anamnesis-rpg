@@ -6,6 +6,25 @@ Statut des textes (validé ou à valider) : voir `docs/LORE.md` §11.
 Légende : **[Perception 4]** = test d’attribut ou de compétence (option visible mais grisée si le seuil manque) ;
 _(si …)_ = option qui n’apparaît que dans cette situation ; → = où mène la réponse.
 
+## Caisse de prospection
+
+_Objet_
+
+Commence par : « vide » _(si repère « caisse-prospection-ouverte »)_, sinon « pleine »
+
+### pleine
+
+> Une vieille caisse de prospection, abandonnée là par une équipe d’avant Brisefer. Sous des outils rouillés, une bourse oubliée, couverte de poussière.
+
+- « Prendre la bourse. » → **fin** _(retient « caisse-prospection-ouverte », +undefined XP)_
+- « La laisser. » → **fin**
+
+### vide
+
+> La caisse ne contient plus que des outils rouillés.
+
+- « … » → **fin**
+
 ## L’Écho du dernier train
 
 _Écho du Passé_
@@ -125,9 +144,9 @@ Commence par : « apres » _(si quête « Le Dernier Train » terminée)_, sinon
 
 > La maladie mémorielle ? On en a entendu parler. Mais la Faille vaut de l’or en cristaux, et j’ai des papiers signés. Je ne m’arrête pas pour une rumeur de marché.
 
-- **[Diplomatie 3]** « Arrêtez le forage : à chaque coup, l’Écho se multiplie, et le mal avec lui. » → convaincue _(retient « chantier-arrete », termine la quête « Le Dernier Train », +40 XP)_
-- **[Commandement 3]** « Je parle au nom des Gardiens de Mémoire : cessez, maintenant. » → convaincue _(retient « chantier-arrete », termine la quête « Le Dernier Train », +40 XP)_
-- _(si quête « undefined » undefined)_ « Je connais l’histoire du savant Corvan. Écoutez-la avant de creuser plus loin. » → convaincue-recit _(retient « chantier-arrete », termine la quête « Le Dernier Train », +40 XP)_
+- **[Diplomatie 3]** « Arrêtez le forage : à chaque coup, l’Écho se multiplie, et le mal avec lui. » → convaincue _(retient « chantier-arrete », termine la quête « Le Dernier Train », +40 XP, +undefined XP)_
+- **[Commandement 3]** « Je parle au nom des Gardiens de Mémoire : cessez, maintenant. » → convaincue _(retient « chantier-arrete », termine la quête « Le Dernier Train », +40 XP, +undefined XP)_
+- _(si quête « undefined » undefined)_ « Je connais l’histoire du savant Corvan. Écoutez-la avant de creuser plus loin. » → convaincue-recit _(retient « chantier-arrete », termine la quête « Le Dernier Train », +40 XP, +undefined XP)_
 - « Je reviendrai. » → **fin**
 
 ### convaincue

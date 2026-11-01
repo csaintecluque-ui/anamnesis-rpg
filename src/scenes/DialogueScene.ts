@@ -2,12 +2,12 @@ import Phaser from 'phaser';
 import { DIALOGUES } from '../data/dialogues';
 import npcData from '../data/npcs.json';
 import { END, applyEffects, opensTrade, startNode, visibleOptions, type Dialogue, type OptionView } from '../rules/dialogue';
+import { fontPx, textScale } from '../settings';
 import type { GameState } from '../state/gameState';
 import { COLORS, CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
 
-const PANEL_TOP = 200;
 const MARGIN = 60;
-const OPTION_HEIGHT = 62;
+const OPTION_MIN_HEIGHT = 62;
 const OPTION_GAP = 8;
 const OPTIONS_BOTTOM = GAME_HEIGHT - 30;
 
@@ -17,6 +17,8 @@ export class DialogueScene extends Phaser.Scene {
   private state!: GameState;
   private layer!: Phaser.GameObjects.Container;
   private notices: string[] = [];
+  /** Larger text needs more room: the panel then rises up to just under the HUD bar. */
+  private panelTop = 200;
 
   constructor() {
     super('Dialogue');
@@ -26,15 +28,20 @@ export class DialogueScene extends Phaser.Scene {
     this.dialogue = DIALOGUES[data.id];
     this.state = this.registry.get('game') as GameState;
     this.notices = [];
+    this.panelTop = textScale() > 1 ? 112 : 200;
 
     // Swallows taps so nothing reaches the map or the HUD below.
     this.add.rectangle(0, 0, GAME_WIDTH, GAME_HEIGHT, COLORS.ink, 0.45).setOrigin(0, 0).setInteractive();
     this.add
-      .rectangle(0, PANEL_TOP, GAME_WIDTH, GAME_HEIGHT - PANEL_TOP, COLORS.ink, 0.94)
+      .rectangle(0, this.panelTop, GAME_WIDTH, GAME_HEIGHT - this.panelTop, COLORS.ink, 0.94)
       .setOrigin(0, 0)
       .setStrokeStyle(2, COLORS.copper, 0.7);
     const npc = npcData.find((n) => n.id === this.dialogue.speaker);
-    this.add.text(MARGIN, PANEL_TOP + 24, npc?.name ?? this.dialogue.speaker, { fontFamily: FONT_SERIF, fontSize: '28px', color: CSS.copper });
+    this.add.text(MARGIN, this.panelTop + 24, npc?.name ?? this.dialogue.speaker, {
+      fontFamily: FONT_SERIF,
+      fontSize: fontPx(28),
+      color: CSS.copper,
+    });
     this.layer = this.add.container(0, 0);
 
     this.show(startNode(this.dialogue, this.state));
@@ -49,46 +56,53 @@ export class DialogueScene extends Phaser.Scene {
     if (this.notices.length) {
       this.layer.add(
         this.add
-          .text(GAME_WIDTH - MARGIN, PANEL_TOP + 30, this.notices.join('   ·   '), { fontFamily: FONT_SERIF, fontSize: '22px', color: CSS.copper })
+          .text(GAME_WIDTH - MARGIN, this.panelTop + 30, this.notices.join('   ·   '), {
+            fontFamily: FONT_SERIF,
+            fontSize: fontPx(22),
+            color: CSS.copper,
+          })
           .setOrigin(1, 0),
       );
       this.notices = [];
     }
 
     this.layer.add(
-      this.add.text(MARGIN, PANEL_TOP + 74, node.text, {
+      this.add.text(MARGIN, this.panelTop + 74 * textScale(), node.text, {
         fontFamily: FONT_SERIF,
-        fontSize: '26px',
+        fontSize: fontPx(26),
         color: CSS.parchment,
         lineSpacing: 6,
         wordWrap: { width: GAME_WIDTH - 2 * MARGIN },
       }),
     );
 
+    // Options are stacked from the bottom, each as tall as its (possibly wrapped) text needs.
     const views = visibleOptions(node, this.state);
-    views.forEach((view, i) => {
-      const y = OPTIONS_BOTTOM - (views.length - i) * (OPTION_HEIGHT + OPTION_GAP) + OPTION_HEIGHT / 2;
-      this.addOption(view, i + 1, y);
-    });
+    let bottom = OPTIONS_BOTTOM;
+    for (let i = views.length - 1; i >= 0; i--) bottom = this.addOption(views[i], i + 1, bottom) - OPTION_GAP;
   }
 
-  private addOption(view: OptionView, index: number, y: number): void {
+  /** Draws one option whose bottom edge sits at `bottom`; returns its top edge. */
+  private addOption(view: OptionView, index: number, bottom: number): number {
     const width = GAME_WIDTH - 2 * MARGIN;
-    const frame = this.add
-      .rectangle(GAME_WIDTH / 2, y, width, OPTION_HEIGHT, view.enabled ? 0x2a211c : 0x1f1915)
-      .setStrokeStyle(2, COLORS.copper, view.enabled ? 0.8 : 0.25);
     const tags = view.tags.map((t) => `[${t}] `).join('');
     const label = `${index}. ${tags}${view.option.text}${view.enabled ? '' : `   — ${view.missing}`}`;
     const text = this.add
-      .text(MARGIN + 20, y, label, {
+      .text(MARGIN + 20, 0, label, {
         fontFamily: FONT_SERIF,
-        fontSize: '24px',
+        fontSize: fontPx(24),
         color: view.enabled ? CSS.parchment : CSS.muted,
         wordWrap: { width: width - 40 },
       })
       .setOrigin(0, 0.5);
+    const height = Math.max(OPTION_MIN_HEIGHT * textScale(), text.height + 16);
+    const y = bottom - height / 2;
+    text.setY(y);
+    const frame = this.add
+      .rectangle(GAME_WIDTH / 2, y, width, height, view.enabled ? 0x2a211c : 0x1f1915)
+      .setStrokeStyle(2, COLORS.copper, view.enabled ? 0.8 : 0.25);
     this.layer.add([frame, text]);
-    if (!view.enabled) return;
+    if (!view.enabled) return bottom - height;
 
     frame.setInteractive({ useHandCursor: true });
     frame.on('pointerover', () => text.setColor(CSS.copper));
@@ -102,6 +116,7 @@ export class DialogueScene extends Phaser.Scene {
       }
       this.show(view.option.next);
     });
+    return bottom - height;
   }
 
   private close(): void {

@@ -1,0 +1,25 @@
+{
+  "id": "caisse-prospection",
+  "speaker": "caisse-prospection",
+  "entries": [
+    { "requires": [{ "flag": "caisse-prospection-ouverte" }], "node": "vide" },
+    { "node": "pleine" }
+  ],
+  "nodes": {
+    "pleine": {
+      "text": "Une vieille caisse de prospection, abandonnée là par une équipe d’avant Brisefer. Sous des outils rouillés, une bourse oubliée, couverte de poussière.",
+      "options": [
+        {
+          "text": "Prendre la bourse.",
+          "next": "fin",
+          "effects": [{ "setFlag": "caisse-prospection-ouverte" }, { "giveFers": 25 }]
+        },
+        { "text": "La laisser.", "next": "fin" }
+      ]
+    },
+    "vide": {
+      "text": "La caisse ne contient plus que des outils rouillés.",
+      "options": [{ "text": "…", "next": "fin" }]
+    }
+  }
+}

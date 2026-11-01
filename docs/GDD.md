@@ -267,6 +267,10 @@ Les trois pistes reposent sur des lois et des phénomènes du monde, pas sur la 
   cuir, Armure de ferraille, Lampe à cristal, Corde, Bandage.
 - **Monnaie de départ** : 15 Fers (`STARTING_FERS`), volontairement **moins** que le laissez-passer de Tobias
   (cinquante Fers) : convaincre reste la voie la plus sûre tôt dans la tranche.
+- **Gagner des Fers** (premier jet, à valider) : chaque résolution de « Le Dernier Train » rapporte **30 Fers**
+  (en plus des 40 XP), et une caisse de prospection abandonnée à la Gare Engloutie contient une bourse de **25 Fers**
+  (une seule fois). Une partie complète dispose donc d'environ 70 Fers, de quoi acheter une armure. Nouvel effet de
+  dialogue `giveFers`.
 - **Poids** : chaque objet porté (équipé ou non) compte dans la Charge (§1). Acheter au-delà de la Charge est refusé.
 - **Équipement** : deux mains et une armure (`character.equipment`). Équiper un objet le retire de tout autre
   emplacement qu'il occupait. L'Armure équipée ajoute son bonus à la Défense — **y compris en combat** (`combat.ts`
@@ -291,3 +295,18 @@ Les trois pistes reposent sur des lois et des phénomènes du monde, pas sur la 
 - **Écran** : `LevelUpScene`, ouvert depuis un bouton « ✦ Montée de niveau ! » qui apparaît sur le HUD dès que le
   seuil est franchi (pas de montée automatique ou forcée : le joueur choisit son moment). Répartition des points
   comme à la création, sans plafond à 3 : jusqu'à 10 par compétence.
+
+## 12. Menu pause, options et HUD
+
+- **HUD** : bouton « Menu » à gauche, « Inventaire » à droite ; le nom du lieu et la ligne d'état (nom, PV, niveau,
+  Fers) occupent tout le centre et se mettent à jour en direct.
+- **Menu pause** (`PauseScene`, depuis « Menu ») : Reprendre, Sauvegarder, Options, Retour au titre (avec sauvegarde
+  auto). La carte est figée tant qu'il est ouvert.
+- **Options** (`OptionsScene`, depuis l'écran titre ou le menu pause) :
+  - **Volume** de 0 à 100 %, par pas de 10. Le jeu n'a pas encore de sons : le réglage est enregistré et appliqué
+    au moteur audio, il servira dès leur arrivée.
+  - **Taille du texte** : Normale ou Grande (× 1,15). S'applique aux dialogues (texte, options, nom du PNJ, messages)
+    et aux messages du HUD. En taille Grande, le panneau de dialogue remonte jusque sous la barre du HUD, et chaque
+    option prend la hauteur que son texte demande.
+- **Enregistrement** : les options sont propres à l'appareil (`localStorage`), pas à la sauvegarde : une sauvegarde
+  importée sur un autre appareil garde les options de cet appareil.

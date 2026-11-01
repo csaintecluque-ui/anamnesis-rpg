@@ -1,12 +1,14 @@
 import Phaser from 'phaser';
 import { characterStats } from '../rules/character';
 import { hasPendingLevelUp } from '../rules/leveling';
-import { saveStore } from '../save/browser';
+import { fontPx } from '../settings';
 import type { GameState } from '../state/gameState';
 import { addTextButton } from '../ui/button';
 import { CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
 
 const TOAST_MS = 4000;
+/** Free band between the Menu button (left) and the Inventaire button (right). */
+const HEADER_MAX_WIDTH = 720;
 
 /** Fixed overlay above the map: unaffected by the map camera's zoom and scroll. */
 export class HudScene extends Phaser.Scene {
@@ -22,41 +24,41 @@ export class HudScene extends Phaser.Scene {
   }
 
   create(data: { locationName?: string }): void {
-    const state = this.registry.get('game') as GameState;
-    this.state = state;
-    const hero = state.character!;
+    this.state = this.registry.get('game') as GameState;
 
     // Interactive so that taps on the bar do not fall through to the map below.
     this.add.rectangle(GAME_WIDTH / 2, 50, GAME_WIDTH, 100, 0x1b1512, 0.75).setInteractive();
     this.add
-      .text(GAME_WIDTH / 2, 34, data.locationName ?? '', { fontFamily: FONT_SERIF, fontSize: '24px', color: CSS.parchment })
+      .text(GAME_WIDTH / 2, 34, data.locationName ?? '', {
+        fontFamily: FONT_SERIF,
+        fontSize: '24px',
+        color: CSS.parchment,
+        align: 'center',
+        fixedWidth: HEADER_MAX_WIDTH,
+      })
       .setOrigin(0.5);
     this.statusText = this.add
-      .text(GAME_WIDTH / 2, 70, '', { fontFamily: FONT_SERIF, fontSize: '22px', color: CSS.copper })
+      .text(GAME_WIDTH / 2, 70, '', { fontFamily: FONT_SERIF, fontSize: '22px', color: CSS.copper, align: 'center', fixedWidth: HEADER_MAX_WIDTH })
       .setOrigin(0.5);
     this.refreshStatus();
 
-    addTextButton(this, 120, 50, '← Titre', () => this.backToTitle(), { width: 200, height: 76 });
-    addTextButton(this, GAME_WIDTH - 140, 50, 'Sauvegarder', () => this.leaveMap('Slots', { mode: 'save', returnTo: 'Map' }), {
-      width: 240,
-      height: 76,
-    });
-    addTextButton(this, GAME_WIDTH - 400, 50, 'Inventaire', () => this.openInventory(), { width: 220, height: 76 });
+    addTextButton(this, 120, 50, 'Menu', () => this.openOverlay('Pause'), { width: 200, height: 76 });
+    addTextButton(this, GAME_WIDTH - 130, 50, 'Inventaire', () => this.openOverlay('Trade', {}), { width: 220, height: 76 });
 
-    this.levelUpButton = addTextButton(this, GAME_WIDTH / 2, 150, '✦ Montée de niveau !', () => this.openLevelUp(), {
+    this.levelUpButton = addTextButton(this, GAME_WIDTH / 2, 150, '✦ Montée de niveau !', () => this.openOverlay('LevelUp'), {
       width: 320,
       height: 64,
     }).container;
-    this.levelUpButton.setVisible(hasPendingLevelUp(hero));
+    this.levelUpButton.setVisible(hasPendingLevelUp(this.state.character!));
 
     this.toastBg = this.add.rectangle(GAME_WIDTH / 2, GAME_HEIGHT - 60, 900, 80, 0x1b1512, 0.85).setStrokeStyle(2, 0xc9804f, 0.8).setVisible(false);
     this.toastText = this.add
       .text(GAME_WIDTH / 2, GAME_HEIGHT - 60, '', {
         fontFamily: FONT_SERIF,
-        fontSize: '24px',
+        fontSize: fontPx(24),
         color: CSS.parchment,
         align: 'center',
-        wordWrap: { width: 860 },
+        wordWrap: { width: 1040 },
       })
       .setOrigin(0.5)
       .setVisible(false);
@@ -69,11 +71,11 @@ export class HudScene extends Phaser.Scene {
 
   private refreshStatus(): void {
     const hero = this.state.character!;
-    this.statusText.setText(`${hero.name} · PV ${hero.hp} / ${characterStats(hero).maxHp} · niveau ${hero.level}`);
+    this.statusText.setText(`${hero.name} · PV ${hero.hp} / ${characterStats(hero).maxHp} · niveau ${hero.level} · ${hero.fers} Fers`);
   }
 
   toast(message: string): void {
-    this.toastText.setText(message).setVisible(true);
+    this.toastText.setFontSize(fontPx(24)).setText(message).setVisible(true);
     this.toastBg.setVisible(true).setSize(Math.min(1100, this.toastText.width + 60), this.toastText.height + 30);
     this.toastTimer?.remove();
     this.toastTimer = this.time.delayedCall(TOAST_MS, () => {
@@ -82,24 +84,9 @@ export class HudScene extends Phaser.Scene {
     });
   }
 
-  private openInventory(): void {
+  /** Overlays (pause menu, inventory, level-up) freeze the map underneath; each one resumes it when it closes. */
+  private openOverlay(key: string, data?: object): void {
     this.scene.pause('Map');
-    this.scene.launch('Trade', {});
-  }
-
-  private openLevelUp(): void {
-    this.scene.pause('Map');
-    this.scene.launch('LevelUp');
-  }
-
-  private backToTitle(): void {
-    const result = saveStore.write('auto', this.registry.get('game') as GameState);
-    if (!result.ok) console.warn('Sauvegarde auto impossible :', result.error);
-    this.leaveMap('Title');
-  }
-
-  private leaveMap(target: string, data?: object): void {
-    this.scene.stop('Map');
-    this.scene.start(target, data);
+    this.scene.launch(key, data);
   }
 }

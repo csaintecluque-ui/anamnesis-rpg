@@ -11,7 +11,7 @@
  "tilewidth": 64,
  "tileheight": 32,
  "nextlayerid": 4,
- "nextobjectid": 6,
+ "nextobjectid": 7,
  "layers": [
   {
    "id": 1,
@@ -983,6 +983,19 @@
     },
     {
      "id": 5,
+     "name": "caisse-prospection",
+     "type": "coffre",
+     "x": 560,
+     "y": 368,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": []
+    },
+    {
+     "id": 6,
      "name": "panneau-gare",
      "type": "panneau",
      "x": 80,

@@ -11,6 +11,9 @@ import { COLORS, CSS, FONT_SERIF } from '../ui/theme';
 import type { CombatStartData } from './CombatScene';
 import type { HudScene } from './HudScene';
 
+/** Map objects drawn by an obstacle tile on the same cell, and touchable on that tile's image. */
+const INTERACTIVE_OBSTACLES = new Set(['panneau', 'echo', 'golem', 'coffre']);
+
 const MAPS: Record<string, TiledMapJson> = {
   gardebois: gardeboisJson as TiledMapJson,
   'gare-engloutie': gareEngloutieJson as TiledMapJson,
@@ -122,7 +125,7 @@ export class MapScene extends Phaser.Scene {
         const f = this.feet({ col, row });
         const image = this.add.image(f.x, f.y, 'tiles', frame).setOrigin(0.5, 1).setDepth(f.y);
         const marker = this.map.objects.find(
-          (o) => (o.type === 'panneau' || o.type === 'echo' || o.type === 'golem') && o.col === col && o.row === row,
+          (o) => INTERACTIVE_OBSTACLES.has(o.type) && o.col === col && o.row === row,
         );
         if (marker) this.interactables.push({ object: marker, image });
       }
@@ -287,7 +290,7 @@ export class MapScene extends Phaser.Scene {
     this.scene.pause('Hud');
     this.scene.launch('Combat', {
       enemyIds: ['golem-ferraille', 'rodeur-epine', 'rodeur-epine'],
-      victoryEffects: [{ setFlag: 'chantier-arrete' }, { completeQuest: 'dernier-train' }, { giveXp: 40 }],
+      victoryEffects: [{ setFlag: 'chantier-arrete' }, { completeQuest: 'dernier-train' }, { giveXp: 40 }, { giveFers: 30 }],
       victoryFlag: 'golem-vaincu',
       obstacles: [
         { col: 4, row: 0 },

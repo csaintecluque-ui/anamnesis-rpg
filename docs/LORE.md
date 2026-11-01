@@ -388,6 +388,8 @@ Le détail des systèmes est dans `docs/GDD.md`.
 | Dialogue de Brisefer | Elle défend son chantier (papiers de Ferros, cristaux de la Faille) ; on l'arrête par la parole (**Diplomatie 3** ou **Commandement 3**) ou en lui racontant le **Récit du savant Corvan** une fois recueilli ; elle cite Ferros en partant | N2 (Ferros, cristaux), GDD §6 | à valider |
 | Suite chez Ilyane | Un nouveau nœud (« resolu »), déclenché une fois la quête terminée : la maladie recule, et Ilyane soupçonne les Réveilleurs d'avoir financé la prospection | E10 (Réveilleurs), GDD §6 | à valider |
 | Rôdeurs-Épine et Golem | Mentionnés par Brisefer (ses ouvriers n'osent plus approcher) ; le Golem est visible, endormi, sur la carte. Combat non encore jouable : en attente du système de combat | E8 (Rôdeur-Épine), E2 (Golems de Ferraille) | à valider |
+| Caisse de prospection | Près de la tente : une vieille caisse laissée par une équipe de prospection **d'avant Brisefer**, avec une bourse oubliée (25 Fers). Texte : « Une vieille caisse de prospection, abandonnée là par une équipe d'avant Brisefer… » | N2 (Ferros, prospection) | à valider |
+| Récompense de la quête | Chaque résolution de « Le Dernier Train » rapporte 30 Fers, sans que le dialogue dise qui paie (comme l'expérience) | — | à valider |
 
 ### Rejeté
 

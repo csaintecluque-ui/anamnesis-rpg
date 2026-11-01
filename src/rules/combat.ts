@@ -176,6 +176,19 @@ export function makeEnemyCombatant(enemy: EnemyDef, id: string, tile: Tile): Com
   };
 }
 
+/** "Rôdeur-Épine 1", "Rôdeur-Épine 2": tells apart enemies of the same kind in the turn order and the log. */
+export function numberDuplicateNames(combatants: Combatant[]): void {
+  const counts = new Map<string, number>();
+  for (const c of combatants) counts.set(c.name, (counts.get(c.name) ?? 0) + 1);
+  const seen = new Map<string, number>();
+  for (const c of combatants) {
+    if ((counts.get(c.name) ?? 0) < 2) continue;
+    const n = (seen.get(c.name) ?? 0) + 1;
+    seen.set(c.name, n);
+    c.name = `${c.name} ${n}`;
+  }
+}
+
 // --- Dice -------------------------------------------------------------
 
 export type Rng = () => number;

@@ -18,11 +18,16 @@ import type { GameState } from '../state/gameState';
 import { addTextButton } from '../ui/button';
 import { onKeys, withKeyHint } from '../ui/keys';
 import { COLORS, CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
+import { HAS_MOUSE } from '../ui/viewport';
 
 const MARGIN = 60;
-const STATS_Y = 160;
-const ROW_TOP = 198;
-const ROW_HEIGHT = 60;
+
+/** Finger-sized on touch screens, compact with a mouse: the panel then starts right under the slim HUD bar. */
+const LAYOUT = HAS_MOUSE
+  ? { panelTop: 60, titleY: 72, titleSize: 26, closeY: 92, closeWidth: 180, closeHeight: 44, closeFont: 20, statsY: 124, messageRight: GAME_WIDTH - MARGIN, rowTop: 162, rowHeight: 52, rowFont: 19, buttonWidth: 130, buttonHeight: 38, buttonFont: 17 }
+  : { panelTop: 100, titleY: 124, titleSize: 28, closeY: 130, closeWidth: 220, closeHeight: 64, closeFont: 24, statsY: 160, messageRight: GAME_WIDTH - 260, rowTop: 198, rowHeight: 60, rowFont: 20, buttonWidth: 150, buttonHeight: 48, buttonFont: 18 };
+
+const SLOT_NAMES: Record<Slot, string> = { mainDroite: 'main droite', mainGauche: 'main gauche', armure: 'porté' };
 
 /** Buy, sell, equip and use items — docs/gdd/inventaire.md. Every trader sells the same small catalogue for now (à valider). */
 export class TradeScene extends Phaser.Scene {
@@ -41,13 +46,21 @@ export class TradeScene extends Phaser.Scene {
     this.message = '';
 
     this.add.rectangle(0, 0, GAME_WIDTH, GAME_HEIGHT, COLORS.ink, 0.45).setOrigin(0, 0).setInteractive();
-    this.add.rectangle(0, 100, GAME_WIDTH, GAME_HEIGHT - 100, COLORS.ink, 0.96).setOrigin(0, 0).setStrokeStyle(2, COLORS.copper, 0.7);
+    const L = LAYOUT;
+    this.add
+      .rectangle(0, L.panelTop, GAME_WIDTH, GAME_HEIGHT - L.panelTop, COLORS.ink, 0.96)
+      .setOrigin(0, 0)
+      .setStrokeStyle(2, COLORS.copper, 0.7);
 
     const npc = this.npcId ? npcData.find((n) => n.id === this.npcId) : undefined;
     const title = this.npcId ? `L’étal ${npc?.name ?? ''}` : 'Inventaire';
-    this.add.text(MARGIN, 124, title, { fontFamily: FONT_SERIF, fontSize: '28px', color: CSS.copper });
+    this.add.text(MARGIN, L.titleY, title, { fontFamily: FONT_SERIF, fontSize: `${L.titleSize}px`, color: CSS.copper });
 
-    addTextButton(this, GAME_WIDTH - 130, 130, withKeyHint('Fermer', 'Échap'), () => this.close(), { width: 220, height: 64, fontSize: 24 });
+    addTextButton(this, GAME_WIDTH - MARGIN - L.closeWidth / 2, L.closeY, withKeyHint('Fermer', 'Échap'), () => this.close(), {
+      width: L.closeWidth,
+      height: L.closeHeight,
+      fontSize: L.closeFont,
+    });
     onKeys(this, ['ESC'], () => this.close());
     if (!this.npcId) onKeys(this, ['I'], () => this.close());
 
@@ -68,16 +81,16 @@ export class TradeScene extends Phaser.Scene {
     this.layer.add(
       this.text(
         MARGIN,
-        STATS_Y,
+        LAYOUT.statsY,
         `${c.fers} Fers · Charge ${weight.toFixed(1)} / ${capacity} kg · Défense +${armorBonus(c)} d’armure`,
         22,
         CSS.parchment,
       ),
     );
-    // Right-aligned, but left of the Fermer button.
-    if (this.message) this.layer.add(this.text(GAME_WIDTH - 260, STATS_Y, this.message, 20, CSS.copper, 1));
+    // Right-aligned; on touch screens, left of the tall Fermer button.
+    if (this.message) this.layer.add(this.text(LAYOUT.messageRight, LAYOUT.statsY, this.message, 20, CSS.copper, 1));
 
-    ITEMS.forEach((item, i) => this.drawRow(item, ROW_TOP + i * ROW_HEIGHT));
+    ITEMS.forEach((item, i) => this.drawRow(item, LAYOUT.rowTop + i * LAYOUT.rowHeight));
   }
 
   private equippedSlot(itemId: string): Slot | null {
@@ -92,16 +105,17 @@ export class TradeScene extends Phaser.Scene {
     const sellPrice = Math.floor(item.price * SELL_RATIO);
 
     this.layer.add(this.rect(y));
-    const label = `${item.name}${owned ? `  ×${owned}` : ''}${equippedIn ? `  (équipé)` : ''}  —  ${item.weightKg} kg  —  ${item.price} F`;
+    const L = LAYOUT;
+    const label = `${item.name}${owned ? `  ×${owned}` : ''}${equippedIn ? `  (${SLOT_NAMES[equippedIn]})` : ''}  —  ${item.weightKg} kg  —  ${item.price} F`;
     this.layer.add(
-      this.text(MARGIN + 10, y, label, 20, owned ? CSS.parchment : CSS.muted).setOrigin(0, 0.5).setFixedSize(620, ROW_HEIGHT).setAlign('left'),
+      this.text(MARGIN + 10, y, label, L.rowFont, owned ? CSS.parchment : CSS.muted).setOrigin(0, 0.5).setFixedSize(620, 0).setAlign('left'),
     );
 
-    let x = GAME_WIDTH - MARGIN - 90;
+    let x = GAME_WIDTH - MARGIN - 10 - L.buttonWidth / 2;
     const addButton = (label: string, onClick: () => void) => {
-      const { container } = addTextButton(this, x, y, label, onClick, { width: 150, height: 48, fontSize: 18 });
+      const { container } = addTextButton(this, x, y, label, onClick, { width: L.buttonWidth, height: L.buttonHeight, fontSize: L.buttonFont });
       this.layer.add(container);
-      x -= 160;
+      x -= L.buttonWidth + 10;
     };
 
     if (item.healHp && owned > 0) addButton('Utiliser', () => this.act(() => useConsumable(this.character(), item.id, characterStats(this.character()).maxHp), `${item.name} utilisé.`));
@@ -154,7 +168,7 @@ export class TradeScene extends Phaser.Scene {
   }
 
   private rect(y: number): Phaser.GameObjects.Rectangle {
-    return this.add.rectangle(GAME_WIDTH / 2, y, GAME_WIDTH - 2 * MARGIN, ROW_HEIGHT - 6, 0x2a211c, 0.6).setStrokeStyle(1, COLORS.copper, 0.3);
+    return this.add.rectangle(GAME_WIDTH / 2, y, GAME_WIDTH - 2 * MARGIN, LAYOUT.rowHeight - 6, 0x2a211c, 0.6).setStrokeStyle(1, COLORS.copper, 0.3);
   }
 
   private text(x: number, y: number, value: string, fontSize: number, color: string, originX = 0): Phaser.GameObjects.Text {

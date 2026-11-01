@@ -38,7 +38,7 @@ Le PC est une cible principale, au même titre que le téléphone (décision de 
 | Montée de niveau | Entrée | Continuer (quand tous les points sont répartis) |
 | Montée de niveau | Échap | Remettre à plus tard (le bouton reste sur le HUD) |
 | Sauvegardes | Échap | Retour |
-| Combat | 1 / 2 / 3 | Déplacer / Mêlée / Tir |
+| Combat | 1 / 2 / 3 | Déplacer / première arme en main / seconde arme en main |
 | Combat | Z | Zone visée suivante |
 | Combat | Espace | Fin du tour |
 
@@ -47,5 +47,15 @@ Le PC est une cible principale, au même titre que le téléphone (décision de 
   marchent sans Maj sur la rangée du haut.
 - **HUD fin** : avec une souris, le bandeau du haut est deux fois moins haut (52 unités, boutons de 40) ; sur écran
   tactile, il garde la taille du doigt (100 unités, boutons de 76).
+- **Écrans compacts avec une souris** (sur écran tactile, rien ne change) :
+  - **Menu pause** : panneau de 400 (au lieu de 520), boutons de 300 × 52 (au lieu de 380 × 80) ;
+  - **Inventaire / troc** : le panneau commence juste sous le bandeau, lignes de 52 (au lieu de 60), boutons
+    de 130 × 38, « Fermer » de 180 × 44 ; chaque arme équipée dit dans quelle main elle est ;
+  - **Combat** : barre du bas de 96 (au lieu de 150), boutons de 48 de haut, un peu relevés au-dessus du rappel
+    des raccourcis.
+- **Combat, noms des combattants** (PC et téléphone) : au-dessus de chaque combattant, seulement une barre de PV ;
+  les noms et les PV sont dans le panneau **« Ordre du tour »**, à gauche (▶ devant celui qui joue). Un seul nom
+  s'affiche sur l'arène : celui du combattant survolé à la souris, sinon celui qui joue. Les ennemis de même nature
+  sont numérotés (« Rôdeur-Épine 1 », « Rôdeur-Épine 2 »), dans le panneau comme dans le journal du combat.
 - **Plein écran** : bouton dans les Options (PC, Android) ; F11 fonctionne aussi. Absent sur iPhone, où Safari n'a
   pas d'API plein écran (l'application installée occupe déjà tout l'écran).

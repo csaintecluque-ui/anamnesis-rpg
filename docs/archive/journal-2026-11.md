@@ -518,3 +518,13 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
 - Vérifié dans le navigateur : « Dague » seule pour une ancienne sauvegarde migrée, « Épée longue » et « Arc »
   quand les deux sont en main. Panneau masqué : les tours ennemis tournaient au ralenti, attaque non jouée à l'écran.
 - À valider par Cyril : la Dague de départ, les Mains nues 1d3, le combat contre le Golem plus dur sans achat.
+
+## 2026-11-01 (suite) : confort PC
+
+- Cyril valide les armes en main (Dague de départ, Mains nues 1d3, Golem plus dur), puis choisit le confort PC.
+- Avec une souris : menu pause, inventaire et barre du combat compacts (le tactile garde la taille du doigt).
+  L'inventaire indique la main de chaque arme équipée ; le nom des objets est recentré dans sa ligne.
+- Combat : plus de noms au-dessus des combattants, mais une barre de PV ; panneau « Ordre du tour » à gauche ;
+  un seul nom sur l'arène (survolé, sinon celui qui joue) ; ennemis de même nature numérotés.
+- Vérifié dans le navigateur (PC) : pause, inventaire, combat, survol, attaque à l'épée.
+- Reste : l'arène est petite au centre d'un grand écran vide ; à agrandir avec le chantier « arène tirée de la carte ».

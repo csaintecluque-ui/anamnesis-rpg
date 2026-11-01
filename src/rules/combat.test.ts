@@ -13,6 +13,7 @@ import {
   makeEnemyCombatant,
   makeHeroCombatant,
   moveAlong,
+  numberDuplicateNames,
   resolveAttack,
   rollDice,
   rollDie,
@@ -288,6 +289,19 @@ describe('heroAttacks', () => {
     expect(sword.damageBonus).toBe(baseSword.damageBonus + 1);
     expect(bow.toHitBonus).toBe(baseBow.toHitBonus);
     expect(bow.damageBonus).toBe(baseBow.damageBonus);
+  });
+});
+
+describe('numberDuplicateNames', () => {
+  it('numbers enemies of the same kind and leaves unique names alone', () => {
+    const team = [
+      makeHeroCombatant(hero(), { col: 0, row: 0 }),
+      makeEnemyCombatant(findEnemy('golem-ferraille')!, 'g', { col: 1, row: 0 }),
+      makeEnemyCombatant(findEnemy('rodeur-epine')!, 'r1', { col: 2, row: 0 }),
+      makeEnemyCombatant(findEnemy('rodeur-epine')!, 'r2', { col: 3, row: 0 }),
+    ];
+    numberDuplicateNames(team);
+    expect(team.map((c) => c.name)).toEqual(['Aube', 'Golem de Ferraille', 'Rôdeur-Épine 1', 'Rôdeur-Épine 2']);
   });
 });
 

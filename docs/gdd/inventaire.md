@@ -7,7 +7,7 @@ Règles : `src/rules/inventory.ts` ; écran : `TradeScene`.
   ou des PV soignés (objets de soin).
   Catalogue de départ : Dague, Épée longue, Arc (les mêmes identifiants que les armes de combat,
   `src/data/weapons.json`), Armure de cuir, Armure de ferraille, Lampe à cristal, Corde, Bandage.
-- **Kit de départ (à valider)** : une Dague, déjà en main droite (`STARTING_WEAPON`).
+- **Kit de départ (validé le 2026-11-01)** : une Dague, déjà en main droite (`STARTING_WEAPON`).
 - **Monnaie de départ** : 15 Fers (`STARTING_FERS`), volontairement **moins** que le laissez-passer de Tobias
   (cinquante Fers) : convaincre reste la voie la plus sûre tôt dans la tranche.
 - **Gagner des Fers** (premier jet, à valider) : chaque résolution de « Le Dernier Train » rapporte **30 Fers**

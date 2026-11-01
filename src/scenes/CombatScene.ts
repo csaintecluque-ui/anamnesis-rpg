@@ -13,6 +13,7 @@ import {
   makeEnemyCombatant,
   makeHeroCombatant,
   moveAlong,
+  numberDuplicateNames,
   resolveAttack,
   rollInitiative,
   startTurn,
@@ -24,13 +25,23 @@ import { findLocation, type GameState } from '../state/gameState';
 import { addTextButton, type TextButton } from '../ui/button';
 import { DIGIT_KEYS, SHOW_KEY_HINTS, onKeys } from '../ui/keys';
 import { COLORS, CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
+import { HAS_MOUSE } from '../ui/viewport';
 import type { HudScene } from './HudScene';
 
 const COLS = 9;
 const ROWS = 7;
 const TOP = 70;
-const BOTTOM_BAR = 150;
-const LOG_Y = GAME_HEIGHT - BOTTOM_BAR - 30;
+
+/** Finger-sized on touch screens, compact with a mouse (docs/gdd/interface.md). */
+const LAYOUT = HAS_MOUSE
+  ? { bottomBar: 96, buttonHeight: 48, buttonFont: 20, labelFont: 18, move: [100, 150], attack: [260, 150, 160], zone: [590, 170], endTurn: [770, 170], flee: [GAME_WIDTH - 90, 140] }
+  : { bottomBar: 150, buttonHeight: 76, buttonFont: 26, labelFont: 22, move: [150, 200], attack: [370, 180, 190], zone: [760, 200], endTurn: [970, 220], flee: [GAME_WIDTH - 110, 180] };
+const LOG_Y = GAME_HEIGHT - LAYOUT.bottomBar - 30;
+/** Turn order panel, left of the arena: names live here, not above the tokens where they overlapped. */
+const ROSTER_X = 24;
+const ROSTER_Y = 90;
+const ROSTER_LINE = 28;
+const HP_BAR_WIDTH = 44;
 
 /** Moving, or attacking with the hero's attack at this index (one per weapon in hand). */
 type Mode = 'move' | number;
@@ -64,7 +75,10 @@ export class CombatScene extends Phaser.Scene {
 
   private banner!: Phaser.GameObjects.Text;
   private log!: Phaser.GameObjects.Text;
-  private tokens = new Map<string, { image: Phaser.GameObjects.Image; label: Phaser.GameObjects.Text }>();
+  /** Above each token: a PV bar; one name at a time, the hovered token's or the current one's (no overlap). */
+  private tokens = new Map<string, { image: Phaser.GameObjects.Image; hpBar: Phaser.GameObjects.Graphics; name: Phaser.GameObjects.Text }>();
+  private hovered: string | null = null;
+  private roster!: Phaser.GameObjects.Text;
   private zoneButton?: TextButton;
   private moveButton?: TextButton;
   private attackButtons: TextButton[] = [];
@@ -81,6 +95,8 @@ export class CombatScene extends Phaser.Scene {
     this.mode = 'move';
     this.zone = 'corps';
     this.tokens.clear();
+    this.order = [];
+    this.turnIndex = -1;
 
     const tiles = [] as Tile[];
     for (let row = 0; row < ROWS; row++) for (let col = 0; col < COLS; col++) tiles.push({ col, row });
@@ -100,6 +116,8 @@ export class CombatScene extends Phaser.Scene {
     const enemyDefs = data.enemyIds.map((id) => findEnemy(id)!);
     const enemies = enemyDefs.map((def, i) => makeEnemyCombatant(def, `${def.id}-${i}`, spots[i % spots.length]));
     this.combatants = [hero, ...enemies];
+    numberDuplicateNames(this.combatants);
+    this.hovered = null;
     const initiativeBonus = new Map<string, number>(enemies.map((c, i) => [c.id, enemyDefs[i].initiativeBonus]));
 
     this.add.rectangle(GAME_WIDTH / 2, GAME_HEIGHT / 2, GAME_WIDTH, GAME_HEIGHT, COLORS.ink, 0.97).setInteractive();
@@ -111,6 +129,13 @@ export class CombatScene extends Phaser.Scene {
       .text(GAME_WIDTH / 2, LOG_Y, '', { fontFamily: FONT_SERIF, fontSize: '20px', color: CSS.parchment, align: 'center', wordWrap: { width: 1100 } })
       .setOrigin(0.5);
     this.marker = this.add.graphics().setDepth(5000);
+    this.add.text(ROSTER_X, ROSTER_Y - 34, 'Ordre du tour', { fontFamily: FONT_SERIF, fontSize: '20px', color: CSS.copper });
+    this.roster = this.add.text(ROSTER_X, ROSTER_Y, '', {
+      fontFamily: FONT_SERIF,
+      fontSize: '18px',
+      color: CSS.parchment,
+      lineSpacing: ROSTER_LINE - 22,
+    });
 
     for (const c of this.combatants) this.addToken(c);
     this.buildActionBar();
@@ -156,11 +181,23 @@ export class CombatScene extends Phaser.Scene {
     const frame = c.side === 'heroes' ? this.frames.heros : this.frames.pnj;
     const image = this.add.image(f.x, f.y, 'tiles', frame).setOrigin(0.5, 1).setDepth(f.y + 1);
     if (c.side === 'enemies') image.setTint(c.id.startsWith('golem') ? 0x8a8276 : 0xb5653a);
-    const label = this.add
-      .text(f.x, f.y - 60, '', { fontFamily: FONT_SERIF, fontSize: '15px', color: CSS.parchment, align: 'center' })
-      .setOrigin(0.5, 1);
-    this.tokens.set(c.id, { image, label });
+    const hpBar = this.add.graphics().setDepth(6000);
+    const name = this.add
+      .text(f.x, f.y - 70, c.name, { fontFamily: FONT_SERIF, fontSize: '16px', color: CSS.parchment, stroke: CSS.ink, strokeThickness: 3 })
+      .setOrigin(0.5, 1)
+      .setDepth(6001)
+      .setVisible(false);
+    // Hover shows the name (with a mouse); taps still go to the arena's own handler.
+    image.setInteractive({ pixelPerfect: false });
+    image.on('pointerover', () => this.setHovered(c.id));
+    image.on('pointerout', () => this.setHovered(null));
+    this.tokens.set(c.id, { image, hpBar, name });
     this.refreshToken(c);
+  }
+
+  private setHovered(id: string | null): void {
+    this.hovered = id;
+    this.refreshAll();
   }
 
   private refreshToken(c: Combatant): void {
@@ -168,7 +205,30 @@ export class CombatScene extends Phaser.Scene {
     if (!token) return;
     const f = this.feet(c.tile);
     token.image.setPosition(f.x, f.y).setDepth(f.y + 1).setAlpha(c.defeated ? 0.25 : 1);
-    token.label.setPosition(f.x, f.y - 60).setText(`${c.name}\nPV ${c.hp}/${c.maxHp}`);
+
+    const x = f.x - HP_BAR_WIDTH / 2;
+    const y = f.y - 64;
+    const ratio = c.maxHp > 0 ? c.hp / c.maxHp : 0;
+    token.hpBar.clear();
+    if (!c.defeated) {
+      token.hpBar.fillStyle(COLORS.ink, 0.9).fillRect(x - 1, y - 1, HP_BAR_WIDTH + 2, 7);
+      token.hpBar.fillStyle(c.side === 'heroes' ? COLORS.parchment : COLORS.copper, 1).fillRect(x, y, Math.round(HP_BAR_WIDTH * ratio), 5);
+    }
+    const isCurrent = this.order.length > 0 && this.turnIndex >= 0 && this.current() === c;
+    // One name at a time: the hovered token's, otherwise the current combatant's.
+    const named = this.hovered ? this.hovered === c.id : isCurrent;
+    token.name.setPosition(f.x, y - 4).setVisible(!c.defeated && named);
+    this.refreshRoster();
+  }
+
+  private refreshRoster(): void {
+    if (!this.roster || this.order.length === 0) return;
+    const current = this.turnIndex >= 0 ? this.current() : null;
+    const lines = this.order.map((c) => {
+      if (c.defeated) return `   ${c.name} · hors de combat`;
+      return `${c === current ? '▶' : '   '} ${c.name} · PV ${c.hp}/${c.maxHp}`;
+    });
+    this.roster.setText(lines.join('\n'));
   }
 
   private walkable = (tile: Tile): boolean => {
@@ -312,16 +372,20 @@ export class CombatScene extends Phaser.Scene {
   // --- UI ------------------------------------------------------------------
 
   private buildActionBar(): void {
-    const y = GAME_HEIGHT - BOTTOM_BAR / 2;
-    this.moveButton = addTextButton(this, 150, y, 'Déplacer', () => this.setMode('move'), { width: 200, height: 76 });
+    const L = LAYOUT;
+    // Room under the buttons for the keyboard hint line, when it is shown.
+    const y = GAME_HEIGHT - L.bottomBar / 2 - (SHOW_KEY_HINTS ? 10 : 0);
+    const size = (width: number, fontSize = L.buttonFont) => ({ width, height: L.buttonHeight, fontSize });
+    this.moveButton = addTextButton(this, L.move[0], y, 'Déplacer', () => this.setMode('move'), size(L.move[1]));
     // One button per weapon in hand (two at most), named after the weapon.
     const attacks = this.hero().attacks;
+    const [attackX, attackWidth, attackStep] = L.attack;
     this.attackButtons = attacks.map((a, i) =>
-      addTextButton(this, 370 + i * 190, y, a.label, () => this.setMode(i), { width: 180, height: 76, fontSize: 22 }),
+      addTextButton(this, attackX + i * attackStep, y, a.label, () => this.setMode(i), size(attackWidth, L.labelFont)),
     );
-    this.zoneButton = addTextButton(this, 760, y, '', () => this.cycleZone(), { width: 200, height: 76 });
-    addTextButton(this, 970, y, 'Fin du tour', () => this.endHeroTurn(), { width: 220, height: 76 });
-    addTextButton(this, GAME_WIDTH - 110, y, 'Fuir', () => this.flee(), { width: 180, height: 76 });
+    this.zoneButton = addTextButton(this, L.zone[0], y, '', () => this.cycleZone(), size(L.zone[1]));
+    addTextButton(this, L.endTurn[0], y, 'Fin du tour', () => this.endHeroTurn(), size(L.endTurn[1]));
+    addTextButton(this, L.flee[0], y, 'Fuir', () => this.flee(), size(L.flee[1]));
     this.updateActionBar();
 
     // No shortcut for Fuir: leaving a fight should never happen by a stray key press.

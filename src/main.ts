@@ -27,3 +27,13 @@ const refreshScale = (): void => {
 window.addEventListener('resize', refreshScale);
 window.addEventListener('orientationchange', refreshScale);
 window.visualViewport?.addEventListener('resize', refreshScale);
+
+// A new version takes control in the background; without a reload the player would run the old code until the
+// next launch. Only reload on the title screen, so unsaved progress is never lost mid-game.
+if ('serviceWorker' in navigator) {
+  const hadController = navigator.serviceWorker.controller !== null;
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    const onTitle = game.scene.isActive('Title') || game.scene.isActive('Boot');
+    if (hadController && onTitle) window.location.reload();
+  });
+}

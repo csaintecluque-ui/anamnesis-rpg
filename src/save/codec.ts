@@ -1,7 +1,7 @@
 import { characterError } from '../rules/character';
 import { findLocation, type GameState } from '../state/gameState';
 
-export const SAVE_VERSION = 2;
+export const SAVE_VERSION = 3;
 export const SAVE_MAX_CHARS = 1_000_000;
 const GAME_MARKER = 'anamnesis';
 
@@ -21,6 +21,20 @@ const fail = <T>(error: string): Result<T> => ({ ok: false, error });
 const MIGRATIONS: Record<number, (save: Record<string, unknown>) => Record<string, unknown>> = {
   // v1 predates character creation: the player creates one on load, then resumes where they were.
   1: (save) => ({ ...save, state: isRecord(save.state) ? { ...save.state, character: null } : save.state }),
+  // v2 saves lived on the temporary test ground, now replaced by Gardebois: resume at its entrance.
+  2: (save) => {
+    if (!isRecord(save.state)) return save;
+    const fromTestGround = save.state.location === 'iso-test';
+    return {
+      ...save,
+      state: {
+        ...save.state,
+        location: fromTestGround ? 'gardebois' : save.state.location,
+        position: fromTestGround ? { col: 0, row: 0 } : save.state.position,
+        entrance: fromTestGround ? 'entree' : null,
+      },
+    };
+  },
 };
 
 export function createSave(state: GameState, now: Date): SaveFile {
@@ -67,6 +81,7 @@ function validateState(state: unknown): string | null {
   if (typeof state.location !== 'string' || !findLocation(state.location)) return 'lieu inconnu.';
   const pos = state.position;
   if (!isRecord(pos) || !Number.isInteger(pos.col) || !Number.isInteger(pos.row)) return 'position invalide.';
+  if (state.entrance !== null && typeof state.entrance !== 'string') return 'point d’arrivée invalide.';
   if (typeof state.playTimeSeconds !== 'number' || !(state.playTimeSeconds >= 0)) return 'temps de jeu invalide.';
   if (state.character !== null) return characterError(state.character);
   return null;

@@ -8,6 +8,8 @@ export class BootScene extends Phaser.Scene {
 
   preload(): void {
     this.load.svg('seal', sealUrl, { width: 256, height: 256 });
+    // Placeholder tiles (npm run tiles), 64 × 96 frames in the order of scripts/tiles-def.mjs.
+    this.load.spritesheet('tiles', 'tiles/placeholder.png', { frameWidth: 64, frameHeight: 96 });
   }
 
   create(): void {

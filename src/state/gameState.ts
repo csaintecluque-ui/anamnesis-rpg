@@ -5,6 +5,9 @@ export interface LocationDef {
   id: string;
   name: string;
   scene: string;
+  map: string;
+  /** Map object where a new game (or a migrated save) starts. */
+  entrance: string;
 }
 
 export const LOCATIONS = locationData as LocationDef[];
@@ -14,14 +17,18 @@ export interface GameState {
   character: Character | null;
   location: string;
   position: { col: number; row: number };
+  /** When set, the map places the player at this named object instead of `position`, then clears it. */
+  entrance: string | null;
   playTimeSeconds: number;
 }
 
 export function createNewGame(character: Character | null = null): GameState {
+  const start = LOCATIONS[0];
   return {
     character: character ? structuredClone(character) : null,
-    location: LOCATIONS[0].id,
+    location: start.id,
     position: { col: 0, row: 0 },
+    entrance: start.entrance,
     playTimeSeconds: 0,
   };
 }

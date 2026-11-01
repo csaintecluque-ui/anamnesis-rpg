@@ -136,7 +136,7 @@ export class CreationScene extends Phaser.Scene {
     const character = finalizeCharacter(this.draft);
     const state: GameState = this.resume ? { ...this.resume, character } : createNewGame(character);
     this.registry.set('game', state);
-    this.scene.start(findLocation(state.location)?.scene ?? 'IsoTest');
+    this.scene.start(findLocation(state.location)?.scene ?? 'Map');
   }
 
   // --- Step 1: name -------------------------------------------------------

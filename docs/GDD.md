@@ -193,3 +193,21 @@ Les trois pistes reposent sur des lois et des phénomènes du monde, pas sur la 
   au chargement, le joueur crée son personnage, puis la partie reprend au même endroit.
 - **Contenu actuel de l'état** : personnage, lieu, position, temps de jeu. Il grandira avec le jeu (personnage, inventaire,
   quêtes, mémoire, Récits). Chaque changement de forme passera par une nouvelle version et sa migration.
+
+## 8. Exploration
+
+- **Cartes** : format Tiled (JSON, isométrique, tuiles de 64 × 32) dans `src/data/maps/`.
+  - Elles sont générées par `npm run maps` (`scripts/build-maps.mjs`) et restent éditables dans Tiled.
+  - Trois calques : `sol`, `obstacles` et `objets`.
+  - Objets du calque `objets` : arrivées (`arrivee`), sorties (`sortie`, avec une `cible`), PNJ (`pnj`) et panneaux
+    (`panneau`, avec un `texte`).
+- **Tuiles** : planche provisoire `public/tiles/placeholder.png`, générée par `npm run tiles`.
+  Une propriété `bloquant` sur la tuile rend la case infranchissable.
+- **Déplacement** : on touche ou on clique une case, et le personnage trouve son chemin (A*, 8 directions, sans couper
+  un coin bloqué). Un nouveau toucher en chemin le redirige.
+- **Interactions** : toucher un PNJ ou un panneau (sur toute son image) fait marcher jusqu'à côté de lui, puis déclenche
+  l'interaction. Pour l'instant, c'est un message ; les dialogues viendront ensuite.
+- **Caméra** : zoom × 1,5, qui suit le personnage. Le HUD (lieu, nom, PV, Titre, Sauvegarder, messages) est une scène
+  séparée, donc lisible quel que soit le zoom.
+- **Sauvegarde v3** : l'état contient une `entrance` facultative (arrivée nommée). Les sauvegardes du terrain d'essai
+  (supprimé) reprennent à l'entrée de Gardebois.

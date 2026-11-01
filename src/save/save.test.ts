@@ -47,8 +47,9 @@ function hero(): Character {
 
 const state: GameState = {
   character: hero(),
-  location: 'iso-test',
+  location: 'gardebois',
   position: { col: 4, row: 7 },
+  entrance: null,
   playTimeSeconds: 3725,
 };
 
@@ -93,7 +94,7 @@ describe('save codec', () => {
     if (!parsed.ok) expect(parsed.error).toContain(message);
   });
 
-  it('migrates a version 1 save (no character yet) without losing the position', () => {
+  it('migrates a version 1 save: no character yet, test ground replaced by the Gardebois entrance', () => {
     const v1 = JSON.stringify({
       game: 'anamnesis',
       version: 1,
@@ -104,11 +105,31 @@ describe('save codec', () => {
     expect(parsed.ok).toBe(true);
     if (parsed.ok) {
       expect(parsed.value.version).toBe(SAVE_VERSION);
-      expect(parsed.value.state).toEqual({ character: null, location: 'iso-test', position: { col: 2, row: 5 }, playTimeSeconds: 60 });
+      expect(parsed.value.state).toEqual({
+        character: null,
+        location: 'gardebois',
+        position: { col: 0, row: 0 },
+        entrance: 'entree',
+        playTimeSeconds: 60,
+      });
     }
   });
 
-  it('rejects a version 2 save whose character is missing or broken', () => {
+  it('migrates a version 2 save from the test ground, keeping the character and play time', () => {
+    const v2 = JSON.stringify({
+      game: 'anamnesis',
+      version: 2,
+      savedAt: NOW.toISOString(),
+      state: { character: state.character, location: 'iso-test', position: { col: 5, row: 3 }, playTimeSeconds: 90 },
+    });
+    const parsed = parseSave(v2);
+    expect(parsed.ok).toBe(true);
+    if (parsed.ok) {
+      expect(parsed.value.state).toMatchObject({ character: state.character, location: 'gardebois', entrance: 'entree', playTimeSeconds: 90 });
+    }
+  });
+
+  it('rejects a current save whose character is missing or broken', () => {
     const base = { game: 'anamnesis', version: SAVE_VERSION, savedAt: NOW.toISOString() };
     const { character: _omit, ...withoutCharacter } = state;
     const missing = parseSave(JSON.stringify({ ...base, state: withoutCharacter }));

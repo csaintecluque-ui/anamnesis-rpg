@@ -1,3 +1,3 @@
 [
-  { "id": "iso-test", "name": "Terrain d’essai", "scene": "IsoTest" }
+  { "id": "gardebois", "name": "Gardebois — Marché des Lisières", "scene": "Map", "map": "gardebois", "entrance": "entree" }
 ]

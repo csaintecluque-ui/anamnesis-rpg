@@ -1,7 +1,8 @@
 import Phaser from 'phaser';
 import { BootScene } from './scenes/BootScene';
 import { CreationScene } from './scenes/CreationScene';
-import { IsoTestScene } from './scenes/IsoTestScene';
+import { HudScene } from './scenes/HudScene';
+import { MapScene } from './scenes/MapScene';
 import { SlotsScene } from './scenes/SlotsScene';
 import { TitleScene } from './scenes/TitleScene';
 import { COLORS, GAME_HEIGHT, GAME_WIDTH } from './ui/theme';
@@ -18,8 +19,11 @@ const game = new Phaser.Game({
     mode: Phaser.Scale.FIT,
     autoCenter: Phaser.Scale.CENTER_BOTH,
   },
-  scene: [BootScene, TitleScene, CreationScene, IsoTestScene, SlotsScene],
+  scene: [BootScene, TitleScene, CreationScene, MapScene, HudScene, SlotsScene],
 });
+
+// Development only: lets browser checks locate things on screen. Never present in the published build.
+if (import.meta.env.DEV) (window as unknown as { __anamnesis: Phaser.Game }).__anamnesis = game;
 
 // Phaser's FIT mode re-centres on resize but keeps the old display size (seen on rotation); force a full refresh.
 let pendingRefresh = 0;

@@ -109,7 +109,7 @@
 
 ### Reste à faire (jalon 1, dans l'ordre proposé)
 
-1. Cartes Tiled (Gardebois, Gare Engloutie), PNJ, dialogues, quête, combat, inventaire, troc, montée de niveau.
+1. Dialogues (Ilyane, Tobias), puis la Gare Engloutie, la quête, le combat, l'inventaire, le troc et la montée de niveau.
 
 ### Points ouverts
 
@@ -180,3 +180,30 @@
 - Limite connue : en paysage sur téléphone, les petits boutons − / + font environ 31 px de haut à l'écran
   (en dessous des 44 px conseillés). Sept lignes d'attributs doivent tenir dans la hauteur. À juger sur iPhone.
 - **Vérifié par Cyril sur son iPhone** : la création de personnage fonctionne. Pas de remarque sur la taille des boutons.
+
+## 2026-11-01 — Carte de Gardebois (Marché des Lisières)
+
+- Carte Tiled 28 × 24 (`src/data/maps/gardebois.json`), générée par `scripts/build-maps.mjs` à partir d'un plan lisible
+  (graine fixe pour les arbres et fleurs aléatoires).
+  - Contenu : bordure de forêt, route de l'entrée (ouest) à la sortie vers la Gare (est), place du marché avec étals,
+    ruisseau et pont, base d'Arbre-Titan, maisons sur pilotis, lanternes, cercle de lanternes d'Ilyane,
+    Tobias au marché, 2 panneaux.
+  - L'aménagement est inventé : il est soumis à validation dans `LORE.md` §11.
+- Tuiles provisoires dessinées en SVG (`scripts/tiles-def.mjs`), assemblées en une planche PNG lisible par Tiled.
+- Moteur : lecteur Tiled (`src/engine/tiledMap.ts`), recherche de chemin A* (`src/engine/pathfinding.ts`),
+  scène de carte (`MapScene`) et HUD séparé (`HudScene`). Le terrain d'essai est supprimé.
+- Sauvegarde **v3** : arrivée nommée ; migration des parties du terrain d'essai vers l'entrée de Gardebois.
+- Tests : 68 au total.
+  - Sur la vraie carte : l'entrée mène à la sortie ; les abords de chaque PNJ et panneau sont accessibles ;
+    il n'y a que deux ouvertures ; l'eau bloque, le pont non.
+  - Sur la recherche de chemin : contournement, coins, cas impossibles.
+- Vérifié dans le navigateur :
+  - chargement ; marche jusqu'à une case éloignée ; caméra qui suit ;
+  - toucher Tobias (marche jusqu'à lui, puis message) et un panneau (son texte) ;
+  - sortie vers la Gare (message « bientôt ») ; sauvegarde puis retour au même endroit ;
+  - Titre avec sauvegarde auto ; nouvelle partie à l'entrée ; ancienne sauvegarde v2 migrée ;
+  - 60 i/s en WebGL sur ordinateur, aucune erreur.
+- Corrigé pendant les tests : toucher le corps d'un PNJ visait la case derrière ses pieds.
+  Les PNJ et panneaux sont désormais touchables sur toute leur image.
+- Outil de test : en développement seulement, l'instance du jeu est exposée (`window.__anamnesis`)
+  pour calculer la position exacte d'une case à l'écran. Elle est absente du site publié.

@@ -179,3 +179,4 @@
   - Mémoire de Kael ajoute bien +2 en Érudition.
 - Limite connue : en paysage sur téléphone, les petits boutons − / + font environ 31 px de haut à l'écran
   (en dessous des 44 px conseillés). Sept lignes d'attributs doivent tenir dans la hauteur. À juger sur iPhone.
+- **Vérifié par Cyril sur son iPhone** : la création de personnage fonctionne. Pas de remarque sur la taille des boutons.

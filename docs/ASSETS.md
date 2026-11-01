@@ -262,4 +262,5 @@ Méthode et comparaison : `docs/gdd/animation.md`.
 | `assets/raw/anim3d/heros-modele.glb` | Tripo H3.1 image → 3D, `face_limit` 12000, texturé | Image du héros du pilote | 9 |
 | `assets/raw/anim3d/heros-marche.glb` | Meshy 3D Rigging, hauteur 1,5 m, animation 30 « Casual_Walk » | Le modèle ci-dessus | 8 |
 
-Résultats : `public/sprites/heros-marche-2d.png` (8 × 6 images), `public/sprites/heros-marche-3d.png` (8 × 8).
+Résultats : planche 2D (8 × 6 images), gardée sous `public/sprites/heros-marche.png` ; planche 3D (8 × 8) retirée du jeu
+au choix de la méthode 2D par Cyril.

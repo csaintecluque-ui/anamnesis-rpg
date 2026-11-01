@@ -20,8 +20,8 @@
 2. **Jalon 2 proposé** (`docs/gdd/jalon-2.md`), né de son retour : personnages trop gros et figés, sol du marché,
    troncs de l'Arbre-Titan, répétitivité, maisons à visiter, PNJ et quêtes, création avec avatars, animation.
    Choix de Cyril : corrections visuelles d'abord (**faites**, 4 crédits, reste 79,5 ; pas encore poussées), puis
-   pilote d'animation 2D contre 3D (**en cours** : planches 2D et rendu 3D faits, choix « Marche du héros » dans
-   Options ; 3D nettement moins bonne : posture voûtée, jambes déformées), puis 6 avatars, puis contenu.
+   pilote d'animation fait (19,5 crédits, reste ≈ 60) : **méthode 2D retenue par Cyril**, le héros marche sur la carte
+   (`docs/gdd/animation.md`). Ensuite : création avec 6 avatars (plan à valider), puis contenu.
 
 ## Points ouverts
 

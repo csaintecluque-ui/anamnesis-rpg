@@ -1,7 +1,8 @@
 # Animation des personnages (jalon 2, pilote du 2026-11-01)
 
 Demande de Cyril : des personnages qui marchent, « à la Fallout », au lieu d'une image qui glisse.
-Pilote : la marche du héros faite de deux façons, comparables dans le jeu (Options → « Marche du héros (essai) »).
+Pilote : la marche du héros faite de deux façons, comparées dans le jeu. **Choix de Cyril (2026-11-01) : la méthode
+2D.** L'essai 3D est retiré du jeu ; ses outils restent (`npm run render-sprites`, `tools/sprite-render/`).
 
 ## Dans le jeu
 
@@ -10,8 +11,8 @@ Pilote : la marche du héros faite de deux façons, comparables dans le jeu (Opt
 - La carte (`MapScene`) joue la rangée de la direction de chaque pas (`facingOf`, `src/engine/facing.ts` : un pas de
   colonne va en bas à droite, un pas de rangée en bas à gauche, une diagonale de la grille est une direction droite à
   l'écran), à 14 images par seconde ; à l'arrêt, la première image de la dernière direction.
-- Réglage `walkStyle` (`2d` par défaut, `3d`) ; sans planche, le héros reste la tuile fixe `heros`. Le combat garde la
-  tuile fixe.
+- Planche du héros : `public/sprites/heros-marche.png` (méthode 2D) ; sans planche, le héros reste la tuile fixe
+  `heros`. Le combat garde la tuile fixe.
 
 ## Méthode 2D (2,5 crédits pour le héros)
 
@@ -45,4 +46,4 @@ La 3D pâtit du modèle tiré d'une seule image (le héros tient un livre, la ca
 automatiquement. **Recommandation : la méthode 2D** pour les avatars et les PNJ ; la 3D ne vaudrait le coût qu'avec
 un personnage dessiné exprès en pose neutre (bras écartés), à retenter éventuellement pour un seul personnage.
 
-En attente du choix de Cyril.
+Choix de Cyril : méthode 2D (2026-11-01).

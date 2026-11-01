@@ -8,7 +8,7 @@ describe('parseSettings', () => {
   });
 
   it('keeps valid values and clamps the volume to 0–100', () => {
-    expect(parseSettings(JSON.stringify({ volume: 40, textSize: 'grande' }))).toEqual({ volume: 40, textSize: 'grande', testMode: false, walkStyle: '2d' });
+    expect(parseSettings(JSON.stringify({ volume: 40, textSize: 'grande' }))).toEqual({ volume: 40, textSize: 'grande', testMode: false });
     expect(parseSettings(JSON.stringify({ volume: 40, textSize: 'grande', testMode: true })).testMode).toBe(true);
     expect(parseSettings(JSON.stringify({ volume: 250, textSize: 'grande' })).volume).toBe(100);
   });

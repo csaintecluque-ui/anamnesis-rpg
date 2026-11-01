@@ -616,3 +616,4 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   contrastées), variantes d'herbe et petits décors répartis au hasard (graine fixe). 186 tests. Vérifié en rendu et
   dans le jeu. Pas encore poussé.
 - Pilote d'animation (≈ 19,5 crédits) : planches 2D (5 directions + miroirs, très cohérentes) et modèle 3D (Tripo + squelette et marche Meshy) rendu par three.js (scripts/render-sprites.mjs, tools/sprite-render/), assemblés par scripts/assemble-walk.mjs. Héros animé sur la carte, choix 2D / 3D dans Options. 3D décevante. Reste : docs/gdd/animation.md, comparaison à montrer à Cyril, push.
+- Cyril retient la méthode 2D. Essai 3D retiré du jeu (réglage Options, planche) ; outils 3D gardés.

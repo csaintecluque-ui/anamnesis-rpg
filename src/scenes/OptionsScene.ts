@@ -1,15 +1,11 @@
 import Phaser from 'phaser';
-import { TEXT_SIZES, fontPx, getSettings, saveSettings, type Settings, type WalkStyle } from '../settings';
+import { TEXT_SIZES, fontPx, getSettings, saveSettings, type Settings } from '../settings';
 import { addTextButton } from '../ui/button';
 import { SHOW_KEY_HINTS, onKeys, withKeyHint } from '../ui/keys';
 import { COLORS, CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
 
 const SMALL = { width: 64, height: 58, fontSize: 32 };
 const VOLUME_STEP = 10;
-const WALK_STYLES: { id: WalkStyle; label: string }[] = [
-  { id: '2d', label: 'Dessinée' },
-  { id: '3d', label: 'En 3D' },
-];
 
 /** Overlay opened from the title screen or the pause menu; « Retour » goes back to whichever opened it. */
 export class OptionsScene extends Phaser.Scene {
@@ -91,32 +87,18 @@ export class OptionsScene extends Phaser.Scene {
     );
     label(260, 392, 'S’applique aux dialogues et aux messages du jeu.', CSS.muted).setFontSize(18);
 
-    // Hero walk animation: the two methods of the jalon 2 pilot, to compare (docs/gdd/animation.md).
-    label(260, 470, 'Marche du héros (essai)');
-    WALK_STYLES.forEach((style, i) => {
-      this.layer.add(
-        addTextButton(this, 690 + i * 200, 470, style.label, () => this.applyChange({ walkStyle: style.id }), {
-          width: 180,
-          height: 64,
-          fontSize: 24,
-          selected: settings.walkStyle === style.id,
-        }).container,
-      );
-    });
-    label(260, 510, 'Prend effet à la prochaine carte chargée.', CSS.muted).setFontSize(18);
-
     // Full screen (PC, Android). Safari on iPhone has no full-screen API: the installed app already fills the screen.
     if (this.scale.fullscreen.available) {
-      label(260, 560, 'Plein écran');
+      label(260, 500, 'Plein écran');
       const on = this.scale.isFullscreen;
       this.layer.add(
-        addTextButton(this, 790, 560, on ? 'Quitter le plein écran' : 'Passer en plein écran', () => this.toggleFullscreen(), {
+        addTextButton(this, 790, 500, on ? 'Quitter le plein écran' : 'Passer en plein écran', () => this.toggleFullscreen(), {
           width: 380,
           height: 64,
           fontSize: 24,
         }).container,
       );
-      if (SHOW_KEY_HINTS) label(260, 598, 'La touche F11 du navigateur fonctionne aussi.', CSS.muted).setFontSize(18);
+      if (SHOW_KEY_HINTS) label(260, 540, 'La touche F11 du navigateur fonctionne aussi.', CSS.muted).setFontSize(18);
     }
   }
 

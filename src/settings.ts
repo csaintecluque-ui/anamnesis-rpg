@@ -5,11 +5,7 @@ export interface Settings {
   textSize: TextSize;
   /** Hidden testing tools in the pause menu (docs/gdd/interface.md, « Mode test »). */
   testMode: boolean;
-  /** Hero walk animation being compared (jalon 2 animation pilot, docs/gdd/animation.md). */
-  walkStyle: WalkStyle;
 }
-
-export type WalkStyle = '2d' | '3d';
 
 export type TextSize = 'normale' | 'grande';
 
@@ -18,7 +14,7 @@ export const TEXT_SIZES: { id: TextSize; label: string; scale: number }[] = [
   { id: 'grande', label: 'Grande', scale: 1.15 },
 ];
 
-export const DEFAULT_SETTINGS: Settings = { volume: 80, textSize: 'normale', testMode: false, walkStyle: '2d' };
+export const DEFAULT_SETTINGS: Settings = { volume: 80, textSize: 'normale', testMode: false };
 const KEY = 'anamnesis.settings';
 
 export function parseSettings(raw: string | null): Settings {
@@ -27,8 +23,7 @@ export function parseSettings(raw: string | null): Settings {
     const value = JSON.parse(raw) as Partial<Settings>;
     const volume = Number.isInteger(value.volume) ? Math.min(100, Math.max(0, value.volume as number)) : DEFAULT_SETTINGS.volume;
     const textSize = TEXT_SIZES.some((t) => t.id === value.textSize) ? (value.textSize as TextSize) : DEFAULT_SETTINGS.textSize;
-    const walkStyle = value.walkStyle === '3d' ? '3d' : '2d';
-    return { volume, textSize, testMode: value.testMode === true, walkStyle };
+    return { volume, textSize, testMode: value.testMode === true };
   } catch {
     return { ...DEFAULT_SETTINGS };
   }

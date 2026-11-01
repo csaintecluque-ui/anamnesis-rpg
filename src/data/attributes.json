@@ -1,0 +1,9 @@
+[
+  { "id": "body", "name": "Corps", "description": "Force physique : mêlée, charge, forcer une porte." },
+  { "id": "agility", "name": "Agilité", "description": "Réflexes et coordination : tir, esquive, discrétion, initiative." },
+  { "id": "vigor", "name": "Vigueur", "description": "Endurance et santé : points de vie, résistance, survie." },
+  { "id": "intellect", "name": "Intellect", "description": "Intelligence et logique : artisanat, érudition, médecine, cristaux." },
+  { "id": "perception", "name": "Perception", "description": "Sens et intuition : investigation, pièges, indices." },
+  { "id": "presence", "name": "Présence", "description": "Charisme et leadership : diplomatie, commandement, subterfuge." },
+  { "id": "memory", "name": "Mémoire", "description": "Se souvenir et écouter le passé : Échos du Passé, Récits retenus." }
+]

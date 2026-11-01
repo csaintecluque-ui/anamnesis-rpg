@@ -1,0 +1,14 @@
+[
+  { "id": "athletics", "name": "Athlétisme", "attribute": "body", "description": "Courir, sauter, nager, escalader." },
+  { "id": "melee", "name": "Mêlée", "attribute": "body", "description": "Armes de contact." },
+  { "id": "ranged", "name": "Tir", "attribute": "agility", "description": "Arcs, arbalètes, frondes." },
+  { "id": "stealth", "name": "Discrétion", "attribute": "agility", "description": "Se cacher, voler à la tire." },
+  { "id": "crafting", "name": "Artisanat", "attribute": "intellect", "description": "Fabriquer, réparer, crocheter, désamorcer." },
+  { "id": "survival", "name": "Survie", "attribute": "perception", "description": "Nature, pistage, premiers soins." },
+  { "id": "lore", "name": "Érudition", "attribute": "intellect", "description": "Histoire, cultures, Ancien Monde." },
+  { "id": "investigation", "name": "Investigation", "attribute": "perception", "description": "Indices, analyse, déduction." },
+  { "id": "medicine", "name": "Médecine", "attribute": "intellect", "description": "Soins avancés, poisons." },
+  { "id": "command", "name": "Commandement", "attribute": "presence", "description": "Inspirer, intimider." },
+  { "id": "diplomacy", "name": "Diplomatie", "attribute": "presence", "description": "Persuader, négocier, troquer." },
+  { "id": "subterfuge", "name": "Subterfuge", "attribute": "presence", "description": "Mentir, bluffer, se déguiser." }
+]

@@ -58,3 +58,41 @@
   et dans `GDD.md` §0.
 - `sudo` est bloqué dans le terminal de la session Claude : Cyril installe Node.js depuis son propre terminal.
 - Dépôt git initialisé en local. Publication sur GitHub en attente d'une décision : publier `docs/Lore/` ou non.
+
+## 2026-11-01 — Session 1 (fin) : dépôt et squelette
+
+### Décisions
+
+- `docs/Lore/` et la carte restent **en local** : ils sont exclus du dépôt public (`.gitignore`, règle dans `CLAUDE.md`).
+  Ils n'ont jamais été commités.
+- Phaser **3.90.0** (dernière v3), conformément à `CLAUDE.md`. Phaser 4 existe (4.2.1), mais la bascule n'est pas
+  prévue sans décision explicite.
+- Versions figées : Vite 8.3.5, TypeScript 7.0.2, Vitest 5.0.5. Node.js 26.13 installé par Cyril.
+
+### Fait
+
+- Dépôt public créé : https://github.com/csaintec/anamnesis-rpg (branche `main`).
+- Squelette Phaser + Vite + TypeScript :
+  - écran titre (Nouvelle partie ; Charger et Options grisés ; signature « Anamnesis · CSC » avec le sceau) ;
+  - terrain d'essai isométrique 12 × 12, avec déplacement par toucher ou clic ;
+  - règles du GDD en code pur (`src/rules/`) : modificateur d'attribut, test au d20, chance de réussite,
+    seuils de dialogue, valeurs dérivées ;
+  - données en JSON (`src/data/` : 7 attributs, 12 compétences) ;
+  - projection isométrique (`src/engine/iso.ts`).
+- Tests : 14 tests unitaires (règles et projection iso) au vert ; typecheck et build OK.
+- Vérifié dans le navigateur en paysage téléphone (844 × 390) et en portrait.
+  Bug corrigé : sur rotation, Phaser recentrait le canvas sans le redimensionner ; on force désormais `scale.refresh()`.
+
+### Reste à faire (jalon 1, dans l'ordre proposé)
+
+1. Workflow GitHub Actions et publication sur GitHub Pages (demande d'activer Pages sur le dépôt).
+2. PWA : manifeste, icônes (sceau sur tuile encre), service worker hors ligne.
+3. Sauvegarde locale à plusieurs emplacements, avec export et import.
+4. Création de personnage (attributs, compétences, don).
+5. Cartes Tiled (Gardebois, Gare Engloutie), PNJ, dialogues, quête, combat, inventaire, troc, montée de niveau.
+
+### Points ouverts
+
+- Coquille dans `assets/brand/logo-small.svg` (trait parasite) : non corrigée, accord de Cyril requis.
+  Ce logo sert de favicon.
+- Chronologie du canon non arbitrée (`LORE.md` §10, points 6 à 13).

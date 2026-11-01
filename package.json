@@ -1,0 +1,28 @@
+{
+  "name": "anamnesis-rpg",
+  "version": "0.1.0",
+  "description": "Anamnesis — RPG 2D isométrique au tour par tour",
+  "private": true,
+  "license": "UNLICENSED",
+  "author": "Cyril (CSC)",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/csaintec/anamnesis-rpg.git"
+  },
+  "dependencies": {
+    "phaser": "3.90.0"
+  },
+  "devDependencies": {
+    "typescript": "7.0.2",
+    "vite": "8.3.5",
+    "vitest": "5.0.5"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "id": "malo",
+  "speaker": "malo",
+  "entries": [
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Salut ! Je suis Malo, coursier des passerelles. Je connais tous les chemins de Canopéa, même ceux qui n’existent pas encore !",
+      "options": [
+        {
+          "text": "Montre-moi la ville.",
+          "next": "ville"
+        },
+        {
+          "text": "Tu n’as jamais peur de tomber ?",
+          "next": "peur"
+        },
+        {
+          "text": "À plus tard, Malo.",
+          "next": "fin"
+        }
+      ]
+    },
+    "ville": {
+      "text": "Facile ! Ici, c’est le marché. La petite nacelle, près du grand tronc, monte aux Hautes Ramures : le Conseil, l’atelier du luthier, et chez moi. La longue passerelle à l’est mène au Bois des Aïeux, là où les arbres se souviennent.",
+      "options": [
+        {
+          "text": "Les arbres se souviennent ?",
+          "next": "arbres"
+        },
+        {
+          "text": "Merci, Malo.",
+          "next": "fin"
+        }
+      ]
+    },
+    "arbres": {
+      "text": "Quand quelqu’un meurt, sa mémoire passe dans un arbre. Mon grand-père Anselme est dans l’un d’eux. Mamie Aïlis va lui parler tous les soirs. Moi, je n’entends rien… mais je crois qu’il m’écoute quand même.",
+      "options": [
+        {
+          "text": "Il t’écoute, c’est certain.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "peur": {
+      "text": "Tomber ? Jamais ! Bon… une fois. Mais un filet de lianes m’a rattrapé. Mamie dit que la forêt n’aime pas qu’on lui jette des enfants.",
+      "options": [
+        {
+          "text": "Elle a bien raison.",
+          "next": "accueil"
+        }
+      ]
+    }
+  }
+}

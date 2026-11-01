@@ -1035,11 +1035,11 @@
    "name": "tiles",
    "image": "../../../public/tiles/tiles.png",
    "imagewidth": 512,
-   "imageheight": 672,
+   "imageheight": 1056,
    "tilewidth": 64,
    "tileheight": 96,
    "columns": 8,
-   "tilecount": 52,
+   "tilecount": 81,
    "margin": 0,
    "spacing": 0,
    "tiles": [
@@ -2335,6 +2335,731 @@
        "name": "couverture",
        "type": "int",
        "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 52,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "feuillage"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 53,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "plateforme"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 54,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "passerelle-c"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 55,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "passerelle-r"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 56,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "maison-cosse"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 4
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 57,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "salle-conseil"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 4
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 58,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "grenier"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 4
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 59,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "nacelle"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 2
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 60,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "arbre-souvenir"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 4
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 61,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "lanterne-verte"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 62,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "hamac"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 2
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 63,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "etabli"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 2
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 64,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "sacs-graines"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 2
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 65,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "veline"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 66,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "malo"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 67,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "lisandre"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 68,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "sevane"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 69,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "elouan"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 70,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "ailis"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 71,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "mirelle"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 72,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "huissier"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 73,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "colporteuse"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 74,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "voyageur-egare"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 75,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "ours-mousse"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 76,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "loup-rouille"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 77,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "cerf-luciole"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 78,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "ruine"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 4
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 79,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "charrette"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 2
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 80,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "carriole"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 2
       },
       {
        "name": "grand",

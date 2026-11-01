@@ -1,0 +1,88 @@
+{
+  "id": "cerfs-lucioles",
+  "speaker": "cerfs-lucioles",
+  "entries": [
+    {
+      "requires": [
+        {
+          "flag": "rencontre-cerfs-vus"
+        }
+      ],
+      "node": "partis"
+    },
+    {
+      "node": "cerfs"
+    }
+  ],
+  "nodes": {
+    "cerfs": {
+      "text": "Une dizaine de cerfs traversent la clairière sans bruit. Leurs bois s’allument et s’éteignent, comme des lanternes qui respireraient.",
+      "options": [
+        {
+          "text": "Rester immobile et regarder.",
+          "next": "regard",
+          "effects": [
+            {
+              "setFlag": "rencontre-cerfs-vus"
+            },
+            {
+              "giveXp": 10
+            }
+          ]
+        },
+        {
+          "text": "Les suivre sans un bruit.",
+          "requires": [
+            {
+              "skill": "survival",
+              "min": 2
+            }
+          ],
+          "next": "suivre",
+          "effects": [
+            {
+              "setFlag": "rencontre-cerfs-vus"
+            },
+            {
+              "giveXp": 10
+            },
+            {
+              "heal": 10
+            }
+          ]
+        },
+        {
+          "text": "Les laisser passer.",
+          "next": "fin"
+        }
+      ]
+    },
+    "regard": {
+      "text": "Le plus grand s’arrête et te regarde un long moment, puis repart. Quand la dernière lumière disparaît, tu te rends compte que tu retenais ton souffle.",
+      "options": [
+        {
+          "text": "Reprendre son souffle.",
+          "next": "fin"
+        }
+      ]
+    },
+    "suivre": {
+      "text": "Ils te mènent jusqu’à une source claire, puis s’évanouissent dans les fougères. L’eau est fraîche et douce ; tu te sens mieux.",
+      "options": [
+        {
+          "text": "Boire, puis repartir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "partis": {
+      "text": "La clairière est redevenue sombre et silencieuse.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

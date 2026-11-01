@@ -423,3 +423,199 @@ export const TILES = [
     svg: figure('#5a6b3a', '#d9b28e'),
   },
 ];
+
+// --- Canopéa, la cité des cimes (docs/univers/lieux/villes.md) : visuels provisoires, dessinés par code. -----
+// Rien ne touche le sol : sous les plates-formes et les passerelles, une mer de feuillage (bloquante).
+const leafSea =
+  diamond('#1f2e1a', 'rgba(0,0,0,0.25)') +
+  '<circle cx="20" cy="78" r="6" fill="#2b4022"/><circle cx="40" cy="84" r="7" fill="#26391f"/>' +
+  '<circle cx="34" cy="72" r="5" fill="#33502a"/><circle cx="16" cy="86" r="3" fill="#3d5c31" opacity="0.8"/>' +
+  '<circle cx="46" cy="76" r="3" fill="#3d5c31" opacity="0.7"/>';
+/** A person, simple but readable: body colour, skin, hair; `small` for a child. */
+const person = ({ body, skin = '#d9b28e', hair = '#4a3524', small = false, accent = PARCHMENT }) => {
+  const s = small ? 0.8 : 1;
+  const t = (y) => 82 - (82 - y) * s;
+  return (
+    shadow(11, 4) +
+    `<path d="M${32 - 10 * s} 82 Q${32 - 12 * s} ${t(60)} 32 ${t(56)} Q${32 + 12 * s} ${t(60)} ${32 + 10 * s} 82 Z" fill="${body}" stroke="${INK}" stroke-width="1.5"/>` +
+    `<path d="M${32 - 8 * s} ${t(66)} L${32 + 8 * s} ${t(66)}" stroke="${accent}" stroke-width="2" opacity="0.8"/>` +
+    `<circle cx="32" cy="${t(48)}" r="${8 * s}" fill="${skin}" stroke="${INK}" stroke-width="1.5"/>` +
+    `<path d="M${32 - 8 * s} ${t(47)} Q32 ${t(36)} ${32 + 8 * s} ${t(47)} Q32 ${t(42)} ${32 - 8 * s} ${t(47)} Z" fill="${hair}"/>`
+  );
+};
+const npcTile = (name, look) => ({ name, sprite: true, svg: person(look) });
+const pod = (shell, leaf, door = COPPER) =>
+  diamond('#a88456') +
+  shadow(22, 8) +
+  `<path d="M14 84 Q8 44 32 22 Q56 44 50 84 Z" fill="${shell}" stroke="${INK}" stroke-width="1.2"/>` +
+  `<path d="M20 50 Q32 40 44 50 M18 66 Q32 58 46 66" stroke="${INK}" stroke-width="1" opacity="0.35" fill="none"/>` +
+  `<path d="M10 34 Q32 4 54 34 Q32 24 10 34 Z" fill="${leaf}" stroke="${INK}" stroke-width="1"/>` +
+  `<ellipse cx="32" cy="74" rx="7" ry="9" fill="${door}" stroke="${INK}" stroke-width="1"/>`;
+
+TILES.push(
+  { name: 'feuillage', blocking: true, svg: leafSea },
+  {
+    name: 'plateforme',
+    svg:
+      diamond('#a88456') +
+      '<path d="M8 80 Q32 70 56 80 M14 86 Q32 78 50 86 M20 74 Q32 68 44 74" stroke="#7d5f3b" stroke-width="1.3" fill="none"/>',
+  },
+  {
+    // Le long des colonnes (vers le bas à droite à l'écran).
+    name: 'passerelle-c',
+    svg:
+      leafSea +
+      '<path d="M8 76 L40 92 L56 84 L24 68 Z" fill="#b38f5e" stroke="#4a3524" stroke-width="1"/>' +
+      '<path d="M16 72 L48 88 M14 78 L22 74 M24 83 L32 79 M34 88 L42 84" stroke="#6b4a32" stroke-width="1.2"/>' +
+      '<path d="M6 74 L38 90 M26 66 L58 82" stroke="#d9c49a" stroke-width="1" opacity="0.7"/>',
+  },
+  {
+    // Le long des rangées (vers le bas à gauche à l'écran).
+    name: 'passerelle-r',
+    svg:
+      leafSea +
+      '<path d="M56 76 L24 92 L8 84 L40 68 Z" fill="#b38f5e" stroke="#4a3524" stroke-width="1"/>' +
+      '<path d="M48 72 L16 88 M50 78 L42 74 M40 83 L32 79 M30 88 L22 84" stroke="#6b4a32" stroke-width="1.2"/>' +
+      '<path d="M58 74 L26 90 M38 66 L6 82" stroke="#d9c49a" stroke-width="1" opacity="0.7"/>',
+  },
+  { name: 'maison-cosse', blocking: true, cover: 4, svg: pod('#8a6a42', '#4d6b3a') },
+  { name: 'salle-conseil', blocking: true, cover: 4, svg: pod('#9a7a4a', '#5f8a45', '#e2c27a') + `<circle cx="32" cy="16" r="5" fill="#9fe0a0" opacity="0.8"/>` },
+  { name: 'grenier', blocking: true, cover: 4, svg: pod('#7a5a3c', '#46603a', '#6a6058') + `<circle cx="38" cy="74" r="2" fill="${COPPER}"/>` },
+  {
+    name: 'nacelle',
+    blocking: true,
+    cover: 2,
+    svg:
+      diamond('#a88456') +
+      '<path d="M18 4 L22 56 M46 4 L42 56 M32 0 L32 52" stroke="#6b4a32" stroke-width="2"/>' +
+      `<path d="M14 56 L50 56 L46 82 L18 82 Z" fill="#8a6a42" stroke="${INK}" stroke-width="1.2"/>` +
+      '<path d="M16 64 L48 64 M17 72 L47 72 M24 56 L22 82 M32 56 L32 82 M40 56 L42 82" stroke="#5a4030" stroke-width="1"/>',
+  },
+  {
+    name: 'arbre-souvenir',
+    blocking: true,
+    cover: 4,
+    svg:
+      diamond('#a88456') +
+      shadow(16, 6) +
+      `<path d="M26 84 Q28 60 27 40 L37 40 Q36 60 38 84 Z" fill="#6b4a32" stroke="${INK}" stroke-width="1"/>` +
+      '<path d="M30 52 L34 52 M29 62 L35 62 M30 72 L34 72" stroke="#9fe0a0" stroke-width="1.5" opacity="0.9"/>' +
+      '<circle cx="32" cy="26" r="16" fill="#3f5530"/><circle cx="22" cy="32" r="10" fill="#4d6b3a"/>' +
+      '<circle cx="42" cy="30" r="10" fill="#4d6b3a"/><circle cx="32" cy="16" r="8" fill="#5f8a45"/>' +
+      '<circle cx="26" cy="22" r="1.6" fill="#d8f5c8"/><circle cx="40" cy="20" r="1.6" fill="#d8f5c8"/><circle cx="34" cy="34" r="1.4" fill="#d8f5c8"/>',
+  },
+  {
+    name: 'lanterne-verte',
+    blocking: true,
+    svg:
+      diamond('#a88456') +
+      `<rect x="30" y="34" width="4" height="48" fill="#4a3524"/>` +
+      '<circle cx="32" cy="30" r="13" fill="#9fe0a0" opacity="0.18"/>' +
+      `<path d="M32 18 L38 30 L32 42 L26 30 Z" fill="#c8f0c0" stroke="#4d6b3a" stroke-width="1.5"/>`,
+  },
+  {
+    name: 'hamac',
+    blocking: true,
+    cover: 2,
+    svg:
+      shadow(20, 6) +
+      '<path d="M12 50 L12 82 M52 50 L52 82" stroke="#6b4a32" stroke-width="3"/>' +
+      '<path d="M12 56 Q32 78 52 56" stroke="#4d6b3a" stroke-width="7" fill="none"/>',
+  },
+  {
+    name: 'etabli',
+    blocking: true,
+    cover: 2,
+    svg:
+      shadow(22, 7) +
+      `<path d="M10 66 L54 66 L50 72 L14 72 Z" fill="#8a6a42" stroke="${INK}"/>` +
+      '<path d="M16 72 L16 84 M48 72 L48 84" stroke="#5a4030" stroke-width="3"/>' +
+      '<path d="M18 64 Q22 48 28 64" stroke="#c9a46a" stroke-width="3" fill="none"/><rect x="34" y="52" width="3" height="13" fill="#c9a46a"/>' +
+      '<rect x="41" y="56" width="2.5" height="9" fill="#c9a46a"/>',
+  },
+  {
+    name: 'sacs-graines',
+    blocking: true,
+    cover: 2,
+    svg:
+      shadow(20, 7) +
+      `<path d="M14 82 Q12 62 22 60 Q30 62 30 82 Z" fill="#c9b07a" stroke="${INK}"/>` +
+      `<path d="M30 82 Q28 56 40 54 Q50 58 48 82 Z" fill="#b89c64" stroke="${INK}"/>` +
+      `<circle cx="39" cy="68" r="3" fill="${COPPER}"/><circle cx="22" cy="72" r="2.5" fill="${COPPER}"/>`,
+  },
+  // PNJ de Canopéa (docs/univers/lieux/villes.md, validé par Cyril le 2026-11-01).
+  npcTile('veline', { body: '#5f8a45', hair: '#2a2018', accent: '#d9c49a' }),
+  npcTile('malo', { body: '#c9804f', hair: '#8a4a24', small: true }),
+  npcTile('lisandre', { body: '#8a6a9a', hair: '#e2c27a' }),
+  npcTile('sevane', { body: '#4d7a5a', hair: '#5a3020', skin: '#b98a64' }),
+  npcTile('elouan', { body: '#6b4a32', hair: '#1f1612', accent: '#c9a46a' }),
+  npcTile('ailis', { body: '#7a8a6a', hair: '#e8e2d4' }),
+  npcTile('mirelle', { body: '#3f5530', hair: '#b0b0a8', accent: COPPER }),
+  npcTile('huissier', { body: '#5a6b3a', hair: '#3a2a1c', accent: '#e2c27a' }),
+  // --- Rencontres aléatoires (docs/gdd/carte-du-monde.md) ---------------------------------------------
+  npcTile('colporteuse', { body: '#b5653a', hair: '#3a2a1c', skin: '#c49a74' }),
+  npcTile('voyageur-egare', { body: '#6a6058', hair: '#7a5a3c' }),
+  {
+    name: 'ours-mousse',
+    sprite: true,
+    svg:
+      shadow(20, 6) +
+      `<path d="M10 82 Q8 56 26 50 Q40 44 52 56 Q58 68 54 82 Z" fill="#4d6b3a" stroke="${INK}" stroke-width="1.5"/>` +
+      '<circle cx="48" cy="52" r="9" fill="#5f8a45" stroke="#1B1512" stroke-width="1.5"/>' +
+      '<circle cx="51" cy="50" r="1.6" fill="#1B1512"/><circle cx="43" cy="44" r="3" fill="#5f8a45" stroke="#1B1512"/>' +
+      '<path d="M16 60 Q24 54 32 60 M22 70 Q30 64 38 70" stroke="#7fa860" stroke-width="2" fill="none"/>',
+  },
+  {
+    name: 'loup-rouille',
+    sprite: true,
+    svg:
+      shadow(16, 5) +
+      `<path d="M12 82 L16 66 Q30 58 44 62 L52 54 L56 62 L50 68 L48 82 Z" fill="#9a5a34" stroke="${INK}" stroke-width="1.5"/>` +
+      '<path d="M20 66 L24 72 M30 63 L33 70 M38 63 L40 70" stroke="#6a3a20" stroke-width="2"/>' +
+      '<circle cx="51" cy="60" r="1.4" fill="#f0d070"/>',
+  },
+  {
+    name: 'cerf-luciole',
+    svg:
+      shadow(16, 5) +
+      '<path d="M16 82 L18 64 Q30 58 42 62 L44 82 M22 82 L24 66 M38 82 L38 66" stroke="#8a6a42" stroke-width="3" fill="none"/>' +
+      '<path d="M16 64 Q28 56 44 60 Q46 50 42 46 L46 46 Q50 52 46 62 Z" fill="#a88456" stroke="#1B1512" stroke-width="1"/>' +
+      '<path d="M44 46 L40 34 M44 46 L50 34 M41 38 L36 32 M48 38 L54 32" stroke="#e8f8a0" stroke-width="2"/>' +
+      '<circle cx="40" cy="34" r="2.5" fill="#f0ffb0"/><circle cx="50" cy="34" r="2.5" fill="#f0ffb0"/>' +
+      '<circle cx="36" cy="31" r="2" fill="#f0ffb0"/><circle cx="54" cy="31" r="2" fill="#f0ffb0"/>',
+  },
+  {
+    name: 'ruine',
+    blocking: true,
+    cover: 4,
+    svg:
+      diamond('#5a564e') +
+      shadow(20, 7) +
+      `<path d="M10 84 L10 46 L22 40 L24 54 L34 50 L36 62 L54 60 L54 84 Z" fill="#8a8276" stroke="${INK}" stroke-width="1.2"/>` +
+      '<path d="M14 60 L24 58 M14 72 L50 70 M30 78 L30 66" stroke="#5f5a50" stroke-width="1.2"/>' +
+      '<path d="M12 50 Q18 46 22 52" stroke="#4d6b3a" stroke-width="3" fill="none"/>',
+  },
+  {
+    name: 'charrette',
+    blocking: true,
+    cover: 2,
+    svg:
+      diamond('#6b5338') +
+      shadow(22, 7) +
+      `<path d="M12 70 L50 62 L54 72 L16 80 Z" fill="#8a6a42" stroke="${INK}"/>` +
+      '<path d="M14 66 L50 58" stroke="#5a4030" stroke-width="2"/>' +
+      '<circle cx="22" cy="80" r="7" fill="none" stroke="#3a2a1c" stroke-width="3"/>' +
+      '<path d="M44 74 L52 86" stroke="#3a2a1c" stroke-width="3"/>',
+  },
+  {
+    name: 'carriole',
+    blocking: true,
+    cover: 2,
+    svg:
+      diamond('#6b5338') +
+      shadow(22, 7) +
+      `<path d="M12 74 L12 50 Q32 34 52 50 L52 74 Z" fill="#c9804f" stroke="${INK}"/>` +
+      '<path d="M12 58 L52 58" stroke="#ead9b8" stroke-width="3"/>' +
+      '<circle cx="20" cy="78" r="6" fill="none" stroke="#3a2a1c" stroke-width="3"/><circle cx="44" cy="78" r="6" fill="none" stroke="#3a2a1c" stroke-width="3"/>',
+  },
+);

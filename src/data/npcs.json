@@ -111,5 +111,96 @@
     "id": "caisse-egaree",
     "name": "La caisse égarée",
     "role": "Objet"
+  },
+  {
+    "id": "veline",
+    "name": "Véline Nacelière",
+    "role": "Passeuse de la Grande Nacelle"
+  },
+  {
+    "id": "malo",
+    "name": "Malo Feuillevent",
+    "role": "Coursier des passerelles"
+  },
+  {
+    "id": "lisandre",
+    "name": "Lisandre Ramelune",
+    "role": "Aubergiste du Nid"
+  },
+  {
+    "id": "sevane",
+    "name": "Sévane Mielvert",
+    "role": "Herboriste du Comptoir de la Sève",
+    "sells": [
+      "bandage",
+      "baume-mousse",
+      "corde"
+    ]
+  },
+  {
+    "id": "elouan",
+    "name": "Elouan Chante-Bois",
+    "role": "Luthier"
+  },
+  {
+    "id": "ailis",
+    "name": "Aïlis Feuillevent",
+    "role": "Grand-mère de Malo"
+  },
+  {
+    "id": "mirelle",
+    "name": "Mirelle Doucebranche",
+    "role": "Gardienne de Mémoire de Canopéa"
+  },
+  {
+    "id": "huissier",
+    "name": "L’huissier du Conseil",
+    "role": "Huissier"
+  },
+  {
+    "id": "porte-grenier",
+    "name": "Porte du grenier des semences",
+    "role": "Objet"
+  },
+  {
+    "id": "graines-conseil",
+    "name": "Sacs de graines-lumière",
+    "role": "Objet"
+  },
+  {
+    "id": "arbre-ancien",
+    "name": "Un très vieil Arbre-Souvenir",
+    "role": "Arbre-Souvenir"
+  },
+  {
+    "id": "arbre-anselme",
+    "name": "L’arbre d’Anselme",
+    "role": "Arbre-Souvenir"
+  },
+  {
+    "id": "colporteuse",
+    "name": "La colporteuse",
+    "role": "Marchande ambulante",
+    "sells": [
+      "bandage",
+      "baume-mousse",
+      "corde",
+      "lampe-cristal"
+    ]
+  },
+  {
+    "id": "voyageur-egare",
+    "name": "Un voyageur égaré",
+    "role": "Voyageur"
+  },
+  {
+    "id": "cerfs-lucioles",
+    "name": "Cerfs-Lucioles",
+    "role": "Faune de Verdantis"
+  },
+  {
+    "id": "cache-ruines",
+    "name": "Une boîte de fer",
+    "role": "Objet"
   }
 ]

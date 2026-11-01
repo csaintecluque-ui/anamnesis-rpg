@@ -1,0 +1,69 @@
+[
+  {
+    "id": "rodeurs",
+    "zones": ["foret", "lisiere"],
+    "weight": 3,
+    "terrains": ["rencontre-clairiere", "rencontre-route"],
+    "hostile": true,
+    "intro": "Des feuillages bougent contre le vent : deux Rôdeurs-Épine guettent le chemin.",
+    "enemies": ["rodeur-epine", "rodeur-epine"],
+    "avoid": { "skill": "survival", "difficulty": 11 }
+  },
+  {
+    "id": "ours-mousse",
+    "zones": ["foret"],
+    "weight": 2,
+    "terrains": ["rencontre-clairiere"],
+    "hostile": true,
+    "intro": "Un Ours-Mousse fouille une souche en grognant. Il n’aime pas qu’on le dérange.",
+    "enemies": ["ours-mousse"],
+    "avoid": { "skill": "survival", "difficulty": 10 }
+  },
+  {
+    "id": "loups-rouille",
+    "zones": ["lisiere"],
+    "weight": 3,
+    "terrains": ["rencontre-route", "rencontre-ruines"],
+    "hostile": true,
+    "intro": "Deux Loups de Rouille rôdent près de la frontière, le pelage couleur de vieux fer.",
+    "enemies": ["loup-rouille", "loup-rouille"],
+    "avoid": { "skill": "survival", "difficulty": 13 }
+  },
+  {
+    "id": "colporteuse",
+    "zones": ["foret", "lisiere"],
+    "weight": 2,
+    "terrains": ["rencontre-route"],
+    "hostile": false,
+    "intro": "Une carriole bariolée est arrêtée au bord du chemin. Sa propriétaire te fait signe.",
+    "npcs": [{ "id": "colporteuse", "spawn": "pnj-1" }],
+    "decor": [{ "tile": "carriole", "spawn": "decor-1" }]
+  },
+  {
+    "id": "voyageur",
+    "zones": ["foret", "lisiere"],
+    "weight": 2,
+    "terrains": ["rencontre-route", "rencontre-clairiere"],
+    "hostile": false,
+    "intro": "Un voyageur est assis sur une pierre, une carte entre les mains et l’air perdu.",
+    "npcs": [{ "id": "voyageur-egare", "spawn": "pnj-1" }]
+  },
+  {
+    "id": "cerfs-lucioles",
+    "zones": ["foret"],
+    "weight": 2,
+    "terrains": ["rencontre-clairiere"],
+    "hostile": false,
+    "intro": "Au crépuscule, des lumières dansent entre les arbres : des Cerfs-Lucioles.",
+    "objects": [{ "id": "cerfs-lucioles", "type": "objet", "tile": "cerf-luciole", "spawn": "objet-1" }]
+  },
+  {
+    "id": "cache",
+    "zones": ["foret", "lisiere"],
+    "weight": 1,
+    "terrains": ["rencontre-ruines"],
+    "hostile": false,
+    "intro": "Des ruines de l’Ancien Monde affleurent sous la mousse. Quelque chose brille sous une dalle.",
+    "objects": [{ "id": "cache-ruines", "type": "coffre", "tile": "caisses", "spawn": "objet-1" }]
+  }
+]

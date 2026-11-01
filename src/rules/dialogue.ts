@@ -1,5 +1,5 @@
 import questData from '../data/quests.json';
-import type { GameState } from '../state/gameState';
+import { findLocation, type GameState } from '../state/gameState';
 import { ATTRIBUTES, SKILLS, attributeModifier, type AttributeId, type SkillId } from './attributes';
 import { resolveCheck, rollD20, successChance, type Rng } from './checks';
 import { characterStats } from './character';
@@ -32,7 +32,9 @@ export type Effect =
   /** No state change: tells DialogueScene to open the Troc with this NPC instead of closing (docs/gdd/inventaire.md). */
   | { openTrade: true }
   /** No state change: tells DialogueScene to close and the map to start this fight (src/data/encounters.json). */
-  | { startCombat: string };
+  | { startCombat: string }
+  /** No state change: tells DialogueScene to close and the map to go to this place (e.g. through a door just unlocked). */
+  | { goTo: string; arrivee?: string };
 
 /** An action rolled with the d20 (docs/gdd/competences.md): the chance is shown, then `next` or `failNext` follows. */
 export interface Roll {
@@ -198,8 +200,8 @@ export function applyEffects(state: GameState, effects: Effect[] = []): string[]
         learnRecit(state.character, effect.learnRecit);
         notices.push(`Récit retenu : ${findRecit(effect.learnRecit)?.titre ?? effect.learnRecit}`);
       }
-    } else if ('openTrade' in effect || 'startCombat' in effect) {
-      // Handled by DialogueScene (Troc, or a fight on the map); no state change here.
+    } else if ('openTrade' in effect || 'startCombat' in effect || 'goTo' in effect) {
+      // Handled by DialogueScene (Troc, a fight on the map, another place); no state change here.
     } else if ('giveItem' in effect) {
       if (state.character) {
         const count = effect.count ?? 1;
@@ -236,6 +238,12 @@ export function startsCombat(effects?: Effect[]): string | null {
   return effect && 'startCombat' in effect ? effect.startCombat : null;
 }
 
+/** The place an option leads to, if any (src/data/locations.json). */
+export function goesTo(effects?: Effect[]): { location: string; arrivee?: string } | null {
+  const effect = effects?.find((e) => 'goTo' in e);
+  return effect && 'goTo' in effect ? { location: effect.goTo, arrivee: effect.arrivee } : null;
+}
+
 function questName(id: string): string {
   return QUESTS.find((q) => q.id === id)?.name ?? id;
 }
@@ -264,6 +272,7 @@ export function dialogueProblems(d: Dialogue): string[] {
       if ('learnRecit' in e && !knownRecits.has(e.learnRecit)) problems.push(`${where} : récit inconnu ${e.learnRecit}`);
       if ('giveItem' in e && !findItem(e.giveItem)) problems.push(`${where} : objet inconnu ${e.giveItem}`);
       if ('startCombat' in e && !ENCOUNTERS.some((x) => x.id === e.startCombat)) problems.push(`${where} : combat inconnu ${e.startCombat}`);
+      if ('goTo' in e && !findLocation(e.goTo)) problems.push(`${where} : lieu inconnu ${e.goTo}`);
     }
   };
 

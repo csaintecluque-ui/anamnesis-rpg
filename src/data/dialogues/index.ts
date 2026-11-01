@@ -1,41 +1,73 @@
 import type { Dialogue } from '../../rules/dialogue';
+import ailis from './ailis.json';
+import arbreAncien from './arbre-ancien.json';
+import arbreAnselme from './arbre-anselme.json';
 import brann from './brann.json';
+import cacheRuines from './cache-ruines.json';
 import caisseEgaree from './caisse-egaree.json';
 import caisseProspection from './caisse-prospection.json';
 import carnetsIlyane from './carnets-ilyane.json';
+import cerfsLucioles from './cerfs-lucioles.json';
+import colporteuse from './colporteuse.json';
 import cristalVeille from './cristal-veille.json';
 import echoBerceuse from './echo-berceuse.json';
 import echoDernierTrain from './echo-dernier-train.json';
+import elouan from './elouan.json';
 import foreuse from './foreuse.json';
+import grainesConseil from './graines-conseil.json';
+import huissier from './huissier.json';
 import ilyane from './ilyane.json';
 import ingrid from './ingrid.json';
 import liane from './liane.json';
+import lisandre from './lisandre.json';
 import maelis from './maelis.json';
+import malo from './malo.json';
+import mirelle from './mirelle.json';
 import nell from './nell.json';
+import porteGrenier from './porte-grenier.json';
 import rocherSauge from './rocher-sauge.json';
 import sauge1 from './sauge-1.json';
 import sauge2 from './sauge-2.json';
+import sevane from './sevane.json';
 import sylvan from './sylvan.json';
 import tobias from './tobias.json';
+import veline from './veline.json';
+import voyageurEgare from './voyageur-egare.json';
 
 /** Dialogue files by object name (PNJ, Écho or object) of the maps. */
 export const DIALOGUES: Record<string, Dialogue> = {
-  ilyane: ilyane as Dialogue,
-  tobias: tobias as Dialogue,
-  ingrid: ingrid as Dialogue,
-  'echo-dernier-train': echoDernierTrain as Dialogue,
-  'caisse-prospection': caisseProspection as Dialogue,
-  foreuse: foreuse as Dialogue,
+  ailis: ailis as Dialogue,
+  'arbre-ancien': arbreAncien as Dialogue,
+  'arbre-anselme': arbreAnselme as Dialogue,
   brann: brann as Dialogue,
+  'cache-ruines': cacheRuines as Dialogue,
   'caisse-egaree': caisseEgaree as Dialogue,
+  'caisse-prospection': caisseProspection as Dialogue,
   'carnets-ilyane': carnetsIlyane as Dialogue,
+  'cerfs-lucioles': cerfsLucioles as Dialogue,
+  colporteuse: colporteuse as Dialogue,
   'cristal-veille': cristalVeille as Dialogue,
   'echo-berceuse': echoBerceuse as Dialogue,
+  'echo-dernier-train': echoDernierTrain as Dialogue,
+  elouan: elouan as Dialogue,
+  foreuse: foreuse as Dialogue,
+  'graines-conseil': grainesConseil as Dialogue,
+  huissier: huissier as Dialogue,
+  ilyane: ilyane as Dialogue,
+  ingrid: ingrid as Dialogue,
   liane: liane as Dialogue,
+  lisandre: lisandre as Dialogue,
   maelis: maelis as Dialogue,
+  malo: malo as Dialogue,
+  mirelle: mirelle as Dialogue,
   nell: nell as Dialogue,
+  'porte-grenier': porteGrenier as Dialogue,
   'rocher-sauge': rocherSauge as Dialogue,
   'sauge-1': sauge1 as Dialogue,
   'sauge-2': sauge2 as Dialogue,
+  sevane: sevane as Dialogue,
   sylvan: sylvan as Dialogue,
+  tobias: tobias as Dialogue,
+  veline: veline as Dialogue,
+  'voyageur-egare': voyageurEgare as Dialogue,
 };

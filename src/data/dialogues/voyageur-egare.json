@@ -1,0 +1,61 @@
+{
+  "id": "voyageur-egare",
+  "speaker": "voyageur-egare",
+  "entries": [
+    {
+      "requires": [
+        {
+          "flag": "rencontre-voyageur-aide"
+        }
+      ],
+      "node": "merci"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Ah, enfin quelqu’un ! Je cherche Gardebois depuis deux jours. Cette carte dit que c’est par là… ou par là ?",
+      "options": [
+        {
+          "text": "Ta carte est à l’envers.",
+          "next": "aide",
+          "effects": [
+            {
+              "setFlag": "rencontre-voyageur-aide"
+            },
+            {
+              "giveFers": 5
+            },
+            {
+              "giveXp": 10
+            }
+          ]
+        },
+        {
+          "text": "Je ne peux pas t’aider.",
+          "next": "fin"
+        }
+      ]
+    },
+    "aide": {
+      "text": "Il retourne sa carte, rougit, puis éclate de rire. — Tant de chemin pour rien ! Merci. Tiens, ce n’est pas grand-chose, mais c’est de bon cœur.",
+      "options": [
+        {
+          "text": "Bonne route !",
+          "next": "fin"
+        }
+      ]
+    },
+    "merci": {
+      "text": "Le voyageur te fait un grand signe. — Cette fois, je tiens la carte dans le bon sens !",
+      "options": [
+        {
+          "text": "Bonne route !",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

@@ -1,7 +1,8 @@
 import { characterError, DEFAULT_AVATAR, STARTING_FERS, STARTING_WEAPON } from '../rules/character';
+import { findPlace, findRencontre } from '../rules/world';
 import { findLocation, type GameState } from '../state/gameState';
 
-export const SAVE_VERSION = 8;
+export const SAVE_VERSION = 9;
 export const SAVE_MAX_CHARS = 1_000_000;
 const GAME_MARKER = 'anamnesis';
 
@@ -72,6 +73,8 @@ const MIGRATIONS: Record<number, (save: Record<string, unknown>) => Record<strin
     if (!isRecord(save.state) || !isRecord(save.state.character)) return save;
     return { ...save, state: { ...save.state, character: { ...save.state.character, avatar: DEFAULT_AVATAR } } };
   },
+  // v8 predates the world map and its random encounters (docs/gdd/carte-du-monde.md): none under way.
+  8: (save) => ({ ...save, state: isRecord(save.state) ? { ...save.state, encounter: null } : save.state }),
 };
 
 export function createSave(state: GameState, now: Date): SaveFile {
@@ -124,8 +127,20 @@ function validateState(state: unknown): string | null {
   if (!isRecord(state.quests) || Object.values(state.quests).some((v) => v !== 'active' && v !== 'done')) {
     return 'quêtes invalides.';
   }
+  if (state.encounter !== null && !isEncounter(state.encounter)) return 'rencontre invalide.';
   if (state.character !== null) return characterError(state.character);
   return null;
+}
+
+function isEncounter(value: unknown): boolean {
+  return (
+    isRecord(value) &&
+    typeof value.id === 'string' &&
+    !!findRencontre(value.id) &&
+    Number.isFinite(value.x) &&
+    Number.isFinite(value.y) &&
+    (value.destination === null || (typeof value.destination === 'string' && !!findPlace(value.destination)))
+  );
 }
 
 function isRecord(value: unknown): value is Record<string, unknown> {

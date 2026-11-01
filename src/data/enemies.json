@@ -24,5 +24,31 @@
     "initiativeBonus": 2,
     "xp": 15,
     "defeatText": "Le Rôdeur-Épine détale en gémissant, et disparaît dans les fourrés."
+  },
+  {
+    "id": "ours-mousse",
+    "tile": "ours-mousse",
+    "name": "Ours-Mousse",
+    "hp": 30,
+    "defense": 12,
+    "attackBonus": 3,
+    "damage": { "count": 1, "sides": 10 },
+    "actionPoints": 5,
+    "initiativeBonus": 0,
+    "xp": 35,
+    "defeatText": "L’Ours-Mousse grogne une dernière fois, puis repart dans les fougères en se dandinant."
+  },
+  {
+    "id": "loup-rouille",
+    "tile": "loup-rouille",
+    "name": "Loup de Rouille",
+    "hp": 12,
+    "defense": 13,
+    "attackBonus": 2,
+    "damage": { "count": 1, "sides": 6 },
+    "actionPoints": 8,
+    "initiativeBonus": 3,
+    "xp": 15,
+    "defeatText": "Le Loup de Rouille recule en grondant, puis file vers les collines du nord."
   }
 ]

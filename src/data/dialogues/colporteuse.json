@@ -1,0 +1,42 @@
+{
+  "id": "colporteuse",
+  "speaker": "colporteuse",
+  "entries": [
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Bonne route à toi ! Je vais de village en village avec ma carriole. Bandages, cordes, baumes… Un petit quelque chose pour le voyage ?",
+      "options": [
+        {
+          "text": "Voyons ta marchandise.",
+          "next": "fin",
+          "effects": [
+            {
+              "openTrade": true
+            }
+          ]
+        },
+        {
+          "text": "Quelles nouvelles des routes ?",
+          "next": "nouvelles"
+        },
+        {
+          "text": "Bonne route.",
+          "next": "fin"
+        }
+      ]
+    },
+    "nouvelles": {
+      "text": "On dit que les Loups de Rouille descendent plus au sud cette année, du côté de la frontière. Et à Canopéa, le Conseil ne dort plus : tout le monde parle des forages de Ferros.",
+      "options": [
+        {
+          "text": "Merci.",
+          "next": "accueil"
+        }
+      ]
+    }
+  }
+}

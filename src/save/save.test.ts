@@ -54,6 +54,7 @@ const state: GameState = {
   playTimeSeconds: 3725,
   flags: { 'laissez-passer': true },
   quests: { 'dernier-train': 'active' },
+  encounter: null,
 };
 
 describe('save codec', () => {
@@ -116,6 +117,7 @@ describe('save codec', () => {
         playTimeSeconds: 60,
         flags: {},
         quests: {},
+        encounter: null,
       });
     }
   });
@@ -191,9 +193,23 @@ describe('save codec', () => {
     if (!parsed.ok) expect(parsed.error).toContain('apparence');
   });
 
+  it('migrates a version 8 save: no encounter under way (docs/gdd/carte-du-monde.md)', () => {
+    const { encounter: _omit, ...v8State } = state;
+    const parsed = parseSave(JSON.stringify({ game: 'anamnesis', version: 8, savedAt: NOW.toISOString(), state: v8State }));
+    expect(parsed.ok && parsed.value.state.encounter).toBeNull();
+  });
+
+  it('keeps an encounter under way, with the spot and the trip to resume', () => {
+    const onTheRoad = { ...state, location: 'rencontre-route', encounter: { id: 'colporteuse', x: 600, y: 300, destination: 'canopee' } };
+    const parsed = parseSave(serializeSave(createSave(onTheRoad, NOW)));
+    expect(parsed.ok && parsed.value.state.encounter).toEqual(onTheRoad.encounter);
+  });
+
   it.each([
     ['a non-true flag', { flags: { 'laissez-passer': 'oui' } }, 'repères'],
     ['an unknown quest status', { quests: { 'dernier-train': 'peut-être' } }, 'quêtes'],
+    ['an unknown encounter', { encounter: { id: 'dragon', x: 1, y: 1, destination: null } }, 'rencontre'],
+    ['an encounter heading to an unknown place', { encounter: { id: 'rodeurs', x: 1, y: 1, destination: 'atlantide' } }, 'rencontre'],
   ])('rejects %s', (_label, change, message) => {
     const parsed = parseSave(JSON.stringify({ game: 'anamnesis', version: SAVE_VERSION, savedAt: NOW.toISOString(), state: { ...state, ...change } }));
     expect(parsed.ok).toBe(false);

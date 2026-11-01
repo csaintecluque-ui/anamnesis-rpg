@@ -1,0 +1,79 @@
+{
+  "id": "arbre-ancien",
+  "speaker": "arbre-ancien",
+  "entries": [
+    {
+      "node": "arbre"
+    }
+  ],
+  "nodes": {
+    "arbre": {
+      "text": "Un très vieil arbre, couvert de noms gravés les uns sur les autres. Des centaines de vies sont passées dans son bois.",
+      "options": [
+        {
+          "text": "Poser la main sur l’écorce et écouter.",
+          "requires": [
+            {
+              "attribute": "memory",
+              "min": 3
+            },
+            {
+              "notFlag": "recit-voix-ecorce-recu"
+            }
+          ],
+          "next": "voix",
+          "effects": [
+            {
+              "setFlag": "recit-voix-ecorce-recu"
+            },
+            {
+              "learnRecit": "voix-ecorce"
+            },
+            {
+              "giveXp": 10
+            }
+          ]
+        },
+        {
+          "text": "Écouter encore les voix.",
+          "requires": [
+            {
+              "attribute": "memory",
+              "min": 3
+            },
+            {
+              "flag": "recit-voix-ecorce-recu"
+            }
+          ],
+          "next": "voix"
+        },
+        {
+          "text": "Lire quelques noms.",
+          "next": "noms"
+        },
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "voix": {
+      "text": "Les voix montent ensemble, comme un chœur : des rires, des berceuses, des noms. Tu comprends soudain pourquoi, ici, on ne dit pas « il est mort », mais « il est passé dans l’arbre ».",
+      "options": [
+        {
+          "text": "Laisser les voix se taire.",
+          "next": "fin"
+        }
+      ]
+    },
+    "noms": {
+      "text": "Des noms, des petits dessins de feuilles, des mots tendres. Certains sont si anciens que l’écorce les a presque refermés.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

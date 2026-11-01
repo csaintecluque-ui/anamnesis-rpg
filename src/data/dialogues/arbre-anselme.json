@@ -1,0 +1,44 @@
+{
+  "id": "arbre-anselme",
+  "speaker": "arbre-anselme",
+  "entries": [
+    {
+      "node": "arbre"
+    }
+  ],
+  "nodes": {
+    "arbre": {
+      "text": "Un jeune arbre, encore fin, au tronc gravé d’un nom : Anselme Feuillevent. Quelqu’un a noué un ruban vert autour de ses racines.",
+      "options": [
+        {
+          "text": "Poser la main sur l’écorce et écouter.",
+          "requires": [
+            {
+              "attribute": "memory",
+              "min": 3
+            }
+          ],
+          "next": "voix",
+          "effects": [
+            {
+              "setFlag": "voix-anselme"
+            }
+          ]
+        },
+        {
+          "text": "Laisser l’arbre en paix.",
+          "next": "fin"
+        }
+      ]
+    },
+    "voix": {
+      "text": "Sous ta paume, l’écorce est tiède. Très loin, quelqu’un fredonne une chanson douce, une chanson de cerfs-lucioles et de nuits d’été. Puis plus rien, que le vent.",
+      "options": [
+        {
+          "text": "Retirer doucement la main.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

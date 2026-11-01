@@ -9,12 +9,26 @@ import { findPath } from '../engine/pathfinding';
 import { bigBlock, findObject, isBigAnchor, isWalkable, parseTiledMap, tileKey, type GameMap, type MapObject } from '../engine/tiledMap';
 import { DEFAULT_AVATAR } from '../rules/character';
 import { ENCOUNTERS, findEnemy } from '../rules/combat';
+import type { Effect } from '../rules/dialogue';
+import {
+  ENCOUNTER_VICTORY_FLAG,
+  WORLD_MAP_TARGET,
+  encounterObjects,
+  findRencontre,
+  placeOfLocation,
+  rencontreXp,
+  type RencontreDef,
+} from '../rules/world';
 import { findLocation, type GameState } from '../state/gameState';
 import { onKeys } from '../ui/keys';
 import { COLORS, CSS, FONT_SERIF } from '../ui/theme';
 import { MAP_ZOOM, RENDER_SCALE } from '../ui/viewport';
 import type { CombatStartData } from './CombatScene';
 import type { HudScene } from './HudScene';
+import type { WorldMapStartData } from './WorldMapScene';
+
+/** Delay before the enemies of a random encounter attack, so the arrival is seen first. */
+const AMBUSH_DELAY_MS = 900;
 
 /** Map objects drawn by an obstacle tile on the same cell, and touchable on that tile's image. */
 const INTERACTIVE_OBSTACLES = new Set(['panneau', 'echo', 'golem', 'coffre', 'foreuse', 'porte', 'objet']);
@@ -63,10 +77,15 @@ export class MapScene extends Phaser.Scene {
     }
     this.state = state;
     this.map = parseTiledMap(MAPS[location.map]);
+    // A random encounter lays its enemies, people and objects on the map's spawn points (docs/gdd/carte-du-monde.md).
+    const rencontre = location.encounter && state.encounter ? findRencontre(state.encounter.id) : undefined;
+    if (rencontre) this.map.objects.push(...encounterObjects(rencontre, this.map.objects.filter((o) => o.type === 'apparition')));
     this.registry.set('tileFrames', this.map.frames);
     this.originX = this.map.height * (TILE_WIDTH / 2);
     this.originY = TOP_MARGIN;
-    this.occupied = new Set(this.map.objects.filter((o) => o.type === 'pnj' || (o.type === 'ennemi' && !this.gone(o))).map(tileKey));
+    this.occupied = new Set(
+      this.map.objects.filter((o) => o.type === 'pnj' || o.properties.tuile || (o.type === 'ennemi' && !this.gone(o))).map(tileKey),
+    );
     this.path = [];
     this.moving = false;
     this.pendingGoal = null;
@@ -77,6 +96,7 @@ export class MapScene extends Phaser.Scene {
     this.drawObstacles();
     this.drawNpcs();
     this.drawEnemies();
+    this.drawPlacedObjects();
     this.marker = this.add.graphics().setDepth(1);
 
     this.heroTile = this.startTile(location.entrance);
@@ -98,6 +118,7 @@ export class MapScene extends Phaser.Scene {
     onKeys(this, ['I'], () => this.hud().openOverlay('Trade', {}));
 
     this.scene.launch('Hud', { locationName: location.name });
+    if (rencontre) this.announceEncounter(rencontre);
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => this.scene.stop('Hud'));
     // A dialogue or a fight may have picked a herb or sent enemies away. Scene events outlive a restart: unhook.
     const onResume = () => this.refreshGone();
@@ -195,24 +216,65 @@ export class MapScene extends Phaser.Scene {
     }
   }
 
+  /** Objects of a random encounter drawn with their own tile (property `tuile`): objects to touch, and decor. */
+  private drawPlacedObjects(): void {
+    for (const o of this.map.objects.filter((x) => x.properties.tuile && x.type !== 'pnj')) {
+      const f = this.feet(o);
+      const image = this.add.image(f.x, f.y, 'tiles', this.map.frames[o.properties.tuile] ?? this.map.frames.pnj).setOrigin(0.5, 1).setDepth(f.y);
+      if (o.type !== 'decor') this.interactables.push({ object: o, image });
+    }
+  }
+
   /** A fight started from a dialogue: the arena is carved around the encounter's centre object. */
   startEncounter(id: string): void {
     const encounter = ENCOUNTERS.find((e) => e.id === id);
     const center = encounter && findObject(this.map, encounter.center);
     if (!encounter || !center) return;
     const enemyObjects = encounter.enemies.map((e) => findObject(this.map, e.object)!);
+    this.launchFight(center, encounter.enemies.map((e) => e.id), enemyObjects, encounter.victoryFlag, encounter.victoryEffects);
+  }
+
+  private launchFight(center: Tile, enemyIds: string[], enemyObjects: Tile[], victoryFlag: string, victoryEffects: Effect[]): void {
     const arena = carveArena(this.map, center, ARENA_COLS, ARENA_ROWS, enemyObjects);
     this.registry.set('tileFrames', this.map.frames);
     this.scene.pause();
     this.scene.pause('Hud');
     this.scene.launch('Combat', {
-      enemyIds: encounter.enemies.map((e) => e.id),
-      victoryEffects: encounter.victoryEffects,
-      victoryFlag: encounter.victoryFlag,
+      enemyIds,
+      victoryEffects,
+      victoryFlag,
       arena,
       heroTile: toArena(arena, this.heroTile),
       enemyTiles: enemyObjects.map((o) => toArena(arena, o)),
     } satisfies CombatStartData);
+  }
+
+  // --- Random encounters (docs/gdd/carte-du-monde.md) ---------------------------------------------
+
+  private announceEncounter(rencontre: RencontreDef): void {
+    const hostile = this.encounterEnemies().length > 0;
+    const hint = hostile ? '' : '   ·   Pour repartir, rejoins le bord de la carte, à l’est ou à l’ouest.';
+    this.time.delayedCall(50, () => this.hud().toast(`${rencontre.intro}${hint}`));
+    if (hostile) this.time.delayedCall(AMBUSH_DELAY_MS, () => this.fightEncounter());
+  }
+
+  /** Enemies of the random encounter still standing. */
+  private encounterEnemies(): MapObject[] {
+    return this.map.objects.filter((o) => o.type === 'ennemi' && o.properties.rencontre && !this.gone(o));
+  }
+
+  /** The encounter's enemies attack: the fight takes place right here, around the hero and them. */
+  private fightEncounter(): void {
+    const enemies = this.encounterEnemies();
+    const rencontre = this.state.encounter && findRencontre(this.state.encounter.id);
+    if (enemies.length === 0 || !rencontre) return;
+    const all = [this.heroTile, ...enemies];
+    const center = {
+      col: Math.round(all.reduce((sum, t) => sum + t.col, 0) / all.length),
+      row: Math.round(all.reduce((sum, t) => sum + t.row, 0) / all.length),
+    };
+    const xp = rencontreXp(rencontre);
+    this.launchFight(center, enemies.map((o) => o.properties.ennemi), enemies, ENCOUNTER_VICTORY_FLAG, xp > 0 ? [{ giveXp: xp }] : []);
   }
 
   private drawNpcs(): void {
@@ -383,7 +445,18 @@ export class MapScene extends Phaser.Scene {
       return;
     }
     if (target.type === 'porte') {
+      // A locked door (docs/gdd/villes.md): its dialogue (pick the lock…) sets the flag that opens it.
+      const lock = target.properties.verrou;
+      if (lock && !this.state.flags[lock] && target.properties.dialogue && DIALOGUES[target.properties.dialogue]) {
+        this.scene.pause();
+        this.scene.launch('Dialogue', { id: target.properties.dialogue });
+        return;
+      }
       this.enter(target.properties.cible, target.properties.arrivee, target.properties.libelle);
+      return;
+    }
+    if (target.type === 'ennemi' && target.properties.rencontre) {
+      this.fightEncounter();
       return;
     }
     if (target.type === 'ennemi') {
@@ -433,8 +506,17 @@ export class MapScene extends Phaser.Scene {
     this.enter(exit.properties.cible, exit.properties.arrivee, exit.properties.libelle);
   }
 
+  /** A dialogue sends the hero elsewhere (a door just unlocked): src/rules/dialogue.ts, effect `goTo`. */
+  goToLocation(location: string, arrival?: string): void {
+    this.enter(location, arrival, undefined);
+  }
+
   /** Goes to another map (a door, a road out), arriving on a named object or the map's own entrance. */
   private enter(target: string | undefined, arrival: string | undefined, label: string | undefined): void {
+    if (target === WORLD_MAP_TARGET) {
+      this.openWorldMap();
+      return;
+    }
     const destination = target ? findLocation(target) : undefined;
     if (!destination) {
       this.hud().toast(`${label ?? 'Sortie'} : cette carte arrive bientôt.`);
@@ -444,9 +526,25 @@ export class MapScene extends Phaser.Scene {
     this.state.entrance = arrival ?? destination.entrance;
     this.scene.start('Map');
   }
+
+  /** Leaves a place (or an encounter) for the world map, where one stands at that place (docs/gdd/carte-du-monde.md). */
+  private openWorldMap(): void {
+    const encounter = this.state.encounter;
+    const place = placeOfLocation(this.state.location);
+    let start: WorldMapStartData;
+    if (encounter) start = { x: encounter.x, y: encounter.y, destination: encounter.destination };
+    else if (place) start = { x: place.x, y: place.y, destination: null, at: place.id };
+    else {
+      this.hud().toast('La carte du monde n’est pas accessible d’ici.');
+      return;
+    }
+    this.state.encounter = null;
+    this.scene.start('WorldMap', start);
+  }
 }
 
 /** Frames are 64 × 96 with transparent margins; only the central part counts as the body. */
+
 function hitsBody(image: Phaser.GameObjects.Image, x: number, y: number): boolean {
   const left = image.x - 18;
   const right = image.x + 18;

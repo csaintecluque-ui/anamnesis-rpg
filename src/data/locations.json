@@ -1,8 +1,21 @@
 [
-  { "id": "gardebois", "name": "Gardebois — Marché des Lisières", "scene": "Map", "map": "gardebois", "entrance": "entree" },
-  { "id": "gare-engloutie", "name": "La Gare Engloutie", "scene": "Map", "map": "gare-engloutie", "entrance": "entree-gare" },
-  { "id": "maison-ilyane", "name": "Gardebois — Maison d’Ilyane", "scene": "Map", "map": "maison-ilyane", "entrance": "entree" },
-  { "id": "auberge-racine", "name": "Gardebois — Auberge de la Racine", "scene": "Map", "map": "auberge-racine", "entrance": "entree" },
-  { "id": "maison-lunelierre", "name": "Gardebois — Maison Lunelierre", "scene": "Map", "map": "maison-lunelierre", "entrance": "entree" },
-  { "id": "reserve-cendrefer", "name": "Gardebois — Réserve de l’étal Cendrefer", "scene": "Map", "map": "reserve-cendrefer", "entrance": "entree" }
+  { "id": "gardebois", "name": "Gardebois — Marché des Lisières", "scene": "Map", "map": "gardebois", "entrance": "entree", "place": "gardebois" },
+  { "id": "gare-engloutie", "name": "La Gare Engloutie", "scene": "Map", "map": "gare-engloutie", "entrance": "entree-gare", "place": "gardebois" },
+  { "id": "maison-ilyane", "name": "Gardebois — Maison d’Ilyane", "scene": "Map", "map": "maison-ilyane", "entrance": "entree", "place": "gardebois" },
+  { "id": "auberge-racine", "name": "Gardebois — Auberge de la Racine", "scene": "Map", "map": "auberge-racine", "entrance": "entree", "place": "gardebois" },
+  { "id": "maison-lunelierre", "name": "Gardebois — Maison Lunelierre", "scene": "Map", "map": "maison-lunelierre", "entrance": "entree", "place": "gardebois" },
+  { "id": "reserve-cendrefer", "name": "Gardebois — Réserve de l’étal Cendrefer", "scene": "Map", "map": "reserve-cendrefer", "entrance": "entree", "place": "gardebois" },
+  { "id": "canopee-nacelle", "name": "Canopéa — La Grande Nacelle", "scene": "Map", "map": "canopee-nacelle", "entrance": "entree", "place": "canopee" },
+  { "id": "canopee-ramures", "name": "Canopéa — Les Hautes Ramures", "scene": "Map", "map": "canopee-ramures", "entrance": "nacelle-arrivee", "place": "canopee" },
+  { "id": "canopee-aieux", "name": "Canopéa — Le Bois des Aïeux", "scene": "Map", "map": "canopee-aieux", "entrance": "depuis-marche", "place": "canopee" },
+  { "id": "canopee-auberge", "name": "Canopéa — Auberge du Nid", "scene": "Map", "map": "canopee-auberge", "entrance": "entree", "place": "canopee" },
+  { "id": "canopee-comptoir", "name": "Canopéa — Comptoir de la Sève", "scene": "Map", "map": "canopee-comptoir", "entrance": "entree", "place": "canopee" },
+  { "id": "canopee-conseil", "name": "Canopéa — Salle du Conseil des Racines Profondes", "scene": "Map", "map": "canopee-conseil", "entrance": "entree", "place": "canopee" },
+  { "id": "canopee-feuillevent", "name": "Canopéa — Maison Feuillevent", "scene": "Map", "map": "canopee-feuillevent", "entrance": "entree", "place": "canopee" },
+  { "id": "canopee-atelier", "name": "Canopéa — Atelier Chante-Bois", "scene": "Map", "map": "canopee-atelier", "entrance": "entree", "place": "canopee" },
+  { "id": "canopee-grenier", "name": "Canopéa — Grenier des semences", "scene": "Map", "map": "canopee-grenier", "entrance": "entree", "place": "canopee" },
+  { "id": "canopee-relais", "name": "Canopéa — Relais des Gardiens de Mémoire", "scene": "Map", "map": "canopee-relais", "entrance": "entree", "place": "canopee" },
+  { "id": "rencontre-clairiere", "name": "Une clairière", "scene": "Map", "map": "rencontre-clairiere", "entrance": "entree", "encounter": true },
+  { "id": "rencontre-route", "name": "Sur la route", "scene": "Map", "map": "rencontre-route", "entrance": "entree", "encounter": true },
+  { "id": "rencontre-ruines", "name": "Des ruines de l’Ancien Monde", "scene": "Map", "map": "rencontre-ruines", "entrance": "entree", "encounter": true }
 ]

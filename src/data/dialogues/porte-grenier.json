@@ -1,0 +1,65 @@
+{
+  "id": "porte-grenier",
+  "speaker": "porte-grenier",
+  "entries": [
+    {
+      "node": "verrouillee"
+    }
+  ],
+  "nodes": {
+    "verrouillee": {
+      "text": "Une porte ronde, fermée par une serrure de bois et de cuivre. Une plaque indique : « Grenier des semences — propriété du Conseil ».",
+      "options": [
+        {
+          "text": "Crocheter la serrure.",
+          "next": "ouverte",
+          "roll": {
+            "skill": "crafting",
+            "difficulty": 12
+          },
+          "failNext": "echec"
+        },
+        {
+          "text": "Laisser la porte tranquille.",
+          "next": "fin"
+        }
+      ]
+    },
+    "ouverte": {
+      "text": "Un petit déclic, et la porte s’entrouvre sur une odeur de graines sèches.",
+      "effects": [
+        {
+          "setFlag": "grenier-deverrouille"
+        }
+      ],
+      "options": [
+        {
+          "text": "Entrer.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "canopee-grenier"
+            }
+          ]
+        },
+        {
+          "text": "Ne pas entrer pour l’instant.",
+          "next": "fin"
+        }
+      ]
+    },
+    "echec": {
+      "text": "La serrure résiste. Une passerelle grince non loin : mieux vaut ne pas s’acharner trop longtemps.",
+      "options": [
+        {
+          "text": "Réessayer.",
+          "next": "verrouillee"
+        },
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

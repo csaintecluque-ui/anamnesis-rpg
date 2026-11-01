@@ -1,0 +1,102 @@
+{
+  "id": "mirelle",
+  "speaker": "mirelle",
+  "entries": [
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Bienvenue au relais des Gardiens de Mémoire. Tu viens de Gardebois, n’est-ce pas ? Ça se voit à ta façon de tout regarder, comme si chaque chose avait une histoire. Je suis Mirelle.",
+      "options": [
+        {
+          "text": "Je peux me reposer ici ?",
+          "next": "repos",
+          "effects": [
+            {
+              "heal": 100
+            }
+          ]
+        },
+        {
+          "text": "Tu connais Ilyane ?",
+          "next": "ilyane"
+        },
+        {
+          "text": "Parle-moi des Gardiens de Mémoire.",
+          "next": "ordre"
+        },
+        {
+          "text": "Au revoir, Mirelle.",
+          "next": "fin"
+        }
+      ]
+    },
+    "repos": {
+      "text": "Les hamacs du relais sont à tous les Gardiens. Dors un peu : la mémoire travaille mieux quand le corps se repose. … Au réveil, tes forces sont revenues.",
+      "options": [
+        {
+          "text": "Merci, Mirelle.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "ilyane": {
+      "text": "Nous avons fait notre apprentissage ensemble, il y a bien longtemps. Elle voulait tout entendre ; moi, tout écrire. Dis-lui que je garde encore son carnet de chansons… et qu’elle chante toujours aussi faux, j’en suis sûre.",
+      "options": [
+        {
+          "text": "Je le lui dirai.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "ordre": {
+      "text": "Nous recueillons les histoires, et nous les transmettons. Tout a commencé avec Kael, le Premier Chroniqueur. Veux-tu que je te raconte ?",
+      "options": [
+        {
+          "text": "Oui, raconte.",
+          "requires": [
+            {
+              "notFlag": "recit-kael-recu"
+            }
+          ],
+          "next": "kael",
+          "effects": [
+            {
+              "setFlag": "recit-kael-recu"
+            },
+            {
+              "learnRecit": "kael-chroniqueur"
+            },
+            {
+              "giveXp": 10
+            }
+          ]
+        },
+        {
+          "text": "Raconte-moi encore.",
+          "requires": [
+            {
+              "flag": "recit-kael-recu"
+            }
+          ],
+          "next": "kael"
+        },
+        {
+          "text": "Une autre fois.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "kael": {
+      "text": "Après la Grande Chute, Kael écrivit tout ce dont il se souvenait du monde perdu. Il fonda la première bibliothèque, à Convergence. Chaque Gardien porte un peu de son carnet. Un jour, tu iras voir sa bibliothèque, toi aussi.",
+      "options": [
+        {
+          "text": "J’aimerais beaucoup.",
+          "next": "accueil"
+        }
+      ]
+    }
+  }
+}

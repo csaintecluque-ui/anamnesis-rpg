@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import { DIALOGUES } from '../data/dialogues';
 import npcData from '../data/npcs.json';
-import { END, applyEffects, opensTrade, performRoll, startNode, startsCombat, visibleOptions, type Dialogue, type OptionView } from '../rules/dialogue';
+import { END, applyEffects, goesTo, opensTrade, performRoll, startNode, startsCombat, visibleOptions, type Dialogue, type OptionView } from '../rules/dialogue';
 import { fontPx, textScale } from '../settings';
 import type { GameState } from '../state/gameState';
 import type { MapScene } from './MapScene';
@@ -175,6 +175,13 @@ export class DialogueScene extends Phaser.Scene {
         this.scene.resume('Map');
         this.scene.stop();
         (this.scene.get('Map') as MapScene).startEncounter(fight);
+        return;
+      }
+      const place = goesTo(view.option.effects);
+      if (place) {
+        this.scene.resume('Map');
+        this.scene.stop();
+        (this.scene.get('Map') as MapScene).goToLocation(place.location, place.arrivee);
         return;
       }
       const roll = view.option.roll;

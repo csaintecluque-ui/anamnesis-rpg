@@ -9,6 +9,8 @@ const quests = read('src/data/quests.json');
 const recits = read('src/data/recits.json');
 const attributes = read('src/data/attributes.json');
 const skills = read('src/data/skills.json');
+const items = read('src/data/items.json');
+const locations = read('src/data/locations.json');
 
 const nameOf = (list, id) => list.find((x) => x.id === id)?.name ?? id;
 
@@ -18,6 +20,7 @@ function condition(c) {
   if ('flag' in c) return `_(si repère « ${c.flag} »)_`;
   if ('notFlag' in c) return `_(sans repère « ${c.notFlag} »)_`;
   if ('recit' in c) return `_(si Récit « ${titleOf(c.recit)} » connu)_`;
+  if ('fers' in c) return `**[${c.fers} Fers]**`;
   const status = { none: 'pas commencée', active: 'en cours', done: 'terminée' }[c.status];
   return `_(si quête « ${nameOf(quests, c.quest)} » ${status})_`;
 }
@@ -26,9 +29,13 @@ function effect(e) {
   if ('setFlag' in e) return `retient « ${e.setFlag} »`;
   if ('startQuest' in e) return `lance la quête « ${nameOf(quests, e.startQuest)} »`;
   if ('completeQuest' in e) return `termine la quête « ${nameOf(quests, e.completeQuest)} »`;
-  if ('giveFers' in e) return `+${e.giveFers} Fers`;
+  if ('giveFers' in e) return `${e.giveFers >= 0 ? '+' : '−'}${Math.abs(e.giveFers)} Fers`;
   if ('learnRecit' in e) return `retient le Récit « ${titleOf(e.learnRecit)} »`;
   if ('openTrade' in e) return 'ouvre le Troc';
+  if ('giveItem' in e) return `donne ${e.count ?? 1} × « ${nameOf(items, e.giveItem)} »`;
+  if ('heal' in e) return `+${e.heal} PV`;
+  if ('startCombat' in e) return `lance le combat « ${e.startCombat} »`;
+  if ('goTo' in e) return `mène à « ${nameOf(locations, e.goTo)} »`;
   return `+${e.giveXp} XP`;
 }
 
@@ -40,7 +47,8 @@ const lines = [
   '# Dialogues — texte à relire',
   '',
   'Document **généré** à partir de `src/data/dialogues/*.json` (`npm run dialogues`) : ne pas le modifier à la main.',
-  'Statut des textes (validé ou à valider) : voir `docs/univers/personnages/pnj.md` et `docs/univers/lieux/gare-engloutie.md`.',
+  'Statut des textes (validé ou à valider) : voir `docs/univers/personnages/pnj.md`, `docs/univers/lieux/gare-engloutie.md`',
+  'et, pour Canopéa et les rencontres en voyage, `docs/univers/lieux/canopee.md` et `docs/gdd/carte-du-monde.md`.',
   '',
   'Légende : **[Perception 4]** = test d’attribut ou de compétence (option visible mais grisée si le seuil manque) ;',
   '_(si …)_ = option qui n’apparaît que dans cette situation ; → = où mène la réponse.',

@@ -1,0 +1,119 @@
+{
+  "id": "veline",
+  "speaker": "veline",
+  "entries": [
+    {
+      "requires": [
+        {
+          "flag": "vol-grenier"
+        },
+        {
+          "notFlag": "veline-vol-dit"
+        }
+      ],
+      "node": "vol"
+    },
+    {
+      "requires": [
+        {
+          "flag": "canopee-accueillie"
+        }
+      ],
+      "node": "retour"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Bienvenue à Canopéa ! Je suis Véline, passeuse de la Grande Nacelle. Ici, rien ne touche le sol, pas même les bavards. Je demande à chaque personne qui monte : qui es-tu ?",
+      "options": [
+        {
+          "text": "Je suis en apprentissage chez les Gardiens de Mémoire, à Gardebois.",
+          "next": "gardien",
+          "effects": [
+            {
+              "setFlag": "canopee-accueillie"
+            }
+          ]
+        },
+        {
+          "text": "Juste quelqu’un qui voyage.",
+          "next": "voyageur",
+          "effects": [
+            {
+              "setFlag": "canopee-accueillie"
+            }
+          ]
+        },
+        {
+          "text": "Comment marche ta nacelle ?",
+          "next": "nacelle"
+        }
+      ]
+    },
+    "gardien": {
+      "text": "Une élève d’Ilyane ? Alors tu es ici chez toi. Va voir Mirelle, au relais du Bois des Aïeux : elle a appris le métier avec Ilyane, il y a bien longtemps. La longue passerelle, à l’est du marché, y mène.",
+      "options": [
+        {
+          "text": "Merci, Véline.",
+          "next": "fin"
+        },
+        {
+          "text": "Et ta nacelle ?",
+          "next": "nacelle"
+        }
+      ]
+    },
+    "voyageur": {
+      "text": "Alors bienvenue, simplement. Un conseil : regarde où tu mets les pieds, et ne laisse rien tomber. Ce qui tombe d’ici, la forêt le garde.",
+      "options": [
+        {
+          "text": "Je ferai attention.",
+          "next": "fin"
+        },
+        {
+          "text": "Et ta nacelle ?",
+          "next": "nacelle"
+        }
+      ]
+    },
+    "nacelle": {
+      "text": "Un contrepoids d’eau, des cordes tressées et mes deux bras ! Pour redescendre en forêt, monte simplement dedans. La petite nacelle du marché, près du grand tronc, grimpe jusqu’aux Hautes Ramures, où siège le Conseil.",
+      "options": [
+        {
+          "text": "Merci.",
+          "next": "fin"
+        }
+      ]
+    },
+    "retour": {
+      "text": "Encore toi ! La nacelle t’attend quand tu veux redescendre. Et si tu te perds, demande au petit Malo : il connaît chaque planche de la ville.",
+      "options": [
+        {
+          "text": "À plus tard, Véline.",
+          "next": "fin"
+        },
+        {
+          "text": "Rappelle-moi le fonctionnement de la nacelle.",
+          "next": "nacelle"
+        }
+      ]
+    },
+    "vol": {
+      "text": "Tu sais la nouvelle ? Quelqu’un a forcé le grenier des semences, là-haut. Voler des graines à Canopéa… c’est voler les arbres de demain. Si tu vois quelque chose, préviens le Conseil.",
+      "options": [
+        {
+          "text": "Je garderai les yeux ouverts.",
+          "next": "fin",
+          "effects": [
+            {
+              "setFlag": "veline-vol-dit"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

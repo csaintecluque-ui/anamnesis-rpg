@@ -8,5 +8,15 @@
     "id": "berceuse-de-maelis",
     "titre": "La berceuse de Maëlis",
     "texte": "« Dors sous la feuille, dors sous le vent, la lanterne veille et le bois t’entend. Si tu t’égares au bout du chemin, suis ma voix : je te tiens la main. » Une chanson de Gardebois, gardée par un Écho quand on l’avait oubliée."
+  },
+  {
+    "id": "voix-ecorce",
+    "titre": "Les voix de l’écorce",
+    "texte": "À Canopéa, quand quelqu’un meurt, sa mémoire passe dans un arbre. Pose la main sur l’écorce et tu entendras peut-être un rire, une berceuse, un nom. Là-haut, on ne dit pas « il est mort » : on dit « il est passé dans l’arbre »."
+  },
+  {
+    "id": "kael-chroniqueur",
+    "titre": "Kael, le Premier Chroniqueur",
+    "texte": "Après la Grande Chute, un homme nommé Kael écrivit tout ce dont il se souvenait du monde perdu : ce furent les Mémoires du Monde Perdu. Il fonda la première bibliothèque, à Convergence. Depuis, d’un grand savant, on dit qu’il a « la mémoire de Kael »."
   }
 ]

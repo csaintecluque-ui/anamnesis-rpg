@@ -723,9 +723,18 @@ export class CombatScene extends Phaser.Scene {
   private onDefeat(): void {
     this.appendLog(`${this.hero().name} est mis hors de combat.`);
     this.state.character!.hp = 1;
+    // On the road (docs/gdd/carte-du-monde.md), travellers find the hero and bring them back to Gardebois.
+    const onTheRoad = this.state.encounter !== null;
+    this.state.encounter = null;
     this.state.location = findLocation('gardebois')!.id;
     this.state.entrance = 'entree';
-    this.closeAfter(true, (hud) => hud.toast('Ilyane te ramène au Marché des Lisières le temps de reprendre des forces.'));
+    this.closeAfter(true, (hud) =>
+      hud.toast(
+        onTheRoad
+          ? 'Des voyageurs te trouvent sur la route et te ramènent à Gardebois, le temps de reprendre des forces.'
+          : 'Ilyane te ramène au Marché des Lisières le temps de reprendre des forces.',
+      ),
+    );
   }
 
   private closeAfter(restart: boolean, onHud: (hud: HudScene) => void): void {

@@ -1,0 +1,61 @@
+{
+  "id": "cache-ruines",
+  "speaker": "cache-ruines",
+  "entries": [
+    {
+      "requires": [
+        {
+          "flag": "rencontre-cache-ouverte"
+        }
+      ],
+      "node": "vide"
+    },
+    {
+      "node": "boite"
+    }
+  ],
+  "nodes": {
+    "boite": {
+      "text": "Sous une dalle fendue, une boîte de fer rouillée. Quelqu’un l’a cachée là… il y a longtemps, ou hier.",
+      "options": [
+        {
+          "text": "L’ouvrir.",
+          "next": "ouverte",
+          "effects": [
+            {
+              "setFlag": "rencontre-cache-ouverte"
+            },
+            {
+              "giveFers": 8
+            },
+            {
+              "giveItem": "bandage"
+            }
+          ]
+        },
+        {
+          "text": "La laisser.",
+          "next": "fin"
+        }
+      ]
+    },
+    "ouverte": {
+      "text": "Quelques Fers et un bandage propre, enveloppés dans un vieux chiffon. Un petit mot dit seulement : « Pour qui en aura besoin. »",
+      "options": [
+        {
+          "text": "Merci, inconnu.",
+          "next": "fin"
+        }
+      ]
+    },
+    "vide": {
+      "text": "La boîte est vide.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

@@ -70,5 +70,20 @@
     "weightKg": 0.3,
     "price": 20,
     "healHp": 20
+  },
+  {
+    "id": "baume-mousse",
+    "name": "Baume de mousse",
+    "description": "Un baume vert et frais de Canopéa. Soigne une blessure.",
+    "weightKg": 0.3,
+    "price": 12,
+    "healHp": 12
+  },
+  {
+    "id": "graines-lumiere",
+    "name": "Graines-lumière",
+    "description": "Un sac de semences de Canopéa, au sceau du Conseil. Elles n’étaient pas à toi.",
+    "weightKg": 1,
+    "price": 30
   }
 ]

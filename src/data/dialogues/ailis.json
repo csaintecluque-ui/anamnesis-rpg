@@ -1,0 +1,74 @@
+{
+  "id": "ailis",
+  "speaker": "ailis",
+  "entries": [
+    {
+      "requires": [
+        {
+          "flag": "voix-anselme"
+        },
+        {
+          "notFlag": "ailis-reconfortee"
+        }
+      ],
+      "node": "voix"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Entre, entre. Tu as croisé mon petit-fils, je parie ? Malo court partout comme un écureuil. Moi, je ne vais plus bien loin : jusqu’au Bois des Aïeux, chaque soir, pour parler à mon Anselme.",
+      "options": [
+        {
+          "text": "Parler à un arbre ?",
+          "next": "arbre"
+        },
+        {
+          "text": "Au revoir, Aïlis.",
+          "next": "fin"
+        }
+      ]
+    },
+    "arbre": {
+      "text": "Quand Anselme est parti, sa mémoire est passée dans un jeune arbre du Bois. Je lui raconte ma journée. Parfois, l’écorce est tiède sous ma main. Les savants disent que c’est le soleil. Moi, je sais que c’est lui.",
+      "options": [
+        {
+          "text": "Merci de me l’avoir raconté.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "voix": {
+      "text": "Tu reviens du Bois ? Tes yeux brillent…",
+      "options": [
+        {
+          "text": "J’ai entendu une voix, dans l’arbre d’Anselme. Quelqu’un fredonnait.",
+          "next": "reconfort",
+          "effects": [
+            {
+              "setFlag": "ailis-reconfortee"
+            },
+            {
+              "giveXp": 15
+            }
+          ]
+        },
+        {
+          "text": "Ce n’est rien.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "reconfort": {
+      "text": "Aïlis pose sa main sur la tienne. — La chanson des cerfs-lucioles ? Oh… Alors il est bien là. Merci. Tu viens de me rendre un petit morceau de lui.",
+      "options": [
+        {
+          "text": "Il veille sur vous deux.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

@@ -8,6 +8,10 @@ export interface LocationDef {
   map: string;
   /** Map object where a new game (or a migrated save) starts. */
   entrance: string;
+  /** The world-map place it belongs to (src/data/world.json): leaving it opens the world map there. */
+  place?: string;
+  /** A random encounter's map (docs/gdd/carte-du-monde.md): its content comes from the current encounter. */
+  encounter?: boolean;
 }
 
 export const LOCATIONS = locationData as LocationDef[];
@@ -23,6 +27,8 @@ export interface GameState {
   /** Story facts learned or decided (e.g. "laissez-passer"), set by dialogues. */
   flags: Record<string, true>;
   quests: Record<string, QuestStatus>;
+  /** The random encounter under way (src/rules/world.ts), null the rest of the time. */
+  encounter: { id: string; x: number; y: number; destination: string | null } | null;
 }
 
 export type QuestStatus = 'active' | 'done';
@@ -37,6 +43,7 @@ export function createNewGame(character: Character | null = null): GameState {
     playTimeSeconds: 0,
     flags: {},
     quests: {},
+    encounter: null,
   };
 }
 

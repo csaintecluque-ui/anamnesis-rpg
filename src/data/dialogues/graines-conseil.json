@@ -1,0 +1,58 @@
+{
+  "id": "graines-conseil",
+  "speaker": "graines-conseil",
+  "entries": [
+    {
+      "requires": [
+        {
+          "flag": "vol-grenier"
+        }
+      ],
+      "node": "vide"
+    },
+    {
+      "node": "sacs"
+    }
+  ],
+  "nodes": {
+    "sacs": {
+      "text": "Des sacs de graines-lumière, alignés comme des soldats. Chacun porte le sceau du Conseil : ce sont les semences des futurs arbres de Canopéa.",
+      "options": [
+        {
+          "text": "Prendre un sac.",
+          "next": "pris",
+          "effects": [
+            {
+              "giveItem": "graines-lumiere"
+            },
+            {
+              "setFlag": "vol-grenier"
+            }
+          ]
+        },
+        {
+          "text": "Les laisser où ils sont.",
+          "next": "fin"
+        }
+      ]
+    },
+    "pris": {
+      "text": "Tu glisses un sac dans ta besace. Il est léger… bien plus léger que ta conscience.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "vide": {
+      "text": "Il manque un sac dans la rangée. Le trou se voit.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

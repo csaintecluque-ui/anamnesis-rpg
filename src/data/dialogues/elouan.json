@@ -1,0 +1,46 @@
+{
+  "id": "elouan",
+  "speaker": "elouan",
+  "entries": [
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Chut… écoute. Ce bois-là chante quand le vent passe dedans. Je suis Elouan, luthier. Je ne taille que les branches tombées : à Canopéa, on ne coupe pas un arbre qui vit.",
+      "options": [
+        {
+          "text": "Tu peux jouer quelque chose ?",
+          "next": "musique"
+        },
+        {
+          "text": "Pourquoi ne pas couper les arbres ?",
+          "next": "arbres"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "musique": {
+      "text": "Elouan porte une flûte à ses lèvres. La mélodie monte, légère, et quelque part dans les branches, un oiseau lui répond. — Tu vois ? Le bois se souvient du vent.",
+      "options": [
+        {
+          "text": "C’était magnifique.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "arbres": {
+      "text": "Parce qu’ils portent nos aïeux, pardi ! Couper un arbre, ici, c’est un peu comme brûler une bibliothèque. Les gens de Ferros ont du mal à le comprendre.",
+      "options": [
+        {
+          "text": "Je comprends.",
+          "next": "accueil"
+        }
+      ]
+    }
+  }
+}

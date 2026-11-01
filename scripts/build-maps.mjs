@@ -265,6 +265,8 @@ function gardebois() {
   }
 
   m.object('entree', 'arrivee', 1, 4);
+  // Carte du monde (docs/gdd/carte-du-monde.md) : la route de l'ouest quitte Gardebois.
+  m.object('vers-monde', 'sortie', 0, 4, { cible: CARTE_DU_MONDE, libelle: 'Quitter Gardebois' });
   m.object('vers-gare', 'sortie', 27, 18, { cible: 'gare-engloutie', arrivee: 'entree-gare', libelle: 'Vers la Gare Engloutie' });
   m.object('ilyane', 'pnj', 5, 15);
   m.object('tobias', 'pnj', 14, 8);
@@ -331,6 +333,9 @@ function gareEngloutie() {
   return m.toTiled();
 }
 
+/** Target of an exit or a door that opens the world map instead of another place (docs/gdd/carte-du-monde.md). */
+const CARTE_DU_MONDE = 'carte-du-monde';
+
 // --- Intérieurs de Gardebois (jalon 2, docs/univers/lieux/gardebois.md) -------------------------------
 // A room of w × h floor cells; walls on its two back sides (row 0, column 0), open in front like a cut-away; the
 // doormat in the middle of the front edge leads back outside, in front of the house's door.
@@ -341,7 +346,7 @@ const LOCATION_NAMES = {
   'reserve-cendrefer': 'Réserve de l’étal Cendrefer',
 };
 
-function interior(id, { w = 7, h = 6, furniture = [], objects = [] }) {
+function interior(id, { w = 7, h = 6, outside = 'gardebois', furniture = [], objects = [] }) {
   const m = new MapBuilder(w + 1, h + 1);
   m.ground.fill(0);
   for (let row = 0; row <= h; row++) {
@@ -355,7 +360,7 @@ function interior(id, { w = 7, h = 6, furniture = [], objects = [] }) {
   const door = Math.ceil(w / 2);
   m.setGround(door, h, 'seuil');
   for (const [c, r, name] of furniture) m.setObstacle(c, r, name);
-  m.object('sortie', 'sortie', door, h, { cible: 'gardebois', arrivee: `devant-${id}`, libelle: 'Sortir' });
+  m.object('sortie', 'sortie', door, h, { cible: outside, arrivee: `devant-${id}`, libelle: 'Sortir' });
   m.object('entree', 'arrivee', door, h - 1);
   for (const [name, type, c, r, props] of objects) m.object(name, type, c, r, props ?? {});
   return m.toTiled();
@@ -380,11 +385,250 @@ const INTERIORS = {
   }),
 };
 
+// --- Canopéa, la cité des cimes (docs/univers/lieux/villes.md, validé ; visuels provisoires) ------------------
+// Rien ne touche le sol : des plates-formes rondes autour des Arbres-Titans, reliées par des passerelles, au-dessus
+// d'une mer de feuillage infranchissable. On passe d'un quartier à l'autre en nacelle ou par une longue passerelle.
+
+/** A city in the canopy: leaves everywhere below, nothing walkable until platforms and bridges are laid. */
+function canopy(width, height) {
+  const m = new MapBuilder(width, height);
+  m.ground.fill(gid('feuillage'));
+  return m;
+}
+
+/** A round platform of radius r around (cc, cr). */
+function platform(m, cc, cr, r) {
+  for (let row = cr - r; row <= cr + r; row++) {
+    for (let col = cc - r; col <= cc + r; col++) {
+      if ((col - cc) ** 2 + (row - cr) ** 2 <= r * r + r - 1) m.setGround(col, row, 'plateforme');
+    }
+  }
+}
+
+/** A straight bridge along a row (planks drawn along the columns) or along a column. */
+function bridge(m, [c0, r0], [c1, r1]) {
+  if (r0 === r1) for (let col = Math.min(c0, c1); col <= Math.max(c0, c1); col++) m.setGround(col, r0, 'passerelle-c');
+  else for (let row = Math.min(r0, r1); row <= Math.max(r0, r1); row++) m.setGround(c0, row, 'passerelle-r');
+}
+
+function titan(m, col, row) {
+  for (const [c, r] of [[col, row], [col + 1, row], [col, row + 1], [col + 1, row + 1]]) m.setObstacle(c, r, 'tronc-titan');
+}
+
+/** A house one can enter: its tile, a door on it and the arrival cell in front of it. */
+function house(m, id, tile, [col, row], [fc, fr], extra = {}) {
+  m.setObstacle(col, row, tile);
+  m.object(`porte-${id}`, 'porte', col, row, { cible: id, arrivee: 'entree', libelle: LOCATION_NAMES[id], ...extra });
+  m.object(`devant-${id}`, 'arrivee', fc, fr);
+}
+
+// Quartier 1 : la Grande Nacelle (arrivée depuis la forêt, marché suspendu).
+function canopeeNacelle() {
+  const m = canopy(26, 22);
+  platform(m, 4, 14, 3); // le débarcadère de la Grande Nacelle
+  bridge(m, [8, 14], [9, 14]);
+  platform(m, 15, 12, 5); // le marché suspendu
+  bridge(m, [21, 12], [25, 12]); // la longue passerelle vers le Bois des Aïeux
+  titan(m, 15, 11);
+
+  m.setObstacle(1, 14, 'nacelle');
+  m.object('grande-nacelle', 'porte', 1, 14, { cible: CARTE_DU_MONDE, libelle: 'Redescendre en forêt' });
+  m.setObstacle(15, 8, 'nacelle');
+  m.object('nacelle-ramures', 'porte', 15, 8, { cible: 'canopee-ramures', arrivee: 'nacelle-arrivee', libelle: 'Nacelle vers les Hautes Ramures' });
+  m.object('devant-nacelle-ramures', 'arrivee', 16, 9);
+  house(m, 'canopee-auberge', 'maison-cosse', [19, 9], [19, 10]);
+  house(m, 'canopee-comptoir', 'maison-cosse', [12, 16], [13, 16]);
+  for (const [c, r] of [[12, 10], [18, 14], [17, 16]]) m.setObstacle(c, r, 'etal');
+  for (const [c, r] of [[10, 12], [20, 11], [14, 17], [6, 12]]) m.setObstacle(c, r, 'lanterne-verte');
+  m.setObstacle(6, 16, 'panneau');
+
+  m.object('entree', 'arrivee', 3, 14);
+  m.object('depuis-aieux', 'arrivee', 24, 12);
+  m.object('vers-aieux', 'sortie', 25, 12, { cible: 'canopee-aieux', arrivee: 'depuis-marche', libelle: 'Passerelle vers le Bois des Aïeux' });
+  m.object('veline', 'pnj', 4, 12);
+  m.object('malo', 'pnj', 13, 9);
+  m.object('panneau-canopee', 'panneau', 6, 16, { texte: 'Canopéa — la Grande Nacelle. Ici, rien ne touche le sol.' });
+  return m.toTiled();
+}
+
+// Quartier 2 : les Hautes Ramures (Conseil, demeures, ateliers, grenier).
+function canopeeRamures() {
+  const m = canopy(26, 20);
+  platform(m, 10, 10, 6);
+  bridge(m, [17, 8], [18, 8]);
+  platform(m, 21, 8, 2); // la plate-forme du grenier
+  titan(m, 10, 9);
+
+  m.setObstacle(4, 10, 'nacelle');
+  m.object('nacelle-marche', 'porte', 4, 10, { cible: 'canopee-nacelle', arrivee: 'devant-nacelle-ramures', libelle: 'Nacelle vers le marché' });
+  m.object('nacelle-arrivee', 'arrivee', 5, 10);
+  house(m, 'canopee-conseil', 'salle-conseil', [10, 5], [11, 6]);
+  house(m, 'canopee-feuillevent', 'maison-cosse', [6, 14], [7, 14]);
+  house(m, 'canopee-atelier', 'maison-cosse', [15, 13], [15, 14]);
+  // Lieu fermé à clé (docs/gdd/villes.md) : on crochète la serrure avant d'entrer.
+  house(m, 'canopee-grenier', 'grenier', [22, 8], [21, 9], { verrou: 'grenier-deverrouille', dialogue: 'porte-grenier' });
+  for (const [c, r] of [[7, 7], [14, 7], [13, 16], [5, 12]]) m.setObstacle(c, r, 'lanterne-verte');
+  m.setObstacle(6, 8, 'panneau');
+  m.object('panneau-ramures', 'panneau', 6, 8, { texte: 'Les Hautes Ramures — ici siège le Conseil des Racines Profondes.' });
+  return m.toTiled();
+}
+
+// Quartier 3 : le Bois des Aïeux (Arbres-Souvenirs, relais des Gardiens de Mémoire).
+function canopeeAieux() {
+  const m = canopy(24, 20);
+  bridge(m, [0, 10], [5, 10]);
+  platform(m, 12, 10, 6);
+  titan(m, 12, 9); // le grand arbre du sanctuaire de la Sève Éternelle
+  for (const [c, r] of [[8, 6], [12, 5], [16, 6], [17, 10], [16, 14], [14, 16], [8, 14]]) m.setObstacle(c, r, 'arbre-souvenir');
+  m.object('arbre-ancien', 'objet', 16, 6);
+  m.object('arbre-anselme', 'objet', 8, 14);
+  house(m, 'canopee-relais', 'maison-cosse', [10, 13], [11, 14]);
+  for (const [c, r] of [[10, 8], [15, 8], [14, 12]]) m.setObstacle(c, r, 'lanterne-verte');
+  m.setObstacle(7, 11, 'panneau');
+  m.object('panneau-aieux', 'panneau', 7, 11, { texte: 'Le Bois des Aïeux. Ici, les arbres se souviennent : parle bas.' });
+  m.object('vers-marche', 'sortie', 0, 10, { cible: 'canopee-nacelle', arrivee: 'depuis-aieux', libelle: 'Passerelle vers le marché' });
+  m.object('depuis-marche', 'arrivee', 1, 10);
+  return m.toTiled();
+}
+
+Object.assign(LOCATION_NAMES, {
+  'canopee-auberge': 'Auberge du Nid',
+  'canopee-comptoir': 'Comptoir de la Sève',
+  'canopee-conseil': 'Salle du Conseil des Racines Profondes',
+  'canopee-feuillevent': 'Maison Feuillevent',
+  'canopee-atelier': 'Atelier Chante-Bois',
+  'canopee-grenier': 'Grenier des semences',
+  'canopee-relais': 'Relais des Gardiens de Mémoire',
+});
+
+// Pas de feu dans une ville de bois : des cristaux chauffent les pièces (cristal-veille).
+Object.assign(INTERIORS, {
+  'canopee-auberge': interior('canopee-auberge', {
+    outside: 'canopee-nacelle',
+    furniture: [[1, 2, 'hamac'], [1, 4, 'hamac'], [6, 1, 'cristal-veille'], [3, 3, 'comptoir'], [4, 3, 'comptoir'], [6, 4, 'table']],
+    objects: [['lisandre', 'pnj', 4, 2]],
+  }),
+  'canopee-comptoir': interior('canopee-comptoir', {
+    outside: 'canopee-nacelle',
+    furniture: [[2, 1, 'etagere'], [3, 1, 'etagere'], [5, 1, 'etagere'], [3, 3, 'comptoir'], [4, 3, 'comptoir'], [1, 4, 'sacs-graines'], [6, 4, 'table']],
+    objects: [['sevane', 'pnj', 4, 2]],
+  }),
+  'canopee-conseil': interior('canopee-conseil', {
+    w: 9,
+    h: 7,
+    outside: 'canopee-ramures',
+    furniture: [[3, 3, 'table'], [4, 3, 'table'], [5, 3, 'table'], [6, 3, 'table'], [1, 1, 'cristal-veille'], [8, 1, 'cristal-veille'], [4, 1, 'etagere']],
+    objects: [['huissier', 'pnj', 3, 5]],
+  }),
+  'canopee-feuillevent': interior('canopee-feuillevent', {
+    outside: 'canopee-ramures',
+    furniture: [[1, 2, 'hamac'], [5, 4, 'table'], [6, 1, 'etagere'], [3, 1, 'cristal-veille']],
+    objects: [['ailis', 'pnj', 3, 3]],
+  }),
+  'canopee-atelier': interior('canopee-atelier', {
+    outside: 'canopee-ramures',
+    furniture: [[2, 1, 'etabli'], [3, 1, 'etabli'], [6, 1, 'etagere'], [5, 4, 'table']],
+    objects: [['elouan', 'pnj', 3, 3]],
+  }),
+  'canopee-grenier': interior('canopee-grenier', {
+    outside: 'canopee-ramures',
+    furniture: [[1, 1, 'sacs-graines'], [2, 1, 'sacs-graines'], [1, 2, 'sacs-graines'], [5, 1, 'sacs-graines'], [6, 1, 'sacs-graines'], [6, 2, 'caisses']],
+    objects: [['graines-conseil', 'objet', 2, 1]],
+  }),
+  'canopee-relais': interior('canopee-relais', {
+    outside: 'canopee-aieux',
+    furniture: [[2, 1, 'etagere'], [3, 1, 'etagere'], [5, 1, 'etagere'], [6, 1, 'cristal-veille'], [1, 4, 'hamac'], [5, 4, 'table']],
+    objects: [['mirelle', 'pnj', 3, 3]],
+  }),
+});
+
+// --- Lieux de rencontre aléatoire (docs/gdd/carte-du-monde.md) ---------------------------------------------
+// Petites cartes où l'on tombe en voyage, comme les rencontres de la carte du monde des CRPG de référence. Leur
+// contenu (ennemis, PNJ, objets) vient de src/data/rencontres.json et se pose sur les points d'apparition.
+// Ennemis à quelques pas de l'entrée : le combat se joue sur un morceau de 11 × 9 cases (docs/gdd/combat.md).
+const SPAWNS = {
+  'apparition-1': [9, 6],
+  'apparition-2': [10, 9],
+  'apparition-3': [8, 11],
+  'pnj-1': [11, 7],
+  'objet-1': [12, 9],
+  'decor-1': [12, 6],
+};
+
+function encounterMap(seed, { ground, treeShare, layout }) {
+  const m = new MapBuilder(20, 16);
+  const rng = mulberry32(seed);
+  for (let col = 0; col < m.width; col++) {
+    m.setObstacle(col, 0, 'arbre');
+    m.setObstacle(col, m.height - 1, 'arbre');
+  }
+  for (let row = 0; row < m.height; row++) {
+    m.setObstacle(0, row, 'arbre');
+    m.setObstacle(m.width - 1, row, 'arbre');
+  }
+  m.line([0, 8], [19, 8], ground);
+  layout(m, rng);
+  const keepClear = new Set([[3, 8], [0, 8], [19, 8], ...Object.values(SPAWNS)].flatMap(([c, r]) =>
+    [-1, 0, 1].flatMap((dc) => [-1, 0, 1].map((dr) => `${c + dc},${r + dr}`)),
+  ));
+  for (let row = 1; row < m.height - 1; row++) {
+    for (let col = 1; col < m.width - 1; col++) {
+      if (m.groundAt(col, row) !== gid('herbe') || m.obstacleAt(col, row) !== 0 || keepClear.has(`${col},${row}`)) continue;
+      const roll = rng();
+      if (roll < treeShare) m.setObstacle(col, row, 'arbre');
+      else groundVariety(m, col, row, (roll - treeShare) / (1 - treeShare), { flowers: true });
+    }
+  }
+  m.object('entree', 'arrivee', 3, 8);
+  m.object('sortie-ouest', 'sortie', 0, 8, { cible: CARTE_DU_MONDE, libelle: 'Reprendre la route' });
+  m.object('sortie-est', 'sortie', 19, 8, { cible: CARTE_DU_MONDE, libelle: 'Reprendre la route' });
+  for (const [name, [c, r]] of Object.entries(SPAWNS)) m.object(name, 'apparition', c, r);
+  return m.toTiled();
+}
+
+const ENCOUNTER_MAPS = {
+  'rencontre-clairiere': encounterMap(5100, {
+    ground: 'herbe-2',
+    treeShare: 0.16,
+    layout: (m) => {
+      for (const [c, r] of [[6, 4], [16, 12], [7, 12]]) m.setObstacle(c, r, 'rocher');
+    },
+  }),
+  'rencontre-route': encounterMap(5200, {
+    ground: 'chemin',
+    treeShare: 0.1,
+    layout: (m) => {
+      m.line([0, 9], [19, 9], 'chemin');
+      m.setObstacle(7, 11, 'charrette');
+      for (const [c, r] of [[15, 4], [5, 5], [16, 12]]) m.setObstacle(c, r, 'rocher');
+    },
+  }),
+  'rencontre-ruines': encounterMap(5300, {
+    ground: 'chemin',
+    treeShare: 0.08,
+    layout: (m) => {
+      m.rect(6, 3, 16, 5, 'quai');
+      m.rect(5, 11, 15, 13, 'quai');
+      m.line([4, 4], [17, 4], 'rail');
+      for (const [c, r] of [[6, 3], [9, 3], [16, 4], [6, 12], [10, 13], [15, 11], [17, 6]]) m.setObstacle(c, r, 'ruine');
+    },
+  }),
+};
+
 const out = new URL('../src/data/maps/', import.meta.url);
 writeFileSync(new URL('gardebois.json', out), JSON.stringify(gardebois(), null, 1) + '\n');
 console.log('gardebois.json');
 writeFileSync(new URL('gare-engloutie.json', out), JSON.stringify(gareEngloutie(), null, 1) + '\n');
 console.log('gare-engloutie.json');
+for (const [id, map] of Object.entries({
+  'canopee-nacelle': canopeeNacelle(),
+  'canopee-ramures': canopeeRamures(),
+  'canopee-aieux': canopeeAieux(),
+  ...ENCOUNTER_MAPS,
+})) {
+  writeFileSync(new URL(`${id}.json`, out), JSON.stringify(map, null, 1) + '\n');
+  console.log(`${id}.json`);
+}
 for (const [id, map] of Object.entries(INTERIORS)) {
   writeFileSync(new URL(`${id}.json`, out), JSON.stringify(map, null, 1) + '\n');
   console.log(`${id}.json`);

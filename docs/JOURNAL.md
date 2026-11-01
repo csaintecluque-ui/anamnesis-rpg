@@ -88,12 +88,27 @@
   - Pages a été activé en mode « workflow ».
   - Vérifié en ligne : écran titre et terrain d'essai, aucune erreur, toutes les ressources en 200.
 
+- PWA installable et jouable hors ligne :
+  - `vite-plugin-pwa` 2.0.0 génère le manifeste et un service worker Workbox qui met tout le jeu en cache ;
+    il se met à jour tout seul à chaque nouvelle version.
+  - Icônes générées depuis `logo-seal.svg` par `npm run icons` (`scripts/generate-icons.mjs`, via `@resvg/resvg-js`),
+    sans toucher au dessin du sceau :
+    - 192 et 512 px : tuile encre arrondie (rx 22/100), sceau au centre, conformément à `CLAUDE.md` ;
+    - apple-touch-icon 180 px et icône « maskable » 512 px : tuile carrée, car iOS et Android arrondissent eux-mêmes
+      (des coins transparents apparaîtraient en noir sur iOS).
+  - Balises iOS : écran plein, barre d'état translucide, titre « Anamnesis ».
+  - Vérifié sur le build local : service worker actif, 10 fichiers en cache. Avec le serveur **arrêté**,
+    l'écran titre et le terrain d'essai se chargent et fonctionnent.
+- `npm audit` signale des vulnérabilités modérées dans des dépendances de workbox-build (glob, minimatch,
+  deepmerge, ejs). Ce sont des outils de **construction seulement**, rien n'est livré aux joueurs.
+  La « correction » proposée rétrograderait vite-plugin-pwa en 1.1, peut-être incompatible avec Vite 8 :
+  non appliquée, à revoir à la prochaine version de workbox.
+
 ### Reste à faire (jalon 1, dans l'ordre proposé)
 
-1. PWA : manifeste, icônes (sceau sur tuile encre), service worker hors ligne.
-2. Sauvegarde locale à plusieurs emplacements, avec export et import.
-3. Création de personnage (attributs, compétences, don).
-4. Cartes Tiled (Gardebois, Gare Engloutie), PNJ, dialogues, quête, combat, inventaire, troc, montée de niveau.
+1. Sauvegarde locale à plusieurs emplacements, avec export et import.
+2. Création de personnage (attributs, compétences, don).
+3. Cartes Tiled (Gardebois, Gare Engloutie), PNJ, dialogues, quête, combat, inventaire, troc, montée de niveau.
 
 ### Points ouverts
 

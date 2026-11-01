@@ -435,11 +435,55 @@ Décision de Cyril : le jeu doit être jouable sur PC, « voire surtout » ; l'i
   tablette tactile, rien ne change. Vérifié en 1920 × 1080 (bandeau de 78 px au lieu de 150, boutons cliquables)
   et en émulation téléphone.
 
-### Reste à faire
+## État du projet — fin de journée, 2026-11-01
 
-Validation de Cyril sur PC et sur iPhone (jalon 1). Pistes ensuite :
+Cette section remplace les listes « Reste à faire » des sessions précédentes, qui ne sont plus à jour. Dernier
+commit : `bc127e3`. 158 tests, typecheck et build au vert ; publié sur https://csaintecluque-ui.github.io/anamnesis-rpg/
 
-1. Raccorder les armes équipées au combat.
-2. Couverture dérivée du terrain ; fuite liée à une position ; arène tirée de la carte explorée.
-3. Catalogues de troc propres à chaque marchand.
-4. Points en suspens : coquille du logo, chronologie du canon.
+### Jalon 1 (`CLAUDE.md` §4) : les huit points sont faits
+
+| Point | État | Retour de Cyril |
+|---|---|---|
+| 1. Titre, menu pause, options, sauvegarde/chargement | fait | sauvegarde, export et import validés sur iPhone ; menu et options testés sur PC |
+| 2. Création de personnage | fait | validée sur iPhone |
+| 3. Hub + extérieur | Gardebois et la Gare Engloutie | aménagement de Gardebois validé ; Gare à valider |
+| 4. 3 PNJ, dialogues avec tests d'attribut et de compétence | Ilyane, Tobias, Ingrid Brisefer | Ilyane et Tobias validés ; Ingrid à valider |
+| 5. Quête à plusieurs résolutions | 3 sur les 4 prévues au GDD §6 : parole, Récit (piste mémoire), combat | **la discrétion n'est pas faite** |
+| 6. Combat contre 2 ou 3 ennemis | Golem de Ferraille et 2 Rôdeurs-Épine | — |
+| 7. Inventaire, troc, montée de niveau | faits | — |
+| 8. PWA installable sur GitHub Pages | faite | installation validée sur iPhone |
+| En plus : jouable sur PC | image nette, clavier, plein écran, HUD fin | « ça fonctionne très bien » ; bandeau trop gros, corrigé |
+
+Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
+
+### Ce qui attend la validation de Cyril
+
+- **Contenus** (`LORE.md` §11, « Gare Engloutie — contenu détaillé ») : aménagement de la Gare, scène de l'Écho,
+  dialogue d'Ingrid Brisefer, nœud « resolu » d'Ilyane (soupçon sur les Réveilleurs), Rôdeurs-Épine et Golem,
+  caisse de prospection, récompense de 30 Fers.
+- **Chiffres** (premier jet d'équilibrage) : armes et ennemis (`GDD.md` §5), objets et prix, 15 Fers au départ,
+  Fers gagnés (§10), seuils d'expérience (§11).
+- **Choix de conception** : combat dans une arène dédiée plutôt que sur la carte ; armes équipées sans effet en
+  combat pour l'instant ; même catalogue pour tous les marchands ; montée de niveau sans point d'attribut.
+- **À essayer** : le plein écran sur un vrai PC (impossible à vérifier dans la fenêtre de test) ; la dernière
+  version sur iPhone (HUD, menu pause, options, netteté), jamais testée sur l'appareil depuis ces changements.
+
+### Points ouverts
+
+- Résolution de la quête par la **discrétion** (entrer de nuit, saboter la foreuse : GDD §6) : pas commencée.
+- En combat, les noms des combattants se chevauchent quand ils sont côte à côte.
+- Sur PC, seuls le HUD et les raccourcis ont été adaptés : menu pause, inventaire et combat gardent des boutons au
+  format du doigt.
+- Coquille dans `assets/brand/logo-small.svg` (trait parasite) : non corrigée, accord de Cyril requis.
+- Chronologie du canon non arbitrée (`LORE.md` §10, points 6 à 13).
+- Vulnérabilités modérées signalées par `npm audit` dans les outils de construction de la PWA (session 1) :
+  rien n'est livré aux joueurs, à revoir à la prochaine version de workbox.
+
+### Pistes pour la suite, après validation
+
+1. Résolution par la discrétion, pour compléter les quatre voies du GDD §6.
+2. Raccorder les armes équipées au combat.
+3. Couverture tirée du terrain ; fuite liée à une position ; arène tirée de la carte explorée.
+4. Catalogues de troc propres à chaque marchand.
+5. Phase 2 (visuels générés via Higgsfield) : plan, nombre d'images et coût à présenter avant toute génération
+   (`CLAUDE.md` §5).

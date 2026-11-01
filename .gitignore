@@ -7,3 +7,7 @@ playwright-report/
 .DS_Store
 .env
 .env.*
+
+# Lore canonique de Cyril : local uniquement, jamais publié
+docs/Lore/
+docs/Carte Anamnesis.png

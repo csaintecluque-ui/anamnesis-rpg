@@ -17,6 +17,8 @@ Il valide le lore, les noms, l'histoire et le ressenti de jeu. Toi, tu proposes 
 - **`docs/Lore/` fait foi.** C'est le lore canonique d'Anamnesis, fourni par Cyril. On ne le contredit jamais,
   ni dans le jeu, ni dans les documents, ni dans les propositions. On ne le modifie pas sans son accord.
   `docs/LORE.md` n'en est qu'une synthèse : en cas d'écart, `docs/Lore/` l'emporte.
+  `docs/Lore/` et `docs/Carte Anamnesis.png` restent **en local** : ils sont exclus du dépôt public
+  (`.gitignore`) et ne doivent jamais être publiés.
   Quand le canon se contredit lui-même, ne tranche pas seul : consigne le point dans `docs/LORE.md`
   (« zones floues ») et demande à Cyril.
 - **Ne jamais inventer de canon.** Tout élément de lore que tu crées (lieu, faction, personnage, nom)

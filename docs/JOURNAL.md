@@ -150,3 +150,10 @@
 - Pas encore vérifié sur iPhone : l'export par « Enregistrer dans Fichiers » et l'import depuis Fichiers.
 - Bug évité grâce au typage : une méthode `load` de la scène masquait le chargeur interne de Phaser ;
   elle s'appelle désormais `loadSave`.
+- Mises à jour de la PWA : le nouveau service worker prenait le contrôle, mais la page gardait l'ancien code jusqu'à
+  l'ouverture suivante. Désormais, la page se recharge d'elle-même quand une mise à jour s'installe, **seulement
+  sur l'écran titre** : en pleine partie, on ne recharge jamais, pour ne rien perdre.
+  Vérifié en ligne : une seule ouverture suffit pour arriver sur la dernière version.
+- La version (`v0.1.0 · commit`) s'affiche en bas à gauche de l'écran titre, pour savoir ce qui tourne sur un appareil.
+- TypeScript séparé en deux configurations : `tsconfig.json` (jeu, navigateur) et `tsconfig.node.json`
+  (outils de construction, avec `@types/node`).

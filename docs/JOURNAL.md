@@ -15,10 +15,9 @@
 
 ## Prochaine étape
 
-1. Fiche de style (`docs/STYLE.md`) et plan de 34 images (`docs/ASSETS.md`) : environ 51 crédits sur 110, pilote
-   6 crédits. **Feu vert de Cyril pour le pilote** ; le CLI est refusé (compte en essai : MCP seulement).
-   Connecteur MCP ajouté par Cyril le 2026-11-01 : **lancer le pilote via les outils MCP Higgsfield** (prompts prêts
-   dans `docs/ASSETS.md`).
+1. **Pilote généré** le 2026-11-01 via le MCP Higgsfield (3 crédits, reste 107) ; bilan dans `docs/ASSETS.md`.
+   Héros et Ilyane réussis ; arbre correct (socle à retirer) ; herbe à refaire (diorama au lieu d'un sol nu).
+   **En attente de l'avis de Cyril** sur le style et les retouches, avant de relancer quoi que ce soit.
 2. Après les visuels : proposer le périmètre du jalon 2 (contenu).
 
 ## Points ouverts

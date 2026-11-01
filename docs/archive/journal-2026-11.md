@@ -567,3 +567,8 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
 - Cyril branche Higgsfield en MCP (connecteur ; le serveur ajouté par `claude mcp add --scope user` attend encore son
   authentification). La session en cours ne voit pas les outils : le pilote se lancera dans une nouvelle session.
   Prompts exacts du pilote recopiés dans `docs/ASSETS.md`.
+- La session voit enfin le MCP Higgsfield (après `/mcp`). Pilote lancé : 4 images GPT Image 2.5 en un lot, 3 crédits
+  (107 restants). Fond transparent propre. Réduction à la taille du jeu et comparaison avec les visuels provisoires
+  (script jetable, images dans `assets/raw/pilote/reduit/`, local). Héros et portrait d'Ilyane réussis, arbre
+  correct (socle de terre à retirer), herbe ratée (diorama). Piste pour les sols : texture vue de dessus projetée
+  en losange par script. Bilan dans `docs/ASSETS.md` ; avis de Cyril attendu.

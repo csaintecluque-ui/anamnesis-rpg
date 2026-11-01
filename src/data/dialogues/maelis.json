@@ -1,0 +1,95 @@
+{
+  "id": "maelis",
+  "speaker": "maelis",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "berceuse",
+          "status": "done"
+        }
+      ],
+      "node": "apres"
+    },
+    {
+      "requires": [
+        {
+          "quest": "berceuse",
+          "status": "active"
+        },
+        {
+          "flag": "berceuse-recueillie"
+        }
+      ],
+      "node": "retour"
+    },
+    {
+      "requires": [
+        {
+          "quest": "berceuse",
+          "status": "active"
+        }
+      ],
+      "node": "attente"
+    },
+    {
+      "node": "demande"
+    }
+  ],
+  "nodes": {
+    "demande": {
+      "text": "Tu es l’apprenti·e d’Ilyane ? Ma fille, Nell… depuis trois nuits, elle ne reconnaît plus la berceuse que je lui chante. Elle m’écoute comme on écoute une étrangère.",
+      "options": [
+        {
+          "text": "Je vais t’aider. Que puis-je faire ?",
+          "next": "piste",
+          "effects": [
+            {
+              "startQuest": "berceuse"
+            }
+          ]
+        },
+        {
+          "text": "Je suis désolé·e. Je dois partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "piste": {
+      "text": "Ilyane dit que les souvenirs perdus laissent parfois un Écho. Hier soir, au pied de l’Arbre-Titan, j’ai cru entendre ma propre voix… Si tu pouvais rapporter la berceuse à Nell…",
+      "options": [
+        {
+          "text": "J’y vais.",
+          "next": "fin"
+        }
+      ]
+    },
+    "attente": {
+      "text": "Tu es allé·e au pied de l’Arbre-Titan ? On dit que l’Écho ne chante que pour ceux qui savent écouter.",
+      "options": [
+        {
+          "text": "Pas encore. J’y retourne.",
+          "next": "fin"
+        }
+      ]
+    },
+    "retour": {
+      "text": "Tu as entendu l’Écho, je le vois à ton regard. Va voir Nell, je t’en prie. Chante-lui ce que tu as retenu.",
+      "options": [
+        {
+          "text": "J’y vais.",
+          "next": "fin"
+        }
+      ]
+    },
+    "apres": {
+      "text": "Elle s’est endormie en chantonnant. Merci. Gardebois n’oubliera pas ce que tu as fait pour nous.",
+      "options": [
+        {
+          "text": "Prends soin d’elle.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

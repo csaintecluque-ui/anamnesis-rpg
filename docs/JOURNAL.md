@@ -11,16 +11,14 @@
 
 - Né du retour de Cyril sur la phase 2 : personnages trop gros et figés, répétitivité, maisons à visiter, PNJ et
   quêtes, création avec avatars. Avant toute génération : plan, coût, feu vert de Cyril (`CLAUDE.md` §5).
-- Fait et en ligne : corrections visuelles (grand Arbre-Titan, personnages à 54 px, sol du marché, variantes) ;
-  animation de marche en 2D, méthode retenue par Cyril (`docs/gdd/animation.md`) ; 6 avatars au choix à la création,
-  animés sur la carte (sauvegarde v8). Puis (pas encore poussé) : vrai pont, lanterne qui cachait Ilyane, combat
-  lisible sur grille (`docs/gdd/combat.md`, « Lisibilité »). 48,5 crédits dépensés sur le jalon, **35 restants**.
+- Fait et en ligne : corrections visuelles, marche 2D, 6 avatars. Fait depuis (pas encore poussé) : vrai pont,
+  lanterne d'Ilyane, combat lisible sur grille (`docs/gdd/combat.md`), **contenu** : 4 intérieurs, 5 PNJ, 3 quêtes
+  secondaires (`docs/univers/lieux/gardebois.md`). 64,5 crédits dépensés sur le jalon, **19 restants**.
 
 ## Prochaine étape
 
-1. Avis de Cyril sur le pont et le nouveau combat (à pousser).
-2. Contenu : maisons à visiter (intérieurs), nouveaux PNJ, quêtes secondaires. Propositions de lore d'abord
-   (`docs/univers/`, « à valider ») ; budget ≈ 35 crédits (PNJ animés ≈ 3,5 crédits chacun).
+1. Pousser (avec l'accord de Cyril) et recueillir son avis sur le combat, le pont et le contenu.
+2. Question à Cyril : Sylvan a des oreilles pointues (elfes de Verdantis, zone floue n° 2) ; garder ou refaire (2 crédits).
 
 ## Points ouverts
 

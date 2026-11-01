@@ -1,0 +1,153 @@
+{
+  "id": "caisse-egaree",
+  "speaker": "caisse-egaree",
+  "entries": [
+    {
+      "requires": [
+        {
+          "flag": "rodeurs-caisse-vaincus"
+        }
+      ],
+      "node": "libre"
+    },
+    {
+      "requires": [
+        {
+          "flag": "rodeurs-caisse-partis"
+        }
+      ],
+      "node": "libre"
+    },
+    {
+      "requires": [
+        {
+          "quest": "caisse-egaree",
+          "status": "active"
+        }
+      ],
+      "node": "gardee"
+    },
+    {
+      "node": "inconnue"
+    }
+  ],
+  "nodes": {
+    "inconnue": {
+      "text": "Une caisse d’outils marquée du sceau Cendrefer, tombée dans l’herbe. Deux Rôdeurs-Épine tournent autour en grondant.",
+      "options": [
+        {
+          "text": "S’éloigner.",
+          "next": "fin"
+        }
+      ]
+    },
+    "gardee": {
+      "text": "La caisse de Brann est là, dans l’herbe. Deux Rôdeurs-Épine la flairent en grondant, sans la quitter des yeux.",
+      "options": [
+        {
+          "text": "Les éloigner avec une branche fumante.",
+          "roll": {
+            "skill": "survival",
+            "difficulty": 12
+          },
+          "next": "eloignes",
+          "failNext": "reperes"
+        },
+        {
+          "text": "Se glisser jusqu’à la caisse sans bruit.",
+          "roll": {
+            "skill": "stealth",
+            "difficulty": 13
+          },
+          "next": "prise",
+          "failNext": "reperes"
+        },
+        {
+          "text": "Les affronter.",
+          "next": "fin",
+          "effects": [
+            {
+              "startCombat": "caisse-egaree"
+            }
+          ]
+        },
+        {
+          "text": "Revenir plus tard.",
+          "next": "fin"
+        }
+      ]
+    },
+    "eloignes": {
+      "text": "La fumée âcre fait éternuer les Rôdeurs, qui détalent dans les fourrés. La caisse est à toi.",
+      "effects": [
+        {
+          "setFlag": "rodeurs-caisse-partis"
+        }
+      ],
+      "options": [
+        {
+          "text": "Prendre la caisse.",
+          "next": "fin",
+          "effects": [
+            {
+              "setFlag": "caisse-recuperee"
+            }
+          ]
+        }
+      ]
+    },
+    "prise": {
+      "text": "Pas après pas, tu tires la caisse jusqu’au chemin. Les Rôdeurs n’ont rien vu, et finissent par s’en aller.",
+      "effects": [
+        {
+          "setFlag": "caisse-recuperee"
+        },
+        {
+          "setFlag": "rodeurs-caisse-partis"
+        }
+      ],
+      "options": [
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ]
+    },
+    "reperes": {
+      "text": "Un Rôdeur-Épine relève la tête et gronde. Les deux bêtes se mettent en garde !",
+      "options": [
+        {
+          "text": "Se défendre.",
+          "next": "fin",
+          "effects": [
+            {
+              "startCombat": "caisse-egaree"
+            }
+          ]
+        },
+        {
+          "text": "Reculer prudemment.",
+          "next": "fin"
+        }
+      ]
+    },
+    "libre": {
+      "text": "La caisse de Brann t’attend dans l’herbe, sans personne pour la garder.",
+      "options": [
+        {
+          "text": "Prendre la caisse.",
+          "next": "fin",
+          "effects": [
+            {
+              "setFlag": "caisse-recuperee"
+            }
+          ]
+        },
+        {
+          "text": "Plus tard.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

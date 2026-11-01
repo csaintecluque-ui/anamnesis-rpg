@@ -1,0 +1,29 @@
+{
+  "id": "cristal-veille",
+  "speaker": "cristal-veille",
+  "entries": [
+    {
+      "node": "cristal"
+    }
+  ],
+  "nodes": {
+    "cristal": {
+      "text": "Le cristal de veille luit doucement. Ilyane dit qu’il tient les mauvais rêves à distance. En le regardant, tu sens ta fatigue s’apaiser.",
+      "options": [
+        {
+          "text": "Se reposer un instant.",
+          "next": "fin",
+          "effects": [
+            {
+              "heal": 40
+            }
+          ]
+        },
+        {
+          "text": "S’éloigner.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

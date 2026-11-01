@@ -1,9 +1,10 @@
 import Phaser from 'phaser';
 import { DIALOGUES } from '../data/dialogues';
 import npcData from '../data/npcs.json';
-import { END, applyEffects, opensTrade, performRoll, startNode, visibleOptions, type Dialogue, type OptionView } from '../rules/dialogue';
+import { END, applyEffects, opensTrade, performRoll, startNode, startsCombat, visibleOptions, type Dialogue, type OptionView } from '../rules/dialogue';
 import { fontPx, textScale } from '../settings';
 import type { GameState } from '../state/gameState';
+import type { MapScene } from './MapScene';
 import { DIGIT_KEYS, onKeys } from '../ui/keys';
 import { COLORS, CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
 
@@ -166,6 +167,14 @@ export class DialogueScene extends Phaser.Scene {
       if (opensTrade(view.option.effects)) {
         this.scene.stop();
         this.scene.launch('Trade', { npcId: this.dialogue.speaker });
+        return;
+      }
+      const fight = startsCombat(view.option.effects);
+      if (fight) {
+        // The map carves the arena and launches the fight (it pauses itself again).
+        this.scene.resume('Map');
+        this.scene.stop();
+        (this.scene.get('Map') as MapScene).startEncounter(fight);
         return;
       }
       const roll = view.option.roll;

@@ -289,3 +289,24 @@ railings with posts on both long sides, a few hanging lanterns with glowing cyan
 footings at both ends. No water, no river, no ground, no grass, no cast shadow. » Gardée : `assets/raw/jalon2/pont-a.png`
 (pente ≈ 0,5, celle de la grille ; la B était trop raide). Image unique de 176 × 120 posée sur les deux cases d'eau
 (grand décor de sol), appuis enfoncés dans les berges ; la lanterne qui se trouvait sur son passage est retirée.
+
+## Jalon 2, étape 4 : contenu (2026-11-01, 22 images, 16 crédits, solde 19)
+
+Contenu validé par Cyril (`docs/univers/lieux/gardebois.md`, `docs/univers/personnages/pnj.md`). Fichiers bruts :
+`assets/raw/contenu/`. Toutes gardées au premier essai ; l'Écho de la berceuse a échoué une fois chez Higgsfield
+(rien de débité) puis a été relancé avec un sujet simplifié (une jeune femme seule qui fredonne).
+
+| Images | Réglages | Prompt (résumé ; bloc commun et « à éviter » habituels) | Coût |
+|---|---|---|---|
+| 5 PNJ en pied (Sylvan, Maëlis, Nell, Liane, Brann) | moyenne, transparent, 2:3 | Allure du tableau de `pnj.md` (ex. « Sylvan, a round and talkative innkeeper of a forest people, middle-aged, kind face with a short beard, green linen apron… holding a wooden mug ») | 2,5 |
+| 5 portraits | haute, opaque, 1:1, le PNJ en pied en référence | « Bust portrait for a dialogue panel, three-quarter view: the same character as in the reference image… plain uniform dark ink background color #1B1512 » | 7,5 |
+| Parquet, paillasson | moyenne, opaque, 1:1, vue de dessus | Plancher de maison de la forêt (six lames) ; paillasson de roseau tressé à motif de feuille | 1 |
+| Texture de mur | moyenne, opaque, 1:1, vue de face | Lambris de bois en bas, enduit clair à motifs de feuilles en haut, poutre sombre ; raccordable de gauche à droite | 0,5 |
+| Meubles (lit, table, étagère, cheminée, comptoir, tonneaux, cristal de veille) | moyenne, transparent | Objet isolé, sans sol ni ombre | 3,5 |
+| Sauge-lumière, Écho de la berceuse | moyenne, transparent ; l'Écho du dernier train en référence | Herbe aux feuilles argentées et étincelles cyan ; jeune femme translucide qui fredonne, yeux fermés | 1 |
+
+**Murs** : tuile `mur` construite par `process-art` (`kind: 'wall'`) : la texture plaquée sur les deux faces visibles
+d'un bloc de case, inclinées le long de ses arêtes, la face droite à l'ombre, une poutre sombre dessus.
+
+**À trancher par Cyril** : Sylvan est sorti avec des oreilles pointues. Les elfes de Verdantis sont une contradiction
+ouverte du canon (`docs/univers/zones-floues.md`, point 2) ; le refaire en humain coûterait 2 crédits.

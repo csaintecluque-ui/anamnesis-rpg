@@ -22,3 +22,17 @@ Code : `src/engine/tiledMap.ts` (lecteur Tiled), `src/engine/pathfinding.ts` (A*
   (`docs/gdd/interface.md`).
 - **Outil de test** : en développement seulement, l'instance du jeu est exposée (`window.__anamnesis`) pour calculer
   la position exacte d'une case à l'écran. Elle est absente du site publié.
+
+## Maisons, intérieurs et objets d'histoire (jalon 2)
+
+- **Porte** : un objet `porte` sur la case d'une maison ; le toucher fait marcher jusqu'à elle, puis entrer
+  (`cible` : le lieu, `arrivee` : l'objet où apparaître). Pas d'entrée par mégarde en passant devant.
+- **Intérieur** (`interior` dans `scripts/build-maps.mjs`) : une petite carte de parquet, des murs sur les deux côtés du
+  fond (tuile `mur`, bloc construit par script à partir d'une texture de mur), ouverte devant comme une maquette ;
+  le paillasson (`seuil`) au milieu du bord avant ramène devant la porte. Quatre intérieurs : maison d'Ilyane,
+  Auberge de la Racine, maison Lunelierre, réserve de l'étal Cendrefer (`src/data/locations.json`).
+- **Objets d'histoire** (`objet`, `coffre`, `echo`) : un dialogue à leur nom ; la propriété `disparaitSi` (repères
+  séparés par des virgules) les retire de la carte quand l'histoire avance (herbe cueillie, caisse reprise).
+- **Ennemis sur la carte** (`ennemi`, propriété `ennemi` : l'id d'`enemies.json`) : ils occupent leur case jusqu'à
+  ce que leur combat (`src/data/encounters.json`, lancé par un dialogue) soit gagné ou évité (`disparaitSi`).
+

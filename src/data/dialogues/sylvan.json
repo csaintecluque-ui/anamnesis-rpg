@@ -1,0 +1,72 @@
+{
+  "id": "sylvan",
+  "speaker": "sylvan",
+  "entries": [
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Bienvenue à la Racine ! Ici, on mange chaud et on parle fort. Assieds-toi : chez Sylvan, les Gardiens de Mémoire sont toujours bien reçus.",
+      "options": [
+        {
+          "text": "Un repas chaud.",
+          "requires": [
+            {
+              "fers": 5
+            }
+          ],
+          "next": "repas",
+          "effects": [
+            {
+              "giveFers": -5
+            },
+            {
+              "heal": 15
+            }
+          ]
+        },
+        {
+          "text": "Quelles nouvelles ?",
+          "next": "rumeurs"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "repas": {
+      "text": "Soupe de racines, pain de mousse et une part de tarte aux baies. Ça remet d’aplomb, pas vrai ?",
+      "options": [
+        {
+          "text": "Merci, Sylvan.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "rumeurs": {
+      "text": "On dit que la maladie des souvenirs vient de la Gare, depuis que Ferros y creuse. La petite Nell, chez les Lunelierre, ne reconnaît plus sa propre berceuse… Et Brann, le gamin de Tobias, a perdu une caisse sur la route de l’est.",
+      "options": [
+        {
+          "text": "Et l’herboriste, Liane ?",
+          "next": "liane"
+        },
+        {
+          "text": "Merci.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "liane": {
+      "text": "Liane ? Toujours au bord du ruisseau, près du marché, le nez dans ses herbes. Elle est brusque, mais personne ne soigne mieux qu’elle.",
+      "options": [
+        {
+          "text": "Merci.",
+          "next": "accueil"
+        }
+      ]
+    }
+  }
+}

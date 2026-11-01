@@ -3,5 +3,20 @@
     "id": "dernier-train",
     "name": "Le Dernier Train",
     "summary": "Une maladie mémorielle frappe Gardebois depuis que des prospecteurs de Ferros fouillent la Gare Engloutie. Ilyane t’envoie y écouter l’Écho et trouver qui dirige le chantier."
+  },
+  {
+    "id": "berceuse",
+    "name": "La berceuse oubliée",
+    "summary": "Nell Lunelierre a oublié la berceuse de sa mère, emportée par la maladie des souvenirs. Un Écho près de l’Arbre-Titan la chante encore."
+  },
+  {
+    "id": "herbes-lisiere",
+    "name": "Les herbes de lisière",
+    "summary": "Liane Sève-Claire a besoin de trois touffes de sauge-lumière, cachées dans Gardebois."
+  },
+  {
+    "id": "caisse-egaree",
+    "name": "La caisse égarée",
+    "summary": "Une caisse d’outils de Brann Martelroux est tombée près de la route de l’est. Deux Rôdeurs-Épine la gardent."
   }
 ]

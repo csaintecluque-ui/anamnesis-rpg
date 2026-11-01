@@ -10,7 +10,20 @@
     "name": "Tobias Cendrefer",
     "role": "Marchand de Ferros",
     "portrait": "portraits/tobias.jpg",
-    "sells": ["dague", "epee-longue", "arc", "armure-cuir", "armure-ferraille", "lampe-cristal", "corde", "bandage"]
+    "sells": [
+      "dague",
+      "epee-longue",
+      "arc",
+      "armure-cuir",
+      "armure-ferraille",
+      "lampe-cristal",
+      "corde",
+      "bandage"
+    ],
+    "remise": {
+      "flag": "remise-cendrefer",
+      "taux": 0.2
+    }
   },
   {
     "id": "ingrid",
@@ -24,6 +37,79 @@
     "role": "Écho du Passé",
     "portrait": "portraits/echo-dernier-train.jpg"
   },
-  { "id": "caisse-prospection", "name": "Caisse de prospection", "role": "Objet" },
-  { "id": "foreuse", "name": "La foreuse de Brisefer", "role": "Objet" }
+  {
+    "id": "caisse-prospection",
+    "name": "Caisse de prospection",
+    "role": "Objet"
+  },
+  {
+    "id": "foreuse",
+    "name": "La foreuse de Brisefer",
+    "role": "Objet"
+  },
+  {
+    "id": "sylvan",
+    "name": "Sylvan Mousserelle",
+    "role": "Aubergiste de la Racine",
+    "portrait": "portraits/sylvan.jpg"
+  },
+  {
+    "id": "maelis",
+    "name": "Maëlis Lunelierre",
+    "role": "Mère de Nell",
+    "portrait": "portraits/maelis.jpg"
+  },
+  {
+    "id": "nell",
+    "name": "Nell Lunelierre",
+    "role": "Fille de Maëlis",
+    "portrait": "portraits/nell.jpg"
+  },
+  {
+    "id": "liane",
+    "name": "Liane Sève-Claire",
+    "role": "Herboriste",
+    "portrait": "portraits/liane.jpg"
+  },
+  {
+    "id": "brann",
+    "name": "Brann Martelroux",
+    "role": "Apprenti de Tobias",
+    "portrait": "portraits/brann.jpg"
+  },
+  {
+    "id": "echo-berceuse",
+    "name": "L’Écho de la berceuse",
+    "role": "Écho du Passé"
+  },
+  {
+    "id": "cristal-veille",
+    "name": "Cristal de veille",
+    "role": "Objet"
+  },
+  {
+    "id": "carnets-ilyane",
+    "name": "Les carnets d’Ilyane",
+    "role": "Objet"
+  },
+  {
+    "id": "sauge-1",
+    "name": "Sauge-lumière",
+    "role": "Plante"
+  },
+  {
+    "id": "sauge-2",
+    "name": "Sauge-lumière",
+    "role": "Plante"
+  },
+  {
+    "id": "rocher-sauge",
+    "name": "Rocher moussu",
+    "role": "Objet"
+  },
+  {
+    "id": "caisse-egaree",
+    "name": "La caisse égarée",
+    "role": "Objet"
+  }
 ]

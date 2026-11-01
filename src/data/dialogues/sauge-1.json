@@ -1,0 +1,47 @@
+{
+  "id": "sauge-1",
+  "speaker": "sauge-1",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "herbes-lisiere",
+          "status": "active"
+        }
+      ],
+      "node": "cueillir"
+    },
+    {
+      "node": "plante"
+    }
+  ],
+  "nodes": {
+    "plante": {
+      "text": "Une petite plante aux feuilles argentées, qui luit doucement. L’herboriste saurait sans doute à quoi elle sert.",
+      "options": [
+        {
+          "text": "La laisser.",
+          "next": "fin"
+        }
+      ]
+    },
+    "cueillir": {
+      "text": "De la sauge-lumière, bien vivante. Ses feuilles tiédissent au creux de ta main.",
+      "options": [
+        {
+          "text": "La cueillir.",
+          "next": "fin",
+          "effects": [
+            {
+              "setFlag": "sauge-1-cueillie"
+            }
+          ]
+        },
+        {
+          "text": "La laisser.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

@@ -11,16 +11,18 @@ import {
 } from './character';
 import npcData from '../data/npcs.json';
 import {
-  ITEMS,
   addItem,
   armorBonus,
   buy,
+  buyPrice,
   canEquip,
   carriedWeightKg,
   carryCapacityLeftKg,
   equip,
   findItem,
+  ITEMS,
   merchantCatalogue,
+  merchantDiscount,
   ownedCount,
   removeItem,
   sell,
@@ -189,5 +191,14 @@ describe('useConsumable', () => {
     const maxHp = c.hp;
     expect(useConsumable(c, 'bandage', maxHp)).toBeNull();
     expect(useConsumable(c, 'corde', maxHp)).toBeNull();
+  });
+});
+
+describe('discount at a stall', () => {
+  it('takes 20 % off Tobias’s prices once Brann’s crate is back, and nowhere else', () => {
+    expect(merchantDiscount({}, 'tobias')).toBe(0);
+    expect(merchantDiscount({ 'remise-cendrefer': true }, 'tobias')).toBe(0.2);
+    expect(merchantDiscount({ 'remise-cendrefer': true }, 'ilyane')).toBe(0);
+    expect(buyPrice(findItem('epee-longue')!, 0.2)).toBe(28);
   });
 });

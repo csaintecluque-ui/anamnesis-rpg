@@ -228,7 +228,33 @@ function gardebois() {
   // Scattered trees and ground variety on plain grass only.
   const free = (c, r) => m.groundAt(c, r) === gid('herbe') && m.obstacleAt(c, r) === 0;
   // NPC spots, the entrance and the lantern circle stay free of random trees.
-  const keepClear = new Set(['5,15', '5,14', '5,16', '4,15', '1,4', '27,18', '14,8']);
+  // Jalon 2 (docs/univers/lieux/gardebois.md): houses one can enter, Liane, the herbs, the lost crate and its
+  // guards, the Écho of the lullaby. Their cells and the cells in front of them stay clear of random trees.
+  for (const [house, c, r, arrival] of [
+    ['maison-ilyane', 2, 11, [3, 12]],
+    ['auberge-racine', 6, 10, [7, 11]],
+    ['maison-lunelierre', 24, 14, [24, 15]],
+    ['reserve-cendrefer', 14, 3, [14, 4]],
+  ]) {
+    m.object(`porte-${house}`, 'porte', c, r, { cible: house, arrivee: 'entree', libelle: LOCATION_NAMES[house] });
+    m.object(`devant-${house}`, 'arrivee', arrival[0], arrival[1]);
+  }
+  m.setObstacle(9, 22, 'sauge');
+  m.object('sauge-1', 'objet', 9, 22, { disparaitSi: 'sauge-1-cueillie' });
+  m.setObstacle(17, 21, 'sauge');
+  m.object('sauge-2', 'objet', 17, 21, { disparaitSi: 'sauge-2-cueillie' });
+  m.object('rocher-sauge', 'objet', 3, 20);
+  m.setObstacle(24, 21, 'caisses');
+  m.object('caisse-egaree', 'coffre', 24, 21, { disparaitSi: 'caisse-recuperee' });
+  const rodeurs = { ennemi: 'rodeur-epine', disparaitSi: 'rodeurs-caisse-partis,rodeurs-caisse-vaincus', texte: 'Un Rôdeur-Épine monte la garde près de la caisse.' };
+  m.object('rodeur-caisse-1', 'ennemi', 23, 22, rodeurs);
+  m.object('rodeur-caisse-2', 'ennemi', 25, 22, rodeurs);
+  m.setObstacle(5, 7, 'echo-berceuse');
+  m.object('echo-berceuse', 'echo', 5, 7, { disparaitSi: 'berceuse-recueillie' });
+  const keepClear = new Set([
+    ...['5,15', '5,14', '5,16', '4,15', '1,4', '27,18', '14,8'],
+    ...['3,12', '7,11', '24,15', '14,4', '19,12', '20,13', '10,22', '18,21', '23,22', '25,22', '24,22', '23,21', '25,21', '24,20', '6,8', '5,8', '6,7'],
+  ]);
   for (let row = 1; row < m.height - 1; row++) {
     for (let col = 1; col < m.width - 1; col++) {
       if (!free(col, row) || keepClear.has(`${col},${row}`)) continue;
@@ -242,6 +268,7 @@ function gardebois() {
   m.object('vers-gare', 'sortie', 27, 18, { cible: 'gare-engloutie', arrivee: 'entree-gare', libelle: 'Vers la Gare Engloutie' });
   m.object('ilyane', 'pnj', 5, 15);
   m.object('tobias', 'pnj', 14, 8);
+  m.object('liane', 'pnj', 19, 12);
   m.object('panneau-gare', 'panneau', 26, 17, { texte: 'Vers les Lisières Cultivées et la Gare Engloutie.' });
   m.object('panneau-entree', 'panneau', 1, 3, { texte: 'Gardebois — Marché des Lisières.' });
   return m.toTiled();
@@ -269,7 +296,8 @@ function gareEngloutie() {
 
   m.setObstacle(14, 9, 'wagon');
   m.setObstacle(15, 9, 'wagon');
-  m.setObstacle(13, 8, 'echo');
+  // Beside the wagon, not behind it (it would hide the Écho).
+  m.setObstacle(12, 8, 'echo');
 
   // Brisefer's dig, at the Faille.
   m.setObstacle(19, 8, 'foreuse');
@@ -293,7 +321,7 @@ function gareEngloutie() {
 
   m.object('entree-gare', 'sortie', 0, 9, { cible: 'gardebois', arrivee: 'vers-gare', libelle: 'Vers Gardebois' });
   m.object('ingrid', 'pnj', 18, 10);
-  m.object('echo-dernier-train', 'echo', 13, 8);
+  m.object('echo-dernier-train', 'echo', 12, 8);
   m.object('golem-gare', 'golem', 21, 13);
   m.object('caisse-prospection', 'coffre', 17, 11);
   m.object('foreuse', 'foreuse', 19, 8);
@@ -303,8 +331,61 @@ function gareEngloutie() {
   return m.toTiled();
 }
 
+// --- Intérieurs de Gardebois (jalon 2, docs/univers/lieux/gardebois.md) -------------------------------
+// A room of w × h floor cells; walls on its two back sides (row 0, column 0), open in front like a cut-away; the
+// doormat in the middle of the front edge leads back outside, in front of the house's door.
+const LOCATION_NAMES = {
+  'maison-ilyane': 'Maison d’Ilyane',
+  'auberge-racine': 'Auberge de la Racine',
+  'maison-lunelierre': 'Maison Lunelierre',
+  'reserve-cendrefer': 'Réserve de l’étal Cendrefer',
+};
+
+function interior(id, { w = 7, h = 6, furniture = [], objects = [] }) {
+  const m = new MapBuilder(w + 1, h + 1);
+  m.ground.fill(0);
+  for (let row = 0; row <= h; row++) {
+    for (let col = 0; col <= w; col++) {
+      if (row === 0 || col === 0) {
+        m.setGround(col, row, 'parquet');
+        m.setObstacle(col, row, 'mur');
+      } else m.setGround(col, row, 'parquet');
+    }
+  }
+  const door = Math.ceil(w / 2);
+  m.setGround(door, h, 'seuil');
+  for (const [c, r, name] of furniture) m.setObstacle(c, r, name);
+  m.object('sortie', 'sortie', door, h, { cible: 'gardebois', arrivee: `devant-${id}`, libelle: 'Sortir' });
+  m.object('entree', 'arrivee', door, h - 1);
+  for (const [name, type, c, r, props] of objects) m.object(name, type, c, r, props ?? {});
+  return m.toTiled();
+}
+
+const INTERIORS = {
+  'maison-ilyane': interior('maison-ilyane', {
+    furniture: [[2, 1, 'etagere'], [3, 1, 'etagere'], [6, 1, 'cheminee'], [4, 3, 'cristal-veille'], [1, 5, 'lit'], [6, 4, 'table']],
+    objects: [['carnets-ilyane', 'objet', 2, 1], ['cristal-veille', 'objet', 4, 3]],
+  }),
+  'auberge-racine': interior('auberge-racine', {
+    furniture: [[1, 1, 'tonneaux'], [1, 2, 'tonneaux'], [6, 1, 'cheminee'], [3, 3, 'comptoir'], [4, 3, 'comptoir'], [2, 5, 'table'], [6, 4, 'table']],
+    objects: [['sylvan', 'pnj', 4, 2]],
+  }),
+  'maison-lunelierre': interior('maison-lunelierre', {
+    furniture: [[1, 4, 'lit'], [3, 1, 'cheminee'], [6, 1, 'etagere'], [5, 4, 'table']],
+    objects: [['maelis', 'pnj', 4, 2], ['nell', 'pnj', 2, 4]],
+  }),
+  'reserve-cendrefer': interior('reserve-cendrefer', {
+    furniture: [[1, 1, 'caisses'], [2, 1, 'caisses'], [1, 2, 'caisses'], [6, 1, 'tonneaux'], [6, 2, 'tonneaux'], [4, 1, 'etagere']],
+    objects: [['brann', 'pnj', 4, 3]],
+  }),
+};
+
 const out = new URL('../src/data/maps/', import.meta.url);
 writeFileSync(new URL('gardebois.json', out), JSON.stringify(gardebois(), null, 1) + '\n');
 console.log('gardebois.json');
 writeFileSync(new URL('gare-engloutie.json', out), JSON.stringify(gareEngloutie(), null, 1) + '\n');
 console.log('gare-engloutie.json');
+for (const [id, map] of Object.entries(INTERIORS)) {
+  writeFileSync(new URL(`${id}.json`, out), JSON.stringify(map, null, 1) + '\n');
+  console.log(`${id}.json`);
+}

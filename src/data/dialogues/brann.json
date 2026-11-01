@@ -1,0 +1,109 @@
+{
+  "id": "brann",
+  "speaker": "brann",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "caisse-egaree",
+          "status": "done"
+        }
+      ],
+      "node": "apres"
+    },
+    {
+      "requires": [
+        {
+          "quest": "caisse-egaree",
+          "status": "active"
+        },
+        {
+          "flag": "caisse-recuperee"
+        }
+      ],
+      "node": "rendu"
+    },
+    {
+      "requires": [
+        {
+          "quest": "caisse-egaree",
+          "status": "active"
+        }
+      ],
+      "node": "attente"
+    },
+    {
+      "node": "demande"
+    }
+  ],
+  "nodes": {
+    "demande": {
+      "text": "Ah ! Pardon, je range. Enfin, j’essaie. J’ai perdu une caisse d’outils en tombant du chariot, sur la route de l’est. Si maître Cendrefer l’apprend… Et deux Rôdeurs-Épine tournent autour : je n’ose pas y retourner.",
+      "options": [
+        {
+          "text": "Je vais la chercher.",
+          "next": "merci",
+          "effects": [
+            {
+              "startQuest": "caisse-egaree"
+            }
+          ]
+        },
+        {
+          "text": "Bon courage, Brann.",
+          "next": "fin"
+        }
+      ]
+    },
+    "merci": {
+      "text": "Vraiment ? Elle est au sud de la route, après le pont. Les Rôdeurs n’aiment pas la fumée, à ce qu’on dit… ou alors on passe en douce. Moi, je cours vite, mais dans le mauvais sens.",
+      "options": [
+        {
+          "text": "J’y vais.",
+          "next": "fin"
+        }
+      ]
+    },
+    "attente": {
+      "text": "La caisse ? Toujours là-bas, avec les Rôdeurs ?",
+      "options": [
+        {
+          "text": "Je m’en occupe.",
+          "next": "fin"
+        }
+      ]
+    },
+    "rendu": {
+      "text": "Ma caisse ! Tous les outils sont là ! Tiens, c’est tout ce que j’ai… Et je dirai à maître Cendrefer de te faire un prix, promis.",
+      "options": [
+        {
+          "text": "Merci, Brann.",
+          "next": "fin",
+          "effects": [
+            {
+              "completeQuest": "caisse-egaree"
+            },
+            {
+              "giveFers": 25
+            },
+            {
+              "setFlag": "remise-cendrefer"
+            },
+            {
+              "giveXp": 25
+            }
+          ]
+        }
+      ]
+    },
+    "apres": {
+      "text": "Maître Cendrefer m’a laissé ranger tout seul, aujourd’hui. C’est une forme de confiance, je crois.",
+      "options": [
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

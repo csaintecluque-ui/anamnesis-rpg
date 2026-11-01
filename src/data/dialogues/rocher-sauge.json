@@ -1,0 +1,97 @@
+{
+  "id": "rocher-sauge",
+  "speaker": "rocher-sauge",
+  "entries": [
+    {
+      "requires": [
+        {
+          "flag": "sauge-3-cueillie"
+        }
+      ],
+      "node": "vide"
+    },
+    {
+      "requires": [
+        {
+          "quest": "herbes-lisiere",
+          "status": "active"
+        }
+      ],
+      "node": "chercher"
+    },
+    {
+      "node": "rocher"
+    }
+  ],
+  "nodes": {
+    "rocher": {
+      "text": "Un gros rocher couvert de mousse.",
+      "options": [
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ]
+    },
+    "chercher": {
+      "text": "Un gros rocher couvert de mousse. Liane parlait d’une lueur sous une pierre…",
+      "options": [
+        {
+          "text": "Repérer la lueur sous la mousse.",
+          "requires": [
+            {
+              "attribute": "perception",
+              "min": 4
+            }
+          ],
+          "next": "trouve"
+        },
+        {
+          "text": "Suivre l’odeur poivrée de la sauge.",
+          "roll": {
+            "skill": "survival",
+            "difficulty": 11
+          },
+          "next": "trouve",
+          "failNext": "rien"
+        },
+        {
+          "text": "Laisser tomber.",
+          "next": "fin"
+        }
+      ]
+    },
+    "trouve": {
+      "text": "Sous le rebord du rocher, une touffe de sauge-lumière brille dans l’ombre. Tu la cueilles avec soin.",
+      "effects": [
+        {
+          "setFlag": "sauge-3-cueillie"
+        }
+      ],
+      "options": [
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ]
+    },
+    "rien": {
+      "text": "Tu tournes autour du rocher sans rien trouver. Peut-être en revenant plus tard…",
+      "options": [
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ]
+    },
+    "vide": {
+      "text": "Le creux sous le rocher, où poussait la sauge-lumière.",
+      "options": [
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

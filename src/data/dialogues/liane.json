@@ -1,0 +1,116 @@
+{
+  "id": "liane",
+  "speaker": "liane",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "herbes-lisiere",
+          "status": "done"
+        }
+      ],
+      "node": "apres"
+    },
+    {
+      "requires": [
+        {
+          "quest": "herbes-lisiere",
+          "status": "active"
+        },
+        {
+          "flag": "sauge-1-cueillie"
+        },
+        {
+          "flag": "sauge-2-cueillie"
+        },
+        {
+          "flag": "sauge-3-cueillie"
+        }
+      ],
+      "node": "rendu"
+    },
+    {
+      "requires": [
+        {
+          "quest": "herbes-lisiere",
+          "status": "active"
+        }
+      ],
+      "node": "attente"
+    },
+    {
+      "node": "demande"
+    }
+  ],
+  "nodes": {
+    "demande": {
+      "text": "Tu marches sur ma menthe. … Bon. L’apprenti·e d’Ilyane, c’est ça ? Alors rends-toi utile : il me faut de la sauge-lumière pour les malades, et mes genoux ne valent plus rien.",
+      "options": [
+        {
+          "text": "Où en trouver ?",
+          "next": "ou",
+          "effects": [
+            {
+              "startQuest": "herbes-lisiere"
+            }
+          ]
+        },
+        {
+          "text": "Une autre fois.",
+          "next": "fin"
+        }
+      ]
+    },
+    "ou": {
+      "text": "Trois touffes. Une vers le bas du village, une autre un peu plus à gauche, au bout du chemin. La troisième se cache sous une pierre moussue, tout à gauche, au bord de la forêt : il faut l’œil, ou du flair.",
+      "options": [
+        {
+          "text": "Je m’en occupe.",
+          "next": "fin"
+        }
+      ]
+    },
+    "attente": {
+      "text": "Alors, cette sauge ? Trois touffes, pas deux.",
+      "options": [
+        {
+          "text": "J’y retourne.",
+          "next": "fin"
+        }
+      ]
+    },
+    "rendu": {
+      "text": "Trois belles touffes… Tu as la main douce, pour un·e apprenti·e. Tiens : de quoi te rafistoler, et une fiole de ma sève. Ne la gaspille pas.",
+      "options": [
+        {
+          "text": "Merci, Liane.",
+          "next": "fin",
+          "effects": [
+            {
+              "completeQuest": "herbes-lisiere"
+            },
+            {
+              "giveItem": "bandage",
+              "count": 2
+            },
+            {
+              "giveItem": "fiole-seve"
+            },
+            {
+              "giveXp": 20
+            }
+          ]
+        }
+      ]
+    },
+    "apres": {
+      "text": "Mes malades vont un peu mieux. Reviens si tu croises d’autres herbes étranges.",
+      "options": [
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

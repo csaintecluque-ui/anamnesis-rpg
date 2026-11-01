@@ -1,4 +1,8 @@
 [
   { "id": "gardebois", "name": "Gardebois — Marché des Lisières", "scene": "Map", "map": "gardebois", "entrance": "entree" },
-  { "id": "gare-engloutie", "name": "La Gare Engloutie", "scene": "Map", "map": "gare-engloutie", "entrance": "entree-gare" }
+  { "id": "gare-engloutie", "name": "La Gare Engloutie", "scene": "Map", "map": "gare-engloutie", "entrance": "entree-gare" },
+  { "id": "maison-ilyane", "name": "Gardebois — Maison d’Ilyane", "scene": "Map", "map": "maison-ilyane", "entrance": "entree" },
+  { "id": "auberge-racine", "name": "Gardebois — Auberge de la Racine", "scene": "Map", "map": "auberge-racine", "entrance": "entree" },
+  { "id": "maison-lunelierre", "name": "Gardebois — Maison Lunelierre", "scene": "Map", "map": "maison-lunelierre", "entrance": "entree" },
+  { "id": "reserve-cendrefer", "name": "Gardebois — Réserve de l’étal Cendrefer", "scene": "Map", "map": "reserve-cendrefer", "entrance": "entree" }
 ]

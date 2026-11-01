@@ -1,0 +1,80 @@
+{
+  "id": "nell",
+  "speaker": "nell",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "berceuse",
+          "status": "done"
+        }
+      ],
+      "node": "apres"
+    },
+    {
+      "requires": [
+        {
+          "quest": "berceuse",
+          "status": "active"
+        },
+        {
+          "flag": "berceuse-recueillie"
+        }
+      ],
+      "node": "chanson"
+    },
+    {
+      "node": "silence"
+    }
+  ],
+  "nodes": {
+    "silence": {
+      "text": "Nell serre son oiseau de bois et regarde la fenêtre. « Maman chante, mais je ne connais pas cette chanson. Avant, je la connaissais… je crois. »",
+      "options": [
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ]
+    },
+    "chanson": {
+      "text": "Nell lève les yeux vers toi. « Tu connais une chanson ? »",
+      "options": [
+        {
+          "text": "Lui chanter la berceuse de l’Écho.",
+          "next": "souvenir",
+          "effects": [
+            {
+              "completeQuest": "berceuse"
+            },
+            {
+              "giveXp": 30
+            }
+          ]
+        },
+        {
+          "text": "Pas encore.",
+          "next": "fin"
+        }
+      ]
+    },
+    "souvenir": {
+      "text": "Dès les premiers mots, Nell chante avec toi : « Dors sous la feuille, dors sous le vent… » Elle court vers sa mère en riant. Dans la pièce, quelque chose se remet en place.",
+      "options": [
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ]
+    },
+    "apres": {
+      "text": "« Dors sous la feuille… » Nell chantonne en faisant voler son oiseau de bois.",
+      "options": [
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

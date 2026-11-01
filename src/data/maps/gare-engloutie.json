@@ -673,8 +673,8 @@
     0,
     0,
     0,
-    0,
     25,
+    0,
     0,
     0,
     0,
@@ -959,7 +959,7 @@
      "id": 3,
      "name": "echo-dernier-train",
      "type": "echo",
-     "x": 432,
+     "x": 400,
      "y": 272,
      "width": 0,
      "height": 0,
@@ -1035,11 +1035,11 @@
    "name": "tiles",
    "image": "../../../public/tiles/tiles.png",
    "imagewidth": 512,
-   "imageheight": 480,
+   "imageheight": 672,
    "tilewidth": 64,
    "tileheight": 96,
    "columns": 8,
-   "tilecount": 35,
+   "tilecount": 52,
    "margin": 0,
    "spacing": 0,
    "tiles": [
@@ -1900,6 +1900,431 @@
        "name": "nom",
        "type": "string",
        "value": "champignons"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 35,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "parquet"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 36,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "seuil"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 37,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "mur"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 38,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "lit"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 2
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 39,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "table"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 2
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 40,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "etagere"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 2
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 41,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "cheminee"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 2
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 42,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "comptoir"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 2
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 43,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "tonneaux"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 2
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 44,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "cristal-veille"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 2
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 45,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "sauge"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 46,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "echo-berceuse"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 47,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "sylvan"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 48,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "maelis"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 49,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "liane"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 50,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "brann"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 51,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "nell"
       },
       {
        "name": "bloquant",

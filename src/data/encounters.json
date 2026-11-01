@@ -1,0 +1,12 @@
+[
+  {
+    "id": "caisse-egaree",
+    "center": "caisse-egaree",
+    "enemies": [
+      { "id": "rodeur-epine", "object": "rodeur-caisse-1" },
+      { "id": "rodeur-epine", "object": "rodeur-caisse-2" }
+    ],
+    "victoryFlag": "rodeurs-caisse-vaincus",
+    "victoryEffects": [{ "giveXp": 20 }]
+  }
+]

@@ -8,6 +8,94 @@ _(si …)_ = option qui n’apparaît que dans cette situation ; → = où mène
 **🎲 Discrétion 10** = jet de dé (d20 + modificateur + rang contre 10) : → en cas de réussite, ✗ → en cas d’échec.
 🌙 = scène de nuit (le fond s’assombrit).
 
+## Brann Martelroux
+
+_Apprenti de Tobias_
+
+Commence par : « apres » _(si quête « La caisse égarée » terminée)_, sinon « rendu » _(si quête « La caisse égarée » en cours)_ _(si repère « caisse-recuperee »)_, sinon « attente » _(si quête « La caisse égarée » en cours)_, sinon « demande »
+
+### demande
+
+> Ah ! Pardon, je range. Enfin, j’essaie. J’ai perdu une caisse d’outils en tombant du chariot, sur la route de l’est. Si maître Cendrefer l’apprend… Et deux Rôdeurs-Épine tournent autour : je n’ose pas y retourner.
+
+- « Je vais la chercher. » → merci _(lance la quête « La caisse égarée »)_
+- « Bon courage, Brann. » → **fin**
+
+### merci
+
+> Vraiment ? Elle est au sud de la route, après le pont. Les Rôdeurs n’aiment pas la fumée, à ce qu’on dit… ou alors on passe en douce. Moi, je cours vite, mais dans le mauvais sens.
+
+- « J’y vais. » → **fin**
+
+### attente
+
+> La caisse ? Toujours là-bas, avec les Rôdeurs ?
+
+- « Je m’en occupe. » → **fin**
+
+### rendu
+
+> Ma caisse ! Tous les outils sont là ! Tiens, c’est tout ce que j’ai… Et je dirai à maître Cendrefer de te faire un prix, promis.
+
+- « Merci, Brann. » → **fin** _(termine la quête « La caisse égarée », +25 Fers, retient « remise-cendrefer », +25 XP)_
+
+### apres
+
+> Maître Cendrefer m’a laissé ranger tout seul, aujourd’hui. C’est une forme de confiance, je crois.
+
+- « … » → **fin**
+
+## La caisse égarée
+
+_Objet_
+
+Commence par : « libre » _(si repère « rodeurs-caisse-vaincus »)_, sinon « libre » _(si repère « rodeurs-caisse-partis »)_, sinon « gardee » _(si quête « La caisse égarée » en cours)_, sinon « inconnue »
+
+### inconnue
+
+> Une caisse d’outils marquée du sceau Cendrefer, tombée dans l’herbe. Deux Rôdeurs-Épine tournent autour en grondant.
+
+- « S’éloigner. » → **fin**
+
+### gardee
+
+> La caisse de Brann est là, dans l’herbe. Deux Rôdeurs-Épine la flairent en grondant, sans la quitter des yeux.
+
+- **🎲 Survie 12** « Les éloigner avec une branche fumante. » → eloignes, ✗ → reperes
+- **🎲 Discrétion 13** « Se glisser jusqu’à la caisse sans bruit. » → prise, ✗ → reperes
+- « Les affronter. » → **fin** _(+undefined XP)_
+- « Revenir plus tard. » → **fin**
+
+### eloignes
+
+_Effet : retient « rodeurs-caisse-partis »._
+
+> La fumée âcre fait éternuer les Rôdeurs, qui détalent dans les fourrés. La caisse est à toi.
+
+- « Prendre la caisse. » → **fin** _(retient « caisse-recuperee »)_
+
+### prise
+
+_Effet : retient « caisse-recuperee », retient « rodeurs-caisse-partis »._
+
+> Pas après pas, tu tires la caisse jusqu’au chemin. Les Rôdeurs n’ont rien vu, et finissent par s’en aller.
+
+- « … » → **fin**
+
+### reperes
+
+> Un Rôdeur-Épine relève la tête et gronde. Les deux bêtes se mettent en garde !
+
+- « Se défendre. » → **fin** _(+undefined XP)_
+- « Reculer prudemment. » → **fin**
+
+### libre
+
+> La caisse de Brann t’attend dans l’herbe, sans personne pour la garder.
+
+- « Prendre la caisse. » → **fin** _(retient « caisse-recuperee »)_
+- « Plus tard. » → **fin**
+
 ## Caisse de prospection
 
 _Objet_
@@ -24,6 +112,66 @@ Commence par : « vide » _(si repère « caisse-prospection-ouverte »)_, sinon
 ### vide
 
 > La caisse ne contient plus que des outils rouillés.
+
+- « … » → **fin**
+
+## Les carnets d’Ilyane
+
+_Objet_
+
+Commence par : « carnets »
+
+### carnets
+
+> Des dizaines de carnets couverts de l’écriture serrée d’Ilyane : des récits recueillis dans tout Verdantis. Sur la page ouverte : « Ce qu’on oublie ne disparaît pas tout à fait. Il attend qu’on revienne. »
+
+- « Refermer le carnet. » → **fin**
+
+## Cristal de veille
+
+_Objet_
+
+Commence par : « cristal »
+
+### cristal
+
+> Le cristal de veille luit doucement. Ilyane dit qu’il tient les mauvais rêves à distance. En le regardant, tu sens ta fatigue s’apaiser.
+
+- « Se reposer un instant. » → **fin** _(+undefined XP)_
+- « S’éloigner. » → **fin**
+
+## L’Écho de la berceuse
+
+_Écho du Passé_
+
+Commence par : « chant » _(si quête « La berceuse oubliée » en cours)_, sinon « lointain »
+
+### lointain
+
+> Au pied de l’Arbre-Titan, une silhouette translucide fredonne. Quand tu t’approches, la mélodie s’efface, comme si elle n’était pas pour toi.
+
+- « S’éloigner. » → **fin**
+
+### chant
+
+> Une jeune femme translucide fredonne, les yeux fermés. C’est la voix de Maëlis, plus jeune. Les mots t’échappent à peine chantés.
+
+- **[Mémoire 4]** « Entrer dans l’Écho et retenir la chanson. » → retenue
+- **[Érudition 2]** « Noter les vers, un à un, sans en perdre un mot. » → retenue
+- **🎲 Investigation 12** « Écouter encore, et encore. » → retenue, ✗ → echappe
+- « S’éloigner. » → **fin**
+
+### retenue
+
+_Effet : retient « berceuse-recueillie », retient le Récit « La berceuse de Maëlis »._
+
+> La chanson se dépose en toi, entière. L’Écho sourit, puis se dissout en poussière dorée, apaisé.
+
+- « Retourner chez les Lunelierre. » → **fin**
+
+### echappe
+
+> Les mots glissent entre tes doigts comme de l’eau. L’Écho fredonne toujours : tu pourras réessayer.
 
 - « … » → **fin**
 
@@ -250,6 +398,222 @@ Commence par : « apres-sabotage » _(si repère « foreuse-sabotee »)_, sinon 
 > La foreuse est silencieuse, pour l’instant. Mes ouvriers n’aiment pas ça, mais personne n’a plus revu de train, à Gardebois.
 
 - « Tant mieux. » → **fin**
+
+## Liane Sève-Claire
+
+_Herboriste_
+
+Commence par : « apres » _(si quête « Les herbes de lisière » terminée)_, sinon « rendu » _(si quête « Les herbes de lisière » en cours)_ _(si repère « sauge-1-cueillie »)_ _(si repère « sauge-2-cueillie »)_ _(si repère « sauge-3-cueillie »)_, sinon « attente » _(si quête « Les herbes de lisière » en cours)_, sinon « demande »
+
+### demande
+
+> Tu marches sur ma menthe. … Bon. L’apprenti·e d’Ilyane, c’est ça ? Alors rends-toi utile : il me faut de la sauge-lumière pour les malades, et mes genoux ne valent plus rien.
+
+- « Où en trouver ? » → ou _(lance la quête « Les herbes de lisière »)_
+- « Une autre fois. » → **fin**
+
+### ou
+
+> Trois touffes. Une vers le bas du village, une autre un peu plus à gauche, au bout du chemin. La troisième se cache sous une pierre moussue, tout à gauche, au bord de la forêt : il faut l’œil, ou du flair.
+
+- « Je m’en occupe. » → **fin**
+
+### attente
+
+> Alors, cette sauge ? Trois touffes, pas deux.
+
+- « J’y retourne. » → **fin**
+
+### rendu
+
+> Trois belles touffes… Tu as la main douce, pour un·e apprenti·e. Tiens : de quoi te rafistoler, et une fiole de ma sève. Ne la gaspille pas.
+
+- « Merci, Liane. » → **fin** _(termine la quête « Les herbes de lisière », +undefined XP, +undefined XP, +20 XP)_
+
+### apres
+
+> Mes malades vont un peu mieux. Reviens si tu croises d’autres herbes étranges.
+
+- « … » → **fin**
+
+## Maëlis Lunelierre
+
+_Mère de Nell_
+
+Commence par : « apres » _(si quête « La berceuse oubliée » terminée)_, sinon « retour » _(si quête « La berceuse oubliée » en cours)_ _(si repère « berceuse-recueillie »)_, sinon « attente » _(si quête « La berceuse oubliée » en cours)_, sinon « demande »
+
+### demande
+
+> Tu es l’apprenti·e d’Ilyane ? Ma fille, Nell… depuis trois nuits, elle ne reconnaît plus la berceuse que je lui chante. Elle m’écoute comme on écoute une étrangère.
+
+- « Je vais t’aider. Que puis-je faire ? » → piste _(lance la quête « La berceuse oubliée »)_
+- « Je suis désolé·e. Je dois partir. » → **fin**
+
+### piste
+
+> Ilyane dit que les souvenirs perdus laissent parfois un Écho. Hier soir, au pied de l’Arbre-Titan, j’ai cru entendre ma propre voix… Si tu pouvais rapporter la berceuse à Nell…
+
+- « J’y vais. » → **fin**
+
+### attente
+
+> Tu es allé·e au pied de l’Arbre-Titan ? On dit que l’Écho ne chante que pour ceux qui savent écouter.
+
+- « Pas encore. J’y retourne. » → **fin**
+
+### retour
+
+> Tu as entendu l’Écho, je le vois à ton regard. Va voir Nell, je t’en prie. Chante-lui ce que tu as retenu.
+
+- « J’y vais. » → **fin**
+
+### apres
+
+> Elle s’est endormie en chantonnant. Merci. Gardebois n’oubliera pas ce que tu as fait pour nous.
+
+- « Prends soin d’elle. » → **fin**
+
+## Nell Lunelierre
+
+_Fille de Maëlis_
+
+Commence par : « apres » _(si quête « La berceuse oubliée » terminée)_, sinon « chanson » _(si quête « La berceuse oubliée » en cours)_ _(si repère « berceuse-recueillie »)_, sinon « silence »
+
+### silence
+
+> Nell serre son oiseau de bois et regarde la fenêtre. « Maman chante, mais je ne connais pas cette chanson. Avant, je la connaissais… je crois. »
+
+- « … » → **fin**
+
+### chanson
+
+> Nell lève les yeux vers toi. « Tu connais une chanson ? »
+
+- « Lui chanter la berceuse de l’Écho. » → souvenir _(termine la quête « La berceuse oubliée », +30 XP)_
+- « Pas encore. » → **fin**
+
+### souvenir
+
+> Dès les premiers mots, Nell chante avec toi : « Dors sous la feuille, dors sous le vent… » Elle court vers sa mère en riant. Dans la pièce, quelque chose se remet en place.
+
+- « … » → **fin**
+
+### apres
+
+> « Dors sous la feuille… » Nell chantonne en faisant voler son oiseau de bois.
+
+- « … » → **fin**
+
+## Rocher moussu
+
+_Objet_
+
+Commence par : « vide » _(si repère « sauge-3-cueillie »)_, sinon « chercher » _(si quête « Les herbes de lisière » en cours)_, sinon « rocher »
+
+### rocher
+
+> Un gros rocher couvert de mousse.
+
+- « … » → **fin**
+
+### chercher
+
+> Un gros rocher couvert de mousse. Liane parlait d’une lueur sous une pierre…
+
+- **[Perception 4]** « Repérer la lueur sous la mousse. » → trouve
+- **🎲 Survie 11** « Suivre l’odeur poivrée de la sauge. » → trouve, ✗ → rien
+- « Laisser tomber. » → **fin**
+
+### trouve
+
+_Effet : retient « sauge-3-cueillie »._
+
+> Sous le rebord du rocher, une touffe de sauge-lumière brille dans l’ombre. Tu la cueilles avec soin.
+
+- « … » → **fin**
+
+### rien
+
+> Tu tournes autour du rocher sans rien trouver. Peut-être en revenant plus tard…
+
+- « … » → **fin**
+
+### vide
+
+> Le creux sous le rocher, où poussait la sauge-lumière.
+
+- « … » → **fin**
+
+## Sauge-lumière
+
+_Plante_
+
+Commence par : « cueillir » _(si quête « Les herbes de lisière » en cours)_, sinon « plante »
+
+### plante
+
+> Une petite plante aux feuilles argentées, qui luit doucement. L’herboriste saurait sans doute à quoi elle sert.
+
+- « La laisser. » → **fin**
+
+### cueillir
+
+> De la sauge-lumière, bien vivante. Ses feuilles tiédissent au creux de ta main.
+
+- « La cueillir. » → **fin** _(retient « sauge-1-cueillie »)_
+- « La laisser. » → **fin**
+
+## Sauge-lumière
+
+_Plante_
+
+Commence par : « cueillir » _(si quête « Les herbes de lisière » en cours)_, sinon « plante »
+
+### plante
+
+> Une petite plante aux feuilles argentées, qui luit doucement. L’herboriste saurait sans doute à quoi elle sert.
+
+- « La laisser. » → **fin**
+
+### cueillir
+
+> De la sauge-lumière, bien vivante. Ses feuilles tiédissent au creux de ta main.
+
+- « La cueillir. » → **fin** _(retient « sauge-2-cueillie »)_
+- « La laisser. » → **fin**
+
+## Sylvan Mousserelle
+
+_Aubergiste de la Racine_
+
+Commence par : « accueil »
+
+### accueil
+
+> Bienvenue à la Racine ! Ici, on mange chaud et on parle fort. Assieds-toi : chez Sylvan, les Gardiens de Mémoire sont toujours bien reçus.
+
+- _(si quête « undefined » undefined)_ « Un repas chaud. » → repas _(+-5 Fers, +undefined XP)_
+- « Quelles nouvelles ? » → rumeurs
+- « Au revoir. » → **fin**
+
+### repas
+
+> Soupe de racines, pain de mousse et une part de tarte aux baies. Ça remet d’aplomb, pas vrai ?
+
+- « Merci, Sylvan. » → accueil
+
+### rumeurs
+
+> On dit que la maladie des souvenirs vient de la Gare, depuis que Ferros y creuse. La petite Nell, chez les Lunelierre, ne reconnaît plus sa propre berceuse… Et Brann, le gamin de Tobias, a perdu une caisse sur la route de l’est.
+
+- « Et l’herboriste, Liane ? » → liane
+- « Merci. » → accueil
+
+### liane
+
+> Liane ? Toujours au bord du ruisseau, près du marché, le nez dans ses herbes. Elle est brusque, mais personne ne soigne mieux qu’elle.
+
+- « Merci. » → accueil
 
 ## Tobias Cendrefer
 

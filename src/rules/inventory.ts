@@ -31,6 +31,20 @@ export function merchantCatalogue(npcId: string): ItemDef[] {
   return ITEMS.filter((i) => sells.includes(i.id));
 }
 
+/**
+ * Share taken off this trader's prices, once earned (`remise` in npcs.json: the flag that grants it and the rate;
+ * Tobias, after « La caisse égarée »).
+ */
+export function merchantDiscount(flags: Record<string, boolean>, npcId?: string): number {
+  const remise = (npcData as { id: string; remise?: { flag: string; taux: number } }[]).find((n) => n.id === npcId)?.remise;
+  return remise && flags[remise.flag] ? remise.taux : 0;
+}
+
+/** What one costs at a stall, after any discount. */
+export function buyPrice(item: ItemDef, discount = 0): number {
+  return Math.round(item.price * (1 - discount));
+}
+
 /** Rows of the inventory (what is carried) or of a stall (what the trader sells, plus what is carried, to sell it). */
 export function tradeItems(character: Character, npcId?: string): ItemDef[] {
   const forSale = new Set(npcId ? merchantCatalogue(npcId).map((i) => i.id) : []);
@@ -79,10 +93,10 @@ export function removeItem(character: Character, itemId: string, count = 1): voi
 
 export type TradeError = 'inconnu' | 'trop-cher' | 'trop-lourd' | 'pas-en-stock';
 
-export function buy(character: Character, itemId: string, count = 1): TradeError | null {
+export function buy(character: Character, itemId: string, count = 1, discount = 0): TradeError | null {
   const item = findItem(itemId);
   if (!item) return 'inconnu';
-  const cost = item.price * count;
+  const cost = buyPrice(item, discount) * count;
   if (character.fers < cost) return 'trop-cher';
   if (carriedWeightKg(character) + item.weightKg * count > carryCapacityKg(character.attributes)) return 'trop-lourd';
   character.fers -= cost;

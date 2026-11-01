@@ -1,8 +1,10 @@
+import encounterData from '../data/encounters.json';
 import enemyData from '../data/enemies.json';
 import weaponData from '../data/weapons.json';
 import type { Tile } from '../engine/iso';
 import { attributeModifier, type AttributeId, type SkillId } from './attributes';
 import { characterStats, findFeat, type Character } from './character';
+import type { Effect } from './dialogue';
 import { armorBonus } from './inventory';
 
 export interface Dice {
@@ -35,8 +37,21 @@ export interface EnemyDef {
   tile: string;
 }
 
+/**
+ * A fight started from a dialogue (src/data/encounters.json): the arena is carved around a map object, each enemy
+ * starts on its own map object (drawn on the map until the fight is won or avoided).
+ */
+export interface EncounterDef {
+  id: string;
+  center: string;
+  enemies: { id: string; object: string }[];
+  victoryFlag: string;
+  victoryEffects: Effect[];
+}
+
 export const WEAPONS = weaponData as WeaponDef[];
 export const ENEMIES = enemyData as EnemyDef[];
+export const ENCOUNTERS = encounterData as EncounterDef[];
 
 export function findWeapon(id: string): WeaponDef | undefined {
   return WEAPONS.find((w) => w.id === id);

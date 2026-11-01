@@ -1,0 +1,20 @@
+{
+  "id": "carnets-ilyane",
+  "speaker": "carnets-ilyane",
+  "entries": [
+    {
+      "node": "carnets"
+    }
+  ],
+  "nodes": {
+    "carnets": {
+      "text": "Des dizaines de carnets couverts de l’écriture serrée d’Ilyane : des récits recueillis dans tout Verdantis. Sur la page ouverte : « Ce qu’on oublie ne disparaît pas tout à fait. Il attend qu’on revienne. »",
+      "options": [
+        {
+          "text": "Refermer le carnet.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

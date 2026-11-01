@@ -3,5 +3,10 @@
     "id": "savant-corvan",
     "titre": "Le Savant Corvan",
     "texte": "Le savant Corvan reconstruisit un réacteur de l’Ancien Monde. Avant même de l’allumer, la foudre le frappa dans son laboratoire scellé, et une tempête de radiation dura six mois. On dit que ses descendants sont encore traqués par le malheur : réussir, parfois, détruit tout autant qu’échouer."
+  },
+  {
+    "id": "berceuse-de-maelis",
+    "titre": "La berceuse de Maëlis",
+    "texte": "« Dors sous la feuille, dors sous le vent, la lanterne veille et le bois t’entend. Si tu t’égares au bout du chemin, suis ma voix : je te tiens la main. » Une chanson de Gardebois, gardée par un Écho quand on l’avait oubliée."
   }
 ]

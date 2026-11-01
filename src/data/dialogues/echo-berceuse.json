@@ -1,0 +1,93 @@
+{
+  "id": "echo-berceuse",
+  "speaker": "echo-berceuse",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "berceuse",
+          "status": "active"
+        }
+      ],
+      "node": "chant"
+    },
+    {
+      "node": "lointain"
+    }
+  ],
+  "nodes": {
+    "lointain": {
+      "text": "Au pied de l’Arbre-Titan, une silhouette translucide fredonne. Quand tu t’approches, la mélodie s’efface, comme si elle n’était pas pour toi.",
+      "options": [
+        {
+          "text": "S’éloigner.",
+          "next": "fin"
+        }
+      ]
+    },
+    "chant": {
+      "text": "Une jeune femme translucide fredonne, les yeux fermés. C’est la voix de Maëlis, plus jeune. Les mots t’échappent à peine chantés.",
+      "options": [
+        {
+          "text": "Entrer dans l’Écho et retenir la chanson.",
+          "requires": [
+            {
+              "attribute": "memory",
+              "min": 4
+            }
+          ],
+          "next": "retenue"
+        },
+        {
+          "text": "Noter les vers, un à un, sans en perdre un mot.",
+          "requires": [
+            {
+              "skill": "lore",
+              "min": 2
+            }
+          ],
+          "next": "retenue"
+        },
+        {
+          "text": "Écouter encore, et encore.",
+          "roll": {
+            "skill": "investigation",
+            "difficulty": 12
+          },
+          "next": "retenue",
+          "failNext": "echappe"
+        },
+        {
+          "text": "S’éloigner.",
+          "next": "fin"
+        }
+      ]
+    },
+    "retenue": {
+      "text": "La chanson se dépose en toi, entière. L’Écho sourit, puis se dissout en poussière dorée, apaisé.",
+      "effects": [
+        {
+          "setFlag": "berceuse-recueillie"
+        },
+        {
+          "learnRecit": "berceuse-de-maelis"
+        }
+      ],
+      "options": [
+        {
+          "text": "Retourner chez les Lunelierre.",
+          "next": "fin"
+        }
+      ]
+    },
+    "echappe": {
+      "text": "Les mots glissent entre tes doigts comme de l’eau. L’Écho fredonne toujours : tu pourras réessayer.",
+      "options": [
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

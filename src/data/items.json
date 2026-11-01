@@ -62,5 +62,13 @@
     "weightKg": 0.5,
     "price": 8,
     "healHp": 8
+  },
+  {
+    "id": "fiole-seve",
+    "name": "Fiole de sève",
+    "description": "Une sève de lisière préparée par Liane. Soigne une blessure sérieuse.",
+    "weightKg": 0.3,
+    "price": 20,
+    "healHp": 20
   }
 ]

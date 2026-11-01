@@ -181,6 +181,11 @@ const PORTRAITS = {
   tobias: 'lot4/tobias.png',
   ingrid: 'lot4/ingrid.png',
   'echo-dernier-train': 'lot4/echo-dernier-train.png',
+  sylvan: 'contenu/portrait-sylvan.png',
+  maelis: 'contenu/portrait-maelis.png',
+  nell: 'contenu/portrait-nell.png',
+  liane: 'contenu/portrait-liane.png',
+  brann: 'contenu/portrait-brann.png',
   // The hero's looks (src/data/avatars.json), chosen at creation.
   'avatar-apprenti': 'avatars/portrait-apprenti.png',
   'avatar-lisiere': 'avatars/portrait-lisiere.png',
@@ -196,6 +201,33 @@ const ILLUSTRATIONS = {
   'echo-dernier-train': 'lot5/echo-dernier-train.png',
 };
 
+/**
+ * An interior wall block filling a cell: the wall texture (front view, seamless left to right) drawn on the two faces
+ * seen from the camera, slanted along the cell's edges, the right face in shade; a dark beam on top. Blocks side by
+ * side form one continuous wall.
+ */
+async function wallFrame(src, { height = 60 }) {
+  const texture = await sharp(fileURLToPath(src)).resize(256, 256).png().toBuffer();
+  const T = 256;
+  const face = (slope, shade) =>
+    sharp(texture)
+      .affine([32 / T, 0, (slope * 16) / T, height / T], { background: { r: 0, g: 0, b: 0, alpha: 0 }, interpolator: 'bicubic' })
+      .modulate({ brightness: shade })
+      .png()
+      .toBuffer();
+  const top = 80 - height;
+  const lid = Buffer.from(
+    `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}"><path d="M32 ${top - 16} L64 ${top} L32 ${top + 16} L0 ${top} Z" fill="#4a3524" stroke="#1B1512" stroke-width="1"/></svg>`,
+  );
+  return sharp({ create: { width: W, height: H, channels: 4, background: { r: 0, g: 0, b: 0, alpha: 0 } } })
+    .composite([
+      { input: await face(1, 1), left: 0, top },
+      { input: await face(-1, 0.78), left: 32, top },
+      { input: lid, left: 0, top: 0 },
+    ])
+    .png();
+}
+
 mkdirSync(OUT, { recursive: true });
 for (const tile of TILES.filter((t) => t.art)) {
   const { src, kind } = tile.art;
@@ -204,7 +236,8 @@ for (const tile of TILES.filter((t) => t.art)) {
     console.warn(`${tile.name} : image brute absente (${src}), frame inchangée`);
     continue;
   }
-  const frame = kind === 'ground' ? await groundFrame(srcUrl, tile.art.seam ?? 'both') : await standingFrame(srcUrl, tile.art);
+  const frame =
+    kind === 'ground' ? await groundFrame(srcUrl, tile.art.seam ?? 'both') : kind === 'wall' ? await wallFrame(srcUrl, tile.art) : await standingFrame(srcUrl, tile.art);
   await frame.toFile(fileURLToPath(new URL(`${tile.name}.png`, OUT)));
   // Large decor: the full-size image the map draws once over its block of cells (`big` in tiles-def).
   if (tile.big) {

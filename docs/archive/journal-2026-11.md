@@ -620,3 +620,10 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
 - 6 avatars faits sur le plan validé par Cyril (36 images, 24 crédits, 36 restants, tout gardé au premier essai) : `src/data/avatars.json`, `character.avatar` (sauvegarde v8), choix en tête de la création, planche de marche sur la carte, première image en combat. 192 tests. Vérifié dans le jeu. Pas encore poussé.
 - Poussé sur accord de Cyril ; déploiement réussi (avatars, marche, corrections en ligne).
 - Retour de Cyril (« pas mal ») : pont pas fait, combat fouillis (souhaite des cases à la FF Tactics), Ilyane cachée par une lanterne, avatars « top ». Faits : lanterne déplacée (+ test « rien devant un PNJ »), vrai pont en bois (grand décor de sol, 1 crédit), combat lisible (grille, cases atteignables, chemin et coût, chance de toucher, case du joueur actif, aide, mouvements animés, arbres translucides). 196 tests.
+- Contenu validé par Cyril (4 intérieurs, 5 PNJ, 3 quêtes) puis réalisé : 22 images (16 crédits, 19 restants) ;
+  moteur : portes, intérieurs (murs par script), objets qui disparaissent (`disparaitSi`), ennemis sur la carte et
+  combats lancés par un dialogue (`encounters.json`), effets `giveItem`, `heal`, `startCombat`, condition `fers`,
+  remise de Tobias ; 12 dialogues, 3 quêtes, le Récit « La berceuse de Maëlis », la Fiole de sève. L'Écho du dernier
+  train déplacé d'une case (il était caché par le wagon), test étendu aux Échos. 209 tests. Vérifié dans le jeu :
+  porte de l'auberge, intérieur, retour devant la porte, combat des Rôdeurs lancé et gagné, Rôdeurs disparus.
+  Question ouverte : Sylvan a des oreilles pointues (elfes de Verdantis, zone floue n° 2).

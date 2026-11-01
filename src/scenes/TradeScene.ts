@@ -1,20 +1,7 @@
 import Phaser from 'phaser';
 import npcData from '../data/npcs.json';
 import { characterStats, type Character, type Slot } from '../rules/character';
-import {
-  SELL_RATIO,
-  armorBonus,
-  buy,
-  carriedWeightKg,
-  equip,
-  merchantCatalogue,
-  ownedCount,
-  sell,
-  tradeItems,
-  unequip,
-  useConsumable,
-  type ItemDef,
-} from '../rules/inventory';
+import { armorBonus, buy, buyPrice, carriedWeightKg, equip, merchantCatalogue, merchantDiscount, ownedCount, sell, SELL_RATIO, tradeItems, unequip, useConsumable, type ItemDef } from '../rules/inventory';
 import type { GameState } from '../state/gameState';
 import { addTextButton } from '../ui/button';
 import { onKeys, withKeyHint } from '../ui/keys';
@@ -109,7 +96,9 @@ export class TradeScene extends Phaser.Scene {
 
     this.layer.add(this.rect(y));
     const L = LAYOUT;
-    const label = `${item.name}${owned ? `  ×${owned}` : ''}${equippedIn ? `  (${SLOT_NAMES[equippedIn]})` : ''}  —  ${item.weightKg} kg  —  ${item.price} F`;
+    const discount = merchantDiscount(this.state.flags, this.npcId);
+    const price = buyPrice(item, discount);
+    const label = `${item.name}${owned ? `  ×${owned}` : ''}${equippedIn ? `  (${SLOT_NAMES[equippedIn]})` : ''}  —  ${item.weightKg} kg  —  ${price} F${price < item.price ? ' (prix d’ami)' : ''}`;
     this.layer.add(
       this.text(MARGIN + 10, y, label, L.rowFont, owned ? CSS.parchment : CSS.muted).setOrigin(0, 0.5).setFixedSize(620, 0).setAlign('left'),
     );
@@ -144,7 +133,7 @@ export class TradeScene extends Phaser.Scene {
     if (this.npcId && merchantCatalogue(this.npcId).some((i) => i.id === item.id)) {
       addButton('Acheter', () =>
         this.act(() => {
-          const error = buy(this.character(), item.id, 1);
+          const error = buy(this.character(), item.id, 1, discount);
           if (error === 'trop-cher') return this.fail('Pas assez de Fers.');
           if (error === 'trop-lourd') return this.fail('Trop lourd à porter.');
           return true;

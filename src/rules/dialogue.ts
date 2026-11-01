@@ -2,6 +2,9 @@ import questData from '../data/quests.json';
 import type { GameState } from '../state/gameState';
 import { ATTRIBUTES, SKILLS, attributeModifier, type AttributeId, type SkillId } from './attributes';
 import { resolveCheck, rollD20, successChance, type Rng } from './checks';
+import { characterStats } from './character';
+import { ENCOUNTERS } from './combat';
+import { addItem, findItem } from './inventory';
 import { RECITS, findRecit, knowsRecit, learnRecit } from './recits';
 
 /** Attribute and skill tests stay visible (greyed) when unmet; story conditions hide the option. */
@@ -11,7 +14,9 @@ export type Condition =
   | { flag: string }
   | { notFlag: string }
   | { quest: string; status: 'none' | 'active' | 'done' }
-  | { recit: string };
+  | { recit: string }
+  /** Enough Fers to pay (a meal at the inn): a test, shown greyed when unmet. */
+  | { fers: number };
 
 export type Effect =
   | { setFlag: string }
@@ -20,8 +25,14 @@ export type Effect =
   | { giveXp: number }
   | { giveFers: number }
   | { learnRecit: string }
+  /** Adds to the inventory (src/data/items.json). */
+  | { giveItem: string; count?: number }
+  /** Gives back hit points, up to the maximum. */
+  | { heal: number }
   /** No state change: tells DialogueScene to open the Troc with this NPC instead of closing (docs/gdd/inventaire.md). */
-  | { openTrade: true };
+  | { openTrade: true }
+  /** No state change: tells DialogueScene to close and the map to start this fight (src/data/encounters.json). */
+  | { startCombat: string };
 
 /** An action rolled with the d20 (docs/gdd/competences.md): the chance is shown, then `next` or `failNext` follows. */
 export interface Roll {
@@ -70,8 +81,8 @@ export const QUESTS = questData as QuestDef[];
 export const MAX_NODE_TEXT = 300;
 export const MAX_OPTIONS = 4;
 
-const isTest = (c: Condition): c is { attribute: AttributeId; min: number } | { skill: SkillId; min: number } =>
-  'attribute' in c || 'skill' in c;
+const isTest = (c: Condition): c is { attribute: AttributeId; min: number } | { skill: SkillId; min: number } | { fers: number } =>
+  'attribute' in c || 'skill' in c || 'fers' in c;
 
 export function conditionMet(state: GameState, c: Condition): boolean {
   if ('attribute' in c) return (state.character?.attributes[c.attribute] ?? 0) >= c.min;
@@ -79,6 +90,7 @@ export function conditionMet(state: GameState, c: Condition): boolean {
   if ('flag' in c) return state.flags[c.flag] === true;
   if ('notFlag' in c) return state.flags[c.notFlag] !== true;
   if ('recit' in c) return knowsRecit(state.character, c.recit);
+  if ('fers' in c) return (state.character?.fers ?? 0) >= c.fers;
   return (state.quests[c.quest] ?? 'none') === c.status;
 }
 
@@ -86,6 +98,7 @@ export function conditionMet(state: GameState, c: Condition): boolean {
 export function testLabel(c: Condition): string | null {
   if ('attribute' in c) return `${ATTRIBUTES.find((a) => a.id === c.attribute)?.name ?? c.attribute} ${c.min}`;
   if ('skill' in c) return `${SKILLS.find((s) => s.id === c.skill)?.name ?? c.skill} ${c.min}`;
+  if ('fers' in c) return `${c.fers} Fers`;
   return null;
 }
 
@@ -185,12 +198,25 @@ export function applyEffects(state: GameState, effects: Effect[] = []): string[]
         learnRecit(state.character, effect.learnRecit);
         notices.push(`Récit retenu : ${findRecit(effect.learnRecit)?.titre ?? effect.learnRecit}`);
       }
-    } else if ('openTrade' in effect) {
-      // Handled by DialogueScene, which opens the Troc instead of closing; no state change here.
+    } else if ('openTrade' in effect || 'startCombat' in effect) {
+      // Handled by DialogueScene (Troc, or a fight on the map); no state change here.
+    } else if ('giveItem' in effect) {
+      if (state.character) {
+        const count = effect.count ?? 1;
+        addItem(state.character, effect.giveItem, count);
+        notices.push(`+${count} ${findItem(effect.giveItem)?.name ?? effect.giveItem}`);
+      }
+    } else if ('heal' in effect) {
+      if (state.character) {
+        const max = characterStats(state.character).maxHp;
+        const before = state.character.hp;
+        state.character.hp = Math.min(max, before + effect.heal);
+        if (state.character.hp > before) notices.push(`+${state.character.hp - before} PV`);
+      }
     } else if ('giveFers' in effect) {
       if (state.character) {
-        state.character.fers += effect.giveFers;
-        notices.push(`+${effect.giveFers} Fers`);
+        state.character.fers = Math.max(0, state.character.fers + effect.giveFers);
+        notices.push(`${effect.giveFers >= 0 ? '+' : '−'}${Math.abs(effect.giveFers)} Fers`);
       }
     } else if (state.character) {
       state.character.xp += effect.giveXp;
@@ -202,6 +228,12 @@ export function applyEffects(state: GameState, effects: Effect[] = []): string[]
 
 export function opensTrade(effects?: Effect[]): boolean {
   return !!effects?.some((e) => 'openTrade' in e);
+}
+
+/** The fight an option starts, if any (src/data/encounters.json). */
+export function startsCombat(effects?: Effect[]): string | null {
+  const effect = effects?.find((e) => 'startCombat' in e);
+  return effect && 'startCombat' in effect ? effect.startCombat : null;
 }
 
 function questName(id: string): string {
@@ -230,6 +262,8 @@ export function dialogueProblems(d: Dialogue): string[] {
       const quest = 'startQuest' in e ? e.startQuest : 'completeQuest' in e ? e.completeQuest : null;
       if (quest && !knownQuests.has(quest)) problems.push(`${where} : quête inconnue ${quest}`);
       if ('learnRecit' in e && !knownRecits.has(e.learnRecit)) problems.push(`${where} : récit inconnu ${e.learnRecit}`);
+      if ('giveItem' in e && !findItem(e.giveItem)) problems.push(`${where} : objet inconnu ${e.giveItem}`);
+      if ('startCombat' in e && !ENCOUNTERS.some((x) => x.id === e.startCombat)) problems.push(`${where} : combat inconnu ${e.startCombat}`);
     }
   };
 

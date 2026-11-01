@@ -8,6 +8,7 @@ import { FACINGS, facingOf, type Facing } from '../engine/facing';
 import { findPath } from '../engine/pathfinding';
 import { bigBlock, findObject, isBigAnchor, isWalkable, parseTiledMap, tileKey, type GameMap, type MapObject } from '../engine/tiledMap';
 import { DEFAULT_AVATAR } from '../rules/character';
+import { ENCOUNTERS, findEnemy } from '../rules/combat';
 import { findLocation, type GameState } from '../state/gameState';
 import { onKeys } from '../ui/keys';
 import { COLORS, CSS, FONT_SERIF } from '../ui/theme';
@@ -16,7 +17,7 @@ import type { CombatStartData } from './CombatScene';
 import type { HudScene } from './HudScene';
 
 /** Map objects drawn by an obstacle tile on the same cell, and touchable on that tile's image. */
-const INTERACTIVE_OBSTACLES = new Set(['panneau', 'echo', 'golem', 'coffre', 'foreuse']);
+const INTERACTIVE_OBSTACLES = new Set(['panneau', 'echo', 'golem', 'coffre', 'foreuse', 'porte', 'objet']);
 
 /** Room above the top row for tall tiles (frames are 96 px high for a 32 px diamond). */
 const TOP_MARGIN = 80;
@@ -65,7 +66,7 @@ export class MapScene extends Phaser.Scene {
     this.registry.set('tileFrames', this.map.frames);
     this.originX = this.map.height * (TILE_WIDTH / 2);
     this.originY = TOP_MARGIN;
-    this.occupied = new Set(this.map.objects.filter((o) => o.type === 'pnj').map(tileKey));
+    this.occupied = new Set(this.map.objects.filter((o) => o.type === 'pnj' || (o.type === 'ennemi' && !this.gone(o))).map(tileKey));
     this.path = [];
     this.moving = false;
     this.pendingGoal = null;
@@ -75,6 +76,7 @@ export class MapScene extends Phaser.Scene {
     this.drawGround();
     this.drawObstacles();
     this.drawNpcs();
+    this.drawEnemies();
     this.marker = this.add.graphics().setDepth(1);
 
     this.heroTile = this.startTile(location.entrance);
@@ -97,6 +99,10 @@ export class MapScene extends Phaser.Scene {
 
     this.scene.launch('Hud', { locationName: location.name });
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => this.scene.stop('Hud'));
+    // A dialogue or a fight may have picked a herb or sent enemies away. Scene events outlive a restart: unhook.
+    const onResume = () => this.refreshGone();
+    this.events.on(Phaser.Scenes.Events.RESUME, onResume);
+    this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => this.events.off(Phaser.Scenes.Events.RESUME, onResume));
   }
 
   update(_time: number, delta: number): void {
@@ -156,9 +162,57 @@ export class MapScene extends Phaser.Scene {
         const marker = this.map.objects.find(
           (o) => INTERACTIVE_OBSTACLES.has(o.type) && o.col === col && o.row === row,
         );
-        if (marker) this.interactables.push({ object: marker, image });
+        if (marker && this.gone(marker)) image.setVisible(false);
+        else if (marker) this.interactables.push({ object: marker, image });
       }
     }
+  }
+
+  /**
+   * Objects that leave the map once the story moves on (property `disparaitSi`: flags, comma-separated): a picked
+   * herb, enemies chased away or beaten. Checked when the map is built and each time it resumes.
+   */
+  private gone(o: MapObject): boolean {
+    return (o.properties.disparaitSi ?? '').split(',').some((flag) => flag && this.state.flags[flag.trim()]);
+  }
+
+  private refreshGone(): void {
+    this.interactables = this.interactables.filter(({ object, image }) => {
+      if (!this.gone(object)) return true;
+      image.setVisible(false);
+      this.occupied.delete(tileKey(object));
+      return false;
+    });
+  }
+
+  /** Enemies standing on the map until their fight is won or avoided (src/data/encounters.json). */
+  private drawEnemies(): void {
+    for (const o of this.map.objects.filter((x) => x.type === 'ennemi' && !this.gone(x))) {
+      const f = this.feet(o);
+      const tile = findEnemy(o.properties.ennemi ?? '')?.tile ?? 'pnj';
+      const image = this.add.image(f.x, f.y, 'tiles', this.map.frames[tile] ?? this.map.frames.pnj).setOrigin(0.5, 1).setDepth(f.y);
+      this.interactables.push({ object: o, image });
+    }
+  }
+
+  /** A fight started from a dialogue: the arena is carved around the encounter's centre object. */
+  startEncounter(id: string): void {
+    const encounter = ENCOUNTERS.find((e) => e.id === id);
+    const center = encounter && findObject(this.map, encounter.center);
+    if (!encounter || !center) return;
+    const enemyObjects = encounter.enemies.map((e) => findObject(this.map, e.object)!);
+    const arena = carveArena(this.map, center, ARENA_COLS, ARENA_ROWS, enemyObjects);
+    this.registry.set('tileFrames', this.map.frames);
+    this.scene.pause();
+    this.scene.pause('Hud');
+    this.scene.launch('Combat', {
+      enemyIds: encounter.enemies.map((e) => e.id),
+      victoryEffects: encounter.victoryEffects,
+      victoryFlag: encounter.victoryFlag,
+      arena,
+      heroTile: toArena(arena, this.heroTile),
+      enemyTiles: enemyObjects.map((o) => toArena(arena, o)),
+    } satisfies CombatStartData);
   }
 
   private drawNpcs(): void {
@@ -328,6 +382,14 @@ export class MapScene extends Phaser.Scene {
       this.startGolemFight(target);
       return;
     }
+    if (target.type === 'porte') {
+      this.enter(target.properties.cible, target.properties.arrivee, target.properties.libelle);
+      return;
+    }
+    if (target.type === 'ennemi') {
+      this.hud().toast(target.properties.texte ?? 'Mieux vaut ne pas s’approcher sans plan.');
+      return;
+    }
     if (DIALOGUES[target.name]) {
       this.scene.pause();
       this.scene.launch('Dialogue', { id: target.name });
@@ -368,13 +430,18 @@ export class MapScene extends Phaser.Scene {
   private checkExit(): void {
     const exit = this.map.objects.find((o) => o.type === 'sortie' && o.col === this.heroTile.col && o.row === this.heroTile.row);
     if (!exit) return;
-    const destination = exit.properties.cible ? findLocation(exit.properties.cible) : undefined;
+    this.enter(exit.properties.cible, exit.properties.arrivee, exit.properties.libelle);
+  }
+
+  /** Goes to another map (a door, a road out), arriving on a named object or the map's own entrance. */
+  private enter(target: string | undefined, arrival: string | undefined, label: string | undefined): void {
+    const destination = target ? findLocation(target) : undefined;
     if (!destination) {
-      this.hud().toast(`${exit.properties.libelle ?? 'Sortie'} : cette carte arrive bientôt.`);
+      this.hud().toast(`${label ?? 'Sortie'} : cette carte arrive bientôt.`);
       return;
     }
     this.state.location = destination.id;
-    this.state.entrance = exit.properties.arrivee ?? destination.entrance;
+    this.state.entrance = arrival ?? destination.entrance;
     this.scene.start('Map');
   }
 }

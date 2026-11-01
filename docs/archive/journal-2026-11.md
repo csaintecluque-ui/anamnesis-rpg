@@ -597,3 +597,8 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   `public/portraits/`, champ `portrait` d'`npcs.json`, affichage en haut à gauche du panneau de dialogue, `.jpg`
   ajoutés au cache hors ligne, test (184 tests). Vérifié dans le jeu, avec un contrôle de mise en page sur les
   37 répliques dans les deux tailles de texte.
+- Lot 5 lancé par Cyril : écran titre et intérieur de l'Écho (2k haute qualité, 5,5 crédits, 83,5 restants), gardés
+  au premier essai. Code : fond peint de l'écran titre sous un voile d'encre ; champ `illustration` des nœuds de
+  dialogue (image plein écran derrière un panneau plus transparent), utilisé quand on entre dans l'Écho ; test
+  (185 tests). Vérifié dans le jeu. **Phase 2 terminée** : 26,5 crédits au total au lieu de 51 estimés. Points à
+  valider par Cyril : éléments inventés des illustrations (cité de cristal, dirigeable, gare à verrière).

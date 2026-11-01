@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import sealUrl from '../../assets/brand/logo-seal.svg?url';
+import { DIALOGUES } from '../data/dialogues';
 import npcData from '../data/npcs.json';
 
 export class BootScene extends Phaser.Scene {
@@ -13,6 +14,10 @@ export class BootScene extends Phaser.Scene {
     this.load.spritesheet('tiles', 'tiles/tiles.png', { frameWidth: 64, frameHeight: 96 });
     // Dialogue portraits (npm run art).
     for (const npc of npcData) if ('portrait' in npc) this.load.image(`portrait-${npc.id}`, npc.portrait);
+    // Illustrations (npm run art): the title screen's, and those of dialogue nodes.
+    const illustrations = new Set(['titre']);
+    for (const d of Object.values(DIALOGUES)) for (const n of Object.values(d.nodes)) if (n.illustration) illustrations.add(n.illustration);
+    for (const id of illustrations) this.load.image(`illustration-${id}`, `illustrations/${id}.jpg`);
   }
 
   create(): void {

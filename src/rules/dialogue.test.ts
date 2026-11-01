@@ -299,3 +299,12 @@ describe('dialogue portraits', () => {
     for (const p of portraits) expect(files, p).toContain(`/public/${p}`);
   });
 });
+
+describe('illustrations', () => {
+  it('has a file in public/illustrations/ for the title screen and every illustrated node', () => {
+    const files = Object.keys(import.meta.glob('/public/illustrations/*'));
+    const ids = ['titre', ...Object.values(DIALOGUES).flatMap((d) => Object.values(d.nodes).flatMap((n) => (n.illustration ? [n.illustration] : [])))];
+    expect(ids).toContain('echo-dernier-train');
+    for (const id of ids) expect(files, id).toContain(`/public/illustrations/${id}.jpg`);
+  });
+});

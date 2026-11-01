@@ -16,6 +16,9 @@ const OPTION_GAP = 8;
 const OPTIONS_BOTTOM = GAME_HEIGHT - 30;
 /** Backdrop over the map for night scenes (nodes with `night`). */
 const NIGHT = 0x0a0f1e;
+/** Panel opacity: lighter over an illustration so it shows through. */
+const PANEL_ALPHA = 0.94;
+const PANEL_ALPHA_OVER_ILLUSTRATION = 0.78;
 
 /** Conversation overlay above the map (which is paused meanwhile). */
 export class DialogueScene extends Phaser.Scene {
@@ -23,6 +26,9 @@ export class DialogueScene extends Phaser.Scene {
   private state!: GameState;
   private layer!: Phaser.GameObjects.Container;
   private backdrop!: Phaser.GameObjects.Rectangle;
+  /** Full-screen illustration of the current node, if it has one (`illustration`). */
+  private illustration!: Phaser.GameObjects.Image;
+  private panel!: Phaser.GameObjects.Rectangle;
   private notices: string[] = [];
   /** Result of the die just rolled, shown above the next node's text. */
   private rollNotice: string | null = null;
@@ -46,8 +52,9 @@ export class DialogueScene extends Phaser.Scene {
 
     // Swallows taps so nothing reaches the map or the HUD below.
     this.backdrop = this.add.rectangle(0, 0, GAME_WIDTH, GAME_HEIGHT, COLORS.ink, 0.45).setOrigin(0, 0).setInteractive();
-    this.add
-      .rectangle(0, this.panelTop, GAME_WIDTH, GAME_HEIGHT - this.panelTop, COLORS.ink, 0.94)
+    this.illustration = this.add.image(0, 0, '__DEFAULT').setOrigin(0, 0).setVisible(false);
+    this.panel = this.add
+      .rectangle(0, this.panelTop, GAME_WIDTH, GAME_HEIGHT - this.panelTop, COLORS.ink, PANEL_ALPHA)
       .setOrigin(0, 0)
       .setStrokeStyle(2, COLORS.copper, 0.7);
     const npc = npcData.find((n) => n.id === this.dialogue.speaker);
@@ -80,6 +87,11 @@ export class DialogueScene extends Phaser.Scene {
     this.layer.removeAll(true);
     if (node.night) this.backdrop.setFillStyle(NIGHT, 0.82);
     else this.backdrop.setFillStyle(COLORS.ink, 0.45);
+    const illustration = `illustration-${node.illustration}`;
+    const illustrated = node.illustration !== undefined && this.textures.exists(illustration);
+    if (illustrated) this.illustration.setTexture(illustration).setDisplaySize(GAME_WIDTH, GAME_HEIGHT);
+    this.illustration.setVisible(illustrated);
+    this.panel.setFillStyle(COLORS.ink, illustrated ? PANEL_ALPHA_OVER_ILLUSTRATION : PANEL_ALPHA);
 
     if (this.notices.length) {
       this.layer.add(

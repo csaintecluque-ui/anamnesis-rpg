@@ -2,9 +2,9 @@
 
 Style imposé à chaque prompt : `docs/STYLE.md`. Aucune génération sans le feu vert de Cyril (`CLAUDE.md` §5).
 
-## Plan de la phase 2 (proposition du 2026-11-01 ; style validé et suite lancée par Cyril le 2026-11-01)
+## Plan de la phase 2 (proposition du 2026-11-01 ; style validé et suite lancée par Cyril le 2026-11-01 ; **réalisé le 2026-11-01**)
 
-Les visuels provisoires actuels (`scripts/tiles-def.mjs`, `public/tiles/placeholder.png`) sont remplacés un par un ;
+Les visuels provisoires (`scripts/tiles-def.mjs`, ex-`public/tiles/placeholder.png`) sont remplacés un par un ;
 le jeu reste jouable à chaque étape.
 
 | Lot | Contenu | Images |
@@ -204,3 +204,31 @@ l'interlocuteur (150 × 150, cadre cuivre) en haut à gauche, nom et texte déca
 cache hors ligne (`vite.config.ts`). Test : chaque portrait déclaré existe. Vérifié dans le jeu : sur les 37 répliques,
 en texte normal et grand, le texte ne touche jamais les choix (121 px d'écart au moins) et les choix restent sous le
 portrait (106 px au moins, avec un personnage neuf).
+
+### Lot 5 : illustrations (2026-11-01, 2 images, 5,5 crédits, solde 83,5)
+
+Toutes deux gardées au premier essai. Réglages : Higgsfield MCP, `gpt_image_2_5`, **2k haute qualité**, opaque, 16:9
+(2688 × 1520), réduites en JPEG 1600 × 900 dans `public/illustrations/` (220 à 280 Ko).
+
+| Fichier (`assets/raw/lot5/`) | Sujet du prompt | Coût |
+|---|---|---|
+| `titre.png` | Bloc commun + « Wide establishing landscape for a game title screen: at golden hour, colossal Titan trees of a forest republic rise on the left with small round houses and lantern lights in their canopy, soft glowing cyan crystals among their roots; far away on the right horizon, the brass towers and gentle steam plumes of an industrial empire; between them an old railway overgrown with grass winds through the valley toward a faint cyan glow in the distance; on a hill in the foreground a small lone traveller in a parchment-colored cloak with a little crystal lantern, seen from behind, looking at the world. The center of the image is calm, open sky and soft mist, darker toward the bottom, leaving room for a title and a menu. » | 2,75 |
+| `echo-dernier-train.png` | Bloc commun allégé + « Inside a living memory, three thousand years ago: a bustling station platform of a long-lost ancient world, a grand steam train waiting under a glass and iron canopy, a crowd of travellers hurrying toward it with raised hands and suitcases, children laughing and waving at a train window, an elderly scholar with a satchel of books being led toward the train, looking back over his shoulder. The whole scene is rendered as a luminous memory in pale blue with soft golden outlines and drifting golden sparks, the travellers in the same ghostly style as the reference image (l'Écho du lot 2), slightly blurred like a fading dream. The figures and the train fill the upper half of the image; the lower part is a darker, calm platform floor fading into shadow. » | 2,75 |
+
+**Code** : écran titre peint en fond, sous un voile d'encre à 50 % (titre et menu lisibles). Nouveau champ `illustration`
+d'un nœud de dialogue (`src/rules/dialogue.ts`) : l'image couvre l'écran derrière le panneau, rendu plus transparent
+(78 %) ; utilisé par le nœud `interieur` de l'Écho du dernier train (quand on entre dans l'Écho, Récit du savant
+Corvan). `BootScene` charge l'illustration du titre et celles des nœuds. Test : chaque illustration a son fichier.
+Vérifié dans le jeu.
+
+**À valider par Cyril (éléments visuels inventés, pas du canon)** : l'écran titre montre, au loin, une cité de
+cristal au milieu de la vallée et un petit dirigeable au-dessus de la ville industrielle ; l'intérieur de l'Écho
+montre une gare de l'Ancien Monde à verrière, aux voyageurs vêtus comme au début du XXe siècle (même allure que
+l'Écho sur la carte).
+
+## Bilan de la phase 2 (2026-11-01)
+
+34 images prévues, 35 générées (l'herbe et l'arbre refaits une fois), toutes gardées : **26,5 crédits** au lieu des
+51 estimés (110 au départ, 83,5 restants). Méthode retenue pour la suite : sols en textures vues de dessus projetées
+par script, décors et personnages sans sol ni ombre (ombre ajoutée par script), le sprite ou le portrait déjà fait
+donné en référence pour garder les visages. Chaîne : `npm run art` puis `npm run tiles`.

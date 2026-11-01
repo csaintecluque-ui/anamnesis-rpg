@@ -7,7 +7,7 @@
 - 181 tests, typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
 - Mode test caché : 5 touches sur la version (écran titre) → +50 Fers, PV au max dans le menu pause.
 
-## Jalon en cours : phase 2 des visuels (en production)
+## Jalon en cours : phase 2 des visuels (terminée, à valider par Cyril)
 
 - Choisie par Cyril le 2026-11-01. Avant toute génération : fiche de style (`docs/STYLE.md`), liste des images,
   coût en crédits, feu vert de Cyril (`CLAUDE.md` §5). Chaque génération consignée dans `docs/ASSETS.md`.
@@ -15,10 +15,9 @@
 
 ## Prochaine étape
 
-1. Pilote validé par Cyril (style et héros) le 2026-11-01. **Lots 1 à 4 générés et intégrés** (sols, décors,
-   personnages, portraits de dialogue) : 28 tuiles peintes sur 29, 4 portraits dans le panneau de dialogue.
-   21 crédits dépensés, reste 89. Suite : **lot 5 (illustrations : écran titre, intérieur de l'Écho)**, environ
-   5,5 crédits au premier essai, et du code (afficher l'illustration de l'Écho : où et quand, à décider avec Cyril).
+1. **Phase 2 réalisée** le 2026-11-01 (lots 0 à 5, bilan dans `docs/ASSETS.md`) : 28 tuiles peintes sur 29,
+   4 portraits de dialogue, 2 illustrations (écran titre, intérieur de l'Écho). 26,5 crédits dépensés, reste 83,5.
+   **À faire** : avis de Cyril sur l'ensemble, puis pousser sur GitHub (mise en ligne) ; rien n'est poussé.
 2. Après les visuels : proposer le périmètre du jalon 2 (contenu).
 
 ## Points ouverts

@@ -44,6 +44,8 @@ export interface DialogueNode {
   text: string;
   /** Darkens the backdrop: the scene happens at night. */
   night?: boolean;
+  /** Full-screen illustration behind the panel: public/illustrations/<id>.jpg (npm run art). */
+  illustration?: string;
   /** Applied each time the node is shown. */
   effects?: Effect[];
   options: DialogueOption[];

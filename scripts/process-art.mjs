@@ -1,5 +1,5 @@
-// Turns the generated images (assets/raw/, local only) into 64×96 game frames in assets/tiles/ and dialogue
-// portraits in public/portraits/ (both committed).
+// Turns the generated images (assets/raw/, local only) into 64×96 game frames in assets/tiles/, dialogue
+// portraits in public/portraits/ and illustrations in public/illustrations/ (all committed).
 // Usage: npm run art  then  npm run tiles. A tile whose raw image is missing keeps its last processed frame.
 // Method and history: docs/ASSETS.md.
 import { existsSync, mkdirSync } from 'node:fs';
@@ -175,6 +175,11 @@ const PORTRAITS = {
   'echo-dernier-train': 'lot4/echo-dernier-train.png',
 };
 const PORTRAIT_SIZE = 320;
+// Full-screen illustrations (public/illustrations/): the title screen, and dialogue nodes' `illustration`.
+const ILLUSTRATIONS = {
+  titre: 'lot5/titre.png',
+  'echo-dernier-train': 'lot5/echo-dernier-train.png',
+};
 
 mkdirSync(OUT, { recursive: true });
 for (const tile of TILES.filter((t) => t.art)) {
@@ -202,4 +207,19 @@ for (const [id, src] of Object.entries(PORTRAITS)) {
     .jpeg({ quality: 85, mozjpeg: true })
     .toFile(fileURLToPath(new URL(`${id}.jpg`, PORTRAIT_OUT)));
   console.log(`portrait ${id} ← ${src}`);
+}
+
+const ILLUSTRATION_OUT = new URL('../public/illustrations/', import.meta.url);
+mkdirSync(ILLUSTRATION_OUT, { recursive: true });
+for (const [id, src] of Object.entries(ILLUSTRATIONS)) {
+  const srcUrl = new URL(src, RAW);
+  if (!existsSync(srcUrl)) {
+    console.warn(`illustration ${id} : image brute absente (${src}), inchangée`);
+    continue;
+  }
+  await sharp(fileURLToPath(srcUrl))
+    .resize(1600, 900, { fit: 'cover', kernel: 'lanczos3' })
+    .jpeg({ quality: 82, mozjpeg: true })
+    .toFile(fileURLToPath(new URL(`${id}.jpg`, ILLUSTRATION_OUT)));
+  console.log(`illustration ${id} ← ${src}`);
 }

@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import { getSettings, saveSettings } from '../settings';
-import { CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
+import { COLORS, CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
 
 /** Taps on the version number that toggle the hidden test mode (docs/gdd/interface.md, « Mode test »). */
 const TEST_MODE_TAPS = 5;
@@ -19,6 +19,12 @@ export class TitleScene extends Phaser.Scene {
 
   create(): void {
     const cx = GAME_WIDTH / 2;
+
+    if (this.textures.exists('illustration-titre')) {
+      this.add.image(0, 0, 'illustration-titre').setOrigin(0, 0).setDisplaySize(GAME_WIDTH, GAME_HEIGHT);
+      // Ink veil so the title and menu stay readable over the painting.
+      this.add.rectangle(0, 0, GAME_WIDTH, GAME_HEIGHT, COLORS.ink, 0.5).setOrigin(0, 0);
+    }
 
     this.add
       .text(cx, 190, 'ANAMNESIS', {

@@ -31,6 +31,7 @@ le jeu reste jouable à chaque étape.
 | 4. Portraits | haute qualité 1k | 1,5 | 6 | 9 |
 | 5. Illustrations | haute qualité 2k | 2,75 | 4 | 11 |
 | **Total** | | | **70** | **≈ 51 crédits** (sur 110) |
+
 - **Code à prévoir** : un script de découpe et de réduction (images → planche de tuiles), et l'affichage d'un portrait
   dans le panneau de dialogue (lot 4).
 - **Hors plan** : animations (marche, attaque), sons, autres lieux ; à proposer après ce lot.

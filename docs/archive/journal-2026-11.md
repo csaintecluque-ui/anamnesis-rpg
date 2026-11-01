@@ -564,3 +564,6 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
 - Feu vert de Cyril pour le pilote. Les 4 générations par le CLI sont refusées (`only_mcp_usage_on_trial_is_available` :
   compte en essai, seul le connecteur MCP est permis) ; aucun crédit débité. Script du pilote prêt (prompts dans la
   fiche de style). `assets/raw/` ajouté au `.gitignore`.
+- Cyril branche Higgsfield en MCP (connecteur ; le serveur ajouté par `claude mcp add --scope user` attend encore son
+  authentification). La session en cours ne voit pas les outils : le pilote se lancera dans une nouvelle session.
+  Prompts exacts du pilote recopiés dans `docs/ASSETS.md`.

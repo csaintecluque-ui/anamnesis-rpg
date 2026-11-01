@@ -39,6 +39,25 @@ le jeu reste jouable à chaque étape.
   dans le panneau de dialogue (lot 4).
 - **Hors plan** : animations (marche, attaque), sons, autres lieux ; à proposer après ce lot.
 
+## Pilote : réglages et prompts prêts (feu vert de Cyril le 2026-11-01)
+
+Modèle `gpt_image_2_5`, résolution 1k. Un essai par image d'abord ; on montre les résultats à Cyril avant d'en
+refaire. Chaque prompt = **bloc commun** + **précision « isométrique »** (sauf le portrait) + **sujet** + **à éviter**.
+
+- Bloc commun : celui de `docs/STYLE.md` (« soft painterly digital illustration, … no modern technology »).
+- Isométrique : `isometric 2:1 view, single object centered, isolated on a transparent background`.
+- À éviter : `no text, no letters, no logo, no watermark, no blood, not photorealistic`.
+
+| Image | Format | Qualité | Fond | Sujet |
+|---|---|---|---|---|
+| Herbe (tuile) | 3:2 | moyenne | transparent | A single flat isometric ground tile: one diamond-shaped (rhombus twice as wide as tall) patch of soft green forest-edge grass with a few small blades and tiny wildflowers, seen from above at a 30 degree angle, the diamond fills the image width, nothing outside the diamond. Muted moss greens #3E4A2C and #56653D. |
+| Arbre (décor) | 2:3 | moyenne | transparent | A single leafy deciduous tree standing on a small diamond-shaped patch of grass at its base, round lush canopy in moss and leaf greens, warm brown trunk, compact silhouette that reads well at small size. |
+| Héros (personnage) | 2:3 | moyenne | transparent | Full-body character, three-quarter front view, standing: a young apprentice memory keeper of indeterminate gender, parchment-colored travel cloak, leather satchel, a small glowing cyan crystal lantern at the belt, calm determined expression, simple readable silhouette for a small game sprite. |
+| Ilyane (portrait) | 1:1 | haute | opaque | Bust portrait for a dialogue panel, three-quarter view: Ilyane, a kind middle-aged woman guardian of memories from a forest people, cloak patterned with bark and leaves, holding a light wooden staff topped with a softly glowing cyan crystal, warm benevolent gaze, plain uniform dark ink background color #1B1512. |
+
+Images brutes à ranger dans `assets/raw/pilote/` (local). Puis : réduire à la taille du jeu (64 × 32, 64 × 96,
+environ 200 × 200) et comparer avec les visuels provisoires dans le navigateur.
+
 ## Journal des générations
 
 | Date | Outil | Prompt | Coût | Fichier produit |

@@ -16,8 +16,9 @@
 ## Prochaine étape
 
 1. Fiche de style (`docs/STYLE.md`) et plan de 34 images (`docs/ASSETS.md`) : environ 51 crédits sur 110, pilote
-   6 crédits. Feu vert de Cyril pour le pilote, mais **refusé par Higgsfield** : en essai, seul le connecteur MCP
-   est autorisé. Cyril doit ajouter le connecteur (Paramètres → Connecteurs), puis relancer le pilote.
+   6 crédits. **Feu vert de Cyril pour le pilote** ; le CLI est refusé (compte en essai : MCP seulement).
+   Connecteur MCP ajouté par Cyril le 2026-11-01 : **lancer le pilote via les outils MCP Higgsfield** (prompts prêts
+   dans `docs/ASSETS.md`).
 2. Après les visuels : proposer le périmètre du jalon 2 (contenu).
 
 ## Points ouverts

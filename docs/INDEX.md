@@ -45,4 +45,5 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `progression.md` : seuils d'XP, montée de niveau.
 - `sauvegarde.md` : emplacements, format, export/import, versions v1 à v6.
 - `interface.md` : HUD, menu pause, options, PC (netteté, raccourcis, plein écran).
+- `animation.md` : marche animée des personnages, méthodes 2D et 3D, comparaison du pilote.
 - `jalon-2.md` : proposition du jalon 2 (retour de Cyril sur la phase 2, animation, avatars, contenu) ; à valider.

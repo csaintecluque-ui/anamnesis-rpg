@@ -251,3 +251,15 @@ image de 128 × 192 sur ses 2 × 2 cases. Personnages ramenés de 80 à 54 px (G
 barres de vie et zone de clic suivis. Sur les deux cartes, l'herbe libre reçoit au hasard (graine fixe) variantes,
 herbe sombre, fleurs et petits décors (`groundVariety` dans `scripts/build-maps.mjs`) ; buissons et souches bloquent
 et couvrent (+2). Limite : en combat, un grand décor reste dessiné case par case (aucun dans l'arène actuelle).
+
+## Jalon 2, pilote d'animation (2026-11-01, 19,5 crédits, solde ≈ 60)
+
+Méthode et comparaison : `docs/gdd/animation.md`.
+
+| Fichier | Outil | Prompt / réglages | Coût |
+|---|---|---|---|
+| `assets/raw/anim2d/{s,se,e,ne,n}.png` | `gpt_image_2_5`, 1k, moyenne, transparent, 21:9, héros du pilote en référence | « Sprite sheet for a 2D isometric game, on a transparent background: the same character as in the reference image (same face, hair, parchment-colored cloak, leather satchel, cyan crystal lantern at the belt, same proportions and colors), full body, seen from slightly above at a 30 degree angle, {direction}. Exactly 6 frames of a smooth walking cycle side by side in one single horizontal row, evenly spaced, every frame the same size and the same scale, feet on the same baseline, the character identical in every frame except the legs, arms and cloak moving with the steps. No ground, no shadow, no grid lines, no frame borders. » ; directions : vers le spectateur, bas-droite de trois quarts, profil vers la droite, haut-droite de trois quarts dos, de dos | 2,5 |
+| `assets/raw/anim3d/heros-modele.glb` | Tripo H3.1 image → 3D, `face_limit` 12000, texturé | Image du héros du pilote | 9 |
+| `assets/raw/anim3d/heros-marche.glb` | Meshy 3D Rigging, hauteur 1,5 m, animation 30 « Casual_Walk » | Le modèle ci-dessus | 8 |
+
+Résultats : `public/sprites/heros-marche-2d.png` (8 × 6 images), `public/sprites/heros-marche-3d.png` (8 × 8).

@@ -1,6 +1,6 @@
 // Assembles a walk cycle into a sprite sheet for the game: 8 rows (directions s, se, e, ne, n, nw, w, sw) of
 // 64 × 96 frames, the character 54 px tall with feet at y = 84, as the other characters (scripts/tiles-def.mjs).
-// Usage: node scripts/assemble-walk.mjs <2d|3d> <source folder under assets/raw/> <output name>
+// Usage: npm run walk -- <2d|3d> <source folder under assets/raw/> <output name>
 //   2d: s.png, se.png, e.png, ne.png, n.png, each a row of frames drawn by the image model; nw, w, sw are mirrors.
 //   3d: <direction>-<i>.png rendered by scripts/render-sprites.mjs (fixed camera: one scale, one ground line).
 // Output: public/sprites/<name>.png. Method and comparison: docs/gdd/animation.md.

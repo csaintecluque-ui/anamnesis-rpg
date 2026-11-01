@@ -1,5 +1,5 @@
 // Renders an animated 3D character (GLB, assets/raw/, local only) into isometric frames, 8 directions.
-// Usage: node scripts/render-sprites.mjs <model.glb under assets/raw/> <output folder under assets/raw/>
+// Usage: npm run render-sprites -- <model.glb under assets/raw/> <output folder under assets/raw/>
 // then open the printed address in a browser (the Browser pane): the page renders and sends every frame back,
 // saved as <output>/<direction>-<frame>.png. Assemble them with npm run walk. Method: docs/gdd/animation.md.
 import { createReadStream, mkdirSync, writeFileSync } from 'node:fs';

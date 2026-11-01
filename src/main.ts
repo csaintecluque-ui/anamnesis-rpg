@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import { BootScene } from './scenes/BootScene';
+import { CreationScene } from './scenes/CreationScene';
 import { IsoTestScene } from './scenes/IsoTestScene';
 import { SlotsScene } from './scenes/SlotsScene';
 import { TitleScene } from './scenes/TitleScene';
@@ -8,6 +9,8 @@ import { COLORS, GAME_HEIGHT, GAME_WIDTH } from './ui/theme';
 const game = new Phaser.Game({
   type: Phaser.AUTO,
   parent: 'game',
+  // HTML elements (the name field) are needed to bring up the phone keyboard.
+  dom: { createContainer: true },
   backgroundColor: COLORS.ink,
   width: GAME_WIDTH,
   height: GAME_HEIGHT,
@@ -15,7 +18,7 @@ const game = new Phaser.Game({
     mode: Phaser.Scale.FIT,
     autoCenter: Phaser.Scale.CENTER_BOTH,
   },
-  scene: [BootScene, TitleScene, IsoTestScene, SlotsScene],
+  scene: [BootScene, TitleScene, CreationScene, IsoTestScene, SlotsScene],
 });
 
 // Phaser's FIT mode re-centres on resize but keeps the old display size (seen on rotation); force a full refresh.

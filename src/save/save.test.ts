@@ -1,4 +1,13 @@
 import { describe, expect, it } from 'vitest';
+import {
+  changeAttribute,
+  changeSkill,
+  createDraft,
+  finalizeCharacter,
+  toggleOriginBonus,
+  type Character,
+  type CharacterDraft,
+} from '../rules/character';
 import { createNewGame, type GameState } from '../state/gameState';
 import {
   SAVE_MAX_CHARS,
@@ -27,7 +36,21 @@ class MemoryStorage implements KeyValueStorage {
 }
 
 const NOW = new Date('2026-11-01T14:32:00Z');
-const state: GameState = { location: 'iso-test', position: { col: 4, row: 7 }, playTimeSeconds: 3725 };
+
+function hero(): Character {
+  let d: CharacterDraft = { ...createDraft(), name: 'Aube', feat: 'tough' };
+  d = changeAttribute(changeAttribute(changeAttribute(d, 'memory', 1), 'memory', 1), 'presence', 1);
+  d = toggleOriginBonus(toggleOriginBonus(d, 'body'), 'vigor');
+  for (const id of ['lore', 'lore', 'lore', 'diplomacy', 'diplomacy', 'stealth'] as const) d = changeSkill(d, id, 1);
+  return finalizeCharacter(d);
+}
+
+const state: GameState = {
+  character: hero(),
+  location: 'iso-test',
+  position: { col: 4, row: 7 },
+  playTimeSeconds: 3725,
+};
 
 describe('save codec', () => {
   it('round-trips a game state', () => {
@@ -68,6 +91,31 @@ describe('save codec', () => {
     const parsed = parseSave(text);
     expect(parsed.ok).toBe(false);
     if (!parsed.ok) expect(parsed.error).toContain(message);
+  });
+
+  it('migrates a version 1 save (no character yet) without losing the position', () => {
+    const v1 = JSON.stringify({
+      game: 'anamnesis',
+      version: 1,
+      savedAt: NOW.toISOString(),
+      state: { location: 'iso-test', position: { col: 2, row: 5 }, playTimeSeconds: 60 },
+    });
+    const parsed = parseSave(v1);
+    expect(parsed.ok).toBe(true);
+    if (parsed.ok) {
+      expect(parsed.value.version).toBe(SAVE_VERSION);
+      expect(parsed.value.state).toEqual({ character: null, location: 'iso-test', position: { col: 2, row: 5 }, playTimeSeconds: 60 });
+    }
+  });
+
+  it('rejects a version 2 save whose character is missing or broken', () => {
+    const base = { game: 'anamnesis', version: SAVE_VERSION, savedAt: NOW.toISOString() };
+    const { character: _omit, ...withoutCharacter } = state;
+    const missing = parseSave(JSON.stringify({ ...base, state: withoutCharacter }));
+    expect(missing.ok).toBe(false);
+    const broken = parseSave(JSON.stringify({ ...base, state: { ...state, character: { ...state.character, feat: 'flying' } } }));
+    expect(broken.ok).toBe(false);
+    if (!broken.ok) expect(broken.error).toContain('don inconnu');
   });
 
   it('rejects an invalid date', () => {

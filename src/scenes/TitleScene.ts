@@ -1,5 +1,4 @@
 import Phaser from 'phaser';
-import { createNewGame } from '../state/gameState';
 import { CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
 
 interface MenuEntry {
@@ -32,8 +31,8 @@ export class TitleScene extends Phaser.Scene {
         label: 'Nouvelle partie',
         enabled: true,
         action: () => {
-          this.registry.set('game', createNewGame());
-          this.scene.start('IsoTest');
+          this.registry.remove('game');
+          this.scene.start('Creation');
         },
       },
       { label: 'Charger', enabled: true, action: () => this.scene.start('Slots', { mode: 'load' }) },

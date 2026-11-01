@@ -92,6 +92,21 @@ Ce sont les douze compétences du JDR, avec deux retouches (adaptation) :
 | Esprit d'Amira | +2 rangs en Survie, repère les lieux cachés sur la carte | expression canon [E4] |
 | Fort comme Gorim | +1 Corps, +10 kg de charge | expression canon [E4] |
 
+### Précisions d'implémentation (2026-11-01)
+
+Ces points n'étaient pas tranchés ; voici ce qui est codé.
+
+- **Bonus et plafond** : les points répartis plafonnent à 5. Le bonus humain (+1) et le don « Fort comme Gorim » s'ajoutent
+  ensuite, jusqu'à **6** au maximum (le JDR prévoit le score 6, modificateur +3).
+- **Tout dépenser** : on ne peut pas passer à l'étape suivante avec des points d'attribut, un bonus humain ou des rangs
+  de compétence non utilisés.
+- **Dons de combat** (Tireur d'Élite, Maître d'Armes) : choisis et enregistrés dès maintenant, mais sans effet tant que
+  le combat n'existe pas. Même chose pour « repère les lieux cachés » d'Esprit d'Amira, en attendant la carte.
+- **Nom** : de 1 à 24 caractères ; les espaces en trop sont retirés.
+- **Écran** : assistant en 5 étapes (Nom, Attributs, Compétences, Don, Récapitulatif). Toucher le nom d'un attribut ou
+  d'une compétence affiche sa description. Le texte du jeu reste neutre en genre
+  (« en apprentissage chez les Gardiens de Mémoire »).
+
 ## 4. Mécanique signature : la mémoire (3 pistes ancrées dans le canon)
 
 Les trois pistes reposent sur des lois et des phénomènes du monde, pas sur la magie.
@@ -174,5 +189,7 @@ Les trois pistes reposent sur des lois et des phénomènes du monde, pas sur la 
 - **Import** : sélecteur de fichiers, dans l'emplacement choisi.
 - **Confirmations** : écraser, importer par-dessus ou supprimer une sauvegarde demande un second appui
   (« Confirmer ? », 3 secondes).
-- **Contenu actuel de l'état** : lieu, position, temps de jeu. Il grandira avec le jeu (personnage, inventaire,
+- **Version 2 (actuelle)** : l'état contient aussi le personnage. Une sauvegarde v1 (sans personnage) est convertie :
+  au chargement, le joueur crée son personnage, puis la partie reprend au même endroit.
+- **Contenu actuel de l'état** : personnage, lieu, position, temps de jeu. Il grandira avec le jeu (personnage, inventaire,
   quêtes, mémoire, Récits). Chaque changement de forme passera par une nouvelle version et sa migration.

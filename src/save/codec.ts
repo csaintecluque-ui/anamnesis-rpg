@@ -1,6 +1,7 @@
+import { characterError } from '../rules/character';
 import { findLocation, type GameState } from '../state/gameState';
 
-export const SAVE_VERSION = 1;
+export const SAVE_VERSION = 2;
 export const SAVE_MAX_CHARS = 1_000_000;
 const GAME_MARKER = 'anamnesis';
 
@@ -17,7 +18,10 @@ const ok = <T>(value: T): Result<T> => ({ ok: true, value });
 const fail = <T>(error: string): Result<T> => ({ ok: false, error });
 
 /** Upgrades an older save one version at a time; key = version being upgraded from. */
-const MIGRATIONS: Record<number, (save: Record<string, unknown>) => Record<string, unknown>> = {};
+const MIGRATIONS: Record<number, (save: Record<string, unknown>) => Record<string, unknown>> = {
+  // v1 predates character creation: the player creates one on load, then resumes where they were.
+  1: (save) => ({ ...save, state: isRecord(save.state) ? { ...save.state, character: null } : save.state }),
+};
 
 export function createSave(state: GameState, now: Date): SaveFile {
   return { game: GAME_MARKER, version: SAVE_VERSION, savedAt: now.toISOString(), state: structuredClone(state) };
@@ -64,6 +68,7 @@ function validateState(state: unknown): string | null {
   const pos = state.position;
   if (!isRecord(pos) || !Number.isInteger(pos.col) || !Number.isInteger(pos.row)) return 'position invalide.';
   if (typeof state.playTimeSeconds !== 'number' || !(state.playTimeSeconds >= 0)) return 'temps de jeu invalide.';
+  if (state.character !== null) return characterError(state.character);
   return null;
 }
 

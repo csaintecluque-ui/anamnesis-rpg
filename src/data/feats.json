@@ -1,0 +1,38 @@
+[
+  {
+    "id": "tough",
+    "name": "Dur à Cuire",
+    "description": "+2 Vigueur pour le calcul des points de vie, +2 PV par niveau.",
+    "effects": { "hpVigorBonus": 2, "hpPerLevelBonus": 2 }
+  },
+  {
+    "id": "marksman",
+    "name": "Tireur d’Élite",
+    "description": "Portée doublée et +2 dégâts au Tir.",
+    "effects": { "combat": { "rangeMultiplier": 2, "rangedDamage": 2 } }
+  },
+  {
+    "id": "weapon-master",
+    "name": "Maître d’Armes",
+    "description": "+1 au toucher et +1 aux dégâts en Mêlée.",
+    "effects": { "combat": { "meleeHit": 1, "meleeDamage": 1 } }
+  },
+  {
+    "id": "kael-memory",
+    "name": "Mémoire de Kael",
+    "description": "+2 rangs en Érudition, +1 Récit retenu.",
+    "effects": { "skills": { "lore": 2 }, "talesBonus": 1 }
+  },
+  {
+    "id": "amira-spirit",
+    "name": "Esprit d’Amira",
+    "description": "+2 rangs en Survie ; repère les lieux cachés sur la carte.",
+    "effects": { "skills": { "survival": 2 }, "revealsHiddenPlaces": true }
+  },
+  {
+    "id": "gorim-strength",
+    "name": "Fort comme Gorim",
+    "description": "+1 Corps, +10 kg de charge.",
+    "effects": { "attributes": { "body": 1 }, "carryBonusKg": 10 }
+  }
+]

@@ -1,7 +1,8 @@
 import Phaser from 'phaser';
 import { TILE_HEIGHT, TILE_WIDTH, isInside, screenToTile, tileToScreen, type Tile } from '../engine/iso';
 import { saveStore } from '../save/browser';
-import { createNewGame, type GameState } from '../state/gameState';
+import { characterStats } from '../rules/character';
+import type { GameState } from '../state/gameState';
 import { addTextButton } from '../ui/button';
 import { COLORS, CSS, FONT_SERIF, GAME_WIDTH } from '../ui/theme';
 
@@ -21,8 +22,13 @@ export class IsoTestScene extends Phaser.Scene {
   }
 
   create(): void {
-    this.state = (this.registry.get('game') as GameState | undefined) ?? createNewGame();
-    this.registry.set('game', this.state);
+    const state = this.registry.get('game') as GameState | undefined;
+    if (!state?.character) {
+      this.scene.start('Creation');
+      return;
+    }
+    this.state = state;
+    const hero = state.character;
 
     this.originX = GAME_WIDTH / 2;
     this.originY = 200;
@@ -52,6 +58,13 @@ export class IsoTestScene extends Phaser.Scene {
         color: CSS.parchment,
       })
       .setOrigin(0.5);
+    this.add
+      .text(GAME_WIDTH / 2, 102, `${hero.name} · PV ${hero.hp} / ${characterStats(hero).maxHp} · niveau ${hero.level}`, {
+        fontFamily: FONT_SERIF,
+        fontSize: '22px',
+        color: CSS.copper,
+      })
+      .setOrigin(0.5);
 
     addTextButton(this, 130, 60, '← Titre', () => this.backToTitle(), { width: 180, height: 76 });
     addTextButton(
@@ -65,7 +78,8 @@ export class IsoTestScene extends Phaser.Scene {
   }
 
   update(_time: number, delta: number): void {
-    this.state.playTimeSeconds += delta / 1000;
+    // Undefined for the single frame after create() redirects to character creation.
+    if (this.state) this.state.playTimeSeconds += delta / 1000;
   }
 
   private backToTitle(): void {

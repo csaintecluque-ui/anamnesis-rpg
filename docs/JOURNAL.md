@@ -109,8 +109,7 @@
 
 ### Reste à faire (jalon 1, dans l'ordre proposé)
 
-1. Création de personnage (attributs, compétences, don).
-2. Cartes Tiled (Gardebois, Gare Engloutie), PNJ, dialogues, quête, combat, inventaire, troc, montée de niveau.
+1. Cartes Tiled (Gardebois, Gare Engloutie), PNJ, dialogues, quête, combat, inventaire, troc, montée de niveau.
 
 ### Points ouverts
 
@@ -159,3 +158,24 @@
   (outils de construction, avec `@types/node`).
 - **Vérifié par Cyril sur son iPhone** : sauvegarde, export vers Fichiers, import depuis Fichiers et chargement
   fonctionnent.
+
+## 2026-11-01 — Création de personnage
+
+- Assistant en 5 étapes (`src/scenes/CreationScene.ts`), conforme au GDD validé : nom ; 7 attributs avec 3 points
+  et le bonus humain (+1 sur deux attributs) ; 12 compétences avec 6 rangs (3 au maximum) ; 1 don parmi 6 ;
+  récapitulatif avec PV, résistance, défense, PA, charge et Récits retenus.
+  Règles tranchées en codant : `GDD.md` §3, « Précisions d'implémentation ».
+- Règles en code pur et testées (`src/rules/character.ts`, dons en données dans `src/data/feats.json`).
+  57 tests au total, dont 22 nouveaux.
+- Sauvegarde en **version 2**, avec le personnage. Les sauvegardes v1 sont converties : le joueur crée son personnage,
+  puis la partie reprend au même endroit.
+- Le champ du nom est un vrai champ HTML, pour faire apparaître le clavier du téléphone (éléments DOM de Phaser activés).
+- Le terrain d'essai affiche le nom, les PV et le niveau du personnage.
+- Vérifié dans le navigateur :
+  - parcours complet ; refus d'avancer sans nom (message) ; plafonds et désactivation des boutons ;
+  - bonus humain limité à deux attributs ; bonus au dé justes ;
+  - sauvegarde v2 conforme (PV 40 avec Dur à Cuire) ;
+  - ancienne sauvegarde v1 → création → reprise en (6, 2) avec son temps de jeu ;
+  - Mémoire de Kael ajoute bien +2 en Érudition.
+- Limite connue : en paysage sur téléphone, les petits boutons − / + font environ 31 px de haut à l'écran
+  (en dessous des 44 px conseillés). Sept lignes d'attributs doivent tenir dans la hauteur. À juger sur iPhone.

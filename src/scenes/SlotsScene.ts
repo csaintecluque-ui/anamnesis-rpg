@@ -138,7 +138,13 @@ export class SlotsScene extends Phaser.Scene {
   private loadSave(save: SaveFile): void {
     const location = findLocation(save.state.location);
     if (!location) return this.refresh('Lieu inconnu dans cette sauvegarde.', true);
-    this.registry.set('game', structuredClone(save.state));
+    const state = structuredClone(save.state);
+    if (!state.character) {
+      // Saved before character creation existed: create the character, then resume this save.
+      this.scene.start('Creation', { resume: state, message: 'Cette sauvegarde n’a pas encore de personnage : crée-le pour reprendre.' });
+      return;
+    }
+    this.registry.set('game', state);
     this.scene.start(location.scene);
   }
 

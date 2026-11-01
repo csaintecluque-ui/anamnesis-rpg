@@ -6,6 +6,7 @@ export interface ButtonOptions {
   height?: number;
   fontSize?: number;
   enabled?: boolean;
+  selected?: boolean;
 }
 
 export interface TextButton {
@@ -20,11 +21,11 @@ export function addTextButton(
   y: number,
   label: string,
   onClick: () => void,
-  { width = 200, height = 80, fontSize = 26, enabled = true }: ButtonOptions = {},
+  { width = 200, height = 80, fontSize = 26, enabled = true, selected = false }: ButtonOptions = {},
 ): TextButton {
   const frame = scene.add
-    .rectangle(0, 0, width, height, 0x2a211c)
-    .setStrokeStyle(2, COLORS.copper, enabled ? 0.8 : 0.25);
+    .rectangle(0, 0, width, height, selected ? 0x5a3a26 : 0x2a211c)
+    .setStrokeStyle(selected ? 3 : 2, COLORS.copper, enabled ? (selected ? 1 : 0.8) : 0.25);
   const text = scene.add
     .text(0, 0, label, {
       fontFamily: FONT_SERIF,

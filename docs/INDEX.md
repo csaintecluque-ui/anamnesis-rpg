@@ -3,7 +3,7 @@
 Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 
 - `JOURNAL.md` : état actuel, jalon en cours, prochaine étape (court). Historique : `archive/journal-AAAA-MM.md`.
-- `STYLE.md` : fiche de style des visuels de la phase 2 (direction, palette, formats, prompt commun) ; à valider.
+- `STYLE.md` : fiche de style des visuels de la phase 2 (direction, palette, formats, prompt commun) ; validée.
 - `ASSETS.md` : plan des images de la phase 2 et journal de chaque génération (date, outil, prompt, coût, fichier).
 - `DIALOGUES.md` : textes de tous les dialogues, générés par `npm run dialogues` (ne pas éditer à la main).
 - `Lore/` : **lore canonique de Cyril, fait foi**, local seulement (jamais publié). Ouvrir le fichier précis

@@ -1,6 +1,8 @@
-// Placeholder isometric tile definitions (phase 1 visuals), shared by generate-tiles.mjs and build-maps.mjs.
+// Isometric tile definitions, shared by generate-tiles.mjs and build-maps.mjs. Placeholder drawings (phase 1)
+// are replaced one by one by generated art (phase 2).
 // Each frame is 64×96: the ground diamond sits in the bottom 32 px, tall objects rise above it.
 // Order = frame index = Tiled tile id (gid − 1).
+// `art`: generated image that replaces the placeholder drawing (scripts/process-art.mjs, docs/ASSETS.md).
 // `cover`: Défense bonus for a combatant sheltering behind this obstacle (docs/gdd/combat.md).
 export const W = 64;
 export const H = 96;
@@ -14,20 +16,35 @@ const diamond = (fill, stroke = 'rgba(0,0,0,0.18)') =>
 const shadow = (rx = 18, ry = 7) => `<ellipse cx="32" cy="82" rx="${rx}" ry="${ry}" fill="rgba(0,0,0,0.35)"/>`;
 
 export const TILES = [
-  { name: 'herbe', svg: diamond('#3e4a2c') + '<path d="M18 80 l3 -4 M40 84 l2 -4 M30 76 l2 -3" stroke="#56653d" stroke-width="1.5"/>' },
-  { name: 'herbe-sombre', svg: diamond('#334023') + '<path d="M24 82 l2 -4 M42 78 l2 -4" stroke="#465733" stroke-width="1.5"/>' },
-  { name: 'chemin', svg: diamond('#6b5338') + '<circle cx="26" cy="80" r="1.5" fill="#85694a"/><circle cx="40" cy="84" r="1.2" fill="#85694a"/>' },
+  {
+    name: 'herbe',
+    art: { src: 'pilote/herbe-texture-v2.png', kind: 'ground' },
+    svg: diamond('#3e4a2c') + '<path d="M18 80 l3 -4 M40 84 l2 -4 M30 76 l2 -3" stroke="#56653d" stroke-width="1.5"/>',
+  },
+  {
+    name: 'herbe-sombre',
+    art: { src: 'lot1/herbe-sombre.png', kind: 'ground' },
+    svg: diamond('#334023') + '<path d="M24 82 l2 -4 M42 78 l2 -4" stroke="#465733" stroke-width="1.5"/>',
+  },
+  {
+    name: 'chemin',
+    art: { src: 'lot1/chemin.png', kind: 'ground' },
+    svg: diamond('#6b5338') + '<circle cx="26" cy="80" r="1.5" fill="#85694a"/><circle cx="40" cy="84" r="1.2" fill="#85694a"/>',
+  },
   {
     name: 'planches',
+    art: { src: 'lot1/planches.png', kind: 'ground' },
     svg: diamond('#5a4030') + '<path d="M16 72 L48 88 M8 76 L40 92 M24 68 L56 84" stroke="#3b2a20" stroke-width="1.5"/>',
   },
   {
     name: 'eau',
+    art: { src: 'lot1/eau.png', kind: 'ground' },
     blocking: true,
     svg: diamond('#2c4a55') + '<path d="M18 80 q6 -3 12 0 M34 86 q6 -3 12 0 M28 72 q5 -2 10 0" stroke="#5b8a96" stroke-width="1.5" fill="none"/>',
   },
   {
     name: 'pont',
+    art: { src: 'lot1/pont.png', kind: 'ground', seam: 'vertical' },
     svg:
       diamond('#2c4a55') +
       `<path d="M14 73 L50 91 L58 87 L22 69 Z" fill="#6b4a32" stroke="${INK}" stroke-width="1"/>` +
@@ -35,6 +52,7 @@ export const TILES = [
   },
   {
     name: 'fleurs',
+    art: { src: 'lot1/fleurs.png', kind: 'ground' },
     svg:
       diamond('#3e4a2c') +
       `<circle cx="22" cy="80" r="2" fill="${PARCHMENT}"/><circle cx="36" cy="76" r="2" fill="${COPPER}"/>` +
@@ -42,6 +60,7 @@ export const TILES = [
   },
   {
     name: 'arbre',
+    art: { src: 'pilote/arbre-v2.png', kind: 'standing', maxHeight: 86, foot: 86, fixShadow: true },
     blocking: true,
     cover: 4,
     svg:
@@ -125,6 +144,7 @@ export const TILES = [
   },
   {
     name: 'heros',
+    art: { src: 'pilote/heros.png', kind: 'standing', maxWidth: 60, maxHeight: 80, foot: 84, shadow: true },
     sprite: true,
     svg:
       shadow(12, 5) +
@@ -142,6 +162,7 @@ export const TILES = [
   // --- La Gare Engloutie (docs/univers/lieux/gare-engloutie.md, à valider) --
   {
     name: 'rail',
+    art: { src: 'lot1/rail.png', kind: 'ground', seam: 'vertical' },
     svg:
       diamond('#4a4038') +
       `<path d="M12 74 L52 74 M10 80 L50 80" stroke="${COPPER}" stroke-width="1.5" opacity="0.85"/>` +
@@ -149,6 +170,7 @@ export const TILES = [
   },
   {
     name: 'quai',
+    art: { src: 'lot1/quai.png', kind: 'ground' },
     svg: diamond('#8a8276') + '<path d="M16 78 L30 70 M34 86 L46 76 M20 86 L26 82" stroke="#5f5a50" stroke-width="1.3" fill="none"/>',
   },
   {

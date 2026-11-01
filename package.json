@@ -13,6 +13,7 @@
     "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.node.json",
     "test": "vitest run",
     "icons": "node scripts/generate-icons.mjs",
+    "art": "node scripts/process-art.mjs",
     "tiles": "node scripts/generate-tiles.mjs",
     "maps": "node scripts/build-maps.mjs",
     "dialogues": "node scripts/dialogues-to-md.mjs"
@@ -27,6 +28,7 @@
   "devDependencies": {
     "@resvg/resvg-js": "2.6.2",
     "@types/node": "24.19.2",
+    "sharp": "0.35.5",
     "typescript": "7.0.2",
     "vite": "8.3.5",
     "vite-plugin-pwa": "2.0.0",

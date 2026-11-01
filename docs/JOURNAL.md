@@ -7,7 +7,7 @@
 - 181 tests, typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
 - Mode test caché : 5 touches sur la version (écran titre) → +50 Fers, PV au max dans le menu pause.
 
-## Jalon en cours : phase 2 des visuels (préparation)
+## Jalon en cours : phase 2 des visuels (en production)
 
 - Choisie par Cyril le 2026-11-01. Avant toute génération : fiche de style (`docs/STYLE.md`), liste des images,
   coût en crédits, feu vert de Cyril (`CLAUDE.md` §5). Chaque génération consignée dans `docs/ASSETS.md`.
@@ -15,10 +15,9 @@
 
 ## Prochaine étape
 
-1. **Pilote généré** le 2026-11-01 via le MCP Higgsfield (4 crédits en 2 essais, reste 106) ; bilan dans
-   `docs/ASSETS.md`. Les 4 images sont réussies (herbe par texture projetée, arbre sans socle).
-   **En attente de Cyril** : validation du style, du héros (livre, allure jeune et masculine), puis feu vert pour
-   brancher les images dans le jeu et lancer le lot 1.
+1. Pilote validé par Cyril (style et héros) le 2026-11-01 ; **lot 1 (8 sols) généré et intégré** : 11 tuiles
+   peintes sur 25 dans `public/tiles/tiles.png` (`npm run art` puis `npm run tiles`). 8 crédits dépensés, reste 102.
+   Suite : **lot 2 (12 décors)**, environ 6 crédits au premier essai ; à montrer à Cyril avant de lancer.
 2. Après les visuels : proposer le périmètre du jalon 2 (contenu).
 
 ## Points ouverts

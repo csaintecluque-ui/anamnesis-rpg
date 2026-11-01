@@ -1505,8 +1505,8 @@
  "tilesets": [
   {
    "firstgid": 1,
-   "name": "placeholder",
-   "image": "../../../public/tiles/placeholder.png",
+   "name": "tiles",
+   "image": "../../../public/tiles/tiles.png",
    "imagewidth": 512,
    "imageheight": 384,
    "tilewidth": 64,

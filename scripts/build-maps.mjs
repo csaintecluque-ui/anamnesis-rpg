@@ -123,9 +123,9 @@ class MapBuilder {
       tilesets: [
         {
           firstgid: 1,
-          name: 'placeholder',
+          name: 'tiles',
           // Relative to src/data/maps/, so Tiled can display the sheet.
-          image: '../../../public/tiles/placeholder.png',
+          image: '../../../public/tiles/tiles.png',
           imagewidth: COLUMNS * W,
           imageheight: rows * H,
           tilewidth: W,

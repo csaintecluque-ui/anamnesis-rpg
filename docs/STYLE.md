@@ -1,4 +1,4 @@
-# Fiche de style — visuels de la phase 2 (proposition, à valider)
+# Fiche de style — visuels de la phase 2 (validée par Cyril le 2026-11-01, après le pilote)
 
 Fiche unique, reprise dans **tous** les prompts d'images (`CLAUDE.md` §5). Plan des images et journal des générations :
 `docs/ASSETS.md`. Ton de l'univers : `docs/univers/ton.md`.
@@ -31,13 +31,16 @@ Fiche unique, reprise dans **tous** les prompts d'images (`CLAUDE.md` §5). Plan
 
 | Type | Généré en | Utilisé en jeu | Fond |
 |---|---|---|---|
-| Tuile de sol | 1024 × 512 (losange seul) | 64 × 32 | transparent |
+| Tuile de sol | 1024 × 1024, **texture vue de dessus** raccordable (projetée en losange par script) | 64 × 32 | opaque |
 | Obstacle ou décor (arbre, wagon…) | 1024 × 1536 | 64 × 96 | transparent |
 | Personnage (carte et combat) | 1024 × 1536, en pied, vue 3/4 de face | 64 × 96 | transparent |
 | Portrait de dialogue | 1024 × 1024, buste | environ 200 × 200 | fond uni du panneau |
 | Illustration | 1920 × 1080 | plein écran | complet |
 
-Les images sont réduites et découpées par un script du projet. Le modèle retenu (GPT Image 2.5, `docs/ASSETS.md`)
+Les images sont réduites et découpées par `scripts/process-art.mjs` (`npm run art`, puis `npm run tiles`).
+Pour les sols, le prompt retire la lumière directionnelle (« perfectly even, uniform lighting ») pour que la
+texture se raccorde ; une piste, un pont ou un rail court du haut vers le bas de la texture et suit ainsi les
+colonnes de la carte. Le modèle retenu (GPT Image 2.5, `docs/ASSETS.md`)
 produit directement un **fond transparent** (`--background transparent`).
 
 ## Bloc de prompt commun (anglais : les modèles le comprennent mieux)

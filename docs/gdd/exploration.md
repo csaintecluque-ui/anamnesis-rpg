@@ -7,7 +7,7 @@ Code : `src/engine/tiledMap.ts` (lecteur Tiled), `src/engine/pathfinding.ts` (A*
   - Trois calques : `sol`, `obstacles` et `objets`.
   - Objets du calque `objets` : arrivées (`arrivee`), sorties (`sortie`, avec une `cible` et une `arrivee` : nom de
     l'objet d'arrivée dans l'autre carte), PNJ (`pnj`) et panneaux (`panneau`, avec un `texte`).
-- **Tuiles** : planche provisoire `public/tiles/placeholder.png`, générée par `npm run tiles` (`scripts/tiles-def.mjs`).
+- **Tuiles** : planche `public/tiles/tiles.png`, générée par `npm run tiles` (images peintes : `npm run art`, `docs/ASSETS.md`) (`scripts/tiles-def.mjs`).
   Une propriété `bloquant` sur la tuile rend la case infranchissable ; une propriété `couverture` (2 ou 4) donne la
   couverture de l'obstacle en combat (`docs/gdd/combat.md`).
 - **Déplacement** : on touche ou on clique une case, et le personnage trouve son chemin (A*, 8 directions, sans couper

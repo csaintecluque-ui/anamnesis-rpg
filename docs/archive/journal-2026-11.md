@@ -576,3 +576,10 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   64 × 32 par script (raccord sans couture), et arbre sans socle. L'ombre de contact peinte en gris clair faisait
   un halo : repeinte en encre translucide par script. Les 4 images du pilote sont réussies ; scripts prototypes en
   local (`assets/raw/pilote/scripts/`), version Node à écrire au lot 1.
+- Cyril valide le style et le héros du pilote, et lance la suite. Lot 1 : 8 textures de sol en un lot (4 crédits,
+  102 restants), toutes réussies au premier essai (herbe sombre et fleurs avec l'herbe du pilote en référence).
+  Nouveau script `scripts/process-art.mjs` (`npm run art`, sharp 0.35.5 en dépendance de développement) : texture →
+  losange 64 × 32 raccordable (sur 2 axes, ou sur un seul pour le pont et le rail), décor et personnage détourés et
+  posés sur la case, ombre repeinte. `generate-tiles.mjs` assemble ces frames avec les dessins restants dans
+  `public/tiles/tiles.png` (ex-`placeholder.png`). Vérifié sur les deux cartes (rendu hors jeu, plus un passage dans
+  le jeu par la console de développement, le panneau du navigateur étant masqué). Tests, typecheck et build au vert.

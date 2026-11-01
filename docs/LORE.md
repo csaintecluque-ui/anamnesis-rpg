@@ -367,7 +367,7 @@ Le détail des systèmes est dans `docs/GDD.md`.
 | Personnage jouable | Un nouveau personnage (choix de Cyril), **apprenti·e Gardien·ne de Mémoire**, envoyé·e là où le passé se réveille | E1, E9, NC | validé |
 | Attribut « Mémoire » | 7e attribut, ajouté aux six du JDR | E1, E2 | validé |
 | Hub | **Le Marché des Lisières**, quartier au sol de **Gardebois** où se croisent Verdantins et marchands de Ferros | N1 (Gardebois, constructions au sol sur pilotis) | nom validé |
-| Aménagement du Marché | Place en planches avec étals ; ruisseau traversé par un pont ; base d'un **Arbre-Titan** (la ville haute vit dans la canopée, hors champ) ; maisons rondes sur pilotis et toits végétalisés ; lanternes de cristal ; **cercle de lanternes** où se tient Ilyane ; route vers les Lisières Cultivées | E3, N1 (Arbres-Titans, constructions au sol, éclairage par cristaux) | à valider |
+| Aménagement du Marché | Place en planches avec étals ; ruisseau traversé par un pont ; base d'un **Arbre-Titan** (la ville haute vit dans la canopée, hors champ) ; maisons rondes sur pilotis et toits végétalisés ; lanternes de cristal ; **cercle de lanternes** où se tient Ilyane ; route vers les Lisières Cultivées | E3, N1 (Arbres-Titans, constructions au sol, éclairage par cristaux) | validé |
 | Extérieur / donjon | **La Gare Engloutie** : gare de l'Ancien Monde avalée par la forêt, dans les Lisières Cultivées, près d'une des Trois Failles. Elle abrite un Écho complet et interactif | E2, E10 | validé |
 | Quête principale | **« Le Dernier Train »** : une maladie mémorielle frappe Gardebois depuis que des prospecteurs de Ferros forent la gare | E2, E10 | validé |
 | PNJ 1 | **Ilyane Voix-d'Écorce**, Gardienne de Mémoire de Gardebois, mentor ; donne la quête | E1, N1 | validé |

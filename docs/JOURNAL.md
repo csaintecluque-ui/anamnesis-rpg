@@ -207,3 +207,4 @@
   Les PNJ et panneaux sont désormais touchables sur toute leur image.
 - Outil de test : en développement seulement, l'instance du jeu est exposée (`window.__anamnesis`)
   pour calculer la position exacte d'une case à l'écran. Elle est absente du site publié.
+- **Aménagement du Marché des Lisières validé par Cyril** (`LORE.md` §11).

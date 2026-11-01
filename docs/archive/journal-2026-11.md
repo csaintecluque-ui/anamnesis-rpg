@@ -545,3 +545,11 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
 - Demande de Cyril : un réglage caché pour ajouter de l'argent ou des PV pendant les essais.
 - 5 touches sur le numéro de version de l'écran titre activent le mode test (réglage de l'appareil) ; le menu pause
   gagne alors « +50 Fers » et « PV au max ». Vérifié dans le navigateur (PC).
+
+## 2026-11-01 (suite) : clôture du jalon 1
+
+- Cyril valide tout ce qui restait : contenus de la Gare Engloutie (aménagement, Écho, Ingrid, suite chez Ilyane,
+  combat, caisse, 30 Fers), chiffres d'équilibrage (armes, ennemis, prix, 15 Fers, Fers gagnés, seuils d'XP),
+  choix de conception (combat sur la carte, couverture, fuite par le bord, pas de point d'attribut, pas de stock
+  limité tant qu'il n'y a qu'un marchand). **Jalon 1 clos.**
+- Suite choisie : la phase 2 des visuels (plan et coût d'abord).

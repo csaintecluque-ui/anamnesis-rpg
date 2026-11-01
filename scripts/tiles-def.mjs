@@ -1,7 +1,7 @@
 // Placeholder isometric tile definitions (phase 1 visuals), shared by generate-tiles.mjs and build-maps.mjs.
 // Each frame is 64×96: the ground diamond sits in the bottom 32 px, tall objects rise above it.
 // Order = frame index = Tiled tile id (gid − 1).
-// `cover`: Défense bonus for a combatant sheltering behind this obstacle (docs/gdd/combat.md, à valider).
+// `cover`: Défense bonus for a combatant sheltering behind this obstacle (docs/gdd/combat.md).
 export const W = 64;
 export const H = 96;
 export const COLUMNS = 8;

@@ -10,7 +10,7 @@ Règles : `src/rules/inventory.ts` ; écran : `TradeScene`.
 - **Kit de départ (validé le 2026-11-01)** : une Dague, déjà en main droite (`STARTING_WEAPON`).
 - **Monnaie de départ** : 15 Fers (`STARTING_FERS`), volontairement **moins** que le laissez-passer de Tobias
   (cinquante Fers) : convaincre reste la voie la plus sûre tôt dans la tranche.
-- **Gagner des Fers** (premier jet, à valider) : chaque résolution de « Le Dernier Train » rapporte **30 Fers**
+- **Gagner des Fers** (validé par Cyril le 2026-11-01) : chaque résolution de « Le Dernier Train » rapporte **30 Fers**
   (en plus des 40 XP), et une caisse de prospection abandonnée à la Gare Engloutie contient une bourse de **25 Fers**
   (une seule fois). Une partie complète dispose donc d'environ 70 Fers, de quoi acheter une armure. Effet de
   dialogue `giveFers`.
@@ -26,7 +26,8 @@ Règles : `src/rules/inventory.ts` ; écran : `TradeScene`.
   marchand rachète tout). « Acheter » n'apparaît que sur les objets de son catalogue. Stock illimité.
   - **Tobias** vend les 8 objets actuels (outils de Ferros, cordes, lampes à cristal, armes et armures : son
     dialogue validé et la description de l'Épée longue, « de l'atelier Cendrefer »).
-  - **À décider par Cyril** : des objets réservés à un lieu ou trouvés seulement en route ; un stock limité.
+  - **Décision de Cyril (2026-11-01)** : pas d'objets réservés ni de stock limité tant qu'il n'y a qu'un marchand ;
+    à revoir à l'arrivée du deuxième.
 - **Écran** : `TradeScene`, ouvert soit depuis le bouton « Inventaire » du HUD (seulement les objets portés, sans achat :
   consulter/équiper/utiliser/vendre), soit depuis un dialogue dont une option porte l'effet
   `openTrade` (Tobias : « Voir l'étal. »), avec achat en plus.

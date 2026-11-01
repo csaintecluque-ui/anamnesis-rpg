@@ -15,7 +15,7 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `memoire.md` : Mémoire Vivante, Échos, Gardiens de Mémoire, Kael, mémoire dans chaque culture.
 - `lieux/nations.md` : 7 continents, nations, capitales, lieux notables.
 - `lieux/gardebois.md` : Marché des Lisières, le hub (validé).
-- `lieux/gare-engloutie.md` : l'extérieur de la quête ; contenu détaillé **à valider**.
+- `lieux/gare-engloutie.md` : l'extérieur de la quête ; contenu détaillé validé.
 - `factions.md` : organisations, alliances, conflits en cours.
 - `religions.md` : les sept religions.
 - `peuples.md` : peuples par nation, faune utile à la tranche.

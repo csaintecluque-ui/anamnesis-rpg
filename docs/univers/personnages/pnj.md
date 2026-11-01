@@ -1,7 +1,7 @@
 # Personnages du jeu (héros, PNJ, ennemis)
 
 Propositions de Claude, **validées par Cyril le 2026-11-01**. Textes des dialogues : `docs/DIALOGUES.md` (généré par `npm run dialogues`).
-Détails propres à la Gare Engloutie (dialogue d'Ingrid, nœud « resolu » d'Ilyane, à valider) : `docs/univers/lieux/gare-engloutie.md`.
+Détails propres à la Gare Engloutie (dialogue d'Ingrid, nœud « resolu » d'Ilyane, validés) : `docs/univers/lieux/gare-engloutie.md`.
 
 | Élément | Proposition | Ancrage canon | Statut |
 |---|---|---|---|

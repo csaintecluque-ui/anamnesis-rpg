@@ -101,6 +101,7 @@
     l'écran titre et le terrain d'essai se chargent et fonctionnent.
   - Vérifié en ligne (commit 8a81c6f) : service worker actif sur `/anamnesis-rpg/`, page contrôlée, 10 fichiers en cache.
     Une page déjà ouverte peut afficher l'ancienne version pendant environ 10 minutes (cache de GitHub Pages).
+  - **Vérifié par Cyril sur son iPhone** : installation sur l'écran d'accueil réussie, le jeu fonctionne.
 - `npm audit` signale des vulnérabilités modérées dans des dépendances de workbox-build (glob, minimatch,
   deepmerge, ejs). Ce sont des outils de **construction seulement**, rien n'est livré aux joueurs.
   La « correction » proposée rétrograderait vite-plugin-pwa en 1.1, peut-être incompatible avec Vite 8 :

@@ -18,6 +18,7 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `lieux/nations.md` : 7 continents, nations, capitales, lieux notables.
 - `lieux/gardebois.md` : Marché des Lisières, le hub (validé).
 - `lieux/gare-engloutie.md` : l'extérieur de la quête ; contenu détaillé validé.
+- `lieux/villes.md` : dix grandes villes sur les sept continents (quartiers, maisons, personnages) ; à valider.
 - `factions.md` : organisations, alliances, conflits en cours.
 - `religions.md` : les sept religions.
 - `peuples.md` : peuples par nation, faune utile à la tranche.
@@ -47,3 +48,4 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `interface.md` : HUD, menu pause, options, PC (netteté, raccourcis, plein écran).
 - `animation.md` : marche animée des personnages, méthodes 2D et 3D, comparaison du pilote.
 - `jalon-2.md` : proposition du jalon 2 (retour de Cyril sur la phase 2, animation, avatars, contenu) ; à valider.
+- `villes.md` : gabarit d'une grande ville, systèmes communs, mécanique par ville, coûts, ordre ; à valider.

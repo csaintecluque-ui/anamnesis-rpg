@@ -628,3 +628,17 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   porte de l'auberge, intérieur, retour devant la porte, combat des Rôdeurs lancé et gagné, Rôdeurs disparus.
   Question ouverte : Sylvan a des oreilles pointues (elfes de Verdantis, zone floue n° 2).
 - Poussé sur accord de Cyril ; déploiement réussi (combat, pont, intérieurs, PNJ et quêtes en ligne).
+
+## 2026-11-01 (suite) : dix grandes villes (proposition)
+
+- Demande de Cyril : penser la suite avec dix grandes villes sur des continents différents, des maisons où entrer et
+  des personnages ; les quêtes plus tard.
+- Session cloud : `docs/Lore/` absent du conteneur ; travail fait sur la synthèse `docs/univers/` seulement, avec une
+  ligne « À vérifier dans le canon » par ville.
+- Proposé (tout à valider) : Canopéa, Ironheart, Ironhold, Convergence, Aetherhaven, Windspire, Coralys, Marche-Mère,
+  Crystallhaven, Auroraheim (`docs/univers/lieux/villes.md`) : 3 quartiers, 7 ou 8 maisons et environ 6 PNJ par ville,
+  une mémoire propre et une mécanique propre par ville. Gabarit, systèmes communs (figurants, lieux fermés et
+  réputation, carte du monde), coûts (≈ 35 crédits par ville, ≈ 340 en tout, 19 restants) et ordre proposé
+  (Canopéa, Ironheart, Convergence) : `docs/gdd/villes.md`.
+- Questions à Cyril : la liste, les noms à trancher (Coralys ou Coralia, Crystallhaven ou Crystalheart, Ironheart ou
+  L'Enclume), Ironhold distincte d'Ironheart, la ville pilote, le budget.

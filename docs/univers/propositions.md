@@ -1,7 +1,8 @@
 # Propositions de Claude pour le jeu
 
 Une proposition n'est canon qu'après validation de Cyril. Chaque élément vit dans le fichier de son thème, avec son statut :
-- lieux : `docs/univers/lieux/gardebois.md` (validé), `docs/univers/lieux/gare-engloutie.md` (validé) ;
+- lieux : `docs/univers/lieux/gardebois.md` (validé), `docs/univers/lieux/gare-engloutie.md` (validé),
+  `docs/univers/lieux/villes.md` (dix grandes villes, à valider) ;
 - personnages : `docs/univers/personnages/pnj.md` (validé) ;
 - systèmes : `docs/gdd/`.
 

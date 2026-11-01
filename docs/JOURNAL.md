@@ -19,6 +19,8 @@
 
 1. Avis de Cyril sur le combat, le pont et le contenu (en ligne depuis le 2026-11-01).
 2. Question à Cyril : Sylvan a des oreilles pointues (elfes de Verdantis, zone floue n° 2) ; garder ou refaire (2 crédits).
+3. Suite proposée : **dix grandes villes** (`docs/univers/lieux/villes.md`, gabarit et coûts `docs/gdd/villes.md`),
+   à valider par Cyril ; à confronter à `docs/Lore/` en session locale. Les quêtes viendront ensuite.
 
 ## Points ouverts
 

@@ -426,6 +426,15 @@ Décision de Cyril : le jeu doit être jouable sur PC, « voire surtout » ; l'i
 - **Remarqué, pas corrigé** : en combat, les noms des combattants se chevauchent quand ils sont côte à côte.
 - Tests : 158, au vert. `npm run typecheck` et `npm run build` au vert.
 
+### Retour de Cyril (même jour)
+
+- Sur PC, tout fonctionne très bien, mais le bandeau du haut (lieu, état, Menu, Inventaire) était trop gros : il
+  était taillé pour le doigt sur téléphone.
+- Corrigé : quand une souris est détectée, le HUD passe en version fine (52 unités de haut au lieu de 100, boutons
+  de 40 au lieu de 76, textes plus petits) ; le bouton de montée de niveau remonte d'autant. Sur téléphone et
+  tablette tactile, rien ne change. Vérifié en 1920 × 1080 (bandeau de 78 px au lieu de 150, boutons cliquables)
+  et en émulation téléphone.
+
 ### Reste à faire
 
 Validation de Cyril sur PC et sur iPhone (jalon 1). Pistes ensuite :

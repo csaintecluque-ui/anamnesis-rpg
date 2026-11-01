@@ -6,10 +6,16 @@ import type { GameState } from '../state/gameState';
 import { addTextButton } from '../ui/button';
 import { withKeyHint } from '../ui/keys';
 import { CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
+import { HAS_MOUSE } from '../ui/viewport';
 
 const TOAST_MS = 4000;
 /** Free band between the Menu button (left) and the Inventaire button (right). */
 const HEADER_MAX_WIDTH = 720;
+
+/** Finger-sized on touch screens; on PC a slim bar leaves the map most of the screen. */
+const LAYOUT = HAS_MOUSE
+  ? { barHeight: 52, titleY: 16, titleSize: 18, statusY: 37, statusSize: 16, buttonHeight: 40, buttonFont: 18, menuWidth: 150, inventoryWidth: 170, margin: 14, levelUpY: 84, levelUpHeight: 44, levelUpWidth: 260, levelUpFont: 20 }
+  : { barHeight: 100, titleY: 34, titleSize: 24, statusY: 70, statusSize: 22, buttonHeight: 76, buttonFont: 24, menuWidth: 200, inventoryWidth: 220, margin: 20, levelUpY: 150, levelUpHeight: 64, levelUpWidth: 320, levelUpFont: 26 };
 
 /** Fixed overlay above the map: unaffected by the map camera's zoom and scroll. */
 export class HudScene extends Phaser.Scene {
@@ -27,32 +33,47 @@ export class HudScene extends Phaser.Scene {
   create(data: { locationName?: string }): void {
     this.state = this.registry.get('game') as GameState;
 
+    const L = LAYOUT;
     // Interactive so that taps on the bar do not fall through to the map below.
-    this.add.rectangle(GAME_WIDTH / 2, 50, GAME_WIDTH, 100, 0x1b1512, 0.75).setInteractive();
+    this.add.rectangle(GAME_WIDTH / 2, L.barHeight / 2, GAME_WIDTH, L.barHeight, 0x1b1512, 0.75).setInteractive();
     this.add
-      .text(GAME_WIDTH / 2, 34, data.locationName ?? '', {
+      .text(GAME_WIDTH / 2, L.titleY, data.locationName ?? '', {
         fontFamily: FONT_SERIF,
-        fontSize: '24px',
+        fontSize: `${L.titleSize}px`,
         color: CSS.parchment,
         align: 'center',
         fixedWidth: HEADER_MAX_WIDTH,
       })
       .setOrigin(0.5);
     this.statusText = this.add
-      .text(GAME_WIDTH / 2, 70, '', { fontFamily: FONT_SERIF, fontSize: '22px', color: CSS.copper, align: 'center', fixedWidth: HEADER_MAX_WIDTH })
+      .text(GAME_WIDTH / 2, L.statusY, '', {
+        fontFamily: FONT_SERIF,
+        fontSize: `${L.statusSize}px`,
+        color: CSS.copper,
+        align: 'center',
+        fixedWidth: HEADER_MAX_WIDTH,
+      })
       .setOrigin(0.5);
     this.refreshStatus();
 
-    addTextButton(this, 120, 50, withKeyHint('Menu', 'Échap'), () => this.openOverlay('Pause'), { width: 200, height: 76, fontSize: 24 });
-    addTextButton(this, GAME_WIDTH - 130, 50, withKeyHint('Inventaire', 'I'), () => this.openOverlay('Trade', {}), {
-      width: 220,
-      height: 76,
-      fontSize: 24,
+    const button = { height: L.buttonHeight, fontSize: L.buttonFont };
+    addTextButton(this, L.margin + L.menuWidth / 2, L.barHeight / 2, withKeyHint('Menu', 'Échap'), () => this.openOverlay('Pause'), {
+      ...button,
+      width: L.menuWidth,
     });
+    addTextButton(
+      this,
+      GAME_WIDTH - L.margin - L.inventoryWidth / 2,
+      L.barHeight / 2,
+      withKeyHint('Inventaire', 'I'),
+      () => this.openOverlay('Trade', {}),
+      { ...button, width: L.inventoryWidth },
+    );
 
-    this.levelUpButton = addTextButton(this, GAME_WIDTH / 2, 150, '✦ Montée de niveau !', () => this.openOverlay('LevelUp'), {
-      width: 320,
-      height: 64,
+    this.levelUpButton = addTextButton(this, GAME_WIDTH / 2, L.levelUpY, '✦ Montée de niveau !', () => this.openOverlay('LevelUp'), {
+      width: L.levelUpWidth,
+      height: L.levelUpHeight,
+      fontSize: L.levelUpFont,
     }).container;
     this.levelUpButton.setVisible(hasPendingLevelUp(this.state.character!));
 

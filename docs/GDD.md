@@ -340,5 +340,7 @@ Le PC est une cible principale, au même titre que le téléphone (décision de 
   « Fuir » n'a volontairement pas de raccourci : on ne quitte pas un combat par une touche mal placée. Les lettres
   suivent la lettre gravée sur la touche (sur un clavier AZERTY, c'est bien la touche marquée Z), et les chiffres
   marchent sans Maj sur la rangée du haut.
+- **HUD fin** : avec une souris, le bandeau du haut est deux fois moins haut (52 unités, boutons de 40) ; sur écran
+  tactile, il garde la taille du doigt (100 unités, boutons de 76).
 - **Plein écran** : bouton dans les Options (PC, Android) ; F11 fonctionne aussi. Absent sur iPhone, où Safari n'a
   pas d'API plein écran (l'application installée occupe déjà tout l'écran).

@@ -11,6 +11,12 @@ export const RENDER_SCALE = computeRenderScale();
 /** The exploration map is shown closer than the 1:1 logical scale. */
 export const MAP_ZOOM = 1.5;
 
+/**
+ * A mouse or trackpad (PC): controls can be smaller than finger-sized ones, and a keyboard is likely. Touch screens,
+ * including touch laptops whose main pointer is the finger, keep the large layout.
+ */
+export const HAS_MOUSE = window.matchMedia?.('(pointer: fine)').matches === true;
+
 function computeRenderScale(): number {
   const physicalWidth = Math.max(window.screen.width, window.screen.height) * (window.devicePixelRatio || 1);
   // Steps of 0.5 between 1 and 2: above 2, the gain is invisible and the memory cost is not (phones, 4K screens).

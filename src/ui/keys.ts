@@ -1,10 +1,11 @@
 import Phaser from 'phaser';
+import { HAS_MOUSE } from './viewport';
 
 /**
  * A mouse (or trackpad) suggests a keyboard too: shortcut hints are shown on PC, hidden on phones and tablets where
  * they would only take room. Shortcuts themselves always work.
  */
-export const SHOW_KEY_HINTS = typeof window !== 'undefined' && window.matchMedia?.('(pointer: fine)').matches === true;
+export const SHOW_KEY_HINTS = HAS_MOUSE;
 
 /** Phaser key names (keydown-<NAME>); a listener is removed with its scene. */
 export function onKeys(scene: Phaser.Scene, keys: string[], handler: () => void): void {

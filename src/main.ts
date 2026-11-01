@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import { BootScene } from './scenes/BootScene';
 import { CreationScene } from './scenes/CreationScene';
+import { DialogueScene } from './scenes/DialogueScene';
 import { HudScene } from './scenes/HudScene';
 import { MapScene } from './scenes/MapScene';
 import { SlotsScene } from './scenes/SlotsScene';
@@ -19,7 +20,8 @@ const game = new Phaser.Game({
     mode: Phaser.Scale.FIT,
     autoCenter: Phaser.Scale.CENTER_BOTH,
   },
-  scene: [BootScene, TitleScene, CreationScene, MapScene, HudScene, SlotsScene],
+  // Order matters: later scenes draw on top and receive input first (Dialogue above the HUD above the map).
+  scene: [BootScene, TitleScene, CreationScene, MapScene, HudScene, DialogueScene, SlotsScene],
 });
 
 // Development only: lets browser checks locate things on screen. Never present in the published build.

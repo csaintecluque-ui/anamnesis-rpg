@@ -109,7 +109,8 @@
 
 ### Reste à faire (jalon 1, dans l'ordre proposé)
 
-1. Dialogues (Ilyane, Tobias), puis la Gare Engloutie, la quête, le combat, l'inventaire, le troc et la montée de niveau.
+1. La Gare Engloutie (carte, Écho, Ingrid Brisefer, résolutions de la quête), puis le combat, l'inventaire, le troc
+   et la montée de niveau.
 
 ### Points ouverts
 
@@ -208,3 +209,23 @@
 - Outil de test : en développement seulement, l'instance du jeu est exposée (`window.__anamnesis`)
   pour calculer la position exacte d'une case à l'écran. Elle est absente du site publié.
 - **Aménagement du Marché des Lisières validé par Cyril** (`LORE.md` §11).
+
+## 2026-11-01 — Dialogues (Ilyane, Tobias)
+
+- Moteur pur et testé (`src/rules/dialogue.ts`). Les conditions de test d'attribut ou de compétence laissent l'option
+  visible et grisée, avec ce qui manque ; les conditions d'histoire la masquent. Effets : repères, quêtes, XP.
+  Détails dans `GDD.md` §9.
+- Dialogues en JSON (`src/data/dialogues/`).
+  - Ilyane confie la quête « Le Dernier Train » : **test d'attribut Perception 4** (remarquer qu'elle est atteinte),
+    bonus **Érudition 2**.
+  - Tobias : **test de compétence Diplomatie 2** pour obtenir le laissez-passer du chantier. Sinon, il en demande
+    cinquante Fers ; ce sera possible quand le troc existera.
+- Écran de dialogue (`DialogueScene`) au-dessus du HUD ; la carte est en pause pendant la conversation.
+- Sauvegarde **v4** (repères et quêtes) ; migration des v3.
+- Textes à relire : `docs/DIALOGUES.md`, généré par `npm run dialogues`. Statut « à valider » dans `LORE.md` §11.
+- Tests : 83 au total. Ils couvrent le moteur et les deux fichiers de dialogue (bien formés, tests du GDD présents).
+- Vérifié dans le navigateur :
+  - **avec Perception 4 / Érudition 2 / Diplomatie 2** : chaque option testée est accessible ; repères, XP (10 + 10 + 25)
+    et quête mis à jour ; Ilyane passe au nœud « en cours » ;
+  - **avec Perception 3 / Diplomatie 0** : options grisées avec « Il te faut… », impossibles à choisir ;
+  - la plus longue option tient sur deux lignes ; la sauvegarde auto conserve repères, quête et XP.

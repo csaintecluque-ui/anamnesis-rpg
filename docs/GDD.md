@@ -211,3 +211,24 @@ Les trois pistes reposent sur des lois et des phénomènes du monde, pas sur la 
   séparée, donc lisible quel que soit le zoom.
 - **Sauvegarde v3** : l'état contient une `entrance` facultative (arrivée nommée). Les sauvegardes du terrain d'essai
   (supprimé) reprennent à l'entrée de Gardebois.
+
+## 9. Dialogues
+
+- **Données** : un fichier JSON par PNJ dans `src/data/dialogues/`, référencé dans `src/data/dialogues/index.ts`.
+  - Chaque fichier contient des *entrées* : la première dont les conditions sont vraies choisit le nœud de départ ;
+    la dernière n'a pas de condition.
+  - Il contient aussi des *nœuds* : un texte de 300 caractères au maximum, 4 options au maximum, et toujours au moins
+    une option sans condition.
+- **Conditions** (`requires`, toutes nécessaires) :
+  - **tests** `attribute` / `skill` avec un `min` (valeur de l'attribut, rang de la compétence) : l'option reste
+    **visible et grisée**, précédée de « [Perception 4] » et suivie de « — Il te faut Perception 4. » ;
+  - **état de l'histoire** `flag`, `notFlag`, `quest` (`none` / `active` / `done`) : l'option est **masquée** tant que
+    la condition est fausse.
+- **Effets** (sur un nœud à l'affichage, ou sur une option choisie) : `setFlag`, `startQuest`, `completeQuest`,
+  `giveXp`. Les messages (« Nouvelle quête : … », « +25 points d'expérience ») s'affichent en haut du panneau.
+- **Contrôles automatiques** (tests) : nœuds et quêtes connus, aucune impasse, aucun nœud inaccessible, longueurs
+  respectées, et chaque PNJ de la carte a son dialogue.
+- **Relecture** : `npm run dialogues` régénère `docs/DIALOGUES.md`, une version lisible pour relire les textes.
+- **Écran** : panneau en bas de l'écran ; la carte est en pause et rien ne passe au travers.
+- **Sauvegarde v4** : l'état contient `flags` (repères d'histoire) et `quests`.
+- **Expérience** : elle s'accumule déjà (`character.xp`) ; la montée de niveau viendra avec son étape.

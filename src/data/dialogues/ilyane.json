@@ -1,0 +1,71 @@
+{
+  "id": "ilyane",
+  "speaker": "ilyane",
+  "entries": [
+    { "requires": [{ "quest": "dernier-train", "status": "active" }], "node": "en-cours" },
+    { "node": "accueil" }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Te voilà. Les Gardiens de Mémoire m’ont annoncé ta venue. Bienvenue au Marché des Lisières… même si le moment est mal choisi pour un apprentissage tranquille.",
+      "options": [
+        { "text": "Que se passe-t-il ?", "next": "trouble" },
+        { "text": "Je reviendrai plus tard.", "next": "fin" }
+      ]
+    },
+    "trouble": {
+      "text": "Depuis trois nuits, des gens du marché revivent la Grande Chute en plein jour. Ils voient des villes brûler, entendent des sirènes que personne n’a entendues depuis trois mille ans. Puis tout s’efface, et ils pleurent sans savoir pourquoi.",
+      "options": [
+        {
+          "text": "Tes mains tremblent, Ilyane. Toi aussi, tu les vois.",
+          "next": "atteinte",
+          "requires": [{ "attribute": "perception", "min": 4 }],
+          "effects": [{ "setFlag": "ilyane-atteinte" }, { "giveXp": 10 }]
+        },
+        { "text": "D’où vient ce mal ?", "next": "cause" },
+        { "text": "Je reviendrai plus tard.", "next": "fin" }
+      ]
+    },
+    "atteinte": {
+      "text": "… Tu as de bons yeux. Ce matin, j’étais sur le quai d’une gare. J’ai vu partir un train plein d’enfants qui agitaient la main. Je n’ai jamais vu de train de l’Ancien Monde. Ce souvenir n’est pas le mien.",
+      "options": [{ "text": "Que puis-je faire ?", "next": "cause" }]
+    },
+    "cause": {
+      "text": "Une maladie mémorielle. Les anciens textes le disent : quand on abîme un Écho du Passé, la mémoire du lieu déborde sur les vivants. Or, à l’est, des prospecteurs de Ferros fouillent la Gare Engloutie, là où l’une des Trois Failles vient de s’ouvrir.",
+      "options": [
+        {
+          "text": "La loi de la Mémoire Vivante : un Écho qu’on déchire se multiplie.",
+          "next": "savant",
+          "requires": [{ "skill": "lore", "min": 2 }],
+          "effects": [{ "giveXp": 10 }]
+        },
+        { "text": "Pourquoi ne pas prévenir la garde ?", "next": "garde" },
+        { "text": "J’irai voir ce qui se passe à la Gare.", "next": "mission" }
+      ]
+    },
+    "savant": {
+      "text": "Tu as bien appris. Alors tu sais aussi qu’on ne détruit pas un Écho : on peut seulement l’apaiser, pour un temps. C’est notre métier, à nous, Gardiens : écouter ce que le passé essaie de dire.",
+      "options": [{ "text": "J’irai à la Gare Engloutie.", "next": "mission" }]
+    },
+    "garde": {
+      "text": "La garde surveille la frontière, pas les souvenirs. Et les prospecteurs ont des papiers en règle, signés à Ferros. Il faut quelqu’un qui sache écouter les Échos. Quelqu’un comme toi.",
+      "options": [{ "text": "Alors j’irai à la Gare.", "next": "mission" }]
+    },
+    "mission": {
+      "text": "Va à la Gare Engloutie, après le pont, à l’est. Écoute l’Écho avant qu’ils ne le déchirent davantage, et trouve qui dirige le chantier. Tobias, le marchand de Ferros, connaît sûrement les prospecteurs : il vend de tout à tout le monde.",
+      "effects": [{ "startQuest": "dernier-train" }],
+      "options": [{ "text": "En route.", "next": "fin" }]
+    },
+    "en-cours": {
+      "text": "La Gare Engloutie est à l’est, après le pont. Tobias, au marché, en sait peut-être plus sur le chantier.",
+      "options": [
+        { "text": "Comment te sens-tu ?", "next": "sante", "requires": [{ "flag": "ilyane-atteinte" }] },
+        { "text": "J’y vais.", "next": "fin" }
+      ]
+    },
+    "sante": {
+      "text": "Les visions passent comme des nuages. Je tiendrai. Le marché a besoin de quelqu’un qui garde la tête froide… et toi, tu as une gare à écouter.",
+      "options": [{ "text": "Je reviens vite.", "next": "fin" }]
+    }
+  }
+}

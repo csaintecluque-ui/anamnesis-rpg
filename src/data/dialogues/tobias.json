@@ -1,0 +1,55 @@
+{
+  "id": "tobias",
+  "speaker": "tobias",
+  "entries": [{ "node": "accueil" }],
+  "nodes": {
+    "accueil": {
+      "text": "Bienvenue à l’étal Cendrefer ! Outils de Ferros, cordes, lampes à cristal… et les meilleures rumeurs du marché, pour qui sait les écouter.",
+      "options": [
+        {
+          "text": "Je dois entrer sur le chantier de la Gare Engloutie.",
+          "next": "chantier",
+          "requires": [{ "quest": "dernier-train", "status": "active" }, { "notFlag": "laissez-passer" }]
+        },
+        { "text": "Merci encore pour le laissez-passer.", "next": "merci", "requires": [{ "flag": "laissez-passer" }] },
+        { "text": "Que racontent les gens, au marché ?", "next": "rumeurs" },
+        { "text": "Au revoir.", "next": "fin" }
+      ]
+    },
+    "rumeurs": {
+      "text": "Que des gens voient des trains et des flammes. Les Verdantins disent que c’est la faute de Ferros, forcément. Moi, je dis que la peur fait vendre les rumeurs… et pas les lampes.",
+      "options": [
+        { "text": "Parlons d’autre chose.", "next": "accueil" },
+        { "text": "Au revoir.", "next": "fin" }
+      ]
+    },
+    "chantier": {
+      "text": "Le chantier ? C’est l’ingénieure Ingrid Brisefer qui le dirige. Personne n’y entre sans laissez-passer. Il se trouve que j’en ai un… qui m’a coûté cher.",
+      "options": [
+        {
+          "text": "Si ce chantier rend le marché malade, tes clients partiront. M’aider, c’est aider tes affaires.",
+          "next": "convaincu",
+          "requires": [{ "skill": "diplomacy", "min": 2 }],
+          "effects": [{ "setFlag": "laissez-passer" }, { "giveXp": 25 }]
+        },
+        { "text": "Combien en veux-tu ?", "next": "prix" },
+        { "text": "Je trouverai un autre moyen.", "next": "fin" }
+      ]
+    },
+    "prix": {
+      "text": "Cinquante Fers, et c’est un prix d’ami. Ne fais pas cette tête : à Ferros, tout se paie, même l’amitié.",
+      "options": [
+        { "text": "Je n’ai pas cette somme.", "next": "chantier" },
+        { "text": "Au revoir.", "next": "fin" }
+      ]
+    },
+    "convaincu": {
+      "text": "… Tu parles comme un marchand de Ferros, toi. Tiens, prends-le. Et si Brisefer te pose la question, tu ne l’as pas eu de moi.",
+      "options": [{ "text": "Promis.", "next": "fin" }]
+    },
+    "merci": {
+      "text": "Fais-en bon usage. Et si tu croises Brisefer, dis-lui que l’étal Cendrefer vend des lampes qui ne s’éteignent pas sous terre.",
+      "options": [{ "text": "Au revoir.", "next": "fin" }]
+    }
+  }
+}

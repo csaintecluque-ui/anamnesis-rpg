@@ -1,0 +1,141 @@
+import { describe, expect, it } from 'vitest';
+import { DIALOGUES } from '../data/dialogues';
+import npcData from '../data/npcs.json';
+import { createNewGame, type GameState } from '../state/gameState';
+import { createDraft, finalizeCharacter, type CharacterDraft } from './character';
+import {
+  END,
+  applyEffects,
+  conditionMet,
+  dialogueProblems,
+  startNode,
+  visibleOptions,
+  type Dialogue,
+  type DialogueNode,
+} from './dialogue';
+
+/** A complete level 1 character with the given Perception (3–5) and Diplomatie rank (0–3). */
+function stateWith(perception: 3 | 4 | 5, diplomacy: number): GameState {
+  // The 3 attribute points go to Perception first, the rest to Mémoire.
+  const draft: CharacterDraft = {
+    ...createDraft(),
+    name: 'Aube',
+    feat: 'tough',
+    allocated: { body: 3, agility: 3, vigor: 3, intellect: 3, presence: 3, perception, memory: 3 + (3 - (perception - 3)) },
+    originBonus: ['body', 'vigor'],
+  };
+  // 6 skill ranks: Diplomatie as asked, Érudition 3, the rest in Discrétion.
+  draft.skillRanks = { ...draft.skillRanks, diplomacy, lore: 3, stealth: 3 - diplomacy };
+  return createNewGame(finalizeCharacter(draft));
+}
+
+const node: DialogueNode = {
+  text: 'Bonjour.',
+  options: [
+    { text: 'Toujours là.', next: END },
+    { text: 'Je remarque.', next: END, requires: [{ attribute: 'perception', min: 4 }] },
+    { text: 'Secret.', next: END, requires: [{ flag: 'secret' }] },
+    { text: 'Convaincre.', next: END, requires: [{ skill: 'diplomacy', min: 2 }, { quest: 'dernier-train', status: 'active' }] },
+  ],
+};
+
+describe('conditions', () => {
+  it('reads attributes, skill ranks, flags and quests', () => {
+    const s = stateWith(4, 2);
+    expect(conditionMet(s, { attribute: 'perception', min: 4 })).toBe(true);
+    expect(conditionMet(s, { attribute: 'perception', min: 5 })).toBe(false);
+    expect(conditionMet(s, { skill: 'diplomacy', min: 2 })).toBe(true);
+    expect(conditionMet(s, { flag: 'x' })).toBe(false);
+    expect(conditionMet(s, { notFlag: 'x' })).toBe(true);
+    expect(conditionMet(s, { quest: 'dernier-train', status: 'none' })).toBe(true);
+  });
+});
+
+describe('visibleOptions', () => {
+  it('greys out failed attribute tests and says what is missing', () => {
+    const views = visibleOptions(node, stateWith(3, 0));
+    const test = views.find((v) => v.option.text === 'Je remarque.')!;
+    expect(test.enabled).toBe(false);
+    expect(test.tags).toEqual(['Perception 4']);
+    expect(test.missing).toBe('Il te faut Perception 4.');
+  });
+
+  it('enables the test when the attribute is high enough, still showing its tag', () => {
+    const test = visibleOptions(node, stateWith(4, 0)).find((v) => v.option.text === 'Je remarque.')!;
+    expect(test).toMatchObject({ enabled: true, tags: ['Perception 4'], missing: undefined });
+  });
+
+  it('hides options whose story conditions fail, whatever the tests', () => {
+    const texts = visibleOptions(node, stateWith(4, 2)).map((v) => v.option.text);
+    expect(texts).not.toContain('Secret.');
+    expect(texts).not.toContain('Convaincre.');
+  });
+
+  it('shows a skill test once its story condition holds', () => {
+    const s = stateWith(3, 1);
+    s.quests['dernier-train'] = 'active';
+    const view = visibleOptions(node, s).find((v) => v.option.text === 'Convaincre.')!;
+    expect(view).toMatchObject({ enabled: false, tags: ['Diplomatie 2'], missing: 'Il te faut Diplomatie 2.' });
+  });
+});
+
+describe('applyEffects', () => {
+  it('sets flags, starts quests once, grants experience and reports it', () => {
+    const s = stateWith(3, 0);
+    const notices = applyEffects(s, [{ setFlag: 'vu' }, { startQuest: 'dernier-train' }, { giveXp: 25 }]);
+    expect(s.flags.vu).toBe(true);
+    expect(s.quests['dernier-train']).toBe('active');
+    expect(s.character?.xp).toBe(25);
+    expect(notices).toEqual(['Nouvelle quête : Le Dernier Train', '+25 points d’expérience']);
+    expect(applyEffects(s, [{ startQuest: 'dernier-train' }])).toEqual([]);
+  });
+});
+
+describe('dialogueProblems', () => {
+  it('reports dead ends, missing nodes, unreachable nodes and unknown references', () => {
+    const broken: Dialogue = {
+      id: 'x',
+      speaker: 'x',
+      entries: [{ node: 'a' }],
+      nodes: {
+        a: { text: 'A', options: [{ text: '…', next: 'nulle-part' }] },
+        b: { text: 'B', options: [] },
+        c: { text: 'C', options: [{ text: '…', next: END, requires: [{ skill: 'magie' as never, min: 1 }] }] },
+      },
+    };
+    const problems = dialogueProblems(broken).join('\n');
+    expect(problems).toContain('nulle-part');
+    expect(problems).toContain('b : aucune option');
+    expect(problems).toContain('b : nœud inaccessible');
+    expect(problems).toContain('compétence inconnue magie');
+    expect(problems).toContain('c : il faut au moins une option toujours disponible');
+  });
+});
+
+describe('dialogue files', () => {
+  it.each(Object.values(DIALOGUES).map((d) => [d.id, d] as const))('%s is well formed', (_id, dialogue) => {
+    expect(dialogueProblems(dialogue)).toEqual([]);
+    expect(npcData.some((n) => n.id === dialogue.speaker)).toBe(true);
+  });
+
+  it('gives every NPC of the map a dialogue', () => {
+    for (const npc of npcData) expect(DIALOGUES[npc.id], npc.id).toBeDefined();
+  });
+
+  it('Ilyane starts the quest, with a Perception 4 test (GDD §6)', () => {
+    const d = DIALOGUES.ilyane;
+    const tests = Object.values(d.nodes).flatMap((n) => n.options.flatMap((o) => o.requires ?? []));
+    expect(tests).toContainEqual({ attribute: 'perception', min: 4 });
+    const effects = Object.values(d.nodes).flatMap((n) => [...(n.effects ?? []), ...n.options.flatMap((o) => o.effects ?? [])]);
+    expect(effects).toContainEqual({ startQuest: 'dernier-train' });
+    expect(startNode(d, stateWith(3, 0))).not.toBe(startNode(d, { ...stateWith(3, 0), quests: { 'dernier-train': 'active' } }));
+  });
+
+  it('Tobias gives the pass with a Diplomatie 2 test, only once the quest is active (GDD §6)', () => {
+    const d = DIALOGUES.tobias;
+    const passOption = Object.values(d.nodes)
+      .flatMap((n) => n.options)
+      .find((o) => o.effects?.some((e) => 'setFlag' in e && e.setFlag === 'laissez-passer'));
+    expect(passOption?.requires).toContainEqual({ skill: 'diplomacy', min: 2 });
+  });
+});

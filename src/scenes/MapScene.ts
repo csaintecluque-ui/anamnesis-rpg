@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { DIALOGUES } from '../data/dialogues';
 import gardeboisJson from '../data/maps/gardebois.json';
 import npcData from '../data/npcs.json';
 import { TILE_HEIGHT, TILE_WIDTH, screenToTile, tileToScreen, type Tile } from '../engine/iso';
@@ -251,8 +252,13 @@ export class MapScene extends Phaser.Scene {
       this.hud().toast(target.properties.texte ?? '…');
       return;
     }
+    if (DIALOGUES[target.name]) {
+      this.scene.pause();
+      this.scene.launch('Dialogue', { id: target.name });
+      return;
+    }
     const npc = npcData.find((n) => n.id === target.name);
-    this.hud().toast(npc ? `${npc.name} — ${npc.role}. (Dialogues à venir.)` : '…');
+    this.hud().toast(npc ? `${npc.name} — ${npc.role}.` : '…');
   }
 
   private checkExit(): void {

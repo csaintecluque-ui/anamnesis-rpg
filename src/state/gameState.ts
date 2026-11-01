@@ -20,7 +20,12 @@ export interface GameState {
   /** When set, the map places the player at this named object instead of `position`, then clears it. */
   entrance: string | null;
   playTimeSeconds: number;
+  /** Story facts learned or decided (e.g. "laissez-passer"), set by dialogues. */
+  flags: Record<string, true>;
+  quests: Record<string, QuestStatus>;
 }
+
+export type QuestStatus = 'active' | 'done';
 
 export function createNewGame(character: Character | null = null): GameState {
   const start = LOCATIONS[0];
@@ -30,6 +35,8 @@ export function createNewGame(character: Character | null = null): GameState {
     position: { col: 0, row: 0 },
     entrance: start.entrance,
     playTimeSeconds: 0,
+    flags: {},
+    quests: {},
   };
 }
 

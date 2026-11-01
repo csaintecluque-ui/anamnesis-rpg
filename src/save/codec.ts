@@ -1,7 +1,7 @@
 import { characterError } from '../rules/character';
 import { findLocation, type GameState } from '../state/gameState';
 
-export const SAVE_VERSION = 3;
+export const SAVE_VERSION = 4;
 export const SAVE_MAX_CHARS = 1_000_000;
 const GAME_MARKER = 'anamnesis';
 
@@ -35,6 +35,8 @@ const MIGRATIONS: Record<number, (save: Record<string, unknown>) => Record<strin
       },
     };
   },
+  // v3 predates dialogues: no story flags or quests yet.
+  3: (save) => ({ ...save, state: isRecord(save.state) ? { ...save.state, flags: {}, quests: {} } : save.state }),
 };
 
 export function createSave(state: GameState, now: Date): SaveFile {
@@ -83,6 +85,10 @@ function validateState(state: unknown): string | null {
   if (!isRecord(pos) || !Number.isInteger(pos.col) || !Number.isInteger(pos.row)) return 'position invalide.';
   if (state.entrance !== null && typeof state.entrance !== 'string') return 'point d’arrivée invalide.';
   if (typeof state.playTimeSeconds !== 'number' || !(state.playTimeSeconds >= 0)) return 'temps de jeu invalide.';
+  if (!isRecord(state.flags) || Object.values(state.flags).some((v) => v !== true)) return 'repères d’histoire invalides.';
+  if (!isRecord(state.quests) || Object.values(state.quests).some((v) => v !== 'active' && v !== 'done')) {
+    return 'quêtes invalides.';
+  }
   if (state.character !== null) return characterError(state.character);
   return null;
 }

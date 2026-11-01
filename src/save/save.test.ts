@@ -51,6 +51,8 @@ const state: GameState = {
   position: { col: 4, row: 7 },
   entrance: null,
   playTimeSeconds: 3725,
+  flags: { 'laissez-passer': true },
+  quests: { 'dernier-train': 'active' },
 };
 
 describe('save codec', () => {
@@ -111,6 +113,8 @@ describe('save codec', () => {
         position: { col: 0, row: 0 },
         entrance: 'entree',
         playTimeSeconds: 60,
+        flags: {},
+        quests: {},
       });
     }
   });
@@ -127,6 +131,22 @@ describe('save codec', () => {
     if (parsed.ok) {
       expect(parsed.value.state).toMatchObject({ character: state.character, location: 'gardebois', entrance: 'entree', playTimeSeconds: 90 });
     }
+  });
+
+  it('migrates a version 3 save by adding empty story flags and quests', () => {
+    const { flags: _f, quests: _q, ...v3State } = state;
+    const parsed = parseSave(JSON.stringify({ game: 'anamnesis', version: 3, savedAt: NOW.toISOString(), state: v3State }));
+    expect(parsed.ok).toBe(true);
+    if (parsed.ok) expect(parsed.value.state).toMatchObject({ flags: {}, quests: {}, position: state.position });
+  });
+
+  it.each([
+    ['a non-true flag', { flags: { 'laissez-passer': 'oui' } }, 'repères'],
+    ['an unknown quest status', { quests: { 'dernier-train': 'peut-être' } }, 'quêtes'],
+  ])('rejects %s', (_label, change, message) => {
+    const parsed = parseSave(JSON.stringify({ game: 'anamnesis', version: SAVE_VERSION, savedAt: NOW.toISOString(), state: { ...state, ...change } }));
+    expect(parsed.ok).toBe(false);
+    if (!parsed.ok) expect(parsed.error).toContain(message);
   });
 
   it('rejects a current save whose character is missing or broken', () => {

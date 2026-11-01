@@ -1,9 +1,27 @@
+import { execSync } from 'node:child_process';
+import { readFileSync } from 'node:fs';
 import { VitePWA } from 'vite-plugin-pwa';
 import { defineConfig } from 'vitest/config';
 
 const INK = '#1B1512';
 
+function appVersion(): string {
+  const { version } = JSON.parse(readFileSync(new URL('./package.json', import.meta.url), 'utf8')) as { version: string };
+  let sha = process.env.GITHUB_SHA?.slice(0, 7);
+  if (!sha) {
+    try {
+      sha = execSync('git rev-parse --short HEAD', { encoding: 'utf8' }).trim();
+    } catch {
+      sha = 'dev';
+    }
+  }
+  return `v${version} · ${sha}`;
+}
+
 export default defineConfig({
+  define: {
+    __APP_VERSION__: JSON.stringify(appVersion()),
+  },
   // Relative base so the build works under the GitHub Pages sub-path.
   base: './',
   build: {

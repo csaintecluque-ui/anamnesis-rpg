@@ -57,6 +57,10 @@ export class TitleScene extends Phaser.Scene {
       text.on('pointerup', () => entry.action?.());
     });
 
+    this.add
+      .text(24, GAME_HEIGHT - 70, __APP_VERSION__, { fontFamily: FONT_SERIF, fontSize: '16px', color: CSS.muted })
+      .setOrigin(0, 0.5);
+
     // Discreet signature (CLAUDE.md §6): seal + "Anamnesis · CSC".
     this.add.image(GAME_WIDTH - 70, GAME_HEIGHT - 70, 'seal').setDisplaySize(72, 72).setAlpha(0.85);
     this.add

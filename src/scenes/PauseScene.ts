@@ -1,5 +1,7 @@
 import Phaser from 'phaser';
+import { addTestFers, restoreFullHp, TEST_FERS } from '../rules/testTools';
 import { saveStore } from '../save/browser';
+import { getSettings } from '../settings';
 import type { GameState } from '../state/gameState';
 import { addTextButton } from '../ui/button';
 import { onKeys, withKeyHint } from '../ui/keys';
@@ -20,11 +22,15 @@ export class PauseScene extends Phaser.Scene {
   create(): void {
     this.add.rectangle(0, 0, GAME_WIDTH, GAME_HEIGHT, COLORS.ink, 0.7).setOrigin(0, 0).setInteractive();
     const L = LAYOUT;
+    // The hidden test mode adds a row of tools under the menu: the panel grows, and everything moves up to stay centred.
+    const testMode = getSettings().testMode;
+    const extra = testMode ? L.step + 24 : 0;
+    const top = GAME_HEIGHT / 2 - extra / 2;
     this.add
-      .rectangle(GAME_WIDTH / 2, GAME_HEIGHT / 2, L.panel, L.panel, COLORS.ink, 0.97)
+      .rectangle(GAME_WIDTH / 2, GAME_HEIGHT / 2, L.panel, L.panel + extra, COLORS.ink, 0.97)
       .setStrokeStyle(2, COLORS.copper, 0.8);
     this.add
-      .text(GAME_WIDTH / 2, GAME_HEIGHT / 2 + L.titleY, 'Pause', { fontFamily: FONT_SERIF, fontSize: `${L.titleSize}px`, color: CSS.copper })
+      .text(GAME_WIDTH / 2, top + L.titleY, 'Pause', { fontFamily: FONT_SERIF, fontSize: `${L.titleSize}px`, color: CSS.copper })
       .setOrigin(0.5);
 
     // Options opens on top of this menu: Échap then closes Options only.
@@ -39,12 +45,34 @@ export class PauseScene extends Phaser.Scene {
       ['Retour au titre', () => this.backToTitle()],
     ];
     entries.forEach(([label, action], i) => {
-      addTextButton(this, GAME_WIDTH / 2, GAME_HEIGHT / 2 + L.firstY + i * L.step, label, action, {
+      addTextButton(this, GAME_WIDTH / 2, top + L.firstY + i * L.step, label, action, {
         width: L.buttonWidth,
         height: L.buttonHeight,
         fontSize: L.buttonFont,
       });
     });
+    if (testMode) this.addTestTools(top + L.firstY + entries.length * L.step + 24);
+  }
+
+  /** « Mode test » (docs/gdd/interface.md): Fers and PV on demand, to try things out. */
+  private addTestTools(y: number): void {
+    const L = LAYOUT;
+    const state = this.registry.get('game') as GameState;
+    const width = (L.buttonWidth - 12) / 2;
+    const note = this.add
+      .text(GAME_WIDTH / 2, y - L.buttonHeight / 2 - 14, 'Mode test', { fontFamily: FONT_SERIF, fontSize: '16px', color: CSS.copper })
+      .setOrigin(0.5);
+    const button = { width, height: L.buttonHeight, fontSize: L.buttonFont - 2 };
+    addTextButton(this, GAME_WIDTH / 2 - width / 2 - 6, y, `+${TEST_FERS} Fers`, () => {
+      if (!state.character) return;
+      addTestFers(state.character);
+      note.setText(`Mode test : ${state.character.fers} Fers`);
+    }, button);
+    addTextButton(this, GAME_WIDTH / 2 + width / 2 + 6, y, 'PV au max', () => {
+      if (!state.character) return;
+      const restored = restoreFullHp(state.character);
+      note.setText(`Mode test : +${restored} PV`);
+    }, button);
   }
 
   private resumeGame(): void {

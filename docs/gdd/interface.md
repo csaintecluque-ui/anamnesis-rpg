@@ -59,3 +59,13 @@ Le PC est une cible principale, au même titre que le téléphone (décision de 
   sont numérotés (« Rôdeur-Épine 1 », « Rôdeur-Épine 2 »), dans le panneau comme dans le journal du combat.
 - **Plein écran** : bouton dans les Options (PC, Android) ; F11 fonctionne aussi. Absent sur iPhone, où Safari n'a
   pas d'API plein écran (l'application installée occupe déjà tout l'écran).
+
+## Mode test (caché)
+
+Pour essayer le jeu sans tout rejouer (demande de Cyril, 2026-11-01).
+
+- **Activer / désactiver** : sur l'écran titre, toucher **5 fois de suite** (en moins de 3 secondes) le numéro de
+  version, en bas à gauche. « · mode test » s'affiche alors en cuivre à côté de la version.
+- **Outils** : dans le menu pause, sous les boutons habituels, **+50 Fers** et **PV au max** (`src/rules/testTools.ts`).
+- Le réglage est propre à l'appareil (`settings.testMode`, comme les options), pas à la sauvegarde. Il n'apparaît
+  dans aucun menu : un joueur ne le trouve pas par hasard.

@@ -539,3 +539,9 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   wagon, foreuse). **Fuite** depuis le bord de la zone seulement. Arène × 1,25 sur PC.
 - Vérifié dans le navigateur (PC) : inventaire réduit aux objets portés, arène tirée de la Gare, refus de fuir
   hors du bord. Couverture vérifiée par les tests seulement (aucun tir à couvert joué à l'écran).
+
+## 2026-11-01 (suite) : mode test caché
+
+- Demande de Cyril : un réglage caché pour ajouter de l'argent ou des PV pendant les essais.
+- 5 touches sur le numéro de version de l'écran titre activent le mode test (réglage de l'appareil) ; le menu pause
+  gagne alors « +50 Fers » et « PV au max ». Vérifié dans le navigateur (PC).

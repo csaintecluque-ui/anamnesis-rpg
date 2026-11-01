@@ -553,3 +553,6 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   choix de conception (combat sur la carte, couverture, fuite par le bord, pas de point d'attribut, pas de stock
   limité tant qu'il n'y a qu'un marchand). **Jalon 1 clos.**
 - Suite choisie : la phase 2 des visuels (plan et coût d'abord).
+- Préparation de la phase 2 : fiche de style `docs/STYLE.md` (peinture numérique douce, isométrique 2:1, palette,
+  formats, prompt commun, descriptions de personnages proposées) et plan de 34 images en 6 lots, pilote de 4 images
+  d'abord (`docs/ASSETS.md`). Higgsfield n'est pas connecté à la session : coût en crédits à chiffrer.

@@ -28,6 +28,11 @@ Règles : `src/rules/inventory.ts` ; écran : `TradeScene`.
     dialogue validé et la description de l'Épée longue, « de l'atelier Cendrefer »).
   - **Décision de Cyril (2026-11-01)** : pas d'objets réservés ni de stock limité tant qu'il n'y a qu'un marchand ;
     à revoir à l'arrivée du deuxième.
+  - **Sévane Mielvert** (Comptoir de la Sève, Canopéa) vend bandages, Baume de mousse (12 Fers, soigne 12 PV) et corde ;
+    **la colporteuse** (rencontre de voyage) y ajoute la lampe à cristal. Avec ces deux marchands, la question des
+    stocks se pose : pour l'instant, toujours illimités (à revoir avec Cyril).
+  - **Graines-lumière** (30 Fers) : le sac qu'on peut voler au grenier des semences de Canopéa
+    (`docs/univers/lieux/canopee.md`).
 - **Écran** : `TradeScene`, ouvert soit depuis le bouton « Inventaire » du HUD (seulement les objets portés, sans achat :
   consulter/équiper/utiliser/vendre), soit depuis un dialogue dont une option porte l'effet
   `openTrade` (Tobias : « Voir l'étal. »), avec achat en plus.

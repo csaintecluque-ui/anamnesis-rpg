@@ -16,7 +16,9 @@ Moteur : `src/rules/dialogue.ts` ; écran : `DialogueScene`. Textes à relire : 
 - **Effets** (sur un nœud à l'affichage, ou sur une option choisie) : `setFlag`, `startQuest`, `completeQuest`,
   `giveXp`, `giveFers` (négatif pour payer), `giveItem` (+ `count`), `heal` (PV rendus), `learnRecit`
   (`docs/gdd/memoire.md`), `openTrade` (`docs/gdd/inventaire.md` : ouvre le Troc avec ce PNJ au lieu de refermer le
-  dialogue), `startCombat` (referme le dialogue et lance sur la carte un combat de `src/data/encounters.json`).
+  dialogue), `startCombat` (referme le dialogue et lance sur la carte un combat de `src/data/encounters.json`),
+  `goTo` (+ `arrivee` facultative : referme le dialogue et mène à un autre lieu, par exemple derrière une porte qu'on
+  vient de crocheter).
   Les messages (« Nouvelle quête : … », « +25 points d'expérience », « Récit retenu : … ») s'affichent en haut du panneau.
 - **Jets de dé** (`roll` sur une option) : une action risquée (se cacher, saboter, crocheter) se joue au d20,
   selon `docs/gdd/competences.md` (d20 + mod. d'attribut + rang ≥ difficulté). L'option affiche sa chance de réussite

@@ -30,3 +30,4 @@ Code : `src/save/codec.ts` (format, validation, migrations), `src/save/store.ts`
 | v6 | `character.fers`, `inventory`, `equipment` | 15 Fers, rien porté |
 | v7 | (même format) le combat utilise les armes en main | un héros aux mains vides reçoit la Dague de départ, en main droite |
 | v8 | `character.avatar` (apparence choisie à la création) | le héros de la première version (`apprenti`) |
+| v9 | `encounter` : la rencontre de voyage en cours (`docs/gdd/carte-du-monde.md`), ou `null` | aucune rencontre en cours |

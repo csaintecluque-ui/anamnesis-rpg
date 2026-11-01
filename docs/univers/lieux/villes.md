@@ -1,9 +1,16 @@
-# Dix grandes villes — propositions (2026-11-01), **à valider par Cyril**
+# Dix grandes villes — propositions (2026-11-01), **plan validé par Cyril le 2026-11-01**
+
+> Décisions de Cyril (2026-11-01) : « OK pour tout » ; on commence par **Canopéa**, en visuels provisoires
+> (`docs/univers/lieux/canopee.md`), avec la carte du monde et des rencontres en route (`docs/gdd/carte-du-monde.md`).
+> Noms retenus pour le jeu (zone floue n° 15) : **Coralys**, **Crystallhaven**, **Ironheart**.
+> Reste ouvert : Ironhold et Ironheart sont-elles deux villes ? (à vérifier dans `docs/Lore/`).
+> Chaque ville reste à confronter au canon avant d'être construite ; les détails ajoutés en la construisant sont
+> proposés « à valider » dans sa propre fiche.
 
 Demande de Cyril : penser la suite avec dix grandes villes sur des continents différents, des maisons où entrer
 et des personnages ; les quêtes viendront ensuite. Gabarit de jeu, systèmes et coûts : `docs/gdd/villes.md`.
 
-**Statuts.** Tout ce qui n'est pas suivi d'un code source entre crochets est une **proposition à valider** :
+**Statuts.** Tout ce qui n'est pas suivi d'un code source entre crochets est une **proposition** (plan validé) :
 allure des villes, quartiers, maisons, personnages inventés, mécaniques. Les noms de villes et les figures
 marquées « canon » viennent de la synthèse (`docs/univers/lieux/nations.md`, `personnages/contemporains.md`).
 

@@ -1,7 +1,9 @@
-# Grandes villes — gabarit, systèmes, coûts (proposition du 2026-11-01, **à valider**)
+# Grandes villes — gabarit, systèmes, coûts (proposition du 2026-11-01, **validée par Cyril le 2026-11-01**)
 
-Piste pour l'après-jalon 2 ; rien n'est lancé sans l'accord de Cyril. Les dix villes (lore, maisons, personnages) :
-`docs/univers/lieux/villes.md`. Les quêtes viendront ensuite (demande de Cyril).
+Les dix villes (lore, maisons, personnages) : `docs/univers/lieux/villes.md`. Les quêtes viendront ensuite.
+**Fait le 2026-11-01** : Canopéa en visuels provisoires (`docs/univers/lieux/canopee.md`), portes fermées à clé,
+réputation réduite à des repères (le vol au grenier fait parler la ville), carte du monde et rencontres en route
+(`docs/gdd/carte-du-monde.md`). **Reste** : figurants, réputation chiffrée, mécaniques propres des autres villes.
 
 ## Gabarit d'une grande ville
 

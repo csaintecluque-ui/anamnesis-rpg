@@ -1,12 +1,91 @@
 # Dialogues — texte à relire
 
 Document **généré** à partir de `src/data/dialogues/*.json` (`npm run dialogues`) : ne pas le modifier à la main.
-Statut des textes (validé ou à valider) : voir `docs/univers/personnages/pnj.md` et `docs/univers/lieux/gare-engloutie.md`.
+Statut des textes (validé ou à valider) : voir `docs/univers/personnages/pnj.md`, `docs/univers/lieux/gare-engloutie.md`
+et, pour Canopéa et les rencontres en voyage, `docs/univers/lieux/canopee.md` et `docs/gdd/carte-du-monde.md`.
 
 Légende : **[Perception 4]** = test d’attribut ou de compétence (option visible mais grisée si le seuil manque) ;
 _(si …)_ = option qui n’apparaît que dans cette situation ; → = où mène la réponse.
 **🎲 Discrétion 10** = jet de dé (d20 + modificateur + rang contre 10) : → en cas de réussite, ✗ → en cas d’échec.
 🌙 = scène de nuit (le fond s’assombrit).
+
+## Aïlis Feuillevent
+
+_Grand-mère de Malo_
+
+Commence par : « voix » _(si repère « voix-anselme »)_ _(sans repère « ailis-reconfortee »)_, sinon « accueil »
+
+### accueil
+
+> Entre, entre. Tu as croisé mon petit-fils, je parie ? Malo court partout comme un écureuil. Moi, je ne vais plus bien loin : jusqu’au Bois des Aïeux, chaque soir, pour parler à mon Anselme.
+
+- « Parler à un arbre ? » → arbre
+- « Au revoir, Aïlis. » → **fin**
+
+### arbre
+
+> Quand Anselme est parti, sa mémoire est passée dans un jeune arbre du Bois. Je lui raconte ma journée. Parfois, l’écorce est tiède sous ma main. Les savants disent que c’est le soleil. Moi, je sais que c’est lui.
+
+- « Merci de me l’avoir raconté. » → accueil
+
+### voix
+
+> Tu reviens du Bois ? Tes yeux brillent…
+
+- « J’ai entendu une voix, dans l’arbre d’Anselme. Quelqu’un fredonnait. » → reconfort _(retient « ailis-reconfortee », +15 XP)_
+- « Ce n’est rien. » → accueil
+
+### reconfort
+
+> Aïlis pose sa main sur la tienne. — La chanson des cerfs-lucioles ? Oh… Alors il est bien là. Merci. Tu viens de me rendre un petit morceau de lui.
+
+- « Il veille sur vous deux. » → **fin**
+
+## Un très vieil Arbre-Souvenir
+
+_Arbre-Souvenir_
+
+Commence par : « arbre »
+
+### arbre
+
+> Un très vieil arbre, couvert de noms gravés les uns sur les autres. Des centaines de vies sont passées dans son bois.
+
+- **[Mémoire 3]** _(sans repère « recit-voix-ecorce-recu »)_ « Poser la main sur l’écorce et écouter. » → voix _(retient « recit-voix-ecorce-recu », retient le Récit « Les voix de l’écorce », +10 XP)_
+- **[Mémoire 3]** _(si repère « recit-voix-ecorce-recu »)_ « Écouter encore les voix. » → voix
+- « Lire quelques noms. » → noms
+- « Partir. » → **fin**
+
+### voix
+
+> Les voix montent ensemble, comme un chœur : des rires, des berceuses, des noms. Tu comprends soudain pourquoi, ici, on ne dit pas « il est mort », mais « il est passé dans l’arbre ».
+
+- « Laisser les voix se taire. » → **fin**
+
+### noms
+
+> Des noms, des petits dessins de feuilles, des mots tendres. Certains sont si anciens que l’écorce les a presque refermés.
+
+- « Partir. » → **fin**
+
+## L’arbre d’Anselme
+
+_Arbre-Souvenir_
+
+Commence par : « arbre »
+
+### arbre
+
+> Un jeune arbre, encore fin, au tronc gravé d’un nom : Anselme Feuillevent. Quelqu’un a noué un ruban vert autour de ses racines.
+
+- **[Mémoire 3]** « Poser la main sur l’écorce et écouter. » → voix _(retient « voix-anselme »)_
+- « Laisser l’arbre en paix. » → **fin**
+
+### voix
+
+> Sous ta paume, l’écorce est tiède. Très loin, quelqu’un fredonne une chanson douce, une chanson de cerfs-lucioles et de nuits d’été. Puis plus rien, que le vent.
+
+- « Retirer doucement la main. » → **fin**
 
 ## Brann Martelroux
 
@@ -45,6 +124,31 @@ Commence par : « apres » _(si quête « La caisse égarée » terminée)_, sin
 
 - « … » → **fin**
 
+## Une boîte de fer
+
+_Objet_
+
+Commence par : « vide » _(si repère « rencontre-cache-ouverte »)_, sinon « boite »
+
+### boite
+
+> Sous une dalle fendue, une boîte de fer rouillée. Quelqu’un l’a cachée là… il y a longtemps, ou hier.
+
+- « L’ouvrir. » → ouverte _(retient « rencontre-cache-ouverte », +8 Fers, donne 1 × « Bandage »)_
+- « La laisser. » → **fin**
+
+### ouverte
+
+> Quelques Fers et un bandage propre, enveloppés dans un vieux chiffon. Un petit mot dit seulement : « Pour qui en aura besoin. »
+
+- « Merci, inconnu. » → **fin**
+
+### vide
+
+> La boîte est vide.
+
+- « Partir. » → **fin**
+
 ## La caisse égarée
 
 _Objet_
@@ -63,7 +167,7 @@ Commence par : « libre » _(si repère « rodeurs-caisse-vaincus »)_, sinon «
 
 - **🎲 Survie 12** « Les éloigner avec une branche fumante. » → eloignes, ✗ → reperes
 - **🎲 Discrétion 13** « Se glisser jusqu’à la caisse sans bruit. » → prise, ✗ → reperes
-- « Les affronter. » → **fin** _(+undefined XP)_
+- « Les affronter. » → **fin** _(lance le combat « caisse-egaree »)_
 - « Revenir plus tard. » → **fin**
 
 ### eloignes
@@ -86,7 +190,7 @@ _Effet : retient « caisse-recuperee », retient « rodeurs-caisse-partis »._
 
 > Un Rôdeur-Épine relève la tête et gronde. Les deux bêtes se mettent en garde !
 
-- « Se défendre. » → **fin** _(+undefined XP)_
+- « Se défendre. » → **fin** _(lance le combat « caisse-egaree »)_
 - « Reculer prudemment. » → **fin**
 
 ### libre
@@ -127,6 +231,58 @@ Commence par : « carnets »
 
 - « Refermer le carnet. » → **fin**
 
+## Cerfs-Lucioles
+
+_Faune de Verdantis_
+
+Commence par : « partis » _(si repère « rencontre-cerfs-vus »)_, sinon « cerfs »
+
+### cerfs
+
+> Une dizaine de cerfs traversent la clairière sans bruit. Leurs bois s’allument et s’éteignent, comme des lanternes qui respireraient.
+
+- « Rester immobile et regarder. » → regard _(retient « rencontre-cerfs-vus », +10 XP)_
+- **[Survie 2]** « Les suivre sans un bruit. » → suivre _(retient « rencontre-cerfs-vus », +10 XP, +10 PV)_
+- « Les laisser passer. » → **fin**
+
+### regard
+
+> Le plus grand s’arrête et te regarde un long moment, puis repart. Quand la dernière lumière disparaît, tu te rends compte que tu retenais ton souffle.
+
+- « Reprendre son souffle. » → **fin**
+
+### suivre
+
+> Ils te mènent jusqu’à une source claire, puis s’évanouissent dans les fougères. L’eau est fraîche et douce ; tu te sens mieux.
+
+- « Boire, puis repartir. » → **fin**
+
+### partis
+
+> La clairière est redevenue sombre et silencieuse.
+
+- « Partir. » → **fin**
+
+## La colporteuse
+
+_Marchande ambulante_
+
+Commence par : « accueil »
+
+### accueil
+
+> Bonne route à toi ! Je vais de village en village avec ma carriole. Bandages, cordes, baumes… Un petit quelque chose pour le voyage ?
+
+- « Voyons ta marchandise. » → **fin** _(ouvre le Troc)_
+- « Quelles nouvelles des routes ? » → nouvelles
+- « Bonne route. » → **fin**
+
+### nouvelles
+
+> On dit que les Loups de Rouille descendent plus au sud cette année, du côté de la frontière. Et à Canopéa, le Conseil ne dort plus : tout le monde parle des forages de Ferros.
+
+- « Merci. » → accueil
+
 ## Cristal de veille
 
 _Objet_
@@ -137,7 +293,7 @@ Commence par : « cristal »
 
 > Le cristal de veille luit doucement. Ilyane dit qu’il tient les mauvais rêves à distance. En le regardant, tu sens ta fatigue s’apaiser.
 
-- « Se reposer un instant. » → **fin** _(+undefined XP)_
+- « Se reposer un instant. » → **fin** _(+40 PV)_
 - « S’éloigner. » → **fin**
 
 ## L’Écho de la berceuse
@@ -202,6 +358,32 @@ _Effet : retient le Récit « Le Savant Corvan »._
 > Tu restes en retrait. Les images s’effacent sans te livrer leurs secrets, mais tu as vu assez pour comprendre : ce train n’aurait pas dû partir, et pourtant il est parti.
 
 - « … » → **fin**
+
+## Elouan Chante-Bois
+
+_Luthier_
+
+Commence par : « accueil »
+
+### accueil
+
+> Chut… écoute. Ce bois-là chante quand le vent passe dedans. Je suis Elouan, luthier. Je ne taille que les branches tombées : à Canopéa, on ne coupe pas un arbre qui vit.
+
+- « Tu peux jouer quelque chose ? » → musique
+- « Pourquoi ne pas couper les arbres ? » → arbres
+- « Au revoir. » → **fin**
+
+### musique
+
+> Elouan porte une flûte à ses lèvres. La mélodie monte, légère, et quelque part dans les branches, un oiseau lui répond. — Tu vois ? Le bois se souvient du vent.
+
+- « C’était magnifique. » → accueil
+
+### arbres
+
+> Parce qu’ils portent nos aïeux, pardi ! Couper un arbre, ici, c’est un peu comme brûler une bibliothèque. Les gens de Ferros ont du mal à le comprendre.
+
+- « Je comprends. » → accueil
 
 ## La foreuse de Brisefer
 
@@ -271,6 +453,50 @@ _Effet : retient « surpris-de-nuit »._
 > La foreuse est muette, un engrenage faussé dans le ventre.
 
 - « S’éloigner. » → **fin**
+
+## Sacs de graines-lumière
+
+_Objet_
+
+Commence par : « vide » _(si repère « vol-grenier »)_, sinon « sacs »
+
+### sacs
+
+> Des sacs de graines-lumière, alignés comme des soldats. Chacun porte le sceau du Conseil : ce sont les semences des futurs arbres de Canopéa.
+
+- « Prendre un sac. » → pris _(donne 1 × « Graines-lumière », retient « vol-grenier »)_
+- « Les laisser où ils sont. » → **fin**
+
+### pris
+
+> Tu glisses un sac dans ta besace. Il est léger… bien plus léger que ta conscience.
+
+- « Partir. » → **fin**
+
+### vide
+
+> Il manque un sac dans la rangée. Le trou se voit.
+
+- « Partir. » → **fin**
+
+## L’huissier du Conseil
+
+_Huissier_
+
+Commence par : « accueil »
+
+### accueil
+
+> Silence, s’il te plaît : le Conseil des Racines Profondes délibère. Les audiences se demandent par écrit, et la liste est longue… très longue.
+
+- « De quoi parle le Conseil ? » → sujet
+- « Je reviendrai. » → **fin**
+
+### sujet
+
+> De la frontière de l’Est, de ce que Ferros creuse sous nos racines, et de ce mal qui fait oublier. Je n’en dirai pas plus : je suis huissier, pas bavard.
+
+- « Merci quand même. » → **fin**
 
 ## Ilyane Voix-d’Écorce
 
@@ -428,13 +654,46 @@ Commence par : « apres » _(si quête « Les herbes de lisière » terminée)_,
 
 > Trois belles touffes… Tu as la main douce, pour un·e apprenti·e. Tiens : de quoi te rafistoler, et une fiole de ma sève. Ne la gaspille pas.
 
-- « Merci, Liane. » → **fin** _(termine la quête « Les herbes de lisière », +undefined XP, +undefined XP, +20 XP)_
+- « Merci, Liane. » → **fin** _(termine la quête « Les herbes de lisière », donne 2 × « Bandage », donne 1 × « Fiole de sève », +20 XP)_
 
 ### apres
 
 > Mes malades vont un peu mieux. Reviens si tu croises d’autres herbes étranges.
 
 - « … » → **fin**
+
+## Lisandre Ramelune
+
+_Aubergiste du Nid_
+
+Commence par : « accueil »
+
+### accueil
+
+> Bienvenue au Nid ! Ici, on dort en hamac et on mange des soupes de fleurs. Pas de feu chez nous : les braises et les branches ne font pas bon ménage. Ce sont nos cristaux qui chauffent les bols.
+
+- **[5 Fers]** « Une soupe de fleurs. » → soupe _(−5 Fers, +15 PV)_
+- _(sans repère « vol-grenier »)_ « Quelles nouvelles ? » → nouvelles
+- _(si repère « vol-grenier »)_ « Quelles nouvelles ? » → nouvelles-vol
+- « Au revoir. » → **fin**
+
+### soupe
+
+> Pétales de lune, racine douce et une pincée de mousse dorée. Ça réchauffe jusqu’au bout des orteils, tu verras.
+
+- « Merci, Lisandre. » → accueil
+
+### nouvelles
+
+> Le Conseil des Racines Profondes se réunit beaucoup, ces temps-ci : on parle de la frontière, de Ferros, de ces forages… Et le petit Malo a encore traversé la passerelle du Bois en courant. Un jour, il s’envolera.
+
+- « Merci. » → accueil
+
+### nouvelles-vol
+
+> Tu as entendu ? Quelqu’un a forcé le grenier des semences, dans les Hautes Ramures. Voler des graines à Canopéa… c’est comme voler l’avenir. Le Conseil est furieux.
+
+- « Merci. » → accueil
 
 ## Maëlis Lunelierre
 
@@ -473,6 +732,80 @@ Commence par : « apres » _(si quête « La berceuse oubliée » terminée)_, s
 
 - « Prends soin d’elle. » → **fin**
 
+## Malo Feuillevent
+
+_Coursier des passerelles_
+
+Commence par : « accueil »
+
+### accueil
+
+> Salut ! Je suis Malo, coursier des passerelles. Je connais tous les chemins de Canopéa, même ceux qui n’existent pas encore !
+
+- « Montre-moi la ville. » → ville
+- « Tu n’as jamais peur de tomber ? » → peur
+- « À plus tard, Malo. » → **fin**
+
+### ville
+
+> Facile ! Ici, c’est le marché. La petite nacelle, près du grand tronc, monte aux Hautes Ramures : le Conseil, l’atelier du luthier, et chez moi. La longue passerelle à l’est mène au Bois des Aïeux, là où les arbres se souviennent.
+
+- « Les arbres se souviennent ? » → arbres
+- « Merci, Malo. » → **fin**
+
+### arbres
+
+> Quand quelqu’un meurt, sa mémoire passe dans un arbre. Mon grand-père Anselme est dans l’un d’eux. Mamie Aïlis va lui parler tous les soirs. Moi, je n’entends rien… mais je crois qu’il m’écoute quand même.
+
+- « Il t’écoute, c’est certain. » → accueil
+
+### peur
+
+> Tomber ? Jamais ! Bon… une fois. Mais un filet de lianes m’a rattrapé. Mamie dit que la forêt n’aime pas qu’on lui jette des enfants.
+
+- « Elle a bien raison. » → accueil
+
+## Mirelle Doucebranche
+
+_Gardienne de Mémoire de Canopéa_
+
+Commence par : « accueil »
+
+### accueil
+
+> Bienvenue au relais des Gardiens de Mémoire. Tu viens de Gardebois, n’est-ce pas ? Ça se voit à ta façon de tout regarder, comme si chaque chose avait une histoire. Je suis Mirelle.
+
+- « Je peux me reposer ici ? » → repos _(+100 PV)_
+- « Tu connais Ilyane ? » → ilyane
+- « Parle-moi des Gardiens de Mémoire. » → ordre
+- « Au revoir, Mirelle. » → **fin**
+
+### repos
+
+> Les hamacs du relais sont à tous les Gardiens. Dors un peu : la mémoire travaille mieux quand le corps se repose. … Au réveil, tes forces sont revenues.
+
+- « Merci, Mirelle. » → accueil
+
+### ilyane
+
+> Nous avons fait notre apprentissage ensemble, il y a bien longtemps. Elle voulait tout entendre ; moi, tout écrire. Dis-lui que je garde encore son carnet de chansons… et qu’elle chante toujours aussi faux, j’en suis sûre.
+
+- « Je le lui dirai. » → accueil
+
+### ordre
+
+> Nous recueillons les histoires, et nous les transmettons. Tout a commencé avec Kael, le Premier Chroniqueur. Veux-tu que je te raconte ?
+
+- _(sans repère « recit-kael-recu »)_ « Oui, raconte. » → kael _(retient « recit-kael-recu », retient le Récit « Kael, le Premier Chroniqueur », +10 XP)_
+- _(si repère « recit-kael-recu »)_ « Raconte-moi encore. » → kael
+- « Une autre fois. » → accueil
+
+### kael
+
+> Après la Grande Chute, Kael écrivit tout ce dont il se souvenait du monde perdu. Il fonda la première bibliothèque, à Convergence. Chaque Gardien porte un peu de son carnet. Un jour, tu iras voir sa bibliothèque, toi aussi.
+
+- « J’aimerais beaucoup. » → accueil
+
 ## Nell Lunelierre
 
 _Fille de Maëlis_
@@ -503,6 +836,35 @@ Commence par : « apres » _(si quête « La berceuse oubliée » terminée)_, s
 > « Dors sous la feuille… » Nell chantonne en faisant voler son oiseau de bois.
 
 - « … » → **fin**
+
+## Porte du grenier des semences
+
+_Objet_
+
+Commence par : « verrouillee »
+
+### verrouillee
+
+> Une porte ronde, fermée par une serrure de bois et de cuivre. Une plaque indique : « Grenier des semences — propriété du Conseil ».
+
+- **🎲 Artisanat 12** « Crocheter la serrure. » → ouverte, ✗ → echec
+- « Laisser la porte tranquille. » → **fin**
+
+### ouverte
+
+_Effet : retient « grenier-deverrouille »._
+
+> Un petit déclic, et la porte s’entrouvre sur une odeur de graines sèches.
+
+- « Entrer. » → **fin** _(mène à « Canopéa — Grenier des semences »)_
+- « Ne pas entrer pour l’instant. » → **fin**
+
+### echec
+
+> La serrure résiste. Une passerelle grince non loin : mieux vaut ne pas s’acharner trop longtemps.
+
+- « Réessayer. » → verrouillee
+- « Partir. » → **fin**
 
 ## Rocher moussu
 
@@ -582,6 +944,26 @@ Commence par : « cueillir » _(si quête « Les herbes de lisière » en cours)
 - « La cueillir. » → **fin** _(retient « sauge-2-cueillie »)_
 - « La laisser. » → **fin**
 
+## Sévane Mielvert
+
+_Herboriste du Comptoir de la Sève_
+
+Commence par : « accueil »
+
+### accueil
+
+> Le Comptoir de la Sève, bonjour ! Herbes de la canopée, baumes de mousse, bandages… Tout ce qui soigne pousse ici, ou presque.
+
+- « Voyons ce que tu vends. » → **fin** _(ouvre le Troc)_
+- « D’où viennent tes herbes ? » → herbes
+- « Au revoir. » → **fin**
+
+### herbes
+
+> Des branches hautes, là où le soleil touche en premier. On ne cueille jamais tout : une feuille sur trois reste à l’arbre. C’est la règle de la Sève.
+
+- « Une belle règle. » → accueil
+
 ## Sylvan Mousserelle
 
 _Aubergiste de la Racine_
@@ -592,7 +974,7 @@ Commence par : « accueil »
 
 > Bienvenue à la Racine ! Ici, on mange chaud et on parle fort. Assieds-toi : chez Sylvan, les Gardiens de Mémoire sont toujours bien reçus.
 
-- _(si quête « undefined » undefined)_ « Un repas chaud. » → repas _(+-5 Fers, +undefined XP)_
+- **[5 Fers]** « Un repas chaud. » → repas _(−5 Fers, +15 PV)_
 - « Quelles nouvelles ? » → rumeurs
 - « Au revoir. » → **fin**
 
@@ -664,3 +1046,75 @@ Commence par : « accueil »
 > Fais-en bon usage. Et si tu croises Brisefer, dis-lui que l’étal Cendrefer vend des lampes qui ne s’éteignent pas sous terre.
 
 - « Au revoir. » → **fin**
+
+## Véline Nacelière
+
+_Passeuse de la Grande Nacelle_
+
+Commence par : « vol » _(si repère « vol-grenier »)_ _(sans repère « veline-vol-dit »)_, sinon « retour » _(si repère « canopee-accueillie »)_, sinon « accueil »
+
+### accueil
+
+> Bienvenue à Canopéa ! Je suis Véline, passeuse de la Grande Nacelle. Ici, rien ne touche le sol, pas même les bavards. Je demande à chaque personne qui monte : qui es-tu ?
+
+- « Je suis en apprentissage chez les Gardiens de Mémoire, à Gardebois. » → gardien _(retient « canopee-accueillie »)_
+- « Juste quelqu’un qui voyage. » → voyageur _(retient « canopee-accueillie »)_
+- « Comment marche ta nacelle ? » → nacelle
+
+### gardien
+
+> Une élève d’Ilyane ? Alors tu es ici chez toi. Va voir Mirelle, au relais du Bois des Aïeux : elle a appris le métier avec Ilyane, il y a bien longtemps. La longue passerelle, à l’est du marché, y mène.
+
+- « Merci, Véline. » → **fin**
+- « Et ta nacelle ? » → nacelle
+
+### voyageur
+
+> Alors bienvenue, simplement. Un conseil : regarde où tu mets les pieds, et ne laisse rien tomber. Ce qui tombe d’ici, la forêt le garde.
+
+- « Je ferai attention. » → **fin**
+- « Et ta nacelle ? » → nacelle
+
+### nacelle
+
+> Un contrepoids d’eau, des cordes tressées et mes deux bras ! Pour redescendre en forêt, monte simplement dedans. La petite nacelle du marché, près du grand tronc, grimpe jusqu’aux Hautes Ramures, où siège le Conseil.
+
+- « Merci. » → **fin**
+
+### retour
+
+> Encore toi ! La nacelle t’attend quand tu veux redescendre. Et si tu te perds, demande au petit Malo : il connaît chaque planche de la ville.
+
+- « À plus tard, Véline. » → **fin**
+- « Rappelle-moi le fonctionnement de la nacelle. » → nacelle
+
+### vol
+
+> Tu sais la nouvelle ? Quelqu’un a forcé le grenier des semences, là-haut. Voler des graines à Canopéa… c’est voler les arbres de demain. Si tu vois quelque chose, préviens le Conseil.
+
+- « Je garderai les yeux ouverts. » → **fin** _(retient « veline-vol-dit »)_
+
+## Un voyageur égaré
+
+_Voyageur_
+
+Commence par : « merci » _(si repère « rencontre-voyageur-aide »)_, sinon « accueil »
+
+### accueil
+
+> Ah, enfin quelqu’un ! Je cherche Gardebois depuis deux jours. Cette carte dit que c’est par là… ou par là ?
+
+- « Ta carte est à l’envers. » → aide _(retient « rencontre-voyageur-aide », +5 Fers, +10 XP)_
+- « Je ne peux pas t’aider. » → **fin**
+
+### aide
+
+> Il retourne sa carte, rougit, puis éclate de rire. — Tant de chemin pour rien ! Merci. Tiens, ce n’est pas grand-chose, mais c’est de bon cœur.
+
+- « Bonne route ! » → **fin**
+
+### merci
+
+> Le voyageur te fait un grand signe. — Cette fois, je tiens la carte dans le bon sens !
+
+- « Bonne route ! » → **fin**

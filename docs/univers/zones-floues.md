@@ -11,6 +11,8 @@ Ces décisions valent **pour le jeu**. Le dossier `docs/Lore/` reste inchangé.
 - **Point 3** : les Gardiens de Mémoire forment **un ordre de conteurs voyageurs, sans pouvoir magique**.
 - **Point 4** : la référence pour les cinq lois est **l'étape 2** [E2].
 - **Point 19** : public de 8 à 15 ans. Les ennemis sont **mis hors de combat**, sans mort ni gore, et les contenus adultes des fiches nations n'apparaissent pas dans le jeu.
+- **Point 15** (2026-11-01, avec le plan des dix villes) : pour le jeu, la capitale de Marisol s'appelle **Coralys**,
+  celle de Glacialis **Crystallhaven**, celle de Ferros **Ironheart**.
 - **Chronologie** (points 6 à 13) : pas encore arbitrée. Aucune date ni aucun bilan contesté n'est utilisé dans le jeu en attendant.
 
 ## Structure du monde

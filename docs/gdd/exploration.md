@@ -36,3 +36,15 @@ Code : `src/engine/tiledMap.ts` (lecteur Tiled), `src/engine/pathfinding.ts` (A*
 - **Ennemis sur la carte** (`ennemi`, propriété `ennemi` : l'id d'`enemies.json`) : ils occupent leur case jusqu'à
   ce que leur combat (`src/data/encounters.json`, lancé par un dialogue) soit gagné ou évité (`disparaitSi`).
 
+
+## Villes, portes fermées, carte du monde (après le jalon 2)
+
+- **Ville en plusieurs quartiers** : chaque quartier est une carte ; on passe de l'un à l'autre par une sortie (passerelle)
+  ou une porte posée sur un décor (nacelle). Canopéa : `docs/univers/lieux/canopee.md`.
+- **Porte fermée à clé** : propriétés `verrou` (le repère qui l'ouvre) et `dialogue` (ce qu'on peut tenter : crocheter…).
+  Tant que le repère manque, toucher la porte ouvre ce dialogue ; l'effet `goTo` permet d'entrer aussitôt.
+- **Lieu d'appartenance** : chaque lieu de `src/data/locations.json` porte `place` (sa ville sur la carte du monde).
+  Une sortie ou une porte de `cible` `carte-du-monde` ouvre la carte du monde à cet endroit
+  (`docs/gdd/carte-du-monde.md`).
+- **Cartes de rencontre** (`encounter: true`) : leur contenu vient de la rencontre en cours, posé sur les objets
+  `apparition-1` à `3`, `pnj-1`, `objet-1`, `decor-1` ; un objet de rencontre est dessiné avec sa propre tuile (`tuile`).

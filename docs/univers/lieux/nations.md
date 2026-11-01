@@ -14,4 +14,4 @@ Sources et statuts : `docs/univers/sources.md`. Les « ou » sur les capitales s
 | Terminus | Zone Franche (Conseil Œcuménique des Sept) | Convergence | Le Nexus (violence impossible à moins de 100 km), Grande Bibliothèque, Sept Portes, Cratère de Sartharion | E3, MAP |
 
 Lieux du jeu : `docs/univers/lieux/gardebois.md` (hub), `docs/univers/lieux/gare-engloutie.md` (extérieur).
-Proposition : dix grandes villes, `docs/univers/lieux/villes.md` (à valider).
+Dix grandes villes : `docs/univers/lieux/villes.md` (plan validé) ; Canopéa construite : `docs/univers/lieux/canopee.md`.

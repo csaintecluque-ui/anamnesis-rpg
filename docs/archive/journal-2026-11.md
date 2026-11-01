@@ -642,3 +642,19 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   (Canopéa, Ironheart, Convergence) : `docs/gdd/villes.md`.
 - Questions à Cyril : la liste, les noms à trancher (Coralys ou Coralia, Crystallhaven ou Crystalheart, Ironheart ou
   L'Enclume), Ironhold distincte d'Ironheart, la ville pilote, le budget.
+
+## 2026-11-01 (suite) : Canopéa, carte du monde, rencontres aléatoires
+
+- Cyril : « OK pour tout » sur les dix villes ; on commence par Canopéa en provisoire, sans oublier la carte pour
+  circuler entre les villes, puis des lieux aléatoires comme dans les CRPG de référence. Noms retenus (point 15) :
+  Coralys, Crystallhaven, Ironheart.
+- Canopéa : tuiles provisoires par code (mer de feuillage, plates-formes, passerelles, maisons-cosses, nacelles,
+  Arbres-Souvenirs, PNJ), 3 quartiers et 7 intérieurs (`scripts/build-maps.mjs`), 7 PNJ et leurs dialogues, 2 Récits,
+  2 objets (baume de mousse, graines-lumière). Moteur : porte fermée à clé (`verrou`, `dialogue`), effet `goTo`.
+  Lyra, Thalorin et Kael Marchevent reportés (canon N1 à lire en local).
+- Carte du monde (`WorldMapScene`, `src/rules/world.ts`, `world.json`) : sorties `carte-du-monde`, voyage animé,
+  durée en jours ; rencontres (`rencontres.json`) : 7 rencontres, 3 cartes (clairière, route, ruines), Survie pour
+  contourner, combat sur place, défaite → Gardebois. Ennemis : Ours-Mousse, Loup de Rouille. Sauvegarde v9.
+- `npm run dialogues` complété (objets, soins, combats, lieux : 5 lignes « undefined » corrigées dans DIALOGUES.md).
+- 264 tests ; vérifié dans le navigateur (PC et iPhone en paysage) : quartiers, intérieurs, carte du monde, voyage,
+  rencontre, combat. Poussé sur la branche ; pas encore en ligne (accord de Cyril attendu).

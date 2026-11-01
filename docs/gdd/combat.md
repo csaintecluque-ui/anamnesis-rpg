@@ -41,7 +41,8 @@ Règles : `src/rules/combat.ts` ; écran : `src/scenes/CombatScene.ts` ; donnée
   donc les ennemis.
 - **Fuite (validé le 2026-11-01)** : il faut **atteindre le bord de la zone de combat** (n'importe quelle case du pourtour),
   puis toucher « Fuir ». Ailleurs, le jeu le rappelle. Fuir referme le combat sans autre conséquence.
-- **Défaite du héros** : non létale, comme pour les ennemis. Le héros est ramené à 1 PV à l'entrée de Gardebois.
+- **Défaite du héros** : non létale, comme pour les ennemis. Le héros est ramené à 1 PV à l'entrée de Gardebois
+  (par Ilyane ; sur la route, par des voyageurs : `docs/gdd/carte-du-monde.md`).
 - **Victoire** : mêmes effets que les résolutions par la parole (`chantier-arrete`, quête terminée, 40 XP),
   pour que les trois résolutions restent équilibrées.
 - **IA ennemie** : simple — se rapproche si hors de portée, attaque sinon, jusqu'à épuisement des PA.

@@ -11,13 +11,13 @@
 
 - Né du retour de Cyril sur la phase 2 : personnages trop gros et figés, répétitivité, maisons à visiter, PNJ et
   quêtes, création avec avatars. Avant toute génération : plan, coût, feu vert de Cyril (`CLAUDE.md` §5).
-- Fait et en ligne : corrections visuelles, marche 2D, 6 avatars. Fait depuis (pas encore poussé) : vrai pont,
+- Fait et en ligne : corrections visuelles, marche 2D, 6 avatars. Puis, en ligne aussi : vrai pont,
   lanterne d'Ilyane, combat lisible sur grille (`docs/gdd/combat.md`), **contenu** : 4 intérieurs, 5 PNJ, 3 quêtes
   secondaires (`docs/univers/lieux/gardebois.md`). 64,5 crédits dépensés sur le jalon, **19 restants**.
 
 ## Prochaine étape
 
-1. Pousser (avec l'accord de Cyril) et recueillir son avis sur le combat, le pont et le contenu.
+1. Avis de Cyril sur le combat, le pont et le contenu (en ligne depuis le 2026-11-01).
 2. Question à Cyril : Sylvan a des oreilles pointues (elfes de Verdantis, zone floue n° 2) ; garder ou refaire (2 crédits).
 
 ## Points ouverts

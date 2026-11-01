@@ -627,3 +627,4 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   train déplacé d'une case (il était caché par le wagon), test étendu aux Échos. 209 tests. Vérifié dans le jeu :
   porte de l'auberge, intérieur, retour devant la porte, combat des Rôdeurs lancé et gagné, Rôdeurs disparus.
   Question ouverte : Sylvan a des oreilles pointues (elfes de Verdantis, zone floue n° 2).
+- Poussé sur accord de Cyril ; déploiement réussi (combat, pont, intérieurs, PNJ et quêtes en ligne).

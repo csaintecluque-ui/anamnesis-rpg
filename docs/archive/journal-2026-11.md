@@ -602,3 +602,4 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   dialogue (image plein écran derrière un panneau plus transparent), utilisé quand on entre dans l'Écho ; test
   (185 tests). Vérifié dans le jeu. **Phase 2 terminée** : 26,5 crédits au total au lieu de 51 estimés. Points à
   valider par Cyril : éléments inventés des illustrations (cité de cristal, dirigeable, gare à verrière).
+- Poussé sur GitHub sur accord de Cyril ; déploiement GitHub Pages réussi, nouvelles images en ligne.

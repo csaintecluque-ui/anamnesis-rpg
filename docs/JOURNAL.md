@@ -17,7 +17,8 @@
 
 1. **Phase 2 réalisée** le 2026-11-01 (lots 0 à 5, bilan dans `docs/ASSETS.md`) : 28 tuiles peintes sur 29,
    4 portraits de dialogue, 2 illustrations (écran titre, intérieur de l'Écho). 26,5 crédits dépensés, reste 83,5.
-   **À faire** : avis de Cyril sur l'ensemble, puis pousser sur GitHub (mise en ligne) ; rien n'est poussé.
+   **En ligne** depuis le 2026-11-01. **À faire** : avis de Cyril sur l'ensemble et sur les éléments inventés des
+   illustrations (cité de cristal, dirigeable, gare à verrière : `docs/ASSETS.md`).
 2. Après les visuels : proposer le périmètre du jalon 2 (contenu).
 
 ## Points ouverts

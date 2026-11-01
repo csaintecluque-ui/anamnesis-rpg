@@ -264,3 +264,17 @@ Méthode et comparaison : `docs/gdd/animation.md`.
 
 Résultats : planche 2D (8 × 6 images), gardée sous `public/sprites/heros-marche.png` ; planche 3D (8 × 8) retirée du jeu
 au choix de la méthode 2D par Cyril.
+
+## Jalon 2, étape 3 : 6 avatars (2026-11-01, 36 images, 24 crédits, solde 36)
+
+Plan validé par Cyril (`docs/gdd/jalon-2.md`). Toutes les images gardées au premier essai. Fichiers bruts :
+`assets/raw/avatars/` (en pied et portraits), `assets/raw/anim2d/<avatar>/` (planches de marche).
+
+| Images | Réglages | Prompt | Coût |
+|---|---|---|---|
+| 5 personnages en pied (`lisiere`, `atelier`, `voyageur`, `etoiles`, `roux`) | moyenne, transparent, 2:3 | Bloc commun + isométrique + « Full-body character, three-quarter front view, standing: a young apprentice memory keeper, » + allure du tableau de `jalon-2.md` (ex. « a girl of about fifteen with a long chestnut braid, moss-green travel cloak, a leather-bound notebook held under one arm, a bracelet of woven leaves ») + sans sol ni ombre | 2,5 |
+| 6 portraits (avec le héros `apprenti`) | haute, opaque, 1:1, personnage en pied en référence | Bloc commun + « Bust portrait for a character selection screen, three-quarter view: the same character as in the reference image, same face, hair and clothes, » + allure + « friendly and determined gaze, plain uniform dark ink background color #1B1512 » | 9 |
+| 25 planches de marche (5 avatars × 5 directions) | moyenne, transparent, 21:9, personnage en pied en référence | Prompt de la méthode 2D (`docs/gdd/animation.md`), allure résumée entre parenthèses | 12,5 |
+
+Résultats : `public/portraits/avatar-<id>.jpg` (320 px), `public/sprites/marche-<id>.png` (8 directions × 6 images) ;
+la planche du héros du pilote devient `marche-apprenti.png`.

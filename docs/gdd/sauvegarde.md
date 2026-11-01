@@ -29,3 +29,4 @@ Code : `src/save/codec.ts` (format, validation, migrations), `src/save/store.ts`
 | v5 | `character.recits` | liste vide |
 | v6 | `character.fers`, `inventory`, `equipment` | 15 Fers, rien porté |
 | v7 | (même format) le combat utilise les armes en main | un héros aux mains vides reçoit la Dague de départ, en main droite |
+| v8 | `character.avatar` (apparence choisie à la création) | le héros de la première version (`apprenti`) |

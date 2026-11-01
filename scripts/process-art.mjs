@@ -177,6 +177,13 @@ const PORTRAITS = {
   tobias: 'lot4/tobias.png',
   ingrid: 'lot4/ingrid.png',
   'echo-dernier-train': 'lot4/echo-dernier-train.png',
+  // The hero's looks (src/data/avatars.json), chosen at creation.
+  'avatar-apprenti': 'avatars/portrait-apprenti.png',
+  'avatar-lisiere': 'avatars/portrait-lisiere.png',
+  'avatar-atelier': 'avatars/portrait-atelier.png',
+  'avatar-voyageur': 'avatars/portrait-voyageur.png',
+  'avatar-etoiles': 'avatars/portrait-etoiles.png',
+  'avatar-roux': 'avatars/portrait-roux.png',
 };
 const PORTRAIT_SIZE = 320;
 // Full-screen illustrations (public/illustrations/): the title screen, and dialogue nodes' `illustration`.

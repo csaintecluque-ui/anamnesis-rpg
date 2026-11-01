@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import { coverAt, isEdge, isOpen, type Arena } from '../engine/arena';
 import { TILE_HEIGHT, screenToTile, tileToScreen, type Tile } from '../engine/iso';
+import { FACINGS } from '../engine/facing';
 import { findPath } from '../engine/pathfinding';
 import { applyEffects, type Effect } from '../rules/dialogue';
 import {
@@ -23,6 +24,7 @@ import {
   type Combatant,
   type Zone,
 } from '../rules/combat';
+import { DEFAULT_AVATAR } from '../rules/character';
 import { findLocation, type GameState } from '../state/gameState';
 import { addTextButton, type TextButton } from '../ui/button';
 import { DIGIT_KEYS, SHOW_KEY_HINTS, onKeys } from '../ui/keys';
@@ -180,10 +182,20 @@ export class CombatScene extends Phaser.Scene {
     return (this.registry.get('tileFrames') as Record<string, number>) ?? {};
   }
 
+  /** The hero stands as the first frame of their walk sheet, facing down-right; enemies use their tile. */
+  private tokenImage(c: Combatant, f: { x: number; y: number }): Phaser.GameObjects.Image {
+    const sheet = `marche-${this.state.character?.avatar ?? DEFAULT_AVATAR}`;
+    if (c.side === 'heroes' && this.textures.exists(sheet)) {
+      const columns = Math.floor(this.textures.get(sheet).getSourceImage().width / 64);
+      return this.add.image(f.x, f.y, sheet, FACINGS.indexOf('se') * columns);
+    }
+    const frame = this.frames[this.tileNames.get(c.id) ?? 'pnj'] ?? this.frames.pnj;
+    return this.add.image(f.x, f.y, 'tiles', frame);
+  }
+
   private addToken(c: Combatant): void {
     const f = this.feet(c.tile);
-    const frame = this.frames[this.tileNames.get(c.id) ?? 'pnj'] ?? this.frames.pnj;
-    const image = this.add.image(f.x, f.y, 'tiles', frame).setOrigin(0.5, 1).setScale(LAYOUT.arenaScale).setDepth(f.y + 1);
+    const image = this.tokenImage(c, f).setOrigin(0.5, 1).setScale(LAYOUT.arenaScale).setDepth(f.y + 1);
     const hpBar = this.add.graphics().setDepth(6000);
     const name = this.add
       .text(f.x, f.y - 80 * LAYOUT.arenaScale, c.name, { fontFamily: FONT_SERIF, fontSize: '16px', color: CSS.parchment, stroke: CSS.ink, strokeThickness: 3 })

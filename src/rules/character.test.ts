@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import {
+  AVATARS,
   CREATION,
+  DEFAULT_AVATAR,
   FEATS,
   attributePointsLeft,
   changeAttribute,
@@ -12,6 +14,7 @@ import {
   finalAttributes,
   finalSkills,
   finalizeCharacter,
+  findAvatar,
   isDraftComplete,
   nameError,
   skillPointsLeft,
@@ -167,3 +170,21 @@ describe('characterError (save validation)', () => {
     expect(characterError(raw)).not.toBeNull();
   });
 });
+
+describe('avatars (docs/gdd/jalon-2.md, étape 3)', () => {
+  it('offers six looks, the first version\'s hero by default, each with a portrait and a walk sheet', () => {
+    expect(AVATARS).toHaveLength(6);
+    expect(createDraft().avatar).toBe(DEFAULT_AVATAR);
+    expect(findAvatar(DEFAULT_AVATAR)).toBeDefined();
+    const files = Object.keys(import.meta.glob('/public/{portraits,sprites}/*'));
+    for (const a of AVATARS) {
+      expect(files, a.portrait).toContain(`/public/${a.portrait}`);
+      expect(files, a.walk).toContain(`/public/${a.walk}`);
+    }
+  });
+
+  it('keeps the chosen look on the finished character', () => {
+    expect(finalizeCharacter({ ...completeDraft(), avatar: 'etoiles' }).avatar).toBe('etoiles');
+  });
+});
+

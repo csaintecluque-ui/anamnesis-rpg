@@ -1,0 +1,8 @@
+[
+  { "id": "apprenti", "label": "Cape parchemin", "portrait": "portraits/avatar-apprenti.jpg", "walk": "sprites/marche-apprenti.png" },
+  { "id": "lisiere", "label": "Tresse et cape mousse", "portrait": "portraits/avatar-lisiere.jpg", "walk": "sprites/marche-lisiere.png" },
+  { "id": "atelier", "label": "Foulard cuivre", "portrait": "portraits/avatar-atelier.jpg", "walk": "sprites/marche-atelier.png" },
+  { "id": "voyageur", "label": "Manteau ocre", "portrait": "portraits/avatar-voyageur.jpg", "walk": "sprites/marche-voyageur.png" },
+  { "id": "etoiles", "label": "Cape aux étoiles", "portrait": "portraits/avatar-etoiles.jpg", "walk": "sprites/marche-etoiles.png" },
+  { "id": "roux", "label": "Écharpe verte", "portrait": "portraits/avatar-roux.jpg", "walk": "sprites/marche-roux.png" }
+]

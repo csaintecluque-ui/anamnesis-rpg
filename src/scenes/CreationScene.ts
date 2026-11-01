@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import { ATTRIBUTES, SKILLS, attributeModifier, type AttributeId, type SkillId } from '../rules/attributes';
 import {
+  AVATARS,
   CREATION,
   FEATS,
   attributePointsLeft,
@@ -34,7 +35,10 @@ export interface CreationSceneData {
   resume?: GameState;
 }
 
-const STEPS = ['Nom', 'Attributs', 'Compétences', 'Don', 'Récapitulatif'] as const;
+const STEPS = ['Nom et apparence', 'Attributs', 'Compétences', 'Don', 'Récapitulatif'] as const;
+/** Avatar portraits on the first step (docs/gdd/jalon-2.md, étape 3). */
+const AVATAR_SIZE = 124;
+const AVATAR_GAP = 22;
 const FOOTER_Y = GAME_HEIGHT - 55;
 const SMALL = { width: 64, height: 58, fontSize: 32 };
 
@@ -139,12 +143,12 @@ export class CreationScene extends Phaser.Scene {
     this.scene.start(findLocation(state.location)?.scene ?? 'Map');
   }
 
-  // --- Step 1: name -------------------------------------------------------
+  // --- Step 1: name and look ---------------------------------------------
 
   private drawName(): void {
     const cx = GAME_WIDTH / 2;
     this.add
-      .text(cx, 200, 'Tu entres en apprentissage chez les Gardiens de Mémoire, un ordre de conteurs voyageurs.', {
+      .text(cx, 150, 'Tu entres en apprentissage chez les Gardiens de Mémoire, un ordre de conteurs voyageurs.', {
         fontFamily: FONT_SERIF,
         fontSize: '26px',
         color: CSS.parchment,
@@ -152,11 +156,12 @@ export class CreationScene extends Phaser.Scene {
         wordWrap: { width: 900 },
       })
       .setOrigin(0.5);
-    this.add.text(cx, 300, 'Comment t’appelles-tu ?', { fontFamily: FONT_SERIF, fontSize: '28px', color: CSS.parchment }).setOrigin(0.5);
+    this.drawAvatars(cx, 290);
+    this.add.text(cx, 400, 'Comment t’appelles-tu ?', { fontFamily: FONT_SERIF, fontSize: '28px', color: CSS.parchment }).setOrigin(0.5);
 
     const field = this.add.dom(
       cx,
-      380,
+      462,
       'input',
       [
         'width: 520px',
@@ -191,12 +196,30 @@ export class CreationScene extends Phaser.Scene {
     });
 
     this.add
-      .text(cx, 480, 'Origine : Humain (seule origine de cette version).', {
+      .text(cx, 530, 'Origine : Humain (seule origine de cette version).', {
         fontFamily: FONT_SERIF,
         fontSize: '22px',
         color: CSS.muted,
       })
       .setOrigin(0.5);
+  }
+
+  /** One portrait per look, in a row centred on cx; the chosen one is framed in copper. */
+  private drawAvatars(cx: number, y: number): void {
+    const width = AVATARS.length * AVATAR_SIZE + (AVATARS.length - 1) * AVATAR_GAP;
+    AVATARS.forEach((avatar, i) => {
+      const x = cx - width / 2 + AVATAR_SIZE / 2 + i * (AVATAR_SIZE + AVATAR_GAP);
+      const chosen = this.draft.avatar === avatar.id;
+      const key = `avatar-${avatar.id}`;
+      const image = this.textures.exists(key)
+        ? this.add.image(x, y, key).setDisplaySize(AVATAR_SIZE, AVATAR_SIZE)
+        : this.add.rectangle(x, y, AVATAR_SIZE, AVATAR_SIZE, 0x2a211c);
+      image.setAlpha(chosen ? 1 : 0.6).setInteractive({ useHandCursor: true });
+      image.on('pointerup', () => this.redraw({ draft: { ...this.draft, avatar: avatar.id }, message: undefined }));
+      this.add
+        .rectangle(x, y, AVATAR_SIZE, AVATAR_SIZE)
+        .setStrokeStyle(chosen ? 4 : 2, COLORS.copper, chosen ? 1 : 0.4);
+    });
   }
 
   // --- Step 2: attributes -------------------------------------------------

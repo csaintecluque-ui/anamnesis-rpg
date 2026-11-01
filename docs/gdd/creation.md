@@ -26,6 +26,8 @@ Ces points n'étaient pas tranchés ; voici ce qui est codé.
 - **Dons de combat** (Tireur d'Élite, Maître d'Armes) : choisis et enregistrés dès maintenant, mais sans effet tant que
   le combat n'existe pas. Même chose pour « repère les lieux cachés » d'Esprit d'Amira, en attendant la carte.
 - **Nom** : de 1 à 24 caractères ; les espaces en trop sont retirés.
-- **Écran** : assistant en 5 étapes (Nom, Attributs, Compétences, Don, Récapitulatif). Toucher le nom d'un attribut ou
+- **Apparence** (jalon 2) : 6 avatars au choix (`src/data/avatars.json`), en haut de la première étape ; chacun a un
+  portrait et une planche de marche ; enregistré dans `character.avatar` (sauvegarde v8).
+- **Écran** : assistant en 5 étapes (Nom et apparence, Attributs, Compétences, Don, Récapitulatif). Toucher le nom d'un attribut ou
   d'une compétence affiche sa description. Le texte du jeu reste neutre en genre
   (« en apprentissage chez les Gardiens de Mémoire »).

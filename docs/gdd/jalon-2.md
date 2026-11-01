@@ -54,7 +54,7 @@ n'animer que le héros et les ennemis.
 3. **Création de personnage** avec avatars (animés selon la méthode retenue).
 4. **Contenu** : maisons à visiter, PNJ, quêtes secondaires (propositions de lore d'abord).
 
-## Étape 3 : création de personnage avec 6 avatars (proposition du 2026-11-01, à valider)
+## Étape 3 : création de personnage avec 6 avatars (validée et faite le 2026-11-01, 24 crédits)
 
 Chaque avatar = un portrait (écran de création, panneau du héros) + une planche de marche 2D (8 directions, carte et
 combat). Tous humains (seule origine de cette version), apprentis Gardiens de Mémoire, 14 à 18 ans environ ; le texte

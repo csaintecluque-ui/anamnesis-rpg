@@ -178,6 +178,19 @@ describe('save codec', () => {
     });
   });
 
+  it('migrates a version 7 save by giving the hero the look of the first version', () => {
+    const { avatar: _a, ...v7Character } = state.character!;
+    const parsed = parseSave(JSON.stringify({ game: 'anamnesis', version: 7, savedAt: NOW.toISOString(), state: { ...state, character: v7Character } }));
+    expect(parsed.ok && parsed.value.state.character).toMatchObject({ avatar: 'apprenti' });
+  });
+
+  it('rejects a character with an unknown look', () => {
+    const character = { ...state.character!, avatar: 'inconnu' };
+    const parsed = parseSave(JSON.stringify({ game: 'anamnesis', version: SAVE_VERSION, savedAt: NOW.toISOString(), state: { ...state, character } }));
+    expect(parsed.ok).toBe(false);
+    if (!parsed.ok) expect(parsed.error).toContain('apparence');
+  });
+
   it.each([
     ['a non-true flag', { flags: { 'laissez-passer': 'oui' } }, 'repères'],
     ['an unknown quest status', { quests: { 'dernier-train': 'peut-être' } }, 'quêtes'],

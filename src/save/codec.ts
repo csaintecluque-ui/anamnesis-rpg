@@ -1,7 +1,7 @@
-import { characterError, STARTING_FERS, STARTING_WEAPON } from '../rules/character';
+import { characterError, DEFAULT_AVATAR, STARTING_FERS, STARTING_WEAPON } from '../rules/character';
 import { findLocation, type GameState } from '../state/gameState';
 
-export const SAVE_VERSION = 7;
+export const SAVE_VERSION = 8;
 export const SAVE_MAX_CHARS = 1_000_000;
 const GAME_MARKER = 'anamnesis';
 
@@ -66,6 +66,11 @@ const MIGRATIONS: Record<number, (save: Record<string, unknown>) => Record<strin
       equipment: { ...equipment, mainDroite: STARTING_WEAPON },
     };
     return { ...save, state: { ...save.state, character } };
+  },
+  // v7 predates the choice of look (docs/gdd/jalon-2.md): the hero keeps the look of the first version.
+  7: (save) => {
+    if (!isRecord(save.state) || !isRecord(save.state.character)) return save;
+    return { ...save, state: { ...save.state, character: { ...save.state.character, avatar: DEFAULT_AVATAR } } };
   },
 };
 

@@ -1,3 +1,4 @@
+import avatarData from '../data/avatars.json';
 import featData from '../data/feats.json';
 import { ATTRIBUTES, SKILLS, SKILL_RANK_MAX, type AttributeId, type Attributes, type SkillId } from './attributes';
 import { actionPoints, carryCapacityKg, defense, maxHitPoints, resistancePoints, talesRetained } from './derived';
@@ -42,6 +43,7 @@ export type SkillRanks = Record<SkillId, number>;
 
 export interface CharacterDraft {
   name: string;
+  avatar: string;
   allocated: Attributes;
   originBonus: AttributeId[];
   skillRanks: SkillRanks;
@@ -61,6 +63,8 @@ export type Equipment = Record<Slot, string | null>;
 
 export interface Character {
   name: string;
+  /** Look chosen at creation (src/data/avatars.json): portrait and walk sheet. */
+  avatar: string;
   origin: 'human';
   feat: FeatId;
   level: number;
@@ -99,6 +103,7 @@ export function findFeat(id: string): FeatDef | undefined {
 export function createDraft(): CharacterDraft {
   return {
     name: '',
+    avatar: DEFAULT_AVATAR,
     allocated: fill(ATTRIBUTE_IDS, CREATION.base),
     originBonus: [],
     skillRanks: fill(SKILL_IDS, 0),
@@ -210,6 +215,22 @@ export function isDraftComplete(d: CharacterDraft): boolean {
 }
 
 /** Starting funds (docs/univers/personnages/pnj.md) : less than Tobias's laissez-passer, on purpose — see docs/gdd/inventaire.md. */
+/** Six looks to choose from at creation (docs/gdd/jalon-2.md, étape 3). */
+export interface AvatarDef {
+  id: string;
+  label: string;
+  /** Under public/: dialogue-style portrait, and the 8-direction walk sheet (docs/gdd/animation.md). */
+  portrait: string;
+  walk: string;
+}
+export const AVATARS = avatarData as AvatarDef[];
+/** The hero of the first version; older saves get it. */
+export const DEFAULT_AVATAR = 'apprenti';
+
+export function findAvatar(id: string): AvatarDef | undefined {
+  return AVATARS.find((a) => a.id === id);
+}
+
 export const STARTING_FERS = 15;
 
 /** Every apprentice starts with this weapon in the right hand (docs/gdd/inventaire.md, à valider). */
@@ -219,6 +240,7 @@ export function finalizeCharacter(d: CharacterDraft): Character {
   if (!isDraftComplete(d) || !d.feat) throw new Error('Character draft is incomplete');
   const character: Character = {
     name: normalizeName(d.name),
+    avatar: d.avatar,
     origin: 'human',
     feat: d.feat,
     level: 1,
@@ -254,6 +276,7 @@ export function characterError(raw: unknown): string | null {
   if (typeof raw !== 'object' || raw === null || Array.isArray(raw)) return 'personnage absent.';
   const c = raw as Record<string, unknown>;
   if (typeof c.name !== 'string' || nameError(c.name)) return 'nom du personnage invalide.';
+  if (typeof c.avatar !== 'string' || !findAvatar(c.avatar)) return 'apparence inconnue.';
   if (c.origin !== 'human') return 'origine inconnue.';
   if (typeof c.feat !== 'string' || !findFeat(c.feat)) return 'don inconnu.';
   if (!Number.isInteger(c.level) || (c.level as number) < 1) return 'niveau invalide.';

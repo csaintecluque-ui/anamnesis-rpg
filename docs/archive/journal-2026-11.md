@@ -617,3 +617,4 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   dans le jeu. Pas encore poussé.
 - Pilote d'animation (≈ 19,5 crédits) : planches 2D (5 directions + miroirs, très cohérentes) et modèle 3D (Tripo + squelette et marche Meshy) rendu par three.js (scripts/render-sprites.mjs, tools/sprite-render/), assemblés par scripts/assemble-walk.mjs. Héros animé sur la carte, choix 2D / 3D dans Options. 3D décevante. Reste : docs/gdd/animation.md, comparaison à montrer à Cyril, push.
 - Cyril retient la méthode 2D. Essai 3D retiré du jeu (réglage Options, planche) ; outils 3D gardés.
+- 6 avatars faits sur le plan validé par Cyril (36 images, 24 crédits, 36 restants, tout gardé au premier essai) : `src/data/avatars.json`, `character.avatar` (sauvegarde v8), choix en tête de la création, planche de marche sur la carte, première image en combat. 192 tests. Vérifié dans le jeu. Pas encore poussé.

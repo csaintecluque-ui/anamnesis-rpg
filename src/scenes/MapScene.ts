@@ -7,6 +7,7 @@ import { carveArena, farEdgeTiles, toArena } from '../engine/arena';
 import { FACINGS, facingOf, type Facing } from '../engine/facing';
 import { findPath } from '../engine/pathfinding';
 import { findObject, isBigAnchor, isWalkable, parseTiledMap, tileKey, type GameMap, type MapObject } from '../engine/tiledMap';
+import { DEFAULT_AVATAR } from '../rules/character';
 import { findLocation, type GameState } from '../state/gameState';
 import { onKeys } from '../ui/keys';
 import { COLORS, CSS, FONT_SERIF } from '../ui/theme';
@@ -260,7 +261,7 @@ export class MapScene extends Phaser.Scene {
 
   /** Walk animations, one per facing; without the sheet the hero stays the still tile. */
   private setUpWalk(): void {
-    const sheet = 'heros-marche';
+    const sheet = `marche-${this.state.character?.avatar ?? DEFAULT_AVATAR}`;
     this.walkSheet = this.textures.exists(sheet) ? sheet : null;
     if (!sheet) return;
     const columns = Math.floor(this.textures.get(sheet).getSourceImage().width / WALK_FRAME_WIDTH);

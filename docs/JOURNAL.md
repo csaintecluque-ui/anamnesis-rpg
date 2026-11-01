@@ -7,7 +7,7 @@
 - 181 tests, typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
 - Mode test caché : 5 touches sur la version (écran titre) → +50 Fers, PV au max dans le menu pause.
 
-## Jalon en cours : phase 2 des visuels terminée ; jalon 2 en cours (corrections faites, pilote d'animation ensuite)
+## Jalon en cours : phase 2 des visuels terminée ; jalon 2 en cours (corrections, animation et avatars faits ; contenu ensuite)
 
 - Choisie par Cyril le 2026-11-01. Avant toute génération : fiche de style (`docs/STYLE.md`), liste des images,
   coût en crédits, feu vert de Cyril (`CLAUDE.md` §5). Chaque génération consignée dans `docs/ASSETS.md`.
@@ -21,7 +21,8 @@
    troncs de l'Arbre-Titan, répétitivité, maisons à visiter, PNJ et quêtes, création avec avatars, animation.
    Choix de Cyril : corrections visuelles d'abord (**faites**, 4 crédits, reste 79,5 ; pas encore poussées), puis
    pilote d'animation fait (19,5 crédits, reste ≈ 60) : **méthode 2D retenue par Cyril**, le héros marche sur la carte
-   (`docs/gdd/animation.md`). Ensuite : création avec 6 avatars (plan à valider), puis contenu.
+   (`docs/gdd/animation.md`). **6 avatars faits** (24 crédits, reste 36) : choix à la création, marche sur la carte,
+   pose en combat. Ensuite : contenu (maisons à visiter, PNJ, quêtes), propositions de lore d'abord.
 
 ## Points ouverts
 

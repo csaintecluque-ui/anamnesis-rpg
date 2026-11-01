@@ -7,7 +7,7 @@
 - 181 tests, typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
 - Mode test caché : 5 touches sur la version (écran titre) → +50 Fers, PV au max dans le menu pause.
 
-## Jalon en cours : phase 2 des visuels (terminée, à valider par Cyril)
+## Jalon en cours : phase 2 des visuels terminée ; jalon 2 proposé, à valider
 
 - Choisie par Cyril le 2026-11-01. Avant toute génération : fiche de style (`docs/STYLE.md`), liste des images,
   coût en crédits, feu vert de Cyril (`CLAUDE.md` §5). Chaque génération consignée dans `docs/ASSETS.md`.
@@ -15,11 +15,11 @@
 
 ## Prochaine étape
 
-1. **Phase 2 réalisée** le 2026-11-01 (lots 0 à 5, bilan dans `docs/ASSETS.md`) : 28 tuiles peintes sur 29,
-   4 portraits de dialogue, 2 illustrations (écran titre, intérieur de l'Écho). 26,5 crédits dépensés, reste 83,5.
-   **En ligne** depuis le 2026-11-01. **À faire** : avis de Cyril sur l'ensemble et sur les éléments inventés des
-   illustrations (cité de cristal, dirigeable, gare à verrière : `docs/ASSETS.md`).
-2. Après les visuels : proposer le périmètre du jalon 2 (contenu).
+1. Phase 2 des visuels terminée et en ligne (2026-11-01, bilan `docs/ASSETS.md`, 83,5 crédits restants). Cyril aime
+   le rendu ; les trois éléments inventés des illustrations sont gardés faute d'objection.
+2. **Jalon 2 proposé** (`docs/gdd/jalon-2.md`), né de son retour : personnages trop gros et figés, sol du marché,
+   troncs de l'Arbre-Titan, répétitivité, maisons à visiter, PNJ et quêtes, création avec avatars, animation.
+   **En attente de Cyril** : ordre, pilote d'animation (2D contre 3D, environ 20 crédits), nombre d'avatars.
 
 ## Points ouverts
 

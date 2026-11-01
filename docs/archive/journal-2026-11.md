@@ -603,3 +603,10 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   (185 tests). Vérifié dans le jeu. **Phase 2 terminée** : 26,5 crédits au total au lieu de 51 estimés. Points à
   valider par Cyril : éléments inventés des illustrations (cité de cristal, dirigeable, gare à verrière).
 - Poussé sur GitHub sur accord de Cyril ; déploiement GitHub Pages réussi, nouvelles images en ligne.
+- Retour de Cyril sur la phase 2 : rendu apprécié, mais peu de contenu et répétitif, sol du marché sans texture,
+  personnages figés et trop gros, quatre troncs de l'Arbre-Titan pas beaux ; souhaite des maisons où entrer, plus de
+  PNJ et de quêtes, une création avec avatars (comme Baldur's Gate), des personnages animés (comme Fallout).
+  Pistes d'animation chiffrées sur Higgsfield : image → 3D Meshy avec squelette et marche = 38 à 47,5 crédits ;
+  Tripo (9) + squelette et marche Meshy (8) = 17 ; planche 2D au modèle d'image = 2 à 4. Pas de Blender sur le PC :
+  le rendu des modèles 3D en images se ferait par un script three.js dans le navigateur. Proposition écrite dans
+  `docs/gdd/jalon-2.md`.

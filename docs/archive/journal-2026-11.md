@@ -572,3 +572,7 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   (script jetable, images dans `assets/raw/pilote/reduit/`, local). Héros et portrait d'Ilyane réussis, arbre
   correct (socle de terre à retirer), herbe ratée (diorama). Piste pour les sols : texture vue de dessus projetée
   en losange par script. Bilan dans `docs/ASSETS.md` ; avis de Cyril attendu.
+- Second essai sur accord de Cyril (1 crédit, 106 restants) : texture d'herbe vue de dessus, projetée en losange
+  64 × 32 par script (raccord sans couture), et arbre sans socle. L'ombre de contact peinte en gris clair faisait
+  un halo : repeinte en encre translucide par script. Les 4 images du pilote sont réussies ; scripts prototypes en
+  local (`assets/raw/pilote/scripts/`), version Node à écrire au lot 1.

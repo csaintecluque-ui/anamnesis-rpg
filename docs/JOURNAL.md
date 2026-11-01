@@ -15,9 +15,10 @@
 
 ## Prochaine étape
 
-1. **Pilote généré** le 2026-11-01 via le MCP Higgsfield (3 crédits, reste 107) ; bilan dans `docs/ASSETS.md`.
-   Héros et Ilyane réussis ; arbre correct (socle à retirer) ; herbe à refaire (diorama au lieu d'un sol nu).
-   **En attente de l'avis de Cyril** sur le style et les retouches, avant de relancer quoi que ce soit.
+1. **Pilote généré** le 2026-11-01 via le MCP Higgsfield (4 crédits en 2 essais, reste 106) ; bilan dans
+   `docs/ASSETS.md`. Les 4 images sont réussies (herbe par texture projetée, arbre sans socle).
+   **En attente de Cyril** : validation du style, du héros (livre, allure jeune et masculine), puis feu vert pour
+   brancher les images dans le jeu et lancer le lot 1.
 2. Après les visuels : proposer le périmètre du jalon 2 (contenu).
 
 ## Points ouverts

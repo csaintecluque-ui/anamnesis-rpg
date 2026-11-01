@@ -53,3 +53,25 @@ n'animer que le héros et les ennemis.
 2. **Pilote d'animation** sur le héros, puis choix de la méthode.
 3. **Création de personnage** avec avatars (animés selon la méthode retenue).
 4. **Contenu** : maisons à visiter, PNJ, quêtes secondaires (propositions de lore d'abord).
+
+## Étape 3 : création de personnage avec 6 avatars (proposition du 2026-11-01, à valider)
+
+Chaque avatar = un portrait (écran de création, panneau du héros) + une planche de marche 2D (8 directions, carte et
+combat). Tous humains (seule origine de cette version), apprentis Gardiens de Mémoire, 14 à 18 ans environ ; le texte
+du jeu reste neutre en genre. Apparences proposées (pas de canon ; on évite tout stéréotype culturel réel) :
+
+| # | Avatar | Allure proposée |
+|---|---|---|
+| 1 | Le héros actuel | Garçon aux cheveux bruns bouclés, cape parchemin, sacoche, lanterne de cristal (déjà fait : portrait à ajouter) |
+| 2 | Fille des lisières | Longue tresse châtaine, cape vert mousse, carnet relié de cuir, bracelet de feuilles |
+| 3 | Fille des ateliers | Cheveux noirs courts, foulard cuivre, veste de toile à poches, petite sacoche d'outils |
+| 4 | Garçon voyageur | Peau sombre, cheveux ras, manteau de voyage ocre, bâton de marche sculpté |
+| 5 | Fille aux étoiles | Peau mate, cheveux noirs ondulés, cape bleu nuit brodée de petites étoiles, pendentif de cristal |
+| 6 | Garçon roux | Taches de rousseur, gilet de cuir sur chemise claire, écharpe verte, lanterne de cristal à la main |
+
+**Coût** : portrait en haute qualité (1,5) + personnage en pied (0,5) + 5 planches de marche (2,5) = 4,5 crédits par
+nouvel avatar, soit **≈ 24 crédits** (5 nouveaux + le portrait du héros), sur ≈ 60 restants. Il en resterait ≈ 35 pour
+le contenu (maisons, PNJ, quêtes).
+
+**Code** : choix de l'avatar à la première étape (avec le nom), grille de 6 portraits ; l'avatar est enregistré dans
+le personnage (sauvegarde v7, l'ancienne sauvegarde prend le héros actuel) ; la carte et le combat utilisent sa planche.

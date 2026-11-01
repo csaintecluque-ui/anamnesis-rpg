@@ -9,17 +9,16 @@ Propositions de Claude, **validées par Cyril le 2026-11-01**. Carte : `src/data
 
 PNJ présents : Ilyane Voix-d'Écorce, Tobias Cendrefer (`docs/univers/personnages/pnj.md`).
 
-## Jalon 2 : maisons à visiter et quêtes secondaires (propositions du 2026-11-01, **à valider**)
+## Jalon 2 : maisons à visiter et quêtes secondaires (propositions du 2026-11-01, **validées par Cyril le 2026-11-01**)
 
-Demande de Cyril : des habitations où entrer, plus de PNJ, des quêtes. Rien de ceci n'est canon tant que Cyril ne l'a
-pas validé. PNJ proposés : `docs/univers/personnages/pnj.md`.
+Demande de Cyril : des habitations où entrer, plus de PNJ, des quêtes. PNJ proposés : `docs/univers/personnages/pnj.md`.
 
 | Élément | Proposition | Ancrage canon | Statut |
 |---|---|---|---|
-| Maison 1 | **La maison d'Ilyane**, au cercle de lanternes : pièce ronde, étagères de carnets de récits, cristal de veille | E1 (Gardiens de Mémoire) | à valider |
-| Maison 2 | **L'Auberge de la Racine**, au pied de l'Arbre-Titan : salle commune, comptoir, cheminée ; on y mange (rend des PV) et on y entend les rumeurs | N1 (constructions au sol) | à valider |
-| Maison 3 | **La maison Lunelierre**, une famille du quartier dont la fille est touchée par la maladie qui ronge les souvenirs | E2 (maladie mémorielle) | à valider |
-| Réserve | **La réserve de l'étal Cendrefer**, derrière le marché : caisses, outils de Ferros | N2 | à valider |
-| Quête A | **« La berceuse oubliée »** (Maëlis Lunelierre) : sa fille Nell a oublié la berceuse de sa mère. Un Écho près de l'Arbre-Titan la chante encore ; avec Mémoire ou Érudition, on la recueille et on la rapporte. Récompense : un Récit, de l'XP | E2 (Échos, maladie mémorielle) ; thème de l'anamnèse | à valider |
-| Quête B | **« Les herbes de lisière »** (Liane Sève-Claire, herboriste) : trouver trois touffes de sauge-lumière cachées dans Gardebois (Survie ou Perception pour les repérer). Récompense : bandages, une potion | N1 (forêt) | à valider |
-| Quête C | **« La caisse égarée »** (Brann Martelroux, apprenti de Tobias) : une caisse d'outils tombée d'un chariot, gardée par deux Rôdeurs-Épine près de la route ; on la reprend par la force, la discrétion ou en les éloignant (Survie). Récompense : des Fers, un prix chez Tobias | E8 (Rôdeurs-Épine), N2 | à valider |
+| Maison 1 | **La maison d'Ilyane**, au cercle de lanternes : pièce ronde, étagères de carnets de récits, cristal de veille | E1 (Gardiens de Mémoire) | validé |
+| Maison 2 | **L'Auberge de la Racine**, au pied de l'Arbre-Titan : salle commune, comptoir, cheminée ; on y mange (rend des PV) et on y entend les rumeurs | N1 (constructions au sol) | validé |
+| Maison 3 | **La maison Lunelierre**, une famille du quartier dont la fille est touchée par la maladie qui ronge les souvenirs | E2 (maladie mémorielle) | validé |
+| Réserve | **La réserve de l'étal Cendrefer**, derrière le marché : caisses, outils de Ferros | N2 | validé |
+| Quête A | **« La berceuse oubliée »** (Maëlis Lunelierre) : sa fille Nell a oublié la berceuse de sa mère. Un Écho près de l'Arbre-Titan la chante encore ; avec Mémoire ou Érudition, on la recueille et on la rapporte. Récompense : un Récit, de l'XP | E2 (Échos, maladie mémorielle) ; thème de l'anamnèse | validé |
+| Quête B | **« Les herbes de lisière »** (Liane Sève-Claire, herboriste) : trouver trois touffes de sauge-lumière cachées dans Gardebois (Survie ou Perception pour les repérer). Récompense : bandages, une potion | N1 (forêt) | validé |
+| Quête C | **« La caisse égarée »** (Brann Martelroux, apprenti de Tobias) : une caisse d'outils tombée d'un chariot, gardée par deux Rôdeurs-Épine près de la route ; on la reprend par la force, la discrétion ou en les éloignant (Survie). Récompense : des Fers, un prix chez Tobias | E8 (Rôdeurs-Épine), N2 | validé |

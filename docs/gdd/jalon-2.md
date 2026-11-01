@@ -76,7 +76,7 @@ le contenu (maisons, PNJ, quêtes).
 **Code** : choix de l'avatar à la première étape (avec le nom), grille de 6 portraits ; l'avatar est enregistré dans
 le personnage (sauvegarde v7, l'ancienne sauvegarde prend le héros actuel) ; la carte et le combat utilisent sa planche.
 
-## Étape 4 : contenu (proposition du 2026-11-01, à valider)
+## Étape 4 : contenu (validé par Cyril le 2026-11-01 : 4 intérieurs, 5 PNJ, 3 quêtes)
 
 Détail et statut : `docs/univers/lieux/gardebois.md` et `docs/univers/personnages/pnj.md` (« Jalon 2 »).
 

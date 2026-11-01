@@ -157,3 +157,5 @@
 - La version (`v0.1.0 · commit`) s'affiche en bas à gauche de l'écran titre, pour savoir ce qui tourne sur un appareil.
 - TypeScript séparé en deux configurations : `tsconfig.json` (jeu, navigateur) et `tsconfig.node.json`
   (outils de construction, avec `@types/node`).
+- **Vérifié par Cyril sur son iPhone** : sauvegarde, export vers Fichiers, import depuis Fichiers et chargement
+  fonctionnent.

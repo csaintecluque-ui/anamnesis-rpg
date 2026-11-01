@@ -495,3 +495,15 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
 4. Catalogues de troc propres à chaque marchand.
 5. Phase 2 (visuels générés via Higgsfield) : plan, nombre d'images et coût à présenter avant toute génération
    (`CLAUDE.md` §5).
+
+## 2026-11-01 (suite) : résolution par la discrétion
+
+- **Jets de dé dans les dialogues** : une option peut porter un `roll` (compétence, difficulté) ; elle affiche sa
+  chance en % et mène à `next` ou `failNext`. Le résultat du dé s'écrit au-dessus du texte suivant. Un nœud `night`
+  assombrit le fond. Contrôles automatiques : chaque jet a sa suite d'échec.
+- **La foreuse** devient un objet interactif de la Gare (`foreuse.json`) : attendre la nuit, Discrétion 10 puis
+  Artisanat 10, sabotage = fin de quête (40 XP, 30 Fers). Un échec ferme la voie et Ingrid s'en souvient.
+- **`docs/DIALOGUES.md`** : le générateur affichait « +undefined XP » pour les Fers, les Récits et le Troc ; corrigé,
+  il montre aussi les jets (🎲) et les scènes de nuit (🌙).
+- Vérifié dans le navigateur : réussite, échec, Ingrid soupçonneuse.
+- À valider par Cyril : textes de la séquence, difficulté 10, fermeture de la voie après un échec.

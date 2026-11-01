@@ -1,6 +1,7 @@
 import questData from '../data/quests.json';
 import type { GameState } from '../state/gameState';
-import { ATTRIBUTES, SKILLS, type AttributeId, type SkillId } from './attributes';
+import { ATTRIBUTES, SKILLS, attributeModifier, type AttributeId, type SkillId } from './attributes';
+import { resolveCheck, rollD20, successChance, type Rng } from './checks';
 import { RECITS, findRecit, knowsRecit, learnRecit } from './recits';
 
 /** Attribute and skill tests stay visible (greyed) when unmet; story conditions hide the option. */
@@ -22,16 +23,27 @@ export type Effect =
   /** No state change: tells DialogueScene to open the Troc with this NPC instead of closing (docs/gdd/inventaire.md). */
   | { openTrade: true };
 
+/** An action rolled with the d20 (docs/gdd/competences.md): the chance is shown, then `next` or `failNext` follows. */
+export interface Roll {
+  skill: SkillId;
+  difficulty: number;
+}
+
 export interface DialogueOption {
   text: string;
-  /** Node id, or END to close the dialogue. */
+  /** Node id, or END to close the dialogue. With a roll, where a success leads. */
   next: string;
   requires?: Condition[];
   effects?: Effect[];
+  roll?: Roll;
+  /** Where a failed roll leads. */
+  failNext?: string;
 }
 
 export interface DialogueNode {
   text: string;
+  /** Darkens the backdrop: the scene happens at night. */
+  night?: boolean;
   /** Applied each time the node is shown. */
   effects?: Effect[];
   options: DialogueOption[];
@@ -78,7 +90,7 @@ export function testLabel(c: Condition): string | null {
 export interface OptionView {
   option: DialogueOption;
   enabled: boolean;
-  /** Test tags such as "Perception 4", shown whether or not they are met. */
+  /** Test tags such as "Perception 4" or "Discrétion 65 %", shown whether or not they are met. */
   tags: string[];
   /** What is missing, in French, when disabled. */
   missing?: string;
@@ -92,14 +104,56 @@ export function visibleOptions(node: DialogueNode, state: GameState): OptionView
     if (!conditions.filter((c) => !isTest(c)).every((c) => conditionMet(state, c))) continue;
     const tests = conditions.filter(isTest);
     const failed = tests.filter((c) => !conditionMet(state, c));
+    const tags = tests.map((c) => testLabel(c)!);
+    if (option.roll) tags.push(`${skillName(option.roll.skill)} ${Math.round(rollChance(state, option.roll) * 100)} %`);
     views.push({
       option,
       enabled: failed.length === 0,
-      tags: tests.map((c) => testLabel(c)!),
+      tags,
       missing: failed.length ? `Il te faut ${failed.map((c) => testLabel(c)).join(' et ')}.` : undefined,
     });
   }
   return views;
+}
+
+/** Attribute modifier + rank: what is added to the d20 for this skill. */
+function rollBonus(state: GameState, skill: SkillId): number {
+  const c = state.character;
+  const attribute = SKILLS.find((s) => s.id === skill)!.attribute;
+  return attributeModifier(c?.attributes[attribute] ?? 3) + (c?.skills[skill] ?? 0);
+}
+
+/** Probability (0–1) that the roll succeeds, shown on the option before choosing it. */
+export function rollChance(state: GameState, roll: Roll): number {
+  return successChance(rollBonus(state, roll.skill), 0, roll.difficulty);
+}
+
+export interface RollOutcome {
+  success: boolean;
+  /** "Jet de Discrétion : 14 + 2 = 16 contre 10, réussi" */
+  notice: string;
+}
+
+/** Rolls the d20 for a rolled option; the caller then shows `next` or `failNext`. */
+export function performRoll(state: GameState, roll: Roll, rng: Rng = Math.random): RollOutcome {
+  const die = rollD20(rng);
+  const bonus = rollBonus(state, roll.skill);
+  const result = resolveCheck({ roll: die, modifier: bonus, rank: 0, difficulty: roll.difficulty });
+  const sign = bonus < 0 ? '−' : '+';
+  const verdict = result.critical ? (result.success ? 'réussite critique' : 'échec critique') : result.success ? 'réussi' : 'raté';
+  return {
+    success: result.success,
+    notice: `${jetDe(skillName(roll.skill))} : ${die} ${sign} ${Math.abs(bonus)} = ${result.total} contre ${roll.difficulty}, ${verdict}`,
+  };
+}
+
+/** "Jet de Discrétion", "Jet d’Artisanat". */
+function jetDe(name: string): string {
+  return /^[AEIOUYÉÈÊ]/.test(name) ? `Jet d’${name}` : `Jet de ${name}`;
+}
+
+function skillName(id: SkillId): string {
+  return SKILLS.find((s) => s.id === id)?.name ?? id;
 }
 
 export function startNode(dialogue: Dialogue, state: GameState): string {
@@ -193,6 +247,13 @@ export function dialogueProblems(d: Dialogue): string[] {
     checkEffects(id, node.effects);
     for (const option of node.options) {
       if (option.next !== END && !ids.has(option.next)) problems.push(`${id} : option vers un nœud inconnu ${option.next}`);
+      if (option.roll) {
+        if (!knownSkills.has(option.roll.skill)) problems.push(`${id} → ${option.next} : compétence inconnue ${option.roll.skill}`);
+        if (!option.failNext) problems.push(`${id} → ${option.next} : jet sans suite en cas d’échec (failNext)`);
+        else if (option.failNext !== END && !ids.has(option.failNext)) problems.push(`${id} : option vers un nœud inconnu ${option.failNext}`);
+      } else if (option.failNext) {
+        problems.push(`${id} → ${option.next} : failNext sans jet`);
+      }
       checkConditions(`${id} → ${option.next}`, option.requires);
       checkEffects(`${id} → ${option.next}`, option.effects);
     }
@@ -205,7 +266,7 @@ export function dialogueProblems(d: Dialogue): string[] {
     const id = queue.shift()!;
     if (seen.has(id) || !d.nodes[id]) continue;
     seen.add(id);
-    for (const o of d.nodes[id].options) if (o.next !== END) queue.push(o.next);
+    for (const o of d.nodes[id].options) for (const next of [o.next, o.failNext]) if (next && next !== END) queue.push(next);
   }
   for (const id of ids) if (!seen.has(id)) problems.push(`${id} : nœud inaccessible`);
   return problems;

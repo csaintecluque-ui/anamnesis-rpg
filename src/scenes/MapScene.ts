@@ -14,7 +14,7 @@ import type { CombatStartData } from './CombatScene';
 import type { HudScene } from './HudScene';
 
 /** Map objects drawn by an obstacle tile on the same cell, and touchable on that tile's image. */
-const INTERACTIVE_OBSTACLES = new Set(['panneau', 'echo', 'golem', 'coffre']);
+const INTERACTIVE_OBSTACLES = new Set(['panneau', 'echo', 'golem', 'coffre', 'foreuse']);
 
 const MAPS: Record<string, TiledMapJson> = {
   gardebois: gardeboisJson as TiledMapJson,

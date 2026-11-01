@@ -3,5 +3,6 @@
   { "id": "tobias", "name": "Tobias Cendrefer", "role": "Marchand de Ferros" },
   { "id": "ingrid", "name": "Ingrid Brisefer", "role": "Ingénieure, prospection de Ferros" },
   { "id": "echo-dernier-train", "name": "L’Écho du dernier train", "role": "Écho du Passé" },
-  { "id": "caisse-prospection", "name": "Caisse de prospection", "role": "Objet" }
+  { "id": "caisse-prospection", "name": "Caisse de prospection", "role": "Objet" },
+  { "id": "foreuse", "name": "La foreuse de Brisefer", "role": "Objet" }
 ]

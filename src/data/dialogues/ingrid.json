@@ -2,7 +2,9 @@
   "id": "ingrid",
   "speaker": "ingrid",
   "entries": [
+    { "requires": [{ "flag": "foreuse-sabotee" }], "node": "apres-sabotage" },
     { "requires": [{ "quest": "dernier-train", "status": "done" }], "node": "apres" },
+    { "requires": [{ "flag": "surpris-de-nuit" }], "node": "soupcon" },
     { "node": "accueil" }
   ],
   "nodes": {
@@ -11,6 +13,13 @@
       "options": [
         { "text": "Ce chantier rend les gens malades, à Gardebois.", "next": "cause" },
         { "text": "Je viens juste regarder.", "next": "fin" }
+      ]
+    },
+    "soupcon": {
+      "text": "Alors c’est vous, l’ombre qui rôdait autour de ma foreuse cette nuit ? Mes gardes veillent, maintenant. Si vous avez quelque chose à me dire, dites-le en face.",
+      "options": [
+        { "text": "Ce chantier rend les gens malades, à Gardebois.", "next": "cause" },
+        { "text": "Je n’ai rien à vous dire.", "next": "fin" }
       ]
     },
     "cause": {
@@ -44,6 +53,10 @@
     "convaincue-recit": {
       "text": "Corvan ? Je connais l’histoire, oui… et vous avez raison : il a réussi, et ça ne l’a pas sauvé. J’arrête la foreuse. On ne force pas deux fois la même faute.",
       "options": [{ "text": "Merci.", "next": "fin" }]
+    },
+    "apres-sabotage": {
+      "text": "Quelqu’un a faussé ma foreuse, cette nuit. Ferros m’enverra des pièces… dans des semaines. D’ici là, je ne creuse plus. Et personne n’a plus revu de train, à Gardebois, paraît-il.",
+      "options": [{ "text": "Tant mieux.", "next": "fin" }]
     },
     "apres": {
       "text": "La foreuse est silencieuse, pour l’instant. Mes ouvriers n’aiment pas ça, mais personne n’a plus revu de train, à Gardebois.",

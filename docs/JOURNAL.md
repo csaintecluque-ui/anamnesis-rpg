@@ -3,23 +3,23 @@
 ## État (2026-11-01)
 
 - Jalon 1, la tranche verticale : les 8 points de `docs/gdd/cahier-des-charges.md` sont faits. Jouable sur PC et iPhone.
-- 158 tests, typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
-- Quête « Le Dernier Train » : 3 résolutions sur 4 (parole, Récit, combat). **Discrétion pas faite.**
+- 164 tests, typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
+- Quête « Le Dernier Train » : **les 4 résolutions sont jouables** (parole, Récit, combat, discrétion).
 
 ## Jalon en cours : clôture du jalon 1, en attente du feu vert de Cyril
 
-- Contenus à valider : Gare Engloutie, Écho, Ingrid, nœud « resolu » d'Ilyane, caisse, 30 Fers
-  (`docs/univers/lieux/gare-engloutie.md`).
-- Chiffres à valider : armes et ennemis, prix, 15 Fers au départ, Fers gagnés, seuils d'XP (`docs/gdd/`).
+- Contenus à valider : Gare Engloutie, Écho, Ingrid, nœud « resolu » d'Ilyane, caisse, 30 Fers, **sabotage de
+  nuit et réactions d'Ingrid** (`docs/univers/lieux/gare-engloutie.md`).
+- Chiffres à valider : armes et ennemis, prix, 15 Fers au départ, Fers gagnés, seuils d'XP, **difficulté 10 des
+  deux jets du sabotage** (`docs/gdd/`).
 - Choix à valider : arène de combat dédiée ; armes équipées sans effet en combat ; un seul catalogue pour
-  tous les marchands ; pas de point d'attribut à la montée de niveau.
-- À essayer par Cyril : plein écran sur un vrai PC ; dernière version sur iPhone (HUD, pause, options).
+  tous les marchands ; pas de point d'attribut à la montée de niveau ; **un échec de nuit ferme la voie discrète**.
+- À essayer par Cyril : plein écran sur un vrai PC ; dernière version sur iPhone (HUD, pause, options, sabotage).
 
 ## Prochaine étape
 
-1. Résolution par la discrétion : entrer de nuit, saboter la foreuse (`docs/gdd/tranche-verticale.md`).
-2. Ensuite : armes équipées en combat ; couverture, fuite et arène tirées de la carte ; catalogue par
-   marchand ; phase 2 des visuels (plan et coût présentés avant toute génération).
+1. Armes équipées en combat ; couverture, fuite et arène tirées de la carte ; catalogue par marchand.
+2. Phase 2 des visuels (plan et coût présentés avant toute génération).
 
 ## Points ouverts
 

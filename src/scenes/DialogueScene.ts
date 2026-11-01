@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import { DIALOGUES } from '../data/dialogues';
 import npcData from '../data/npcs.json';
-import { END, applyEffects, opensTrade, startNode, visibleOptions, type Dialogue, type OptionView } from '../rules/dialogue';
+import { END, applyEffects, opensTrade, performRoll, startNode, visibleOptions, type Dialogue, type OptionView } from '../rules/dialogue';
 import { fontPx, textScale } from '../settings';
 import type { GameState } from '../state/gameState';
 import { DIGIT_KEYS, onKeys } from '../ui/keys';
@@ -11,13 +11,18 @@ const MARGIN = 60;
 const OPTION_MIN_HEIGHT = 62;
 const OPTION_GAP = 8;
 const OPTIONS_BOTTOM = GAME_HEIGHT - 30;
+/** Backdrop over the map for night scenes (nodes with `night`). */
+const NIGHT = 0x0a0f1e;
 
 /** Conversation overlay above the map (which is paused meanwhile). */
 export class DialogueScene extends Phaser.Scene {
   private dialogue!: Dialogue;
   private state!: GameState;
   private layer!: Phaser.GameObjects.Container;
+  private backdrop!: Phaser.GameObjects.Rectangle;
   private notices: string[] = [];
+  /** Result of the die just rolled, shown above the next node's text. */
+  private rollNotice: string | null = null;
   /** Larger text needs more room: the panel then rises up to just under the HUD bar. */
   private panelTop = 200;
   /** What pressing 1, 2, 3… does on the current node (undefined for a greyed option). */
@@ -31,10 +36,11 @@ export class DialogueScene extends Phaser.Scene {
     this.dialogue = DIALOGUES[data.id];
     this.state = this.registry.get('game') as GameState;
     this.notices = [];
+    this.rollNotice = null;
     this.panelTop = textScale() > 1 ? 112 : 200;
 
     // Swallows taps so nothing reaches the map or the HUD below.
-    this.add.rectangle(0, 0, GAME_WIDTH, GAME_HEIGHT, COLORS.ink, 0.45).setOrigin(0, 0).setInteractive();
+    this.backdrop = this.add.rectangle(0, 0, GAME_WIDTH, GAME_HEIGHT, COLORS.ink, 0.45).setOrigin(0, 0).setInteractive();
     this.add
       .rectangle(0, this.panelTop, GAME_WIDTH, GAME_HEIGHT - this.panelTop, COLORS.ink, 0.94)
       .setOrigin(0, 0)
@@ -56,6 +62,8 @@ export class DialogueScene extends Phaser.Scene {
     const node = this.dialogue.nodes[nodeId];
     this.notices.push(...applyEffects(this.state, node.effects));
     this.layer.removeAll(true);
+    if (node.night) this.backdrop.setFillStyle(NIGHT, 0.82);
+    else this.backdrop.setFillStyle(COLORS.ink, 0.45);
 
     if (this.notices.length) {
       this.layer.add(
@@ -70,8 +78,21 @@ export class DialogueScene extends Phaser.Scene {
       this.notices = [];
     }
 
+    let textTop = this.panelTop + 74 * textScale();
+    if (this.rollNotice) {
+      const line = this.add.text(MARGIN, textTop, this.rollNotice, {
+        fontFamily: FONT_SERIF,
+        fontSize: fontPx(22),
+        fontStyle: 'italic',
+        color: CSS.muted,
+      });
+      this.layer.add(line);
+      textTop += line.height + 10;
+      this.rollNotice = null;
+    }
+
     this.layer.add(
-      this.add.text(MARGIN, this.panelTop + 74 * textScale(), node.text, {
+      this.add.text(MARGIN, textTop, node.text, {
         fontFamily: FONT_SERIF,
         fontSize: fontPx(26),
         color: CSS.parchment,
@@ -117,6 +138,13 @@ export class DialogueScene extends Phaser.Scene {
       if (opensTrade(view.option.effects)) {
         this.scene.stop();
         this.scene.launch('Trade', { npcId: this.dialogue.speaker });
+        return;
+      }
+      const roll = view.option.roll;
+      if (roll) {
+        const outcome = performRoll(this.state, roll);
+        this.rollNotice = outcome.notice;
+        this.show(outcome.success ? view.option.next : view.option.failNext!);
         return;
       }
       this.show(view.option.next);

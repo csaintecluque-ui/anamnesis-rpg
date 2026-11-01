@@ -5,6 +5,8 @@ Statut des textes (validé ou à valider) : voir `docs/univers/personnages/pnj.m
 
 Légende : **[Perception 4]** = test d’attribut ou de compétence (option visible mais grisée si le seuil manque) ;
 _(si …)_ = option qui n’apparaît que dans cette situation ; → = où mène la réponse.
+**🎲 Discrétion 10** = jet de dé (d20 + modificateur + rang contre 10) : → en cas de réussite, ✗ → en cas d’échec.
+🌙 = scène de nuit (le fond s’assombrit).
 
 ## Caisse de prospection
 
@@ -16,7 +18,7 @@ Commence par : « vide » _(si repère « caisse-prospection-ouverte »)_, sinon
 
 > Une vieille caisse de prospection, abandonnée là par une équipe d’avant Brisefer. Sous des outils rouillés, une bourse oubliée, couverte de poussière.
 
-- « Prendre la bourse. » → **fin** _(retient « caisse-prospection-ouverte », +undefined XP)_
+- « Prendre la bourse. » → **fin** _(retient « caisse-prospection-ouverte », +25 Fers)_
 - « La laisser. » → **fin**
 
 ### vide
@@ -41,7 +43,7 @@ Commence par : « approche »
 
 ### interieur
 
-_Effet : +undefined XP._
+_Effet : retient le Récit « Le Savant Corvan »._
 
 > Un instant, tu es sur ce quai disparu. Une voix te revient, celle d’un savant qu’on emmenait loin du danger : « Dis-leur, pour Corvan. Dis-leur que même réussir peut tout détruire. » Puis l’Écho se dissipe, apaisé pour un temps.
 
@@ -52,6 +54,75 @@ _Effet : +undefined XP._
 > Tu restes en retrait. Les images s’effacent sans te livrer leurs secrets, mais tu as vu assez pour comprendre : ce train n’aurait pas dû partir, et pourtant il est parti.
 
 - « … » → **fin**
+
+## La foreuse de Brisefer
+
+_Objet_
+
+Commence par : « faussee » _(si repère « foreuse-sabotee »)_, sinon « arretee » _(si repère « chantier-arrete »)_, sinon « gardee » _(si repère « surpris-de-nuit »)_, sinon « jour »
+
+### jour
+
+> La foreuse de Brisefer mord la roche de la Faille dans un fracas de fer. Les ouvriers ne la quittent pas des yeux.
+
+- _(si quête « Le Dernier Train » en cours)_ « Attendre la nuit dans les ruines du quai. » → nuit
+- « S’éloigner. » → **fin**
+
+### nuit
+
+> 🌙 La nuit tombe sur la Gare. Le chantier s’endort ; seule une lanterne veille encore, près de la tente de Brisefer.
+
+- **🎲 Discrétion 10** « Te glisser jusqu’à la foreuse. » → au-pied, ✗ → repere
+- « Renoncer et attendre le jour. » → **fin**
+
+### au-pied
+
+> 🌙 Te voilà au pied de la foreuse, dans l’odeur d’huile et de pierre chaude. Personne n’a rien vu.
+
+- **🎲 Artisanat 10** « Saboter le mécanisme. » → sabotee, ✗ → bruit
+- « Repartir sans rien toucher. » → **fin**
+
+### sabotee
+
+_Effet : retient « foreuse-sabotee », retient « chantier-arrete », termine la quête « Le Dernier Train », +40 XP, +30 Fers._
+
+> 🌙 Une goupille retirée, un engrenage faussé : la foreuse ne repartira pas avant longtemps. Tu regagnes l’ombre sans un bruit.
+
+- « Attendre le jour. » → **fin**
+
+### repere
+
+_Effet : retient « surpris-de-nuit »._
+
+> 🌙 Une lanterne se lève : « Qui va là ? » Deux ouvriers te reconduisent au bord du chantier. Brisefer saura qu’on a rôdé ici.
+
+- « … » → **fin**
+
+### bruit
+
+_Effet : retient « surpris-de-nuit »._
+
+> 🌙 Un engrenage t’échappe et sonne contre le fer. Le camp s’éveille ; tu n’as que le temps de fuir dans le noir. Brisefer saura qu’on a rôdé ici.
+
+- « … » → **fin**
+
+### gardee
+
+> Depuis ta visite de nuit, un ouvrier veille près de la foreuse, de jour comme de nuit.
+
+- « S’éloigner. » → **fin**
+
+### arretee
+
+> La foreuse est arrêtée. Le silence revient peu à peu sur la Gare.
+
+- « S’éloigner. » → **fin**
+
+### faussee
+
+> La foreuse est muette, un engrenage faussé dans le ventre.
+
+- « S’éloigner. » → **fin**
 
 ## Ilyane Voix-d’Écorce
 
@@ -131,7 +202,7 @@ _Effet : lance la quête « Le Dernier Train »._
 
 _Ingénieure, prospection de Ferros_
 
-Commence par : « apres » _(si quête « Le Dernier Train » terminée)_, sinon « accueil »
+Commence par : « apres-sabotage » _(si repère « foreuse-sabotee »)_, sinon « apres » _(si quête « Le Dernier Train » terminée)_, sinon « soupcon » _(si repère « surpris-de-nuit »)_, sinon « accueil »
 
 ### accueil
 
@@ -140,13 +211,20 @@ Commence par : « apres » _(si quête « Le Dernier Train » terminée)_, sinon
 - « Ce chantier rend les gens malades, à Gardebois. » → cause
 - « Je viens juste regarder. » → **fin**
 
+### soupcon
+
+> Alors c’est vous, l’ombre qui rôdait autour de ma foreuse cette nuit ? Mes gardes veillent, maintenant. Si vous avez quelque chose à me dire, dites-le en face.
+
+- « Ce chantier rend les gens malades, à Gardebois. » → cause
+- « Je n’ai rien à vous dire. » → **fin**
+
 ### cause
 
 > La maladie mémorielle ? On en a entendu parler. Mais la Faille vaut de l’or en cristaux, et j’ai des papiers signés. Je ne m’arrête pas pour une rumeur de marché.
 
-- **[Diplomatie 3]** « Arrêtez le forage : à chaque coup, l’Écho se multiplie, et le mal avec lui. » → convaincue _(retient « chantier-arrete », termine la quête « Le Dernier Train », +40 XP, +undefined XP)_
-- **[Commandement 3]** « Je parle au nom des Gardiens de Mémoire : cessez, maintenant. » → convaincue _(retient « chantier-arrete », termine la quête « Le Dernier Train », +40 XP, +undefined XP)_
-- _(si quête « undefined » undefined)_ « Je connais l’histoire du savant Corvan. Écoutez-la avant de creuser plus loin. » → convaincue-recit _(retient « chantier-arrete », termine la quête « Le Dernier Train », +40 XP, +undefined XP)_
+- **[Diplomatie 3]** « Arrêtez le forage : à chaque coup, l’Écho se multiplie, et le mal avec lui. » → convaincue _(retient « chantier-arrete », termine la quête « Le Dernier Train », +40 XP, +30 Fers)_
+- **[Commandement 3]** « Je parle au nom des Gardiens de Mémoire : cessez, maintenant. » → convaincue _(retient « chantier-arrete », termine la quête « Le Dernier Train », +40 XP, +30 Fers)_
+- _(si Récit « Le Savant Corvan » connu)_ « Je connais l’histoire du savant Corvan. Écoutez-la avant de creuser plus loin. » → convaincue-recit _(retient « chantier-arrete », termine la quête « Le Dernier Train », +40 XP, +30 Fers)_
 - « Je reviendrai. » → **fin**
 
 ### convaincue
@@ -160,6 +238,12 @@ Commence par : « apres » _(si quête « Le Dernier Train » terminée)_, sinon
 > Corvan ? Je connais l’histoire, oui… et vous avez raison : il a réussi, et ça ne l’a pas sauvé. J’arrête la foreuse. On ne force pas deux fois la même faute.
 
 - « Merci. » → **fin**
+
+### apres-sabotage
+
+> Quelqu’un a faussé ma foreuse, cette nuit. Ferros m’enverra des pièces… dans des semaines. D’ici là, je ne creuse plus. Et personne n’a plus revu de train, à Gardebois, paraît-il.
+
+- « Tant mieux. » → **fin**
 
 ### apres
 
@@ -186,7 +270,7 @@ Commence par : « accueil »
 
 > Que des gens voient des trains et des flammes. Les Verdantins disent que c’est la faute de Ferros, forcément. Moi, je dis que la peur fait vendre les rumeurs… et pas les lampes.
 
-- « Voir l’étal. » → **fin** _(+undefined XP)_
+- « Voir l’étal. » → **fin** _(ouvre le Troc)_
 - « Parlons d’autre chose. » → accueil
 - « Au revoir. » → **fin**
 

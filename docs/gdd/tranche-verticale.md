@@ -20,4 +20,12 @@ Cahier des charges du jalon 1 : `docs/gdd/cahier-des-charges.md`. Lieux : `docs/
 6. **Retour à Gardebois** : la maladie recule, ou non. On gagne un niveau.
    - Révélation optionnelle : les Réveilleurs [E10] financent la prospection.
 
-État au 2026-11-01 : parole, Récit et combat sont jouables ; **la discrétion n'est pas faite**.
+État au 2026-11-01 : les quatre résolutions sont jouables.
+
+**Discrétion (à valider)** : on touche la foreuse (dialogue `src/data/dialogues/foreuse.json`), on choisit
+d'attendre la nuit, puis deux jets de dé, difficulté 10 (moyen) : **Discrétion** pour atteindre la foreuse,
+**Artisanat** pour la saboter. Réussite : la quête se termine, même récompense que les autres voies (40 XP, 30 Fers).
+Échec à l'un des deux jets : on est surpris, cette voie se ferme (la foreuse est gardée) et Ingrid le sait quand on
+lui parle ; la parole, le Récit et le combat restent ouverts. Chance des deux jets pour un personnage sans
+entraînement (attribut 3, rang 0) : 55 % chacun, soit 30 % en tout ; pour un spécialiste (attribut 4, rang 3) :
+75 % chacun, soit 56 %.

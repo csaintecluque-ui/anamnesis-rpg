@@ -29,3 +29,5 @@ Ce sont les douze compétences du JDR, avec deux retouches (adaptation) :
   - À chaque niveau : 3 + mod. Intellect points (minimum 1).
 - **Dans les dialogues** : on utilise des **seuils fixes**, sans dé (par exemple Présence ≥ 4, ou Diplomatie rang 3). L'option reste visible et grisée, avec la condition manquante affichée.
 - **Pour les actions** (crocheter, se cacher, voler) : on lance le dé, et l'interface affiche la chance de réussite en %.
+  Implémenté dans les dialogues depuis le 2026-11-01 (`docs/gdd/dialogues.md`, « Jets de dé ») : première utilisation,
+  le sabotage de la foreuse (Discrétion puis Artisanat, difficulté 10).

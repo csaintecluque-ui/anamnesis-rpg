@@ -272,6 +272,7 @@ function gareEngloutie() {
   m.object('echo-dernier-train', 'echo', 13, 8);
   m.object('golem-gare', 'golem', 21, 13);
   m.object('caisse-prospection', 'coffre', 17, 11);
+  m.object('foreuse', 'foreuse', 19, 8);
   m.object('panneau-gare', 'panneau', 2, 8, {
     texte: 'Gare engloutie — la forêt a repris ce que les hommes avaient laissé.',
   });

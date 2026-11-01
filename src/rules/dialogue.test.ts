@@ -9,6 +9,8 @@ import {
   conditionMet,
   dialogueProblems,
   opensTrade,
+  performRoll,
+  rollChance,
   startNode,
   visibleOptions,
   type Dialogue,
@@ -92,6 +94,39 @@ describe('applyEffects', () => {
   });
 });
 
+describe('rolled options', () => {
+  // stateWith(3, 0): Agilité 3 (modifier 0) and Discrétion rank 3.
+  const sneak: DialogueNode = {
+    text: 'La nuit.',
+    options: [
+      { text: 'Se glisser.', next: 'ok', failNext: 'vu', roll: { skill: 'stealth', difficulty: 10 } },
+      { text: 'Renoncer.', next: END },
+    ],
+  };
+
+  it('shows the chance of success as a tag, and stays enabled', () => {
+    const view = visibleOptions(sneak, stateWith(3, 0))[0];
+    expect(view).toMatchObject({ enabled: true, tags: ['Discrétion 70 %'] });
+    expect(rollChance(stateWith(3, 0), { skill: 'stealth', difficulty: 10 })).toBe(0.7);
+  });
+
+  it('rolls d20 + attribute modifier + rank against the difficulty, and says so', () => {
+    const roll = { skill: 'stealth' as const, difficulty: 10 };
+    expect(performRoll(stateWith(3, 0), roll, () => 0.3)).toEqual({
+      success: true,
+      notice: 'Jet de Discrétion : 7 + 3 = 10 contre 10, réussi',
+    });
+    expect(performRoll(stateWith(3, 0), roll, () => 0.25)).toMatchObject({ success: false });
+    expect(performRoll(stateWith(3, 0), { skill: 'crafting', difficulty: 10 }, () => 0.95).notice).toBe(
+      'Jet d’Artisanat : 20 + 0 = 20 contre 10, réussite critique',
+    );
+    expect(performRoll(stateWith(3, 0), roll, () => 0)).toEqual({
+      success: false,
+      notice: 'Jet de Discrétion : 1 + 3 = 4 contre 10, échec critique',
+    });
+  });
+});
+
 describe('dialogueProblems', () => {
   it('reports dead ends, missing nodes, unreachable nodes and unknown references', () => {
     const broken: Dialogue = {
@@ -110,6 +145,20 @@ describe('dialogueProblems', () => {
     expect(problems).toContain('b : nœud inaccessible');
     expect(problems).toContain('compétence inconnue magie');
     expect(problems).toContain('c : il faut au moins une option toujours disponible');
+  });
+
+  it('requires a failure node for every roll, and follows it when checking reachability', () => {
+    const rolled = (failNext?: string): Dialogue => ({
+      id: 'x',
+      speaker: 'x',
+      entries: [{ node: 'a' }],
+      nodes: {
+        a: { text: 'A', options: [{ text: '…', next: END, failNext, roll: { skill: 'stealth', difficulty: 10 } }] },
+        vu: { text: 'Vu.', options: [{ text: '…', next: END }] },
+      },
+    });
+    expect(dialogueProblems(rolled()).join('\n')).toContain('jet sans suite en cas d’échec');
+    expect(dialogueProblems(rolled('vu'))).toEqual([]);
   });
 });
 
@@ -148,13 +197,45 @@ describe('dialogue files', () => {
   });
 
   it('every resolution of Le Dernier Train pays the same reward', () => {
-    const resolutions = Object.values(DIALOGUES.ingrid.nodes)
-      .flatMap((n) => n.options)
-      .filter((o) => o.effects?.some((e) => 'completeQuest' in e));
-    expect(resolutions).toHaveLength(3);
-    for (const o of resolutions) {
-      expect(o.effects).toContainEqual({ giveXp: 40 });
-      expect(o.effects).toContainEqual({ giveFers: 30 });
+    const resolutions = [...Object.values(DIALOGUES.ingrid.nodes).flatMap((n) => n.options), ...Object.values(DIALOGUES.foreuse.nodes)]
+      .map((o) => o.effects ?? [])
+      .filter((effects) => effects.some((e) => 'completeQuest' in e));
+    expect(resolutions).toHaveLength(4);
+    for (const effects of resolutions) {
+      expect(effects).toContainEqual({ setFlag: 'chantier-arrete' });
+      expect(effects).toContainEqual({ giveXp: 40 });
+      expect(effects).toContainEqual({ giveFers: 30 });
+    }
+  });
+
+  it('the drill can be sabotaged at night: Discrétion then Artisanat (docs/gdd/tranche-verticale.md)', () => {
+    const d = DIALOGUES.foreuse;
+    const s = stateWith(3, 0);
+    expect(startNode(d, s)).toBe('jour');
+    expect(visibleOptions(d.nodes.jour, s).map((v) => v.option.next)).toEqual([END]);
+
+    s.quests['dernier-train'] = 'active';
+    expect(visibleOptions(d.nodes.jour, s).map((v) => v.option.next)).toEqual(['nuit', END]);
+    expect(d.nodes.nuit.night).toBe(true);
+    expect(d.nodes.nuit.options[0].roll).toEqual({ skill: 'stealth', difficulty: 10 });
+    expect(d.nodes['au-pied'].options[0].roll).toEqual({ skill: 'crafting', difficulty: 10 });
+
+    applyEffects(s, d.nodes.sabotee.effects);
+    expect(s.quests['dernier-train']).toBe('done');
+    expect(startNode(d, s)).toBe('faussee');
+    expect(startNode(DIALOGUES.ingrid, s)).toBe('apres-sabotage');
+  });
+
+  it('a failed night attempt closes that path, and Ingrid knows (docs/gdd/tranche-verticale.md)', () => {
+    const d = DIALOGUES.foreuse;
+    for (const failure of ['repere', 'bruit']) {
+      const s = stateWith(3, 0);
+      s.quests['dernier-train'] = 'active';
+      expect([d.nodes.nuit.options[0].failNext, d.nodes['au-pied'].options[0].failNext]).toContain(failure);
+      applyEffects(s, d.nodes[failure].effects);
+      expect(startNode(d, s)).toBe('gardee');
+      expect(startNode(DIALOGUES.ingrid, s)).toBe('soupcon');
+      expect(s.quests['dernier-train']).toBe('active');
     }
   });
 

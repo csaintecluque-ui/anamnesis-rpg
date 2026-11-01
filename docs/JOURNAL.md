@@ -229,3 +229,4 @@
     et quête mis à jour ; Ilyane passe au nœud « en cours » ;
   - **avec Perception 3 / Diplomatie 0** : options grisées avec « Il te faut… », impossibles à choisir ;
   - la plus longue option tient sur deux lignes ; la sauvegarde auto conserve repères, quête et XP.
+- **Textes des dialogues d'Ilyane et de Tobias validés par Cyril** (`LORE.md` §11).

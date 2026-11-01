@@ -234,6 +234,16 @@ export function moveAlong(combatant: Combatant, path: Tile[]): Tile[] {
   return taken;
 }
 
+/**
+ * Cover (docs/gdd/combat.md): a target is sheltered by the obstacle on the cell next to it, towards the attacker.
+ * Melee attacks (adjacent) ignore it.
+ */
+export function coverBetween(attacker: Tile, target: Tile, coverAt: (tile: Tile) => number): number {
+  if (distance(attacker, target) <= 1) return 0;
+  const step = { col: Math.sign(attacker.col - target.col), row: Math.sign(attacker.row - target.row) };
+  return coverAt({ col: target.col + step.col, row: target.row + step.row });
+}
+
 export function canAttack(attacker: Combatant, attack: AttackProfile, target: Combatant): boolean {
   return (
     !attacker.defeated &&

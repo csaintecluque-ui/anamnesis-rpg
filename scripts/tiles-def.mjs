@@ -1,6 +1,7 @@
 // Placeholder isometric tile definitions (phase 1 visuals), shared by generate-tiles.mjs and build-maps.mjs.
 // Each frame is 64×96: the ground diamond sits in the bottom 32 px, tall objects rise above it.
 // Order = frame index = Tiled tile id (gid − 1).
+// `cover`: Défense bonus for a combatant sheltering behind this obstacle (docs/gdd/combat.md, à valider).
 export const W = 64;
 export const H = 96;
 export const COLUMNS = 8;
@@ -42,6 +43,7 @@ export const TILES = [
   {
     name: 'arbre',
     blocking: true,
+    cover: 4,
     svg:
       diamond('#334023') +
       shadow(20, 8) +
@@ -52,6 +54,7 @@ export const TILES = [
   {
     name: 'tronc-titan',
     blocking: true,
+    cover: 4,
     svg:
       diamond('#334023') +
       `<path d="M10 84 Q14 70 18 66 L18 0 L46 0 L46 66 Q50 70 54 84 Q44 78 40 86 Q32 76 24 86 Q20 78 10 84 Z" fill="#4a3524" stroke="${INK}" stroke-width="1"/>` +
@@ -61,6 +64,7 @@ export const TILES = [
   {
     name: 'maison-pilotis',
     blocking: true,
+    cover: 4,
     svg:
       diamond('#3e4a2c') +
       shadow(22, 8) +
@@ -72,6 +76,7 @@ export const TILES = [
   {
     name: 'etal',
     blocking: true,
+    cover: 2,
     svg:
       diamond('#5a4030') +
       `<path d="M14 82 L14 56 M50 82 L50 56" stroke="#4a3524" stroke-width="3"/>` +
@@ -83,6 +88,7 @@ export const TILES = [
   {
     name: 'caisses',
     blocking: true,
+    cover: 2,
     svg:
       diamond('#5a4030') +
       shadow(18, 6) +
@@ -102,6 +108,7 @@ export const TILES = [
   {
     name: 'rocher',
     blocking: true,
+    cover: 2,
     svg:
       diamond('#3e4a2c') +
       `<path d="M14 82 Q12 66 24 62 Q32 52 42 60 Q54 64 50 82 Z" fill="#6a6058" stroke="${INK}" stroke-width="1"/>` +
@@ -147,6 +154,7 @@ export const TILES = [
   {
     name: 'wagon',
     blocking: true,
+    cover: 4,
     svg:
       diamond('#4a4038') +
       shadow(22, 8) +
@@ -159,6 +167,7 @@ export const TILES = [
   {
     name: 'foreuse',
     blocking: true,
+    cover: 4,
     svg:
       diamond('#4a4038') +
       shadow(18, 7) +
@@ -177,6 +186,7 @@ export const TILES = [
   {
     name: 'tente',
     blocking: true,
+    cover: 2,
     svg:
       diamond('#5a4030') +
       shadow(16, 6) +

@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   canAttack,
+  coverBetween,
   distance,
   enemyAttack,
   findEnemy,
@@ -289,6 +290,21 @@ describe('heroAttacks', () => {
     expect(sword.damageBonus).toBe(baseSword.damageBonus + 1);
     expect(bow.toHitBonus).toBe(baseBow.toHitBonus);
     expect(bow.damageBonus).toBe(baseBow.damageBonus);
+  });
+});
+
+describe('coverBetween', () => {
+  // A crate (+2) at (3, 2), a tree (+4) at (5, 5).
+  const cover = ({ col, row }: { col: number; row: number }) => (col === 3 && row === 2 ? 2 : col === 5 && row === 5 ? 4 : 0);
+
+  it('shelters a target behind the obstacle next to it, on the attacker’s side', () => {
+    expect(coverBetween({ col: 0, row: 2 }, { col: 4, row: 2 }, cover)).toBe(2);
+    expect(coverBetween({ col: 0, row: 0 }, { col: 6, row: 6 }, cover)).toBe(4);
+  });
+
+  it('gives nothing from the other side, nor in melee', () => {
+    expect(coverBetween({ col: 8, row: 2 }, { col: 4, row: 2 }, cover)).toBe(0);
+    expect(coverBetween({ col: 3, row: 2 }, { col: 4, row: 2 }, cover)).toBe(0);
   });
 });
 

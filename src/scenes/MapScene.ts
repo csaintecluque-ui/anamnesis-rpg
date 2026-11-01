@@ -4,6 +4,7 @@ import gardeboisJson from '../data/maps/gardebois.json';
 import gareEngloutieJson from '../data/maps/gare-engloutie.json';
 import npcData from '../data/npcs.json';
 import { TILE_HEIGHT, TILE_WIDTH, screenToTile, tileToScreen, type Tile } from '../engine/iso';
+import { carveArena, farEdgeTiles, toArena } from '../engine/arena';
 import { findPath } from '../engine/pathfinding';
 import { findObject, isWalkable, parseTiledMap, tileKey, type GameMap, type MapObject, type TiledMapJson } from '../engine/tiledMap';
 import { findLocation, type GameState } from '../state/gameState';
@@ -25,6 +26,10 @@ const MAPS: Record<string, TiledMapJson> = {
 const TOP_MARGIN = 80;
 
 const STEP_MS = 160;
+
+/** Size of the piece of map a fight takes place on (docs/gdd/combat.md). */
+const ARENA_COLS = 11;
+const ARENA_ROWS = 9;
 
 export class MapScene extends Phaser.Scene {
   private state!: GameState;
@@ -269,7 +274,7 @@ export class MapScene extends Phaser.Scene {
       return;
     }
     if (target.type === 'golem') {
-      this.startGolemFight();
+      this.startGolemFight(target);
       return;
     }
     if (DIALOGUES[target.name]) {
@@ -281,7 +286,7 @@ export class MapScene extends Phaser.Scene {
     this.hud().toast(npc ? `${npc.name} — ${npc.role}.` : '…');
   }
 
-  private startGolemFight(): void {
+  private startGolemFight(golem: MapObject): void {
     if (this.state.flags['golem-vaincu']) {
       this.hud().toast('Le Golem de Ferraille gît immobile, silencieux.');
       return;
@@ -290,6 +295,12 @@ export class MapScene extends Phaser.Scene {
       this.hud().toast('Le Golem de Ferraille ne bouge plus.');
       return;
     }
+    // The fight takes place right here, on the map around the golem; the two Rôdeurs-Épine come out of the
+    // undergrowth at the far edge (docs/gdd/combat.md).
+    const arena = carveArena(this.map, golem, ARENA_COLS, ARENA_ROWS, [golem]);
+    const heroTile = toArena(arena, this.heroTile);
+    const golemTile = toArena(arena, golem);
+    const [rodeur1, rodeur2] = farEdgeTiles(arena, heroTile, [heroTile, golemTile]);
     this.registry.set('tileFrames', this.map.frames);
     this.scene.pause();
     this.scene.pause('Hud');
@@ -297,10 +308,9 @@ export class MapScene extends Phaser.Scene {
       enemyIds: ['golem-ferraille', 'rodeur-epine', 'rodeur-epine'],
       victoryEffects: [{ setFlag: 'chantier-arrete' }, { completeQuest: 'dernier-train' }, { giveXp: 40 }, { giveFers: 30 }],
       victoryFlag: 'golem-vaincu',
-      obstacles: [
-        { col: 4, row: 0 },
-        { col: 4, row: 6 },
-      ],
+      arena,
+      heroTile,
+      enemyTiles: [golemTile, rodeur1, rodeur2],
     } satisfies CombatStartData);
   }
 

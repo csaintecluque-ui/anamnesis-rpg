@@ -528,3 +528,14 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   un seul nom sur l'arène (survolé, sinon celui qui joue) ; ennemis de même nature numérotés.
 - Vérifié dans le navigateur (PC) : pause, inventaire, combat, survol, attaque à l'épée.
 - Reste : l'arène est petite au centre d'un grand écran vide ; à agrandir avec le chantier « arène tirée de la carte ».
+
+## 2026-11-01 (suite) : catalogue par marchand, combat sur la carte
+
+- **Catalogue par marchand** : liste `sells` dans `npcs.json` (Tobias : les 8 objets actuels) ; l'étal montre son
+  catalogue et ce que l'on porte ; l'inventaire ne montre plus que les objets portés. Objets réservés ou stock
+  limité : à décider par Cyril.
+- **Combat sur la carte** : arène 11 × 9 découpée autour du Golem (`src/engine/arena.ts`), sol et obstacles de la
+  carte ; Rôdeurs-Épine au bord le plus éloigné. **Couverture** par tuile (+2 caisses, rochers, tente ; +4 arbres,
+  wagon, foreuse). **Fuite** depuis le bord de la zone seulement. Arène × 1,25 sur PC.
+- Vérifié dans le navigateur (PC) : inventaire réduit aux objets portés, arène tirée de la Gare, refus de fuir
+  hors du bord. Couverture vérifiée par les tests seulement (aucun tir à couvert joué à l'écran).

@@ -139,6 +139,7 @@ class MapBuilder {
             properties: [
               { name: 'nom', type: 'string', value: t.name },
               { name: 'bloquant', type: 'bool', value: !!t.blocking },
+              { name: 'couverture', type: 'int', value: t.cover ?? 0 },
             ],
           })),
         },

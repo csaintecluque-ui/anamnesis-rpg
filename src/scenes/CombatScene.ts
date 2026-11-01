@@ -1,10 +1,12 @@
 import Phaser from 'phaser';
+import { coverAt, isEdge, isOpen, type Arena } from '../engine/arena';
 import { TILE_HEIGHT, screenToTile, tileToScreen, type Tile } from '../engine/iso';
 import { findPath } from '../engine/pathfinding';
 import { applyEffects, type Effect } from '../rules/dialogue';
 import {
   ZONES,
   canAttack,
+  coverBetween,
   distance,
   findEnemy,
   findZone,
@@ -28,14 +30,12 @@ import { COLORS, CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
 import { HAS_MOUSE } from '../ui/viewport';
 import type { HudScene } from './HudScene';
 
-const COLS = 9;
-const ROWS = 7;
 const TOP = 70;
 
 /** Finger-sized on touch screens, compact with a mouse (docs/gdd/interface.md). */
 const LAYOUT = HAS_MOUSE
-  ? { bottomBar: 96, buttonHeight: 48, buttonFont: 20, labelFont: 18, move: [100, 150], attack: [260, 150, 160], zone: [590, 170], endTurn: [770, 170], flee: [GAME_WIDTH - 90, 140] }
-  : { bottomBar: 150, buttonHeight: 76, buttonFont: 26, labelFont: 22, move: [150, 200], attack: [370, 180, 190], zone: [760, 200], endTurn: [970, 220], flee: [GAME_WIDTH - 110, 180] };
+  ? { arenaScale: 1.25, bottomBar: 96, buttonHeight: 48, buttonFont: 20, labelFont: 18, move: [100, 150], attack: [260, 150, 160], zone: [590, 170], endTurn: [770, 170], flee: [GAME_WIDTH - 90, 140] }
+  : { arenaScale: 1, bottomBar: 150, buttonHeight: 76, buttonFont: 26, labelFont: 22, move: [150, 200], attack: [370, 180, 190], zone: [760, 200], endTurn: [970, 220], flee: [GAME_WIDTH - 110, 180] };
 const LOG_Y = GAME_HEIGHT - LAYOUT.bottomBar - 30;
 /** Turn order panel, left of the arena: names live here, not above the tokens where they overlapped. */
 const ROSTER_X = 24;
@@ -53,19 +53,21 @@ export interface CombatStartData {
   victoryEffects: Effect[];
   /** Flag set on victory so the encounter cannot be re-triggered. */
   victoryFlag: string;
-  /** Tile obstacles for flavour (rocks); purely visual and blocking in v1. */
-  obstacles?: Tile[];
+  /** The piece of map the fight takes place on (src/engine/arena.ts). */
+  arena: Arena;
+  /** Starting cells, in arena coordinates: the hero's, then one per enemy id. */
+  heroTile: Tile;
+  enemyTiles: Tile[];
 }
 
-/** Turn-based combat on a small arena, docs/gdd/combat.md. Visuals are a stand-in: a dedicated arena rather than carving the
- *  explored map, and cover is not yet derived from terrain — see docs/gdd/combat.md, « Précisions d'implémentation ». */
+/** Turn-based combat on a piece of the explored map, with cover from its obstacles (docs/gdd/combat.md). */
 export class CombatScene extends Phaser.Scene {
   private state!: GameState;
   private config!: CombatStartData;
   private combatants: Combatant[] = [];
   private order: Combatant[] = [];
   private turnIndex = 0;
-  private obstacleTiles = new Set<string>();
+  private arena!: Arena;
   private mode: Mode = 'move';
   private zone: Zone = 'corps';
   private originX = 0;
@@ -98,23 +100,18 @@ export class CombatScene extends Phaser.Scene {
     this.order = [];
     this.turnIndex = -1;
 
+    this.arena = data.arena;
     const tiles = [] as Tile[];
-    for (let row = 0; row < ROWS; row++) for (let col = 0; col < COLS; col++) tiles.push({ col, row });
-    const xs = tiles.map((t) => tileToScreen(t).x);
-    const ys = tiles.map((t) => tileToScreen(t).y);
+    for (let row = 0; row < this.arena.rows; row++) for (let col = 0; col < this.arena.cols; col++) tiles.push({ col, row });
+    const xs = tiles.map((t) => tileToScreen(t).x * LAYOUT.arenaScale);
+    const ys = tiles.map((t) => tileToScreen(t).y * LAYOUT.arenaScale);
     this.originX = GAME_WIDTH / 2 - (Math.min(...xs) + Math.max(...xs)) / 2;
-    this.originY = TOP + 40 - Math.min(...ys);
+    // Room above the top row for tall obstacles (trees rise 64 units above their diamond).
+    this.originY = TOP + 64 * LAYOUT.arenaScale - Math.min(...ys);
 
-    this.obstacleTiles = new Set((data.obstacles ?? []).map(({ col, row }) => `${col},${row}`));
-
-    const hero = makeHeroCombatant(this.state.character!, { col: 1, row: Math.floor(ROWS / 2) });
-    const spots: Tile[] = [
-      { col: COLS - 2, row: Math.floor(ROWS / 2) },
-      { col: COLS - 2, row: 1 },
-      { col: COLS - 2, row: ROWS - 2 },
-    ];
+    const hero = makeHeroCombatant(this.state.character!, data.heroTile);
     const enemyDefs = data.enemyIds.map((id) => findEnemy(id)!);
-    const enemies = enemyDefs.map((def, i) => makeEnemyCombatant(def, `${def.id}-${i}`, spots[i % spots.length]));
+    const enemies = enemyDefs.map((def, i) => makeEnemyCombatant(def, `${def.id}-${i}`, data.enemyTiles[i]));
     this.combatants = [hero, ...enemies];
     numberDuplicateNames(this.combatants);
     this.hovered = null;
@@ -154,20 +151,24 @@ export class CombatScene extends Phaser.Scene {
 
   private center(tile: Tile): { x: number; y: number } {
     const p = tileToScreen(tile);
-    return { x: this.originX + p.x, y: this.originY + p.y };
+    return { x: this.originX + p.x * LAYOUT.arenaScale, y: this.originY + p.y * LAYOUT.arenaScale };
   }
 
   private feet(tile: Tile): { x: number; y: number } {
     const c = this.center(tile);
-    return { x: c.x, y: c.y + TILE_HEIGHT / 2 };
+    return { x: c.x, y: c.y + (TILE_HEIGHT / 2) * LAYOUT.arenaScale };
   }
 
+  /** The map's own ground and obstacles: trees, crates and rocks block the way and give cover. */
   private drawArena(): void {
-    for (let row = 0; row < ROWS; row++) {
-      for (let col = 0; col < COLS; col++) {
+    const { cols, rows, ground, obstacles } = this.arena;
+    for (let row = 0; row < rows; row++) {
+      for (let col = 0; col < cols; col++) {
         const f = this.feet({ col, row });
-        const blocked = this.obstacleTiles.has(`${col},${row}`);
-        this.add.image(f.x, f.y, 'tiles', blocked ? this.frames.rocher : this.frames.herbe).setOrigin(0.5, 1).setDepth(f.y);
+        const i = row * cols + col;
+        // Ground below everything; obstacles sorted with the combatants by their feet.
+        if (ground[i] >= 0) this.add.image(f.x, f.y, 'tiles', ground[i]).setOrigin(0.5, 1).setScale(LAYOUT.arenaScale).setDepth(0);
+        if (obstacles[i] >= 0) this.add.image(f.x, f.y, 'tiles', obstacles[i]).setOrigin(0.5, 1).setScale(LAYOUT.arenaScale).setDepth(f.y);
       }
     }
   }
@@ -179,11 +180,11 @@ export class CombatScene extends Phaser.Scene {
   private addToken(c: Combatant): void {
     const f = this.feet(c.tile);
     const frame = c.side === 'heroes' ? this.frames.heros : this.frames.pnj;
-    const image = this.add.image(f.x, f.y, 'tiles', frame).setOrigin(0.5, 1).setDepth(f.y + 1);
+    const image = this.add.image(f.x, f.y, 'tiles', frame).setOrigin(0.5, 1).setScale(LAYOUT.arenaScale).setDepth(f.y + 1);
     if (c.side === 'enemies') image.setTint(c.id.startsWith('golem') ? 0x8a8276 : 0xb5653a);
     const hpBar = this.add.graphics().setDepth(6000);
     const name = this.add
-      .text(f.x, f.y - 70, c.name, { fontFamily: FONT_SERIF, fontSize: '16px', color: CSS.parchment, stroke: CSS.ink, strokeThickness: 3 })
+      .text(f.x, f.y - 70 * LAYOUT.arenaScale, c.name, { fontFamily: FONT_SERIF, fontSize: '16px', color: CSS.parchment, stroke: CSS.ink, strokeThickness: 3 })
       .setOrigin(0.5, 1)
       .setDepth(6001)
       .setVisible(false);
@@ -207,7 +208,7 @@ export class CombatScene extends Phaser.Scene {
     token.image.setPosition(f.x, f.y).setDepth(f.y + 1).setAlpha(c.defeated ? 0.25 : 1);
 
     const x = f.x - HP_BAR_WIDTH / 2;
-    const y = f.y - 64;
+    const y = f.y - 64 * LAYOUT.arenaScale;
     const ratio = c.maxHp > 0 ? c.hp / c.maxHp : 0;
     token.hpBar.clear();
     if (!c.defeated) {
@@ -232,8 +233,7 @@ export class CombatScene extends Phaser.Scene {
   }
 
   private walkable = (tile: Tile): boolean => {
-    if (tile.col < 0 || tile.row < 0 || tile.col >= COLS || tile.row >= ROWS) return false;
-    if (this.obstacleTiles.has(`${tile.col},${tile.row}`)) return false;
+    if (!isOpen(this.arena, tile)) return false;
     return !this.combatants.some((c) => !c.defeated && c.tile.col === tile.col && c.tile.row === tile.row);
   };
 
@@ -317,7 +317,10 @@ export class CombatScene extends Phaser.Scene {
 
   private onTap(pointer: Phaser.Input.Pointer): void {
     if (!this.awaitingHero || this.ended) return;
-    const tile = screenToTile({ x: pointer.worldX - this.originX, y: pointer.worldY - this.originY });
+    const tile = screenToTile({
+      x: (pointer.worldX - this.originX) / LAYOUT.arenaScale,
+      y: (pointer.worldY - this.originY) / LAYOUT.arenaScale,
+    });
     const target = this.combatants.find((c) => c.side === 'enemies' && !c.defeated && c.tile.col === tile.col && c.tile.row === tile.row);
 
     if (target && this.mode !== 'move') {
@@ -343,7 +346,7 @@ export class CombatScene extends Phaser.Scene {
       this.appendLog(distance(hero.tile, target.tile) > attack.range ? 'Hors de portée.' : 'Pas assez de PA.');
       return;
     }
-    this.performAttack(hero, attack, target, this.zone, 0);
+    this.performAttack(hero, attack, target, this.zone, coverBetween(hero.tile, target.tile, (t) => coverAt(this.arena, t)));
     this.updateActionBar();
     this.checkOutcome();
   }
@@ -353,8 +356,9 @@ export class CombatScene extends Phaser.Scene {
     this.refreshToken(attacker);
     this.refreshToken(target);
     const zoneLabel = zone === 'corps' ? '' : ` [${findZone(zone).label}]`;
+    const coverLabel = cover > 0 ? ` (à couvert, +${cover} en Défense)` : '';
     if (result.fumble) this.appendLog(`${attacker.name} rate son attaque (échec critique).`);
-    else if (!result.hit) this.appendLog(`${attacker.name} attaque${zoneLabel} ${target.name} : raté.`);
+    else if (!result.hit) this.appendLog(`${attacker.name} attaque${zoneLabel} ${target.name}${coverLabel} : raté.`);
     else {
       const crit = result.critical ? ' (critique !)' : '';
       this.appendLog(`${attacker.name} touche${zoneLabel} ${target.name} : ${result.damage} dégâts${crit}.`);
@@ -425,6 +429,11 @@ export class CombatScene extends Phaser.Scene {
 
   private flee(): void {
     if (this.ended) return;
+    // docs/gdd/combat.md: one flees by reaching the edge of the fight's zone.
+    if (!isEdge(this.arena, this.hero().tile)) {
+      this.appendLog('Pour fuir, rejoins le bord de la zone de combat.');
+      return;
+    }
     this.ended = true;
     this.appendLog('Tu te replies.');
     this.closeAfter(false, () => {});

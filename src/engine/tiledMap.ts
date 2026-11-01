@@ -42,6 +42,8 @@ export interface GameMap {
   obstacles: number[];
   objects: MapObject[];
   blocked: boolean[];
+  /** Défense bonus given by the obstacle on each cell (tileset property "couverture"), 0 for none. */
+  cover: number[];
   /** Frame index by tile name (tileset property "nom"), e.g. frames.heros. */
   frames: Record<string, number>;
 }
@@ -83,12 +85,18 @@ export function parseTiledMap(json: TiledMapJson): GameMap {
   const blocked = ground.map(
     (id, i) => id === -1 || blockingIds.has(id) || (obstacles[i] !== -1 && blockingIds.has(obstacles[i])),
   );
+  const coverById = new Map<number, number>();
+  for (const t of tileset.tiles ?? []) {
+    const value = t.properties?.find((p) => p.name === 'couverture')?.value;
+    if (typeof value === 'number' && value > 0) coverById.set(t.id, value);
+  }
+  const cover = obstacles.map((id) => coverById.get(id) ?? 0);
   const frames: Record<string, number> = {};
   for (const t of tileset.tiles ?? []) {
     const name = t.properties?.find((p) => p.name === 'nom')?.value;
     if (typeof name === 'string') frames[name] = t.id;
   }
-  return { width, height, ground, obstacles, objects, blocked, frames };
+  return { width, height, ground, obstacles, objects, blocked, cover, frames };
 }
 
 export function isWalkable(map: GameMap, { col, row }: Tile, occupied: ReadonlySet<string> = new Set()): boolean {

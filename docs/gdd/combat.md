@@ -28,13 +28,19 @@ Règles : `src/rules/combat.ts` ; écran : `src/scenes/CombatScene.ts` ; donnée
     Le combat reste une voie parmi quatre.
 - **Zone** : un coup à la tête, aux bras ou aux jambes qui ne met pas hors de combat applique son effet
   (étourdi, désarmé, ralenti) jusqu'au **prochain tour de la cible** ; un coup au corps n'a pas d'effet.
-- **Couverture** : le calcul existe (`resolveAttack(… , coverBonus)`), mais rien sur la carte ne la fournit
-  encore automatiquement — à faire quand le terrain portera cette information.
-- **Arène** : le combat ne se déroule pas sur un fragment de la carte explorée, mais sur une petite arène dédiée
-  (9 × 7, iso, même palette), pour rester simple tant que les cartes ne portent pas de zones de couverture ou
-  de limites de combat. Visuel provisoire, comme le reste de la phase 1.
-- **Fuite** : bouton toujours disponible, qui referme le combat sans conséquence (pas encore liée à une position
-  précise sur l'arène).
+- **Arène (depuis le 2026-11-01, à valider)** : le combat se déroule **sur la carte explorée**, dans un rectangle de
+  11 × 9 cases autour de l'ennemi touché (`carveArena`, `src/engine/arena.ts`), avec son sol et ses obstacles
+  (arbres, caisses, wagon, tente…), qui bloquent le passage. Le héros commence là où il se tenait ; le Golem sur sa
+  case ; les deux Rôdeurs-Épine surgissent des fourrés, sur les cases du bord les plus éloignées du héros. Sur PC,
+  l'arène est affichée × 1,25.
+- **Couverture (à valider)** : chaque obstacle a une valeur de couverture (propriété de tuile `couverture`,
+  `scripts/tiles-def.mjs`) : **+2** pour les caisses, rochers, étals et la tente ; **+4** pour les arbres, le wagon,
+  la foreuse, le tronc d'Arbre-Titan et les maisons. Une cible est à couvert si la case voisine, du côté de
+  l'attaquant, porte un obstacle : sa Défense augmente d'autant (`coverBetween`). Pas de couverture au corps à corps.
+  Le journal l'annonce (« à couvert, +2 en Défense »). Pour l'instant, seul le héros tire : la couverture protège
+  donc les ennemis.
+- **Fuite (à valider)** : il faut **atteindre le bord de la zone de combat** (n'importe quelle case du pourtour),
+  puis toucher « Fuir ». Ailleurs, le jeu le rappelle. Fuir referme le combat sans autre conséquence.
 - **Défaite du héros** : non létale, comme pour les ennemis. Le héros est ramené à 1 PV à l'entrée de Gardebois.
 - **Victoire** : mêmes effets que les résolutions par la parole (`chantier-arrete`, quête terminée, 40 XP),
   pour que les trois résolutions restent équilibrées.

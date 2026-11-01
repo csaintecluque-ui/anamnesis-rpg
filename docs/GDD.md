@@ -257,7 +257,7 @@ Les trois pistes reposent sur des lois et des phénomènes du monde, pas sur la 
 - **Relecture** : `npm run dialogues` régénère `docs/DIALOGUES.md`, une version lisible pour relire les textes.
 - **Écran** : panneau en bas de l'écran ; la carte est en pause et rien ne passe au travers.
 - **Sauvegarde v4** : l'état contient `flags` (repères d'histoire) et `quests`.
-- **Expérience** : elle s'accumule déjà (`character.xp`) ; la montée de niveau viendra avec son étape.
+- **Expérience** : elle s'accumule (`character.xp`) ; la montée de niveau est décrite au §11.
 
 ## 10. Inventaire et troc (GDD §3)
 
@@ -279,3 +279,15 @@ Les trois pistes reposent sur des lois et des phénomènes du monde, pas sur la 
   `openTrade` (Tobias : « Voir l'étal. »), avec achat en plus.
 - **Sauvegarde v6** : l'état du personnage contient `fers`, `inventory` (objets possédés et leur quantité) et
   `equipment` (ce qui est équipé dans chaque emplacement).
+
+## 11. Montée de niveau
+
+- **Seuils d'expérience** (premier jet d'équilibrage, à valider) : `50 × niveau × (niveau − 1)` XP cumulés pour
+  atteindre un niveau — niveau 2 à 100 XP, niveau 3 à 300, niveau 4 à 600…
+- **À chaque niveau** : `3 + mod. Intellect` points de compétence à répartir (GDD §2), un repos complet
+  (les PV reviennent au maximum). Pas de point d'attribut supplémentaire : seules les compétences progressent.
+- **Plusieurs niveaux d'un coup** (XP gagnée en une fois qui franchit deux seuils) : traités un par un, chacun avec
+  sa propre répartition de points.
+- **Écran** : `LevelUpScene`, ouvert depuis un bouton « ✦ Montée de niveau ! » qui apparaît sur le HUD dès que le
+  seuil est franchi (pas de montée automatique ou forcée : le joueur choisit son moment). Répartition des points
+  comme à la création, sans plafond à 3 : jusqu'à 10 par compétence.

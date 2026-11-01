@@ -342,3 +342,35 @@
 
 1. Montée de niveau (l'expérience s'accumule déjà).
 2. Raccorder les armes équipées au combat ; catalogues de troc propres à chaque marchand, si souhaité.
+
+## 2026-11-01 — Montée de niveau
+
+- Seuils d'expérience cumulés (premier jet d'équilibrage, à valider) : `50 × niveau × (niveau − 1)` — niveau 2 à
+  100 XP, niveau 3 à 300, niveau 4 à 600…
+- Règles en code pur et testées (`src/rules/leveling.ts`, 8 tests) : seuils, points de compétence à répartir
+  (`3 + mod. Intellect`, GDD §2), répartition (plafond à 10 par compétence, pas à la création), application
+  (niveau +1, PV au maximum). Plusieurs niveaux d'affilée sont traités un par un, chacun avec ses points.
+- `LevelUpScene` : répartition des points (même présentation que la création), bouton « Continuer » désactivé tant
+  qu'il reste des points. Un nouveau bouton « ✦ Montée de niveau ! » apparaît sur le HUD dès que le seuil est
+  franchi — à l'initiative du joueur, jamais automatique ni forcé.
+- Au passage, le PV/niveau affiché sur le HUD, jusqu'ici figé à l'ouverture de la carte, **se met à jour en direct**
+  (petite dette technique de la session des Récits, corrigée ici).
+- Tests : 151 au total (+8). `npm run typecheck`, `npm run build` et `npm test` au vert.
+- Vérifié dans le navigateur : le bouton de montée de niveau apparaît dès que l'XP franchit le seuil, sans recharger
+  la carte ; répartir les points, puis confirmer, fait passer le personnage au niveau 2, le soigne entièrement et
+  met à jour le HUD en direct (vérifié : PV 53/53, niveau 2) ; le bouton disparaît ensuite. Aucune erreur dans la
+  console.
+
+### Reste à faire (jalon 1)
+
+Tous les points de `CLAUDE.md` §4 sont maintenant couverts, sauf un : **menu pause et options (volume, taille du
+texte)**, toujours grisées depuis l'écran titre (session 1). Le reste de la tranche verticale est là : écran titre,
+création de personnage, hub et donjon, PNJ et dialogues à embranchements, quête principale à plusieurs résolutions,
+combat, inventaire et troc, montée de niveau, PWA installable.
+
+1. Menu pause et options (volume, taille du texte) — le seul point du jalon 1 qui reste entièrement à faire.
+2. Raccorder les armes équipées au combat (le héros se bat toujours avec Épée longue et Arc par défaut).
+3. Couverture dérivée du terrain ; fuite liée à une position de l'arène ; arène de combat tirée de la carte
+   explorée plutôt qu'un espace dédié.
+4. Catalogues de troc propres à chaque marchand.
+5. Les points en suspens listés plus haut (coquille du logo, chronologie du canon, contenus « à valider »).

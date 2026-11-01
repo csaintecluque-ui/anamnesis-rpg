@@ -109,13 +109,24 @@ export function parseTiledMap(json: TiledMapJson): GameMap {
 }
 
 /**
- * A large decor covers a block of cells holding the same tile; its image is drawn once, from the block's front
- * cell (the one with no same tile below-right or below-left of it), whose diamond bottom is the block's.
+ * A large decor covers a block of cells holding the same tile, on the obstacle layer (the Arbre-Titan) or the
+ * ground layer (the bridge, drawn under the walkers); its image is drawn once, from the block's front cell (no same
+ * tile below-right or below-left of it), whose diamond bottom is the block's.
  */
-export function isBigAnchor(map: GameMap, { col, row }: Tile): boolean {
-  const frame = map.obstacles[row * map.width + col];
-  const same = (c: number, r: number) => c < map.width && r < map.height && map.obstacles[r * map.width + c] === frame;
+export function isBigAnchor(map: GameMap, { col, row }: Tile, layer: number[] = map.obstacles): boolean {
+  const frame = layer[row * map.width + col];
+  const same = (c: number, r: number) => c < map.width && r < map.height && layer[r * map.width + c] === frame;
   return !same(col + 1, row) && !same(col, row + 1);
+}
+
+/** Size of the block a large decor's front cell closes, in columns and rows. */
+export function bigBlock(map: GameMap, { col, row }: Tile, layer: number[] = map.obstacles): { cols: number; rows: number } {
+  const frame = layer[row * map.width + col];
+  let cols = 1;
+  while (col - cols >= 0 && layer[row * map.width + col - cols] === frame) cols++;
+  let rows = 1;
+  while (row - rows >= 0 && layer[(row - rows) * map.width + col] === frame) rows++;
+  return { cols, rows };
 }
 
 export function isWalkable(map: GameMap, { col, row }: Tile, occupied: ReadonlySet<string> = new Set()): boolean {

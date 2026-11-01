@@ -265,6 +265,14 @@ export interface AttackResult {
   defeated: boolean;
 }
 
+/** Chance (0 to 1) that resolveAttack hits: shown before the player commits (docs/gdd/combat.md). */
+export function hitChance(attack: AttackProfile, target: Combatant, zone: Zone = 'corps', coverBonus = 0): number {
+  const need = target.defense + coverBonus - attack.toHitBonus - findZone(zone).toHitPenalty;
+  let hits = 0;
+  for (let roll = 2; roll <= 20; roll++) if (roll === 20 || roll >= need) hits++;
+  return hits / 20;
+}
+
 /** d20 + bonus (+ zone penalty) ≥ target's defense (+ cover); a 20 always hits and doubles damage dice, a 1 always misses. */
 export function resolveAttack(
   attacker: Combatant,

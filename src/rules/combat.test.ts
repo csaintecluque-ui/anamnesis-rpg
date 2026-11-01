@@ -8,6 +8,7 @@ import {
   findWeapon,
   heldWeapons,
   heroAttacks,
+  hitChance,
   isAdjacent,
   isDefeat,
   isVictory,
@@ -330,3 +331,22 @@ describe('data', () => {
     expect(findEnemy('rodeur-epine')).toBeDefined();
   });
 });
+
+describe('hitChance', () => {
+  it('matches resolveAttack over all twenty rolls, cover and zone included', () => {
+    const golem = findEnemy('golem-ferraille')!;
+    const attacker = makeEnemyCombatant(findEnemy('rodeur-epine')!, 'a', { col: 0, row: 0 });
+    const attack = attacker.attacks[0];
+    for (const [zone, cover] of [['corps', 0], ['tete', 2], ['jambes', 4]] as const) {
+      let hits = 0;
+      for (let roll = 1; roll <= 20; roll++) {
+        const a = { ...attacker, actionPoints: 10, status: { ...attacker.status } };
+        const target = makeEnemyCombatant(golem, 't', { col: 1, row: 0 });
+        if (resolveAttack(a, attack, target, zone, cover, () => (roll - 1) / 20).hit) hits++;
+      }
+      const target = makeEnemyCombatant(golem, 't', { col: 1, row: 0 });
+      expect(hitChance(attack, target, zone, cover), `${zone} +${cover}`).toBe(hits / 20);
+    }
+  });
+});
+

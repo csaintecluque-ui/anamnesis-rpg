@@ -165,7 +165,11 @@ async function standingFrame(src, opts) {
     layers.push({ input: Buffer.from(ellipse), left: 0, top: 0 });
   }
   const { width, height } = fitted.info;
-  layers.push({ input: fitted.data, left: Math.round((frameWidth - width) / 2), top: foot - height });
+  // `foot` may lie below the frame (the bridge's footings sink into the banks): the overflow is cut.
+  const top = foot - height;
+  const visible = Math.min(height, frameHeight - top);
+  const piece = visible < height ? await sharp(fitted.data).extract({ left: 0, top: 0, width, height: visible }).png().toBuffer() : fitted.data;
+  layers.push({ input: piece, left: Math.round((frameWidth - width) / 2), top });
   return sharp({ create: { width: frameWidth, height: frameHeight, channels: 4, background: { r: 0, g: 0, b: 0, alpha: 0 } } })
     .composite(layers)
     .png();
@@ -204,7 +208,9 @@ for (const tile of TILES.filter((t) => t.art)) {
   await frame.toFile(fileURLToPath(new URL(`${tile.name}.png`, OUT)));
   // Large decor: the full-size image the map draws once over its block of cells (`big` in tiles-def).
   if (tile.big) {
-    const big = await standingFrame(srcUrl, { ...tile.art, ...tile.big.art, frameWidth: tile.big.width, frameHeight: tile.big.height });
+    // Its own picture when the cell tile is something else (the bridge: water under it).
+    const bigSrc = tile.big.art.src ? new URL(tile.big.art.src, RAW) : srcUrl;
+    const big = await standingFrame(bigSrc, { ...tile.art, ...tile.big.art, frameWidth: tile.big.width, frameHeight: tile.big.height });
     mkdirSync(DECOR_OUT, { recursive: true });
     await big.toFile(fileURLToPath(new URL(`${tile.name}.png`, DECOR_OUT)));
   }

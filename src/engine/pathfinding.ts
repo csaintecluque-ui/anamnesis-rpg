@@ -68,3 +68,31 @@ export function findPath(
   }
   return null;
 }
+
+/**
+ * Every tile reachable from `start` in at most `maxSteps` steps (8 directions, no cutting a blocked corner), with
+ * the shortest path in steps to it, as findPath returns them. Combat moves cost 1 PA per step, so this is exactly
+ * where a fighter can go this turn. `start` itself is not included.
+ */
+export function reachable(start: Tile, maxSteps: number, walkable: (tile: Tile) => boolean): Map<string, Tile[]> {
+  const key = (t: Tile) => `${t.col},${t.row}`;
+  const paths = new Map<string, Tile[]>();
+  let frontier: { tile: Tile; path: Tile[] }[] = [{ tile: start, path: [] }];
+  const seen = new Set([key(start)]);
+  for (let step = 0; step < maxSteps && frontier.length > 0; step++) {
+    const next: { tile: Tile; path: Tile[] }[] = [];
+    for (const { tile, path } of frontier) {
+      for (const [dc, dr] of NEIGHBOURS) {
+        const to = { col: tile.col + dc, row: tile.row + dr };
+        if (seen.has(key(to)) || !walkable(to)) continue;
+        if (dc !== 0 && dr !== 0 && (!walkable({ col: tile.col + dc, row: tile.row }) || !walkable({ col: tile.col, row: tile.row + dr }))) continue;
+        seen.add(key(to));
+        const toPath = [...path, to];
+        paths.set(key(to), toPath);
+        next.push({ tile: to, path: toPath });
+      }
+    }
+    frontier = next;
+  }
+  return paths;
+}

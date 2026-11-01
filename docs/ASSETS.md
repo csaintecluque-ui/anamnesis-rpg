@@ -278,3 +278,14 @@ Plan validé par Cyril (`docs/gdd/jalon-2.md`). Toutes les images gardées au pr
 
 Résultats : `public/portraits/avatar-<id>.jpg` (320 px), `public/sprites/marche-<id>.png` (8 directions × 6 images) ;
 la planche du héros du pilote devient `marche-apprenti.png`.
+
+## Jalon 2 : le pont (2026-11-01, 1 crédit, solde 35)
+
+Retour de Cyril : « le pont n'est pas du tout fait » (une bande de planches à plat sur l'eau). Deux variantes générées
+(`gpt_image_2_5`, moyenne, transparent, 3:2, `count: 2`), prompt : bloc commun + « Isometric 2:1 view (the ground is
+seen at a 30 degree angle)… A small sturdy wooden footbridge of a forest village: a gently arched deck of warm brown
+planks running diagonally from the upper-left to the lower-right of the image, along the isometric axis, low wooden
+railings with posts on both long sides, a few hanging lanterns with glowing cyan crystals on two posts, short stone
+footings at both ends. No water, no river, no ground, no grass, no cast shadow. » Gardée : `assets/raw/jalon2/pont-a.png`
+(pente ≈ 0,5, celle de la grille ; la B était trop raide). Image unique de 176 × 120 posée sur les deux cases d'eau
+(grand décor de sol), appuis enfoncés dans les berges ; la lanterne qui se trouvait sur son passage est retirée.

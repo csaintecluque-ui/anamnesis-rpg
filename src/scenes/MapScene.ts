@@ -6,7 +6,7 @@ import { TILE_HEIGHT, TILE_WIDTH, screenToTile, tileToScreen, type Tile } from '
 import { carveArena, farEdgeTiles, toArena } from '../engine/arena';
 import { FACINGS, facingOf, type Facing } from '../engine/facing';
 import { findPath } from '../engine/pathfinding';
-import { findObject, isBigAnchor, isWalkable, parseTiledMap, tileKey, type GameMap, type MapObject } from '../engine/tiledMap';
+import { bigBlock, findObject, isBigAnchor, isWalkable, parseTiledMap, tileKey, type GameMap, type MapObject } from '../engine/tiledMap';
 import { DEFAULT_AVATAR } from '../rules/character';
 import { findLocation, type GameState } from '../state/gameState';
 import { onKeys } from '../ui/keys';
@@ -120,13 +120,25 @@ export class MapScene extends Phaser.Scene {
     const width = (this.map.width + this.map.height) * (TILE_WIDTH / 2);
     const height = (this.map.width + this.map.height) * (TILE_HEIGHT / 2) + TOP_MARGIN;
     const rt = this.add.renderTexture(0, 0, width, height).setOrigin(0, 0).setDepth(0);
+    const bigGround: (Tile & { name: string })[] = [];
     for (let row = 0; row < this.map.height; row++) {
       for (let col = 0; col < this.map.width; col++) {
         const frame = this.map.ground[row * this.map.width + col];
         if (frame < 0) continue;
         const f = this.feet({ col, row });
+        // A large ground decor (the bridge) still lays its own tile (the water below), then its image once, over
+        // the whole block, after all the plain ground (second pass).
         rt.drawFrame('tiles', frame, f.x - TILE_WIDTH / 2, f.y - 96);
+        const big = this.map.big[frame];
+        if (big && isBigAnchor(this.map, { col, row }, this.map.ground)) bigGround.push({ col, row, name: big });
       }
+    }
+    // A block of w × h cells: its image is centred (w − h) half-cells left of the front cell (src/engine/tiledMap.ts).
+    for (const tile of bigGround) {
+      const { cols, rows } = bigBlock(this.map, tile, this.map.ground);
+      const image = this.textures.get(`decor-${tile.name}`).getSourceImage();
+      const f = this.feet(tile);
+      rt.draw(`decor-${tile.name}`, f.x - ((cols - rows) * TILE_WIDTH) / 4 - image.width / 2, f.y - image.height);
     }
   }
 

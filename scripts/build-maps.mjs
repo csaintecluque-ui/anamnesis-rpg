@@ -215,8 +215,9 @@ function gardebois() {
     m.setObstacle(c, r, 'maison-pilotis');
   }
 
-  // Lantern circle (Ilyane), plus lanterns along the road.
-  for (const [c, r] of [[4, 14], [6, 14], [4, 16], [6, 16], [8, 6], [10, 11], [8, 17], [19, 17], [22, 7]]) {
+  // Lantern circle (Ilyane), plus lanterns along the road. None stands straight in front of her on screen (same
+  // col − row, larger col + row): its post would hide her.
+  for (const [c, r] of [[4, 14], [6, 14], [4, 16], [6, 17], [8, 6], [10, 11], [8, 17], [22, 7]]) {
     m.setObstacle(c, r, 'lanterne');
   }
 

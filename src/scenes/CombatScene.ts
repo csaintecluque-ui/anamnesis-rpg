@@ -1,8 +1,9 @@
 import Phaser from 'phaser';
 import { coverAt, isEdge, isOpen, type Arena } from '../engine/arena';
-import { TILE_HEIGHT, screenToTile, tileToScreen, type Tile } from '../engine/iso';
-import { FACINGS } from '../engine/facing';
-import { findPath } from '../engine/pathfinding';
+import { TILE_HEIGHT, TILE_WIDTH, screenToTile, tileToScreen, type Tile } from '../engine/iso';
+import { FACINGS, facingOf, type Facing } from '../engine/facing';
+import { findPath, reachable } from '../engine/pathfinding';
+import { tileKey } from '../engine/tiledMap';
 import { applyEffects, type Effect } from '../rules/dialogue';
 import {
   ZONES,
@@ -11,6 +12,7 @@ import {
   distance,
   findEnemy,
   findZone,
+  hitChance,
   isDefeat,
   isVictory,
   makeEnemyCombatant,
@@ -44,6 +46,10 @@ const ROSTER_X = 24;
 const ROSTER_Y = 90;
 const ROSTER_LINE = 28;
 const HP_BAR_WIDTH = 44;
+/** Readable board (docs/gdd/combat.md, « Lisibilité ») : grid, reach, target and turn colours. */
+const GRID = { line: 0xead9b8, reach: 0x5bc8d6, target: 0xd0583a, turn: 0xc9804f };
+const STEP_ANIM_MS = 150;
+const WALK_FPS = 14;
 
 /** Moving, or attacking with the hero's attack at this index (one per weapon in hand). */
 type Mode = 'move' | number;
@@ -82,13 +88,24 @@ export class CombatScene extends Phaser.Scene {
   private banner!: Phaser.GameObjects.Text;
   private log!: Phaser.GameObjects.Text;
   /** Above each token: a PV bar; one name at a time, the hovered token's or the current one's (no overlap). */
-  private tokens = new Map<string, { image: Phaser.GameObjects.Image; hpBar: Phaser.GameObjects.Graphics; name: Phaser.GameObjects.Text }>();
+  private tokens = new Map<string, { image: Phaser.GameObjects.Sprite; hpBar: Phaser.GameObjects.Graphics; name: Phaser.GameObjects.Text }>();
   private hovered: string | null = null;
   private roster!: Phaser.GameObjects.Text;
   private zoneButton?: TextButton;
   private moveButton?: TextButton;
   private attackButtons: TextButton[] = [];
   private marker!: Phaser.GameObjects.Graphics;
+  /** Grid, reach and hover drawn on the ground, under obstacles and fighters. */
+  private overlay!: Phaser.GameObjects.Graphics;
+  private hint!: Phaser.GameObjects.Text;
+  private costLabel!: Phaser.GameObjects.Text;
+  /** Where the hero can walk this turn, with the path to each tile (key "col,row"). */
+  private reach = new Map<string, Tile[]>();
+  private hoverTile: Tile | null = null;
+  /** A move or an attack is being shown: input waits. */
+  private busy = false;
+  /** Obstacles of the arena, faded when they hide a fighter or the hovered cell. */
+  private obstacleImages: Phaser.GameObjects.Image[] = [];
 
   constructor() {
     super('Combat');
@@ -101,6 +118,10 @@ export class CombatScene extends Phaser.Scene {
     this.mode = 'move';
     this.zone = 'corps';
     this.tokens.clear();
+    this.obstacleImages = [];
+    this.reach = new Map();
+    this.hoverTile = null;
+    this.busy = false;
     this.order = [];
     this.turnIndex = -1;
 
@@ -131,6 +152,15 @@ export class CombatScene extends Phaser.Scene {
       .text(GAME_WIDTH / 2, LOG_Y, '', { fontFamily: FONT_SERIF, fontSize: '20px', color: CSS.parchment, align: 'center', wordWrap: { width: 1100 } })
       .setOrigin(0.5);
     this.marker = this.add.graphics().setDepth(5000);
+    this.overlay = this.add.graphics().setDepth(1);
+    this.hint = this.add
+      .text(GAME_WIDTH / 2, 62, '', { fontFamily: FONT_SERIF, fontSize: '18px', color: CSS.muted })
+      .setOrigin(0.5);
+    this.costLabel = this.add
+      .text(0, 0, '', { fontFamily: FONT_SERIF, fontSize: '18px', color: CSS.parchment, stroke: CSS.ink, strokeThickness: 4 })
+      .setOrigin(0.5, 1)
+      .setDepth(7000)
+      .setVisible(false);
     this.add.text(ROSTER_X, ROSTER_Y - 34, 'Ordre du tour', { fontFamily: FONT_SERIF, fontSize: '20px', color: CSS.copper });
     this.roster = this.add.text(ROSTER_X, ROSTER_Y, '', {
       fontFamily: FONT_SERIF,
@@ -143,6 +173,12 @@ export class CombatScene extends Phaser.Scene {
     this.buildActionBar();
 
     this.input.on('pointerup', (p: Phaser.Input.Pointer) => this.onTap(p));
+    this.input.on('pointermove', (p: Phaser.Input.Pointer) => {
+      const tile = this.tileAt(p);
+      if (this.hoverTile && tile.col === this.hoverTile.col && tile.row === this.hoverTile.row) return;
+      this.hoverTile = tile;
+      this.drawBoard();
+    });
 
     const bonuses = Object.fromEntries(
       this.combatants.map((c) => [c.id, c.side === 'heroes' ? this.state.character!.attributes.agility - 3 : initiativeBonus.get(c.id)!]),
@@ -173,24 +209,207 @@ export class CombatScene extends Phaser.Scene {
         const i = row * cols + col;
         // Ground below everything; obstacles sorted with the combatants by their feet.
         if (ground[i] >= 0) this.add.image(f.x, f.y, 'tiles', ground[i]).setOrigin(0.5, 1).setScale(LAYOUT.arenaScale).setDepth(0);
-        if (obstacles[i] >= 0) this.add.image(f.x, f.y, 'tiles', obstacles[i]).setOrigin(0.5, 1).setScale(LAYOUT.arenaScale).setDepth(f.y);
+        if (obstacles[i] >= 0) {
+          this.obstacleImages.push(this.add.image(f.x, f.y, 'tiles', obstacles[i]).setOrigin(0.5, 1).setScale(LAYOUT.arenaScale).setDepth(f.y));
+        }
       }
     }
+  }
+
+  private tileAt(pointer: Phaser.Input.Pointer): Tile {
+    return screenToTile({
+      x: (pointer.worldX - this.originX) / LAYOUT.arenaScale,
+      y: (pointer.worldY - this.originY) / LAYOUT.arenaScale,
+    });
+  }
+
+  private diamond(tile: Tile, inset = 0): Phaser.Math.Vector2[] {
+    const c = this.center(tile);
+    const hw = (TILE_WIDTH / 2) * LAYOUT.arenaScale - inset * 2;
+    const hh = (TILE_HEIGHT / 2) * LAYOUT.arenaScale - inset;
+    return [
+      new Phaser.Math.Vector2(c.x, c.y - hh),
+      new Phaser.Math.Vector2(c.x + hw, c.y),
+      new Phaser.Math.Vector2(c.x, c.y + hh),
+      new Phaser.Math.Vector2(c.x - hw, c.y),
+    ];
+  }
+
+  private fillTile(tile: Tile, color: number, alpha: number, lineAlpha = 0, inset = 1): void {
+    const points = this.diamond(tile, inset);
+    this.overlay.fillStyle(color, alpha).fillPoints(points, true);
+    if (lineAlpha > 0) this.overlay.lineStyle(2, color, lineAlpha).strokePoints(points, true);
+  }
+
+  /**
+   * The board, redrawn after every change: a grid on every open cell and the arena's outline (where one can flee);
+   * the cell of whoever is acting; on the hero's turn, the cells within reach (moving) or within the weapon's range
+   * (attacking), and for the hovered cell the path and its cost, or the chance to hit.
+   */
+  private drawBoard(): void {
+    const g = this.overlay;
+    g.clear();
+    this.updateFades();
+    this.costLabel.setVisible(false);
+    const { cols, rows } = this.arena;
+    for (let row = 0; row < rows; row++) {
+      for (let col = 0; col < cols; col++) {
+        if (isOpen(this.arena, { col, row })) g.lineStyle(1, GRID.line, 0.22).strokePoints(this.diamond({ col, row }), true);
+      }
+    }
+    const corners = [{ col: 0, row: 0 }, { col: cols - 1, row: 0 }, { col: cols - 1, row: rows - 1 }, { col: 0, row: rows - 1 }];
+    const [top, right, bottom, left] = corners.map((t, i) => this.diamond(t)[i]);
+    g.lineStyle(2, GRID.turn, 0.55).strokePoints([top, right, bottom, left], true);
+
+    if (this.turnIndex >= 0 && this.order.length > 0 && !this.ended) {
+      const current = this.current();
+      if (!current.defeated) this.fillTile(current.tile, GRID.turn, 0.35, 1);
+    }
+    if (!this.awaitingHero || this.busy || this.ended) return;
+
+    const hero = this.hero();
+    const hover = this.hoverTile;
+    if (this.mode === 'move') {
+      for (const path of this.reach.values()) this.fillTile(path[path.length - 1], GRID.reach, 0.2, 0.45);
+      const path = hover ? this.reach.get(tileKey(hover)) : undefined;
+      if (path && hover) {
+        for (const step of path) {
+          const c = this.center(step);
+          g.fillStyle(GRID.reach, 0.95).fillCircle(c.x, c.y, 4 * LAYOUT.arenaScale);
+        }
+        this.fillTile(hover, GRID.reach, 0.45, 1);
+        this.showCost(hover, `${path.length} PA`);
+      }
+      return;
+    }
+    const attack = hero.attacks[this.mode];
+    for (const enemy of this.combatants) {
+      if (enemy.side !== 'enemies' || enemy.defeated) continue;
+      const inRange = distance(hero.tile, enemy.tile) <= attack.range;
+      this.fillTile(enemy.tile, GRID.target, inRange ? 0.4 : 0.12, inRange ? 0.9 : 0.3);
+    }
+    const target = hover && this.combatants.find((c) => c.side === 'enemies' && !c.defeated && c.tile.col === hover.col && c.tile.row === hover.row);
+    if (target) {
+      if (distance(hero.tile, target.tile) > attack.range) this.showCost(target.tile, 'Hors de portée');
+      else if (hero.actionPoints < attack.apCost) this.showCost(target.tile, 'Pas assez de PA');
+      else {
+        const cover = coverBetween(hero.tile, target.tile, (t) => coverAt(this.arena, t));
+        const chance = Math.round(hitChance(attack, target, this.zone, cover) * 100);
+        this.showCost(target.tile, `${chance} % · ${attack.apCost} PA${cover > 0 ? ' · à couvert' : ''}`);
+      }
+    }
+  }
+
+  /**
+   * A tree in front of a fighter or of the hovered cell turns see-through, so the board stays readable
+   * (docs/gdd/combat.md, « Lisibilité »).
+   */
+  private updateFades(): void {
+    const covered: Phaser.Geom.Rectangle[] = [];
+    for (const c of this.combatants) {
+      const token = this.tokens.get(c.id);
+      if (token && !c.defeated) covered.push(token.image.getBounds());
+    }
+    if (this.hoverTile && isOpen(this.arena, this.hoverTile)) {
+      const f = this.feet(this.hoverTile);
+      covered.push(new Phaser.Geom.Rectangle(f.x - 16, f.y - 40 * LAYOUT.arenaScale, 32, 40 * LAYOUT.arenaScale));
+    }
+    for (const image of this.obstacleImages) {
+      const bounds = image.getBounds();
+      const hides = covered.some((r) => r.bottom < image.y && Phaser.Geom.Intersects.RectangleToRectangle(bounds, r));
+      image.setAlpha(hides ? 0.4 : 1);
+    }
+  }
+
+  private showCost(tile: Tile, text: string): void {
+    const f = this.feet(tile);
+    this.costLabel.setText(text).setPosition(f.x, f.y - 84 * LAYOUT.arenaScale).setVisible(true);
+  }
+
+  /** The hero's reach and the hint line, after anything that changes position or PA. */
+  private refreshBoard(): void {
+    const hero = this.hero();
+    const heroTurn = this.awaitingHero && !this.ended;
+    this.reach = heroTurn && this.mode === 'move' ? reachable(hero.tile, hero.actionPoints, this.walkable) : new Map();
+    if (!heroTurn) this.hint.setText('');
+    else if (this.mode === 'move') {
+      this.hint.setText(this.reach.size > 0 ? 'Choisis une case bleue pour t’y rendre (1 PA par case).' : 'Plus assez de PA pour te déplacer.');
+    } else {
+      const attack = hero.attacks[this.mode];
+      this.hint.setText(`Choisis un ennemi en rouge vif à portée (${attack.label}, ${attack.apCost} PA).`);
+    }
+    this.drawBoard();
   }
 
   private get frames(): Record<string, number> {
     return (this.registry.get('tileFrames') as Record<string, number>) ?? {};
   }
 
-  /** The hero stands as the first frame of their walk sheet, facing down-right; enemies use their tile. */
-  private tokenImage(c: Combatant, f: { x: number; y: number }): Phaser.GameObjects.Image {
-    const sheet = `marche-${this.state.character?.avatar ?? DEFAULT_AVATAR}`;
-    if (c.side === 'heroes' && this.textures.exists(sheet)) {
-      const columns = Math.floor(this.textures.get(sheet).getSourceImage().width / 64);
-      return this.add.image(f.x, f.y, sheet, FACINGS.indexOf('se') * columns);
-    }
+  private get heroSheet(): string {
+    return `marche-${this.state.character?.avatar ?? DEFAULT_AVATAR}`;
+  }
+
+  /** First frame of the hero's walk sheet in a facing: how the hero stands still. */
+  private standingFrame(facing: Facing): number {
+    const columns = Math.floor(this.textures.get(this.heroSheet).getSourceImage().width / 64);
+    return FACINGS.indexOf(facing) * columns;
+  }
+
+  /** The hero is their walk sheet (animated when moving), facing down-right; enemies use their tile. */
+  private tokenImage(c: Combatant, f: { x: number; y: number }): Phaser.GameObjects.Sprite {
+    if (c.side === 'heroes' && this.textures.exists(this.heroSheet)) return this.add.sprite(f.x, f.y, this.heroSheet, this.standingFrame('se'));
     const frame = this.frames[this.tileNames.get(c.id) ?? 'pnj'] ?? this.frames.pnj;
-    return this.add.image(f.x, f.y, 'tiles', frame);
+    return this.add.sprite(f.x, f.y, 'tiles', frame);
+  }
+
+  /** Walks a token along the tiles it has just moved through, one step at a time (the rules already moved it). */
+  private animateMove(c: Combatant, path: Tile[], from: Tile): Promise<void> {
+    const token = this.tokens.get(c.id);
+    if (!token || path.length === 0) return Promise.resolve();
+    const sprite = token.image;
+    token.hpBar.setVisible(false);
+    token.name.setVisible(false);
+    const isHero = c.side === 'heroes' && sprite.texture.key === this.heroSheet;
+    return new Promise((resolve) => {
+      let previous = from;
+      const step = (i: number) => {
+        if (i >= path.length) {
+          if (isHero) sprite.stop().setFrame(this.standingFrame(facingOf(path.length > 1 ? path[path.length - 2] : from, path[path.length - 1])));
+          token.hpBar.setVisible(true);
+          resolve();
+          return;
+        }
+        const next = path[i];
+        const facing = facingOf(previous, next);
+        if (isHero) {
+          const key = `${this.heroSheet}-${facing}`;
+          if (this.anims.exists(key)) sprite.play({ key, frameRate: WALK_FPS }, true);
+        } else sprite.setFlipX(['w', 'sw', 'nw'].includes(facing));
+        const f = this.feet(next);
+        this.tweens.add({
+          targets: sprite,
+          x: f.x,
+          y: f.y,
+          duration: STEP_ANIM_MS,
+          onUpdate: () => sprite.setDepth(sprite.y + 1),
+          onComplete: () => {
+            previous = next;
+            step(i + 1);
+          },
+        });
+      };
+      step(0);
+    });
+  }
+
+  /** A short line rising above a fighter: damage, a miss, an effect. */
+  private float(c: Combatant, text: string, color: string): void {
+    const f = this.feet(c.tile);
+    const label = this.add
+      .text(f.x, f.y - 70 * LAYOUT.arenaScale, text, { fontFamily: FONT_SERIF, fontSize: '24px', color, stroke: CSS.ink, strokeThickness: 4 })
+      .setOrigin(0.5, 1)
+      .setDepth(8000);
+    this.tweens.add({ targets: label, y: label.y - 30, alpha: 0, delay: 500, duration: 700, onComplete: () => label.destroy() });
   }
 
   private addToken(c: Combatant): void {
@@ -275,28 +494,40 @@ export class CombatScene extends Phaser.Scene {
       this.mode = 'move';
       this.awaitingHero = true;
       this.updateActionBar();
+      this.refreshBoard();
     } else {
       this.awaitingHero = false;
       this.updateActionBar();
-      this.time.delayedCall(400, () => this.runEnemyTurn(c));
+      this.refreshBoard();
+      this.time.delayedCall(400, () => void this.runEnemyTurn(c));
     }
   }
 
-  private runEnemyTurn(enemy: Combatant): void {
+  private wait(ms: number): Promise<void> {
+    return new Promise((resolve) => this.time.delayedCall(ms, resolve));
+  }
+
+  /** The enemy walks toward the hero and strikes while it has PA, each step and blow shown in turn. */
+  private async runEnemyTurn(enemy: Combatant): Promise<void> {
     let guard = 0;
     while (enemy.actionPoints > 0 && !enemy.defeated && !this.hero().defeated && guard++ < 10) {
       const attack = enemy.attacks[0];
       if (canAttack(enemy, attack, this.hero())) {
         this.performAttack(enemy, attack, this.hero(), 'corps', 0);
         if (this.checkOutcome()) return;
+        await this.wait(550);
         continue;
       }
       const path = this.pathAdjacentTo(enemy.tile, this.hero().tile);
       if (!path || path.length === 0) break;
-      moveAlong(enemy, path);
+      const from = enemy.tile;
+      const taken = moveAlong(enemy, path);
+      await this.animateMove(enemy, taken, from);
       this.refreshToken(enemy);
+      this.drawBoard();
     }
-    this.time.delayedCall(300, () => this.nextTurn());
+    await this.wait(300);
+    this.nextTurn();
   }
 
   private pathAdjacentTo(from: Tile, target: Tile): Tile[] | null {
@@ -330,26 +561,31 @@ export class CombatScene extends Phaser.Scene {
   // --- Hero actions ------------------------------------------------------
 
   private onTap(pointer: Phaser.Input.Pointer): void {
-    if (!this.awaitingHero || this.ended) return;
-    const tile = screenToTile({
-      x: (pointer.worldX - this.originX) / LAYOUT.arenaScale,
-      y: (pointer.worldY - this.originY) / LAYOUT.arenaScale,
-    });
+    if (!this.awaitingHero || this.busy || this.ended) return;
+    const tile = this.tileAt(pointer);
     const target = this.combatants.find((c) => c.side === 'enemies' && !c.defeated && c.tile.col === tile.col && c.tile.row === tile.row);
 
     if (target && this.mode !== 'move') {
       this.tryAttack(target);
       return;
     }
-    if (this.mode === 'move' && this.walkable(tile)) {
-      const hero = this.hero();
-      const path = findPath(hero.tile, tile, this.walkable);
-      if (!path) return;
-      moveAlong(hero, path);
-      this.refreshToken(hero);
-      this.marker.clear();
-      this.updateActionBar();
-    }
+    // Only the blue cells: the walk stays within this turn's PA (docs/gdd/combat.md, « Lisibilité »).
+    const path = this.mode === 'move' ? this.reach.get(tileKey(tile)) : undefined;
+    if (!path) return;
+    void this.heroMove(path);
+  }
+
+  private async heroMove(path: Tile[]): Promise<void> {
+    const hero = this.hero();
+    const from = hero.tile;
+    const taken = moveAlong(hero, path);
+    this.busy = true;
+    this.drawBoard();
+    await this.animateMove(hero, taken, from);
+    this.busy = false;
+    this.refreshToken(hero);
+    this.updateActionBar();
+    this.refreshBoard();
   }
 
   private tryAttack(target: Combatant): void {
@@ -362,7 +598,7 @@ export class CombatScene extends Phaser.Scene {
     }
     this.performAttack(hero, attack, target, this.zone, coverBetween(hero.tile, target.tile, (t) => coverAt(this.arena, t)));
     this.updateActionBar();
-    this.checkOutcome();
+    if (!this.checkOutcome()) this.refreshBoard();
   }
 
   private performAttack(attacker: Combatant, attack: AttackProfile, target: Combatant, zone: Zone, cover: number): void {
@@ -371,6 +607,8 @@ export class CombatScene extends Phaser.Scene {
     this.refreshToken(target);
     const zoneLabel = zone === 'corps' ? '' : ` [${findZone(zone).label}]`;
     const coverLabel = cover > 0 ? ` (à couvert, +${cover} en Défense)` : '';
+    if (!result.hit) this.float(target, 'Raté', CSS.muted);
+    else this.float(target, `−${result.damage}${result.critical ? ' !' : ''}`, result.critical ? CSS.copper : CSS.parchment);
     if (result.fumble) this.appendLog(`${attacker.name} rate son attaque (échec critique).`);
     else if (!result.hit) this.appendLog(`${attacker.name} attaque${zoneLabel} ${target.name}${coverLabel} : raté.`);
     else {
@@ -423,21 +661,24 @@ export class CombatScene extends Phaser.Scene {
   }
 
   private setMode(mode: Mode): void {
-    if (!this.awaitingHero) return;
+    if (!this.awaitingHero || this.busy) return;
     this.mode = mode;
     this.updateActionBar();
+    this.refreshBoard();
   }
 
   private cycleZone(): void {
     const i = ZONES.findIndex((z) => z.id === this.zone);
     this.zone = ZONES[(i + 1) % ZONES.length].id;
     this.updateActionBar();
+    this.drawBoard();
   }
 
   private endHeroTurn(): void {
-    if (!this.awaitingHero) return;
+    if (!this.awaitingHero || this.busy) return;
     this.awaitingHero = false;
     this.marker.clear();
+    this.refreshBoard();
     this.nextTurn();
   }
 

@@ -13,13 +13,14 @@
   quêtes, création avec avatars. Avant toute génération : plan, coût, feu vert de Cyril (`CLAUDE.md` §5).
 - Fait et en ligne : corrections visuelles (grand Arbre-Titan, personnages à 54 px, sol du marché, variantes) ;
   animation de marche en 2D, méthode retenue par Cyril (`docs/gdd/animation.md`) ; 6 avatars au choix à la création,
-  animés sur la carte (sauvegarde v8). 47,5 crédits dépensés sur le jalon, **36 restants**.
+  animés sur la carte (sauvegarde v8). Puis (pas encore poussé) : vrai pont, lanterne qui cachait Ilyane, combat
+  lisible sur grille (`docs/gdd/combat.md`, « Lisibilité »). 48,5 crédits dépensés sur le jalon, **35 restants**.
 
 ## Prochaine étape
 
-1. Avis de Cyril sur les avatars et la marche (en ligne depuis le 2026-11-01).
+1. Avis de Cyril sur le pont et le nouveau combat (à pousser).
 2. Contenu : maisons à visiter (intérieurs), nouveaux PNJ, quêtes secondaires. Propositions de lore d'abord
-   (`docs/univers/`, « à valider ») ; budget ≈ 36 crédits (PNJ animés ≈ 3,5 crédits chacun).
+   (`docs/univers/`, « à valider ») ; budget ≈ 35 crédits (PNJ animés ≈ 3,5 crédits chacun).
 
 ## Points ouverts
 

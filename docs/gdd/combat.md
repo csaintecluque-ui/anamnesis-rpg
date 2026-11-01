@@ -46,3 +46,20 @@ Règles : `src/rules/combat.ts` ; écran : `src/scenes/CombatScene.ts` ; donnée
   pour que les trois résolutions restent équilibrées.
 - **IA ennemie** : simple — se rapproche si hors de portée, attaque sinon, jusqu'à épuisement des PA.
 - **Armure** : son bonus de Défense compte en combat (`makeHeroCombatant`).
+
+## Lisibilité (jalon 2, demandé par Cyril le 2026-11-01 : « à la FF Tactics »)
+
+Le combat était « fouillis » : on ne savait ni où l'on était, ni ce qu'on faisait, ni jusqu'où aller. Désormais
+(`CombatScene`, `drawBoard`) :
+
+- **Grille** sur chaque case libre de l'arène, et contour cuivre de l'arène (son bord sert à fuir).
+- **Case de celui qui joue** en cuivre ; l'ordre du tour reste à gauche.
+- **Déplacement** : les cases atteignables ce tour-ci (1 PA par case, `reachable` dans `src/engine/pathfinding.ts`)
+  en bleu ; au survol, le chemin en pointillés et son coût (« 4 PA »). On ne peut cliquer que sur une case bleue.
+- **Attaque** : les ennemis à portée en rouge vif, les autres en rouge pâle ; au survol, la **chance de toucher**
+  (`hitChance`, même calcul que le jet), le coût en PA et la couverture.
+- **Ligne d'aide** sous le bandeau (« Choisis une case bleue… », « Choisis un ennemi en rouge vif… »).
+- **Mouvement pas à pas** : le héros marche (planche de son avatar), les ennemis glissent case par case, chaque
+  coup est montré (« −5 », « Raté ») avant le suivant ; pendant ce temps, on ne peut pas agir.
+- **Arbres transparents** : un obstacle devant un combattant ou la case survolée devient translucide.
+

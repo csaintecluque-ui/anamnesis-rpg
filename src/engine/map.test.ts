@@ -177,3 +177,13 @@ describe('large decor', () => {
   });
 });
 
+
+describe('NPCs stay visible', () => {
+  it('has no obstacle straight in front of an NPC on screen (same col − row, one step lower)', () => {
+    for (const map of [gardebois, gareEngloutie]) {
+      for (const npc of map.objects.filter((o) => o.type === 'pnj')) {
+        expect(map.obstacles[(npc.row + 1) * map.width + npc.col + 1], npc.name).toBe(-1);
+      }
+    }
+  });
+});

@@ -4,8 +4,10 @@ import { MAPS } from '../data/maps';
 import npcData from '../data/npcs.json';
 import { TILE_HEIGHT, TILE_WIDTH, screenToTile, tileToScreen, type Tile } from '../engine/iso';
 import { carveArena, farEdgeTiles, toArena } from '../engine/arena';
+import { FACINGS, facingOf, type Facing } from '../engine/facing';
 import { findPath } from '../engine/pathfinding';
 import { findObject, isBigAnchor, isWalkable, parseTiledMap, tileKey, type GameMap, type MapObject } from '../engine/tiledMap';
+import { getSettings } from '../settings';
 import { findLocation, type GameState } from '../state/gameState';
 import { onKeys } from '../ui/keys';
 import { COLORS, CSS, FONT_SERIF } from '../ui/theme';
@@ -20,6 +22,9 @@ const INTERACTIVE_OBSTACLES = new Set(['panneau', 'echo', 'golem', 'coffre', 'fo
 const TOP_MARGIN = 80;
 
 const STEP_MS = 160;
+/** Walk sheets: 64 px wide frames; a full cycle covers about two tiles. */
+const WALK_FRAME_WIDTH = 64;
+const WALK_FPS = 14;
 
 /** Size of the piece of map a fight takes place on (docs/gdd/combat.md). */
 const ARENA_COLS = 11;
@@ -30,7 +35,10 @@ export class MapScene extends Phaser.Scene {
   private map!: GameMap;
   private originX = 0;
   private originY = 0;
-  private hero!: Phaser.GameObjects.Image;
+  private hero!: Phaser.GameObjects.Sprite;
+  /** Walk sheet of the hero (public/sprites/), or null to keep the still tile. */
+  private walkSheet: string | null = null;
+  private facing: Facing = 'se';
   private heroTile: Tile = { col: 0, row: 0 };
   private occupied = new Set<string>();
   private path: Tile[] = [];
@@ -73,7 +81,8 @@ export class MapScene extends Phaser.Scene {
     this.state.position = { ...this.heroTile };
     this.state.entrance = null;
     const start = this.feet(this.heroTile);
-    this.hero = this.add.image(start.x, start.y, 'tiles', this.map.frames.heros).setOrigin(0.5, 1).setDepth(start.y);
+    this.hero = this.add.sprite(start.x, start.y, 'tiles', this.map.frames.heros).setOrigin(0.5, 1).setDepth(start.y);
+    this.setUpWalk();
 
     const worldWidth = (this.map.width + this.map.height) * (TILE_WIDTH / 2);
     const worldHeight = (this.map.width + this.map.height) * (TILE_HEIGHT / 2) + TOP_MARGIN;
@@ -223,6 +232,7 @@ export class MapScene extends Phaser.Scene {
     const next = this.path.shift();
     if (!next) {
       this.moving = false;
+      this.standStill();
       this.marker.clear();
       const done = this.arrival;
       this.arrival = null;
@@ -230,6 +240,7 @@ export class MapScene extends Phaser.Scene {
       return;
     }
     this.moving = true;
+    this.walk(facingOf(this.heroTile, next));
     const diagonal = next.col !== this.heroTile.col && next.row !== this.heroTile.row;
     const target = this.feet(next);
     this.tweens.add({
@@ -244,6 +255,36 @@ export class MapScene extends Phaser.Scene {
         this.stepAlong();
       },
     });
+  }
+
+  // --- Hero walk animation (docs/gdd/animation.md) -------------------------
+
+  /** Walk animations of the chosen sheet, one per facing; without a sheet the hero stays the still tile. */
+  private setUpWalk(): void {
+    const style = getSettings().walkStyle;
+    const sheet = [`heros-marche-${style}`, 'heros-marche-2d'].find((key) => this.textures.exists(key));
+    this.walkSheet = sheet ?? null;
+    if (!sheet) return;
+    const columns = Math.floor(this.textures.get(sheet).getSourceImage().width / WALK_FRAME_WIDTH);
+    FACINGS.forEach((facing, row) => {
+      const key = `${sheet}-${facing}`;
+      if (this.anims.exists(key)) return;
+      const frames = this.anims.generateFrameNumbers(sheet, { start: row * columns, end: row * columns + columns - 1 });
+      this.anims.create({ key, frames, frameRate: WALK_FPS, repeat: -1 });
+    });
+    this.standStill();
+  }
+
+  private walk(facing: Facing): void {
+    if (!this.walkSheet) return;
+    this.facing = facing;
+    this.hero.play(`${this.walkSheet}-${facing}`, true);
+  }
+
+  private standStill(): void {
+    if (!this.walkSheet) return;
+    const anim = this.anims.get(`${this.walkSheet}-${this.facing}`);
+    this.hero.stop().setTexture(this.walkSheet, anim.frames[0].frame.name);
   }
 
   private showMarker(tile: Tile): void {

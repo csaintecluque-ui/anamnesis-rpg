@@ -17,6 +17,10 @@ export class BootScene extends Phaser.Scene {
     // Large decor drawn over several cells (npm run art), as named in the maps' tileset.
     const big = new Set(Object.values(MAPS).flatMap((m) => Object.values(parseTiledMap(m).big)));
     for (const name of big) this.load.image(`decor-${name}`, `decor/${name}.png`);
+    // Hero walk sheets being compared (npm run walk, docs/gdd/animation.md): 64 × 96 frames.
+    for (const style of ['2d', '3d']) {
+      this.load.spritesheet(`heros-marche-${style}`, `sprites/heros-marche-${style}.png`, { frameWidth: 64, frameHeight: 96 });
+    }
     // Dialogue portraits (npm run art).
     for (const npc of npcData) if ('portrait' in npc) this.load.image(`portrait-${npc.id}`, npc.portrait);
     // Illustrations (npm run art): the title screen's, and those of dialogue nodes.

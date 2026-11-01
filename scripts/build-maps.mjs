@@ -270,6 +270,7 @@ function gareEngloutie() {
   m.object('entree-gare', 'sortie', 0, 9, { cible: 'gardebois', arrivee: 'vers-gare', libelle: 'Vers Gardebois' });
   m.object('ingrid', 'pnj', 18, 10);
   m.object('echo-dernier-train', 'echo', 13, 8);
+  m.object('golem-gare', 'golem', 21, 13);
   m.object('panneau-gare', 'panneau', 2, 8, {
     texte: 'Gare engloutie — la forêt a repris ce que les hommes avaient laissé.',
   });

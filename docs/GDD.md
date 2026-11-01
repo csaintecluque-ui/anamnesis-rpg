@@ -160,6 +160,25 @@ Les trois pistes reposent sur des lois et des phénomènes du monde, pas sur la 
   - Les ennemis sont **mis hors de combat** : les créatures fuient, les golems s'éteignent, les humains se rendent.
   - Pas de gore. Le combat est toujours évitable dans la quête principale.
 
+### Précisions d'implémentation (premier combat : Golem de Ferraille, 2 Rôdeurs-Épine)
+
+- **Armes** : en attendant l'inventaire, le héros se bat avec les deux meilleures armes de sa classe,
+  Épée longue (Corps, 1d8) et Arc (Agilité, 1d8), choisies comme deux actions de combat plutôt qu'un équipement.
+  La Dague reste dans `src/data/weapons.json` pour plus tard.
+- **Zone** : un coup à la tête, aux bras ou aux jambes qui ne met pas hors de combat applique son effet
+  (étourdi, désarmé, ralenti) jusqu'au **prochain tour de la cible** ; un coup au corps n'a pas d'effet.
+- **Couverture** : le calcul existe (`resolveAttack(… , coverBonus)`), mais rien sur la carte ne la fournit
+  encore automatiquement — à faire quand le terrain portera cette information.
+- **Arène** : le combat ne se déroule pas sur un fragment de la carte explorée, mais sur une petite arène dédiée
+  (9 × 7, iso, même palette), pour rester simple tant que les cartes ne portent pas de zones de couverture ou
+  de limites de combat. Visuel provisoire, comme le reste de la phase 1.
+- **Fuite** : bouton toujours disponible, qui referme le combat sans conséquence (pas encore liée à une position
+  précise sur l'arène).
+- **Défaite du héros** : non létale, comme pour les ennemis. Le héros est ramené à 1 PV à l'entrée de Gardebois.
+- **Victoire** : mêmes effets que les résolutions par la parole (`chantier-arrete`, quête terminée, 40 XP),
+  pour que les trois résolutions restent équilibrées.
+- **IA ennemie** : simple — se rapproche si hors de portée, attaque sinon, jusqu'à épuisement des PA.
+
 ## 6. Tranche verticale : déroulé (validé)
 
 **Contexte canon** : une des Trois Failles vient de s'ouvrir près de la frontière Ferros–Verdantis [E10]. Selon la loi de la Mémoire Vivante, abîmer un Écho le fait se multiplier et provoque une **maladie mémorielle** [E2].

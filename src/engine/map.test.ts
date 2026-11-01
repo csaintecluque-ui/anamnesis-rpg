@@ -109,12 +109,13 @@ describe('La Gare Engloutie map (Tiled data)', () => {
   const npcTiles = new Set(gareEngloutie.objects.filter((o) => o.type === 'pnj').map(tileKey));
   const walk = (t: Tile) => isWalkable(gareEngloutie, t, npcTiles);
 
-  it('is a 24 × 18 isometric map with its entrance, Ingrid and the Écho', () => {
+  it('is a 24 × 18 isometric map with its entrance, Ingrid, the Écho and the Golem', () => {
     expect([gareEngloutie.width, gareEngloutie.height]).toEqual([24, 18]);
     expect(spawn).toBeDefined();
     expect(exit.properties.cible).toBe('gardebois');
     expect(findObject(gareEngloutie, 'ingrid')).toBeDefined();
     expect(findObject(gareEngloutie, 'echo-dernier-train')).toBeDefined();
+    expect(findObject(gareEngloutie, 'golem-gare')).toBeDefined();
   });
 
   it('has every NPC placed on the map described in the NPC data', () => {
@@ -123,9 +124,9 @@ describe('La Gare Engloutie map (Tiled data)', () => {
     }
   });
 
-  it('lets the player walk from the entrance and reach Ingrid and the Écho', () => {
+  it('lets the player walk from the entrance and reach Ingrid, the Écho and the Golem', () => {
     expect(walk(spawn)).toBe(true);
-    for (const name of ['ingrid', 'echo-dernier-train']) {
+    for (const name of ['ingrid', 'echo-dernier-train', 'golem-gare']) {
       const o = findObject(gareEngloutie, name)!;
       const around = [-1, 0, 1].flatMap((dc) => [-1, 0, 1].map((dr) => ({ col: o.col + dc, row: o.row + dr })));
       const reachable = around.some((t) => walk(t) && findPath(spawn, t, walk) !== null);

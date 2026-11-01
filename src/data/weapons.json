@@ -1,0 +1,18 @@
+[
+  {
+    "id": "epee-longue",
+    "name": "Épée longue",
+    "skill": "melee",
+    "attribute": "body",
+    "range": 1,
+    "damage": { "count": 1, "sides": 8 }
+  },
+  {
+    "id": "arc",
+    "name": "Arc",
+    "skill": "ranged",
+    "attribute": "agility",
+    "range": 6,
+    "damage": { "count": 1, "sides": 8 }
+  }
+]

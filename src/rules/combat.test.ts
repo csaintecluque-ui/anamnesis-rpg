@@ -1,0 +1,272 @@
+import { describe, expect, it } from 'vitest';
+import {
+  canAttack,
+  distance,
+  enemyAttack,
+  findEnemy,
+  findWeapon,
+  heroAttacks,
+  isAdjacent,
+  isDefeat,
+  isVictory,
+  makeEnemyCombatant,
+  makeHeroCombatant,
+  moveAlong,
+  resolveAttack,
+  rollDice,
+  rollDie,
+  rollInitiative,
+  startTurn,
+  type Combatant,
+  type Rng,
+} from './combat';
+import { changeAttribute, changeSkill, createDraft, finalizeCharacter, toggleOriginBonus, type CharacterDraft } from './character';
+
+function hero(feat: 'tough' | 'marksman' | 'weapon-master' = 'tough') {
+  let d: CharacterDraft = { ...createDraft(), name: 'Aube', feat };
+  d = changeAttribute(changeAttribute(changeAttribute(d, 'body', 1), 'body', 1), 'agility', 1);
+  d = toggleOriginBonus(toggleOriginBonus(d, 'body'), 'agility');
+  for (const id of ['melee', 'melee', 'melee', 'ranged', 'ranged', 'ranged'] as const) d = changeSkill(d, id, 1);
+  return finalizeCharacter(d);
+}
+
+/** rng() value that makes rollDie(sides, rng) land on `face`. */
+function at(face: number, sides: number): number {
+  return (face - 1 + 0.5) / sides;
+}
+
+function sequence(...values: number[]): Rng {
+  let i = 0;
+  return () => values[i++ % values.length];
+}
+
+describe('dice', () => {
+  it('rolls within [1, sides]', () => {
+    for (let i = 0; i < 100; i++) {
+      const roll = rollDie(6, () => i / 100);
+      expect(roll).toBeGreaterThanOrEqual(1);
+      expect(roll).toBeLessThanOrEqual(6);
+    }
+  });
+
+  it('sums several dice', () => {
+    expect(rollDice({ count: 3, sides: 6 }, sequence(at(1, 6), at(6, 6), at(3, 6)))).toBe(1 + 6 + 3);
+  });
+});
+
+describe('grid helpers', () => {
+  it('measures Chebyshev distance and adjacency', () => {
+    expect(distance({ col: 0, row: 0 }, { col: 2, row: 1 })).toBe(2);
+    expect(isAdjacent({ col: 0, row: 0 }, { col: 1, row: 1 })).toBe(true);
+    expect(isAdjacent({ col: 0, row: 0 }, { col: 2, row: 0 })).toBe(false);
+  });
+});
+
+describe('initiative', () => {
+  it('sorts by roll, highest first, keeping order on ties', () => {
+    const combatants = ['a', 'b', 'c'].map((id) => makeEnemyCombatant(findEnemy('rodeur-epine')!, id, { col: 0, row: 0 }));
+    const order = rollInitiative(combatants, { a: 0, b: 0, c: 0 }, sequence(at(10, 20), at(15, 20), at(10, 20)));
+    expect(order.map((c) => c.id)).toEqual(['b', 'a', 'c']);
+    expect(order.map((c) => c.initiative)).toEqual([15, 10, 10]);
+  });
+});
+
+describe('movement', () => {
+  it('spends 1 PA per tile and caps the path to the PA available', () => {
+    const c = makeEnemyCombatant(findEnemy('rodeur-epine')!, 'r', { col: 0, row: 0 });
+    c.actionPoints = 2;
+    const path = [{ col: 1, row: 0 }, { col: 2, row: 0 }, { col: 3, row: 0 }, { col: 4, row: 0 }];
+    const taken = moveAlong(c, path);
+    expect(taken).toEqual(path.slice(0, 2));
+    expect(c.tile).toEqual({ col: 2, row: 0 });
+    expect(c.actionPoints).toBe(0);
+  });
+});
+
+describe('canAttack', () => {
+  const golem = findEnemy('golem-ferraille')!;
+  it('requires range, PA and no disarm, and ignores defeated combatants', () => {
+    const attacker = makeEnemyCombatant(golem, 'g', { col: 0, row: 0 });
+    const far = makeEnemyCombatant(golem, 'far', { col: 5, row: 5 });
+    const near = makeEnemyCombatant(golem, 'near', { col: 1, row: 0 });
+    const attack = enemyAttack(golem);
+
+    expect(canAttack(attacker, attack, far)).toBe(false);
+    expect(canAttack(attacker, attack, near)).toBe(true);
+
+    attacker.actionPoints = 2;
+    expect(canAttack(attacker, attack, near)).toBe(false);
+
+    attacker.actionPoints = 5;
+    attacker.status.disarmed = true;
+    expect(canAttack(attacker, attack, near)).toBe(false);
+
+    attacker.status.disarmed = false;
+    near.defeated = true;
+    expect(canAttack(attacker, attack, near)).toBe(false);
+  });
+});
+
+describe('resolveAttack', () => {
+  const rodeur = findEnemy('rodeur-epine')!;
+
+  function duel(): { attacker: Combatant; target: Combatant } {
+    const attacker = makeEnemyCombatant(rodeur, 'attacker', { col: 0, row: 0 });
+    const target = makeEnemyCombatant(rodeur, 'target', { col: 1, row: 0 });
+    return { attacker, target };
+  }
+
+  it('hits when the roll clears defense, deals damage and spends 3 PA', () => {
+    const { attacker, target } = duel();
+    const attack = enemyAttack(rodeur);
+    const result = resolveAttack(attacker, attack, target, 'corps', 0, sequence(at(15, 20), at(4, 6)));
+    expect(result).toMatchObject({ hit: true, critical: false, damage: 4 });
+    expect(target.hp).toBe(rodeur.hp - 4);
+    expect(attacker.actionPoints).toBe(rodeur.actionPoints - 3);
+  });
+
+  it('misses when the roll falls short of defense, dealing no damage', () => {
+    const { attacker, target } = duel();
+    const attack = enemyAttack(rodeur);
+    const result = resolveAttack(attacker, attack, target, 'corps', 0, sequence(at(2, 20)));
+    expect(result).toMatchObject({ hit: false, damage: 0 });
+    expect(target.hp).toBe(rodeur.hp);
+  });
+
+  it('a natural 1 always misses, even against weak defense', () => {
+    const { attacker, target } = duel();
+    target.defense = -100;
+    const result = resolveAttack(attacker, enemyAttack(rodeur), target, 'corps', 0, sequence(at(1, 20)));
+    expect(result.hit).toBe(false);
+    expect(result.fumble).toBe(true);
+  });
+
+  it('a natural 20 always hits and doubles the damage dice', () => {
+    const { attacker, target } = duel();
+    target.defense = 1000;
+    const result = resolveAttack(attacker, enemyAttack(rodeur), target, 'corps', 0, sequence(at(20, 20), at(6, 6), at(6, 6)));
+    expect(result).toMatchObject({ hit: true, critical: true, damage: 6 + 6 });
+  });
+
+  it('defeats the target and reports it once HP reaches 0', () => {
+    const { attacker, target } = duel();
+    target.hp = 3;
+    const result = resolveAttack(attacker, enemyAttack(rodeur), target, 'corps', 0, sequence(at(20, 20), at(6, 6), at(6, 6)));
+    expect(result.defeated).toBe(true);
+    expect(target.hp).toBe(0);
+    expect(target.defeated).toBe(true);
+  });
+
+  it('aiming at a zone applies its penalty and, on a non-lethal hit, its status effect', () => {
+    const { attacker, target } = duel();
+    target.hp = 100;
+    const result = resolveAttack(attacker, enemyAttack(rodeur), target, 'tete', 0, sequence(at(18, 20), at(6, 6)));
+    expect(result.zoneEffect).toBe('stunned');
+    expect(target.status.stunned).toBe(true);
+  });
+
+  it('never applies a zone effect to a target it defeats', () => {
+    const { attacker, target } = duel();
+    target.hp = 1;
+    const result = resolveAttack(attacker, enemyAttack(rodeur), target, 'jambes', 0, sequence(at(18, 20), at(6, 6)));
+    expect(result.zoneEffect).toBeNull();
+    expect(target.status.slowed).toBe(false);
+  });
+
+  it('cover raises the effective defense', () => {
+    const { attacker, target } = duel();
+    const roll = sequence(at(15, 20), at(4, 6));
+    const withoutCover = resolveAttack(attacker, enemyAttack(rodeur), target, 'corps', 0, roll);
+    expect(withoutCover.hit).toBe(true);
+
+    const { attacker: a2, target: t2 } = duel();
+    const result = resolveAttack(a2, enemyAttack(rodeur), t2, 'corps', 6, sequence(at(15, 20)));
+    expect(result.hit).toBe(false);
+  });
+});
+
+describe('startTurn', () => {
+  const golem = findEnemy('golem-ferraille')!;
+
+  it('restores full PA and clears status by default', () => {
+    const c = makeEnemyCombatant(golem, 'g', { col: 0, row: 0 });
+    c.actionPoints = 0;
+    c.status.disarmed = true;
+    startTurn(c);
+    expect(c.actionPoints).toBe(golem.actionPoints);
+    expect(c.status).toEqual({ stunned: false, disarmed: false, slowed: false });
+  });
+
+  it('a stunned combatant gets no PA this turn', () => {
+    const c = makeEnemyCombatant(golem, 'g', { col: 0, row: 0 });
+    c.status.stunned = true;
+    startTurn(c);
+    expect(c.actionPoints).toBe(0);
+  });
+
+  it('a slowed combatant gets half PA, rounded up', () => {
+    const c = makeEnemyCombatant(golem, 'g', { col: 0, row: 0 });
+    c.status.slowed = true;
+    startTurn(c);
+    expect(c.actionPoints).toBe(Math.ceil(golem.actionPoints / 2));
+  });
+});
+
+describe('victory and defeat', () => {
+  it('is victory once every enemy is defeated, regardless of heroes', () => {
+    const h = makeHeroCombatant(hero(), { col: 0, row: 0 });
+    const e = makeEnemyCombatant(findEnemy('rodeur-epine')!, 'r', { col: 1, row: 0 });
+    expect(isVictory([h, e])).toBe(false);
+    e.defeated = true;
+    expect(isVictory([h, e])).toBe(true);
+    expect(isDefeat([h, e])).toBe(false);
+  });
+
+  it('is defeat once every hero is defeated', () => {
+    const h = makeHeroCombatant(hero(), { col: 0, row: 0 });
+    const e = makeEnemyCombatant(findEnemy('rodeur-epine')!, 'r', { col: 1, row: 0 });
+    h.defeated = true;
+    expect(isDefeat([h, e])).toBe(true);
+  });
+});
+
+describe('heroAttacks', () => {
+  it('builds Épée longue and Arc from Corps/Agilité and the matching skill ranks', () => {
+    const c = hero('tough');
+    const attacks = heroAttacks(c);
+    const sword = attacks.find((a) => a.weaponId === 'epee-longue')!;
+    const bow = attacks.find((a) => a.weaponId === 'arc')!;
+    expect(sword.toHitBonus).toBe(c.attributes.body - 3 + c.skills.melee);
+    expect(bow.toHitBonus).toBe(c.attributes.agility - 3 + c.skills.ranged);
+    expect(sword.range).toBe(1);
+  });
+
+  it('Tireur d’Élite doubles the bow range and adds ranged damage', () => {
+    const base = heroAttacks(hero('tough')).find((a) => a.weaponId === 'arc')!;
+    const marksman = heroAttacks(hero('marksman')).find((a) => a.weaponId === 'arc')!;
+    expect(marksman.range).toBe(base.range * 2);
+    expect(marksman.damageBonus).toBe(base.damageBonus + 2);
+  });
+
+  it('Maître d’Armes adds to melee hit and damage only', () => {
+    const base = heroAttacks(hero('tough'));
+    const master = heroAttacks(hero('weapon-master'));
+    const sword = master.find((a) => a.weaponId === 'epee-longue')!;
+    const baseSword = base.find((a) => a.weaponId === 'epee-longue')!;
+    const bow = master.find((a) => a.weaponId === 'arc')!;
+    const baseBow = base.find((a) => a.weaponId === 'arc')!;
+    expect(sword.toHitBonus).toBe(baseSword.toHitBonus + 1);
+    expect(sword.damageBonus).toBe(baseSword.damageBonus + 1);
+    expect(bow.toHitBonus).toBe(baseBow.toHitBonus);
+    expect(bow.damageBonus).toBe(baseBow.damageBonus);
+  });
+});
+
+describe('data', () => {
+  it('ships the two weapons and both enemies named in the GDD (§5, §6)', () => {
+    expect(findWeapon('epee-longue')).toBeDefined();
+    expect(findWeapon('arc')).toBeDefined();
+    expect(findEnemy('golem-ferraille')).toBeDefined();
+    expect(findEnemy('rodeur-epine')).toBeDefined();
+  });
+});

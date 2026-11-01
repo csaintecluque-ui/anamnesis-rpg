@@ -274,3 +274,38 @@
 - Coquille dans `assets/brand/logo-small.svg` (trait parasite) : non corrigée, accord de Cyril requis.
 - Chronologie du canon non arbitrée (`LORE.md` §10, points 6 à 13).
 - Aménagement de la Gare Engloutie, dialogue d'Ingrid et scène de l'Écho : à valider par Cyril (`LORE.md` §11).
+
+## 2026-11-01 — Combat au tour par tour (Golem de Ferraille, 2 Rôdeurs-Épine)
+
+- Troisième résolution de la quête « Le Dernier Train » : le Golem de Ferraille, visible mais inerte sur la carte
+  de la Gare Engloutie depuis la session précédente, devient combattable. Même récompense que les résolutions
+  par la parole (`chantier-arrete`, quête terminée, 40 XP), pour rester équilibré.
+- Règles en code pur et testées (`src/rules/combat.ts`, 23 tests) : dés, initiative (d20 + Agilité ou bonus propre),
+  déplacement à 1 PA la case, attaque à 3 PA (toucher d20 + mod. + rang ≥ Défense, dégâts dés + mod., critique sur 20
+  qui double les dés, échec sur 1), visée par zone (tête étourdit, bras désarme, jambes ralentit, jusqu'au prochain
+  tour de la cible), couverture (prête, pas encore fournie par le terrain).
+- Données : `src/data/weapons.json` (Épée longue, Arc — la Dague attend l'inventaire) et `src/data/enemies.json`
+  (Golem de Ferraille, Rôdeur-Épine, PV/Défense/dégâts/PA/XP/texte de défaite non létal).
+- `src/scenes/CombatScene.ts` : arène dédiée 9 × 7 (iso, même planche de tuiles), jetons avec PV affichés,
+  barre d'actions (Déplacer, Mêlée, Tir, zone, Fin du tour, Fuir), IA ennemie simple (se rapproche puis attaque).
+  Victoire : effets de quête appliqués et toast ; défaite du héros : non létale, ramené à Gardebois à 1 PV ;
+  fuite : referme le combat sans conséquence.
+- `MapScene` : toucher le Golem lance le combat (`scene.pause` Map et Hud, `scene.launch('Combat', …)`) si la quête
+  est active et non résolue ; sinon un message signale qu'il est déjà immobile.
+- Tests : 123 au total (+23). Carte (Golem placé et joignable), règles de combat (dés, initiative, déplacement,
+  portée, résolution d'attaque, zones, tours, victoire/défaite, armes du héros, dons de combat).
+- Vérifié dans le navigateur (paysage téléphone 844 × 390) : la carte (tuiles, Ingrid, Écho, Golem, Rôdeurs
+  décoratifs) s'affiche correctement ; le combat se déclenche sur le Golem, l'arène et les jetons s'affichent, le
+  tour de l'IA déplace les ennemis vers le héros sans dépasser leurs PA ; une vraie attaque au toucher (tap sur un
+  ennemi en mode Mêlée) consomme 3 PA et affiche le résultat (ici un échec critique) ; une victoire simulée
+  applique bien `chantier-arrete`, termine la quête et donne 40 XP, puis referme proprement le combat (la carte et
+  le HUD reprennent). Aucune erreur dans la console sur une session de navigateur propre.
+- Limite connue : non vérifié en conditions réelles de jeu (tour complet joué à la main du début à la fin) ; les
+  vérifications ci-dessus combinent de vraies interactions (tap, attaque) et des appels directs aux méthodes de la
+  scène pour contourner le ralentissement du navigateur de test en arrière-plan.
+
+### Reste à faire (jalon 1)
+
+1. Inventaire, troc avec Tobias, montée de niveau.
+2. Couverture dérivée du terrain ; fuite liée à une position de l'arène plutôt qu'un bouton sans condition ;
+   arène tirée de la carte explorée plutôt qu'un espace dédié — si Cyril souhaite aller plus loin que le provisoire.

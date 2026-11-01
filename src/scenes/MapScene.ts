@@ -8,6 +8,7 @@ import { findPath } from '../engine/pathfinding';
 import { findObject, isWalkable, parseTiledMap, tileKey, type GameMap, type MapObject, type TiledMapJson } from '../engine/tiledMap';
 import { findLocation, type GameState } from '../state/gameState';
 import { COLORS, CSS, FONT_SERIF } from '../ui/theme';
+import type { CombatStartData } from './CombatScene';
 import type { HudScene } from './HudScene';
 
 const MAPS: Record<string, TiledMapJson> = {
@@ -49,6 +50,7 @@ export class MapScene extends Phaser.Scene {
     }
     this.state = state;
     this.map = parseTiledMap(MAPS[location.map]);
+    this.registry.set('tileFrames', this.map.frames);
     this.originX = this.map.height * (TILE_WIDTH / 2);
     this.originY = TOP_MARGIN;
     this.occupied = new Set(this.map.objects.filter((o) => o.type === 'pnj').map(tileKey));
@@ -119,7 +121,9 @@ export class MapScene extends Phaser.Scene {
         if (frame < 0) continue;
         const f = this.feet({ col, row });
         const image = this.add.image(f.x, f.y, 'tiles', frame).setOrigin(0.5, 1).setDepth(f.y);
-        const marker = this.map.objects.find((o) => (o.type === 'panneau' || o.type === 'echo') && o.col === col && o.row === row);
+        const marker = this.map.objects.find(
+          (o) => (o.type === 'panneau' || o.type === 'echo' || o.type === 'golem') && o.col === col && o.row === row,
+        );
         if (marker) this.interactables.push({ object: marker, image });
       }
     }
@@ -256,6 +260,10 @@ export class MapScene extends Phaser.Scene {
       this.hud().toast(target.properties.texte ?? '…');
       return;
     }
+    if (target.type === 'golem') {
+      this.startGolemFight();
+      return;
+    }
     if (DIALOGUES[target.name]) {
       this.scene.pause();
       this.scene.launch('Dialogue', { id: target.name });
@@ -263,6 +271,29 @@ export class MapScene extends Phaser.Scene {
     }
     const npc = npcData.find((n) => n.id === target.name);
     this.hud().toast(npc ? `${npc.name} — ${npc.role}.` : '…');
+  }
+
+  private startGolemFight(): void {
+    if (this.state.flags['golem-vaincu']) {
+      this.hud().toast('Le Golem de Ferraille gît immobile, silencieux.');
+      return;
+    }
+    if (this.state.flags['chantier-arrete'] || this.state.quests['dernier-train'] !== 'active') {
+      this.hud().toast('Le Golem de Ferraille ne bouge plus.');
+      return;
+    }
+    this.registry.set('tileFrames', this.map.frames);
+    this.scene.pause();
+    this.scene.pause('Hud');
+    this.scene.launch('Combat', {
+      enemyIds: ['golem-ferraille', 'rodeur-epine', 'rodeur-epine'],
+      victoryEffects: [{ setFlag: 'chantier-arrete' }, { completeQuest: 'dernier-train' }, { giveXp: 40 }],
+      victoryFlag: 'golem-vaincu',
+      obstacles: [
+        { col: 4, row: 0 },
+        { col: 4, row: 6 },
+      ],
+    } satisfies CombatStartData);
   }
 
   private checkExit(): void {

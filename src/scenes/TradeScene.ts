@@ -16,6 +16,7 @@ import {
 } from '../rules/inventory';
 import type { GameState } from '../state/gameState';
 import { addTextButton } from '../ui/button';
+import { onKeys, withKeyHint } from '../ui/keys';
 import { COLORS, CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
 
 const MARGIN = 60;
@@ -46,7 +47,9 @@ export class TradeScene extends Phaser.Scene {
     const title = this.npcId ? `L’étal ${npc?.name ?? ''}` : 'Inventaire';
     this.add.text(MARGIN, 124, title, { fontFamily: FONT_SERIF, fontSize: '28px', color: CSS.copper });
 
-    addTextButton(this, GAME_WIDTH - 130, 130, 'Fermer', () => this.close(), { width: 180, height: 64 });
+    addTextButton(this, GAME_WIDTH - 130, 130, withKeyHint('Fermer', 'Échap'), () => this.close(), { width: 220, height: 64, fontSize: 24 });
+    onKeys(this, ['ESC'], () => this.close());
+    if (!this.npcId) onKeys(this, ['I'], () => this.close());
 
     this.layer = this.add.container(0, 0);
     this.redraw();
@@ -71,7 +74,8 @@ export class TradeScene extends Phaser.Scene {
         CSS.parchment,
       ),
     );
-    if (this.message) this.layer.add(this.text(GAME_WIDTH - MARGIN, STATS_Y, this.message, 20, CSS.copper, 1));
+    // Right-aligned, but left of the Fermer button.
+    if (this.message) this.layer.add(this.text(GAME_WIDTH - 260, STATS_Y, this.message, 20, CSS.copper, 1));
 
     ITEMS.forEach((item, i) => this.drawRow(item, ROW_TOP + i * ROW_HEIGHT));
   }

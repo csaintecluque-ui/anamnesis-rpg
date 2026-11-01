@@ -400,7 +400,35 @@ tester le troc ; feu vert pour le menu pause et les options.
 ### Reste à faire (jalon 1)
 
 Tous les points de `CLAUDE.md` §4 sont couverts. Avant de passer au jalon suivant, il faut la validation de Cyril
-(test sur iPhone, et les contenus « à valider » de `LORE.md` §11). Pistes ensuite :
+(test sur iPhone, et les contenus « à valider » de `LORE.md` §11). Pistes : voir la session suivante.
+
+## 2026-11-01 — Jouable sur PC (Linux, Windows)
+
+Décision de Cyril : le jeu doit être jouable sur PC, « voire surtout » ; l'iPhone sert surtout aux tests.
+
+- **Image nette** : le jeu dessinait une image fixe de 1280 × 720 que le navigateur étirait (× 1,5 sur un écran
+  1080p) : texte flou. L'image est maintenant calculée à la résolution de l'écran (× 1,5 en 1080p, × 2 au-delà et
+  sur les écrans haute densité), les caméras zooment d'autant et le texte est rasterisé à ce zoom
+  (`src/ui/viewport.ts`). Aucune mise en page à reprendre : tout reste en 1280 × 720 unités. 60 i/s en 1920 × 1080.
+- **Clavier** : Échap (menu, retour, fermer), I (inventaire), 1–9 (dialogues), Entrée (montée de niveau),
+  1/2/3, Z, Espace (combat). Rappels sur les boutons quand une souris est détectée ; rien ne change sur téléphone.
+  Tableau complet : `GDD.md` §13 (`src/ui/keys.ts`).
+- **Plein écran** : bouton dans les Options (PC, Android), en plus de F11.
+- **Bug corrigé au passage** : sur une demande de plein écran refusée, Phaser déplaçait le canevas dans un
+  conteneur à lui, et l'essai suivant plantait (« HierarchyRequestError »). On lui donne notre propre conteneur.
+- Vérifié dans le navigateur en 1920 × 1080 : image 1:1 avec l'écran, texte rendu au bon zoom (HUD × 1,5,
+  carte × 2,25) ; déplacement à la souris ; clic d'attaque en combat (la conversion du pointeur a été corrigée) ;
+  champ du nom aligné sur son cadre ; vraies frappes clavier : Échap ouvre/ferme le menu, I ouvre/ferme
+  l'inventaire, Échap dans les Options ouvertes depuis la pause ne ferme que les Options, 1 et 2 dans un dialogue
+  (1 sans effet sur une option grisée), 2/Z/Espace en combat. En émulation téléphone : pas de rappels clavier.
+- **Non vérifiable ici** : le passage effectif en plein écran. La fenêtre de test bloque le plein écran pour toute
+  page ; la demande part bien, au bon élément et pendant le clic. À essayer sur un vrai PC.
+- **Remarqué, pas corrigé** : en combat, les noms des combattants se chevauchent quand ils sont côte à côte.
+- Tests : 158, au vert. `npm run typecheck` et `npm run build` au vert.
+
+### Reste à faire
+
+Validation de Cyril sur PC et sur iPhone (jalon 1). Pistes ensuite :
 
 1. Raccorder les armes équipées au combat.
 2. Couverture dérivée du terrain ; fuite liée à une position ; arène tirée de la carte explorée.

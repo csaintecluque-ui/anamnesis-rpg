@@ -2,6 +2,7 @@ import Phaser from 'phaser';
 import { saveStore } from '../save/browser';
 import type { GameState } from '../state/gameState';
 import { addTextButton } from '../ui/button';
+import { onKeys, withKeyHint } from '../ui/keys';
 import { COLORS, CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
 
 /** Opened from the HUD's Menu button; the map stays frozen underneath until « Reprendre ». */
@@ -17,8 +18,13 @@ export class PauseScene extends Phaser.Scene {
       .setStrokeStyle(2, COLORS.copper, 0.8);
     this.add.text(GAME_WIDTH / 2, GAME_HEIGHT / 2 - 200, 'Pause', { fontFamily: FONT_SERIF, fontSize: '36px', color: CSS.copper }).setOrigin(0.5);
 
+    // Options opens on top of this menu: Échap then closes Options only.
+    onKeys(this, ['ESC'], () => {
+      if (!this.scene.isActive('Options')) this.resumeGame();
+    });
+
     const entries: [string, () => void][] = [
-      ['Reprendre', () => this.resumeGame()],
+      [withKeyHint('Reprendre', 'Échap'), () => this.resumeGame()],
       ['Sauvegarder', () => this.leaveMap('Slots', { mode: 'save', returnTo: 'Map' })],
       ['Options', () => this.scene.launch('Options')],
       ['Retour au titre', () => this.backToTitle()],

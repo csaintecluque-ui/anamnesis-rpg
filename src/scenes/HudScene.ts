@@ -4,6 +4,7 @@ import { hasPendingLevelUp } from '../rules/leveling';
 import { fontPx } from '../settings';
 import type { GameState } from '../state/gameState';
 import { addTextButton } from '../ui/button';
+import { withKeyHint } from '../ui/keys';
 import { CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
 
 const TOAST_MS = 4000;
@@ -42,8 +43,12 @@ export class HudScene extends Phaser.Scene {
       .setOrigin(0.5);
     this.refreshStatus();
 
-    addTextButton(this, 120, 50, 'Menu', () => this.openOverlay('Pause'), { width: 200, height: 76 });
-    addTextButton(this, GAME_WIDTH - 130, 50, 'Inventaire', () => this.openOverlay('Trade', {}), { width: 220, height: 76 });
+    addTextButton(this, 120, 50, withKeyHint('Menu', 'Échap'), () => this.openOverlay('Pause'), { width: 200, height: 76, fontSize: 24 });
+    addTextButton(this, GAME_WIDTH - 130, 50, withKeyHint('Inventaire', 'I'), () => this.openOverlay('Trade', {}), {
+      width: 220,
+      height: 76,
+      fontSize: 24,
+    });
 
     this.levelUpButton = addTextButton(this, GAME_WIDTH / 2, 150, '✦ Montée de niveau !', () => this.openOverlay('LevelUp'), {
       width: 320,
@@ -85,7 +90,7 @@ export class HudScene extends Phaser.Scene {
   }
 
   /** Overlays (pause menu, inventory, level-up) freeze the map underneath; each one resumes it when it closes. */
-  private openOverlay(key: string, data?: object): void {
+  openOverlay(key: string, data?: object): void {
     this.scene.pause('Map');
     this.scene.launch(key, data);
   }

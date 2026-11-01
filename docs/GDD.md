@@ -310,3 +310,35 @@ Les trois pistes reposent sur des lois et des phénomènes du monde, pas sur la 
     option prend la hauteur que son texte demande.
 - **Enregistrement** : les options sont propres à l'appareil (`localStorage`), pas à la sauvegarde : une sauvegarde
   importée sur un autre appareil garde les options de cet appareil.
+
+## 13. PC (Linux, Windows) : clavier, souris, netteté
+
+Le PC est une cible principale, au même titre que le téléphone (décision de Cyril, 2026-11-01).
+
+- **Netteté** : la mise en page reste en 1280 × 720 unités, mais l'image est calculée à la résolution réelle de
+  l'écran (× 1,5 sur un écran 1080p, × 2 sur un écran 1440p, un portable haute densité ou un téléphone ; plafonné à
+  × 2). Les caméras zooment d'autant et le texte est rasterisé à ce zoom : rien n'est plus étiré par le navigateur.
+  Code : `src/ui/viewport.ts`. Les tuiles provisoires restent dessinées à leur taille d'origine (elles seront
+  remplacées en phase 2).
+- **Raccourcis clavier** (un rappel s'affiche sur les boutons quand une souris est détectée, jamais sur téléphone) :
+
+| Écran | Touche | Action |
+|---|---|---|
+| Carte | Échap | Menu pause |
+| Carte | I | Inventaire |
+| Menu pause | Échap | Reprendre |
+| Options | Échap | Retour |
+| Inventaire / troc | Échap (ou I pour l'inventaire) | Fermer |
+| Dialogue | 1 à 9 (rangée du haut ou pavé numérique) | Choisir l'option (sans effet sur une option grisée) |
+| Montée de niveau | Entrée | Continuer (quand tous les points sont répartis) |
+| Montée de niveau | Échap | Remettre à plus tard (le bouton reste sur le HUD) |
+| Sauvegardes | Échap | Retour |
+| Combat | 1 / 2 / 3 | Déplacer / Mêlée / Tir |
+| Combat | Z | Zone visée suivante |
+| Combat | Espace | Fin du tour |
+
+  « Fuir » n'a volontairement pas de raccourci : on ne quitte pas un combat par une touche mal placée. Les lettres
+  suivent la lettre gravée sur la touche (sur un clavier AZERTY, c'est bien la touche marquée Z), et les chiffres
+  marchent sans Maj sur la rangée du haut.
+- **Plein écran** : bouton dans les Options (PC, Android) ; F11 fonctionne aussi. Absent sur iPhone, où Safari n'a
+  pas d'API plein écran (l'application installée occupe déjà tout l'écran).

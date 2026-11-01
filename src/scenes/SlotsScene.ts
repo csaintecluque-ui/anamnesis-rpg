@@ -10,6 +10,7 @@ import {
 import { SLOTS, type SlotContent, type SlotDef } from '../save/store';
 import { findLocation, type GameState } from '../state/gameState';
 import { addTextButton, type TextButton } from '../ui/button';
+import { onKeys, withKeyHint } from '../ui/keys';
 import { CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
 
 export interface SlotsSceneData {
@@ -55,7 +56,8 @@ export class SlotsScene extends Phaser.Scene {
       })
       .setOrigin(0.5);
 
-    addTextButton(this, 140, 60, '← Retour', () => this.leave(), { width: 200, height: 76 });
+    addTextButton(this, 140, 60, withKeyHint('← Retour', 'Échap'), () => this.leave(), { width: 240, height: 76, fontSize: 24 });
+    onKeys(this, ['ESC'], () => this.leave());
 
     const slots = saving ? SLOTS.filter((s) => s.manual) : SLOTS;
     slots.forEach((slot, i) => this.drawRow(slot, ROW_START_Y + i * ROW_SPACING));

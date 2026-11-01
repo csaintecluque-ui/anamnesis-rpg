@@ -22,6 +22,7 @@ import {
 } from '../rules/combat';
 import { findLocation, type GameState } from '../state/gameState';
 import { addTextButton, type TextButton } from '../ui/button';
+import { DIGIT_KEYS, SHOW_KEY_HINTS, onKeys } from '../ui/keys';
 import { COLORS, CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
 import type { HudScene } from './HudScene';
 
@@ -256,7 +257,7 @@ export class CombatScene extends Phaser.Scene {
 
   private onTap(pointer: Phaser.Input.Pointer): void {
     if (!this.awaitingHero || this.ended) return;
-    const tile = screenToTile({ x: pointer.x - this.originX, y: pointer.y - this.originY });
+    const tile = screenToTile({ x: pointer.worldX - this.originX, y: pointer.worldY - this.originY });
     const target = this.combatants.find((c) => c.side === 'enemies' && !c.defeated && c.tile.col === tile.col && c.tile.row === tile.row);
 
     if (target && this.mode !== 'move') {
@@ -318,6 +319,22 @@ export class CombatScene extends Phaser.Scene {
     addTextButton(this, 970, y, 'Fin du tour', () => this.endHeroTurn(), { width: 220, height: 76 });
     addTextButton(this, GAME_WIDTH - 110, y, 'Fuir', () => this.flee(), { width: 180, height: 76 });
     this.updateActionBar();
+
+    // No shortcut for Fuir: leaving a fight should never happen by a stray key press.
+    onKeys(this, DIGIT_KEYS[0], () => this.setMode('move'));
+    onKeys(this, DIGIT_KEYS[1], () => this.setMode('melee'));
+    onKeys(this, DIGIT_KEYS[2], () => this.setMode('ranged'));
+    onKeys(this, ['Z'], () => this.cycleZone());
+    onKeys(this, ['SPACE'], () => this.endHeroTurn());
+    if (SHOW_KEY_HINTS) {
+      this.add
+        .text(GAME_WIDTH / 2, GAME_HEIGHT - 16, 'Clavier : 1 Déplacer · 2 Mêlée · 3 Tir · Z zone visée · Espace fin du tour', {
+          fontFamily: FONT_SERIF,
+          fontSize: '16px',
+          color: CSS.muted,
+        })
+        .setOrigin(0.5);
+    }
   }
 
   private setMode(mode: Mode): void {

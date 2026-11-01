@@ -13,6 +13,7 @@ import {
 } from '../rules/leveling';
 import type { GameState } from '../state/gameState';
 import { addTextButton } from '../ui/button';
+import { onKeys, withKeyHint } from '../ui/keys';
 import { COLORS, CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
 
 const SMALL = { width: 64, height: 58, fontSize: 32 };
@@ -36,6 +37,9 @@ export class LevelUpScene extends Phaser.Scene {
 
     this.layer = this.add.container(0, 0);
     this.redraw();
+    onKeys(this, ['ENTER', 'NUMPAD_ENTER'], () => this.confirm());
+    // Putting it off is harmless: the HUD button stays until the points are spent.
+    onKeys(this, ['ESC'], () => this.close());
   }
 
   private character(): Character {
@@ -85,8 +89,8 @@ export class LevelUpScene extends Phaser.Scene {
       this.layer.add(plus);
     });
 
-    const { container: continueBtn } = addTextButton(this, GAME_WIDTH / 2, GAME_HEIGHT - 60, 'Continuer', () => this.confirm(), {
-      width: 260,
+    const { container: continueBtn } = addTextButton(this, GAME_WIDTH / 2, GAME_HEIGHT - 60, withKeyHint('Continuer', 'Entrée'), () => this.confirm(), {
+      width: 300,
       height: 76,
       enabled: this.levelUp.pointsLeft === 0,
     });

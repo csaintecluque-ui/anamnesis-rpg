@@ -7,7 +7,9 @@ import { TILE_HEIGHT, TILE_WIDTH, screenToTile, tileToScreen, type Tile } from '
 import { findPath } from '../engine/pathfinding';
 import { findObject, isWalkable, parseTiledMap, tileKey, type GameMap, type MapObject, type TiledMapJson } from '../engine/tiledMap';
 import { findLocation, type GameState } from '../state/gameState';
+import { onKeys } from '../ui/keys';
 import { COLORS, CSS, FONT_SERIF } from '../ui/theme';
+import { MAP_ZOOM, RENDER_SCALE } from '../ui/viewport';
 import type { CombatStartData } from './CombatScene';
 import type { HudScene } from './HudScene';
 
@@ -21,7 +23,7 @@ const MAPS: Record<string, TiledMapJson> = {
 
 /** Room above the top row for tall tiles (frames are 96 px high for a 32 px diamond). */
 const TOP_MARGIN = 80;
-const ZOOM = 1.5;
+
 const STEP_MS = 160;
 
 export class MapScene extends Phaser.Scene {
@@ -76,11 +78,14 @@ export class MapScene extends Phaser.Scene {
 
     const worldWidth = (this.map.width + this.map.height) * (TILE_WIDTH / 2);
     const worldHeight = (this.map.width + this.map.height) * (TILE_HEIGHT / 2) + TOP_MARGIN;
-    this.cameras.main.setBounds(0, 0, worldWidth, worldHeight).setZoom(ZOOM).setBackgroundColor(COLORS.ink);
+    this.cameras.main.setBounds(0, 0, worldWidth, worldHeight).setZoom(MAP_ZOOM * RENDER_SCALE).setBackgroundColor(COLORS.ink);
     this.cameras.main.startFollow(this.hero, true, 0.15, 0.15);
     this.cameras.main.centerOn(start.x, start.y);
 
     this.input.on('pointerup', (pointer: Phaser.Input.Pointer) => this.onTap(pointer));
+    // Only while the map runs: overlays pause it, so these keys cannot reopen anything over them.
+    onKeys(this, ['ESC'], () => this.hud().openOverlay('Pause'));
+    onKeys(this, ['I'], () => this.hud().openOverlay('Trade', {}));
 
     this.scene.launch('Hud', { locationName: location.name });
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => this.scene.stop('Hud'));

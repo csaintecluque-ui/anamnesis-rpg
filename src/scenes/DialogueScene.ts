@@ -4,6 +4,7 @@ import npcData from '../data/npcs.json';
 import { END, applyEffects, opensTrade, startNode, visibleOptions, type Dialogue, type OptionView } from '../rules/dialogue';
 import { fontPx, textScale } from '../settings';
 import type { GameState } from '../state/gameState';
+import { DIGIT_KEYS, onKeys } from '../ui/keys';
 import { COLORS, CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
 
 const MARGIN = 60;
@@ -19,6 +20,8 @@ export class DialogueScene extends Phaser.Scene {
   private notices: string[] = [];
   /** Larger text needs more room: the panel then rises up to just under the HUD bar. */
   private panelTop = 200;
+  /** What pressing 1, 2, 3… does on the current node (undefined for a greyed option). */
+  private choices: ((() => void) | undefined)[] = [];
 
   constructor() {
     super('Dialogue');
@@ -43,6 +46,7 @@ export class DialogueScene extends Phaser.Scene {
       color: CSS.copper,
     });
     this.layer = this.add.container(0, 0);
+    DIGIT_KEYS.forEach((keys, i) => onKeys(this, keys, () => this.choices[i]?.()));
 
     this.show(startNode(this.dialogue, this.state));
   }
@@ -78,6 +82,7 @@ export class DialogueScene extends Phaser.Scene {
 
     // Options are stacked from the bottom, each as tall as its (possibly wrapped) text needs.
     const views = visibleOptions(node, this.state);
+    this.choices = [];
     let bottom = OPTIONS_BOTTOM;
     for (let i = views.length - 1; i >= 0; i--) bottom = this.addOption(views[i], i + 1, bottom) - OPTION_GAP;
   }
@@ -107,7 +112,7 @@ export class DialogueScene extends Phaser.Scene {
     frame.setInteractive({ useHandCursor: true });
     frame.on('pointerover', () => text.setColor(CSS.copper));
     frame.on('pointerout', () => text.setColor(CSS.parchment));
-    frame.on('pointerup', () => {
+    const choose = () => {
       this.notices.push(...applyEffects(this.state, view.option.effects));
       if (opensTrade(view.option.effects)) {
         this.scene.stop();
@@ -115,7 +120,9 @@ export class DialogueScene extends Phaser.Scene {
         return;
       }
       this.show(view.option.next);
-    });
+    };
+    frame.on('pointerup', choose);
+    this.choices[index - 1] = choose;
     return bottom - height;
   }
 

@@ -13,6 +13,7 @@ import { TitleScene } from './scenes/TitleScene';
 import { TradeScene } from './scenes/TradeScene';
 import { getSettings } from './settings';
 import { COLORS, GAME_HEIGHT, GAME_WIDTH } from './ui/theme';
+import { RENDER_SCALE, applyRenderScale } from './ui/viewport';
 
 const game = new Phaser.Game({
   type: Phaser.AUTO,
@@ -20,11 +21,15 @@ const game = new Phaser.Game({
   // HTML elements (the name field) are needed to bring up the phone keyboard.
   dom: { createContainer: true },
   backgroundColor: COLORS.ink,
-  width: GAME_WIDTH,
-  height: GAME_HEIGHT,
+  // Drawn at the screen's real resolution; scenes still lay out in 1280 × 720 (see ui/viewport.ts).
+  width: GAME_WIDTH * RENDER_SCALE,
+  height: GAME_HEIGHT * RENDER_SCALE,
   scale: {
     mode: Phaser.Scale.FIT,
     autoCenter: Phaser.Scale.CENTER_BOTH,
+    // Our own container: otherwise Phaser wraps the canvas in a new element on the first attempt, and a refused
+    // attempt leaves it there so the next one throws. It also keeps the HTML layer (name field) in full screen.
+    fullscreenTarget: 'game',
   },
   // Order matters: later scenes draw on top and receive input first (overlays above the HUD above the map;
   // Options above Pause and Title, which both open it).
@@ -45,6 +50,7 @@ const game = new Phaser.Game({
 });
 
 game.sound.volume = getSettings().volume / 100;
+game.events.once(Phaser.Core.Events.READY, () => applyRenderScale(game));
 
 // Development only: lets browser checks locate things on screen. Never present in the published build.
 if (import.meta.env.DEV) (window as unknown as { __anamnesis: Phaser.Game }).__anamnesis = game;

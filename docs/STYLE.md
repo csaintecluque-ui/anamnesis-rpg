@@ -40,7 +40,8 @@ Fiche unique, reprise dans **tous** les prompts d'images (`CLAUDE.md` §5). Plan
 Les images sont réduites et découpées par `scripts/process-art.mjs` (`npm run art`, puis `npm run tiles`).
 Pour les sols, le prompt retire la lumière directionnelle (« perfectly even, uniform lighting ») pour que la
 texture se raccorde ; une piste, un pont ou un rail court du haut vers le bas de la texture et suit ainsi les
-colonnes de la carte. Le modèle retenu (GPT Image 2.5, `docs/ASSETS.md`)
+colonnes de la carte. Pour les décors, le prompt demande « no ground, no base, no cast shadow on the ground » : l'ombre
+de contact est ajoutée par le script (ellipse d'encre translucide), identique pour tous. Le modèle retenu (GPT Image 2.5, `docs/ASSETS.md`)
 produit directement un **fond transparent** (`--background transparent`).
 
 ## Bloc de prompt commun (anglais : les modèles le comprennent mieux)

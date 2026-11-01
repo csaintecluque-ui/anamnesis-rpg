@@ -72,6 +72,7 @@ export const TILES = [
   },
   {
     name: 'tronc-titan',
+    art: { src: 'lot2/tronc-titan.png', kind: 'standing', maxHeight: 96, foot: 92, shadow: { rx: 26, ry: 9 } },
     blocking: true,
     cover: 4,
     svg:
@@ -82,6 +83,7 @@ export const TILES = [
   },
   {
     name: 'maison-pilotis',
+    art: { src: 'lot2/maison-pilotis.png', kind: 'standing', maxHeight: 92, foot: 88, shadow: { rx: 22, ry: 8 }, matte: true },
     blocking: true,
     cover: 4,
     svg:
@@ -94,6 +96,7 @@ export const TILES = [
   },
   {
     name: 'etal',
+    art: { src: 'lot2/etal.png', kind: 'standing', maxWidth: 62, maxHeight: 70, foot: 92, shadow: { rx: 26, ry: 9 } },
     blocking: true,
     cover: 2,
     svg:
@@ -106,6 +109,7 @@ export const TILES = [
   },
   {
     name: 'caisses',
+    art: { src: 'lot2/caisses.png', kind: 'standing', maxWidth: 50, maxHeight: 56, foot: 90, shadow: { rx: 22, ry: 8 } },
     blocking: true,
     cover: 2,
     svg:
@@ -117,6 +121,7 @@ export const TILES = [
   },
   {
     name: 'lanterne',
+    art: { src: 'lot2/lanterne.png', kind: 'standing', maxWidth: 30, maxHeight: 88, foot: 84, shadow: { rx: 8, ry: 3 } },
     blocking: true,
     svg:
       diamond('#3e4a2c') +
@@ -126,6 +131,7 @@ export const TILES = [
   },
   {
     name: 'rocher',
+    art: { src: 'lot2/rocher.png', kind: 'standing', maxWidth: 52, maxHeight: 48, foot: 88, shadow: { rx: 22, ry: 8 } },
     blocking: true,
     cover: 2,
     svg:
@@ -135,6 +141,7 @@ export const TILES = [
   },
   {
     name: 'panneau',
+    art: { src: 'lot2/panneau.png', kind: 'standing', maxWidth: 46, maxHeight: 70, foot: 84, shadow: { rx: 10, ry: 4 } },
     blocking: true,
     svg:
       diamond('#6b5338') +
@@ -175,6 +182,7 @@ export const TILES = [
   },
   {
     name: 'wagon',
+    art: { src: 'lot2/wagon.png', kind: 'standing', maxHeight: 60, foot: 92, shadow: { rx: 28, ry: 10 }, matte: true },
     blocking: true,
     cover: 4,
     svg:
@@ -188,6 +196,7 @@ export const TILES = [
   },
   {
     name: 'foreuse',
+    art: { src: 'lot2/foreuse.png', kind: 'standing', maxWidth: 56, maxHeight: 92, foot: 90, shadow: { rx: 20, ry: 7 } },
     blocking: true,
     cover: 4,
     svg:
@@ -199,6 +208,7 @@ export const TILES = [
   },
   {
     name: 'faille',
+    art: { src: 'lot2/faille.png', kind: 'ground', seam: 'none' },
     blocking: true,
     svg:
       diamond('#2a2018') +
@@ -207,6 +217,7 @@ export const TILES = [
   },
   {
     name: 'tente',
+    art: { src: 'lot2/tente.png', kind: 'standing', maxWidth: 62, maxHeight: 64, foot: 92, shadow: { rx: 26, ry: 9 } },
     blocking: true,
     cover: 2,
     svg:
@@ -229,6 +240,7 @@ export const TILES = [
   },
   {
     name: 'echo',
+    art: { src: 'lot2/echo.png', kind: 'standing', maxWidth: 60, maxHeight: 80, foot: 86, opacity: 0.7 },
     svg:
       diamond('#2c3a42') +
       `<ellipse cx="32" cy="80" rx="20" ry="8" fill="${PARCHMENT}" opacity="0.12"/>` +

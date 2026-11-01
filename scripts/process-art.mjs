@@ -20,8 +20,9 @@ const smoothstep = (t) => (t <= 0 ? 0 : t >= 1 ? 1 : t * t * (3 - 2 * t));
 
 // Blends the texture with a copy shifted by half its size, whose edges wrap seamlessly: the centre keeps the
 // original, the borders take the shifted copy. 'vertical' only shifts along y, for tracks and bridges that must
-// stay centred across the tile.
+// stay centred across the tile; 'none' for a one-off feature such as the Faille.
 function makeTileable(img, seam) {
+  if (seam === 'none') return img;
   const { data, width: n } = img;
   const out = Buffer.alloc(data.length);
   const border = (t) => smoothstep(Math.min(t, n - 1 - t) / (n / 4));
@@ -113,10 +114,39 @@ function inkShadow(img) {
   return img;
 }
 
+// Some "transparent" images come back with a light halo or a painted checkerboard behind the subject. Clears
+// every light, greyish, not fully opaque pixel reachable from the border, then makes what is left opaque.
+function matte(img) {
+  const { data, width, height } = img;
+  const isBackground = (i) => {
+    const [r, g, b, a] = data.subarray(i * 4, i * 4 + 4);
+    return a < 16 || (a < 250 && Math.min(r, g, b) > 150 && Math.max(r, g, b) - Math.min(r, g, b) < 30);
+  };
+  const seen = new Uint8Array(width * height);
+  const stack = [];
+  for (let x = 0; x < width; x++) stack.push(x, (height - 1) * width + x);
+  for (let y = 0; y < height; y++) stack.push(y * width, y * width + width - 1);
+  while (stack.length) {
+    const i = stack.pop();
+    if (seen[i] || !isBackground(i)) continue;
+    seen[i] = 1;
+    const x = i % width;
+    if (x > 0) stack.push(i - 1);
+    if (x < width - 1) stack.push(i + 1);
+    if (i >= width) stack.push(i - width);
+    if (i < width * (height - 1)) stack.push(i + width);
+  }
+  for (let i = 0; i < width * height; i++) data[i * 4 + 3] = seen[i] ? 0 : data[i * 4 + 3] >= 200 ? 255 : data[i * 4 + 3];
+  return img;
+}
+
 // Trims to the visible pixels, fits into maxWidth × maxHeight and stands the result on y = foot, centred.
-async function standingFrame(src, { maxWidth = W, maxHeight, foot, shadow = false, fixShadow = false }) {
+// `shadow`: true or { rx, ry } draws an ink contact shadow under the subject.
+async function standingFrame(src, { maxWidth = W, maxHeight, foot, shadow = false, fixShadow = false, opacity = 1, ...opts }) {
   let img = await readRgba(src);
+  if (opts.matte) img = matte(img);
   if (fixShadow) img = inkShadow(img);
+  if (opacity < 1) for (let i = 3; i < img.data.length; i += 4) img.data[i] = Math.round(img.data[i] * opacity);
   const raw = { width: img.width, height: img.height, channels: 4 };
   const trimmed = await sharp(img.data, { raw }).trim({ threshold: 16 }).png().toBuffer();
   const fitted = await sharp(trimmed)
@@ -125,7 +155,8 @@ async function standingFrame(src, { maxWidth = W, maxHeight, foot, shadow = fals
     .toBuffer({ resolveWithObject: true });
   const layers = [];
   if (shadow) {
-    const ellipse = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}"><ellipse cx="32" cy="${foot - 2}" rx="12" ry="5" fill="rgb(${INK})" fill-opacity="0.35"/></svg>`;
+    const { rx = 12, ry = 5 } = shadow === true ? {} : shadow;
+    const ellipse = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}"><ellipse cx="32" cy="${foot - 2}" rx="${rx}" ry="${ry}" fill="rgb(${INK})" fill-opacity="0.35"/></svg>`;
     layers.push({ input: Buffer.from(ellipse), left: 0, top: 0 });
   }
   const { width, height } = fitted.info;

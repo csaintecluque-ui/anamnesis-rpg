@@ -583,3 +583,8 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   posés sur la case, ombre repeinte. `generate-tiles.mjs` assemble ces frames avec les dessins restants dans
   `public/tiles/tiles.png` (ex-`placeholder.png`). Vérifié sur les deux cartes (rendu hors jeu, plus un passage dans
   le jeu par la console de développement, le panneau du navigateur étant masqué). Tests, typecheck et build au vert.
+- Lot 2 lancé par Cyril : 12 décors (6 crédits, 96 restants), tous gardés. Quatre demandes refusées par Higgsfield
+  (limite de débit, rien de débité) puis relancées. Nouveau dans `process-art.mjs` : ombre d'encre réglable par
+  décor, option `matte` (fond clair raté : damier peint derrière la maison, halo blanc autour du wagon), opacité
+  (Écho à 70 %), Faille en texture sans raccord. 23 tuiles peintes sur 25. Vérifié en rendu des deux cartes ; la
+  Faille est presque cachée par un arbre placé devant (déjà le cas avant).

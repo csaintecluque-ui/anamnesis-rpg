@@ -46,6 +46,8 @@ export interface GameMap {
   cover: number[];
   /** Frame index by tile name (tileset property "nom"), e.g. frames.heros. */
   frames: Record<string, number>;
+  /** Large decor drawn as one image over several cells (tileset property "grand"): frame index → tile name. */
+  big: Record<number, string>;
 }
 
 export function parseTiledMap(json: TiledMapJson): GameMap {
@@ -96,7 +98,24 @@ export function parseTiledMap(json: TiledMapJson): GameMap {
     const name = t.properties?.find((p) => p.name === 'nom')?.value;
     if (typeof name === 'string') frames[name] = t.id;
   }
-  return { width, height, ground, obstacles, objects, blocked, cover, frames };
+  const big: Record<number, string> = {};
+  for (const t of tileset.tiles ?? []) {
+    if (t.properties?.some((p) => p.name === 'grand' && p.value === true)) {
+      const name = t.properties.find((p) => p.name === 'nom')?.value;
+      if (typeof name === 'string') big[t.id] = name;
+    }
+  }
+  return { width, height, ground, obstacles, objects, blocked, cover, frames, big };
+}
+
+/**
+ * A large decor covers a block of cells holding the same tile; its image is drawn once, from the block's front
+ * cell (the one with no same tile below-right or below-left of it), whose diamond bottom is the block's.
+ */
+export function isBigAnchor(map: GameMap, { col, row }: Tile): boolean {
+  const frame = map.obstacles[row * map.width + col];
+  const same = (c: number, r: number) => c < map.width && r < map.height && map.obstacles[r * map.width + c] === frame;
+  return !same(col + 1, row) && !same(col, row + 1);
 }
 
 export function isWalkable(map: GameMap, { col, row }: Tile, occupied: ReadonlySet<string> = new Set()): boolean {

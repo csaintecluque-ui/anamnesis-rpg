@@ -186,7 +186,7 @@ export class CombatScene extends Phaser.Scene {
     const image = this.add.image(f.x, f.y, 'tiles', frame).setOrigin(0.5, 1).setScale(LAYOUT.arenaScale).setDepth(f.y + 1);
     const hpBar = this.add.graphics().setDepth(6000);
     const name = this.add
-      .text(f.x, f.y - 104 * LAYOUT.arenaScale, c.name, { fontFamily: FONT_SERIF, fontSize: '16px', color: CSS.parchment, stroke: CSS.ink, strokeThickness: 3 })
+      .text(f.x, f.y - 80 * LAYOUT.arenaScale, c.name, { fontFamily: FONT_SERIF, fontSize: '16px', color: CSS.parchment, stroke: CSS.ink, strokeThickness: 3 })
       .setOrigin(0.5, 1)
       .setDepth(6001)
       .setVisible(false);
@@ -210,7 +210,7 @@ export class CombatScene extends Phaser.Scene {
     token.image.setPosition(f.x, f.y).setDepth(f.y + 1).setAlpha(c.defeated ? 0.25 : 1);
 
     const x = f.x - HP_BAR_WIDTH / 2;
-    const y = f.y - 98 * LAYOUT.arenaScale;
+    const y = f.y - 74 * LAYOUT.arenaScale;
     const ratio = c.maxHp > 0 ? c.hp / c.maxHp : 0;
     token.hpBar.clear();
     if (!c.defeated) {

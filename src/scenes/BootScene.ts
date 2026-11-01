@@ -1,7 +1,9 @@
 import Phaser from 'phaser';
 import sealUrl from '../../assets/brand/logo-seal.svg?url';
 import { DIALOGUES } from '../data/dialogues';
+import { MAPS } from '../data/maps';
 import npcData from '../data/npcs.json';
+import { parseTiledMap } from '../engine/tiledMap';
 
 export class BootScene extends Phaser.Scene {
   constructor() {
@@ -12,6 +14,9 @@ export class BootScene extends Phaser.Scene {
     this.load.svg('seal', sealUrl, { width: 256, height: 256 });
     // Tiles (npm run tiles), 64 × 96 frames in the order of scripts/tiles-def.mjs.
     this.load.spritesheet('tiles', 'tiles/tiles.png', { frameWidth: 64, frameHeight: 96 });
+    // Large decor drawn over several cells (npm run art), as named in the maps' tileset.
+    const big = new Set(Object.values(MAPS).flatMap((m) => Object.values(parseTiledMap(m).big)));
+    for (const name of big) this.load.image(`decor-${name}`, `decor/${name}.png`);
     // Dialogue portraits (npm run art).
     for (const npc of npcData) if ('portrait' in npc) this.load.image(`portrait-${npc.id}`, npc.portrait);
     // Illustrations (npm run art): the title screen's, and those of dialogue nodes.

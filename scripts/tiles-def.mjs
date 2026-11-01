@@ -3,6 +3,7 @@
 // Each frame is 64×96: the ground diamond sits in the bottom 32 px, tall objects rise above it.
 // Order = frame index = Tiled tile id (gid − 1).
 // `art`: generated image that replaces the placeholder drawing (scripts/process-art.mjs, docs/ASSETS.md).
+// `big`: large decor covering a block of cells, drawn from public/decor/<name>.png (width × height).
 // `cover`: Défense bonus for a combatant sheltering behind this obstacle (docs/gdd/combat.md).
 export const W = 64;
 export const H = 96;
@@ -37,7 +38,7 @@ export const TILES = [
   },
   {
     name: 'planches',
-    art: { src: 'lot1/planches.png', kind: 'ground' },
+    art: { src: 'jalon2/planches-marche.png', kind: 'ground' },
     svg: diamond('#5a4030') + '<path d="M16 72 L48 88 M8 76 L40 92 M24 68 L56 84" stroke="#3b2a20" stroke-width="1.5"/>',
   },
   {
@@ -76,7 +77,9 @@ export const TILES = [
   },
   {
     name: 'tronc-titan',
-    art: { src: 'lot2/tronc-titan.png', kind: 'standing', maxHeight: 96, foot: 92, shadow: { rx: 26, ry: 9 } },
+    art: { src: 'jalon2/tronc-titan.png', kind: 'standing', maxHeight: 92, foot: 92, shadow: { rx: 26, ry: 9 } },
+    // Drawn once over its 2 × 2 block of cells (src/engine/tiledMap.ts, isBigAnchor).
+    big: { width: 128, height: 192, art: { maxHeight: 190, foot: 188, shadow: { rx: 56, ry: 20 } } },
     blocking: true,
     cover: 4,
     svg:
@@ -155,7 +158,7 @@ export const TILES = [
   },
   {
     name: 'heros',
-    art: { src: 'pilote/heros.png', kind: 'standing', maxWidth: 60, maxHeight: 80, foot: 84, shadow: true },
+    art: { src: 'pilote/heros.png', kind: 'standing', maxWidth: 44, maxHeight: 54, foot: 84, shadow: { rx: 10, ry: 4 } },
     sprite: true,
     svg:
       shadow(12, 5) +
@@ -230,7 +233,7 @@ export const TILES = [
   },
   {
     name: 'golem',
-    art: { src: 'lot3/golem.png', kind: 'standing', maxHeight: 88, foot: 88, shadow: { rx: 22, ry: 8 } },
+    art: { src: 'lot3/golem.png', kind: 'standing', maxWidth: 56, maxHeight: 66, foot: 86, shadow: { rx: 18, ry: 6 } },
     blocking: true,
     svg:
       diamond('#334023') +
@@ -242,7 +245,7 @@ export const TILES = [
   },
   {
     name: 'echo',
-    art: { src: 'lot2/echo.png', kind: 'standing', maxWidth: 60, maxHeight: 80, foot: 86, opacity: 0.7 },
+    art: { src: 'lot2/echo.png', kind: 'standing', maxWidth: 48, maxHeight: 58, foot: 86, opacity: 0.7 },
     svg:
       diamond('#2c3a42') +
       `<ellipse cx="32" cy="80" rx="20" ry="8" fill="${PARCHMENT}" opacity="0.12"/>` +
@@ -255,25 +258,60 @@ export const TILES = [
   {
     name: 'ilyane',
     sprite: true,
-    art: { src: 'lot3/ilyane.png', kind: 'standing', maxWidth: 60, maxHeight: 80, foot: 84, shadow: true },
+    art: { src: 'lot3/ilyane.png', kind: 'standing', maxWidth: 44, maxHeight: 54, foot: 84, shadow: { rx: 10, ry: 4 } },
     svg: figure('#4d6b3a', '#d9b28e'),
   },
   {
     name: 'tobias',
     sprite: true,
-    art: { src: 'lot3/tobias.png', kind: 'standing', maxWidth: 60, maxHeight: 80, foot: 84, shadow: true },
+    art: { src: 'lot3/tobias.png', kind: 'standing', maxWidth: 44, maxHeight: 54, foot: 84, shadow: { rx: 10, ry: 4 } },
     svg: figure(COPPER, '#d9b28e'),
   },
   {
     name: 'ingrid',
     sprite: true,
-    art: { src: 'lot3/ingrid.png', kind: 'standing', maxWidth: 60, maxHeight: 80, foot: 84, shadow: true },
+    art: { src: 'lot3/ingrid.png', kind: 'standing', maxWidth: 44, maxHeight: 54, foot: 84, shadow: { rx: 10, ry: 4 } },
     svg: figure('#6a6058', '#d9b28e'),
   },
   {
     name: 'rodeur-epine',
     sprite: true,
-    art: { src: 'lot3/rodeur-epine.png', kind: 'standing', maxWidth: 60, maxHeight: 52, foot: 86, shadow: { rx: 20, ry: 6 } },
+    art: { src: 'lot3/rodeur-epine.png', kind: 'standing', maxWidth: 44, maxHeight: 36, foot: 86, shadow: { rx: 15, ry: 5 } },
     svg: shadow(16, 5) + '<path d="M14 82 L18 66 Q32 56 48 64 L52 82 Z" fill="#5a6b3a" stroke="#1B1512" stroke-width="1.5"/>',
+  },
+  // --- Jalon 2 : variantes d'herbe et petits décors contre la répétition (docs/gdd/jalon-2.md).
+  {
+    name: 'herbe-2',
+    art: { src: 'jalon2/herbe-2.png', kind: 'ground' },
+    svg: diamond('#41502e'),
+  },
+  {
+    name: 'herbe-3',
+    art: { src: 'jalon2/herbe-3.png', kind: 'ground' },
+    svg: diamond('#45512f'),
+  },
+  {
+    name: 'buisson',
+    blocking: true,
+    cover: 2,
+    art: { src: 'jalon2/buisson.png', kind: 'standing', maxWidth: 40, maxHeight: 34, foot: 86, shadow: { rx: 16, ry: 5 } },
+    svg: shadow(14, 5) + '<circle cx="32" cy="72" r="13" fill="#3f5530" stroke="#1B1512" stroke-width="1"/>',
+  },
+  {
+    name: 'fougeres',
+    art: { src: 'jalon2/fougeres.png', kind: 'standing', maxWidth: 40, maxHeight: 26, foot: 86 },
+    svg: '<path d="M22 84 Q26 70 30 84 M30 84 Q34 66 38 84 M36 84 Q40 72 44 84" stroke="#4d6b3a" stroke-width="3" fill="none"/>',
+  },
+  {
+    name: 'souche',
+    blocking: true,
+    cover: 2,
+    art: { src: 'jalon2/souche.png', kind: 'standing', maxWidth: 34, maxHeight: 28, foot: 86, shadow: { rx: 14, ry: 5 } },
+    svg: shadow(12, 4) + '<rect x="24" y="66" width="16" height="16" rx="3" fill="#6b4a32" stroke="#1B1512" stroke-width="1"/>',
+  },
+  {
+    name: 'champignons',
+    art: { src: 'jalon2/champignons.png', kind: 'standing', maxWidth: 26, maxHeight: 22, foot: 86 },
+    svg: `<circle cx="30" cy="80" r="4" fill="${COPPER}"/><circle cx="36" cy="82" r="3" fill="${COPPER}"/>`,
   },
 ];

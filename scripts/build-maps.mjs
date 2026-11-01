@@ -140,11 +140,34 @@ class MapBuilder {
               { name: 'nom', type: 'string', value: t.name },
               { name: 'bloquant', type: 'bool', value: !!t.blocking },
               { name: 'couverture', type: 'int', value: t.cover ?? 0 },
+              { name: 'grand', type: 'bool', value: !!t.big },
             ],
           })),
         },
       ],
     };
+  }
+}
+
+/**
+ * Variety on a plain grass cell, from a roll in [0, 1): grass variants, darker grass, flowers, small decor
+ * (ferns and mushrooms can be walked through, bushes and stumps block). Fighting repetition (docs/gdd/jalon-2.md).
+ */
+function groundVariety(m, col, row, roll, { flowers }) {
+  const table = [
+    [0.08, () => m.setGround(col, row, 'herbe-sombre')],
+    [flowers ? 0.05 : 0, () => m.setGround(col, row, 'fleurs')],
+    [0.22, () => m.setGround(col, row, 'herbe-2')],
+    [0.22, () => m.setGround(col, row, 'herbe-3')],
+    [0.04, () => m.setObstacle(col, row, 'fougeres')],
+    [0.02, () => m.setObstacle(col, row, 'champignons')],
+    [0.025, () => m.setObstacle(col, row, 'buisson')],
+    [0.015, () => m.setObstacle(col, row, 'souche')],
+  ];
+  let edge = 0;
+  for (const [share, apply] of table) {
+    edge += share;
+    if (roll < edge) return apply();
   }
 }
 
@@ -210,8 +233,7 @@ function gardebois() {
       if (!free(col, row) || keepClear.has(`${col},${row}`)) continue;
       const roll = rng();
       if (roll < 0.1) m.setObstacle(col, row, 'arbre');
-      else if (roll < 0.3) m.setGround(col, row, 'herbe-sombre');
-      else if (roll < 0.36) m.setGround(col, row, 'fleurs');
+      else groundVariety(m, col, row, (roll - 0.1) / 0.9, { flowers: true });
     }
   }
 
@@ -264,7 +286,7 @@ function gareEngloutie() {
       if (!free(col, row)) continue;
       const roll = rng();
       if (roll < 0.14) m.setObstacle(col, row, 'arbre');
-      else if (roll < 0.3) m.setGround(col, row, 'herbe-sombre');
+      else groundVariety(m, col, row, (roll - 0.14) / 0.86, { flowers: false });
     }
   }
 

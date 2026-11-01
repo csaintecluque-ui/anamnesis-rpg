@@ -232,3 +232,22 @@ l'Écho sur la carte).
 51 estimés (110 au départ, 83,5 restants). Méthode retenue pour la suite : sols en textures vues de dessus projetées
 par script, décors et personnages sans sol ni ombre (ombre ajoutée par script), le sprite ou le portrait déjà fait
 donné en référence pour garder les visages. Chaîne : `npm run art` puis `npm run tiles`.
+
+## Jalon 2, étape 1 : corrections visuelles (2026-11-01, 8 images, 4 crédits, solde 79,5)
+
+Demandées par Cyril (`docs/gdd/jalon-2.md`). Toutes gardées au premier essai, réglages habituels (`gpt_image_2_5`, 1k,
+qualité moyenne). Fichiers dans `assets/raw/jalon2/`.
+
+| Fichier | Sujet du prompt | Coût |
+|---|---|---|
+| `tronc-titan.png` | « The base of a colossal ancient Titan tree: a gigantic trunk wider than a house, enormous roots spreading out in every direction at its foot, deeply furrowed warm brown bark #6B4A32 with moss and ivy, a wooden staircase winding up around the trunk toward the canopy, small lanterns with glowing cyan crystals hanging along the stairs; the trunk rises straight up and is cut off by the top edge » (sans sol ni ombre) | 0,5 |
+| `planches-marche.png` | Texture vue de dessus : « a market square floor of wide weathered wooden planks running vertically, exactly four planks of equal width, warm honey and chestnut wood tones with clearly visible wood grain, each plank slightly different in shade, deep dark gaps between planks… Strong readable contrast between planks and gaps » | 0,5 |
+| `herbe-2.png`, `herbe-3.png` | L'herbe du pilote en référence, « same colors and same scale, but with a different pattern » : trèfles et touffes plus longues ; herbe plus rase avec un peu de terre et quelques feuilles mortes | 1 |
+| `buisson.png`, `fougeres.png`, `souche.png`, `champignons.png` | Petits décors isolés, sans sol ni ombre : buisson rond à baies blanches ; touffe de fougères ; vieille souche moussue ; champignons orangés dont deux luisent en cyan | 2 |
+
+**Code** : grand décor sur plusieurs cases (champ `big` de `scripts/tiles-def.mjs`, image `public/decor/<nom>.png`,
+propriété Tiled `grand`, dessiné une fois depuis la case de devant : `isBigAnchor`) ; l'Arbre-Titan devient une seule
+image de 128 × 192 sur ses 2 × 2 cases. Personnages ramenés de 80 à 54 px (Golem 66, Rôdeur 36, Écho 58), noms,
+barres de vie et zone de clic suivis. Sur les deux cartes, l'herbe libre reçoit au hasard (graine fixe) variantes,
+herbe sombre, fleurs et petits décors (`groundVariety` dans `scripts/build-maps.mjs`) ; buissons et souches bloquent
+et couvrent (+2). Limite : en combat, un grand décor reste dessiné case par case (aucun dans l'arène actuelle).

@@ -610,3 +610,8 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   Tripo (9) + squelette et marche Meshy (8) = 17 ; planche 2D au modèle d'image = 2 à 4. Pas de Blender sur le PC :
   le rendu des modèles 3D en images se ferait par un script three.js dans le navigateur. Proposition écrite dans
   `docs/gdd/jalon-2.md`.
+- Cyril choisit : corrections visuelles d'abord, puis pilote d'animation 2D contre 3D, 6 avatars. Corrections faites
+  (8 images, 4 crédits, 79,5 restants) : grand décor sur plusieurs cases dans le moteur (Arbre-Titan en une image de
+  128 × 192 avec escalier et lanternes), personnages ramenés à 54 px, nouveau sol du marché (planches larges et
+  contrastées), variantes d'herbe et petits décors répartis au hasard (graine fixe). 186 tests. Vérifié en rendu et
+  dans le jeu. Pas encore poussé.

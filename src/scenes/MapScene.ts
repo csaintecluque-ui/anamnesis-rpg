@@ -1,12 +1,11 @@
 import Phaser from 'phaser';
 import { DIALOGUES } from '../data/dialogues';
-import gardeboisJson from '../data/maps/gardebois.json';
-import gareEngloutieJson from '../data/maps/gare-engloutie.json';
+import { MAPS } from '../data/maps';
 import npcData from '../data/npcs.json';
 import { TILE_HEIGHT, TILE_WIDTH, screenToTile, tileToScreen, type Tile } from '../engine/iso';
 import { carveArena, farEdgeTiles, toArena } from '../engine/arena';
 import { findPath } from '../engine/pathfinding';
-import { findObject, isWalkable, parseTiledMap, tileKey, type GameMap, type MapObject, type TiledMapJson } from '../engine/tiledMap';
+import { findObject, isBigAnchor, isWalkable, parseTiledMap, tileKey, type GameMap, type MapObject } from '../engine/tiledMap';
 import { findLocation, type GameState } from '../state/gameState';
 import { onKeys } from '../ui/keys';
 import { COLORS, CSS, FONT_SERIF } from '../ui/theme';
@@ -16,11 +15,6 @@ import type { HudScene } from './HudScene';
 
 /** Map objects drawn by an obstacle tile on the same cell, and touchable on that tile's image. */
 const INTERACTIVE_OBSTACLES = new Set(['panneau', 'echo', 'golem', 'coffre', 'foreuse']);
-
-const MAPS: Record<string, TiledMapJson> = {
-  gardebois: gardeboisJson as TiledMapJson,
-  'gare-engloutie': gareEngloutieJson as TiledMapJson,
-};
 
 /** Room above the top row for tall tiles (frames are 96 px high for a 32 px diamond). */
 const TOP_MARGIN = 80;
@@ -133,7 +127,11 @@ export class MapScene extends Phaser.Scene {
         const frame = this.map.obstacles[row * this.map.width + col];
         if (frame < 0) continue;
         const f = this.feet({ col, row });
-        const image = this.add.image(f.x, f.y, 'tiles', frame).setOrigin(0.5, 1).setDepth(f.y);
+        const big = this.map.big[frame];
+        if (big && !isBigAnchor(this.map, { col, row })) continue;
+        const image = (big ? this.add.image(f.x, f.y, `decor-${big}`) : this.add.image(f.x, f.y, 'tiles', frame))
+          .setOrigin(0.5, 1)
+          .setDepth(f.y);
         const marker = this.map.objects.find(
           (o) => INTERACTIVE_OBSTACLES.has(o.type) && o.col === col && o.row === row,
         );
@@ -149,7 +147,7 @@ export class MapScene extends Phaser.Scene {
       const image = this.add.image(f.x, f.y, 'tiles', frame).setOrigin(0.5, 1).setDepth(f.y);
       this.interactables.push({ object: npc, image });
       this.add
-        .text(f.x, f.y - 94, npcName(npc), { fontFamily: FONT_SERIF, fontSize: '13px', color: CSS.parchment, stroke: CSS.ink, strokeThickness: 3 })
+        .text(f.x, f.y - 70, npcName(npc), { fontFamily: FONT_SERIF, fontSize: '13px', color: CSS.parchment, stroke: CSS.ink, strokeThickness: 3 })
         .setOrigin(0.5, 1)
         .setDepth(100000);
     }
@@ -333,7 +331,7 @@ export class MapScene extends Phaser.Scene {
 function hitsBody(image: Phaser.GameObjects.Image, x: number, y: number): boolean {
   const left = image.x - 18;
   const right = image.x + 18;
-  const top = image.y - 92;
+  const top = image.y - 68;
   const bottom = image.y - 4;
   return x >= left && x <= right && y >= top && y <= bottom;
 }

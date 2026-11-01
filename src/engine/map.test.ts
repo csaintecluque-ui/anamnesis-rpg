@@ -5,7 +5,7 @@ import npcData from '../data/npcs.json';
 import type { Tile } from './iso';
 import { ENEMIES } from '../rules/combat';
 import { findPath } from './pathfinding';
-import { findObject, isWalkable, parseTiledMap, tileKey, type TiledMapJson } from './tiledMap';
+import { findObject, isBigAnchor, isWalkable, parseTiledMap, tileKey, type TiledMapJson } from './tiledMap';
 
 const gardebois = parseTiledMap(gardeboisJson as TiledMapJson);
 const gareEngloutie = parseTiledMap(gareEngloutieJson as TiledMapJson);
@@ -163,3 +163,17 @@ describe('character tiles', () => {
     for (const enemy of ENEMIES) expect(gardebois.frames[enemy.tile], enemy.id).toBeDefined();
   });
 });
+
+describe('large decor', () => {
+  it('draws the Arbre-Titan once, from the front cell of its 2 × 2 block', () => {
+    const titan = gardebois.frames['tronc-titan'];
+    expect(gardebois.big[titan]).toBe('tronc-titan');
+    const cells = [];
+    for (let row = 0; row < gardebois.height; row++) {
+      for (let col = 0; col < gardebois.width; col++) if (gardebois.obstacles[row * gardebois.width + col] === titan) cells.push({ col, row });
+    }
+    expect(cells).toHaveLength(4);
+    expect(cells.filter((t) => isBigAnchor(gardebois, t))).toEqual([{ col: 4, row: 8 }]);
+  });
+});
+

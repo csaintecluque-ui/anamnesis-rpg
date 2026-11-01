@@ -48,7 +48,8 @@ n'animer que le héros et les ennemis.
 ## Ordre proposé
 
 1. **Corrections visuelles** (taille des personnages, sol du marché, grand Arbre-Titan, variantes) : rapide, presque
-   gratuit, et tout le reste en dépend (les nouvelles images seront faites à la bonne taille).
+   gratuit, et tout le reste en dépend (les nouvelles images seront faites à la bonne taille). **Fait le 2026-11-01**
+   (4 crédits, détail dans `docs/ASSETS.md`).
 2. **Pilote d'animation** sur le héros, puis choix de la méthode.
 3. **Création de personnage** avec avatars (animés selon la méthode retenue).
 4. **Contenu** : maisons à visiter, PNJ, quêtes secondaires (propositions de lore d'abord).

@@ -7,7 +7,7 @@
 - 181 tests, typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
 - Mode test caché : 5 touches sur la version (écran titre) → +50 Fers, PV au max dans le menu pause.
 
-## Jalon en cours : phase 2 des visuels terminée ; jalon 2 lancé (corrections visuelles)
+## Jalon en cours : phase 2 des visuels terminée ; jalon 2 en cours (corrections faites, pilote d'animation ensuite)
 
 - Choisie par Cyril le 2026-11-01. Avant toute génération : fiche de style (`docs/STYLE.md`), liste des images,
   coût en crédits, feu vert de Cyril (`CLAUDE.md` §5). Chaque génération consignée dans `docs/ASSETS.md`.
@@ -19,8 +19,8 @@
    le rendu ; les trois éléments inventés des illustrations sont gardés faute d'objection.
 2. **Jalon 2 proposé** (`docs/gdd/jalon-2.md`), né de son retour : personnages trop gros et figés, sol du marché,
    troncs de l'Arbre-Titan, répétitivité, maisons à visiter, PNJ et quêtes, création avec avatars, animation.
-   Choix de Cyril : corrections visuelles d'abord (**en cours**), puis pilote d'animation 2D contre 3D sur le héros
-   (environ 20 crédits), puis création avec 6 avatars, puis contenu.
+   Choix de Cyril : corrections visuelles d'abord (**faites**, 4 crédits, reste 79,5 ; pas encore poussées), puis
+   pilote d'animation 2D contre 3D sur le héros (environ 20 crédits), puis création avec 6 avatars, puis contenu.
 
 ## Points ouverts
 

@@ -1,5 +1,5 @@
-// Turns the generated images (assets/raw/, local only) into 64×96 game frames in assets/tiles/, dialogue
-// portraits in public/portraits/ and illustrations in public/illustrations/ (all committed).
+// Turns the generated images (assets/raw/, local only) into 64×96 game frames in assets/tiles/, large decor in
+// public/decor/, dialogue portraits in public/portraits/ and illustrations in public/illustrations/ (all committed).
 // Usage: npm run art  then  npm run tiles. A tile whose raw image is missing keeps its last processed frame.
 // Method and history: docs/ASSETS.md.
 import { existsSync, mkdirSync } from 'node:fs';
@@ -9,6 +9,7 @@ import { H, TILES, W } from './tiles-def.mjs';
 
 const RAW = new URL('../assets/raw/', import.meta.url);
 const OUT = new URL('../assets/tiles/', import.meta.url);
+const DECOR_OUT = new URL('../public/decor/', import.meta.url);
 const INK = [27, 21, 18];
 const SUPERSAMPLE = 8;
 
@@ -142,8 +143,11 @@ function matte(img) {
 }
 
 // Trims to the visible pixels, fits into maxWidth × maxHeight and stands the result on y = foot, centred.
-// `shadow`: true or { rx, ry } draws an ink contact shadow under the subject.
-async function standingFrame(src, { maxWidth = W, maxHeight, foot, shadow = false, fixShadow = false, opacity = 1, ...opts }) {
+// `shadow`: true or { rx, ry } draws an ink contact shadow under the subject. The frame is 64×96 unless
+// `frameWidth` / `frameHeight` say otherwise (large decor).
+async function standingFrame(src, opts) {
+  const { frameWidth = W, frameHeight = H, maxWidth = frameWidth, maxHeight, foot, shadow = false } = opts;
+  const { fixShadow = false, opacity = 1 } = opts;
   let img = await readRgba(src);
   if (opts.matte) img = matte(img);
   if (fixShadow) img = inkShadow(img);
@@ -157,12 +161,12 @@ async function standingFrame(src, { maxWidth = W, maxHeight, foot, shadow = fals
   const layers = [];
   if (shadow) {
     const { rx = 12, ry = 5 } = shadow === true ? {} : shadow;
-    const ellipse = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}"><ellipse cx="32" cy="${foot - 2}" rx="${rx}" ry="${ry}" fill="rgb(${INK})" fill-opacity="0.35"/></svg>`;
+    const ellipse = `<svg xmlns="http://www.w3.org/2000/svg" width="${frameWidth}" height="${frameHeight}"><ellipse cx="${frameWidth / 2}" cy="${foot - 2}" rx="${rx}" ry="${ry}" fill="rgb(${INK})" fill-opacity="0.35"/></svg>`;
     layers.push({ input: Buffer.from(ellipse), left: 0, top: 0 });
   }
   const { width, height } = fitted.info;
-  layers.push({ input: fitted.data, left: Math.round((W - width) / 2), top: foot - height });
-  return sharp({ create: { width: W, height: H, channels: 4, background: { r: 0, g: 0, b: 0, alpha: 0 } } })
+  layers.push({ input: fitted.data, left: Math.round((frameWidth - width) / 2), top: foot - height });
+  return sharp({ create: { width: frameWidth, height: frameHeight, channels: 4, background: { r: 0, g: 0, b: 0, alpha: 0 } } })
     .composite(layers)
     .png();
 }
@@ -191,6 +195,12 @@ for (const tile of TILES.filter((t) => t.art)) {
   }
   const frame = kind === 'ground' ? await groundFrame(srcUrl, tile.art.seam ?? 'both') : await standingFrame(srcUrl, tile.art);
   await frame.toFile(fileURLToPath(new URL(`${tile.name}.png`, OUT)));
+  // Large decor: the full-size image the map draws once over its block of cells (`big` in tiles-def).
+  if (tile.big) {
+    const big = await standingFrame(srcUrl, { ...tile.art, ...tile.big.art, frameWidth: tile.big.width, frameHeight: tile.big.height });
+    mkdirSync(DECOR_OUT, { recursive: true });
+    await big.toFile(fileURLToPath(new URL(`${tile.name}.png`, DECOR_OUT)));
+  }
   console.log(`${tile.name} ← ${src}`);
 }
 

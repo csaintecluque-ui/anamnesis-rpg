@@ -158,3 +158,21 @@ Les trois pistes reposent sur des lois et des phénomènes du monde, pas sur la 
    - **Mémoire** : entrer dans l'Écho interactif, recueillir son Récit et l'apaiser (piste A).
 6. **Retour à Gardebois** : la maladie recule, ou non. On gagne un niveau.
    - Révélation optionnelle : les Réveilleurs [E10] financent la prospection.
+
+## 7. Sauvegarde
+
+- **Emplacements** : 3 manuels (Emplacement 1 à 3) et 1 sauvegarde automatique, écrite quand on revient au titre.
+  Plus tard, elle sera aussi écrite à chaque changement de carte.
+- **Stockage** : `localStorage` de l'appareil, en JSON. Le jeu demande au navigateur de ne pas effacer ces données
+  (`navigator.storage.persist`). Si le stockage est bloqué (certains modes privés), le jeu fonctionne quand même,
+  mais les sauvegardes ne durent que jusqu'à la fermeture, et un message le signale.
+- **Format** : `{ game: "anamnesis", version, savedAt, state }`, versionné. Une sauvegarde plus ancienne est mise à jour
+  étape par étape ; une sauvegarde plus récente que le jeu est refusée avec un message clair.
+  Tout fichier est validé avant d'écraser quoi que ce soit.
+- **Export** : sur écran tactile, la feuille de partage (iPhone : « Enregistrer dans Fichiers ») ;
+  ailleurs, un téléchargement. Nom du fichier : `anamnesis-emplacement-1-AAAA-MM-JJ-HHMM.json`.
+- **Import** : sélecteur de fichiers, dans l'emplacement choisi.
+- **Confirmations** : écraser, importer par-dessus ou supprimer une sauvegarde demande un second appui
+  (« Confirmer ? », 3 secondes).
+- **Contenu actuel de l'état** : lieu, position, temps de jeu. Il grandira avec le jeu (personnage, inventaire,
+  quêtes, mémoire, Récits). Chaque changement de forme passera par une nouvelle version et sa migration.

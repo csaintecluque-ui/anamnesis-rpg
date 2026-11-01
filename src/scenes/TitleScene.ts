@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { createNewGame } from '../state/gameState';
 import { CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
 
 interface MenuEntry {
@@ -27,8 +28,15 @@ export class TitleScene extends Phaser.Scene {
     this.add.rectangle(cx, 260, 220, 1, 0xc9804f);
 
     const entries: MenuEntry[] = [
-      { label: 'Nouvelle partie', enabled: true, action: () => this.scene.start('IsoTest') },
-      { label: 'Charger', enabled: false },
+      {
+        label: 'Nouvelle partie',
+        enabled: true,
+        action: () => {
+          this.registry.set('game', createNewGame());
+          this.scene.start('IsoTest');
+        },
+      },
+      { label: 'Charger', enabled: true, action: () => this.scene.start('Slots', { mode: 'load' }) },
       { label: 'Options', enabled: false },
     ];
 

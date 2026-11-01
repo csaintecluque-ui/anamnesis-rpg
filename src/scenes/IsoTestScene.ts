@@ -1,25 +1,31 @@
 import Phaser from 'phaser';
 import { TILE_HEIGHT, TILE_WIDTH, isInside, screenToTile, tileToScreen, type Tile } from '../engine/iso';
+import { saveStore } from '../save/browser';
+import { createNewGame, type GameState } from '../state/gameState';
+import { addTextButton } from '../ui/button';
 import { COLORS, CSS, FONT_SERIF, GAME_WIDTH } from '../ui/theme';
 
 const COLS = 12;
 const ROWS = 12;
 
-/** Temporary test ground: proves isometric rendering and tap/click-to-move on every target device. */
+/** Temporary test ground: proves isometric rendering, tap/click-to-move and saving on every target device. */
 export class IsoTestScene extends Phaser.Scene {
   private originX = 0;
   private originY = 0;
   private marker!: Phaser.GameObjects.Ellipse;
   private highlight!: Phaser.GameObjects.Graphics;
-  private position: Tile = { col: 0, row: 0 };
+  private state!: GameState;
 
   constructor() {
     super('IsoTest');
   }
 
   create(): void {
+    this.state = (this.registry.get('game') as GameState | undefined) ?? createNewGame();
+    this.registry.set('game', this.state);
+
     this.originX = GAME_WIDTH / 2;
-    this.originY = 160;
+    this.originY = 200;
 
     const grid = this.add.graphics();
     for (let col = 0; col < COLS; col++) {
@@ -30,7 +36,7 @@ export class IsoTestScene extends Phaser.Scene {
     }
 
     this.highlight = this.add.graphics();
-    const start = this.toWorld(this.position);
+    const start = this.toWorld(this.state.position);
     this.marker = this.add.ellipse(start.x, start.y - 6, 26, 26, COLORS.parchment).setStrokeStyle(2, COLORS.copper);
 
     this.input.on('pointerup', (pointer: Phaser.Input.Pointer) => {
@@ -39,24 +45,37 @@ export class IsoTestScene extends Phaser.Scene {
       this.moveTo(tile);
     });
 
-    this.add.text(24, 20, 'Terrain d’essai — touche ou clique une case', {
-      fontFamily: FONT_SERIF,
-      fontSize: '22px',
-      color: CSS.parchment,
-    });
+    this.add
+      .text(GAME_WIDTH / 2, 60, 'Terrain d’essai — touche ou clique une case', {
+        fontFamily: FONT_SERIF,
+        fontSize: '24px',
+        color: CSS.parchment,
+      })
+      .setOrigin(0.5);
 
-    const back = this.add
-      .text(24, 60, '← Titre', { fontFamily: FONT_SERIF, fontSize: '22px', color: CSS.copper })
-      .setPadding(8, 8, 8, 8)
-      .setInteractive({ useHandCursor: true });
-    back.on('pointerup', (_p: Phaser.Input.Pointer, _x: number, _y: number, event: Phaser.Types.Input.EventData) => {
-      event.stopPropagation();
-      this.scene.start('Title');
-    });
+    addTextButton(this, 130, 60, '← Titre', () => this.backToTitle(), { width: 180, height: 76 });
+    addTextButton(
+      this,
+      GAME_WIDTH - 140,
+      60,
+      'Sauvegarder',
+      () => this.scene.start('Slots', { mode: 'save', returnTo: 'IsoTest' }),
+      { width: 220, height: 76 },
+    );
+  }
+
+  update(_time: number, delta: number): void {
+    this.state.playTimeSeconds += delta / 1000;
+  }
+
+  private backToTitle(): void {
+    const result = saveStore.write('auto', this.state);
+    if (!result.ok) console.warn('Sauvegarde auto impossible :', result.error);
+    this.scene.start('Title');
   }
 
   private moveTo(tile: Tile): void {
-    this.position = tile;
+    this.state.position = { col: tile.col, row: tile.row };
     const target = this.toWorld(tile);
     this.highlight.clear();
     this.drawDiamond(this.highlight, tile, COLORS.copper, COLORS.parchment, 0.9, 0.35);

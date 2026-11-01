@@ -109,9 +109,8 @@
 
 ### Reste à faire (jalon 1, dans l'ordre proposé)
 
-1. Sauvegarde locale à plusieurs emplacements, avec export et import.
-2. Création de personnage (attributs, compétences, don).
-3. Cartes Tiled (Gardebois, Gare Engloutie), PNJ, dialogues, quête, combat, inventaire, troc, montée de niveau.
+1. Création de personnage (attributs, compétences, don).
+2. Cartes Tiled (Gardebois, Gare Engloutie), PNJ, dialogues, quête, combat, inventaire, troc, montée de niveau.
 
 ### Points ouverts
 
@@ -130,3 +129,24 @@
   nouveau dépôt.
 - La configuration git globale signe toujours `csaintec <csaintecluque@proton.me>` : non modifiée, au choix de Cyril.
 - Après le transfert : réinstaller l'icône sur l'iPhone depuis la nouvelle adresse.
+
+## 2026-11-01 — Sauvegarde locale
+
+- Écran des emplacements (« Charger » depuis le titre, « Sauvegarder » depuis le terrain d'essai) :
+  3 emplacements et 1 sauvegarde auto. On peut y charger, exporter, importer et supprimer.
+  Les détails sont dans `GDD.md` §7.
+- Code : `src/save/codec.ts` (format, validation, migrations), `src/save/store.ts` (emplacements),
+  `src/save/browser.ts` (stockage de l'appareil, export, import), `src/scenes/SlotsScene.ts`,
+  état de jeu `src/state/gameState.ts`, lieux en données dans `src/data/locations.json`.
+  Bouton tactile commun : `src/ui/button.ts`.
+- Tests : 21 nouveaux (35 au total). Ils couvrent l'aller-retour, le refus des fichiers étrangers, abîmés,
+  trop gros ou d'une version future, l'import invalide qui n'écrase rien, et le stockage plein.
+- Vérifié dans le navigateur :
+  - sauvegarder, écraser avec confirmation, sauvegarde auto au retour au titre, charger (position retrouvée) ;
+  - exporter (fichier lu et valide) ; importer (le sélecteur s'ouvre bien pendant le geste du joueur,
+    condition exigée par iOS) ; refus d'un faux fichier sans perte ;
+  - emplacement corrompu affiché sans plantage, puis supprimé ; aucune erreur dans la console.
+  - Texte des détails agrandi après calcul de la taille réelle en paysage sur téléphone (environ 12 px).
+- Pas encore vérifié sur iPhone : l'export par « Enregistrer dans Fichiers » et l'import depuis Fichiers.
+- Bug évité grâce au typage : une méthode `load` de la scène masquait le chargeur interne de Phaser ;
+  elle s'appelle désormais `loadSave`.

@@ -1,4 +1,7 @@
-# Jalon 2 — proposition (2026-11-01, à valider par Cyril)
+# Jalon 2 — proposition (2026-11-01)
+
+**Décisions de Cyril (2026-11-01)** : corrections visuelles d'abord ; pilote d'animation comparant 2D et 3D sur le
+héros (environ 20 crédits) ; 6 avatars à la création. Le reste du plan ci-dessous reste une proposition.
 
 Né du retour de Cyril sur la phase 2 des visuels (2026-11-01) : « rendu beau, mais peu de contenu et répétitif ;
 sol du marché sans texture ; personnages figés (une image qui glisse) et trop gros ; les quatre troncs de

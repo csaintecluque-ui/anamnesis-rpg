@@ -44,7 +44,7 @@ describe('hasPendingLevelUp', () => {
 });
 
 describe('level-up skill allocation', () => {
-  it('grants 3 + mod. Intellect points (GDD §2), minimum 1', () => {
+  it('grants 3 + mod. Intellect points (docs/gdd/competences.md), minimum 1', () => {
     expect(startLevelUp(hero(5)).pointsLeft).toBe(5); // mod +2
     expect(startLevelUp(hero(1)).pointsLeft).toBe(1); // mod -2, floored at 1
   });
@@ -79,7 +79,7 @@ describe('level-up skill allocation', () => {
 });
 
 describe('applyLevelUp', () => {
-  it('raises the level, keeps the new skill ranks and heals fully (GDD §2, précisions)', () => {
+  it('raises the level, keeps the new skill ranks and heals fully (docs/gdd/progression.md)', () => {
     const c = hero();
     c.hp = 1;
     let state = startLevelUp(c);

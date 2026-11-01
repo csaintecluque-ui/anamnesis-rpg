@@ -83,7 +83,7 @@ describe('meetsThreshold', () => {
   });
 });
 
-describe('derived values (GDD §1, character at 3 everywhere)', () => {
+describe('derived values (docs/gdd/attributs.md, character at 3 everywhere)', () => {
   it('matches the reference column', () => {
     expect(maxHitPoints(average)).toBe(32);
     expect(resistancePoints(average)).toBe(3);

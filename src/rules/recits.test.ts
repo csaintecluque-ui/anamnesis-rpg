@@ -39,7 +39,7 @@ describe('recits', () => {
     expect(c.recits).toEqual(['recit-1', 'recit-2', 'recit-3', 'recit-4']);
   });
 
-  it('ships with the Récit du savant Corvan, used to resolve Le Dernier Train (GDD §4, §6)', () => {
+  it('ships with the Récit du savant Corvan, used to resolve Le Dernier Train (docs/gdd/memoire.md, tranche-verticale.md)', () => {
     expect(RECITS.some((r) => r.id === 'savant-corvan')).toBe(true);
   });
 });

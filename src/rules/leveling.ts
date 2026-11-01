@@ -46,7 +46,7 @@ export function lowerLevelSkill(character: Character, state: LevelUpState, id: S
   return { skillRanks: { ...state.skillRanks, [id]: state.skillRanks[id] - 1 }, pointsLeft: state.pointsLeft + 1 };
 }
 
-/** Applies one level: +1 niveau, the new skill ranks, a full heal (GDD §2, « Précisions d'implémentation »). */
+/** Applies one level: +1 niveau, the new skill ranks, a full heal (docs/gdd/progression.md). */
 export function applyLevelUp(character: Character, state: LevelUpState): void {
   character.level += 1;
   character.skills = { ...state.skillRanks };

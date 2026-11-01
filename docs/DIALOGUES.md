@@ -1,7 +1,7 @@
 # Dialogues — texte à relire
 
 Document **généré** à partir de `src/data/dialogues/*.json` (`npm run dialogues`) : ne pas le modifier à la main.
-Statut des textes (validé ou à valider) : voir `docs/LORE.md` §11.
+Statut des textes (validé ou à valider) : voir `docs/univers/personnages/pnj.md` et `docs/univers/lieux/gare-engloutie.md`.
 
 Légende : **[Perception 4]** = test d’attribut ou de compétence (option visible mais grisée si le seuil manque) ;
 _(si …)_ = option qui n’apparaît que dans cette situation ; → = où mène la réponse.

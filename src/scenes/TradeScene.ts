@@ -24,7 +24,7 @@ const STATS_Y = 160;
 const ROW_TOP = 198;
 const ROW_HEIGHT = 60;
 
-/** Buy, sell, equip and use items — GDD §3. Every trader sells the same small catalogue for now (à valider). */
+/** Buy, sell, equip and use items — docs/gdd/inventaire.md. Every trader sells the same small catalogue for now (à valider). */
 export class TradeScene extends Phaser.Scene {
   private state!: GameState;
   private npcId: string | undefined;

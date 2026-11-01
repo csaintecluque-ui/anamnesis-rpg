@@ -25,7 +25,7 @@ export interface FeatDef {
 
 export const FEATS = featData as FeatDef[];
 
-/** GDD §1–3 (validated 2026-11-01). */
+/** docs/gdd/attributs.md, competences.md, creation.md (validated 2026-11-01). */
 export const CREATION = {
   base: 3,
   points: 3,
@@ -48,7 +48,7 @@ export interface CharacterDraft {
   feat: FeatId | null;
 }
 
-/** Two hands and armour (GDD §3). */
+/** Two hands and armour (docs/gdd/inventaire.md). */
 export type Slot = 'mainGauche' | 'mainDroite' | 'armure';
 export const SLOTS: Slot[] = ['mainGauche', 'mainDroite', 'armure'];
 
@@ -68,9 +68,9 @@ export interface Character {
   attributes: Attributes;
   skills: SkillRanks;
   hp: number;
-  /** Récits recueillis (GDD §4, piste B), plafonnés par talesRetained. */
+  /** Récits recueillis (docs/gdd/memoire.md, piste B), plafonnés par talesRetained. */
   recits: string[];
-  /** La monnaie de Ferros (LORE.md §11). */
+  /** La monnaie de Ferros (docs/univers/personnages/pnj.md). */
   fers: number;
   inventory: InventorySlotState[];
   equipment: Equipment;
@@ -209,7 +209,7 @@ export function isDraftComplete(d: CharacterDraft): boolean {
   return Object.values(draftErrors(d)).every((errors) => errors.length === 0);
 }
 
-/** Starting funds (LORE.md §11) : less than Tobias's laissez-passer, on purpose — see GDD §6. */
+/** Starting funds (docs/univers/personnages/pnj.md) : less than Tobias's laissez-passer, on purpose — see docs/gdd/inventaire.md. */
 export const STARTING_FERS = 15;
 
 export function finalizeCharacter(d: CharacterDraft): Character {

@@ -147,7 +147,7 @@ class MapBuilder {
   }
 }
 
-// --- Gardebois, Marché des Lisières (LORE.md §11, validé) -----------------
+// --- Gardebois, Marché des Lisières (docs/univers/lieux/gardebois.md, validé)
 function gardebois() {
   const m = new MapBuilder(28, 24);
   const rng = mulberry32(3000);
@@ -223,7 +223,7 @@ function gardebois() {
   return m.toTiled();
 }
 
-// --- La Gare Engloutie (LORE.md §11, à valider) ---------------------------
+// --- La Gare Engloutie (docs/univers/lieux/gare-engloutie.md, à valider) ----
 function gareEngloutie() {
   const m = new MapBuilder(24, 18);
   const rng = mulberry32(4100);

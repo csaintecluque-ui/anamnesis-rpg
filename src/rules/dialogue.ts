@@ -19,7 +19,7 @@ export type Effect =
   | { giveXp: number }
   | { giveFers: number }
   | { learnRecit: string }
-  /** No state change: tells DialogueScene to open the Troc with this NPC instead of closing (GDD §3). */
+  /** No state change: tells DialogueScene to open the Troc with this NPC instead of closing (docs/gdd/inventaire.md). */
   | { openTrade: true };
 
 export interface DialogueOption {

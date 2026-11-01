@@ -31,7 +31,7 @@ function completeDraft(): CharacterDraft {
   return { ...d, feat: 'tough' };
 }
 
-describe('attribute allocation (GDD §1)', () => {
+describe('attribute allocation (docs/gdd/attributs.md)', () => {
   it('starts at 3 everywhere with 3 points to spend', () => {
     const d = createDraft();
     expect(Object.values(d.allocated).every((v) => v === 3)).toBe(true);
@@ -79,7 +79,7 @@ describe('attribute allocation (GDD §1)', () => {
   });
 });
 
-describe('skill allocation (GDD §2)', () => {
+describe('skill allocation (docs/gdd/competences.md)', () => {
   it('spends 6 ranks, at most 3 per skill', () => {
     let d = createDraft();
     for (let i = 0; i < 4; i++) d = changeSkill(d, 'melee', 1);

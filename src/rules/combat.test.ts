@@ -263,7 +263,7 @@ describe('heroAttacks', () => {
 });
 
 describe('data', () => {
-  it('ships the two weapons and both enemies named in the GDD (§5, §6)', () => {
+  it('ships the two weapons and both enemies named in docs/gdd/combat.md and tranche-verticale.md', () => {
     expect(findWeapon('epee-longue')).toBeDefined();
     expect(findWeapon('arc')).toBeDefined();
     expect(findEnemy('golem-ferraille')).toBeDefined();

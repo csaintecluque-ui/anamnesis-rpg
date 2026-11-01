@@ -132,7 +132,7 @@ export const TILES = [
       `<path d="M22 82 Q20 60 32 56 Q44 60 42 82 Z" fill="${COPPER}" stroke="${PARCHMENT}" stroke-width="2"/>` +
       `<circle cx="32" cy="48" r="9" fill="#d9b28e" stroke="${PARCHMENT}" stroke-width="2"/>`,
   },
-  // --- La Gare Engloutie (LORE.md §11, à valider) -------------------------
+  // --- La Gare Engloutie (docs/univers/lieux/gare-engloutie.md, à valider) --
   {
     name: 'rail',
     svg:

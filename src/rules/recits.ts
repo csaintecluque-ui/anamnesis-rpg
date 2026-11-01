@@ -18,7 +18,7 @@ export function knowsRecit(character: Character | null | undefined, id: string):
   return character?.recits.includes(id) ?? false;
 }
 
-/** Learns a récit, forgetting the oldest one first once at the cap (Mémoire + 1, GDD §4). */
+/** Learns a récit, forgetting the oldest one first once at the cap (Mémoire + 1, docs/gdd/memoire.md). */
 export function learnRecit(character: Character, id: string): void {
   if (character.recits.includes(id)) return;
   const cap = characterStats(character).tales;

@@ -16,13 +16,14 @@ Il valide le lore, les noms, l'histoire et le ressenti de jeu. Toi, tu proposes 
   Le thème central est la mémoire (l'anamnèse : le ressouvenir).
 - **`docs/Lore/` fait foi.** C'est le lore canonique d'Anamnesis, fourni par Cyril. On ne le contredit jamais,
   ni dans le jeu, ni dans les documents, ni dans les propositions. On ne le modifie pas sans son accord.
-  `docs/LORE.md` n'en est qu'une synthèse : en cas d'écart, `docs/Lore/` l'emporte.
+  `docs/univers/` n'en est qu'une synthèse : en cas d'écart, `docs/Lore/` l'emporte.
   `docs/Lore/` et `docs/Carte Anamnesis.png` restent **en local** : ils sont exclus du dépôt public
   (`.gitignore`) et ne doivent jamais être publiés.
-  Quand le canon se contredit lui-même, ne tranche pas seul : consigne le point dans `docs/LORE.md`
-  (« zones floues ») et demande à Cyril.
+  Quand le canon se contredit lui-même, ne tranche pas seul : consigne le point dans
+  `docs/univers/zones-floues.md` et demande à Cyril.
 - **Ne jamais inventer de canon.** Tout élément de lore que tu crées (lieu, faction, personnage, nom)
-  est une *proposition* : consigne-le dans `docs/LORE.md` avec le statut « à valider » et pose la question à Cyril.
+  est une *proposition* : consigne-le dans le fichier de son thème sous `docs/univers/` avec le statut
+  « à valider » et pose la question à Cyril.
 
 ## 2. Plateforme et technique
 
@@ -37,34 +38,13 @@ Il valide le lore, les noms, l'histoire et le ressenti de jeu. Toi, tu proposes 
 - Build statique publié sur GitHub Pages (workflow GitHub Actions).
 - Performance : 60 i/s visés sur un iPhone récent ; pas de dépendance lourde inutile.
 
-## 3. Systèmes de jeu (premier jet, à valider avec Cyril)
+## 3. Systèmes de jeu
 
-- **Attributs** : 7 attributs propres à l'univers d'Anamnesis (équivalent fonctionnel d'un système à la SPECIAL).
-  Propose les noms et leur rôle, puis fais valider avant de les coder en dur.
-- **Compétences** : une douzaine, dérivées des attributs, qui progressent avec l'expérience.
-- **Traits / dons** : quelques choix à la création et aux montées de niveau.
-- **Dialogues** : arbres à embranchements, conditions sur attributs/compétences/objets/quêtes,
-  options grisées visibles quand une condition manque (le joueur voit ce qu'il aurait pu dire).
-- **Combat** : tour par tour, points d'action, initiative, déplacement sur grille iso,
-  tir/attaque ciblée par zone, couverture, fuite possible. Combat toujours évitable quand l'histoire le permet.
-- **Inventaire** : poids, équipement (2 mains + armure), troc avec les PNJ.
-- **Journal** : quêtes actives/terminées, notes, carte du monde.
-- **Mécanique signature** à proposer : quelque chose autour de la mémoire (souvenirs à retrouver,
-  souvenirs qui débloquent dialogues ou compétences). Propose 2 ou 3 pistes, Cyril choisit.
+Cahier des charges initial : `docs/gdd/cahier-des-charges.md`. Conception validée : `docs/gdd/`.
 
-## 4. Premier jalon : la tranche verticale
+## 4. Jalons
 
-Objectif : 20 à 30 minutes de jeu complet, de bout en bout, avec des visuels provisoires.
-
-1. Écran titre, menu pause, options (volume, taille du texte), sauvegarde/chargement.
-2. Création de personnage : attributs, compétences, un trait.
-3. Une carte « hub » (un petit village ou un quartier) + une carte de donjon/extérieur.
-4. 3 PNJ avec dialogues à embranchements, dont au moins un test d'attribut et un test de compétence.
-5. Une quête principale avec au moins 2 résolutions (dialogue OU combat OU discrétion).
-6. Un combat au tour par tour contre 2 ou 3 ennemis.
-7. Inventaire, troc avec un marchand, montée d'un niveau.
-8. PWA installable sur iPhone, publiée sur GitHub Pages.
-
+Jalon 1 (tranche verticale, 8 points) : `docs/gdd/cahier-des-charges.md`. Jalon en cours : `docs/JOURNAL.md`.
 Ne passe pas au jalon suivant sans validation de Cyril.
 
 ## 5. Direction artistique
@@ -89,14 +69,19 @@ Ne modifie jamais le dessin du logo.
 
 ## 7. Méthode de travail
 
-- **Ne pas deviner, vérifier.** Au début de chaque session : lis `docs/JOURNAL.md`, vérifie l'état du dépôt,
-  lance le build et les tests, vérifie les MCP connectés (`/mcp`).
+- **Au démarrage, lis uniquement `docs/JOURNAL.md` et `docs/INDEX.md`**, puis seulement les fichiers utiles
+  à la tâche du jour. Jamais tout `docs/Lore/` : seulement le fichier canon précis dont la tâche a besoin.
+- **Pas de build ni de tests au démarrage** : seulement après une modification de code
+  (`npm run typecheck`, `npm test`, `npm run build`). Les MCP se vérifient quand une tâche en a besoin.
+- **Ne pas deviner, vérifier** : avant d'affirmer un état (code, dépôt, outil), regarde-le.
 - Travaille par petites étapes ; un commit clair par étape ; branche `main` toujours jouable.
 - Teste ce que tu construis : tests unitaires sur les règles (combat, tests de compétence, sauvegarde),
   et vérification visuelle dans le navigateur (Playwright + captures d'écran si disponible).
-- Tiens à jour :
-  - `docs/JOURNAL.md` : ce qui a été fait, ce qui reste, les décisions prises ;
-  - `docs/GDD.md` : le document de conception (systèmes, chiffres, équilibrage) ;
-  - `docs/LORE.md` : le lore, avec le statut de chaque élément (validé / à valider).
+- Garde ce fichier court : les détails vont dans `docs/`. Tiens à jour :
+  - `docs/JOURNAL.md` : état actuel, jalon en cours, prochaine étape, points ouverts (**30 lignes max**) ;
+    le récit de chaque session va dans `docs/archive/journal-AAAA-MM.md` ;
+  - `docs/gdd/` : la conception (systèmes, chiffres, équilibrage), un fichier par thème ;
+  - `docs/univers/` : la synthèse du lore, un fichier par thème, avec le statut de chaque élément ;
+  - `docs/INDEX.md` : une ligne par fichier ; à mettre à jour à chaque création ou renommage.
 - Pose tes questions à Cyril regroupées, courtes, avec ta recommandation. Il répond souvent depuis son téléphone.
 - Écris en français (code et noms de variables en anglais).

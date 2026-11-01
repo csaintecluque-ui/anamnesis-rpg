@@ -123,7 +123,7 @@ describe('dialogue files', () => {
     for (const npc of npcData) expect(DIALOGUES[npc.id], npc.id).toBeDefined();
   });
 
-  it('Ilyane starts the quest, with a Perception 4 test (GDD §6)', () => {
+  it('Ilyane starts the quest, with a Perception 4 test (docs/gdd/tranche-verticale.md)', () => {
     const d = DIALOGUES.ilyane;
     const tests = Object.values(d.nodes).flatMap((n) => n.options.flatMap((o) => o.requires ?? []));
     expect(tests).toContainEqual({ attribute: 'perception', min: 4 });
@@ -132,7 +132,7 @@ describe('dialogue files', () => {
     expect(startNode(d, stateWith(3, 0))).not.toBe(startNode(d, { ...stateWith(3, 0), quests: { 'dernier-train': 'active' } }));
   });
 
-  it('Tobias gives the pass with a Diplomatie 2 test, only once the quest is active (GDD §6)', () => {
+  it('Tobias gives the pass with a Diplomatie 2 test, only once the quest is active (docs/gdd/tranche-verticale.md)', () => {
     const d = DIALOGUES.tobias;
     const passOption = Object.values(d.nodes)
       .flatMap((n) => n.options)
@@ -167,7 +167,7 @@ describe('dialogue files', () => {
     expect(startNode(d, s)).toBe('vide');
   });
 
-  it('Tobias opens the Troc from his stall, available to everyone (GDD §3)', () => {
+  it('Tobias opens the Troc from his stall, available to everyone (docs/gdd/inventaire.md)', () => {
     const d = DIALOGUES.tobias;
     const tradeOption = Object.values(d.nodes)
       .flatMap((n) => n.options)
@@ -192,7 +192,7 @@ describe('dialogue files', () => {
     expect(notices).toEqual(['Récit retenu : Le Savant Corvan']);
   });
 
-  it('Ingrid stops the dig for a Diplomatie 3 or Commandement 3 test, or for the Récit du savant Corvan (GDD §6)', () => {
+  it('Ingrid stops the dig for a Diplomatie 3 or Commandement 3 test, or for the Récit du savant Corvan (docs/gdd/tranche-verticale.md)', () => {
     const d = DIALOGUES.ingrid;
     const tests = Object.values(d.nodes).flatMap((n) => n.options.flatMap((o) => o.requires ?? []));
     expect(tests).toContainEqual({ skill: 'diplomacy', min: 3 });

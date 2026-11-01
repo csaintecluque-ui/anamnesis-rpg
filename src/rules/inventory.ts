@@ -10,7 +10,7 @@ export interface ItemDef {
   price: number;
   /** Item can be equipped in a slot of this kind; absent for loose goods. */
   slot?: 'main' | 'armure';
-  /** Bonus to Défense while equipped (GDD §5). */
+  /** Bonus to Défense while equipped (docs/gdd/combat.md). */
   armorBonus?: number;
   /** PV restored, then the item is consumed. */
   healHp?: number;

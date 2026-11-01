@@ -18,7 +18,7 @@ import { COLORS, CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
 
 const SMALL = { width: 64, height: 58, fontSize: 32 };
 
-/** One level at a time: +1 niveau, des points de compétence, un repos complet (GDD §2, précisions). */
+/** One level at a time: +1 niveau, des points de compétence, un repos complet (docs/gdd/progression.md). */
 export class LevelUpScene extends Phaser.Scene {
   private state!: GameState;
   private levelUp!: LevelUpState;

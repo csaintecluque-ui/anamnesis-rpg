@@ -45,8 +45,8 @@ export interface CombatStartData {
   obstacles?: Tile[];
 }
 
-/** Turn-based combat on a small arena, GDD §5. Visuals are a stand-in: a dedicated arena rather than carving the
- *  explored map, and cover is not yet derived from terrain — see GDD §5, « Précisions d'implémentation ». */
+/** Turn-based combat on a small arena, docs/gdd/combat.md. Visuals are a stand-in: a dedicated arena rather than carving the
+ *  explored map, and cover is not yet derived from terrain — see docs/gdd/combat.md, « Précisions d'implémentation ». */
 export class CombatScene extends Phaser.Scene {
   private state!: GameState;
   private config!: CombatStartData;

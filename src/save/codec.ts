@@ -37,13 +37,13 @@ const MIGRATIONS: Record<number, (save: Record<string, unknown>) => Record<strin
   },
   // v3 predates dialogues: no story flags or quests yet.
   3: (save) => ({ ...save, state: isRecord(save.state) ? { ...save.state, flags: {}, quests: {} } : save.state }),
-  // v4 predates Récits (GDD §4, piste B): no character predates this field, so an empty list.
+  // v4 predates Récits (docs/gdd/memoire.md, piste B): no character predates this field, so an empty list.
   4: (save) => {
     if (!isRecord(save.state)) return save;
     const character = isRecord(save.state.character) ? { ...save.state.character, recits: [] } : save.state.character;
     return { ...save, state: { ...save.state, character } };
   },
-  // v5 predates the inventory (GDD §3): starting funds, nothing carried or equipped.
+  // v5 predates the inventory (docs/gdd/inventaire.md): starting funds, nothing carried or equipped.
   5: (save) => {
     if (!isRecord(save.state)) return save;
     const character = isRecord(save.state.character)

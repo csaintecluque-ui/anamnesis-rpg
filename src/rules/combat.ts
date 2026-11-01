@@ -44,7 +44,7 @@ export function findEnemy(id: string): EnemyDef | undefined {
   return ENEMIES.find((e) => e.id === id);
 }
 
-/** GDD §5: aim at a zone for a penalty, with an effect that lasts the target's next turn. */
+/** docs/gdd/combat.md: aim at a zone for a penalty, with an effect that lasts the target's next turn. */
 export type Zone = 'corps' | 'tete' | 'bras' | 'jambes';
 
 export const ZONES: { id: Zone; label: string; toHitPenalty: number; effect: keyof Combatant['status'] | null }[] = [
@@ -69,7 +69,7 @@ export interface AttackProfile {
   damage: Dice;
   /** Added to the damage roll (attribute modifier, feat bonuses). */
   damageBonus: number;
-  /** 3 PA, fixed (GDD §5). */
+  /** 3 PA, fixed (docs/gdd/combat.md). */
   apCost: number;
 }
 
@@ -95,7 +95,7 @@ export interface Combatant {
 
 const emptyStatus = () => ({ stunned: false, disarmed: false, slowed: false });
 
-/** The hero fights with the two best-in-class weapons (épée longue, arc) until equipment exists (GDD §5, à valider). */
+/** The hero fights with the two best-in-class weapons (épée longue, arc) until equipment exists (docs/gdd/combat.md, à valider). */
 export function heroAttacks(character: Character): AttackProfile[] {
   const feat = findFeat(character.feat)?.effects.combat ?? {};
   return WEAPONS.map((weapon) => {
@@ -260,7 +260,7 @@ export function resolveAttack(
   return { hit: true, critical, fumble: false, damage, zoneEffect: zoneEffect && !target.defeated ? zoneEffect : null, defeated: target.defeated };
 }
 
-/** Resets PA for a new turn, applying the previous turn's zone effects (GDD §5). */
+/** Resets PA for a new turn, applying the previous turn's zone effects (docs/gdd/combat.md). */
 export function startTurn(combatant: Combatant): void {
   if (combatant.status.stunned) {
     combatant.actionPoints = 0;

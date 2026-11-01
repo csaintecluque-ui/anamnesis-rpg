@@ -41,7 +41,7 @@ describe('items', () => {
 });
 
 describe('starting funds', () => {
-  it('a new character starts with less than the laissez-passer (GDD §6, à dessein)', () => {
+  it('a new character starts with less than the laissez-passer (docs/gdd/inventaire.md, à dessein)', () => {
     expect(hero().fers).toBe(STARTING_FERS);
     expect(STARTING_FERS).toBeLessThan(50);
   });
@@ -67,7 +67,7 @@ describe('addItem / removeItem / ownedCount', () => {
 });
 
 describe('weight', () => {
-  it('sums owned items, equipped or not, against Charge (GDD §1)', () => {
+  it('sums owned items, equipped or not, against Charge (docs/gdd/attributs.md)', () => {
     const c = hero();
     expect(carriedWeightKg(c)).toBe(0);
     addItem(c, 'corde', 2); // 2 kg each

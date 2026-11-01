@@ -1424,6 +1424,11 @@
        "value": "gare-engloutie"
       },
       {
+       "name": "arrivee",
+       "type": "string",
+       "value": "entree-gare"
+      },
+      {
        "name": "libelle",
        "type": "string",
        "value": "Vers la Gare Engloutie"
@@ -1503,11 +1508,11 @@
    "name": "placeholder",
    "image": "../../../public/tiles/placeholder.png",
    "imagewidth": 512,
-   "imageheight": 288,
+   "imageheight": 384,
    "tilewidth": 64,
    "tileheight": 96,
    "columns": 8,
-   "tilecount": 17,
+   "tilecount": 25,
    "margin": 0,
    "spacing": 0,
    "tiles": [
@@ -1758,6 +1763,126 @@
        "name": "nom",
        "type": "string",
        "value": "pnj"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 17,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "rail"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 18,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "quai"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 19,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "wagon"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      }
+     ]
+    },
+    {
+     "id": 20,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "foreuse"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      }
+     ]
+    },
+    {
+     "id": 21,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "faille"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      }
+     ]
+    },
+    {
+     "id": 22,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "tente"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      }
+     ]
+    },
+    {
+     "id": 23,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "golem"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      }
+     ]
+    },
+    {
+     "id": 24,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "echo"
       },
       {
        "name": "bloquant",

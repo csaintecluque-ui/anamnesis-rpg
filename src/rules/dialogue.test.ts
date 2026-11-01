@@ -138,4 +138,38 @@ describe('dialogue files', () => {
       .find((o) => o.effects?.some((e) => 'setFlag' in e && e.setFlag === 'laissez-passer'));
     expect(passOption?.requires).toContainEqual({ skill: 'diplomacy', min: 2 });
   });
+
+  it('the Écho grants the Récit du savant Corvan only with Mémoire 4, and completes the dialogue either way', () => {
+    const base = stateWith(3, 0);
+    const low: GameState = { ...base, character: { ...base.character!, attributes: { ...base.character!.attributes, memory: 3 } } };
+    expect(startNode(DIALOGUES['echo-dernier-train'], low)).toBe('approche');
+    const optionsLow = visibleOptions(DIALOGUES['echo-dernier-train'].nodes.approche, low);
+    expect(optionsLow.find((v) => v.option.text === 'Entrer dans l’Écho.')).toMatchObject({ enabled: false });
+
+    const highMemory: GameState = { ...low, character: { ...low.character!, attributes: { ...low.character!.attributes, memory: 4 } } };
+    const optionsHigh = visibleOptions(DIALOGUES['echo-dernier-train'].nodes.approche, highMemory);
+    const enter = optionsHigh.find((v) => v.option.text === 'Entrer dans l’Écho.')!;
+    expect(enter.enabled).toBe(true);
+    applyEffects(highMemory, enter.option.effects);
+    const notices = applyEffects(highMemory, DIALOGUES['echo-dernier-train'].nodes.interieur.effects);
+    expect(highMemory.character?.recits).toContain('savant-corvan');
+    expect(notices).toEqual(['Récit retenu : Le Savant Corvan']);
+  });
+
+  it('Ingrid stops the dig for a Diplomatie 3 or Commandement 3 test, or for the Récit du savant Corvan (GDD §6)', () => {
+    const d = DIALOGUES.ingrid;
+    const tests = Object.values(d.nodes).flatMap((n) => n.options.flatMap((o) => o.requires ?? []));
+    expect(tests).toContainEqual({ skill: 'diplomacy', min: 3 });
+    expect(tests).toContainEqual({ skill: 'command', min: 3 });
+    expect(tests).toContainEqual({ recit: 'savant-corvan' });
+
+    const withoutRecit = stateWith(3, 3);
+    withoutRecit.quests['dernier-train'] = 'active';
+    const recitOption = visibleOptions(d.nodes.cause, withoutRecit).find((v) => v.option.text.includes('savant Corvan'));
+    expect(recitOption).toBeUndefined();
+
+    const withRecit: GameState = { ...withoutRecit, character: { ...withoutRecit.character!, recits: ['savant-corvan'] } };
+    const recitOptionVisible = visibleOptions(d.nodes.cause, withRecit).find((v) => v.option.text.includes('savant Corvan'));
+    expect(recitOptionVisible).toMatchObject({ enabled: true });
+  });
 });

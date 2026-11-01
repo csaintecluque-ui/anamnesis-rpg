@@ -6,11 +6,45 @@ Statut des textes (validé ou à valider) : voir `docs/LORE.md` §11.
 Légende : **[Perception 4]** = test d’attribut ou de compétence (option visible mais grisée si le seuil manque) ;
 _(si …)_ = option qui n’apparaît que dans cette situation ; → = où mène la réponse.
 
+## L’Écho du dernier train
+
+_Écho du Passé_
+
+Commence par : « approche »
+
+### approche
+
+> Le quai tremble sous tes pieds. Des silhouettes de l’Ancien Monde se dessinent dans la lumière : une foule se presse vers un train, les mains levées. Des enfants rient à une fenêtre. Un sifflet déchire l’air, trois mille ans trop tôt.
+
+- **[Mémoire 4]** « Entrer dans l’Écho. » → interieur _(retient « echo-dernier-train-vu », +15 XP)_
+- « Observer sans s’approcher. » → observe _(retient « echo-dernier-train-vu », +10 XP)_
+- « S’éloigner. » → **fin**
+
+### interieur
+
+_Effet : +undefined XP._
+
+> Un instant, tu es sur ce quai disparu. Une voix te revient, celle d’un savant qu’on emmenait loin du danger : « Dis-leur, pour Corvan. Dis-leur que même réussir peut tout détruire. » Puis l’Écho se dissipe, apaisé pour un temps.
+
+- « … » → **fin**
+
+### observe
+
+> Tu restes en retrait. Les images s’effacent sans te livrer leurs secrets, mais tu as vu assez pour comprendre : ce train n’aurait pas dû partir, et pourtant il est parti.
+
+- « … » → **fin**
+
 ## Ilyane Voix-d’Écorce
 
 _Gardienne de Mémoire de Gardebois_
 
-Commence par : « en-cours » _(si quête « Le Dernier Train » en cours)_, sinon « accueil »
+Commence par : « resolu » _(si quête « Le Dernier Train » terminée)_, sinon « en-cours » _(si quête « Le Dernier Train » en cours)_, sinon « accueil »
+
+### resolu
+
+> Depuis que la foreuse s’est tue, plus personne ne revit la Grande Chute. Tu as bien fait. Mais dis-moi : qui a payé cette prospection, à ton avis ? Les Réveilleurs, peut-être. Reste sur tes gardes.
+
+- « Je resterai sur mes gardes. » → **fin**
 
 ### accueil
 
@@ -73,6 +107,46 @@ _Effet : lance la quête « Le Dernier Train »._
 > Les visions passent comme des nuages. Je tiendrai. Le marché a besoin de quelqu’un qui garde la tête froide… et toi, tu as une gare à écouter.
 
 - « Je reviens vite. » → **fin**
+
+## Ingrid Brisefer
+
+_Ingénieure, prospection de Ferros_
+
+Commence par : « apres » _(si quête « Le Dernier Train » terminée)_, sinon « accueil »
+
+### accueil
+
+> Chantier privé, prospection pour le compte de Ferros. Qu’est-ce que les Gardiens de Mémoire viennent encore nous reprocher ?
+
+- « Ce chantier rend les gens malades, à Gardebois. » → cause
+- « Je viens juste regarder. » → **fin**
+
+### cause
+
+> La maladie mémorielle ? On en a entendu parler. Mais la Faille vaut de l’or en cristaux, et j’ai des papiers signés. Je ne m’arrête pas pour une rumeur de marché.
+
+- **[Diplomatie 3]** « Arrêtez le forage : à chaque coup, l’Écho se multiplie, et le mal avec lui. » → convaincue _(retient « chantier-arrete », termine la quête « Le Dernier Train », +40 XP)_
+- **[Commandement 3]** « Je parle au nom des Gardiens de Mémoire : cessez, maintenant. » → convaincue _(retient « chantier-arrete », termine la quête « Le Dernier Train », +40 XP)_
+- _(si quête « undefined » undefined)_ « Je connais l’histoire du savant Corvan. Écoutez-la avant de creuser plus loin. » → convaincue-recit _(retient « chantier-arrete », termine la quête « Le Dernier Train », +40 XP)_
+- « Je reviendrai. » → **fin**
+
+### convaincue
+
+> … Bon. J’arrête la foreuse, pour l’instant. Mais dites bien à vos Gardiens que Ferros reviendra, avec ou sans moi.
+
+- « Merci. » → **fin**
+
+### convaincue-recit
+
+> Corvan ? Je connais l’histoire, oui… et vous avez raison : il a réussi, et ça ne l’a pas sauvé. J’arrête la foreuse. On ne force pas deux fois la même faute.
+
+- « Merci. » → **fin**
+
+### apres
+
+> La foreuse est silencieuse, pour l’instant. Mes ouvriers n’aiment pas ça, mais personne n’a plus revu de train, à Gardebois.
+
+- « Tant mieux. » → **fin**
 
 ## Tobias Cendrefer
 

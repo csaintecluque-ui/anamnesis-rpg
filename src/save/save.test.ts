@@ -140,6 +140,14 @@ describe('save codec', () => {
     if (parsed.ok) expect(parsed.value.state).toMatchObject({ flags: {}, quests: {}, position: state.position });
   });
 
+  it('migrates a version 4 save by adding an empty list of récits to the character', () => {
+    const { recits: _r, ...v4Character } = state.character!;
+    const v4State = { ...state, character: v4Character };
+    const parsed = parseSave(JSON.stringify({ game: 'anamnesis', version: 4, savedAt: NOW.toISOString(), state: v4State }));
+    expect(parsed.ok).toBe(true);
+    if (parsed.ok) expect(parsed.value.state.character).toMatchObject({ recits: [] });
+  });
+
   it.each([
     ['a non-true flag', { flags: { 'laissez-passer': 'oui' } }, 'repères'],
     ['an unknown quest status', { quests: { 'dernier-train': 'peut-être' } }, 'quêtes'],
@@ -157,6 +165,13 @@ describe('save codec', () => {
     const broken = parseSave(JSON.stringify({ ...base, state: { ...state, character: { ...state.character, feat: 'flying' } } }));
     expect(broken.ok).toBe(false);
     if (!broken.ok) expect(broken.error).toContain('don inconnu');
+  });
+
+  it('rejects a character whose récits are not a list of strings', () => {
+    const base = { game: 'anamnesis', version: SAVE_VERSION, savedAt: NOW.toISOString() };
+    const broken = parseSave(JSON.stringify({ ...base, state: { ...state, character: { ...state.character, recits: 'savant-corvan' } } }));
+    expect(broken.ok).toBe(false);
+    if (!broken.ok) expect(broken.error).toContain('récits invalides');
   });
 
   it('rejects an invalid date', () => {

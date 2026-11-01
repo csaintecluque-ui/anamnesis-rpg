@@ -377,6 +377,18 @@ Le détail des systèmes est dans `docs/GDD.md`.
 | Ennemis | 2 Rôdeurs-Épine et 1 Golem de Ferraille réveillé par le forage | E8, E2 | validé |
 | Commanditaires cachés | Les Réveilleurs financent peut-être la prospection (révélation optionnelle) | E10 | validé |
 
+### Gare Engloutie — contenu détaillé (à valider)
+
+Écrit en construisant la carte. Le concept (Gare, Écho complet et interactif, Ingrid Brisefer, ennemis) était déjà validé ; ce qui suit précise les textes et les seuils.
+
+| Élément | Proposition | Ancrage canon | Statut |
+|---|---|---|---|
+| Aménagement | Quai de pierre fendu avec ses rails, wagon renversé du « dernier train » ; au-delà, le chantier de Brisefer (foreuse plantée dans la Faille, tente, caisses d'outils) ; un Golem de Ferraille endormi à l'écart ; un seul chemin, depuis Gardebois | E2 (Golems de Ferraille), E10 (Trois Failles) | à valider |
+| Écho interactif | Sur le quai, près du wagon : la foule du dernier train. Avec **Mémoire 4**, on peut y « entrer » et recueillir le **Récit du savant Corvan** [E2, cité en GDD §4] ; sinon, on l'observe sans le recueillir | E2 (Échos interactifs, loi de la Mémoire Vivante) | à valider |
+| Dialogue de Brisefer | Elle défend son chantier (papiers de Ferros, cristaux de la Faille) ; on l'arrête par la parole (**Diplomatie 3** ou **Commandement 3**) ou en lui racontant le **Récit du savant Corvan** une fois recueilli ; elle cite Ferros en partant | N2 (Ferros, cristaux), GDD §6 | à valider |
+| Suite chez Ilyane | Un nouveau nœud (« resolu »), déclenché une fois la quête terminée : la maladie recule, et Ilyane soupçonne les Réveilleurs d'avoir financé la prospection | E10 (Réveilleurs), GDD §6 | à valider |
+| Rôdeurs-Épine et Golem | Mentionnés par Brisefer (ses ouvriers n'osent plus approcher) ; le Golem est visible, endormi, sur la carte. Combat non encore jouable : en attente du système de combat | E8 (Rôdeur-Épine), E2 (Golems de Ferraille) | à valider |
+
 ### Rejeté
 
 Les propositions de la session 1 (Aubelac, le Phare des Échos, Ysolde, Corvin, Aldric, les Oublieux, les attributs Résonance et Grâce) sont **rejetées**. Elles ont été inventées avant la lecture du canon et faisaient doublon : « Résonance » est déjà un terme canon (Cristaux de Résonance, Résonance Fatale) ; « Corvin » rappelle trop le savant Corvan ; « Aldric » rappelle trop Aldara.

@@ -215,7 +215,7 @@ function gardebois() {
   }
 
   m.object('entree', 'arrivee', 1, 4);
-  m.object('vers-gare', 'sortie', 27, 18, { cible: 'gare-engloutie', libelle: 'Vers la Gare Engloutie' });
+  m.object('vers-gare', 'sortie', 27, 18, { cible: 'gare-engloutie', arrivee: 'entree-gare', libelle: 'Vers la Gare Engloutie' });
   m.object('ilyane', 'pnj', 5, 15);
   m.object('tobias', 'pnj', 14, 8);
   m.object('panneau-gare', 'panneau', 26, 17, { texte: 'Vers les Lisières Cultivées et la Gare Engloutie.' });
@@ -223,6 +223,61 @@ function gardebois() {
   return m.toTiled();
 }
 
+// --- La Gare Engloutie (LORE.md §11, à valider) ---------------------------
+function gareEngloutie() {
+  const m = new MapBuilder(24, 18);
+  const rng = mulberry32(4100);
+
+  // Forest border, with a single opening west, back towards Gardebois.
+  for (let col = 0; col < m.width; col++) {
+    m.setObstacle(col, 0, 'arbre');
+    m.setObstacle(col, m.height - 1, 'arbre');
+  }
+  for (let row = 0; row < m.height; row++) {
+    m.setObstacle(0, row, 'arbre');
+    m.setObstacle(m.width - 1, row, 'arbre');
+  }
+
+  // The platform and the rail the dig crew followed in, with the derailed wagon astride it.
+  m.rect(9, 7, 20, 11, 'quai');
+  m.line([9, 9], [20, 9], 'rail');
+  m.line([0, 9], [9, 9], 'chemin');
+
+  m.setObstacle(14, 9, 'wagon');
+  m.setObstacle(15, 9, 'wagon');
+  m.setObstacle(13, 8, 'echo');
+
+  // Brisefer's dig, at the Faille.
+  m.setObstacle(19, 8, 'foreuse');
+  m.setObstacle(20, 9, 'faille');
+  m.setObstacle(18, 11, 'tente');
+  m.setObstacle(17, 11, 'caisses');
+
+  m.setObstacle(2, 8, 'panneau');
+  m.setObstacle(21, 13, 'golem');
+
+  // Scattered trees and undergrowth on open ground only.
+  const free = (c, r) => m.groundAt(c, r) === gid('herbe') && m.obstacleAt(c, r) === 0;
+  for (let row = 1; row < m.height - 1; row++) {
+    for (let col = 1; col < m.width - 1; col++) {
+      if (!free(col, row)) continue;
+      const roll = rng();
+      if (roll < 0.14) m.setObstacle(col, row, 'arbre');
+      else if (roll < 0.3) m.setGround(col, row, 'herbe-sombre');
+    }
+  }
+
+  m.object('entree-gare', 'sortie', 0, 9, { cible: 'gardebois', arrivee: 'vers-gare', libelle: 'Vers Gardebois' });
+  m.object('ingrid', 'pnj', 18, 10);
+  m.object('echo-dernier-train', 'echo', 13, 8);
+  m.object('panneau-gare', 'panneau', 2, 8, {
+    texte: 'Gare engloutie — la forêt a repris ce que les hommes avaient laissé.',
+  });
+  return m.toTiled();
+}
+
 const out = new URL('../src/data/maps/', import.meta.url);
 writeFileSync(new URL('gardebois.json', out), JSON.stringify(gardebois(), null, 1) + '\n');
 console.log('gardebois.json');
+writeFileSync(new URL('gare-engloutie.json', out), JSON.stringify(gareEngloutie(), null, 1) + '\n');
+console.log('gare-engloutie.json');

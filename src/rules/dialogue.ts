@@ -1,6 +1,7 @@
 import questData from '../data/quests.json';
 import type { GameState } from '../state/gameState';
 import { ATTRIBUTES, SKILLS, type AttributeId, type SkillId } from './attributes';
+import { RECITS, findRecit, knowsRecit, learnRecit } from './recits';
 
 /** Attribute and skill tests stay visible (greyed) when unmet; story conditions hide the option. */
 export type Condition =
@@ -8,9 +9,15 @@ export type Condition =
   | { skill: SkillId; min: number }
   | { flag: string }
   | { notFlag: string }
-  | { quest: string; status: 'none' | 'active' | 'done' };
+  | { quest: string; status: 'none' | 'active' | 'done' }
+  | { recit: string };
 
-export type Effect = { setFlag: string } | { startQuest: string } | { completeQuest: string } | { giveXp: number };
+export type Effect =
+  | { setFlag: string }
+  | { startQuest: string }
+  | { completeQuest: string }
+  | { giveXp: number }
+  | { learnRecit: string };
 
 export interface DialogueOption {
   text: string;
@@ -54,6 +61,7 @@ export function conditionMet(state: GameState, c: Condition): boolean {
   if ('skill' in c) return (state.character?.skills[c.skill] ?? 0) >= c.min;
   if ('flag' in c) return state.flags[c.flag] === true;
   if ('notFlag' in c) return state.flags[c.notFlag] !== true;
+  if ('recit' in c) return knowsRecit(state.character, c.recit);
   return (state.quests[c.quest] ?? 'none') === c.status;
 }
 
@@ -113,6 +121,11 @@ export function applyEffects(state: GameState, effects: Effect[] = []): string[]
         state.quests[effect.completeQuest] = 'done';
         notices.push(`Quête terminée : ${questName(effect.completeQuest)}`);
       }
+    } else if ('learnRecit' in effect) {
+      if (state.character && !knowsRecit(state.character, effect.learnRecit)) {
+        learnRecit(state.character, effect.learnRecit);
+        notices.push(`Récit retenu : ${findRecit(effect.learnRecit)?.titre ?? effect.learnRecit}`);
+      }
     } else if (state.character) {
       state.character.xp += effect.giveXp;
       notices.push(`+${effect.giveXp} points d’expérience`);
@@ -132,18 +145,21 @@ export function dialogueProblems(d: Dialogue): string[] {
   const knownAttributes = new Set(ATTRIBUTES.map((a) => a.id));
   const knownSkills = new Set(SKILLS.map((s) => s.id));
   const knownQuests = new Set(QUESTS.map((q) => q.id));
+  const knownRecits = new Set(RECITS.map((r) => r.id));
 
   const checkConditions = (where: string, conditions: Condition[] = []) => {
     for (const c of conditions) {
       if ('attribute' in c && !knownAttributes.has(c.attribute)) problems.push(`${where} : attribut inconnu ${c.attribute}`);
       if ('skill' in c && !knownSkills.has(c.skill)) problems.push(`${where} : compétence inconnue ${c.skill}`);
       if ('quest' in c && !knownQuests.has(c.quest)) problems.push(`${where} : quête inconnue ${c.quest}`);
+      if ('recit' in c && !knownRecits.has(c.recit)) problems.push(`${where} : récit inconnu ${c.recit}`);
     }
   };
   const checkEffects = (where: string, effects: Effect[] = []) => {
     for (const e of effects) {
       const quest = 'startQuest' in e ? e.startQuest : 'completeQuest' in e ? e.completeQuest : null;
       if (quest && !knownQuests.has(quest)) problems.push(`${where} : quête inconnue ${quest}`);
+      if ('learnRecit' in e && !knownRecits.has(e.learnRecit)) problems.push(`${where} : récit inconnu ${e.learnRecit}`);
     }
   };
 

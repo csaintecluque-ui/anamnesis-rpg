@@ -140,6 +140,12 @@ Les trois pistes reposent sur des lois et des phénomènes du monde, pas sur la 
 
 **Recommandation : A et B ensemble.** Les Échos fournissent les Récits, et raconter les Récits ouvre les solutions. La piste C devient le fil moral de la quête principale.
 
+### Précisions d'implémentation (La Gare Engloutie)
+
+- **Récits retenus** : `character.recits`, une liste d'identifiants. Le plafond (Mémoire + 1, dons compris) est déjà calculé par `talesRetained`. Au-delà du plafond, le Récit le plus ancien est oublié pour faire place au nouveau — une version simple du Champignon-Mémoire, en attendant qu'il existe vraiment.
+- **Raconter un Récit** en dialogue : une condition `{ recit: id }`, masquée tant qu'on ne le connaît pas (comme un repère d'histoire).
+- **Obtenir un Récit** : l'effet `{ learnRecit: id }`, posé sur un nœud d'Écho (voir `LORE.md` §11, Gare Engloutie).
+
 ## 5. Combat (adaptation du JDR)
 
 - **Déroulement** : tour par tour sur grille iso, dans l'ordre d'initiative. Se déplacer coûte 1 PA par case ; attaquer, 3 PA.

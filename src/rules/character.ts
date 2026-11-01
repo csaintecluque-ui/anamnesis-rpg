@@ -57,6 +57,8 @@ export interface Character {
   attributes: Attributes;
   skills: SkillRanks;
   hp: number;
+  /** Récits recueillis (GDD §4, piste B), plafonnés par talesRetained. */
+  recits: string[];
 }
 
 export interface CharacterStats {
@@ -203,6 +205,7 @@ export function finalizeCharacter(d: CharacterDraft): Character {
     attributes: finalAttributes(d),
     skills: finalSkills(d),
     hp: 0,
+    recits: [],
   };
   character.hp = characterStats(character).maxHp;
   return character;
@@ -244,5 +247,6 @@ export function characterError(raw: unknown): string | null {
     const v = skills?.[id];
     if (!Number.isInteger(v) || (v as number) < 0 || (v as number) > SKILL_RANK_MAX) return 'compétences invalides.';
   }
+  if (!Array.isArray(c.recits) || c.recits.some((r) => typeof r !== 'string')) return 'récits invalides.';
   return null;
 }

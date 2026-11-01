@@ -2,10 +2,15 @@
   "id": "ilyane",
   "speaker": "ilyane",
   "entries": [
+    { "requires": [{ "quest": "dernier-train", "status": "done" }], "node": "resolu" },
     { "requires": [{ "quest": "dernier-train", "status": "active" }], "node": "en-cours" },
     { "node": "accueil" }
   ],
   "nodes": {
+    "resolu": {
+      "text": "Depuis que la foreuse s’est tue, plus personne ne revit la Grande Chute. Tu as bien fait. Mais dis-moi : qui a payé cette prospection, à ton avis ? Les Réveilleurs, peut-être. Reste sur tes gardes.",
+      "options": [{ "text": "Je resterai sur mes gardes.", "next": "fin" }]
+    },
     "accueil": {
       "text": "Te voilà. Les Gardiens de Mémoire m’ont annoncé ta venue. Bienvenue au Marché des Lisières… même si le moment est mal choisi pour un apprentissage tranquille.",
       "options": [

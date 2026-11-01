@@ -230,3 +230,47 @@
   - **avec Perception 3 / Diplomatie 0** : options grisées avec « Il te faut… », impossibles à choisir ;
   - la plus longue option tient sur deux lignes ; la sauvegarde auto conserve repères, quête et XP.
 - **Textes des dialogues d'Ilyane et de Tobias validés par Cyril** (`LORE.md` §11).
+
+## 2026-11-01 — La Gare Engloutie : carte, Écho, Ingrid Brisefer
+
+- Carte Tiled 24 × 18 (`src/data/maps/gare-engloutie.json`, générée par `npm run maps`), accessible depuis la sortie est de
+  Gardebois, déjà prévue (`cible: 'gare-engloutie'`). Un seul chemin, depuis l'ouest.
+  - Contenu : quai de pierre fendu, rails, wagon renversé du « dernier train », chantier d'Ingrid Brisefer (foreuse dans
+    la Faille, tente, caisses), un Golem de Ferraille endormi à l'écart, un panneau.
+  - Aménagement inventé, soumis à validation (`LORE.md` §11, nouvelle section « Gare Engloutie »).
+  - 8 nouvelles tuiles provisoires (`scripts/tiles-def.mjs` : rail, quai, wagon, foreuse, faille, tente, golem, echo).
+- **Passage entre cartes**, jusqu'ici affiché « bientôt » : les objets `sortie` portent maintenant une propriété
+  `arrivee` (nom de l'objet d'arrivée dans l'autre carte) ; `MapScene.checkExit` bascule réellement de carte.
+  Testé dans les deux sens (Gardebois ↔ Gare Engloutie), le joueur arrive au bon endroit à chaque fois.
+- **Écho interactif** (piste A) : sur le quai, près du wagon. Avec Mémoire 4, on peut y « entrer » et recueillir le
+  **Récit du savant Corvan** [E2, cité en `GDD.md` §4] ; sinon on l'observe sans le recueillir. Réutilise le moteur de
+  dialogue existant (un Écho est un `pnj`-like de plus dans `DIALOGUES`, avec son propre nœud).
+- **Récits retenus** (piste B) : `character.recits`, un tableau plafonné par `talesRetained` (Mémoire + 1, dons compris) ;
+  au-delà, le plus ancien est oublié. Nouvelle condition de dialogue `{ recit }` (masquée tant qu'on ne le connaît pas,
+  comme un repère) et nouvel effet `{ learnRecit }`. Code dans `src/rules/recits.ts`.
+- **Ingrid Brisefer** (`src/data/dialogues/ingrid.json`) : défend son chantier, puis cède à la parole
+  (**Diplomatie 3** ou **Commandement 3**) ou au Récit du savant Corvan une fois recueilli. Les trois résolutions
+  terminent la quête « Le Dernier Train » et donnent 40 XP.
+- **Retour chez Ilyane** : nouveau nœud « resolu » une fois la quête terminée (additif, ne touche pas aux textes déjà
+  validés) ; elle soupçonne les Réveilleurs d'avoir financé la prospection.
+- Sauvegarde **v5** : `character.recits`. Migration des v4 (liste vide).
+- Tests : 100 au total (+17). Nouvelle carte (ouverture unique, portique de retour, joignabilité d'Ingrid et de l'Écho,
+  wagon/golem bloquants), seuils d'Ingrid et de l'Écho, plafond et oubli des Récits, migration et rejet de sauvegarde v5.
+- Vérifié dans le navigateur (desktop, et le terrain en paysage 844 × 390) : la carte s'affiche correctement (tuiles,
+  Ingrid, Écho, wagon, foreuse, golem) ; le dialogue d'Ingrid se résout par Diplomatie 3 avec le message de quête
+  terminée ; l'Écho donne le Récit (message « Récit retenu : Le Savant Corvan ») ; le passage Gardebois → Gare
+  Engloutie → Gardebois place le joueur au bon endroit dans les deux sens ; le nœud « resolu » d'Ilyane s'affiche
+  une fois la quête terminée. Aucune erreur dans la console.
+
+### Reste à faire (jalon 1, dans l'ordre proposé)
+
+1. **Combat** au tour par tour : les résolutions « Combat » (Golem de Ferraille, 2 Rôdeurs-Épine) et « Discrétion »
+   (entrer de nuit, saboter la foreuse) de la quête restent à câbler une fois le système prêt ; pour l'instant, seule
+   la résolution par la parole (et le Récit) est jouable. Le Golem est visible sur la carte mais inerte.
+2. Inventaire, troc avec Tobias, montée de niveau.
+
+### Points ouverts
+
+- Coquille dans `assets/brand/logo-small.svg` (trait parasite) : non corrigée, accord de Cyril requis.
+- Chronologie du canon non arbitrée (`LORE.md` §10, points 6 à 13).
+- Aménagement de la Gare Engloutie, dialogue d'Ingrid et scène de l'Écho : à valider par Cyril (`LORE.md` §11).

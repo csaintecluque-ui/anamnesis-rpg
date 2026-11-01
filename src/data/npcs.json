@@ -1,4 +1,6 @@
 [
   { "id": "ilyane", "name": "Ilyane Voix-d’Écorce", "role": "Gardienne de Mémoire de Gardebois" },
-  { "id": "tobias", "name": "Tobias Cendrefer", "role": "Marchand de Ferros" }
+  { "id": "tobias", "name": "Tobias Cendrefer", "role": "Marchand de Ferros" },
+  { "id": "ingrid", "name": "Ingrid Brisefer", "role": "Ingénieure, prospection de Ferros" },
+  { "id": "echo-dernier-train", "name": "L’Écho du dernier train", "role": "Écho du Passé" }
 ]

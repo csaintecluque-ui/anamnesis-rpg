@@ -132,4 +132,76 @@ export const TILES = [
       `<path d="M22 82 Q20 60 32 56 Q44 60 42 82 Z" fill="${COPPER}" stroke="${PARCHMENT}" stroke-width="2"/>` +
       `<circle cx="32" cy="48" r="9" fill="#d9b28e" stroke="${PARCHMENT}" stroke-width="2"/>`,
   },
+  // --- La Gare Engloutie (LORE.md §11, à valider) -------------------------
+  {
+    name: 'rail',
+    svg:
+      diamond('#4a4038') +
+      `<path d="M12 74 L52 74 M10 80 L50 80" stroke="${COPPER}" stroke-width="1.5" opacity="0.85"/>` +
+      '<path d="M16 70 L20 78 M26 72 L30 80 M36 74 L40 82 M46 76 L50 84" stroke="#6b4a32" stroke-width="2"/>',
+  },
+  {
+    name: 'quai',
+    svg: diamond('#8a8276') + '<path d="M16 78 L30 70 M34 86 L46 76 M20 86 L26 82" stroke="#5f5a50" stroke-width="1.3" fill="none"/>',
+  },
+  {
+    name: 'wagon',
+    blocking: true,
+    svg:
+      diamond('#4a4038') +
+      shadow(22, 8) +
+      `<rect x="10" y="40" width="44" height="30" rx="2" fill="#6b4a32" stroke="${INK}" stroke-width="1"/>` +
+      '<rect x="16" y="46" width="10" height="10" fill="#2c4a55" opacity="0.7"/>' +
+      '<rect x="38" y="46" width="10" height="10" fill="#2c4a55" opacity="0.5"/>' +
+      '<circle cx="20" cy="70" r="5" fill="#1B1512"/><circle cx="44" cy="70" r="5" fill="#1B1512"/>' +
+      '<path d="M10 40 L54 40" stroke="#8a5a3a" stroke-width="2"/>',
+  },
+  {
+    name: 'foreuse',
+    blocking: true,
+    svg:
+      diamond('#4a4038') +
+      shadow(18, 7) +
+      '<rect x="28" y="20" width="8" height="52" fill="#6a6058" stroke="#1B1512" stroke-width="1"/>' +
+      '<path d="M20 30 L28 40 M44 30 L36 40" stroke="#6a6058" stroke-width="3"/>' +
+      `<path d="M26 72 L32 84 L38 72 Z" fill="${COPPER}" stroke="${INK}" stroke-width="1"/>`,
+  },
+  {
+    name: 'faille',
+    blocking: true,
+    svg:
+      diamond('#2a2018') +
+      `<path d="M18 76 L28 68 L24 82 L36 72 L32 86 L46 74" stroke="${COPPER}" stroke-width="2" fill="none"/>` +
+      `<circle cx="26" cy="78" r="1.5" fill="${COPPER}" opacity="0.8"/><circle cx="38" cy="80" r="1.5" fill="${COPPER}" opacity="0.6"/>`,
+  },
+  {
+    name: 'tente',
+    blocking: true,
+    svg:
+      diamond('#5a4030') +
+      shadow(16, 6) +
+      '<path d="M14 82 L32 48 L50 82 Z" fill="#7a5a3c" stroke="#1B1512" stroke-width="1"/>' +
+      '<path d="M32 48 L32 82" stroke="#1B1512" stroke-width="1" opacity="0.6"/>' +
+      '<path d="M22 82 L28 70 L36 70 L42 82 Z" fill="#1B1512" opacity="0.5"/>',
+  },
+  {
+    name: 'golem',
+    blocking: true,
+    svg:
+      diamond('#334023') +
+      shadow(18, 7) +
+      '<rect x="20" y="36" width="24" height="30" rx="3" fill="#6a6058" stroke="#1B1512" stroke-width="1.5"/>' +
+      '<rect x="24" y="20" width="16" height="18" rx="3" fill="#7a736a" stroke="#1B1512" stroke-width="1.5"/>' +
+      '<circle cx="29" cy="28" r="1.8" fill="#3a3530"/><circle cx="35" cy="28" r="1.8" fill="#3a3530"/>' +
+      '<path d="M18 50 L20 66 M46 50 L44 66" stroke="#6a6058" stroke-width="5" stroke-linecap="round"/>',
+  },
+  {
+    name: 'echo',
+    svg:
+      diamond('#2c3a42') +
+      `<ellipse cx="32" cy="80" rx="20" ry="8" fill="${PARCHMENT}" opacity="0.12"/>` +
+      `<path d="M22 82 Q20 62 30 56 Q40 62 38 82 Z" fill="${PARCHMENT}" opacity="0.35"/>` +
+      `<circle cx="30" cy="52" r="7" fill="${PARCHMENT}" opacity="0.35"/>` +
+      `<path d="M42 84 Q40 68 46 62 Q52 68 50 84 Z" fill="${PARCHMENT}" opacity="0.2"/>`,
+  },
 ];

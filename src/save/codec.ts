@@ -1,7 +1,7 @@
 import { characterError } from '../rules/character';
 import { findLocation, type GameState } from '../state/gameState';
 
-export const SAVE_VERSION = 4;
+export const SAVE_VERSION = 5;
 export const SAVE_MAX_CHARS = 1_000_000;
 const GAME_MARKER = 'anamnesis';
 
@@ -37,6 +37,12 @@ const MIGRATIONS: Record<number, (save: Record<string, unknown>) => Record<strin
   },
   // v3 predates dialogues: no story flags or quests yet.
   3: (save) => ({ ...save, state: isRecord(save.state) ? { ...save.state, flags: {}, quests: {} } : save.state }),
+  // v4 predates Récits (GDD §4, piste B): no character predates this field, so an empty list.
+  4: (save) => {
+    if (!isRecord(save.state)) return save;
+    const character = isRecord(save.state.character) ? { ...save.state.character, recits: [] } : save.state.character;
+    return { ...save, state: { ...save.state, character } };
+  },
 };
 
 export function createSave(state: GameState, now: Date): SaveFile {

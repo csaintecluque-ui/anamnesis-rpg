@@ -1,3 +1,4 @@
 [
-  { "id": "gardebois", "name": "Gardebois — Marché des Lisières", "scene": "Map", "map": "gardebois", "entrance": "entree" }
+  { "id": "gardebois", "name": "Gardebois — Marché des Lisières", "scene": "Map", "map": "gardebois", "entrance": "entree" },
+  { "id": "gare-engloutie", "name": "La Gare Engloutie", "scene": "Map", "map": "gare-engloutie", "entrance": "entree-gare" }
 ]

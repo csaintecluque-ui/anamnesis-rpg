@@ -1,0 +1,29 @@
+{
+  "id": "echo-dernier-train",
+  "speaker": "echo-dernier-train",
+  "entries": [{ "node": "approche" }],
+  "nodes": {
+    "approche": {
+      "text": "Le quai tremble sous tes pieds. Des silhouettes de l’Ancien Monde se dessinent dans la lumière : une foule se presse vers un train, les mains levées. Des enfants rient à une fenêtre. Un sifflet déchire l’air, trois mille ans trop tôt.",
+      "options": [
+        {
+          "text": "Entrer dans l’Écho.",
+          "next": "interieur",
+          "requires": [{ "attribute": "memory", "min": 4 }],
+          "effects": [{ "setFlag": "echo-dernier-train-vu" }, { "giveXp": 15 }]
+        },
+        { "text": "Observer sans s’approcher.", "next": "observe", "effects": [{ "setFlag": "echo-dernier-train-vu" }, { "giveXp": 10 }] },
+        { "text": "S’éloigner.", "next": "fin" }
+      ]
+    },
+    "interieur": {
+      "text": "Un instant, tu es sur ce quai disparu. Une voix te revient, celle d’un savant qu’on emmenait loin du danger : « Dis-leur, pour Corvan. Dis-leur que même réussir peut tout détruire. » Puis l’Écho se dissipe, apaisé pour un temps.",
+      "effects": [{ "learnRecit": "savant-corvan" }],
+      "options": [{ "text": "…", "next": "fin" }]
+    },
+    "observe": {
+      "text": "Tu restes en retrait. Les images s’effacent sans te livrer leurs secrets, mais tu as vu assez pour comprendre : ce train n’aurait pas dû partir, et pourtant il est parti.",
+      "options": [{ "text": "…", "next": "fin" }]
+    }
+  }
+}

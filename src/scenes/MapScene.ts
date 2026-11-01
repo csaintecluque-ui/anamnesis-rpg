@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import { DIALOGUES } from '../data/dialogues';
 import gardeboisJson from '../data/maps/gardebois.json';
+import gareEngloutieJson from '../data/maps/gare-engloutie.json';
 import npcData from '../data/npcs.json';
 import { TILE_HEIGHT, TILE_WIDTH, screenToTile, tileToScreen, type Tile } from '../engine/iso';
 import { findPath } from '../engine/pathfinding';
@@ -9,7 +10,10 @@ import { findLocation, type GameState } from '../state/gameState';
 import { COLORS, CSS, FONT_SERIF } from '../ui/theme';
 import type { HudScene } from './HudScene';
 
-const MAPS: Record<string, TiledMapJson> = { gardebois: gardeboisJson as TiledMapJson };
+const MAPS: Record<string, TiledMapJson> = {
+  gardebois: gardeboisJson as TiledMapJson,
+  'gare-engloutie': gareEngloutieJson as TiledMapJson,
+};
 
 /** Room above the top row for tall tiles (frames are 96 px high for a 32 px diamond). */
 const TOP_MARGIN = 80;
@@ -115,8 +119,8 @@ export class MapScene extends Phaser.Scene {
         if (frame < 0) continue;
         const f = this.feet({ col, row });
         const image = this.add.image(f.x, f.y, 'tiles', frame).setOrigin(0.5, 1).setDepth(f.y);
-        const sign = this.map.objects.find((o) => o.type === 'panneau' && o.col === col && o.row === row);
-        if (sign) this.interactables.push({ object: sign, image });
+        const marker = this.map.objects.find((o) => (o.type === 'panneau' || o.type === 'echo') && o.col === col && o.row === row);
+        if (marker) this.interactables.push({ object: marker, image });
       }
     }
   }
@@ -263,7 +267,15 @@ export class MapScene extends Phaser.Scene {
 
   private checkExit(): void {
     const exit = this.map.objects.find((o) => o.type === 'sortie' && o.col === this.heroTile.col && o.row === this.heroTile.row);
-    if (exit) this.hud().toast(`${exit.properties.libelle ?? 'Sortie'} : cette carte arrive bientôt.`);
+    if (!exit) return;
+    const destination = exit.properties.cible ? findLocation(exit.properties.cible) : undefined;
+    if (!destination) {
+      this.hud().toast(`${exit.properties.libelle ?? 'Sortie'} : cette carte arrive bientôt.`);
+      return;
+    }
+    this.state.location = destination.id;
+    this.state.entrance = exit.properties.arrivee ?? destination.entrance;
+    this.scene.start('Map');
   }
 }
 

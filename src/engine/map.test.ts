@@ -1,11 +1,13 @@
 import { describe, expect, it } from 'vitest';
 import gardeboisJson from '../data/maps/gardebois.json';
+import gareEngloutieJson from '../data/maps/gare-engloutie.json';
 import npcData from '../data/npcs.json';
 import type { Tile } from './iso';
 import { findPath } from './pathfinding';
 import { findObject, isWalkable, parseTiledMap, tileKey, type TiledMapJson } from './tiledMap';
 
 const gardebois = parseTiledMap(gardeboisJson as TiledMapJson);
+const gareEngloutie = parseTiledMap(gareEngloutieJson as TiledMapJson);
 
 function grid(rows: string[]): (t: Tile) => boolean {
   return ({ col, row }) => row >= 0 && row < rows.length && col >= 0 && col < rows[0].length && rows[row][col] === '.';
@@ -93,5 +95,57 @@ describe('Gardebois map (Tiled data)', () => {
       for (const col of [0, gardebois.width - 1]) if (isWalkable(gardebois, { col, row })) openings.push(`${col},${row}`);
     }
     expect(openings.sort()).toEqual(['0,4', '27,18']);
+  });
+
+  it('sends the player to the Gare Engloutie entrance when it names a return point', () => {
+    expect(exit?.properties.arrivee).toBe('entree-gare');
+    expect(findObject(gareEngloutie, 'entree-gare')).toBeDefined();
+  });
+});
+
+describe('La Gare Engloutie map (Tiled data)', () => {
+  const spawn = findObject(gareEngloutie, 'entree-gare')!;
+  const exit = findObject(gareEngloutie, 'entree-gare')!;
+  const npcTiles = new Set(gareEngloutie.objects.filter((o) => o.type === 'pnj').map(tileKey));
+  const walk = (t: Tile) => isWalkable(gareEngloutie, t, npcTiles);
+
+  it('is a 24 × 18 isometric map with its entrance, Ingrid and the Écho', () => {
+    expect([gareEngloutie.width, gareEngloutie.height]).toEqual([24, 18]);
+    expect(spawn).toBeDefined();
+    expect(exit.properties.cible).toBe('gardebois');
+    expect(findObject(gareEngloutie, 'ingrid')).toBeDefined();
+    expect(findObject(gareEngloutie, 'echo-dernier-train')).toBeDefined();
+  });
+
+  it('has every NPC placed on the map described in the NPC data', () => {
+    for (const npc of gareEngloutie.objects.filter((o) => o.type === 'pnj')) {
+      expect(npcData.some((n) => n.id === npc.name)).toBe(true);
+    }
+  });
+
+  it('lets the player walk from the entrance and reach Ingrid and the Écho', () => {
+    expect(walk(spawn)).toBe(true);
+    for (const name of ['ingrid', 'echo-dernier-train']) {
+      const o = findObject(gareEngloutie, name)!;
+      const around = [-1, 0, 1].flatMap((dc) => [-1, 0, 1].map((dr) => ({ col: o.col + dc, row: o.row + dr })));
+      const reachable = around.some((t) => walk(t) && findPath(spawn, t, walk) !== null);
+      expect(reachable, `${name} should be reachable`).toBe(true);
+    }
+  });
+
+  it('blocks the derailed wagon and the dormant golem', () => {
+    expect(isWalkable(gareEngloutie, { col: 14, row: 9 })).toBe(false);
+    expect(isWalkable(gareEngloutie, { col: 21, row: 13 })).toBe(false);
+  });
+
+  it('keeps the map closed except for its single opening west', () => {
+    const openings: string[] = [];
+    for (let col = 0; col < gareEngloutie.width; col++) {
+      for (const row of [0, gareEngloutie.height - 1]) if (isWalkable(gareEngloutie, { col, row })) openings.push(`${col},${row}`);
+    }
+    for (let row = 0; row < gareEngloutie.height; row++) {
+      for (const col of [0, gareEngloutie.width - 1]) if (isWalkable(gareEngloutie, { col, row })) openings.push(`${col},${row}`);
+    }
+    expect(openings.sort()).toEqual(['0,9']);
   });
 });

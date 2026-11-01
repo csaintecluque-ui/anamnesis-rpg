@@ -11,8 +11,8 @@
 - Contenus à valider : Gare Engloutie, Écho, Ingrid, nœud « resolu » d'Ilyane, caisse, 30 Fers
   (`docs/univers/lieux/gare-engloutie.md`).
 - Chiffres à valider : armes et ennemis, prix, 15 Fers au départ, Fers gagnés, seuils d'XP (`docs/gdd/`).
-- Choix à valider : arène de combat dédiée ; un seul catalogue pour tous les marchands ; pas de point
-  d'attribut à la montée de niveau.
+- Choix à valider : arène de combat dédiée ; pas de point d'attribut à la montée de niveau ; objets réservés
+  à un lieu ou stock limité chez les marchands (`docs/gdd/inventaire.md`).
 - À essayer par Cyril : plein écran sur un vrai PC ; écrans compacts sur PC (pause, inventaire, combat) ;
   dernière version sur iPhone (HUD, pause, options, sabotage, « Ordre du tour » en combat).
 

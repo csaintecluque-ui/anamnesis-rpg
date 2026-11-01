@@ -20,9 +20,13 @@ Règles : `src/rules/inventory.ts` ; écran : `TradeScene`.
   emplacement qu'il occupait. L'Armure équipée ajoute son bonus à la Défense — **y compris en combat** (`combat.ts`
   lit `armorBonus`). Les armes en main sont celles du combat (`docs/gdd/combat.md`, « Armes ») : une arme achetée
   mais rangée dans le sac ne sert pas.
-- **Troc** : acheter dépense des Fers ; vendre rapporte la moitié du prix, arrondi à l'entier inférieur. Pour l'instant,
-  **chaque marchand vend le même petit catalogue** (`ITEMS` en entier) — pas encore de catalogue propre à Tobias ; à
-  valider avec Cyril si des objets doivent rester exclusifs à un lieu ou un PNJ.
-- **Écran** : `TradeScene`, ouvert soit depuis le bouton « Inventaire » du HUD (pas d'achat possible, seulement
-  consulter/équiper/utiliser/vendre ses propres objets), soit depuis un dialogue dont une option porte l'effet
+- **Troc** : acheter dépense des Fers ; vendre rapporte la moitié du prix, arrondi à l'entier inférieur.
+- **Catalogue par marchand** (depuis le 2026-11-01) : chaque marchand a sa liste (`sells` dans `src/data/npcs.json`,
+  `merchantCatalogue`). L'étal montre ce qu'il vend, plus ce que le héros porte (pour pouvoir le vendre : un
+  marchand rachète tout). « Acheter » n'apparaît que sur les objets de son catalogue. Stock illimité.
+  - **Tobias** vend les 8 objets actuels (outils de Ferros, cordes, lampes à cristal, armes et armures : son
+    dialogue validé et la description de l'Épée longue, « de l'atelier Cendrefer »).
+  - **À décider par Cyril** : des objets réservés à un lieu ou trouvés seulement en route ; un stock limité.
+- **Écran** : `TradeScene`, ouvert soit depuis le bouton « Inventaire » du HUD (seulement les objets portés, sans achat :
+  consulter/équiper/utiliser/vendre), soit depuis un dialogue dont une option porte l'effet
   `openTrade` (Tobias : « Voir l'étal. »), avec achat en plus.

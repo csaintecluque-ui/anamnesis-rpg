@@ -9,7 +9,9 @@ import {
   type Character,
   type CharacterDraft,
 } from './character';
+import npcData from '../data/npcs.json';
 import {
+  ITEMS,
   addItem,
   armorBonus,
   buy,
@@ -18,9 +20,11 @@ import {
   carryCapacityLeftKg,
   equip,
   findItem,
+  merchantCatalogue,
   ownedCount,
   removeItem,
   sell,
+  tradeItems,
   unequip,
   useConsumable,
 } from './inventory';
@@ -37,6 +41,30 @@ describe('items', () => {
   it('ships the goods named in Tobias’s stall (DIALOGUES.md, validé)', () => {
     expect(findItem('lampe-cristal')).toBeDefined();
     expect(findItem('corde')).toBeDefined();
+  });
+});
+
+describe('merchant catalogues', () => {
+  it('every item a trader sells exists', () => {
+    for (const npc of npcData as { id: string; sells?: string[] }[]) {
+      for (const id of npc.sells ?? []) expect(findItem(id), `${npc.id} : ${id}`).toBeDefined();
+    }
+  });
+
+  it('Tobias sells the stall goods named in his dialogue (lampes à cristal, cordes)', () => {
+    const ids = merchantCatalogue('tobias').map((i) => i.id);
+    expect(ids).toContain('lampe-cristal');
+    expect(ids).toContain('corde');
+    expect(merchantCatalogue('ilyane')).toEqual([]);
+  });
+
+  it('the inventory lists only what is carried; a stall adds what its trader sells', () => {
+    const c = hero();
+    expect(tradeItems(c).map((i) => i.id)).toEqual(['dague']);
+    const stall = tradeItems(c, 'tobias').map((i) => i.id);
+    expect(stall).toEqual(ITEMS.filter((i) => merchantCatalogue('tobias').includes(i)).map((i) => i.id));
+    // Something Ilyane does not sell still shows at her stall if carried, so that it can be sold.
+    expect(tradeItems(c, 'ilyane').map((i) => i.id)).toEqual(['dague']);
   });
 });
 

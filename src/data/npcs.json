@@ -1,6 +1,11 @@
 [
   { "id": "ilyane", "name": "Ilyane Voix-d’Écorce", "role": "Gardienne de Mémoire de Gardebois" },
-  { "id": "tobias", "name": "Tobias Cendrefer", "role": "Marchand de Ferros" },
+  {
+    "id": "tobias",
+    "name": "Tobias Cendrefer",
+    "role": "Marchand de Ferros",
+    "sells": ["dague", "epee-longue", "arc", "armure-cuir", "armure-ferraille", "lampe-cristal", "corde", "bandage"]
+  },
   { "id": "ingrid", "name": "Ingrid Brisefer", "role": "Ingénieure, prospection de Ferros" },
   { "id": "echo-dernier-train", "name": "L’Écho du dernier train", "role": "Écho du Passé" },
   { "id": "caisse-prospection", "name": "Caisse de prospection", "role": "Objet" },

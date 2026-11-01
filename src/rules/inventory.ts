@@ -1,4 +1,5 @@
 import itemData from '../data/items.json';
+import npcData from '../data/npcs.json';
 import { SLOTS, type Character, type Equipment, type Slot } from './character';
 import { carryCapacityKg } from './derived';
 
@@ -22,6 +23,18 @@ export const SELL_RATIO = 0.5;
 
 export function findItem(id: string): ItemDef | undefined {
   return ITEMS.find((i) => i.id === id);
+}
+
+/** What this trader sells (`sells` in npcs.json, docs/gdd/inventaire.md); empty for anyone else. */
+export function merchantCatalogue(npcId: string): ItemDef[] {
+  const sells = (npcData as { id: string; sells?: string[] }[]).find((n) => n.id === npcId)?.sells ?? [];
+  return ITEMS.filter((i) => sells.includes(i.id));
+}
+
+/** Rows of the inventory (what is carried) or of a stall (what the trader sells, plus what is carried, to sell it). */
+export function tradeItems(character: Character, npcId?: string): ItemDef[] {
+  const forSale = new Set(npcId ? merchantCatalogue(npcId).map((i) => i.id) : []);
+  return ITEMS.filter((i) => forSale.has(i.id) || ownedCount(character, i.id) > 0);
 }
 
 export function emptyEquipment(): Equipment {

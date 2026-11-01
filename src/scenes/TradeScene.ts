@@ -2,14 +2,15 @@ import Phaser from 'phaser';
 import npcData from '../data/npcs.json';
 import { characterStats, type Character, type Slot } from '../rules/character';
 import {
-  ITEMS,
   SELL_RATIO,
   armorBonus,
   buy,
   carriedWeightKg,
   equip,
+  merchantCatalogue,
   ownedCount,
   sell,
+  tradeItems,
   unequip,
   useConsumable,
   type ItemDef,
@@ -29,7 +30,7 @@ const LAYOUT = HAS_MOUSE
 
 const SLOT_NAMES: Record<Slot, string> = { mainDroite: 'main droite', mainGauche: 'main gauche', armure: 'porté' };
 
-/** Buy, sell, equip and use items — docs/gdd/inventaire.md. Every trader sells the same small catalogue for now (à valider). */
+/** Buy, sell, equip and use items — docs/gdd/inventaire.md. A stall lists its trader's catalogue; the inventory, what is carried. */
 export class TradeScene extends Phaser.Scene {
   private state!: GameState;
   private npcId: string | undefined;
@@ -90,7 +91,9 @@ export class TradeScene extends Phaser.Scene {
     // Right-aligned; on touch screens, left of the tall Fermer button.
     if (this.message) this.layer.add(this.text(LAYOUT.messageRight, LAYOUT.statsY, this.message, 20, CSS.copper, 1));
 
-    ITEMS.forEach((item, i) => this.drawRow(item, LAYOUT.rowTop + i * LAYOUT.rowHeight));
+    const rows = tradeItems(c, this.npcId);
+    if (rows.length === 0) this.layer.add(this.text(MARGIN, LAYOUT.rowTop, 'Ton sac est vide.', LAYOUT.rowFont, CSS.muted));
+    rows.forEach((item, i) => this.drawRow(item, LAYOUT.rowTop + i * LAYOUT.rowHeight));
   }
 
   private equippedSlot(itemId: string): Slot | null {
@@ -138,7 +141,7 @@ export class TradeScene extends Phaser.Scene {
         }, `${item.name} vendu.`),
       );
     }
-    if (this.npcId) {
+    if (this.npcId && merchantCatalogue(this.npcId).some((i) => i.id === item.id)) {
       addButton('Acheter', () =>
         this.act(() => {
           const error = buy(this.character(), item.id, 1);

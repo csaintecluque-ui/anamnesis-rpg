@@ -83,13 +83,17 @@
 - Vérifié dans le navigateur en paysage téléphone (844 × 390) et en portrait.
   Bug corrigé : sur rotation, Phaser recentrait le canvas sans le redimensionner ; on force désormais `scale.refresh()`.
 
+- Publication en ligne : https://csaintec.github.io/anamnesis-rpg/
+  - Le workflow `.github/workflows/deploy.yml` lance les tests et le build, puis déploie à chaque push sur `main`.
+  - Pages a été activé en mode « workflow ».
+  - Vérifié en ligne : écran titre et terrain d'essai, aucune erreur, toutes les ressources en 200.
+
 ### Reste à faire (jalon 1, dans l'ordre proposé)
 
-1. Workflow GitHub Actions et publication sur GitHub Pages (demande d'activer Pages sur le dépôt).
-2. PWA : manifeste, icônes (sceau sur tuile encre), service worker hors ligne.
-3. Sauvegarde locale à plusieurs emplacements, avec export et import.
-4. Création de personnage (attributs, compétences, don).
-5. Cartes Tiled (Gardebois, Gare Engloutie), PNJ, dialogues, quête, combat, inventaire, troc, montée de niveau.
+1. PWA : manifeste, icônes (sceau sur tuile encre), service worker hors ligne.
+2. Sauvegarde locale à plusieurs emplacements, avec export et import.
+3. Création de personnage (attributs, compétences, don).
+4. Cartes Tiled (Gardebois, Gare Engloutie), PNJ, dialogues, quête, combat, inventaire, troc, montée de niveau.
 
 ### Points ouverts
 

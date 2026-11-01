@@ -32,7 +32,8 @@ const TOP = 70;
 const BOTTOM_BAR = 150;
 const LOG_Y = GAME_HEIGHT - BOTTOM_BAR - 30;
 
-type Mode = 'move' | 'melee' | 'ranged';
+/** Moving, or attacking with the hero's attack at this index (one per weapon in hand). */
+type Mode = 'move' | number;
 
 export interface CombatStartData {
   /** Enemy ids from enemies.json, one combatant per entry. */
@@ -66,8 +67,7 @@ export class CombatScene extends Phaser.Scene {
   private tokens = new Map<string, { image: Phaser.GameObjects.Image; label: Phaser.GameObjects.Text }>();
   private zoneButton?: TextButton;
   private moveButton?: TextButton;
-  private meleeButton?: TextButton;
-  private rangedButton?: TextButton;
+  private attackButtons: TextButton[] = [];
   private marker!: Phaser.GameObjects.Graphics;
 
   constructor() {
@@ -277,7 +277,8 @@ export class CombatScene extends Phaser.Scene {
 
   private tryAttack(target: Combatant): void {
     const hero = this.hero();
-    const attack = hero.attacks.find((a) => (this.mode === 'melee' ? a.weaponId === 'epee-longue' : a.weaponId === 'arc'))!;
+    if (this.mode === 'move') return;
+    const attack = hero.attacks[this.mode];
     if (!canAttack(hero, attack, target)) {
       this.appendLog(distance(hero.tile, target.tile) > attack.range ? 'Hors de portée.' : 'Pas assez de PA.');
       return;
@@ -313,8 +314,11 @@ export class CombatScene extends Phaser.Scene {
   private buildActionBar(): void {
     const y = GAME_HEIGHT - BOTTOM_BAR / 2;
     this.moveButton = addTextButton(this, 150, y, 'Déplacer', () => this.setMode('move'), { width: 200, height: 76 });
-    this.meleeButton = addTextButton(this, 370, y, 'Mêlée', () => this.setMode('melee'), { width: 180, height: 76 });
-    this.rangedButton = addTextButton(this, 560, y, 'Tir', () => this.setMode('ranged'), { width: 180, height: 76 });
+    // One button per weapon in hand (two at most), named after the weapon.
+    const attacks = this.hero().attacks;
+    this.attackButtons = attacks.map((a, i) =>
+      addTextButton(this, 370 + i * 190, y, a.label, () => this.setMode(i), { width: 180, height: 76, fontSize: 22 }),
+    );
     this.zoneButton = addTextButton(this, 760, y, '', () => this.cycleZone(), { width: 200, height: 76 });
     addTextButton(this, 970, y, 'Fin du tour', () => this.endHeroTurn(), { width: 220, height: 76 });
     addTextButton(this, GAME_WIDTH - 110, y, 'Fuir', () => this.flee(), { width: 180, height: 76 });
@@ -322,13 +326,12 @@ export class CombatScene extends Phaser.Scene {
 
     // No shortcut for Fuir: leaving a fight should never happen by a stray key press.
     onKeys(this, DIGIT_KEYS[0], () => this.setMode('move'));
-    onKeys(this, DIGIT_KEYS[1], () => this.setMode('melee'));
-    onKeys(this, DIGIT_KEYS[2], () => this.setMode('ranged'));
+    attacks.forEach((_a, i) => onKeys(this, DIGIT_KEYS[i + 1], () => this.setMode(i)));
     onKeys(this, ['Z'], () => this.cycleZone());
     onKeys(this, ['SPACE'], () => this.endHeroTurn());
     if (SHOW_KEY_HINTS) {
       this.add
-        .text(GAME_WIDTH / 2, GAME_HEIGHT - 16, 'Clavier : 1 Déplacer · 2 Mêlée · 3 Tir · Z zone visée · Espace fin du tour', {
+        .text(GAME_WIDTH / 2, GAME_HEIGHT - 16, `Clavier : 1 Déplacer · ${attacks.map((a, i) => `${i + 2} ${a.label}`).join(' · ')} · Z zone visée · Espace fin du tour`, {
           fontFamily: FONT_SERIF,
           fontSize: '16px',
           color: CSS.muted,
@@ -367,8 +370,10 @@ export class CombatScene extends Phaser.Scene {
     const hero = this.hero();
     this.zoneButton?.setLabel(`Zone : ${findZone(this.zone).label}`);
     this.moveButton?.setLabel(this.mode === 'move' ? '▶ Déplacer' : 'Déplacer');
-    this.meleeButton?.setLabel(this.mode === 'melee' ? '▶ Mêlée' : 'Mêlée');
-    this.rangedButton?.setLabel(this.mode === 'ranged' ? '▶ Tir' : 'Tir');
+    this.attackButtons.forEach((button, i) => {
+      const label = hero.attacks[i].label;
+      button.setLabel(this.mode === i ? `▶ ${label}` : label);
+    });
     if (this.awaitingHero) this.banner.setText(`${hero.name} · PA ${hero.actionPoints}/${hero.maxActionPoints} · PV ${hero.hp}/${hero.maxHp}`);
   }
 

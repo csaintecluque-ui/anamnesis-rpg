@@ -22,7 +22,7 @@ Cahier des charges du jalon 1 : `docs/gdd/cahier-des-charges.md`. Lieux : `docs/
 
 État au 2026-11-01 : les quatre résolutions sont jouables.
 
-**Discrétion (à valider)** : on touche la foreuse (dialogue `src/data/dialogues/foreuse.json`), on choisit
+**Discrétion (validé par Cyril le 2026-11-01 : textes, difficulté 10, fermeture de la voie après un échec)** : on touche la foreuse (dialogue `src/data/dialogues/foreuse.json`), on choisit
 d'attendre la nuit, puis deux jets de dé, difficulté 10 (moyen) : **Discrétion** pour atteindre la foreuse,
 **Artisanat** pour la saboter. Réussite : la quête se termine, même récompense que les autres voies (40 XP, 30 Fers).
 Échec à l'un des deux jets : on est surpris, cette voie se ferme (la foreuse est gardée) et Ingrid le sait quand on

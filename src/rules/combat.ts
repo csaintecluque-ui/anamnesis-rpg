@@ -95,10 +95,20 @@ export interface Combatant {
 
 const emptyStatus = () => ({ stunned: false, disarmed: false, slowed: false });
 
-/** The hero fights with the two best-in-class weapons (épée longue, arc) until equipment exists (docs/gdd/combat.md, à valider). */
+/** Fallback when no weapon is held (docs/gdd/combat.md). */
+export const UNARMED = 'mains-nues';
+
+/** Weapons held in hand (right first), each once; bare hands when none (docs/gdd/combat.md). */
+export function heldWeapons(character: Character): WeaponDef[] {
+  const ids = [character.equipment.mainDroite, character.equipment.mainGauche].filter((id): id is string => !!id);
+  const weapons = [...new Set(ids)].map(findWeapon).filter((w): w is WeaponDef => !!w);
+  return weapons.length > 0 ? weapons : [findWeapon(UNARMED)!];
+}
+
+/** One attack per weapon in hand. */
 export function heroAttacks(character: Character): AttackProfile[] {
   const feat = findFeat(character.feat)?.effects.combat ?? {};
-  return WEAPONS.map((weapon) => {
+  return heldWeapons(character).map((weapon) => {
     const rank = character.skills[weapon.skill];
     const mod = attributeModifier(character.attributes[weapon.attribute]);
     const isRanged = weapon.skill === 'ranged';

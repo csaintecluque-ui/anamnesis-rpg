@@ -507,3 +507,14 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   il montre aussi les jets (🎲) et les scènes de nuit (🌙).
 - Vérifié dans le navigateur : réussite, échec, Ingrid soupçonneuse.
 - À valider par Cyril : textes de la séquence, difficulté 10, fermeture de la voie après un échec.
+
+## 2026-11-01 (suite) : armes en main au combat
+
+- Cyril valide le sabotage de nuit (textes, difficulté 10, voie fermée après un échec), puis choisit les armes en combat.
+- Le combat utilise les armes **en main** (droite puis gauche), un bouton par arme, à son nom ; sans arme,
+  **Mains nues** (1d3 + Corps). Le héros commence avec une **Dague** en main droite.
+- Sauvegarde **v7** : un héros aux mains vides reçoit la Dague (les anciennes parties se battaient avec une épée et
+  un arc gratuits).
+- Vérifié dans le navigateur : « Dague » seule pour une ancienne sauvegarde migrée, « Épée longue » et « Arc »
+  quand les deux sont en main. Panneau masqué : les tours ennemis tournaient au ralenti, attaque non jouée à l'écran.
+- À valider par Cyril : la Dague de départ, les Mains nues 1d3, le combat contre le Golem plus dur sans achat.

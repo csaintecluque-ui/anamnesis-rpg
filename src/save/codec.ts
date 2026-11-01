@@ -1,7 +1,7 @@
-import { characterError, STARTING_FERS } from '../rules/character';
+import { characterError, STARTING_FERS, STARTING_WEAPON } from '../rules/character';
 import { findLocation, type GameState } from '../state/gameState';
 
-export const SAVE_VERSION = 6;
+export const SAVE_VERSION = 7;
 export const SAVE_MAX_CHARS = 1_000_000;
 const GAME_MARKER = 'anamnesis';
 
@@ -49,6 +49,22 @@ const MIGRATIONS: Record<number, (save: Record<string, unknown>) => Record<strin
     const character = isRecord(save.state.character)
       ? { ...save.state.character, fers: STARTING_FERS, inventory: [], equipment: { mainGauche: null, mainDroite: null, armure: null } }
       : save.state.character;
+    return { ...save, state: { ...save.state, character } };
+  },
+  // v6 fought with a free sword and bow; weapons now come from the hands (docs/gdd/combat.md). A hero with
+  // empty hands gets the starting dagger, in the right hand, like a new character.
+  6: (save) => {
+    if (!isRecord(save.state) || !isRecord(save.state.character)) return save;
+    const c = save.state.character;
+    const equipment = isRecord(c.equipment) ? c.equipment : {};
+    if (equipment.mainDroite || equipment.mainGauche || !Array.isArray(c.inventory)) return save;
+    const inventory = c.inventory as { itemId: string; count: number }[];
+    const owned = inventory.some((s) => s.itemId === STARTING_WEAPON);
+    const character = {
+      ...c,
+      inventory: owned ? inventory : [...inventory, { itemId: STARTING_WEAPON, count: 1 }],
+      equipment: { ...equipment, mainDroite: STARTING_WEAPON },
+    };
     return { ...save, state: { ...save.state, character } };
   },
 };

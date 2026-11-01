@@ -5,6 +5,7 @@ import {
   enemyAttack,
   findEnemy,
   findWeapon,
+  heldWeapons,
   heroAttacks,
   isAdjacent,
   isDefeat,
@@ -20,7 +21,8 @@ import {
   type Combatant,
   type Rng,
 } from './combat';
-import { changeAttribute, changeSkill, createDraft, finalizeCharacter, toggleOriginBonus, type CharacterDraft } from './character';
+import { changeAttribute, changeSkill, createDraft, finalizeCharacter, toggleOriginBonus, type Character, type CharacterDraft } from './character';
+import { addItem, equip } from './inventory';
 
 function hero(feat: 'tough' | 'marksman' | 'weapon-master' = 'tough') {
   let d: CharacterDraft = { ...createDraft(), name: 'Aube', feat };
@@ -28,6 +30,15 @@ function hero(feat: 'tough' | 'marksman' | 'weapon-master' = 'tough') {
   d = toggleOriginBonus(toggleOriginBonus(d, 'body'), 'agility');
   for (const id of ['melee', 'melee', 'melee', 'ranged', 'ranged', 'ranged'] as const) d = changeSkill(d, id, 1);
   return finalizeCharacter(d);
+}
+
+/** The hero with a sword in the right hand and a bow in the left. */
+function armed(c: Character): Character {
+  addItem(c, 'epee-longue');
+  addItem(c, 'arc');
+  equip(c, 'epee-longue', 'mainDroite');
+  equip(c, 'arc', 'mainGauche');
+  return c;
 }
 
 /** rng() value that makes rollDie(sides, rng) land on `face`. */
@@ -231,8 +242,26 @@ describe('victory and defeat', () => {
 });
 
 describe('heroAttacks', () => {
+  it('a new hero fights with the starting dagger only', () => {
+    expect(heroAttacks(hero()).map((a) => a.weaponId)).toEqual(['dague']);
+  });
+
+  it('fights bare-handed (1d3) with empty hands, whatever is carried', () => {
+    const c = hero();
+    c.equipment.mainDroite = null;
+    addItem(c, 'arc');
+    const attacks = heroAttacks(c);
+    expect(attacks.map((a) => a.label)).toEqual(['Mains nues']);
+    expect(attacks[0].damage).toEqual({ count: 1, sides: 3 });
+    expect(attacks[0].range).toBe(1);
+  });
+
+  it('gives one attack per weapon in hand, right hand first', () => {
+    expect(heldWeapons(armed(hero())).map((w) => w.id)).toEqual(['epee-longue', 'arc']);
+  });
+
   it('builds Épée longue and Arc from Corps/Agilité and the matching skill ranks', () => {
-    const c = hero('tough');
+    const c = armed(hero('tough'));
     const attacks = heroAttacks(c);
     const sword = attacks.find((a) => a.weaponId === 'epee-longue')!;
     const bow = attacks.find((a) => a.weaponId === 'arc')!;
@@ -242,15 +271,15 @@ describe('heroAttacks', () => {
   });
 
   it('Tireur d’Élite doubles the bow range and adds ranged damage', () => {
-    const base = heroAttacks(hero('tough')).find((a) => a.weaponId === 'arc')!;
-    const marksman = heroAttacks(hero('marksman')).find((a) => a.weaponId === 'arc')!;
+    const base = heroAttacks(armed(hero('tough'))).find((a) => a.weaponId === 'arc')!;
+    const marksman = heroAttacks(armed(hero('marksman'))).find((a) => a.weaponId === 'arc')!;
     expect(marksman.range).toBe(base.range * 2);
     expect(marksman.damageBonus).toBe(base.damageBonus + 2);
   });
 
   it('Maître d’Armes adds to melee hit and damage only', () => {
-    const base = heroAttacks(hero('tough'));
-    const master = heroAttacks(hero('weapon-master'));
+    const base = heroAttacks(armed(hero('tough')));
+    const master = heroAttacks(armed(hero('weapon-master')));
     const sword = master.find((a) => a.weaponId === 'epee-longue')!;
     const baseSword = base.find((a) => a.weaponId === 'epee-longue')!;
     const bow = master.find((a) => a.weaponId === 'arc')!;
@@ -266,6 +295,7 @@ describe('data', () => {
   it('ships the two weapons and both enemies named in docs/gdd/combat.md and tranche-verticale.md', () => {
     expect(findWeapon('epee-longue')).toBeDefined();
     expect(findWeapon('arc')).toBeDefined();
+    expect(findWeapon('mains-nues')).toBeDefined();
     expect(findEnemy('golem-ferraille')).toBeDefined();
     expect(findEnemy('rodeur-epine')).toBeDefined();
   });

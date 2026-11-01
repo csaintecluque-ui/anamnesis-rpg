@@ -149,7 +149,7 @@ describe('save codec', () => {
     if (parsed.ok) expect(parsed.value.state.character).toMatchObject({ recits: [] });
   });
 
-  it('migrates a version 5 save by giving starting funds and an empty inventory', () => {
+  it('migrates a version 5 save by giving starting funds, then the starting dagger in hand', () => {
     const { fers: _f, inventory: _i, equipment: _e, ...v5Character } = state.character!;
     const v5State = { ...state, character: v5Character };
     const parsed = parseSave(JSON.stringify({ game: 'anamnesis', version: 5, savedAt: NOW.toISOString(), state: v5State }));
@@ -157,10 +157,25 @@ describe('save codec', () => {
     if (parsed.ok) {
       expect(parsed.value.state.character).toMatchObject({
         fers: STARTING_FERS,
-        inventory: [],
-        equipment: { mainGauche: null, mainDroite: null, armure: null },
+        inventory: [{ itemId: 'dague', count: 1 }],
+        equipment: { mainGauche: null, mainDroite: 'dague', armure: null },
       });
     }
+  });
+
+  it('migrates a version 6 save: empty hands get the dagger, armed hands are kept', () => {
+    const v6 = (character: object) =>
+      parseSave(JSON.stringify({ game: 'anamnesis', version: 6, savedAt: NOW.toISOString(), state: { ...state, character } }));
+    const emptyHands = v6({ ...state.character!, inventory: [{ itemId: 'corde', count: 1 }], equipment: { mainGauche: null, mainDroite: null, armure: null } });
+    expect(emptyHands.ok && emptyHands.value.state.character).toMatchObject({
+      inventory: [{ itemId: 'corde', count: 1 }, { itemId: 'dague', count: 1 }],
+      equipment: { mainGauche: null, mainDroite: 'dague', armure: null },
+    });
+    const withBow = v6({ ...state.character!, inventory: [{ itemId: 'arc', count: 1 }], equipment: { mainGauche: 'arc', mainDroite: null, armure: null } });
+    expect(withBow.ok && withBow.value.state.character).toMatchObject({
+      inventory: [{ itemId: 'arc', count: 1 }],
+      equipment: { mainGauche: 'arc', mainDroite: null, armure: null },
+    });
   });
 
   it.each([

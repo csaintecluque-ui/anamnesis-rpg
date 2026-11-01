@@ -45,6 +45,12 @@ describe('starting funds', () => {
     expect(hero().fers).toBe(STARTING_FERS);
     expect(STARTING_FERS).toBeLessThan(50);
   });
+
+  it('a new character holds the starting dagger in the right hand (docs/gdd/inventaire.md)', () => {
+    const c = hero();
+    expect(c.inventory).toEqual([{ itemId: 'dague', count: 1 }]);
+    expect(c.equipment).toEqual({ mainGauche: null, mainDroite: 'dague', armure: null });
+  });
 });
 
 describe('addItem / removeItem / ownedCount', () => {
@@ -61,7 +67,7 @@ describe('addItem / removeItem / ownedCount', () => {
     equip(c, 'armure-cuir', 'armure');
     removeItem(c, 'armure-cuir', 1);
     expect(ownedCount(c, 'armure-cuir')).toBe(0);
-    expect(c.inventory).toEqual([]);
+    expect(c.inventory).toEqual([{ itemId: 'dague', count: 1 }]);
     expect(c.equipment.armure).toBeNull();
   });
 });
@@ -69,10 +75,10 @@ describe('addItem / removeItem / ownedCount', () => {
 describe('weight', () => {
   it('sums owned items, equipped or not, against Charge (docs/gdd/attributs.md)', () => {
     const c = hero();
-    expect(carriedWeightKg(c)).toBe(0);
+    expect(carriedWeightKg(c)).toBe(1); // the starting dagger
     addItem(c, 'corde', 2); // 2 kg each
     addItem(c, 'bandage', 1); // 0.5 kg
-    expect(carriedWeightKg(c)).toBe(4.5);
+    expect(carriedWeightKg(c)).toBe(5.5);
     expect(carryCapacityLeftKg(c)).toBeGreaterThan(0);
   });
 });

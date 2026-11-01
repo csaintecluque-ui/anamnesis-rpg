@@ -1,5 +1,13 @@
 [
   {
+    "id": "mains-nues",
+    "name": "Mains nues",
+    "skill": "melee",
+    "attribute": "body",
+    "range": 1,
+    "damage": { "count": 1, "sides": 3 }
+  },
+  {
     "id": "dague",
     "name": "Dague",
     "skill": "melee",

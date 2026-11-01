@@ -5,8 +5,9 @@ Règles : `src/rules/inventory.ts` ; écran : `TradeScene`.
 - **Objets** (`src/data/items.json`) : nom, description, poids (kg), prix (en Fers, la monnaie de Ferros —
   `docs/univers/personnages/pnj.md`), et selon le cas un emplacement (`main` ou `armure`), un bonus de Défense (armures)
   ou des PV soignés (objets de soin).
-  Catalogue de départ : Dague, Épée longue, Arc (les mêmes armes que le combat — voir la limite ci-dessous), Armure de
-  cuir, Armure de ferraille, Lampe à cristal, Corde, Bandage.
+  Catalogue de départ : Dague, Épée longue, Arc (les mêmes identifiants que les armes de combat,
+  `src/data/weapons.json`), Armure de cuir, Armure de ferraille, Lampe à cristal, Corde, Bandage.
+- **Kit de départ (à valider)** : une Dague, déjà en main droite (`STARTING_WEAPON`).
 - **Monnaie de départ** : 15 Fers (`STARTING_FERS`), volontairement **moins** que le laissez-passer de Tobias
   (cinquante Fers) : convaincre reste la voie la plus sûre tôt dans la tranche.
 - **Gagner des Fers** (premier jet, à valider) : chaque résolution de « Le Dernier Train » rapporte **30 Fers**
@@ -17,8 +18,8 @@ Règles : `src/rules/inventory.ts` ; écran : `TradeScene`.
   Charge est refusé.
 - **Équipement** : deux mains et une armure (`character.equipment`). Équiper un objet le retire de tout autre
   emplacement qu'il occupait. L'Armure équipée ajoute son bonus à la Défense — **y compris en combat** (`combat.ts`
-  lit `armorBonus`). Les armes équipées n'ont pas encore d'effet en combat : voir `docs/gdd/combat.md`,
-  « Précisions d'implémentation ».
+  lit `armorBonus`). Les armes en main sont celles du combat (`docs/gdd/combat.md`, « Armes ») : une arme achetée
+  mais rangée dans le sac ne sert pas.
 - **Troc** : acheter dépense des Fers ; vendre rapporte la moitié du prix, arrondi à l'entier inférieur. Pour l'instant,
   **chaque marchand vend le même petit catalogue** (`ITEMS` en entier) — pas encore de catalogue propre à Tobias ; à
   valider avec Cyril si des objets doivent rester exclusifs à un lieu ou un PNJ.

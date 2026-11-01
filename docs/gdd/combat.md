@@ -16,9 +16,16 @@ Règles : `src/rules/combat.ts` ; écran : `src/scenes/CombatScene.ts` ; donnée
 
 ## Précisions d'implémentation (premier combat : Golem de Ferraille, 2 Rôdeurs-Épine)
 
-- **Armes** : en attendant l'inventaire, le héros se bat avec les deux meilleures armes de sa classe,
-  Épée longue (Corps, 1d8) et Arc (Agilité, 1d8), choisies comme deux actions de combat plutôt qu'un équipement.
-  La Dague reste dans `src/data/weapons.json` pour plus tard.
+- **Armes (depuis le 2026-11-01, à valider)** : le héros se bat avec les **armes qu'il tient en main**
+  (`character.equipment`, main droite puis main gauche ; `heldWeapons` dans `combat.ts`). Chaque arme en main
+  devient un bouton du combat, à son nom (« Dague », « Épée longue », « Arc »), avec les raccourcis 2 et 3.
+  - Sans arme en main : **Mains nues**, 1d3 + Corps, en mêlée (profil de `src/data/weapons.json`, qui n'est pas
+    un objet : on ne peut ni l'acheter ni le vendre).
+  - Kit de départ : une **Dague** (1d4) en main droite (`docs/gdd/inventaire.md`).
+  - Équilibrage : avant, tout héros avait gratuitement l'Épée longue et l'Arc ; avec la seule Dague, le combat
+    contre le Golem est plus dur. Il faut acheter une meilleure arme chez Tobias (Épée 35 Fers, Arc 30) : possible
+    avec les 15 Fers de départ et la bourse de la caisse (25), à condition de ne pas avoir payé le laissez-passer.
+    Le combat reste une voie parmi quatre.
 - **Zone** : un coup à la tête, aux bras ou aux jambes qui ne met pas hors de combat applique son effet
   (étourdi, désarmé, ralenti) jusqu'au **prochain tour de la cible** ; un coup au corps n'a pas d'effet.
 - **Couverture** : le calcul existe (`resolveAttack(… , coverBonus)`), mais rien sur la carte ne la fournit
@@ -32,5 +39,4 @@ Règles : `src/rules/combat.ts` ; écran : `src/scenes/CombatScene.ts` ; donnée
 - **Victoire** : mêmes effets que les résolutions par la parole (`chantier-arrete`, quête terminée, 40 XP),
   pour que les trois résolutions restent équilibrées.
 - **IA ennemie** : simple — se rapproche si hors de portée, attaque sinon, jusqu'à épuisement des PA.
-- **Armure** : son bonus de Défense compte en combat (`makeHeroCombatant`). Les armes équipées, elles, n'ont pas
-  encore d'effet (`docs/gdd/inventaire.md`).
+- **Armure** : son bonus de Défense compte en combat (`makeHeroCombatant`).

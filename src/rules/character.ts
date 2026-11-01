@@ -212,6 +212,9 @@ export function isDraftComplete(d: CharacterDraft): boolean {
 /** Starting funds (docs/univers/personnages/pnj.md) : less than Tobias's laissez-passer, on purpose — see docs/gdd/inventaire.md. */
 export const STARTING_FERS = 15;
 
+/** Every apprentice starts with this weapon in the right hand (docs/gdd/inventaire.md, à valider). */
+export const STARTING_WEAPON = 'dague';
+
 export function finalizeCharacter(d: CharacterDraft): Character {
   if (!isDraftComplete(d) || !d.feat) throw new Error('Character draft is incomplete');
   const character: Character = {
@@ -225,8 +228,8 @@ export function finalizeCharacter(d: CharacterDraft): Character {
     hp: 0,
     recits: [],
     fers: STARTING_FERS,
-    inventory: [],
-    equipment: { mainGauche: null, mainDroite: null, armure: null },
+    inventory: [{ itemId: STARTING_WEAPON, count: 1 }],
+    equipment: { mainGauche: null, mainDroite: STARTING_WEAPON, armure: null },
   };
   character.hp = characterStats(character).maxHp;
   return character;

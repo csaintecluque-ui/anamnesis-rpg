@@ -3,22 +3,22 @@
 ## État (2026-11-01)
 
 - Jalon 1, la tranche verticale : les 8 points de `docs/gdd/cahier-des-charges.md` sont faits. Jouable sur PC et iPhone.
-- 164 tests, typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
+- 169 tests, typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
 - Quête « Le Dernier Train » : **les 4 résolutions sont jouables** (parole, Récit, combat, discrétion).
 
 ## Jalon en cours : clôture du jalon 1, en attente du feu vert de Cyril
 
-- Contenus à valider : Gare Engloutie, Écho, Ingrid, nœud « resolu » d'Ilyane, caisse, 30 Fers, **sabotage de
-  nuit et réactions d'Ingrid** (`docs/univers/lieux/gare-engloutie.md`).
-- Chiffres à valider : armes et ennemis, prix, 15 Fers au départ, Fers gagnés, seuils d'XP, **difficulté 10 des
-  deux jets du sabotage** (`docs/gdd/`).
-- Choix à valider : arène de combat dédiée ; armes équipées sans effet en combat ; un seul catalogue pour
-  tous les marchands ; pas de point d'attribut à la montée de niveau ; **un échec de nuit ferme la voie discrète**.
+- Contenus à valider : Gare Engloutie, Écho, Ingrid, nœud « resolu » d'Ilyane, caisse, 30 Fers
+  (`docs/univers/lieux/gare-engloutie.md`).
+- Chiffres à valider : armes et ennemis, prix, 15 Fers au départ, Fers gagnés, seuils d'XP (`docs/gdd/`).
+- Choix à valider : arène de combat dédiée ; un seul catalogue pour tous les marchands ; pas de point
+  d'attribut à la montée de niveau ; **combat avec les armes en main, Dague au départ, Mains nues 1d3 sinon**
+  (`docs/gdd/combat.md`).
 - À essayer par Cyril : plein écran sur un vrai PC ; dernière version sur iPhone (HUD, pause, options, sabotage).
 
 ## Prochaine étape
 
-1. Armes équipées en combat ; couverture, fuite et arène tirées de la carte ; catalogue par marchand.
+1. Couverture, fuite et arène tirées de la carte ; catalogue par marchand ; confort PC.
 2. Phase 2 des visuels (plan et coût présentés avant toute génération).
 
 ## Points ouverts

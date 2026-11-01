@@ -37,8 +37,8 @@ Fiche unique, reprise dans **tous** les prompts d'images (`CLAUDE.md` §5). Plan
 | Portrait de dialogue | 1024 × 1024, buste | environ 200 × 200 | fond uni du panneau |
 | Illustration | 1920 × 1080 | plein écran | complet |
 
-Les images sont réduites et découpées par un script du projet. Si l'outil ne sait pas produire un fond transparent,
-on génère sur un **fond uni vert vif** à retirer ensuite (à confirmer pendant le pilote).
+Les images sont réduites et découpées par un script du projet. Le modèle retenu (GPT Image 2.5, `docs/ASSETS.md`)
+produit directement un **fond transparent** (`--background transparent`).
 
 ## Bloc de prompt commun (anglais : les modèles le comprennent mieux)
 

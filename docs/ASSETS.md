@@ -18,8 +18,19 @@ le jeu reste jouable à chaque étape.
 | **Total** | | **34 images** |
 
 - **Essais** : en comptant environ deux essais par image retenue, prévoir **70 générations environ**.
-- **Coût en crédits** : **à chiffrer** dès que Higgsfield est connecté. L'outil n'est pas branché à cette session
-  (vérifié le 2026-11-01). Le coût du pilote sera annoncé avant de le lancer, puis celui de chaque lot.
+- **Outil** : Higgsfield, en ligne de commande (`higgsfield`, installé le 2026-11-01 dans `~/.local`), espace
+  « Private », formule Plus, **110 crédits** au 2026-11-01.
+- **Modèle** : **GPT Image 2.5** (`gpt_image_2_5`) : fond **transparent natif** (pas de détourage), le moins cher.
+  Qualité moyenne en 1k pour ce qui finit en 64 px ; haute qualité pour les portraits et les illustrations.
+- **Coût estimé** (`higgsfield generate cost`, 2026-11-01), essais compris :
+
+| Lot | Réglage | Prix par essai | Essais | Crédits |
+|---|---|---|---|---|
+| 0. Pilote | 3 images en qualité moyenne 1k, 1 portrait en haute qualité 1k | 0,5 / 1,5 | 6 + 2 | **6** |
+| 1 à 3. Sols, décors, personnages | qualité moyenne 1k | 0,5 | 50 | 25 |
+| 4. Portraits | haute qualité 1k | 1,5 | 6 | 9 |
+| 5. Illustrations | haute qualité 2k | 2,75 | 4 | 11 |
+| **Total** | | | **70** | **≈ 51 crédits** (sur 110) |
 - **Code à prévoir** : un script de découpe et de réduction (images → planche de tuiles), et l'affichage d'un portrait
   dans le panneau de dialogue (lot 4).
 - **Hors plan** : animations (marche, attaque), sons, autres lieux ; à proposer après ce lot.

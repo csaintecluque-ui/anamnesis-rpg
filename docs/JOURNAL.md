@@ -15,8 +15,8 @@
 
 ## Prochaine étape
 
-1. Fiche de style (`docs/STYLE.md`) et plan de 34 images (`docs/ASSETS.md`) présentés à Cyril ; coût à chiffrer :
-   **Higgsfield n'est pas connecté**. Attendre le feu vert, puis lancer le pilote (4 images).
+1. Fiche de style (`docs/STYLE.md`) et plan de 34 images (`docs/ASSETS.md`) : environ 51 crédits sur 110, pilote
+   6 crédits. Higgsfield branché (CLI). Attendre le feu vert de Cyril, puis lancer le pilote (4 images).
 2. Après les visuels : proposer le périmètre du jalon 2 (contenu).
 
 ## Points ouverts

@@ -556,3 +556,8 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
 - Préparation de la phase 2 : fiche de style `docs/STYLE.md` (peinture numérique douce, isométrique 2:1, palette,
   formats, prompt commun, descriptions de personnages proposées) et plan de 34 images en 6 lots, pilote de 4 images
   d'abord (`docs/ASSETS.md`). Higgsfield n'est pas connecté à la session : coût en crédits à chiffrer.
+- Higgsfield branché : CLI `@higgsfield/cli` 1.2.2 installé dans `~/.local` (sudo impossible dans le terminal de
+  l'application), connexion au compte faite par Cyril, espace « Private » (Plus, 110 crédits) sélectionné. Les skills
+  Higgsfield (`npx skills add higgsfield-ai/skills`) n'ont pas été installés : refusés par la protection automatique
+  de la session ; le CLI suffit. Modèle retenu : GPT Image 2.5 (fond transparent natif). Coût estimé : pilote
+  6 crédits, plan complet ≈ 51 crédits.

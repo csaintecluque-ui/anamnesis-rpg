@@ -169,13 +169,13 @@ Lieux et personnages : `docs/univers/lieux/ironheart.md`. Les détails nouveaux 
 
 ## Ferros : une quête secondaire
 
-### 8. Le Rail des Cendres (Travailleurs du Rail) — **construite le 2026-11-02, à valider**
+### 8. Le Rail des Cendres (Travailleurs du Rail) — **construite et validée le 2026-11-02**
 
 Canon : la fiche du Studio [NOTION] est vide ; seules ses propriétés existent : thème « Transport, disparitions,
 machines anciennes » ; conflit, choix et conséquences ci-dessus. Appuis du canon : la Guerre du Rail (1380-1400 AN),
 les « machines sans hommes — les premières de l'Empire » envoyées vers l'ouest et que la forêt démonta « boulon par
 boulon » [NOTION, « La Note Technique »] ; la grève interdite dans les secteurs stratégiques [NOTION, roman III.1].
-**Tout le reste est proposé, à valider.**
+Le reste, proposé, est **validé par Cyril le 2026-11-02**.
 
 - **Départ** : au **triage des Cendres**, à l'est des Forges-Basses (Dorna en parle), **Varka**, cheffe d'équipe :
   trois convois de minerai partis seuls la nuit, sans retour ; les cheminots ne roulent plus qu'au jour (« pas une

@@ -753,3 +753,6 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   homme, l'aiguillage, le registre, le tunnel ; enquête, garde de nuit (combat ou filature), trois fins et réputation ;
   deux cheminots qui réagissent ; Dorna en parle. Le combat partait loin du levier : la garde se fait au levier.
   364 tests ; vérifié dans le navigateur (cartes, combat).
+- Cyril : « Oui pour tout, mets en ligne, Codex sur Sept-Portes, n'oublie pas la mise en ligne des infos sur Notion
+  aussi ». Détails validés ; `AGENTS.md` donne Sept-Portes à Codex ; `main` avancé, déploiement lancé. Notion : on n'y
+  modifie aucune page existante, on publie les éléments validés dans une page dédiée (`CLAUDE.md`, `sources.md`).

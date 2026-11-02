@@ -16,7 +16,9 @@ Il valide le lore, les noms, l'histoire et le ressenti de jeu. Toi, tu proposes 
   Le thème central est la mémoire (l'anamnèse : le ressouvenir).
 - **Le Notion « ANAMNESIS » de Cyril fait foi** (décision du 2026-11-02), en commençant par sa page
   « Canon — arbitrages et décisions » (le roman *Chroniques Familiales* y est la référence). On ne le contredit
-  jamais, ni dans le jeu, ni dans les documents, ni dans les propositions. On ne le modifie pas (lecture seule).
+  jamais, ni dans le jeu, ni dans les documents, ni dans les propositions. On n'en modifie aucune page existante ;
+  à chaque mise en ligne, on y publie les éléments du jeu validés par Cyril, dans la page dédiée « Anamnesis — le jeu »
+  (décision du 2026-11-02, `docs/univers/sources.md`).
   Accès par le connecteur Notion, en local comme en session cloud. `docs/Lore/` (local) en est une version plus
   ancienne ; `docs/univers/` n'est qu'une synthèse : en cas d'écart, Notion l'emporte.
   `docs/Lore/` et `docs/Carte Anamnesis.png` restent **en local** : ils sont exclus du dépôt public

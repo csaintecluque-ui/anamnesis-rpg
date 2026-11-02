@@ -14,14 +14,13 @@
 - Moteur : conditions `item`, effet `takeItem`, objets de quête, `apparaitSi`, rencontres d'histoire, figurants à
   dialogue et à `reactions`, étapes de quête (`etapes`).
 
-## Chantier en cours : « Le Rail des Cendres » (demande de Cyril, 2026-11-02)
+## « Le Rail des Cendres » (en ligne le 2026-11-02, validée par Cyril)
 
-- **Construite sur la branche, pas encore en ligne** : triage des Cendres, Cendrière, Varka, Joss, Ostrik, Sorn, la
-  machine sans homme, trois fins (`docs/univers/quetes.md`, point 8) ; détails à valider par Cyril.
+- Triage des Cendres, Cendrière, Varka, Joss, Ostrik, Sorn, la machine sans homme, trois fins (`quetes.md`, point 8).
 
 ## Prochaine étape
 
-1. Mise en ligne (accord de Cyril) ; ensuite Sept-Portes (chapitre 4).
+1. Codex : Sept-Portes (chapitre 4, `AGENTS.md`). Claude : à demander à Cyril. Notion : page « Anamnesis — le jeu ».
 
 ## Points ouverts
 

@@ -899,4 +899,5 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   nichoir, sève des aïeux, cristal « de la part de Dorna », fiche des Archives). Rumeurs au journal (onglet Récits).
   Lisandre dit la nouvelle du grenier forcé une fois, en accueil. Pas de nouvelle version de sauvegarde.
   528 tests ; vérifié sur PC et téléphone (Playwright).
-- Cyril : « Oui pour tout, mets en ligne » : chiffres, publics, rumeurs et secrets validés ; étape 4 mise en ligne.
+- Cyril : « Oui pour tout, mets en ligne » : chiffres, publics, rumeurs et secrets validés ; étape 4 mise en ligne ;
+  page Notion « Anamnesis — le jeu » complétée (les veillées, leurs publics, rumeurs et secrets).

@@ -96,6 +96,15 @@ Ces décisions valent **pour le jeu**. Le dossier `docs/Lore/` reste inchangé.
     homme ; la même fiche dit les dryades « souvent non-genrées ». **Dans le jeu, Thalorin est « l'Ancien Thalorin »,
     « la dryade », sans pronom ni accord genré** (choix validé par Cyril le 2026-11-02).
 
+23. **Kharos** (lu le 2026-11-02, pour « Les Échos sous la Forge ») : Titan mort, « fondu en une montagne
+    rougeoyante » (« La Forge du Dernier Souffle »), ou dieu « scellé au cœur de Ferros », « existence non confirmée »
+    (bestiaire). Le volcan porte trois noms (Cœur de Braise, Mont Forgeron Éternel, Mont Forgeciel). La Forge-Titan est
+    dite « capitale impériale » ici, la capitale est Ironheart ailleurs (« l'Enclume = quartier de la Grande Forge
+    Centrale » : « à trancher » dans le Notion). La langue : « Ferrique » ou « Ferrian ». **Question à Cyril.**
+24. **Détruire un Écho** : la quête du Studio propose le choix « détruire », mais la Loi de la Mémoire Vivante dit
+    qu'un Écho ne peut être que dissipé, et que tenter de le détruire le multiplie et le rend violent. Proposition :
+    le choix existe, et il a exactement cette conséquence.
+
 ## Réponses de Cyril (2026-11-02, « Oui pour tout »)
 
 - **Monnaie** : une seule monnaie de jeu, le Fer, pour l'instant.

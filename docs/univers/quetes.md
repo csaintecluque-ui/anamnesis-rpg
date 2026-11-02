@@ -200,6 +200,18 @@ Le reste, proposé, est **validé par Cyril le 2026-11-02**.
 - **Les routes commerciales** : pour l'instant, par la réputation d'Ironheart (les prix de la ville) et ce que disent
   les cheminots ; **reporté** : un vrai effet sur les marchandises et le train.
 
+## 9. Les Échos sous la Forge (Ferros, quête cachée) — **en conception, attend Cyril**
+
+Canon [NOTION, Studio] : fiche vide (Idea, Hidden, Ferros) ; conflit « Des souvenirs ne devraient pas exister dans
+cette période de Ferros » ; choix : ignorer, suivre, archiver, détruire, confier à un proche ; conséquence « Débloque
+une couche mystère sans imposer la quête familiale » ; thème « Échos cachés, famille, mémoire profonde ». Décision
+validée du Studio : **les Échos familiaux restent cachés** (bonus, mystères, chemins secrets ; le joueur n'est jamais
+forcé dans une intrigue familiale). Le contrat créatif réserve à Cyril les Échos, les grandes révélations et les fins.
+Appuis : signes de Kharos (« forge qui s'embrase sans feu », « minerai qui chante », « rêves ardents partagés entre
+forgerons ») ; « si une forge s'éteint d'elle-même : un esprit rouille rôde » ; le Peuple des Cendres Noires, gardiens
+du sous-sol ; les Maîtres des Braises lisent la mémoire du métal ; Loi de la Mémoire Vivante. **Règle** : aucun
+personnage du roman *Chroniques Familiales* n'y apparaît ni n'y est nommé.
+
 ## Ordre de construction proposé
 
 1. Le Sol des Racines (nouvelle carte) avec « Les lettres de Malo » et « Le chant d'Anselme ».

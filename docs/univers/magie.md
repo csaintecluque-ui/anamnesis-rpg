@@ -39,3 +39,12 @@ Sources et statuts : `docs/univers/sources.md`.
 - **JDR du Notion** : caractéristique Résonance, Points de Résonance (RES × 5, +2 par niveau), compétence « Magie
   cristalline », 21 pouvoirs à 1-4 PR (Guérison naturelle, Flammes forgées, Mur de glace…), repos de 8 h = tout
   récupéré ; au-delà, risque de mutation. [NOTION]
+
+## Dans le jeu (2026-11-02, `docs/gdd/magie.md`)
+
+- Validé par Cyril : la magie passe par un cristal porté (le héros n'a pas de pouvoir propre) ; une compétence
+  Résonance et des Points de Résonance ; forcer coûte des PV (nez qui saigne), sans mutation ni folie ; Guérison
+  naturelle (cristal de Vie), Flammes forgées (cristal de forge), la Lueur ; le premier cristal de Vie vient d'un
+  Druide Vert de Canopéa ; les autres à 250 Fers ; à Ironheart, on « tient des listes » ; le sommeil rend tout.
+- **À valider** : Vanel, Tiven, la tailleuse de cristaux (`personnages/pnj.md`), la Vigueur comme attribut de la
+  Résonance, le cristal porté « au cou », la Lueur commune à tous les cristaux.

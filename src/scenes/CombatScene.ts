@@ -310,7 +310,8 @@ export class CombatScene extends Phaser.Scene {
       else {
         const cover = coverBetween(hero.tile, target.tile, (t) => coverAt(this.arena, t));
         const chance = Math.round(hitChance(attack, target, this.zone, cover) * 100);
-        this.showCost(target.tile, `${chance} % · ${attack.apCost} PA${cover > 0 ? ' · à couvert' : ''}`);
+        const pr = this.mode === 'pouvoir' && this.power ? ` · ${this.power.cost} PR` : '';
+        this.showCost(target.tile, `${chance} % · ${attack.apCost} PA${pr}${cover > 0 ? ' · à couvert' : ''}`);
       }
     }
   }
@@ -646,11 +647,13 @@ export class CombatScene extends Phaser.Scene {
     const coverLabel = cover > 0 ? ` (à couvert, +${cover} en Défense)` : '';
     if (!result.hit) this.float(target, 'Raté', CSS.muted);
     else this.float(target, `−${result.damage}${result.critical ? ' !' : ''}`, result.critical ? CSS.copper : CSS.parchment);
-    if (result.fumble) this.appendLog(`${attacker.name} rate son attaque (échec critique).`);
-    else if (!result.hit) this.appendLog(`${attacker.name} attaque${zoneLabel} ${target.name}${coverLabel} : raté.`);
+    // The crystal's fire has its own words (docs/gdd/magie.md).
+    const spell = attack.weaponId === this.power?.id ? attack.label : null;
+    if (result.fumble) this.appendLog(spell ? `Les ${spell} s’éteignent avant de partir (échec critique).` : `${attacker.name} rate son attaque (échec critique).`);
+    else if (!result.hit) this.appendLog(spell ? `Les ${spell} manquent${zoneLabel} ${target.name}${coverLabel}.` : `${attacker.name} attaque${zoneLabel} ${target.name}${coverLabel} : raté.`);
     else {
       const crit = result.critical ? ' (critique !)' : '';
-      this.appendLog(`${attacker.name} touche${zoneLabel} ${target.name} : ${result.damage} dégâts${crit}.`);
+      this.appendLog(spell ? `Les ${spell} touchent${zoneLabel} ${target.name} : ${result.damage} dégâts${crit}.` : `${attacker.name} touche${zoneLabel} ${target.name} : ${result.damage} dégâts${crit}.`);
       if (result.defeated) this.appendLog(target.defeatText);
       else if (result.zoneEffect === 'stunned') this.appendLog(`${target.name} est étourdi·e.`);
       else if (result.zoneEffect === 'disarmed') this.appendLog(`${target.name} est désarmé·e.`);

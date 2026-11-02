@@ -84,3 +84,9 @@ Quête validée par Cyril (`docs/univers/quetes.md`). Textes : `docs/DIALOGUES.m
   se réveille), l'éloigner avec des baies (Survie 2), ou le combattre (15 XP).
 - **Fin** : Malo rend les lettres aux Nacelliers ; 30 XP, 10 Fers, +10 de réputation à Canopéa, repère
   `nacelliers-amis` (le courrier des Nacelliers viendra avec le système de factions).
+
+## La magie (2026-11-02, `docs/gdd/magie.md`)
+
+- Le druide **Vanel** au pied du grand arbre du Bosquet des Échos (« Un prêt de la Terre »), **Tiven** à la Grande
+  Nacelle, des cristaux de Vie au Comptoir de la Sève (Sévane, 250 Fers). Noms à valider.
+- La Lueur d'un cristal révèle aussi le sceau de cire dans le grenier des semences.

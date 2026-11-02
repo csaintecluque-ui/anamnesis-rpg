@@ -39,7 +39,8 @@ Entrer dans une maison ou changer de quartier ne fait pas passer le temps.
 | Auberge du Nid (Lisandre, hamacs) | Canopéa | 8 Fers, +15 PV | 10 Fers |
 | Pension de la Bielle (Dorna) | Ironheart | 8 Fers, +15 PV | 8 Fers |
 
-- « Manger ou dormir ? » : dormir rend tous les PV et **sauvegarde la partie** (emplacement automatique).
+- « Manger ou dormir ? » : dormir rend tous les PV et tous les Points de Résonance (`docs/gdd/magie.md`), et
+  **sauvegarde la partie** (emplacement automatique).
 - L'accueil change chaque jour, sur trois jours, avec une **nouvelle du jour**.
 - Canon des prix : un repas coûte ⓕ 15 à 30 (7,5 à 15 Fers) : le repas d’auberge est à 8 Fers ; aucun prix de nuit dans le canon.
 
@@ -51,5 +52,4 @@ Entrer dans une maison ou changer de quartier ne fait pas passer le temps.
 
 ## Plus tard
 
-La magie (cristaux de Résonance, compétence Résonance, trois pouvoirs, récupération en dormant) : proposition validée
-par Cyril, à construire ensuite (`docs/univers/magie.md`).
+La magie est construite : `docs/gdd/magie.md`.

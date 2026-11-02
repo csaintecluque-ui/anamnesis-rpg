@@ -832,3 +832,13 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   nouvelles du jour) ; la date au journal ; le temps dans le mode développeur ; sauvegarde v10. Vérifié sur téléphone.
   Repas d'auberge remonté à 8 Fers (canon : 15 à 30 Feuilles). Cyril : « Oui pour tout, mets en ligne » (date de
   départ validée). Mis en ligne.
+
+## 2026-11-02 (suite) : la magie
+
+- Cyril : « Oui on y va ». Construit (`docs/gdd/magie.md`) : compétence Résonance (Vigueur, pas à la création) et
+  Points de Résonance ; cristaux portés au cou (Vie, forge, le cristal prêté) ; Guérison naturelle, Flammes forgées
+  (bouton en haut à droite en combat), Lueur (quatre dialogues, toujours en plus d'une autre solution) ; forcer coûte
+  3 PV par point manquant ; le sommeil rend tout ; quête « Un prêt de la Terre » (Vanel, Tiven) ; la tailleuse de
+  cristaux ; « on tient des listes » (patrouilleur, Dorna) ; sauvegarde v11 ; tests `magic.test.ts` et parcours.
+  Vérifié sur PC et téléphone (dialogue grisé, inventaire, combat, montée de niveau, Bosquet).
+

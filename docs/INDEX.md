@@ -15,7 +15,7 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 
 - `sources.md` : règle « le Notion fait foi », publication dans « Anamnesis — le jeu », statuts, codes sources.
 - `monde.md` : concept, époque, continents, phénomènes, cinq lois, interdits, technologie.
-- `magie.md` : cristaux, sources, limites (non liée à la mémoire).
+- `magie.md` : cristaux, sources, limites (non liée à la mémoire) ; la magie dans le jeu.
 - `memoire.md` : Mémoire Vivante, Échos, Gardiens de Mémoire, Kael, mémoire dans chaque culture.
 - `lieux/nations.md` : 7 continents, nations, capitales, lieux notables.
 - `lieux/gardebois.md` : Marché des Lisières, le hub (validé).
@@ -40,7 +40,7 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `decisions.md` : état du GDD, principe d'adaptation du JDR, décisions validées.
 - `cahier-des-charges.md` : brief initial de Cyril (systèmes attendus, 8 points du jalon 1).
 - `attributs.md` : 7 attributs, valeurs dérivées (PV, Défense, PA, Charge, Récits).
-- `competences.md` : 12 compétences, résolution des tests (d20, seuils de dialogue).
+- `competences.md` : 12 compétences et la Résonance, résolution des tests (d20, seuils de dialogue).
 - `creation.md` : origine, dons, règles de l'écran de création.
 - `memoire.md` : mécanique signature (Échos, Récits, choix) et son implémentation.
 - `combat.md` : règles du combat, arène, IA, limites actuelles.
@@ -49,10 +49,11 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `dialogues.md` : format JSON, conditions, effets, contrôles.
 - `inventaire.md` : objets, Fers, équipement, troc.
 - `progression.md` : seuils d'XP, montée de niveau.
-- `sauvegarde.md` : emplacements, format, export/import, versions v1 à v10.
+- `sauvegarde.md` : emplacements, format, export/import, versions v1 à v11.
 - `interface.md` : HUD, menu pause, options, PC (netteté, raccourcis, plein écran).
 - `animation.md` : marche animée des personnages, méthodes 2D et 3D, comparaison du pilote.
 - `temps.md` : le temps (calendrier du canon, matin/midi/soir/nuit), la nuit, les auberges ; validé.
+- `magie.md` : la magie (cristaux au cou, compétence Résonance, PR, trois pouvoirs, « Un prêt de la Terre ») ; validée, noms à valider.
 - `jalon-2.md` : le jalon 2 (phase 2, animation, avatars, contenu) ; fait et en ligne.
 - `villes.md` : gabarit d'une grande ville, systèmes communs, mécanique par ville, coûts, ordre ; validé.
 - `carte-du-monde.md` : carte du monde, voyages, rencontres aléatoires en route ; validé.

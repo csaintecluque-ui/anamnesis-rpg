@@ -230,6 +230,22 @@ Décisions de Cyril (2026-11-02) : **option A**, des Échos familiaux anonymes e
   l'Écho frappé se multiplie : combat contre deux Échos furieux, 20 XP ; ils « reviendront » ; la trappe se scelle, et
   l'on entend plus de voix sous les pavés).
 
+## Canopéa : la magie
+
+### 10. Un prêt de la Terre (Druides Verts) — **construite le 2026-11-02, à valider**
+
+Conception validée par Cyril (« le premier cristal de Vie s'obtient par une petite quête auprès d'un Druide Vert à
+Canopéa ») ; personnages et textes **à valider** (`docs/gdd/magie.md`).
+
+- Au Bosquet des Échos, au pied du grand arbre, le druide **Vanel Lentefeuille** : « La magie est un prêt de la Terre :
+  on ne la prend pas, on l'emprunte » (canon : Verdantis). Il prête un petit cristal émeraude et envoie le héros soigner
+  **Tiven**, un jeune Nacellier qui s'est brûlé les mains aux cordes, à la Grande Nacelle.
+- Le cristal se porte au cou ; posé sur les mains de Tiven, il tiédit puis verdit (Guérison naturelle, 2 PR ; 15 XP).
+  Un bandage soulage aussi Tiven (5 XP), sans finir la quête.
+- De retour, Vanel laisse le cristal (« ce n'est pas un don, c'est un prêt : tu le rendras en soignant ») et enseigne un
+  rang de Résonance (40 XP). Il parle du prix (fatigue, nez qui saigne, le sommeil rend tout), de la Lueur et de Ferros,
+  où « on tient des listes ».
+
 ## Ordre de construction proposé
 
 1. Le Sol des Racines (nouvelle carte) avec « Les lettres de Malo » et « Le chant d'Anselme ».
@@ -239,3 +255,4 @@ Décisions de Cyril (2026-11-02) : **option A**, des Échos familiaux anonymes e
 5. « Le Rail des Cendres » (construite le 2026-11-02).
 6. « Les Échos sous la Forge » (construite le 2026-11-02).
 7. « Voyager autrement » : le train et la caravane (construits le 2026-11-02).
+8. Le temps et les auberges, puis la magie et « Un prêt de la Terre » (construits le 2026-11-02).

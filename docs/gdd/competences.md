@@ -1,4 +1,4 @@
-# Compétences (12) et résolution des tests
+# Compétences (12, plus la Résonance) et résolution des tests
 
 Ce sont les douze compétences du JDR, avec deux retouches (adaptation) :
 - **Combat** est scindé en **Mêlée** et **Tir**, parce que le combat est au cœur d'un CRPG ;
@@ -18,6 +18,7 @@ Ce sont les douze compétences du JDR, avec deux retouches (adaptation) :
 | Commandement | Présence | inspirer, **intimider** |
 | Diplomatie | Présence | persuader, négocier, **troquer** |
 | Subterfuge | Présence | mentir, bluffer, se déguiser |
+| **Résonance** (2026-11-02) | Vigueur | écouter un cristal porté au cou, en tirer la magie (`docs/gdd/magie.md`) ; pas de rang à la création, elle s'apprend en route |
 
 ## Résolution d'un test (JDR)
 

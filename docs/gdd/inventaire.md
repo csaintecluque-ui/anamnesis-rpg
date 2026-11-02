@@ -16,7 +16,8 @@ Règles : `src/rules/inventory.ts` ; écran : `TradeScene`.
   dialogue `giveFers`.
 - **Poids** : chaque objet porté (équipé ou non) compte dans la Charge (`docs/gdd/attributs.md`). Acheter au-delà de la
   Charge est refusé.
-- **Équipement** : deux mains et une armure (`character.equipment`). Équiper un objet le retire de tout autre
+- **Équipement** : deux mains, une armure et un cristal porté au cou (`character.equipment` ; le cristal :
+  `docs/gdd/magie.md`, bouton « Porter »). Équiper un objet le retire de tout autre
   emplacement qu'il occupait. L'Armure équipée ajoute son bonus à la Défense — **y compris en combat** (`combat.ts`
   lit `armorBonus`). Les armes en main sont celles du combat (`docs/gdd/combat.md`, « Armes ») : une arme achetée
   mais rangée dans le sac ne sert pas.

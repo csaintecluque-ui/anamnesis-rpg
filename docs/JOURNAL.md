@@ -3,7 +3,7 @@
 ## État (2026-11-02)
 
 - Jalons 1 et 2 faits et en ligne (`docs/gdd/jalon-2.md`). 11,5 crédits Higgsfield restants.
-- 448 tests (dont le parcours complet d'affilée, `src/rules/parcours.test.ts`), typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
+- 464 tests (dont le parcours complet d'affilée, `src/rules/parcours.test.ts`), typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
 - Mode test caché : 5 touches sur la version (écran titre) → menu pause : +50 Fers, PV au max, **Outils de dev**
   (perso surpuissant, lieux, quêtes, repères, objets, Récits ; `docs/gdd/interface.md`).
 
@@ -19,8 +19,8 @@
 
 ## Prochaine étape
 
-1. En ligne (2026-11-02) : mode développeur, le temps et les auberges (`docs/gdd/temps.md` ; départ le 1er du
-   huitième mois de l'an 3000, validé). Ensuite : la magie (validée, `docs/univers/magie.md`).
+1. En ligne (2026-11-02) : le temps et les auberges (`docs/gdd/temps.md`). Sur la branche : la magie et « Un prêt
+   de la Terre » (`docs/gdd/magie.md`) ; mise en ligne et noms (Vanel, Tiven, la tailleuse) à valider par Cyril.
 2. Codex : Sept-Portes (`AGENTS.md`). Notion : page « Anamnesis — le jeu », à tenir à jour à chaque mise en ligne.
 
 ## Points ouverts

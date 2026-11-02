@@ -413,5 +413,37 @@
     "lines": [
       "Une horloge de Ferros ne retarde jamais. Elle attend que le monde la rattrape."
     ]
+   },
+  {
+    "id": "cheminot-triage",
+    "location": "ironheart-triage",
+    "name": "Un cheminot",
+    "tile": "cheminot",
+    "path": [[3, 12], [11, 12], [11, 13], [3, 13]],
+    "lines": [
+      "La nuit, plus personne ne roule. Le jour, on roule pour deux.",
+      "Une grève ? Jamais. On est fatigués, c’est tout. Ça, c’est encore permis."
+    ],
+    "reactions": [
+      { "quest": "rail-cendres", "flag": "rail-travailleurs", "lines": ["Les convois de nuit sont repartis. Varka dit que c’est grâce à toi."] },
+      { "quest": "rail-cendres", "flag": "rail-bureau", "lines": ["Le Bureau a pris la machine. Maintenant, il en veut d’autres. Pour nous remplacer."] },
+      { "quest": "rail-cendres", "flag": "rail-marches", "lines": ["Encore un convoi parti seul, cette nuit. Toi, tu sais quelque chose. Ça se voit."] }
+    ]
+  },
+  {
+    "id": "cheminote-triage",
+    "location": "ironheart-triage",
+    "name": "Une cheminote",
+    "tile": "cheminot",
+    "path": [[21, 5]],
+    "lines": [
+      "Mon grand-père disait : un rail, c’est une promesse. Tu le poses, et quelqu’un d’autre roulera dessus.",
+      "Trois heures du matin : l’heure où les convois partent seuls."
+    ],
+    "reactions": [
+      { "quest": "rail-cendres", "flag": "rail-travailleurs", "lines": ["Joss tient son levier toute la nuit, maintenant. On dort mieux."] },
+      { "quest": "rail-cendres", "flag": "rail-bureau", "lines": ["Joss est parti. Renvoyé. Le Bureau classe, il ne pardonne pas."] },
+      { "quest": "rail-cendres", "flag": "rail-marches", "lines": ["Varka ne parle plus de toi. C’est mauvais signe, ici."] }
+    ]
   }
 ]

@@ -1,0 +1,94 @@
+{
+  "id": "tunnel-cendriere",
+  "speaker": "tunnel-cendriere",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "rail-cendres",
+          "status": "active"
+        }
+      ],
+      "node": "guetteur"
+    },
+    {
+      "node": "ferme"
+    }
+  ],
+  "nodes": {
+    "ferme": {
+      "text": "Le tunnel de l’embranchement s’enfonce sous les terrils. Un guetteur en manteau de cendre fume à l’entrée. — Rien à voir, ici. Circule.",
+      "options": [
+        {
+          "text": "Circuler.",
+          "next": "fin"
+        }
+      ]
+    },
+    "guetteur": {
+      "text": "Le tunnel de l’embranchement s’enfonce sous les terrils. Un guetteur en manteau de cendre fume à l’entrée. — Rien à voir, ici.",
+      "options": [
+        {
+          "text": "« Levier ouvert. »",
+          "next": "passe",
+          "requires": [
+            {
+              "flag": "joss-avoue"
+            }
+          ]
+        },
+        {
+          "text": "« Tes deux amis de l’aiguillage ne viendront pas. »",
+          "next": "passe",
+          "requires": [
+            {
+              "flag": "pilleurs-vaincus"
+            }
+          ]
+        },
+        {
+          "text": "Se glisser dans l’ombre des wagons.",
+          "next": "passe",
+          "roll": {
+            "skill": "stealth",
+            "difficulty": 12
+          },
+          "failNext": "repere"
+        },
+        {
+          "text": "Faire demi-tour.",
+          "next": "fin"
+        }
+      ]
+    },
+    "passe": {
+      "text": "Le guetteur hausse les épaules et s’écarte. Le tunnel sent la suie et le cristal chaud. Au bout, une lueur orange.",
+      "effects": [
+        {
+          "setFlag": "cendriere-ouverte"
+        }
+      ],
+      "options": [
+        {
+          "text": "Entrer.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "ironheart-cendriere",
+              "arrivee": "depuis-tunnel"
+            }
+          ]
+        }
+      ]
+    },
+    "repere": {
+      "text": "— Hé ! Le guetteur te pousse dehors. — La prochaine fois, j’appelle les autres.",
+      "options": [
+        {
+          "text": "Reculer.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

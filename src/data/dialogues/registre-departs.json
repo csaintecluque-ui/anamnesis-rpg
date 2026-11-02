@@ -1,0 +1,25 @@
+{
+  "id": "registre-departs",
+  "speaker": "registre-departs",
+  "entries": [
+    {
+      "node": "registre"
+    }
+  ],
+  "nodes": {
+    "registre": {
+      "text": "Le registre des départs. Trois nuits du mois, la même ligne : « Convoi de minerai, trois wagons — parti sans conducteur. » Et chaque fois, en bas, la signature de l’aiguilleur de nuit : J. Brakel.",
+      "effects": [
+        {
+          "setFlag": "indice-registre"
+        }
+      ],
+      "options": [
+        {
+          "text": "Refermer le registre.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

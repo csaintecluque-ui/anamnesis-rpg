@@ -913,4 +913,69 @@ TILES.push(
   npcTile('ouvrier', { body: '#7a7a74', hair: '#3a2a1c', accent: '#b08a50' }),
   npcTile('veilleur-rouille', { body: '#4a3a3a', hair: '#8a8a8a', accent: '#c05a3a', extra: '<path d="M42 60 L50 52" stroke="#c9a46a" stroke-width="2"/><circle cx="50" cy="51" r="3" fill="none" stroke="#c9a46a" stroke-width="1.5"/>' }),
   npcTile('archiviste-guichet', { body: '#5a6a7a', hair: '#2a2018', accent: '#7fb0ff' }),
+  // « Le Rail des Cendres » : le triage, la Cendrière et la machine sans homme.
+  { name: 'sol-cendre', svg: diamond('#4e4945') + '<circle cx="20" cy="78" r="2.5" fill="#3a3633"/><circle cx="40" cy="86" r="2" fill="#625c57"/><circle cx="36" cy="72" r="1.5" fill="#3a3633"/>' },
+  {
+    name: 'tas-cendres',
+    blocking: true,
+    cover: 4,
+    svg:
+      diamond('#4e4945') +
+      shadow(24, 8) +
+      `<path d="M4 84 Q14 44 32 38 Q50 44 60 84 Z" fill="#5a5450" stroke="${INK}" stroke-width="1"/>` +
+      '<path d="M18 70 Q30 56 44 66" stroke="#3e3936" stroke-width="2" fill="none"/>' +
+      '<circle cx="40" cy="52" r="2" fill="#ff7a40" opacity="0.7"/>',
+  },
+  {
+    name: 'poste-aiguillage',
+    blocking: true,
+    cover: 4,
+    svg:
+      diamond('#5a5048') +
+      shadow(22, 8) +
+      `<rect x="14" y="42" width="36" height="40" fill="#6b4a32" stroke="${INK}" stroke-width="1"/>` +
+      `<path d="M10 44 L32 28 L54 44 Z" fill="#3a3238" stroke="${INK}" stroke-width="1"/>` +
+      '<rect x="19" y="48" width="26" height="10" fill="#ffd27a" opacity="0.75"/>' +
+      '<path d="M19 53 L45 53 M32 48 L32 58" stroke="#3a2a1c" stroke-width="1.5"/>' +
+      `<rect x="27" y="66" width="10" height="16" fill="#2e2a30"/>`,
+  },
+  {
+    name: 'levier',
+    blocking: true,
+    svg:
+      diamond('#4a4038') +
+      `<rect x="22" y="72" width="20" height="8" fill="#3a3238" stroke="${INK}"/>` +
+      '<path d="M32 74 L42 46" stroke="#8a8a94" stroke-width="4" stroke-linecap="round"/>' +
+      '<circle cx="42" cy="45" r="4" fill="#c05a3a" stroke="#1B1512"/>',
+  },
+  {
+    name: 'brasero',
+    blocking: true,
+    svg:
+      diamond('#5a5048') +
+      '<circle cx="32" cy="58" r="16" fill="#ff8a40" opacity="0.2"/>' +
+      `<path d="M20 64 L44 64 L40 80 L24 80 Z" fill="#3a3238" stroke="${INK}"/>` +
+      '<path d="M24 64 Q28 50 32 58 Q36 46 40 64 Z" fill="#ff9a40"/>' +
+      '<path d="M28 64 Q32 54 36 64 Z" fill="#ffe08a"/>',
+  },
+  {
+    name: 'pilote',
+    blocking: true,
+    cover: 4,
+    svg:
+      diamond('#4a4038') +
+      shadow(24, 8) +
+      `<rect x="10" y="50" width="44" height="26" rx="6" fill="#5a5a64" stroke="${INK}" stroke-width="1"/>` +
+      `<path d="M14 50 L22 36 L42 36 L50 50 Z" fill="#6a6a74" stroke="${INK}" stroke-width="1"/>` +
+      '<circle cx="24" cy="60" r="4" fill="#7fe0ff"/><circle cx="40" cy="60" r="4" fill="#7fe0ff"/>' +
+      '<circle cx="24" cy="60" r="8" fill="#7fe0ff" opacity="0.2"/><circle cx="40" cy="60" r="8" fill="#7fe0ff" opacity="0.2"/>' +
+      `<circle cx="18" cy="78" r="5" fill="#2e2a30" stroke="${INK}"/><circle cx="46" cy="78" r="5" fill="#2e2a30" stroke="${INK}"/>` +
+      '<rect x="26" y="68" width="12" height="4" fill="#C9804F"/>',
+  },
+  npcTile('varka', { body: '#2e4a6a', hair: '#5a3a24', accent: '#e8b860', extra: '<rect x="22" y="58" width="20" height="3" fill="#1e3048"/>' }),
+  npcTile('joss', { body: '#3a4a5a', hair: '#c9a46a', accent: '#ffd060', extra: '<rect x="42" y="60" width="7" height="10" fill="#ffd060" stroke="#1B1512"/>' }),
+  npcTile('ostrik', { body: '#b8b4aa', hair: '#2a2018', accent: '#3a3238', extra: '<rect x="40" y="56" width="10" height="13" fill="#e8e2d4" stroke="#1B1512"/>' }),
+  npcTile('sorn', { body: '#4e4945', hair: '#1f1612', accent: '#ff7a40', extra: '<path d="M20 78 L44 78 L46 88 L18 88 Z" fill="#4e4945" stroke="#1B1512"/>' }),
+  npcTile('pilleur-cendres', { body: '#5a5450', hair: '#2a2018', accent: '#ff7a40', extra: '<path d="M24 46 L40 46 L40 52 L24 52 Z" fill="#3a3633"/>' }),
+  npcTile('cheminot', { body: '#2e4a6a', hair: '#3a2a1c', accent: '#C9804F' }),
 );

@@ -1,0 +1,161 @@
+{
+  "id": "aiguillage",
+  "speaker": "aiguillage",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "rail-cendres",
+          "status": "active"
+        }
+      ],
+      "node": "levier-quete"
+    },
+    {
+      "node": "levier"
+    }
+  ],
+  "nodes": {
+    "levier": {
+      "text": "Le levier de l’embranchement, peint en rouge. Une plaque : « Embranchement de la Cendrière — fermé au trafic ».",
+      "options": [
+        {
+          "text": "Laisser le levier.",
+          "next": "fin"
+        }
+      ]
+    },
+    "goupille": {
+      "text": "Graissé de frais. Et la goupille de sécurité, qui bloque le levier la nuit, a été limée net : quelqu’un d’ici l’ouvre et le referme, sans forcer.",
+      "effects": [
+        {
+          "setFlag": "indice-aiguillage"
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "Noter ça.",
+          "next": "fin"
+        }
+      ]
+    },
+    "levier-quete": {
+      "text": "Le levier de l’embranchement, peint en rouge : « Embranchement de la Cendrière — fermé au trafic ». Pourtant, ses rails brillent comme si l’on y roulait chaque nuit.",
+      "options": [
+        {
+          "text": "Examiner le mécanisme.",
+          "requires": [
+            {
+              "notFlag": "indice-aiguillage"
+            },
+            {
+              "skill": "investigation",
+              "min": 2
+            }
+          ],
+          "next": "goupille"
+        },
+        {
+          "text": "Démonter le carter.",
+          "requires": [
+            {
+              "notFlag": "indice-aiguillage"
+            },
+            {
+              "skill": "crafting",
+              "min": 2
+            }
+          ],
+          "next": "goupille"
+        },
+        {
+          "text": "Attendre la nuit, caché près du levier.",
+          "requires": [
+            {
+              "notFlag": "pilleurs-vaincus"
+            },
+            {
+              "notFlag": "pilleurs-suivis"
+            }
+          ],
+          "next": "veille"
+        },
+        {
+          "text": "Laisser le levier.",
+          "next": "fin"
+        }
+      ]
+    },
+    "veille": {
+      "text": "La nuit tombe sur le triage. Vers trois heures, deux silhouettes en manteau de cendre forcent le levier de l’embranchement. Au loin approche un cliquetis de cristal, sans un souffle de vapeur.",
+      "effects": [
+        {
+          "setFlag": "veille-aiguillage"
+        }
+      ],
+      "options": [
+        {
+          "text": "Les arrêter !",
+          "next": "fin",
+          "effects": [
+            {
+              "startCombat": "aiguillage-cendres"
+            }
+          ]
+        },
+        {
+          "text": "Les laisser faire, et suivre le convoi.",
+          "next": "suivre",
+          "roll": {
+            "skill": "stealth",
+            "difficulty": 11
+          },
+          "failNext": "veille-rate"
+        }
+      ]
+    },
+    "suivre": {
+      "text": "Une machine trapue, sans cabine ni conducteur, attelle trois wagons et quitte la grande voie. Tu la suis dans l’ombre, par l’embranchement, jusque sous les terrils.",
+      "effects": [
+        {
+          "setFlag": "pilleurs-suivis"
+        },
+        {
+          "setFlag": "cendriere-ouverte"
+        },
+        {
+          "giveXp": 15
+        }
+      ],
+      "options": [
+        {
+          "text": "Suivre jusqu’au bout.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "ironheart-cendriere",
+              "arrivee": "depuis-tunnel"
+            }
+          ]
+        }
+      ]
+    },
+    "veille-rate": {
+      "text": "Un caillou roule sous ta botte. Les silhouettes se retournent : — Un guetteur ! Elles lâchent le levier et foncent sur toi.",
+      "options": [
+        {
+          "text": "Se défendre !",
+          "next": "fin",
+          "effects": [
+            {
+              "startCombat": "aiguillage-cendres"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,250 @@
+{
+  "id": "varka",
+  "speaker": "varka",
+  "entries": [
+    {
+      "requires": [
+        {
+          "flag": "rail-travailleurs"
+        }
+      ],
+      "node": "apres-rail"
+    },
+    {
+      "requires": [
+        {
+          "flag": "rail-bureau"
+        }
+      ],
+      "node": "apres-bureau"
+    },
+    {
+      "requires": [
+        {
+          "flag": "rail-marches"
+        }
+      ],
+      "node": "apres-marches"
+    },
+    {
+      "requires": [
+        {
+          "quest": "rail-cendres",
+          "status": "active"
+        },
+        {
+          "flag": "verite-rail"
+        }
+      ],
+      "node": "verdict"
+    },
+    {
+      "requires": [
+        {
+          "quest": "rail-cendres",
+          "status": "active"
+        }
+      ],
+      "node": "enquete"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Une femme en bleu de chauffe se chauffe les mains au brasero. — Le triage ne roule plus la nuit. Pas une grève : la grève est interdite, ici. On a peur, c’est tout. La peur, elle, n’est pas encore interdite.",
+      "options": [
+        {
+          "text": "Peur de quoi ?",
+          "next": "convois"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "convois": {
+      "text": "— Trois convois de minerai partis seuls, ce mois-ci. Personne aux commandes, personne au retour. Les anciens disent que la ligne est maudite. Le Bureau dit qu’on vole. Et il parle de nous remplacer par des machines.",
+      "options": [
+        {
+          "text": "Je vais trouver ce qui fait partir vos convois.",
+          "next": "accord"
+        },
+        {
+          "text": "Bonne chance.",
+          "next": "fin"
+        }
+      ]
+    },
+    "accord": {
+      "text": "— Toi ? Pourquoi pas : personne d’autre ne s’en mêle. Je suis Varka, cheffe d’équipe. Regarde l’aiguillage de l’embranchement, et le registre des départs. Et si tu veux voir de tes yeux, monte la garde avec nous, une nuit.",
+      "effects": [
+        {
+          "startQuest": "rail-cendres"
+        }
+      ],
+      "options": [
+        {
+          "text": "Compte sur moi.",
+          "next": "fin"
+        }
+      ]
+    },
+    "enquete": {
+      "text": "Varka tisonne le brasero. — Alors ? Les cheminots attendent. Le contrôleur Ostrik aussi, avec sa planchette.",
+      "options": [
+        {
+          "text": "Monter la garde cette nuit, à l’aiguillage.",
+          "next": "garde",
+          "requires": [
+            {
+              "notFlag": "pilleurs-vaincus"
+            },
+            {
+              "notFlag": "pilleurs-suivis"
+            }
+          ]
+        },
+        {
+          "text": "Qui est de nuit, à l’aiguillage ?",
+          "next": "joss-info"
+        },
+        {
+          "text": "À plus tard.",
+          "next": "fin"
+        }
+      ]
+    },
+    "joss-info": {
+      "text": "— Joss Brakel. Un bon gars. Endetté jusqu’au cou, comme la moitié du triage : les prêteurs des Forges ne dorment jamais, eux.",
+      "options": [
+        {
+          "text": "Merci.",
+          "next": "enquete"
+        }
+      ]
+    },
+    "verdict": {
+      "text": "Varka écoute jusqu’au bout. — Une machine sans homme, des pilleurs des Marches, et l’un des nôtres qui ouvre le levier… Que fait-on ?",
+      "options": [
+        {
+          "text": "Les cheminots reprennent leurs convois : réglez ça entre vous.",
+          "next": "fin-rail",
+          "effects": [
+            {
+              "setFlag": "rail-travailleurs"
+            },
+            {
+              "completeQuest": "rail-cendres"
+            },
+            {
+              "giveXp": 40
+            }
+          ]
+        },
+        {
+          "text": "Et je rachète la dette de Joss : trente Fers.",
+          "next": "fin-dette",
+          "requires": [
+            {
+              "flag": "joss-avoue"
+            },
+            {
+              "fers": 30
+            }
+          ],
+          "effects": [
+            {
+              "giveFers": -30
+            },
+            {
+              "setFlag": "dette-joss-payee"
+            },
+            {
+              "setFlag": "rail-travailleurs"
+            },
+            {
+              "completeQuest": "rail-cendres"
+            },
+            {
+              "giveXp": 50
+            }
+          ]
+        },
+        {
+          "text": "Le contrôleur doit savoir.",
+          "next": "vers-ostrik"
+        },
+        {
+          "text": "J’y réfléchis.",
+          "next": "fin"
+        }
+      ]
+    },
+    "vers-ostrik": {
+      "text": "— Le Bureau ? Fais comme tu crois. Mais le Bureau ne rend jamais ce qu’il prend.",
+      "options": [
+        {
+          "text": "Je reviendrai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "fin-rail": {
+      "text": "— Le rail est une promesse collective. On la tiendra. Les cheminots iront chercher la machine : la Veilleuse saura lui parler. Et Joss travaillera de nuit, en équipe, jusqu’à ce que sa dette soit payée.",
+      "options": [
+        {
+          "text": "Bonne route, Varka.",
+          "next": "fin"
+        }
+      ]
+    },
+    "fin-dette": {
+      "text": "Varka te regarde longtemps. — Personne ne paie pour un cheminot, d’habitude. Merci. Joss reprendra son levier, et cette fois, il le tiendra fermé. Les cheminots iront chercher la machine.",
+      "options": [
+        {
+          "text": "Bonne route, Varka.",
+          "next": "fin"
+        }
+      ]
+    },
+    "apres-rail": {
+      "text": "— Les convois partent à l’heure, et ils arrivent. La Veilleuse a remisé la machine sans homme dans son dépôt. Elle dit qu’elle dort.",
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "apres-bureau": {
+      "text": "Varka ne lève pas les yeux du brasero. — Le Bureau a pris la machine, et renvoyé Joss. On dit qu’il en veut d’autres, des machines, pour la ligne. Merci quand même.",
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "apres-marches": {
+      "text": "— Un convoi sur dix part encore seul. On sait que tu sais. Passe ton chemin.",
+      "options": [
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ]
+    },
+    "garde": {
+      "text": "— Cache-toi près du levier de l’embranchement, à la nuit tombée. Mes gars resteront au dépôt : s’il y a du grabuge, crie fort. Et ne joue pas les héros.",
+      "options": [
+        {
+          "text": "Entendu.",
+          "next": "enquete"
+        }
+      ]
+    }
+  }
+}

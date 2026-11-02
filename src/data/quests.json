@@ -117,5 +117,36 @@
         "texte": "J’ai la clé de rouille bleue. La vendre à Kaelis, la confier à l’archiviste Noam, aux Archives Centrales, ou la rendre à la Veilleuse."
       }
     ]
+  },
+  {
+    "id": "rail-cendres",
+    "name": "Le Rail des Cendres",
+    "summary": "Au triage des Cendres d’Ironheart, des convois de minerai partent seuls la nuit, sans conducteur, et ne reviennent jamais. Les cheminots ne roulent plus de nuit ; le Bureau parle de les remplacer par des machines. Varka, cheffe d’équipe, attend que quelqu’un trouve la vérité.",
+    "etapes": [
+      {
+        "si": "indice-aiguillage",
+        "texte": "La goupille de sécurité du levier de l’embranchement a été limée : quelqu’un du triage l’ouvre la nuit."
+      },
+      {
+        "si": "indice-registre",
+        "texte": "Le registre des départs porte, chaque nuit de disparition, la signature de l’aiguilleur de nuit, Joss Brakel."
+      },
+      {
+        "si": "indice-veilleuse",
+        "texte": "La Veilleuse du Rail a entendu les convois partir : pas de vapeur, un cliquetis de cristal. Une machine sans homme ?"
+      },
+      {
+        "si": "joss-avoue",
+        "texte": "Joss a avoué : les Marches des Cendres ont racheté sa dette. L’embranchement mène à la vieille Cendrière ; au tunnel, le mot est « Levier ouvert »."
+      },
+      {
+        "si": "pilleurs-vaincus",
+        "texte": "Les pilleurs de l’aiguillage ont parlé : la machine conduit, eux déchargent, à la Cendrière."
+      },
+      {
+        "si": "verite-rail",
+        "texte": "À la Cendrière, une machine sans homme du temps de la Guerre du Rail, et Sorn, des Marches des Cendres. Décider : laisser l’affaire aux cheminots (Varka), au Bureau (le contrôleur Ostrik), ou se taire contre de l’argent (Sorn)."
+      }
+    ]
   }
 ]

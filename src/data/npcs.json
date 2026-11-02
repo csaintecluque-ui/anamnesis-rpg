@@ -331,5 +331,50 @@
     "id": "dorna",
     "name": "Dorna Vissard",
     "role": "Pension de la Bielle"
+  },
+  {
+    "id": "varka",
+    "name": "Varka",
+    "role": "Cheffe d’équipe, Travailleurs du Rail"
+  },
+  {
+    "id": "joss",
+    "name": "Joss Brakel",
+    "role": "Aiguilleur de nuit"
+  },
+  {
+    "id": "ostrik",
+    "name": "Le contrôleur Ostrik",
+    "role": "Bureau des Transports"
+  },
+  {
+    "id": "sorn",
+    "name": "Sorn",
+    "role": "Marches des Cendres, à la Cendrière"
+  },
+  {
+    "id": "pilote",
+    "name": "La machine sans homme",
+    "role": "Au bout de l’embranchement"
+  },
+  {
+    "id": "pilote-endormi",
+    "name": "La machine sans homme",
+    "role": "Au dépôt de la Veilleuse"
+  },
+  {
+    "id": "aiguillage",
+    "name": "Le levier de l’embranchement",
+    "role": "Triage des Cendres"
+  },
+  {
+    "id": "registre-departs",
+    "name": "Le registre des départs",
+    "role": "Triage des Cendres"
+  },
+  {
+    "id": "tunnel-cendriere",
+    "name": "Le guetteur du tunnel",
+    "role": "Marches des Cendres"
   }
 ]

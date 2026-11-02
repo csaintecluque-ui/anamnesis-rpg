@@ -11,7 +11,7 @@
  "tilewidth": 64,
  "tileheight": 32,
  "nextlayerid": 4,
- "nextobjectid": 19,
+ "nextobjectid": 23,
  "layers": [
   {
    "id": 1,
@@ -1205,7 +1205,7 @@
     0,
     0,
     0,
-    0,
+    15,
     112,
     112,
     0,
@@ -1266,7 +1266,7 @@
     0,
     0,
     0,
-    112,
+    0,
     112,
     0,
     0,
@@ -1322,7 +1322,7 @@
     0,
     0,
     0,
-    0,
+    139,
     0,
     0,
     0,
@@ -1764,6 +1764,86 @@
     },
     {
      "id": 15,
+     "name": "vers-triage",
+     "type": "sortie",
+     "x": 944,
+     "y": 528,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": [
+      {
+       "name": "cible",
+       "type": "string",
+       "value": "ironheart-triage"
+      },
+      {
+       "name": "arrivee",
+       "type": "string",
+       "value": "depuis-forges"
+      },
+      {
+       "name": "libelle",
+       "type": "string",
+       "value": "Le triage des Cendres"
+      }
+     ]
+    },
+    {
+     "id": 16,
+     "name": "devant-triage",
+     "type": "arrivee",
+     "x": 912,
+     "y": 528,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": []
+    },
+    {
+     "id": 17,
+     "name": "panneau-triage-forges",
+     "type": "panneau",
+     "x": 912,
+     "y": 464,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": [
+      {
+       "name": "texte",
+       "type": "string",
+       "value": "Triage des Cendres — Travailleurs du Rail. Par le portail de l’est."
+      }
+     ]
+    },
+    {
+     "id": 18,
+     "name": "pilote-endormi",
+     "type": "objet",
+     "x": 816,
+     "y": 592,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": [
+      {
+       "name": "apparaitSi",
+       "type": "string",
+       "value": "rail-travailleurs"
+      }
+     ]
+    },
+    {
+     "id": 19,
      "name": "funiculaire",
      "type": "porte",
      "x": 464,
@@ -1802,7 +1882,7 @@
      ]
     },
     {
-     "id": 16,
+     "id": 20,
      "name": "devant-funiculaire",
      "type": "arrivee",
      "x": 464,
@@ -1815,7 +1895,7 @@
      "properties": []
     },
     {
-     "id": 17,
+     "id": 21,
      "name": "patrouilleur",
      "type": "pnj",
      "x": 400,
@@ -1828,7 +1908,7 @@
      "properties": []
     },
     {
-     "id": 18,
+     "id": 22,
      "name": "panneau-ironheart",
      "type": "panneau",
      "x": 112,
@@ -1855,11 +1935,11 @@
    "name": "tiles",
    "image": "../../../public/tiles/tiles.png",
    "imagewidth": 512,
-   "imageheight": 1632,
+   "imageheight": 1824,
    "tilewidth": 64,
    "tileheight": 96,
    "columns": 8,
-   "tilecount": 133,
+   "tilecount": 145,
    "margin": 0,
    "spacing": 0,
    "tiles": [
@@ -5170,6 +5250,306 @@
        "name": "nom",
        "type": "string",
        "value": "archiviste-guichet"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 133,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "sol-cendre"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 134,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "tas-cendres"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 4
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 135,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "poste-aiguillage"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 4
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 136,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "levier"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 137,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "brasero"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 138,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "pilote"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 4
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 139,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "varka"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 140,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "joss"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 141,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "ostrik"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 142,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "sorn"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 143,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "pilleur-cendres"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 144,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "cheminot"
       },
       {
        "name": "bloquant",

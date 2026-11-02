@@ -43,5 +43,10 @@
     "id": "convoi-sans-conducteur",
     "titre": "Le convoi sans conducteur",
     "texte": "Sur la vieille ligne d’Ironheart passe parfois un convoi translucide, bleu pâle bordé d’or, sans personne aux commandes. Aux fenêtres, des visages tranquilles. La Veilleuse du Rail l’entend avant qu’il existe, et compte ses wagons dans son sommeil."
+  },
+  {
+    "id": "machine-vers-ouest",
+    "titre": "La machine qui roulait vers l’ouest",
+    "texte": "Sous les terrils d’Ironheart, une machine sans homme du Chantier Ouest obéit encore à son dernier ordre : rouler vers l’ouest, rejoindre le chantier. Le chantier n’existe plus depuis des siècles. Elle ne vole rien ; elle se souvient d’un ordre que tous les autres ont oublié."
   }
 ]

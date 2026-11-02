@@ -695,6 +695,15 @@ function ironheartForges() {
   m.setObstacle(28, 20, 'butoir');
   m.object('veilleuse', 'pnj', 23, 19);
   m.object('vieille-machine', 'objet', 26, 20);
+  // Le triage des Cendres, à l'est (« Le Rail des Cendres »).
+  m.setObstacle(29, 16, null);
+  m.object('vers-triage', 'sortie', 29, 16, { cible: 'ironheart-triage', arrivee: 'depuis-forges', libelle: 'Le triage des Cendres' });
+  m.object('devant-triage', 'arrivee', 28, 16);
+  m.setObstacle(28, 14, 'panneau');
+  m.object('panneau-triage-forges', 'panneau', 28, 14, { texte: 'Triage des Cendres — Travailleurs du Rail. Par le portail de l’est.' });
+  // La machine sans homme, remisée au dépôt par les cheminots si on leur a laissé l'affaire.
+  m.setObstacle(25, 18, 'pilote');
+  m.object('pilote-endormi', 'objet', 25, 18, { apparaitSi: 'rail-travailleurs' });
   // Le funiculaire des Manufactures-Moyennes, et le patrouilleur qui le garde.
   m.setObstacle(14, 2, 'monte-charge');
   m.object('funiculaire', 'porte', 14, 2, {
@@ -753,6 +762,69 @@ function ironheartManufactures() {
   m.object('patrouilleuse-haute', 'pnj', 20, 5);
   m.setObstacle(13, 7, 'panneau');
   m.object('panneau-archives', 'panneau', 13, 7, { texte: 'ARCHIVES CENTRALES DE FERROS — MEMORIA FERROX. Comptoir public au rez-de-chaussée.' });
+  return m.toTiled();
+}
+
+// « Le Rail des Cendres » (proposition, docs/univers/quetes.md) : le triage des Travailleurs du Rail, à l'est des
+// Forges-Basses, et la vieille Cendrière où mène l'embranchement.
+function ironheartTriage() {
+  const m = cityBlock(26, 18, 'paves-cendre', 'mur-brique');
+  m.object('vers-forges', 'sortie', 0, 9, { cible: 'ironheart-forges', arrivee: 'devant-triage', libelle: 'Retour aux Forges-Basses' });
+  m.setObstacle(0, 9, null);
+  m.object('depuis-forges', 'arrivee', 2, 9);
+  // Les voies du triage, et l'embranchement qui s'enfonce sous les terrils.
+  m.line([1, 4], [24, 4], 'rail');
+  m.line([1, 7], [24, 7], 'rail');
+  m.line([1, 14], [24, 14], 'rail');
+  m.line([12, 7], [12, 11], 'rail');
+  m.line([12, 11], [24, 11], 'rail');
+  for (const [c, r] of [[5, 4], [6, 4], [17, 7], [18, 7], [8, 14], [9, 14], [20, 14]]) m.setObstacle(c, r, 'wagon');
+  m.setObstacle(25, 11, 'renfoncement');
+  m.object('tunnel-cendriere', 'porte', 25, 11, {
+    cible: 'ironheart-cendriere',
+    arrivee: 'depuis-tunnel',
+    libelle: 'Le tunnel de l’embranchement',
+    verrou: 'cendriere-ouverte',
+    dialogue: 'tunnel-cendriere',
+  });
+  m.object('devant-tunnel', 'arrivee', 24, 12);
+  // Le poste d'aiguillage, son levier, et l'aiguilleur de nuit.
+  m.setObstacle(17, 9, 'poste-aiguillage');
+  m.setObstacle(13, 9, 'levier');
+  m.object('aiguillage', 'objet', 13, 9);
+  m.object('joss', 'pnj', 16, 10, { disparaitSi: 'rail-bureau' });
+  // Les pilleurs des Marches, la nuit de la garde (« Le Rail des Cendres »).
+  const pilleurs = { ennemi: 'pilleur-cendres', apparaitSi: 'veille-aiguillage', disparaitSi: 'pilleurs-vaincus,pilleurs-suivis', texte: 'Un pilleur en manteau de cendre force le levier.' };
+  m.object('pilleur-1', 'ennemi', 14, 8, pilleurs);
+  m.object('pilleur-2', 'ennemi', 11, 10, pilleurs);
+  // Le dépôt des Travailleurs du Rail : Varka au brasero, le registre des départs, le contrôleur du Bureau.
+  m.setObstacle(5, 11, 'brasero');
+  m.object('varka', 'pnj', 6, 10);
+  m.setObstacle(9, 9, 'comptoir');
+  m.object('registre-departs', 'objet', 9, 9);
+  m.object('ostrik', 'pnj', 4, 6);
+  for (const [c, r] of [[10, 5], [20, 9], [22, 16], [4, 16], [8, 2]]) m.setObstacle(c, r, 'reverbere');
+  for (const [c, r] of [[22, 2], [23, 2], [2, 16]]) m.setObstacle(c, r, 'caisses');
+  m.setObstacle(2, 11, 'panneau');
+  m.object('panneau-triage', 'panneau', 2, 11, { texte: 'Triage des Cendres — Travailleurs du Rail. « Le rail est une promesse collective. »' });
+  return m.toTiled();
+}
+
+function ironheartCendriere() {
+  const m = cityBlock(20, 14, 'sol-cendre', 'tas-cendres');
+  m.object('vers-triage', 'sortie', 0, 7, { cible: 'ironheart-triage', arrivee: 'devant-tunnel', libelle: 'Reprendre le tunnel' });
+  m.setObstacle(0, 7, null);
+  m.object('depuis-tunnel', 'arrivee', 2, 7);
+  m.line([1, 7], [16, 7], 'rail');
+  m.setObstacle(17, 7, 'butoir');
+  for (const [c, r] of [[6, 7], [7, 7]]) m.setObstacle(c, r, 'wagon');
+  // La machine sans homme, au bout de la voie ; les pilleurs des Marches vident les wagons.
+  m.setObstacle(14, 7, 'pilote');
+  m.object('pilote', 'objet', 14, 7, { disparaitSi: 'rail-bureau,rail-travailleurs' });
+  m.object('sorn', 'pnj', 11, 10, { disparaitSi: 'rail-bureau,rail-travailleurs' });
+  for (const [c, r] of [[9, 4], [10, 4], [12, 11], [13, 11], [5, 11]]) m.setObstacle(c, r, 'caisses');
+  for (const [c, r] of [[4, 4], [15, 4], [8, 10], [16, 10]]) m.setObstacle(c, r, 'reverbere');
+  for (const [c, r] of [[4, 9], [17, 3], [3, 3]]) m.setObstacle(c, r, 'tas-cendres');
   return m.toTiled();
 }
 
@@ -879,6 +951,8 @@ for (const [id, map] of Object.entries({
   'ironheart-forges': ironheartForges(),
   'ironheart-marche': ironheartMarche(),
   'ironheart-manufactures': ironheartManufactures(),
+  'ironheart-triage': ironheartTriage(),
+  'ironheart-cendriere': ironheartCendriere(),
   'canopee-amphitheatre': amphitheatre(),
   ...ENCOUNTER_MAPS,
 })) {

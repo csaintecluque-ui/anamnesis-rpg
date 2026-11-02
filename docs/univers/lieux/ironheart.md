@@ -37,7 +37,8 @@ Bleue », validée dans ses grandes lignes par Cyril le 2026-11-02). Canon : le 
 | **Les Forges-Basses** (arrivée) | la gare de l'Ouest (arrivée depuis la carte du monde), le Puits Trois et son registre, la Pension de la Bielle, l'atelier Cendrefer, la maison Martelroux, le dépôt de la vieille ligne et sa Veilleuse, le funiculaire, et le renfoncement sans enseigne qui mène au Marché |
 | **Le Marché des Cendres** (souterrain) | tentes et étals à la lumière de l'huile, l'échoppe de Kaelis, le guichet d'archives au fond |
 | **Les Manufactures-Moyennes** | le poste de contrôle du funiculaire, les Archives Centrales (Noam), le funiculaire des Manufactures-Hautes, fermé |
-
+| **Le triage des Cendres** (à l'est des Forges ; « Le Rail des Cendres », à valider) | les voies des Travailleurs du Rail, le brasero de Varka, le registre des départs, le poste d'aiguillage et le levier de l'embranchement, le tunnel gardé par les Marches |
+| **La Cendrière** (au bout de l'embranchement, à valider) | terrils et wagons vidés, Sorn des Marches des Cendres, la machine sans homme |
 | **Maisons** | la Pension de la Bielle (Dorna Vissard : soupe et lit, 8 Fers), l'atelier Cendrefer (Hedda : armes et outils de Ferros), la maison Martelroux (Rika), les Archives Centrales (Noam) |
 
 ### Personnages (validés par Cyril le 2026-11-02 ; [NOTION] : repris du canon)
@@ -55,4 +56,8 @@ Bleue », validée dans ses grandes lignes par Cyril le 2026-11-02). Canon : le 
 - **Passants** : ouvriers en gris, un Veilleur de Rouille, un Ferrôme reconditionné et une marchande de cristaux au
   Marché, un employé en gris clair et un horloger aux Manufactures.
 
-La quête est détaillée dans `docs/univers/quetes.md` (chapitre 3).
+- **« Le Rail des Cendres »** (propositions du 2026-11-02, **à valider**) : **Varka**, cheffe d'équipe des
+  Travailleurs du Rail ; **Joss Brakel**, aiguilleur de nuit endetté ; **le contrôleur Ostrik**, du Bureau des
+  Transports ; **Sorn**, des Marches des Cendres ; **la machine sans homme** du Chantier Ouest ; deux cheminots.
+
+Les quêtes sont détaillées dans `docs/univers/quetes.md` (chapitre 3 et « Le Rail des Cendres »).

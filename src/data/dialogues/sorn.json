@@ -1,0 +1,111 @@
+{
+  "id": "sorn",
+  "speaker": "sorn",
+  "entries": [
+    {
+      "requires": [
+        {
+          "flag": "rail-marches"
+        }
+      ],
+      "node": "apres"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Un homme au manteau de cendre compte des caisses de minerai. — Un curieux. Les curieux coûtent cher, ici. Je suis Sorn, et je rachète ce que Ferros oublie : les vieilles machines, et les dettes.",
+      "effects": [
+        {
+          "setFlag": "verite-rail"
+        }
+      ],
+      "options": [
+        {
+          "text": "Ces convois appartiennent au rail.",
+          "next": "rail"
+        },
+        {
+          "text": "Combien pour mon silence ?",
+          "next": "marche",
+          "requires": [
+            {
+              "quest": "rail-cendres",
+              "status": "active"
+            }
+          ]
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "rail": {
+      "text": "— Le rail ? Il a laissé ses aiguilleurs aux prêteurs bien avant nous. Nous, on rachète leurs dettes. Et la machine roule toute seule : personne n’est blessé. Toute relique a un prix, même une locomotive.",
+      "options": [
+        {
+          "text": "Combien pour mon silence ?",
+          "next": "marche",
+          "requires": [
+            {
+              "quest": "rail-cendres",
+              "status": "active"
+            }
+          ]
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "marche": {
+      "text": "— Quatre-vingts Fers, et tu n’as rien vu. Un convoi sur dix, pas plus : le Bureau ne s’en apercevra même pas.",
+      "options": [
+        {
+          "text": "Marché conclu.",
+          "next": "conclu",
+          "effects": [
+            {
+              "giveFers": 80
+            },
+            {
+              "setFlag": "rail-marches"
+            },
+            {
+              "completeQuest": "rail-cendres"
+            },
+            {
+              "giveXp": 30
+            }
+          ]
+        },
+        {
+          "text": "Non.",
+          "next": "fin"
+        }
+      ]
+    },
+    "conclu": {
+      "text": "Sorn compte les pièces une à une dans ta main. — Les Marches n’oublient pas leurs amis. Ni ceux qui ne le sont pas.",
+      "options": [
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ]
+    },
+    "apres": {
+      "text": "— Tiens, notre ami. La machine roule, les wagons arrivent. Tout le monde y gagne… presque.",
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

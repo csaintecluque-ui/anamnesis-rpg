@@ -1,0 +1,98 @@
+{
+  "id": "ostrik",
+  "speaker": "ostrik",
+  "entries": [
+    {
+      "requires": [
+        {
+          "flag": "rail-bureau"
+        }
+      ],
+      "node": "apres"
+    },
+    {
+      "requires": [
+        {
+          "quest": "rail-cendres",
+          "status": "active"
+        },
+        {
+          "flag": "verite-rail"
+        }
+      ],
+      "node": "rapport"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Un homme en gris clair note tout sur une planchette. — Contrôleur Ostrik, Bureau des Transports. Trois convois perdus : vol ou négligence, j’écrirai lequel.",
+      "options": [
+        {
+          "text": "Remplacer les cheminots par des machines ?",
+          "next": "machines"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "machines": {
+      "text": "— Ferros a déjà fait rouler des machines sans hommes, du temps de la Guerre du Rail. Elles ne dorment pas, ne s’endettent pas, et ne font jamais grève. Un rapport de plus, et le Bureau tranchera.",
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "rapport": {
+      "text": "Ostrik lève sa planchette. — Vous avez quelque chose pour le Bureau ?",
+      "options": [
+        {
+          "text": "Tout : l’aiguilleur, les Marches, la machine sans homme.",
+          "next": "fin-bureau",
+          "effects": [
+            {
+              "setFlag": "rail-bureau"
+            },
+            {
+              "giveFers": 60
+            },
+            {
+              "completeQuest": "rail-cendres"
+            },
+            {
+              "giveXp": 40
+            }
+          ]
+        },
+        {
+          "text": "Rien encore.",
+          "next": "fin"
+        }
+      ]
+    },
+    "fin-bureau": {
+      "text": "— Parfait. Les visières rouges descendront à la Cendrière cette nuit. L’aiguilleur sera classé : renvoyé. La machine ira aux Manufactures : si elle conduit seule, elle conduira pour l’Empire. Votre prime : soixante Fers.",
+      "options": [
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ]
+    },
+    "apres": {
+      "text": "— Affaire classée (dossier Cendrière). Le Bureau étudie la machine. Les cheminots, eux, devront s’y faire.",
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

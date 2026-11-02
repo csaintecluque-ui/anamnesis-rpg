@@ -25,6 +25,8 @@ describe('journal', () => {
     const { DIALOGUES } = await import('../data/dialogues');
     const set = new Set<string>(JSON.stringify(DIALOGUES).match(/"setFlag":"[^"]+"/g)!.map((m) => m.slice(11, -1)));
     for (const flag of ['loups-caravane']) set.add(flag); // set by the world map when the wolves are met
+    const { ENCOUNTERS } = await import('./combat');
+    for (const e of ENCOUNTERS) set.add(e.victoryFlag); // set when a fight started from a dialogue is won
     for (const q of QUESTS) for (const e of q.etapes ?? []) expect(set.has(e.si), `${q.id}: ${e.si}`).toBe(true);
   });
 

@@ -1,0 +1,197 @@
+{
+  "id": "joss",
+  "speaker": "joss",
+  "entries": [
+    {
+      "requires": [
+        {
+          "flag": "dette-joss-payee"
+        }
+      ],
+      "node": "merci"
+    },
+    {
+      "requires": [
+        {
+          "quest": "rail-cendres",
+          "status": "done"
+        }
+      ],
+      "node": "apres"
+    },
+    {
+      "requires": [
+        {
+          "quest": "rail-cendres",
+          "status": "active"
+        },
+        {
+          "flag": "joss-avoue"
+        }
+      ],
+      "node": "avoue"
+    },
+    {
+      "requires": [
+        {
+          "quest": "rail-cendres",
+          "status": "active"
+        },
+        {
+          "flag": "indice-registre"
+        }
+      ],
+      "node": "soupcon"
+    },
+    {
+      "requires": [
+        {
+          "quest": "rail-cendres",
+          "status": "active"
+        },
+        {
+          "flag": "indice-aiguillage"
+        }
+      ],
+      "node": "soupcon"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Un aiguilleur aux yeux cernés astique sa lanterne. — Joss Brakel, aiguilleur de nuit. De jour, maintenant : la nuit, plus personne ne roule.",
+      "options": [
+        {
+          "text": "Tu as vu partir les convois ?",
+          "next": "vu"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "vu": {
+      "text": "Il détourne les yeux. — Je dormais. Tout le monde dort, à trois heures.",
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "soupcon": {
+      "text": "Joss serre sa lanterne. — Je fais mon travail. Qu’est-ce que tu veux ?",
+      "options": [
+        {
+          "text": "La goupille limée, ta signature au registre : tout te désigne.",
+          "next": "aveu",
+          "requires": [
+            {
+              "flag": "indice-aiguillage"
+            },
+            {
+              "flag": "indice-registre"
+            }
+          ]
+        },
+        {
+          "text": "Je ne suis pas du Bureau. Dis-moi ce qui te tient.",
+          "next": "aveu",
+          "requires": [
+            {
+              "skill": "diplomacy",
+              "min": 2
+            }
+          ]
+        },
+        {
+          "text": "Parle-moi, ou tu parleras au contrôleur.",
+          "next": "aveu",
+          "requires": [
+            {
+              "skill": "command",
+              "min": 3
+            }
+          ]
+        },
+        {
+          "text": "Je reviendrai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "aveu": {
+      "text": "Il s’assoit sur un rail. — Ma dette. Les Marches l’ont rachetée au prêteur. « Laisse le levier ouvert les nuits de minerai, et ta dette fond. » Une machine vient seule, attelle les wagons, et part par l’embranchement, vers la vieille Cendrière.",
+      "effects": [
+        {
+          "setFlag": "joss-avoue"
+        },
+        {
+          "giveXp": 15
+        }
+      ],
+      "options": [
+        {
+          "text": "Personne n’est blessé ?",
+          "next": "personne"
+        },
+        {
+          "text": "Merci, Joss.",
+          "next": "fin"
+        }
+      ]
+    },
+    "personne": {
+      "text": "— Personne. Seulement le minerai, et la confiance. Varka me regarde comme un frère. Je ne dors plus.",
+      "options": [
+        {
+          "text": "Merci, Joss.",
+          "next": "fin"
+        }
+      ]
+    },
+    "avoue": {
+      "text": "— Tu as parlé à Varka ? Fais ce que tu dois. Je ne dors plus, de toute façon.",
+      "options": [
+        {
+          "text": "Comment entrer dans le tunnel ?",
+          "next": "mot"
+        },
+        {
+          "text": "À plus tard.",
+          "next": "fin"
+        }
+      ]
+    },
+    "mot": {
+      "text": "— Le guetteur des Marches laisse passer qui dit : « Levier ouvert. » C’est tout. Ne lui dis pas que ça vient de moi.",
+      "options": [
+        {
+          "text": "Promis.",
+          "next": "fin"
+        }
+      ]
+    },
+    "merci": {
+      "text": "— Ma dette est payée. Je n’arrive pas à y croire. Le levier reste fermé, maintenant : je le tiens moi-même, toute la nuit.",
+      "options": [
+        {
+          "text": "Bonne nuit, Joss.",
+          "next": "fin"
+        }
+      ]
+    },
+    "apres": {
+      "text": "Joss astique sa lanterne, sans un mot. Il ne te regarde pas dans les yeux.",
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

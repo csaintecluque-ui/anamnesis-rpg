@@ -167,9 +167,43 @@ Lieux et personnages : `docs/univers/lieux/ironheart.md`. Les détails nouveaux 
 - **Reporté** : cacher la clé ou la garder (le Notion cite aussi ces choix) ; « Le Rail des Cendres » et « Les Échos
   sous la Forge » ; le Bureau des Permis, le Parlement et le télégraphe de `villes.md`.
 
+## Ferros : une quête secondaire
+
+### 8. Le Rail des Cendres (Travailleurs du Rail) — **construite le 2026-11-02, à valider**
+
+Canon : la fiche du Studio [NOTION] est vide ; seules ses propriétés existent : thème « Transport, disparitions,
+machines anciennes » ; conflit, choix et conséquences ci-dessus. Appuis du canon : la Guerre du Rail (1380-1400 AN),
+les « machines sans hommes — les premières de l'Empire » envoyées vers l'ouest et que la forêt démonta « boulon par
+boulon » [NOTION, « La Note Technique »] ; la grève interdite dans les secteurs stratégiques [NOTION, roman III.1].
+**Tout le reste est proposé, à valider.**
+
+- **Départ** : au **triage des Cendres**, à l'est des Forges-Basses (Dorna en parle), **Varka**, cheffe d'équipe :
+  trois convois de minerai partis seuls la nuit, sans retour ; les cheminots ne roulent plus qu'au jour (« pas une
+  grève : on a peur ») ; le **contrôleur Ostrik**, du Bureau des Transports, parle de les remplacer par des machines.
+- **Enquête** : le levier de l'embranchement, sa goupille de sécurité limée (Investigation 2 ou Artisanat 2) ; le
+  registre des départs, signé chaque fois par **Joss Brakel**, aiguilleur de nuit ; la Veilleuse, qui a entendu « un
+  cliquetis de cristal, sans vapeur ». Joss avoue devant les preuves, ou par Diplomatie 2 ou Commandement 3 : les
+  Marches ont racheté sa dette ; il laisse le levier ouvert.
+- **Garde de nuit** (près du levier) : arrêter deux pilleurs des Marches (combat), ou les laisser faire et suivre le
+  convoi (Discrétion 11).
+- **La Cendrière** (au bout de l'embranchement, par un tunnel gardé : le mot de Joss, la défaite des pilleurs ou
+  Discrétion 12) : **Sorn**, des Marches des Cendres, « rachète ce que Ferros oublie : les vieilles machines, et les
+  dettes » ; **la machine sans homme**, plaque « Chantier Ouest — 1388 », qui obéit encore à son dernier ordre :
+  rouler vers l'ouest (Mémoire 3 : Récit « La machine qui roulait vers l'ouest »).
+- **Trois fins** :
+  - **aux cheminots** (Varka) : ils reprennent leurs convois, Joss rembourse en travaillant (ou le héros rachète sa
+    dette, 30 Fers), la machine dort au dépôt de la Veilleuse ; Travailleurs du Rail +20 (+10), Marches −10 ;
+  - **au Bureau** (Ostrik) : prime de 60 Fers, Joss renvoyé, la machine saisie « pour l'Empire » ; Ironheart +10,
+    Travailleurs du Rail −15, Marches −10 ;
+  - **aux Marches** (Sorn) : 80 Fers pour se taire, un convoi sur dix part encore seul ; Marches +15, Travailleurs du
+    Rail −20, Ironheart −10.
+- **Les routes commerciales** : pour l'instant, par la réputation d'Ironheart (les prix de la ville) et ce que disent
+  les cheminots ; **reporté** : un vrai effet sur les marchandises et le train.
+
 ## Ordre de construction proposé
 
 1. Le Sol des Racines (nouvelle carte) avec « Les lettres de Malo » et « Le chant d'Anselme ».
 2. « L'audience » (Kael Marchevent, Lyra) et le système de factions.
 3. « Les graines qui manquent », « Le carnet de chansons », « La caravane de midi ».
 4. Ironheart et « La Clé de Rouille Bleue » (construits le 2026-11-02).
+5. « Le Rail des Cendres » (construite le 2026-11-02).

@@ -59,6 +59,19 @@
           "next": "qui"
         },
         {
+          "text": "Les convois du triage, qui partent seuls la nuit ?",
+          "requires": [
+            {
+              "quest": "rail-cendres",
+              "status": "active"
+            },
+            {
+              "notFlag": "indice-veilleuse"
+            }
+          ],
+          "next": "convois-triage"
+        },
+        {
           "text": "Au revoir.",
           "next": "fin"
         }
@@ -263,6 +276,19 @@
       "text": "— La clé chante toujours, la nuit. Je compte les wagons, et je ne me sens plus seule.",
       "options": [
         {
+          "text": "Les convois du triage, qui partent seuls la nuit ?",
+          "requires": [
+            {
+              "quest": "rail-cendres",
+              "status": "active"
+            },
+            {
+              "notFlag": "indice-veilleuse"
+            }
+          ],
+          "next": "convois-triage"
+        },
+        {
           "text": "À bientôt.",
           "next": "fin"
         }
@@ -271,6 +297,19 @@
     "apres": {
       "text": "— Tu as fait ton choix, avec la clé. Je l’entends parfois, loin d’ici… Elle chante encore. Prends soin de toi.",
       "options": [
+        {
+          "text": "Les convois du triage, qui partent seuls la nuit ?",
+          "requires": [
+            {
+              "quest": "rail-cendres",
+              "status": "active"
+            },
+            {
+              "notFlag": "indice-veilleuse"
+            }
+          ],
+          "next": "convois-triage"
+        },
         {
           "text": "Au revoir.",
           "next": "fin"
@@ -301,6 +340,23 @@
         },
         {
           "text": "Je reviendrai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "convois-triage": {
+      "text": "— Ce ne sont pas mes trains. Mes trains chantent. Ceux-là ne respirent pas : pas de vapeur, juste un cliquetis de cristal. Une machine sans homme, comme on en envoyait vers l’ouest, au temps de la Guerre du Rail.",
+      "effects": [
+        {
+          "setFlag": "indice-veilleuse"
+        },
+        {
+          "giveXp": 5
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci.",
           "next": "fin"
         }
       ]

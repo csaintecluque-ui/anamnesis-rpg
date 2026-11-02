@@ -50,6 +50,25 @@
       "text": "— On dit qu’un convoi sans conducteur passe encore sur la vieille ligne, la nuit. On dit que les Marches des Cendres paient cher les vieilleries des gares. Et on dit que les Archives veulent tout savoir. Moi, je dis : mange ta soupe.",
       "options": [
         {
+          "text": "Et au triage des Cendres ?",
+          "requires": [
+            {
+              "quest": "rail-cendres",
+              "status": "none"
+            }
+          ],
+          "next": "triage"
+        },
+        {
+          "text": "Merci, Dorna.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "triage": {
+      "text": "— Au triage, à l’est, les convois de minerai partent seuls la nuit. Les cheminots ne roulent plus qu’au jour, et Varka, leur cheffe, fait la tête de quelqu’un qui cherche de l’aide.",
+      "options": [
+        {
           "text": "Merci, Dorna.",
           "next": "accueil"
         }

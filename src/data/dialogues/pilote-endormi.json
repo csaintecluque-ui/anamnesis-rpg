@@ -1,0 +1,20 @@
+{
+  "id": "pilote-endormi",
+  "speaker": "pilote-endormi",
+  "entries": [
+    {
+      "node": "dort"
+    }
+  ],
+  "nodes": {
+    "dort": {
+      "text": "La machine sans homme dort au dépôt de la Veilleuse. Ses cristaux battent lentement, comme un cœur au repos. Quelqu’un a peint sur sa plaque : « Arrivée. »",
+      "options": [
+        {
+          "text": "La laisser dormir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

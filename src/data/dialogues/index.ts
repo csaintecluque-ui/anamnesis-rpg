@@ -39,6 +39,15 @@ import nell from './nell.json';
 import noam from './noam.json';
 import patrouilleur from './patrouilleur.json';
 import patrouilleuseHaute from './patrouilleuse-haute.json';
+import varka from './varka.json';
+import joss from './joss.json';
+import ostrik from './ostrik.json';
+import sorn from './sorn.json';
+import pilote from './pilote.json';
+import piloteEndormi from './pilote-endormi.json';
+import aiguillage from './aiguillage.json';
+import registreDeparts from './registre-departs.json';
+import tunnelCendriere from './tunnel-cendriere.json';
 import porteGrenier from './porte-grenier.json';
 import renfoncement from './renfoncement.json';
 import rika from './rika.json';
@@ -98,6 +107,15 @@ export const DIALOGUES: Record<string, Dialogue> = {
   noam: noam as Dialogue,
   patrouilleur: patrouilleur as Dialogue,
   'patrouilleuse-haute': patrouilleuseHaute as Dialogue,
+  varka: varka as Dialogue,
+  joss: joss as Dialogue,
+  ostrik: ostrik as Dialogue,
+  sorn: sorn as Dialogue,
+  pilote: pilote as Dialogue,
+  'pilote-endormi': piloteEndormi as Dialogue,
+  aiguillage: aiguillage as Dialogue,
+  'registre-departs': registreDeparts as Dialogue,
+  'tunnel-cendriere': tunnelCendriere as Dialogue,
   'porte-grenier': porteGrenier as Dialogue,
   renfoncement: renfoncement as Dialogue,
   rika: rika as Dialogue,

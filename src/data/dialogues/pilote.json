@@ -1,0 +1,90 @@
+{
+  "id": "pilote",
+  "speaker": "pilote",
+  "entries": [
+    {
+      "node": "machine"
+    }
+  ],
+  "nodes": {
+    "machine": {
+      "text": "Une machine trapue, sans cabine ni siège, montée sur des roues de convoi. Deux cristaux bleus battent lentement à l’avant. Elle frémit, comme si elle voulait repartir.",
+      "effects": [
+        {
+          "setFlag": "verite-rail"
+        }
+      ],
+      "options": [
+        {
+          "text": "Lire la plaque.",
+          "next": "plaque"
+        },
+        {
+          "text": "Poser la main sur le métal et écouter.",
+          "next": "memoire",
+          "requires": [
+            {
+              "attribute": "memory",
+              "min": 3
+            },
+            {
+              "notFlag": "pilote-ecoute"
+            }
+          ]
+        },
+        {
+          "text": "S’éloigner.",
+          "next": "fin"
+        }
+      ]
+    },
+    "plaque": {
+      "text": "Une plaque de cuivre, presque effacée : « CHANTIER OUEST — MACHINE SANS HOMME — 1388 ». Une machine du temps de la Guerre du Rail, que les Marches ont trouvée et remise en marche.",
+      "options": [
+        {
+          "text": "Se souvenir de ce qu’on raconte du Chantier Ouest.",
+          "next": "chantier",
+          "requires": [
+            {
+              "skill": "lore",
+              "min": 2
+            }
+          ]
+        },
+        {
+          "text": "S’éloigner.",
+          "next": "fin"
+        }
+      ]
+    },
+    "chantier": {
+      "text": "Pendant la Guerre du Rail, Ferros envoya vers l’ouest des machines sans hommes, les premières de l’Empire, pour poser la voie à travers la forêt. La forêt les démonta, boulon par boulon. Celle-ci est revenue.",
+      "options": [
+        {
+          "text": "S’éloigner.",
+          "next": "fin"
+        }
+      ]
+    },
+    "memoire": {
+      "text": "Sous ta main, un ordre très ancien, répété sans fin : « Vers l’ouest. Rejoindre le chantier. » Le chantier n’existe plus depuis des siècles. La machine ne vole rien : elle obéit. Les pilleurs n’ont fait que l’atteler.",
+      "effects": [
+        {
+          "setFlag": "pilote-ecoute"
+        },
+        {
+          "learnRecit": "machine-vers-ouest"
+        },
+        {
+          "giveXp": 15
+        }
+      ],
+      "options": [
+        {
+          "text": "Retirer la main.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

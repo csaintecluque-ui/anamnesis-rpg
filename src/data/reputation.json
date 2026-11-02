@@ -31,16 +31,26 @@
     { "flag": "graines-rendues", "points": 5 }
   ],
   "ironheart": [
-    { "quest": "cle-rouille-bleue", "points": 10 }
+    { "quest": "cle-rouille-bleue", "points": 10 },
+    { "flag": "rail-travailleurs", "points": 5 },
+    { "flag": "rail-bureau", "points": 10 },
+    { "flag": "rail-marches", "points": -10 }
   ],
   "travailleurs-rail": [
     { "flag": "cle-veilleuse", "points": 20 },
-    { "flag": "cle-vendue", "points": -10 }
+    { "flag": "cle-vendue", "points": -10 },
+    { "flag": "rail-travailleurs", "points": 20 },
+    { "flag": "dette-joss-payee", "points": 10 },
+    { "flag": "rail-bureau", "points": -15 },
+    { "flag": "rail-marches", "points": -20 }
   ],
   "marches-cendres": [
     { "flag": "cle-vendue", "points": 20 },
     { "flag": "cle-archives", "points": -10 },
-    { "flag": "cle-veilleuse", "points": -5 }
+    { "flag": "cle-veilleuse", "points": -5 },
+    { "flag": "rail-marches", "points": 15 },
+    { "flag": "rail-travailleurs", "points": -10 },
+    { "flag": "rail-bureau", "points": -10 }
   ],
   "archives-ferros": [
     { "flag": "cle-archives", "points": 20 },

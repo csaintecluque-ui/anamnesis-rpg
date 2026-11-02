@@ -9,6 +9,58 @@ _(si …)_ = option qui n’apparaît que dans cette situation ; → = où mène
 **🎲 Discrétion 10** = jet de dé (d20 + modificateur + rang contre 10) : → en cas de réussite, ✗ → en cas d’échec.
 🌙 = scène de nuit (le fond s’assombrit).
 
+## Le levier de l’embranchement
+
+_Triage des Cendres_
+
+Commence par : « levier-quete » _(si quête « Le Rail des Cendres » en cours)_, sinon « levier »
+
+### levier
+
+> Le levier de l’embranchement, peint en rouge. Une plaque : « Embranchement de la Cendrière — fermé au trafic ».
+
+- « Laisser le levier. » → **fin**
+
+### goupille
+
+_Effet : retient « indice-aiguillage », +10 XP._
+
+> Graissé de frais. Et la goupille de sécurité, qui bloque le levier la nuit, a été limée net : quelqu’un d’ici l’ouvre et le referme, sans forcer.
+
+- « Noter ça. » → **fin**
+
+### levier-quete
+
+> Le levier de l’embranchement, peint en rouge : « Embranchement de la Cendrière — fermé au trafic ». Pourtant, ses rails brillent comme si l’on y roulait chaque nuit.
+
+- _(sans repère « indice-aiguillage »)_ **[Investigation 2]** « Examiner le mécanisme. » → goupille
+- _(sans repère « indice-aiguillage »)_ **[Artisanat 2]** « Démonter le carter. » → goupille
+- _(sans repère « pilleurs-vaincus »)_ _(sans repère « pilleurs-suivis »)_ « Attendre la nuit, caché près du levier. » → veille
+- « Laisser le levier. » → **fin**
+
+### veille
+
+_Effet : retient « veille-aiguillage »._
+
+> La nuit tombe sur le triage. Vers trois heures, deux silhouettes en manteau de cendre forcent le levier de l’embranchement. Au loin approche un cliquetis de cristal, sans un souffle de vapeur.
+
+- « Les arrêter ! » → **fin** _(lance le combat « aiguillage-cendres »)_
+- **🎲 Discrétion 11** « Les laisser faire, et suivre le convoi. » → suivre, ✗ → veille-rate
+
+### suivre
+
+_Effet : retient « pilleurs-suivis », retient « cendriere-ouverte », +15 XP._
+
+> Une machine trapue, sans cabine ni conducteur, attelle trois wagons et quitte la grande voie. Tu la suis dans l’ombre, par l’embranchement, jusque sous les terrils.
+
+- « Suivre jusqu’au bout. » → **fin** _(mène à « Ironheart — La Cendrière »)_
+
+### veille-rate
+
+> Un caillou roule sous ta botte. Les silhouettes se retournent : — Un guetteur ! Elles lâchent le levier et foncent sur toi.
+
+- « Se défendre ! » → **fin** _(lance le combat « aiguillage-cendres »)_
+
 ## Aïlis Feuillevent
 
 _Grand-mère de Malo_
@@ -510,6 +562,13 @@ Commence par : « accueil »
 ### nouvelles
 
 > — On dit qu’un convoi sans conducteur passe encore sur la vieille ligne, la nuit. On dit que les Marches des Cendres paient cher les vieilleries des gares. Et on dit que les Archives veulent tout savoir. Moi, je dis : mange ta soupe.
+
+- _(si quête « Le Rail des Cendres » pas commencée)_ « Et au triage des Cendres ? » → triage
+- « Merci, Dorna. » → accueil
+
+### triage
+
+> — Au triage, à l’est, les convois de minerai partent seuls la nuit. Les cheminots ne roulent plus qu’au jour, et Varka, leur cheffe, fait la tête de quelqu’un qui cherche de l’aide.
 
 - « Merci, Dorna. » → accueil
 
@@ -1185,6 +1244,74 @@ Commence par : « apres-sabotage » _(si repère « foreuse-sabotee »)_, sinon 
 > La foreuse est silencieuse, pour l’instant. Mes ouvriers n’aiment pas ça, mais personne n’a plus revu de train, à Gardebois.
 
 - « Tant mieux. » → **fin**
+
+## Joss Brakel
+
+_Aiguilleur de nuit_
+
+Commence par : « merci » _(si repère « dette-joss-payee »)_, sinon « apres » _(si quête « Le Rail des Cendres » terminée)_, sinon « avoue » _(si quête « Le Rail des Cendres » en cours)_ _(si repère « joss-avoue »)_, sinon « soupcon » _(si quête « Le Rail des Cendres » en cours)_ _(si repère « indice-registre »)_, sinon « soupcon » _(si quête « Le Rail des Cendres » en cours)_ _(si repère « indice-aiguillage »)_, sinon « accueil »
+
+### accueil
+
+> Un aiguilleur aux yeux cernés astique sa lanterne. — Joss Brakel, aiguilleur de nuit. De jour, maintenant : la nuit, plus personne ne roule.
+
+- « Tu as vu partir les convois ? » → vu
+- « Au revoir. » → **fin**
+
+### vu
+
+> Il détourne les yeux. — Je dormais. Tout le monde dort, à trois heures.
+
+- « Au revoir. » → **fin**
+
+### soupcon
+
+> Joss serre sa lanterne. — Je fais mon travail. Qu’est-ce que tu veux ?
+
+- _(si repère « indice-aiguillage »)_ _(si repère « indice-registre »)_ « La goupille limée, ta signature au registre : tout te désigne. » → aveu
+- **[Diplomatie 2]** « Je ne suis pas du Bureau. Dis-moi ce qui te tient. » → aveu
+- **[Commandement 3]** « Parle-moi, ou tu parleras au contrôleur. » → aveu
+- « Je reviendrai. » → **fin**
+
+### aveu
+
+_Effet : retient « joss-avoue », +15 XP._
+
+> Il s’assoit sur un rail. — Ma dette. Les Marches l’ont rachetée au prêteur. « Laisse le levier ouvert les nuits de minerai, et ta dette fond. » Une machine vient seule, attelle les wagons, et part par l’embranchement, vers la vieille Cendrière.
+
+- « Personne n’est blessé ? » → personne
+- « Merci, Joss. » → **fin**
+
+### personne
+
+> — Personne. Seulement le minerai, et la confiance. Varka me regarde comme un frère. Je ne dors plus.
+
+- « Merci, Joss. » → **fin**
+
+### avoue
+
+> — Tu as parlé à Varka ? Fais ce que tu dois. Je ne dors plus, de toute façon.
+
+- « Comment entrer dans le tunnel ? » → mot
+- « À plus tard. » → **fin**
+
+### mot
+
+> — Le guetteur des Marches laisse passer qui dit : « Levier ouvert. » C’est tout. Ne lui dis pas que ça vient de moi.
+
+- « Promis. » → **fin**
+
+### merci
+
+> — Ma dette est payée. Je n’arrive pas à y croire. Le levier reste fermé, maintenant : je le tiens moi-même, toute la nuit.
+
+- « Bonne nuit, Joss. » → **fin**
+
+### apres
+
+> Joss astique sa lanterne, sans un mot. Il ne te regarde pas dans les yeux.
+
+- « Au revoir. » → **fin**
 
 ## Kael Marchevent
 
@@ -1924,6 +2051,44 @@ _Effet : retient « fonds-zero-connu »._
 
 - « Merci. » → accueil
 
+## Le contrôleur Ostrik
+
+_Bureau des Transports_
+
+Commence par : « apres » _(si repère « rail-bureau »)_, sinon « rapport » _(si quête « Le Rail des Cendres » en cours)_ _(si repère « verite-rail »)_, sinon « accueil »
+
+### accueil
+
+> Un homme en gris clair note tout sur une planchette. — Contrôleur Ostrik, Bureau des Transports. Trois convois perdus : vol ou négligence, j’écrirai lequel.
+
+- « Remplacer les cheminots par des machines ? » → machines
+- « Au revoir. » → **fin**
+
+### machines
+
+> — Ferros a déjà fait rouler des machines sans hommes, du temps de la Guerre du Rail. Elles ne dorment pas, ne s’endettent pas, et ne font jamais grève. Un rapport de plus, et le Bureau tranchera.
+
+- « Au revoir. » → **fin**
+
+### rapport
+
+> Ostrik lève sa planchette. — Vous avez quelque chose pour le Bureau ?
+
+- « Tout : l’aiguilleur, les Marches, la machine sans homme. » → fin-bureau _(retient « rail-bureau », +60 Fers, termine la quête « Le Rail des Cendres », +40 XP)_
+- « Rien encore. » → **fin**
+
+### fin-bureau
+
+> — Parfait. Les visières rouges descendront à la Cendrière cette nuit. L’aiguilleur sera classé : renvoyé. La machine ira aux Manufactures : si elle conduit seule, elle conduira pour l’Empire. Votre prime : soixante Fers.
+
+- « … » → **fin**
+
+### apres
+
+> — Affaire classée (dossier Cendrière). Le Bureau étudie la machine. Les cheminots, eux, devront s’y faire.
+
+- « Au revoir. » → **fin**
+
 ## Le patrouilleur à visière rouge
 
 _Funiculaire des Forges-Basses_
@@ -1998,6 +2163,55 @@ Commence par : « ferme »
 
 - « Merci. » → **fin**
 
+## La machine sans homme
+
+_Au dépôt de la Veilleuse_
+
+Commence par : « dort »
+
+### dort
+
+> La machine sans homme dort au dépôt de la Veilleuse. Ses cristaux battent lentement, comme un cœur au repos. Quelqu’un a peint sur sa plaque : « Arrivée. »
+
+- « La laisser dormir. » → **fin**
+
+## La machine sans homme
+
+_Au bout de l’embranchement_
+
+Commence par : « machine »
+
+### machine
+
+_Effet : retient « verite-rail »._
+
+> Une machine trapue, sans cabine ni siège, montée sur des roues de convoi. Deux cristaux bleus battent lentement à l’avant. Elle frémit, comme si elle voulait repartir.
+
+- « Lire la plaque. » → plaque
+- **[Mémoire 3]** _(sans repère « pilote-ecoute »)_ « Poser la main sur le métal et écouter. » → memoire
+- « S’éloigner. » → **fin**
+
+### plaque
+
+> Une plaque de cuivre, presque effacée : « CHANTIER OUEST — MACHINE SANS HOMME — 1388 ». Une machine du temps de la Guerre du Rail, que les Marches ont trouvée et remise en marche.
+
+- **[Érudition 2]** « Se souvenir de ce qu’on raconte du Chantier Ouest. » → chantier
+- « S’éloigner. » → **fin**
+
+### chantier
+
+> Pendant la Guerre du Rail, Ferros envoya vers l’ouest des machines sans hommes, les premières de l’Empire, pour poser la voie à travers la forêt. La forêt les démonta, boulon par boulon. Celle-ci est revenue.
+
+- « S’éloigner. » → **fin**
+
+### memoire
+
+_Effet : retient « pilote-ecoute », retient le Récit « La machine qui roulait vers l’ouest », +15 XP._
+
+> Sous ta main, un ordre très ancien, répété sans fin : « Vers l’ouest. Rejoindre le chantier. » Le chantier n’existe plus depuis des siècles. La machine ne vole rien : elle obéit. Les pilleurs n’ont fait que l’atteler.
+
+- « Retirer la main. » → **fin**
+
 ## Porte du grenier des semences
 
 _Objet_
@@ -2026,6 +2240,20 @@ _Effet : retient « grenier-deverrouille »._
 
 - « Réessayer. » → verrouillee
 - « Partir. » → **fin**
+
+## Le registre des départs
+
+_Triage des Cendres_
+
+Commence par : « registre »
+
+### registre
+
+_Effet : retient « indice-registre »._
+
+> Le registre des départs. Trois nuits du mois, la même ligne : « Convoi de minerai, trois wagons — parti sans conducteur. » Et chaque fois, en bas, la signature de l’aiguilleur de nuit : J. Brakel.
+
+- « Refermer le registre. » → **fin**
 
 ## Un renfoncement sans enseigne
 
@@ -2230,6 +2458,48 @@ Commence par : « accueil »
 
 - « Une belle règle. » → accueil
 
+## Sorn
+
+_Marches des Cendres, à la Cendrière_
+
+Commence par : « apres » _(si repère « rail-marches »)_, sinon « accueil »
+
+### accueil
+
+_Effet : retient « verite-rail »._
+
+> Un homme au manteau de cendre compte des caisses de minerai. — Un curieux. Les curieux coûtent cher, ici. Je suis Sorn, et je rachète ce que Ferros oublie : les vieilles machines, et les dettes.
+
+- « Ces convois appartiennent au rail. » → rail
+- _(si quête « Le Rail des Cendres » en cours)_ « Combien pour mon silence ? » → marche
+- « Au revoir. » → **fin**
+
+### rail
+
+> — Le rail ? Il a laissé ses aiguilleurs aux prêteurs bien avant nous. Nous, on rachète leurs dettes. Et la machine roule toute seule : personne n’est blessé. Toute relique a un prix, même une locomotive.
+
+- _(si quête « Le Rail des Cendres » en cours)_ « Combien pour mon silence ? » → marche
+- « Au revoir. » → **fin**
+
+### marche
+
+> — Quatre-vingts Fers, et tu n’as rien vu. Un convoi sur dix, pas plus : le Bureau ne s’en apercevra même pas.
+
+- « Marché conclu. » → conclu _(+80 Fers, retient « rail-marches », termine la quête « Le Rail des Cendres », +30 XP)_
+- « Non. » → **fin**
+
+### conclu
+
+> Sorn compte les pièces une à une dans ta main. — Les Marches n’oublient pas leurs amis. Ni ceux qui ne le sont pas.
+
+- « … » → **fin**
+
+### apres
+
+> — Tiens, notre ami. La machine roule, les wagons arrivent. Tout le monde y gagne… presque.
+
+- « Au revoir. » → **fin**
+
 ## Sylvan Mousserelle
 
 _Aubergiste de la Racine_
@@ -2390,6 +2660,134 @@ _Effet : retient « fouille-vue », retient « fouille-marches »._
 
 - « Garder ça en mémoire. » → **fin**
 
+## Le guetteur du tunnel
+
+_Marches des Cendres_
+
+Commence par : « guetteur » _(si quête « Le Rail des Cendres » en cours)_, sinon « ferme »
+
+### ferme
+
+> Le tunnel de l’embranchement s’enfonce sous les terrils. Un guetteur en manteau de cendre fume à l’entrée. — Rien à voir, ici. Circule.
+
+- « Circuler. » → **fin**
+
+### guetteur
+
+> Le tunnel de l’embranchement s’enfonce sous les terrils. Un guetteur en manteau de cendre fume à l’entrée. — Rien à voir, ici.
+
+- _(si repère « joss-avoue »)_ « « Levier ouvert. » » → passe
+- _(si repère « pilleurs-vaincus »)_ « « Tes deux amis de l’aiguillage ne viendront pas. » » → passe
+- **🎲 Discrétion 12** « Se glisser dans l’ombre des wagons. » → passe, ✗ → repere
+- « Faire demi-tour. » → **fin**
+
+### passe
+
+_Effet : retient « cendriere-ouverte »._
+
+> Le guetteur hausse les épaules et s’écarte. Le tunnel sent la suie et le cristal chaud. Au bout, une lueur orange.
+
+- « Entrer. » → **fin** _(mène à « Ironheart — La Cendrière »)_
+
+### repere
+
+> — Hé ! Le guetteur te pousse dehors. — La prochaine fois, j’appelle les autres.
+
+- « Reculer. » → **fin**
+
+## Varka
+
+_Cheffe d’équipe, Travailleurs du Rail_
+
+Commence par : « apres-rail » _(si repère « rail-travailleurs »)_, sinon « apres-bureau » _(si repère « rail-bureau »)_, sinon « apres-marches » _(si repère « rail-marches »)_, sinon « verdict » _(si quête « Le Rail des Cendres » en cours)_ _(si repère « verite-rail »)_, sinon « enquete » _(si quête « Le Rail des Cendres » en cours)_, sinon « accueil »
+
+### accueil
+
+> Une femme en bleu de chauffe se chauffe les mains au brasero. — Le triage ne roule plus la nuit. Pas une grève : la grève est interdite, ici. On a peur, c’est tout. La peur, elle, n’est pas encore interdite.
+
+- « Peur de quoi ? » → convois
+- « Au revoir. » → **fin**
+
+### convois
+
+> — Trois convois de minerai partis seuls, ce mois-ci. Personne aux commandes, personne au retour. Les anciens disent que la ligne est maudite. Le Bureau dit qu’on vole. Et il parle de nous remplacer par des machines.
+
+- « Je vais trouver ce qui fait partir vos convois. » → accord
+- « Bonne chance. » → **fin**
+
+### accord
+
+_Effet : lance la quête « Le Rail des Cendres »._
+
+> — Toi ? Pourquoi pas : personne d’autre ne s’en mêle. Je suis Varka, cheffe d’équipe. Regarde l’aiguillage de l’embranchement, et le registre des départs. Et si tu veux voir de tes yeux, monte la garde avec nous, une nuit.
+
+- « Compte sur moi. » → **fin**
+
+### enquete
+
+> Varka tisonne le brasero. — Alors ? Les cheminots attendent. Le contrôleur Ostrik aussi, avec sa planchette.
+
+- _(sans repère « pilleurs-vaincus »)_ _(sans repère « pilleurs-suivis »)_ « Monter la garde cette nuit, à l’aiguillage. » → garde
+- « Qui est de nuit, à l’aiguillage ? » → joss-info
+- « À plus tard. » → **fin**
+
+### joss-info
+
+> — Joss Brakel. Un bon gars. Endetté jusqu’au cou, comme la moitié du triage : les prêteurs des Forges ne dorment jamais, eux.
+
+- « Merci. » → enquete
+
+### verdict
+
+> Varka écoute jusqu’au bout. — Une machine sans homme, des pilleurs des Marches, et l’un des nôtres qui ouvre le levier… Que fait-on ?
+
+- « Les cheminots reprennent leurs convois : réglez ça entre vous. » → fin-rail _(retient « rail-travailleurs », termine la quête « Le Rail des Cendres », +40 XP)_
+- _(si repère « joss-avoue »)_ **[30 Fers]** « Et je rachète la dette de Joss : trente Fers. » → fin-dette _(−30 Fers, retient « dette-joss-payee », retient « rail-travailleurs », termine la quête « Le Rail des Cendres », +50 XP)_
+- « Le contrôleur doit savoir. » → vers-ostrik
+- « J’y réfléchis. » → **fin**
+
+### vers-ostrik
+
+> — Le Bureau ? Fais comme tu crois. Mais le Bureau ne rend jamais ce qu’il prend.
+
+- « Je reviendrai. » → **fin**
+
+### fin-rail
+
+> — Le rail est une promesse collective. On la tiendra. Les cheminots iront chercher la machine : la Veilleuse saura lui parler. Et Joss travaillera de nuit, en équipe, jusqu’à ce que sa dette soit payée.
+
+- « Bonne route, Varka. » → **fin**
+
+### fin-dette
+
+> Varka te regarde longtemps. — Personne ne paie pour un cheminot, d’habitude. Merci. Joss reprendra son levier, et cette fois, il le tiendra fermé. Les cheminots iront chercher la machine.
+
+- « Bonne route, Varka. » → **fin**
+
+### apres-rail
+
+> — Les convois partent à l’heure, et ils arrivent. La Veilleuse a remisé la machine sans homme dans son dépôt. Elle dit qu’elle dort.
+
+- « Au revoir. » → **fin**
+
+### apres-bureau
+
+> Varka ne lève pas les yeux du brasero. — Le Bureau a pris la machine, et renvoyé Joss. On dit qu’il en veut d’autres, des machines, pour la ligne. Merci quand même.
+
+- « Au revoir. » → **fin**
+
+### apres-marches
+
+> — Un convoi sur dix part encore seul. On sait que tu sais. Passe ton chemin.
+
+- « … » → **fin**
+
+### garde
+
+> — Cache-toi près du levier de l’embranchement, à la nuit tombée. Mes gars resteront au dépôt : s’il y a du grabuge, crie fort. Et ne joue pas les héros.
+
+- « Entendu. » → enquete
+
 ## La Veilleuse du Rail
 
 _Travailleurs du Rail_
@@ -2402,6 +2800,7 @@ Commence par : « avec-cle » _(si l’on porte « Clé de rouille bleue »)_ _(
 
 - « Tu entends les trains ? » → trains
 - « Qui es-tu ? » → qui
+- _(si quête « Le Rail des Cendres » en cours)_ _(sans repère « indice-veilleuse »)_ « Les convois du triage, qui partent seuls la nuit ? » → convois-triage
 - « Au revoir. » → **fin**
 
 ### qui
@@ -2471,12 +2870,14 @@ _Effet : retient « cle-etudiee », +10 XP._
 
 > — La clé chante toujours, la nuit. Je compte les wagons, et je ne me sens plus seule.
 
+- _(si quête « Le Rail des Cendres » en cours)_ _(sans repère « indice-veilleuse »)_ « Les convois du triage, qui partent seuls la nuit ? » → convois-triage
 - « À bientôt. » → **fin**
 
 ### apres
 
 > — Tu as fait ton choix, avec la clé. Je l’entends parfois, loin d’ici… Elle chante encore. Prends soin de toi.
 
+- _(si quête « Le Rail des Cendres » en cours)_ _(sans repère « indice-veilleuse »)_ « Les convois du triage, qui partent seuls la nuit ? » → convois-triage
 - « Au revoir. » → **fin**
 
 ### ouvre
@@ -2486,6 +2887,14 @@ _Effet : retient « cle-etudiee », +10 XP._
 - **[Diplomatie 3]** « Kaelis la vendrait. Moi, je veux savoir ce qu’elle ouvre, et pourquoi on fouille vos gares. » → don
 - _(si repère « fonds-zero-connu »)_ « Aux Archives, un coffre de fer attend sa clé depuis la fondation : le Fonds Zéro. » → don
 - « Je reviendrai. » → **fin**
+
+### convois-triage
+
+_Effet : retient « indice-veilleuse », +5 XP._
+
+> — Ce ne sont pas mes trains. Mes trains chantent. Ceux-là ne respirent pas : pas de vapeur, juste un cliquetis de cristal. Une machine sans homme, comme on en envoyait vers l’ouest, au temps de la Guerre du Rail.
+
+- « Merci. » → **fin**
 
 ## Véline Nacelière
 

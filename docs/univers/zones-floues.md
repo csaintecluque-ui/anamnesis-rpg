@@ -60,6 +60,12 @@ Ces décisions valent **pour le jeu**. Le dossier `docs/Lore/` reste inchangé.
     - le Nécromant : actif de 1640 à 1666 ou de 1640 à 1680 ;
     - Thalassa l'Ondine (180 à 260) et la Reine Ondine (720 à 810) fondent toutes deux la capitale de Marisol, et Thalassa est aussi une déesse marine [E4].
 13. **Les ères** : E3 commence à l'Âge des Cendres (0 à 500) ; E4 numérote à partir de l'Ancien Monde.
+14. **Issue de la Guerre du Rail** (lu le 2026-11-02) : « Histoire et lore » du Notion dit « Paix blanche », puis le
+    Traité de Convergence Verte (Ferros ne construit que sur des « chemins approuvés par Verdantis ») ; « La Note
+    Technique » dit la voie achevée de force en 1400, toujours en service (la ligne de l'Ouest, quatorze heures
+    d'Ironheart aux ports). Le récit aussi diffère (Coalition Verte et batailles, ou guerre « commencée par un devis »
+    et Alliance Verte et Bleue). Le jeu n'utilise que ce qui est commun : la Guerre du Rail (1380-1400) et les machines
+    sans hommes du Chantier Ouest (« Le Rail des Cendres »). **Question à Cyril.**
 
 ## Chiffres et noms
 

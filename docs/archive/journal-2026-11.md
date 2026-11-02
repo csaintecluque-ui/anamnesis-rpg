@@ -742,3 +742,14 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   Hedda, Rika), comme le demande `AGENTS.md`. 344 tests ; vérifié dans le navigateur.
 - Cyril : « Oui pour tout, mets en ligne » : détails nouveaux validés ; `AGENTS.md` dit à Codex que le chapitre 3 est
   fait et lui propose « Le Rail des Cendres » ; `main` avancé sur la branche, déploiement lancé.
+
+## 2026-11-02 (suite) : « Le Rail des Cendres »
+
+- Cyril : « c'est parti, on y va » (la suite proposée : « Le Rail des Cendres »). Notion relu par un agent : la fiche
+  du Studio est vide (thème « Transport, disparitions, machines anciennes ») ; appuis trouvés dans « La Note
+  Technique » (machines sans hommes du Chantier Ouest) et le roman (grève interdite dans les secteurs stratégiques) ;
+  contradictions sur l'issue de la Guerre du Rail consignées (`zones-floues.md`, point 14).
+- Construit : le triage des Cendres et la Cendrière (2 cartes, 12 tuiles), Varka, Joss, Ostrik, Sorn, la machine sans
+  homme, l'aiguillage, le registre, le tunnel ; enquête, garde de nuit (combat ou filature), trois fins et réputation ;
+  deux cheminots qui réagissent ; Dorna en parle. Le combat partait loin du levier : la garde se fait au levier.
+  364 tests ; vérifié dans le navigateur (cartes, combat).

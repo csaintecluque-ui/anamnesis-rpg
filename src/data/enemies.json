@@ -63,5 +63,18 @@
     "initiativeBonus": 0,
     "xp": 20,
     "defeatText": "Le fouilleur lâche sa pioche et lève les mains. — Assez ! C’est Kaelis qui paie, au Marché des Cendres d’Ironheart ! On cherche une clé de rouille bleue, c’est tout !"
+  },
+  {
+    "id": "pilleur-cendres",
+    "tile": "pilleur-cendres",
+    "name": "Pilleur des Marches",
+    "hp": 16,
+    "defense": 12,
+    "attackBonus": 2,
+    "damage": { "count": 1, "sides": 6 },
+    "actionPoints": 6,
+    "initiativeBonus": 1,
+    "xp": 15,
+    "defeatText": "Le pilleur lève les mains. — Assez ! On ne vole que des wagons ! C’est la machine qui conduit : nous, on décharge, à la Cendrière, au bout de l’embranchement !"
   }
 ]

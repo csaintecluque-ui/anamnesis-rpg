@@ -22,5 +22,15 @@
     "enemies": [{ "id": "fouilleur", "object": "garrik" }],
     "victoryFlag": "garrik-vaincu",
     "victoryEffects": [{ "setFlag": "fouille-elucidee" }, { "setFlag": "fouille-marches" }, { "setFlag": "cle-mentionnee" }]
+  },
+  {
+    "id": "aiguillage-cendres",
+    "center": "aiguillage",
+    "enemies": [
+      { "id": "pilleur-cendres", "object": "pilleur-1" },
+      { "id": "pilleur-cendres", "object": "pilleur-2" }
+    ],
+    "victoryFlag": "pilleurs-vaincus",
+    "victoryEffects": [{ "giveXp": 20 }]
   }
 ]

@@ -14,9 +14,7 @@
 - Moteur : conditions `item`, effet `takeItem`, objets de quête, `apparaitSi`, rencontres d'histoire, figurants à
   dialogue et à `reactions`, étapes de quête (`etapes`).
 
-## « Le Rail des Cendres » (en ligne le 2026-11-02, validée par Cyril)
-
-- Triage des Cendres, Cendrière, Varka, Joss, Ostrik, Sorn, la machine sans homme, trois fins (`quetes.md`, point 8).
+- « Le Rail des Cendres », « Les Échos sous la Forge », « Voyager autrement » (`quetes.md`, `gdd/carte-du-monde.md`).
 
 ## Prochaine étape
 

@@ -672,3 +672,7 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   passants de Gardebois accordée. Cinq personnages en pied générés (2,5 crédits, solde 16,5) ; téléchargement
   impossible depuis la session cloud (hôte des images Higgsfield refusé par le réseau) : planches de marche en attente.
   Code prêt : `withArt` (tuiles), `walk` (planche de marche d'un figurant), testé avec une planche d'avatar.
+- Cyril ouvre l'accès réseau de l'environnement (« Complet », depuis Safari : flèche du titre de session, « Modifier
+  l'environnement cloud »). Les cinq personnages lui plaisent. Planches de marche du commis et du garçon (10 images,
+  5 crédits, solde 11,5), assemblées (`npm run walk`, nouvelle option de taille : 42 px pour l'enfant) ; tuiles des
+  trois immobiles (`npm run art`). 270 tests ; vérifié dans le jeu. Mis en ligne.

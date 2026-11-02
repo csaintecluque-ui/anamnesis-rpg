@@ -1,6 +1,6 @@
 // Assembles a walk cycle into a sprite sheet for the game: 8 rows (directions s, se, e, ne, n, nw, w, sw) of
 // 64 × 96 frames, the character 54 px tall with feet at y = 84, as the other characters (scripts/tiles-def.mjs).
-// Usage: npm run walk -- <2d|3d> <source folder under assets/raw/> <output name>
+// Usage: npm run walk -- <2d|3d> <source folder under assets/raw/> <output name> [height in px, 54 by default]
 //   2d: s.png, se.png, e.png, ne.png, n.png, each a row of frames drawn by the image model; nw, w, sw are mirrors.
 //   3d: <direction>-<i>.png rendered by scripts/render-sprites.mjs (fixed camera: one scale, one ground line).
 // Output: public/sprites/<name>.png. Method and comparison: docs/gdd/animation.md.
@@ -10,13 +10,15 @@ import sharp from 'sharp';
 
 const W = 64;
 const H = 96;
-const HEIGHT = 54;
+const DEFAULT_HEIGHT = 54;
 const FOOT = 84;
 const DIRECTIONS = ['s', 'se', 'e', 'ne', 'n', 'nw', 'w', 'sw'];
 const MIRRORS = { nw: 'ne', w: 'e', sw: 'se' };
 const INK = [27, 21, 18];
 
-const [mode, srcDir, name] = process.argv.slice(2);
+const [mode, srcDir, name, heightArg] = process.argv.slice(2);
+/** Character height in the frame: 54 px like every adult; less for a child (a figurant, docs/gdd/figurants.md). */
+const HEIGHT = heightArg ? Number(heightArg) : DEFAULT_HEIGHT;
 if (!['2d', '3d'].includes(mode) || !srcDir || !name) {
   console.error('Usage : node scripts/assemble-walk.mjs <2d|3d> <dossier sous assets/raw/> <nom de sortie>');
   process.exit(1);

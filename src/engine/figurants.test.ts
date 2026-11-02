@@ -59,6 +59,14 @@ describe('figurants', () => {
     }
   });
 
+  it('point their painted walk sheets to files in public/ (docs/ASSETS.md)', () => {
+    const files = Object.keys(import.meta.glob('/public/sprites/*'));
+    for (const f of FIGURANTS.filter((x) => x.walk)) {
+      expect(files, f.id).toContain(`/public/${f.walk}`);
+      expect(isStanding(f), f.id).toBe(false);
+    }
+  });
+
   it('fill Gardebois and the three quarters of Canopéa', () => {
     for (const id of ['gardebois', 'canopee-nacelle', 'canopee-ramures', 'canopee-aieux']) {
       expect(figurantsAt(id).length, id).toBeGreaterThanOrEqual(2);

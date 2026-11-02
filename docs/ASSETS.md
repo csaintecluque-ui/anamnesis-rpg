@@ -311,7 +311,7 @@ d'un bloc de case, inclinées le long de ses arêtes, la face droite à l'ombre,
 **À trancher par Cyril** : Sylvan est sorti avec des oreilles pointues. Les elfes de Verdantis sont une contradiction
 ouverte du canon (`docs/univers/zones-floues.md`, point 2) ; le refaire en humain coûterait 2 crédits.
 
-## Passants de Gardebois (2026-11-02, 5 images, 2,5 crédits, solde 16,5) — **en attente de téléchargement**
+## Passants de Gardebois (2026-11-02, 15 images, 7,5 crédits, solde 11,5)
 
 Plan validé par Cyril le 2026-11-02 (« Oui, pas bête ») : peindre les cinq passants de Gardebois
 (`docs/gdd/figurants.md`) : 5 personnages en pied (2,5 crédits), puis les planches de marche des deux qui marchent
@@ -327,8 +327,18 @@ Plan validé par Cyril le 2026-11-02 (« Oui, pas bête ») : peindre les cinq p
 | `joueur-pipeau.png` | `joueur-pipeau` | « an old street musician of a forest village, short white beard, patched plum-purple cloak, a small soft hat with a green feather, playing a little wooden pipe flute held in both hands, gentle twinkling eyes » | `92e9308e-231a-44c2-9071-4351a0a9f4f4` | 0,5 |
 | `client.png` | `client` | « a sleepy, content inn patron of a forest village, plump middle-aged man, mossy green tunic and brown trousers, holding a steaming wooden bowl of soup and a wooden spoon, eyes half closed, peaceful smile » | `de4b76f0-dafd-40ab-bdc3-f15ef84e78f2` | 0,5 |
 
-**Blocage** : la session cloud ne peut pas télécharger les images (l'hôte `d8j0ntlcm91z4.cloudfront.net`, où Higgsfield
-les dépose, est refusé par la politique réseau de l'environnement). Les planches de marche (5 crédits) attendent
-que l'hôte soit autorisé, pour vérifier les personnages avant de payer la suite. Code prêt : tuiles déclarées avec
-`art` (`withArt` dans `scripts/tiles-def.mjs`), planches de marche des figurants (`walk` dans
-`src/data/figurants.json`, `FigurantLayer`).
+Téléchargement d'abord bloqué : l'hôte des images Higgsfield (`d8j0ntlcm91z4.cloudfront.net`) était refusé par le
+réseau de la session cloud ; Cyril a ouvert l'accès réseau de l'environnement (« Complet ») le 2026-11-02. Les cinq
+personnages, montrés à Cyril, lui plaisent ; tous gardés au premier essai.
+
+| Planches de marche (`assets/raw/anim2d/<nom>/{s,se,e,ne,n}.png`) | Réglages | Prompt | Coût |
+|---|---|---|---|
+| `commis-ferros` (5 directions) | moyenne, transparent, 21:9, le commis en pied en référence (`image_references`) | Prompt de la méthode 2D (`docs/gdd/animation.md`), tenue résumée entre parenthèses (casquette, gilet, chemise rouille, sacoche de papiers), « legs, arms and satchel moving » | 2,5 |
+| `garcon-curieux` (5 directions) | idem, le garçon en pied en référence | idem (cheveux en bataille, tunique rouille, ceinture verte, dragon de bois dans les mains), « legs, arms and sash moving » | 2,5 |
+
+Deux demandes refusées à l'envoi par Higgsfield (limite de débit, 429), sans tâche créée ni débit, relancées aussitôt.
+
+**Résultats** : `assets/tiles/{colporteur-ferros,enfant-b,lavandiere,joueur-pipeau,client}.png` (tuiles, `npm run art`) ;
+`public/sprites/figurant-commis-ferros.png` et `figurant-garcon-curieux.png` (8 directions × 6 images,
+`npm run walk -- 2d anim2d/<nom> figurant-<nom> [hauteur]` ; le garçon à 42 px au lieu de 54, c'est un enfant).
+Vérifié dans le jeu : les deux marcheurs animés dans Gardebois, les trois autres immobiles, bulle du client.

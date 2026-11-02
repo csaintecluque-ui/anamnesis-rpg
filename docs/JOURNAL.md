@@ -3,7 +3,7 @@
 ## État (2026-11-02)
 
 - **Jalon 1 clos** (validé le 2026-11-01). **Jalon 2** fait et en ligne : avatars, marche 2D, combat sur grille,
-  4 intérieurs, 5 PNJ, 3 quêtes (`docs/gdd/jalon-2.md`). 16,5 crédits Higgsfield restants.
+  4 intérieurs, 5 PNJ, 3 quêtes (`docs/gdd/jalon-2.md`). 11,5 crédits Higgsfield restants.
 - 269 tests, typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
 - Mode test caché : 5 touches sur la version (écran titre) → +50 Fers, PV au max dans le menu pause.
 
@@ -16,8 +16,8 @@
 
 ## Prochaine étape
 
-1. En ligne : 14 passants (`docs/gdd/figurants.md`). Peinture de ceux de Gardebois **bloquée** (2,5 crédits sur 7,5) :
-   l'hôte des images Higgsfield `d8j0ntlcm91z4.cloudfront.net` est refusé par le réseau de la session cloud.
+1. En ligne : 14 passants (`docs/gdd/figurants.md`), ceux de Gardebois peints (les deux qui marchent sont animés).
+   Accès réseau de l'environnement passé en « Complet » par Cyril (images Higgsfield).
 2. Ensuite : réputation par ville, puis Ironheart ; les quêtes des villes après.
 
 ## Points ouverts

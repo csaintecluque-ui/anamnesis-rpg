@@ -100,7 +100,8 @@
     "lines": [
       "Pas le temps, pas le temps ! Si je rate la caravane de midi, mon patron, lui, ne me ratera pas.",
       "Gardebois, c’est le seul marché où l’on paie en Fers et où l’on vous remercie en chansons."
-    ]
+    ],
+    "walk": "sprites/figurant-commis-ferros.png"
   },
   {
     "id": "lavandiere",
@@ -123,7 +124,8 @@
     "lines": [
       "Tu es chez les Gardiens de Mémoire ? Raconte-moi une histoire, avec un dragon gentil !",
       "Hier, j’ai vu un Rôdeur-Épine ! Enfin… ou un buisson. Un buisson très méchant."
-    ]
+    ],
+    "walk": "sprites/figurant-garcon-curieux.png"
   },
   {
     "id": "joueur-pipeau",

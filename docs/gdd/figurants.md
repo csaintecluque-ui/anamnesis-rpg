@@ -39,7 +39,7 @@ Code : `src/scenes/Figurants.ts` (sur la carte), `src/rules/figurants.ts` ; donn
 
 Les textes complets sont dans `src/data/figurants.json`.
 
-## Images peintes (validé par Cyril le 2026-11-02 ; en cours : `docs/ASSETS.md`)
+## Images peintes (validé par Cyril le 2026-11-02 ; **fait** pour Gardebois : `docs/ASSETS.md`)
 
 Gardebois est déjà peint : ses cinq figurants (avec le client de l'auberge) y détonnent en provisoire. Proposition :
 les peindre avec la méthode 2D validée (`docs/gdd/animation.md`) : en pied 0,5 crédit, planche de marche 2,5 ;

@@ -21,7 +21,7 @@ Pilote : la marche du héros faite de deux façons, comparées dans le jeu. **Ch
    e, ne, n (prompts exacts : `docs/ASSETS.md`).
 2. `npm run walk -- 2d <dossier> <nom>` découpe chaque rangée en 6 (coupe à la colonne la plus vide près de chaque
    limite attendue), met chaque direction à la même hauteur, aligne les pieds et le centre du buste, et crée nw, w, sw
-   en miroir de ne, e, se.
+   en miroir de ne, e, se. Un 4e argument donne la taille du personnage (54 px par défaut ; 42 pour un enfant).
 
 ## Méthode 3D (17 crédits pour le héros)
 

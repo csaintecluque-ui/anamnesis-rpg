@@ -862,4 +862,9 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
 - Cyril : « j'aime bien le côté image FANTASY mais dans un univers sombre plus de 18 ans. Je suis en phase avec tes
   recommandations. » Jeu complet validé ; ton du jeu : dark fantasy pour adultes (remplace le point 19, public 8–15) ;
   charte dans `docs/univers/ton.md`, CLAUDE.md mis à jour ; plan du jalon 3 (`docs/gdd/jalon-3.md`).
+- Cyril : « Sexualité possiblement montrée mais en effet pas de torture, je suis d'accord sur la mort. » Charte du ton
+  complétée. **Jalon 3, étape 1** construite : mort réelle et écran de mort, sauvegarde à chaque lieu, avertissement
+  18+, brûlure et saignement, tireurs, soigneurs, essaims, Golem à deux phases, butin, bestiaire (canon « Faune &
+  flore par continent » relu dans le Notion), compagnons en combat (Liane, Boulon, par les outils de dev),
+  sauvegarde v12. 477 tests ; vérifié sur PC et téléphone.
 

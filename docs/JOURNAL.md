@@ -3,7 +3,7 @@
 ## État (2026-11-02)
 
 - Jalons 1 et 2 faits et en ligne (`docs/gdd/jalon-2.md`). 11,5 crédits Higgsfield restants.
-- 464 tests (dont le parcours complet d'affilée, `src/rules/parcours.test.ts`), typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
+- 477 tests (dont le parcours complet d'affilée, `src/rules/parcours.test.ts`), typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
 - Mode test caché : 5 touches sur la version (écran titre) → menu pause : +50 Fers, PV au max, **Outils de dev**
   (perso surpuissant, lieux, quêtes, repères, objets, Récits ; `docs/gdd/interface.md`).
 
@@ -14,14 +14,14 @@
   fins, les choix de Canopéa qui comptent (`docs/univers/lieux/ironheart.md`, `docs/univers/quetes.md`).
 - Moteur : conditions `item`, effet `takeItem`, objets de quête, `apparaitSi`, rencontres d'histoire, figurants à
   dialogue et à `reactions`, étapes de quête (`etapes`).
-
 - « Le Rail des Cendres », « Les Échos sous la Forge », « Voyager autrement » (`quetes.md`, `gdd/carte-du-monde.md`).
 
 ## Prochaine étape
 
 1. En ligne (2026-11-02) : le temps et les auberges (`docs/gdd/temps.md`), la magie et « Un prêt de la Terre »
    (`docs/gdd/magie.md`). **Jeu complet validé** (`docs/gdd/jeu-complet.md`) ; ton : dark fantasy pour adultes
-   (`docs/univers/ton.md`). En cours : **jalon 3** (`docs/gdd/jalon-3.md`). Mise en beauté à la fin.
+   (`docs/univers/ton.md`). En cours : **jalon 3** (`docs/gdd/jalon-3.md`) ; étape 1 (le combat pour adultes et à
+   plusieurs) faite sur la branche, mise en ligne à valider ; ensuite : les compagnons. Mise en beauté à la fin.
 2. Codex : Sept-Portes (`AGENTS.md`). Notion : page « Anamnesis — le jeu », à tenir à jour à chaque mise en ligne.
 
 ## Points ouverts

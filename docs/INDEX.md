@@ -43,13 +43,13 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `competences.md` : 12 compétences et la Résonance, résolution des tests (d20, seuils de dialogue).
 - `creation.md` : origine, dons, règles de l'écran de création.
 - `memoire.md` : mécanique signature (Échos, Récits, choix) et son implémentation.
-- `combat.md` : règles du combat, arène, IA, limites actuelles.
+- `combat.md` : règles du combat, arène, IA ; mort réelle, effets, ennemis variés, butin, bestiaire, compagnons.
 - `tranche-verticale.md` : déroulé de la quête « Le Dernier Train » et ses 4 résolutions.
 - `exploration.md` : cartes Tiled, tuiles, déplacement, interactions.
 - `dialogues.md` : format JSON, conditions, effets, contrôles.
 - `inventaire.md` : objets, Fers, équipement, troc.
 - `progression.md` : seuils d'XP, montée de niveau.
-- `sauvegarde.md` : emplacements, format, export/import, versions v1 à v11.
+- `sauvegarde.md` : emplacements, format, export/import, sauvegarde à chaque lieu, versions v1 à v12.
 - `interface.md` : HUD, menu pause, options, PC (netteté, raccourcis, plein écran).
 - `animation.md` : marche animée des personnages, méthodes 2D et 3D, comparaison du pilote.
 - `temps.md` : le temps (calendrier du canon, matin/midi/soir/nuit), la nuit, les auberges ; validé.

@@ -5,6 +5,9 @@ import { ITEMS, addItem, ownedCount, removeItem } from '../rules/inventory';
 import { RECITS } from '../rules/recits';
 import { allFlags, cycleQuest, makeOverpowered, restoreFullHp, restoreFullResonance, toggleFlag, type QuestState } from '../rules/testTools';
 import { resonanceMax } from '../rules/magic';
+import { COMPANIONS, findCompanion, inParty, joinParty, leaveParty } from '../rules/companions';
+import { recordMet } from '../rules/bestiary';
+import { ENEMIES } from '../rules/combat';
 import { advance, formatDate, shortTime, waitUntil } from '../rules/time';
 import { placeOfLocation } from '../rules/world';
 import { LOCATIONS, type GameState } from '../state/gameState';
@@ -20,7 +23,7 @@ export interface DevPanelResult {
 }
 
 const STATE_LABEL: Record<QuestState, string> = { none: 'pas commencée', active: 'en cours', done: 'terminée' };
-const TABS = ['Personnage', 'Lieux', 'Quêtes', 'Repères', 'Objets', 'Récits'] as const;
+const TABS = ['Personnage', 'Groupe', 'Lieux', 'Quêtes', 'Repères', 'Objets', 'Récits'] as const;
 type Tab = (typeof TABS)[number];
 
 const CSS_TEXT = `
@@ -79,6 +82,7 @@ export function openDevPanel(state: GameState, onClose: (result: DevPanelResult)
     nav.replaceChildren(...TABS.map((t) => button(t, () => ((tab = t), render()), t === tab ? 'on' : '')));
     main.replaceChildren();
     if (tab === 'Personnage') renderCharacter();
+    else if (tab === 'Groupe') renderParty();
     else if (tab === 'Lieux') renderPlaces();
     else if (tab === 'Quêtes') renderQuests();
     else if (tab === 'Repères') renderFlags();
@@ -115,6 +119,18 @@ export function openDevPanel(state: GameState, onClose: (result: DevPanelResult)
       el('h2', 'Compétences'),
       ...SKILLS.map((s) => stepper(s.name, c.skills[s.id], 0, SKILL_RANK_MAX, (v) => (c.skills[s.id] = v))),
     );
+  }
+
+  /** Les compagnons (docs/gdd/jalon-3.md) : to add or remove before step 2 brings their recruitment. */
+  function renderParty(): void {
+    main.append(el('p', `Deux compagnons au plus. Dans le groupe : ${state.groupe.map((m) => `${findCompanion(m.id)?.name} (${m.hp} PV)`).join(', ') || 'personne'}.`, 'note'));
+    for (const def of COMPANIONS) {
+      const here = inParty(state, def.id);
+      main.append(row(`${def.name} — ${def.description}`, [
+        button(here ? 'dans le groupe' : 'absent·e', () => (here ? leaveParty(state, def.id) : joinParty(state, def.id), render()), here ? 'on' : ''),
+      ]));
+    }
+    main.append(row('Bestiaire', [button('Tout rencontrer', () => (recordMet(state, ENEMIES.map((e) => e.id)), render()))]));
   }
 
   function renderPlaces(): void {

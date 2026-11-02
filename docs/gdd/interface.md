@@ -96,3 +96,16 @@ tactiles reçoivent donc des tailles à eux (détection « pas de souris », `HA
 - Carte : noms des PNJ en 17 px. Carte du monde : étiquettes en 19 px, jamais sous le panneau du bas.
 - Commerce : titre et ligne des Fers séparés, boutons de 56 px. Menu pause : cadre ajusté aux cinq boutons.
 - Reste un choix : le jeu garde le format 16:9 (bandes noires sur les côtés d'un iPhone).
+
+## Jalon 3, étape 1 (2026-11-02)
+
+- **Écran titre** : « Jeu pour adultes (18 ans et plus) : violence, mort et thèmes sombres. »
+- **Écran de mort** (`DeathScene`) : le nom du héros, le lieu, le dernier adversaire ; « Reprendre à la dernière
+  sauvegarde » (lieu et date affichés) ou « Retour au titre ».
+- **Journal** : quatrième onglet, **Bestiaire**.
+- **Combat** : la liste du tour passe au-dessus des arbres ; les boutons d'attaque suivent le héros ou le compagnon
+  dont c'est le tour ; en haut à droite, le pouvoir du cristal (héros) ou « Soigner » (Liane) ; clavier : 1 déplacer,
+  2 et 3 attaques, 4 pouvoir ou soin.
+- **Outils de dev** : onglet « Groupe » (ajouter ou retirer Liane et Boulon ; « Tout rencontrer » remplit le
+  bestiaire).
+

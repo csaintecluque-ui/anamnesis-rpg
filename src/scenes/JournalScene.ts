@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { bestiaryEntries } from '../rules/bestiary';
 import { journalQuests, journalRecits, journalReputation } from '../rules/journal';
 import { fontPx } from '../settings';
 import type { GameState } from '../state/gameState';
@@ -10,12 +11,14 @@ import { formatDate, momentOf } from '../rules/time';
 
 const MOMENT_WORDS = { matin: 'au matin', midi: 'à midi', soir: 'au soir', nuit: 'la nuit' } as const;
 
-type Tab = 'quetes' | 'recits' | 'reputation';
+type Tab = 'quetes' | 'recits' | 'reputation' | 'bestiaire';
 const TABS: [Tab, string][] = [
   ['quetes', 'Quêtes'],
   ['recits', 'Récits'],
   ['reputation', 'Réputation'],
+  ['bestiaire', 'Bestiaire'],
 ];
+const EFFECT_WORDS = { brulure: 'brûle', saignement: 'fait saigner', ralenti: 'ralentit', etourdi: 'étourdit' } as const;
 
 /** Finger-sized on touch screens, compact with a mouse (docs/gdd/interface.md). */
 const LAYOUT = HAS_MOUSE
@@ -89,7 +92,7 @@ export class JournalScene extends Phaser.Scene {
     this.layer.removeAll(true);
     const L = LAYOUT;
     TABS.forEach(([id, label], i) => {
-      const { container } = addTextButton(this, GAME_WIDTH / 2 + (i - 1) * (L.tabWidth + 16), L.tabY, label, () => this.show(id), {
+      const { container } = addTextButton(this, GAME_WIDTH / 2 + (i - (TABS.length - 1) / 2) * (L.tabWidth + 16), L.tabY, label, () => this.show(id), {
         width: L.tabWidth,
         height: L.tabHeight,
         fontSize: L.buttonFont,
@@ -99,6 +102,7 @@ export class JournalScene extends Phaser.Scene {
     });
     if (this.tab === 'quetes') this.drawQuests();
     else if (this.tab === 'recits') this.drawRecits();
+    else if (this.tab === 'bestiaire') this.drawBestiary();
     else this.drawReputation();
   }
 
@@ -196,5 +200,31 @@ export class JournalScene extends Phaser.Scene {
       y += 16;
     }
     this.text(LIST_X + 40, Math.max(y, L.listTop + 300), 'La réputation change les prix des marchands et l’accueil des gens. Elle suit ce que tu fais.', 18, CSS.muted, 820);
+  }
+
+  /** Every kind of enemy met (docs/gdd/combat.md, « Bestiaire ») : what the canon says of it, and how it fights. */
+  private drawBestiary(): void {
+    const entries = bestiaryEntries(this.state);
+    this.drawList(
+      entries.map((e) => ({ text: e.enemy.name, muted: e.defeated === 0 })),
+      (i) => {
+        const { enemy, defeated } = entries[i];
+        const title = this.text(DETAIL_X, LAYOUT.listTop, enemy.name, 30, CSS.copper, DETAIL_WIDTH);
+        const count = defeated === 0 ? 'Rencontré, jamais vaincu' : `Vaincus : ${defeated}`;
+        const status = this.text(DETAIL_X, title.y + title.height + 6, count, 20, CSS.copper);
+        const traits = [
+          `PV ${enemy.hp}`,
+          `Défense ${enemy.defense}`,
+          (enemy.range ?? 1) > 1 ? `tire jusqu’à ${enemy.range} cases` : 'au corps à corps',
+          enemy.onHit ? EFFECT_WORDS[enemy.onHit.effet] : '',
+          enemy.soin ? 'soigne ses alliés' : '',
+          enemy.phases?.length ? 'change de rythme, blessé' : '',
+        ].filter(Boolean);
+        const stats = this.text(DETAIL_X, status.y + status.height + 14, traits.join(' · '), 20, CSS.parchment, DETAIL_WIDTH);
+        const description = this.text(DETAIL_X, stats.y + stats.height + 18, enemy.description ?? '', 24, CSS.parchment, DETAIL_WIDTH);
+        if (enemy.source) this.text(DETAIL_X, description.y + description.height + 14, `Source : ${enemy.source}`, 18, CSS.muted, DETAIL_WIDTH);
+      },
+      'Aucune créature rencontrée. Les routes et les ruines en sont pleines.',
+    );
   }
 }

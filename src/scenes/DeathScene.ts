@@ -26,7 +26,7 @@ export class DeathScene extends Phaser.Scene {
     this.add.rectangle(0, 0, GAME_WIDTH, GAME_HEIGHT, COLORS.ink, 1).setOrigin(0, 0);
     this.add.rectangle(0, 0, GAME_WIDTH, GAME_HEIGHT, 0x5a0c0c, 0.25).setOrigin(0, 0);
     this.add
-      .text(cx, 170, `Ici s’arrête le voyage de ${data.name}.`, { fontFamily: FONT_SERIF, fontSize: HAS_MOUSE ? '40px' : '46px', color: CSS.parchment, align: 'center', wordWrap: { width: 1100 } })
+      .text(cx, 170, `Ici s’arrête le voyage ${/^[aeiouyàâéèêëîïôûüh]/i.test(data.name) ? 'd’' : 'de '}${data.name}.`, { fontFamily: FONT_SERIF, fontSize: HAS_MOUSE ? '40px' : '46px', color: CSS.parchment, align: 'center', wordWrap: { width: 1100 } })
       .setOrigin(0.5);
     this.add
       .text(cx, 250, data.cause, { fontFamily: FONT_SERIF, fontSize: HAS_MOUSE ? '22px' : '28px', color: CSS.muted, align: 'center', wordWrap: { width: 1000 } })

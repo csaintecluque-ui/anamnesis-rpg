@@ -79,3 +79,32 @@ Le combat était « fouillis » : on ne savait ni où l'on était, ni ce qu'on f
   coup est montré (« −5 », « Raté ») avant le suivant ; pendant ce temps, on ne peut pas agir.
 - **Arbres transparents** : un obstacle devant un combattant ou la case survolée devient translucide.
 
+## Le combat pour adultes et à plusieurs (jalon 3, étape 1, 2026-11-02)
+
+Ton : `docs/univers/ton.md`. Code : `src/rules/combat.ts`, `companions.ts`, `bestiary.ts` ; écran : `CombatScene`.
+
+- **La mort est réelle** : les bêtes meurent ou s'enfuient, les humains se rendent souvent (ils parlent), les Échos se
+  dispersent. **Le héros vaincu meurt** : écran « Ici s'arrête le voyage d'Aube », puis « Reprendre à la dernière
+  sauvegarde » ou « Retour au titre ». Le jeu **sauvegarde tout seul à chaque lieu** (emplacement automatique), pour
+  ne jamais perdre beaucoup. Avertissement à l'écran titre : « Jeu pour adultes (18 ans et plus) ».
+- **Effets** : la **brûlure** (1d4 par tour, deux tours ; les Flammes forgées brûlent toujours) et le **saignement**
+  (1d2 par tour, trois tours) frappent au début du tour de la victime et peuvent l'achever ; le **ralenti** et
+  l'**étourdi** viennent aussi de certains coups (Guêpes-Rouille), en plus des zones visées.
+- **Ennemis variés** : des **tireurs** (Arbalétrier des Marches, 5 cases ; Gecko-Soudeur, 3 cases, qui brûle) qui
+  s'arrêtent dès qu'ils ont la cible à portée ; des **soigneurs** (Rebouteuse des Marches : elle soigne un allié
+  tombé sous 60 % de ses PV) ; des **essaims** (Guêpes-Rouille, faibles mais rapides) ; des bêtes qui font saigner
+  (Rôdeur-Épine, Loup de Rouille, Griffe-Sylve). Les ennemis visent le héros ou le compagnon le plus proche.
+- **Boss à phases** : sous la moitié de ses PV, le Golem de Ferraille « s'emballe » (+2 au toucher, +2 PA).
+- **Butin** : chaque ennemi vaincu peut laisser des Fers et des matières (épines, crocs, fourrure, cœur de
+  ferraille…), qui serviront à l'artisanat (étape 7) et se vendent déjà.
+- **Bestiaire** : un onglet du journal ; chaque créature rencontrée y a sa page (PV, Défense, manière de se battre,
+  description du canon « Faune & flore par continent » quand elle existe, source) et le nombre de vaincus.
+- **Compagnons** : jusqu'à deux, joués à leur tour par le joueur (déplacer, attaquer ; Liane soigne un allié avec le
+  bouton « Soigner · 3 PA » en haut à droite). Ils commencent à côté du héros. Un compagnon qui tombe se relève après
+  le combat avec 1 PV ; si le héros tombe, c'est la mort, même si les compagnons tiennent encore. Une nuit à l'auberge
+  les soigne. Liane (24 PV, fronde, soin) et Boulon (40 PV, poings de fer) : on les recrutera à l'étape 2 ; d'ici là,
+  les outils de dev les ajoutent (onglet « Groupe »).
+- **Nouvelles rencontres** (carte du monde) : Griffe-Sylve (forêt), Guêpes-Rouille, Geckos-Soudeurs (lisière,
+  ruines), trois déserteurs des Marches qui font « péage » (Subterfuge 13 pour passer). À l'aiguillage du triage, l'un
+  des deux pilleurs est désormais un arbalétrier.
+

@@ -6,8 +6,15 @@ import { findPath, reachable } from '../engine/pathfinding';
 import { tileKey } from '../engine/tiledMap';
 import { applyEffects, type Effect } from '../rules/dialogue';
 import {
+  ENEMIES,
   ZONES,
+  LINGERING,
   canAttack,
+  canHeal,
+  lingeringDamage,
+  nextPhase,
+  resolveHeal,
+  rollLoot,
   coverBetween,
   distance,
   findEnemy,
@@ -29,6 +36,8 @@ import {
 } from '../rules/combat';
 import { DEFAULT_AVATAR } from '../rules/character';
 import { canCast, combatPower, healAmount, payCast, powerAttack, resonanceMax, type PowerDef } from '../rules/magic';
+import { companionsAfterFight, findCompanion, makeCompanionCombatant } from '../rules/companions';
+import { recordDefeated, recordMet } from '../rules/bestiary';
 import { findLocation, type GameState } from '../state/gameState';
 import { addTextButton, type TextButton } from '../ui/button';
 import { DIGIT_KEYS, SHOW_KEY_HINTS, onKeys } from '../ui/keys';
@@ -55,8 +64,12 @@ const GRID = { line: 0xead9b8, reach: 0x5bc8d6, target: 0xd0583a, turn: 0xc9804f
 const STEP_ANIM_MS = 150;
 const WALK_FPS = 14;
 
-/** Moving, attacking with the hero's attack at this index (one per weapon in hand), or with the crystal's power. */
-type Mode = 'move' | number | 'pouvoir';
+/**
+ * Moving, attacking with the acting hero's attack at this index (one per weapon in hand), with the crystal's power,
+ * or tending an ally (a companion who heals).
+ */
+type Mode = 'move' | number | 'pouvoir' | 'soin';
+const HEAL_COLOR = 0x7fe08a;
 
 export interface CombatStartData {
   /** Enemy ids from enemies.json, one combatant per entry. */
@@ -150,11 +163,23 @@ export class CombatScene extends Phaser.Scene {
     this.powerPoints = undefined;
     const enemyDefs = data.enemyIds.map((id) => findEnemy(id)!);
     const enemies = enemyDefs.map((def, i) => makeEnemyCombatant(def, `${def.id}-${i}`, data.enemyTiles[i]));
-    this.combatants = [hero, ...enemies];
-    this.tileNames = new Map([[hero.id, 'heros'], ...enemies.map((c, i): [string, string] => [c.id, enemyDefs[i].tile])]);
+    // The companions start next to the hero (docs/gdd/jalon-3.md).
+    const party = this.state.groupe.map((m) => ({ m, def: findCompanion(m.id) })).filter((x) => !!x.def);
+    const allyTiles = this.freeTilesNear(data.heroTile, [data.heroTile, ...data.enemyTiles], party.length);
+    const allies = party.slice(0, allyTiles.length).map((x, i) => makeCompanionCombatant(x.def!, x.m.hp, allyTiles[i]));
+    this.combatants = [hero, ...allies, ...enemies];
+    this.tileNames = new Map([
+      [hero.id, 'heros'],
+      ...allies.map((c): [string, string] => [c.id, findCompanion(c.kind!)!.tile]),
+      ...enemies.map((c, i): [string, string] => [c.id, enemyDefs[i].tile]),
+    ]);
     numberDuplicateNames(this.combatants);
     this.hovered = null;
-    const initiativeBonus = new Map<string, number>(enemies.map((c, i) => [c.id, enemyDefs[i].initiativeBonus]));
+    const initiativeBonus = new Map<string, number>([
+      ...enemies.map((c, i): [string, number] => [c.id, enemyDefs[i].initiativeBonus]),
+      ...allies.map((c): [string, number] => [c.id, findCompanion(c.kind!)!.initiativeBonus]),
+    ]);
+    recordMet(this.state, enemyDefs.map((d) => d.id));
 
     this.add.rectangle(GAME_WIDTH / 2, GAME_HEIGHT / 2, GAME_WIDTH, GAME_HEIGHT, COLORS.ink, 0.97).setInteractive();
     this.drawArena();
@@ -175,12 +200,17 @@ export class CombatScene extends Phaser.Scene {
       .setDepth(7000)
       .setVisible(false);
     this.add.text(ROSTER_X, ROSTER_Y - 34, 'Ordre du tour', { fontFamily: FONT_SERIF, fontSize: fs(20), color: CSS.copper });
-    this.roster = this.add.text(ROSTER_X, ROSTER_Y, '', {
-      fontFamily: FONT_SERIF,
-      fontSize: fs(18),
-      color: CSS.parchment,
-      lineSpacing: ROSTER_LINE - Math.round(22 * LAYOUT.text),
-    });
+    // Above the arena's trees: with companions, the list runs down beside the board.
+    this.roster = this.add
+      .text(ROSTER_X, ROSTER_Y, '', {
+        fontFamily: FONT_SERIF,
+        fontSize: fs(18),
+        color: CSS.parchment,
+        lineSpacing: ROSTER_LINE - Math.round(22 * LAYOUT.text),
+        stroke: CSS.ink,
+        strokeThickness: 4,
+      })
+      .setDepth(9000);
 
     for (const c of this.combatants) this.addToken(c);
     this.buildActionBar();
@@ -194,7 +224,7 @@ export class CombatScene extends Phaser.Scene {
     });
 
     const bonuses = Object.fromEntries(
-      this.combatants.map((c) => [c.id, c.side === 'heroes' ? this.state.character!.attributes.agility - 3 : initiativeBonus.get(c.id)!]),
+      this.combatants.map((c) => [c.id, c === hero ? this.state.character!.attributes.agility - 3 : initiativeBonus.get(c.id)!]),
     );
     this.order = rollInitiative(this.combatants, bonuses);
     this.turnIndex = -1;
@@ -280,8 +310,18 @@ export class CombatScene extends Phaser.Scene {
     }
     if (!this.awaitingHero || this.busy || this.ended) return;
 
-    const hero = this.hero();
+    const hero = this.actor();
     const hover = this.hoverTile;
+    if (this.mode === 'soin') {
+      for (const ally of this.combatants) {
+        if (ally.side !== 'heroes' || ally.defeated) continue;
+        const ok = canHeal(hero, ally);
+        this.fillTile(ally.tile, HEAL_COLOR, ok ? 0.4 : 0.1, ok ? 0.9 : 0.3);
+      }
+      const ally = hover && this.combatants.find((c) => c.side === 'heroes' && !c.defeated && c.tile.col === hover.col && c.tile.row === hover.row);
+      if (ally) this.showCost(ally.tile, ally.hp >= ally.maxHp ? 'Aucune blessure' : canHeal(hero, ally) ? `${ally.hp}/${ally.maxHp} PV · 3 PA` : 'Hors de portée');
+      return;
+    }
     if (this.mode === 'move') {
       for (const path of this.reach.values()) this.fillTile(path[path.length - 1], GRID.reach, 0.2, 0.45);
       const path = hover ? this.reach.get(tileKey(hover)) : undefined;
@@ -343,10 +383,11 @@ export class CombatScene extends Phaser.Scene {
 
   /** The hero's reach and the hint line, after anything that changes position or PA. */
   private refreshBoard(): void {
-    const hero = this.hero();
+    const hero = this.actor();
     const heroTurn = this.awaitingHero && !this.ended;
     this.reach = heroTurn && this.mode === 'move' ? reachable(hero.tile, hero.actionPoints, this.walkable) : new Map();
     if (!heroTurn) this.hint.setText('');
+    else if (this.mode === 'soin') this.hint.setText('Choisis un allié en vert à soigner (3 PA).');
     else if (this.mode === 'move') {
       this.hint.setText(this.reach.size > 0 ? 'Choisis une case bleue pour t’y rendre (1 PA par case).' : 'Plus assez de PA pour te déplacer.');
     } else {
@@ -475,8 +516,9 @@ export class CombatScene extends Phaser.Scene {
     if (!this.roster || this.order.length === 0) return;
     const current = this.turnIndex >= 0 ? this.current() : null;
     const lines = this.order.map((c) => {
-      if (c.defeated) return `   ${c.name} · hors de combat`;
-      return `${c === current ? '▶' : '   '} ${c.name} · PV ${c.hp}/${c.maxHp}`;
+      if (c.defeated) return `   ${c.name} · ${c.side === 'heroes' ? 'à terre' : 'vaincu·e'}`;
+      const effects = [c.status.burning > 0 ? 'brûle' : '', c.status.bleeding > 0 ? 'saigne' : ''].filter(Boolean).join(', ');
+      return `${c === current ? '▶' : '   '} ${c.name} · PV ${c.hp}/${c.maxHp}${effects ? ` · ${effects}` : ''}`;
     });
     this.roster.setText(lines.join('\n'));
   }
@@ -492,8 +534,33 @@ export class CombatScene extends Phaser.Scene {
     return this.order[this.turnIndex];
   }
 
+  /** The main hero: the one whose death ends the game. */
   private hero(): Combatant {
     return this.combatants[0];
+  }
+
+  /** Who the player is moving now: the hero or a companion, on their turn. */
+  private actor(): Combatant {
+    const current = this.order.length > 0 && this.turnIndex >= 0 ? this.current() : null;
+    return current && current.side === 'heroes' && !current.defeated ? current : this.hero();
+  }
+
+  /** Free open cells around a cell, nearest first (the companions' starting cells). */
+  private freeTilesNear(center: Tile, taken: Tile[], count: number): Tile[] {
+    const out: Tile[] = [];
+    const used = new Set(taken.map(tileKey));
+    for (let r = 1; r <= 4 && out.length < count; r++) {
+      for (let dc = -r; dc <= r && out.length < count; dc++) {
+        for (let dr = -r; dr <= r && out.length < count; dr++) {
+          if (Math.max(Math.abs(dc), Math.abs(dr)) !== r) continue;
+          const t = { col: center.col + dc, row: center.row + dr };
+          if (!isOpen(this.arena, t) || used.has(tileKey(t))) continue;
+          used.add(tileKey(t));
+          out.push(t);
+        }
+      }
+    }
+    return out;
   }
 
   private nextTurn(): void {
@@ -503,6 +570,19 @@ export class CombatScene extends Phaser.Scene {
       this.turnIndex = (this.turnIndex + 1) % this.order.length;
     } while (this.current().defeated);
     const c = this.current();
+    // Burning and bleeding hurt at the start of the turn (docs/gdd/combat.md, « Effets »).
+    const taken = lingeringDamage(c);
+    if (taken.brulure + taken.saignement > 0) {
+      this.float(c, `−${taken.brulure + taken.saignement}`, CSS.copper);
+      const what = [taken.brulure ? `brûle (${taken.brulure})` : '', taken.saignement ? `saigne (${taken.saignement})` : ''].filter(Boolean).join(' et ');
+      this.appendLog(`${c.name} ${what}.${c.defeated ? ` ${c.defeatText}` : ''}`);
+      this.refreshToken(c);
+      if (c.defeated) {
+        if (this.checkOutcome()) return;
+        this.time.delayedCall(500, () => this.nextTurn());
+        return;
+      }
+    }
     startTurn(c);
     this.banner.setText(`Tour de ${c.name}${c.status.stunned ? ' (étourdi·e)' : c.status.slowed ? ' (ralenti·e)' : ''}`);
     this.refreshAll();
@@ -524,21 +604,46 @@ export class CombatScene extends Phaser.Scene {
     return new Promise((resolve) => this.time.delayedCall(ms, resolve));
   }
 
-  /** The enemy walks toward the hero and strikes while it has PA, each step and blow shown in turn. */
+  /** Heroes still standing: what enemies aim at. */
+  private standingHeroes(): Combatant[] {
+    return this.combatants.filter((c) => c.side === 'heroes' && !c.defeated);
+  }
+
+  /**
+   * The enemy's turn, each step and blow shown in turn: a healer first tends a badly hurt ally; then the enemy
+   * strikes the nearest hero within reach, or walks toward the nearest one (a shooter stops once in range).
+   */
   private async runEnemyTurn(enemy: Combatant): Promise<void> {
     let guard = 0;
-    while (enemy.actionPoints > 0 && !enemy.defeated && !this.hero().defeated && guard++ < 10) {
+    while (enemy.actionPoints > 0 && !enemy.defeated && !this.hero().defeated && guard++ < 12) {
+      const hurt = this.combatants.find((a) => a !== enemy && canHeal(enemy, a) && a.hp <= a.maxHp * 0.6);
+      if (hurt) {
+        const healed = resolveHeal(enemy, hurt);
+        this.float(hurt, `+${healed}`, '#9fe0a0');
+        this.appendLog(`${enemy.name} soigne ${hurt.name} : +${healed} PV.`);
+        this.refreshToken(hurt);
+        await this.wait(550);
+        continue;
+      }
       const attack = enemy.attacks[0];
-      if (canAttack(enemy, attack, this.hero())) {
-        this.performAttack(enemy, attack, this.hero(), 'corps', 0);
+      const targets = this.standingHeroes().sort((a, b) => distance(enemy.tile, a.tile) - distance(enemy.tile, b.tile));
+      if (targets.length === 0) break;
+      const inReach = targets.find((t) => canAttack(enemy, attack, t));
+      if (inReach) {
+        this.performAttack(enemy, attack, inReach, 'corps', coverBetween(enemy.tile, inReach.tile, (t) => coverAt(this.arena, t)));
         if (this.checkOutcome()) return;
         await this.wait(550);
         continue;
       }
-      const path = this.pathAdjacentTo(enemy.tile, this.hero().tile);
+      if (enemy.actionPoints < 1) break;
+      const path = this.pathAdjacentTo(enemy.tile, targets[0].tile);
       if (!path || path.length === 0) break;
+      // A shooter walks only until it has the target in range.
+      const stop = attack.range > 1 ? path.findIndex((t) => distance(t, targets[0].tile) <= attack.range) : -1;
+      const steps = stop >= 0 ? path.slice(0, stop + 1) : path;
       const from = enemy.tile;
-      const taken = moveAlong(enemy, path);
+      const taken = moveAlong(enemy, steps);
+      if (taken.length === 0) break;
       await this.animateMove(enemy, taken, from);
       this.refreshToken(enemy);
       this.drawBoard();
@@ -567,7 +672,8 @@ export class CombatScene extends Phaser.Scene {
       this.onVictory();
       return true;
     }
-    if (isDefeat(this.combatants)) {
+    // The hero's death ends the fight, whatever the companions (docs/gdd/jalon-3.md).
+    if (this.hero().defeated || isDefeat(this.combatants)) {
       this.ended = true;
       this.onDefeat();
       return true;
@@ -580,6 +686,11 @@ export class CombatScene extends Phaser.Scene {
   private onTap(pointer: Phaser.Input.Pointer): void {
     if (!this.awaitingHero || this.busy || this.ended) return;
     const tile = this.tileAt(pointer);
+    if (this.mode === 'soin') {
+      const ally = this.combatants.find((c) => c.side === 'heroes' && !c.defeated && c.tile.col === tile.col && c.tile.row === tile.row);
+      if (ally) this.tryHeal(ally);
+      return;
+    }
     const target = this.combatants.find((c) => c.side === 'enemies' && !c.defeated && c.tile.col === tile.col && c.tile.row === tile.row);
 
     if (target && this.mode !== 'move') {
@@ -593,7 +704,7 @@ export class CombatScene extends Phaser.Scene {
   }
 
   private async heroMove(path: Tile[]): Promise<void> {
-    const hero = this.hero();
+    const hero = this.actor();
     const from = hero.tile;
     const taken = moveAlong(hero, path);
     this.busy = true;
@@ -605,14 +716,29 @@ export class CombatScene extends Phaser.Scene {
     this.refreshBoard();
   }
 
-  /** The attack of the current mode: a weapon in hand, or the Flammes forgées. */
+  /** The attack of the current mode: a weapon in hand (the acting hero's), or the Flammes forgées. */
   private currentAttack(): AttackProfile | undefined {
-    if (this.mode === 'move') return undefined;
-    return this.mode === 'pouvoir' ? this.powerProfile : this.hero().attacks[this.mode];
+    if (this.mode === 'move' || this.mode === 'soin') return undefined;
+    if (this.mode === 'pouvoir') return this.actor() === this.hero() ? this.powerProfile : undefined;
+    return this.actor().attacks[this.mode];
+  }
+
+  /** A companion who heals tends an ally (docs/gdd/jalon-3.md). */
+  private tryHeal(ally: Combatant): void {
+    const healer = this.actor();
+    if (ally.hp >= ally.maxHp) return this.appendLog(`${ally.name} n’a aucune blessure.`);
+    if (!canHeal(healer, ally)) return this.appendLog(healer.actionPoints < 3 ? 'Pas assez de PA.' : 'Hors de portée.');
+    const healed = resolveHeal(healer, ally);
+    this.float(ally, `+${healed}`, '#9fe0a0');
+    this.appendLog(`${healer.name} soigne ${ally.name === healer.name ? 'ses propres plaies' : ally.name} : +${healed} PV.`);
+    this.refreshToken(ally);
+    this.refreshToken(healer);
+    this.updateActionBar();
+    this.refreshBoard();
   }
 
   private tryAttack(target: Combatant): void {
-    const hero = this.hero();
+    const hero = this.actor();
     const attack = this.currentAttack();
     if (!attack) return;
     if (!canAttack(hero, attack, target)) {
@@ -620,7 +746,7 @@ export class CombatScene extends Phaser.Scene {
       return;
     }
     let bled = 0;
-    if (this.mode === 'pouvoir' && this.power) {
+    if (this.mode === 'pouvoir' && this.power && hero === this.hero()) {
       // Forcing the crystal costs PV (docs/gdd/magie.md); never the last one.
       if (!canCast(this.state.character!, this.power.id, hero.hp)) {
         this.appendLog('Tu n’as plus assez de forces pour le cristal.');
@@ -654,15 +780,27 @@ export class CombatScene extends Phaser.Scene {
       const crit = result.critical ? ' (critique !)' : '';
       this.appendLog(spell ? `Les ${spell} touchent${zoneLabel} ${target.name} : ${result.damage} dégâts${crit}.` : `${attacker.name} touche${zoneLabel} ${target.name} : ${result.damage} dégâts${crit}.`);
       if (result.defeated) this.appendLog(target.defeatText);
-      else if (result.zoneEffect === 'stunned') this.appendLog(`${target.name} est étourdi·e.`);
-      else if (result.zoneEffect === 'disarmed') this.appendLog(`${target.name} est désarmé·e.`);
-      else if (result.zoneEffect === 'slowed') this.appendLog(`${target.name} est ralenti·e.`);
+      else {
+        const effects: string[] = [];
+        if (result.zoneEffect === 'stunned' || result.inflicted === 'etourdi') effects.push('étourdi·e');
+        if (result.zoneEffect === 'disarmed') effects.push('désarmé·e');
+        if (result.zoneEffect === 'slowed' || result.inflicted === 'ralenti') effects.push('ralenti·e');
+        if (result.inflicted === 'brulure') effects.push(LINGERING.brulure.label);
+        if (result.inflicted === 'saignement') effects.push(LINGERING.saignement.label);
+        if (effects.length) this.log.setText(`${this.log.text} ${target.name} est ${effects.join(' et ')}.`);
+        // A boss hurt enough enters its next phase (docs/gdd/combat.md, « Boss à phases »).
+        const phase = nextPhase(target);
+        if (phase) {
+          this.log.setText(`${this.log.text}\n${phase.texte}`);
+          this.float(target, '!', CSS.copper);
+        }
+      }
     }
   }
 
   /** Guérison naturelle, on the hero: PA and PR spent, PV back at once (docs/gdd/magie.md). */
   private castHeal(): void {
-    if (!this.awaitingHero || this.busy || this.ended || !this.power) return;
+    if (!this.awaitingHero || this.busy || this.ended || !this.power || this.actor() !== this.hero()) return;
     const hero = this.hero();
     const c = this.state.character!;
     const apCost = this.power.apCost ?? 3;
@@ -693,26 +831,30 @@ export class CombatScene extends Phaser.Scene {
     const y = GAME_HEIGHT - L.bottomBar / 2 - (SHOW_KEY_HINTS ? 10 : 0);
     const size = (width: number, fontSize = L.buttonFont) => ({ width, height: L.buttonHeight, fontSize });
     this.moveButton = addTextButton(this, L.move[0], y, 'Déplacer', () => this.setMode('move'), size(L.move[1]));
-    // One button per weapon in hand (two at most), named after the weapon.
-    const attacks = this.hero().attacks;
+    // One button per weapon in the acting hero's hands (two at most), named after the weapon; a companion has its own.
     const [attackX, attackWidth, attackStep] = L.attack;
-    this.attackButtons = attacks.map((a, i) =>
-      addTextButton(this, attackX + i * attackStep, y, a.label, () => this.setMode(i), size(attackWidth, L.labelFont)),
+    this.attackButtons = [0, 1].map((i) =>
+      addTextButton(this, attackX + i * attackStep, y, '', () => i < this.actor().attacks.length && this.setMode(i), size(attackWidth, L.labelFont)),
     );
     this.zoneButton = addTextButton(this, L.zone[0], y, '', () => this.cycleZone(), size(L.zone[1]));
-    // The crystal's power, top right where the arena leaves room (docs/gdd/magie.md).
+    // Top right, where the arena leaves room: the crystal's power for the hero (docs/gdd/magie.md), the care of a
+    // companion who heals (docs/gdd/jalon-3.md).
     const power = this.power;
-    const powerKey = DIGIT_KEYS[attacks.length + 1];
-    if (power) {
+    const healers = this.combatants.some((c) => c.side === 'heroes' && !!c.heal);
+    if (power || healers) {
       const width = HAS_MOUSE ? 270 : 330;
       const px = GAME_WIDTH - 24 - width / 2;
       const py = HAS_MOUSE ? 112 : 128;
-      const act = () => (power.combat === 'soin' ? this.castHeal() : this.setMode('pouvoir'));
+      const act = () => {
+        const actor = this.actor();
+        if (actor === this.hero() && power) return power.combat === 'soin' ? this.castHeal() : this.setMode('pouvoir');
+        if (actor.heal) this.setMode('soin');
+      };
       this.powerButton = addTextButton(this, px, py, '', act, size(width, L.labelFont));
       this.powerPoints = this.add
         .text(px, py + L.buttonHeight / 2 + 6, '', { fontFamily: FONT_SERIF, fontSize: fs(17), color: CSS.muted })
         .setOrigin(0.5, 0);
-      if (powerKey) onKeys(this, powerKey, act);
+      onKeys(this, DIGIT_KEYS[3], act);
     }
     addTextButton(this, L.endTurn[0], y, 'Fin du tour', () => this.endHeroTurn(), size(L.endTurn[1]));
     addTextButton(this, L.flee[0], y, 'Fuir', () => this.flee(), size(L.flee[1]));
@@ -720,12 +862,12 @@ export class CombatScene extends Phaser.Scene {
 
     // No shortcut for Fuir: leaving a fight should never happen by a stray key press.
     onKeys(this, DIGIT_KEYS[0], () => this.setMode('move'));
-    attacks.forEach((_a, i) => onKeys(this, DIGIT_KEYS[i + 1], () => this.setMode(i)));
+    [0, 1].forEach((i) => onKeys(this, DIGIT_KEYS[i + 1], () => i < this.actor().attacks.length && this.setMode(i)));
     onKeys(this, ['Z'], () => this.cycleZone());
     onKeys(this, ['SPACE'], () => this.endHeroTurn());
     if (SHOW_KEY_HINTS) {
       this.add
-        .text(GAME_WIDTH / 2, GAME_HEIGHT - 16, `Clavier : 1 Déplacer · ${attacks.map((a, i) => `${i + 2} ${a.label}`).join(' · ')}${power && powerKey ? ` · ${attacks.length + 2} ${power.name}` : ''} · Z zone visée · Espace fin du tour`, {
+        .text(GAME_WIDTH / 2, GAME_HEIGHT - 16, `Clavier : 1 Déplacer · 2 et 3 attaques${power || healers ? ' · 4 pouvoir ou soin' : ''} · Z zone visée · Espace fin du tour`, {
           fontFamily: FONT_SERIF,
           fontSize: '16px',
           color: CSS.muted,
@@ -765,26 +907,33 @@ export class CombatScene extends Phaser.Scene {
     }
     this.ended = true;
     this.appendLog('Tu te replies.');
-    this.keepWounds();
-    this.closeAfter(false, () => {});
+    const hurt = this.keepWounds();
+    this.closeAfter(false, (hud) => {
+      if (hurt.length) hud.toast(hurt.join('   ·   '));
+    });
   }
 
   private updateActionBar(): void {
-    const hero = this.hero();
+    const actor = this.actor();
+    const isHero = actor === this.hero();
     this.zoneButton?.setLabel(`Zone : ${findZone(this.zone).label}`);
     this.moveButton?.setLabel(this.mode === 'move' ? '▶ Déplacer' : 'Déplacer');
     this.attackButtons.forEach((button, i) => {
-      const label = hero.attacks[i].label;
-      button.setLabel(this.mode === i ? `▶ ${label}` : label);
+      const attack = actor.attacks[i];
+      button.container.setVisible(!!attack);
+      if (attack) button.setLabel(this.mode === i ? `▶ ${attack.label}` : attack.label);
     });
     const c = this.state.character!;
-    const resonance = this.power ? ` · PR ${c.resonance}/${resonanceMax(c)}` : '';
-    if (this.power) {
-      const label = `${this.power.name} · ${this.power.cost} PR`;
-      this.powerButton?.setLabel(this.mode === 'pouvoir' ? `▶ ${label}` : label);
-      this.powerPoints?.setText(`Résonance ${c.resonance} / ${resonanceMax(c)} PR`);
+    const resonance = this.power && isHero ? ` · PR ${c.resonance}/${resonanceMax(c)}` : '';
+    if (this.powerButton) {
+      let label = '';
+      if (isHero && this.power) label = `${this.mode === 'pouvoir' ? '▶ ' : ''}${this.power.name} · ${this.power.cost} PR`;
+      else if (actor.heal) label = `${this.mode === 'soin' ? '▶ ' : ''}Soigner · 3 PA`;
+      this.powerButton.container.setVisible(!!label);
+      if (label) this.powerButton.setLabel(label);
+      this.powerPoints?.setVisible(isHero && !!this.power).setText(`Résonance ${c.resonance} / ${resonanceMax(c)} PR`);
     }
-    if (this.awaitingHero) this.banner.setText(`${hero.name} · PA ${hero.actionPoints}/${hero.maxActionPoints} · PV ${hero.hp}/${hero.maxHp}${resonance}`);
+    if (this.awaitingHero) this.banner.setText(`${actor.name} · PA ${actor.actionPoints}/${actor.maxActionPoints} · PV ${actor.hp}/${actor.maxHp}${resonance}`);
   }
 
   private refreshAll(): void {
@@ -794,15 +943,22 @@ export class CombatScene extends Phaser.Scene {
   // --- Outcome ---------------------------------------------------------------
 
   /** The hit points lost stay lost after a fight won or fled: care, rest and soup matter (docs/gdd/combat.md). */
-  private keepWounds(): void {
+  private keepWounds(): string[] {
     // The hero's PV as the fight leaves them: wounds stay, and so does a Guérison naturelle.
     this.state.character!.hp = Math.max(1, this.hero().hp);
+    // A companion who fell gets up hurt, with 1 PV.
+    return companionsAfterFight(this.state, this.combatants).map((name) => `${name} est blessé·e, mais en vie`);
   }
 
   private onVictory(): void {
     this.appendLog('Combat gagné.');
-    this.keepWounds();
-    const notices = applyEffects(this.state, [...this.config.victoryEffects]);
+    const hurt = this.keepWounds();
+    // The bestiary counts the beaten; the beaten leave their loot (docs/gdd/combat.md, « Butin », « Bestiaire »).
+    const beaten = this.combatants.filter((c) => c.side === 'enemies' && c.defeated && c.kind).map((c) => c.kind!);
+    recordDefeated(this.state, beaten);
+    const loot = rollLoot(beaten.map((k) => ENEMIES.find((e) => e.id === k)!).filter(Boolean));
+    const lootEffects: Effect[] = [...loot.items.map((item): Effect => ({ giveItem: item })), ...(loot.fers > 0 ? [{ giveFers: loot.fers }] : [])];
+    const notices = [...hurt, ...applyEffects(this.state, [...this.config.victoryEffects, ...lootEffects])];
     this.state.flags[this.config.victoryFlag] = true;
     this.closeAfter(false, (hud) => {
       if (notices.length) hud.toast(notices.join('   ·   '));
@@ -814,7 +970,7 @@ export class CombatScene extends Phaser.Scene {
     const hero = this.hero();
     this.appendLog(`${hero.name} tombe, et ne se relève pas.`);
     const killer = this.combatants.find((c) => c.side === 'enemies' && !c.defeated);
-    const cause = killer ? `Tombé·e sous les coups de ${killer.name}${placeName(this.state.location)}.` : 'Tombé·e au combat.';
+    const cause = `Tombé·e au combat${placeName(this.state.location)}.${killer ? ` Dernier adversaire : ${killer.name}.` : ''}`;
     this.time.delayedCall(1600, () => {
       this.scene.stop('Hud');
       this.scene.stop('Map');

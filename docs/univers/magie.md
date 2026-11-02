@@ -46,5 +46,6 @@ Sources et statuts : `docs/univers/sources.md`.
   Résonance et des Points de Résonance ; forcer coûte des PV (nez qui saigne), sans mutation ni folie ; Guérison
   naturelle (cristal de Vie), Flammes forgées (cristal de forge), la Lueur ; le premier cristal de Vie vient d'un
   Druide Vert de Canopéa ; les autres à 250 Fers ; à Ironheart, on « tient des listes » ; le sommeil rend tout.
-- **À valider** : Vanel, Tiven, la tailleuse de cristaux (`personnages/pnj.md`), la Vigueur comme attribut de la
-  Résonance, le cristal porté « au cou », la Lueur commune à tous les cristaux.
+- Validés ensuite (2026-11-02, « Oui je suis en phase ») : Vanel, Tiven, la tailleuse de cristaux
+  (`personnages/pnj.md`), la Vigueur comme attribut de la Résonance, le cristal porté « au cou », la Lueur commune à
+  tous les cristaux.

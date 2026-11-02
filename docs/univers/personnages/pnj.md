@@ -24,12 +24,12 @@ Sonorités : Verdantis douce, Ferros martelée (`docs/univers/ton.md`). Quêtes 
 | **Liane Sève-Claire** | Jeune herboriste, curieuse, un peu brusque ; donne « Les herbes de lisière » | N1 | validé |
 | **Brann Martelroux** | Apprenti ferrien de Tobias, maladroit et honnête ; donne « La caisse égarée » | N2 | validé |
 
-## La magie : nouveaux PNJ (propositions du 2026-11-02, **à valider par Cyril**)
+## La magie : nouveaux PNJ (propositions du 2026-11-02, **validées par Cyril le 2026-11-02**)
 
 `docs/gdd/magie.md`.
 
 | PNJ | Proposition | Ancrage canon | Statut |
 |---|---|---|---|
-| **Vanel Lentefeuille** | Druide Vert du Bosquet des Échos, patient ; prête un cristal de Vie et enseigne la Résonance (« Un prêt de la Terre ») | NOTION (Druides Verts : enseigner et soigner gratuitement ; « La magie est un prêt de la Terre ») | à valider |
-| **Tiven** | Jeune Nacellier de la Grande Nacelle, les mains brûlées par les cordes | — (guilde des Nacelliers du jeu) | à valider |
-| **La tailleuse de cristaux** | Marché des Cendres, mains noircies ; vend des cristaux de forge : « Ici, rien ne s'écrit » | NOTION (Ferros « tient des listes », roman) | à valider |
+| **Vanel Lentefeuille** | Druide Vert du Bosquet des Échos, patient ; prête un cristal de Vie et enseigne la Résonance (« Un prêt de la Terre ») | NOTION (Druides Verts : enseigner et soigner gratuitement ; « La magie est un prêt de la Terre ») | validé |
+| **Tiven** | Jeune Nacellier de la Grande Nacelle, les mains brûlées par les cordes | — (guilde des Nacelliers du jeu) | validé |
+| **La tailleuse de cristaux** | Marché des Cendres, mains noircies ; vend des cristaux de forge : « Ici, rien ne s'écrit » | NOTION (Ferros « tient des listes », roman) | validé |

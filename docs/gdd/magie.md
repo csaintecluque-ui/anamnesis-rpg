@@ -1,7 +1,7 @@
-# La magie (demande de Cyril, 2026-11-02 ; proposition validée le 2026-11-02 : « Oui pour tout »)
+# La magie (demande de Cyril, 2026-11-02 ; proposition validée le 2026-11-02 : « Oui pour tout » ; construite, puis tout validée)
 
 Code : `src/rules/magic.ts` ; données : `src/data/powers.json`, cristaux dans `src/data/items.json` ; canon relu :
-`docs/univers/magie.md`. Ce qui reste « à valider » est signalé en fin de page.
+`docs/univers/magie.md`. Les propositions inventées pour le jeu sont listées en fin de page (validées).
 
 ## Le principe (validé)
 
@@ -71,7 +71,7 @@ Code : `src/rules/magic.ts` ; données : `src/data/powers.json`, cristaux dans `
   `{ "cristal": true }` (un cristal est porté, condition d'histoire, masquée).
 - Sauvegarde v11 : `character.resonance` (PR restants), `skills.resonance`, `equipment.cristal`.
 
-## À valider par Cyril (propositions inventées pour le jeu)
+## Propositions inventées pour le jeu (validées par Cyril le 2026-11-02 : « Oui je suis en phase »)
 
 - Les noms et personnages : **Vanel Lentefeuille** (Druide Vert), **Tiven** (jeune Nacellier), **la tailleuse de
   cristaux** (Marché des Cendres) ; le titre « Un prêt de la Terre » (tiré du canon).

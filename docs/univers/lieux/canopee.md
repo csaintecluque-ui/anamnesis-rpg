@@ -88,5 +88,5 @@ Quête validée par Cyril (`docs/univers/quetes.md`). Textes : `docs/DIALOGUES.m
 ## La magie (2026-11-02, `docs/gdd/magie.md`)
 
 - Le druide **Vanel** au pied du grand arbre du Bosquet des Échos (« Un prêt de la Terre »), **Tiven** à la Grande
-  Nacelle, des cristaux de Vie au Comptoir de la Sève (Sévane, 250 Fers). Noms à valider.
+  Nacelle, des cristaux de Vie au Comptoir de la Sève (Sévane, 250 Fers). Validé par Cyril.
 - La Lueur d'un cristal révèle aussi le sceau de cire dans le grenier des semences.

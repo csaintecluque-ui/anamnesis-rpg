@@ -841,4 +841,5 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   3 PV par point manquant ; le sommeil rend tout ; quête « Un prêt de la Terre » (Vanel, Tiven) ; la tailleuse de
   cristaux ; « on tient des listes » (patrouilleur, Dorna) ; sauvegarde v11 ; tests `magic.test.ts` et parcours.
   Vérifié sur PC et téléphone (dialogue grisé, inventaire, combat, montée de niveau, Bosquet).
-
+- Cyril : « Oui je suis en phase » (mise en ligne, noms Vanel, Tiven, la tailleuse ; Vigueur, cristal au cou, Lueur
+  commune). Mis en ligne ; page Notion « Anamnesis — le jeu » complétée.

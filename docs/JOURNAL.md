@@ -19,8 +19,8 @@
 
 ## Prochaine étape
 
-1. En ligne (2026-11-02) : le temps et les auberges (`docs/gdd/temps.md`). Sur la branche : la magie et « Un prêt
-   de la Terre » (`docs/gdd/magie.md`) ; mise en ligne et noms (Vanel, Tiven, la tailleuse) à valider par Cyril.
+1. En ligne (2026-11-02) : le temps et les auberges (`docs/gdd/temps.md`), la magie et « Un prêt de la Terre »
+   (`docs/gdd/magie.md`, tout validé). Prochaine étape : à proposer à Cyril.
 2. Codex : Sept-Portes (`AGENTS.md`). Notion : page « Anamnesis — le jeu », à tenir à jour à chaque mise en ligne.
 
 ## Points ouverts

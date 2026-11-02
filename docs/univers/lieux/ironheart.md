@@ -65,7 +65,7 @@ Les quêtes sont détaillées dans `docs/univers/quetes.md` (chapitre 3 et « Le
 
 ## La magie (2026-11-02, `docs/gdd/magie.md`)
 
-- **La tailleuse de cristaux** vend des cristaux de forge au Marché des Cendres (« Ici, rien ne s'écrit » ; à valider).
+- **La tailleuse de cristaux** vend des cristaux de forge au Marché des Cendres (« Ici, rien ne s'écrit » ; validée).
 - **On tient des listes** (canon, roman) : le patrouilleur du funiculaire inscrit qui porte un cristal ; Dorna
   conseille de le cacher.
 - La Lueur d'un cristal ouvre aussi le renfoncement sans enseigne et éclaire l'enclume aux mains gravées.

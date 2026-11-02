@@ -232,10 +232,10 @@ Décisions de Cyril (2026-11-02) : **option A**, des Échos familiaux anonymes e
 
 ## Canopéa : la magie
 
-### 10. Un prêt de la Terre (Druides Verts) — **construite le 2026-11-02, à valider**
+### 10. Un prêt de la Terre (Druides Verts) — **construite et validée le 2026-11-02**
 
 Conception validée par Cyril (« le premier cristal de Vie s'obtient par une petite quête auprès d'un Druide Vert à
-Canopéa ») ; personnages et textes **à valider** (`docs/gdd/magie.md`).
+Canopéa ») ; personnages et textes validés ensuite (« Oui je suis en phase », `docs/gdd/magie.md`).
 
 - Au Bosquet des Échos, au pied du grand arbre, le druide **Vanel Lentefeuille** : « La magie est un prêt de la Terre :
   on ne la prend pas, on l'emprunte » (canon : Verdantis). Il prête un petit cristal émeraude et envoie le héros soigner

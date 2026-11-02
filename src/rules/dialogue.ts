@@ -83,6 +83,8 @@ export interface QuestDef {
   id: string;
   name: string;
   summary: string;
+  /** Where the hero stands, for the journal: the last step whose flag is set (docs/gdd/interface.md). */
+  etapes?: { si: string; texte: string }[];
 }
 
 export const END = 'fin';

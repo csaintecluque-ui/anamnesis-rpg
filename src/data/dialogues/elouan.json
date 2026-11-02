@@ -199,6 +199,9 @@
             },
             {
               "giveXp": 15
+            },
+            {
+              "setFlag": "flute-taillee"
             }
           ]
         },
@@ -216,6 +219,9 @@
             },
             {
               "giveItem": "flute-anselme"
+            },
+            {
+              "setFlag": "flute-taillee"
             }
           ]
         },

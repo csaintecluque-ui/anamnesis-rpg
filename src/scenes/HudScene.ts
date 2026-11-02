@@ -9,13 +9,13 @@ import { CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
 import { HAS_MOUSE } from '../ui/viewport';
 
 const TOAST_MS = 4000;
-/** Free band between the Menu button (left) and the Inventaire button (right). */
-const HEADER_MAX_WIDTH = 720;
+/** Free band between the Menu button (left) and the Journal and Inventaire buttons (right). */
+const HEADER_MAX_WIDTH = HAS_MOUSE ? 600 : 470;
 
 /** Finger-sized on touch screens; on PC a slim bar leaves the map most of the screen. */
 const LAYOUT = HAS_MOUSE
-  ? { barHeight: 52, titleY: 16, titleSize: 18, statusY: 37, statusSize: 16, buttonHeight: 40, buttonFont: 18, menuWidth: 150, inventoryWidth: 170, margin: 14, levelUpY: 84, levelUpHeight: 44, levelUpWidth: 260, levelUpFont: 20 }
-  : { barHeight: 100, titleY: 34, titleSize: 24, statusY: 70, statusSize: 22, buttonHeight: 76, buttonFont: 24, menuWidth: 200, inventoryWidth: 220, margin: 20, levelUpY: 150, levelUpHeight: 64, levelUpWidth: 320, levelUpFont: 26 };
+  ? { barHeight: 52, titleY: 16, titleSize: 18, statusY: 37, statusSize: 16, buttonHeight: 40, buttonFont: 18, menuWidth: 150, inventoryWidth: 170, journalWidth: 140, margin: 14, levelUpY: 84, levelUpHeight: 44, levelUpWidth: 260, levelUpFont: 20 }
+  : { barHeight: 100, titleY: 34, titleSize: 24, statusY: 70, statusSize: 22, buttonHeight: 76, buttonFont: 24, menuWidth: 200, inventoryWidth: 220, journalWidth: 150, margin: 20, levelUpY: 150, levelUpHeight: 64, levelUpWidth: 320, levelUpFont: 26 };
 
 /** Fixed overlay above the map: unaffected by the map camera's zoom and scroll. */
 export class HudScene extends Phaser.Scene {
@@ -68,6 +68,14 @@ export class HudScene extends Phaser.Scene {
       withKeyHint('Inventaire', 'I'),
       () => this.openOverlay('Trade', {}),
       { ...button, width: L.inventoryWidth },
+    );
+    addTextButton(
+      this,
+      GAME_WIDTH - L.margin - L.inventoryWidth - 10 - L.journalWidth / 2,
+      L.barHeight / 2,
+      withKeyHint('Journal', 'J'),
+      () => this.openOverlay('Journal'),
+      { ...button, width: L.journalWidth },
     );
 
     this.levelUpButton = addTextButton(this, GAME_WIDTH / 2, L.levelUpY, '✦ Montée de niveau !', () => this.openOverlay('LevelUp'), {

@@ -127,6 +127,7 @@ export class MapScene extends Phaser.Scene {
     // Only while the map runs: overlays pause it, so these keys cannot reopen anything over them.
     onKeys(this, ['ESC'], () => this.hud().openOverlay('Pause'));
     onKeys(this, ['I'], () => this.hud().openOverlay('Trade', {}));
+    onKeys(this, ['J'], () => this.hud().openOverlay('Journal'));
 
     this.scene.launch('Hud', { locationName: location.name });
     if (rencontre) this.announceEncounter(rencontre);

@@ -22,22 +22,66 @@
   {
     "id": "lettres-malo",
     "name": "Les lettres de Malo",
-    "summary": "Malo a laissé tomber la sacoche de lettres des Nacelliers dans le feuillage. Avec l’accord de Véline, descends sur le Sol des Racines, la forêt sacrée sous Canopéa, pour la retrouver."
+    "summary": "Malo a laissé tomber la sacoche de lettres des Nacelliers dans le feuillage. Avec l’accord de Véline, descends sur le Sol des Racines, la forêt sacrée sous Canopéa, pour la retrouver.",
+    "etapes": [
+      {
+        "si": "descente-autorisee",
+        "texte": "Véline accepte de me descendre sur le Sol des Racines, à la Grande Nacelle."
+      },
+      {
+        "si": "sacoche-retrouvee",
+        "texte": "J’ai la sacoche des Nacelliers : la rendre à Malo."
+      }
+    ]
   },
   {
     "id": "chant-anselme",
     "name": "Le chant d’Anselme",
-    "summary": "Depuis qu’Anselme repose au pied de son arbre, Aïlis ne chante plus. Elouan, le luthier, veut lui tailler une flûte dans une branche tombée de cet arbre, sur le Sol des Racines. Il lui faut la branche, et la mélodie."
+    "summary": "Depuis qu’Anselme repose au pied de son arbre, Aïlis ne chante plus. Elouan, le luthier, veut lui tailler une flûte dans une branche tombée de cet arbre, sur le Sol des Racines. Il lui faut la branche, et la mélodie.",
+    "etapes": [
+      {
+        "si": "branche-prise",
+        "texte": "J’ai une branche de l’arbre d’Anselme. Il faut aussi la mélodie : celle du Bosquet, ou celle du carnet de Mirelle. Puis aller voir Elouan."
+      },
+      {
+        "si": "flute-taillee",
+        "texte": "La flûte est prête : l’offrir à Aïlis, à la Maison Feuillevent, aux Hautes Ramures."
+      }
+    ]
   },
   {
     "id": "audience",
     "name": "L’audience",
-    "summary": "Porter au Triumvirat Vert de Canopéa la nouvelle de ce qui s’est passé à la Gare Engloutie. Depuis peu, les noms gravés du Bosquet des Échos se taisent : le Triumvirat veut des faits, pas des rumeurs."
+    "summary": "Porter au Triumvirat Vert de Canopéa la nouvelle de ce qui s’est passé à la Gare Engloutie. Depuis peu, les noms gravés du Bosquet des Échos se taisent : le Triumvirat veut des faits, pas des rumeurs.",
+    "etapes": [
+      {
+        "si": "audience-tenue",
+        "texte": "Le Triumvirat veut savoir pourquoi les noms du Bosquet se taisent. Chercher au Bosquet des Échos, puis en bas, si besoin : Véline me descendra."
+      },
+      {
+        "si": "piste-racines",
+        "texte": "Le silence vient d’en bas : quelque chose tranche les racines du Bosquet, sur le Sol des Racines."
+      },
+      {
+        "si": "fouille-elucidee",
+        "texte": "Je sais qui fait taire le Bosquet. Faire mon rapport au Triumvirat, dans l’amphithéâtre du Conseil."
+      }
+    ]
   },
   {
     "id": "graines",
     "name": "Les graines qui manquent",
-    "summary": "Une dizaine de sacs de graines-lumière ont disparu du grenier des semences de Canopéa. Véline croit qu’ils sont passés par sa nacelle, sous les bâches d’un marchand."
+    "summary": "Une dizaine de sacs de graines-lumière ont disparu du grenier des semences de Canopéa. Véline croit qu’ils sont passés par sa nacelle, sous les bâches d’un marchand.",
+    "etapes": [
+      {
+        "si": "indice-elvan",
+        "texte": "Tout désigne Elvan Morelle, un marchand de la Compagnie des Lisières en pension à l’Auberge du Nid."
+      },
+      {
+        "si": "graines-elvan-avoue",
+        "texte": "Elvan a avoué : il vend les graines aux Marches des Cendres. À moi de décider."
+      }
+    ]
   },
   {
     "id": "carnet-chansons",
@@ -47,6 +91,12 @@
   {
     "id": "caravane-midi",
     "name": "La caravane de midi",
-    "summary": "Un commis de Ferros a raté la caravane de midi de la Compagnie des Lisières. Porte sa sacoche à Canopéa, à Véline, au pied de la Grande Nacelle. Gare aux Loups de Rouille près de la frontière."
+    "summary": "Un commis de Ferros a raté la caravane de midi de la Compagnie des Lisières. Porte sa sacoche à Canopéa, à Véline, au pied de la Grande Nacelle. Gare aux Loups de Rouille près de la frontière.",
+    "etapes": [
+      {
+        "si": "loups-caravane",
+        "texte": "Les Loups de Rouille sont derrière moi. Porter la sacoche à Véline, à la Grande Nacelle."
+      }
+    ]
   }
 ]

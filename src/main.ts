@@ -4,6 +4,7 @@ import { CombatScene } from './scenes/CombatScene';
 import { CreationScene } from './scenes/CreationScene';
 import { DialogueScene } from './scenes/DialogueScene';
 import { HudScene } from './scenes/HudScene';
+import { JournalScene } from './scenes/JournalScene';
 import { LevelUpScene } from './scenes/LevelUpScene';
 import { MapScene } from './scenes/MapScene';
 import { OptionsScene } from './scenes/OptionsScene';
@@ -43,6 +44,7 @@ const game = new Phaser.Game({
     HudScene,
     DialogueScene,
     TradeScene,
+    JournalScene,
     LevelUpScene,
     CombatScene,
     PauseScene,

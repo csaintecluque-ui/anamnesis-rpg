@@ -40,6 +40,7 @@ export class PauseScene extends Phaser.Scene {
 
     const entries: [string, () => void][] = [
       [withKeyHint('Reprendre', 'Échap'), () => this.resumeGame()],
+      [withKeyHint('Journal', 'J'), () => this.openJournal()],
       ['Sauvegarder', () => this.leaveMap('Slots', { mode: 'save', returnTo: 'Map' })],
       ['Options', () => this.scene.launch('Options')],
       ['Retour au titre', () => this.backToTitle()],
@@ -73,6 +74,12 @@ export class PauseScene extends Phaser.Scene {
       const restored = restoreFullHp(state.character);
       note.setText(`Mode test : +${restored} PV`);
     }, button);
+  }
+
+  /** The journal resumes the map when it closes, so the pause menu goes first. */
+  private openJournal(): void {
+    this.scene.stop();
+    this.scene.launch('Journal');
   }
 
   private resumeGame(): void {

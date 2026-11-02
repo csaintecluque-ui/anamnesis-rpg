@@ -228,6 +228,21 @@
     "pouvoir": "flammes"
   },
   {
+    "id": "eclats-cristal",
+    "name": "Éclats de cristal",
+    "description": "Ce qui reste d’un cristal forcé trop souvent : des esquilles froides, qui ne s’allument plus. La tailleuse du Marché des Cendres en rachète.",
+    "weightKg": 0.1,
+    "price": 20
+  },
+  {
+    "id": "plans-masque",
+    "name": "Plans du masque de Tam",
+    "description": "Un papier plié en quatre, gris de suie : un masque de feutre et de charbon de bois, trois lanières. Une Innovation non déclarée.",
+    "weightKg": 0,
+    "price": 0,
+    "quest": true
+  },
+  {
     "id": "epines-rodeur",
     "name": "Épines de Rôdeur",
     "description": "Une poignée d’épines souples, encore acérées. Une matière pour l’artisanat.",

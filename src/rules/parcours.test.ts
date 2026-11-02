@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { DIALOGUES } from '../data/dialogues';
 import itemData from '../data/items.json';
 import { MAPS } from '../data/maps';
@@ -784,6 +784,32 @@ describe('Parcours complet, d’une traite', () => {
     walk(s, 'ironheart-forges');
   });
 
+  it('« Le registre du Puits Trois » : Kerta dans la file, Tam, les plans du masque cousus par Hedda', () => {
+    expect(talk(s, 'tam')).toBe('accueil');
+    expect(talk(s, 'kerta')).toBe('accueil');
+    say(s, 'kerta', 'accueil', 'Pourquoi la file');
+    say(s, 'kerta', 'file', 'Et toi');
+    say(s, 'kerta', 'probleme', 'Où est le problème');
+    expect(s.quests['registre-puits']).toBe('active');
+    expect(talk(s, 'kerta')).toBe('attente');
+    expect(talk(s, 'tam')).toBe('parle');
+    expect(journalStep(s, 'registre-puits')?.step).toMatch(/Hedda/);
+    say(s, 'tam', 'parle', 'Et si tu restes');
+    say(s, 'tam', 'reste', 'Hedda Cendrefer');
+    say(s, 'tam', 'hedda', 'Donne-les-moi');
+    expect(questItems(s)).toContain('plans-masque');
+    walk(s, 'ironheart-atelier');
+    expect(gained(s, () => expect(talk(s, 'hedda')).toBe('masques'))).toEqual({ xp: 50, fers: 0 });
+    expect(s.quests['registre-puits']).toBe('done');
+    expect(questItems(s)).not.toContain('plans-masque');
+    expect(talk(s, 'hedda')).toBe('accueil-remise');
+    walk(s, 'ironheart-forges');
+    expect(talk(s, 'kerta')).toBe('apres-masques');
+    expect(talk(s, 'tam')).toBe('apres-masques');
+    expect(figurantLines(figurantsAt('ironheart-forges').find((f) => f.id === 'ouvrier-forges')!, s)[0]).toMatch(/masque/);
+    expect(reputationScore(s, 'ironheart')).toBe(25);
+  });
+
   it('Les voyages : caravane de Boulon, Ilyane reçoit l’Écho, convoyeuse, train des cheminots', () => {
     expect(talk(s, 'boulon')).toBe('accueil');
     say(s, 'boulon', 'accueil', 'Une caravane pour Gardebois');
@@ -864,7 +890,7 @@ describe('Parcours complet, d’une traite', () => {
     expect(reputations(s)).toEqual({
       gardebois: 40,
       canopee: 55,
-      ironheart: 15,
+      ironheart: 25,
       'compagnie-lisieres': 20,
       nacelliers: 25,
       'travailleurs-rail': 30,
@@ -1133,13 +1159,24 @@ describe('Variante : Ironheart avant les quêtes annexes (parole, combats, autre
     expect(hp).toBeGreaterThan(6);
     expect(talk(s, 'tiven')).toBe('quete');
     const poser = visibleOptions(DIALOGUES.tiven.nodes.quete, s).find((v) => v.option.text.startsWith('Poser'))!;
-    expect(poser.tags).toEqual(['Guérison naturelle · 2 PR (nez qui saigne : −6 PV)']);
+    expect(poser.tags).toEqual(['Guérison naturelle · 2 PR (nez qui saigne : −6 PV, risque de marque)']);
+    // Le jet du prix est raté (un 1) : la première marque (docs/gdd/passe-sombre.md).
+    const dice = vi.spyOn(Math, 'random').mockReturnValue(0);
     say(s, 'tiven', 'quete', 'Poser le cristal');
+    dice.mockRestore();
     expect(s.character!.hp).toBe(hp - 6);
     expect(s.character!.resonance).toBe(0);
+    expect(s.character!.marques).toBe(1);
     walk(s, 'canopee-aieux');
     expect(talk(s, 'vanel')).toBe('retour');
     expect(s.quests['pret-terre']).toBe('done');
+    expect(s.character!.skills.resonance).toBe(1);
+    // Vanel voit les veines ; il les reprend, et le rang de Résonance qu'il vient d'apprendre avec.
+    expect(talk(s, 'vanel')).toBe('marques');
+    say(s, 'vanel', 'marques', 'Reprends-les');
+    expect(s.character!.marques).toBe(0);
+    expect(s.character!.skills.resonance).toBe(0);
+    expect(talk(s, 'vanel')).toBe('apres');
     walk(s, 'canopee-nacelle');
   });
 
@@ -1247,13 +1284,34 @@ describe('Variante : Ironheart avant les quêtes annexes (parole, combats, autre
     expect(talk(s, 'boulon')).toBe('revient');
   });
 
+  it('« Le registre du Puits Trois » : Dask prend le masque à son nom, Tam monte aux Manufactures', () => {
+    expect(talk(s, 'kerta')).toBe('accueil');
+    say(s, 'kerta', 'accueil', 'Qu’est-ce qui ne va pas');
+    say(s, 'kerta', 'probleme', 'Où est le problème');
+    say(s, 'kerta', 'probleme2', 'Et ce que veut Tam');
+    expect(s.flags['laissez-passer-ironheart']).toBe(true);
+    walk(s, 'ironheart-manufactures');
+    expect(talk(s, 'dask')).toBe('dossier');
+    say(s, 'dask', 'dossier', 'Que voulez-vous');
+    expect(gained(s, () => say(s, 'dask', 'nom', 'Marché conclu'))).toEqual({ xp: 0, fers: 0 });
+    expect(talk(s, 'dask')).toBe('apres');
+    walk(s, 'ironheart-forges');
+    expect(talk(s, 'tam')).toBe('decision');
+    // The mask now belongs to Dask: it can no longer stay down below.
+    expect(optionTexts(s, 'tam', 'decision')).toEqual(['Monte. Pour ta mère, et pour tes poumons.', 'Je ne sais pas.']);
+    expect(gained(s, () => say(s, 'tam', 'decision', 'Monte'))).toEqual({ xp: 50, fers: 0 });
+    expect(s.quests['registre-puits']).toBe('done');
+    expect(present(s, 'ironheart-forges', 'tam')).toBe(false);
+    expect(talk(s, 'kerta')).toBe('apres-monte');
+  });
+
   it('Bilan de la variante', () => {
     expect(unfinished(s)).toEqual([]);
     expect(questItems(s)).toEqual(['cristal-vanel', 'sauf-conduit']);
     expect(reputations(s)).toEqual({
       gardebois: 40,
       canopee: 50,
-      ironheart: 20,
+      ironheart: 25,
       'compagnie-lisieres': 0,
       nacelliers: 25,
       'travailleurs-rail': -25,
@@ -1393,7 +1451,9 @@ describe('Variante : « Le Rail des Cendres » avant « La Clé de Rouille Bleue
     expect(present(s, 'ironheart-triage', 'pilleur-2')).toBe(false);
     expect(talk(s, 'aiguillage')).toBe('levier');
     expect(talk(s, 'varka')).toBe('apres-marches');
-    expect(talk(s, 'joss')).toBe('apres');
+    // Joss knew too much: the Marches do not leave a witness (docs/gdd/passe-sombre.md).
+    expect(present(s, 'ironheart-triage', 'joss')).toBe(false);
+    expect(figurantLines(figurantsAt('ironheart-triage').find((f) => f.id === 'cheminote-triage')!, s)[0]).toMatch(/Joss/);
     walk(s, 'ironheart-forges');
   });
 
@@ -1425,6 +1485,27 @@ describe('Variante : « Le Rail des Cendres » avant « La Clé de Rouille Bleue
     expect(questItems(s)).toEqual(['oiseau-de-fer', 'sauf-conduit']);
     expect([reputationScore(s, 'ironheart'), reputationScore(s, 'travailleurs-rail'), reputationScore(s, 'marches-cendres')]).toEqual([0, 0, 10]);
     expect(repeatableGains(s)).toEqual([]);
+  });
+
+  it('« Le registre du Puits Trois » : le sceau de Dask, mal apposé ; Tam pris à l’inspection', () => {
+    expect(talk(s, 'kerta')).toBe('accueil');
+    say(s, 'kerta', 'accueil', 'Qu’est-ce qui ne va pas');
+    say(s, 'kerta', 'probleme', 'Où est le problème');
+    s.flags['laissez-passer-ironheart'] = true;
+    walk(s, 'ironheart-manufactures');
+    expect(talk(s, 'dask')).toBe('dossier');
+    // The Subterfuge roll fails: the seal smears, and nobody says so.
+    choose(s, 'dask', 'dossier', 'Pendant qu’il cherche');
+    applyEffects(s, DIALOGUES.dask.nodes['faux-bancal'].effects);
+    walk(s, 'ironheart-forges');
+    expect(talk(s, 'tam')).toBe('decision');
+    expect(optionTexts(s, 'tam', 'decision')).toHaveLength(3);
+    expect(gained(s, () => say(s, 'tam', 'decision', 'Monte'))).toEqual({ xp: 20, fers: 0 });
+    expect(s.flags['tam-arrete']).toBe(true);
+    expect(s.flags['tam-monte']).toBeUndefined();
+    expect(present(s, 'ironheart-forges', 'tam')).toBe(false);
+    expect(talk(s, 'kerta')).toBe('apres-arrete');
+    expect(reputationScore(s, 'ironheart')).toBe(-5);
   });
 });
 
@@ -1528,6 +1609,29 @@ describe('Variante : Canopéa d’abord, puis Gardebois', () => {
 // ---------------------------------------------------------------------------------------------------------------
 
 describe('Cas limites', () => {
+  it('La chaudière ouverte en grand : la foreuse se tait, Pell meurt ; Ingrid, Ilyane et le lavoir s’en souviennent', () => {
+    const s = createNewGame(testCharacter());
+    say(s, 'ilyane', 'accueil', 'Que se passe-t-il');
+    say(s, 'ilyane', 'trouble', 'D’où vient ce mal');
+    say(s, 'ilyane', 'cause', 'J’irai voir');
+    walk(s, 'gare-engloutie');
+    expect(talk(s, 'foreuse')).toBe('jour');
+    say(s, 'foreuse', 'jour', 'Attendre la nuit');
+    say(s, 'foreuse', 'nuit', 'Se glisser');
+    expect(optionTexts(s, 'foreuse', 'au-pied')).toEqual(['Saboter le mécanisme.', 'Ouvrir la chaudière en grand, et courir.', 'Repartir sans rien toucher.']);
+    expect(gained(s, () => say(s, 'foreuse', 'au-pied', 'Ouvrir la chaudière'))).toEqual({ xp: 70, fers: 30 });
+    expect(s.quests['dernier-train']).toBe('done');
+    expect(talk(s, 'foreuse')).toBe('explosee');
+    expect(talk(s, 'ingrid')).toBe('apres-explosion');
+    walk(s, 'gardebois');
+    expect(figurantLines(FIGURANTS.find((f) => f.id === 'lavandiere')!, s)[0]).toMatch(/pour toujours/);
+    expect(talk(s, 'ilyane')).toBe('pell');
+    say(s, 'ilyane', 'pell', 'Je m’en souviendrai');
+    say(s, 'ilyane', 'resolu', 'Et maintenant');
+    expect(s.quests.audience).toBe('active');
+    expect(talk(s, 'ilyane')).toBe('resolu');
+  });
+
   it('Ingrid ne termine pas « Le Dernier Train » tant qu’Ilyane ne l’a pas donné', () => {
     const s = createNewGame(testCharacter({}, { diplomacy: 3, command: 3 }));
     s.character!.recits.push('savant-corvan');

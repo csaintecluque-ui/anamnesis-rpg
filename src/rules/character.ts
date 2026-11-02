@@ -83,6 +83,11 @@ export interface Character {
   fers: number;
   inventory: InventorySlotState[];
   equipment: Equipment;
+  /**
+   * Marks left by forcing the crystal (src/rules/marques.ts, docs/gdd/passe-sombre.md), 0 to 3. Optional: saves
+   * from before the marks (v14) have none, and stay valid as they are.
+   */
+  marques?: number;
 }
 
 export interface CharacterStats {
@@ -304,6 +309,9 @@ export function characterError(raw: unknown): string | null {
     if (!Number.isInteger(v) || (v as number) < 0 || (v as number) > SKILL_RANK_MAX) return 'compétences invalides.';
   }
   if (!Array.isArray(c.recits) || c.recits.some((r) => typeof r !== 'string')) return 'récits invalides.';
+  if (c.marques !== undefined && (!Number.isInteger(c.marques) || (c.marques as number) < 0 || (c.marques as number) > 3)) {
+    return 'marques invalides.';
+  }
   if (typeof c.fers !== 'number' || !(c.fers >= 0)) return 'monnaie invalide.';
   if (
     !Array.isArray(c.inventory) ||

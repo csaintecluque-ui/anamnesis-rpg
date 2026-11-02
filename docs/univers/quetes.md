@@ -270,3 +270,26 @@ rayer du matériel par Noam : racheter, convaincre, ou arracher la page. Détail
 6. « Les Échos sous la Forge » (construite le 2026-11-02).
 7. « Voyager autrement » : le train et la caravane (construits le 2026-11-02).
 8. Le temps et les auberges, puis la magie et « Un prêt de la Terre » (construits le 2026-11-02).
+
+## La passe sombre (jalon 3, étape 5 ; construite et **validée par Cyril** le 2026-11-02)
+
+Détails, ancrages du canon et chiffres : `docs/gdd/passe-sombre.md`.
+
+### 13. Le registre du Puits Trois (Ironheart, castes) — **construite et validée le 2026-11-02**
+
+- **Kerta Orvel**, fondeuse, attend dans la file du Puits Trois ; son fils **Tam**, riveteur de dix-neuf ans, crache
+  noir et a inventé un masque de feutre et de charbon de bois. Déclaré, ce masque le ferait monter de caste (une
+  Innovation, un inspecteur de zone, un parrain de Classe Technique, le registre, le convoi [NOTION, roman]).
+- **Le technicien Dask** parraine : 60 Fers, Diplomatie 3, le masque à son nom, ou son sceau apposé en douce
+  (Subterfuge 14).
+- **Fins** : Tam monte (Kerta seule dans la file) ; le masque reste en bas, cousu par Hedda Cendrefer (la moitié des
+  Forges le porte, Tam tousse toujours) ; le sceau a bavé : Tam est pris à l'inspection, et personne ne dit où.
+
+### Ce qui change dans les quêtes déjà construites — **validé le 2026-11-02**
+
+- **Le Dernier Train** : au pied de la foreuse, on peut aussi ouvrir la chaudière en grand ; la foreuse explose et
+  tue **Pell**, le garçon qui veillait sous la lanterne. Ingrid l'a enterré au bord du quai ; Ilyane s'en souvient.
+- **Le Rail des Cendres** : vendre le silence aux Marches fait tuer **Joss** (« ni dette ouverte, ni témoin ») ; tout
+  dire au Bureau le livre au tribunal (« sabotage d'un secteur stratégique » ; la trahison, c'est la mort [NOTION]).
+- **Les graines qui manquent** : Elvan dénoncé est **banni** (« on retire les racines ») ; si le héros a volé et nie,
+  c'est le gardien du grenier, un Jeune-Pousse, qu'on soupçonne.

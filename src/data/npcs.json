@@ -347,6 +347,21 @@
     "role": "Aiguilleur de nuit"
   },
   {
+    "id": "kerta",
+    "name": "Kerta Orvel",
+    "role": "Fondeuse des Forges-Basses"
+  },
+  {
+    "id": "tam",
+    "name": "Tam Orvel",
+    "role": "Riveteur des Forges-Basses"
+  },
+  {
+    "id": "dask",
+    "name": "Le technicien Dask",
+    "role": "Classe Technique, Manufactures-Moyennes"
+  },
+  {
     "id": "ostrik",
     "name": "Le contrôleur Ostrik",
     "role": "Bureau des Transports"

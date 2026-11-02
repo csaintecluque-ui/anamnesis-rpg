@@ -38,5 +38,8 @@ Code : `src/save/codec.ts` (format, validation, migrations), `src/save/store.ts`
 | v14 | `emprise` : l'emprise des Échos revécus (`docs/gdd/echos.md`) | 0 |
 | v15 | `voie` (la voie endormie en cours : site, graine, niveau) et `contrats` (le contrat en cours, le compte, les offres prises) (`docs/gdd/voies.md`) | aucune voie, aucun contrat |
 
+- **`character.marques`** (2026-11-02, `docs/gdd/passe-sombre.md`) : champ **facultatif** (0 à 3), absent = 0 ; pas
+  de nouvelle version : une sauvegarde v14 sans marques reste valide (l'étape 4 du jalon 3 se fait en parallèle).
+
 - **Sauvegarde automatique à chaque lieu** (2026-11-02, jalon 3) : en entrant dans un lieu, l'emplacement automatique
   est réécrit ; à la mort du héros, on reprend la sauvegarde la plus récente de tous les emplacements.

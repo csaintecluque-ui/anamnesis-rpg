@@ -33,7 +33,7 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `personnages/pnj.md` : héros, Ilyane, Tobias, Ingrid, ennemis (validés).
 - `chronologie.md` : dates de référence.
 - `ton.md` : ton du corpus, ton du jeu (dark fantasy pour adultes, charte), sonorités des noms par nation.
-- `zones-floues.md` : 28 contradictions du canon, décisions de Cyril.
+- `zones-floues.md` : 31 contradictions du canon, décisions de Cyril.
 - `propositions.md` : propositions sans autre fichier (quête, attribut Mémoire), propositions rejetées.
 
 ## `gdd/` : conception du jeu (systèmes, chiffres, équilibrage)
@@ -62,6 +62,7 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `veillees.md` : les veillées du conteur (publics, goûts, jet, chapeau, renommée, rumeurs et secrets) ; validé.
 - `voies.md` : les voies endormies à explorer (plans, niveaux, bêtes, caisses, pièges) et les contrats des Gardiens ; à valider.
 - `echos.md` : le Livre des Échos (douze Échos cachés, types, emprise) ; textes à valider.
+- `passe-sombre.md` : la passe sombre (marques du cristal, « Le registre du Puits Trois », morts et conséquences) ; validée.
 - `villes.md` : gabarit d'une grande ville, systèmes communs, mécanique par ville, coûts, ordre ; validé.
 - `carte-du-monde.md` : carte du monde, voyages, rencontres aléatoires en route ; validé.
 - `figurants.md` : passants qui marchent et habitants à une ou deux répliques ; validé.

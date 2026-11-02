@@ -5,6 +5,17 @@
     {
       "requires": [
         {
+          "marques": 1
+        },
+        {
+          "notFlag": "rouille-ame"
+        }
+      ],
+      "node": "rouille"
+    },
+    {
+      "requires": [
+        {
           "cristal": true
         },
         {
@@ -226,6 +237,126 @@
         },
         {
           "text": "Compris.",
+          "next": "fin"
+        }
+      ]
+    },
+    "rouille": {
+      "text": "Il te saisit le poignet. Sous la peau, tes veines luisent de la couleur du cristal. Il lâche aussitôt. — Rouille de l’âme. Ça, ce n’est plus une liste : c’est un signalement. À moins que tu aies une bonne raison.",
+      "options": [
+        {
+          "text": "« Une brûlure de forge, rien d’autre. »",
+          "next": "rouille-bluff",
+          "roll": {
+            "skill": "subterfuge",
+            "difficulty": 13
+          },
+          "failNext": "rouille-cellule"
+        },
+        {
+          "text": "Lui glisser vingt Fers.",
+          "next": "rouille-payee",
+          "requires": [
+            {
+              "fers": 20
+            }
+          ],
+          "effects": [
+            {
+              "giveFers": -20
+            }
+          ]
+        },
+        {
+          "text": "Je n’ai rien à cacher.",
+          "next": "rouille-cellule"
+        }
+      ]
+    },
+    "rouille-bluff": {
+      "text": "— Une brûlure. Il te fixe trois secondes de trop. — Alors soigne-la, et couvre-la : le prochain sera moins myope que moi.",
+      "effects": [
+        {
+          "setFlag": "rouille-ame"
+        }
+      ],
+      "options": [
+        {
+          "text": "Et le funiculaire ?",
+          "next": "controle",
+          "requires": [
+            {
+              "notFlag": "laissez-passer-ironheart"
+            }
+          ]
+        },
+        {
+          "text": "Et le funiculaire ?",
+          "next": "passe",
+          "requires": [
+            {
+              "flag": "laissez-passer-ironheart"
+            }
+          ]
+        },
+        {
+          "text": "Bon.",
+          "next": "fin"
+        }
+      ]
+    },
+    "rouille-payee": {
+      "text": "Les Fers disparaissent dans son gant. Il n’écrit rien. — Inspecté. Couvre ça, que je n’aie pas à le revoir. Ici, ce qu’on te laisse passer, ça se paie. Toujours.",
+      "effects": [
+        {
+          "setFlag": "rouille-ame"
+        }
+      ],
+      "options": [
+        {
+          "text": "Et le funiculaire ?",
+          "next": "controle",
+          "requires": [
+            {
+              "notFlag": "laissez-passer-ironheart"
+            }
+          ]
+        },
+        {
+          "text": "Et le funiculaire ?",
+          "next": "passe",
+          "requires": [
+            {
+              "flag": "laissez-passer-ironheart"
+            }
+          ]
+        },
+        {
+          "text": "Bon.",
+          "next": "fin"
+        }
+      ]
+    },
+    "rouille-cellule": {
+      "text": "Le poste : une cellule de fer, un banc, un seau. On t’y garde « le temps de vérifier ton statut ». Au matin, un Veilleur de Rouille note tes veines, ton nom, ta pension, et l’on te relâche. Te voilà fiché·e, à l’encre rouge.",
+      "night": true,
+      "effects": [
+        {
+          "setFlag": "rouille-ame"
+        },
+        {
+          "setFlag": "rouille-signalee"
+        },
+        {
+          "avancer": 1
+        },
+        {
+          "attendre": "matin"
+        }
+      ],
+      "options": [
+        {
+          "text": "Sortir.",
           "next": "fin"
         }
       ]

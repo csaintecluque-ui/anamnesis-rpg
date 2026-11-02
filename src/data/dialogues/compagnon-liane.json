@@ -5,6 +5,17 @@
     {
       "requires": [
         {
+          "marques": 1
+        },
+        {
+          "notFlag": "liane-a-vu-marques"
+        }
+      ],
+      "node": "marques"
+    },
+    {
+      "requires": [
+        {
           "quest": "oubli-liane",
           "status": "active"
         },
@@ -347,6 +358,30 @@
         {
           "text": "À bientôt, Liane.",
           "next": "fin"
+        }
+      ]
+    },
+    "marques": {
+      "text": "Liane attrape ta main et la retourne, sans demander. — Tes veines. Tu forces ton cristal. J’ai vu des guérisseurs finir comme ça, à Gardebois : ils soignaient tout le monde, sauf eux. Vanel peut te les reprendre. Ne fais pas l’idiot·e.",
+      "effects": [
+        {
+          "setFlag": "liane-a-vu-marques"
+        }
+      ],
+      "options": [
+        {
+          "text": "Je ferai attention.",
+          "next": "fin"
+        },
+        {
+          "text": "Je sais ce que je fais.",
+          "next": "fin",
+          "effects": [
+            {
+              "avis": "liane",
+              "delta": -1
+            }
+          ]
         }
       ]
     }

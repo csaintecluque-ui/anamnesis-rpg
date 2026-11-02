@@ -150,6 +150,25 @@
     ]
   },
   {
+    "id": "registre-puits",
+    "name": "Le registre du Puits Trois",
+    "summary": "Au Puits Trois des Forges-Basses, Kerta Orvel attend son tour avec les Ouvriers. Son fils Tam crache noir ; il a inventé un masque qui garde les poumons. Déclaré, ce masque le ferait monter de caste, aux Manufactures, où l’air se respire. Mais il faut un parrain de Classe Technique, et Tam veut que le masque reste en bas.",
+    "etapes": [
+      {
+        "si": "tam-ecoute",
+        "texte": "Tam ne veut pas monter : déclaré, son masque appartiendrait aux Manufactures. Il voudrait le donner à ceux d’en bas, et Hedda Cendrefer pourrait le coudre."
+      },
+      {
+        "si": "plans-confies",
+        "texte": "Tam m’a confié les plans du masque. Hedda Cendrefer, à l’atelier, pourrait les coudre sans rien déclarer."
+      },
+      {
+        "si": "dask-parrain",
+        "texte": "Le technicien Dask a signé le dossier d’Orvel. À Tam de décider s’il monte."
+      }
+    ]
+  },
+  {
     "id": "echos-forge",
     "name": "Les Échos sous la Forge",
     "summary": "La nuit, une forge froide des Forges-Basses s’embrase sans feu. Sous son foyer, une trappe, une galerie du Peuple des Cendres Noires, et des voix qui ne sont d’aucune époque connue.",

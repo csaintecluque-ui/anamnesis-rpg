@@ -4,17 +4,34 @@
     "location": "canopee-nacelle",
     "name": "Une marchande de fleurs",
     "tile": "fleuriste",
-    "path": [[11, 13], [16, 14], [19, 13], [17, 10]],
+    "path": [
+      [
+        11,
+        13
+      ],
+      [
+        16,
+        14
+      ],
+      [
+        19,
+        13
+      ],
+      [
+        17,
+        10
+      ]
+    ],
     "lines": [
       "Des fleurs de lune, cueillies ce matin au bout des branches ! Elles ne s’ouvrent que la nuit.",
-      "Non, je ne les cueille pas toutes : une sur trois reste à l’arbre. C’est la règle de la Sève."
+      "Une sur trois reste à l’arbre : c’est la règle de la Sève. Qui la casse est banni, et les bannis, la forêt ne les garde pas."
     ],
     "reactions": [
       {
         "quest": "graines",
         "flag": "graines-denonce",
         "lines": [
-          "Les graines-lumière sont revenues au grenier ! On les plantera au Premier Bourgeon. Le voleur est parti avec les Gardes Verts."
+          "Les graines sont revenues au grenier. Le voleur ? Banni. Parti par la passerelle du Bois, sans racines et sans nom. Il pleurait."
         ]
       },
       {
@@ -31,10 +48,27 @@
     "location": "canopee-nacelle",
     "name": "Un porteur de paniers",
     "tile": "porteur",
-    "path": [[9, 14], [14, 15], [18, 12], [11, 11]],
+    "path": [
+      [
+        9,
+        14
+      ],
+      [
+        14,
+        15
+      ],
+      [
+        18,
+        12
+      ],
+      [
+        11,
+        11
+      ]
+    ],
     "lines": [
       "Attention, ça passe ! Trois paniers de baies pour l’Auberge du Nid.",
-      "Le plus dur, ce n’est pas le poids. C’est de ne rien laisser tomber."
+      "Les Citoyens-Arbres ont des ascenseurs ; nous, des échelles. Ce qui tombe, la forêt le garde : les paniers, et les porteurs."
     ]
   },
   {
@@ -43,9 +77,26 @@
     "name": "Une petite fille qui joue",
     "tile": "enfant-a",
     "pace": 0.7,
-    "path": [[13, 11], [13, 13], [18, 13], [18, 11]],
+    "path": [
+      [
+        13,
+        11
+      ],
+      [
+        13,
+        13
+      ],
+      [
+        18,
+        13
+      ],
+      [
+        18,
+        11
+      ]
+    ],
     "lines": [
-      "On joue à « rien ne touche le sol » ! Si tu marches sur une feuille, tu as perdu.",
+      "On joue à « rien ne touche le sol » ! Si tu marches sur une feuille, tu es mort. Pour de faux.",
       "Malo ? Il court trop vite, personne ne l’attrape jamais."
     ],
     "reactions": [
@@ -62,10 +113,15 @@
     "location": "canopee-nacelle",
     "name": "Un vieil homme",
     "tile": "vieillard",
-    "path": [[4, 16]],
+    "path": [
+      [
+        4,
+        16
+      ]
+    ],
     "lines": [
-      "J’ai vu passer trois générations de nacelles. Celle de Véline est la plus douce.",
-      "Assieds-toi un peu, si tu veux. Les nuages, ça se regarde lentement."
+      "J’ai vu passer trois générations de nacelles, et deux de Nacelliers tombés. Celle de Véline est la plus douce.",
+      "Assieds-toi un peu, si tu veux. Les nuages, ça se regarde lentement. Moi, je n’ai plus que ça à regarder."
     ],
     "reactions": [
       {
@@ -81,10 +137,15 @@
     "location": "canopee-ramures",
     "name": "Une tisseuse de feuilles",
     "tile": "tisseuse",
-    "path": [[13, 12]],
+    "path": [
+      [
+        13,
+        12
+      ]
+    ],
     "lines": [
       "Je tisse des voiles de feuilles pour les fenêtres. Elles laissent passer la lumière, pas la pluie.",
-      "Les gens de Ferros me demandent si c’est de la toile. Je leur réponds : c’est de la patience."
+      "Ceux de Ferros me demandent si c’est de la toile. Je réponds : c’est de la patience. Eux comptent en heures ; nous, en saisons."
     ],
     "reactions": [
       {
@@ -101,7 +162,24 @@
     "name": "Un messager du Conseil",
     "tile": "messager",
     "pace": 0.8,
-    "path": [[11, 7], [6, 11], [9, 15], [15, 11]],
+    "path": [
+      [
+        11,
+        7
+      ],
+      [
+        6,
+        11
+      ],
+      [
+        9,
+        15
+      ],
+      [
+        15,
+        11
+      ]
+    ],
     "lines": [
       "Pardon, pardon ! Message urgent pour le Conseil… comme tous les messages.",
       "Une audience ? Apporte de la patience. Et un coussin."
@@ -136,9 +214,34 @@
     "name": "Une pèlerine du Bosquet",
     "tile": "pelerine",
     "pace": 1.6,
-    "path": [[9, 8], [11, 6], [15, 7], [17, 9], [13, 12], [9, 11]],
+    "path": [
+      [
+        9,
+        8
+      ],
+      [
+        11,
+        6
+      ],
+      [
+        15,
+        7
+      ],
+      [
+        17,
+        9
+      ],
+      [
+        13,
+        12
+      ],
+      [
+        9,
+        11
+      ]
+    ],
     "lines": [
-      "Chut… Je viens parler à ma mère. J’ai gravé son nom ici, au printemps.",
+      "Chut… Je parle à ma mère. Elle a choisi de partir, au printemps : ici, c’est permis, quand le corps lâche. J’ai gravé son nom.",
       "Ici, on ne pleure pas fort. On raconte."
     ],
     "reactions": [
@@ -163,7 +266,12 @@
     "location": "canopee-aieux",
     "name": "Un soigneur d’écorce",
     "tile": "jardinier",
-    "path": [[16, 12]],
+    "path": [
+      [
+        16,
+        12
+      ]
+    ],
     "lines": [
       "Je soigne l’écorce des arbres gravés : un peu de mousse là où elle s’abîme.",
       "Quand le bois fend un signe, on ne le corrige jamais. La fente fait partie du souvenir."
@@ -191,10 +299,35 @@
     "name": "Un commis de Ferros pressé",
     "tile": "colporteur-ferros",
     "pace": 0.8,
-    "path": [[5, 4], [9, 8], [13, 14], [16, 18], [9, 18], [7, 9]],
+    "path": [
+      [
+        5,
+        4
+      ],
+      [
+        9,
+        8
+      ],
+      [
+        13,
+        14
+      ],
+      [
+        16,
+        18
+      ],
+      [
+        9,
+        18
+      ],
+      [
+        7,
+        9
+      ]
+    ],
     "lines": [
-      "Pas le temps, pas le temps ! Si je rate la caravane de midi, mon patron, lui, ne me ratera pas.",
-      "Gardebois, c’est le seul marché où l’on paie en Fers et où l’on vous remercie en chansons."
+      "Pas le temps ! Si je rate la caravane de midi, mon patron me retient la paie. À Ferros, une paie retenue, c’est l’eau du soir.",
+      "Ici, on me sert en dernier. « Ceux de Ferros, on s’en méfie », qu’ils disent. Je paie pareil, pourtant."
     ],
     "walk": "sprites/figurant-commis-ferros.png",
     "dialogue": "commis-caravane",
@@ -219,16 +352,28 @@
     "location": "gardebois",
     "name": "Une lavandière",
     "tile": "lavandiere",
-    "path": [[19, 16]],
+    "path": [
+      [
+        19,
+        16
+      ]
+    ],
     "lines": [
-      "L’eau du ruisseau descend de la canopée. Elle sent la pluie et les fleurs.",
-      "Ici, le linge sèche en une heure, quand le vent vient de la forêt."
+      "Ma voisine revit la Grande Chute en plein jour. Hier, elle s’est jetée au ruisseau pour fuir un feu que personne ne voyait.",
+      "Quand le vent vient de la forêt, le linge sèche en une heure. Quand il vient de Ferros, il sent la suie, et rien ne sèche."
     ],
     "reactions": [
       {
         "quest": "dernier-train",
         "lines": [
-          "Depuis que la foreuse s’est tue, plus personne ne pleure au lavoir. On chante à nouveau, en battant le linge."
+          "Depuis que la foreuse s’est tue, ma voisine dort. Elle ne se rappelle rien de ce qu’elle a crié. Moi, si."
+        ]
+      },
+      {
+        "quest": "dernier-train",
+        "flag": "foreuse-explosee",
+        "lines": [
+          "On a vu la lueur de la Gare jusqu’ici, cette nuit-là. Ma voisine dort, maintenant. Un garçon de Ferros, lui, dort pour toujours."
         ]
       }
     ]
@@ -239,10 +384,27 @@
     "name": "Un garçon curieux",
     "tile": "enfant-b",
     "pace": 0.7,
-    "path": [[11, 9], [15, 10], [17, 11], [13, 13]],
+    "path": [
+      [
+        11,
+        9
+      ],
+      [
+        15,
+        10
+      ],
+      [
+        17,
+        11
+      ],
+      [
+        13,
+        13
+      ]
+    ],
     "lines": [
-      "Tu es chez les Gardiens de Mémoire ? Raconte-moi une histoire, avec un dragon gentil !",
-      "Hier, j’ai vu un Rôdeur-Épine ! Enfin… ou un buisson. Un buisson très méchant."
+      "Tu es chez les Gardiens de Mémoire ? Raconte-moi une histoire. Une vraie, pas une pour les petits.",
+      "Hier, j’ai vu un Rôdeur-Épine près de la route. Il mangeait quelque chose. Maman m’a dit de ne pas regarder."
     ],
     "walk": "sprites/figurant-garcon-curieux.png",
     "reactions": [
@@ -259,10 +421,15 @@
     "location": "gardebois",
     "name": "Un vieux joueur de pipeau",
     "tile": "joueur-pipeau",
-    "path": [[10, 14]],
+    "path": [
+      [
+        10,
+        14
+      ]
+    ],
     "lines": [
-      "Une chanson pour un Fer, deux chansons pour deux Fers… et la troisième, je l’offre.",
-      "Ilyane dit que les chansons sont des souvenirs qui ont appris à voler."
+      "Une chanson pour un Fer, deux pour deux Fers. La troisième, je l’offre : c’est celle des enterrements. Elle est belle quand même.",
+      "Ilyane dit que les chansons sont des souvenirs qui ont appris à voler. Les miens volent bas, ces temps-ci."
     ],
     "reactions": [
       {
@@ -278,9 +445,14 @@
     "location": "auberge-racine",
     "name": "Un client somnolent",
     "tile": "client",
-    "path": [[6, 5]],
+    "path": [
+      [
+        6,
+        5
+      ]
+    ],
     "lines": [
-      "Mmh ? Non, je ne dors pas. Je réfléchis avec les yeux fermés.",
+      "Mmh ? Non, je ne dors pas. Je bois pour ne plus revoir la Chute. Ça marche un soir sur deux.",
       "La soupe de Sylvan, c’est la meilleure de la lisière. Ne le lui dis pas : il ne passerait plus la porte."
     ]
   },
@@ -289,7 +461,12 @@
     "location": "canopee-auberge",
     "name": "Une voyageuse fourbue",
     "tile": "voyageuse",
-    "path": [[2, 4]],
+    "path": [
+      [
+        2,
+        4
+      ]
+    ],
     "lines": [
       "Trois jours de marche depuis le sud… Ce hamac est la plus belle chose du monde.",
       "On m’avait dit qu’on dormait mal, ici, à cause du vent. On m’avait menti."
@@ -300,7 +477,12 @@
     "location": "canopee-amphitheatre",
     "name": "Un Druide Vert",
     "tile": "druide",
-    "path": [[4, 3]],
+    "path": [
+      [
+        4,
+        3
+      ]
+    ],
     "lines": [
       "Cinquante Druides Verts siègent au Conseil, à vie. Moi, j’y suis depuis quarante ans. Les arbres trouvent que c’est peu.",
       "Ici, on ne coupe pas la parole. On attend qu’elle tombe, comme une feuille."
@@ -327,7 +509,12 @@
     "location": "canopee-amphitheatre",
     "name": "Une députée des Racines",
     "tile": "conseillere",
-    "path": [[8, 3]],
+    "path": [
+      [
+        8,
+        3
+      ]
+    ],
     "lines": [
       "Deux cents élus, cinquante druides, cinquante Voix des Arbres : trois cents sièges, et autant d’avis.",
       "Je représente les Lisières Cultivées. Là-bas, on veut du métal de Ferros… et pas de Ferros sous nos champs."
@@ -338,7 +525,12 @@
     "location": "canopee-amphitheatre",
     "name": "Une Voix des Arbres",
     "tile": "pelerine",
-    "path": [[3, 8]],
+    "path": [
+      [
+        3,
+        8
+      ]
+    ],
     "lines": [
       "Ce sont les arbres qui m’ont choisie. On ne postule pas : on entend l’appel, ou non.",
       "Un vieux chêne parle par ma bouche, au Conseil. Il est lent, mais il a rarement tort."
@@ -349,10 +541,36 @@
     "location": "ironheart-forges",
     "name": "Un ouvrier en gris",
     "tile": "ouvrier",
-    "path": [[8, 12], [20, 12], [20, 15], [8, 15]],
+    "path": [
+      [
+        8,
+        12
+      ],
+      [
+        20,
+        12
+      ],
+      [
+        20,
+        15
+      ],
+      [
+        8,
+        15
+      ]
+    ],
     "lines": [
-      "Neuf heures de forge, et la soupe de Dorna au bout. Ça va, ça va.",
+      "Mon père est mort à quarante-huit ans, les poumons pleins de forge. Ici, on dit que c’est un bel âge.",
       "On ne regarde pas un Ferrôme dans les yeux plus de deux secondes. C’est comme ça, ici."
+    ],
+    "reactions": [
+      {
+        "quest": "registre-puits",
+        "flag": "masques-forges",
+        "lines": [
+          "Un masque de feutre ! Je crache gris, maintenant, plus noir. Ma femme dit que c’est la couleur de l’espoir."
+        ]
+      }
     ]
   },
   {
@@ -361,10 +579,43 @@
     "name": "Une ouvrière en gris",
     "tile": "ouvrier",
     "pace": 0.9,
-    "path": [[6, 5], [16, 5], [16, 10], [8, 9]],
+    "path": [
+      [
+        6,
+        5
+      ],
+      [
+        16,
+        5
+      ],
+      [
+        16,
+        10
+      ],
+      [
+        8,
+        9
+      ]
+    ],
     "lines": [
-      "Le premier pont peint en rouge ? Après, c’est surveillé. On passe vite, sans traîner.",
-      "Sept coups de marteau, et tout le monde se tait : ce sont les Litanies."
+      "Le pont peint en rouge ? Après, c’est surveillé. Mon frère l’a passé sans laissez-passer : trois nuits au poste.",
+      "Sept coups de marteau : les Litanies. Le travail est prière. S’arrêter, ça s’appelle la grève, et c’est interdit."
+    ],
+    "reactions": [
+      {
+        "quest": "registre-puits",
+        "flag": "tam-monte",
+        "lines": [
+          "Le fils Orvel est monté. Au registre, son nom est déjà effacé par la pluie. Là-haut, il respire. Ici, on l’oublie."
+        ]
+      },
+      {
+        "quest": "registre-puits",
+        "flag": "tam-arrete",
+        "lines": [
+          "Le fils Orvel ? Pris à l’inspection. Faux d’Innovateur. Dans la file, on ne prononce plus son nom."
+        ]
+      }
     ]
   },
   {
@@ -372,10 +623,23 @@
     "location": "ironheart-forges",
     "name": "Un Veilleur de Rouille",
     "tile": "veilleur-rouille",
-    "path": [[19, 4]],
+    "path": [
+      [
+        19,
+        4
+      ]
+    ],
     "lines": [
-      "La rouille est corruption. Je l’inspecte, je la note, je la signale.",
+      "La rouille est corruption. Celle du fer, je la gratte. Celle de l’âme, je la signale.",
       "Une rouille bleue ? Ça n’existe pas. Et si ça existait, ce serait pire."
+    ],
+    "reactions": [
+      {
+        "flag": "rouille-signalee",
+        "lines": [
+          "Ah. Toi. Le poignet qui brille. Je t’ai à l’œil : les marques, ça ne recule jamais tout seul."
+        ]
+      }
     ]
   },
   {
@@ -383,7 +647,12 @@
     "location": "ironheart-marche",
     "name": "Un Ferrôme reconditionné",
     "tile": "ferrome",
-    "path": [[8, 11]],
+    "path": [
+      [
+        8,
+        11
+      ]
+    ],
     "lines": [
       "Pièces détachées, garanties d’origine. L’origine, on ne la dit pas.",
       "Ne dis jamais « réformé » devant un Ferrôme. C’est une insulte."
@@ -394,10 +663,27 @@
     "location": "ironheart-marche",
     "name": "Une marchande de cristaux",
     "tile": "ouvrier",
-    "path": [[3, 3], [11, 3], [11, 10], [3, 10]],
+    "path": [
+      [
+        3,
+        3
+      ],
+      [
+        11,
+        3
+      ],
+      [
+        11,
+        10
+      ],
+      [
+        3,
+        10
+      ]
+    ],
     "lines": [
       "Cristaux de toutes tailles ! Pas de facture, pas de question.",
-      "Les visières rouges ne descendent jamais ici. Trop de tunnels."
+      "Pas de garantie : un cristal qu’on force trop souvent se fend dans la main. Et la main, après, n’est plus tout à fait une main."
     ]
   },
   {
@@ -405,10 +691,27 @@
     "location": "ironheart-manufactures",
     "name": "Un employé en gris clair",
     "tile": "archiviste-guichet",
-    "path": [[5, 8], [20, 8], [20, 13], [5, 13]],
+    "path": [
+      [
+        5,
+        8
+      ],
+      [
+        20,
+        8
+      ],
+      [
+        20,
+        13
+      ],
+      [
+        5,
+        13
+      ]
+    ],
     "lines": [
       "Le tramway a quarante secondes de retard. C’est noté.",
-      "Les Archives ? Au bout de l’avenue : six étages de pierre grise. On ne peut pas les manquer."
+      "Ici, l’air se respire. En bas, il se mâche. Nous l’avons mérité, voilà tout. Les Archives ? Au bout de l’avenue."
     ]
   },
   {
@@ -416,25 +719,65 @@
     "location": "ironheart-manufactures",
     "name": "Un horloger",
     "tile": "ouvrier",
-    "path": [[9, 6]],
+    "path": [
+      [
+        9,
+        6
+      ]
+    ],
     "lines": [
       "Une horloge de Ferros ne retarde jamais. Elle attend que le monde la rattrape."
     ]
-   },
+  },
   {
     "id": "cheminot-triage",
     "location": "ironheart-triage",
     "name": "Un cheminot",
     "tile": "cheminot",
-    "path": [[3, 12], [11, 12], [11, 13], [3, 13]],
+    "path": [
+      [
+        3,
+        12
+      ],
+      [
+        11,
+        12
+      ],
+      [
+        11,
+        13
+      ],
+      [
+        3,
+        13
+      ]
+    ],
     "lines": [
       "La nuit, plus personne ne roule. Le jour, on roule pour deux.",
       "Une grève ? Jamais. On est fatigués, c’est tout. Ça, c’est encore permis."
     ],
     "reactions": [
-      { "quest": "rail-cendres", "flag": "rail-travailleurs", "lines": ["Les convois de nuit sont repartis. Varka dit que c’est grâce à toi."] },
-      { "quest": "rail-cendres", "flag": "rail-bureau", "lines": ["Le Bureau a pris la machine. Maintenant, il en veut d’autres. Pour nous remplacer."] },
-      { "quest": "rail-cendres", "flag": "rail-marches", "lines": ["Encore un convoi parti seul, cette nuit. Toi, tu sais quelque chose. Ça se voit."] }
+      {
+        "quest": "rail-cendres",
+        "flag": "rail-travailleurs",
+        "lines": [
+          "Les convois de nuit sont repartis. Varka dit que c’est grâce à toi."
+        ]
+      },
+      {
+        "quest": "rail-cendres",
+        "flag": "rail-bureau",
+        "lines": [
+          "Le Bureau a pris la machine. Maintenant, il en veut d’autres. Pour nous remplacer."
+        ]
+      },
+      {
+        "quest": "rail-cendres",
+        "flag": "rail-marches",
+        "lines": [
+          "Encore un convoi parti seul, cette nuit. Toi, tu sais quelque chose. Ça se voit."
+        ]
+      }
     ]
   },
   {
@@ -442,15 +785,38 @@
     "location": "ironheart-triage",
     "name": "Une cheminote",
     "tile": "cheminot",
-    "path": [[21, 5]],
+    "path": [
+      [
+        21,
+        5
+      ]
+    ],
     "lines": [
       "Mon grand-père disait : un rail, c’est une promesse. Tu le poses, et quelqu’un d’autre roulera dessus.",
       "Trois heures du matin : l’heure où les convois partent seuls."
     ],
     "reactions": [
-      { "quest": "rail-cendres", "flag": "rail-travailleurs", "lines": ["Joss tient son levier toute la nuit, maintenant. On dort mieux."] },
-      { "quest": "rail-cendres", "flag": "rail-bureau", "lines": ["Joss est parti. Renvoyé. Le Bureau classe, il ne pardonne pas."] },
-      { "quest": "rail-cendres", "flag": "rail-marches", "lines": ["Varka ne parle plus de toi. C’est mauvais signe, ici."] }
+      {
+        "quest": "rail-cendres",
+        "flag": "rail-travailleurs",
+        "lines": [
+          "Joss tient son levier toute la nuit, maintenant. On dort mieux."
+        ]
+      },
+      {
+        "quest": "rail-cendres",
+        "flag": "rail-bureau",
+        "lines": [
+          "Joss est au cachot du Bureau. Trahison, qu’ils disent. On ne le reverra pas."
+        ]
+      },
+      {
+        "quest": "rail-cendres",
+        "flag": "rail-marches",
+        "lines": [
+          "Joss. On l’a trouvé entre deux wagons, à l’aube. Varka ne parle plus de toi. C’est mauvais signe, ici."
+        ]
+      }
     ]
   },
   {
@@ -458,14 +824,30 @@
     "location": "ironheart-forges",
     "name": "Un vieux forgeron",
     "tile": "vieux-forgeron",
-    "path": [[7, 4]],
+    "path": [
+      [
+        7,
+        4
+      ]
+    ],
     "lines": [
       "Cette forge-là s’est éteinte toute seule, il y a vingt ans. Depuis, on passe au large.",
       "Certaines nuits, elle rougeoie. Sans feu. Moi, je dors de l’autre côté de la rue."
     ],
     "reactions": [
-      { "quest": "echos-forge", "lines": ["La vieille forge rougeoie encore, la nuit. Bizarre : ça ne me fait plus peur."] },
-      { "quest": "echos-forge", "flag": "echos-dissipes", "lines": ["Depuis quelques nuits, on entend des voix sous les pavés. Plus qu’avant."] }
+      {
+        "quest": "echos-forge",
+        "lines": [
+          "La vieille forge rougeoie encore, la nuit. Bizarre : ça ne me fait plus peur."
+        ]
+      },
+      {
+        "quest": "echos-forge",
+        "flag": "echos-dissipes",
+        "lines": [
+          "Depuis quelques nuits, on entend des voix sous les pavés. Plus qu’avant."
+        ]
+      }
     ]
   }
 ]

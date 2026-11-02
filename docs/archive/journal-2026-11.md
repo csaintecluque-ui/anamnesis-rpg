@@ -902,6 +902,21 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
 - Cyril : « Oui pour tout, mets en ligne » : chiffres, publics, rumeurs et secrets validés ; étape 4 mise en ligne ;
   page Notion « Anamnesis — le jeu » complétée (les veillées, leurs publics, rumeurs et secrets).
 
+## 2026-11-02 (suite) : jalon 3, étape 5, la passe sombre
+
+- Cyril : « L'étape 4 est en cours, passe à la 5 » (les veillées se font dans une autre session). Canon relu dans le
+  Notion (agent, lecture seule) : castes de Ferros (roman II.3, III.4, III.7, IV.6, V.1), fiches Ferros et Verdantis,
+  « Règles fondamentales » (prix de la magie), « Les Treize Jours ». Trois nouvelles zones floues (29 à 31).
+- Construit (`docs/gdd/passe-sombre.md`) : les **marques du cristal** (forcer se joue au d20 ; les veines, le manque,
+  la peau de cristal, puis le cristal se fend ; Vanel les reprend contre un rang de Résonance ; la « rouille de l'âme »
+  au funiculaire) ; « **Le registre du Puits Trois** » (Kerta, Tam, Dask ; trois fins) ; **morts** : Pell (la
+  chaudière de la Gare), Joss (les Marches, ou le tribunal du Bureau) ; Elvan banni ; passants des trois villes
+  réécrits. Pas de nouvelle version de sauvegarde (`character.marques` facultatif), pour ne pas croiser l'étape 4.
+  528 tests ; vérifié sur PC et téléphone (Forges-Basses, dialogue de Kerta, inventaire avec trois marques).
+- Cyril : « Je dis oui pour tout, mets le tout en ligne, puis fais-moi une vérification et un test qualité de
+  l'ensemble des éléments du jeu. » Passe sombre validée (marques, Puits Trois, morts, zones floues 29 et 30) ;
+  fusion de `main` (les veillées) ; mise en ligne.
+
 ## 2026-11-02 (suite) : jalon 3, étape 6, les voies endormies et les contrats
 
 - Cyril : « On passe à la 6, la 5 est en cours » (la passe sombre se fait dans une autre session).
@@ -911,4 +926,3 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   l'Ancien Monde, coffre du chef de gare au terminus). Tableaux de contrats dans les relais de Gardebois et de Canopéa
   et sur le mur de la Bielle : pli, recherche, chasse ; un à la fois ; renouvelés tous les trois jours ; au journal.
   Sauvegarde v15. 548 tests (dont 360 visites tirées, toutes valides et accessibles) ; vérifié sur PC et téléphone.
-

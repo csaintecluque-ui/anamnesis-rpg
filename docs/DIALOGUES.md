@@ -716,7 +716,7 @@ _Effet : +undefined XP._
 
 _Herboriste_
 
-Commence par : « manger » _(si quête « Ce que Liane veut oublier » en cours)_ _(si l’on porte « Vieux Champignon-Mémoire »)_, sinon « nuit » _(si quête « Ce que Liane veut oublier » pas commencée)_ _(si quête « undefined » undefined)_, sinon « legere » _(si repère « liane-a-oublie »)_, sinon « route-bon » _(si quête « undefined » undefined)_, sinon « route-froid » _(si quête « undefined » undefined)_, sinon « route »
+Commence par : « marques » _(si quête « undefined » undefined)_ _(sans repère « liane-a-vu-marques »)_, sinon « manger » _(si quête « Ce que Liane veut oublier » en cours)_ _(si l’on porte « Vieux Champignon-Mémoire »)_, sinon « nuit » _(si quête « Ce que Liane veut oublier » pas commencée)_ _(si quête « undefined » undefined)_, sinon « legere » _(si repère « liane-a-oublie »)_, sinon « route-bon » _(si quête « undefined » undefined)_, sinon « route-froid » _(si quête « undefined » undefined)_, sinon « route »
 
 ### route
 
@@ -817,6 +817,15 @@ _Effet : +undefined XP._
 
 - « À bientôt, Liane. » → **fin**
 
+### marques
+
+_Effet : retient « liane-a-vu-marques »._
+
+> Liane attrape ta main et la retourne, sans demander. — Tes veines. Tu forces ton cristal. J’ai vu des guérisseurs finir comme ça, à Gardebois : ils soignaient tout le monde, sauf eux. Vanel peut te les reprendre. Ne fais pas l’idiot·e.
+
+- « Je ferai attention. » → **fin**
+- « Je sais ce que je fais. » → **fin** _(+undefined XP)_
+
 ## La convoyeuse
 
 _Compagnie des Lisières, la caravane de midi_
@@ -871,6 +880,74 @@ Commence par : « cristal »
 
 - « Se reposer un instant. » → **fin** _(+40 PV)_
 - « S’éloigner. » → **fin**
+
+## Le technicien Dask
+
+_Classe Technique, Manufactures-Moyennes_
+
+Commence par : « apres » _(si repère « dask-parrain »)_, sinon « dossier » _(si quête « Le registre du Puits Trois » en cours)_, sinon « accueil »
+
+### accueil
+
+> Un homme en gris clair, des chiffres bleus tatoués au poignet, classe des fiches sans lever les yeux. — Classe Technique. Si vous n’avez rien à parrainer, vous avez déjà pris trop de mon temps.
+
+- « Pardon. » → **fin**
+
+### dossier
+
+> Il lève enfin les yeux. — Orvel ? Le masque à filtre, je sais : l’inspecteur de zone m’en a parlé. Un Ouvrier transfère sous la responsabilité de son parrain. S’il déçoit, c’est mon nom qui rouille. Il me faut une raison.
+
+- **[60 Fers]** « Soixante Fers, pour les mains à graisser. » → paye _(−60 Fers, retient « dask-parrain »)_
+- **[Diplomatie 3]** « Un Innovateur qui vous doit tout vous sera fidèle. » → convaincu _(retient « dask-parrain »)_
+- « Que voulez-vous d’autre ? » → nom
+- **🎲 Subterfuge 14** « Pendant qu’il cherche un formulaire, apposer son sceau sur le dossier. » → faux-ok, ✗ → faux-bancal
+
+### nom
+
+> — Le masque. Déclaré à mon nom : le masque Dask. Le garçon montera comme mon assistant, bien payé. Les Manufactures le vendront aux fonderies qui paient. C’est ainsi que le progrès monte : avec ceux qui savent le porter.
+
+- « Marché conclu. » → nom-ok _(retient « dask-parrain », retient « dask-nom », +undefined XP)_
+- « Non. » → dossier
+
+### paye
+
+> Les Fers disparaissent dans un tiroir. Dask signe d’une main, sans regarder. — Le nom d’Orvel sera au registre du Puits Trois demain. Le convoi part à l’aube. Qu’il ne soit pas en retard : ici, le retard s’écrit aussi.
+
+- « Bien. » → **fin**
+
+### convaincu
+
+> Dask réfléchit, la plume en l’air. — Fidèle. Oui. On manque de gens fidèles, là-haut. Il signe. — Orvel au registre demain. S’il me déçoit, je saurai qui vous êtes : vous êtes dans les listes, vous aussi.
+
+- « Bien. » → **fin**
+
+### nom-ok
+
+> Dask sourit pour la première fois, de toutes ses dents. — Vous comprenez Ferros mieux que la plupart des Ferriens. Le nom d’Orvel au registre demain. Le masque, lui, sera à la page Dask.
+
+- « … » → **fin**
+
+### faux-ok
+
+_Effet : retient « dask-parrain »._
+
+> Dask fouille un tiroir en maugréant. Le sceau est là, sur le bureau : tu l’appliques au bas du dossier, net, et tu reposes tout avant qu’il se retourne. — Revenez avec une raison, grogne-t-il. Tu as déjà ce qu’il te faut.
+
+- « Je reviendrai. » → **fin**
+
+### faux-bancal
+
+_Effet : retient « dask-parrain », retient « faux-bancal »._
+
+> Le sceau glisse sous ta main ; l’empreinte bave un peu. Tu reposes tout avant qu’il se retourne. — Revenez avec une raison. Le dossier est signé. À peu près. Personne ne regarde jamais d’aussi près… n’est-ce pas ?
+
+- « Je reviendrai. » → **fin**
+
+### apres
+
+> — Le dossier Orvel est parti. Le reste ne me regarde plus. Circulez.
+
+- « … » → **fin**
 
 ## Dorna Vissard
 
@@ -1263,7 +1340,7 @@ _Effet : retient « graines-elvan-avoue »._
 
 ### denonce
 
-> Elvan blêmit. — La Compagnie ne me le pardonnera pas… ni à toi. Un Garde Vert l’emmène le soir même, ballot compris. À Canopéa, on n’aime pas ceux qui vendent l’avenir.
+> Elvan blêmit. — Banni. Ils vont me bannir. Un Garde Vert l’emmène le soir même, ballot compris. Ici, on n’enferme pas : on retire les racines. Il partira sans nom, et la Compagnie ne le reconnaîtra plus.
 
 - « Les graines rentreront au grenier. » → **fin**
 
@@ -1317,7 +1394,7 @@ _Effet : retient « enclume-vue »._
 
 _Objet_
 
-Commence par : « faussee » _(si repère « foreuse-sabotee »)_, sinon « arretee » _(si repère « chantier-arrete »)_, sinon « gardee » _(si repère « surpris-de-nuit »)_, sinon « jour »
+Commence par : « explosee » _(si repère « foreuse-explosee »)_, sinon « faussee » _(si repère « foreuse-sabotee »)_, sinon « arretee » _(si repère « chantier-arrete »)_, sinon « gardee » _(si repère « surpris-de-nuit »)_, sinon « jour »
 
 ### jour
 
@@ -1338,6 +1415,7 @@ Commence par : « faussee » _(si repère « foreuse-sabotee »)_, sinon « arre
 > 🌙 Te voilà au pied de la foreuse, dans l’odeur d’huile et de pierre chaude. Personne n’a rien vu.
 
 - **🎲 Artisanat 10** « Saboter le mécanisme. » → sabotee, ✗ → bruit
+- « Ouvrir la chaudière en grand, et courir. » → chaudiere _(retient « foreuse-sabotee », retient « foreuse-explosee », retient « chantier-arrete », termine la quête « Le Dernier Train », +70 XP, +30 Fers, +undefined XP)_
 - « Repartir sans rien toucher. » → **fin**
 
 ### sabotee
@@ -1379,6 +1457,18 @@ _Effet : retient « surpris-de-nuit »._
 ### faussee
 
 > La foreuse est muette, un engrenage faussé dans le ventre.
+
+- « S’éloigner. » → **fin**
+
+### chaudiere
+
+> 🌙 Tu ouvres la vanne en grand et tu cours. Derrière toi, la chaudière hurle, puis éclate. Le feu éclaire tout le quai. Au matin, on compte : la foreuse est morte. Le garçon qui veillait sous la lanterne aussi.
+
+- « Attendre le jour. » → **fin**
+
+### explosee
+
+> La foreuse n’est plus qu’une carcasse noire, ouverte comme une fleur de fer. Au bord du quai, de la terre fraîche, et une lanterne éteinte posée dessus.
 
 - « S’éloigner. » → **fin**
 
@@ -1594,7 +1684,7 @@ Commence par : « halte »
 
 _Atelier Cendrefer_
 
-Commence par : « lettre » _(si l’on porte « Lettre pour Ilyane »)_ _(si quête « Les Échos sous la Forge » en cours)_, sinon « accueil-remise » _(si repère « remise-cendrefer »)_, sinon « accueil »
+Commence par : « masques » _(si l’on porte « Plans du masque de Tam »)_ _(si quête « Le registre du Puits Trois » en cours)_, sinon « lettre » _(si l’on porte « Lettre pour Ilyane »)_ _(si quête « Les Échos sous la Forge » en cours)_, sinon « accueil-remise » _(si repère « remise-cendrefer »)_, sinon « accueil »
 
 ### accueil
 
@@ -1632,6 +1722,14 @@ Commence par : « lettre » _(si l’on porte « Lettre pour Ilyane »)_ _(si qu
 _Effet : reprend 1 × « Lettre pour Ilyane », retient « echos-confies », termine la quête « Les Échos sous la Forge », +40 XP._
 
 > — Pour Ilyane, à Gardebois ? Tobias la lui portera, avec la prochaine caisse. Hedda soupèse la lettre. — Elle est lourde, pour une seule feuille.
+
+- « Merci, Hedda. » → **fin**
+
+### masques
+
+_Effet : reprend 1 × « Plans du masque de Tam », retient « masques-forges », termine la quête « Le registre du Puits Trois », +50 XP._
+
+> Hedda déplie le papier, le lit deux fois. — Du feutre, du charbon, trois lanières. Bête comme tout, et personne n’y avait pensé. Une Innovation non déclarée… Elle sourit de travers. — L’atelier est à la Compagnie des Lisières, pas à Ferros. J’en coudrai cent.
 
 - « Merci, Hedda. » → **fin**
 
@@ -1762,7 +1860,7 @@ _Effet : retient « mensonge-huissier »._
 
 _Gardienne de Mémoire de Gardebois_
 
-Commence par : « echo-lettre » _(si repère « echos-confies »)_ _(sans repère « ilyane-echo-lu »)_, sinon « carnet » _(si quête « Le carnet de chansons » en cours)_ _(si l’on porte « Carnet de chansons d’Ilyane »)_, sinon « nouvelles-canopee » _(si quête « L’audience » terminée)_, sinon « resolu » _(si quête « Le Dernier Train » terminée)_, sinon « en-cours » _(si quête « Le Dernier Train » en cours)_, sinon « accueil »
+Commence par : « echo-lettre » _(si repère « echos-confies »)_ _(sans repère « ilyane-echo-lu »)_, sinon « carnet » _(si quête « Le carnet de chansons » en cours)_ _(si l’on porte « Carnet de chansons d’Ilyane »)_, sinon « nouvelles-canopee » _(si quête « L’audience » terminée)_, sinon « pell » _(si repère « foreuse-explosee »)_ _(sans repère « ilyane-sait-pell »)_, sinon « resolu » _(si quête « Le Dernier Train » terminée)_, sinon « en-cours » _(si quête « Le Dernier Train » en cours)_, sinon « accueil »
 
 ### resolu
 
@@ -1865,11 +1963,19 @@ _Effet : retient « ilyane-echo-lu », +10 XP._
 
 - « Je la garderai. » → **fin**
 
+### pell
+
+_Effet : retient « ilyane-sait-pell »._
+
+> Ilyane ne te regarde pas tout de suite. — Le vent a porté la fumée jusqu’ici. Un garçon de Ferros est mort, à la Gare. La maladie recule ; personne ne revit plus la Chute. Mais lui, personne ne le revivra. Un Gardien se souvient aussi de ce qu’il a coûté.
+
+- « Je m’en souviendrai. » → resolu
+
 ## Ingrid Brisefer
 
 _Ingénieure, prospection de Ferros_
 
-Commence par : « apres-sabotage » _(si repère « foreuse-sabotee »)_, sinon « apres » _(si quête « Le Dernier Train » terminée)_, sinon « soupcon » _(si repère « surpris-de-nuit »)_, sinon « barriere » _(si quête « Le Dernier Train » en cours)_ _(sans repère « laissez-passer »)_, sinon « accueil »
+Commence par : « apres-explosion » _(si repère « foreuse-explosee »)_, sinon « apres-sabotage » _(si repère « foreuse-sabotee »)_, sinon « apres » _(si quête « Le Dernier Train » terminée)_, sinon « soupcon » _(si repère « surpris-de-nuit »)_, sinon « barriere » _(si quête « Le Dernier Train » en cours)_ _(sans repère « laissez-passer »)_, sinon « accueil »
 
 ### accueil
 
@@ -1930,6 +2036,19 @@ Commence par : « apres-sabotage » _(si repère « foreuse-sabotee »)_, sinon 
 > — Au Marché des Lisières, chez les Cendrefer. Tobias en a toujours un dans sa manche, à son prix. Et ne traîne pas ici la nuit : le chantier dort, mais la lanterne veille.
 
 - « Partir. » → **fin**
+
+### apres-explosion
+
+> Ingrid a les mains bandées et les yeux secs. — Pell. Vingt-deux ans. Il gardait la lanterne parce qu’il avait peur du noir. On l’a enterré ce matin, au bord du quai. La foreuse ne creusera plus. Si j’apprends qui a fait ça…
+
+- « Je suis désolé·e. » → **fin**
+- « Il ne fallait pas creuser ici. » → explosion-dur
+
+### explosion-dur
+
+> — Peut-être. La Faille rendait les gens malades, je le sais, maintenant. Mais ce n’est pas la Faille qui a tué Pell.
+
+- « … » → **fin**
 
 ## Joss Brakel
 
@@ -2224,6 +2343,72 @@ _Effet : retient « kaelis-parle »._
 - _(si Récit « Les voix du Bosquet » connu)_ « Au Bosquet des Échos, le bois garde la main de qui a gravé. Et tes os ? » → bonne
 - « Et toi, de quoi te souviens-tu ? » → refus
 
+## Kerta Orvel
+
+_Fondeuse des Forges-Basses_
+
+Commence par : « apres-arrete » _(si quête « Le registre du Puits Trois » terminée)_ _(si repère « tam-arrete »)_, sinon « apres-monte » _(si quête « Le registre du Puits Trois » terminée)_ _(si repère « tam-monte »)_, sinon « apres-masques » _(si quête « Le registre du Puits Trois » terminée)_ _(si repère « masques-forges »)_, sinon « attente » _(si quête « Le registre du Puits Trois » en cours)_, sinon « accueil »
+
+### accueil
+
+> Une femme aux avant-bras couturés de brûlures attend son tour au Puits Trois, un seau de fer à la main. La file ne parle pas. Elle, si, à voix basse : — Tu n’es pas d’ici. Tant mieux. Ici, personne ne m’aidera.
+
+- « Qu’est-ce qui ne va pas ? » → probleme
+- « Pourquoi la file se tait-elle ? » → file
+- « Bonne journée. » → **fin**
+
+### file
+
+> — Parce que les seaux de cuivre passent devant, et que le gardien entend tout. Le Un et le Deux, c’est pour les castes d’en haut : un Ouvrier qui s’y risque, ça finit mal. Le Trois, c’est le nôtre. L’eau a le goût de la forge.
+
+- « Et toi, qu’est-ce qui ne va pas ? » → probleme
+- « Je vois. » → **fin**
+
+### probleme
+
+> — Mon fils, Tam. Dix-neuf ans, riveteur. Il crache noir, comme son père avant de mourir. Il a inventé un masque qui garde les poumons. Une Innovation, ça se déclare : alors on change de caste, on part aux Manufactures, où l’air se respire.
+
+- « Où est le problème ? » → probleme2
+
+### probleme2
+
+_Effet : lance la quête « Le registre du Puits Trois »._
+
+> — Il faut un parrain de Classe Technique, et personne ne parraine un Ouvrier pour rien. Et Tam ne veut pas monter : il veut que le masque reste en bas. Il va mourir pour une idée. Va voir Dask, le technicien, aux Manufactures. Fais-le monter.
+
+- « J’irai voir Dask. » → **fin**
+- « Et ce que veut Tam ? » → tam-veut
+
+### tam-veut
+
+> — Tam veut ce que voulait son père : changer les choses d’ici. Son père est mort à quarante et un ans ; aux Forges, on dit que c’est un bel âge. Moi, je dis que c’est mon fils. Il est là, près du registre. Parle-lui, puis va voir Dask.
+
+- « D’accord. » → **fin**
+
+### attente
+
+> Kerta remplit son seau sans te regarder. — Dask, aux Manufactures-Moyennes, près des Archives. Il a les chiffres bleus au poignet. Il parraine quand ça lui rapporte. Tam, lui, est près du registre. Il tousse moins quand on ne le regarde pas.
+
+- « J’y vais. » → **fin**
+
+### apres-monte
+
+> Kerta se tient seule dans la file. — Il a pris le convoi ce matin. Il ne s’est pas retourné ; je le lui avais demandé. Là-haut, l’air se respire. Ceux qui montent ne redescendent guère, et ne nous regardent plus pareil. C’est le prix.
+
+- « Il respire. C’est l’essentiel. » → **fin**
+
+### apres-masques
+
+> Kerta porte un masque de feutre au cou, comme toute la file. — Tu lui as donné raison. Les autres respirent mieux, grâce à lui. Lui tousse encore. Tu ne seras pas là le jour où il crachera rouge. Moi, si.
+
+- « … » → **fin**
+
+### apres-arrete
+
+> Kerta est dans la file. Son seau est vide ; elle ne le remplit pas. — Les visières rouges l’ont pris à l’inspection. « Faux d’Innovateur. » Un sceau qui bavait. Personne ne me dit où il est. Personne ne me le dira jamais. Va-t’en.
+
+- « … » → **fin**
+
 ## Des lettres éparpillées
 
 _Objet_
@@ -2462,7 +2647,7 @@ Commence par : « apres » _(si quête « La berceuse oubliée » terminée)_, s
 
 ### demande
 
-> Tu es l’apprenti·e d’Ilyane ? Ma fille, Nell… depuis trois nuits, elle ne reconnaît plus la berceuse que je lui chante. Elle m’écoute comme on écoute une étrangère.
+> Tu es l’apprenti·e d’Ilyane ? Ma fille, Nell… depuis trois nuits, elle ne reconnaît plus la berceuse que je lui chante. Ce matin, elle m’a appelée « madame ». Elle m’écoute comme on écoute une étrangère.
 
 - « Je vais t’aider. Que puis-je faire ? » → piste _(lance la quête « La berceuse oubliée »)_
 - « Je suis désolé·e. Je dois partir. » → **fin**
@@ -2876,7 +3061,7 @@ Commence par : « apres » _(si repère « rail-bureau »)_, sinon « rapport »
 
 ### fin-bureau
 
-> — Parfait. Les visières rouges descendront à la Cendrière cette nuit. L’aiguilleur sera classé : renvoyé. La machine ira aux Manufactures : si elle conduit seule, elle conduira pour l’Empire. Votre prime : soixante Fers.
+> — Parfait. Les visières rouges descendront à la Cendrière cette nuit. L’aiguilleur sera classé : sabotage d’un secteur stratégique, au tribunal de dire trahison. La machine ira aux Manufactures : elle conduira pour l’Empire. Votre prime : soixante Fers.
 
 - « … » → **fin**
 
@@ -2890,7 +3075,7 @@ Commence par : « apres » _(si repère « rail-bureau »)_, sinon « rapport »
 
 _Funiculaire des Manufactures-Moyennes_
 
-Commence par : « liste » _(si quête « undefined » undefined)_ _(sans repère « liste-ferros »)_, sinon « passe » _(si repère « laissez-passer-ironheart »)_, sinon « controle »
+Commence par : « rouille » _(si quête « undefined » undefined)_ _(sans repère « rouille-ame »)_, sinon « liste » _(si quête « undefined » undefined)_ _(sans repère « liste-ferros »)_, sinon « passe » _(si repère « laissez-passer-ironheart »)_, sinon « controle »
 
 ### controle
 
@@ -2959,6 +3144,42 @@ _Effet : retient « liste-ferros »._
 - _(sans repère « laissez-passer-ironheart »)_ « Et le funiculaire ? » → controle
 - _(si repère « laissez-passer-ironheart »)_ « Et le funiculaire ? » → passe
 - « Compris. » → **fin**
+
+### rouille
+
+> Il te saisit le poignet. Sous la peau, tes veines luisent de la couleur du cristal. Il lâche aussitôt. — Rouille de l’âme. Ça, ce n’est plus une liste : c’est un signalement. À moins que tu aies une bonne raison.
+
+- **🎲 Subterfuge 13** « « Une brûlure de forge, rien d’autre. » » → rouille-bluff, ✗ → rouille-cellule
+- **[20 Fers]** « Lui glisser vingt Fers. » → rouille-payee _(−20 Fers)_
+- « Je n’ai rien à cacher. » → rouille-cellule
+
+### rouille-bluff
+
+_Effet : retient « rouille-ame »._
+
+> — Une brûlure. Il te fixe trois secondes de trop. — Alors soigne-la, et couvre-la : le prochain sera moins myope que moi.
+
+- _(sans repère « laissez-passer-ironheart »)_ « Et le funiculaire ? » → controle
+- _(si repère « laissez-passer-ironheart »)_ « Et le funiculaire ? » → passe
+- « Bon. » → **fin**
+
+### rouille-payee
+
+_Effet : retient « rouille-ame »._
+
+> Les Fers disparaissent dans son gant. Il n’écrit rien. — Inspecté. Couvre ça, que je n’aie pas à le revoir. Ici, ce qu’on te laisse passer, ça se paie. Toujours.
+
+- _(sans repère « laissez-passer-ironheart »)_ « Et le funiculaire ? » → controle
+- _(si repère « laissez-passer-ironheart »)_ « Et le funiculaire ? » → passe
+- « Bon. » → **fin**
+
+### rouille-cellule
+
+_Effet : retient « rouille-ame », retient « rouille-signalee », +undefined XP, +undefined XP._
+
+> 🌙 Le poste : une cellule de fer, un banc, un seau. On t’y garde « le temps de vérifier ton statut ». Au matin, un Veilleur de Rouille note tes veines, ton nom, ta pension, et l’on te relâche. Te voilà fiché·e, à l’encre rouge.
+
+- « Sortir. » → **fin**
 
 ## La patrouilleuse des Manufactures
 
@@ -3361,7 +3582,7 @@ _Effet : retient « verite-rail »._
 
 ### apres
 
-> — Tiens, une tête connue. La machine roule, les wagons arrivent. Tout le monde y gagne… presque.
+> — Tiens, une tête connue. La machine roule, les wagons arrivent. L’aiguilleur ? Il savait compter, c’est tout. Ceux qui savent compter finissent toujours par parler.
 
 - « Au revoir. » → **fin**
 
@@ -3468,6 +3689,22 @@ Commence par : « accueil »
 > — Il chauffe, il mord, il brûle : les Flammes forgées. Les pyromanciens en font des prières, les technomanciens des machines. Toi, fais-en ce que tu veux, mais pas sous le nez d’un patrouilleur.
 
 - « Voyons tes cristaux. » → **fin** _(ouvre le Troc)_
+- _(si quête « undefined » undefined)_ « Tu regardes mes veines. » → veines
+- _(si l’on porte « Éclats de cristal »)_ « Tu rachètes des éclats ? » → eclats
+- « Merci. » → **fin**
+
+### eclats
+
+> Elle fait rouler les éclats dans sa paume noire. — Un cristal forcé jusqu’à la fente. Celui qui le portait a les veines qui brillent, je parie. Ici, on ne pose pas de questions : vingt Fers, et je les retaille en perles pour les riches.
+
+- « Vendus. » → **fin** _(reprend 1 × « Éclats de cristal », +20 Fers)_
+- « Je les garde. » → **fin**
+
+### veines
+
+> — Tu forces. Ça se voit d’ici. J’en ai connu un, aux Forges, qui forçait chaque soir pour tenir sa cadence. À la fin, sa peau sonnait comme du verre, et il ne parlait plus qu’à son cristal. Les Druides Verts savent reprendre ça. Pas nous.
+
+- « Voyons tes cristaux. » → **fin** _(ouvre le Troc)_
 - « Merci. » → **fin**
 
 ### dorna
@@ -3482,6 +3719,90 @@ Commence par : « accueil »
 > Elle enveloppe le cristal dans un chiffon noir. — Dis à Dorna que la tente est toujours là. Elle comprendra.
 
 - « Merci. » → **fin**
+
+## Tam Orvel
+
+_Riveteur des Forges-Basses_
+
+Commence par : « apres-masques » _(si quête « Le registre du Puits Trois » terminée)_ _(si repère « masques-forges »)_, sinon « decision » _(si quête « Le registre du Puits Trois » en cours)_ _(si repère « dask-parrain »)_, sinon « parle » _(si quête « Le registre du Puits Trois » en cours)_, sinon « accueil »
+
+### accueil
+
+> Un jeune homme maigre tousse dans sa manche, près du registre, puis cache vite la manche. — Tu lis le registre ? Personne ne le lit vraiment. On y cherche son nom, ou celui d’un autre, et on se tait.
+
+- « Pourquoi caches-tu ta manche ? » → toux
+- « Bonne journée. » → **fin**
+
+### toux
+
+> — Parce qu’il y a du noir dedans. Tout le monde en a, ici, au bout de quelques années. Moi, j’ai trouvé comment en avoir moins. Personne n’a rien demandé.
+
+- « Bonne journée. » → **fin**
+
+### parle
+
+_Effet : retient « tam-ecoute »._
+
+> — Ma mère t’a parlé. Évidemment. Le masque : du feutre, du charbon de bois, trois lanières. Si je le déclare, il monte avec moi : une Innovation des Manufactures, vendue aux fonderies, qui n’en achèteront jamais pour des Ouvriers.
+
+- « Et si tu restes ? » → reste
+- « Ta mère veut que tu vives. » → vivre
+- « Je reviendrai. » → **fin**
+
+### reste
+
+> — Si je reste, je donne les plans à qui saura les coudre, et toute la file respire mieux. Moi, peut-être pas assez longtemps. Mon père disait : « Un rivet tient parce qu’il est tout en bas. » Je ne veux pas devenir un de ceux qui regardent d’en haut.
+
+- _(sans repère « plans-confies »)_ _(sans repère « dask-nom »)_ « Hedda Cendrefer pourrait les coudre. » → hedda
+- « Je comprends. » → **fin**
+
+### vivre
+
+> — Ma mère veut que je respire. Moi aussi, figure-toi. Mais je ne vois pas la différence entre monter et partir. Elle non plus, et elle le sait. Va voir Dask, si tu veux. Je déciderai quand il y aura quelque chose à décider.
+
+- « Bien. » → **fin**
+
+### hedda
+
+> — Cendrefer ? L’atelier de la Compagnie, la sœur du marchand de Verdantis ? Elle n’est d’aucune de nos castes. Elle coudrait, peut-être. Mais une Innovation non déclarée, c’est une faute : c’est toi qui porterais les plans.
+
+- « Donne-les-moi. » → plans _(donne 1 × « Plans du masque de Tam », retient « plans-confies », +undefined XP)_
+- « Pas encore. » → **fin**
+
+### plans
+
+> Il sort de sa veste un papier plié en quatre, gris de suie. — Les plans. Si on te les trouve, dis que tu les as volés. Ça vaudra mieux pour ma mère.
+
+- « Je les porte à Hedda. » → **fin**
+
+### decision
+
+> — Dask signe, alors. Mon nom au registre, le convoi de l’aube, l’air qui se respire. Et le masque devient le sien, ou celui des Manufactures. Dis-moi ce que tu ferais. Je t’écoute ; mais c’est moi qui monte, ou pas.
+
+- _(sans repère « faux-bancal »)_ « Monte. Pour ta mère, et pour tes poumons. » → monte _(retient « tam-monte », termine la quête « Le registre du Puits Trois », +50 XP)_
+- _(si repère « faux-bancal »)_ « Monte. Pour ta mère, et pour tes poumons. » → monte _(retient « tam-arrete », termine la quête « Le registre du Puits Trois », +20 XP)_
+- _(sans repère « dask-nom »)_ « Reste, et donne le masque à ceux d’en bas. » → masques-choix _(+undefined XP)_
+- « Je ne sais pas. » → **fin**
+
+### monte
+
+> Tam regarde longtemps la file, puis le registre. — D’accord. Pour elle. Il crache dans la poussière, noir, et sourit presque. — Là-haut, je penserai à vous. Au début, en tout cas. C’est ce qu’ils disent tous.
+
+- « Bonne route, Tam. » → **fin**
+
+### masques-choix
+
+> — Alors c’est dit. Il te tend un papier plié en quatre, gris de suie. — Les plans, pour Cendrefer. Ma mère ne te le pardonnera pas. Moi, je te remercierai chaque fois que je tousserai.
+
+- _(sans repère « plans-confies »)_ « J’y vais. » → **fin** _(donne 1 × « Plans du masque de Tam », retient « plans-confies »)_
+- _(si repère « plans-confies »)_ « J’ai déjà les plans. J’y vais. » → **fin**
+- « Attends, je réfléchis encore. » → decision
+
+### apres-masques
+
+> Tam porte un masque de feutre, comme toute la file. Il tousse toujours, mais il rit. — La moitié des Forges en porte. L’inspecteur de zone a demandé d’où ça venait. Tout le monde a répondu : « De nulle part. » C’est beau, nulle part.
+
+- « Prends soin de toi. » → **fin**
 
 ## L’Ancien Thalorin
 
@@ -3694,7 +4015,7 @@ _Effet : retient « cendriere-ouverte »._
 
 _Druide Vert, au Bosquet des Échos_
 
-Commence par : « apres » _(si quête « Un prêt de la Terre » terminée)_, sinon « retour » _(si quête « Un prêt de la Terre » en cours)_ _(si repère « tiven-soigne »)_, sinon « attente » _(si quête « Un prêt de la Terre » en cours)_, sinon « accueil »
+Commence par : « retour » _(si quête « Un prêt de la Terre » en cours)_ _(si repère « tiven-soigne »)_, sinon « eclats » _(si l’on porte « Éclats de cristal »)_ _(sans repère « vanel-eclats-vus »)_, sinon « marques » _(si quête « undefined » undefined)_ _(sans repère « vanel-a-vu-marques »)_, sinon « apres » _(si quête « Un prêt de la Terre » terminée)_, sinon « attente » _(si quête « Un prêt de la Terre » en cours)_, sinon « accueil »
 
 ### accueil
 
@@ -3702,6 +4023,7 @@ Commence par : « apres » _(si quête « Un prêt de la Terre » terminée)_, s
 
 - _(si quête « Un prêt de la Terre » pas commencée)_ « Apprends-moi. » → apprendre
 - « Qu’est-ce qu’un cristal de Résonance ? » → cristal
+- _(si quête « undefined » undefined)_ « Mes veines brillent, sous le cristal. » → marques
 - « Que la sève coule. » → **fin**
 
 ### cristal
@@ -3722,8 +4044,9 @@ _Effet : lance la quête « Un prêt de la Terre », donne 1 × « Cristal de Vi
 
 ### prix
 
-> — Alors tu sauras ce que coûte la magie. Quand le cristal n’a plus rien à donner, c’est toi qui paies : la fatigue, le nez qui saigne. Ne force jamais longtemps. Une bonne nuit de sommeil rend tout.
+> — Alors tu sauras ce que coûte la magie. Quand le cristal n’a plus rien à donner, c’est toi qui paies : le nez qui saigne, d’abord. Force souvent, et il te marque : les veines qui s’allument, le manque, la peau qui durcit. Le sommeil rend la fatigue. Pas les marques.
 
+- _(si quête « undefined » undefined)_ « Reprends mes marques. » → marques
 - « Compris. » → **fin**
 
 ### attente
@@ -3765,6 +4088,42 @@ _Effet : termine la quête « Un prêt de la Terre », +40 XP, +undefined XP._
 - « Et à Ferros ? » → ferros
 - « Et si je force trop ? » → prix
 - « Que la sève coule. » → **fin**
+
+### marques
+
+_Effet : retient « vanel-a-vu-marques »._
+
+> Vanel prend ton poignet et le tourne vers la lumière. Sous la peau, les veines luisent. — Tu as forcé. La Terre peut reprendre ce que tu lui as trop pris ; elle reprendra aussi un peu de ce que tu sais faire. C’est le prix, et personne ne le paie à ta place.
+
+- « Reprends-les. » → effacees _(+undefined XP)_
+- « Je les garde. » → gardees
+
+### effacees
+
+> Il pose une main sur le cristal, l’autre sur ta poitrine. Une chaleur, puis un froid, comme une sève qui redescend. — Voilà. Tu en sais un peu moins ; tu vivras un peu plus longtemps. Que la sève coule.
+
+- « Merci, Vanel. » → **fin**
+
+### gardees
+
+> — Comme tu veux. Mais écoute : j’ai connu des Guérisseurs Verts qui forçaient chaque soir, pour sauver un malade de plus. À la fin, ils ne parlaient plus qu’à leur pierre. Reviens avant.
+
+- « Je reviendrai. » → **fin**
+
+### eclats
+
+_Effet : retient « vanel-eclats-vus »._
+
+> Vanel regarde les éclats dans ta main, longtemps. — Un cristal qui se fend, c’est un cristal qu’on a trop serré. La Terre ne prête pas deux fois la même pierre. Donne-les-moi : je les rendrai au pied de l’arbre.
+
+- « Les lui donner. » → eclats-rendus _(reprend 1 × « Éclats de cristal »)_
+- « Je les garde. » → **fin**
+
+### eclats-rendus
+
+> Il creuse entre deux racines avec les doigts, y couche les éclats, referme la terre. — Sévane vend des cristaux, au Comptoir. Mais va doucement, cette fois.
+
+- « Merci, Vanel. » → **fin**
 
 ## Varka
 
@@ -3843,13 +4202,13 @@ _Effet : lance la quête « Le Rail des Cendres »._
 
 ### apres-bureau
 
-> Varka ne lève pas les yeux du brasero. — Le Bureau a pris la machine, et renvoyé Joss. On dit qu’il en veut d’autres, des machines, pour la ligne. Merci quand même.
+> Varka ne lève pas les yeux du brasero. — Le Bureau a pris la machine, et Joss avec. « Sabotage d’un secteur stratégique. » Ici, ça s’appelle trahison, et la trahison, c’est la mort. Merci quand même.
 
 - « Au revoir. » → **fin**
 
 ### apres-marches
 
-> — Un convoi sur dix part encore seul. On sait que tu sais. Passe ton chemin.
+> — Joss. On l’a trouvé à l’aube entre deux wagons, les mains encore noires de graisse. Les Marches ne laissent ni dette ouverte, ni témoin. Toi, tu as pris leur argent. Passe ton chemin.
 
 - « … » → **fin**
 
@@ -4086,7 +4445,7 @@ _Effet : retient « descente-autorisee »._
 
 ### doute
 
-> Véline te regarde un long moment. — Bien. Alors aide-moi à trouver qui. Une dizaine de sacs sont passés par ma nacelle, sous des bâches de marchand. Ça vaudra mieux pour tout le monde.
+> Véline te regarde un long moment. — Bien. Alors aide-moi à trouver qui. En attendant, c’est le gardien du grenier qu’on soupçonne : un Jeune-Pousse qui dort sur une échelle de corde. S’il paie pour un autre, on le bannira.
 
 - « Je vais chercher. » → **fin**
 - « Qui pourrait savoir ? » → graines-piste

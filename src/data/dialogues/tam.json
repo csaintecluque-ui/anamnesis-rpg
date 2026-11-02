@@ -1,0 +1,269 @@
+{
+  "id": "tam",
+  "speaker": "tam",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "registre-puits",
+          "status": "done"
+        },
+        {
+          "flag": "masques-forges"
+        }
+      ],
+      "node": "apres-masques"
+    },
+    {
+      "requires": [
+        {
+          "quest": "registre-puits",
+          "status": "active"
+        },
+        {
+          "flag": "dask-parrain"
+        }
+      ],
+      "node": "decision"
+    },
+    {
+      "requires": [
+        {
+          "quest": "registre-puits",
+          "status": "active"
+        }
+      ],
+      "node": "parle"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Un jeune homme maigre tousse dans sa manche, près du registre, puis cache vite la manche. — Tu lis le registre ? Personne ne le lit vraiment. On y cherche son nom, ou celui d’un autre, et on se tait.",
+      "options": [
+        {
+          "text": "Pourquoi caches-tu ta manche ?",
+          "next": "toux"
+        },
+        {
+          "text": "Bonne journée.",
+          "next": "fin"
+        }
+      ]
+    },
+    "toux": {
+      "text": "— Parce qu’il y a du noir dedans. Tout le monde en a, ici, au bout de quelques années. Moi, j’ai trouvé comment en avoir moins. Personne n’a rien demandé.",
+      "options": [
+        {
+          "text": "Bonne journée.",
+          "next": "fin"
+        }
+      ]
+    },
+    "parle": {
+      "text": "— Ma mère t’a parlé. Évidemment. Le masque : du feutre, du charbon de bois, trois lanières. Si je le déclare, il monte avec moi : une Innovation des Manufactures, vendue aux fonderies, qui n’en achèteront jamais pour des Ouvriers.",
+      "effects": [
+        {
+          "setFlag": "tam-ecoute"
+        }
+      ],
+      "options": [
+        {
+          "text": "Et si tu restes ?",
+          "next": "reste"
+        },
+        {
+          "text": "Ta mère veut que tu vives.",
+          "next": "vivre"
+        },
+        {
+          "text": "Je reviendrai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "reste": {
+      "text": "— Si je reste, je donne les plans à qui saura les coudre, et toute la file respire mieux. Moi, peut-être pas assez longtemps. Mon père disait : « Un rivet tient parce qu’il est tout en bas. » Je ne veux pas devenir un de ceux qui regardent d’en haut.",
+      "options": [
+        {
+          "text": "Hedda Cendrefer pourrait les coudre.",
+          "next": "hedda",
+          "requires": [
+            {
+              "notFlag": "plans-confies"
+            },
+            {
+              "notFlag": "dask-nom"
+            }
+          ]
+        },
+        {
+          "text": "Je comprends.",
+          "next": "fin"
+        }
+      ]
+    },
+    "vivre": {
+      "text": "— Ma mère veut que je respire. Moi aussi, figure-toi. Mais je ne vois pas la différence entre monter et partir. Elle non plus, et elle le sait. Va voir Dask, si tu veux. Je déciderai quand il y aura quelque chose à décider.",
+      "options": [
+        {
+          "text": "Bien.",
+          "next": "fin"
+        }
+      ]
+    },
+    "hedda": {
+      "text": "— Cendrefer ? L’atelier de la Compagnie, la sœur du marchand de Verdantis ? Elle n’est d’aucune de nos castes. Elle coudrait, peut-être. Mais une Innovation non déclarée, c’est une faute : c’est toi qui porterais les plans.",
+      "options": [
+        {
+          "text": "Donne-les-moi.",
+          "next": "plans",
+          "effects": [
+            {
+              "giveItem": "plans-masque"
+            },
+            {
+              "setFlag": "plans-confies"
+            },
+            {
+              "avis": "boulon",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "text": "Pas encore.",
+          "next": "fin"
+        }
+      ]
+    },
+    "plans": {
+      "text": "Il sort de sa veste un papier plié en quatre, gris de suie. — Les plans. Si on te les trouve, dis que tu les as volés. Ça vaudra mieux pour ma mère.",
+      "options": [
+        {
+          "text": "Je les porte à Hedda.",
+          "next": "fin"
+        }
+      ]
+    },
+    "decision": {
+      "text": "— Dask signe, alors. Mon nom au registre, le convoi de l’aube, l’air qui se respire. Et le masque devient le sien, ou celui des Manufactures. Dis-moi ce que tu ferais. Je t’écoute ; mais c’est moi qui monte, ou pas.",
+      "options": [
+        {
+          "text": "Monte. Pour ta mère, et pour tes poumons.",
+          "next": "monte",
+          "requires": [
+            {
+              "notFlag": "faux-bancal"
+            }
+          ],
+          "effects": [
+            {
+              "setFlag": "tam-monte"
+            },
+            {
+              "completeQuest": "registre-puits"
+            },
+            {
+              "giveXp": 50
+            }
+          ]
+        },
+        {
+          "text": "Monte. Pour ta mère, et pour tes poumons.",
+          "next": "monte",
+          "requires": [
+            {
+              "flag": "faux-bancal"
+            }
+          ],
+          "effects": [
+            {
+              "setFlag": "tam-arrete"
+            },
+            {
+              "completeQuest": "registre-puits"
+            },
+            {
+              "giveXp": 20
+            }
+          ]
+        },
+        {
+          "text": "Reste, et donne le masque à ceux d’en bas.",
+          "next": "masques-choix",
+          "requires": [
+            {
+              "notFlag": "dask-nom"
+            }
+          ],
+          "effects": [
+            {
+              "avis": "boulon",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "text": "Je ne sais pas.",
+          "next": "fin"
+        }
+      ]
+    },
+    "monte": {
+      "text": "Tam regarde longtemps la file, puis le registre. — D’accord. Pour elle. Il crache dans la poussière, noir, et sourit presque. — Là-haut, je penserai à vous. Au début, en tout cas. C’est ce qu’ils disent tous.",
+      "options": [
+        {
+          "text": "Bonne route, Tam.",
+          "next": "fin"
+        }
+      ]
+    },
+    "masques-choix": {
+      "text": "— Alors c’est dit. Il te tend un papier plié en quatre, gris de suie. — Les plans, pour Cendrefer. Ma mère ne te le pardonnera pas. Moi, je te remercierai chaque fois que je tousserai.",
+      "options": [
+        {
+          "text": "J’y vais.",
+          "next": "fin",
+          "requires": [
+            {
+              "notFlag": "plans-confies"
+            }
+          ],
+          "effects": [
+            {
+              "giveItem": "plans-masque"
+            },
+            {
+              "setFlag": "plans-confies"
+            }
+          ]
+        },
+        {
+          "text": "J’ai déjà les plans. J’y vais.",
+          "next": "fin",
+          "requires": [
+            {
+              "flag": "plans-confies"
+            }
+          ]
+        },
+        {
+          "text": "Attends, je réfléchis encore.",
+          "next": "decision"
+        }
+      ]
+    },
+    "apres-masques": {
+      "text": "Tam porte un masque de feutre, comme toute la file. Il tousse toujours, mais il rit. — La moitié des Forges en porte. L’inspecteur de zone a demandé d’où ça venait. Tout le monde a répondu : « De nulle part. » C’est beau, nulle part.",
+      "options": [
+        {
+          "text": "Prends soin de toi.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

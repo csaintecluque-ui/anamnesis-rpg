@@ -1,0 +1,179 @@
+{
+  "id": "dask",
+  "speaker": "dask",
+  "entries": [
+    {
+      "requires": [
+        {
+          "flag": "dask-parrain"
+        }
+      ],
+      "node": "apres"
+    },
+    {
+      "requires": [
+        {
+          "quest": "registre-puits",
+          "status": "active"
+        }
+      ],
+      "node": "dossier"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Un homme en gris clair, des chiffres bleus tatoués au poignet, classe des fiches sans lever les yeux. — Classe Technique. Si vous n’avez rien à parrainer, vous avez déjà pris trop de mon temps.",
+      "options": [
+        {
+          "text": "Pardon.",
+          "next": "fin"
+        }
+      ]
+    },
+    "dossier": {
+      "text": "Il lève enfin les yeux. — Orvel ? Le masque à filtre, je sais : l’inspecteur de zone m’en a parlé. Un Ouvrier transfère sous la responsabilité de son parrain. S’il déçoit, c’est mon nom qui rouille. Il me faut une raison.",
+      "options": [
+        {
+          "text": "Soixante Fers, pour les mains à graisser.",
+          "next": "paye",
+          "requires": [
+            {
+              "fers": 60
+            }
+          ],
+          "effects": [
+            {
+              "giveFers": -60
+            },
+            {
+              "setFlag": "dask-parrain"
+            }
+          ]
+        },
+        {
+          "text": "Un Innovateur qui vous doit tout vous sera fidèle.",
+          "next": "convaincu",
+          "requires": [
+            {
+              "skill": "diplomacy",
+              "min": 3
+            }
+          ],
+          "effects": [
+            {
+              "setFlag": "dask-parrain"
+            }
+          ]
+        },
+        {
+          "text": "Que voulez-vous d’autre ?",
+          "next": "nom"
+        },
+        {
+          "text": "Pendant qu’il cherche un formulaire, apposer son sceau sur le dossier.",
+          "next": "faux-ok",
+          "roll": {
+            "skill": "subterfuge",
+            "difficulty": 14
+          },
+          "failNext": "faux-bancal"
+        }
+      ]
+    },
+    "nom": {
+      "text": "— Le masque. Déclaré à mon nom : le masque Dask. Le garçon montera comme mon assistant, bien payé. Les Manufactures le vendront aux fonderies qui paient. C’est ainsi que le progrès monte : avec ceux qui savent le porter.",
+      "options": [
+        {
+          "text": "Marché conclu.",
+          "next": "nom-ok",
+          "effects": [
+            {
+              "setFlag": "dask-parrain"
+            },
+            {
+              "setFlag": "dask-nom"
+            },
+            {
+              "avis": "boulon",
+              "delta": -1
+            }
+          ]
+        },
+        {
+          "text": "Non.",
+          "next": "dossier"
+        }
+      ]
+    },
+    "paye": {
+      "text": "Les Fers disparaissent dans un tiroir. Dask signe d’une main, sans regarder. — Le nom d’Orvel sera au registre du Puits Trois demain. Le convoi part à l’aube. Qu’il ne soit pas en retard : ici, le retard s’écrit aussi.",
+      "options": [
+        {
+          "text": "Bien.",
+          "next": "fin"
+        }
+      ]
+    },
+    "convaincu": {
+      "text": "Dask réfléchit, la plume en l’air. — Fidèle. Oui. On manque de gens fidèles, là-haut. Il signe. — Orvel au registre demain. S’il me déçoit, je saurai qui vous êtes : vous êtes dans les listes, vous aussi.",
+      "options": [
+        {
+          "text": "Bien.",
+          "next": "fin"
+        }
+      ]
+    },
+    "nom-ok": {
+      "text": "Dask sourit pour la première fois, de toutes ses dents. — Vous comprenez Ferros mieux que la plupart des Ferriens. Le nom d’Orvel au registre demain. Le masque, lui, sera à la page Dask.",
+      "options": [
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ]
+    },
+    "faux-ok": {
+      "text": "Dask fouille un tiroir en maugréant. Le sceau est là, sur le bureau : tu l’appliques au bas du dossier, net, et tu reposes tout avant qu’il se retourne. — Revenez avec une raison, grogne-t-il. Tu as déjà ce qu’il te faut.",
+      "effects": [
+        {
+          "setFlag": "dask-parrain"
+        }
+      ],
+      "options": [
+        {
+          "text": "Je reviendrai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "faux-bancal": {
+      "text": "Le sceau glisse sous ta main ; l’empreinte bave un peu. Tu reposes tout avant qu’il se retourne. — Revenez avec une raison. Le dossier est signé. À peu près. Personne ne regarde jamais d’aussi près… n’est-ce pas ?",
+      "effects": [
+        {
+          "setFlag": "dask-parrain"
+        },
+        {
+          "setFlag": "faux-bancal"
+        }
+      ],
+      "options": [
+        {
+          "text": "Je reviendrai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "apres": {
+      "text": "— Le dossier Orvel est parti. Le reste ne me regarde plus. Circulez.",
+      "options": [
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

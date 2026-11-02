@@ -6,15 +6,6 @@
       "requires": [
         {
           "quest": "pret-terre",
-          "status": "done"
-        }
-      ],
-      "node": "apres"
-    },
-    {
-      "requires": [
-        {
-          "quest": "pret-terre",
           "status": "active"
         },
         {
@@ -22,6 +13,37 @@
         }
       ],
       "node": "retour"
+    },
+    {
+      "requires": [
+        {
+          "item": "eclats-cristal"
+        },
+        {
+          "notFlag": "vanel-eclats-vus"
+        }
+      ],
+      "node": "eclats"
+    },
+    {
+      "requires": [
+        {
+          "marques": 1
+        },
+        {
+          "notFlag": "vanel-a-vu-marques"
+        }
+      ],
+      "node": "marques"
+    },
+    {
+      "requires": [
+        {
+          "quest": "pret-terre",
+          "status": "done"
+        }
+      ],
+      "node": "apres"
     },
     {
       "requires": [
@@ -53,6 +75,15 @@
         {
           "text": "Qu’est-ce qu’un cristal de Résonance ?",
           "next": "cristal"
+        },
+        {
+          "text": "Mes veines brillent, sous le cristal.",
+          "next": "marques",
+          "requires": [
+            {
+              "marques": 1
+            }
+          ]
         },
         {
           "text": "Que la sève coule.",
@@ -104,8 +135,17 @@
       ]
     },
     "prix": {
-      "text": "— Alors tu sauras ce que coûte la magie. Quand le cristal n’a plus rien à donner, c’est toi qui paies : la fatigue, le nez qui saigne. Ne force jamais longtemps. Une bonne nuit de sommeil rend tout.",
+      "text": "— Alors tu sauras ce que coûte la magie. Quand le cristal n’a plus rien à donner, c’est toi qui paies : le nez qui saigne, d’abord. Force souvent, et il te marque : les veines qui s’allument, le manque, la peau qui durcit. Le sommeil rend la fatigue. Pas les marques.",
       "options": [
+        {
+          "text": "Reprends mes marques.",
+          "next": "marques",
+          "requires": [
+            {
+              "marques": 1
+            }
+          ]
+        },
         {
           "text": "Compris.",
           "next": "fin"
@@ -202,6 +242,79 @@
         },
         {
           "text": "Que la sève coule.",
+          "next": "fin"
+        }
+      ]
+    },
+    "marques": {
+      "text": "Vanel prend ton poignet et le tourne vers la lumière. Sous la peau, les veines luisent. — Tu as forcé. La Terre peut reprendre ce que tu lui as trop pris ; elle reprendra aussi un peu de ce que tu sais faire. C’est le prix, et personne ne le paie à ta place.",
+      "effects": [
+        {
+          "setFlag": "vanel-a-vu-marques"
+        }
+      ],
+      "options": [
+        {
+          "text": "Reprends-les.",
+          "next": "effacees",
+          "effects": [
+            {
+              "effacerMarques": true
+            }
+          ]
+        },
+        {
+          "text": "Je les garde.",
+          "next": "gardees"
+        }
+      ]
+    },
+    "effacees": {
+      "text": "Il pose une main sur le cristal, l’autre sur ta poitrine. Une chaleur, puis un froid, comme une sève qui redescend. — Voilà. Tu en sais un peu moins ; tu vivras un peu plus longtemps. Que la sève coule.",
+      "options": [
+        {
+          "text": "Merci, Vanel.",
+          "next": "fin"
+        }
+      ]
+    },
+    "gardees": {
+      "text": "— Comme tu veux. Mais écoute : j’ai connu des Guérisseurs Verts qui forçaient chaque soir, pour sauver un malade de plus. À la fin, ils ne parlaient plus qu’à leur pierre. Reviens avant.",
+      "options": [
+        {
+          "text": "Je reviendrai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "eclats": {
+      "text": "Vanel regarde les éclats dans ta main, longtemps. — Un cristal qui se fend, c’est un cristal qu’on a trop serré. La Terre ne prête pas deux fois la même pierre. Donne-les-moi : je les rendrai au pied de l’arbre.",
+      "effects": [
+        {
+          "setFlag": "vanel-eclats-vus"
+        }
+      ],
+      "options": [
+        {
+          "text": "Les lui donner.",
+          "next": "eclats-rendus",
+          "effects": [
+            {
+              "takeItem": "eclats-cristal"
+            }
+          ]
+        },
+        {
+          "text": "Je les garde.",
+          "next": "fin"
+        }
+      ]
+    },
+    "eclats-rendus": {
+      "text": "Il creuse entre deux racines avec les doigts, y couche les éclats, referme la terre. — Sévane vend des cristaux, au Comptoir. Mais va doucement, cette fois.",
+      "options": [
+        {
+          "text": "Merci, Vanel.",
           "next": "fin"
         }
       ]

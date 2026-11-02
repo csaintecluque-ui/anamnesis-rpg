@@ -3,6 +3,8 @@ import { attributeModifier, SKILL_RANK_MAX } from './attributes';
 import { RESONANCE_BASE, characterStats, type Character } from './character';
 import { ATTACK_AP_COST, type AttackProfile, type Dice } from './combat';
 import { findItem, type ItemDef } from './inventory';
+import { marqueResonancePenalty, payThePrice } from './marques';
+import type { Rng } from './checks';
 
 /**
  * La magie (demande de Cyril, 2026-11-02 ; proposition validée ; docs/gdd/magie.md). Canon [NOTION] : la magie vient
@@ -29,15 +31,19 @@ export interface PowerDef {
 export const POWERS = powerData as PowerDef[];
 /** Every crystal shines: the Lueur comes with any of them. */
 export const LUEUR: PowerId = 'lueur';
-/** Each Point de Résonance missing is paid in PV: the nose bleeds (canon); the canon's lasting costs may come later. */
+/**
+ * Each Point de Résonance missing is paid in PV: the nose bleeds (canon). The lasting price, the marks, is rolled after
+ * (src/rules/marques.ts, docs/gdd/passe-sombre.md).
+ */
 export const OVERUSE_HP_PER_POINT = 3;
 
 export function findPower(id: string): PowerDef | undefined {
   return POWERS.find((p) => p.id === id);
 }
 
-export function resonanceMax(c: Pick<Character, 'skills'>): number {
-  return RESONANCE_BASE + c.skills.resonance;
+/** 3 + rank of Résonance, less the third mark (la peau de cristal). */
+export function resonanceMax(c: Pick<Character, 'skills' | 'marques'>): number {
+  return Math.max(0, RESONANCE_BASE + c.skills.resonance - marqueResonancePenalty(c));
 }
 
 /** The crystal worn at the neck, if any. */
@@ -74,11 +80,15 @@ export function canCast(c: Character, id: PowerId, hp = c.hp): boolean {
   return !!power && hasPower(c, id) && hp > castCost(c, power).hp;
 }
 
-/** Spends the PR (and returns the PV the overuse costs, for the caller to take: the character's or the fighter's). */
-export function payCast(c: Character, power: PowerDef): { resonance: number; hp: number } {
+/**
+ * Spends the PR, and returns the PV the overuse costs, for the caller to take (the character's or the fighter's).
+ * A forced cast also rolls for its lasting price (`prix`: the notices, a mark or a split crystal).
+ */
+export function payCast(c: Character, power: PowerDef, rng: Rng = Math.random): { resonance: number; hp: number; prix: string[] } {
   const cost = castCost(c, power);
   c.resonance -= cost.resonance;
-  return cost;
+  const prix = payThePrice(c, power.cost - cost.resonance, rng);
+  return { ...cost, prix };
 }
 
 /** PV given back by Guérison naturelle. */
@@ -90,15 +100,16 @@ export function healAmount(c: Pick<Character, 'skills'>): number {
  * Casts a power outside a fight (the inventory, a dialogue): PR spent, PV lost if forced, and for Guérison naturelle
  * the hero's own PV back. Returns the notices, or null when the power cannot be cast.
  */
-export function castOutsideCombat(c: Character, id: PowerId, healSelf = false): string[] | null {
+export function castOutsideCombat(c: Character, id: PowerId, healSelf = false, rng: Rng = Math.random): string[] | null {
   const power = findPower(id);
   if (!power || !canCast(c, id)) return null;
-  const cost = payCast(c, power);
+  const cost = payCast(c, power, rng);
   const notices = [cost.resonance > 0 ? `${power.name} : −${cost.resonance} PR` : `${power.name} : plus de Résonance`];
   if (cost.hp > 0) {
     c.hp -= cost.hp;
     notices.push(`Ton nez saigne : −${cost.hp} PV`);
   }
+  notices.push(...cost.prix);
   if (healSelf && power.combat === 'soin') {
     const max = characterStats(c).maxHp;
     const before = c.hp;

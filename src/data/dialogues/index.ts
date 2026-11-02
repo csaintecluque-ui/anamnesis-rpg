@@ -46,6 +46,9 @@ import patrouilleur from './patrouilleur.json';
 import patrouilleuseHaute from './patrouilleuse-haute.json';
 import varka from './varka.json';
 import joss from './joss.json';
+import kerta from './kerta.json';
+import tam from './tam.json';
+import dask from './dask.json';
 import ostrik from './ostrik.json';
 import sorn from './sorn.json';
 import pilote from './pilote.json';
@@ -130,6 +133,9 @@ export const DIALOGUES: Record<string, Dialogue> = {
   'patrouilleuse-haute': patrouilleuseHaute as Dialogue,
   varka: varka as Dialogue,
   joss: joss as Dialogue,
+  kerta: kerta as Dialogue,
+  tam: tam as Dialogue,
+  dask: dask as Dialogue,
   ostrik: ostrik as Dialogue,
   sorn: sorn as Dialogue,
   pilote: pilote as Dialogue,

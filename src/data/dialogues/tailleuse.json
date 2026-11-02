@@ -54,6 +54,63 @@
           "next": "fin"
         },
         {
+          "text": "Tu regardes mes veines.",
+          "next": "veines",
+          "requires": [
+            {
+              "marques": 1
+            }
+          ]
+        },
+        {
+          "text": "Tu rachètes des éclats ?",
+          "next": "eclats",
+          "requires": [
+            {
+              "item": "eclats-cristal"
+            }
+          ]
+        },
+        {
+          "text": "Merci.",
+          "next": "fin"
+        }
+      ]
+    },
+    "eclats": {
+      "text": "Elle fait rouler les éclats dans sa paume noire. — Un cristal forcé jusqu’à la fente. Celui qui le portait a les veines qui brillent, je parie. Ici, on ne pose pas de questions : vingt Fers, et je les retaille en perles pour les riches.",
+      "options": [
+        {
+          "text": "Vendus.",
+          "next": "fin",
+          "effects": [
+            {
+              "takeItem": "eclats-cristal"
+            },
+            {
+              "giveFers": 20
+            }
+          ]
+        },
+        {
+          "text": "Je les garde.",
+          "next": "fin"
+        }
+      ]
+    },
+    "veines": {
+      "text": "— Tu forces. Ça se voit d’ici. J’en ai connu un, aux Forges, qui forçait chaque soir pour tenir sa cadence. À la fin, sa peau sonnait comme du verre, et il ne parlait plus qu’à son cristal. Les Druides Verts savent reprendre ça. Pas nous.",
+      "options": [
+        {
+          "text": "Voyons tes cristaux.",
+          "next": "fin",
+          "effects": [
+            {
+              "openTrade": true
+            }
+          ]
+        },
+        {
           "text": "Merci.",
           "next": "fin"
         }

@@ -11,7 +11,7 @@
  "tilewidth": 64,
  "tileheight": 32,
  "nextlayerid": 4,
- "nextobjectid": 26,
+ "nextobjectid": 28,
  "layers": [
   {
    "id": 1,
@@ -1567,12 +1567,44 @@
       {
        "name": "texte",
        "type": "string",
-       "value": "Puits Trois. « L’eau des Puits Un et Deux est réservée. » Le registre des transferts : « Équipe Orvel, deux départs pour les Manufactures-Moyennes. »"
+       "value": "Puits Trois — Ouvriers. « Puits Un et Deux : castes supérieures. Tout Ouvrier qui s’y présente sera retenu. » Le registre des transferts : « Équipe Orvel, deux départs pour les Manufactures-Moyennes. »"
       }
      ]
     },
     {
      "id": 6,
+     "name": "kerta",
+     "type": "pnj",
+     "x": 304,
+     "y": 208,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": []
+    },
+    {
+     "id": 7,
+     "name": "tam",
+     "type": "pnj",
+     "x": 432,
+     "y": 208,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": [
+      {
+       "name": "disparaitSi",
+       "type": "string",
+       "value": "tam-monte,tam-arrete"
+      }
+     ]
+    },
+    {
+     "id": 8,
      "name": "porte-ironheart-pension",
      "type": "porte",
      "x": 304,
@@ -1601,7 +1633,7 @@
      ]
     },
     {
-     "id": 7,
+     "id": 9,
      "name": "devant-ironheart-pension",
      "type": "arrivee",
      "x": 336,
@@ -1614,7 +1646,7 @@
      "properties": []
     },
     {
-     "id": 8,
+     "id": 10,
      "name": "porte-ironheart-atelier",
      "type": "porte",
      "x": 496,
@@ -1643,7 +1675,7 @@
      ]
     },
     {
-     "id": 9,
+     "id": 11,
      "name": "devant-ironheart-atelier",
      "type": "arrivee",
      "x": 496,
@@ -1656,7 +1688,7 @@
      "properties": []
     },
     {
-     "id": 10,
+     "id": 12,
      "name": "porte-ironheart-martelroux",
      "type": "porte",
      "x": 624,
@@ -1685,7 +1717,7 @@
      ]
     },
     {
-     "id": 11,
+     "id": 13,
      "name": "devant-ironheart-martelroux",
      "type": "arrivee",
      "x": 656,
@@ -1698,7 +1730,7 @@
      "properties": []
     },
     {
-     "id": 12,
+     "id": 14,
      "name": "entree-marche",
      "type": "porte",
      "x": 784,
@@ -1737,7 +1769,7 @@
      ]
     },
     {
-     "id": 13,
+     "id": 15,
      "name": "devant-renfoncement",
      "type": "arrivee",
      "x": 752,
@@ -1750,7 +1782,7 @@
      "properties": []
     },
     {
-     "id": 14,
+     "id": 16,
      "name": "veilleuse",
      "type": "pnj",
      "x": 752,
@@ -1763,7 +1795,7 @@
      "properties": []
     },
     {
-     "id": 15,
+     "id": 17,
      "name": "vieille-machine",
      "type": "objet",
      "x": 848,
@@ -1776,7 +1808,7 @@
      "properties": []
     },
     {
-     "id": 16,
+     "id": 18,
      "name": "forge-eteinte",
      "type": "objet",
      "x": 144,
@@ -1789,7 +1821,7 @@
      "properties": []
     },
     {
-     "id": 17,
+     "id": 19,
      "name": "devant-forge-eteinte",
      "type": "arrivee",
      "x": 176,
@@ -1802,7 +1834,7 @@
      "properties": []
     },
     {
-     "id": 18,
+     "id": 20,
      "name": "vers-triage",
      "type": "sortie",
      "x": 944,
@@ -1831,7 +1863,7 @@
      ]
     },
     {
-     "id": 19,
+     "id": 21,
      "name": "devant-triage",
      "type": "arrivee",
      "x": 912,
@@ -1844,7 +1876,7 @@
      "properties": []
     },
     {
-     "id": 20,
+     "id": 22,
      "name": "panneau-triage-forges",
      "type": "panneau",
      "x": 912,
@@ -1863,7 +1895,7 @@
      ]
     },
     {
-     "id": 21,
+     "id": 23,
      "name": "pilote-endormi",
      "type": "objet",
      "x": 816,
@@ -1882,7 +1914,7 @@
      ]
     },
     {
-     "id": 22,
+     "id": 24,
      "name": "funiculaire",
      "type": "porte",
      "x": 464,
@@ -1921,7 +1953,7 @@
      ]
     },
     {
-     "id": 23,
+     "id": 25,
      "name": "devant-funiculaire",
      "type": "arrivee",
      "x": 464,
@@ -1934,7 +1966,7 @@
      "properties": []
     },
     {
-     "id": 24,
+     "id": 26,
      "name": "patrouilleur",
      "type": "pnj",
      "x": 400,
@@ -1947,7 +1979,7 @@
      "properties": []
     },
     {
-     "id": 25,
+     "id": 27,
      "name": "panneau-ironheart",
      "type": "panneau",
      "x": 112,

@@ -49,3 +49,16 @@ Sources et statuts : `docs/univers/sources.md`.
 - Validés ensuite (2026-11-02, « Oui je suis en phase ») : Vanel, Tiven, la tailleuse de cristaux
   (`personnages/pnj.md`), la Vigueur comme attribut de la Résonance, le cristal porté « au cou », la Lueur commune à
   tous les cristaux.
+
+## Relu dans le Notion pour la passe sombre (2026-11-02)
+
+- **Symptômes** [NOTION, Règles fondamentales] : « épuisement, vertiges, saignements de nez, évanouissement » ; « yeux qui
+  brillent… veines lumineuses… voix déformée » ; mutation « bénéfique (vision magique) ou préjudiciable (peau
+  cristallisée) », des mages « peu à peu moins humains » ; addiction : « besoin compulsif de lancer des sorts, syndrome
+  de sevrage si privé de cristaux » ; folie arcanique : « esprit fracturé, hallucinations permanentes, transformation en
+  créature corrompue » ; Dette Tellurique, remboursée « par des actes ou rituels » ; cristaux qui se fissurent ou se
+  brisent, qui « rejettent certains utilisateurs » (rejet jamais décrit) ; abus : « brûler les canaux magiques internes
+  (permanent) ».
+- **Ferros** : « magie mal utilisée = rouille de l'âme » (sans symptôme décrit) [NOTION, Forge du Dernier Souffle].
+- **Dans le jeu** (validé par Cyril le 2026-11-02, `docs/gdd/passe-sombre.md`) : les **marques du cristal** : les veines, le manque, la peau
+  de cristal, puis le cristal qui se fend ; Vanel les reprend contre un rang de Résonance.

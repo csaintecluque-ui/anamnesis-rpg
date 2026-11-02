@@ -1,0 +1,94 @@
+{
+  "id": "hesk",
+  "speaker": "hesk",
+  "entries": [
+    {
+      "requires": [
+        {
+          "flag": "echos-dissipes"
+        }
+      ],
+      "node": "colere"
+    },
+    {
+      "requires": [
+        {
+          "quest": "echos-forge",
+          "status": "done"
+        }
+      ],
+      "node": "apres"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Une mineuse au visage poudré de suie noire lève sa lampe. — Peu de gens trouvent la trappe. Je suis Hesk, du Peuple des Cendres Noires : nous gardons le dessous. Le souffle de Kharos fait parfois remonter ce que la terre a gardé.",
+      "options": [
+        {
+          "text": "Ce que la terre a gardé ?",
+          "next": "echos"
+        },
+        {
+          "text": "Qui sont ces voix ?",
+          "next": "voix"
+        },
+        {
+          "text": "Je repars.",
+          "next": "fin"
+        }
+      ]
+    },
+    "echos": {
+      "text": "— Des Échos. Mais pas les nôtres. Les forgerons d’ici, je les connais tous, d’hier et d’aujourd’hui. Ceux-là parlent une langue qu’aucune forge n’a jamais chantée, comme s’ils venaient d’une autre époque.",
+      "options": [
+        {
+          "text": "Et qu’en faites-vous ?",
+          "next": "garde"
+        },
+        {
+          "text": "Merci, Hesk.",
+          "next": "fin"
+        }
+      ]
+    },
+    "garde": {
+      "text": "— Rien. On les garde. Un Écho ne s’efface pas : on le dissipe un temps, et il revient. Et qui frappe un Écho le voit se multiplier. Écoute-les, si tu veux. Puis décide.",
+      "options": [
+        {
+          "text": "Merci, Hesk.",
+          "next": "fin"
+        }
+      ]
+    },
+    "voix": {
+      "text": "— Une voix qui fredonne. Des mains qui gravent l’enclume. Et au fond, quelqu’un qui promet. Je ne sais pas à qui elles sont. Je sais seulement qu’elles se cherchent.",
+      "options": [
+        {
+          "text": "Je vais les écouter.",
+          "next": "fin"
+        }
+      ]
+    },
+    "apres": {
+      "text": "— Le dessous est calme. Merci d’avoir écouté, là où d’autres auraient eu peur.",
+      "options": [
+        {
+          "text": "Au revoir, Hesk.",
+          "next": "fin"
+        }
+      ]
+    },
+    "colere": {
+      "text": "Hesk ne lève pas sa lampe. — Tu les as frappés. Ils reviendront plus nombreux, et moins doux. La terre n’oublie rien. Remonte, maintenant.",
+      "options": [
+        {
+          "text": "Remonter.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

@@ -5,6 +5,17 @@
     {
       "requires": [
         {
+          "flag": "echos-confies"
+        },
+        {
+          "notFlag": "ilyane-echo-lu"
+        }
+      ],
+      "node": "echo-lettre"
+    },
+    {
+      "requires": [
+        {
           "quest": "carnet-chansons",
           "status": "active"
         },
@@ -267,6 +278,23 @@
         }
       ],
       "night": true
+    },
+    "echo-lettre": {
+      "text": "Ilyane tient ta lettre contre elle. — Je ne sais pas à qui sont ces voix. Mais je reconnais des gens qui s’aiment, même à travers les siècles. Garde leur promesse. Un jour, quelqu’un saura l’entendre.",
+      "effects": [
+        {
+          "setFlag": "ilyane-echo-lu"
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "Je la garderai.",
+          "next": "fin"
+        }
+      ]
     }
   }
 }

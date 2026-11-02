@@ -989,4 +989,39 @@ TILES.push(
   npcTile('patrouilleur', { body: '#2e2a30', hair: '#2e2a30', accent: '#c03a2a', extra: '<path d="M22 42 L42 42 L40 36 L24 36 Z" fill="#2e2a30" stroke="#1B1512"/><rect x="24" y="44" width="16" height="4" fill="#ff5a3a"/>' }),
   npcTile('patrouilleuse-haute', { body: '#2e2a30', hair: '#5a3a24', accent: '#c03a2a', extra: '<path d="M22 42 L42 42 L40 36 L24 36 Z" fill="#2e2a30" stroke="#1B1512"/><rect x="24" y="44" width="16" height="4" fill="#ff5a3a"/>' }),
   npcTile('dorna', { body: '#6a4a3a', hair: '#8a6a4a', accent: '#e8e2d4', extra: '<rect x="24" y="62" width="16" height="16" fill="#e8e2d4" opacity="0.85"/>' }),
+  // « Les Échos sous la Forge » : la forge froide, la galerie du Peuple des Cendres Noires, les Échos.
+  {
+    name: 'forge-eteinte',
+    blocking: true,
+    cover: 4,
+    svg:
+      diamond('#5a5048') +
+      shadow(24, 8) +
+      `<path d="M6 84 L6 44 L32 32 L58 44 L58 84 L32 96 Z" fill="#3e363c" stroke="${INK}" stroke-width="1.2"/>` +
+      `<rect x="40" y="6" width="9" height="36" fill="#2e2a30" stroke="${INK}"/>` +
+      `<path d="M20 90 L20 70 L44 70 L44 84 Z" fill="#1e1a1c" stroke="${INK}"/>` +
+      '<path d="M24 86 Q32 78 40 82" stroke="#c03a2a" stroke-width="2" fill="none" opacity="0.7"/>' +
+      '<rect x="26" y="78" width="12" height="2" fill="#6a6a74"/>',
+  },
+  {
+    name: 'enclume',
+    blocking: true,
+    svg:
+      diamond('#4e4945') +
+      shadow(18, 6) +
+      `<path d="M14 62 L50 62 L56 56 L46 56 L44 52 L20 52 L18 56 L8 56 Z" fill="#3a3a44" stroke="${INK}"/>` +
+      `<path d="M26 62 L38 62 L40 80 L24 80 Z" fill="#2e2e36" stroke="${INK}"/>` +
+      '<path d="M24 55 l3 -2 M30 55 l3 -2 M36 55 l3 -2" stroke="#7fe0ff" stroke-width="1.5" opacity="0.8"/>',
+  },
+  {
+    name: 'echo-forge',
+    blocking: true,
+    svg:
+      `<ellipse cx="32" cy="84" rx="14" ry="5" fill="#7fb0ff" opacity="0.2"/>` +
+      '<path d="M22 84 Q20 60 26 50 Q32 40 38 50 Q44 60 42 84 Z" fill="#a8d0ff" opacity="0.45" stroke="#e8c070" stroke-width="1.5"/>' +
+      '<circle cx="32" cy="40" r="8" fill="#a8d0ff" opacity="0.5" stroke="#e8c070" stroke-width="1.5"/>',
+  },
+  npcTile('echo-furieux', { body: '#7fb0ff', hair: '#5a7ab0', skin: '#a8d0ff', accent: '#ffd060', extra: '<path d="M18 50 L12 44 M46 50 L52 44 M20 70 L12 74 M44 70 L52 74" stroke="#a8d0ff" stroke-width="2"/>' }),
+  npcTile('hesk', { body: '#2a2624', hair: '#1a1614', skin: '#7a6a5a', accent: '#ff9a40', extra: '<circle cx="44" cy="58" r="4" fill="#ffd060" stroke="#1B1512"/>' }),
+  npcTile('vieux-forgeron', { body: '#5a4a3a', hair: '#c8c0b0', accent: '#C9804F' }),
 );

@@ -166,5 +166,29 @@
     "weightKg": 0.1,
     "price": 0,
     "quest": true
+  },
+  {
+    "id": "oiseau-de-fer",
+    "name": "Oiseau de fer",
+    "description": "Un petit oiseau plié à la main dans une feuille de fer. Personne à Ferros n’en fabrique de pareils.",
+    "weightKg": 0.1,
+    "price": 0,
+    "quest": true
+  },
+  {
+    "id": "releve-echo",
+    "name": "Relevé d’un Écho",
+    "description": "La berceuse, les cinq mains sur l’enclume, la promesse : tout ce que tu as vu sous la forge froide.",
+    "weightKg": 0.1,
+    "price": 0,
+    "quest": true
+  },
+  {
+    "id": "lettre-echo",
+    "name": "Lettre pour Ilyane",
+    "description": "L’Écho de la forge froide, recopié pour Ilyane, à Gardebois.",
+    "weightKg": 0.1,
+    "price": 0,
+    "quest": true
   }
 ]

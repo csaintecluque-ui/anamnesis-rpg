@@ -22,6 +22,7 @@
   { "id": "ironheart-manufactures", "name": "Ironheart — Les Manufactures-Moyennes", "scene": "Map", "map": "ironheart-manufactures", "entrance": "funiculaire-arrivee", "place": "ironheart" },
   { "id": "ironheart-triage", "name": "Ironheart — Le triage des Cendres", "scene": "Map", "map": "ironheart-triage", "entrance": "depuis-forges", "place": "ironheart" },
   { "id": "ironheart-cendriere", "name": "Ironheart — La Cendrière", "scene": "Map", "map": "ironheart-cendriere", "entrance": "depuis-tunnel", "place": "ironheart" },
+  { "id": "ironheart-galerie", "name": "Ironheart — Sous la forge froide", "scene": "Map", "map": "ironheart-galerie", "entrance": "depuis-trappe", "place": "ironheart" },
   { "id": "ironheart-pension", "name": "Ironheart — Pension de la Bielle", "scene": "Map", "map": "ironheart-pension", "entrance": "entree", "place": "ironheart" },
   { "id": "ironheart-atelier", "name": "Ironheart — Atelier Cendrefer", "scene": "Map", "map": "ironheart-atelier", "entrance": "entree", "place": "ironheart" },
   { "id": "ironheart-martelroux", "name": "Ironheart — Maison Martelroux", "scene": "Map", "map": "ironheart-martelroux", "entrance": "entree", "place": "ironheart" },

@@ -38,6 +38,7 @@ Bleue », validée dans ses grandes lignes par Cyril le 2026-11-02). Canon : le 
 | **Le Marché des Cendres** (souterrain) | tentes et étals à la lumière de l'huile, l'échoppe de Kaelis, le guichet d'archives au fond |
 | **Les Manufactures-Moyennes** | le poste de contrôle du funiculaire, les Archives Centrales (Noam), le funiculaire des Manufactures-Hautes, fermé |
 | **Le triage des Cendres** (à l'est des Forges ; « Le Rail des Cendres ») | les voies des Travailleurs du Rail, le brasero de Varka, le registre des départs, le poste d'aiguillage et le levier de l'embranchement, le tunnel gardé par les Marches |
+| **Sous la forge froide** (« Les Échos sous la Forge », à valider) | la galerie du Peuple des Cendres Noires : Hesk, une berceuse, une enclume aux cinq mains, une promesse |
 | **La Cendrière** (au bout de l'embranchement) | terrils et wagons vidés, Sorn des Marches des Cendres, la machine sans homme |
 | **Maisons** | la Pension de la Bielle (Dorna Vissard : soupe et lit, 8 Fers), l'atelier Cendrefer (Hedda : l'étal de Tobias, plus ses propres pièces : marteau de forge, arbalète de Ferros, cuirasse rivetée ; accord de Cyril le 2026-11-02), la maison Martelroux (Rika), les Archives Centrales (Noam) |
 

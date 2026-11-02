@@ -5,6 +5,18 @@
     {
       "requires": [
         {
+          "item": "lettre-echo"
+        },
+        {
+          "quest": "echos-forge",
+          "status": "active"
+        }
+      ],
+      "node": "lettre"
+    },
+    {
+      "requires": [
+        {
           "flag": "remise-cendrefer"
         }
       ],
@@ -88,6 +100,29 @@
             }
           ]
         },
+        {
+          "text": "Merci, Hedda.",
+          "next": "fin"
+        }
+      ]
+    },
+    "lettre": {
+      "text": "— Pour Ilyane, à Gardebois ? Tobias la lui portera, avec la prochaine caisse. Hedda soupèse la lettre. — Elle est lourde, pour une seule feuille.",
+      "effects": [
+        {
+          "takeItem": "lettre-echo"
+        },
+        {
+          "setFlag": "echos-confies"
+        },
+        {
+          "completeQuest": "echos-forge"
+        },
+        {
+          "giveXp": 40
+        }
+      ],
+      "options": [
         {
           "text": "Merci, Hedda.",
           "next": "fin"

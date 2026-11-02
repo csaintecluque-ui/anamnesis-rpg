@@ -148,5 +148,28 @@
         "texte": "À la Cendrière, une machine sans homme du temps de la Guerre du Rail, et Sorn, des Marches des Cendres. Décider : laisser l’affaire aux cheminots (Varka), au Bureau (le contrôleur Ostrik), ou se taire contre de l’argent (Sorn)."
       }
     ]
+  },
+  {
+    "id": "echos-forge",
+    "name": "Les Échos sous la Forge",
+    "summary": "La nuit, une forge froide des Forges-Basses s’embrase sans feu. Sous son foyer, une trappe, une galerie du Peuple des Cendres Noires, et des voix qui ne sont d’aucune époque connue.",
+    "etapes": [
+      {
+        "si": "trappe-vue",
+        "texte": "Sous la forge froide, une trappe mène à une galerie gardée par Hesk, du Peuple des Cendres Noires."
+      },
+      {
+        "si": "promesse-entendue",
+        "texte": "Au fond de la galerie, un Écho promet : « On se retrouvera. » L’ignorer, le suivre, le garder par écrit, ou le frapper."
+      },
+      {
+        "si": "echo-releve",
+        "texte": "Porter le relevé de l’Écho à l’archiviste Noam, aux Archives Centrales."
+      },
+      {
+        "si": "echo-lettre",
+        "texte": "Confier la lettre pour Ilyane à Hedda, à l’atelier Cendrefer : elle l’enverra à Gardebois."
+      }
+    ]
   }
 ]

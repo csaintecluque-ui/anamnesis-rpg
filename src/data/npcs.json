@@ -379,5 +379,30 @@
     "id": "tunnel-cendriere",
     "name": "Le guetteur du tunnel",
     "role": "Marches des Cendres"
+  },
+  {
+    "id": "forge-eteinte",
+    "name": "La forge froide",
+    "role": "Forges-Basses"
+  },
+  {
+    "id": "hesk",
+    "name": "Hesk",
+    "role": "Peuple des Cendres Noires, gardienne du dessous"
+  },
+  {
+    "id": "echo-chanson",
+    "name": "Un Écho",
+    "role": "Une voix qui fredonne"
+  },
+  {
+    "id": "enclume-marques",
+    "name": "L’enclume",
+    "role": "Sous la forge froide"
+  },
+  {
+    "id": "echo-promesse",
+    "name": "Un Écho",
+    "role": "Au fond de la galerie"
   }
 ]

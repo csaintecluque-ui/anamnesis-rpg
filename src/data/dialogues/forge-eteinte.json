@@ -1,0 +1,123 @@
+{
+  "id": "forge-eteinte",
+  "speaker": "forge-eteinte",
+  "entries": [
+    {
+      "requires": [
+        {
+          "flag": "echos-dissipes"
+        }
+      ],
+      "node": "scellee"
+    },
+    {
+      "requires": [
+        {
+          "quest": "echos-forge",
+          "status": "done"
+        }
+      ],
+      "node": "apres"
+    },
+    {
+      "requires": [
+        {
+          "flag": "trappe-vue"
+        }
+      ],
+      "node": "trappe"
+    },
+    {
+      "node": "jour"
+    }
+  ],
+  "nodes": {
+    "jour": {
+      "text": "Une forge froide, la seule des Forges-Basses. Les ouvriers la contournent : « si une forge s’éteint d’elle-même, un esprit rouille rôde. » Pourtant, la pierre du foyer est tiède sous la main.",
+      "options": [
+        {
+          "text": "Revenir à la nuit tombée.",
+          "next": "nuit"
+        },
+        {
+          "text": "Passer son chemin.",
+          "next": "fin"
+        }
+      ]
+    },
+    "nuit": {
+      "text": "À la nuit, la forge s’embrase sans feu : une lueur rouge, sans chaleur ni fumée, comme un souffle. Au fond du foyer, la lueur dessine une trappe de fer. Des voix montent d’en bas, très loin.",
+      "effects": [
+        {
+          "setFlag": "trappe-vue"
+        },
+        {
+          "startQuest": "echos-forge"
+        }
+      ],
+      "options": [
+        {
+          "text": "Ouvrir la trappe et descendre.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "ironheart-galerie",
+              "arrivee": "depuis-trappe"
+            }
+          ]
+        },
+        {
+          "text": "Pas cette nuit.",
+          "next": "fin"
+        }
+      ]
+    },
+    "trappe": {
+      "text": "La forge froide. Au fond du foyer, la trappe de fer, entrouverte. D’en bas monte une voix qui fredonne.",
+      "options": [
+        {
+          "text": "Descendre.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "ironheart-galerie",
+              "arrivee": "depuis-trappe"
+            }
+          ]
+        },
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "apres": {
+      "text": "Certaines nuits, la forge s’embrase encore sans feu. Personne n’y prend garde, sauf toi.",
+      "options": [
+        {
+          "text": "Descendre.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "ironheart-galerie",
+              "arrivee": "depuis-trappe"
+            }
+          ]
+        },
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "scellee": {
+      "text": "La forge est froide, et la trappe scellée de l’intérieur. On dit qu’on entend, la nuit, plus de voix sous les pavés qu’avant.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

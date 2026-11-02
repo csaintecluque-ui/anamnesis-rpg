@@ -32,5 +32,15 @@
     ],
     "victoryFlag": "pilleurs-vaincus",
     "victoryEffects": [{ "giveXp": 20 }]
+  },
+  {
+    "id": "echos-furieux",
+    "center": "echo-promesse",
+    "enemies": [
+      { "id": "echo-furieux", "object": "echo-furieux-1" },
+      { "id": "echo-furieux", "object": "echo-furieux-2" }
+    ],
+    "victoryFlag": "echos-dissipes",
+    "victoryEffects": [{ "completeQuest": "echos-forge" }, { "giveXp": 20 }]
   }
 ]

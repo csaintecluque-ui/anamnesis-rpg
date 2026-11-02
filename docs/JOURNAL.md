@@ -3,7 +3,7 @@
 ## État (2026-11-02)
 
 - Jalons 1 et 2 faits et en ligne (`docs/gdd/jalon-2.md`). 11,5 crédits Higgsfield restants.
-- 368 tests, typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
+- 381 tests, typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
 - Mode test caché : 5 touches sur la version (écran titre) → +50 Fers, PV au max dans le menu pause.
 
 ## Fait et en ligne (2026-11-02, validé par Cyril)
@@ -20,8 +20,8 @@
 
 ## Prochaine étape
 
-1. En ligne (2026-11-02) : passe de qualité, logo corrigé, pièces de Hedda, lisibilité sur téléphone.
-   Prochaine étape : à proposer à Cyril.
+1. En ligne (2026-11-02) : passe de qualité, logo, pièces de Hedda, lisibilité sur téléphone. Sur la branche :
+   « Les Échos sous la Forge » (quête cachée, option A) : détails et mise en ligne à valider par Cyril.
 2. Codex : Sept-Portes (`AGENTS.md`). Notion : page « Anamnesis — le jeu », à tenir à jour à chaque mise en ligne.
 
 ## Points ouverts

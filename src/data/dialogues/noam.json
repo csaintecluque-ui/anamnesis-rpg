@@ -5,6 +5,18 @@
     {
       "requires": [
         {
+          "item": "releve-echo"
+        },
+        {
+          "quest": "echos-forge",
+          "status": "active"
+        }
+      ],
+      "node": "releve"
+    },
+    {
+      "requires": [
+        {
           "item": "cle-rouille-bleue"
         },
         {
@@ -217,6 +229,42 @@
         {
           "text": "Merci.",
           "next": "accueil"
+        }
+      ]
+    },
+    "releve": {
+      "text": "Noam lit le relevé deux fois, sans un mot. — Écho, Forges-Basses, sous la forge froide (voir : superstitions). Langue : inconnue. Période : impossible. Il trempe sa plume. — Je le classe quand même. Ferros ne brûle rien.",
+      "effects": [
+        {
+          "takeItem": "releve-echo"
+        },
+        {
+          "setFlag": "echos-archives"
+        },
+        {
+          "completeQuest": "echos-forge"
+        },
+        {
+          "giveXp": 40
+        }
+      ],
+      "options": [
+        {
+          "text": "Où le rangerez-vous ?",
+          "next": "releve-ou"
+        },
+        {
+          "text": "Merci, Noam.",
+          "next": "fin"
+        }
+      ]
+    },
+    "releve-ou": {
+      "text": "— Fonds ordinaire, section des Échos, sous-section « non attribués ». Elle est plus fournie qu’on ne croit (voir : registre). Ce qui n’a pas d’époque finit toujours par en trouver une.",
+      "options": [
+        {
+          "text": "Merci, Noam.",
+          "next": "fin"
         }
       ]
     }

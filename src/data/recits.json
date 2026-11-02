@@ -48,5 +48,10 @@
     "id": "machine-vers-ouest",
     "titre": "La machine qui roulait vers l’ouest",
     "texte": "Sous les terrils d’Ironheart, une machine sans homme du Chantier Ouest obéit encore à son dernier ordre : rouler vers l’ouest, rejoindre le chantier. Le chantier n’existe plus depuis des siècles. Elle ne vole rien ; elle se souvient d’un ordre que tous les autres ont oublié."
+  },
+  {
+    "id": "on-se-retrouvera",
+    "titre": "On se retrouvera",
+    "texte": "Sous une forge froide d’Ironheart, des Échos qui ne sont d’aucune époque connue : une berceuse dans une langue à venir, cinq mains gravées sur une enclume, et une promesse répétée sans fin : « On se retrouvera. » Personne ne sait à qui elles appartiennent. Elles se cherchent."
   }
 ]

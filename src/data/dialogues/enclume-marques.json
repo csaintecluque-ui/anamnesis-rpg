@@ -1,0 +1,44 @@
+{
+  "id": "enclume-marques",
+  "speaker": "enclume-marques",
+  "entries": [
+    {
+      "node": "enclume"
+    }
+  ],
+  "nodes": {
+    "enclume": {
+      "text": "Une vieille enclume, noire de suie. Sur le plat, des mains gravées, grandes et petites, cinq en tout, posées côte à côte. L’Écho les rejoue un instant : des rires, puis plus rien.",
+      "effects": [
+        {
+          "setFlag": "enclume-vue"
+        }
+      ],
+      "options": [
+        {
+          "text": "Examiner les marques.",
+          "next": "marques",
+          "requires": [
+            {
+              "skill": "investigation",
+              "min": 2
+            }
+          ]
+        },
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "marques": {
+      "text": "Gravées à froid, avec soin, comme on signe un serment. Sous les mains, un seul mot, presque effacé, dans la même langue inconnue que la berceuse.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

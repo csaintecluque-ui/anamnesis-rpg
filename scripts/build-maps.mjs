@@ -696,6 +696,10 @@ function ironheartForges() {
   m.setObstacle(28, 20, 'butoir');
   m.object('veilleuse', 'pnj', 23, 19);
   m.object('vieille-machine', 'objet', 26, 20);
+  // La forge froide qui s'embrase sans feu, la nuit (« Les Échos sous la Forge », quête cachée).
+  m.setObstacle(4, 4, 'forge-eteinte');
+  m.object('forge-eteinte', 'objet', 4, 4);
+  m.object('devant-forge-eteinte', 'arrivee', 5, 5);
   // Le triage des Cendres, à l'est (« Le Rail des Cendres »).
   m.setObstacle(29, 16, null);
   m.object('vers-triage', 'sortie', 29, 16, { cible: 'ironheart-triage', arrivee: 'depuis-forges', libelle: 'Le triage des Cendres' });
@@ -808,6 +812,32 @@ function ironheartTriage() {
   for (const [c, r] of [[22, 2], [23, 2], [2, 16]]) m.setObstacle(c, r, 'caisses');
   m.setObstacle(2, 11, 'panneau');
   m.object('panneau-triage', 'panneau', 2, 11, { texte: 'Triage des Cendres — Travailleurs du Rail. « Le rail est une promesse collective. »' });
+  return m.toTiled();
+}
+
+// « Les Échos sous la Forge » (quête cachée, docs/univers/quetes.md) : la galerie du Peuple des Cendres Noires, sous la
+// forge froide ; trois Échos d'une autre époque, au fond une promesse.
+function ironheartGalerie() {
+  const m = cityBlock(20, 14, 'sol-cendre', 'tas-cendres');
+  m.object('vers-forge', 'sortie', 0, 7, { cible: 'ironheart-forges', arrivee: 'devant-forge-eteinte', libelle: 'Remonter par la trappe' });
+  m.setObstacle(0, 7, null);
+  m.object('depuis-trappe', 'arrivee', 2, 7);
+  m.line([1, 9], [12, 9], 'rail');
+  for (const [c, r] of [[6, 9], [7, 9]]) m.setObstacle(c, r, 'wagon');
+  for (const [c, r] of [[3, 3], [9, 3], [14, 11], [4, 11]]) m.setObstacle(c, r, 'brasero');
+  for (const [c, r] of [[12, 2], [13, 2], [2, 12]]) m.setObstacle(c, r, 'caisses');
+  for (const [c, r] of [[7, 4], [10, 11], [17, 2], [17, 12]]) m.setObstacle(c, r, 'tas-cendres');
+  m.object('hesk', 'pnj', 5, 5);
+  const gone = { disparaitSi: 'echos-dissipes' };
+  m.setObstacle(9, 7, 'echo-forge');
+  m.object('echo-chanson', 'echo', 9, 7, gone);
+  m.setObstacle(12, 5, 'enclume');
+  m.object('enclume-marques', 'objet', 12, 5);
+  m.setObstacle(16, 7, 'echo-forge');
+  m.object('echo-promesse', 'echo', 16, 7, gone);
+  const furieux = { ennemi: 'echo-furieux', apparaitSi: 'echos-dechaines', disparaitSi: 'echos-dissipes', texte: 'Un Écho furieux, la voix cassée.' };
+  m.object('echo-furieux-1', 'ennemi', 15, 5, furieux);
+  m.object('echo-furieux-2', 'ennemi', 15, 9, furieux);
   return m.toTiled();
 }
 
@@ -954,6 +984,7 @@ for (const [id, map] of Object.entries({
   'ironheart-manufactures': ironheartManufactures(),
   'ironheart-triage': ironheartTriage(),
   'ironheart-cendriere': ironheartCendriere(),
+  'ironheart-galerie': ironheartGalerie(),
   'canopee-amphitheatre': amphitheatre(),
   ...ENCOUNTER_MAPS,
 })) {

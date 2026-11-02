@@ -200,7 +200,7 @@ Le reste, proposé, est **validé par Cyril le 2026-11-02**.
 - **Les routes commerciales** : pour l'instant, par la réputation d'Ironheart (les prix de la ville) et ce que disent
   les cheminots ; **reporté** : un vrai effet sur les marchandises et le train.
 
-## 9. Les Échos sous la Forge (Ferros, quête cachée) — **en conception, attend Cyril**
+## 9. Les Échos sous la Forge (Ferros, quête cachée) — **construite le 2026-11-02 (option A de Cyril), détails à valider**
 
 Canon [NOTION, Studio] : fiche vide (Idea, Hidden, Ferros) ; conflit « Des souvenirs ne devraient pas exister dans
 cette période de Ferros » ; choix : ignorer, suivre, archiver, détruire, confier à un proche ; conséquence « Débloque
@@ -210,7 +210,24 @@ forcé dans une intrigue familiale). Le contrat créatif réserve à Cyril les �
 Appuis : signes de Kharos (« forge qui s'embrase sans feu », « minerai qui chante », « rêves ardents partagés entre
 forgerons ») ; « si une forge s'éteint d'elle-même : un esprit rouille rôde » ; le Peuple des Cendres Noires, gardiens
 du sous-sol ; les Maîtres des Braises lisent la mémoire du métal ; Loi de la Mémoire Vivante. **Règle** : aucun
-personnage du roman *Chroniques Familiales* n'y apparaît ni n'y est nommé.
+personnage du roman *Chroniques Familiales* n'y apparaît ni n'y est nommé (un test le vérifie).
+
+Décisions de Cyril (2026-11-02) : **option A**, des Échos familiaux anonymes et fragmentaires, sans nom ni explication ;
+« confier à un proche » = à Ilyane ; Kharos reste vague (« le souffle de Kharos »).
+
+- **Découverte** (aucun donneur de quête) : la seule forge froide des Forges-Basses ; un vieux forgeron dit qu'elle
+  « rougeoie, certaines nuits, sans feu ». Y revenir à la nuit : elle s'embrase sans feu et dessine une trappe.
+- **La galerie** : **Hesk**, du Peuple des Cendres Noires [NOTION : le peuple], garde le dessous : « le souffle de
+  Kharos fait parfois remonter ce que la terre a gardé » ; ces Échos parlent « une langue qu'aucune forge n'a jamais
+  chantée ». Trois Échos : une voix qui fredonne une berceuse dans une langue à venir (Mémoire 3 : la retenir) ;
+  **cinq mains**, grandes et petites, gravées sur une enclume, et un mot inconnu (Investigation 2) ; au fond, quelqu'un
+  qui promet : « **On se retrouvera.** » (Récit « On se retrouvera »).
+- **Cinq choix** (canon) : **ignorer** (10 XP) ; **suivre** (Mémoire 3 : une niche secrète, un petit oiseau de fer plié
+  à la main, 50 XP) ; **archiver** (un relevé pour Noam : « Période : impossible. Je le classe quand même », 40 XP,
+  Archives +10) ; **confier à un proche** (une lettre pour Ilyane, que Hedda envoie par son frère Tobias ; 40 XP ; à
+  Gardebois, Ilyane : « je reconnais des gens qui s'aiment, même à travers les siècles ») ; **détruire** (Hesk prévient ;
+  l'Écho frappé se multiplie : combat contre deux Échos furieux, 20 XP ; ils « reviendront » ; la trappe se scelle, et
+  l'on entend plus de voix sous les pavés).
 
 ## Ordre de construction proposé
 

@@ -608,6 +608,27 @@ _Effet : retient « berceuse-recueillie », retient le Récit « La berceuse de 
 
 - « … » → **fin**
 
+## Un Écho
+
+_Une voix qui fredonne_
+
+Commence par : « ecoute »
+
+### ecoute
+
+_Effet : retient « echo-chanson-entendu »._
+
+> Une silhouette bleu pâle, bordée d’or, se penche sur quelque chose qu’on ne voit pas, et fredonne une berceuse dans une langue qui n’existe pas encore. Sur la fin, la voix se casse, et reprend.
+
+- **[Mémoire 3]** _(sans repère « melodie-retenue »)_ « Retenir la mélodie. » → melodie _(retient « melodie-retenue », +10 XP)_
+- « Laisser la chanson finir. » → **fin**
+
+### melodie
+
+> La mélodie se pose en toi, note après note. Tu ne comprends pas les mots, mais tu sais pour qui on chante ainsi : pour quelqu’un qui s’endort, et qu’on ne veut pas quitter.
+
+- « La garder. » → **fin**
+
 ## L’Écho du dernier train
 
 _Écho du Passé_
@@ -642,6 +663,90 @@ _Effet : retient le Récit « Le Savant Corvan »._
 
 - **[Mémoire 4]** « Entrer dans l’Écho. » → interieur
 - « S’éloigner. » → **fin**
+
+## Un Écho
+
+_Au fond de la galerie_
+
+Commence par : « apaise » _(si quête « Les Échos sous la Forge » terminée)_, sinon « ecrit-archives » _(si repère « echo-releve »)_, sinon « ecrit-lettre » _(si repère « echo-lettre »)_, sinon « promesse »
+
+### promesse
+
+_Effet : retient « promesse-entendue »._
+
+> Au fond de la galerie, un Écho plus net que les autres : quelqu’un se tient face au vide et parle à des gens qu’on ne voit pas. Une seule phrase, encore et encore : « On se retrouvera. » Puis l’Écho se tourne vers toi, comme s’il attendait.
+
+- « L’écouter jusqu’au bout. » → choix
+- _(si quête « Les Échos sous la Forge » en cours)_ « Laisser l’Écho à son silence. » → ignorer _(retient « echos-ignores », termine la quête « Les Échos sous la Forge », +10 XP)_
+- « Partir. » → **fin**
+
+### choix
+
+_Effet : retient le Récit « On se retrouvera »._
+
+> L’Écho répète sa promesse, jusqu’au bout cette fois, et ta mémoire la garde. Il attend quelque chose de toi : qu’on le suive, qu’on le garde, ou qu’on le laisse.
+
+- _(si quête « Les Échos sous la Forge » en cours)_ **[Mémoire 3]** « Le suivre, là où il va. » → suivre _(retient « echos-suivis », termine la quête « Les Échos sous la Forge », +50 XP, donne 1 × « Oiseau de fer »)_
+- _(si quête « Les Échos sous la Forge » en cours)_ « Le garder par écrit. » → garder
+- _(si quête « Les Échos sous la Forge » en cours)_ « Le frapper pour le dissiper. » → frapper
+- « Réfléchir encore. » → **fin**
+
+### ignorer
+
+> Tu laisses l’Écho à sa promesse. Il ne te retient pas. En remontant, tu l’entends encore, de plus en plus bas : « On se retrouvera. »
+
+- « Remonter. » → **fin**
+
+### suivre
+
+> Tu suis l’Écho par une faille que tu n’avais pas vue, jusqu’à une niche creusée dans la roche. Il y pose quelque chose qui n’existe plus, et s’efface, apaisé. À sa place, bien réel : un petit oiseau de fer, plié à la main.
+
+- « Le prendre. » → **fin**
+
+### garder
+
+> Garder l’Écho par écrit, pour qu’il ne se perde pas : la berceuse, les mains sur l’enclume, la promesse. Mais pour qui l’écrire ?
+
+- « Pour les Archives : Noam saura le classer. » → archiver _(donne 1 × « Relevé d’un Écho », retient « echo-releve »)_
+- « Pour Ilyane, qui saura l’écouter. » → confier _(donne 1 × « Lettre pour Ilyane », retient « echo-lettre »)_
+- « Réfléchir encore. » → choix
+
+### archiver
+
+> Tu notes tout, avec la précision qu’on t’a apprise. Noam, aux Archives Centrales, saura où le ranger, s’il existe un endroit pour ce qui n’est d’aucune époque.
+
+- « Remonter. » → **fin**
+
+### confier
+
+> Tu recopies l’Écho dans une lettre pour Ilyane. À Gardebois, elle est loin ; mais Hedda, à l’atelier Cendrefer, fait partir des caisses vers son frère Tobias, au Marché des Lisières.
+
+- « Remonter. » → **fin**
+
+### frapper
+
+> Hesk l’a dit : un Écho qu’on frappe se multiplie, et devient violent. Frapper quand même ?
+
+- « Frapper. » → **fin** _(retient « echos-dechaines », lance le combat « echos-furieux »)_
+- « Non. » → choix
+
+### apaise
+
+> L’Écho rejoue sa promesse, plus doucement. « On se retrouvera. » Tu sais maintenant que tu la garderas, toi aussi.
+
+- « Partir. » → **fin**
+
+### ecrit-archives
+
+> L’Écho rejoue sa promesse. Ton relevé est dans ta besace : il attend Noam, aux Archives Centrales.
+
+- « Partir. » → **fin**
+
+### ecrit-lettre
+
+> L’Écho rejoue sa promesse. Ta lettre pour Ilyane est dans ta besace : Hedda, à l’atelier Cendrefer, la fera partir.
+
+- « Partir. » → **fin**
 
 ## Elouan Chante-Bois
 
@@ -812,6 +917,27 @@ _Effet : retient « graines-elvan-avoue »._
 
 - « … » → **fin**
 
+## L’enclume
+
+_Sous la forge froide_
+
+Commence par : « enclume »
+
+### enclume
+
+_Effet : retient « enclume-vue »._
+
+> Une vieille enclume, noire de suie. Sur le plat, des mains gravées, grandes et petites, cinq en tout, posées côte à côte. L’Écho les rejoue un instant : des rires, puis plus rien.
+
+- **[Investigation 2]** « Examiner les marques. » → marques
+- « Partir. » → **fin**
+
+### marques
+
+> Gravées à froid, avec soin, comme on signe un serment. Sous les mains, un seul mot, presque effacé, dans la même langue inconnue que la berceuse.
+
+- « Partir. » → **fin**
+
 ## La foreuse de Brisefer
 
 _Objet_
@@ -880,6 +1006,48 @@ _Effet : retient « surpris-de-nuit »._
 > La foreuse est muette, un engrenage faussé dans le ventre.
 
 - « S’éloigner. » → **fin**
+
+## La forge froide
+
+_Forges-Basses_
+
+Commence par : « scellee » _(si repère « echos-dissipes »)_, sinon « apres » _(si quête « Les Échos sous la Forge » terminée)_, sinon « trappe » _(si repère « trappe-vue »)_, sinon « jour »
+
+### jour
+
+> Une forge froide, la seule des Forges-Basses. Les ouvriers la contournent : « si une forge s’éteint d’elle-même, un esprit rouille rôde. » Pourtant, la pierre du foyer est tiède sous la main.
+
+- « Revenir à la nuit tombée. » → nuit
+- « Passer son chemin. » → **fin**
+
+### nuit
+
+_Effet : retient « trappe-vue », lance la quête « Les Échos sous la Forge »._
+
+> À la nuit, la forge s’embrase sans feu : une lueur rouge, sans chaleur ni fumée, comme un souffle. Au fond du foyer, la lueur dessine une trappe de fer. Des voix montent d’en bas, très loin.
+
+- « Ouvrir la trappe et descendre. » → **fin** _(mène à « Ironheart — Sous la forge froide »)_
+- « Pas cette nuit. » → **fin**
+
+### trappe
+
+> La forge froide. Au fond du foyer, la trappe de fer, entrouverte. D’en bas monte une voix qui fredonne.
+
+- « Descendre. » → **fin** _(mène à « Ironheart — Sous la forge froide »)_
+- « Partir. » → **fin**
+
+### apres
+
+> Certaines nuits, la forge s’embrase encore sans feu. Personne n’y prend garde, sauf toi.
+
+- « Descendre. » → **fin** _(mène à « Ironheart — Sous la forge froide »)_
+- « Partir. » → **fin**
+
+### scellee
+
+> La forge est froide, et la trappe scellée de l’intérieur. On dit qu’on entend, la nuit, plus de voix sous les pavés qu’avant.
+
+- « Partir. » → **fin**
 
 ## Garrik
 
@@ -1000,7 +1168,7 @@ Commence par : « guichet »
 
 _Atelier Cendrefer_
 
-Commence par : « accueil-remise » _(si repère « remise-cendrefer »)_, sinon « accueil »
+Commence par : « lettre » _(si l’on porte « Lettre pour Ilyane »)_ _(si quête « Les Échos sous la Forge » en cours)_, sinon « accueil-remise » _(si repère « remise-cendrefer »)_, sinon « accueil »
 
 ### accueil
 
@@ -1032,6 +1200,59 @@ Commence par : « accueil-remise » _(si repère « remise-cendrefer »)_, sinon
 
 - « Voyons ça. » → **fin** _(ouvre le Troc)_
 - « Merci, Hedda. » → **fin**
+
+### lettre
+
+_Effet : reprend 1 × « Lettre pour Ilyane », retient « echos-confies », termine la quête « Les Échos sous la Forge », +40 XP._
+
+> — Pour Ilyane, à Gardebois ? Tobias la lui portera, avec la prochaine caisse. Hedda soupèse la lettre. — Elle est lourde, pour une seule feuille.
+
+- « Merci, Hedda. » → **fin**
+
+## Hesk
+
+_Peuple des Cendres Noires, gardienne du dessous_
+
+Commence par : « colere » _(si repère « echos-dissipes »)_, sinon « apres » _(si quête « Les Échos sous la Forge » terminée)_, sinon « accueil »
+
+### accueil
+
+> Une mineuse au visage poudré de suie noire lève sa lampe. — Peu de gens trouvent la trappe. Je suis Hesk, du Peuple des Cendres Noires : nous gardons le dessous. Le souffle de Kharos fait parfois remonter ce que la terre a gardé.
+
+- « Ce que la terre a gardé ? » → echos
+- « Qui sont ces voix ? » → voix
+- « Je repars. » → **fin**
+
+### echos
+
+> — Des Échos. Mais pas les nôtres. Les forgerons d’ici, je les connais tous, d’hier et d’aujourd’hui. Ceux-là parlent une langue qu’aucune forge n’a jamais chantée, comme s’ils venaient d’une autre époque.
+
+- « Et qu’en faites-vous ? » → garde
+- « Merci, Hesk. » → **fin**
+
+### garde
+
+> — Rien. On les garde. Un Écho ne s’efface pas : on le dissipe un temps, et il revient. Et qui frappe un Écho le voit se multiplier. Écoute-les, si tu veux. Puis décide.
+
+- « Merci, Hesk. » → **fin**
+
+### voix
+
+> — Une voix qui fredonne. Des mains qui gravent l’enclume. Et au fond, quelqu’un qui promet. Je ne sais pas à qui elles sont. Je sais seulement qu’elles se cherchent.
+
+- « Je vais les écouter. » → **fin**
+
+### apres
+
+> — Le dessous est calme. Merci d’avoir écouté, là où d’autres auraient eu peur.
+
+- « Au revoir, Hesk. » → **fin**
+
+### colere
+
+> Hesk ne lève pas sa lampe. — Tu les as frappés. Ils reviendront plus nombreux, et moins doux. La terre n’oublie rien. Remonte, maintenant.
+
+- « Remonter. » → **fin**
 
 ## L’huissier du Conseil
 
@@ -1115,7 +1336,7 @@ _Effet : retient « mensonge-huissier »._
 
 _Gardienne de Mémoire de Gardebois_
 
-Commence par : « carnet » _(si quête « Le carnet de chansons » en cours)_ _(si l’on porte « Carnet de chansons d’Ilyane »)_, sinon « nouvelles-canopee » _(si quête « L’audience » terminée)_, sinon « resolu » _(si quête « Le Dernier Train » terminée)_, sinon « en-cours » _(si quête « Le Dernier Train » en cours)_, sinon « accueil »
+Commence par : « echo-lettre » _(si repère « echos-confies »)_ _(sans repère « ilyane-echo-lu »)_, sinon « carnet » _(si quête « Le carnet de chansons » en cours)_ _(si l’on porte « Carnet de chansons d’Ilyane »)_, sinon « nouvelles-canopee » _(si quête « L’audience » terminée)_, sinon « resolu » _(si quête « Le Dernier Train » terminée)_, sinon « en-cours » _(si quête « Le Dernier Train » en cours)_, sinon « accueil »
 
 ### resolu
 
@@ -1209,6 +1430,14 @@ _Effet : lance la quête « Le Dernier Train »._
 > 🌙 Ilyane chante, et c’est vrai qu’elle chante faux. Mais c’est la chanson de deux apprenties qui se juraient de tout écouter et de tout écrire, et sa voix tremble au bon endroit. — Elle avait raison, Mirelle. Il fallait l’écrire.
 
 - « C’était beau. Même faux. » → **fin**
+
+### echo-lettre
+
+_Effet : retient « ilyane-echo-lu », +10 XP._
+
+> Ilyane tient ta lettre contre elle. — Je ne sais pas à qui sont ces voix. Mais je reconnais des gens qui s’aiment, même à travers les siècles. Garde leur promesse. Un jour, quelqu’un saura l’entendre.
+
+- « Je la garderai. » → **fin**
 
 ## Ingrid Brisefer
 
@@ -1984,7 +2213,7 @@ Commence par : « apres » _(si quête « La berceuse oubliée » terminée)_, s
 
 _Archives Centrales de Ferros_
 
-Commence par : « cle » _(si l’on porte « Clé de rouille bleue »)_ _(si quête « La Clé de Rouille Bleue » en cours)_, sinon « apres-archives » _(si repère « cle-archives »)_, sinon « accueil »
+Commence par : « releve » _(si l’on porte « Relevé d’un Écho »)_ _(si quête « Les Échos sous la Forge » en cours)_, sinon « cle » _(si l’on porte « Clé de rouille bleue »)_ _(si quête « La Clé de Rouille Bleue » en cours)_, sinon « apres-archives » _(si repère « cle-archives »)_, sinon « accueil »
 
 ### accueil
 
@@ -2068,6 +2297,21 @@ _Effet : retient « fonds-zero-connu »._
 > — « Le sol sacré est fermé, la route reste ouverte. » Classé (voir : accords, catégorie rare : ceux qui satisfont tout le monde). Je l’ai relu deux fois.
 
 - « Merci. » → accueil
+
+### releve
+
+_Effet : reprend 1 × « Relevé d’un Écho », retient « echos-archives », termine la quête « Les Échos sous la Forge », +40 XP._
+
+> Noam lit le relevé deux fois, sans un mot. — Écho, Forges-Basses, sous la forge froide (voir : superstitions). Langue : inconnue. Période : impossible. Il trempe sa plume. — Je le classe quand même. Ferros ne brûle rien.
+
+- « Où le rangerez-vous ? » → releve-ou
+- « Merci, Noam. » → **fin**
+
+### releve-ou
+
+> — Fonds ordinaire, section des Échos, sous-section « non attribués ». Elle est plus fournie qu’on ne croit (voir : registre). Ce qui n’a pas d’époque finit toujours par en trouver une.
+
+- « Merci, Noam. » → **fin**
 
 ## Le contrôleur Ostrik
 

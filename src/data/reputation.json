@@ -54,6 +54,7 @@
   ],
   "archives-ferros": [
     { "flag": "cle-archives", "points": 20 },
+    { "flag": "echos-archives", "points": 10 },
     { "flag": "cle-vendue", "points": -10 }
   ]
 }

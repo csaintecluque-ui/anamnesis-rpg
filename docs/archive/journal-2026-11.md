@@ -781,3 +781,13 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   dépenser l'argent d'Ironheart. Mis en ligne avec l'accord de Cyril.
 - Lisibilité sur téléphone (accord de Cyril) : plateau de combat et textes agrandis au doigt, menu du titre, boutons
   de la création, noms des PNJ, étiquettes de la carte du monde ; vérifié en 844 × 390 (iPhone en paysage). En ligne.
+
+## 2026-11-02 (suite) : « Les Échos sous la Forge »
+
+- Notion relu (agent) : fiche vide ; la « quête familiale » renvoie aux Échos familiaux du roman, qui « restent
+  cachés » (décision validée du Studio) ; le contrat créatif réserve à Cyril les Échos et les révélations. Question
+  posée avant de construire. Cyril : option A (Échos familiaux anonymes et fragmentaires), Ilyane comme « proche »,
+  Kharos vague. Zones floues 23-24 (Kharos, capitale, volcan, langue ; « détruire » un Écho).
+- Construit : la forge froide (Forges-Basses), la galerie sous la forge (Hesk, trois Échos, enclume), cinq fins, deux
+  Échos furieux, l'oiseau de fer, le Récit « On se retrouvera », les suites chez Noam, Hedda et Ilyane, un vieux
+  forgeron. Test : aucun personnage du roman n'est nommé. 381 tests ; vérifié sur téléphone.

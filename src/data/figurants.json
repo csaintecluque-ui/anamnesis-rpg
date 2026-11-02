@@ -445,5 +445,20 @@
       { "quest": "rail-cendres", "flag": "rail-bureau", "lines": ["Joss est parti. Renvoyé. Le Bureau classe, il ne pardonne pas."] },
       { "quest": "rail-cendres", "flag": "rail-marches", "lines": ["Varka ne parle plus de toi. C’est mauvais signe, ici."] }
     ]
+  },
+  {
+    "id": "vieux-forgeron",
+    "location": "ironheart-forges",
+    "name": "Un vieux forgeron",
+    "tile": "vieux-forgeron",
+    "path": [[7, 4]],
+    "lines": [
+      "Cette forge-là s’est éteinte toute seule, il y a vingt ans. Depuis, on passe au large.",
+      "Certaines nuits, elle rougeoie. Sans feu. Moi, je dors de l’autre côté de la rue."
+    ],
+    "reactions": [
+      { "quest": "echos-forge", "lines": ["La vieille forge rougeoie encore, la nuit. Bizarre : ça ne me fait plus peur."] },
+      { "quest": "echos-forge", "flag": "echos-dissipes", "lines": ["Depuis quelques nuits, on entend des voix sous les pavés. Plus qu’avant."] }
+    ]
   }
 ]

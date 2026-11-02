@@ -48,6 +48,11 @@ import piloteEndormi from './pilote-endormi.json';
 import aiguillage from './aiguillage.json';
 import registreDeparts from './registre-departs.json';
 import tunnelCendriere from './tunnel-cendriere.json';
+import forgeEteinte from './forge-eteinte.json';
+import hesk from './hesk.json';
+import echoChanson from './echo-chanson.json';
+import enclumeMarques from './enclume-marques.json';
+import echoPromesse from './echo-promesse.json';
 import porteGrenier from './porte-grenier.json';
 import renfoncement from './renfoncement.json';
 import rika from './rika.json';
@@ -116,6 +121,11 @@ export const DIALOGUES: Record<string, Dialogue> = {
   aiguillage: aiguillage as Dialogue,
   'registre-departs': registreDeparts as Dialogue,
   'tunnel-cendriere': tunnelCendriere as Dialogue,
+  'forge-eteinte': forgeEteinte as Dialogue,
+  hesk: hesk as Dialogue,
+  'echo-chanson': echoChanson as Dialogue,
+  'enclume-marques': enclumeMarques as Dialogue,
+  'echo-promesse': echoPromesse as Dialogue,
   'porte-grenier': porteGrenier as Dialogue,
   renfoncement: renfoncement as Dialogue,
   rika: rika as Dialogue,

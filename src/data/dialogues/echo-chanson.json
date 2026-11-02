@@ -1,0 +1,55 @@
+{
+  "id": "echo-chanson",
+  "speaker": "echo-chanson",
+  "entries": [
+    {
+      "node": "ecoute"
+    }
+  ],
+  "nodes": {
+    "ecoute": {
+      "text": "Une silhouette bleu pâle, bordée d’or, se penche sur quelque chose qu’on ne voit pas, et fredonne une berceuse dans une langue qui n’existe pas encore. Sur la fin, la voix se casse, et reprend.",
+      "effects": [
+        {
+          "setFlag": "echo-chanson-entendu"
+        }
+      ],
+      "options": [
+        {
+          "text": "Retenir la mélodie.",
+          "next": "melodie",
+          "requires": [
+            {
+              "attribute": "memory",
+              "min": 3
+            },
+            {
+              "notFlag": "melodie-retenue"
+            }
+          ],
+          "effects": [
+            {
+              "setFlag": "melodie-retenue"
+            },
+            {
+              "giveXp": 10
+            }
+          ]
+        },
+        {
+          "text": "Laisser la chanson finir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "melodie": {
+      "text": "La mélodie se pose en toi, note après note. Tu ne comprends pas les mots, mais tu sais pour qui on chante ainsi : pour quelqu’un qui s’endort, et qu’on ne veut pas quitter.",
+      "options": [
+        {
+          "text": "La garder.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

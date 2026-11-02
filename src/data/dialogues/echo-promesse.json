@@ -1,0 +1,254 @@
+{
+  "id": "echo-promesse",
+  "speaker": "echo-promesse",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "echos-forge",
+          "status": "done"
+        }
+      ],
+      "node": "apaise"
+    },
+    {
+      "requires": [
+        {
+          "flag": "echo-releve"
+        }
+      ],
+      "node": "ecrit-archives"
+    },
+    {
+      "requires": [
+        {
+          "flag": "echo-lettre"
+        }
+      ],
+      "node": "ecrit-lettre"
+    },
+    {
+      "node": "promesse"
+    }
+  ],
+  "nodes": {
+    "promesse": {
+      "text": "Au fond de la galerie, un Écho plus net que les autres : quelqu’un se tient face au vide et parle à des gens qu’on ne voit pas. Une seule phrase, encore et encore : « On se retrouvera. » Puis l’Écho se tourne vers toi, comme s’il attendait.",
+      "effects": [
+        {
+          "setFlag": "promesse-entendue"
+        }
+      ],
+      "options": [
+        {
+          "text": "L’écouter jusqu’au bout.",
+          "next": "choix"
+        },
+        {
+          "text": "Laisser l’Écho à son silence.",
+          "next": "ignorer",
+          "requires": [
+            {
+              "quest": "echos-forge",
+              "status": "active"
+            }
+          ],
+          "effects": [
+            {
+              "setFlag": "echos-ignores"
+            },
+            {
+              "completeQuest": "echos-forge"
+            },
+            {
+              "giveXp": 10
+            }
+          ]
+        },
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "choix": {
+      "text": "L’Écho répète sa promesse, jusqu’au bout cette fois, et ta mémoire la garde. Il attend quelque chose de toi : qu’on le suive, qu’on le garde, ou qu’on le laisse.",
+      "effects": [
+        {
+          "learnRecit": "on-se-retrouvera"
+        }
+      ],
+      "options": [
+        {
+          "text": "Le suivre, là où il va.",
+          "next": "suivre",
+          "requires": [
+            {
+              "quest": "echos-forge",
+              "status": "active"
+            },
+            {
+              "attribute": "memory",
+              "min": 3
+            }
+          ],
+          "effects": [
+            {
+              "setFlag": "echos-suivis"
+            },
+            {
+              "completeQuest": "echos-forge"
+            },
+            {
+              "giveXp": 50
+            },
+            {
+              "giveItem": "oiseau-de-fer"
+            }
+          ]
+        },
+        {
+          "text": "Le garder par écrit.",
+          "next": "garder",
+          "requires": [
+            {
+              "quest": "echos-forge",
+              "status": "active"
+            }
+          ]
+        },
+        {
+          "text": "Le frapper pour le dissiper.",
+          "next": "frapper",
+          "requires": [
+            {
+              "quest": "echos-forge",
+              "status": "active"
+            }
+          ]
+        },
+        {
+          "text": "Réfléchir encore.",
+          "next": "fin"
+        }
+      ]
+    },
+    "ignorer": {
+      "text": "Tu laisses l’Écho à sa promesse. Il ne te retient pas. En remontant, tu l’entends encore, de plus en plus bas : « On se retrouvera. »",
+      "options": [
+        {
+          "text": "Remonter.",
+          "next": "fin"
+        }
+      ]
+    },
+    "suivre": {
+      "text": "Tu suis l’Écho par une faille que tu n’avais pas vue, jusqu’à une niche creusée dans la roche. Il y pose quelque chose qui n’existe plus, et s’efface, apaisé. À sa place, bien réel : un petit oiseau de fer, plié à la main.",
+      "options": [
+        {
+          "text": "Le prendre.",
+          "next": "fin"
+        }
+      ]
+    },
+    "garder": {
+      "text": "Garder l’Écho par écrit, pour qu’il ne se perde pas : la berceuse, les mains sur l’enclume, la promesse. Mais pour qui l’écrire ?",
+      "options": [
+        {
+          "text": "Pour les Archives : Noam saura le classer.",
+          "next": "archiver",
+          "effects": [
+            {
+              "giveItem": "releve-echo"
+            },
+            {
+              "setFlag": "echo-releve"
+            }
+          ]
+        },
+        {
+          "text": "Pour Ilyane, qui saura l’écouter.",
+          "next": "confier",
+          "effects": [
+            {
+              "giveItem": "lettre-echo"
+            },
+            {
+              "setFlag": "echo-lettre"
+            }
+          ]
+        },
+        {
+          "text": "Réfléchir encore.",
+          "next": "choix"
+        }
+      ]
+    },
+    "archiver": {
+      "text": "Tu notes tout, avec la précision qu’on t’a apprise. Noam, aux Archives Centrales, saura où le ranger, s’il existe un endroit pour ce qui n’est d’aucune époque.",
+      "options": [
+        {
+          "text": "Remonter.",
+          "next": "fin"
+        }
+      ]
+    },
+    "confier": {
+      "text": "Tu recopies l’Écho dans une lettre pour Ilyane. À Gardebois, elle est loin ; mais Hedda, à l’atelier Cendrefer, fait partir des caisses vers son frère Tobias, au Marché des Lisières.",
+      "options": [
+        {
+          "text": "Remonter.",
+          "next": "fin"
+        }
+      ]
+    },
+    "frapper": {
+      "text": "Hesk l’a dit : un Écho qu’on frappe se multiplie, et devient violent. Frapper quand même ?",
+      "options": [
+        {
+          "text": "Frapper.",
+          "next": "fin",
+          "effects": [
+            {
+              "setFlag": "echos-dechaines"
+            },
+            {
+              "startCombat": "echos-furieux"
+            }
+          ]
+        },
+        {
+          "text": "Non.",
+          "next": "choix"
+        }
+      ]
+    },
+    "apaise": {
+      "text": "L’Écho rejoue sa promesse, plus doucement. « On se retrouvera. » Tu sais maintenant que tu la garderas, toi aussi.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "ecrit-archives": {
+      "text": "L’Écho rejoue sa promesse. Ton relevé est dans ta besace : il attend Noam, aux Archives Centrales.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "ecrit-lettre": {
+      "text": "L’Écho rejoue sa promesse. Ta lettre pour Ilyane est dans ta besace : Hedda, à l’atelier Cendrefer, la fera partir.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

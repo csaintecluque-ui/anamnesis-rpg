@@ -47,10 +47,16 @@ Sept intérieurs, sept PNJ nommés. Toutes les maisons prévues sont là.
 | Récit « Kael, le Premier Chroniqueur » | raconté par Mirelle | E4 |
 | Mirelle et Ilyane | apprentissage commun ; Mirelle garde le carnet de chansons d'Ilyane (qui chanterait faux) | — |
 
+## Le Triumvirat Vert et l'amphithéâtre (2026-11-02, avec « L'audience »)
+
+- **L'amphithéâtre du Conseil** (`canopee-amphitheatre`), derrière l'Antichambre : gradins en fer à cheval, estrade du
+  Triumvirat. On y entre par l'huissier. Canon [NOTION] : amphithéâtre circulaire taillé dans un Arbre-Titan mort.
+- **Kael Marchevent** (cape de Garde Vert), **Lyra Cœur-de-Sève** (longs cheveux tressés de lianes) et **l'Ancien
+  Thalorin** (dryade aux cheveux de feuilles) y siègent ; salutations du canon : « Racines profondes », « Que la sève
+  coule ». Valeurs reprises : on ne ment pas au Conseil (« Racines Ouvertes »), méfiance envers Ferros.
+
 ## Reporté
 
-- **Lyra Cœur-de-Sève, Thalorin, Kael Marchevent** (canon, décrits ci-dessus) : pas encore dans la ville ; ils
-  arriveront avec « L'audience » (`docs/univers/quetes.md`).
 - **Réputation complète** : système commun prévu dans `docs/gdd/villes.md`. Les passants sont faits
   (`docs/gdd/figurants.md`, huit à Canopéa).
 - **Images peintes** (phase 2) : plan et coût à présenter avant toute génération.

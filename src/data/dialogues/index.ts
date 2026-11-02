@@ -1,4 +1,8 @@
 import type { Dialogue } from '../../rules/dialogue';
+import thalorin from './thalorin.json';
+import lyra from './lyra.json';
+import kaelMarchevent from './kael-marchevent.json';
+import garrik from './garrik.json';
 import ailis from './ailis.json';
 import arbreAncien from './arbre-ancien.json';
 import arbreAnselme from './arbre-anselme.json';
@@ -40,6 +44,10 @@ import voyageurEgare from './voyageur-egare.json';
 
 /** Dialogue files by object name (PNJ, Écho or object) of the maps. */
 export const DIALOGUES: Record<string, Dialogue> = {
+  thalorin: thalorin as Dialogue,
+  lyra: lyra as Dialogue,
+  'kael-marchevent': kaelMarchevent as Dialogue,
+  garrik: garrik as Dialogue,
   ailis: ailis as Dialogue,
   'arbre-ancien': arbreAncien as Dialogue,
   'arbre-anselme': arbreAnselme as Dialogue,

@@ -1,0 +1,156 @@
+{
+  "id": "garrik",
+  "speaker": "garrik",
+  "entries": [
+    {
+      "node": "rencontre"
+    }
+  ],
+  "nodes": {
+    "rencontre": {
+      "text": "Un homme trapu, pioche à l’épaule, sursaute. Une lanterne de Ferros pend à sa ceinture. — Qui va là ? Il n’y a rien à voir, ici. Passe ton chemin.",
+      "options": [
+        {
+          "text": "Ce sol est sacré, et tu coupes les racines du Bosquet.",
+          "next": "defensif"
+        },
+        {
+          "text": "Pose cette pioche. Tout de suite.",
+          "next": "intimide",
+          "requires": [
+            {
+              "skill": "command",
+              "min": 2
+            }
+          ]
+        },
+        {
+          "text": "Kaelis m’envoie voir où tu en es.",
+          "next": "complice",
+          "roll": {
+            "skill": "subterfuge",
+            "difficulty": 12
+          },
+          "failNext": "demasque"
+        },
+        {
+          "text": "Je m’en vais.",
+          "next": "fin"
+        }
+      ]
+    },
+    "defensif": {
+      "text": "— Les racines ? Je creuse le long d’une voie, moi, pas dans les racines ! Bon… il y en avait sur le chemin. Écoute, je suis payé à la pelletée, pas aux questions.",
+      "options": [
+        {
+          "text": "Là-haut, des gens ne peuvent plus parler à leurs morts. À cause de ce trou.",
+          "next": "convaincu",
+          "requires": [
+            {
+              "skill": "diplomacy",
+              "min": 3
+            }
+          ]
+        },
+        {
+          "text": "Alors je vais te faire partir.",
+          "next": "fin",
+          "effects": [
+            {
+              "startCombat": "fouilleur-sol"
+            }
+          ]
+        },
+        {
+          "text": "Je reviendrai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "intimide": {
+      "text": "Le fouilleur lâche sa pioche. — Doucement ! Je ne suis qu’un ouvrier, moi. On m’a payé pour creuser le long de la vieille voie, c’est tout. Je n’ai rien trouvé, je le jure !",
+      "options": [
+        {
+          "text": "Qui t’a payé ? Et pour trouver quoi ?",
+          "next": "aveu"
+        }
+      ]
+    },
+    "convaincu": {
+      "text": "Il baisse la pioche, longtemps. — Ma mère repose sous un chêne, chez nous, à la frontière. Je n’avais pas pensé… Bon. Je vais te dire ce que je sais.",
+      "options": [
+        {
+          "text": "Je t’écoute.",
+          "next": "aveu"
+        }
+      ]
+    },
+    "complice": {
+      "text": "— Kaelis ? Il pourrait payer plus vite, alors ! Dis-lui que je longe la voie depuis dix jours, et toujours pas de clé. Juste des racines, des racines, des racines… Il faut bien les couper pour passer.",
+      "options": [
+        {
+          "text": "Rappelle-moi ce qu’il cherche, exactement.",
+          "next": "aveu"
+        }
+      ]
+    },
+    "demasque": {
+      "text": "— Kaelis n’envoie personne : il vient lui-même, ou il ne vient pas. Toi, tu es avec ceux d’en haut ! Il lève sa pioche.",
+      "options": [
+        {
+          "text": "Du calme. Personne n’a besoin de se battre.",
+          "next": "convaincu",
+          "requires": [
+            {
+              "skill": "diplomacy",
+              "min": 3
+            }
+          ]
+        },
+        {
+          "text": "Alors on va régler ça.",
+          "next": "fin",
+          "effects": [
+            {
+              "startCombat": "fouilleur-sol"
+            }
+          ]
+        }
+      ]
+    },
+    "aveu": {
+      "text": "— On est payés par les Marches des Cendres, au Marché d’Ironheart : un certain Kaelis, qui achète les vieilles choses. Ils cherchent une clé de rouille bleue, le long des anciennes voies. Celle-ci passe sous vos arbres.",
+      "options": [
+        {
+          "text": "Pars, et ne reviens jamais sur le sol sacré.",
+          "next": "depart",
+          "effects": [
+            {
+              "setFlag": "fouille-elucidee"
+            },
+            {
+              "giveXp": 30
+            }
+          ]
+        }
+      ],
+      "effects": [
+        {
+          "setFlag": "cle-mentionnee"
+        },
+        {
+          "setFlag": "fouille-marches"
+        }
+      ]
+    },
+    "depart": {
+      "text": "Il ramasse ses outils sans un mot de plus et s’éloigne entre les racines, vers l’est. Au bord du trou, la terre fraîche et les racines tranchées racontent le reste. Le Triumvirat voudra le savoir.",
+      "options": [
+        {
+          "text": "Remonter faire mon rapport.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

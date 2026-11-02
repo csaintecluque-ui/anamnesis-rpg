@@ -3,6 +3,61 @@
   "speaker": "huissier",
   "entries": [
     {
+      "requires": [
+        {
+          "quest": "audience",
+          "status": "done"
+        }
+      ],
+      "node": "apres"
+    },
+    {
+      "requires": [
+        {
+          "quest": "audience",
+          "status": "active"
+        },
+        {
+          "flag": "audience-tenue"
+        }
+      ],
+      "node": "retour"
+    },
+    {
+      "requires": [
+        {
+          "quest": "audience",
+          "status": "active"
+        },
+        {
+          "item": "lettre-ilyane"
+        }
+      ],
+      "node": "lettre"
+    },
+    {
+      "requires": [
+        {
+          "quest": "audience",
+          "status": "active"
+        }
+      ],
+      "node": "retour"
+    },
+    {
+      "requires": [
+        {
+          "quest": "audience",
+          "status": "none"
+        },
+        {
+          "quest": "dernier-train",
+          "status": "done"
+        }
+      ],
+      "node": "nouvelles"
+    },
+    {
       "node": "accueil"
     }
   ],
@@ -44,6 +99,162 @@
       "options": [
         {
           "text": "Je reviendrai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "lettre": {
+      "text": "Une lettre au sceau des Gardiens de Mémoire de Gardebois ? L’huissier la tourne et la retourne, puis s’efface. — Le Conseil a fini de délibérer. Le Triumvirat Vert te recevra. Monte, et parle franchement : ici, on n’aime pas les détours.",
+      "options": [
+        {
+          "text": "Entrer dans l’amphithéâtre.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "canopee-amphitheatre",
+              "arrivee": "entree"
+            }
+          ]
+        },
+        {
+          "text": "Un instant.",
+          "next": "fin"
+        }
+      ]
+    },
+    "nouvelles": {
+      "text": "Silence, s’il te plaît : là-haut, le Conseil des Racines Profondes délibère. Les audiences se demandent par écrit, et la liste est longue… très longue.",
+      "options": [
+        {
+          "text": "Je viens de Gardebois. J’ai vu ce que la foreuse a fait à la Gare Engloutie.",
+          "next": "admis",
+          "requires": [
+            {
+              "reputation": "canopee",
+              "min": 10
+            }
+          ],
+          "effects": [
+            {
+              "startQuest": "audience"
+            }
+          ]
+        },
+        {
+          "text": "Le Conseil parle de ce mal qui fait oublier. Je l’ai vu de près, et je sais d’où il vient.",
+          "next": "admis",
+          "requires": [
+            {
+              "skill": "diplomacy",
+              "min": 3
+            }
+          ],
+          "effects": [
+            {
+              "startQuest": "audience"
+            }
+          ]
+        },
+        {
+          "text": "Le Triumvirat m’attend. On a dû oublier de te prévenir.",
+          "next": "admis",
+          "effects": [
+            {
+              "startQuest": "audience"
+            }
+          ],
+          "roll": {
+            "skill": "subterfuge",
+            "difficulty": 13
+          },
+          "failNext": "menteur"
+        },
+        {
+          "text": "Je reviendrai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "admis": {
+      "text": "L’huissier te regarde longuement, puis s’efface. — Le Conseil a fini de délibérer. Le Triumvirat Vert te recevra. Monte, et parle franchement : ici, on n’aime pas les détours.",
+      "options": [
+        {
+          "text": "Entrer dans l’amphithéâtre.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "canopee-amphitheatre",
+              "arrivee": "entree"
+            }
+          ]
+        },
+        {
+          "text": "Un instant.",
+          "next": "fin"
+        }
+      ]
+    },
+    "menteur": {
+      "text": "— Personne n’oublie rien, au Conseil : tout y est écrit. L’huissier fronce les sourcils. — À Canopéa, on ne ment pas aux Racines. Reviens avec une lettre, ou avec un nom que la ville respecte.",
+      "options": [
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ],
+      "effects": [
+        {
+          "setFlag": "mensonge-huissier"
+        }
+      ]
+    },
+    "retour": {
+      "text": "Le Triumvirat t’attend. Monte, et que la sève coule.",
+      "options": [
+        {
+          "text": "Entrer dans l’amphithéâtre.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "canopee-amphitheatre",
+              "arrivee": "entree"
+            }
+          ]
+        },
+        {
+          "text": "Plus tard.",
+          "next": "fin"
+        }
+      ]
+    },
+    "apres": {
+      "text": "Racines profondes ! Le Conseil parle encore de ton audience. Tu peux monter saluer le Triumvirat, si tu veux : il te recevra.",
+      "options": [
+        {
+          "text": "Entrer dans l’amphithéâtre.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "canopee-amphitheatre",
+              "arrivee": "entree"
+            }
+          ]
+        },
+        {
+          "text": "De quoi parle le Conseil ?",
+          "next": "sujet-apres"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "sujet-apres": {
+      "text": "Des Gardes Verts au Sol des Racines, des Voix des Arbres qui soignent le Bosquet, et d’Ironheart. Toujours Ironheart. Je n’en dirai pas plus : je suis huissier, pas bavard.",
+      "options": [
+        {
+          "text": "Merci quand même.",
           "next": "fin"
         }
       ]

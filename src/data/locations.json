@@ -14,6 +14,7 @@
   { "id": "canopee-feuillevent", "name": "Canopéa — Maison Feuillevent", "scene": "Map", "map": "canopee-feuillevent", "entrance": "entree", "place": "canopee" },
   { "id": "canopee-atelier", "name": "Canopéa — Atelier Chante-Bois", "scene": "Map", "map": "canopee-atelier", "entrance": "entree", "place": "canopee" },
   { "id": "canopee-grenier", "name": "Canopéa — Grenier des semences", "scene": "Map", "map": "canopee-grenier", "entrance": "entree", "place": "canopee" },
+  { "id": "canopee-amphitheatre", "name": "Canopéa — Amphithéâtre du Conseil", "scene": "Map", "map": "canopee-amphitheatre", "entrance": "entree", "place": "canopee" },
   { "id": "canopee-relais", "name": "Canopéa — Relais des Gardiens de Mémoire", "scene": "Map", "map": "canopee-relais", "entrance": "entree", "place": "canopee" },
   { "id": "sol-racines", "name": "Canopéa — Le Sol des Racines", "scene": "Map", "map": "sol-racines", "entrance": "descente", "place": "canopee" },
   { "id": "rencontre-clairiere", "name": "Une clairière", "scene": "Map", "map": "rencontre-clairiere", "entrance": "entree", "encounter": true },

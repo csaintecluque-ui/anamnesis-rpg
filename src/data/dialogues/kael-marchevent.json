@@ -1,0 +1,293 @@
+{
+  "id": "kael-marchevent",
+  "speaker": "kael-marchevent",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "audience",
+          "status": "done"
+        }
+      ],
+      "node": "apres"
+    },
+    {
+      "requires": [
+        {
+          "quest": "audience",
+          "status": "active"
+        },
+        {
+          "flag": "fouille-elucidee"
+        }
+      ],
+      "node": "rapport"
+    },
+    {
+      "requires": [
+        {
+          "quest": "audience",
+          "status": "active"
+        },
+        {
+          "flag": "audience-tenue"
+        }
+      ],
+      "node": "attente"
+    },
+    {
+      "requires": [
+        {
+          "quest": "audience",
+          "status": "active"
+        }
+      ],
+      "node": "audience"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Le Gardien de la Canopée lève les yeux de ses cartes. — Racines profondes. Le Conseil ne reçoit pas aujourd’hui.",
+      "options": [
+        {
+          "text": "Que la sève coule.",
+          "next": "fin"
+        }
+      ]
+    },
+    "audience": {
+      "text": "Un homme d’une quarantaine d’années, cape de Garde Vert sur les épaules, se lève. — Racines profondes. Je suis Kael Marchevent, Gardien de la Canopée. On me dit que tu viens de Gardebois. Parle : qu’as-tu vu à la Gare Engloutie ?",
+      "options": [
+        {
+          "text": "Ilyane, la Gardienne de Mémoire de Gardebois, vous écrit.",
+          "next": "lettre",
+          "requires": [
+            {
+              "item": "lettre-ilyane"
+            }
+          ],
+          "effects": [
+            {
+              "takeItem": "lettre-ilyane"
+            },
+            {
+              "setFlag": "lettre-remise"
+            },
+            {
+              "giveXp": 10
+            }
+          ]
+        },
+        {
+          "text": "Une foreuse de Ferros a déchiré l’Écho du dernier train. La maladie qui fait oublier est venue de là.",
+          "next": "recit-gare"
+        }
+      ]
+    },
+    "lettre": {
+      "text": "Kael lit, puis tend la lettre à la Première Racine. — Ilyane ne dérange jamais le Conseil pour rien. Elle écrit que tu as écouté l’Écho, et qu’il s’est apaisé. Raconte-nous.",
+      "options": [
+        {
+          "text": "Une foreuse de Ferros a déchiré l’Écho du dernier train. La maladie qui fait oublier est venue de là.",
+          "next": "recit-gare"
+        }
+      ]
+    },
+    "recit-gare": {
+      "text": "Tu racontes la Gare Engloutie, la foreuse, l’Écho du dernier train, les visions de la Grande Chute. Dans les gradins, des murmures. Kael serre les poings. — Des papiers de Ferros, sous nos frontières. Encore.",
+      "options": [
+        {
+          "text": "Les papiers venaient de Ferros. Mais qui payait ?",
+          "next": "lyra"
+        }
+      ]
+    },
+    "lyra": {
+      "text": "Lyra Cœur-de-Sève, la Première Racine, lève la main. — Doucement, Gardien. Quatre parts sur dix de notre commerce passent par Ferros. Fermer la frontière sur une rumeur, c’est affamer Gardebois. Il nous faut des preuves.",
+      "options": [
+        {
+          "text": "Et ce mal qui fait oublier ?",
+          "next": "thalorin"
+        }
+      ]
+    },
+    "thalorin": {
+      "text": "Au centre, l’Ancien Thalorin n’a pas bougé. Sa voix ressemble au vent dans les feuilles. — Ce mal n’est pas seulement à Gardebois. Depuis peu, les noms gravés du Bosquet des Échos se taisent. On pose la main, et le bois reste froid.",
+      "options": [
+        {
+          "text": "Je peux chercher pourquoi.",
+          "next": "mission",
+          "effects": [
+            {
+              "setFlag": "audience-tenue"
+            },
+            {
+              "giveXp": 20
+            }
+          ]
+        }
+      ]
+    },
+    "mission": {
+      "text": "Kael hoche la tête. — Alors cherche. Le Triumvirat t’ouvre le Bosquet et, s’il le faut, le Sol des Racines : Véline te descendra. Reviens avec des faits, pas des rumeurs. Ici, on ne ment pas au Conseil.",
+      "options": [
+        {
+          "text": "J’y vais.",
+          "next": "fin"
+        }
+      ]
+    },
+    "attente": {
+      "text": "Kael lève les yeux de ses cartes. — Alors ? Ce qui fait taire les noms du Bosquet. Des faits, pas des rumeurs.",
+      "options": [
+        {
+          "text": "Rappelez-moi ce que je cherche.",
+          "next": "mission"
+        },
+        {
+          "text": "Je reviendrai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "rapport": {
+      "text": "— Tu reviens avec des faits, je le vois à ton visage. Parle : le Triumvirat t’écoute.",
+      "options": [
+        {
+          "text": "Des fouilleurs des Marches des Cendres creusent le sol sacré, le long d’une vieille voie. Ils ont coupé les racines du Bosquet.",
+          "next": "rapport-suite"
+        }
+      ]
+    },
+    "rapport-suite": {
+      "text": "Un silence lourd tombe sur l’amphithéâtre. Thalorin ferme les yeux. — Les racines du Bosquet descendent jusqu’au sol. Coupées, elles ne portent plus les souvenirs. Les Voix des Arbres refermeront la blessure.",
+      "options": [
+        {
+          "text": "Ils cherchent une clé de rouille bleue.",
+          "next": "cle",
+          "requires": [
+            {
+              "flag": "cle-mentionnee"
+            }
+          ]
+        },
+        {
+          "text": "Que va faire le Conseil ?",
+          "next": "choix"
+        }
+      ]
+    },
+    "cle": {
+      "text": "Lyra pâlit. — Une clé de l’Ancien Monde… Les Archives de Ferros en parlent à mi-voix depuis des années. Si les Marches la cherchent jusque sous nos racines, c’est qu’elle compte plus que tout le reste.",
+      "options": [
+        {
+          "text": "Que va faire le Conseil ?",
+          "next": "choix"
+        }
+      ]
+    },
+    "choix": {
+      "text": "Kael veut fermer la frontière aux prospecteurs ; Lyra veut garder le commerce et surveiller les chantiers. Tous deux se tournent vers toi. — Tu étais en bas. Que conseilles-tu ?",
+      "options": [
+        {
+          "text": "Fermez la frontière aux prospecteurs.",
+          "next": "fin-frontiere",
+          "effects": [
+            {
+              "setFlag": "conseil-frontiere"
+            }
+          ]
+        },
+        {
+          "text": "Gardez le commerce, mais surveillez chaque chantier.",
+          "next": "fin-commerce",
+          "effects": [
+            {
+              "setFlag": "conseil-commerce"
+            }
+          ]
+        },
+        {
+          "text": "Le sol est sacré, la route ne l’est pas : fermez l’un, gardez l’autre.",
+          "next": "fin-accord",
+          "requires": [
+            {
+              "skill": "diplomacy",
+              "min": 3
+            }
+          ],
+          "effects": [
+            {
+              "setFlag": "conseil-accord"
+            },
+            {
+              "giveXp": 15
+            }
+          ]
+        }
+      ]
+    },
+    "fin-frontiere": {
+      "text": "Kael approuve ; Lyra soupire, mais ne s’y oppose pas. — Les Gardes Verts tiendront la frontière, dit le Gardien. Que Gardebois sache que Canopéa ne l’oublie pas.",
+      "options": [
+        {
+          "text": "Et moi ?",
+          "next": "envoi"
+        }
+      ]
+    },
+    "fin-commerce": {
+      "text": "Lyra sourit ; Kael serre les mâchoires, puis cède. — Des Gardes Verts surveilleront chaque chantier, dit-il. Au premier trou dans le sol sacré, on ferme tout.",
+      "options": [
+        {
+          "text": "Et moi ?",
+          "next": "envoi"
+        }
+      ]
+    },
+    "fin-accord": {
+      "text": "Le Gardien et la Première Racine se regardent, surpris. Thalorin rit doucement, comme le vent. — Le sol est sacré, la route ne l’est pas. Voilà qui est sage. Le Conseil votera ainsi.",
+      "options": [
+        {
+          "text": "Et moi ?",
+          "next": "envoi"
+        }
+      ]
+    },
+    "envoi": {
+      "text": "Kael te tend un sauf-conduit scellé d’une feuille d’émeraude. — Les Marches des Cendres tiennent marché à Ironheart, en Ferros. Va voir qui paie, et pourquoi. Le Triumvirat Vert te le demande.",
+      "options": [
+        {
+          "text": "Que la sève coule.",
+          "next": "fin"
+        }
+      ],
+      "effects": [
+        {
+          "giveItem": "sauf-conduit"
+        },
+        {
+          "completeQuest": "audience"
+        },
+        {
+          "learnRecit": "triumvirat-vert"
+        },
+        {
+          "giveXp": 60
+        }
+      ]
+    },
+    "apres": {
+      "text": "— Racines profondes. Ironheart t’attend, et nous attendons de tes nouvelles. Montre le sauf-conduit aux Gardes Verts de la frontière : ils te laisseront passer.",
+      "options": [
+        {
+          "text": "Que la sève coule.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

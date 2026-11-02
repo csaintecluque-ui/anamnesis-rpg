@@ -8,6 +8,8 @@
   "canopee": [
     { "quest": "lettres-malo", "points": 10 },
     { "quest": "chant-anselme", "points": 10 },
+    { "quest": "audience", "points": 15 },
+    { "flag": "mensonge-huissier", "points": -5 },
     { "flag": "ailis-reconfortee", "points": 10 },
     { "flag": "vol-grenier", "points": -20 }
   ]

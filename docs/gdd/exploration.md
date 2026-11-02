@@ -32,7 +32,9 @@ Code : `src/engine/tiledMap.ts` (lecteur Tiled), `src/engine/pathfinding.ts` (A*
   le paillasson (`seuil`) au milieu du bord avant ramène devant la porte. Quatre intérieurs : maison d'Ilyane,
   Auberge de la Racine, maison Lunelierre, réserve de l'étal Cendrefer (`src/data/locations.json`).
 - **Objets d'histoire** (`objet`, `coffre`, `echo`) : un dialogue à leur nom ; la propriété `disparaitSi` (repères
-  séparés par des virgules) les retire de la carte quand l'histoire avance (herbe cueillie, caisse reprise).
+  séparés par des virgules) les retire de la carte quand l'histoire avance (herbe cueillie, caisse reprise) ;
+  `apparaitSi` (un repère suffit) ne les montre qu'à partir d'un moment de l'histoire. Les PNJ (`pnj`) suivent les
+  mêmes règles (le fouilleur du Sol des Racines n'est là que pendant « L'audience »).
 - **Ennemis sur la carte** (`ennemi`, propriété `ennemi` : l'id d'`enemies.json`) : ils occupent leur case jusqu'à
   ce que leur combat (`src/data/encounters.json`, lancé par un dialogue) soit gagné ou évité (`disparaitSi`).
 

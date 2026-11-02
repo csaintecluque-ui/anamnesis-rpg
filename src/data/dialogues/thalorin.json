@@ -1,0 +1,75 @@
+{
+  "id": "thalorin",
+  "speaker": "thalorin",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "audience",
+          "status": "done"
+        }
+      ],
+      "node": "apres"
+    },
+    {
+      "requires": [
+        {
+          "quest": "audience",
+          "status": "active"
+        },
+        {
+          "flag": "audience-tenue"
+        },
+        {
+          "notFlag": "fouille-elucidee"
+        }
+      ],
+      "node": "enquete"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "La dryade ressemble à un jeune arbre qui aurait décidé de s’asseoir ; ses cheveux sont des feuilles. — Je suis Thalorin, Voix de Gaïa. J’écoute les arbres pour ceux qui n’ont plus le temps de le faire.",
+      "options": [
+        {
+          "text": "Qu’est-ce que la Voix de Gaïa ?",
+          "next": "role"
+        },
+        {
+          "text": "Que la sève coule.",
+          "next": "fin"
+        }
+      ]
+    },
+    "role": {
+      "text": "La forêt, l’esprit, l’arbitrage. Quand le Gardien et la Première Racine ne s’entendent pas, c’est vers moi qu’ils se tournent. Ce n’est pas toujours confortable.",
+      "options": [
+        {
+          "text": "Je comprends.",
+          "next": "fin"
+        }
+      ]
+    },
+    "enquete": {
+      "text": "— Les arbres ne parlent pas avec des mots, mais ils disent où ils ont mal. Touche les plus vieux signes du Bosquet. Et si le bois se tait, regarde vers le bas : les racines descendent loin.",
+      "options": [
+        {
+          "text": "Merci, Ancien.",
+          "next": "fin"
+        }
+      ]
+    },
+    "apres": {
+      "text": "— Les Voix des Arbres soignent les racines du Bosquet. Déjà, les plus jeunes noms se réchauffent. Les plus vieux prendront plus de temps : ils ont toujours pris leur temps.",
+      "options": [
+        {
+          "text": "Que la sève coule.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

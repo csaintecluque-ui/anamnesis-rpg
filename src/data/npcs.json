@@ -224,5 +224,25 @@
     "id": "arbre-retour-anselme",
     "name": "L’arbre d’Anselme",
     "role": "Sol des Racines"
+  },
+  {
+    "id": "kael-marchevent",
+    "name": "Kael Marchevent",
+    "role": "Gardien de la Canopée"
+  },
+  {
+    "id": "lyra",
+    "name": "Lyra Cœur-de-Sève",
+    "role": "Première Racine"
+  },
+  {
+    "id": "thalorin",
+    "name": "L’Ancien Thalorin",
+    "role": "Voix de Gaïa"
+  },
+  {
+    "id": "garrik",
+    "name": "Garrik",
+    "role": "Fouilleur"
   }
 ]

@@ -13,7 +13,7 @@ _(si …)_ = option qui n’apparaît que dans cette situation ; → = où mène
 
 _Grand-mère de Malo_
 
-Commence par : « flute » _(si quête « Le chant d’Anselme » en cours)_ _(si l’on porte « Flûte d’Anselme »)_, sinon « voix » _(si repère « voix-anselme »)_ _(sans repère « ailis-reconfortee »)_, sinon « apres-chant » _(si quête « Le chant d’Anselme » terminée)_, sinon « accueil »
+Commence par : « flute » _(si quête « Le chant d’Anselme » en cours)_ _(si l’on porte « Flûte d’Anselme »)_, sinon « inquiete » _(si quête « L’audience » en cours)_ _(si repère « audience-tenue »)_ _(sans repère « fouille-elucidee »)_, sinon « voix » _(si repère « voix-anselme »)_ _(sans repère « ailis-reconfortee »)_, sinon « apres-chant » _(si quête « Le chant d’Anselme » terminée)_, sinon « accueil »
 
 ### accueil
 
@@ -76,11 +76,24 @@ _Effet : retient « anselme-connu »._
 - « Parlez-moi encore d’Anselme. » → arbre
 - « Au revoir, Aïlis. » → **fin**
 
+### inquiete
+
+> Je suis allée au Bosquet hier soir. J’ai posé la main sur le nom d’Anselme et… rien. Le bois était froid. Comme s’il était parti une seconde fois.
+
+- _(si quête « Le chant d’Anselme » terminée)_ « Vous avez encore sa chanson. » → chanson-reste
+- « Le Triumvirat m’a chargé de comprendre. Je trouverai. » → **fin**
+
+### chanson-reste
+
+> Aïlis serre la flûte contre elle. — Oui… Oui, c’est vrai. Le bois du Bosquet a oublié, mais la flûte, elle, n’a rien oublié. Va, mon enfant. Trouve ce qui lui fait mal, à notre forêt.
+
+- « Je trouverai. » → **fin**
+
 ## Un très vieil arbre gravé
 
 _Bosquet des Échos_
 
-Commence par : « arbre »
+Commence par : « silence » _(si quête « L’audience » en cours)_ _(si repère « audience-tenue »)_ _(sans repère « fouille-elucidee »)_, sinon « arbre »
 
 ### arbre
 
@@ -103,11 +116,31 @@ Commence par : « arbre »
 
 - « Partir. » → **fin**
 
+### silence
+
+> Le très vieil arbre gravé. Sous ta main, les signes restent froids : ni voix ni souvenir ne montent du bois.
+
+- **[Mémoire 3]** _(sans repère « piste-racines »)_ « Écouter plus profond. » → pente _(retient « piste-racines », +10 XP)_
+- **[Investigation 2]** _(sans repère « piste-racines »)_ « Examiner le pied de l’arbre. » → seve _(retient « piste-racines », +10 XP)_
+- « Partir. » → **fin**
+
+### pente
+
+> Tout au fond du silence, une sensation : comme une racine qu’on tire, vers le bas, très loin sous la ville. Ce qui fait taire le Bosquet est en bas, sur le Sol des Racines.
+
+- « Retirer la main. » → **fin**
+
+### seve
+
+> Au pied de l’arbre, une sève claire suinte entre les planches, comme d’une blessure. Les racines du Bosquet descendent jusqu’au sol… et, en bas, quelque chose les a tranchées.
+
+- « Partir. » → **fin**
+
 ## Le nom d’Anselme
 
 _Bosquet des Échos_
 
-Commence par : « arbre »
+Commence par : « muet » _(si quête « L’audience » en cours)_ _(si repère « audience-tenue »)_ _(sans repère « fouille-elucidee »)_, sinon « arbre »
 
 ### arbre
 
@@ -121,6 +154,12 @@ Commence par : « arbre »
 > Sous tes doigts, un souvenir qui n’est pas le tien : une main de vieille femme qui grave, lettre après lettre, en fredonnant une chanson douce, une chanson de cerfs-lucioles. Puis plus rien, que le vent.
 
 - « Retirer doucement la main. » → **fin**
+
+### muet
+
+> Le nom d’Anselme Feuillevent, net dans le bois. Sous ta main, l’écorce reste froide et muette. Même lui se tait.
+
+- « Retirer la main. » → **fin**
 
 ## L’arbre d’Anselme
 
@@ -597,6 +636,68 @@ _Effet : retient « surpris-de-nuit »._
 
 - « S’éloigner. » → **fin**
 
+## Garrik
+
+_Fouilleur_
+
+Commence par : « rencontre »
+
+### rencontre
+
+> Un homme trapu, pioche à l’épaule, sursaute. Une lanterne de Ferros pend à sa ceinture. — Qui va là ? Il n’y a rien à voir, ici. Passe ton chemin.
+
+- « Ce sol est sacré, et tu coupes les racines du Bosquet. » → defensif
+- **[Commandement 2]** « Pose cette pioche. Tout de suite. » → intimide
+- **🎲 Subterfuge 12** « Kaelis m’envoie voir où tu en es. » → complice, ✗ → demasque
+- « Je m’en vais. » → **fin**
+
+### defensif
+
+> — Les racines ? Je creuse le long d’une voie, moi, pas dans les racines ! Bon… il y en avait sur le chemin. Écoute, je suis payé à la pelletée, pas aux questions.
+
+- **[Diplomatie 3]** « Là-haut, des gens ne peuvent plus parler à leurs morts. À cause de ce trou. » → convaincu
+- « Alors je vais te faire partir. » → **fin** _(lance le combat « fouilleur-sol »)_
+- « Je reviendrai. » → **fin**
+
+### intimide
+
+> Le fouilleur lâche sa pioche. — Doucement ! Je ne suis qu’un ouvrier, moi. On m’a payé pour creuser le long de la vieille voie, c’est tout. Je n’ai rien trouvé, je le jure !
+
+- « Qui t’a payé ? Et pour trouver quoi ? » → aveu
+
+### convaincu
+
+> Il baisse la pioche, longtemps. — Ma mère repose sous un chêne, chez nous, à la frontière. Je n’avais pas pensé… Bon. Je vais te dire ce que je sais.
+
+- « Je t’écoute. » → aveu
+
+### complice
+
+> — Kaelis ? Il pourrait payer plus vite, alors ! Dis-lui que je longe la voie depuis dix jours, et toujours pas de clé. Juste des racines, des racines, des racines… Il faut bien les couper pour passer.
+
+- « Rappelle-moi ce qu’il cherche, exactement. » → aveu
+
+### demasque
+
+> — Kaelis n’envoie personne : il vient lui-même, ou il ne vient pas. Toi, tu es avec ceux d’en haut ! Il lève sa pioche.
+
+- **[Diplomatie 3]** « Du calme. Personne n’a besoin de se battre. » → convaincu
+- « Alors on va régler ça. » → **fin** _(lance le combat « fouilleur-sol »)_
+
+### aveu
+
+_Effet : retient « cle-mentionnee », retient « fouille-marches »._
+
+> — On est payés par les Marches des Cendres, au Marché d’Ironheart : un certain Kaelis, qui achète les vieilles choses. Ils cherchent une clé de rouille bleue, le long des anciennes voies. Celle-ci passe sous vos arbres.
+
+- « Pars, et ne reviens jamais sur le sol sacré. » → depart _(retient « fouille-elucidee », +30 XP)_
+
+### depart
+
+> Il ramasse ses outils sans un mot de plus et s’éloigne entre les racines, vers l’est. Au bord du trou, la terre fraîche et les racines tranchées racontent le reste. Le Triumvirat voudra le savoir.
+
+- « Remonter faire mon rapport. » → **fin**
+
 ## Sacs de graines-lumière
 
 _Objet_
@@ -626,7 +727,7 @@ Commence par : « vide » _(si repère « vol-grenier »)_, sinon « sacs »
 
 _Huissier_
 
-Commence par : « accueil »
+Commence par : « apres » _(si quête « L’audience » terminée)_, sinon « retour » _(si quête « L’audience » en cours)_ _(si repère « audience-tenue »)_, sinon « lettre » _(si quête « L’audience » en cours)_ _(si l’on porte « Lettre d’Ilyane »)_, sinon « retour » _(si quête « L’audience » en cours)_, sinon « nouvelles » _(si quête « L’audience » pas commencée)_ _(si quête « Le Dernier Train » terminée)_, sinon « accueil »
 
 ### accueil
 
@@ -648,16 +749,69 @@ Commence par : « accueil »
 
 - « Je reviendrai. » → **fin**
 
+### lettre
+
+> Une lettre au sceau des Gardiens de Mémoire de Gardebois ? L’huissier la tourne et la retourne, puis s’efface. — Le Conseil a fini de délibérer. Le Triumvirat Vert te recevra. Monte, et parle franchement : ici, on n’aime pas les détours.
+
+- « Entrer dans l’amphithéâtre. » → **fin** _(mène à « Canopéa — Amphithéâtre du Conseil »)_
+- « Un instant. » → **fin**
+
+### nouvelles
+
+> Silence, s’il te plaît : là-haut, le Conseil des Racines Profondes délibère. Les audiences se demandent par écrit, et la liste est longue… très longue.
+
+- **[réputation à canopee ≥ 10]** « Je viens de Gardebois. J’ai vu ce que la foreuse a fait à la Gare Engloutie. » → admis _(lance la quête « L’audience »)_
+- **[Diplomatie 3]** « Le Conseil parle de ce mal qui fait oublier. Je l’ai vu de près, et je sais d’où il vient. » → admis _(lance la quête « L’audience »)_
+- **🎲 Subterfuge 13** « Le Triumvirat m’attend. On a dû oublier de te prévenir. » → admis, ✗ → menteur _(lance la quête « L’audience »)_
+- « Je reviendrai. » → **fin**
+
+### admis
+
+> L’huissier te regarde longuement, puis s’efface. — Le Conseil a fini de délibérer. Le Triumvirat Vert te recevra. Monte, et parle franchement : ici, on n’aime pas les détours.
+
+- « Entrer dans l’amphithéâtre. » → **fin** _(mène à « Canopéa — Amphithéâtre du Conseil »)_
+- « Un instant. » → **fin**
+
+### menteur
+
+_Effet : retient « mensonge-huissier »._
+
+> — Personne n’oublie rien, au Conseil : tout y est écrit. L’huissier fronce les sourcils. — À Canopéa, on ne ment pas aux Racines. Reviens avec une lettre, ou avec un nom que la ville respecte.
+
+- « … » → **fin**
+
+### retour
+
+> Le Triumvirat t’attend. Monte, et que la sève coule.
+
+- « Entrer dans l’amphithéâtre. » → **fin** _(mène à « Canopéa — Amphithéâtre du Conseil »)_
+- « Plus tard. » → **fin**
+
+### apres
+
+> Racines profondes ! Le Conseil parle encore de ton audience. Tu peux monter saluer le Triumvirat, si tu veux : il te recevra.
+
+- « Entrer dans l’amphithéâtre. » → **fin** _(mène à « Canopéa — Amphithéâtre du Conseil »)_
+- « De quoi parle le Conseil ? » → sujet-apres
+- « Au revoir. » → **fin**
+
+### sujet-apres
+
+> Des Gardes Verts au Sol des Racines, des Voix des Arbres qui soignent le Bosquet, et d’Ironheart. Toujours Ironheart. Je n’en dirai pas plus : je suis huissier, pas bavard.
+
+- « Merci quand même. » → **fin**
+
 ## Ilyane Voix-d’Écorce
 
 _Gardienne de Mémoire de Gardebois_
 
-Commence par : « resolu » _(si quête « Le Dernier Train » terminée)_, sinon « en-cours » _(si quête « Le Dernier Train » en cours)_, sinon « accueil »
+Commence par : « nouvelles-canopee » _(si quête « L’audience » terminée)_, sinon « resolu » _(si quête « Le Dernier Train » terminée)_, sinon « en-cours » _(si quête « Le Dernier Train » en cours)_, sinon « accueil »
 
 ### resolu
 
 > Depuis que la foreuse s’est tue, plus personne ne revit la Grande Chute. Tu as bien fait. Mais dis-moi : qui a payé cette prospection, à ton avis ? Les Réveilleurs, peut-être. Reste sur tes gardes.
 
+- _(si quête « L’audience » pas commencée)_ _(si quête « Le Dernier Train » terminée)_ « Et maintenant ? » → lettre _(donne 1 × « Lettre d’Ilyane », lance la quête « L’audience »)_
 - « Je resterai sur mes gardes. » → **fin**
 
 ### accueil
@@ -722,6 +876,18 @@ _Effet : lance la quête « Le Dernier Train »._
 
 - « Je reviens vite. » → **fin**
 
+### lettre
+
+> Ilyane écrit longtemps, puis scelle la lettre d’une goutte de cire verte. — Porte-la au Conseil des Racines Profondes, à Canopéa. Là-haut, on ne m’écoute plus beaucoup… On m’écoutera peut-être à travers toi.
+
+- « J’irai à Canopéa. » → **fin**
+
+### nouvelles-canopee
+
+> Mirelle m’a écrit par le courrier des Nacelliers : tu as parlé devant le Triumvirat Vert ! Et maintenant, Ironheart, et les Marches des Cendres… Prends garde à toi. Là-bas, on vend tout, même les souvenirs.
+
+- « Je reviendrai te raconter. » → **fin**
+
 ## Ingrid Brisefer
 
 _Ingénieure, prospection de Ferros_
@@ -774,6 +940,121 @@ Commence par : « apres-sabotage » _(si repère « foreuse-sabotee »)_, sinon 
 > La foreuse est silencieuse, pour l’instant. Mes ouvriers n’aiment pas ça, mais personne n’a plus revu de train, à Gardebois.
 
 - « Tant mieux. » → **fin**
+
+## Kael Marchevent
+
+_Gardien de la Canopée_
+
+Commence par : « apres » _(si quête « L’audience » terminée)_, sinon « rapport » _(si quête « L’audience » en cours)_ _(si repère « fouille-elucidee »)_, sinon « attente » _(si quête « L’audience » en cours)_ _(si repère « audience-tenue »)_, sinon « audience » _(si quête « L’audience » en cours)_, sinon « accueil »
+
+### accueil
+
+> Le Gardien de la Canopée lève les yeux de ses cartes. — Racines profondes. Le Conseil ne reçoit pas aujourd’hui.
+
+- « Que la sève coule. » → **fin**
+
+### audience
+
+> Un homme d’une quarantaine d’années, cape de Garde Vert sur les épaules, se lève. — Racines profondes. Je suis Kael Marchevent, Gardien de la Canopée. On me dit que tu viens de Gardebois. Parle : qu’as-tu vu à la Gare Engloutie ?
+
+- _(si l’on porte « Lettre d’Ilyane »)_ « Ilyane, la Gardienne de Mémoire de Gardebois, vous écrit. » → lettre _(reprend 1 × « Lettre d’Ilyane », retient « lettre-remise », +10 XP)_
+- « Une foreuse de Ferros a déchiré l’Écho du dernier train. La maladie qui fait oublier est venue de là. » → recit-gare
+
+### lettre
+
+> Kael lit, puis tend la lettre à la Première Racine. — Ilyane ne dérange jamais le Conseil pour rien. Elle écrit que tu as écouté l’Écho, et qu’il s’est apaisé. Raconte-nous.
+
+- « Une foreuse de Ferros a déchiré l’Écho du dernier train. La maladie qui fait oublier est venue de là. » → recit-gare
+
+### recit-gare
+
+> Tu racontes la Gare Engloutie, la foreuse, l’Écho du dernier train, les visions de la Grande Chute. Dans les gradins, des murmures. Kael serre les poings. — Des papiers de Ferros, sous nos frontières. Encore.
+
+- « Les papiers venaient de Ferros. Mais qui payait ? » → lyra
+
+### lyra
+
+> Lyra Cœur-de-Sève, la Première Racine, lève la main. — Doucement, Gardien. Quatre parts sur dix de notre commerce passent par Ferros. Fermer la frontière sur une rumeur, c’est affamer Gardebois. Il nous faut des preuves.
+
+- « Et ce mal qui fait oublier ? » → thalorin
+
+### thalorin
+
+> Au centre, l’Ancien Thalorin n’a pas bougé. Sa voix ressemble au vent dans les feuilles. — Ce mal n’est pas seulement à Gardebois. Depuis peu, les noms gravés du Bosquet des Échos se taisent. On pose la main, et le bois reste froid.
+
+- « Je peux chercher pourquoi. » → mission _(retient « audience-tenue », +20 XP)_
+
+### mission
+
+> Kael hoche la tête. — Alors cherche. Le Triumvirat t’ouvre le Bosquet et, s’il le faut, le Sol des Racines : Véline te descendra. Reviens avec des faits, pas des rumeurs. Ici, on ne ment pas au Conseil.
+
+- « J’y vais. » → **fin**
+
+### attente
+
+> Kael lève les yeux de ses cartes. — Alors ? Ce qui fait taire les noms du Bosquet. Des faits, pas des rumeurs.
+
+- « Rappelez-moi ce que je cherche. » → mission
+- « Je reviendrai. » → **fin**
+
+### rapport
+
+> — Tu reviens avec des faits, je le vois à ton visage. Parle : le Triumvirat t’écoute.
+
+- « Des fouilleurs des Marches des Cendres creusent le sol sacré, le long d’une vieille voie. Ils ont coupé les racines du Bosquet. » → rapport-suite
+
+### rapport-suite
+
+> Un silence lourd tombe sur l’amphithéâtre. Thalorin ferme les yeux. — Les racines du Bosquet descendent jusqu’au sol. Coupées, elles ne portent plus les souvenirs. Les Voix des Arbres refermeront la blessure.
+
+- _(si repère « cle-mentionnee »)_ « Ils cherchent une clé de rouille bleue. » → cle
+- « Que va faire le Conseil ? » → choix
+
+### cle
+
+> Lyra pâlit. — Une clé de l’Ancien Monde… Les Archives de Ferros en parlent à mi-voix depuis des années. Si les Marches la cherchent jusque sous nos racines, c’est qu’elle compte plus que tout le reste.
+
+- « Que va faire le Conseil ? » → choix
+
+### choix
+
+> Kael veut fermer la frontière aux prospecteurs ; Lyra veut garder le commerce et surveiller les chantiers. Tous deux se tournent vers toi. — Tu étais en bas. Que conseilles-tu ?
+
+- « Fermez la frontière aux prospecteurs. » → fin-frontiere _(retient « conseil-frontiere »)_
+- « Gardez le commerce, mais surveillez chaque chantier. » → fin-commerce _(retient « conseil-commerce »)_
+- **[Diplomatie 3]** « Le sol est sacré, la route ne l’est pas : fermez l’un, gardez l’autre. » → fin-accord _(retient « conseil-accord », +15 XP)_
+
+### fin-frontiere
+
+> Kael approuve ; Lyra soupire, mais ne s’y oppose pas. — Les Gardes Verts tiendront la frontière, dit le Gardien. Que Gardebois sache que Canopéa ne l’oublie pas.
+
+- « Et moi ? » → envoi
+
+### fin-commerce
+
+> Lyra sourit ; Kael serre les mâchoires, puis cède. — Des Gardes Verts surveilleront chaque chantier, dit-il. Au premier trou dans le sol sacré, on ferme tout.
+
+- « Et moi ? » → envoi
+
+### fin-accord
+
+> Le Gardien et la Première Racine se regardent, surpris. Thalorin rit doucement, comme le vent. — Le sol est sacré, la route ne l’est pas. Voilà qui est sage. Le Conseil votera ainsi.
+
+- « Et moi ? » → envoi
+
+### envoi
+
+_Effet : donne 1 × « Sauf-conduit du Triumvirat », termine la quête « L’audience », retient le Récit « Le Triumvirat Vert », +60 XP._
+
+> Kael te tend un sauf-conduit scellé d’une feuille d’émeraude. — Les Marches des Cendres tiennent marché à Ironheart, en Ferros. Va voir qui paie, et pourquoi. Le Triumvirat Vert te le demande.
+
+- « Que la sève coule. » → **fin**
+
+### apres
+
+> — Racines profondes. Ironheart t’attend, et nous attendons de tes nouvelles. Montre le sauf-conduit aux Gardes Verts de la frontière : ils te laisseront passer.
+
+- « Que la sève coule. » → **fin**
 
 ## Des lettres éparpillées
 
@@ -873,6 +1154,38 @@ Commence par : « accueil »
 > Tu as entendu ? Quelqu’un a forcé le grenier des semences, dans les Hautes Ramures. Voler des graines à Canopéa… c’est comme voler l’avenir. Le Conseil est furieux.
 
 - « Merci. » → accueil
+
+## Lyra Cœur-de-Sève
+
+_Première Racine_
+
+Commence par : « apres » _(si quête « L’audience » terminée)_, sinon « enquete » _(si quête « L’audience » en cours)_ _(si repère « audience-tenue »)_, sinon « accueil »
+
+### accueil
+
+> Une elfe aux longs cheveux tressés de lianes t’observe. — Je suis Lyra Cœur-de-Sève, Première Racine : le pays, ses greniers, son commerce. Parle d’abord au Gardien : c’est lui qui reçoit les voyageurs.
+
+- « Le commerce avec Ferros vous inquiète ? » → commerce
+- « Bien, Première Racine. » → **fin**
+
+### commerce
+
+> Ferros nous vend le métal que nos forêts ne donnent pas ; nous lui vendons cristaux et remèdes. Une rumeur de trop, et ce sont les Lisières qui ont faim. Je n’aime pas Ferros. J’aime encore moins la faim.
+
+- « Je comprends. » → **fin**
+
+### enquete
+
+> — Le Gardien veut des faits ; moi aussi. Si ce sont des gens de Ferros, apporte-moi des noms, pas des colères.
+
+- « Je trouverai des noms. » → **fin**
+- « Le commerce avec Ferros vous inquiète ? » → commerce
+
+### apres
+
+> — Grâce à toi, le Conseil a décidé avec des faits. C’est rare, et précieux. Que la sève coule, voyageur.
+
+- « Que la sève coule. » → **fin**
 
 ## Maëlis Lunelierre
 
@@ -1277,6 +1590,37 @@ Commence par : « accueil »
 
 - « Merci. » → accueil
 
+## L’Ancien Thalorin
+
+_Voix de Gaïa_
+
+Commence par : « apres » _(si quête « L’audience » terminée)_, sinon « enquete » _(si quête « L’audience » en cours)_ _(si repère « audience-tenue »)_ _(sans repère « fouille-elucidee »)_, sinon « accueil »
+
+### accueil
+
+> La dryade ressemble à un jeune arbre qui aurait décidé de s’asseoir ; ses cheveux sont des feuilles. — Je suis Thalorin, Voix de Gaïa. J’écoute les arbres pour ceux qui n’ont plus le temps de le faire.
+
+- « Qu’est-ce que la Voix de Gaïa ? » → role
+- « Que la sève coule. » → **fin**
+
+### role
+
+> La forêt, l’esprit, l’arbitrage. Quand le Gardien et la Première Racine ne s’entendent pas, c’est vers moi qu’ils se tournent. Ce n’est pas toujours confortable.
+
+- « Je comprends. » → **fin**
+
+### enquete
+
+> — Les arbres ne parlent pas avec des mots, mais ils disent où ils ont mal. Touche les plus vieux signes du Bosquet. Et si le bois se tait, regarde vers le bas : les racines descendent loin.
+
+- « Merci, Ancien. » → **fin**
+
+### apres
+
+> — Les Voix des Arbres soignent les racines du Bosquet. Déjà, les plus jeunes noms se réchauffent. Les plus vieux prendront plus de temps : ils ont toujours pris leur temps.
+
+- « Que la sève coule. » → **fin**
+
 ## Tobias Cendrefer
 
 _Marchand de Ferros_
@@ -1361,7 +1705,7 @@ _Effet : retient « fouille-vue », retient « fouille-marches »._
 
 _Passeuse de la Grande Nacelle_
 
-Commence par : « vol » _(si repère « vol-grenier »)_ _(sans repère « veline-vol-dit »)_, sinon « descente » _(si quête « Les lettres de Malo » en cours)_ _(sans repère « sacoche-retrouvee »)_, sinon « descente-anselme » _(si quête « Le chant d’Anselme » en cours)_ _(sans repère « branche-prise »)_, sinon « retour » _(si repère « canopee-accueillie »)_, sinon « accueil »
+Commence par : « vol » _(si repère « vol-grenier »)_ _(sans repère « veline-vol-dit »)_, sinon « descente-conseil » _(si quête « L’audience » en cours)_ _(si repère « audience-tenue »)_ _(sans repère « fouille-elucidee »)_, sinon « descente » _(si quête « Les lettres de Malo » en cours)_ _(sans repère « sacoche-retrouvee »)_, sinon « descente-anselme » _(si quête « Le chant d’Anselme » en cours)_ _(sans repère « branche-prise »)_, sinon « retour » _(si repère « canopee-accueillie »)_, sinon « accueil »
 
 ### accueil
 
@@ -1426,6 +1770,13 @@ _Effet : retient « descente-autorisee »._
 > Une branche de l’arbre d’Anselme, pour une flûte ? Aïlis sera heureuse… Le sol est sacré, mais une branche tombée, la forêt la donne. Je te descends. Ne prends que celle-là.
 
 - « Allons-y. » → **fin** _(mène à « Canopéa — Le Sol des Racines »)_
+- « Pas maintenant. » → **fin**
+
+### descente-conseil
+
+> Le Gardien de la Canopée m’a fait porter un mot : tu peux descendre autant qu’il le faudra. Je n’aime pas ça… Le sol sacré qui fait taire le Bosquet, ça ne s’est jamais vu.
+
+- « Descends-moi. » → **fin** _(mène à « Canopéa — Le Sol des Racines »)_
 - « Pas maintenant. » → **fin**
 
 ## Un voyageur égaré

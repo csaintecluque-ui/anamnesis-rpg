@@ -101,5 +101,21 @@
     "weightKg": 0.2,
     "price": 0,
     "quest": true
+  },
+  {
+    "id": "lettre-ilyane",
+    "name": "Lettre d’Ilyane",
+    "description": "Scellée de cire verte, pour le Conseil des Racines Profondes de Canopéa.",
+    "weightKg": 0.1,
+    "price": 0,
+    "quest": true
+  },
+  {
+    "id": "sauf-conduit",
+    "name": "Sauf-conduit du Triumvirat",
+    "description": "Scellé d’une feuille d’émeraude : le Triumvirat Vert de Verdantis recommande celui qui le porte.",
+    "weightKg": 0.1,
+    "price": 0,
+    "quest": true
   }
 ]

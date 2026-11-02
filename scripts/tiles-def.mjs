@@ -743,4 +743,19 @@ TILES.push(
       '<path d="M10 86 L24 80 M44 90 L58 84 M14 90 L20 92" stroke="#8a6a46" stroke-width="2.5" stroke-linecap="round"/>' +
       '<path d="M16 84 L13 81 M50 87 L52 83" stroke="#8a6a46" stroke-width="1.5" stroke-linecap="round"/>',
   },
+  {
+    // « L'audience » : gradins de l'amphithéâtre du Conseil, taillé dans un Arbre-Titan mort [NOTION].
+    name: 'gradin',
+    blocking: true,
+    cover: 2,
+    svg:
+      diamond('#8a6a46') +
+      `<path d="M0 80 L32 64 L64 80 L64 72 L32 56 L0 72 Z" fill="#6b4a32" stroke="${INK}" stroke-width="1"/>` +
+      `<path d="M0 72 L32 56 L64 72 L32 88 Z" fill="#a88456" stroke="${INK}" stroke-width="1"/>` +
+      '<path d="M8 72 Q32 62 56 72 M14 76 Q32 68 50 76" stroke="#7d5f3b" stroke-width="1.2" fill="none"/>',
+  },
+  npcTile('kael-marchevent', { body: '#3f5a3a', hair: '#3a2a1c', accent: COPPER, extra: '<path d="M22 60 L18 82 L24 82 Z" fill="#2e4a2c" stroke="#1B1512" stroke-width="0.8"/>' }),
+  npcTile('lyra', { body: '#5f8a45', hair: '#e8d8a8', skin: '#e0c4a8', accent: '#e2c27a', extra: '<path d="M24 40 Q20 58 22 70 M40 40 Q44 58 42 70" stroke="#e8d8a8" stroke-width="3" fill="none"/><path d="M23 52 l-3 2 M41 56 l3 2" stroke="#5fae5a" stroke-width="2"/>' }),
+  npcTile('thalorin', { body: '#4d6b3a', hair: '#7fae5a', skin: '#9aa47a', accent: '#c8f0c0', extra: '<circle cx="25" cy="38" r="5" fill="#5f8a45"/><circle cx="39" cy="38" r="5" fill="#5f8a45"/><circle cx="32" cy="33" r="5" fill="#76a352"/>' }),
+  npcTile('garrik', { body: '#5a5048', hair: '#2a2018', skin: '#c49a74', accent: '#9a8a7a', extra: '<path d="M42 40 L44 76" stroke="#6b4a32" stroke-width="3" stroke-linecap="round"/><path d="M36 42 Q44 34 52 42" stroke="#8a8a90" stroke-width="3" fill="none"/>' }),
 );

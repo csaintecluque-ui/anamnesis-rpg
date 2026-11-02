@@ -41,7 +41,7 @@ Trois d'entre elles descendent sur **le Sol des Racines**, la forêt sous la vil
 ne le touche [NOTION], on n'y descend qu'avec l'accord des Nacelliers (« ce qui tombe d'ici, la forêt le garde »). Nouvelle
 carte à créer.
 
-### 1. L'audience (histoire principale, chapitre 2)
+### 1. L'audience (histoire principale, chapitre 2) — **construite le 2026-11-02**
 
 - **Départ** : après « Le Dernier Train », Ilyane confie une lettre (« ils m'écouteront peut-être, à travers toi »).
   Sans la lettre, il faut l'estime de Canopéa (l'huissier, déjà en place).
@@ -52,6 +52,27 @@ carte à créer.
   Avec Mémoire ou Investigation, on remonte jusqu'au Sol des Racines : des fouilles des **Marches des Cendres**, le long
   d'une voie de l'Ancien Monde enfouie sous les racines.
 - **Fin** : le Triumvirat envoie le héros à Ironheart. Récompense : estime de Canopéa, XP, un Récit.
+- **Construite** :
+  - **Départ** : après « Le Dernier Train », « Et maintenant ? » : Ilyane écrit la lettre et lance la quête. Sans
+    lettre, l'huissier ouvre la porte pour l'estime de Canopéa (10), Diplomatie 3, ou un mensonge (Subterfuge 13 ; raté :
+    « on ne ment pas aux Racines », −5 de réputation). Avant « Le Dernier Train », la porte reste fermée.
+  - **L'amphithéâtre du Conseil** (nouvelle carte : gradins en fer à cheval, estrade) : Kael Marchevent reçoit le héros
+    (+10 XP pour la lettre), Lyra demande des preuves (« quatre parts sur dix » du commerce passent par Ferros [NOTION]),
+    Thalorin annonce que le Bosquet se tait (+20 XP).
+  - **L'enquête** : au Bosquet, le très vieil arbre et le nom d'Anselme restent froids ; Aïlis s'inquiète (si elle a sa
+    flûte : « la flûte, elle, n'a rien oublié »). Piste, au choix (+10 XP) : Mémoire 3 (« une racine qu'on tire, vers le
+    bas ») ou Investigation 2 (la sève qui suinte) ; sinon, Thalorin dit de regarder vers le bas. Véline descend le
+    héros « sur ordre du Gardien ».
+  - **Le fouilleur Garrik**, au bord de son trou : Diplomatie 3, Commandement 2, Subterfuge 12 (« Kaelis m'envoie »)
+    ou combat ; il avoue : les Marches des Cendres, Kaelis, la clé de rouille bleue (+30 XP, ou +20 par le combat).
+  - **Le rapport** : les racines coupées du Bosquet ; si l'on parle de la clé, Lyra pâlit. **Choix du conseil** :
+    fermer la frontière (Kael), garder le commerce sous surveillance (Lyra), ou, avec Diplomatie 3, « le sol est sacré,
+    la route ne l'est pas » (+15 XP). Fin : sauf-conduit du Triumvirat, Récit « Le Triumvirat Vert », 60 XP, +15 de
+    réputation à Canopéa. Ilyane en a des nouvelles par le courrier des Nacelliers.
+  - **Détails nouveaux (à valider)** : Garrik, fouilleur ferrien payé « à la pelletée » (sa mère repose sous un chêne,
+    à la frontière) ; **ce sont les racines tranchées du Bosquet, en bas, qui font taire les noms gravés**, et les Voix des
+    Arbres qui les soignent ; le sauf-conduit scellé d'une feuille d'émeraude ; les trois choix du Conseil (repères
+    `conseil-frontiere`, `conseil-commerce`, `conseil-accord`, pour Ironheart) ; Thalorin sans genre (zone floue 22).
 
 ### 2. Les lettres de Malo (Nacelliers) — **construite le 2026-11-02**
 

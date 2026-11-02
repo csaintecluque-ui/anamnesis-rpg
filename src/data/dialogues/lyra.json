@@ -1,0 +1,76 @@
+{
+  "id": "lyra",
+  "speaker": "lyra",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "audience",
+          "status": "done"
+        }
+      ],
+      "node": "apres"
+    },
+    {
+      "requires": [
+        {
+          "quest": "audience",
+          "status": "active"
+        },
+        {
+          "flag": "audience-tenue"
+        }
+      ],
+      "node": "enquete"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Une elfe aux longs cheveux tressés de lianes t’observe. — Je suis Lyra Cœur-de-Sève, Première Racine : le pays, ses greniers, son commerce. Parle d’abord au Gardien : c’est lui qui reçoit les voyageurs.",
+      "options": [
+        {
+          "text": "Le commerce avec Ferros vous inquiète ?",
+          "next": "commerce"
+        },
+        {
+          "text": "Bien, Première Racine.",
+          "next": "fin"
+        }
+      ]
+    },
+    "commerce": {
+      "text": "Ferros nous vend le métal que nos forêts ne donnent pas ; nous lui vendons cristaux et remèdes. Une rumeur de trop, et ce sont les Lisières qui ont faim. Je n’aime pas Ferros. J’aime encore moins la faim.",
+      "options": [
+        {
+          "text": "Je comprends.",
+          "next": "fin"
+        }
+      ]
+    },
+    "enquete": {
+      "text": "— Le Gardien veut des faits ; moi aussi. Si ce sont des gens de Ferros, apporte-moi des noms, pas des colères.",
+      "options": [
+        {
+          "text": "Je trouverai des noms.",
+          "next": "fin"
+        },
+        {
+          "text": "Le commerce avec Ferros vous inquiète ?",
+          "next": "commerce"
+        }
+      ]
+    },
+    "apres": {
+      "text": "— Grâce à toi, le Conseil a décidé avec des faits. C’est rare, et précieux. Que la sève coule, voyageur.",
+      "options": [
+        {
+          "text": "Que la sève coule.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

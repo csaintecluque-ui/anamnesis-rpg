@@ -3,6 +3,21 @@
   "speaker": "arbre-anselme",
   "entries": [
     {
+      "requires": [
+        {
+          "quest": "audience",
+          "status": "active"
+        },
+        {
+          "flag": "audience-tenue"
+        },
+        {
+          "notFlag": "fouille-elucidee"
+        }
+      ],
+      "node": "muet"
+    },
+    {
       "node": "arbre"
     }
   ],
@@ -36,6 +51,15 @@
       "options": [
         {
           "text": "Retirer doucement la main.",
+          "next": "fin"
+        }
+      ]
+    },
+    "muet": {
+      "text": "Le nom d’Anselme Feuillevent, net dans le bois. Sous ta main, l’écorce reste froide et muette. Même lui se tait.",
+      "options": [
+        {
+          "text": "Retirer la main.",
           "next": "fin"
         }
       ]

@@ -16,6 +16,7 @@ import canopeeAtelierJson from './canopee-atelier.json';
 import canopeeGrenierJson from './canopee-grenier.json';
 import canopeeRelaisJson from './canopee-relais.json';
 import solRacinesJson from './sol-racines.json';
+import canopeeAmphitheatreJson from './canopee-amphitheatre.json';
 import rencontreClairiereJson from './rencontre-clairiere.json';
 import rencontreRouteJson from './rencontre-route.json';
 import rencontreRuinesJson from './rencontre-ruines.json';
@@ -39,6 +40,7 @@ export const MAPS: Record<string, TiledMapJson> = {
   'canopee-grenier': canopeeGrenierJson as TiledMapJson,
   'canopee-relais': canopeeRelaisJson as TiledMapJson,
   'sol-racines': solRacinesJson as TiledMapJson,
+  'canopee-amphitheatre': canopeeAmphitheatreJson as TiledMapJson,
   'rencontre-clairiere': rencontreClairiereJson as TiledMapJson,
   'rencontre-route': rencontreRouteJson as TiledMapJson,
   'rencontre-ruines': rencontreRuinesJson as TiledMapJson,

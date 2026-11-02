@@ -28,5 +28,10 @@
     "id": "chant-anselme",
     "name": "Le chant d’Anselme",
     "summary": "Depuis qu’Anselme repose au pied de son arbre, Aïlis ne chante plus. Elouan, le luthier, veut lui tailler une flûte dans une branche tombée de cet arbre, sur le Sol des Racines. Il lui faut la branche, et la mélodie."
+  },
+  {
+    "id": "audience",
+    "name": "L’audience",
+    "summary": "Porter au Triumvirat Vert de Canopéa la nouvelle de ce qui s’est passé à la Gare Engloutie. Depuis peu, les noms gravés du Bosquet des Échos se taisent : le Triumvirat veut des faits, pas des rumeurs."
   }
 ]

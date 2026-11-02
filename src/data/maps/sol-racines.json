@@ -11,7 +11,7 @@
  "tilewidth": 64,
  "tileheight": 32,
  "nextlayerid": 4,
- "nextobjectid": 8,
+ "nextobjectid": 9,
  "layers": [
   {
    "id": 1,
@@ -483,16 +483,11 @@
     2,
     2,
     2,
-    2,
-    2,
+    1,
     2,
     2,
     2,
     1,
-    2,
-    1,
-    2,
-    2,
     2,
     2,
     1,
@@ -501,7 +496,6 @@
     2,
     2,
     1,
-    2,
     2,
     2,
     2,
@@ -518,18 +512,17 @@
     2,
     2,
     2,
-    2,
-    2,
     1,
     2,
     1,
     1,
     2,
-    1,
     2,
     2,
     1,
     2,
+    2,
+    1,
     2,
     2,
     1,
@@ -569,6 +562,13 @@
     2,
     2,
     1,
+    2,
+    1,
+    2,
+    2,
+    2,
+    2,
+    2,
     2,
     2,
     2,
@@ -1009,8 +1009,8 @@
     0,
     0,
     0,
-    8,
-    33,
+    0,
+    0,
     0,
     0,
     12,
@@ -1065,18 +1065,6 @@
     0,
     0,
     0,
-    0,
-    0,
-    0,
-    8,
-    0,
-    9,
-    9,
-    0,
-    0,
-    0,
-    0,
-    8,
     8,
     0,
     0,
@@ -1084,9 +1072,21 @@
     0,
     9,
     9,
+    0,
+    0,
+    0,
+    0,
+    8,
+    8,
+    0,
     0,
     0,
     33,
+    9,
+    9,
+    0,
+    0,
+    0,
     0,
     99,
     0,
@@ -1099,17 +1099,11 @@
     0,
     0,
     0,
-    33,
+    0,
     0,
     0,
     8,
     8,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
     0,
     0,
     8,
@@ -1120,7 +1114,6 @@
     0,
     0,
     0,
-    33,
     0,
     0,
     35,
@@ -1128,8 +1121,6 @@
     0,
     0,
     0,
-    8,
-    8,
     35,
     0,
     0,
@@ -1137,6 +1128,8 @@
     0,
     0,
     8,
+    8,
+    8,
     0,
     0,
     33,
@@ -1146,6 +1139,13 @@
     0,
     0,
     33,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
     0,
     0,
     0,
@@ -1263,19 +1263,6 @@
     },
     {
      "id": 5,
-     "name": "arbre-retour-anselme",
-     "type": "objet",
-     "x": 368,
-     "y": 592,
-     "width": 0,
-     "height": 0,
-     "point": true,
-     "rotation": 0,
-     "visible": true,
-     "properties": []
-    },
-    {
-     "id": 6,
      "name": "sacoche-lettres",
      "type": "coffre",
      "x": 688,
@@ -1294,7 +1281,7 @@
      ]
     },
     {
-     "id": 7,
+     "id": 6,
      "name": "ours-sol",
      "type": "ennemi",
      "x": 656,
@@ -1321,6 +1308,43 @@
        "value": "Un Ours-Mousse dort, roulé dans la mousse. Mieux vaut ne pas le réveiller sans plan."
       }
      ]
+    },
+    {
+     "id": 7,
+     "name": "arbre-retour-anselme",
+     "type": "objet",
+     "x": 368,
+     "y": 592,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": []
+    },
+    {
+     "id": 8,
+     "name": "garrik",
+     "type": "pnj",
+     "x": 368,
+     "y": 496,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": [
+      {
+       "name": "apparaitSi",
+       "type": "string",
+       "value": "audience-tenue"
+      },
+      {
+       "name": "disparaitSi",
+       "type": "string",
+       "value": "fouille-elucidee"
+      }
+     ]
     }
    ]
   }
@@ -1335,7 +1359,7 @@
    "tilewidth": 64,
    "tileheight": 96,
    "columns": 8,
-   "tilecount": 99,
+   "tilecount": 104,
    "margin": 0,
    "spacing": 0,
    "tiles": [
@@ -3806,6 +3830,131 @@
        "name": "couverture",
        "type": "int",
        "value": 3
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 99,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "gradin"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 2
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 100,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "kael-marchevent"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 101,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "lyra"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 102,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "thalorin"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 103,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "garrik"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
       },
       {
        "name": "grand",

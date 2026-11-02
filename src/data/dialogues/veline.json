@@ -16,6 +16,21 @@
     {
       "requires": [
         {
+          "quest": "audience",
+          "status": "active"
+        },
+        {
+          "flag": "audience-tenue"
+        },
+        {
+          "notFlag": "fouille-elucidee"
+        }
+      ],
+      "node": "descente-conseil"
+    },
+    {
+      "requires": [
+        {
           "quest": "lettres-malo",
           "status": "active"
         },
@@ -201,6 +216,25 @@
       "options": [
         {
           "text": "Allons-y.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "sol-racines",
+              "arrivee": "descente"
+            }
+          ]
+        },
+        {
+          "text": "Pas maintenant.",
+          "next": "fin"
+        }
+      ]
+    },
+    "descente-conseil": {
+      "text": "Le Gardien de la Canopée m’a fait porter un mot : tu peux descendre autant qu’il le faudra. Je n’aime pas ça… Le sol sacré qui fait taire le Bosquet, ça ne s’est jamais vu.",
+      "options": [
+        {
+          "text": "Descends-moi.",
           "next": "fin",
           "effects": [
             {

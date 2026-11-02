@@ -15,5 +15,12 @@
     "enemies": [{ "id": "ours-mousse", "object": "ours-sol" }],
     "victoryFlag": "ours-sol-vaincu",
     "victoryEffects": [{ "giveXp": 15 }]
+  },
+  {
+    "id": "fouilleur-sol",
+    "center": "garrik",
+    "enemies": [{ "id": "fouilleur", "object": "garrik" }],
+    "victoryFlag": "garrik-vaincu",
+    "victoryEffects": [{ "setFlag": "fouille-elucidee" }, { "setFlag": "fouille-marches" }, { "setFlag": "cle-mentionnee" }]
   }
 ]

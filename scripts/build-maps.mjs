@@ -518,7 +518,7 @@ Object.assign(INTERIORS, {
     h: 7,
     outside: 'canopee-ramures',
     furniture: [[3, 3, 'table'], [4, 3, 'table'], [5, 3, 'table'], [6, 3, 'table'], [1, 1, 'cristal-veille'], [8, 1, 'cristal-veille'], [4, 1, 'etagere']],
-    objects: [['huissier', 'pnj', 3, 5]],
+    objects: [['huissier', 'pnj', 3, 5], ['depuis-amphitheatre', 'arrivee', 4, 4]],
   }),
   'canopee-feuillevent': interior('canopee-feuillevent', {
     outside: 'canopee-ramures',
@@ -570,9 +570,6 @@ function solRacines() {
   m.setObstacle(9, 10, 'lettres');
   m.object('lettres-eparpillees', 'objet', 9, 10);
   m.object('traces-fouille', 'objet', 13, 14);
-  // « Le chant d'Anselme » : l'arbre au pied duquel repose Anselme, au sud, loin de la tanière.
-  m.setObstacle(11, 18, 'arbre-retour');
-  m.object('arbre-retour-anselme', 'objet', 11, 18);
   // La tanière : la sacoche sous la patte d'un Ours-Mousse endormi (src/data/encounters.json).
   m.setObstacle(21, 6, 'sacoche');
   m.object('sacoche-lettres', 'coffre', 21, 6, { disparaitSi: 'sacoche-retrouvee' });
@@ -583,7 +580,7 @@ function solRacines() {
   });
 
   const keepClear = new Set(
-    [[11, 18], [10, 18], [12, 18], [11, 17], [10, 17], [12, 17], [11, 19], [4, 11], [3, 11], [5, 11], [4, 12], [5, 12], [6, 13], [5, 13], [3, 12], [20, 7], [9, 11], [10, 11], [10, 10], [8, 11], [12, 13], [12, 14], [13, 15], [19, 7], [20, 6], [20, 8], [21, 7], [22, 7], [21, 5], [19, 6], [19, 8]].map(
+    [[4, 11], [3, 11], [5, 11], [4, 12], [5, 12], [6, 13], [5, 13], [3, 12], [20, 7], [9, 11], [10, 11], [10, 10], [8, 11], [12, 13], [12, 14], [13, 15], [19, 7], [20, 6], [20, 8], [21, 7], [22, 7], [21, 5], [19, 6], [19, 8]].map(
       ([c, r]) => `${c},${r}`,
     ),
   );
@@ -598,6 +595,41 @@ function solRacines() {
       else if (roll < 0.4) m.setGround(col, row, 'herbe');
     }
   }
+  // Ajouts des quêtes du chapitre 2, posés après le semis d'arbres pour ne pas le déplacer. On dégage leurs abords.
+  const clear = (cells) => {
+    for (const [c, r] of cells) if (m.obstacleAt(c, r) && m.obstacleAt(c, r) !== gid('tronc-titan')) m.setObstacle(c, r, null);
+  };
+  // « Le chant d'Anselme » : l'arbre au pied duquel repose Anselme, au sud, loin de la tanière.
+  clear([[10, 17], [11, 17], [12, 17], [10, 18], [12, 18], [10, 19], [11, 19], [12, 19]]);
+  m.setObstacle(11, 18, 'arbre-retour');
+  m.object('arbre-retour-anselme', 'objet', 11, 18);
+  // « L'audience » : un fouilleur des Marches des Cendres, près de son trou, seulement pendant l'enquête du Triumvirat.
+  clear([[11, 15], [12, 15], [12, 16], [11, 16], [10, 15], [10, 16], [11, 14], [12, 14]]);
+  m.object('garrik', 'pnj', 11, 15, { apparaitSi: 'audience-tenue', disparaitSi: 'fouille-elucidee' });
+  return m.toTiled();
+}
+
+// --- L'amphithéâtre du Conseil des Racines Profondes (« L'audience », docs/univers/quetes.md) ----------------
+// « Immense amphithéâtre circulaire, taillé dans un Arbre-Titan mort » [NOTION] : des gradins en arc autour d'une
+// estrade où siège le Triumvirat Vert ; une allée descend de la porte jusqu'à lui.
+function amphitheatre() {
+  const w = 13;
+  const h = 12;
+  const m = new MapBuilder(w, h);
+  m.ground.fill(gid('parquet'));
+  for (let col = 0; col < w; col++) m.setObstacle(col, 0, 'mur');
+  for (let row = 0; row < h; row++) m.setObstacle(0, row, 'mur');
+  // Les gradins en fer à cheval, face à la porte ; l'estrade du Triumvirat au milieu, face à qui parle.
+  const [cc, cr] = [6, 5];
+  for (let col = 1; col < w; col++) for (const row of [1, 2]) m.setObstacle(col, row, 'gradin');
+  for (let row = 3; row <= 7; row++) for (const col of [1, 2, 10, 11]) m.setObstacle(col, row, 'gradin');
+  for (const [c, r] of [[1, 9], [11, 9], [3, 3], [9, 3]]) m.setObstacle(c, r, 'cristal-veille');
+  m.setGround(cc, h - 1, 'seuil');
+  m.object('sortie', 'sortie', cc, h - 1, { cible: 'canopee-conseil', arrivee: 'depuis-amphitheatre', libelle: 'Sortir' });
+  m.object('entree', 'arrivee', cc, h - 2);
+  m.object('thalorin', 'pnj', cc, cr - 1);
+  m.object('lyra', 'pnj', cc - 2, cr);
+  m.object('kael-marchevent', 'pnj', cc + 2, cr);
   return m.toTiled();
 }
 
@@ -684,6 +716,7 @@ for (const [id, map] of Object.entries({
   'canopee-ramures': canopeeRamures(),
   'canopee-aieux': canopeeAieux(),
   'sol-racines': solRacines(),
+  'canopee-amphitheatre': amphitheatre(),
   ...ENCOUNTER_MAPS,
 })) {
   writeFileSync(new URL(`${id}.json`, out), JSON.stringify(map, null, 1) + '\n');

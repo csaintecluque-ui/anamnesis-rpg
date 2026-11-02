@@ -50,5 +50,18 @@
     "initiativeBonus": 3,
     "xp": 15,
     "defeatText": "Le Loup de Rouille recule en grondant, puis file vers les collines du nord."
+  },
+  {
+    "id": "fouilleur",
+    "tile": "garrik",
+    "name": "Fouilleur des Marches",
+    "hp": 20,
+    "defense": 11,
+    "attackBonus": 2,
+    "damage": { "count": 1, "sides": 6 },
+    "actionPoints": 6,
+    "initiativeBonus": 0,
+    "xp": 20,
+    "defeatText": "Le fouilleur lâche sa pioche et lève les mains. — Assez ! C’est Kaelis qui paie, au Marché des Cendres d’Ironheart ! On cherche une clé de rouille bleue, c’est tout !"
   }
 ]

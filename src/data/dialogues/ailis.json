@@ -17,6 +17,21 @@
     {
       "requires": [
         {
+          "quest": "audience",
+          "status": "active"
+        },
+        {
+          "flag": "audience-tenue"
+        },
+        {
+          "notFlag": "fouille-elucidee"
+        }
+      ],
+      "node": "inquiete"
+    },
+    {
+      "requires": [
+        {
           "flag": "voix-anselme"
         },
         {
@@ -189,6 +204,34 @@
         },
         {
           "text": "Au revoir, Aïlis.",
+          "next": "fin"
+        }
+      ]
+    },
+    "inquiete": {
+      "text": "Je suis allée au Bosquet hier soir. J’ai posé la main sur le nom d’Anselme et… rien. Le bois était froid. Comme s’il était parti une seconde fois.",
+      "options": [
+        {
+          "text": "Vous avez encore sa chanson.",
+          "next": "chanson-reste",
+          "requires": [
+            {
+              "quest": "chant-anselme",
+              "status": "done"
+            }
+          ]
+        },
+        {
+          "text": "Le Triumvirat m’a chargé de comprendre. Je trouverai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "chanson-reste": {
+      "text": "Aïlis serre la flûte contre elle. — Oui… Oui, c’est vrai. Le bois du Bosquet a oublié, mais la flûte, elle, n’a rien oublié. Va, mon enfant. Trouve ce qui lui fait mal, à notre forêt.",
+      "options": [
+        {
+          "text": "Je trouverai.",
           "next": "fin"
         }
       ]

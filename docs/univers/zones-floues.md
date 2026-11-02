@@ -84,6 +84,11 @@ Ces décisions valent **pour le jeu**. Le dossier `docs/Lore/` reste inchangé.
 20. **Restes de conversations avec une IA** dans N5, E7-1 et RES (« Voulez-vous que je continue… ») : simple nettoyage éventuel, si Cyril le souhaite.
 21. **Création de personnage dans le JDR** : 27 points pour 6 attributs de 1 à 5 donnent 4,5 de moyenne, alors que le même JDR fixe la moyenne humaine à 3. Il manque peut-être une table de coûts.
 
+22. **Thalorin** (2026-11-02, en écrivant « L'audience ») : la fiche Verdantis dit « Ancien Thalorin » (dryade, âge
+    inconnu) et, plus loin, « Triumvirat actuel : 2 femmes, 1 homme », alors que Lyra est une femme et Kael Marchevent un
+    homme ; la même fiche dit les dryades « souvent non-genrées ». **Dans le jeu, Thalorin est « l'Ancien Thalorin »,
+    « la dryade », sans pronom ni accord genré**, en attendant l'avis de Cyril.
+
 ## Réponses de Cyril (2026-11-02, « Oui pour tout »)
 
 - **Monnaie** : une seule monnaie de jeu, le Fer, pour l'instant.

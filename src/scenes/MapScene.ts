@@ -63,7 +63,7 @@ export class MapScene extends Phaser.Scene {
   private arrival: (() => void) | null = null;
   private marker!: Phaser.GameObjects.Graphics;
   /** NPCs and signs, hit-tested on their whole image: a tap on a body lands on the tile behind its feet. */
-  private interactables: { object: MapObject; image: Phaser.GameObjects.Image }[] = [];
+  private interactables: { object: MapObject; image: Phaser.GameObjects.Image; label?: Phaser.GameObjects.Text }[] = [];
   /** Passers-by and townsfolk with a line or two (docs/gdd/figurants.md). */
   private figurants!: FigurantLayer;
 
@@ -87,7 +87,7 @@ export class MapScene extends Phaser.Scene {
     this.originX = this.map.height * (TILE_WIDTH / 2);
     this.originY = TOP_MARGIN;
     this.occupied = new Set(
-      this.map.objects.filter((o) => o.type === 'pnj' || o.properties.tuile || (o.type === 'ennemi' && !this.gone(o))).map(tileKey),
+      this.map.objects.filter((o) => (o.type === 'pnj' || o.properties.tuile || o.type === 'ennemi') && !this.gone(o)).map(tileKey),
     );
     this.path = [];
     this.moving = false;
@@ -202,16 +202,19 @@ export class MapScene extends Phaser.Scene {
 
   /**
    * Objects that leave the map once the story moves on (property `disparaitSi`: flags, comma-separated): a picked
-   * herb, enemies chased away or beaten. Checked when the map is built and each time it resumes.
+   * herb, enemies chased away or beaten. Objects that wait for the story (`apparaitSi`: flags, one is enough) are
+   * gone until then. Checked when the map is built and each time it resumes.
    */
   private gone(o: MapObject): boolean {
-    return (o.properties.disparaitSi ?? '').split(',').some((flag) => flag && this.state.flags[flag.trim()]);
+    const any = (list?: string) => (list ?? '').split(',').some((flag) => flag.trim() && this.state.flags[flag.trim()]);
+    return any(o.properties.disparaitSi) || (!!o.properties.apparaitSi && !any(o.properties.apparaitSi));
   }
 
   private refreshGone(): void {
-    this.interactables = this.interactables.filter(({ object, image }) => {
+    this.interactables = this.interactables.filter(({ object, image, label }) => {
       if (!this.gone(object)) return true;
       image.setVisible(false);
+      label?.setVisible(false);
       this.occupied.delete(tileKey(object));
       return false;
     });
@@ -289,15 +292,15 @@ export class MapScene extends Phaser.Scene {
   }
 
   private drawNpcs(): void {
-    for (const npc of this.map.objects.filter((o) => o.type === 'pnj')) {
+    for (const npc of this.map.objects.filter((o) => o.type === 'pnj' && !this.gone(o))) {
       const f = this.feet(npc);
       const frame = this.map.frames[npc.name] ?? this.map.frames.pnj;
       const image = this.add.image(f.x, f.y, 'tiles', frame).setOrigin(0.5, 1).setDepth(f.y);
-      this.interactables.push({ object: npc, image });
-      this.add
+      const label = this.add
         .text(f.x, f.y - 70, npcName(npc), { fontFamily: FONT_SERIF, fontSize: '13px', color: CSS.parchment, stroke: CSS.ink, strokeThickness: 3 })
         .setOrigin(0.5, 1)
         .setDepth(100000);
+      this.interactables.push({ object: npc, image, label });
     }
   }
 

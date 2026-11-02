@@ -3,6 +3,21 @@
   "speaker": "arbre-ancien",
   "entries": [
     {
+      "requires": [
+        {
+          "quest": "audience",
+          "status": "active"
+        },
+        {
+          "flag": "audience-tenue"
+        },
+        {
+          "notFlag": "fouille-elucidee"
+        }
+      ],
+      "node": "silence"
+    },
+    {
       "node": "arbre"
     }
   ],
@@ -68,6 +83,75 @@
     },
     "noms": {
       "text": "Des noms, des légendes, de petits dessins de feuilles. Là où le bois a fendu un signe, la fente fait désormais partie du souvenir.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "silence": {
+      "text": "Le très vieil arbre gravé. Sous ta main, les signes restent froids : ni voix ni souvenir ne montent du bois.",
+      "options": [
+        {
+          "text": "Écouter plus profond.",
+          "next": "pente",
+          "requires": [
+            {
+              "attribute": "memory",
+              "min": 3
+            },
+            {
+              "notFlag": "piste-racines"
+            }
+          ],
+          "effects": [
+            {
+              "setFlag": "piste-racines"
+            },
+            {
+              "giveXp": 10
+            }
+          ]
+        },
+        {
+          "text": "Examiner le pied de l’arbre.",
+          "next": "seve",
+          "requires": [
+            {
+              "skill": "investigation",
+              "min": 2
+            },
+            {
+              "notFlag": "piste-racines"
+            }
+          ],
+          "effects": [
+            {
+              "setFlag": "piste-racines"
+            },
+            {
+              "giveXp": 10
+            }
+          ]
+        },
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "pente": {
+      "text": "Tout au fond du silence, une sensation : comme une racine qu’on tire, vers le bas, très loin sous la ville. Ce qui fait taire le Bosquet est en bas, sur le Sol des Racines.",
+      "options": [
+        {
+          "text": "Retirer la main.",
+          "next": "fin"
+        }
+      ]
+    },
+    "seve": {
+      "text": "Au pied de l’arbre, une sève claire suinte entre les planches, comme d’une blessure. Les racines du Bosquet descendent jusqu’au sol… et, en bas, quelque chose les a tranchées.",
       "options": [
         {
           "text": "Partir.",

@@ -105,6 +105,14 @@
     "healHp": 12
   },
   {
+    "id": "seve-aieux",
+    "name": "Sève des aïeux",
+    "description": "Tirée au pied des arbres où reposent les morts : une chaleur, un tour de main, et une voix qui n’est pas la tienne. Défendue à Canopéa.",
+    "weightKg": 0.3,
+    "price": 30,
+    "healHp": 30
+  },
+  {
     "id": "graines-lumiere",
     "name": "Graines-lumière",
     "description": "Un sac de semences de Canopéa, au sceau du Conseil. Elles n’étaient pas à toi.",

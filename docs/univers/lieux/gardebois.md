@@ -28,3 +28,14 @@ Demande de Cyril : des habitations où entrer, plus de PNJ, des quêtes. PNJ pro
 Un commis de Ferros pressé, une lavandière, un garçon curieux, un vieux joueur de pipeau, et un client somnolent à
 l'Auberge de la Racine : une ou deux répliques chacun, sans quête, sauf le commis, qui donne « La caravane de midi »
 (`docs/gdd/figurants.md`).
+
+## Les veillées de la Racine (2026-11-02, propositions **à valider**)
+
+Le soir, à l'Auberge de la Racine, on écoute des histoires (`docs/gdd/veillees.md`). Le public : des caravaniers de la
+Compagnie, des familles du Marché, deux marchands de Ferros qui font semblant de ne pas écouter. Il aime les chansons
+et les histoires de famille ; pas les histoires de morts (« la maladie des souvenirs nous en raconte assez »).
+
+| Rumeur | Ce qu'elle ouvre | Ancrage |
+|---|---|---|
+| **La cache des passeurs** | sous le rocher moussu, au sud du marché, les passeurs de la Lisière cachent ce qu'ils ne montrent pas aux Gardes Verts : 30 Fers, une fiole de sève, et un mot « Pour la petite, si je ne reviens pas de la Lisière » | — (passeurs inventés) |
+| **Ce que Tobias garde sous l'étal** | des arbalètes de Ferros « tombées d'un convoi », à moitié prix ; « si ma sœur te demande… » | N2 (Ferros) ; les convois volés du « Rail des Cendres » |

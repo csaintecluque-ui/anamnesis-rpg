@@ -24,6 +24,18 @@
           "next": "forge"
         },
         {
+          "text": "Je viens de la part de Dorna.",
+          "requires": [
+            {
+              "flag": "rumeur-part-de-dorna"
+            },
+            {
+              "notFlag": "cristal-dorna-achete"
+            }
+          ],
+          "next": "dorna"
+        },
+        {
           "text": "Au revoir.",
           "next": "fin"
         }
@@ -41,6 +53,44 @@
           ],
           "next": "fin"
         },
+        {
+          "text": "Merci.",
+          "next": "fin"
+        }
+      ]
+    },
+    "dorna": {
+      "text": "La tailleuse pose son burin, longtemps. — Dorna. … Un cristal de forge, alors : cent vingt-cinq Fers, la moitié du prix. Et tu ne le portes pas devant les visières rouges.",
+      "options": [
+        {
+          "text": "Payer cent vingt-cinq Fers.",
+          "requires": [
+            {
+              "fers": 125
+            }
+          ],
+          "effects": [
+            {
+              "giveFers": -125
+            },
+            {
+              "giveItem": "cristal-forge"
+            },
+            {
+              "setFlag": "cristal-dorna-achete"
+            }
+          ],
+          "next": "dorna-achete"
+        },
+        {
+          "text": "Pas maintenant.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "dorna-achete": {
+      "text": "Elle enveloppe le cristal dans un chiffon noir. — Dis à Dorna que la tente est toujours là. Elle comprendra.",
+      "options": [
         {
           "text": "Merci.",
           "next": "fin"

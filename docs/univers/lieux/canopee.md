@@ -90,3 +90,14 @@ Quête validée par Cyril (`docs/univers/quetes.md`). Textes : `docs/DIALOGUES.m
 - Le druide **Vanel** au pied du grand arbre du Bosquet des Échos (« Un prêt de la Terre »), **Tiven** à la Grande
   Nacelle, des cristaux de Vie au Comptoir de la Sève (Sévane, 250 Fers). Validé par Cyril.
 - La Lueur d'un cristal révèle aussi le sceau de cire dans le grenier des semences.
+
+## Les veillées du Nid (2026-11-02, propositions **à valider**)
+
+Le soir, dans les hamacs du Nid, on écoute des histoires (`docs/gdd/veillees.md`). Le public : des Nacelliers, des
+cultivateurs des cimes, un druide qui écoute les yeux fermés (« Que la sève coule »). Il aime les histoires d'arbres
+et celles des morts qui dorment à leur pied ; pas les machines ni les forages.
+
+| Rumeur | Ce qu'elle ouvre | Ancrage |
+|---|---|---|
+| **La clé du nichoir** | la gardienne du grenier des semences cache sa clé dans le nichoir au-dessus de la porte : le grenier s'ouvre sans crocheter | — |
+| **La sève des aïeux** | sous son comptoir, Sévane vend une sève tirée au pied des arbres où reposent les morts : « une gorgée, et l'on sent leur main sur l'épaule » ; **défendue** ; « jamais deux soirs de suite : on finit par ne plus vouloir que leurs voix » | NOTION (Rite du Retour : l'arbre garde « une chaleur, un tour de main ») ; E2 (l'addiction au passé) |

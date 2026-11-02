@@ -37,6 +37,15 @@
       "text": "Des branches hautes, là où le soleil touche en premier. On ne cueille jamais tout : une feuille sur trois reste à l’arbre. C’est la règle de la Sève.",
       "options": [
         {
+          "text": "Et la sève qu’on tire au pied des arbres des morts ?",
+          "requires": [
+            {
+              "flag": "rumeur-seve-aieux"
+            }
+          ],
+          "next": "aieux"
+        },
+        {
           "text": "Une belle règle.",
           "next": "accueil"
         }
@@ -57,6 +66,41 @@
         {
           "text": "Merci, Sévane.",
           "next": "accueil"
+        }
+      ]
+    },
+    "aieux": {
+      "text": "Sévane pâlit, et regarde la porte. — Qui t’a dit ça ? … Trente Fers la fiole. Une gorgée à la fois, et jamais deux soirs de suite : on finit par ne plus vouloir que leurs voix.",
+      "options": [
+        {
+          "text": "Payer trente Fers.",
+          "requires": [
+            {
+              "fers": 30
+            }
+          ],
+          "effects": [
+            {
+              "giveFers": -30
+            },
+            {
+              "giveItem": "seve-aieux"
+            }
+          ],
+          "next": "aieux-achetee"
+        },
+        {
+          "text": "Laisser ça.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "aieux-achetee": {
+      "text": "Elle glisse la fiole dans ta main sans la regarder. — Tu ne l’as pas eue ici. Et tu ne l’as pas eue du tout.",
+      "options": [
+        {
+          "text": "Merci, Sévane.",
+          "next": "fin"
         }
       ]
     }

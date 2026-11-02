@@ -109,3 +109,12 @@ tactiles reçoivent donc des tailles à eux (détection « pas de souris », `HA
 - **Outils de dev** : onglet « Groupe » (ajouter ou retirer Liane et Boulon ; « Tout rencontrer » remplit le
   bestiaire).
 
+
+## Jalon 3, étape 4 (2026-11-02) : les veillées
+
+- **Écran de la veillée** (`VeilleeScene`, ouvert par l'aubergiste) : le public, ses goûts, la compétence de conteur
+  et la renommée ; une ligne par Récit retenu (♥ aimé, ✗ détesté, « déjà racontée ici », chance) ; touches 1 à 9,
+  pages au-delà ; le résultat (jet, réaction, rumeur encadrée, gains), « Finir la soirée » (Entrée). Hors du soir :
+  « Attendre le soir ». Conception : `docs/gdd/veillees.md`.
+- **Journal**, onglet « Récits » : les rumeurs entendues suivent les Récits (« Rumeur · … », lieu où on l'a entendue).
+- **Outils de dev** : « Soir » (temps) ; « Veillées : rumeurs → Toutes entendues » (onglet « Groupe »).

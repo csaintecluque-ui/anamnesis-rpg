@@ -19,6 +19,18 @@
     {
       "quest": "carnet-chansons",
       "points": 5
+    },
+    {
+      "flag": "conteur-racine-1",
+      "points": 3
+    },
+    {
+      "flag": "conteur-racine-2",
+      "points": 3
+    },
+    {
+      "flag": "conteur-racine-3",
+      "points": 3
     }
   ],
   "canopee": [
@@ -65,6 +77,18 @@
     {
       "flag": "vol-grenier",
       "points": -20
+    },
+    {
+      "flag": "conteur-nid-1",
+      "points": 3
+    },
+    {
+      "flag": "conteur-nid-2",
+      "points": 3
+    },
+    {
+      "flag": "conteur-nid-3",
+      "points": 3
     }
   ],
   "compagnie-lisieres": [
@@ -115,6 +139,18 @@
     {
       "flag": "rail-marches",
       "points": -10
+    },
+    {
+      "flag": "conteur-bielle-1",
+      "points": 3
+    },
+    {
+      "flag": "conteur-bielle-2",
+      "points": 3
+    },
+    {
+      "flag": "conteur-bielle-3",
+      "points": 3
     }
   ],
   "travailleurs-rail": [

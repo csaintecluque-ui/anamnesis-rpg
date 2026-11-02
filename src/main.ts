@@ -13,6 +13,7 @@ import { PauseScene } from './scenes/PauseScene';
 import { SlotsScene } from './scenes/SlotsScene';
 import { TitleScene } from './scenes/TitleScene';
 import { TradeScene } from './scenes/TradeScene';
+import { VeilleeScene } from './scenes/VeilleeScene';
 import { WorldMapScene } from './scenes/WorldMapScene';
 import { getSettings } from './settings';
 import { COLORS, GAME_HEIGHT, GAME_WIDTH } from './ui/theme';
@@ -46,6 +47,7 @@ const game = new Phaser.Game({
     HudScene,
     DialogueScene,
     TradeScene,
+    VeilleeScene,
     JournalScene,
     LevelUpScene,
     CombatScene,

@@ -8,6 +8,7 @@ import { resonanceMax } from '../rules/magic';
 import { COMPANIONS, findCompanion, inParty, joinParty, leaveParty } from '../rules/companions';
 import { recordMet } from '../rules/bestiary';
 import { ECHOS, collectedEchos, echoFlag } from '../rules/echos';
+import { PUBLICS, heardRumeurs, rumeurFlag } from '../rules/veillees';
 import { ENEMIES } from '../rules/combat';
 import { advance, formatDate, shortTime, waitUntil } from '../rules/time';
 import { placeOfLocation } from '../rules/world';
@@ -105,6 +106,7 @@ export function openDevPanel(state: GameState, onClose: (result: DevPanelResult)
       row('Temps', [
         button('+1 moment', () => (advance(state.time, 1), render()), 'small'),
         button('Matin', () => (waitUntil(state.time, 'matin'), render()), 'small'),
+        button('Soir', () => (waitUntil(state.time, 'soir'), render()), 'small'),
         button('Nuit', () => (waitUntil(state.time, 'nuit'), render()), 'small'),
         button('+1 jour', () => (advance(state.time, 4), render()), 'small'),
       ]),
@@ -137,6 +139,12 @@ export function openDevPanel(state: GameState, onClose: (result: DevPanelResult)
         button('Tout recueillir', () => (ECHOS.forEach((e) => (state.flags[echoFlag(e.id)] = true)), render())),
         button('Emprise 0', () => ((state.emprise = 0), render()), 'small'),
         button('+1', () => ((state.emprise += 1), render()), 'small'),
+      ]),
+    );
+    const rumeurs = PUBLICS.flatMap((p) => p.rumeurs);
+    main.append(
+      row(`Veillées : rumeurs (${heardRumeurs(state).length} / ${rumeurs.length})`, [
+        button('Toutes entendues', () => (rumeurs.forEach((r) => (state.flags[rumeurFlag(r.id)] = true)), render())),
       ]),
     );
   }

@@ -59,6 +59,18 @@
           "next": "accueil"
         },
         {
+          "text": "Et ces arbalètes « tombées d’un convoi » ?",
+          "requires": [
+            {
+              "flag": "rumeur-arbalete-convoi"
+            },
+            {
+              "notFlag": "arbalete-convoi-achetee"
+            }
+          ],
+          "next": "arbalete"
+        },
+        {
           "text": "Au revoir.",
           "next": "fin"
         }
@@ -148,6 +160,44 @@
       "options": [
         {
           "text": "Merci, Tobias.",
+          "next": "fin"
+        }
+      ]
+    },
+    "arbalete": {
+      "text": "Tobias regarde à droite, à gauche, puis soulève une toile sous l’étal. — Trente-cinq Fers. Elle est neuve, elle tire droit, et elle n’a jamais existé.",
+      "options": [
+        {
+          "text": "Payer trente-cinq Fers.",
+          "requires": [
+            {
+              "fers": 35
+            }
+          ],
+          "effects": [
+            {
+              "giveFers": -35
+            },
+            {
+              "giveItem": "arbalete-ferros"
+            },
+            {
+              "setFlag": "arbalete-convoi-achetee"
+            }
+          ],
+          "next": "arbalete-achetee"
+        },
+        {
+          "text": "Non merci.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "arbalete-achetee": {
+      "text": "— Et si ma sœur te demande d’où elle vient, tu l’as trouvée sur la route.",
+      "options": [
+        {
+          "text": "Promis.",
           "next": "fin"
         }
       ]

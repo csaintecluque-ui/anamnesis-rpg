@@ -8,6 +8,8 @@ export interface RecitDef {
   texte: string;
   /** A Récit of the main story (one per chapter): never forgotten, and not counted against the cap (decision of Cyril, 2026-11-02). */
   principal?: boolean;
+  /** What it speaks of, for the publics of the veillées (src/rules/veillees.ts, THEMES). */
+  themes?: string[];
 }
 
 export const RECITS = recitData as RecitDef[];

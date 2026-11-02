@@ -1,4 +1,5 @@
 import questData from '../data/quests.json';
+import veilleeData from '../data/veillees.json';
 import { findLocation, type GameState } from '../state/gameState';
 import { ATTRIBUTES, SKILLS, attributeModifier, type AttributeId, type SkillId } from './attributes';
 import { resolveCheck, rollD20, successChance, type Rng } from './checks';
@@ -57,6 +58,8 @@ export type Effect =
   | { heal: number }
   /** No state change: tells DialogueScene to open the Troc with this NPC instead of closing (docs/gdd/inventaire.md). */
   | { openTrade: true }
+  /** No state change: tells DialogueScene to open the veillée of this public instead of closing (docs/gdd/veillees.md). */
+  | { veillee: string }
   /** No state change: tells DialogueScene to close and the map to start this fight (src/data/encounters.json). */
   | { startCombat: string }
   /** No state change: tells DialogueScene to close and the map to go to this place (e.g. through a door just unlocked). */
@@ -209,7 +212,7 @@ function castView(state: GameState, option: DialogueOption): { tag: string; miss
 }
 
 /** Attribute modifier + rank, less the emprise of the Échos (docs/gdd/echos.md): what is added to the d20. */
-function rollBonus(state: GameState, skill: SkillId): number {
+export function rollBonus(state: GameState, skill: SkillId): number {
   const c = state.character;
   const attribute = SKILLS.find((s) => s.id === skill)!.attribute;
   return attributeModifier(c?.attributes[attribute] ?? 3) + (c?.skills[skill] ?? 0) - empriseMalus(state);
@@ -282,8 +285,8 @@ export function applyEffects(state: GameState, effects: Effect[] = []): string[]
         learnRecit(state.character, effect.learnRecit);
         notices.push(`Récit retenu : ${findRecit(effect.learnRecit)?.titre ?? effect.learnRecit}`);
       }
-    } else if ('openTrade' in effect || 'startCombat' in effect || 'goTo' in effect) {
-      // Handled by DialogueScene (Troc, a fight on the map, another place); no state change here.
+    } else if ('openTrade' in effect || 'veillee' in effect || 'startCombat' in effect || 'goTo' in effect) {
+      // Handled by DialogueScene (Troc, veillée, a fight on the map, another place); no state change here.
     } else if ('giveItem' in effect) {
       if (state.character) {
         const count = effect.count ?? 1;
@@ -360,6 +363,12 @@ export function opensTrade(effects?: Effect[]): boolean {
   return !!effects?.some((e) => 'openTrade' in e);
 }
 
+/** The public whose veillée an option opens, if any (src/data/veillees.json). */
+export function opensVeillee(effects?: Effect[]): string | null {
+  const effect = effects?.find((e) => 'veillee' in e);
+  return effect && 'veillee' in effect ? effect.veillee : null;
+}
+
 /** The fight an option starts, if any (src/data/encounters.json). */
 export function startsCombat(effects?: Effect[]): string | null {
   const effect = effects?.find((e) => 'startCombat' in e);
@@ -410,6 +419,7 @@ export function dialogueProblems(d: Dialogue): string[] {
       if ('lancer' in e && !POWERS.some((p) => p.id === e.lancer)) problems.push(`${where} : pouvoir inconnu ${e.lancer}`);
       if ('apprendre' in e && !knownSkills.has(e.apprendre)) problems.push(`${where} : compétence inconnue ${e.apprendre}`);
       if ('revivre' in e && !ECHOS.some((x) => x.id === e.revivre)) problems.push(`${where} : Écho inconnu ${e.revivre}`);
+      if ('veillee' in e && !(veilleeData as { id: string }[]).some((v) => v.id === e.veillee)) problems.push(`${where} : veillée inconnue ${e.veillee}`);
       const companion = 'rejoindre' in e ? e.rejoindre : 'quitter' in e ? e.quitter : 'avis' in e ? e.avis : null;
       if (companion && !findCompanion(companion)) problems.push(`${where} : compagnon inconnu ${companion}`);
     }

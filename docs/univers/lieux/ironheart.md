@@ -69,3 +69,14 @@ Les quêtes sont détaillées dans `docs/univers/quetes.md` (chapitre 3 et « Le
 - **On tient des listes** (canon, roman) : le patrouilleur du funiculaire inscrit qui porte un cristal ; Dorna
   conseille de le cacher.
 - La Lueur d'un cristal ouvre aussi le renfoncement sans enseigne et éclaire l'enclume aux mains gravées.
+
+## Les veillées de la Bielle (2026-11-02, propositions **à valider**)
+
+Le soir, à la Pension de la Bielle, on écoute des histoires (`docs/gdd/veillees.md`). Le public : des cheminots du
+triage, des ouvriers en gris, et, près de la porte, **un homme qui ne boit pas** (et qui prend des notes). Il aime les
+trains et les machines ; pas les histoires de puissants (« ici, on tient des listes, et les murs ont des oreilles »).
+
+| Rumeur | Ce qu'elle ouvre | Ancrage |
+|---|---|---|
+| **De la part de Dorna** | l'hiver où les visières rouges la cherchaient, **Dorna a caché la tailleuse de cristaux** ; de sa part, un cristal de forge à moitié prix (125 Fers), « et tu ne le portes pas devant les visières » | NOTION (roman : on tient des listes, les visières rouges) |
+| **Ta fiche, aux Archives** | chaque étranger a sa fiche ; l'**article onze** oblige Noam à la montrer : « À surveiller. Signalé·e par : » un nom rayé (« voir : article douze ») | NOTION (« Ferros ne brûle rien : Ferros classe ») |

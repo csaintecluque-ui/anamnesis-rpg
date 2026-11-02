@@ -3,7 +3,7 @@
 ## État (2026-11-02)
 
 - Jalons 1 et 2 faits et en ligne (`docs/gdd/jalon-2.md`). 11,5 crédits Higgsfield restants.
-- 510 tests (dont le parcours complet d'affilée, `src/rules/parcours.test.ts`), typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
+- 528 tests (dont le parcours complet d'affilée, `src/rules/parcours.test.ts`), typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
 - Mode test caché : 5 touches sur la version (écran titre) → menu pause : +50 Fers, PV au max, **Outils de dev**
   (perso surpuissant, groupe, lieux, quêtes, repères, objets, Récits ; `docs/gdd/interface.md`).
 
@@ -21,7 +21,7 @@
    (`docs/gdd/magie.md`). **Jeu complet validé** (`docs/gdd/jeu-complet.md`) ; ton : dark fantasy pour adultes
    (`docs/univers/ton.md`). En cours : **jalon 3** (`docs/gdd/jalon-3.md`) ; étape 1 (le combat pour adultes et à
    plusieurs), 2 (les compagnons) et 3 (le Livre des Échos, `docs/gdd/echos.md` ; scènes inventées à valider) en
-   ligne ; ensuite : les veillées du conteur, sur le feu vert de Cyril. Mise en beauté à la fin.
+   ligne ; étape 4 (les veillées, `docs/gdd/veillees.md`) sur la branche, à valider ; puis la passe sombre.
 2. Codex : Sept-Portes (`AGENTS.md`). Notion : page « Anamnesis — le jeu », à tenir à jour à chaque mise en ligne.
 
 ## Points ouverts

@@ -887,3 +887,15 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   Corrigé en passant : les objets à tuile (le vieux champignon) se dessinaient avant d'apparaître. 510 tests ;
   vérifié sur téléphone.
 - Cyril : « mets en ligne seulement » : étape 3 mise en ligne ; pas d'étape 4 pour l'instant. Notion : le système des Échos et ses ancrages du canon (les scènes inventées attendent la validation).
+
+## 2026-11-02 (suite) : jalon 3, étape 4, les veillées du conteur
+
+- Cyril : « L'étape 3 est en train de mouliner, passe à l'étape 4. » (L'étape 3 était déjà sur `main`.)
+- Construit (`docs/gdd/veillees.md`) : chez Sylvan, Lisandre et Dorna, « Raconter un Récit à la veillée » ; un écran à
+  part (`VeilleeScene`) : le public et ses goûts, chaque Récit retenu avec ce qu'ils en penseront et la chance ; d20 +
+  la meilleure compétence de Présence ; triomphe, bon accueil, redite, échec ; chapeau en Fers, XP, renommée (+3 de
+  réputation par Récit, trois au plus), une rumeur par triomphe ; la veillée dure jusqu'à la nuit ; « Attendre le
+  soir » sinon. Thèmes sur les quinze Récits. Six rumeurs, six secrets (cache des passeurs, arbalète de Tobias, clé du
+  nichoir, sève des aïeux, cristal « de la part de Dorna », fiche des Archives). Rumeurs au journal (onglet Récits).
+  Lisandre dit la nouvelle du grenier forcé une fois, en accueil. Pas de nouvelle version de sauvegarde.
+  528 tests ; vérifié sur PC et téléphone (Playwright).

@@ -82,6 +82,18 @@
       "text": "— Ferros ne brûle rien : Ferros classe (voir : devise officieuse). Ce qui n’est pas classé n’existe pas encore.",
       "options": [
         {
+          "text": "Et ma fiche ? L’article onze vous oblige à la montrer.",
+          "requires": [
+            {
+              "flag": "rumeur-fiche-archives"
+            },
+            {
+              "notFlag": "fiche-lue"
+            }
+          ],
+          "next": "fiche"
+        },
+        {
           "text": "Je vois.",
           "next": "accueil"
         }
@@ -378,6 +390,36 @@
       "options": [
         {
           "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "fiche": {
+      "text": "Noam se fige, puis tire un carton gris d’un tiroir. — Article onze. Exact. « Gardien·ne de Mémoire, arrivé·e par la gare de l’Ouest. Pose des questions. Fréquente la Pension de la Bielle. À surveiller. Signalé·e par : » Le nom est rayé.",
+      "effects": [
+        {
+          "setFlag": "fiche-lue"
+        },
+        {
+          "giveXp": 20
+        }
+      ],
+      "options": [
+        {
+          "text": "Qui m’a signalé·e ?",
+          "next": "fiche-qui"
+        },
+        {
+          "text": "Merci, Noam.",
+          "next": "fin"
+        }
+      ]
+    },
+    "fiche-qui": {
+      "text": "— Rayé (voir : article douze). Il range le carton. Pour la première fois, il a l’air de s’excuser.",
+      "options": [
+        {
+          "text": "Au revoir.",
           "next": "fin"
         }
       ]

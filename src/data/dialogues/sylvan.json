@@ -61,6 +61,15 @@
           "next": "rumeurs"
         },
         {
+          "text": "Raconter un Récit à la veillée.",
+          "effects": [
+            {
+              "veillee": "racine"
+            }
+          ],
+          "next": "fin"
+        },
+        {
           "text": "Au revoir.",
           "next": "fin"
         }
@@ -206,6 +215,15 @@
           "next": "rumeurs"
         },
         {
+          "text": "Raconter un Récit à la veillée.",
+          "effects": [
+            {
+              "veillee": "racine"
+            }
+          ],
+          "next": "fin"
+        },
+        {
           "text": "Au revoir.",
           "next": "fin"
         }
@@ -221,6 +239,15 @@
         {
           "text": "Quelles nouvelles ?",
           "next": "rumeurs"
+        },
+        {
+          "text": "Raconter un Récit à la veillée.",
+          "effects": [
+            {
+              "veillee": "racine"
+            }
+          ],
+          "next": "fin"
         },
         {
           "text": "Au revoir.",

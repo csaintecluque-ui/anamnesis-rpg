@@ -1,0 +1,92 @@
+[
+  {
+    "id": "racine",
+    "lieu": "auberge-racine",
+    "hote": "sylvan",
+    "ville": "gardebois",
+    "nom": "Auberge de la Racine",
+    "public": "Des caravaniers de la Compagnie, des familles du Marché, et deux marchands de Ferros qui font semblant de ne pas écouter.",
+    "gouts": "Ici, on aime les chansons et les histoires de famille. Les histoires de morts, beaucoup moins : la maladie des souvenirs nous en raconte assez.",
+    "aime": ["chansons", "familles"],
+    "deteste": ["morts"],
+    "reactions": {
+      "triomphe": "Au deuxième couplet, toute la salle reprend avec toi. Un caravanier pleure dans sa barbe, une enfant s’endort sur les genoux de sa mère. Sylvan fait passer son chapeau, et il revient lourd.",
+      "succes": "On t’écoute en mangeant, puis sans manger. À la fin, des mains frappent la table, et le chapeau de Sylvan fait le tour de la salle.",
+      "redite": "« Celle-là, on la connaît ! » On t’écoute quand même, par gentillesse. Le chapeau revient presque vide.",
+      "echec": "Tu perds le fil au milieu. Les conversations reprennent une à une, comme des lanternes qu’on rallume.",
+      "deteste": "Au premier mort, une mère emmène ses enfants. Puis une autre. « Pas ce soir. Pas ici. »"
+    },
+    "rumeurs": [
+      {
+        "id": "cache-passeurs",
+        "titre": "La cache des passeurs",
+        "texte": "Un caravanier s’assoit près de toi, la voix pâteuse : « Le gros rocher moussu, au sud du marché ? Les passeurs de la Lisière y glissent ce qu’ils ne montrent pas aux Gardes Verts. Moi, je n’ai rien dit. »"
+      },
+      {
+        "id": "arbalete-convoi",
+        "titre": "Ce que Tobias garde sous l’étal",
+        "texte": "Un des marchands de Ferros, en remettant son manteau : « Tobias Cendrefer garde sous son étal des arbalètes tombées d’un convoi. À moitié prix, pour qui demande sans poser de questions. »"
+      }
+    ]
+  },
+  {
+    "id": "nid",
+    "lieu": "canopee-auberge",
+    "hote": "lisandre",
+    "ville": "canopee",
+    "nom": "Auberge du Nid",
+    "public": "Des Nacelliers en veste de toile, des cultivateurs des cimes, et un druide qui écoute les yeux fermés, dans les hamacs qui se balancent.",
+    "gouts": "Au Nid, on aime les histoires d’arbres, et celles des morts qui dorment à leur pied. Les machines et les forages, on en entend assez parler le jour.",
+    "aime": ["arbres", "morts"],
+    "deteste": ["machines"],
+    "reactions": {
+      "triomphe": "Personne ne bouge. Quand tu te tais, le druide ouvre les yeux et dit seulement : « Que la sève coule. » Les bols tintent contre les cordes des hamacs, et les Fers pleuvent dans le panier de Lisandre.",
+      "succes": "Les hamacs ont cessé de grincer pendant que tu parlais. On te tend un bol de soupe de fleurs, et le panier de Lisandre passe de main en main.",
+      "redite": "« On la connaît, celle-là, mais tu la dis bien. » Le panier revient avec quelques Fers.",
+      "echec": "Les hamacs grincent, puis bercent. À la moitié de ton histoire, la moitié du Nid dort.",
+      "deteste": "Au mot « machine », un Nacellier crache par-dessus la rambarde. « Pas de ça ici. Les foreuses, on les entend assez la nuit. »"
+    },
+    "rumeurs": [
+      {
+        "id": "cle-nichoir",
+        "titre": "La clé du nichoir",
+        "texte": "Une cultivatrice se penche par-dessus son hamac, tout bas : « La gardienne du grenier des semences ne porte jamais sa clé. Elle la cache dans le nichoir, au-dessus de la porte. Tout le monde le sait. Personne ne le dit. »"
+      },
+      {
+        "id": "seve-aieux",
+        "titre": "La sève des aïeux",
+        "texte": "Un vieux Nacellier, les yeux mouillés : « Sévane garde sous son comptoir une sève tirée au pied des arbres où reposent les morts. Une gorgée, et l’on sent leur main sur l’épaule. C’est défendu. On en achète quand même. »"
+      }
+    ]
+  },
+  {
+    "id": "bielle",
+    "lieu": "ironheart-pension",
+    "hote": "dorna",
+    "ville": "ironheart",
+    "nom": "Pension de la Bielle",
+    "public": "Des cheminots du triage en bleu de chauffe, des ouvriers des Forges en gris, et, près de la porte, un homme qui ne boit pas.",
+    "gouts": "À la Bielle, on aime les histoires de trains et de machines : c’est notre pain. Les histoires de puissants, non. Ici, on tient des listes, et les murs ont des oreilles.",
+    "aime": ["trains", "machines"],
+    "deteste": ["puissants"],
+    "reactions": {
+      "triomphe": "Quand ton train entre enfin en gare, toute la Bielle tape sur les tables, comme on frappe l’enclume. « Nom d’une gueuse ! » Le casque de Dorna fait le tour de la salle et revient lourd.",
+      "succes": "Les cheminots t’écoutent en hochant la tête, comme on écoute un moteur qui tourne rond. Le casque de Dorna fait le tour de la salle.",
+      "redite": "« On l’a déjà eue, celle-là. » Quelques Fers quand même, par politesse ouvrière.",
+      "echec": "Les Litanies du soir couvrent ta voix. Personne ne t’en veut : à la Bielle, on est trop fatigué pour écouter longtemps.",
+      "deteste": "Au premier nom de puissant, la salle se tait d’un coup. L’homme près de la porte sort un carnet. Dorna te sert une soupe, très vite, pour te faire taire."
+    },
+    "rumeurs": [
+      {
+        "id": "part-de-dorna",
+        "titre": "De la part de Dorna",
+        "texte": "Une ouvrière, en remettant sa veste : « La tailleuse du Marché des Cendres ? Dis-lui que tu viens de la part de Dorna. L’hiver où les visières rouges la cherchaient, c’est Dorna qui l’a cachée. Elle n’oublie pas. »"
+      },
+      {
+        "id": "fiche-archives",
+        "titre": "Ta fiche, aux Archives",
+        "texte": "Un vieux cheminot, sans lever les yeux de sa soupe : « Aux Archives, chaque étranger a sa fiche. Toi aussi. Demande-la à l’archiviste : l’article onze l’oblige à te la montrer. Personne ne le demande jamais. »"
+      }
+    ]
+  }
+]

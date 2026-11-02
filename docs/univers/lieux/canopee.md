@@ -30,7 +30,7 @@ Sept intérieurs, sept PNJ nommés. Toutes les maisons prévues sont là.
   main ». Anselme repose donc en bas ; Aïlis a gravé son nom au Bosquet, et c'est son souvenir à elle qu'on touche.
 - La « Salle du Conseil » devient l'**Antichambre du Conseil** : l'amphithéâtre lui-même viendra avec « L'audience ».
 - **Monnaie** : le canon donne à Verdantis la **Feuille Verte** (1 Feuille = 0,5 Fer ; un repas : 15 à 30 Feuilles).
-  Le jeu compte tout en Fers : à trancher avec Cyril (`docs/univers/zones-floues.md`).
+  Le jeu compte tout en Fers : une seule monnaie pour l'instant (décision de Cyril, 2026-11-02, `docs/univers/zones-floues.md`).
 
 ## Détails nouveaux, inventés en écrivant les dialogues (validés par Cyril le 2026-11-02 : « vraiment pas mal »)
 

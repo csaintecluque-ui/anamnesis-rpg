@@ -1,93 +1,97 @@
 # Histoire et quêtes : propositions (2026-11-02, **à valider par Cyril**)
 
-Demande de Cyril : « continuer à développer le Lore et des quêtes ». Tout ce qui suit est **proposé** ; les ancrages du
-canon sont entre crochets (`docs/univers/sources.md`). Factions citées : `docs/univers/factions.md`. Session cloud sans
-`docs/Lore/` : à confronter au canon avant de construire.
+Demande de Cyril : « continuer à développer le Lore et des quêtes ». Canon : le Notion « ANAMNESIS » [NOTION] ;
+factions : `docs/univers/factions.md` (dont celles reprises d'ANAMNESIS ENGINE). Tout ce qui n'est pas marqué
+[NOTION] ou d'un autre code est **proposé**.
 
 ## L'histoire principale : « Les voies endormies »
 
 Le fil, d'une ville à l'autre : la maladie mémorielle de Gardebois n'était pas un accident.
 
 - **Ce qu'on sait déjà** (jalon 1, validé) : en forant sous la Gare Engloutie, près d'une des Trois Failles [E10], la
-  prospection a déchiré l'Écho du dernier train ; la maladie mémorielle a suivi [E2]. Ilyane soupçonne les Réveilleurs
-  [E10] d'avoir payé la prospection.
-- **Ce que le héros découvrira** : la Compagnie du Rail Cristallin veut rouvrir la vieille voie de l'Ancien Monde qui
-  passait par la Gare ; elle fore à chaque ancienne gare, près des Failles, pour ses cristaux. Chaque forage réveille
-  un Écho, et la maladie gagne. Derrière une partie de l'argent : les Réveilleurs, qui cherchent ce que transportait
-  le dernier train (à décider avec Cyril : des archives de l'Ancien Monde ?).
-- **La question de l'univers** [E1] : relier les nations par le rail (embrasser l'avenir) sans réveiller ce qui dort
-  (préserver le passé). Aucun camp n'a entièrement tort : la Compagnie veut aussi rapprocher les peuples.
+  prospection a déchiré l'Écho du dernier train ; la maladie mémorielle a suivi [E2]. Les papiers venaient de Ferros,
+  et Ilyane soupçonne les Réveilleurs [E10] d'avoir payé.
+- **Ce que le héros découvrira** :
+  - la prospection était payée par les **Marches des Cendres** (« toute relique a un prix ») : sous les anciennes gares,
+    ils cherchent les reliques de l'Ancien Monde, et surtout **la clé de rouille bleue**, que transportait le dernier
+    train ; la clé ouvre « une archive que plusieurs factions veulent détruire ou exploiter » [NOTION, Studio] ;
+  - les **Archives de Ferros** la veulent aussi, pour la classer, et la garder ; les Réveilleurs, derrière une partie de
+    l'argent, veulent ce qu'elle ouvre ;
+  - le long de la vieille voie, l'Écho du dernier train s'est réveillé : sur une ligne encore active, des convois
+    disparaissent sans conducteur visible, et la **Veilleuse du Rail** « entend les trains avant qu'ils existent »
+    (« Le Rail des Cendres » [NOTION, Studio]).
+- **La question de l'univers** : préserver le passé ou embrasser l'avenir ? Chaque faction répond à sa façon : vendre le
+  passé (Marches), le classer (Archives), le faire rouler (Rail), le transmettre (Gardiens de Mémoire).
 
 | Chapitre | Lieu | Quête | En bref |
 |---|---|---|---|
 | 1 | Gardebois | Le Dernier Train | fait (jalon 1) |
-| 2 | Canopéa | **L'audience** | porter au Conseil des Racines Profondes la nouvelle de Gardebois ; découvrir que les Arbres-Souvenirs du Bois des Aïeux commencent à se taire, et pourquoi |
-| 3 | Ironheart | Les papiers de la Gare | au Bureau des Permis, remonter la concession jusqu'à la Compagnie du Rail Cristallin et à son mystérieux bailleur |
-| 4 | Sept-Portes | Les Mémoires du Monde Perdu | à la Grande Bibliothèque de Kael [E4], apprendre ce que transportait le dernier train ; ville sans combat : tout se joue par la parole |
+| 2 | Canopéa | **L'audience** | porter la nouvelle au Triumvirat ; les noms gravés du Bosquet ne transmettent plus rien ; sur le sol sacré, des fouilles des Marches des Cendres le long d'une voie enfouie |
+| 3 | Ironheart | **La Clé de Rouille Bleue** [NOTION, Studio] | au Marché des Cendres (Kaelis), aux Archives Centrales (Noam, Niveau Trois), chez les Travailleurs du Rail (la Veilleuse) : trouver la clé avant les autres, puis la vendre, l'utiliser, la cacher, la donner ou l'étudier |
+| 4 | Sept-Portes | Les Mémoires du Monde Perdu | à la bibliothèque de Kael [NOTION], le Registre des Mains de l'Ordre des Chroniqueurs révèle d'où vient la clé ; ville sans combat : tout se joue par la parole |
 | suite | autres continents | — | la piste des Réveilleurs, d'une voie endormie à l'autre |
+
+Quêtes secondaires de Ferros, reprises du Studio : **« Le Rail des Cendres »** (enquête, sabotage, escorte, négociation
+avec les ouvriers ou infiltration ; « modifie les routes commerciales et la confiance des travailleurs ») et **« Les
+Échos sous la Forge »** (cachée).
 
 ## Canopéa : cinq quêtes
 
-Elles se croisent volontairement : trois d'entre elles descendent sur **le Sol des Racines**, la forêt sous la ville,
-où l'on ne va jamais (« ce qui tombe d'ici, la forêt le garde »). Nouvelle carte à créer.
+Trois d'entre elles descendent sur **le Sol des Racines**, la forêt sous la ville : le sol est **sacré**, aucun bâtiment
+ne le touche [NOTION], on n'y descend qu'avec l'accord des Nacelliers (« ce qui tombe d'ici, la forêt le garde »). Nouvelle
+carte à créer.
 
 ### 1. L'audience (histoire principale, chapitre 2)
 
-- **Départ** : après « Le Dernier Train », Ilyane confie une lettre pour le Conseil (« ils m'écouteront peut-être, à
-  travers toi »). Sans la lettre, il faut l'estime de Canopéa pour être reçu (l'huissier, déjà en place).
-- **L'audience** : une conseillère du Conseil des Racines Profondes reçoit le héros. Canon : la Première Racine est
-  **Lyra Cœur-de-Sève** [N1] ; à vérifier dans N1 avant de la faire parler, sinon une conseillère inventée.
-- **L'enquête** : depuis peu, les Arbres-Souvenirs se taisent, et Aïlis n'entend plus Anselme. Avec Mémoire ou
-  Investigation, on remonte jusqu'au Sol des Racines : des **piquets d'arpentage** de la Compagnie du Rail Cristallin,
-  le long d'une ancienne voie enfouie sous les racines.
-- **Fin** : le Conseil envoie le héros à Ironheart, chercher qui a signé les papiers. Récompense : estime de Canopéa,
-  XP, un Récit.
+- **Départ** : après « Le Dernier Train », Ilyane confie une lettre (« ils m'écouteront peut-être, à travers toi »).
+  Sans la lettre, il faut l'estime de Canopéa (l'huissier, déjà en place).
+- **L'audience**, dans l'amphithéâtre du Conseil, taillé dans un Arbre-Titan mort [NOTION] : **Kael Marchevent**, Gardien
+  de la Canopée (défense et relations extérieures) [NOTION], reçoit le héros ; **Lyra Cœur-de-Sève** (affaires
+  intérieures et économie) s'inquiète du commerce avec Ferros.
+- **L'enquête** : depuis peu, toucher un nom gravé au Bosquet ne transmet plus rien, et Aïlis ne retrouve plus Anselme.
+  Avec Mémoire ou Investigation, on remonte jusqu'au Sol des Racines : des fouilles des **Marches des Cendres**, le long
+  d'une voie de l'Ancien Monde enfouie sous les racines.
+- **Fin** : le Triumvirat envoie le héros à Ironheart. Récompense : estime de Canopéa, XP, un Récit.
 
 ### 2. Les lettres de Malo (Nacelliers)
 
-- Malo a laissé tomber la sacoche de lettres des Nacelliers dans le feuillage. Véline accepte de descendre le héros
-  en nacelle sur le Sol des Racines.
-- En bas : retrouver les lettres (Survie ou Perception), éviter ou affronter ce qui rôde (Rôdeurs-Épine ou un Ours-Mousse,
-  [E8]), et voir, peut-être pour la première fois, les piquets de la Compagnie (lien avec « L'audience »).
-- **Fin** : les Nacelliers ouvrent leur **courrier** au héros (porter et recevoir des lettres entre villes) ; Malo
-  devient un ami (il connaît « les chemins qui n'existent pas encore »).
+- Malo a laissé tomber la sacoche de lettres des Nacelliers. Véline obtient qu'on descende le héros, une seule fois.
+- En bas : retrouver les lettres (Survie ou Perception), éviter ou affronter ce qui rôde (Rôdeurs-Épine, Ours-Mousse
+  [E8]), et voir les premières traces de fouille (lien avec « L'audience »).
+- **Fin** : les Nacelliers ouvrent leur **courrier** au héros ; Malo devient un ami.
 
 ### 3. Le chant d'Anselme
 
-- Suite de la voix d'Anselme (déjà en jeu). Elouan, le luthier, propose de tailler une flûte dans une branche tombée
-  de l'arbre d'Anselme, pour qu'Aïlis puisse rejouer sa chanson chaque soir.
-- Il faut la branche (tombée sur le Sol des Racines) et la mélodie : la fredonner à Elouan (Mémoire 3), ou la
-  retrouver dans un Récit.
-- **Fin** : un nouveau Récit, « Le chant d'Anselme » ; la flûte offerte à Aïlis ; estime de Canopéa. Une quête douce,
-  sans combat, au cœur du thème : transmettre un souvenir.
+- Suite du nom gravé d'Anselme (déjà en jeu). Elouan propose de tailler une flûte dans une branche tombée de l'arbre au
+  pied duquel repose Anselme (Rite du Retour [NOTION]), pour qu'Aïlis puisse rejouer sa chanson chaque soir.
+- Il faut la branche (en bas, sur le Sol des Racines) et la mélodie (le souvenir d'Aïlis, recueilli au Bosquet).
+- **Fin** : le Récit « Le chant d'Anselme », la flûte offerte à Aïlis, estime de Canopéa. Sans combat.
 
 ### 4. Les graines qui manquent (factions en conflit)
 
 - Il manque des sacs au grenier des semences. Si le héros en a volé un, Véline le soupçonne : on peut le rapporter et
-  retrouver l'estime perdue (une seconde chance, pour un public de 8 à 15 ans).
-- Sinon, l'enquête (Investigation) mène à un marchand de la **Compagnie des Lisières** qui revend les graines-lumière à
-  des botanistes de Ferros curieux de faire pousser des Arbres-Titans.
-- **Choix** : le dénoncer au Conseil (estime de Canopéa, méfiance de la Compagnie), le convaincre de tout rendre
-  (Diplomatie : les deux contents), ou se taire contre une part (Fers, et la ville l'apprendra peut-être).
+  retrouver l'estime perdue (une seconde chance).
+- Sinon, l'enquête (Investigation) mène à un marchand de la **Compagnie des Lisières** qui revend les graines du Conseil
+  aux **Marches des Cendres** (« ils vendent parfois ce qui devrait rester sacré »).
+- **Choix** : le dénoncer (estime de Canopéa, méfiance de la Compagnie), le convaincre de tout rendre (Diplomatie), ou se
+  taire contre une part (Fers ; la ville l'apprendra peut-être).
 
 ### 5. Le carnet de chansons (courrier entre villes)
 
-- Mirelle confie au héros le vieux carnet de chansons d'Ilyane, qu'elle garde depuis leur apprentissage.
-- On le rapporte à Gardebois par la carte du monde ; Ilyane, émue, chante l'une des chansons : un Récit.
-- Petite quête de voyage, qui montre le lien entre les relais des Gardiens de Mémoire.
+- Mirelle confie au héros le vieux carnet de chansons d'Ilyane ; on le rapporte à Gardebois par la carte du monde ;
+  Ilyane chante l'une des chansons : un Récit.
 
 ## Gardebois : une quête de guilde
 
 ### 6. La caravane de midi (Compagnie des Lisières)
 
-- Le commis pressé a raté sa caravane : il faut porter sa sacoche (ou l'escorter) jusqu'à Canopéa avant le soir.
-- Sur la route, une rencontre garantie (des Loups de Rouille près de la frontière [E7-2]) : combat, ruse ou détour
-  (Survie).
-- **Fin** : adhésion à la Compagnie des Lisières (meilleurs prix au Marché, la caravane comme moyen de voyage).
+- Le commis pressé a raté sa caravane : porter sa sacoche jusqu'à Canopéa avant le soir ; sur la route, une rencontre
+  garantie (des Loups de Rouille [E7-2]) : combat, ruse ou détour (Survie).
+- **Fin** : adhésion à la Compagnie des Lisières (prix de membre, la caravane comme moyen de voyage).
 
 ## Ordre de construction proposé
 
-1. Le Sol des Racines (nouvelle carte) avec « Les lettres de Malo » et « Le chant d'Anselme » : deux quêtes sans
-   personnage du canon, constructibles tout de suite.
-2. « L'audience » (après vérification de Lyra dans N1) et le système de factions.
+1. Le Sol des Racines (nouvelle carte) avec « Les lettres de Malo » et « Le chant d'Anselme ».
+2. « L'audience » (Kael Marchevent, Lyra) et le système de factions.
 3. « Les graines qui manquent », « Le carnet de chansons », « La caravane de midi ».
+4. Ironheart et « La Clé de Rouille Bleue ».

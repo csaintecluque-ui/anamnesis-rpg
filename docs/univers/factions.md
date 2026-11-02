@@ -31,28 +31,43 @@ Sources et statuts : `docs/univers/sources.md`. Religions : `docs/univers/religi
 - **Ferros contre Marisol** : pollution, Incident du Cargo Noir. [N4]
 - **Ferros contre la Communion** : Incident du Forage Noir, en Mer de Verre. [N5]
 
-## Factions du jeu : propositions (2026-11-02, **à valider par Cyril**)
+## Factions du jeu (2026-11-02)
 
-Demande de Cyril : des factions, « un peu comme des guildes de marchands ». Règles de jeu (réputation, adhésion,
-rangs) : `docs/gdd/factions.md`. Quêtes qui les font vivre : `docs/univers/quetes.md`.
+Demande de Cyril : des factions « comme des guildes de marchands ». Décision de Cyril (2026-11-02) : **reprendre les
+factions de son projet « ANAMNESIS ENGINE — Studio »** (Notion, fiches courtes au statut « idée »), puis compléter.
+Règles de jeu : `docs/gdd/factions.md`. Histoire et quêtes : `docs/univers/quetes.md`.
 
-### Ordres du canon, et leur rôle proposé dans le jeu
+### Ordres et institutions du canon
 
-| Faction | Canon | Rôle proposé dans le jeu |
+| Faction | Canon | Rôle dans le jeu |
 |---|---|---|
-| **Gardiens de Mémoire** | ordre présent dans toutes les nations [E1, WEB] ; conteurs voyageurs, sans pouvoir (décision de Cyril) | l'ordre du héros : relais dans chaque ville, trois rangs (« Lanterne », « Carnet », « Plume ») gagnés en recueillant des Récits et en apaisant des Échos |
-| **Gardiens de l'Équilibre** | police contre la technologie ancienne [E2] | inspecteurs qu'on croise près des ruines et des chantiers ; méfiants envers la Compagnie du Rail Cristallin. Rien n'est confondu avec l'Ordre de l'Équilibre (zone floue n° 5) |
-| **Harmonistes** | gardiens de l'équilibre naturel de Verdantis [R1, E7-1, GLO] | au Bois des Aïeux de Canopéa (le soigneur d'écorce en serait un) ; s'opposent aux forages |
-| **Réveilleurs** | secrets, veulent restaurer les technologies apocalyptiques [E10] | l'ombre derrière l'histoire principale ; jamais une faction qu'on rejoint |
+| **Gardiens de Mémoire** | dans le Notion, un **thème** central, pas une organisation attestée ; dans le jeu, l'ordre de conteurs voyageurs du héros (décision de Cyril) | relais dans chaque ville ; trois rangs proposés : « Lanterne », « Carnet », « Plume » |
+| **Harmonistes** | « moines forestiers » du culte de la Sève Éternelle, garants de la magie végétale [NOTION] | au Bosquet des Échos de Canopéa ; s'opposent aux fouilles sur le sol sacré |
+| **Ordre des Chroniqueurs** | fondé en l'honneur de Kael ; « il enregistre, il ne cherche pas » ; tient le Registre des Mains (d'où vient un objet, à quelle date, contre combien) [NOTION, Terminus] | à Sept-Portes : on y remonte la provenance des objets |
+| **Gardiens de l'Équilibre** | police contre la technologie ancienne [E2] | inspecteurs près des ruines et des fouilles |
+| **Réveilleurs** | secrets, veulent restaurer les technologies apocalyptiques [E10] | l'ombre derrière l'histoire ; jamais une faction qu'on rejoint |
 
-### Guildes et compagnies (nouvelles, à valider)
+### Factions reprises d'ANAMNESIS ENGINE (Notion, statut « idée » ; reprise validée par Cyril le 2026-11-02)
+
+| Faction | Où | Raison d'être | Idéologie | Défaut | Conflit | Membres |
+|---|---|---|---|---|---|---|
+| **Travailleurs du Rail** | Ferros | « Ils maintiennent les routes de Ferros ouvertes. » | « Le rail est une promesse collective. » | « Ils privilégient la ligne aux individus. » | avec les marchands et les archivistes | **la Veilleuse du Rail** |
+| **Marches des Cendres** (orthographe du Notion) | Ferros ; leur place : le **Marché des Cendres** d'Ironheart, « labyrinthe de tentes et d'échoppes érigé sur les ruines » (*Les Cendres de l'Enclume*) | « Ils transforment le passé en ressources. » | « Toute relique a un prix. » | « Ils vendent parfois ce qui devrait rester sacré. » | « Ils exploitent les ruines et les dettes de Ferros. » | **Kaelis**, marchand d'ossements, qui veut comprendre « pourquoi certaines reliques se souviennent de personnes mortes » |
+| **Archives de Ferros** | Ironheart, les **Archives Centrales de Ferros** (*MEMORIA FERROX*, fonds scellés sur autorisation de Niveau Trois) | « Ils préservent ce que la Grande Chute a laissé. » | « Toute mémoire doit être classée. » (« Ferros ne brûle rien : Ferros classe ») | « Ils confondent préservation et contrôle. » | « Ils veulent la clé de rouille bleue. » | **l'archiviste Noam** : classer les mémoires « avant qu'elles ne se décomposent » ; secret : il a effacé un nom de Surgeon |
+
+Objet commun : **la clé de rouille bleue**, qui ouvre « une archive que plusieurs factions veulent détruire ou
+exploiter » (quête « La Clé de Rouille Bleue », Notion).
+
+### Guildes ajoutées pour le jeu (propositions, à valider)
+
+Le Notion ne nomme aucune guilde marchande (seulement un « Conseil des Guildes » à Ferros et un « Cristal Marchand,
+Maître des Guildes » à Glacialis). Pour combler, sans doublon avec les factions reprises :
 
 | Guilde | Où | Qui | Ce qu'elle veut | Ce qu'elle offre au héros | Tensions |
 |---|---|---|---|---|---|
-| **La Compagnie des Lisières** | Gardebois, Marché des Lisières | marchands verdantins et ferriens ensemble ; Tobias en serait membre, le commis pressé aussi | une frontière paisible où l'on commerce ; fixe les prix du marché, délivre les laissez-passer, mène la « caravane de midi » | membre : meilleurs prix au Marché, la caravane pour voyager vers Canopéa sans rencontre | certains de ses marchands transportent les cristaux des forages de Ferros |
-| **Les Nacelliers** | Canopéa | passeurs de nacelles et coursiers des passerelles (Véline, Malo) | que la ville tienne debout et que rien ne tombe ; ils savent tout ce qui passe | rumeurs, raccourcis, et le **courrier** entre les villes | neutres, mais ils n'aiment pas qu'on fouille sous la ville |
-| **La Compagnie du Rail Cristallin** | Ferros, siège à Ironheart | ingénieurs et actionnaires ; Ingrid Brisefer travaille pour elle | rouvrir les voies de l'Ancien Monde et relier les nations par le train | billets de train (plus tard), travail payé | c'est elle qui a obtenu la concession de la Gare Engloutie ; à Verdantis, le rail rappelle la Guerre du Rail [E4] ; une partie de son argent vient, sans qu'elle le sache, des Réveilleurs |
-| **La Route des Carrioles** | partout, sur les routes | colporteurs ambulants (la colporteuse des rencontres) | le libre passage ; ils laissent des signes à la craie sur les bornes | objets d'autres pays, nouvelles, et plus tard des lieux révélés sur la carte du monde | se méfient des douanes et des compagnies |
+| **La Compagnie des Lisières** | Gardebois, Marché des Lisières | marchands verdantins et ferriens ; Tobias, le commis pressé | une frontière paisible où l'on commerce ; fixe les prix, délivre les laissez-passer, mène la « caravane de midi » | prix de membre, la caravane pour voyager vers Canopéa | un de ses marchands revend aux Marches des Cendres ce qui ne devrait pas l'être |
+| **Les Nacelliers** | Canopéa | passeurs de nacelles et coursiers (Véline, Malo) | que la ville tienne et que rien ne tombe | rumeurs, raccourcis, **courrier** entre les villes | ils n'aiment pas qu'on descende sur le sol sacré |
+| **La Route des Carrioles** | sur les routes | colporteurs ambulants (la colporteuse) | le libre passage ; signes à la craie sur les bornes | objets d'autres pays, nouvelles, lieux révélés sur la carte | se méfient des douanes |
 
-Sonorités : les noms restent ceux des villes de chaque guilde (`docs/univers/ton.md`). Aucune ne copie une
-organisation réelle.
+La « Compagnie du Rail Cristallin » proposée plus tôt est **retirée** : les Travailleurs du Rail et les Marches des
+Cendres tiennent ce rôle.

@@ -695,3 +695,11 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   Manufactures-Moyennes et Manufactures-Hautes…), et l'existence, dans « ANAMNESIS ENGINE — Studio », de factions
   (Travailleurs du Rail, Marches des Cendres, Archives de Ferros), de PNJ et de quêtes. Plusieurs choix récents
   (Coralys, Crystallhaven, Convergence, Récit de Kael) viennent de l'ancienne base : à reprendre selon la réponse de Cyril.
+- Cyril : le Notion fait foi ; reprise des factions d'ANAMNESIS ENGINE ; « on aligne tout ». Fait : `CLAUDE.md` et
+  `docs/univers/sources.md` (Notion = référence, lecture seule), zones floues tranchées par l'arbitrage, noms (Coralia,
+  Khrysos, Sept-Portes, Ironheart en trois étages, Léviathans, An 0), Canopéa (Bosquet des Échos, Rite du Retour,
+  Antichambre du Conseil, Récit « Les voix du Bosquet », Kael à Sept-Portes), Boulon en Ferrôme, Ironhold retirée.
+  Lecture déléguée à un agent : factions du Studio (fiches courtes, statut « idée »), Verdantis, Kael, Ferros, guildes
+  (aucune nommée dans le canon). Factions et quêtes réécrites autour des Travailleurs du Rail, des Marches des Cendres,
+  des Archives de Ferros et de la clé de rouille bleue ; « Compagnie du Rail Cristallin » retirée. Elfes canon : la
+  question des oreilles de Sylvan est close.

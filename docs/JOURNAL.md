@@ -14,16 +14,15 @@
 
 ## Prochaine étape
 
-1. Demande de Cyril : développer le lore, les quêtes et des factions (guildes de marchands). **Proposé, à valider** :
-   `docs/univers/factions.md` (4 ordres du canon, 4 guildes), `docs/gdd/factions.md`, `docs/univers/quetes.md`
-   (histoire « Les voies endormies », 6 quêtes, le Sol des Racines sous Canopéa).
+1. **Le Notion fait foi** (décision de Cyril, 2026-11-02) : règle du projet, synthèse, noms et Canopéa alignés
+   (Coralia, Khrysos, Sept-Portes, Bosquet des Échos, Rite du Retour). Factions reprises d'ANAMNESIS ENGINE
+   (`docs/univers/factions.md`) ; histoire « Les voies endormies » et 6 quêtes (`docs/univers/quetes.md`) : **à valider**.
 2. Ensuite : construire les quêtes validées, puis Ironheart (chapitre 3).
 
 ## Points ouverts
 
-- **Notion « ANAMNESIS »** (accessible en session cloud, contrairement à `docs/Lore/`) a un canon plus récent :
-  page « Canon — arbitrages et décisions » (3 août 2026 ; Coralia, Khrysos, Sept-Portes…). Cyril doit dire laquelle fait foi.
-- Sylvan a des oreilles pointues (elfes, zone floue n° 2) : garder ou refaire (2 crédits).
+- À trancher (`docs/univers/zones-floues.md`) : monnaie (Feuille Verte à Verdantis ou Fers partout), Gardiens de
+  Mémoire (thème dans le canon, ordre dans le jeu), remplaçant d'Ironhold (proposé : Porto-Lumina).
 - Coquille dans `assets/brand/logo-small.svg` (trait parasite) : accord de Cyril requis.
 - Chronologie du canon non arbitrée (`docs/univers/zones-floues.md`, points 6 à 13).
 - `npm audit` : vulnérabilités modérées dans les outils de build de la PWA ; à revoir avec workbox.

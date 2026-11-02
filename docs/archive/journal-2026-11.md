@@ -927,5 +927,5 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   et sur le mur de la Bielle : pli, recherche, chasse ; un à la fois ; renouvelés tous les trois jours ; au journal.
   Sauvegarde v15. 548 tests (dont 360 visites tirées, toutes valides et accessibles) ; vérifié sur PC et téléphone.
 - Cyril : « Oui pour tout, mets en ligne » : noms des voies, Échos, mur de la Bielle, chiffres validés ; fusion de
-  `main` (la passe sombre) ; étape 6 mise en ligne. La vérification qualité (autre session, pas encore sur `main`)
+  `main` (la passe sombre) ; étape 6 mise en ligne ; page Notion « Anamnesis — le jeu » complétée (voies et contrats). La vérification qualité (autre session, pas encore sur `main`)
   régénère toutes les cartes : à sa fusion, relancer `npm run maps` pour les plans `voie-*`.

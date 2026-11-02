@@ -299,8 +299,20 @@
       "Ici, on ne coupe pas la parole. On attend qu’elle tombe, comme une feuille."
     ],
     "reactions": [
-      { "quest": "audience", "status": "active", "flag": "audience-tenue", "lines": ["Le Bosquet qui se tait… Même les plus vieux d’entre nous n’ont jamais vu ça. Cherche bien, jeune Gardien."] },
-      { "quest": "audience", "lines": ["Tu as parlé avec des faits. Le Conseil s’en souviendra : il a la mémoire longue, comme les arbres."] }
+      {
+        "quest": "audience",
+        "status": "active",
+        "flag": "audience-tenue",
+        "lines": [
+          "Le Bosquet qui se tait… Même les plus vieux d’entre nous n’ont jamais vu ça. Cherche bien, jeune Gardien."
+        ]
+      },
+      {
+        "quest": "audience",
+        "lines": [
+          "Tu as parlé avec des faits. Le Conseil s’en souviendra : il a la mémoire longue, comme les arbres."
+        ]
+      }
     ]
   },
   {
@@ -323,6 +335,83 @@
     "lines": [
       "Ce sont les arbres qui m’ont choisie. On ne postule pas : on entend l’appel, ou non.",
       "Un vieux chêne parle par ma bouche, au Conseil. Il est lent, mais il a rarement tort."
+    ]
+  },
+  {
+    "id": "ouvrier-forges",
+    "location": "ironheart-forges",
+    "name": "Un ouvrier en gris",
+    "tile": "ouvrier",
+    "path": [[8, 12], [20, 12], [20, 15], [8, 15]],
+    "lines": [
+      "Neuf heures de forge, et la soupe de Dorna au bout. Ça va, ça va.",
+      "On ne regarde pas un Ferrôme dans les yeux plus de deux secondes. C’est comme ça, ici."
+    ]
+  },
+  {
+    "id": "ouvriere-forges",
+    "location": "ironheart-forges",
+    "name": "Une ouvrière en gris",
+    "tile": "ouvrier",
+    "pace": 0.9,
+    "path": [[6, 5], [16, 5], [16, 10], [6, 9]],
+    "lines": [
+      "Le premier pont peint en rouge ? Après, c’est surveillé. On passe vite, sans traîner.",
+      "Sept coups de marteau, et tout le monde se tait : ce sont les Litanies."
+    ]
+  },
+  {
+    "id": "veilleur-rouille",
+    "location": "ironheart-forges",
+    "name": "Un Veilleur de Rouille",
+    "tile": "veilleur-rouille",
+    "path": [[19, 4]],
+    "lines": [
+      "La rouille est corruption. Je l’inspecte, je la note, je la signale.",
+      "Une rouille bleue ? Ça n’existe pas. Et si ça existait, ce serait pire."
+    ]
+  },
+  {
+    "id": "ferrome-reconditionne",
+    "location": "ironheart-marche",
+    "name": "Un Ferrôme reconditionné",
+    "tile": "ferrome",
+    "path": [[8, 11]],
+    "lines": [
+      "Pièces détachées, garanties d’origine. L’origine, on ne la dit pas.",
+      "Ne dis jamais « réformé » devant un Ferrôme. C’est une insulte."
+    ]
+  },
+  {
+    "id": "marchande-cristaux",
+    "location": "ironheart-marche",
+    "name": "Une marchande de cristaux",
+    "tile": "ouvrier",
+    "path": [[3, 3], [11, 3], [11, 10], [3, 10]],
+    "lines": [
+      "Cristaux de toutes tailles ! Pas de facture, pas de question.",
+      "Les visières rouges ne descendent jamais ici. Trop de tunnels."
+    ]
+  },
+  {
+    "id": "employe-gris-clair",
+    "location": "ironheart-manufactures",
+    "name": "Un employé en gris clair",
+    "tile": "archiviste-guichet",
+    "path": [[5, 8], [20, 8], [20, 13], [5, 13]],
+    "lines": [
+      "Le tramway a quarante secondes de retard. C’est noté.",
+      "Les Archives ? Au bout de l’avenue : six étages de pierre grise. On ne peut pas les manquer."
+    ]
+  },
+  {
+    "id": "horloger",
+    "location": "ironheart-manufactures",
+    "name": "Un horloger",
+    "tile": "ouvrier",
+    "path": [[9, 6]],
+    "lines": [
+      "Une horloge de Ferros ne retarde jamais. Elle attend que le monde la rattrape."
     ]
   }
 ]

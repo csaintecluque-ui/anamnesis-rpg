@@ -16,6 +16,8 @@ export interface FigurantDef {
   lines: string[];
   /** Step duration multiplier: below 1 hurries (children), above 1 dawdles. */
   pace?: number;
+  /** Painted walk sheet (public/, 8 directions × 64 × 96 frames, npm run walk); without it, the tile hops along. */
+  walk?: string;
 }
 
 export const FIGURANTS = figurantData as FigurantDef[];
@@ -25,3 +27,6 @@ export function figurantsAt(location: string): FigurantDef[] {
 }
 
 export const isStanding = (f: FigurantDef): boolean => f.path.length === 1;
+
+/** Texture key of a figurant's walk sheet (loaded by BootScene). */
+export const walkSheetKey = (f: FigurantDef): string => `marche-figurant-${f.id}`;

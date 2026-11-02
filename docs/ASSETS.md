@@ -310,3 +310,25 @@ d'un bloc de case, inclinées le long de ses arêtes, la face droite à l'ombre,
 
 **À trancher par Cyril** : Sylvan est sorti avec des oreilles pointues. Les elfes de Verdantis sont une contradiction
 ouverte du canon (`docs/univers/zones-floues.md`, point 2) ; le refaire en humain coûterait 2 crédits.
+
+## Passants de Gardebois (2026-11-02, 5 images, 2,5 crédits, solde 16,5) — **en attente de téléchargement**
+
+Plan validé par Cyril le 2026-11-02 (« Oui, pas bête ») : peindre les cinq passants de Gardebois
+(`docs/gdd/figurants.md`) : 5 personnages en pied (2,5 crédits), puis les planches de marche des deux qui marchent
+(2 × 5 directions, 5 crédits). Réglages : `gpt_image_2_5`, 1k, moyenne, transparent, 2:3. Prompt : bloc commun +
+« Isometric 2:1 view, single character centered… Full-body character, three-quarter front view, standing: » + sujet +
+« stands directly on the bottom of the image: no ground, no base, no cast shadow on the ground » + à éviter.
+
+| Fichier prévu (`assets/raw/figurants/`) | Tuile | Sujet du prompt | Tâche Higgsfield | Coût |
+|---|---|---|---|---|
+| `commis-ferros.png` | `colporteur-ferros` | « a young hurried clerk from an industrial empire, slim, dark leather vest with small brass buttons over a rust-orange shirt with rolled sleeves, a flat brown cap, a heavy leather satchel full of papers on his shoulder, cheerful but hurried expression » | `b2c63edf-df53-4bec-a9e7-1ad5da95c224` | 0,5 |
+| `garcon-curieux.png` | `enfant-b` | « a curious boy of about eight from a forest village, tousled dark hair, warm tan skin, simple rust-orange tunic with a moss-green sash, short trousers, little leather boots, holding a small carved wooden toy dragon in both hands, wide-eyed and delighted » | `5984946e-6890-4125-b88b-c1961fad45a6` | 0,5 |
+| `lavandiere.png` | `lavandiere` | « a cheerful washerwoman of a forest village, middle-aged, sleeves rolled up, blue-grey linen dress with a white apron, hair tied in a pale kerchief, carrying a woven wicker basket of folded linen on her hip, friendly smile » | `53e1706e-a8b7-41cb-b8a5-564a6facd36f` | 0,5 |
+| `joueur-pipeau.png` | `joueur-pipeau` | « an old street musician of a forest village, short white beard, patched plum-purple cloak, a small soft hat with a green feather, playing a little wooden pipe flute held in both hands, gentle twinkling eyes » | `92e9308e-231a-44c2-9071-4351a0a9f4f4` | 0,5 |
+| `client.png` | `client` | « a sleepy, content inn patron of a forest village, plump middle-aged man, mossy green tunic and brown trousers, holding a steaming wooden bowl of soup and a wooden spoon, eyes half closed, peaceful smile » | `de4b76f0-dafd-40ab-bdc3-f15ef84e78f2` | 0,5 |
+
+**Blocage** : la session cloud ne peut pas télécharger les images (l'hôte `d8j0ntlcm91z4.cloudfront.net`, où Higgsfield
+les dépose, est refusé par la politique réseau de l'environnement). Les planches de marche (5 crédits) attendent
+que l'hôte soit autorisé, pour vérifier les personnages avant de payer la suite. Code prêt : tuiles déclarées avec
+`art` (`withArt` dans `scripts/tiles-def.mjs`), planches de marche des figurants (`walk` dans
+`src/data/figurants.json`, `FigurantLayer`).

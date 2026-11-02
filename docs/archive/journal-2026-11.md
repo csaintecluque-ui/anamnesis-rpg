@@ -668,3 +668,7 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   `FigurantLayer` (trajets en boucle, pas sautillés, bulle de réplique au toucher, immobiles bloquants),
   silhouettes provisoires améliorées (bras, accessoires). 269 tests ; vérifié dans le navigateur (marche, bulles,
   Canopéa et Gardebois). Sur la branche ; mise en ligne à confirmer par Cyril.
+- Cyril : « Oui, pas bête » : passants mis en ligne (`main` avancé, déploiement), textes validés, peinture des cinq
+  passants de Gardebois accordée. Cinq personnages en pied générés (2,5 crédits, solde 16,5) ; téléchargement
+  impossible depuis la session cloud (hôte des images Higgsfield refusé par le réseau) : planches de marche en attente.
+  Code prêt : `withArt` (tuiles), `walk` (planche de marche d'un figurant), testé avec une planche d'avatar.

@@ -1,19 +1,26 @@
 import Phaser from 'phaser';
+import { FACINGS, facingOf, type Facing } from '../engine/facing';
 import type { Tile } from '../engine/iso';
 import { findPath } from '../engine/pathfinding';
 import { tileKey } from '../engine/tiledMap';
-import { figurantsAt, isStanding, type FigurantDef } from '../rules/figurants';
+import { figurantsAt, isStanding, walkSheetKey, type FigurantDef } from '../rules/figurants';
 import { fontPx } from '../settings';
 import { COLORS, CSS, FONT_SERIF } from '../ui/theme';
 
 const STEP_MS = 430;
 const TALK_MS = 3800;
 const BUBBLE_WIDTH = 230;
+/** Walk sheets: 64 px wide frames, one row per facing (docs/gdd/animation.md). */
+const WALK_FRAME_WIDTH = 64;
+const WALK_FPS = 12;
 
 /** Passers-by on the map: walking, standing, talking (docs/gdd/figurants.md). */
 interface Walker {
   def: FigurantDef;
-  image: Phaser.GameObjects.Image;
+  image: Phaser.GameObjects.Sprite;
+  /** Painted walk sheet, or null: the provisional tile hops along. */
+  sheet: string | null;
+  facing: Facing;
   tile: Tile;
   /** Index of the waypoint walked to. */
   target: number;
@@ -47,11 +54,13 @@ export class FigurantLayer {
       const tile = { col, row };
       const f = this.host.feet(tile);
       const image = this.scene.add
-        .image(f.x, f.y, 'tiles', this.host.frames[def.tile] ?? this.host.frames.pnj)
+        .sprite(f.x, f.y, 'tiles', this.host.frames[def.tile] ?? this.host.frames.pnj)
         .setOrigin(0.5, 1)
         .setDepth(f.y);
-      const walker: Walker = { def, image, tile, target: Math.min(1, def.path.length - 1), busyUntil: 0, line: 0 };
+      const sheet = this.setUpWalk(def);
+      const walker: Walker = { def, image, sheet, facing: 's', tile, target: Math.min(1, def.path.length - 1), busyUntil: 0, line: 0 };
       this.walkers.push(walker);
+      this.standStill(walker);
       if (!isStanding(def)) this.later(walker, Math.random() * 1500);
     }
   }
@@ -66,7 +75,10 @@ export class FigurantLayer {
   /** They stop, turn to the hero and say their next line. */
   talk(w: Walker): void {
     const hero = this.host.feet(this.host.heroTile());
-    w.image.setFlipX(hero.x < w.image.x);
+    if (w.sheet) {
+      w.facing = facingOf(w.tile, this.host.heroTile());
+      this.standStill(w);
+    } else w.image.setFlipX(hero.x < w.image.x);
     w.busyUntil = this.scene.time.now + TALK_MS;
     const line = w.def.lines[w.line % w.def.lines.length];
     w.line++;
@@ -96,7 +108,28 @@ export class FigurantLayer {
     return this.walkers.filter((w) => isStanding(w.def)).map((w) => w.tile);
   }
 
+  /** Walk animations of a painted figurant, one per facing; null without a sheet. */
+  private setUpWalk(def: FigurantDef): string | null {
+    const key = walkSheetKey(def);
+    if (!def.walk || !this.scene.textures.exists(key)) return null;
+    const columns = Math.floor(this.scene.textures.get(key).getSourceImage().width / WALK_FRAME_WIDTH);
+    FACINGS.forEach((facing, row) => {
+      const anim = `${key}-${facing}`;
+      if (this.scene.anims.exists(anim)) return;
+      const frames = this.scene.anims.generateFrameNumbers(key, { start: row * columns, end: row * columns + columns - 1 });
+      this.scene.anims.create({ key: anim, frames, frameRate: WALK_FPS, repeat: -1 });
+    });
+    return key;
+  }
+
+  private standStill(w: Walker): void {
+    if (!w.sheet) return;
+    const anim = this.scene.anims.get(`${w.sheet}-${w.facing}`);
+    w.image.stop().setTexture(w.sheet, anim.frames[0].frame.name);
+  }
+
   private later(w: Walker, delay: number): void {
+    this.standStill(w);
     this.scene.time.delayedCall(delay, () => this.step(w));
   }
 
@@ -121,7 +154,10 @@ export class FigurantLayer {
     }
     const from = this.host.feet(w.tile);
     const to = this.host.feet(next);
-    if (to.x !== from.x) w.image.setFlipX(to.x < from.x);
+    if (w.sheet) {
+      w.facing = facingOf(w.tile, next);
+      w.image.play(`${w.sheet}-${w.facing}`, true);
+    } else if (to.x !== from.x) w.image.setFlipX(to.x < from.x);
     const diagonal = next.col !== w.tile.col && next.row !== w.tile.row;
     w.tile = next;
     this.scene.tweens.addCounter({
@@ -130,8 +166,9 @@ export class FigurantLayer {
       duration: STEP_MS * (w.def.pace ?? 1) * (diagonal ? 1.4 : 1),
       onUpdate: (tween) => {
         const p = tween.getValue() ?? 0;
-        // A small hop at each step: the provisional sprites have no walk animation.
-        w.image.setPosition(from.x + (to.x - from.x) * p, from.y + (to.y - from.y) * p - Math.sin(p * Math.PI) * 3);
+        // A small hop at each step for the provisional tiles, which have no walk animation.
+        const hop = w.sheet ? 0 : Math.sin(p * Math.PI) * 3;
+        w.image.setPosition(from.x + (to.x - from.x) * p, from.y + (to.y - from.y) * p - hop);
         w.image.setDepth(from.y + (to.y - from.y) * p);
       },
       onComplete: () => this.step(w),

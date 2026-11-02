@@ -452,6 +452,11 @@ const person = ({ body, skin = '#d9b28e', hair = '#4a3524', small = false, accen
   );
 };
 const npcTile = (name, look) => ({ name, sprite: true, svg: person(look) });
+/** Painted art for a provisional person (scripts/process-art.mjs), used once its raw image is there. */
+const withArt = (src, maxHeight, tile) => ({
+  ...tile,
+  art: { src, kind: 'standing', maxWidth: 44, maxHeight, foot: 84, shadow: { rx: 10, ry: 4 } },
+});
 const pod = (shell, leaf, door = COPPER) =>
   diamond('#a88456') +
   shadow(22, 8) +
@@ -663,24 +668,24 @@ TILES.push(
     hair: '#7a7068',
     extra: '<path d="M20 40 L44 40 L38 34 L26 34 Z" fill="#c9a46a" stroke="#1B1512"/>',
   }),
-  npcTile('colporteur-ferros', {
+  withArt('figurants/commis-ferros.png', 54, npcTile('colporteur-ferros', {
     body: '#8a5a3a',
     hair: '#2a2018',
     accent: '#C9804F',
     extra: '<rect x="14" y="56" width="12" height="18" rx="2" fill="#6b4a32" stroke="#1B1512"/><path d="M14 62 L26 62" stroke="#C9804F"/>',
-  }),
-  npcTile('lavandiere', {
+  })),
+  withArt('figurants/lavandiere.png', 54, npcTile('lavandiere', {
     body: '#7a8aa0',
     hair: '#4a3524',
     extra: '<ellipse cx="46" cy="76" rx="9" ry="5" fill="#a88456" stroke="#1B1512"/><path d="M40 74 Q46 70 52 74" stroke="#ead9b8" stroke-width="2" fill="none"/>',
-  }),
-  npcTile('enfant-b', { body: '#c9804f', hair: '#2a2018', small: true, skin: '#b98a64' }),
-  npcTile('joueur-pipeau', {
+  })),
+  withArt('figurants/garcon-curieux.png', 40, npcTile('enfant-b', { body: '#c9804f', hair: '#2a2018', small: true, skin: '#b98a64' })),
+  withArt('figurants/joueur-pipeau.png', 54, npcTile('joueur-pipeau', {
     body: '#5a4a6a',
     hair: '#d8d0c0',
     extra: '<path d="M30 54 L44 58" stroke="#c9a46a" stroke-width="3" stroke-linecap="round"/>',
-  }),
-  npcTile('client', { body: '#6a7a5a', hair: '#5a3020', skin: '#c49a74' }),
+  })),
+  withArt('figurants/client.png', 54, npcTile('client', { body: '#6a7a5a', hair: '#5a3020', skin: '#c49a74' })),
   npcTile('voyageuse', {
     body: '#9a6a4a',
     hair: '#1f1612',

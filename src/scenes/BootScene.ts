@@ -5,6 +5,7 @@ import { MAPS } from '../data/maps';
 import npcData from '../data/npcs.json';
 import { parseTiledMap } from '../engine/tiledMap';
 import { AVATARS } from '../rules/character';
+import { FIGURANTS, walkSheetKey } from '../rules/figurants';
 
 export class BootScene extends Phaser.Scene {
   constructor() {
@@ -23,6 +24,8 @@ export class BootScene extends Phaser.Scene {
       this.load.image(`avatar-${avatar.id}`, avatar.portrait);
       this.load.spritesheet(`marche-${avatar.id}`, avatar.walk, { frameWidth: 64, frameHeight: 96 });
     }
+    // Painted walk sheets of passers-by (docs/gdd/figurants.md).
+    for (const f of FIGURANTS) if (f.walk) this.load.spritesheet(walkSheetKey(f), f.walk, { frameWidth: 64, frameHeight: 96 });
     // Dialogue portraits (npm run art).
     for (const npc of npcData) if ('portrait' in npc) this.load.image(`portrait-${npc.id}`, npc.portrait);
     // Illustrations (npm run art): the title screen's, and those of dialogue nodes.

@@ -18,7 +18,7 @@ Code : `src/scenes/Figurants.ts` (sur la carte), `src/rules/figurants.ts` ; donn
 - Tests (`src/engine/figurants.test.ts`) : trajets sur des cases libres et reliées, personne devant une porte, une sortie
   ou une arrivée, une ou deux répliques courtes.
 
-## Les quatorze figurants (proposition du 2026-11-02, à valider)
+## Les quatorze figurants (validés par Cyril le 2026-11-02, en ligne)
 
 | Lieu | Figurant | Marche ? | En deux mots |
 |---|---|---|---|
@@ -39,8 +39,9 @@ Code : `src/scenes/Figurants.ts` (sur la carte), `src/rules/figurants.ts` ; donn
 
 Les textes complets sont dans `src/data/figurants.json`.
 
-## Images peintes (à décider avec Cyril)
+## Images peintes (validé par Cyril le 2026-11-02 ; en cours : `docs/ASSETS.md`)
 
 Gardebois est déjà peint : ses cinq figurants (avec le client de l'auberge) y détonnent en provisoire. Proposition :
 les peindre avec la méthode 2D validée (`docs/gdd/animation.md`) : en pied 0,5 crédit, planche de marche 2,5 ;
 soit 2 marcheurs × 3 + 3 immobiles × 0,5 = **≈ 7,5 crédits** sur 19. Ceux de Canopéa attendront la peinture de la ville.
+Un figurant peint qui marche reçoit une planche (`walk`, 8 directions) : il est animé comme le héros, sans petit saut.

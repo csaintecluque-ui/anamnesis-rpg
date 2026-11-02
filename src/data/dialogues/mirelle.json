@@ -31,6 +31,18 @@
       "node": "chanson-copie"
     },
     {
+      "requires": [
+        {
+          "quest": "audience",
+          "status": "done"
+        },
+        {
+          "notFlag": "mirelle-bosquet-dit"
+        }
+      ],
+      "node": "bosquet"
+    },
+    {
       "node": "accueil"
     }
   ],
@@ -210,6 +222,20 @@
       "effects": [
         {
           "setFlag": "melodie-carnet"
+        }
+      ]
+    },
+    "bosquet": {
+      "text": "Les noms se réchauffent, au Bosquet. Les plus jeunes d’abord ; les vieux prendront leur temps. J’ai tout écrit à Ilyane : tu lui as donné de quoi être fière.",
+      "effects": [
+        {
+          "setFlag": "mirelle-bosquet-dit"
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci pour la nouvelle.",
+          "next": "accueil"
         }
       ]
     }

@@ -570,8 +570,8 @@ Commence par : « apres » _(si quête « Le chant d’Anselme » terminée)_, s
 
 > Elouan prend la branche, la fait tourner, toque dessus du bout de l’ongle. — Bon bois. Il a déjà du vent dedans. Maintenant, la mélodie : sans elle, je taillerais une flûte muette.
 
-- _(si repère « voix-anselme »)_ « Je l’ai entendue au Bosquet. Je peux te la fredonner. » → taille-fidele _(reprend 1 × « Branche de l’arbre d’Anselme », donne 1 × « Flûte d’Anselme », retient « flute-fidele », +15 XP)_
-- _(si repère « melodie-carnet »)_ « Mirelle m’a montré la chanson, dans le carnet d’Ilyane. » → taille-carnet _(reprend 1 × « Branche de l’arbre d’Anselme », donne 1 × « Flûte d’Anselme »)_
+- _(si repère « voix-anselme »)_ « Je l’ai entendue au Bosquet. Je peux te la fredonner. » → taille-fidele _(reprend 1 × « Branche de l’arbre d’Anselme », donne 1 × « Flûte d’Anselme », retient « flute-fidele », +15 XP, retient « flute-taillee »)_
+- _(si repère « melodie-carnet »)_ « Mirelle m’a montré la chanson, dans le carnet d’Ilyane. » → taille-carnet _(reprend 1 × « Branche de l’arbre d’Anselme », donne 1 × « Flûte d’Anselme », retient « flute-taillee »)_
 - « Où trouver la mélodie ? » → melodie
 - « Je reviens. » → **fin**
 
@@ -1260,7 +1260,7 @@ Commence par : « apres » _(si quête « Les herbes de lisière » terminée)_,
 
 _Aubergiste du Nid_
 
-Commence par : « accueil »
+Commence par : « vote » _(si quête « L’audience » terminée)_ _(si repère « conseil-frontiere »)_ _(sans repère « lisandre-vote-dit »)_, sinon « vote-commerce » _(si quête « L’audience » terminée)_ _(si repère « conseil-commerce »)_ _(sans repère « lisandre-vote-commerce-dit »)_, sinon « vote-accord » _(si quête « L’audience » terminée)_ _(si repère « conseil-accord »)_ _(sans repère « lisandre-vote-accord-dit »)_, sinon « elvan-parti » _(si quête « Les graines qui manquent » terminée)_ _(si repère « graines-denonce »)_ _(sans repère « lisandre-elvan-parti-dit »)_, sinon « tournee » _(si quête « Les graines qui manquent » terminée)_ _(si repère « graines-silence »)_ _(sans repère « lisandre-tournee-dit »)_, sinon « flute » _(si quête « Le chant d’Anselme » terminée)_ _(sans repère « lisandre-flute-dit »)_, sinon « accueil »
 
 ### accueil
 
@@ -1296,6 +1296,54 @@ Commence par : « accueil »
 > Lisandre baisse la voix. — Un marchand de la Compagnie des Lisières a pris pension ici : Elvan Morelle. Il paie en Fers tout neufs, et repart chaque semaine avec des ballots bien lourds pour du tissu. Il est là, au fond.
 
 - « Merci, Lisandre. » → accueil
+
+### vote
+
+_Effet : retient « lisandre-vote-dit »._
+
+> Tu sais la nouvelle ? Le Conseil ferme la frontière aux prospecteurs ! Les marchands de Ferros font la tête, ici. Moi, je leur sers double ration de soupe : la politique, ça creuse.
+
+- « Merci pour la nouvelle. » → accueil
+
+### vote-commerce
+
+_Effet : retient « lisandre-vote-commerce-dit »._
+
+> Tu sais la nouvelle ? Le Conseil garde le commerce avec Ferros, mais des Gardes Verts surveilleront chaque chantier. Les marchands respirent ; les druides, beaucoup moins.
+
+- « Merci pour la nouvelle. » → accueil
+
+### vote-accord
+
+_Effet : retient « lisandre-vote-accord-dit »._
+
+> Tu sais la nouvelle ? Le sol sacré est fermé, les routes restent ouvertes : tout le monde est content, pour une fois ! On dit que c’est une idée venue d’en bas… de quelqu’un qui y est descendu.
+
+- « Merci pour la nouvelle. » → accueil
+
+### elvan-parti
+
+_Effet : retient « lisandre-elvan-parti-dit »._
+
+> Le marchand du fond, Elvan ? Les Gardes Verts l’ont emmené, ballots et tout. Des graines du Conseil, dans du tissu ! Je change ses draps, et je ne veux plus en entendre parler.
+
+- « Merci pour la nouvelle. » → accueil
+
+### tournee
+
+_Effet : retient « lisandre-tournee-dit »._
+
+> Elvan, le marchand du fond, a payé une tournée à tout le Nid l’autre soir. Lui qui comptait chaque Fer ! Drôle d’homme. Tu en veux, de sa générosité ? Il en reste.
+
+- « Merci pour la nouvelle. » → accueil
+
+### flute
+
+_Effet : retient « lisandre-flute-dit »._
+
+> Tu as entendu, hier soir ? Une flûte, au Bosquet. C’était Aïlis Feuillevent. Toute l’auberge s’est tue pour l’écouter. Même les marchands de Ferros.
+
+- « Merci pour la nouvelle. » → accueil
 
 ## Lyra Cœur-de-Sève
 
@@ -1370,7 +1418,7 @@ Commence par : « apres » _(si quête « La berceuse oubliée » terminée)_, s
 
 _Coursier des passerelles_
 
-Commence par : « retour » _(si quête « Les lettres de Malo » en cours)_ _(si repère « sacoche-retrouvee »)_, sinon « attente » _(si quête « Les lettres de Malo » en cours)_, sinon « ami » _(si quête « Les lettres de Malo » terminée)_, sinon « souci »
+Commence par : « retour » _(si quête « Les lettres de Malo » en cours)_ _(si repère « sacoche-retrouvee »)_, sinon « attente » _(si quête « Les lettres de Malo » en cours)_, sinon « flute » _(si quête « Le chant d’Anselme » terminée)_ _(sans repère « malo-flute-dit »)_, sinon « ami » _(si quête « Les lettres de Malo » terminée)_, sinon « souci »
 
 ### accueil
 
@@ -1441,11 +1489,19 @@ Commence par : « retour » _(si quête « Les lettres de Malo » en cours)_ _(s
 - « Tu n’as jamais peur de tomber ? » → peur
 - « À plus tard, Malo. » → **fin**
 
+### flute
+
+_Effet : retient « malo-flute-dit »._
+
+> Mamie joue de la flûte ! Tous les soirs, au Bosquet. Elle dit que c’est grâce à toi… et à Papi. Elle va m’apprendre. Je serai coursier ET musicien.
+
+- « Merci pour la nouvelle. » → accueil
+
 ## Mirelle Doucebranche
 
 _Gardienne de Mémoire de Canopéa_
 
-Commence par : « chanson » _(si quête « Le chant d’Anselme » en cours)_ _(sans repère « melodie-carnet »)_ _(si quête « Le carnet de chansons » pas commencée)_, sinon « chanson-copie » _(si quête « Le chant d’Anselme » en cours)_ _(sans repère « melodie-carnet »)_, sinon « accueil »
+Commence par : « chanson » _(si quête « Le chant d’Anselme » en cours)_ _(sans repère « melodie-carnet »)_ _(si quête « Le carnet de chansons » pas commencée)_, sinon « chanson-copie » _(si quête « Le chant d’Anselme » en cours)_ _(sans repère « melodie-carnet »)_, sinon « bosquet » _(si quête « L’audience » terminée)_ _(sans repère « mirelle-bosquet-dit »)_, sinon « accueil »
 
 ### accueil
 
@@ -1518,6 +1574,14 @@ _Effet : retient « melodie-carnet »._
 > La chanson des cerfs-lucioles ? Je l’ai recopiée avant de confier le carnet d’Ilyane : la voici. Montre-la à Elouan, il saura la lire.
 
 - « Merci, Mirelle. » → accueil
+
+### bosquet
+
+_Effet : retient « mirelle-bosquet-dit »._
+
+> Les noms se réchauffent, au Bosquet. Les plus jeunes d’abord ; les vieux prendront leur temps. J’ai tout écrit à Ilyane : tu lui as donné de quoi être fière.
+
+- « Merci pour la nouvelle. » → accueil
 
 ## Nell Lunelierre
 
@@ -1725,7 +1789,7 @@ Commence par : « accueil »
 
 _Aubergiste de la Racine_
 
-Commence par : « accueil »
+Commence par : « ilyane-chante » _(si quête « Le carnet de chansons » terminée)_ _(sans repère « sylvan-ilyane-chante-dit »)_, sinon « triumvirat » _(si quête « L’audience » terminée)_ _(sans repère « sylvan-triumvirat-dit »)_, sinon « accueil »
 
 ### accueil
 
@@ -1753,6 +1817,22 @@ Commence par : « accueil »
 > Liane ? Toujours au bord du ruisseau, près du marché, le nez dans ses herbes. Elle est brusque, mais personne ne soigne mieux qu’elle.
 
 - « Merci. » → accueil
+
+### ilyane-chante
+
+_Effet : retient « sylvan-ilyane-chante-dit »._
+
+> Ilyane a chanté au cercle des lanternes, hier soir ! Avec un vieux carnet revenu de Canopéa. Elle chante faux comme une casserole, mais j’ai pleuré dans ma tarte.
+
+- « Merci pour la nouvelle. » → accueil
+
+### triumvirat
+
+_Effet : retient « sylvan-triumvirat-dit »._
+
+> Les nouvelles vont vite, par le courrier des Nacelliers : tu as parlé devant le Triumvirat Vert ! À la Racine, on boit à ta santé. Enfin, au jus de baies. Tu veux un verre ?
+
+- « Merci pour la nouvelle. » → accueil
 
 ## L’Ancien Thalorin
 

@@ -1,3 +1,4 @@
+import { QUESTS } from '../rules/dialogue';
 import { describe, expect, it } from 'vitest';
 import { MAPS } from '../data/maps';
 import { FIGURANTS, figurantsAt, isStanding } from '../rules/figurants';
@@ -19,6 +20,13 @@ describe('figurants', () => {
       expect(f.lines.length, f.id).toBeGreaterThanOrEqual(1);
       expect(f.lines.length, f.id).toBeLessThanOrEqual(2);
       for (const line of f.lines) expect(line.length, f.id).toBeLessThanOrEqual(130);
+      for (const r of f.reactions ?? []) {
+        expect(r.lines.length, f.id).toBeGreaterThanOrEqual(1);
+        expect(r.lines.length, f.id).toBeLessThanOrEqual(2);
+        for (const line of r.lines) expect(line.length, f.id).toBeLessThanOrEqual(130);
+        expect(!!r.quest || !!r.flag, f.id).toBe(true);
+        if (r.quest) expect(QUESTS.some((q) => q.id === r.quest), `${f.id}: ${r.quest}`).toBe(true);
+      }
     }
   });
 
@@ -72,5 +80,18 @@ describe('figurants', () => {
       expect(figurantsAt(id).length, id).toBeGreaterThanOrEqual(2);
     }
     expect(LOCATIONS.filter((l) => l.encounter).every((l) => figurantsAt(l.id).length === 0)).toBe(true);
+  });
+});
+
+describe('figurants who follow the story', () => {
+  it('say the story’s latest echo, else their usual lines', async () => {
+    const { figurantLines } = await import('../rules/figurants');
+    const messager = FIGURANTS.find((f) => f.id === 'messager')!;
+    const story = { flags: {} as Record<string, true>, quests: {} as Record<string, 'active' | 'done'> };
+    expect(figurantLines(messager, story)).toEqual(messager.lines);
+    story.quests.audience = 'done';
+    expect(figurantLines(messager, story)).toEqual(messager.lines);
+    story.flags['conseil-accord'] = true;
+    expect(figurantLines(messager, story)[0]).toMatch(/sol sacré fermé/);
   });
 });

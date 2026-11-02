@@ -51,3 +51,10 @@ Un figurant peint qui marche reçoit une planche (`walk`, 8 directions) : il est
 Un figurant peut porter `dialogue` : tant qu'une entrée **conditionnelle** de ce dialogue est vraie, le toucher ouvre le
 dialogue au lieu de la bulle ; sa dernière entrée (sans condition) veut dire « rien à dire » et rend la bulle. Premier :
 le commis de Ferros pressé, qui donne « La caravane de midi ».
+
+## Répliques qui suivent l'histoire (2026-11-02)
+
+Un figurant peut porter `reactions` : `[{ quest, status (done par défaut), flag, lines }]` ; la dernière qui tient
+remplace ses répliques. Canopéa et Gardebois en ont onze (le vote du Conseil, la flûte d'Aïlis, les graines revenues, le
+Bosquet qui se tait puis se réchauffe…). Trois figurants immobiles au Conseil (un Druide Vert, une députée des Racines,
+une Voix des Arbres) disent le canon du Conseil des Racines Profondes [NOTION].

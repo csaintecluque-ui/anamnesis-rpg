@@ -8,6 +8,22 @@
     "lines": [
       "Des fleurs de lune, cueillies ce matin au bout des branches ! Elles ne s’ouvrent que la nuit.",
       "Non, je ne les cueille pas toutes : une sur trois reste à l’arbre. C’est la règle de la Sève."
+    ],
+    "reactions": [
+      {
+        "quest": "graines",
+        "flag": "graines-denonce",
+        "lines": [
+          "Les graines-lumière sont revenues au grenier ! On les plantera au Premier Bourgeon. Le voleur est parti avec les Gardes Verts."
+        ]
+      },
+      {
+        "quest": "graines",
+        "flag": "graines-rendues",
+        "lines": [
+          "Les graines-lumière sont revenues au grenier ! On les plantera au Premier Bourgeon. Qui les a rendues ? Mystère."
+        ]
+      }
     ]
   },
   {
@@ -31,6 +47,14 @@
     "lines": [
       "On joue à « rien ne touche le sol » ! Si tu marches sur une feuille, tu as perdu.",
       "Malo ? Il court trop vite, personne ne l’attrape jamais."
+    ],
+    "reactions": [
+      {
+        "quest": "lettres-malo",
+        "lines": [
+          "Malo dit que tu es descendu en bas, sur le Sol des Racines ! Pour de vrai ? Moi, je n’ai pas le droit. Personne n’a le droit."
+        ]
+      }
     ]
   },
   {
@@ -42,6 +66,14 @@
     "lines": [
       "J’ai vu passer trois générations de nacelles. Celle de Véline est la plus douce.",
       "Assieds-toi un peu, si tu veux. Les nuages, ça se regarde lentement."
+    ],
+    "reactions": [
+      {
+        "quest": "chant-anselme",
+        "lines": [
+          "Le soir, on entend une flûte, du côté du Bosquet. Aïlis Feuillevent, à ce qu’on dit. Ça faisait longtemps qu’elle ne jouait plus."
+        ]
+      }
     ]
   },
   {
@@ -53,6 +85,14 @@
     "lines": [
       "Je tisse des voiles de feuilles pour les fenêtres. Elles laissent passer la lumière, pas la pluie.",
       "Les gens de Ferros me demandent si c’est de la toile. Je leur réponds : c’est de la patience."
+    ],
+    "reactions": [
+      {
+        "quest": "lettres-malo",
+        "lines": [
+          "Ma lettre est arrivée ! Celle que le petit Malo avait laissée tomber. Ma sœur m’a répondu, tu te rends compte ?"
+        ]
+      }
     ]
   },
   {
@@ -65,6 +105,29 @@
     "lines": [
       "Pardon, pardon ! Message urgent pour le Conseil… comme tous les messages.",
       "Une audience ? Apporte de la patience. Et un coussin."
+    ],
+    "reactions": [
+      {
+        "quest": "audience",
+        "flag": "conseil-frontiere",
+        "lines": [
+          "Message urgent : la frontière se ferme aux prospecteurs ! Le Conseil a voté. Les Gardes Verts partent ce soir."
+        ]
+      },
+      {
+        "quest": "audience",
+        "flag": "conseil-commerce",
+        "lines": [
+          "Message urgent : des Gardes Verts sur chaque chantier de Ferros ! Au premier trou dans le sol sacré, on ferme tout."
+        ]
+      },
+      {
+        "quest": "audience",
+        "flag": "conseil-accord",
+        "lines": [
+          "Message urgent : le sol sacré fermé, les routes ouvertes ! Le Conseil a voté presque d’une seule voix. Ça n’arrive jamais."
+        ]
+      }
     ]
   },
   {
@@ -77,6 +140,22 @@
     "lines": [
       "Chut… Je viens parler à ma mère. J’ai gravé son nom ici, au printemps.",
       "Ici, on ne pleure pas fort. On raconte."
+    ],
+    "reactions": [
+      {
+        "quest": "audience",
+        "status": "active",
+        "flag": "audience-tenue",
+        "lines": [
+          "Ma mère ne me répond plus. Le bois est froid sous ma main… Toi aussi, tu le sens ?"
+        ]
+      },
+      {
+        "quest": "audience",
+        "lines": [
+          "Le bois est redevenu tiède. Je l’ai sentie, ce matin, toute proche. Merci à ceux qui ont soigné les racines."
+        ]
+      }
     ]
   },
   {
@@ -88,6 +167,22 @@
     "lines": [
       "Je soigne l’écorce des arbres gravés : un peu de mousse là où elle s’abîme.",
       "Quand le bois fend un signe, on ne le corrige jamais. La fente fait partie du souvenir."
+    ],
+    "reactions": [
+      {
+        "quest": "audience",
+        "status": "active",
+        "flag": "audience-tenue",
+        "lines": [
+          "Je mets de la mousse partout, mais le mal ne vient pas de l’écorce. Il vient d’en bas, j’en mettrais ma main au feu."
+        ]
+      },
+      {
+        "quest": "audience",
+        "lines": [
+          "Les Voix des Arbres m’ont montré les racines tranchées, tout en bas. On soigne d’en bas, maintenant. Ça prendra des saisons."
+        ]
+      }
     ]
   },
   {
@@ -102,7 +197,15 @@
       "Gardebois, c’est le seul marché où l’on paie en Fers et où l’on vous remercie en chansons."
     ],
     "walk": "sprites/figurant-commis-ferros.png",
-    "dialogue": "commis-caravane"
+    "dialogue": "commis-caravane",
+    "reactions": [
+      {
+        "quest": "caravane-midi",
+        "lines": [
+          "Le chef de caravane m’a pardonné, grâce à toi ! Il m’a même laissé la viande séchée… enfin, ce que les loups n’ont pas eu."
+        ]
+      }
+    ]
   },
   {
     "id": "lavandiere",
@@ -113,6 +216,14 @@
     "lines": [
       "L’eau du ruisseau descend de la canopée. Elle sent la pluie et les fleurs.",
       "Ici, le linge sèche en une heure, quand le vent vient de la forêt."
+    ],
+    "reactions": [
+      {
+        "quest": "dernier-train",
+        "lines": [
+          "Depuis que la foreuse s’est tue, plus personne ne pleure au lavoir. On chante à nouveau, en battant le linge."
+        ]
+      }
     ]
   },
   {
@@ -126,7 +237,15 @@
       "Tu es chez les Gardiens de Mémoire ? Raconte-moi une histoire, avec un dragon gentil !",
       "Hier, j’ai vu un Rôdeur-Épine ! Enfin… ou un buisson. Un buisson très méchant."
     ],
-    "walk": "sprites/figurant-garcon-curieux.png"
+    "walk": "sprites/figurant-garcon-curieux.png",
+    "reactions": [
+      {
+        "quest": "audience",
+        "lines": [
+          "C’est vrai que tu as parlé au Triumvirat Vert ? Avec la dryade qui a des feuilles à la place des cheveux ? Raconte !"
+        ]
+      }
+    ]
   },
   {
     "id": "joueur-pipeau",
@@ -137,6 +256,14 @@
     "lines": [
       "Une chanson pour un Fer, deux chansons pour deux Fers… et la troisième, je l’offre.",
       "Ilyane dit que les chansons sont des souvenirs qui ont appris à voler."
+    ],
+    "reactions": [
+      {
+        "quest": "carnet-chansons",
+        "lines": [
+          "Ilyane a chanté hier soir, au cercle des lanternes. Faux, bien sûr. Mais tout le monde a applaudi, et j’ai joué la deuxième voix."
+        ]
+      }
     ]
   },
   {
@@ -159,6 +286,43 @@
     "lines": [
       "Trois jours de marche depuis le sud… Ce hamac est la plus belle chose du monde.",
       "On m’avait dit qu’on dormait mal, ici, à cause du vent. On m’avait menti."
+    ]
+  },
+  {
+    "id": "druide-conseil",
+    "location": "canopee-amphitheatre",
+    "name": "Un Druide Vert",
+    "tile": "druide",
+    "path": [[4, 3]],
+    "lines": [
+      "Cinquante Druides Verts siègent au Conseil, à vie. Moi, j’y suis depuis quarante ans. Les arbres trouvent que c’est peu.",
+      "Ici, on ne coupe pas la parole. On attend qu’elle tombe, comme une feuille."
+    ],
+    "reactions": [
+      { "quest": "audience", "status": "active", "flag": "audience-tenue", "lines": ["Le Bosquet qui se tait… Même les plus vieux d’entre nous n’ont jamais vu ça. Cherche bien, jeune Gardien."] },
+      { "quest": "audience", "lines": ["Tu as parlé avec des faits. Le Conseil s’en souviendra : il a la mémoire longue, comme les arbres."] }
+    ]
+  },
+  {
+    "id": "conseillere-racines",
+    "location": "canopee-amphitheatre",
+    "name": "Une députée des Racines",
+    "tile": "conseillere",
+    "path": [[8, 3]],
+    "lines": [
+      "Deux cents élus, cinquante druides, cinquante Voix des Arbres : trois cents sièges, et autant d’avis.",
+      "Je représente les Lisières Cultivées. Là-bas, on veut du métal de Ferros… et pas de Ferros sous nos champs."
+    ]
+  },
+  {
+    "id": "voix-des-arbres",
+    "location": "canopee-amphitheatre",
+    "name": "Une Voix des Arbres",
+    "tile": "pelerine",
+    "path": [[3, 8]],
+    "lines": [
+      "Ce sont les arbres qui m’ont choisie. On ne postule pas : on entend l’appel, ou non.",
+      "Un vieux chêne parle par ma bouche, au Conseil. Il est lent, mais il a rarement tort."
     ]
   }
 ]

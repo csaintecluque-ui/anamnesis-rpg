@@ -26,6 +26,18 @@
     {
       "requires": [
         {
+          "quest": "chant-anselme",
+          "status": "done"
+        },
+        {
+          "notFlag": "malo-flute-dit"
+        }
+      ],
+      "node": "flute"
+    },
+    {
+      "requires": [
+        {
           "quest": "lettres-malo",
           "status": "done"
         }
@@ -179,6 +191,20 @@
         {
           "text": "À plus tard, Malo.",
           "next": "fin"
+        }
+      ]
+    },
+    "flute": {
+      "text": "Mamie joue de la flûte ! Tous les soirs, au Bosquet. Elle dit que c’est grâce à toi… et à Papi. Elle va m’apprendre. Je serai coursier ET musicien.",
+      "effects": [
+        {
+          "setFlag": "malo-flute-dit"
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci pour la nouvelle.",
+          "next": "accueil"
         }
       ]
     }

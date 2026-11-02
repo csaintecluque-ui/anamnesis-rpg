@@ -105,6 +105,7 @@ export class MapScene extends Phaser.Scene {
       feet: (t) => this.feet(t),
       walkable: (t) => this.walkable(t),
       heroTile: () => this.heroTile,
+      story: () => this.state,
     });
     this.figurants.spawn(location.id);
     for (const tile of this.figurants.standingTiles()) this.occupied.add(tileKey(tile));

@@ -3,6 +3,30 @@
   "speaker": "sylvan",
   "entries": [
     {
+      "requires": [
+        {
+          "quest": "carnet-chansons",
+          "status": "done"
+        },
+        {
+          "notFlag": "sylvan-ilyane-chante-dit"
+        }
+      ],
+      "node": "ilyane-chante"
+    },
+    {
+      "requires": [
+        {
+          "quest": "audience",
+          "status": "done"
+        },
+        {
+          "notFlag": "sylvan-triumvirat-dit"
+        }
+      ],
+      "node": "triumvirat"
+    },
+    {
       "node": "accueil"
     }
   ],
@@ -64,6 +88,34 @@
       "options": [
         {
           "text": "Merci.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "ilyane-chante": {
+      "text": "Ilyane a chanté au cercle des lanternes, hier soir ! Avec un vieux carnet revenu de Canopéa. Elle chante faux comme une casserole, mais j’ai pleuré dans ma tarte.",
+      "effects": [
+        {
+          "setFlag": "sylvan-ilyane-chante-dit"
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci pour la nouvelle.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "triumvirat": {
+      "text": "Les nouvelles vont vite, par le courrier des Nacelliers : tu as parlé devant le Triumvirat Vert ! À la Racine, on boit à ta santé. Enfin, au jus de baies. Tu veux un verre ?",
+      "effects": [
+        {
+          "setFlag": "sylvan-triumvirat-dit"
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci pour la nouvelle.",
           "next": "accueil"
         }
       ]

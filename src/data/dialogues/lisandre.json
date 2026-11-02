@@ -3,6 +3,93 @@
   "speaker": "lisandre",
   "entries": [
     {
+      "requires": [
+        {
+          "quest": "audience",
+          "status": "done"
+        },
+        {
+          "flag": "conseil-frontiere"
+        },
+        {
+          "notFlag": "lisandre-vote-dit"
+        }
+      ],
+      "node": "vote"
+    },
+    {
+      "requires": [
+        {
+          "quest": "audience",
+          "status": "done"
+        },
+        {
+          "flag": "conseil-commerce"
+        },
+        {
+          "notFlag": "lisandre-vote-commerce-dit"
+        }
+      ],
+      "node": "vote-commerce"
+    },
+    {
+      "requires": [
+        {
+          "quest": "audience",
+          "status": "done"
+        },
+        {
+          "flag": "conseil-accord"
+        },
+        {
+          "notFlag": "lisandre-vote-accord-dit"
+        }
+      ],
+      "node": "vote-accord"
+    },
+    {
+      "requires": [
+        {
+          "quest": "graines",
+          "status": "done"
+        },
+        {
+          "flag": "graines-denonce"
+        },
+        {
+          "notFlag": "lisandre-elvan-parti-dit"
+        }
+      ],
+      "node": "elvan-parti"
+    },
+    {
+      "requires": [
+        {
+          "quest": "graines",
+          "status": "done"
+        },
+        {
+          "flag": "graines-silence"
+        },
+        {
+          "notFlag": "lisandre-tournee-dit"
+        }
+      ],
+      "node": "tournee"
+    },
+    {
+      "requires": [
+        {
+          "quest": "chant-anselme",
+          "status": "done"
+        },
+        {
+          "notFlag": "lisandre-flute-dit"
+        }
+      ],
+      "node": "flute"
+    },
+    {
       "node": "accueil"
     }
   ],
@@ -119,6 +206,90 @@
       "options": [
         {
           "text": "Merci, Lisandre.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "vote": {
+      "text": "Tu sais la nouvelle ? Le Conseil ferme la frontière aux prospecteurs ! Les marchands de Ferros font la tête, ici. Moi, je leur sers double ration de soupe : la politique, ça creuse.",
+      "effects": [
+        {
+          "setFlag": "lisandre-vote-dit"
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci pour la nouvelle.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "vote-commerce": {
+      "text": "Tu sais la nouvelle ? Le Conseil garde le commerce avec Ferros, mais des Gardes Verts surveilleront chaque chantier. Les marchands respirent ; les druides, beaucoup moins.",
+      "effects": [
+        {
+          "setFlag": "lisandre-vote-commerce-dit"
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci pour la nouvelle.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "vote-accord": {
+      "text": "Tu sais la nouvelle ? Le sol sacré est fermé, les routes restent ouvertes : tout le monde est content, pour une fois ! On dit que c’est une idée venue d’en bas… de quelqu’un qui y est descendu.",
+      "effects": [
+        {
+          "setFlag": "lisandre-vote-accord-dit"
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci pour la nouvelle.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "elvan-parti": {
+      "text": "Le marchand du fond, Elvan ? Les Gardes Verts l’ont emmené, ballots et tout. Des graines du Conseil, dans du tissu ! Je change ses draps, et je ne veux plus en entendre parler.",
+      "effects": [
+        {
+          "setFlag": "lisandre-elvan-parti-dit"
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci pour la nouvelle.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "tournee": {
+      "text": "Elvan, le marchand du fond, a payé une tournée à tout le Nid l’autre soir. Lui qui comptait chaque Fer ! Drôle d’homme. Tu en veux, de sa générosité ? Il en reste.",
+      "effects": [
+        {
+          "setFlag": "lisandre-tournee-dit"
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci pour la nouvelle.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "flute": {
+      "text": "Tu as entendu, hier soir ? Une flûte, au Bosquet. C’était Aïlis Feuillevent. Toute l’auberge s’est tue pour l’écouter. Même les marchands de Ferros.",
+      "effects": [
+        {
+          "setFlag": "lisandre-flute-dit"
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci pour la nouvelle.",
           "next": "accueil"
         }
       ]

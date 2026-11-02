@@ -21,11 +21,33 @@ export interface FigurantDef {
    * last, unconditional entry means « nothing to say »: back to the bubble (the commis of « La caravane de midi »).
    */
   dialogue?: string;
+  /**
+   * Lines that follow the story: the last reaction whose condition holds replaces `lines` (docs/gdd/figurants.md).
+   * A condition is a quest (`quest` + `status`, done by default) and/or a story flag.
+   */
+  reactions?: FigurantReaction[];
   /** Painted walk sheet (public/, 8 directions × 64 × 96 frames, npm run walk); without it, the tile hops along. */
   walk?: string;
 }
 
+export interface FigurantReaction {
+  quest?: string;
+  status?: 'active' | 'done';
+  flag?: string;
+  lines: string[];
+}
+
 export const FIGURANTS = figurantData as FigurantDef[];
+
+/** What they say now: the story's latest echo in their mouth, or their usual lines. */
+export function figurantLines(
+  def: FigurantDef,
+  state: { flags: Record<string, true>; quests: Record<string, 'active' | 'done'> },
+): string[] {
+  const holds = (r: FigurantReaction) =>
+    (!r.quest || state.quests[r.quest] === (r.status ?? 'done')) && (!r.flag || !!state.flags[r.flag]);
+  return [...(def.reactions ?? [])].reverse().find(holds)?.lines ?? def.lines;
+}
 
 export function figurantsAt(location: string): FigurantDef[] {
   return FIGURANTS.filter((f) => f.location === location);

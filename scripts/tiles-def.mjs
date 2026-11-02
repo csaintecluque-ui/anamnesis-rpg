@@ -772,4 +772,6 @@ TILES.push(
       '<path d="M14 72 L30 72 M32 70 L52 70" stroke="#5fae5a" stroke-width="2"/>' +
       '<circle cx="44" cy="76" r="2" fill="#e8f5a0" opacity="0.8"/>',
   },
+  npcTile('druide', { body: '#2e5a32', hair: '#2e5a32', skin: '#c49a74', accent: '#9fe0a0', extra: '<path d="M23 46 Q32 30 41 46" fill="#2e5a32" stroke="#1B1512" stroke-width="1"/><path d="M44 44 L46 82" stroke="#6b4a32" stroke-width="2.5"/>' }),
+  npcTile('conseillere', { body: '#6a7a3a', hair: '#3a2a1c', accent: '#e2c27a', extra: '<path d="M24 40 Q32 34 40 40" stroke="#e2c27a" stroke-width="2" fill="none"/>' }),
 );

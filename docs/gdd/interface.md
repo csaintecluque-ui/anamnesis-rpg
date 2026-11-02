@@ -69,3 +69,10 @@ Pour essayer le jeu sans tout rejouer (demande de Cyril, 2026-11-01).
 - **Outils** : dans le menu pause, sous les boutons habituels, **+50 Fers** et **PV au max** (`src/rules/testTools.ts`).
 - Le réglage est propre à l'appareil (`settings.testMode`, comme les options), pas à la sauvegarde. Il n'apparaît
   dans aucun menu : un joueur ne le trouve pas par hasard.
+
+## Journal (2026-11-02)
+
+- Bouton « Journal » dans la barre du haut (entre le titre et « Inventaire »), entrée du menu pause, touche J.
+- Trois onglets : **Quêtes** (en cours d'abord, puis terminées ✓ ; à droite : résumé et « Où j'en suis », la dernière
+  étape atteinte, `etapes` dans `quests.json`), **Récits** (ceux qu'on retient, et le plafond Mémoire + 1),
+  **Réputation** (villes connues, guildes fréquentées, « membre »). Code : `src/rules/journal.ts`, `JournalScene`.

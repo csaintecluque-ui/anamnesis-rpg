@@ -3,7 +3,7 @@ import { FACINGS, facingOf, type Facing } from '../engine/facing';
 import type { Tile } from '../engine/iso';
 import { findPath } from '../engine/pathfinding';
 import { tileKey } from '../engine/tiledMap';
-import { figurantsAt, isStanding, walkSheetKey, type FigurantDef } from '../rules/figurants';
+import { figurantsAt, isStanding, walkSheetKey, type FigurantDef, figurantLines } from '../rules/figurants';
 import { fontPx } from '../settings';
 import { COLORS, CSS, FONT_SERIF } from '../ui/theme';
 
@@ -38,6 +38,8 @@ export interface FigurantHost {
   /** Cells free of obstacles and NPCs. */
   walkable(tile: Tile): boolean;
   heroTile(): Tile;
+  /** The story so far, for lines that follow it. */
+  story(): { flags: Record<string, true>; quests: Record<string, 'active' | 'done'> };
 }
 
 export class FigurantLayer {
@@ -89,7 +91,8 @@ export class FigurantLayer {
       this.standStill(w);
     } else w.image.setFlipX(hero.x < w.image.x);
     w.busyUntil = this.scene.time.now + TALK_MS;
-    const line = w.def.lines[w.line % w.def.lines.length];
+    const lines = figurantLines(w.def, this.host.story());
+    const line = lines[w.line % lines.length];
     w.line++;
     w.bubble?.destroy();
     const name = this.scene.add.text(0, 0, w.def.name, { fontFamily: FONT_SERIF, fontSize: fontPx(11), color: CSS.copper, fontStyle: 'italic' });

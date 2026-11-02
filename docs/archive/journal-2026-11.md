@@ -720,4 +720,5 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   réputation), guildes (Compagnie des Lisières, Nacelliers, prix de membre), répliques qui suivent l'histoire, nouvelles
   du jour, trois conseillers. Canon relu : fiche Verdantis du Notion (Triumvirat, Conseil, salutations, 40 % du
   commerce avec Ferros, Rite du Retour sans pierre tombale). 317 tests ; vérifié dans le navigateur (PC et téléphone).
-
+- Cyril : « ok pour les 4 détails, mets en ligne » (Garrik, Elvan Morelle, « Les deux apprenties », Thalorin sans
+  pronom). `main` avancé sur la branche, déploiement lancé.

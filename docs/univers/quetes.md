@@ -69,7 +69,7 @@ carte à créer.
     fermer la frontière (Kael), garder le commerce sous surveillance (Lyra), ou, avec Diplomatie 3, « le sol est sacré,
     la route ne l'est pas » (+15 XP). Fin : sauf-conduit du Triumvirat, Récit « Le Triumvirat Vert », 60 XP, +15 de
     réputation à Canopéa. Ilyane en a des nouvelles par le courrier des Nacelliers.
-  - **Détails nouveaux (à valider)** : Garrik, fouilleur ferrien payé « à la pelletée » (sa mère repose sous un chêne,
+  - **Détails nouveaux (validés par Cyril le 2026-11-02)** : Garrik, fouilleur ferrien payé « à la pelletée » (sa mère repose sous un chêne,
     à la frontière) ; **ce sont les racines tranchées du Bosquet, en bas, qui font taire les noms gravés**, et les Voix des
     Arbres qui les soignent ; le sauf-conduit scellé d'une feuille d'émeraude ; les trois choix du Conseil (repères
     `conseil-frontiere`, `conseil-commerce`, `conseil-accord`, pour Ironheart) ; Thalorin sans genre (zone floue 22).
@@ -109,14 +109,14 @@ carte à créer.
   le fait avouer par la preuve, Perception 4 (« ton ballot brille ») ou un jet de Commandement 12. Fins : dénoncer
   (30 XP ; Canopéa +15, Compagnie −15, il est emmené), Diplomatie 3 : qu'il rende tout lui-même (40 XP ; Canopéa +10,
   Compagnie +5), ou partager (40 Fers, 10 XP ; Canopéa −5 : « un marchand a payé une tournée »).
-  Détails nouveaux (à valider) : Elvan Morelle, le sceau à tête de cerf, « trois fois le prix » à Ironheart.
+  Détails nouveaux (validés par Cyril le 2026-11-02) : Elvan Morelle, le sceau à tête de cerf, « trois fois le prix » à Ironheart.
 
 ### 5. Le carnet de chansons (courrier entre villes) — **construite le 2026-11-02**
 
 - Mirelle confie au héros le vieux carnet de chansons d'Ilyane ; on le rapporte à Gardebois par la carte du monde ;
   Ilyane chante l'une des chansons : un Récit.
 - **Construite** : « la chanson de la page dix-sept », celle de deux apprenties qui se juraient de tout écouter et de tout
-  écrire ; Récit « Les deux apprenties » (à valider), 25 XP, +5 à Gardebois. Mirelle a recopié la chanson des
+  écrire ; Récit « Les deux apprenties » (validé par Cyril le 2026-11-02), 25 XP, +5 à Gardebois. Mirelle a recopié la chanson des
   cerfs-lucioles avant de confier le carnet (« Le chant d'Anselme » reste possible).
 
 ## Gardebois : une quête de guilde

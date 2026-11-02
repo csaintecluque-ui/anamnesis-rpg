@@ -8,7 +8,7 @@
 
 ## Chantier en cours : Canopéa « finie à fond » (demande de Cyril, 2026-11-02)
 
-- **Sur la branche `canopee-a-fond`, pas encore en ligne** (accord de Cyril attendu) : les cinq quêtes de Canopéa et
+- **En ligne le 2026-11-02** (validé par Cyril, détails nouveaux compris) : les cinq quêtes de Canopéa et
   « La caravane de midi » (`docs/univers/quetes.md`), l'amphithéâtre du Conseil, le journal (touche J), la réputation
   des guildes, une ville qui réagit (`docs/univers/lieux/canopee.md`).
 - Moteur : conditions `item`, effet `takeItem`, objets de quête, `apparaitSi`, rencontres d'histoire, figurants à
@@ -16,13 +16,10 @@
 
 ## Prochaine étape
 
-1. Cyril : essayer, valider les détails nouveaux (Garrik, Elvan Morelle, racines tranchées, page dix-sept…), mettre en
-   ligne (`main` avancé sur la branche).
-2. Ensuite : Ironheart (chapitre 3, « La Clé de Rouille Bleue ») ; images peintes de Canopéa quand les crédits suivront.
+1. Ensuite : Ironheart (chapitre 3, « La Clé de Rouille Bleue ») ; images peintes de Canopéa quand les crédits suivront.
 
 ## Points ouverts
 
-- Thalorin : genre (`docs/univers/zones-floues.md`, point 22) ; joué sans pronom en attendant.
 - Coquille dans `assets/brand/logo-small.svg` (trait parasite) : accord de Cyril requis.
 - Chronologie du canon non arbitrée (`docs/univers/zones-floues.md`, points 6 à 13).
 - `npm audit` : vulnérabilités modérées dans les outils de build de la PWA ; à revoir avec workbox.

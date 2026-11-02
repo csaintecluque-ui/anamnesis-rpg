@@ -628,9 +628,10 @@ function amphitheatre() {
   m.setGround(cc, h - 1, 'seuil');
   m.object('sortie', 'sortie', cc, h - 1, { cible: 'canopee-conseil', arrivee: 'depuis-amphitheatre', libelle: 'Sortir' });
   m.object('entree', 'arrivee', cc, h - 2);
-  m.object('thalorin', 'pnj', cc, cr - 1);
-  m.object('lyra', 'pnj', cc - 2, cr);
-  m.object('kael-marchevent', 'pnj', cc + 2, cr);
+  // Face à qui entre, sur une ligne : Lyra à gauche, Thalorin au milieu, Kael Marchevent à droite.
+  m.object('thalorin', 'pnj', cc - 1, cr);
+  m.object('lyra', 'pnj', cc - 3, cr + 1);
+  m.object('kael-marchevent', 'pnj', cc, cr - 2);
   return m.toTiled();
 }
 

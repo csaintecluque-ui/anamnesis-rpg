@@ -571,9 +571,9 @@ describe('Parcours complet, d’une traite', () => {
     for (const npc of ['kael-marchevent', 'lyra', 'thalorin']) expect(talk(s, npc)).toBe('apres');
     expect(reputationScore(s, 'canopee')).toBe(10 + 10 + 15 + 10 + 10);
     expect(knownPlaces(s.flags, s.quests).map((p) => p.id)).toContain('ironheart');
-    // Mémoire 5 keeps six Récits: the seventh (the Triumvirat) pushed out the first, the savant Corvan (by design).
-    expect(s.character!.recits).toHaveLength(6);
-    expect(knowsRecit(s.character, 'savant-corvan')).toBe(false);
+    // The Récits of the main story are never forgotten (decision of Cyril, 2026-11-02): Corvan and the Triumvirat stay.
+    expect(knowsRecit(s.character, 'savant-corvan')).toBe(true);
+    expect(knowsRecit(s.character, 'triumvirat-vert')).toBe(true);
   });
 
   it('Canopéa après l’audience : les nouvelles circulent, rien ne se rouvre', () => {
@@ -631,8 +631,13 @@ describe('Parcours complet, d’une traite', () => {
     walk(s, 'ironheart-forges');
 
     expect(talk(s, 'veilleuse')).toBe('question-cle');
-    // The Récit of Corvan was forgotten on the way: its option is gone, three others remain.
-    expect(optionTexts(s, 'veilleuse', 'question-cle')).toEqual(['Laisse-moi écouter le convoi avec toi.', 'Lui parler de ce que la clé ouvre.', 'Je reviendrai.']);
+    // The Récit of Corvan is kept (a Récit of the main story): the Veilleuse can be told of the last train.
+    expect(optionTexts(s, 'veilleuse', 'question-cle')).toEqual([
+      'J’ai vu le dernier train, moi aussi, dans l’Écho de la Gare Engloutie.',
+      'Laisse-moi écouter le convoi avec toi.',
+      'Lui parler de ce que la clé ouvre.',
+      'Je reviendrai.',
+    ]);
     say(s, 'veilleuse', 'question-cle', 'Lui parler de ce que la clé ouvre');
     expect(gained(s, () => say(s, 'veilleuse', 'ouvre', 'Aux Archives'))).toEqual({ xp: 25, fers: 0 });
     expect(questItems(s)).toEqual(['cle-rouille-bleue', 'sauf-conduit']);
@@ -781,15 +786,21 @@ describe('Parcours complet, d’une traite', () => {
 describe('Variante : Ironheart avant les quêtes annexes (parole, combats, autres fins)', () => {
   const s = createNewGame(testCharacter({}, { diplomacy: 3, survival: 2 }));
 
-  it('« Le Dernier Train » par la parole, sans passer chez Tobias', () => {
+  it('« Le Dernier Train » par la parole : sans laissez-passer, le contremaître barre la route ; Tobias le donne', () => {
     expect(talk(s, 'ilyane')).toBe('accueil');
     say(s, 'ilyane', 'accueil', 'Que se passe-t-il');
     say(s, 'ilyane', 'trouble', 'D’où vient ce mal');
     say(s, 'ilyane', 'cause', 'J’irai voir');
     walk(s, 'gare-engloutie');
-    // À trancher par Cyril : le repère « laissez-passer » de Tobias n'est lu nulle part (ni porte, ni dialogue de la
-    // Gare) : on entre sur le chantier et on parle à Ingrid sans lui ; les 50 Fers du laissez-passer ne servent à rien.
-    expect(s.flags['laissez-passer']).toBeUndefined();
+    // Décision de Cyril (2026-11-02) : le laissez-passer ouvre le chantier de jour ; sans lui, la nuit ou le Golem.
+    expect(talk(s, 'ingrid')).toBe('barriere');
+    expect(talk(s, 'foreuse')).toBe('jour');
+    expect(optionTexts(s, 'foreuse', 'jour')[0]).toMatch(/Attendre la nuit/);
+    walk(s, 'gardebois');
+    say(s, 'tobias', 'accueil', 'Je dois entrer sur le chantier');
+    say(s, 'tobias', 'chantier', 'Si ce chantier');
+    expect(s.flags['laissez-passer']).toBe(true);
+    walk(s, 'gare-engloutie');
     expect(talk(s, 'ingrid')).toBe('accueil');
     say(s, 'ingrid', 'accueil', 'Ce chantier');
     expect(gained(s, () => say(s, 'ingrid', 'cause', 'Arrêtez le forage'))).toEqual({ xp: 70, fers: 30 });
@@ -1103,6 +1114,15 @@ function prelude(s: GameState): void {
   walk(s, 'gare-engloutie');
   expect(talk(s, 'echo-dernier-train')).toBe('approche');
   say(s, 'echo-dernier-train', 'approche', 'Entrer dans l’Écho');
+  // Le laissez-passer, payé cinquante Fers à Tobias (le contremaître ne laisse pas passer sans lui, le jour).
+  expect(talk(s, 'ingrid')).toBe('barriere');
+  walk(s, 'gardebois');
+  s.character!.fers += 50;
+  say(s, 'tobias', 'accueil', 'Je dois entrer sur le chantier');
+  say(s, 'tobias', 'chantier', 'Combien');
+  say(s, 'tobias', 'prix', 'Payer cinquante Fers');
+  expect(s.flags['laissez-passer']).toBe(true);
+  walk(s, 'gare-engloutie');
   expect(talk(s, 'ingrid')).toBe('accueil');
   say(s, 'ingrid', 'accueil', 'Ce chantier');
   say(s, 'ingrid', 'cause', 'Je connais l’histoire du savant Corvan');

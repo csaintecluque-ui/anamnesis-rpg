@@ -1578,7 +1578,7 @@ _Effet : retient « ilyane-echo-lu », +10 XP._
 
 _Ingénieure, prospection de Ferros_
 
-Commence par : « apres-sabotage » _(si repère « foreuse-sabotee »)_, sinon « apres » _(si quête « Le Dernier Train » terminée)_, sinon « soupcon » _(si repère « surpris-de-nuit »)_, sinon « accueil »
+Commence par : « apres-sabotage » _(si repère « foreuse-sabotee »)_, sinon « apres » _(si quête « Le Dernier Train » terminée)_, sinon « soupcon » _(si repère « surpris-de-nuit »)_, sinon « barriere » _(si quête « Le Dernier Train » en cours)_ _(sans repère « laissez-passer »)_, sinon « accueil »
 
 ### accueil
 
@@ -1626,6 +1626,19 @@ Commence par : « apres-sabotage » _(si repère « foreuse-sabotee »)_, sinon 
 > La foreuse est silencieuse, pour l’instant. Mes ouvriers n’aiment pas ça, mais personne n’a plus revu de train, à Gardebois.
 
 - « Tant mieux. » → **fin**
+
+### barriere
+
+> Un contremaître en gilet de cuir te barre la route avant la tente de l’ingénieure. — Chantier privé. Sans laissez-passer de la Compagnie des Lisières, on ne passe pas le jour. Reviens avec un papier.
+
+- « Où trouver un laissez-passer ? » → barriere-ou
+- « Partir. » → **fin**
+
+### barriere-ou
+
+> — Au Marché des Lisières, chez les Cendrefer. Tobias en a toujours un dans sa manche, à son prix. Et ne traîne pas ici la nuit : le chantier dort, mais la lanterne veille.
+
+- « Partir. » → **fin**
 
 ## Joss Brakel
 

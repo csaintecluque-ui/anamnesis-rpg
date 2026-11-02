@@ -39,6 +39,17 @@ describe('recits', () => {
     expect(c.recits).toEqual(['recit-1', 'recit-2', 'recit-3', 'recit-4']);
   });
 
+  it('never forgets a Récit of the main story, and does not count it against the cap (decision of Cyril, 2026-11-02)', () => {
+    const c = heroWithMemory(3); // cap = 4
+    learnRecit(c, 'savant-corvan');
+    for (let i = 0; i < 6; i++) learnRecit(c, `recit-${i}`);
+    learnRecit(c, 'triumvirat-vert');
+    expect(c.recits).toContain('savant-corvan');
+    expect(c.recits).toContain('triumvirat-vert');
+    expect(c.recits.filter((r) => !r.startsWith('recit-')).length).toBe(2);
+    expect(c.recits.filter((r) => r.startsWith('recit-'))).toEqual(['recit-2', 'recit-3', 'recit-4', 'recit-5']);
+  });
+
   it('ships with the Récit du savant Corvan, used to resolve Le Dernier Train (docs/gdd/memoire.md, tranche-verticale.md)', () => {
     expect(RECITS.some((r) => r.id === 'savant-corvan')).toBe(true);
   });

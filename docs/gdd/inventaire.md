@@ -51,3 +51,10 @@ Hedda Cendrefer vend aussi ses propres pièces, entre 70 et 120 Fers :
 | Marteau de forge | 70 | arme de mêlée, 1d10 (Épée longue : 1d8), 5 kg |
 | Arbalète de Ferros | 80 | arme de tir, portée 6, 1d10 (Arc : 1d8), 4 kg |
 | Cuirasse rivetée | 120 | armure, +3 en Défense (ferraille : +2), 18 kg |
+
+## Le laissez-passer de Tobias (décision de Cyril, 2026-11-02)
+
+Le jour, un contremaître d'Ingrid barre l'accès au chantier de la Gare Engloutie sans le laissez-passer (50 Fers chez
+Tobias, ou gratuit par la parole : Diplomatie 2). Sans lui, il reste la nuit (se glisser jusqu'à la foreuse) ou le
+Golem. Les Récits de l'histoire principale (le savant Corvan, le Triumvirat Vert, le carnet du dernier train) ne
+s'oublient jamais et ne comptent pas dans le plafond de Mémoire + 1 (`docs/gdd/memoire.md`).

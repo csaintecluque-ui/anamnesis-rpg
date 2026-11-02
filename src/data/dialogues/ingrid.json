@@ -28,6 +28,18 @@
       "node": "soupcon"
     },
     {
+      "requires": [
+        {
+          "quest": "dernier-train",
+          "status": "active"
+        },
+        {
+          "notFlag": "laissez-passer"
+        }
+      ],
+      "node": "barriere"
+    },
+    {
       "node": "accueil"
     }
   ],
@@ -182,6 +194,28 @@
       "options": [
         {
           "text": "Tant mieux.",
+          "next": "fin"
+        }
+      ]
+    },
+    "barriere": {
+      "text": "Un contremaître en gilet de cuir te barre la route avant la tente de l’ingénieure. — Chantier privé. Sans laissez-passer de la Compagnie des Lisières, on ne passe pas le jour. Reviens avec un papier.",
+      "options": [
+        {
+          "text": "Où trouver un laissez-passer ?",
+          "next": "barriere-ou"
+        },
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "barriere-ou": {
+      "text": "— Au Marché des Lisières, chez les Cendrefer. Tobias en a toujours un dans sa manche, à son prix. Et ne traîne pas ici la nuit : le chantier dort, mais la lanterne veille.",
+      "options": [
+        {
+          "text": "Partir.",
           "next": "fin"
         }
       ]

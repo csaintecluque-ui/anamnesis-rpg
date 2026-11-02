@@ -165,7 +165,8 @@ export class JournalScene extends Phaser.Scene {
       'Aucun Récit retenu. Les Échos, les anciens et les livres en gardent : écoute-les.',
     );
     if (recits.length > 0) {
-      const note = `Tu retiens ${recits.length} Récit${recits.length > 1 ? 's' : ''} sur ${cap} (Mémoire + 1). Au-delà, le plus ancien s’efface.`;
+      const ordinary = recits.filter((r) => !r.principal).length;
+      const note = `Tu retiens ${ordinary} Récit${ordinary > 1 ? 's' : ''} sur ${cap} (Mémoire + 1). Au-delà, le plus ancien s’efface ; ceux de l’histoire principale restent.`;
       this.text(DETAIL_X, GAME_HEIGHT - 20 - LAYOUT.closeHeight / 2, note, 18, CSS.muted, DETAIL_WIDTH - LAYOUT.closeWidth - 30).setOrigin(0, 0.5);
     }
   }

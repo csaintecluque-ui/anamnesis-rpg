@@ -2,7 +2,8 @@
   {
     "id": "savant-corvan",
     "titre": "Le Savant Corvan",
-    "texte": "Le savant Corvan reconstruisit un réacteur de l’Ancien Monde. Avant même de l’allumer, la foudre le frappa dans son laboratoire scellé, et une tempête de radiation dura six mois. On dit que ses descendants sont encore traqués par le malheur : réussir, parfois, détruit tout autant qu’échouer."
+    "texte": "Le savant Corvan reconstruisit un réacteur de l’Ancien Monde. Avant même de l’allumer, la foudre le frappa dans son laboratoire scellé, et une tempête de radiation dura six mois. On dit que ses descendants sont encore traqués par le malheur : réussir, parfois, détruit tout autant qu’échouer.",
+    "principal": true
   },
   {
     "id": "berceuse-de-maelis",
@@ -27,7 +28,8 @@
   {
     "id": "triumvirat-vert",
     "titre": "Le Triumvirat Vert",
-    "texte": "Verdantis est gouvernée par trois co-dirigeants, élus par le Conseil des Racines Profondes pour sept ans, sans second mandat : la Première Racine veille sur le pays et son commerce, le Gardien de la Canopée sur ses frontières, la Voix de Gaïa sur la forêt et l’esprit. Quand les deux premiers ne s’entendent pas, la troisième arbitre."
+    "texte": "Verdantis est gouvernée par trois co-dirigeants, élus par le Conseil des Racines Profondes pour sept ans, sans second mandat : la Première Racine veille sur le pays et son commerce, le Gardien de la Canopée sur ses frontières, la Voix de Gaïa sur la forêt et l’esprit. Quand les deux premiers ne s’entendent pas, la troisième arbitre.",
+    "principal": true
   },
   {
     "id": "deux-apprenties",
@@ -37,7 +39,8 @@
   {
     "id": "carnet-dernier-train",
     "titre": "Le carnet du dernier train",
-    "texte": "Dans le Fonds Zéro des Archives de Ferros dormait le carnet de bord du dernier train : chaque gare où il s’arrêta, et ce qu’il y laissa. Une carte de toutes les voies endormies l’accompagne. Une ligne a été grattée, avec soin."
+    "texte": "Dans le Fonds Zéro des Archives de Ferros dormait le carnet de bord du dernier train : chaque gare où il s’arrêta, et ce qu’il y laissa. Une carte de toutes les voies endormies l’accompagne. Une ligne a été grattée, avec soin.",
+    "principal": true
   },
   {
     "id": "convoi-sans-conducteur",

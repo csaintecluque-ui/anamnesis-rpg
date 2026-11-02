@@ -36,3 +36,5 @@ Les trois pistes reposent sur des lois et des phénomènes du monde, pas sur la 
 - **Récits retenus** : `character.recits`, une liste d'identifiants. Le plafond (Mémoire + 1, dons compris) est déjà calculé par `talesRetained`. Au-delà du plafond, le Récit le plus ancien est oublié pour faire place au nouveau — une version simple du Champignon-Mémoire, en attendant qu'il existe vraiment. Code : `src/rules/recits.ts`.
 - **Raconter un Récit** en dialogue : une condition `{ recit: id }`, masquée tant qu'on ne le connaît pas (comme un repère d'histoire).
 - **Obtenir un Récit** : l'effet `{ learnRecit: id }`, posé sur un nœud d'Écho (voir `docs/univers/lieux/gare-engloutie.md`).
+- **Récits de l'histoire principale** (décision de Cyril, 2026-11-02) : marqués `principal` dans `src/data/recits.json`
+  (le savant Corvan, le Triumvirat Vert, le carnet du dernier train) ; jamais oubliés, hors du plafond.

@@ -2,10 +2,33 @@
   "id": "foreuse",
   "speaker": "foreuse",
   "entries": [
-    { "requires": [{ "flag": "foreuse-sabotee" }], "node": "faussee" },
-    { "requires": [{ "flag": "chantier-arrete" }], "node": "arretee" },
-    { "requires": [{ "flag": "surpris-de-nuit" }], "node": "gardee" },
-    { "node": "jour" }
+    {
+      "requires": [
+        {
+          "flag": "foreuse-sabotee"
+        }
+      ],
+      "node": "faussee"
+    },
+    {
+      "requires": [
+        {
+          "flag": "chantier-arrete"
+        }
+      ],
+      "node": "arretee"
+    },
+    {
+      "requires": [
+        {
+          "flag": "surpris-de-nuit"
+        }
+      ],
+      "node": "gardee"
+    },
+    {
+      "node": "jour"
+    }
   ],
   "nodes": {
     "jour": {
@@ -14,9 +37,22 @@
         {
           "text": "Attendre la nuit dans les ruines du quai.",
           "next": "nuit",
-          "requires": [{ "quest": "dernier-train", "status": "active" }]
+          "requires": [
+            {
+              "quest": "dernier-train",
+              "status": "active"
+            }
+          ],
+          "effects": [
+            {
+              "attendre": "nuit"
+            }
+          ]
         },
-        { "text": "S’éloigner.", "next": "fin" }
+        {
+          "text": "S’éloigner.",
+          "next": "fin"
+        }
       ]
     },
     "nuit": {
@@ -25,11 +61,17 @@
       "options": [
         {
           "text": "Se glisser jusqu’à la foreuse.",
-          "roll": { "skill": "stealth", "difficulty": 10 },
+          "roll": {
+            "skill": "stealth",
+            "difficulty": 10
+          },
           "next": "au-pied",
           "failNext": "repere"
         },
-        { "text": "Renoncer et attendre le jour.", "next": "fin" }
+        {
+          "text": "Renoncer et attendre le jour.",
+          "next": "fin"
+        }
       ]
     },
     "au-pied": {
@@ -38,48 +80,102 @@
       "options": [
         {
           "text": "Saboter le mécanisme.",
-          "roll": { "skill": "crafting", "difficulty": 10 },
+          "roll": {
+            "skill": "crafting",
+            "difficulty": 10
+          },
           "next": "sabotee",
           "failNext": "bruit"
         },
-        { "text": "Repartir sans rien toucher.", "next": "fin" }
+        {
+          "text": "Repartir sans rien toucher.",
+          "next": "fin"
+        }
       ]
     },
     "sabotee": {
       "night": true,
       "text": "Une goupille retirée, un engrenage faussé : la foreuse ne repartira pas avant longtemps. Tu regagnes l’ombre sans un bruit.",
       "effects": [
-        { "setFlag": "foreuse-sabotee" },
-        { "setFlag": "chantier-arrete" },
-        { "completeQuest": "dernier-train" },
-        { "giveXp": 70 },
-        { "giveFers": 30 }
+        {
+          "setFlag": "foreuse-sabotee"
+        },
+        {
+          "setFlag": "chantier-arrete"
+        },
+        {
+          "completeQuest": "dernier-train"
+        },
+        {
+          "giveXp": 70
+        },
+        {
+          "giveFers": 30
+        }
       ],
-      "options": [{ "text": "Attendre le jour.", "next": "fin" }]
+      "options": [
+        {
+          "text": "Attendre le jour.",
+          "next": "fin"
+        }
+      ]
     },
     "repere": {
       "night": true,
       "text": "Une lanterne se lève : « Qui va là ? » Deux ouvriers te reconduisent au bord du chantier. Brisefer saura qu’on a rôdé ici.",
-      "effects": [{ "setFlag": "surpris-de-nuit" }],
-      "options": [{ "text": "…", "next": "fin" }]
+      "effects": [
+        {
+          "setFlag": "surpris-de-nuit"
+        }
+      ],
+      "options": [
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ]
     },
     "bruit": {
       "night": true,
       "text": "Un engrenage t’échappe et sonne contre le fer. Le camp s’éveille ; tu n’as que le temps de fuir dans le noir. Brisefer saura qu’on a rôdé ici.",
-      "effects": [{ "setFlag": "surpris-de-nuit" }],
-      "options": [{ "text": "…", "next": "fin" }]
+      "effects": [
+        {
+          "setFlag": "surpris-de-nuit"
+        }
+      ],
+      "options": [
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ]
     },
     "gardee": {
       "text": "Depuis ta visite de nuit, un ouvrier veille près de la foreuse, de jour comme de nuit.",
-      "options": [{ "text": "S’éloigner.", "next": "fin" }]
+      "options": [
+        {
+          "text": "S’éloigner.",
+          "next": "fin"
+        }
+      ]
     },
     "arretee": {
       "text": "La foreuse est arrêtée. Le silence revient peu à peu sur la Gare.",
-      "options": [{ "text": "S’éloigner.", "next": "fin" }]
+      "options": [
+        {
+          "text": "S’éloigner.",
+          "next": "fin"
+        }
+      ]
     },
     "faussee": {
       "text": "La foreuse est muette, un engrenage faussé dans le ventre.",
-      "options": [{ "text": "S’éloigner.", "next": "fin" }]
+      "options": [
+        {
+          "text": "S’éloigner.",
+          "next": "fin"
+        }
+      ]
     }
   }
 }

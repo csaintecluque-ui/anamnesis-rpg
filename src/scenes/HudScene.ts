@@ -7,6 +7,7 @@ import { addTextButton } from '../ui/button';
 import { withKeyHint } from '../ui/keys';
 import { CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
 import { HAS_MOUSE } from '../ui/viewport';
+import { momentOf } from '../rules/time';
 
 const TOAST_MS = 4000;
 /** Free band between the Menu button (left) and the Journal and Inventaire buttons (right). */
@@ -26,6 +27,8 @@ export class HudScene extends Phaser.Scene {
   private toastTimer?: Phaser.Time.TimerEvent;
   private levelUpButton!: Phaser.GameObjects.Container;
   private statusText!: Phaser.GameObjects.Text;
+  private titleText!: Phaser.GameObjects.Text;
+  private locationName = '';
   private state!: GameState;
 
   constructor() {
@@ -38,14 +41,9 @@ export class HudScene extends Phaser.Scene {
     const L = LAYOUT;
     // Interactive so that taps on the bar do not fall through to the map below.
     this.add.rectangle(GAME_WIDTH / 2, L.barHeight / 2, GAME_WIDTH, L.barHeight, 0x1b1512, 0.96).setInteractive();
-    this.add
-      .text(GAME_WIDTH / 2, L.titleY, data.locationName ?? '', {
-        fontFamily: FONT_SERIF,
-        fontSize: `${L.titleSize}px`,
-        color: CSS.parchment,
-        align: 'center',
-        fixedWidth: HEADER_MAX_WIDTH,
-      })
+    this.locationName = data.locationName ?? '';
+    this.titleText = this.add
+      .text(GAME_WIDTH / 2, L.titleY, '', { fontFamily: FONT_SERIF, fontSize: `${L.titleSize}px`, color: CSS.parchment, align: 'center' })
       .setOrigin(0.5);
     this.statusText = this.add
       .text(GAME_WIDTH / 2, L.statusY, '', {
@@ -106,6 +104,12 @@ export class HudScene extends Phaser.Scene {
   }
 
   private refreshStatus(): void {
+    // The place and the moment of the day (docs/gdd/temps.md); a long name gets a smaller font to fit the band.
+    const title = this.locationName ? `${this.locationName} · ${momentOf(this.state.time)}` : '';
+    if (title !== this.titleText.text) {
+      this.titleText.setText(title).setFontSize(LAYOUT.titleSize);
+      for (let size = LAYOUT.titleSize - 1; this.titleText.width > HEADER_MAX_WIDTH && size >= 14; size--) this.titleText.setFontSize(size);
+    }
     const hero = this.state.character!;
     // A long name is shortened so that PV and Fers always fit in the band (24 characters are allowed).
     const name = hero.name.length > NAME_MAX ? `${hero.name.slice(0, NAME_MAX - 1).trimEnd()}…` : hero.name;

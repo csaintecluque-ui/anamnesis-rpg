@@ -35,7 +35,7 @@ _Effet : retient « indice-aiguillage », +10 XP._
 
 - _(sans repère « indice-aiguillage »)_ **[Investigation 2]** « Examiner le mécanisme. » → goupille
 - _(sans repère « indice-aiguillage »)_ **[Artisanat 2]** « Démonter le carter. » → goupille
-- _(sans repère « pilleurs-vaincus »)_ _(sans repère « pilleurs-suivis »)_ « Attendre la nuit, caché près du levier. » → veille
+- _(sans repère « pilleurs-vaincus »)_ _(sans repère « pilleurs-suivis »)_ « Attendre la nuit, caché près du levier. » → veille _(+undefined XP)_
 - « Laisser le levier. » → **fin**
 
 ### veille
@@ -307,7 +307,7 @@ _Effet : retient « marche-cendres-indice »._
 
 > Boulon hisse ta malle d’une seule main. La caravane quitte la cendre de Ferros, passe la frontière, retrouve la forêt. Le soir, les lanternes du Marché des Lisières s’allument entre les arbres : Gardebois.
 
-- « Descendre du chariot. » → **fin** _(mène à « Gardebois — Marché des Lisières »)_
+- « Descendre du chariot. » → **fin** _(+undefined XP, +undefined XP, mène à « Gardebois — Marché des Lisières »)_
 
 ## Brann Martelroux
 
@@ -510,7 +510,7 @@ Commence par : « accueil »
 
 > La caravane roule sans hâte, de borne en borne. Le soir, les lanternes du Marché des Lisières s’allument une à une entre les arbres : Gardebois.
 
-- « Descendre du chariot. » → **fin** _(mène à « Gardebois — Marché des Lisières »)_
+- « Descendre du chariot. » → **fin** _(+undefined XP, +undefined XP, mène à « Gardebois — Marché des Lisières »)_
 
 ## La colporteuse
 
@@ -605,13 +605,13 @@ Commence par : « accueil »
 
 > La caravane suit la route des Lisières. Les chariots grincent ; on chante fort pour tenir les Loups de Rouille à distance. À la tombée du jour, au pied des Arbres-Titans, la Grande Nacelle te monte jusqu’aux cimes.
 
-- « Monter jusqu’aux cimes. » → **fin** _(mène à « Canopéa — La Grande Nacelle »)_
+- « Monter jusqu’aux cimes. » → **fin** _(+undefined XP, +undefined XP, mène à « Canopéa — La Grande Nacelle »)_
 
 ### trajet-ironheart
 
 > La caravane passe la frontière de Ferros. La forêt s’éclaircit, la terre devient cendre, et le ciel prend la couleur de la rouille. Au soir, la gare de l’Ouest d’Ironheart.
 
-- « Descendre du chariot. » → **fin** _(mène à « Ironheart — Les Forges-Basses »)_
+- « Descendre du chariot. » → **fin** _(+undefined XP, +undefined XP, mène à « Ironheart — Les Forges-Basses »)_
 
 ## Cristal de veille
 
@@ -630,21 +630,15 @@ Commence par : « cristal »
 
 _Pension de la Bielle_
 
-Commence par : « accueil »
+Commence par : « accueil-2 » _(si quête « undefined » undefined)_, sinon « accueil-3 » _(si quête « undefined » undefined)_, sinon « accueil »
 
 ### accueil
 
 > — Pension de la Bielle ! Lit de camp et soupe épaisse, comme à l’usine. Nom d’une gueuse, tu as l’air d’avoir marché des jours !
 
-- **[8 Fers]** « Une soupe et un lit. » → repas _(−8 Fers, +100 PV)_
+- « Manger ou dormir ? » → servir
 - « Quelles nouvelles ? » → nouvelles
 - « Au revoir. » → **fin**
-
-### repas
-
-> Une soupe de grain, du pain noir, et un lit de camp qui grince. Au réveil, tes forces sont revenues.
-
-- « Merci, Dorna. » → accueil
 
 ### nouvelles
 
@@ -658,6 +652,43 @@ Commence par : « accueil »
 > — Au triage, à l’est, les convois de minerai partent seuls la nuit. Les cheminots ne roulent plus qu’au jour, et Varka, leur cheffe, fait la tête de quelqu’un qui cherche de l’aide.
 
 - « Merci, Dorna. » → accueil
+
+### soupe
+
+> Une soupe épaisse, du pain noir : de quoi tenir jusqu’au soir.
+
+- « Merci. » → accueil
+
+### servir
+
+> — Une soupe épaisse, ou un lit de camp ? Les lits grincent, mais ils tiennent. Comme les gens d’ici.
+
+- **[5 Fers]** « Une soupe épaisse. » → soupe _(−5 Fers, +15 PV)_
+- **[8 Fers]** « Un lit jusqu’au matin. » → dodo _(−8 Fers, +undefined XP)_
+- **[8 Fers]** « Un lit jusqu’à la nuit. » → dodo _(−8 Fers, +undefined XP)_
+- « Rien, merci. » → accueil
+
+### dodo
+
+> Une soupe de grain, du pain noir, et un lit de camp qui grince. Au réveil, tes forces sont revenues.
+
+- « Se lever. » → **fin**
+
+### accueil-2
+
+> — Pension de la Bielle ! Ce matin, le registre du Puits Trois a encore changé : deux transferts de plus vers les Manufactures. Assieds-toi, un registre, ça ne se mange pas.
+
+- « Manger ou dormir ? » → servir
+- « Quelles nouvelles ? » → nouvelles
+- « Au revoir. » → **fin**
+
+### accueil-3
+
+> — Pension de la Bielle ! Les Litanies ont commencé avant l’aube, aujourd’hui : un contremaître pressé. Nom d’une gueuse, on n’entend plus ses propres pensées.
+
+- « Manger ou dormir ? » → servir
+- « Quelles nouvelles ? » → nouvelles
+- « Au revoir. » → **fin**
 
 ## L’Écho de la berceuse
 
@@ -1034,7 +1065,7 @@ Commence par : « faussee » _(si repère « foreuse-sabotee »)_, sinon « arre
 
 > La foreuse de Brisefer mord la roche de la Faille dans un fracas de fer. Les ouvriers ne la quittent pas des yeux.
 
-- _(si quête « Le Dernier Train » en cours)_ « Attendre la nuit dans les ruines du quai. » → nuit
+- _(si quête « Le Dernier Train » en cours)_ « Attendre la nuit dans les ruines du quai. » → nuit _(+undefined XP)_
 - « S’éloigner. » → **fin**
 
 ### nuit
@@ -1103,7 +1134,7 @@ Commence par : « scellee » _(si repère « echos-dissipes »)_, sinon « apres
 
 > Une forge froide, la seule des Forges-Basses. Les ouvriers la contournent : « si une forge s’éteint d’elle-même, un esprit rouille rôde. » Pourtant, la pierre du foyer est tiède sous la main.
 
-- « Revenir à la nuit tombée. » → nuit
+- « Revenir à la nuit tombée. » → nuit _(+undefined XP)_
 - « Passer son chemin. » → **fin**
 
 ### nuit
@@ -1269,7 +1300,7 @@ Commence par : « guichet »
 
 > Le train quitte Ironheart dans un souffle de vapeur cristalline. Puis la forêt : quarante minutes sous une canopée de deux cents mètres, dans une voiture à toit de verre. À la halte, la Grande Nacelle te monte jusqu’aux cimes.
 
-- « Monter jusqu’aux cimes. » → **fin** _(mène à « Canopéa — La Grande Nacelle »)_
+- « Monter jusqu’aux cimes. » → **fin** _(+undefined XP, mène à « Canopéa — La Grande Nacelle »)_
 
 ## La halte de la ligne de l’Ouest
 
@@ -1295,9 +1326,9 @@ Commence par : « halte »
 
 ### train-ironheart
 
-> La Grande Nacelle te descend à la halte. Le train file sous la canopée, voitures à toit de verre ; puis la forêt s’arrête net, et commence la cendre. Au matin, la gare de l’Ouest d’Ironheart.
+> La Grande Nacelle te descend à la halte. Le train file sous la canopée, voitures à toit de verre ; puis la forêt s’arrête net, et commence la cendre. Une demi-journée plus tard, la gare de l’Ouest d’Ironheart.
 
-- « Descendre sur le quai. » → **fin** _(mène à « Ironheart — Les Forges-Basses »)_
+- « Descendre sur le quai. » → **fin** _(+undefined XP, mène à « Ironheart — Les Forges-Basses »)_
 
 ## Hedda Cendrefer
 
@@ -2003,13 +2034,13 @@ Commence par : « apres » _(si quête « Les herbes de lisière » terminée)_,
 
 _Aubergiste du Nid_
 
-Commence par : « vote » _(si quête « L’audience » terminée)_ _(si repère « conseil-frontiere »)_ _(sans repère « lisandre-vote-dit »)_, sinon « vote-commerce » _(si quête « L’audience » terminée)_ _(si repère « conseil-commerce »)_ _(sans repère « lisandre-vote-commerce-dit »)_, sinon « vote-accord » _(si quête « L’audience » terminée)_ _(si repère « conseil-accord »)_ _(sans repère « lisandre-vote-accord-dit »)_, sinon « elvan-parti » _(si quête « Les graines qui manquent » terminée)_ _(si repère « graines-denonce »)_ _(sans repère « lisandre-elvan-parti-dit »)_, sinon « tournee » _(si quête « Les graines qui manquent » terminée)_ _(si repère « graines-silence »)_ _(sans repère « lisandre-tournee-dit »)_, sinon « flute » _(si quête « Le chant d’Anselme » terminée)_ _(sans repère « lisandre-flute-dit »)_, sinon « accueil »
+Commence par : « vote » _(si quête « L’audience » terminée)_ _(si repère « conseil-frontiere »)_ _(sans repère « lisandre-vote-dit »)_, sinon « vote-commerce » _(si quête « L’audience » terminée)_ _(si repère « conseil-commerce »)_ _(sans repère « lisandre-vote-commerce-dit »)_, sinon « vote-accord » _(si quête « L’audience » terminée)_ _(si repère « conseil-accord »)_ _(sans repère « lisandre-vote-accord-dit »)_, sinon « elvan-parti » _(si quête « Les graines qui manquent » terminée)_ _(si repère « graines-denonce »)_ _(sans repère « lisandre-elvan-parti-dit »)_, sinon « tournee » _(si quête « Les graines qui manquent » terminée)_ _(si repère « graines-silence »)_ _(sans repère « lisandre-tournee-dit »)_, sinon « flute » _(si quête « Le chant d’Anselme » terminée)_ _(sans repère « lisandre-flute-dit »)_, sinon « accueil-2 » _(si quête « undefined » undefined)_, sinon « accueil-3 » _(si quête « undefined » undefined)_, sinon « accueil »
 
 ### accueil
 
 > Bienvenue au Nid ! Ici, on dort en hamac et on mange des soupes de fleurs. Pas de feu chez nous : les braises et les branches ne font pas bon ménage. Ce sont nos cristaux qui chauffent les bols.
 
-- **[5 Fers]** « Une soupe de fleurs. » → soupe _(−5 Fers, +15 PV)_
+- « Manger ou dormir ? » → servir
 - _(sans repère « vol-grenier »)_ « Quelles nouvelles ? » → nouvelles
 - _(si repère « vol-grenier »)_ « Quelles nouvelles ? » → nouvelles-vol
 - « Au revoir. » → **fin**
@@ -2087,6 +2118,39 @@ _Effet : retient « lisandre-flute-dit »._
 > Tu as entendu, hier soir ? Une flûte, au Bosquet. C’était Aïlis Feuillevent. Toute l’auberge s’est tue pour l’écouter. Même les marchands de Ferros.
 
 - « Merci pour la nouvelle. » → accueil
+
+### servir
+
+> — Une soupe, ou un hamac ? Les hamacs du Nid bercent au vent des cimes : on n’a jamais aussi bien dormi.
+
+- **[5 Fers]** « Une soupe de fleurs. » → soupe _(−5 Fers, +15 PV)_
+- **[10 Fers]** « Un hamac jusqu’au matin. » → dodo _(−10 Fers, +undefined XP)_
+- **[10 Fers]** « Un hamac jusqu’à la nuit. » → dodo _(−10 Fers, +undefined XP)_
+- « Rien, merci. » → accueil
+
+### dodo
+
+> Le hamac se balance au vent des cimes. Tu t’endors avant d’avoir compté les feuilles.
+
+- « Se lever. » → **fin**
+
+### accueil-2
+
+> Bienvenue au Nid ! Ce matin, une nacelle a grincé si fort que tout le marché a levé la tête. Véline dit que ce n’est rien. Véline dit toujours que ce n’est rien.
+
+- « Manger ou dormir ? » → servir
+- _(sans repère « vol-grenier »)_ « Quelles nouvelles ? » → nouvelles
+- _(si repère « vol-grenier »)_ « Quelles nouvelles ? » → nouvelles-vol
+- « Au revoir. » → **fin**
+
+### accueil-3
+
+> Bienvenue au Nid ! Les cristaux de veille ont brillé toute la nuit au Bosquet : Mirelle dit que les noms gravés parlaient plus fort. Une soupe de fleurs, pour fêter ça ?
+
+- « Manger ou dormir ? » → servir
+- _(sans repère « vol-grenier »)_ « Quelles nouvelles ? » → nouvelles
+- _(si repère « vol-grenier »)_ « Quelles nouvelles ? » → nouvelles-vol
+- « Au revoir. » → **fin**
 
 ## Lyra Cœur-de-Sève
 
@@ -2916,13 +2980,13 @@ _Effet : retient « verite-rail »._
 
 _Aubergiste de la Racine_
 
-Commence par : « ilyane-chante » _(si quête « Le carnet de chansons » terminée)_ _(sans repère « sylvan-ilyane-chante-dit »)_, sinon « triumvirat » _(si quête « L’audience » terminée)_ _(sans repère « sylvan-triumvirat-dit »)_, sinon « accueil »
+Commence par : « ilyane-chante » _(si quête « Le carnet de chansons » terminée)_ _(sans repère « sylvan-ilyane-chante-dit »)_, sinon « triumvirat » _(si quête « L’audience » terminée)_ _(sans repère « sylvan-triumvirat-dit »)_, sinon « accueil-2 » _(si quête « undefined » undefined)_, sinon « accueil-3 » _(si quête « undefined » undefined)_, sinon « accueil »
 
 ### accueil
 
 > Bienvenue à la Racine ! Ici, on mange chaud et on parle fort. Assieds-toi : chez Sylvan, les Gardiens de Mémoire sont toujours bien reçus.
 
-- **[5 Fers]** « Un repas chaud. » → repas _(−5 Fers, +15 PV)_
+- « Manger ou dormir ? » → servir
 - « Quelles nouvelles ? » → rumeurs
 - « Au revoir. » → **fin**
 
@@ -2960,6 +3024,37 @@ _Effet : retient « sylvan-triumvirat-dit »._
 > Les nouvelles vont vite, par le courrier des Nacelliers : tu as parlé devant le Triumvirat Vert ! À la Racine, on boit à ta santé. Enfin, au jus de baies. Tu veux un verre ?
 
 - « Merci pour la nouvelle. » → accueil
+
+### servir
+
+> — Une soupe, ou une chambre ? La chambre du fond est calme : on n’y entend que le ruisseau.
+
+- **[5 Fers]** « Un repas chaud. » → repas _(−5 Fers, +15 PV)_
+- **[6 Fers]** « Une chambre jusqu’au matin. » → dodo _(−6 Fers, +undefined XP)_
+- **[6 Fers]** « Une chambre jusqu’à la nuit. » → dodo _(−6 Fers, +undefined XP)_
+- « Rien, merci. » → accueil
+
+### dodo
+
+> Un lit de mousse, une couverture qui sent la fumée de bois. Tu dors d’une traite.
+
+- « Se lever. » → **fin**
+
+### accueil-2
+
+> Bienvenue à la Racine ! Aujourd’hui, la caravane de midi est partie en retard : un essieu, paraît-il. Assieds-toi, la soupe, elle, est à l’heure.
+
+- « Manger ou dormir ? » → servir
+- « Quelles nouvelles ? » → rumeurs
+- « Au revoir. » → **fin**
+
+### accueil-3
+
+> Bienvenue à la Racine ! Ce matin, Tobias a vendu trois lampes à cristal avant même d’ouvrir. Il dit que les nuits rallongent. Moi, je dis qu’il parle trop.
+
+- « Manger ou dormir ? » → servir
+- « Quelles nouvelles ? » → rumeurs
+- « Au revoir. » → **fin**
 
 ## L’Ancien Thalorin
 

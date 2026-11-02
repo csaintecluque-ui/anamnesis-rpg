@@ -37,7 +37,12 @@
       "options": [
         {
           "text": "Revenir à la nuit tombée.",
-          "next": "nuit"
+          "next": "nuit",
+          "effects": [
+            {
+              "attendre": "nuit"
+            }
+          ]
         },
         {
           "text": "Passer son chemin.",

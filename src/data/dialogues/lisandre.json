@@ -90,6 +90,24 @@
       "node": "flute"
     },
     {
+      "requires": [
+        {
+          "tousLes": 3,
+          "decalage": 1
+        }
+      ],
+      "node": "accueil-2"
+    },
+    {
+      "requires": [
+        {
+          "tousLes": 3,
+          "decalage": 2
+        }
+      ],
+      "node": "accueil-3"
+    },
+    {
       "node": "accueil"
     }
   ],
@@ -98,21 +116,8 @@
       "text": "Bienvenue au Nid ! Ici, on dort en hamac et on mange des soupes de fleurs. Pas de feu chez nous : les braises et les branches ne font pas bon ménage. Ce sont nos cristaux qui chauffent les bols.",
       "options": [
         {
-          "text": "Une soupe de fleurs.",
-          "requires": [
-            {
-              "fers": 5
-            }
-          ],
-          "next": "soupe",
-          "effects": [
-            {
-              "giveFers": -5
-            },
-            {
-              "heal": 15
-            }
-          ]
+          "text": "Manger ou dormir ?",
+          "next": "servir"
         },
         {
           "text": "Quelles nouvelles ?",
@@ -291,6 +296,137 @@
         {
           "text": "Merci pour la nouvelle.",
           "next": "accueil"
+        }
+      ]
+    },
+    "servir": {
+      "text": "— Une soupe, ou un hamac ? Les hamacs du Nid bercent au vent des cimes : on n’a jamais aussi bien dormi.",
+      "options": [
+        {
+          "text": "Une soupe de fleurs.",
+          "requires": [
+            {
+              "fers": 5
+            }
+          ],
+          "effects": [
+            {
+              "giveFers": -5
+            },
+            {
+              "heal": 15
+            }
+          ],
+          "next": "soupe"
+        },
+        {
+          "text": "Un hamac jusqu’au matin.",
+          "requires": [
+            {
+              "fers": 10
+            }
+          ],
+          "effects": [
+            {
+              "giveFers": -10
+            },
+            {
+              "dormir": "matin"
+            }
+          ],
+          "next": "dodo"
+        },
+        {
+          "text": "Un hamac jusqu’à la nuit.",
+          "requires": [
+            {
+              "fers": 10
+            }
+          ],
+          "effects": [
+            {
+              "giveFers": -10
+            },
+            {
+              "dormir": "nuit"
+            }
+          ],
+          "next": "dodo"
+        },
+        {
+          "text": "Rien, merci.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "dodo": {
+      "text": "Le hamac se balance au vent des cimes. Tu t’endors avant d’avoir compté les feuilles.",
+      "options": [
+        {
+          "text": "Se lever.",
+          "next": "fin"
+        }
+      ]
+    },
+    "accueil-2": {
+      "text": "Bienvenue au Nid ! Ce matin, une nacelle a grincé si fort que tout le marché a levé la tête. Véline dit que ce n’est rien. Véline dit toujours que ce n’est rien.",
+      "options": [
+        {
+          "text": "Manger ou dormir ?",
+          "next": "servir"
+        },
+        {
+          "text": "Quelles nouvelles ?",
+          "requires": [
+            {
+              "notFlag": "vol-grenier"
+            }
+          ],
+          "next": "nouvelles"
+        },
+        {
+          "text": "Quelles nouvelles ?",
+          "requires": [
+            {
+              "flag": "vol-grenier"
+            }
+          ],
+          "next": "nouvelles-vol"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "accueil-3": {
+      "text": "Bienvenue au Nid ! Les cristaux de veille ont brillé toute la nuit au Bosquet : Mirelle dit que les noms gravés parlaient plus fort. Une soupe de fleurs, pour fêter ça ?",
+      "options": [
+        {
+          "text": "Manger ou dormir ?",
+          "next": "servir"
+        },
+        {
+          "text": "Quelles nouvelles ?",
+          "requires": [
+            {
+              "notFlag": "vol-grenier"
+            }
+          ],
+          "next": "nouvelles"
+        },
+        {
+          "text": "Quelles nouvelles ?",
+          "requires": [
+            {
+              "flag": "vol-grenier"
+            }
+          ],
+          "next": "nouvelles-vol"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
         }
       ]
     }

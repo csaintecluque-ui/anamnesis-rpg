@@ -27,6 +27,7 @@ import type { CombatStartData } from './CombatScene';
 import { FigurantLayer } from './Figurants';
 import type { HudScene } from './HudScene';
 import type { WorldMapStartData } from './WorldMapScene';
+import { momentOf, type Moment } from '../rules/time';
 
 /** Delay before the enemies of a random encounter attack, so the arrival is seen first. */
 const AMBUSH_DELAY_MS = 900;
@@ -46,7 +47,17 @@ const WALK_FPS = 14;
 const ARENA_COLS = 11;
 const ARENA_ROWS = 9;
 
+/** Above the map and its people, under their names (depth 100000). */
+const MOMENT_VEIL_DEPTH = 99990;
+const MOMENT_VEILS: Record<Moment, { color: number; alpha: number }> = {
+  matin: { color: 0x000000, alpha: 0 },
+  midi: { color: 0x000000, alpha: 0 },
+  soir: { color: 0x5a2a08, alpha: 0.2 },
+  nuit: { color: 0x0a1030, alpha: 0.5 },
+};
+
 export class MapScene extends Phaser.Scene {
+  private momentVeil!: Phaser.GameObjects.Rectangle;
   private state!: GameState;
   private map!: GameMap;
   private originX = 0;
@@ -130,6 +141,11 @@ export class MapScene extends Phaser.Scene {
       .setZoom(MAP_ZOOM * RENDER_SCALE)
       .setBackgroundColor(COLORS.ink);
     this.cameras.main.startFollow(this.hero, true, 0.15, 0.15);
+    // The moment of the day (docs/gdd/temps.md): a veil over the map, under the names of the people.
+    this.momentVeil = this.add
+      .rectangle(worldWidth / 2, worldHeight / 2, boundsWidth * 3, boundsHeight * 3, 0x000000, 0)
+      .setDepth(MOMENT_VEIL_DEPTH);
+    this.showMoment();
     this.cameras.main.centerOn(start.x, start.y);
 
     this.input.on('pointerup', (pointer: Phaser.Input.Pointer) => this.onTap(pointer));
@@ -142,7 +158,10 @@ export class MapScene extends Phaser.Scene {
     if (rencontre) this.announceEncounter(rencontre);
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => this.scene.stop('Hud'));
     // A dialogue or a fight may have picked a herb or sent enemies away. Scene events outlive a restart: unhook.
-    const onResume = () => this.refreshGone();
+    const onResume = () => {
+      this.refreshGone();
+      this.showMoment();
+    };
     this.events.on(Phaser.Scenes.Events.RESUME, onResume);
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => this.events.off(Phaser.Scenes.Events.RESUME, onResume));
   }
@@ -218,6 +237,12 @@ export class MapScene extends Phaser.Scene {
   private gone(o: MapObject): boolean {
     const any = (list?: string) => (list ?? '').split(',').some((flag) => flag.trim() && this.state.flags[flag.trim()]);
     return any(o.properties.disparaitSi) || (!!o.properties.apparaitSi && !any(o.properties.apparaitSi));
+  }
+
+  /** Evening light and night darkness over the map; nothing in the morning and at noon. */
+  private showMoment(): void {
+    const veil = MOMENT_VEILS[momentOf(this.state.time)];
+    this.momentVeil.setFillStyle(veil.color, veil.alpha);
   }
 
   private refreshGone(): void {

@@ -8,6 +8,7 @@ import type { MapScene } from './MapScene';
 import { DIGIT_KEYS, onKeys } from '../ui/keys';
 import { COLORS, CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
 import { HAS_MOUSE } from '../ui/viewport';
+import { saveStore } from '../save/browser';
 
 const MARGIN = 60;
 /** Side of the speaker's portrait, at the top left of the panel; name and text move right of it. */
@@ -176,6 +177,11 @@ export class DialogueScene extends Phaser.Scene {
         }
       }
       this.notices.push(...applyEffects(this.state, view.option.effects));
+      // Sleeping at an inn saves the game (docs/gdd/temps.md).
+      if (view.option.effects?.some((e) => 'dormir' in e)) {
+        const saved = saveStore.write('auto', this.state);
+        if (!saved.ok) console.warn('Sauvegarde auto impossible :', saved.error);
+      }
       if (opensTrade(view.option.effects)) {
         this.scene.stop();
         this.scene.launch('Trade', { npcId: this.dialogue.speaker });

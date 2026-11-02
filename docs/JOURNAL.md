@@ -19,8 +19,8 @@
 
 ## Prochaine étape
 
-1. En ligne (2026-11-02) : conformité, laissez-passer, Récits principaux, mode développeur. À valider par Cyril :
-   la conception de la magie et du temps (auberges), avant de construire.
+1. En ligne (2026-11-02) : conformité, laissez-passer, Récits principaux, mode développeur. Sur la branche : le
+   temps et les auberges (`docs/gdd/temps.md`), mise en ligne à valider. Ensuite : la magie (validée).
 2. Codex : Sept-Portes (`AGENTS.md`). Notion : page « Anamnesis — le jeu », à tenir à jour à chaque mise en ligne.
 
 ## Points ouverts

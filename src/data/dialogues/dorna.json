@@ -3,6 +3,24 @@
   "speaker": "dorna",
   "entries": [
     {
+      "requires": [
+        {
+          "tousLes": 3,
+          "decalage": 1
+        }
+      ],
+      "node": "accueil-2"
+    },
+    {
+      "requires": [
+        {
+          "tousLes": 3,
+          "decalage": 2
+        }
+      ],
+      "node": "accueil-3"
+    },
+    {
       "node": "accueil"
     }
   ],
@@ -11,21 +29,8 @@
       "text": "— Pension de la Bielle ! Lit de camp et soupe épaisse, comme à l’usine. Nom d’une gueuse, tu as l’air d’avoir marché des jours !",
       "options": [
         {
-          "text": "Une soupe et un lit.",
-          "requires": [
-            {
-              "fers": 8
-            }
-          ],
-          "next": "repas",
-          "effects": [
-            {
-              "giveFers": -8
-            },
-            {
-              "heal": 100
-            }
-          ]
+          "text": "Manger ou dormir ?",
+          "next": "servir"
         },
         {
           "text": "Quelles nouvelles ?",
@@ -34,15 +39,6 @@
         {
           "text": "Au revoir.",
           "next": "fin"
-        }
-      ]
-    },
-    "repas": {
-      "text": "Une soupe de grain, du pain noir, et un lit de camp qui grince. Au réveil, tes forces sont revenues.",
-      "options": [
-        {
-          "text": "Merci, Dorna.",
-          "next": "accueil"
         }
       ]
     },
@@ -71,6 +67,118 @@
         {
           "text": "Merci, Dorna.",
           "next": "accueil"
+        }
+      ]
+    },
+    "soupe": {
+      "text": "Une soupe épaisse, du pain noir : de quoi tenir jusqu’au soir.",
+      "options": [
+        {
+          "text": "Merci.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "servir": {
+      "text": "— Une soupe épaisse, ou un lit de camp ? Les lits grincent, mais ils tiennent. Comme les gens d’ici.",
+      "options": [
+        {
+          "text": "Une soupe épaisse.",
+          "requires": [
+            {
+              "fers": 5
+            }
+          ],
+          "effects": [
+            {
+              "giveFers": -5
+            },
+            {
+              "heal": 15
+            }
+          ],
+          "next": "soupe"
+        },
+        {
+          "text": "Un lit jusqu’au matin.",
+          "requires": [
+            {
+              "fers": 8
+            }
+          ],
+          "effects": [
+            {
+              "giveFers": -8
+            },
+            {
+              "dormir": "matin"
+            }
+          ],
+          "next": "dodo"
+        },
+        {
+          "text": "Un lit jusqu’à la nuit.",
+          "requires": [
+            {
+              "fers": 8
+            }
+          ],
+          "effects": [
+            {
+              "giveFers": -8
+            },
+            {
+              "dormir": "nuit"
+            }
+          ],
+          "next": "dodo"
+        },
+        {
+          "text": "Rien, merci.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "dodo": {
+      "text": "Une soupe de grain, du pain noir, et un lit de camp qui grince. Au réveil, tes forces sont revenues.",
+      "options": [
+        {
+          "text": "Se lever.",
+          "next": "fin"
+        }
+      ]
+    },
+    "accueil-2": {
+      "text": "— Pension de la Bielle ! Ce matin, le registre du Puits Trois a encore changé : deux transferts de plus vers les Manufactures. Assieds-toi, un registre, ça ne se mange pas.",
+      "options": [
+        {
+          "text": "Manger ou dormir ?",
+          "next": "servir"
+        },
+        {
+          "text": "Quelles nouvelles ?",
+          "next": "nouvelles"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "accueil-3": {
+      "text": "— Pension de la Bielle ! Les Litanies ont commencé avant l’aube, aujourd’hui : un contremaître pressé. Nom d’une gueuse, on n’entend plus ses propres pensées.",
+      "options": [
+        {
+          "text": "Manger ou dormir ?",
+          "next": "servir"
+        },
+        {
+          "text": "Quelles nouvelles ?",
+          "next": "nouvelles"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
         }
       ]
     }

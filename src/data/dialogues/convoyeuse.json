@@ -108,6 +108,12 @@
           "next": "fin",
           "effects": [
             {
+              "attendre": "midi"
+            },
+            {
+              "attendre": "soir"
+            },
+            {
               "goTo": "canopee-nacelle",
               "arrivee": "entree"
             }
@@ -122,6 +128,12 @@
           "text": "Descendre du chariot.",
           "next": "fin",
           "effects": [
+            {
+              "attendre": "midi"
+            },
+            {
+              "attendre": "soir"
+            },
             {
               "goTo": "ironheart-forges",
               "arrivee": "entree"

@@ -81,7 +81,12 @@
               "notFlag": "pilleurs-suivis"
             }
           ],
-          "next": "veille"
+          "next": "veille",
+          "effects": [
+            {
+              "attendre": "nuit"
+            }
+          ]
         },
         {
           "text": "Laisser le levier.",

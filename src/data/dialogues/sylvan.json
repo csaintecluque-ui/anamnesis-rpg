@@ -27,6 +27,24 @@
       "node": "triumvirat"
     },
     {
+      "requires": [
+        {
+          "tousLes": 3,
+          "decalage": 1
+        }
+      ],
+      "node": "accueil-2"
+    },
+    {
+      "requires": [
+        {
+          "tousLes": 3,
+          "decalage": 2
+        }
+      ],
+      "node": "accueil-3"
+    },
+    {
       "node": "accueil"
     }
   ],
@@ -35,21 +53,8 @@
       "text": "Bienvenue à la Racine ! Ici, on mange chaud et on parle fort. Assieds-toi : chez Sylvan, les Gardiens de Mémoire sont toujours bien reçus.",
       "options": [
         {
-          "text": "Un repas chaud.",
-          "requires": [
-            {
-              "fers": 5
-            }
-          ],
-          "next": "repas",
-          "effects": [
-            {
-              "giveFers": -5
-            },
-            {
-              "heal": 15
-            }
-          ]
+          "text": "Manger ou dormir ?",
+          "next": "servir"
         },
         {
           "text": "Quelles nouvelles ?",
@@ -117,6 +122,109 @@
         {
           "text": "Merci pour la nouvelle.",
           "next": "accueil"
+        }
+      ]
+    },
+    "servir": {
+      "text": "— Une soupe, ou une chambre ? La chambre du fond est calme : on n’y entend que le ruisseau.",
+      "options": [
+        {
+          "text": "Un repas chaud.",
+          "requires": [
+            {
+              "fers": 5
+            }
+          ],
+          "effects": [
+            {
+              "giveFers": -5
+            },
+            {
+              "heal": 15
+            }
+          ],
+          "next": "repas"
+        },
+        {
+          "text": "Une chambre jusqu’au matin.",
+          "requires": [
+            {
+              "fers": 6
+            }
+          ],
+          "effects": [
+            {
+              "giveFers": -6
+            },
+            {
+              "dormir": "matin"
+            }
+          ],
+          "next": "dodo"
+        },
+        {
+          "text": "Une chambre jusqu’à la nuit.",
+          "requires": [
+            {
+              "fers": 6
+            }
+          ],
+          "effects": [
+            {
+              "giveFers": -6
+            },
+            {
+              "dormir": "nuit"
+            }
+          ],
+          "next": "dodo"
+        },
+        {
+          "text": "Rien, merci.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "dodo": {
+      "text": "Un lit de mousse, une couverture qui sent la fumée de bois. Tu dors d’une traite.",
+      "options": [
+        {
+          "text": "Se lever.",
+          "next": "fin"
+        }
+      ]
+    },
+    "accueil-2": {
+      "text": "Bienvenue à la Racine ! Aujourd’hui, la caravane de midi est partie en retard : un essieu, paraît-il. Assieds-toi, la soupe, elle, est à l’heure.",
+      "options": [
+        {
+          "text": "Manger ou dormir ?",
+          "next": "servir"
+        },
+        {
+          "text": "Quelles nouvelles ?",
+          "next": "rumeurs"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "accueil-3": {
+      "text": "Bienvenue à la Racine ! Ce matin, Tobias a vendu trois lampes à cristal avant même d’ouvrir. Il dit que les nuits rallongent. Moi, je dis qu’il parle trop.",
+      "options": [
+        {
+          "text": "Manger ou dormir ?",
+          "next": "servir"
+        },
+        {
+          "text": "Quelles nouvelles ?",
+          "next": "rumeurs"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
         }
       ]
     }

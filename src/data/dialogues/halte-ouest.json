@@ -96,12 +96,15 @@
       ]
     },
     "train-ironheart": {
-      "text": "La Grande Nacelle te descend à la halte. Le train file sous la canopée, voitures à toit de verre ; puis la forêt s’arrête net, et commence la cendre. Au matin, la gare de l’Ouest d’Ironheart.",
+      "text": "La Grande Nacelle te descend à la halte. Le train file sous la canopée, voitures à toit de verre ; puis la forêt s’arrête net, et commence la cendre. Une demi-journée plus tard, la gare de l’Ouest d’Ironheart.",
       "options": [
         {
           "text": "Descendre sur le quai.",
           "next": "fin",
           "effects": [
+            {
+              "avancer": 2
+            },
             {
               "goTo": "ironheart-forges",
               "arrivee": "entree"

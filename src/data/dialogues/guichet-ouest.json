@@ -90,6 +90,9 @@
           "next": "fin",
           "effects": [
             {
+              "avancer": 2
+            },
+            {
               "goTo": "canopee-nacelle",
               "arrivee": "entree"
             }

@@ -141,6 +141,12 @@
           "next": "fin",
           "effects": [
             {
+              "attendre": "midi"
+            },
+            {
+              "attendre": "soir"
+            },
+            {
               "goTo": "gardebois",
               "arrivee": "entree"
             }

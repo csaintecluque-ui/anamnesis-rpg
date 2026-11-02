@@ -1,8 +1,9 @@
 import { characterError, DEFAULT_AVATAR, STARTING_FERS, STARTING_WEAPON } from '../rules/character';
 import { findPlace, findRencontre } from '../rules/world';
 import { findLocation, type GameState } from '../state/gameState';
+import { START_TIME, isGameTime } from '../rules/time';
 
-export const SAVE_VERSION = 9;
+export const SAVE_VERSION = 10;
 export const SAVE_MAX_CHARS = 1_000_000;
 const GAME_MARKER = 'anamnesis';
 
@@ -75,6 +76,8 @@ const MIGRATIONS: Record<number, (save: Record<string, unknown>) => Record<strin
   },
   // v8 predates the world map and its random encounters (docs/gdd/carte-du-monde.md): none under way.
   8: (save) => ({ ...save, state: isRecord(save.state) ? { ...save.state, encounter: null } : save.state }),
+  // v9 predates the time of day (docs/gdd/temps.md): the first morning.
+  9: (save) => ({ ...save, state: isRecord(save.state) ? { ...save.state, time: { ...START_TIME } } : save.state }),
 };
 
 export function createSave(state: GameState, now: Date): SaveFile {
@@ -128,6 +131,7 @@ function validateState(state: unknown): string | null {
     return 'quêtes invalides.';
   }
   if (state.encounter !== null && !isEncounter(state.encounter)) return 'rencontre invalide.';
+  if (!isGameTime(state.time)) return 'heure du jour invalide.';
   if (state.character !== null) return characterError(state.character);
   return null;
 }

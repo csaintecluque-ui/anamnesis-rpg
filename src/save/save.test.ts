@@ -55,6 +55,7 @@ const state: GameState = {
   flags: { 'laissez-passer': true },
   quests: { 'dernier-train': 'active' },
   encounter: null,
+  time: { day: 3, phase: 2 },
 };
 
 describe('save codec', () => {
@@ -118,6 +119,7 @@ describe('save codec', () => {
         flags: {},
         quests: {},
         encounter: null,
+        time: { day: 1, phase: 0 },
       });
     }
   });

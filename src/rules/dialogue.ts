@@ -7,6 +7,10 @@ import { ENCOUNTERS } from './combat';
 import { addItem, findItem, ownedCount, removeItem } from './inventory';
 import { RECITS, findRecit, knowsRecit, learnRecit } from './recits';
 import { REPUTATION, reputationNotices, reputationScore, reputationTag } from './reputation';
+import { MOMENTS, advance, formatDate, isNight, momentOf, sleepUntil, waitUntil, type Moment } from './time';
+
+/** « C'est la nuit. », « C'est midi. » */
+const ITS_MOMENT: Record<(typeof MOMENTS)[number], string> = { matin: 'C’est le matin.', midi: 'C’est midi.', soir: 'C’est le soir.', nuit: 'C’est la nuit.' };
 
 /** Attribute and skill tests stay visible (greyed) when unmet; story conditions hide the option. */
 export type Condition =
@@ -21,7 +25,11 @@ export type Condition =
   /** Enough Fers to pay (a meal at the inn): a test, shown greyed when unmet. */
   | { fers: number }
   /** The town's opinion of the hero (docs/gdd/reputation.md): a test, shown greyed when unmet. */
-  | { reputation: string; min: number };
+  | { reputation: string; min: number }
+  /** The moment of the day (docs/gdd/temps.md): « jour » is any moment but « nuit ». A story condition. */
+  | { moment: Moment | 'jour' }
+  /** One day in `tousLes`, from the `decalage`-th (the news of the day at the inns). A story condition. */
+  | { tousLes: number; decalage: number };
 
 export type Effect =
   | { setFlag: string }
@@ -41,7 +49,13 @@ export type Effect =
   /** No state change: tells DialogueScene to close and the map to start this fight (src/data/encounters.json). */
   | { startCombat: string }
   /** No state change: tells DialogueScene to close and the map to go to this place (e.g. through a door just unlocked). */
-  | { goTo: string; arrivee?: string };
+  | { goTo: string; arrivee?: string }
+  /** Waits until a moment of the day (nothing if it is already that moment) — « Attendre la nuit ». */
+  | { attendre: Moment }
+  /** Moves the clock forward by this many moments (a train, a caravan). */
+  | { avancer: number }
+  /** Sleeps until a moment (at least until the next of its kind): all PV back, and the game saves (DialogueScene). */
+  | { dormir: Moment };
 
 /** An action rolled with the d20 (docs/gdd/competences.md): the chance is shown, then `next` or `failNext` follows. */
 export interface Roll {
@@ -106,6 +120,8 @@ export function conditionMet(state: GameState, c: Condition): boolean {
   if ('fers' in c) return (state.character?.fers ?? 0) >= c.fers;
   if ('reputation' in c) return reputationScore(state, c.reputation) >= c.min;
   if ('item' in c) return !!state.character && ownedCount(state.character, c.item) >= (c.count ?? 1);
+  if ('moment' in c) return c.moment === 'jour' ? !isNight(state.time) : momentOf(state.time) === c.moment;
+  if ('tousLes' in c) return (state.time.day - 1) % c.tousLes === c.decalage;
   return (state.quests[c.quest] ?? 'none') === c.status;
 }
 
@@ -237,6 +253,14 @@ export function applyEffects(state: GameState, effects: Effect[] = []): string[]
           notices.push(`−${count} ${findItem(effect.takeItem)?.name ?? effect.takeItem}`);
         }
       }
+    } else if ('attendre' in effect) {
+      if (waitUntil(state.time, effect.attendre) > 0) notices.push(ITS_MOMENT[momentOf(state.time)]);
+    } else if ('avancer' in effect) {
+      advance(state.time, effect.avancer);
+    } else if ('dormir' in effect) {
+      sleepUntil(state.time, effect.dormir);
+      if (state.character) state.character.hp = characterStats(state.character).maxHp;
+      notices.push(`Tes forces sont revenues. ${ITS_MOMENT[momentOf(state.time)]} Nous sommes ${formatDate(state.time)}.`);
     } else if ('heal' in effect) {
       if (state.character) {
         const max = characterStats(state.character).maxHp;

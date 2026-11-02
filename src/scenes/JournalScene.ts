@@ -6,6 +6,9 @@ import { addTextButton } from '../ui/button';
 import { onKeys, withKeyHint } from '../ui/keys';
 import { COLORS, CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
 import { HAS_MOUSE } from '../ui/viewport';
+import { formatDate, momentOf } from '../rules/time';
+
+const MOMENT_WORDS = { matin: 'au matin', midi: 'à midi', soir: 'au soir', nuit: 'la nuit' } as const;
 
 type Tab = 'quetes' | 'recits' | 'reputation';
 const TABS: [Tab, string][] = [
@@ -42,6 +45,11 @@ export class JournalScene extends Phaser.Scene {
     this.page = 0;
     this.add.rectangle(0, 0, GAME_WIDTH, GAME_HEIGHT, COLORS.ink, 1).setOrigin(0, 0).setInteractive();
     this.add.text(GAME_WIDTH / 2, 48, 'Journal', { fontFamily: FONT_SERIF, fontSize: '36px', color: CSS.copper }).setOrigin(0.5);
+    // The date of the canon's calendar (docs/gdd/temps.md): « Jour 3, au soir — le 3 du huitième mois de l'an 3000 ».
+    const t = this.state.time;
+    this.add
+      .text(40, GAME_HEIGHT - 20 - LAYOUT.closeHeight / 2, `Jour ${t.day}, ${MOMENT_WORDS[momentOf(t)]} — ${formatDate(t)}`, { fontFamily: FONT_SERIF, fontSize: '20px', color: CSS.muted })
+      .setOrigin(0, 0.5);
     const L = LAYOUT;
     addTextButton(this, GAME_WIDTH - 40 - L.closeWidth / 2, GAME_HEIGHT - 20 - L.closeHeight / 2, withKeyHint('Fermer', 'Échap'), () => this.close(), {
       width: L.closeWidth,

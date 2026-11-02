@@ -4,6 +4,7 @@ import { QUESTS } from '../rules/dialogue';
 import { ITEMS, addItem, ownedCount, removeItem } from '../rules/inventory';
 import { RECITS } from '../rules/recits';
 import { allFlags, cycleQuest, makeOverpowered, restoreFullHp, toggleFlag, type QuestState } from '../rules/testTools';
+import { advance, formatDate, shortTime, waitUntil } from '../rules/time';
 import { placeOfLocation } from '../rules/world';
 import { LOCATIONS, type GameState } from '../state/gameState';
 
@@ -90,6 +91,13 @@ export function openDevPanel(state: GameState, onClose: (result: DevPanelResult)
       el('p', `${c.name} · niveau ${c.level} · PV ${c.hp} / ${characterStats(c).maxHp} · ${c.fers} Fers`, 'note'),
       row('Perso surpuissant (tout au maximum)', [button('Appliquer', () => (makeOverpowered(c), render()))]),
       row('Points de vie', [button('PV au max', () => (restoreFullHp(c), render()))]),
+      el('p', `Temps : ${shortTime(state.time)} — ${formatDate(state.time)}`, 'note'),
+      row('Temps', [
+        button('+1 moment', () => (advance(state.time, 1), render()), 'small'),
+        button('Matin', () => (waitUntil(state.time, 'matin'), render()), 'small'),
+        button('Nuit', () => (waitUntil(state.time, 'nuit'), render()), 'small'),
+        button('+1 jour', () => (advance(state.time, 4), render()), 'small'),
+      ]),
       row('Fers', [
         button('+100', () => ((c.fers += 100), render()), 'small'),
         button('+1000', () => ((c.fers += 1000), render()), 'small'),

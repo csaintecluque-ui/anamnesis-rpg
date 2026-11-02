@@ -1,5 +1,6 @@
 import locationData from '../data/locations.json';
 import type { Character } from '../rules/character';
+import { START_TIME, type GameTime } from '../rules/time';
 
 export interface LocationDef {
   id: string;
@@ -29,6 +30,8 @@ export interface GameState {
   quests: Record<string, QuestStatus>;
   /** The random encounter under way (src/rules/world.ts), null the rest of the time. */
   encounter: { id: string; x: number; y: number; destination: string | null } | null;
+  /** The day and the moment of the day (src/rules/time.ts, docs/gdd/temps.md). */
+  time: GameTime;
 }
 
 export type QuestStatus = 'active' | 'done';
@@ -44,6 +47,7 @@ export function createNewGame(character: Character | null = null): GameState {
     flags: {},
     quests: {},
     encounter: null,
+    time: { ...START_TIME },
   };
 }
 

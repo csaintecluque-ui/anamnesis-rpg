@@ -823,3 +823,10 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   laissez-passer de Tobias ouvre le chantier de jour (sinon la nuit ou le Golem) ; les Récits de l'histoire
   principale ne s'oublient plus. Mode développeur construit (panneau HTML depuis le menu pause, mode test). Canon de
   la magie et du temps relu (agent) : proposition envoyée à Cyril avant de construire.
+
+## 2026-11-02 (suite) : le temps et les auberges
+
+- Cyril : « Oui pour tout, on part sur le temps et les auberges ». Construit : l'heure du jour (calendrier du canon,
+  départ le 1er du huitième mois de l'an 3000), quatre moments, la nuit sur la carte, le temps qui passe en route, en
+  train, en caravane, en attendant la nuit et en dormant ; trois auberges (manger ou dormir, sauvegarde en dormant,
+  nouvelles du jour) ; la date au journal ; le temps dans le mode développeur ; sauvegarde v10. Vérifié sur téléphone.

@@ -19,6 +19,7 @@ import { findLocation, type GameState } from '../state/gameState';
 import { addTextButton } from '../ui/button';
 import { COLORS, CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
 import { HAS_MOUSE } from '../ui/viewport';
+import { MOMENTS, advance, shortTime } from '../rules/time';
 
 /** Where the hero stands when the world map opens: a place they leave, or the spot of an encounter. */
 export interface WorldMapStartData {
@@ -59,7 +60,8 @@ export class WorldMapScene extends Phaser.Scene {
   private trail!: Phaser.GameObjects.Graphics;
   private panel: Phaser.GameObjects.GameObject[] = [];
   private status!: Phaser.GameObjects.Text;
-  private trip: { place: WorldPlace; from: { x: number; y: number }; travelled: number } | null = null;
+  /** `moments`: the moments of the day already counted for this stretch of road (src/rules/time.ts). */
+  private trip: { place: WorldPlace; from: { x: number; y: number }; travelled: number; moments: number } | null = null;
   private rng: () => number = Math.random;
 
   constructor() {
@@ -103,8 +105,13 @@ export class WorldMapScene extends Phaser.Scene {
     this.trip.travelled += move;
     this.placeHero();
     this.drawTrail();
-    const day = Math.max(1, Math.ceil(this.trip.travelled / WORLD.travel.pixelsPerDay));
-    this.status.setText(`En route vers ${place.name} · jour ${day}`);
+    // A quarter of a day's walk is one moment of the day (docs/gdd/temps.md).
+    const moments = Math.floor(this.trip.travelled / (WORLD.travel.pixelsPerDay / MOMENTS.length));
+    if (moments > this.trip.moments) {
+      advance(this.state.time, moments - this.trip.moments);
+      this.trip.moments = moments;
+    }
+    this.status.setText(`En route vers ${place.name} · ${shortTime(this.state.time)}`);
 
     for (let i = encounterChecks(before, this.trip.travelled); i > 0; i--) {
       const zone = zoneAt(this.pos.x, this.pos.y);
@@ -303,12 +310,14 @@ export class WorldMapScene extends Phaser.Scene {
 
   private depart(place: WorldPlace): void {
     this.clearPanel();
-    this.trip = { place, from: { ...this.pos }, travelled: 0 };
+    this.trip = { place, from: { ...this.pos }, travelled: 0, moments: 0 };
   }
 
   // --- Arrivals and encounters ---------------------------------------------------------------------
 
   private arrive(place: WorldPlace): void {
+    // Even a short walk takes a moment of the day.
+    if (this.trip && this.trip.moments === 0) advance(this.state.time, 1);
     this.trip = null;
     this.state.encounter = null;
     this.state.location = place.location;

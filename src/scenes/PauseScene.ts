@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import { addTestFers, restoreFullHp, TEST_FERS } from '../rules/testTools';
+import { openDevPanel } from '../ui/devPanel';
 import { saveStore } from '../save/browser';
 import { getSettings } from '../settings';
 import type { GameState } from '../state/gameState';
@@ -11,7 +12,7 @@ import { HAS_MOUSE } from '../ui/viewport';
 /** Finger-sized on touch screens, compact with a mouse (docs/gdd/interface.md). */
 const LAYOUT = HAS_MOUSE
   ? { panel: 440, titleY: -170, titleSize: 30, firstY: -100, step: 62, buttonWidth: 300, buttonHeight: 52, buttonFont: 22 }
-  : { panel: 620, titleY: -260, titleSize: 36, firstY: -180, step: 96, buttonWidth: 380, buttonHeight: 80, buttonFont: 26 };
+  : { panel: 600, titleY: -250, titleSize: 36, firstY: -170, step: 88, buttonWidth: 380, buttonHeight: 76, buttonFont: 26 };
 
 /** Opened from the HUD's Menu button; the map stays frozen underneath until « Reprendre ». */
 export class PauseScene extends Phaser.Scene {
@@ -59,21 +60,39 @@ export class PauseScene extends Phaser.Scene {
   private addTestTools(y: number): void {
     const L = LAYOUT;
     const state = this.registry.get('game') as GameState;
-    const width = (L.buttonWidth - 12) / 2;
+    // Three tools on one row, across the panel.
+    const width = (L.panel - 60) / 3;
     const note = this.add
       .text(GAME_WIDTH / 2, y - L.buttonHeight / 2 - 14, 'Mode test', { fontFamily: FONT_SERIF, fontSize: '16px', color: CSS.copper })
       .setOrigin(0.5);
-    const button = { width, height: L.buttonHeight, fontSize: L.buttonFont - 2 };
-    addTextButton(this, GAME_WIDTH / 2 - width / 2 - 6, y, `+${TEST_FERS} Fers`, () => {
+    const button = { width, height: L.buttonHeight, fontSize: L.buttonFont - (HAS_MOUSE ? 4 : 2) };
+    addTextButton(this, GAME_WIDTH / 2 - width - 10, y, `+${TEST_FERS} Fers`, () => {
       if (!state.character) return;
       addTestFers(state.character);
       note.setText(`Mode test : ${state.character.fers} Fers`);
     }, button);
-    addTextButton(this, GAME_WIDTH / 2 + width / 2 + 6, y, 'PV au max', () => {
+    addTextButton(this, GAME_WIDTH / 2, y, 'PV au max', () => {
       if (!state.character) return;
       const restored = restoreFullHp(state.character);
       note.setText(`Mode test : +${restored} PV`);
     }, button);
+    // « Mode développeur » : the HTML panel; the map is rebuilt with the new state when it closes.
+    addTextButton(this, GAME_WIDTH / 2 + width + 10, y, 'Outils de dev', () => this.openDevTools(state), button);
+  }
+
+  private openDevTools(state: GameState): void {
+    const game = this.game;
+    this.scene.stop();
+    openDevPanel(state, (result) => {
+      if (result.goTo) {
+        state.location = result.goTo.location;
+        state.entrance = result.goTo.entrance;
+      } else {
+        state.entrance = null; // back where the hero stood
+      }
+      game.scene.stop('Map');
+      game.scene.start('Map');
+    });
   }
 
   /** The journal resumes the map when it closes, so the pause menu goes first. */

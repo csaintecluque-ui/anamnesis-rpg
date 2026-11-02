@@ -69,6 +69,14 @@ Pour essayer le jeu sans tout rejouer (demande de Cyril, 2026-11-01).
 - **Outils** : dans le menu pause, sous les boutons habituels, **+50 Fers** et **PV au max** (`src/rules/testTools.ts`).
 - Le réglage est propre à l'appareil (`settings.testMode`, comme les options), pas à la sauvegarde. Il n'apparaît
   dans aucun menu : un joueur ne le trouve pas par hasard.
+- **Mode développeur** (demande de Cyril, 2026-11-02) : en mode test, le bouton **Outils de dev** du menu pause ouvre
+  un panneau (HTML, au doigt, `src/ui/devPanel.ts`) :
+  - **Personnage** : « Perso surpuissant » (attributs à 6, compétences à 10, niveau 10, PV au max, 9999 Fers, marteau,
+    arbalète et cuirasse portés, tous les Récits : tous les tests des dialogues passent, les jets ne ratent que sur un
+    1) ; chaque attribut et compétence réglable ; Fers ; PV ;
+  - **Lieux** : aller tout de suite à n'importe quel lieu ; **Quêtes** : pas commencée → en cours → terminée ;
+  - **Repères** : chercher et cocher n'importe quel repère d'histoire ; **Objets** et **Récits** : donner, retirer.
+  - En fermant, la carte se reconstruit avec le nouvel état. Tout reste sauvegardable.
 
 ## Journal (2026-11-02)
 

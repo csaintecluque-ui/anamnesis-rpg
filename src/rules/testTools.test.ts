@@ -29,3 +29,36 @@ describe('mode test', () => {
     expect(restoreFullHp(c)).toBe(0);
   });
 });
+
+describe('mode développeur', () => {
+  it('makes an overpowered character that passes every test and can still be saved', async () => {
+    const { makeOverpowered, OVERPOWERED_LEVEL } = await import('./testTools');
+    const { characterError } = await import('./character');
+    const { RECITS } = await import('./recits');
+    const { hasPendingLevelUp } = await import('./leveling');
+    const c = hero();
+    makeOverpowered(c);
+    expect(Object.values(c.attributes).every((v) => v === 6)).toBe(true);
+    expect(Object.values(c.skills).every((v) => v === 10)).toBe(true);
+    expect(c.level).toBe(OVERPOWERED_LEVEL);
+    expect(hasPendingLevelUp(c)).toBe(false);
+    expect(c.hp).toBe(characterStats(c).maxHp);
+    expect(c.equipment.armure).toBe('cuirasse-rivetee');
+    expect(c.recits.length).toBe(RECITS.length);
+    expect(characterError(JSON.parse(JSON.stringify(c)))).toBeNull();
+  });
+
+  it('cycles quests, toggles flags, and lists every flag the game uses', async () => {
+    const { allFlags, cycleQuest, toggleFlag } = await import('./testTools');
+    const { createNewGame } = await import('../state/gameState');
+    const state = createNewGame(hero());
+    expect(cycleQuest(state, 'audience')).toBe('active');
+    expect(cycleQuest(state, 'audience')).toBe('done');
+    expect(cycleQuest(state, 'audience')).toBe('none');
+    expect(state.quests.audience).toBeUndefined();
+    expect(toggleFlag(state, 'laissez-passer')).toBe(true);
+    expect(toggleFlag(state, 'laissez-passer')).toBe(false);
+    const flags = allFlags();
+    for (const f of ['laissez-passer', 'veille-aiguillage', 'echos-dissipes', 'membre-compagnie-lisieres', 'loups-caravane']) expect(flags, f).toContain(f);
+  });
+});

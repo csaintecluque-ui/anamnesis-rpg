@@ -815,3 +815,11 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   une quête non donnée ; Malo et sa flûte ; réplique des loups.
 - À trancher par Cyril : le laissez-passer de Tobias (aujourd'hui sans effet) ; le plafond des Récits (Mémoire + 1),
   qui fait oublier le Récit de Corvan avant Ironheart.
+
+## 2026-11-02 (suite) : décisions, mode développeur
+
+- Cyril : « Oui pour tout, mets en ligne, il faut aussi ajouter un système dev… un perso surpuissant… un système de
+  magie, une temporalité, donc des auberges ». Corrections de conformité mises en ligne. Décisions appliquées : le
+  laissez-passer de Tobias ouvre le chantier de jour (sinon la nuit ou le Golem) ; les Récits de l'histoire
+  principale ne s'oublient plus. Mode développeur construit (panneau HTML depuis le menu pause, mode test). Canon de
+  la magie et du temps relu (agent) : proposition envoyée à Cyril avant de construire.

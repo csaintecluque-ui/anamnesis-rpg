@@ -13,6 +13,7 @@ import { levelForXp } from './leveling';
 import { choose, optionTexts, testCharacter } from './questTestKit';
 import { knowsRecit } from './recits';
 import { reputationLevel, reputationPrices, reputationScore } from './reputation';
+import { waitUntil } from './time';
 import { ENCOUNTER_VICTORY_FLAG, WORLD_MAP_TARGET, clearEncounterFlags, findPlace, knownPlaces, rencontreXp, storyRencontre, zoneAt } from './world';
 
 /**
@@ -34,6 +35,7 @@ function mapOf(location: string): GameMap {
 /** Same rule as MapScene.gone: `disparaitSi` (one flag is enough), `apparaitSi` (absent until one flag is set). */
 function gone(state: GameState, o: MapObject): boolean {
   const any = (list?: string) => (list ?? '').split(',').some((f) => f.trim() && state.flags[f.trim()]);
+  if (o.type === 'pnj' && state.groupe.some((m) => m.id === o.name)) return true;
   return any(o.properties.disparaitSi) || (!!o.properties.apparaitSi && !any(o.properties.apparaitSi));
 }
 
@@ -57,6 +59,15 @@ function talk(state: GameState, id: string): string {
   }
   const node = startNode(DIALOGUES[id], state);
   applyEffects(state, DIALOGUES[id].nodes[node].effects);
+  return node;
+}
+
+/** Talks to a companion travelling with the hero (a tap on them, on the map); the first node's effects apply. */
+function companion(state: GameState, id: string): string {
+  expect(state.groupe.some((m) => m.id === id), `${id} n’est pas dans le groupe`).toBe(true);
+  const d = DIALOGUES[`compagnon-${id}`];
+  const node = startNode(d, state);
+  applyEffects(state, d.nodes[node].effects);
   return node;
 }
 
@@ -798,12 +809,58 @@ describe('Parcours complet, d’une traite', () => {
     expect(travel(s, 'gardebois')).toBeNull();
   });
 
+  it('Les compagnons : Liane veut oublier Saule (le vieux champignon), Boulon rayé du matériel par Noam', () => {
+    expect(s.location).toBe('gardebois');
+    expect(talk(s, 'liane')).toBe('apres');
+    say(s, 'liane', 'apres', 'Viens avec moi');
+    expect(s.groupe).toEqual([]);
+    say(s, 'liane', 'recrue', 'Compris');
+    expect(s.groupe.map((m) => m.id)).toEqual(['liane']);
+    expect(present(s, 'gardebois', 'liane')).toBe(false);
+    expect(companion(s, 'liane')).toBe('route');
+    // La nuit tombe (à la belle étoile) : Liane mâche quelque chose.
+    waitUntil(s.time, 'nuit');
+    expect(companion(s, 'liane')).toBe('nuit');
+    say(s, 'compagnon-liane', 'nuit', 'Qu’est-ce que tu mâches');
+    expect(s.quests['oubli-liane']).toBe('active');
+    say(s, 'compagnon-liane', 'aveu', 'Que veux-tu faire');
+    say(s, 'compagnon-liane', 'choix', 'Allons chercher le vieux champignon');
+    expect(journalStep(s, 'oubli-liane')?.step).toMatch(/Champignon-Mémoire/);
+    walk(s, 'gare-engloutie');
+    expect(talk(s, 'champignon-ancien')).toBe('champi');
+    say(s, 'champignon-ancien', 'champi', 'Le cueillir');
+    expect(present(s, 'gare-engloutie', 'champignon-ancien')).toBe(false);
+    expect(companion(s, 'liane')).toBe('manger');
+    expect(gained(s, () => say(s, 'compagnon-liane', 'manger', 'Je ne te dirai rien'))).toEqual({ xp: 40, fers: 0 });
+    expect(s.quests['oubli-liane']).toBe('done');
+    expect(companion(s, 'liane')).toBe('legere');
+    walk(s, 'gardebois');
+
+    expect(travel(s, 'ironheart')).toBeNull();
+    expect(talk(s, 'boulon')).toBe('accueil');
+    say(s, 'boulon', 'accueil', 'Parlons un peu');
+    say(s, 'boulon', 'parler', 'Tu ne voyages jamais');
+    say(s, 'boulon', 'voyage', 'Et si tu venais avec moi');
+    expect(s.quests['contrat-boulon']).toBe('active');
+    walk(s, 'ironheart-manufactures');
+    walk(s, 'ironheart-archives');
+    expect(talk(s, 'noam')).toBe('registre');
+    say(s, 'noam', 'registre', 'Il se souvient de chaque voyageur');
+    walk(s, 'ironheart-manufactures');
+    walk(s, 'ironheart-forges');
+    expect(gained(s, () => expect(talk(s, 'boulon')).toBe('libre'))).toEqual({ xp: 40, fers: 0 });
+    say(s, 'boulon', 'libre', 'En route, Boulon');
+    expect(s.groupe.map((m) => m.id)).toEqual(['liane', 'boulon']);
+    expect(companion(s, 'boulon')).toBe('gare');
+    expect(repeatableGains(s)).toEqual([]);
+  });
+
   it('Bilan : tout est fini, rien ne traîne, rien ne se gagne deux fois', () => {
     expect(unfinished(s)).toEqual([]);
     expect(journalQuests(s).every((q) => q.done)).toBe(true);
     expect(questItems(s)).toEqual(['cristal-vanel', 'sauf-conduit']);
     expect(s.character!.fers).toBe(20);
-    expect(levelForXp(s.character!.xp)).toBe(4);
+    expect(levelForXp(s.character!.xp)).toBe(5);
     expect(reputations(s)).toEqual({
       gardebois: 40,
       canopee: 55,
@@ -812,7 +869,7 @@ describe('Parcours complet, d’une traite', () => {
       nacelliers: 25,
       'travailleurs-rail': 30,
       'marches-cendres': -20,
-      'archives-ferros': 20,
+      'archives-ferros': 30,
     });
     expect(repeatableGains(s)).toEqual([]);
     expect(maskedEntries(s, true)).toEqual([]);
@@ -1144,6 +1201,50 @@ describe('Variante : Ironheart avant les quêtes annexes (parole, combats, autre
     walk(s, 'reserve-cendrefer');
     expect(talk(s, 'brann')).toBe('rendu');
     say(s, 'brann', 'rendu', 'Merci, Brann');
+  });
+
+  it('Les compagnons, autrement : le nom de Saule gravé au Bosquet ; la page de Boulon arrachée', () => {
+    walk(s, 'gardebois');
+    expect(talk(s, 'liane')).toBe('apres');
+    say(s, 'liane', 'apres', 'Viens avec moi');
+    say(s, 'liane', 'recrue', 'Compris');
+    waitUntil(s.time, 'nuit');
+    expect(companion(s, 'liane')).toBe('nuit');
+    say(s, 'compagnon-liane', 'nuit', 'Qu’est-ce que tu mâches');
+    say(s, 'compagnon-liane', 'aveu', 'Ça te ronge');
+    say(s, 'compagnon-liane', 'ronge', 'Il y a peut-être un autre chemin');
+    say(s, 'compagnon-liane', 'choix', 'Allons graver son nom');
+    say(s, 'compagnon-liane', 'graver-ok', 'Je serai là');
+    expect(s.avis.liane).toBe(1);
+    expect(travel(s, 'canopee')).toBeNull();
+    walk(s, 'canopee-aieux');
+    expect(talk(s, 'arbre-vierge')).toBe('lisse');
+    expect(gained(s, () => say(s, 'arbre-vierge', 'lisse', 'Laisser Liane graver'))).toEqual({ xp: 40, fers: 0 });
+    expect([s.quests['oubli-liane'], knowsRecit(s.character!, 'saule'), s.avis.liane]).toEqual(['done', true, 4]);
+    expect(companion(s, 'liane')).toBe('route-bon');
+    expect(talk(s, 'arbre-vierge')).toBe('grave');
+    walk(s, 'canopee-nacelle');
+
+    expect(travel(s, 'ironheart')).toBeNull();
+    expect(talk(s, 'boulon')).toBe('accueil');
+    say(s, 'boulon', 'accueil', 'Parlons un peu');
+    say(s, 'boulon', 'parler', 'Tu ne voyages jamais');
+    say(s, 'boulon', 'voyage', 'Et si tu venais avec moi');
+    // Le cristal au cou : le patrouilleur inscrit d'abord le héros sur sa liste, puis le sauf-conduit ouvre le funiculaire.
+    expect(talk(s, 'patrouilleur')).toBe('liste');
+    say(s, 'patrouilleur', 'liste', 'Et le funiculaire');
+    say(s, 'patrouilleur', 'controle', 'Montrer le sauf-conduit');
+    say(s, 'patrouilleur', 'sauf', 'Monter');
+    expect(s.location).toBe('ironheart-manufactures');
+    walk(s, 'ironheart-archives');
+    expect(talk(s, 'noam')).toBe('registre');
+    say(s, 'noam', 'registre', 'Arracher la page');
+    walk(s, 'ironheart-manufactures');
+    walk(s, 'ironheart-forges');
+    expect(talk(s, 'boulon')).toBe('libre');
+    say(s, 'boulon', 'libre', 'Attends-moi ici');
+    expect([s.quests['contrat-boulon'], s.groupe.map((m) => m.id)]).toEqual(['done', ['liane']]);
+    expect(talk(s, 'boulon')).toBe('revient');
   });
 
   it('Bilan de la variante', () => {

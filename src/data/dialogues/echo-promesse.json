@@ -110,6 +110,10 @@
             },
             {
               "giveItem": "oiseau-de-fer"
+            },
+            {
+              "avis": "boulon",
+              "delta": 1
             }
           ]
         },
@@ -172,6 +176,10 @@
             },
             {
               "setFlag": "echo-releve"
+            },
+            {
+              "avis": "boulon",
+              "delta": 1
             }
           ]
         },
@@ -184,6 +192,14 @@
             },
             {
               "setFlag": "echo-lettre"
+            },
+            {
+              "avis": "liane",
+              "delta": 1
+            },
+            {
+              "avis": "boulon",
+              "delta": 1
             }
           ]
         },
@@ -218,6 +234,14 @@
           "text": "Frapper.",
           "next": "fin",
           "effects": [
+            {
+              "avis": "liane",
+              "delta": -1
+            },
+            {
+              "avis": "boulon",
+              "delta": -2
+            },
             {
               "setFlag": "echos-dechaines"
             },

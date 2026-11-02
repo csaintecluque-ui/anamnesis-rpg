@@ -246,6 +246,20 @@ Canopéa ») ; personnages et textes validés ensuite (« Oui je suis en phase �
   rang de Résonance (40 XP). Il parle du prix (fatigue, nez qui saigne, le sommeil rend tout), de la Lueur et de Ferros,
   où « on tient des listes ».
 
+## Les compagnons (jalon 3, étape 2 ; construites le 2026-11-02, **à valider**)
+
+### 11. Ce que Liane veut oublier
+
+La nuit, Liane mâche du Champignon-Mémoire [canon : « absorbe souvenirs récents des marcheurs »] pour ne plus revoir
+la mort de son petit frère Saule, sous les déblais du chantier de Brisefer : la maladie mémorielle la lui remontre
+chaque nuit. L'aider à oublier pour de bon (le vieux champignon du chantier), ou à se souvenir autrement (graver son
+nom au Bosquet des Échos). Détails : `docs/gdd/compagnons.md`.
+
+### 12. Le contrat de Boulon
+
+Au registre des Archives, Boulon est « matériel de quai » [canon : statut juridique ambigu des Ferrômes]. Le faire
+rayer du matériel par Noam : racheter, convaincre, ou arracher la page. Détails : `docs/gdd/compagnons.md`.
+
 ## Ordre de construction proposé
 
 1. Le Sol des Racines (nouvelle carte) avec « Les lettres de Malo » et « Le chant d'Anselme ».

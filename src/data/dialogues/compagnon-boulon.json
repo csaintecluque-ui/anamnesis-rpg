@@ -1,0 +1,150 @@
+{
+  "id": "compagnon-boulon",
+  "speaker": "boulon",
+  "entries": [
+    {
+      "requires": [
+        {
+          "lieu": "ironheart-forges"
+        }
+      ],
+      "node": "gare"
+    },
+    {
+      "requires": [
+        {
+          "avis": "boulon",
+          "min": 3
+        }
+      ],
+      "node": "route-bon"
+    },
+    {
+      "requires": [
+        {
+          "avis": "boulon",
+          "max": -2
+        }
+      ],
+      "node": "route-froid"
+    },
+    {
+      "node": "route"
+    }
+  ],
+  "nodes": {
+    "route": {
+      "text": "Boulon marche derrière toi, et le sol tremble un peu à chaque pas. — Je retiens tout, tu sais. Les lieux, les gens. Ce que tu fais aussi.",
+      "options": [
+        {
+          "text": "Rentre à la gare, Boulon.",
+          "next": "adieu"
+        },
+        {
+          "text": "On continue.",
+          "next": "fin"
+        }
+      ]
+    },
+    "route-bon": {
+      "text": "— Je retiens ce que tu fais. Jusqu’ici, j’aime ce que je retiens. C’est une sensation nouvelle. Je la range à part.",
+      "options": [
+        {
+          "text": "Rentre à la gare, Boulon.",
+          "next": "adieu"
+        },
+        {
+          "text": "On continue.",
+          "next": "fin"
+        }
+      ]
+    },
+    "route-froid": {
+      "text": "Boulon ne te regarde pas. — Je retiens ce que tu fais. Je préférerais oublier certaines choses. Je ne sais pas oublier.",
+      "options": [
+        {
+          "text": "Rentre à la gare, Boulon.",
+          "next": "adieu"
+        },
+        {
+          "text": "On continue.",
+          "next": "fin"
+        }
+      ]
+    },
+    "gare": {
+      "text": "— La gare de l’Ouest. Le quai sent toujours la même huile. Tu veux la caravane pour Gardebois ? Je sais à qui parler.",
+      "options": [
+        {
+          "text": "Montrer ta marque de la Compagnie.",
+          "requires": [
+            {
+              "flag": "membre-compagnie-lisieres"
+            }
+          ],
+          "next": "trajet"
+        },
+        {
+          "text": "Payer la caravane.",
+          "requires": [
+            {
+              "notFlag": "membre-compagnie-lisieres"
+            },
+            {
+              "fers": 15
+            }
+          ],
+          "effects": [
+            {
+              "giveFers": -15
+            }
+          ],
+          "next": "trajet"
+        },
+        {
+          "text": "Rentre à la gare, Boulon.",
+          "next": "adieu"
+        },
+        {
+          "text": "On continue.",
+          "next": "fin"
+        }
+      ]
+    },
+    "trajet": {
+      "text": "Boulon hisse ta malle sur le chariot, puis s’y hisse à son tour. La caravane quitte la cendre de Ferros, passe la frontière, retrouve la forêt. Le soir, les lanternes du Marché des Lisières.",
+      "options": [
+        {
+          "text": "Descendre du chariot.",
+          "effects": [
+            {
+              "attendre": "midi"
+            },
+            {
+              "attendre": "soir"
+            },
+            {
+              "goTo": "gardebois",
+              "arrivee": "entree"
+            }
+          ],
+          "next": "fin"
+        }
+      ]
+    },
+    "adieu": {
+      "text": "— Je retourne au quai. Les malles ne se porteront pas toutes seules, même libres. Tu sais où me trouver.",
+      "effects": [
+        {
+          "quitter": "boulon"
+        }
+      ],
+      "options": [
+        {
+          "text": "À bientôt, Boulon.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

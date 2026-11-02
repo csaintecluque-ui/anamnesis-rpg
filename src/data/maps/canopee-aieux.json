@@ -11,7 +11,7 @@
  "tilewidth": 64,
  "tileheight": 32,
  "nextlayerid": 4,
- "nextobjectid": 9,
+ "nextobjectid": 10,
  "layers": [
   {
    "id": 1,
@@ -739,7 +739,7 @@
     0,
     0,
     0,
-    0,
+    61,
     0,
     0,
     0,
@@ -1037,6 +1037,19 @@
     },
     {
      "id": 3,
+     "name": "arbre-vierge",
+     "type": "objet",
+     "x": 208,
+     "y": 304,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": []
+    },
+    {
+     "id": 4,
      "name": "vanel",
      "type": "pnj",
      "x": 464,
@@ -1049,7 +1062,7 @@
      "properties": []
     },
     {
-     "id": 4,
+     "id": 5,
      "name": "porte-canopee-relais",
      "type": "porte",
      "x": 336,
@@ -1078,7 +1091,7 @@
      ]
     },
     {
-     "id": 5,
+     "id": 6,
      "name": "devant-canopee-relais",
      "type": "arrivee",
      "x": 368,
@@ -1091,7 +1104,7 @@
      "properties": []
     },
     {
-     "id": 6,
+     "id": 7,
      "name": "panneau-aieux",
      "type": "panneau",
      "x": 240,
@@ -1110,7 +1123,7 @@
      ]
     },
     {
-     "id": 7,
+     "id": 8,
      "name": "vers-marche",
      "type": "sortie",
      "x": 16,
@@ -1139,7 +1152,7 @@
      ]
     },
     {
-     "id": 8,
+     "id": 9,
      "name": "depuis-marche",
      "type": "arrivee",
      "x": 48,

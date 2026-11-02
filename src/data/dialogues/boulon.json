@@ -5,6 +5,27 @@
     {
       "requires": [
         {
+          "quest": "contrat-boulon",
+          "status": "active"
+        },
+        {
+          "flag": "boulon-libre"
+        }
+      ],
+      "node": "libre"
+    },
+    {
+      "requires": [
+        {
+          "quest": "contrat-boulon",
+          "status": "done"
+        }
+      ],
+      "node": "revient"
+    },
+    {
+      "requires": [
+        {
           "quest": "audience",
           "status": "done"
         },
@@ -35,8 +56,8 @@
           "next": "kaelis"
         },
         {
-          "text": "Que faut-il savoir, ici ?",
-          "next": "regles"
+          "text": "Parlons un peu.",
+          "next": "parler"
         },
         {
           "text": "Une caravane pour Gardebois ?",
@@ -62,8 +83,8 @@
           "next": "kaelis"
         },
         {
-          "text": "Que faut-il savoir, ici ?",
-          "next": "regles"
+          "text": "Parlons un peu.",
+          "next": "parler"
         },
         {
           "text": "Une caravane pour Gardebois ?",
@@ -151,6 +172,113 @@
               "arrivee": "entree"
             }
           ]
+        }
+      ]
+    },
+    "parler": {
+      "text": "— Parlons. Je porte, j’écoute, je me souviens. C’est tout ce que je fais.",
+      "options": [
+        {
+          "text": "Que faut-il savoir, ici ?",
+          "next": "regles"
+        },
+        {
+          "text": "Tu ne voyages jamais, toi ?",
+          "requires": [
+            {
+              "quest": "contrat-boulon",
+              "status": "none"
+            }
+          ],
+          "next": "voyage"
+        },
+        {
+          "text": "Revenir.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "voyage": {
+      "text": "Boulon pose une malle, ce qui ne lui arrive jamais. — Je connais le nom de toutes les gares d’où viennent les malles. Je n’en ai vu aucune. Au registre des Archives, je suis « matériel de quai, gare de l’Ouest ». Le matériel ne voyage pas.",
+      "options": [
+        {
+          "text": "Et si tu venais avec moi ?",
+          "effects": [
+            {
+              "startQuest": "contrat-boulon"
+            },
+            {
+              "setFlag": "boulon-contrat"
+            }
+          ],
+          "next": "contrat"
+        },
+        {
+          "text": "Je comprends.",
+          "next": "fin"
+        }
+      ]
+    },
+    "contrat": {
+      "text": "— Il faudrait qu’on me raye du matériel. L’archiviste Noam tient le registre des Ferrômes. Il classe tout. Moi, je suis une ligne. … Je ne sais pas ce que vaut une ligne.",
+      "options": [
+        {
+          "text": "J’irai voir Noam.",
+          "next": "fin"
+        }
+      ]
+    },
+    "libre": {
+      "text": "Boulon lit le papier trois fois, puis le plie en quatre, très lentement. — Je ne suis plus du matériel. … Alors je viens. Je porterai ce qu’il faut, et je me souviendrai de chaque endroit. Ce seront les miens.",
+      "effects": [
+        {
+          "completeQuest": "contrat-boulon"
+        },
+        {
+          "giveXp": 40
+        }
+      ],
+      "options": [
+        {
+          "text": "En route, Boulon.",
+          "effects": [
+            {
+              "rejoindre": "boulon"
+            }
+          ],
+          "next": "fin"
+        },
+        {
+          "text": "Attends-moi ici un peu.",
+          "next": "fin"
+        }
+      ]
+    },
+    "revient": {
+      "text": "— Tu reviens me chercher ? Je suis libre de dire oui. Ou de dire non. C’est nouveau.",
+      "options": [
+        {
+          "text": "Viens, Boulon.",
+          "requires": [
+            {
+              "avis": "boulon",
+              "min": -4
+            }
+          ],
+          "effects": [
+            {
+              "rejoindre": "boulon"
+            }
+          ],
+          "next": "fin"
+        },
+        {
+          "text": "Une caravane pour Gardebois ?",
+          "next": "caravane"
+        },
+        {
+          "text": "Pas maintenant.",
+          "next": "fin"
         }
       ]
     }

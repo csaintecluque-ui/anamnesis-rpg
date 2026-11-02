@@ -138,6 +138,10 @@
             },
             {
               "giveXp": 30
+            },
+            {
+              "avis": "liane",
+              "delta": 1
             }
           ]
         },
@@ -159,6 +163,14 @@
             },
             {
               "giveXp": 40
+            },
+            {
+              "avis": "liane",
+              "delta": 2
+            },
+            {
+              "avis": "boulon",
+              "delta": 1
             }
           ]
         },
@@ -177,6 +189,14 @@
             },
             {
               "giveXp": 10
+            },
+            {
+              "avis": "liane",
+              "delta": -2
+            },
+            {
+              "avis": "boulon",
+              "delta": -1
             }
           ]
         },

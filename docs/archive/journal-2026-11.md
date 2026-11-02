@@ -868,3 +868,12 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   flore par continent » relu dans le Notion), compagnons en combat (Liane, Boulon, par les outils de dev),
   sauvegarde v12. 477 tests ; vérifié sur PC et téléphone.
 - Cyril : « Oui pour tout, mets en ligne » (étape 1 du jalon 3). Mis en ligne ; page Notion complétée.
+
+## 2026-11-02 (suite) : jalon 3, étape 2, les compagnons
+
+- Construit (`docs/gdd/compagnons.md`) : les compagnons suivent le héros sur la carte, on les touche pour leur parler ;
+  recrutement, renvoi, avis (ils ne jugent que ce qu'ils voient ; à −5, ils partent) ; réactions dans les graines,
+  Elvan, Kaelis, l'Écho de la promesse, Tiven. Liane (« Ce que Liane veut oublier » : oublier Saule avec le vieux
+  Champignon-Mémoire, ou graver son nom au Bosquet) ; Boulon (« Le contrat de Boulon » : Noam, racheter, convaincre ou
+  arracher la page). Sauvegarde v13. Parcours : les deux fins de chaque quête. 491 tests ; vérifié sur téléphone.
+

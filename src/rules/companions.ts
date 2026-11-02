@@ -82,6 +82,30 @@ export function makeCompanionCombatant(def: CompanionDef, hp: number, tile: Tile
   };
 }
 
+/** At or below this opinion, a companion leaves the party (and will not come back for now). */
+export const AVIS_DEPART = -5;
+
+export function avisOf(state: GameState, id: string): number {
+  return state.avis[id] ?? 0;
+}
+
+/**
+ * A companion who saw a choice thinks of it (only when travelling with the hero): returns the notices, and the
+ * companion leaves if the opinion falls to AVIS_DEPART.
+ */
+export function changeAvis(state: GameState, id: string, delta: number): string[] {
+  const def = findCompanion(id);
+  if (!def || !inParty(state, id) || delta === 0) return [];
+  state.avis[id] = avisOf(state, id) + delta;
+  const first = def.name.split(' ')[0];
+  const notices = [delta > 0 ? `${first} approuve` : `${first} désapprouve`];
+  if (state.avis[id] <= AVIS_DEPART) {
+    leaveParty(state, id);
+    notices.push(`${first} en a assez, et quitte le groupe`);
+  }
+  return notices;
+}
+
 /** After a fight: each companion keeps its PV; one who fell gets up with 1 PV, hurt but alive. */
 export function companionsAfterFight(state: GameState, fighters: Combatant[]): string[] {
   const hurt: string[] = [];

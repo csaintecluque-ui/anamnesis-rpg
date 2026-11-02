@@ -34,6 +34,7 @@ Code : `src/save/codec.ts` (format, validation, migrations), `src/save/store.ts`
 | v10 | `time` : le jour et le moment (`docs/gdd/temps.md`) | le premier matin |
 | v11 | `character.resonance`, `skills.resonance`, `equipment.cristal` (`docs/gdd/magie.md`) | Résonance au rang 0, 3 PR, aucun cristal porté |
 | v12 | `bestiaire` (créatures rencontrées, nombre de vaincus) et `groupe` (compagnons et leurs PV) (`docs/gdd/combat.md`) | bestiaire vide, personne dans le groupe |
+| v13 | `avis` : ce que chaque compagnon pense du héros (`docs/gdd/compagnons.md`) | aucun avis |
 
 - **Sauvegarde automatique à chaque lieu** (2026-11-02, jalon 3) : en entrant dans un lieu, l'emplacement automatique
   est réécrit ; à la mort du héros, on reprend la sauvegarde la plus récente de tous les emplacements.

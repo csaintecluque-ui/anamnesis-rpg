@@ -49,7 +49,7 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `dialogues.md` : format JSON, conditions, effets, contrôles.
 - `inventaire.md` : objets, Fers, équipement, troc.
 - `progression.md` : seuils d'XP, montée de niveau.
-- `sauvegarde.md` : emplacements, format, export/import, sauvegarde à chaque lieu, versions v1 à v12.
+- `sauvegarde.md` : emplacements, format, export/import, sauvegarde à chaque lieu, versions v1 à v13.
 - `interface.md` : HUD, menu pause, options, PC (netteté, raccourcis, plein écran).
 - `animation.md` : marche animée des personnages, méthodes 2D et 3D, comparaison du pilote.
 - `temps.md` : le temps (calendrier du canon, matin/midi/soir/nuit), la nuit, les auberges ; validé.
@@ -57,6 +57,7 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `jalon-2.md` : le jalon 2 (phase 2, animation, avatars, contenu) ; fait et en ligne.
 - `jeu-complet.md` : le jeu complet (ligne directrice, factions, ennemis, quêtes, activités, feuille de route) ; validé.
 - `jalon-3.md` : le jalon 3, le cœur du jeu complet (combat, compagnons, Échos, veillées, ruines, contrats…) ; en cours.
+- `compagnons.md` : les compagnons (suivi, avis, départ), Liane et Boulon, leurs quêtes ; textes à valider.
 - `villes.md` : gabarit d'une grande ville, systèmes communs, mécanique par ville, coûts, ordre ; validé.
 - `carte-du-monde.md` : carte du monde, voyages, rencontres aléatoires en route ; validé.
 - `figurants.md` : passants qui marchent et habitants à une ou deux répliques ; validé.

@@ -1,0 +1,354 @@
+{
+  "id": "compagnon-liane",
+  "speaker": "liane",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "oubli-liane",
+          "status": "active"
+        },
+        {
+          "item": "champignon-memoire"
+        }
+      ],
+      "node": "manger"
+    },
+    {
+      "requires": [
+        {
+          "quest": "oubli-liane",
+          "status": "none"
+        },
+        {
+          "moment": "nuit"
+        }
+      ],
+      "node": "nuit"
+    },
+    {
+      "requires": [
+        {
+          "flag": "liane-a-oublie"
+        }
+      ],
+      "node": "legere"
+    },
+    {
+      "requires": [
+        {
+          "avis": "liane",
+          "min": 3
+        }
+      ],
+      "node": "route-bon"
+    },
+    {
+      "requires": [
+        {
+          "avis": "liane",
+          "max": -2
+        }
+      ],
+      "node": "route-froid"
+    },
+    {
+      "node": "route"
+    }
+  ],
+  "nodes": {
+    "route": {
+      "text": "Liane cueille au passage ce qui pousse au bord du chemin, et le fourre dans sa besace. — Alors ? On reste plantés là ?",
+      "options": [
+        {
+          "text": "Pour Saule : que veux-tu faire ?",
+          "requires": [
+            {
+              "quest": "oubli-liane",
+              "status": "active"
+            },
+            {
+              "notFlag": "oubli-choix-oublier"
+            },
+            {
+              "notFlag": "oubli-choix-graver"
+            }
+          ],
+          "next": "choix"
+        },
+        {
+          "text": "Rentre à Gardebois, Liane.",
+          "next": "adieu"
+        },
+        {
+          "text": "On continue.",
+          "next": "fin"
+        }
+      ]
+    },
+    "route-bon": {
+      "text": "Liane te tend une feuille de menthe sans rien dire, puis sourit. — Tu fais les choses à peu près comme il faut. Ne le prends pas mal : venant de moi, c’est un compliment.",
+      "options": [
+        {
+          "text": "Pour Saule : que veux-tu faire ?",
+          "requires": [
+            {
+              "quest": "oubli-liane",
+              "status": "active"
+            },
+            {
+              "notFlag": "oubli-choix-oublier"
+            },
+            {
+              "notFlag": "oubli-choix-graver"
+            }
+          ],
+          "next": "choix"
+        },
+        {
+          "text": "Rentre à Gardebois, Liane.",
+          "next": "adieu"
+        },
+        {
+          "text": "On continue.",
+          "next": "fin"
+        }
+      ]
+    },
+    "route-froid": {
+      "text": "Liane marche à trois pas, les lèvres pincées. — Ne me demande pas mon avis. Tu ne l’aimerais pas.",
+      "options": [
+        {
+          "text": "Pour Saule : que veux-tu faire ?",
+          "requires": [
+            {
+              "quest": "oubli-liane",
+              "status": "active"
+            },
+            {
+              "notFlag": "oubli-choix-oublier"
+            },
+            {
+              "notFlag": "oubli-choix-graver"
+            }
+          ],
+          "next": "choix"
+        },
+        {
+          "text": "Rentre à Gardebois, Liane.",
+          "next": "adieu"
+        },
+        {
+          "text": "On continue.",
+          "next": "fin"
+        }
+      ]
+    },
+    "legere": {
+      "text": "Liane fredonne. Elle a l’air légère, presque trop. — Tu sais, j’ai rêvé d’un garçon qui riait fort et grimpait trop haut. Je ne sais pas qui c’était. Ça m’a fait du bien et du mal.",
+      "options": [
+        {
+          "text": "Pour Saule : que veux-tu faire ?",
+          "requires": [
+            {
+              "quest": "oubli-liane",
+              "status": "active"
+            },
+            {
+              "notFlag": "oubli-choix-oublier"
+            },
+            {
+              "notFlag": "oubli-choix-graver"
+            }
+          ],
+          "next": "choix"
+        },
+        {
+          "text": "Rentre à Gardebois, Liane.",
+          "next": "adieu"
+        },
+        {
+          "text": "On continue.",
+          "next": "fin"
+        }
+      ]
+    },
+    "nuit": {
+      "text": "Le soir venu, Liane mâche quelque chose en silence, les yeux dans le vague. Une odeur de cave et de terre mouillée. — Quoi ? Ça m’aide à dormir.",
+      "options": [
+        {
+          "text": "Qu’est-ce que tu mâches ?",
+          "next": "aveu"
+        },
+        {
+          "text": "Dors bien, Liane.",
+          "next": "fin"
+        }
+      ]
+    },
+    "aveu": {
+      "text": "— Du Champignon-Mémoire. Il mange les souvenirs récents. Les miens, c’est toujours le même : Saule, mon petit frère, sous les déblais du chantier de Brisefer. La maladie me le remontre chaque nuit. Ça, au moins, me laisse dormir.",
+      "effects": [
+        {
+          "startQuest": "oubli-liane"
+        },
+        {
+          "setFlag": "oubli-aveu"
+        }
+      ],
+      "options": [
+        {
+          "text": "Ça te ronge. Tu oublies d’autres choses.",
+          "next": "ronge"
+        },
+        {
+          "text": "Que veux-tu faire ?",
+          "next": "choix"
+        },
+        {
+          "text": "Dors, Liane.",
+          "next": "fin"
+        }
+      ]
+    },
+    "ronge": {
+      "text": "— Hier, j’ai oublié le nom de la sauge-lumière. Moi ! … Je sais. Mais entre oublier un peu de tout et le revoir mourir chaque nuit, j’ai choisi.",
+      "options": [
+        {
+          "text": "Il y a peut-être un autre chemin.",
+          "next": "choix"
+        },
+        {
+          "text": "Dors, Liane.",
+          "next": "fin"
+        }
+      ]
+    },
+    "choix": {
+      "text": "Liane serre sa besace. — Près du chantier, à la Gare, pousse un vieux Champignon-Mémoire : un seul, et Saule s’en va pour de bon. Ou bien, au Bosquet des Échos, à Canopéa, on grave les morts dans le bois vivant. Le bois se souviendrait à ma place.",
+      "options": [
+        {
+          "text": "Allons chercher le vieux champignon.",
+          "effects": [
+            {
+              "setFlag": "oubli-choix-oublier"
+            }
+          ],
+          "next": "oublier-ok"
+        },
+        {
+          "text": "Allons graver son nom au Bosquet.",
+          "effects": [
+            {
+              "setFlag": "oubli-choix-graver"
+            }
+          ],
+          "next": "graver-ok"
+        },
+        {
+          "text": "Prends ton temps.",
+          "next": "fin"
+        }
+      ]
+    },
+    "oublier-ok": {
+      "text": "— Là où il est mort, évidemment. Ça pousse sur ce qui pourrit. … Merci de ne pas me faire la morale.",
+      "options": [
+        {
+          "text": "En route.",
+          "next": "fin"
+        }
+      ]
+    },
+    "graver-ok": {
+      "text": "— Il faudra que je le touche, ce bois, après. … Je ne sais pas si je pourrai.",
+      "options": [
+        {
+          "text": "Je serai là.",
+          "effects": [
+            {
+              "avis": "liane",
+              "delta": 1
+            }
+          ],
+          "next": "fin"
+        },
+        {
+          "text": "En route.",
+          "next": "fin"
+        }
+      ]
+    },
+    "manger": {
+      "text": "Liane prend le champignon à deux mains. Il luit faiblement, pâle comme une lune. — Après, je ne saurai même plus pourquoi je l’ai mangé. Tu ne me le diras pas, hein ?",
+      "options": [
+        {
+          "text": "Je ne te dirai rien.",
+          "effects": [
+            {
+              "takeItem": "champignon-memoire"
+            },
+            {
+              "setFlag": "liane-a-oublie"
+            },
+            {
+              "completeQuest": "oubli-liane"
+            },
+            {
+              "giveXp": 40
+            },
+            {
+              "avis": "liane",
+              "delta": 1
+            }
+          ],
+          "next": "oublie"
+        },
+        {
+          "text": "Non : allons plutôt graver son nom.",
+          "requires": [
+            {
+              "notFlag": "oubli-choix-graver"
+            }
+          ],
+          "effects": [
+            {
+              "takeItem": "champignon-memoire"
+            },
+            {
+              "setFlag": "oubli-choix-graver"
+            }
+          ],
+          "next": "graver-ok"
+        },
+        {
+          "text": "Attends. Garde-le encore.",
+          "next": "fin"
+        }
+      ]
+    },
+    "oublie": {
+      "text": "Elle mange. Longtemps, elle ne dit rien. Puis elle s’étire, et sourit comme tu ne l’as jamais vue sourire. — Bon. On y va ? … Pourquoi tu me regardes comme ça ? Quelqu’un est mort ?",
+      "options": [
+        {
+          "text": "Personne. On y va.",
+          "next": "fin"
+        }
+      ]
+    },
+    "adieu": {
+      "text": "— Bon. Mes malades m’attendent, de toute façon. Tu sais où me trouver : là où ça sent la menthe.",
+      "effects": [
+        {
+          "quitter": "liane"
+        }
+      ],
+      "options": [
+        {
+          "text": "À bientôt, Liane.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

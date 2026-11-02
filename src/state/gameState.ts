@@ -36,6 +36,8 @@ export interface GameState {
   bestiaire: Record<string, number>;
   /** The companions travelling with the hero, and their PV (src/rules/companions.ts). */
   groupe: { id: string; hp: number }[];
+  /** What each companion thinks of the hero's choices (src/rules/companions.ts): too low, they leave. */
+  avis: Record<string, number>;
 }
 
 export type QuestStatus = 'active' | 'done';
@@ -54,6 +56,7 @@ export function createNewGame(character: Character | null = null): GameState {
     time: { ...START_TIME },
     bestiaire: {},
     groupe: [],
+    avis: {},
   };
 }
 

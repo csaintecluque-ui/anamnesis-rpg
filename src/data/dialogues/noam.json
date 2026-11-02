@@ -29,6 +29,18 @@
     {
       "requires": [
         {
+          "quest": "contrat-boulon",
+          "status": "active"
+        },
+        {
+          "notFlag": "boulon-libre"
+        }
+      ],
+      "node": "registre"
+    },
+    {
+      "requires": [
+        {
           "flag": "cle-archives"
         }
       ],
@@ -264,6 +276,108 @@
       "options": [
         {
           "text": "Merci, Noam.",
+          "next": "fin"
+        }
+      ]
+    },
+    "registre": {
+      "text": "Noam tire un registre épais et pose le doigt sur une ligne. — « Boulon. Ferrôme. Matériel de quai, gare de l’Ouest. Rachat : cent vingt Fers. » Un bien, ou une mémoire ? La loi ne tranche pas (voir : article non rédigé). Moi, je classe.",
+      "options": [
+        {
+          "text": "Racheter son contrat.",
+          "requires": [
+            {
+              "fers": 120
+            }
+          ],
+          "effects": [
+            {
+              "giveFers": -120
+            },
+            {
+              "setFlag": "boulon-libre"
+            }
+          ],
+          "next": "rachete"
+        },
+        {
+          "text": "Il se souvient de chaque voyageur : c’est une archive, pas un outil.",
+          "requires": [
+            {
+              "skill": "lore",
+              "min": 3
+            }
+          ],
+          "effects": [
+            {
+              "setFlag": "boulon-libre"
+            },
+            {
+              "setFlag": "boulon-archive"
+            }
+          ],
+          "next": "reclasse"
+        },
+        {
+          "text": "Arracher la page, quand il aura le dos tourné.",
+          "effects": [
+            {
+              "setFlag": "boulon-libre"
+            },
+            {
+              "setFlag": "registre-arrache"
+            }
+          ],
+          "roll": {
+            "skill": "stealth",
+            "difficulty": 13
+          },
+          "next": "arrache",
+          "failNext": "surpris"
+        },
+        {
+          "text": "Autre chose.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "rachete": {
+      "text": "Noam compte les Fers, tamponne, raye. — Rayé du matériel (voir : vente). Il ne vous appartient pas pour autant. Il ne s’appartenait pas : il s’appartient. Classé.",
+      "options": [
+        {
+          "text": "Merci, Noam.",
+          "next": "fin"
+        }
+      ]
+    },
+    "reclasse": {
+      "text": "Noam se tait longtemps. — … Une archive vivante ne se vend pas (voir : règlement, article premier). Je le reclasse : « Fonds Boulon, consultable partout où il va. » Les Archives s’en souviendront, de vous.",
+      "options": [
+        {
+          "text": "Merci, Noam.",
+          "next": "fin"
+        }
+      ]
+    },
+    "arrache": {
+      "text": "Une page de moins dans un registre de mille. Personne ne la cherchera… sauf Noam, un jour, qui cherche toujours tout.",
+      "options": [
+        {
+          "text": "Partir vite.",
+          "next": "fin"
+        }
+      ]
+    },
+    "surpris": {
+      "text": "— Je vous prie de lâcher ce registre (voir : délits, article six). Noam ne crie pas. Il note. Il note votre nom.",
+      "effects": [
+        {
+          "setFlag": "registre-surpris"
+        }
+      ],
+      "options": [
+        {
+          "text": "Partir.",
           "next": "fin"
         }
       ]

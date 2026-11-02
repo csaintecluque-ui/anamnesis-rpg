@@ -70,6 +70,10 @@
             },
             {
               "giveXp": 15
+            },
+            {
+              "avis": "liane",
+              "delta": 2
             }
           ],
           "next": "soin"

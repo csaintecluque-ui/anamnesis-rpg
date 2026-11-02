@@ -27,6 +27,14 @@
             },
             {
               "setFlag": "vol-grenier"
+            },
+            {
+              "avis": "liane",
+              "delta": -2
+            },
+            {
+              "avis": "boulon",
+              "delta": -1
             }
           ]
         },

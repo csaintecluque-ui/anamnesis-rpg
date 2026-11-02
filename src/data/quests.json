@@ -186,5 +186,43 @@
         "texte": "Tiven est soigné : le dire à Vanel, au Bosquet des Échos."
       }
     ]
+  },
+  {
+    "id": "oubli-liane",
+    "name": "Ce que Liane veut oublier",
+    "summary": "La nuit, Liane mâche du Champignon-Mémoire pour ne plus revoir la mort de son frère Saule, sous les déblais du chantier de Brisefer. L’aider à oublier pour de bon, ou à se souvenir autrement.",
+    "etapes": [
+      {
+        "si": "oubli-aveu",
+        "texte": "Liane veut que Saule cesse de mourir chaque nuit. Lui demander ce qu’elle veut faire."
+      },
+      {
+        "si": "oubli-choix-oublier",
+        "texte": "Cueillir le vieux Champignon-Mémoire qui pousse près du chantier de la Gare Engloutie, et le rapporter à Liane."
+      },
+      {
+        "si": "oubli-choix-graver",
+        "texte": "Aller avec Liane au Bosquet des Échos, à Canopéa : un jeune arbre lisse attend qu’on y grave le nom de Saule."
+      },
+      {
+        "si": "champignon-cueilli",
+        "texte": "Donner le vieux Champignon-Mémoire à Liane."
+      }
+    ]
+  },
+  {
+    "id": "contrat-boulon",
+    "name": "Le contrat de Boulon",
+    "summary": "Boulon, le Ferrôme porteur de la gare de l’Ouest, n’a jamais vu une seule des gares dont il porte les malles : au registre des Archives, il est « matériel de quai ». Le faire rayer du matériel, et l’emmener.",
+    "etapes": [
+      {
+        "si": "boulon-contrat",
+        "texte": "Aller voir l’archiviste Noam, aux Archives Centrales d’Ironheart : il tient le registre des Ferrômes."
+      },
+      {
+        "si": "boulon-libre",
+        "texte": "Boulon n’est plus du matériel : le lui dire, à la gare de l’Ouest."
+      }
+    ]
   }
 ]

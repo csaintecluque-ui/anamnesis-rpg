@@ -3,6 +3,7 @@ import ailis from './ailis.json';
 import arbreAncien from './arbre-ancien.json';
 import arbreAnselme from './arbre-anselme.json';
 import arbreRetourAnselme from './arbre-retour-anselme.json';
+import arbreVierge from './arbre-vierge.json';
 import boulon from './boulon.json';
 import brann from './brann.json';
 import cacheRuines from './cache-ruines.json';
@@ -10,8 +11,11 @@ import caisseEgaree from './caisse-egaree.json';
 import caisseProspection from './caisse-prospection.json';
 import carnetsIlyane from './carnets-ilyane.json';
 import cerfsLucioles from './cerfs-lucioles.json';
+import champignonAncien from './champignon-ancien.json';
 import colporteuse from './colporteuse.json';
 import commisCaravane from './commis-caravane.json';
+import compagnonBoulon from './compagnon-boulon.json';
+import compagnonLiane from './compagnon-liane.json';
 import cristalVeille from './cristal-veille.json';
 import dorna from './dorna.json';
 import echoBerceuse from './echo-berceuse.json';
@@ -83,6 +87,7 @@ export const DIALOGUES: Record<string, Dialogue> = {
   'arbre-ancien': arbreAncien as Dialogue,
   'arbre-anselme': arbreAnselme as Dialogue,
   'arbre-retour-anselme': arbreRetourAnselme as Dialogue,
+  'arbre-vierge': arbreVierge as Dialogue,
   boulon: boulon as Dialogue,
   brann: brann as Dialogue,
   'cache-ruines': cacheRuines as Dialogue,
@@ -90,8 +95,11 @@ export const DIALOGUES: Record<string, Dialogue> = {
   'caisse-prospection': caisseProspection as Dialogue,
   'carnets-ilyane': carnetsIlyane as Dialogue,
   'cerfs-lucioles': cerfsLucioles as Dialogue,
+  'champignon-ancien': champignonAncien as Dialogue,
   colporteuse: colporteuse as Dialogue,
   'commis-caravane': commisCaravane as Dialogue,
+  'compagnon-boulon': compagnonBoulon as Dialogue,
+  'compagnon-liane': compagnonLiane as Dialogue,
   'cristal-veille': cristalVeille as Dialogue,
   dorna: dorna as Dialogue,
   'echo-berceuse': echoBerceuse as Dialogue,

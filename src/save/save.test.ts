@@ -58,6 +58,7 @@ const state: GameState = {
   time: { day: 3, phase: 2 },
   bestiaire: { 'rodeur-epine': 2 },
   groupe: [{ id: 'liane', hp: 20 }],
+  avis: { liane: 2 },
 };
 
 describe('save codec', () => {
@@ -124,6 +125,7 @@ describe('save codec', () => {
         time: { day: 1, phase: 0 },
         bestiaire: {},
         groupe: [],
+        avis: {},
       });
     }
   });

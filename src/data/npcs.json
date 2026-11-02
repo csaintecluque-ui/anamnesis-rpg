@@ -446,5 +446,15 @@
       "cristal-forge"
     ],
     "faction": "marches-cendres"
+  },
+  {
+    "id": "arbre-vierge",
+    "name": "Un jeune arbre lisse",
+    "role": "Bosquet des Échos"
+  },
+  {
+    "id": "champignon-ancien",
+    "name": "Un vieux Champignon-Mémoire",
+    "role": "Près du chantier de la Gare Engloutie"
   }
 ]

@@ -1,0 +1,99 @@
+{
+  "id": "arbre-vierge",
+  "speaker": "arbre-vierge",
+  "entries": [
+    {
+      "requires": [
+        {
+          "flag": "saule-grave"
+        }
+      ],
+      "node": "grave"
+    },
+    {
+      "node": "lisse"
+    }
+  ],
+  "nodes": {
+    "lisse": {
+      "text": "Un jeune arbre au tronc encore lisse, au bord du Bosquet. Personne n’y a gravé.",
+      "options": [
+        {
+          "text": "Laisser Liane graver le nom de Saule.",
+          "requires": [
+            {
+              "quest": "oubli-liane",
+              "status": "active"
+            },
+            {
+              "flag": "oubli-choix-graver"
+            },
+            {
+              "compagnon": "liane"
+            }
+          ],
+          "next": "graver"
+        },
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "graver": {
+      "text": "Liane grave lentement, en verdani, comme on le lui a appris. Quand elle pose la main sur l’écorce, elle pleure enfin, longtemps. Puis elle sourit. — Il riait trop fort. Le bois s’en souviendra. Moi aussi, maintenant, mais autrement.",
+      "effects": [
+        {
+          "setFlag": "saule-grave"
+        },
+        {
+          "completeQuest": "oubli-liane"
+        },
+        {
+          "learnRecit": "saule"
+        },
+        {
+          "giveXp": 40
+        },
+        {
+          "avis": "liane",
+          "delta": 3
+        }
+      ],
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "grave": {
+      "text": "Le nom de Saule, gravé de la main de Liane. Le bois a déjà commencé à refermer les entailles, sans les effacer.",
+      "options": [
+        {
+          "text": "Poser la main sur le nom.",
+          "requires": [
+            {
+              "attribute": "memory",
+              "min": 3
+            }
+          ],
+          "next": "toucher"
+        },
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "toucher": {
+      "text": "Sous tes doigts monte un souvenir qui n’est pas le tien : un garçon qui grimpe trop haut, et une sœur qui lui crie de redescendre, en riant.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

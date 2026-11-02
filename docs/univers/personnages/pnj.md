@@ -33,3 +33,12 @@ Sonorités : Verdantis douce, Ferros martelée (`docs/univers/ton.md`). Quêtes 
 | **Vanel Lentefeuille** | Druide Vert du Bosquet des Échos, patient ; prête un cristal de Vie et enseigne la Résonance (« Un prêt de la Terre ») | NOTION (Druides Verts : enseigner et soigner gratuitement ; « La magie est un prêt de la Terre ») | validé |
 | **Tiven** | Jeune Nacellier de la Grande Nacelle, les mains brûlées par les cordes | — (guilde des Nacelliers du jeu) | validé |
 | **La tailleuse de cristaux** | Marché des Cendres, mains noircies ; vend des cristaux de forge : « Ici, rien ne s'écrit » | NOTION (Ferros « tient des listes », roman) | validé |
+
+## Compagnons (jalon 3, étape 2, 2026-11-02, **à valider**)
+
+| Élément | Proposition | Ancrage canon | Statut |
+|---|---|---|---|
+| **Liane Sève-Claire**, compagne | l'herboriste de Gardebois voyage avec le héros ; elle soigne ; elle ne vole rien et ne se bat pas pour les causes perdues | — | à valider |
+| **Saule** | petit frère de Liane, mort sous les déblais du chantier de Brisefer, à la Gare Engloutie ; jamais vu en jeu | maladie mémorielle [E2], Bosquet des Échos [NOTION] | à valider |
+| **Boulon**, compagnon | le Ferrôme porteur, inscrit « matériel de quai » au registre des Archives (rachat : 120 Fers) | Ferrômes au statut juridique ambigu [NOTION] | à valider |
+

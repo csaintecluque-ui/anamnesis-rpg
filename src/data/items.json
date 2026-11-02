@@ -274,5 +274,13 @@
     "description": "Une poignée de carreaux de Ferros.",
     "weightKg": 0.5,
     "price": 4
+  },
+  {
+    "id": "champignon-memoire",
+    "name": "Vieux Champignon-Mémoire",
+    "description": "Large comme une main, pâle, il luit faiblement. Il « absorbe les souvenirs récents des marcheurs » ; un seul, et un souvenir s’en va pour de bon.",
+    "weightKg": 0.2,
+    "price": 0,
+    "quest": true
   }
 ]

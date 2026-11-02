@@ -325,6 +325,10 @@ function gareEngloutie() {
     }
   }
 
+  // « Ce que Liane veut oublier » (docs/gdd/jalon-3.md, étape 2) : un vieux Champignon-Mémoire près du chantier, placé
+  // après le tirage des arbres pour ne pas le changer.
+  m.setObstacle(16, 13, null);
+  m.object('champignon-ancien', 'objet', 16, 13, { tuile: 'champignons', apparaitSi: 'oubli-choix-oublier', disparaitSi: 'champignon-cueilli' });
   m.object('entree-gare', 'sortie', 0, 9, { cible: 'gardebois', arrivee: 'vers-gare', libelle: 'Vers Gardebois' });
   m.object('ingrid', 'pnj', 18, 10);
   m.object('echo-dernier-train', 'echo', 12, 8);
@@ -490,6 +494,9 @@ function canopeeAieux() {
   for (const [c, r] of [[8, 6], [12, 5], [16, 6], [17, 10], [16, 14], [14, 16], [8, 14]]) m.setObstacle(c, r, 'arbre-souvenir');
   m.object('arbre-ancien', 'objet', 16, 6);
   m.object('arbre-anselme', 'objet', 8, 14);
+  // Un jeune arbre au tronc lisse, où Liane peut graver le nom de son frère (« Ce que Liane veut oublier »).
+  m.setObstacle(6, 9, 'arbre-souvenir');
+  m.object('arbre-vierge', 'objet', 6, 9);
   // Le druide Vanel, au pied du grand arbre du sanctuaire (« Un prêt de la Terre », docs/gdd/magie.md).
   m.object('vanel', 'pnj', 14, 10);
   house(m, 'canopee-relais', 'maison-cosse', [10, 13], [11, 14]);

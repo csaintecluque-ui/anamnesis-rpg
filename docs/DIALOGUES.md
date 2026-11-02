@@ -255,11 +255,45 @@ Commence par : « arbre-quete » _(si quête « Le chant d’Anselme » en cours
 
 - « Retirer la main. » → **fin**
 
+## Un jeune arbre lisse
+
+_Bosquet des Échos_
+
+Commence par : « grave » _(si repère « saule-grave »)_, sinon « lisse »
+
+### lisse
+
+> Un jeune arbre au tronc encore lisse, au bord du Bosquet. Personne n’y a gravé.
+
+- _(si quête « Ce que Liane veut oublier » en cours)_ _(si repère « oubli-choix-graver »)_ _(si quête « undefined » undefined)_ « Laisser Liane graver le nom de Saule. » → graver
+- « Partir. » → **fin**
+
+### graver
+
+_Effet : retient « saule-grave », termine la quête « Ce que Liane veut oublier », retient le Récit « Saule, le frère de Liane », +40 XP, +undefined XP._
+
+> Liane grave lentement, en verdani, comme on le lui a appris. Quand elle pose la main sur l’écorce, elle pleure enfin, longtemps. Puis elle sourit. — Il riait trop fort. Le bois s’en souviendra. Moi aussi, maintenant, mais autrement.
+
+- « Partir. » → **fin**
+
+### grave
+
+> Le nom de Saule, gravé de la main de Liane. Le bois a déjà commencé à refermer les entailles, sans les effacer.
+
+- **[Mémoire 3]** « Poser la main sur le nom. » → toucher
+- « Partir. » → **fin**
+
+### toucher
+
+> Sous tes doigts monte un souvenir qui n’est pas le tien : un garçon qui grimpe trop haut, et une sœur qui lui crie de redescendre, en riant.
+
+- « Partir. » → **fin**
+
 ## Boulon
 
 _Ferrôme, porteur à la gare de l’Ouest_
 
-Commence par : « accueil-quete » _(si quête « L’audience » terminée)_ _(sans repère « boulon-accueilli »)_, sinon « accueil »
+Commence par : « libre » _(si quête « Le contrat de Boulon » en cours)_ _(si repère « boulon-libre »)_, sinon « revient » _(si quête « Le contrat de Boulon » terminée)_, sinon « accueil-quete » _(si quête « L’audience » terminée)_ _(sans repère « boulon-accueilli »)_, sinon « accueil »
 
 ### accueil-quete
 
@@ -268,7 +302,7 @@ _Effet : lance la quête « La Clé de Rouille Bleue », retient « boulon-accue
 > Un Ferrôme lourd comme une locomotive soulève trois malles d’une seule main. — Bienvenue à Ironheart. Je m’appelle Boulon. Un sceau d’émeraude à ta ceinture ? Les Verts ne viennent pas souvent. Tu cherches quelque chose, ou quelqu’un ?
 
 - « Un certain Kaelis, des Marches des Cendres. » → kaelis
-- « Que faut-il savoir, ici ? » → regles
+- « Parlons un peu. » → parler
 - « Une caravane pour Gardebois ? » → caravane
 - « Merci, Boulon. » → **fin**
 
@@ -277,7 +311,7 @@ _Effet : lance la quête « La Clé de Rouille Bleue », retient « boulon-accue
 > — Bonjour. Boulon, porteur de la gare de l’Ouest. Je me souviens de chaque malle que j’ai portée : des milliers. Tu veux savoir quelque chose ?
 
 - _(si quête « La Clé de Rouille Bleue » en cours)_ « Où trouver Kaelis, des Marches des Cendres ? » → kaelis
-- « Que faut-il savoir, ici ? » → regles
+- « Parlons un peu. » → parler
 - « Une caravane pour Gardebois ? » → caravane
 - « Au revoir, Boulon. » → **fin**
 
@@ -308,6 +342,44 @@ _Effet : retient « marche-cendres-indice »._
 > Boulon hisse ta malle d’une seule main. La caravane quitte la cendre de Ferros, passe la frontière, retrouve la forêt. Le soir, les lanternes du Marché des Lisières s’allument entre les arbres : Gardebois.
 
 - « Descendre du chariot. » → **fin** _(+undefined XP, +undefined XP, mène à « Gardebois — Marché des Lisières »)_
+
+### parler
+
+> — Parlons. Je porte, j’écoute, je me souviens. C’est tout ce que je fais.
+
+- « Que faut-il savoir, ici ? » → regles
+- _(si quête « Le contrat de Boulon » pas commencée)_ « Tu ne voyages jamais, toi ? » → voyage
+- « Revenir. » → accueil
+
+### voyage
+
+> Boulon pose une malle, ce qui ne lui arrive jamais. — Je connais le nom de toutes les gares d’où viennent les malles. Je n’en ai vu aucune. Au registre des Archives, je suis « matériel de quai, gare de l’Ouest ». Le matériel ne voyage pas.
+
+- « Et si tu venais avec moi ? » → contrat _(lance la quête « Le contrat de Boulon », retient « boulon-contrat »)_
+- « Je comprends. » → **fin**
+
+### contrat
+
+> — Il faudrait qu’on me raye du matériel. L’archiviste Noam tient le registre des Ferrômes. Il classe tout. Moi, je suis une ligne. … Je ne sais pas ce que vaut une ligne.
+
+- « J’irai voir Noam. » → **fin**
+
+### libre
+
+_Effet : termine la quête « Le contrat de Boulon », +40 XP._
+
+> Boulon lit le papier trois fois, puis le plie en quatre, très lentement. — Je ne suis plus du matériel. … Alors je viens. Je porterai ce qu’il faut, et je me souviendrai de chaque endroit. Ce seront les miens.
+
+- « En route, Boulon. » → **fin** _(+undefined XP)_
+- « Attends-moi ici un peu. » → **fin**
+
+### revient
+
+> — Tu reviens me chercher ? Je suis libre de dire oui. Ou de dire non. C’est nouveau.
+
+- _(si quête « undefined » undefined)_ « Viens, Boulon. » → **fin** _(+undefined XP)_
+- « Une caravane pour Gardebois ? » → caravane
+- « Pas maintenant. » → **fin**
 
 ## Brann Martelroux
 
@@ -485,6 +557,25 @@ Commence par : « partis » _(si repère « rencontre-cerfs-vus »)_, sinon « c
 
 - « Partir. » → **fin**
 
+## Un vieux Champignon-Mémoire
+
+_Près du chantier de la Gare Engloutie_
+
+Commence par : « champi »
+
+### champi
+
+> Entre deux souches, près du chantier, un Champignon-Mémoire large comme une main, pâle, qui luit faiblement. On dit qu’il mange les souvenirs récents de ceux qui marchent près de lui.
+
+- « Le cueillir pour Liane. » → cueilli _(donne 1 × « Vieux Champignon-Mémoire », retient « champignon-cueilli »)_
+- « Le laisser. » → **fin**
+
+### cueilli
+
+> Il se détache avec un bruit mou. Ta tête tourne un instant : tu ne sais plus très bien par où tu es arrivé·e. Puis ça revient.
+
+- « Partir. » → **fin**
+
 ## Le chef de caravane
 
 _Compagnie des Lisières_
@@ -570,6 +661,161 @@ Commence par : « presse » _(si quête « La caravane de midi » pas commencée
 > Pas le temps, pas le temps !
 
 - « … » → **fin**
+
+## Boulon
+
+_Ferrôme, porteur à la gare de l’Ouest_
+
+Commence par : « gare » _(si quête « undefined » undefined)_, sinon « route-bon » _(si quête « undefined » undefined)_, sinon « route-froid » _(si quête « undefined » undefined)_, sinon « route »
+
+### route
+
+> Boulon marche derrière toi, et le sol tremble un peu à chaque pas. — Je retiens tout, tu sais. Les lieux, les gens. Ce que tu fais aussi.
+
+- « Rentre à la gare, Boulon. » → adieu
+- « On continue. » → **fin**
+
+### route-bon
+
+> — Je retiens ce que tu fais. Jusqu’ici, j’aime ce que je retiens. C’est une sensation nouvelle. Je la range à part.
+
+- « Rentre à la gare, Boulon. » → adieu
+- « On continue. » → **fin**
+
+### route-froid
+
+> Boulon ne te regarde pas. — Je retiens ce que tu fais. Je préférerais oublier certaines choses. Je ne sais pas oublier.
+
+- « Rentre à la gare, Boulon. » → adieu
+- « On continue. » → **fin**
+
+### gare
+
+> — La gare de l’Ouest. Le quai sent toujours la même huile. Tu veux la caravane pour Gardebois ? Je sais à qui parler.
+
+- _(si repère « membre-compagnie-lisieres »)_ « Montrer ta marque de la Compagnie. » → trajet
+- _(sans repère « membre-compagnie-lisieres »)_ **[15 Fers]** « Payer la caravane. » → trajet _(−15 Fers)_
+- « Rentre à la gare, Boulon. » → adieu
+- « On continue. » → **fin**
+
+### trajet
+
+> Boulon hisse ta malle sur le chariot, puis s’y hisse à son tour. La caravane quitte la cendre de Ferros, passe la frontière, retrouve la forêt. Le soir, les lanternes du Marché des Lisières.
+
+- « Descendre du chariot. » → **fin** _(+undefined XP, +undefined XP, mène à « Gardebois — Marché des Lisières »)_
+
+### adieu
+
+_Effet : +undefined XP._
+
+> — Je retourne au quai. Les malles ne se porteront pas toutes seules, même libres. Tu sais où me trouver.
+
+- « À bientôt, Boulon. » → **fin**
+
+## Liane Sève-Claire
+
+_Herboriste_
+
+Commence par : « manger » _(si quête « Ce que Liane veut oublier » en cours)_ _(si l’on porte « Vieux Champignon-Mémoire »)_, sinon « nuit » _(si quête « Ce que Liane veut oublier » pas commencée)_ _(si quête « undefined » undefined)_, sinon « legere » _(si repère « liane-a-oublie »)_, sinon « route-bon » _(si quête « undefined » undefined)_, sinon « route-froid » _(si quête « undefined » undefined)_, sinon « route »
+
+### route
+
+> Liane cueille au passage ce qui pousse au bord du chemin, et le fourre dans sa besace. — Alors ? On reste plantés là ?
+
+- _(si quête « Ce que Liane veut oublier » en cours)_ _(sans repère « oubli-choix-oublier »)_ _(sans repère « oubli-choix-graver »)_ « Pour Saule : que veux-tu faire ? » → choix
+- « Rentre à Gardebois, Liane. » → adieu
+- « On continue. » → **fin**
+
+### route-bon
+
+> Liane te tend une feuille de menthe sans rien dire, puis sourit. — Tu fais les choses à peu près comme il faut. Ne le prends pas mal : venant de moi, c’est un compliment.
+
+- _(si quête « Ce que Liane veut oublier » en cours)_ _(sans repère « oubli-choix-oublier »)_ _(sans repère « oubli-choix-graver »)_ « Pour Saule : que veux-tu faire ? » → choix
+- « Rentre à Gardebois, Liane. » → adieu
+- « On continue. » → **fin**
+
+### route-froid
+
+> Liane marche à trois pas, les lèvres pincées. — Ne me demande pas mon avis. Tu ne l’aimerais pas.
+
+- _(si quête « Ce que Liane veut oublier » en cours)_ _(sans repère « oubli-choix-oublier »)_ _(sans repère « oubli-choix-graver »)_ « Pour Saule : que veux-tu faire ? » → choix
+- « Rentre à Gardebois, Liane. » → adieu
+- « On continue. » → **fin**
+
+### legere
+
+> Liane fredonne. Elle a l’air légère, presque trop. — Tu sais, j’ai rêvé d’un garçon qui riait fort et grimpait trop haut. Je ne sais pas qui c’était. Ça m’a fait du bien et du mal.
+
+- _(si quête « Ce que Liane veut oublier » en cours)_ _(sans repère « oubli-choix-oublier »)_ _(sans repère « oubli-choix-graver »)_ « Pour Saule : que veux-tu faire ? » → choix
+- « Rentre à Gardebois, Liane. » → adieu
+- « On continue. » → **fin**
+
+### nuit
+
+> Le soir venu, Liane mâche quelque chose en silence, les yeux dans le vague. Une odeur de cave et de terre mouillée. — Quoi ? Ça m’aide à dormir.
+
+- « Qu’est-ce que tu mâches ? » → aveu
+- « Dors bien, Liane. » → **fin**
+
+### aveu
+
+_Effet : lance la quête « Ce que Liane veut oublier », retient « oubli-aveu »._
+
+> — Du Champignon-Mémoire. Il mange les souvenirs récents. Les miens, c’est toujours le même : Saule, mon petit frère, sous les déblais du chantier de Brisefer. La maladie me le remontre chaque nuit. Ça, au moins, me laisse dormir.
+
+- « Ça te ronge. Tu oublies d’autres choses. » → ronge
+- « Que veux-tu faire ? » → choix
+- « Dors, Liane. » → **fin**
+
+### ronge
+
+> — Hier, j’ai oublié le nom de la sauge-lumière. Moi ! … Je sais. Mais entre oublier un peu de tout et le revoir mourir chaque nuit, j’ai choisi.
+
+- « Il y a peut-être un autre chemin. » → choix
+- « Dors, Liane. » → **fin**
+
+### choix
+
+> Liane serre sa besace. — Près du chantier, à la Gare, pousse un vieux Champignon-Mémoire : un seul, et Saule s’en va pour de bon. Ou bien, au Bosquet des Échos, à Canopéa, on grave les morts dans le bois vivant. Le bois se souviendrait à ma place.
+
+- « Allons chercher le vieux champignon. » → oublier-ok _(retient « oubli-choix-oublier »)_
+- « Allons graver son nom au Bosquet. » → graver-ok _(retient « oubli-choix-graver »)_
+- « Prends ton temps. » → **fin**
+
+### oublier-ok
+
+> — Là où il est mort, évidemment. Ça pousse sur ce qui pourrit. … Merci de ne pas me faire la morale.
+
+- « En route. » → **fin**
+
+### graver-ok
+
+> — Il faudra que je le touche, ce bois, après. … Je ne sais pas si je pourrai.
+
+- « Je serai là. » → **fin** _(+undefined XP)_
+- « En route. » → **fin**
+
+### manger
+
+> Liane prend le champignon à deux mains. Il luit faiblement, pâle comme une lune. — Après, je ne saurai même plus pourquoi je l’ai mangé. Tu ne me le diras pas, hein ?
+
+- « Je ne te dirai rien. » → oublie _(reprend 1 × « Vieux Champignon-Mémoire », retient « liane-a-oublie », termine la quête « Ce que Liane veut oublier », +40 XP, +undefined XP)_
+- _(sans repère « oubli-choix-graver »)_ « Non : allons plutôt graver son nom. » → graver-ok _(reprend 1 × « Vieux Champignon-Mémoire », retient « oubli-choix-graver »)_
+- « Attends. Garde-le encore. » → **fin**
+
+### oublie
+
+> Elle mange. Longtemps, elle ne dit rien. Puis elle s’étire, et sourit comme tu ne l’as jamais vue sourire. — Bon. On y va ? … Pourquoi tu me regardes comme ça ? Quelqu’un est mort ?
+
+- « Personne. On y va. » → **fin**
+
+### adieu
+
+_Effet : +undefined XP._
+
+> — Bon. Mes malades m’attendent, de toute façon. Tu sais où me trouver : là où ça sent la menthe.
+
+- « À bientôt, Liane. » → **fin**
 
 ## La convoyeuse
 
@@ -811,7 +1057,7 @@ _Effet : retient le Récit « On se retrouvera »._
 
 > L’Écho répète sa promesse, jusqu’au bout cette fois, et ta mémoire la garde. Il attend quelque chose de toi : qu’on le suive, qu’on le garde, ou qu’on le laisse.
 
-- _(si quête « Les Échos sous la Forge » en cours)_ **[Mémoire 3]** _(sans repère « echos-dechaines »)_ « Le suivre, là où il va. » → suivre _(retient « echos-suivis », termine la quête « Les Échos sous la Forge », +50 XP, donne 1 × « Oiseau de fer »)_
+- _(si quête « Les Échos sous la Forge » en cours)_ **[Mémoire 3]** _(sans repère « echos-dechaines »)_ « Le suivre, là où il va. » → suivre _(retient « echos-suivis », termine la quête « Les Échos sous la Forge », +50 XP, donne 1 × « Oiseau de fer », +undefined XP)_
 - _(si quête « Les Échos sous la Forge » en cours)_ _(sans repère « echos-dechaines »)_ « Le garder par écrit. » → garder
 - _(si quête « Les Échos sous la Forge » en cours)_ « Le frapper pour le dissiper. » → frapper
 - « Réfléchir encore. » → **fin**
@@ -832,8 +1078,8 @@ _Effet : retient le Récit « On se retrouvera »._
 
 > Garder l’Écho par écrit, pour qu’il ne se perde pas : la berceuse, les mains sur l’enclume, la promesse. Mais pour qui l’écrire ?
 
-- « Pour les Archives : Noam saura le classer. » → archiver _(donne 1 × « Relevé d’un Écho », retient « echo-releve »)_
-- « Pour Ilyane, qui saura l’écouter. » → confier _(donne 1 × « Lettre pour Ilyane », retient « echo-lettre »)_
+- « Pour les Archives : Noam saura le classer. » → archiver _(donne 1 × « Relevé d’un Écho », retient « echo-releve », +undefined XP)_
+- « Pour Ilyane, qui saura l’écouter. » → confier _(donne 1 × « Lettre pour Ilyane », retient « echo-lettre », +undefined XP, +undefined XP)_
 - « Réfléchir encore. » → choix
 
 ### archiver
@@ -852,7 +1098,7 @@ _Effet : retient le Récit « On se retrouvera »._
 
 > Hesk l’a dit : un Écho qu’on frappe se multiplie, et devient violent. Frapper quand même ?
 
-- « Frapper. » → **fin** _(retient « echos-dechaines », lance le combat « echos-furieux »)_
+- « Frapper. » → **fin** _(+undefined XP, +undefined XP, retient « echos-dechaines », lance le combat « echos-furieux »)_
 - « Non. » → choix
 
 ### apaise
@@ -1007,9 +1253,9 @@ _Effet : retient « graines-elvan-avoue »._
 
 > Elvan s’assoit d’un coup. — Les Marches des Cendres paient trois fois le prix, à Ironheart. Trois fois ! Je me disais : quelques sacs, le Conseil ne verra rien… Il en reste six, là, dans le ballot.
 
-- « Je vais le dire au Conseil. » → denonce _(retient « graines-denonce », termine la quête « Les graines qui manquent », +30 XP)_
-- **[Diplomatie 3]** « Rapporte-les toi-même au grenier, et la Compagnie gardera son honneur. » → rend _(retient « graines-rendues », termine la quête « Les graines qui manquent », +40 XP)_
-- « Partageons : quarante Fers, et je n’ai rien vu. » → part _(retient « graines-silence », +40 Fers, termine la quête « Les graines qui manquent », +10 XP)_
+- « Je vais le dire au Conseil. » → denonce _(retient « graines-denonce », termine la quête « Les graines qui manquent », +30 XP, +undefined XP)_
+- **[Diplomatie 3]** « Rapporte-les toi-même au grenier, et la Compagnie gardera son honneur. » → rend _(retient « graines-rendues », termine la quête « Les graines qui manquent », +40 XP, +undefined XP, +undefined XP)_
+- « Partageons : quarante Fers, et je n’ai rien vu. » → part _(retient « graines-silence », +40 Fers, termine la quête « Les graines qui manquent », +10 XP, +undefined XP, +undefined XP)_
 - « Laisse-moi réfléchir. » → **fin**
 
 ### denonce
@@ -1248,7 +1494,7 @@ Commence par : « vide » _(si repère « vol-grenier »)_, sinon « sacs »
 
 > Des sacs de graines-lumière, alignés comme des soldats. Chacun porte le sceau du Conseil : ce sont les semences des futurs arbres de Canopéa.
 
-- « Prendre un sac. » → pris _(donne 1 × « Graines-lumière », retient « vol-grenier »)_
+- « Prendre un sac. » → pris _(donne 1 × « Graines-lumière », retient « vol-grenier », +undefined XP, +undefined XP)_
 - _(si quête « Les graines qui manquent » en cours)_ _(sans repère « preuve-sceau »)_ **[Investigation 2]** « Examiner les rangées. » → indice _(retient « preuve-sceau », retient « indice-elvan », +10 XP)_
 - _(si quête « Les graines qui manquent » en cours)_ _(sans repère « preuve-sceau »)_ « Faire luire un cristal entre les rangées. » → indice _(+undefined XP, retient « preuve-sceau », retient « indice-elvan », +10 XP)_
 - « Les laisser où ils sont. » → **fin**
@@ -1928,7 +2174,7 @@ _Effet : retient « kaelis-parle », +15 XP._
 
 > — Elle est là, dans ta poche. Je l’entends rouiller d’ici. Cent Fers, et l’on n’en parle plus.
 
-- « La lui vendre, pour cent Fers. » → vendue _(reprend 1 × « Clé de rouille bleue », +100 Fers, retient « cle-vendue », termine la quête « La Clé de Rouille Bleue », +60 XP)_
+- « La lui vendre, pour cent Fers. » → vendue _(reprend 1 × « Clé de rouille bleue », +100 Fers, retient « cle-vendue », termine la quête « La Clé de Rouille Bleue », +60 XP, +undefined XP, +undefined XP)_
 - « Qu’ouvre-t-elle ? » → ouvre
 - « Non, pas à toi. » → **fin**
 
@@ -2039,7 +2285,15 @@ Commence par : « apres » _(si quête « Les herbes de lisière » terminée)_,
 
 > Mes malades vont un peu mieux. Reviens si tu croises d’autres herbes étranges.
 
+- _(si quête « undefined » undefined)_ « Viens avec moi, Liane. » → recrue
 - « … » → **fin**
+
+### recrue
+
+> Liane te dévisage longtemps. — Mes malades… Sylvan les nourrira, et la sauge repousse sans moi. Mais je ne me bats pas pour les causes perdues, et je ne vole rien à personne. Compris ?
+
+- « Compris. » → **fin** _(+undefined XP)_
+- « Je reviendrai. » → **fin**
 
 ## Lisandre Ramelune
 
@@ -2438,7 +2692,7 @@ Commence par : « apres » _(si quête « La berceuse oubliée » terminée)_, s
 
 _Archives Centrales de Ferros_
 
-Commence par : « releve » _(si l’on porte « Relevé d’un Écho »)_ _(si quête « Les Échos sous la Forge » en cours)_, sinon « cle » _(si l’on porte « Clé de rouille bleue »)_ _(si quête « La Clé de Rouille Bleue » en cours)_, sinon « apres-archives » _(si repère « cle-archives »)_, sinon « accueil »
+Commence par : « releve » _(si l’on porte « Relevé d’un Écho »)_ _(si quête « Les Échos sous la Forge » en cours)_, sinon « cle » _(si l’on porte « Clé de rouille bleue »)_ _(si quête « La Clé de Rouille Bleue » en cours)_, sinon « registre » _(si quête « Le contrat de Boulon » en cours)_ _(sans repère « boulon-libre »)_, sinon « apres-archives » _(si repère « cle-archives »)_, sinon « accueil »
 
 ### accueil
 
@@ -2537,6 +2791,41 @@ _Effet : reprend 1 × « Relevé d’un Écho », retient « echos-archives », 
 > — Fonds ordinaire, section des Échos, sous-section « non attribués ». Elle est plus fournie qu’on ne croit (voir : registre). Ce qui n’a pas d’époque finit toujours par en trouver une.
 
 - « Merci, Noam. » → **fin**
+
+### registre
+
+> Noam tire un registre épais et pose le doigt sur une ligne. — « Boulon. Ferrôme. Matériel de quai, gare de l’Ouest. Rachat : cent vingt Fers. » Un bien, ou une mémoire ? La loi ne tranche pas (voir : article non rédigé). Moi, je classe.
+
+- **[120 Fers]** « Racheter son contrat. » → rachete _(−120 Fers, retient « boulon-libre »)_
+- **[Érudition 3]** « Il se souvient de chaque voyageur : c’est une archive, pas un outil. » → reclasse _(retient « boulon-libre », retient « boulon-archive »)_
+- **🎲 Discrétion 13** « Arracher la page, quand il aura le dos tourné. » → arrache, ✗ → surpris _(retient « boulon-libre », retient « registre-arrache »)_
+- « Autre chose. » → accueil
+
+### rachete
+
+> Noam compte les Fers, tamponne, raye. — Rayé du matériel (voir : vente). Il ne vous appartient pas pour autant. Il ne s’appartenait pas : il s’appartient. Classé.
+
+- « Merci, Noam. » → **fin**
+
+### reclasse
+
+> Noam se tait longtemps. — … Une archive vivante ne se vend pas (voir : règlement, article premier). Je le reclasse : « Fonds Boulon, consultable partout où il va. » Les Archives s’en souviendront, de vous.
+
+- « Merci, Noam. » → **fin**
+
+### arrache
+
+> Une page de moins dans un registre de mille. Personne ne la cherchera… sauf Noam, un jour, qui cherche toujours tout.
+
+- « Partir vite. » → **fin**
+
+### surpris
+
+_Effet : retient « registre-surpris »._
+
+> — Je vous prie de lâcher ce registre (voir : délits, article six). Noam ne crie pas. Il note. Il note votre nom.
+
+- « Partir. » → **fin**
 
 ## Le contrôleur Ostrik
 
@@ -3164,7 +3453,7 @@ Commence par : « gueri » _(si repère « tiven-soigne »)_, sinon « quete » 
 
 > Tiven tend ses paumes rougies. — C’est Vanel qui t’envoie ? Il dit que les cristaux écoutent mieux que les herboristes. Moi, je veux juste pouvoir fermer le poing demain.
 
-- « Poser le cristal de Vie sur ses mains. » → soin _(+undefined XP, retient « tiven-soigne », +15 XP)_
+- « Poser le cristal de Vie sur ses mains. » → soin _(+undefined XP, retient « tiven-soigne », +15 XP, +undefined XP)_
 - _(si l’on porte « Bandage »)_ _(sans repère « tiven-panse »)_ « Panser ses mains avec un bandage. » → panse _(reprend 1 × « Bandage », retient « tiven-panse », +5 XP)_
 - « Je reviens. » → **fin**
 

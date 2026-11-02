@@ -1,0 +1,41 @@
+{
+  "id": "champignon-ancien",
+  "speaker": "champignon-ancien",
+  "entries": [
+    {
+      "node": "champi"
+    }
+  ],
+  "nodes": {
+    "champi": {
+      "text": "Entre deux souches, près du chantier, un Champignon-Mémoire large comme une main, pâle, qui luit faiblement. On dit qu’il mange les souvenirs récents de ceux qui marchent près de lui.",
+      "options": [
+        {
+          "text": "Le cueillir pour Liane.",
+          "effects": [
+            {
+              "giveItem": "champignon-memoire"
+            },
+            {
+              "setFlag": "champignon-cueilli"
+            }
+          ],
+          "next": "cueilli"
+        },
+        {
+          "text": "Le laisser.",
+          "next": "fin"
+        }
+      ]
+    },
+    "cueilli": {
+      "text": "Il se détache avec un bruit mou. Ta tête tourne un instant : tu ne sais plus très bien par où tu es arrivé·e. Puis ça revient.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

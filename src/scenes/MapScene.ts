@@ -26,6 +26,7 @@ import { COLORS, CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
 import { HAS_MOUSE, MAP_ZOOM, RENDER_SCALE } from '../ui/viewport';
 import type { CombatStartData } from './CombatScene';
 import { FigurantLayer } from './Figurants';
+import { PartyLayer } from './Party';
 import type { HudScene } from './HudScene';
 import type { WorldMapStartData } from './WorldMapScene';
 import { momentOf, type Moment } from '../rules/time';
@@ -78,6 +79,9 @@ export class MapScene extends Phaser.Scene {
   private interactables: { object: MapObject; image: Phaser.GameObjects.Image; label?: Phaser.GameObjects.Text }[] = [];
   /** Passers-by and townsfolk with a line or two (docs/gdd/figurants.md). */
   private figurants!: FigurantLayer;
+  /** The companions following the hero (docs/gdd/jalon-3.md, étape 2), and who they were when the map was built. */
+  private party!: PartyLayer;
+  private partyIds = '';
 
   constructor() {
     super('Map');
@@ -132,6 +136,9 @@ export class MapScene extends Phaser.Scene {
     const start = this.feet(this.heroTile);
     this.hero = this.add.sprite(start.x, start.y, 'tiles', this.map.frames.heros).setOrigin(0.5, 1).setDepth(start.y);
     this.setUpWalk();
+    this.party = new PartyLayer(this, { frames: this.map.frames, feet: (t) => this.feet(t), walkable: (t) => this.walkable(t) });
+    this.partyIds = state.groupe.map((m) => m.id).join(',');
+    this.party.spawn(state.groupe.map((m) => m.id), this.heroTile);
 
     const worldWidth = (this.map.width + this.map.height) * (TILE_WIDTH / 2);
     const worldHeight = (this.map.width + this.map.height) * (TILE_HEIGHT / 2) + TOP_MARGIN;
@@ -163,6 +170,12 @@ export class MapScene extends Phaser.Scene {
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => this.scene.stop('Hud'));
     // A dialogue or a fight may have picked a herb or sent enemies away. Scene events outlive a restart: unhook.
     const onResume = () => {
+      // Someone joined or left the party (a dialogue): the map is rebuilt where the hero stands.
+      if (this.state.groupe.map((m) => m.id).join(',') !== this.partyIds) {
+        this.state.entrance = null;
+        this.scene.restart();
+        return;
+      }
       this.refreshGone();
       this.showMoment();
     };
@@ -240,6 +253,8 @@ export class MapScene extends Phaser.Scene {
    */
   private gone(o: MapObject): boolean {
     const any = (list?: string) => (list ?? '').split(',').some((flag) => flag.trim() && this.state.flags[flag.trim()]);
+    // A companion travelling with the hero is not at home (docs/gdd/jalon-3.md, étape 2).
+    if (o.type === 'pnj' && this.state.groupe.some((m) => m.id === o.name)) return true;
     return any(o.properties.disparaitSi) || (!!o.properties.apparaitSi && !any(o.properties.apparaitSi));
   }
 
@@ -358,6 +373,12 @@ export class MapScene extends Phaser.Scene {
 
   private onTap(pointer: Phaser.Input.Pointer): void {
     const tile = screenToTile({ x: pointer.worldX - this.originX, y: pointer.worldY - this.originY });
+    const companion = this.party.hit(pointer.worldX, pointer.worldY);
+    if (companion && DIALOGUES[`compagnon-${companion}`]) {
+      this.scene.pause();
+      this.scene.launch('Dialogue', { id: `compagnon-${companion}` });
+      return;
+    }
     const passerBy = this.figurants.hit(pointer.worldX, pointer.worldY);
     if (passerBy) {
       const dialogue = passerBy.def.dialogue && DIALOGUES[passerBy.def.dialogue];
@@ -443,6 +464,7 @@ export class MapScene extends Phaser.Scene {
       duration: diagonal ? STEP_MS * 1.4 : STEP_MS,
       onUpdate: () => this.hero.setDepth(this.hero.y),
       onComplete: () => {
+        this.party.heroStepped(this.heroTile, STEP_MS);
         this.heroTile = next;
         this.state.position = { ...next };
         this.stepAlong();

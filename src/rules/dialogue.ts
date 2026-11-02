@@ -5,7 +5,7 @@ import { resolveCheck, rollD20, successChance, type Rng } from './checks';
 import { characterStats } from './character';
 import { ENCOUNTERS } from './combat';
 import { addItem, findItem, ownedCount, removeItem } from './inventory';
-import { restParty } from './companions';
+import { avisOf, changeAvis, findCompanion, inParty, joinParty, leaveParty, restParty } from './companions';
 import { castCost, castOutsideCombat, findPower, hasPower, POWERS, restoreResonance, teachSkillRank, wornCrystal, type PowerId } from './magic';
 import { RECITS, findRecit, knowsRecit, learnRecit } from './recits';
 import { REPUTATION, reputationNotices, reputationScore, reputationTag } from './reputation';
@@ -33,7 +33,13 @@ export type Condition =
   /** One day in `tousLes`, from the `decalage`-th (the news of the day at the inns). A story condition. */
   | { tousLes: number; decalage: number }
   /** A crystal is worn at the neck (true) or not (false): « on tient des listes » at Ironheart. A story condition. */
-  | { cristal: boolean };
+  | { cristal: boolean }
+  /** This companion travels with the hero (docs/gdd/jalon-3.md, étape 2). A story condition. */
+  | { compagnon: string }
+  /** What this companion thinks of the hero, between `min` and `max` (both optional). A story condition. */
+  | { avis: string; min?: number; max?: number }
+  /** The hero stands in this place (src/data/locations.json). A story condition. */
+  | { lieu: string };
 
 export type Effect =
   | { setFlag: string }
@@ -66,7 +72,13 @@ export type Effect =
    */
   | { lancer: PowerId }
   /** Teaches one rank of a skill (Vanel teaches the Résonance). */
-  | { apprendre: SkillId };
+  | { apprendre: SkillId }
+  /** A companion joins the party (docs/gdd/jalon-3.md, étape 2). */
+  | { rejoindre: string }
+  /** A companion leaves the party and goes home. */
+  | { quitter: string }
+  /** A companion travelling with the hero thinks of this choice (+ or −); too low, they leave. */
+  | { avis: string; delta: number };
 
 /** An action rolled with the d20 (docs/gdd/competences.md): the chance is shown, then `next` or `failNext` follows. */
 export interface Roll {
@@ -134,6 +146,9 @@ export function conditionMet(state: GameState, c: Condition): boolean {
   if ('moment' in c) return c.moment === 'jour' ? !isNight(state.time) : momentOf(state.time) === c.moment;
   if ('tousLes' in c) return (state.time.day - 1) % c.tousLes === c.decalage;
   if ('cristal' in c) return !!state.character && !!wornCrystal(state.character) === c.cristal;
+  if ('compagnon' in c) return inParty(state, c.compagnon);
+  if ('avis' in c) return avisOf(state, c.avis) >= (c.min ?? -Infinity) && avisOf(state, c.avis) <= (c.max ?? Infinity);
+  if ('lieu' in c) return state.location === c.lieu;
   return (state.quests[c.quest] ?? 'none') === c.status;
 }
 
@@ -292,6 +307,18 @@ export function applyEffects(state: GameState, effects: Effect[] = []): string[]
       notices.push(`Tes forces sont revenues. ${ITS_MOMENT[momentOf(state.time)]} Nous sommes ${formatDate(state.time)}.`);
     } else if ('lancer' in effect) {
       if (state.character) notices.push(...(castOutsideCombat(state.character, effect.lancer) ?? []));
+    } else if ('rejoindre' in effect) {
+      const def = findCompanion(effect.rejoindre);
+      if (def && joinParty(state, effect.rejoindre)) notices.push(`${def.name} se joint à toi`);
+      else if (def && !inParty(state, effect.rejoindre)) notices.push(`Ton groupe est complet : ${def.name.split(' ')[0]} ne peut pas venir`);
+    } else if ('quitter' in effect) {
+      const def = findCompanion(effect.quitter);
+      if (def && inParty(state, effect.quitter)) {
+        leaveParty(state, effect.quitter);
+        notices.push(`${def.name} quitte le groupe`);
+      }
+    } else if ('avis' in effect && 'delta' in effect) {
+      notices.push(...changeAvis(state, effect.avis, effect.delta));
     } else if ('apprendre' in effect) {
       if (state.character && teachSkillRank(state.character, effect.apprendre)) notices.push(`+1 rang de ${skillName(effect.apprendre)}`);
     } else if ('heal' in effect) {
@@ -352,6 +379,9 @@ export function dialogueProblems(d: Dialogue): string[] {
       if ('recit' in c && !knownRecits.has(c.recit)) problems.push(`${where} : récit inconnu ${c.recit}`);
       if ('reputation' in c && !REPUTATION[c.reputation]) problems.push(`${where} : réputation inconnue ${c.reputation}`);
       if ('item' in c && !findItem(c.item)) problems.push(`${where} : objet inconnu ${c.item}`);
+      if ('compagnon' in c && !findCompanion(c.compagnon)) problems.push(`${where} : compagnon inconnu ${c.compagnon}`);
+      if ('avis' in c && !findCompanion(c.avis)) problems.push(`${where} : compagnon inconnu ${c.avis}`);
+      if ('lieu' in c && !findLocation(c.lieu)) problems.push(`${where} : lieu inconnu ${c.lieu}`);
     }
   };
   const checkEffects = (where: string, effects: Effect[] = []) => {
@@ -365,6 +395,8 @@ export function dialogueProblems(d: Dialogue): string[] {
       if ('goTo' in e && !findLocation(e.goTo)) problems.push(`${where} : lieu inconnu ${e.goTo}`);
       if ('lancer' in e && !POWERS.some((p) => p.id === e.lancer)) problems.push(`${where} : pouvoir inconnu ${e.lancer}`);
       if ('apprendre' in e && !knownSkills.has(e.apprendre)) problems.push(`${where} : compétence inconnue ${e.apprendre}`);
+      const companion = 'rejoindre' in e ? e.rejoindre : 'quitter' in e ? e.quitter : 'avis' in e ? e.avis : null;
+      if (companion && !findCompanion(companion)) problems.push(`${where} : compagnon inconnu ${companion}`);
     }
   };
 

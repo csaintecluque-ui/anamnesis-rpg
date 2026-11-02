@@ -107,7 +107,35 @@
       "text": "Mes malades vont un peu mieux. Reviens si tu croises d’autres herbes étranges.",
       "options": [
         {
+          "text": "Viens avec moi, Liane.",
+          "requires": [
+            {
+              "avis": "liane",
+              "min": -4
+            }
+          ],
+          "next": "recrue"
+        },
+        {
           "text": "…",
+          "next": "fin"
+        }
+      ]
+    },
+    "recrue": {
+      "text": "Liane te dévisage longtemps. — Mes malades… Sylvan les nourrira, et la sauge repousse sans moi. Mais je ne me bats pas pour les causes perdues, et je ne vole rien à personne. Compris ?",
+      "options": [
+        {
+          "text": "Compris.",
+          "effects": [
+            {
+              "rejoindre": "liane"
+            }
+          ],
+          "next": "fin"
+        },
+        {
+          "text": "Je reviendrai.",
           "next": "fin"
         }
       ]

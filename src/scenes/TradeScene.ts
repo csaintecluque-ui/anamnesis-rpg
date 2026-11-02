@@ -1,5 +1,7 @@
 import Phaser from 'phaser';
 import npcData from '../data/npcs.json';
+import { combinedDiscount, merchantPlace, reputationLevel, reputationPrices } from '../rules/reputation';
+import { findPlace } from '../rules/world';
 import { characterStats, type Character, type Slot } from '../rules/character';
 import { armorBonus, buy, buyPrice, carriedWeightKg, equip, merchantCatalogue, merchantDiscount, ownedCount, sell, SELL_RATIO, tradeItems, unequip, useConsumable, type ItemDef } from '../rules/inventory';
 import type { GameState } from '../state/gameState';
@@ -42,7 +44,21 @@ export class TradeScene extends Phaser.Scene {
 
     const npc = this.npcId ? npcData.find((n) => n.id === this.npcId) : undefined;
     const title = this.npcId ? `L’étal ${npc?.name ?? ''}` : 'Inventaire';
-    this.add.text(MARGIN, L.titleY, title, { fontFamily: FONT_SERIF, fontSize: `${L.titleSize}px`, color: CSS.copper });
+    const heading = this.add.text(MARGIN, L.titleY, title, { fontFamily: FONT_SERIF, fontSize: `${L.titleSize}px`, color: CSS.copper });
+    // The town's opinion of the hero changes its merchants' prices (docs/gdd/reputation.md).
+    const place = merchantPlace(this.npcId);
+    if (place) {
+      const level = reputationLevel(this.state, place);
+      const change = level.prices === 0 ? '' : ` (${level.prices < 0 ? '−' : '+'}${Math.round(Math.abs(level.prices) * 100)} %)`;
+      this.add
+        .text(heading.x + heading.width + 24, heading.y + heading.height / 2, `${findPlace(place)?.name ?? place} : ${level.label}${change}`, {
+          fontFamily: FONT_SERIF,
+          fontSize: `${Math.round(L.titleSize * 0.7)}px`,
+          color: CSS.muted,
+          fontStyle: 'italic',
+        })
+        .setOrigin(0, 0.5);
+    }
 
     addTextButton(this, GAME_WIDTH - MARGIN - L.closeWidth / 2, L.closeY, withKeyHint('Fermer', 'Échap'), () => this.close(), {
       width: L.closeWidth,
@@ -54,6 +70,11 @@ export class TradeScene extends Phaser.Scene {
 
     this.layer = this.add.container(0, 0);
     this.redraw();
+  }
+
+  /** The trader's own discount combined with the town's opinion (negative: dearer). */
+  private discount(): number {
+    return combinedDiscount(merchantDiscount(this.state.flags, this.npcId), reputationPrices(this.state, this.npcId));
   }
 
   private character(): Character {
@@ -96,9 +117,10 @@ export class TradeScene extends Phaser.Scene {
 
     this.layer.add(this.rect(y));
     const L = LAYOUT;
-    const discount = merchantDiscount(this.state.flags, this.npcId);
+    const discount = this.discount();
     const price = buyPrice(item, discount);
-    const label = `${item.name}${owned ? `  ×${owned}` : ''}${equippedIn ? `  (${SLOT_NAMES[equippedIn]})` : ''}  —  ${item.weightKg} kg  —  ${price} F${price < item.price ? ' (prix d’ami)' : ''}`;
+    const deal = price < item.price ? ' (prix d’ami)' : price > item.price ? ' (prix fort)' : '';
+    const label = `${item.name}${owned ? `  ×${owned}` : ''}${equippedIn ? `  (${SLOT_NAMES[equippedIn]})` : ''}  —  ${item.weightKg} kg  —  ${price} F${deal}`;
     this.layer.add(
       this.text(MARGIN + 10, y, label, L.rowFont, owned ? CSS.parchment : CSS.muted).setOrigin(0, 0.5).setFixedSize(620, 0).setAlign('left'),
     );
@@ -133,7 +155,7 @@ export class TradeScene extends Phaser.Scene {
     if (this.npcId && merchantCatalogue(this.npcId).some((i) => i.id === item.id)) {
       addButton('Acheter', () =>
         this.act(() => {
-          const error = buy(this.character(), item.id, 1, discount);
+          const error = buy(this.character(), item.id, 1, this.discount());
           if (error === 'trop-cher') return this.fail('Pas assez de Fers.');
           if (error === 'trop-lourd') return this.fail('Trop lourd à porter.');
           return true;

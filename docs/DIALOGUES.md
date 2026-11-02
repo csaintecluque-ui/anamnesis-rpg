@@ -490,6 +490,7 @@ Commence par : « accueil »
 > Silence, s’il te plaît : le Conseil des Racines Profondes délibère. Les audiences se demandent par écrit, et la liste est longue… très longue.
 
 - « De quoi parle le Conseil ? » → sujet
+- **[réputation à canopee ≥ 10]** « Le Conseil accepterait-il de m’entendre ? » → estime
 - « Je reviendrai. » → **fin**
 
 ### sujet
@@ -497,6 +498,12 @@ Commence par : « accueil »
 > De la frontière de l’Est, de ce que Ferros creuse sous nos racines, et de ce mal qui fait oublier. Je n’en dirai pas plus : je suis huissier, pas bavard.
 
 - « Merci quand même. » → **fin**
+
+### estime
+
+> L’huissier te regarde mieux. — Ton nom circule en bien dans les Ramures, à ce qu’on dit. Reviens quand le Conseil aura fini de délibérer : il voudra peut-être t’entendre.
+
+- « Je reviendrai. » → **fin**
 
 ## Ilyane Voix-d’Écorce
 

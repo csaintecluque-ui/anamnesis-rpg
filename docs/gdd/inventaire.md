@@ -31,6 +31,8 @@ Règles : `src/rules/inventory.ts` ; écran : `TradeScene`.
   - **Sévane Mielvert** (Comptoir de la Sève, Canopéa) vend bandages, Baume de mousse (12 Fers, soigne 12 PV) et corde ;
     **la colporteuse** (rencontre de voyage) y ajoute la lampe à cristal. Avec ces deux marchands, la question des
     stocks se pose : pour l'instant, toujours illimités (à revoir avec Cyril).
+  - **Réputation** (`docs/gdd/reputation.md`) : les prix des marchands d'une ville suivent son opinion du héros
+    (+20 % à −15 %), cumulés avec leur remise propre.
   - **Graines-lumière** (30 Fers) : le sac qu'on peut voler au grenier des semences de Canopéa
     (`docs/univers/lieux/canopee.md`).
 - **Écran** : `TradeScene`, ouvert soit depuis le bouton « Inventaire » du HUD (seulement les objets portés, sans achat :

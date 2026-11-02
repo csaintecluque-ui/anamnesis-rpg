@@ -6,6 +6,7 @@ import { characterStats } from './character';
 import { ENCOUNTERS } from './combat';
 import { addItem, findItem } from './inventory';
 import { RECITS, findRecit, knowsRecit, learnRecit } from './recits';
+import { REPUTATION, reputationNotices, reputationScore, reputationTag } from './reputation';
 
 /** Attribute and skill tests stay visible (greyed) when unmet; story conditions hide the option. */
 export type Condition =
@@ -16,7 +17,9 @@ export type Condition =
   | { quest: string; status: 'none' | 'active' | 'done' }
   | { recit: string }
   /** Enough Fers to pay (a meal at the inn): a test, shown greyed when unmet. */
-  | { fers: number };
+  | { fers: number }
+  /** The town's opinion of the hero (docs/gdd/reputation.md): a test, shown greyed when unmet. */
+  | { reputation: string; min: number };
 
 export type Effect =
   | { setFlag: string }
@@ -83,8 +86,10 @@ export const QUESTS = questData as QuestDef[];
 export const MAX_NODE_TEXT = 300;
 export const MAX_OPTIONS = 4;
 
-const isTest = (c: Condition): c is { attribute: AttributeId; min: number } | { skill: SkillId; min: number } | { fers: number } =>
-  'attribute' in c || 'skill' in c || 'fers' in c;
+const isTest = (
+  c: Condition,
+): c is { attribute: AttributeId; min: number } | { skill: SkillId; min: number } | { fers: number } | { reputation: string; min: number } =>
+  'attribute' in c || 'skill' in c || 'fers' in c || 'reputation' in c;
 
 export function conditionMet(state: GameState, c: Condition): boolean {
   if ('attribute' in c) return (state.character?.attributes[c.attribute] ?? 0) >= c.min;
@@ -93,6 +98,7 @@ export function conditionMet(state: GameState, c: Condition): boolean {
   if ('notFlag' in c) return state.flags[c.notFlag] !== true;
   if ('recit' in c) return knowsRecit(state.character, c.recit);
   if ('fers' in c) return (state.character?.fers ?? 0) >= c.fers;
+  if ('reputation' in c) return reputationScore(state, c.reputation) >= c.min;
   return (state.quests[c.quest] ?? 'none') === c.status;
 }
 
@@ -101,6 +107,7 @@ export function testLabel(c: Condition): string | null {
   if ('attribute' in c) return `${ATTRIBUTES.find((a) => a.id === c.attribute)?.name ?? c.attribute} ${c.min}`;
   if ('skill' in c) return `${SKILLS.find((s) => s.id === c.skill)?.name ?? c.skill} ${c.min}`;
   if ('fers' in c) return `${c.fers} Fers`;
+  if ('reputation' in c) return reputationTag(c.reputation, c.min);
   return null;
 }
 
@@ -182,6 +189,7 @@ export function startNode(dialogue: Dialogue, state: GameState): string {
 /** Applies effects to the live state; returns player-facing notices (new quest, experience…). */
 export function applyEffects(state: GameState, effects: Effect[] = []): string[] {
   const notices: string[] = [];
+  const before = { flags: { ...state.flags }, quests: { ...state.quests } };
   for (const effect of effects) {
     if ('setFlag' in effect) {
       state.flags[effect.setFlag] = true;
@@ -225,6 +233,7 @@ export function applyEffects(state: GameState, effects: Effect[] = []): string[]
       notices.push(`+${effect.giveXp} points d’expérience`);
     }
   }
+  notices.push(...reputationNotices(before, state));
   return notices;
 }
 
@@ -263,6 +272,7 @@ export function dialogueProblems(d: Dialogue): string[] {
       if ('skill' in c && !knownSkills.has(c.skill)) problems.push(`${where} : compétence inconnue ${c.skill}`);
       if ('quest' in c && !knownQuests.has(c.quest)) problems.push(`${where} : quête inconnue ${c.quest}`);
       if ('recit' in c && !knownRecits.has(c.recit)) problems.push(`${where} : récit inconnu ${c.recit}`);
+      if ('reputation' in c && !REPUTATION[c.reputation]) problems.push(`${where} : réputation inconnue ${c.reputation}`);
     }
   };
   const checkEffects = (where: string, effects: Effect[] = []) => {

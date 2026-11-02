@@ -4,7 +4,7 @@
 
 - **Jalon 1 clos** (validé le 2026-11-01). **Jalon 2** fait et en ligne : avatars, marche 2D, combat sur grille,
   4 intérieurs, 5 PNJ, 3 quêtes (`docs/gdd/jalon-2.md`). 11,5 crédits Higgsfield restants.
-- 269 tests, typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
+- 276 tests, typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
 - Mode test caché : 5 touches sur la version (écran titre) → +50 Fers, PV au max dans le menu pause.
 
 ## Chantier en cours : les grandes villes (plan validé par Cyril le 2026-11-01)
@@ -16,9 +16,9 @@
 
 ## Prochaine étape
 
-1. En ligne : 14 passants (`docs/gdd/figurants.md`), ceux de Gardebois peints (les deux qui marchent sont animés).
-   Accès réseau de l'environnement passé en « Complet » par Cyril (images Higgsfield).
-2. Ensuite : réputation par ville, puis Ironheart ; les quêtes des villes après.
+1. En ligne : 14 passants (`docs/gdd/figurants.md`), ceux de Gardebois peints (accès réseau ouvert par Cyril).
+2. Fait le 2026-11-02, sur la branche : réputation par ville (`docs/gdd/reputation.md`, chiffres à valider).
+3. Ensuite : Ironheart (deuxième ville), puis les quêtes des villes.
 
 ## Points ouverts
 

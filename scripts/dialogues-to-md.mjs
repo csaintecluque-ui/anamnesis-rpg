@@ -21,6 +21,7 @@ function condition(c) {
   if ('notFlag' in c) return `_(sans repère « ${c.notFlag} »)_`;
   if ('recit' in c) return `_(si Récit « ${titleOf(c.recit)} » connu)_`;
   if ('fers' in c) return `**[${c.fers} Fers]**`;
+  if ('reputation' in c) return `**[réputation à ${c.reputation} ≥ ${c.min}]**`;
   const status = { none: 'pas commencée', active: 'en cours', done: 'terminée' }[c.status];
   return `_(si quête « ${nameOf(quests, c.quest)} » ${status})_`;
 }

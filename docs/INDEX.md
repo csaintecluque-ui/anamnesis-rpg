@@ -51,4 +51,5 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `jalon-2.md` : proposition du jalon 2 (retour de Cyril sur la phase 2, animation, avatars, contenu) ; à valider.
 - `villes.md` : gabarit d'une grande ville, systèmes communs, mécanique par ville, coûts, ordre ; validé.
 - `carte-du-monde.md` : carte du monde, voyages, rencontres aléatoires en route ; validé.
-- `figurants.md` : passants qui marchent et habitants à une ou deux répliques ; contenu à valider.
+- `figurants.md` : passants qui marchent et habitants à une ou deux répliques ; validé.
+- `reputation.md` : réputation par ville (paliers, prix, conditions de dialogue) ; chiffres à valider.

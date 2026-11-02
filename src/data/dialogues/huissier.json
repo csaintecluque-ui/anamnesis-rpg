@@ -15,6 +15,16 @@
           "next": "sujet"
         },
         {
+          "text": "Le Conseil accepterait-il de m’entendre ?",
+          "requires": [
+            {
+              "reputation": "canopee",
+              "min": 10
+            }
+          ],
+          "next": "estime"
+        },
+        {
           "text": "Je reviendrai.",
           "next": "fin"
         }
@@ -25,6 +35,15 @@
       "options": [
         {
           "text": "Merci quand même.",
+          "next": "fin"
+        }
+      ]
+    },
+    "estime": {
+      "text": "L’huissier te regarde mieux. — Ton nom circule en bien dans les Ramures, à ce qu’on dit. Reviens quand le Conseil aura fini de délibérer : il voudra peut-être t’entendre.",
+      "options": [
+        {
+          "text": "Je reviendrai.",
           "next": "fin"
         }
       ]

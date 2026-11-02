@@ -676,3 +676,7 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   l'environnement cloud »). Les cinq personnages lui plaisent. Planches de marche du commis et du garçon (10 images,
   5 crédits, solde 11,5), assemblées (`npm run walk`, nouvelle option de taille : 42 px pour l'enfant) ; tuiles des
   trois immobiles (`npm run art`). 270 tests ; vérifié dans le jeu. Mis en ligne.
+- Réputation par ville (« attaque la réputation ») : déduite des quêtes terminées et des repères
+  (`src/data/reputation.json`), quatre paliers, prix des marchands de la ville (+20 % à −15 %, cumulés avec la remise
+  de Tobias), condition de dialogue `reputation` (première : l'huissier du Conseil), message au changement de palier.
+  Pas de nouvelle version de sauvegarde. 276 tests ; étal de Sévane vérifié dans le navigateur (méfiance, +20 %).

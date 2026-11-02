@@ -1,0 +1,12 @@
+{
+  "gardebois": [
+    { "quest": "dernier-train", "points": 15 },
+    { "quest": "berceuse", "points": 10 },
+    { "quest": "herbes-lisiere", "points": 5 },
+    { "quest": "caisse-egaree", "points": 5 }
+  ],
+  "canopee": [
+    { "flag": "ailis-reconfortee", "points": 10 },
+    { "flag": "vol-grenier", "points": -20 }
+  ]
+}

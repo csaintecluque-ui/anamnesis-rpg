@@ -4,7 +4,7 @@ Les dix villes (lore, maisons, personnages) : `docs/univers/lieux/villes.md`. Le
 **Fait le 2026-11-01** : Canopéa en visuels provisoires (`docs/univers/lieux/canopee.md`), portes fermées à clé,
 réputation réduite à des repères (le vol au grenier fait parler la ville), carte du monde et rencontres en route
 (`docs/gdd/carte-du-monde.md`) ; le 2026-11-02, passants et habitants à une ou deux répliques (`docs/gdd/figurants.md`).
-**Reste** : réputation chiffrée, mécaniques propres des autres villes.
+Réputation par ville le 2026-11-02 (`docs/gdd/reputation.md`). **Reste** : mécaniques propres des autres villes.
 
 ## Gabarit d'une grande ville
 

@@ -23,7 +23,8 @@
     "remise": {
       "flag": "remise-cendrefer",
       "taux": 0.2
-    }
+    },
+    "place": "gardebois"
   },
   {
     "id": "ingrid",
@@ -135,7 +136,8 @@
       "bandage",
       "baume-mousse",
       "corde"
-    ]
+    ],
+    "place": "canopee"
   },
   {
     "id": "elouan",

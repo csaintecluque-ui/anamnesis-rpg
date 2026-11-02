@@ -722,3 +722,5 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   commerce avec Ferros, Rite du Retour sans pierre tombale). 317 tests ; vérifié dans le navigateur (PC et téléphone).
 - Cyril : « ok pour les 4 détails, mets en ligne » (Garrik, Elvan Morelle, « Les deux apprenties », Thalorin sans
   pronom). `main` avancé sur la branche, déploiement lancé.
+- Cyril valide aussi les détails du « Chant d'Anselme » (ruban vert, Elouan qui ne descend plus, Aïlis qui ne chantait
+  plus). Il fera Ironheart avec Codex.

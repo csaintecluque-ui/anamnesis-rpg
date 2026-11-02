@@ -92,7 +92,7 @@ carte à créer.
   Branche : la ramasser, ou, avec Artisanat 2, trouver « celle qui chante » (+10 XP). Mélodie : le souvenir du Bosquet
   (Mémoire 3) **ou**, sans Mémoire, le carnet de chansons d'Ilyane que montre Mirelle. Deux fins : la chanson exacte
   (40 XP), ou celle du carnet, qu'Aïlis corrige d'elle-même en s'en souvenant (30 XP). +10 de réputation à Canopéa.
-  Détails nouveaux (à valider) : le ruban vert au pied de l'arbre, Elouan qui « ne descend plus », Aïlis qui ne chante
+  Détails nouveaux (validés par Cyril le 2026-11-02) : le ruban vert au pied de l'arbre, Elouan qui « ne descend plus », Aïlis qui ne chante
   plus depuis la mort d'Anselme.
 
 ### 4. Les graines qui manquent (factions en conflit) — **construite le 2026-11-02**

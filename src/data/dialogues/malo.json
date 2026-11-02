@@ -204,7 +204,27 @@
       "options": [
         {
           "text": "Merci pour la nouvelle.",
-          "next": "accueil"
+          "requires": [
+            {
+              "quest": "lettres-malo",
+              "status": "none"
+            }
+          ],
+          "next": "souci"
+        },
+        {
+          "text": "Merci pour la nouvelle, Malo.",
+          "requires": [
+            {
+              "quest": "lettres-malo",
+              "status": "done"
+            }
+          ],
+          "next": "ami"
+        },
+        {
+          "text": "À bientôt, Malo.",
+          "next": "fin"
         }
       ]
     }

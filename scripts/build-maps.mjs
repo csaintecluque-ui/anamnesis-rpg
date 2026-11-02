@@ -810,7 +810,7 @@ function ironheartTriage() {
   m.object('aiguillage', 'objet', 13, 9);
   m.object('joss', 'pnj', 16, 10, { disparaitSi: 'rail-bureau' });
   // Les pilleurs des Marches, la nuit de la garde (« Le Rail des Cendres »).
-  const pilleurs = { ennemi: 'pilleur-cendres', apparaitSi: 'veille-aiguillage', disparaitSi: 'pilleurs-vaincus,pilleurs-suivis', texte: 'Un pilleur en manteau de cendre force le levier.' };
+  const pilleurs = { ennemi: 'pilleur-cendres', apparaitSi: 'veille-aiguillage', disparaitSi: 'pilleurs-vaincus,pilleurs-suivis,rail-travailleurs,rail-bureau,rail-marches', texte: 'Un pilleur en manteau de cendre force le levier.' };
   m.object('pilleur-1', 'ennemi', 14, 8, pilleurs);
   m.object('pilleur-2', 'ennemi', 11, 10, pilleurs);
   // Le dépôt des Travailleurs du Rail : Varka au brasero, le registre des départs, le contrôleur du Bureau.

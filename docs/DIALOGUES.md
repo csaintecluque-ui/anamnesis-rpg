@@ -134,6 +134,7 @@ _Effet : retient « anselme-connu »._
 > Je suis allée au Bosquet hier soir. J’ai posé la main sur le nom d’Anselme et… rien. Le bois était froid. Comme s’il était parti une seconde fois.
 
 - _(si quête « Le chant d’Anselme » terminée)_ « Vous avez encore sa chanson. » → chanson-reste
+- « Parlez-moi de l’arbre où il repose. » → arbre
 - « Le Triumvirat m’a demandé de comprendre. Je trouverai. » → **fin**
 
 ### chanson-reste
@@ -762,7 +763,7 @@ _Effet : retient « promesse-entendue »._
 > Au fond de la galerie, un Écho plus net que les autres : quelqu’un se tient face au vide et parle à des gens qu’on ne voit pas. Une seule phrase, encore et encore : « On se retrouvera. » Puis l’Écho se tourne vers toi, comme s’il attendait.
 
 - « L’écouter jusqu’au bout. » → choix
-- _(si quête « Les Échos sous la Forge » en cours)_ « Laisser l’Écho à son silence. » → ignorer _(retient « echos-ignores », termine la quête « Les Échos sous la Forge », +10 XP)_
+- _(si quête « Les Échos sous la Forge » en cours)_ _(sans repère « echos-dechaines »)_ « Laisser l’Écho à son silence. » → ignorer _(retient « echos-ignores », termine la quête « Les Échos sous la Forge », +10 XP)_
 - « Partir. » → **fin**
 
 ### choix
@@ -771,8 +772,8 @@ _Effet : retient le Récit « On se retrouvera »._
 
 > L’Écho répète sa promesse, jusqu’au bout cette fois, et ta mémoire la garde. Il attend quelque chose de toi : qu’on le suive, qu’on le garde, ou qu’on le laisse.
 
-- _(si quête « Les Échos sous la Forge » en cours)_ **[Mémoire 3]** « Le suivre, là où il va. » → suivre _(retient « echos-suivis », termine la quête « Les Échos sous la Forge », +50 XP, donne 1 × « Oiseau de fer »)_
-- _(si quête « Les Échos sous la Forge » en cours)_ « Le garder par écrit. » → garder
+- _(si quête « Les Échos sous la Forge » en cours)_ **[Mémoire 3]** _(sans repère « echos-dechaines »)_ « Le suivre, là où il va. » → suivre _(retient « echos-suivis », termine la quête « Les Échos sous la Forge », +50 XP, donne 1 × « Oiseau de fer »)_
+- _(si quête « Les Échos sous la Forge » en cours)_ _(sans repère « echos-dechaines »)_ « Le garder par écrit. » → garder
 - _(si quête « Les Échos sous la Forge » en cours)_ « Le frapper pour le dissiper. » → frapper
 - « Réfléchir encore. » → **fin**
 
@@ -1597,9 +1598,9 @@ Commence par : « apres-sabotage » _(si repère « foreuse-sabotee »)_, sinon 
 
 > La maladie mémorielle ? On en a entendu parler. Mais la Faille vaut de l’or en cristaux, et j’ai des papiers signés. Je ne m’arrête pas pour une rumeur de marché.
 
-- **[Diplomatie 3]** « Arrêtez le forage : à chaque coup, l’Écho se multiplie, et le mal avec lui. » → convaincue _(retient « chantier-arrete », termine la quête « Le Dernier Train », +70 XP, +30 Fers)_
-- **[Commandement 3]** « Je parle au nom des Gardiens de Mémoire : cessez, maintenant. » → convaincue _(retient « chantier-arrete », termine la quête « Le Dernier Train », +70 XP, +30 Fers)_
-- _(si Récit « Le Savant Corvan » connu)_ « Je connais l’histoire du savant Corvan. Écoutez-la avant de creuser plus loin. » → convaincue-recit _(retient « chantier-arrete », termine la quête « Le Dernier Train », +70 XP, +30 Fers)_
+- **[Diplomatie 3]** _(si quête « Le Dernier Train » en cours)_ « Arrêtez le forage : à chaque coup, l’Écho se multiplie, et le mal avec lui. » → convaincue _(retient « chantier-arrete », termine la quête « Le Dernier Train », +70 XP, +30 Fers)_
+- **[Commandement 3]** _(si quête « Le Dernier Train » en cours)_ « Je parle au nom des Gardiens de Mémoire : cessez, maintenant. » → convaincue _(retient « chantier-arrete », termine la quête « Le Dernier Train », +70 XP, +30 Fers)_
+- _(si Récit « Le Savant Corvan » connu)_ _(si quête « Le Dernier Train » en cours)_ « Je connais l’histoire du savant Corvan. Écoutez-la avant de creuser plus loin. » → convaincue-recit _(retient « chantier-arrete », termine la quête « Le Dernier Train », +70 XP, +30 Fers)_
 - « Je reviendrai. » → **fin**
 
 ### convaincue
@@ -2224,7 +2225,9 @@ _Effet : retient « malo-flute-dit »._
 
 > Mamie joue de la flûte ! Tous les soirs, au Bosquet. Elle dit que c’est grâce à toi… et à Papi. Elle va m’apprendre. Je serai coursier ET musicien.
 
-- « Merci pour la nouvelle. » → accueil
+- _(si quête « Les lettres de Malo » pas commencée)_ « Merci pour la nouvelle. » → souci
+- _(si quête « Les lettres de Malo » terminée)_ « Merci pour la nouvelle, Malo. » → ami
+- « À bientôt, Malo. » → **fin**
 
 ## Mirelle Doucebranche
 
@@ -3252,6 +3255,7 @@ _Effet : donne 1 × « Clé de rouille bleue », retient « cle-obtenue », +25 
 
 - « Te la rendre : sa place est sur la ligne. » → rendue _(reprend 1 × « Clé de rouille bleue », retient « cle-veilleuse », termine la quête « La Clé de Rouille Bleue », +60 XP)_
 - **[Érudition 3]** _(sans repère « cle-etudiee »)_ « L’étudier d’abord avec toi. » → etude
+- _(si quête « Le Rail des Cendres » en cours)_ _(sans repère « indice-veilleuse »)_ « Les convois du triage, qui partent seuls la nuit ? » → convois-triage
 - « Pas encore. » → **fin**
 
 ### etude
@@ -3289,6 +3293,7 @@ _Effet : retient « cle-etudiee », +10 XP._
 
 - **[Diplomatie 3]** « Kaelis la vendrait. Moi, je veux savoir ce qu’elle ouvre, et pourquoi on fouille vos gares. » → don
 - _(si repère « fonds-zero-connu »)_ « Aux Archives, un coffre de fer attend sa clé depuis la fondation : le Fonds Zéro. » → don
+- _(si quête « Le Rail des Cendres » en cours)_ _(sans repère « indice-veilleuse »)_ « Les convois du triage, qui partent seuls la nuit ? » → convois-triage
 - « Je reviendrai. » → **fin**
 
 ### convois-triage
@@ -3376,6 +3381,7 @@ _Effet : retient « descente-autorisee »._
 > Le Gardien de la Canopée m’a fait porter un mot : tu peux descendre autant qu’il le faudra. Je n’aime pas ça… Le sol sacré qui fait taire le Bosquet, ça ne s’est jamais vu.
 
 - « Descends-moi. » → **fin** _(mène à « Canopéa — Le Sol des Racines »)_
+- _(si quête « Les graines qui manquent » pas commencée)_ _(sans repère « vol-grenier »)_ « Quoi de neuf, à la nacelle ? » → graines-souci
 - « Pas maintenant. » → **fin**
 
 ### graines-souci

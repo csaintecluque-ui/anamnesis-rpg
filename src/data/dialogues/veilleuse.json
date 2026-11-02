@@ -223,6 +223,19 @@
           "next": "etude"
         },
         {
+          "text": "Les convois du triage, qui partent seuls la nuit ?",
+          "requires": [
+            {
+              "quest": "rail-cendres",
+              "status": "active"
+            },
+            {
+              "notFlag": "indice-veilleuse"
+            }
+          ],
+          "next": "convois-triage"
+        },
+        {
           "text": "Pas encore.",
           "next": "fin"
         }
@@ -337,6 +350,19 @@
             }
           ],
           "next": "don"
+        },
+        {
+          "text": "Les convois du triage, qui partent seuls la nuit ?",
+          "requires": [
+            {
+              "quest": "rail-cendres",
+              "status": "active"
+            },
+            {
+              "notFlag": "indice-veilleuse"
+            }
+          ],
+          "next": "convois-triage"
         },
         {
           "text": "Je reviendrai.",

@@ -2,24 +2,60 @@
   "id": "ingrid",
   "speaker": "ingrid",
   "entries": [
-    { "requires": [{ "flag": "foreuse-sabotee" }], "node": "apres-sabotage" },
-    { "requires": [{ "quest": "dernier-train", "status": "done" }], "node": "apres" },
-    { "requires": [{ "flag": "surpris-de-nuit" }], "node": "soupcon" },
-    { "node": "accueil" }
+    {
+      "requires": [
+        {
+          "flag": "foreuse-sabotee"
+        }
+      ],
+      "node": "apres-sabotage"
+    },
+    {
+      "requires": [
+        {
+          "quest": "dernier-train",
+          "status": "done"
+        }
+      ],
+      "node": "apres"
+    },
+    {
+      "requires": [
+        {
+          "flag": "surpris-de-nuit"
+        }
+      ],
+      "node": "soupcon"
+    },
+    {
+      "node": "accueil"
+    }
   ],
   "nodes": {
     "accueil": {
       "text": "Chantier privé, prospection pour le compte de Ferros. Qu’est-ce que les Gardiens de Mémoire viennent encore nous reprocher ?",
       "options": [
-        { "text": "Ce chantier rend les gens malades, à Gardebois.", "next": "cause" },
-        { "text": "Je viens juste regarder.", "next": "fin" }
+        {
+          "text": "Ce chantier rend les gens malades, à Gardebois.",
+          "next": "cause"
+        },
+        {
+          "text": "Je viens juste regarder.",
+          "next": "fin"
+        }
       ]
     },
     "soupcon": {
       "text": "Alors c’est vous, l’ombre qui rôdait autour de ma foreuse cette nuit ? Mes gardes veillent, maintenant. Si vous avez quelque chose à me dire, dites-le en face.",
       "options": [
-        { "text": "Ce chantier rend les gens malades, à Gardebois.", "next": "cause" },
-        { "text": "Je n’ai rien à vous dire.", "next": "fin" }
+        {
+          "text": "Ce chantier rend les gens malades, à Gardebois.",
+          "next": "cause"
+        },
+        {
+          "text": "Je n’ai rien à vous dire.",
+          "next": "fin"
+        }
       ]
     },
     "cause": {
@@ -28,39 +64,127 @@
         {
           "text": "Arrêtez le forage : à chaque coup, l’Écho se multiplie, et le mal avec lui.",
           "next": "convaincue",
-          "requires": [{ "skill": "diplomacy", "min": 3 }],
-          "effects": [{ "setFlag": "chantier-arrete" }, { "completeQuest": "dernier-train" }, { "giveXp": 70 }, { "giveFers": 30 }]
+          "requires": [
+            {
+              "skill": "diplomacy",
+              "min": 3
+            },
+            {
+              "quest": "dernier-train",
+              "status": "active"
+            }
+          ],
+          "effects": [
+            {
+              "setFlag": "chantier-arrete"
+            },
+            {
+              "completeQuest": "dernier-train"
+            },
+            {
+              "giveXp": 70
+            },
+            {
+              "giveFers": 30
+            }
+          ]
         },
         {
           "text": "Je parle au nom des Gardiens de Mémoire : cessez, maintenant.",
           "next": "convaincue",
-          "requires": [{ "skill": "command", "min": 3 }],
-          "effects": [{ "setFlag": "chantier-arrete" }, { "completeQuest": "dernier-train" }, { "giveXp": 70 }, { "giveFers": 30 }]
+          "requires": [
+            {
+              "skill": "command",
+              "min": 3
+            },
+            {
+              "quest": "dernier-train",
+              "status": "active"
+            }
+          ],
+          "effects": [
+            {
+              "setFlag": "chantier-arrete"
+            },
+            {
+              "completeQuest": "dernier-train"
+            },
+            {
+              "giveXp": 70
+            },
+            {
+              "giveFers": 30
+            }
+          ]
         },
         {
           "text": "Je connais l’histoire du savant Corvan. Écoutez-la avant de creuser plus loin.",
           "next": "convaincue-recit",
-          "requires": [{ "recit": "savant-corvan" }],
-          "effects": [{ "setFlag": "chantier-arrete" }, { "completeQuest": "dernier-train" }, { "giveXp": 70 }, { "giveFers": 30 }]
+          "requires": [
+            {
+              "recit": "savant-corvan"
+            },
+            {
+              "quest": "dernier-train",
+              "status": "active"
+            }
+          ],
+          "effects": [
+            {
+              "setFlag": "chantier-arrete"
+            },
+            {
+              "completeQuest": "dernier-train"
+            },
+            {
+              "giveXp": 70
+            },
+            {
+              "giveFers": 30
+            }
+          ]
         },
-        { "text": "Je reviendrai.", "next": "fin" }
+        {
+          "text": "Je reviendrai.",
+          "next": "fin"
+        }
       ]
     },
     "convaincue": {
       "text": "… Bon. J’arrête la foreuse, pour l’instant. Mais dites bien à vos Gardiens que Ferros reviendra, avec ou sans moi.",
-      "options": [{ "text": "Merci.", "next": "fin" }]
+      "options": [
+        {
+          "text": "Merci.",
+          "next": "fin"
+        }
+      ]
     },
     "convaincue-recit": {
       "text": "Corvan ? Je connais l’histoire, oui… et vous avez raison : il a réussi, et ça ne l’a pas sauvé. J’arrête la foreuse. On ne commet pas deux fois la même faute.",
-      "options": [{ "text": "Merci.", "next": "fin" }]
+      "options": [
+        {
+          "text": "Merci.",
+          "next": "fin"
+        }
+      ]
     },
     "apres-sabotage": {
       "text": "Quelqu’un a faussé ma foreuse, cette nuit. Ferros m’enverra des pièces… dans des semaines. D’ici là, je ne creuse plus. Et personne n’a plus revu de train, à Gardebois, paraît-il.",
-      "options": [{ "text": "Tant mieux.", "next": "fin" }]
+      "options": [
+        {
+          "text": "Tant mieux.",
+          "next": "fin"
+        }
+      ]
     },
     "apres": {
       "text": "La foreuse est silencieuse, pour l’instant. Mes ouvriers n’aiment pas ça, mais personne n’a plus revu de train, à Gardebois.",
-      "options": [{ "text": "Tant mieux.", "next": "fin" }]
+      "options": [
+        {
+          "text": "Tant mieux.",
+          "next": "fin"
+        }
+      ]
     }
   }
 }

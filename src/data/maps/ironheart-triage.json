@@ -1136,7 +1136,7 @@
       {
        "name": "disparaitSi",
        "type": "string",
-       "value": "pilleurs-vaincus,pilleurs-suivis"
+       "value": "pilleurs-vaincus,pilleurs-suivis,rail-travailleurs,rail-bureau,rail-marches"
       },
       {
        "name": "texte",
@@ -1170,7 +1170,7 @@
       {
        "name": "disparaitSi",
        "type": "string",
-       "value": "pilleurs-vaincus,pilleurs-suivis"
+       "value": "pilleurs-vaincus,pilleurs-suivis,rail-travailleurs,rail-bureau,rail-marches"
       },
       {
        "name": "texte",

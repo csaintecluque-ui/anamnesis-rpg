@@ -222,6 +222,10 @@
           ]
         },
         {
+          "text": "Parlez-moi de l’arbre où il repose.",
+          "next": "arbre"
+        },
+        {
           "text": "Le Triumvirat m’a demandé de comprendre. Je trouverai.",
           "next": "fin"
         }

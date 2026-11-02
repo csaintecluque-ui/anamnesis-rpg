@@ -202,6 +202,13 @@
       {
         "quest": "caravane-midi",
         "lines": [
+          "Le chef de caravane m’a pardonné, grâce à toi ! Il m’a même laissé un bout de viande séchée."
+        ]
+      },
+      {
+        "quest": "caravane-midi",
+        "flag": "loups-caravane",
+        "lines": [
           "Le chef de caravane m’a pardonné, grâce à toi ! Il m’a même laissé la viande séchée… enfin, ce que les loups n’ont pas eu."
         ]
       }

@@ -319,6 +319,19 @@
           ]
         },
         {
+          "text": "Quoi de neuf, à la nacelle ?",
+          "requires": [
+            {
+              "quest": "graines",
+              "status": "none"
+            },
+            {
+              "notFlag": "vol-grenier"
+            }
+          ],
+          "next": "graines-souci"
+        },
+        {
           "text": "Pas maintenant.",
           "next": "fin"
         }

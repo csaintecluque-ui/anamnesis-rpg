@@ -51,6 +51,9 @@
             {
               "quest": "echos-forge",
               "status": "active"
+            },
+            {
+              "notFlag": "echos-dechaines"
             }
           ],
           "effects": [
@@ -90,6 +93,9 @@
             {
               "attribute": "memory",
               "min": 3
+            },
+            {
+              "notFlag": "echos-dechaines"
             }
           ],
           "effects": [
@@ -114,6 +120,9 @@
             {
               "quest": "echos-forge",
               "status": "active"
+            },
+            {
+              "notFlag": "echos-dechaines"
             }
           ]
         },

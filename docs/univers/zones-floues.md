@@ -83,3 +83,12 @@ Ces décisions valent **pour le jeu**. Le dossier `docs/Lore/` reste inchangé.
 19. **Le public 8 à 15 ans** et certains contenus des fiches nations (drogues, polygamie, peines corporelles…) : à écarter du jeu, sans toucher au canon.
 20. **Restes de conversations avec une IA** dans N5, E7-1 et RES (« Voulez-vous que je continue… ») : simple nettoyage éventuel, si Cyril le souhaite.
 21. **Création de personnage dans le JDR** : 27 points pour 6 attributs de 1 à 5 donnent 4,5 de moyenne, alors que le même JDR fixe la moyenne humaine à 3. Il manque peut-être une table de coûts.
+
+## Questions ouvertes après la lecture du Notion (2026-11-02)
+
+- **Monnaie** : le canon donne la Feuille Verte à Verdantis (1 Feuille = 0,5 Fer), le Fer à Ferros, le Nexus comme
+  monnaie mondiale ; le jeu compte tout en Fers. Garder une seule monnaie de jeu, ou changer selon le pays ?
+- **Gardiens de Mémoire** : dans le Notion, c'est un **thème** central, pas une organisation attestée ; le jeu en fait
+  un ordre de conteurs voyageurs (décision de Cyril, point 3), à confirmer.
+- **Ironhold** : ancienne cité-État devenue Ferros, sources contradictoires sur ses dates : on la retire des dix villes.
+- **Serre Mémoire** : à Canopéa selon les légendes, dans un village selon le roman (IV.4).

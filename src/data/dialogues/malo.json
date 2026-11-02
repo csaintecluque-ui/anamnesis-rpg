@@ -25,10 +25,10 @@
       ]
     },
     "ville": {
-      "text": "Facile ! Ici, c’est le marché. La petite nacelle, près du grand tronc, monte aux Hautes Ramures : le Conseil, l’atelier du luthier, et chez moi. La longue passerelle à l’est mène au Bois des Aïeux, là où les arbres se souviennent.",
+      "text": "Facile ! Ici, c’est le marché. La petite nacelle, près du grand tronc, monte aux Hautes Ramures : le Conseil, l’atelier du luthier, et chez moi. La longue passerelle à l’est mène au Bosquet des Échos, là où l’on grave et où l’on parle à ses morts.",
       "options": [
         {
-          "text": "Les arbres se souviennent ?",
+          "text": "On parle à ses morts ?",
           "next": "arbres"
         },
         {
@@ -38,7 +38,7 @@
       ]
     },
     "arbres": {
-      "text": "Quand quelqu’un meurt, sa mémoire passe dans un arbre. Mon grand-père Anselme est dans l’un d’eux. Mamie Aïlis va lui parler tous les soirs. Moi, je n’entends rien… mais je crois qu’il m’écoute quand même.",
+      "text": "Quand quelqu’un meurt, on le met en terre au pied d’un arbre, tout en bas. Mon grand-père Anselme repose là. Mamie Aïlis a gravé son nom au Bosquet et va lui parler chaque soir. Moi, je n’entends rien… mais je crois qu’il m’écoute quand même.",
       "options": [
         {
           "text": "Il t’écoute, c’est certain.",

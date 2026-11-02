@@ -171,13 +171,13 @@
   },
   {
     "id": "arbre-ancien",
-    "name": "Un très vieil Arbre-Souvenir",
-    "role": "Arbre-Souvenir"
+    "name": "Un très vieil arbre gravé",
+    "role": "Bosquet des Échos"
   },
   {
     "id": "arbre-anselme",
-    "name": "L’arbre d’Anselme",
-    "role": "Arbre-Souvenir"
+    "name": "Le nom d’Anselme",
+    "role": "Bosquet des Échos"
   },
   {
     "id": "colporteuse",

@@ -3,7 +3,8 @@
 > Décisions de Cyril (2026-11-01) : « OK pour tout » ; on commence par **Canopéa**, en visuels provisoires
 > (`docs/univers/lieux/canopee.md`), avec la carte du monde et des rencontres en route (`docs/gdd/carte-du-monde.md`).
 > Noms alignés sur le Notion de Cyril (référence depuis le 2026-11-02) : **Coralia**, **Khrysos**, **Sept-Portes**, **Ironheart**.
-> Reste ouvert : Ironhold et Ironheart sont-elles deux villes ? (à vérifier dans `docs/Lore/`).
+> Ironhold : d'après le Notion, c'est l'ancienne cité-État qui devint Ferros (« future capitale »), pas une seconde ville
+> d'aujourd'hui ; les sources se contredisent sur ses dates. Ville 3 à remplacer : proposition, Porto-Lumina (voir plus bas).
 > Chaque ville reste à confronter au canon avant d'être construite ; les détails ajoutés en la construisant sont
 > proposés « à valider » dans sa propre fiche.
 
@@ -60,10 +61,12 @@ Cloudrest, Mistral (Zephyria) [E3, N1, N3]. Crystallis est écartée : son nom e
 - **Allure** : plates-formes rondes accrochées aux troncs, passerelles de cordes et de planches, maisons en forme de
   cosses, lanternes de cristal vert. Sous les passerelles, jamais de sol : une mer de feuillage. On monte depuis la
   forêt par la Grande Nacelle, un ascenseur à contrepoids.
-- **Sa mémoire** : les **Arbres-Souvenirs**, où l'on vient parler aux aïeux [N1]. Le soir, un Écho silencieux
-  s'allume parfois dans l'écorce.
-- **Quartiers** : la Grande Nacelle (arrivée, marché suspendu) · les Hautes Ramures (Conseil, demeures) · le Bois des
-  Aïeux (Arbres-Souvenirs, sanctuaire de la Sève Éternelle).
+- **Sa mémoire** : le **Bosquet des Échos** [NOTION], où l'on grave dans le bois vivant et où l'on vient parler à ses
+  morts ; toucher un arbre gravé transmet les souvenirs de qui a gravé. Les défunts reposent au pied d'un arbre, en bas
+  (Rite du Retour [NOTION]).
+- **Quartiers** : la Grande Nacelle (arrivée, marché suspendu) · les Hautes Ramures (antichambre du Conseil, demeures) ·
+  le Bosquet des Échos (arbres gravés, sanctuaire de la Sève Éternelle). Le Conseil siège dans un amphithéâtre taillé
+  dans un Arbre-Titan mort, à 500 m [NOTION].
 - **Maisons** : Auberge du Nid (hamacs au lieu de lits) · Comptoir de la Sève (herbes, cristaux de Vie) · Relais des
   Gardiens · Atelier Chante-Bois (instruments de bois chantant) · Maison Feuillevent · Salle du Conseil des Racines
   Profondes (sur audience) · ★ Grenier des semences.
@@ -76,9 +79,9 @@ Cloudrest, Mistral (Zephyria) [E3, N1, N3]. Crystallis est écartée : son nom e
   - **Aïlis Feuillevent**, sa grand-mère, parle chaque soir à l'arbre où repose la mémoire de son mari ;
   - canon : **Lyra Cœur-de-Sève** (Première Racine), **Thalorin** (Voix de Gaïa), **Kael Marchevent** (Gardien) [N1].
 - **Possibilités** : passer d'un quartier à l'autre en nacelle ; raccourcis par des passerelles étroites
-  (Athlétisme) ; écouter les Arbres-Souvenirs (Mémoire, Récits) ; obtenir une audience (Diplomatie ou
+  (Athlétisme) ; toucher les arbres gravés du Bosquet (Mémoire, Récits) ; obtenir une audience (Diplomatie ou
   recommandation d'Ilyane) ; le grenier (Artisanat pour crocheter, Subterfuge pour passer pour un livreur).
-- **À vérifier dans le canon** : description de Canopéa (N1) ; rôle exact de Kael Marchevent (homonymie, point 16).
+- **Canon vérifié (Notion)** : voir `docs/univers/lieux/canopee.md` (Triumvirat, Kael Marchevent Gardien de la Canopée).
 
 ## 2. Ironheart, la capitale des forges — Ferros
 
@@ -100,8 +103,9 @@ Cloudrest, Mistral (Zephyria) [E3, N1, N3]. Crystallis est écartée : son nom e
   - **Hedda Cendrefer**, sœur aînée de Tobias, tient l'atelier familial ;
   - **Rika Martelroux**, chaudronnière, mère de Brann ; elle attend des nouvelles de son fils ;
   - **Tess Éclairfer**, Chasseuse d'Orage à la peau luminescente, télégraphiste ;
-  - **Boulon**, Unité-Auric (automate) porteur de bagages à la gare ; son cristal garde le souvenir de chaque
-    voyageur qu'il a porté [E7-2 : cristaux de mémoire des Unités-Auric] ;
+  - **Boulon**, un Ferrôme (automate conscient, lourd, au statut juridique ambigu [NOTION]) porteur de bagages à
+    la gare ; il se souvient de chaque voyageur qu'il a porté (les Unités-Auric, rares oracles-machines, sont onze
+    dans tout l'Empire [NOTION]) ;
   - **Konrad Haut-Fourneau**, député, ardent défenseur du progrès ;
   - canon : **Markus Steelheart** (audience possible), **Théodric Ferron VII** (vu de loin, lors d'un défilé).
 - **Possibilités** : le plus grand marché d'armes et d'armures ; le Bureau des Permis, où se signent les papiers de
@@ -132,8 +136,10 @@ Cloudrest, Mistral (Zephyria) [E3, N1, N3]. Crystallis est écartée : son nom e
   - **Orrik**, un Métallide [E7] (son allure dépendra de la description du canon).
 - **Possibilités** : faire lire la mémoire d'une arme ou d'un objet ancien (Récits) ; la Vieille Mine, seul endroit
   de combat de la ville (Golems de Ferraille [E2]) et petit donjon à explorer ; faire réparer son équipement.
-- **À vérifier dans le canon** : Ironhold et Ironheart sont-elles bien deux villes ? Où est Ironhold ? Gorim est
-  nain dans le canon, mais les nains de Ferros relèvent du point 2 des zones floues : je ne les montre pas.
+- **Canon (Notion)** : Ironhold est la cité-État fondée par Gorim, « future capitale de Ferros » : elle n'existe plus
+  sous ce nom. **Ville à remplacer** ; proposition : **Porto-Lumina**, port de Marisol d'environ 50 000 habitants
+  [NOTION : arbitrage], à décrire ; ou Verdepont, port fluvial de Verdantis. Les idées de cette fiche (Salle des
+  Enclumes, mémoire du métal) peuvent rejoindre Ironheart.
 
 ## 4. Sept-Portes, la cité de Kael — Terminus
 

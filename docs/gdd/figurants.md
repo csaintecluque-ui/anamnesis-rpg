@@ -28,8 +28,8 @@ Code : `src/scenes/Figurants.ts` (sur la carte), `src/rules/figurants.ts` ; donn
 | Canopéa, Grande Nacelle | Un vieil homme | non | trois générations de nacelles ; regarder les nuages |
 | Canopéa, Hautes Ramures | Une tisseuse de feuilles | non | voiles de feuilles ; « c'est de la patience » |
 | Canopéa, Hautes Ramures | Un messager du Conseil | oui | message urgent ; « une audience ? un coussin » |
-| Canopéa, Bois des Aïeux | Une pèlerine du Bois | oui, lentement | vient voir sa mère, « passée dans le grand arbre » |
-| Canopéa, Bois des Aïeux | Un soigneur d'écorce | non | soigne l'écorce, ne touche jamais aux noms |
+| Canopéa, Bosquet des Échos | Une pèlerine du Bosquet | oui, lentement | vient parler à sa mère, dont elle a gravé le nom |
+| Canopéa, Bosquet des Échos | Un soigneur d'écorce | non | soigne l'écorce ; « la fente fait partie du souvenir » |
 | Gardebois | Un commis de Ferros pressé | oui | la caravane de midi ; « payé en Fers, remercié en chansons » |
 | Gardebois | Une lavandière | non | l'eau du ruisseau descend de la canopée |
 | Gardebois | Un garçon curieux | oui, vite | veut une histoire de dragon gentil ; le « buisson très méchant » |

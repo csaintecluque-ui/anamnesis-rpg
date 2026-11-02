@@ -428,7 +428,7 @@ function canopeeNacelle() {
   platform(m, 4, 14, 3); // le débarcadère de la Grande Nacelle
   bridge(m, [8, 14], [9, 14]);
   platform(m, 15, 12, 5); // le marché suspendu
-  bridge(m, [21, 12], [25, 12]); // la longue passerelle vers le Bois des Aïeux
+  bridge(m, [21, 12], [25, 12]); // la longue passerelle vers le Bosquet des Échos
   titan(m, 15, 11);
 
   m.setObstacle(1, 14, 'nacelle');
@@ -444,7 +444,7 @@ function canopeeNacelle() {
 
   m.object('entree', 'arrivee', 3, 14);
   m.object('depuis-aieux', 'arrivee', 24, 12);
-  m.object('vers-aieux', 'sortie', 25, 12, { cible: 'canopee-aieux', arrivee: 'depuis-marche', libelle: 'Passerelle vers le Bois des Aïeux' });
+  m.object('vers-aieux', 'sortie', 25, 12, { cible: 'canopee-aieux', arrivee: 'depuis-marche', libelle: 'Passerelle vers le Bosquet des Échos' });
   m.object('veline', 'pnj', 4, 12);
   m.object('malo', 'pnj', 13, 9);
   m.object('panneau-canopee', 'panneau', 6, 16, { texte: 'Canopéa — la Grande Nacelle. Ici, rien ne touche le sol.' });
@@ -473,7 +473,7 @@ function canopeeRamures() {
   return m.toTiled();
 }
 
-// Quartier 3 : le Bois des Aïeux (Arbres-Souvenirs, relais des Gardiens de Mémoire).
+// Quartier 3 : le Bosquet des Échos, où l'on grave et où l'on parle à ses morts [NOTION] (relais des Gardiens).
 function canopeeAieux() {
   const m = canopy(24, 20);
   bridge(m, [0, 10], [5, 10]);
@@ -485,7 +485,7 @@ function canopeeAieux() {
   house(m, 'canopee-relais', 'maison-cosse', [10, 13], [11, 14]);
   for (const [c, r] of [[10, 8], [15, 8], [14, 12]]) m.setObstacle(c, r, 'lanterne-verte');
   m.setObstacle(7, 11, 'panneau');
-  m.object('panneau-aieux', 'panneau', 7, 11, { texte: 'Le Bois des Aïeux. Ici, les arbres se souviennent : parle bas.' });
+  m.object('panneau-aieux', 'panneau', 7, 11, { texte: 'Le Bosquet des Échos. Ici, on grave, et l’on parle à ses morts : parle bas.' });
   m.object('vers-marche', 'sortie', 0, 10, { cible: 'canopee-nacelle', arrivee: 'depuis-aieux', libelle: 'Passerelle vers le marché' });
   m.object('depuis-marche', 'arrivee', 1, 10);
   return m.toTiled();
@@ -494,7 +494,7 @@ function canopeeAieux() {
 Object.assign(LOCATION_NAMES, {
   'canopee-auberge': 'Auberge du Nid',
   'canopee-comptoir': 'Comptoir de la Sève',
-  'canopee-conseil': 'Salle du Conseil des Racines Profondes',
+  'canopee-conseil': 'Antichambre du Conseil des Racines Profondes',
   'canopee-feuillevent': 'Maison Feuillevent',
   'canopee-atelier': 'Atelier Chante-Bois',
   'canopee-grenier': 'Grenier des semences',

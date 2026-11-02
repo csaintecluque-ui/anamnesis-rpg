@@ -17,73 +17,73 @@ Commence par : « voix » _(si repère « voix-anselme »)_ _(sans repère « ai
 
 ### accueil
 
-> Entre, entre. Tu as croisé mon petit-fils, je parie ? Malo court partout comme un écureuil. Moi, je ne vais plus bien loin : jusqu’au Bois des Aïeux, chaque soir, pour parler à mon Anselme.
+> Entre, entre. Tu as croisé mon petit-fils, je parie ? Malo court partout comme un écureuil. Moi, je ne vais plus bien loin : jusqu’au Bosquet des Échos, chaque soir, pour parler à mon Anselme.
 
 - « Parler à un arbre ? » → arbre
 - « Au revoir, Aïlis. » → **fin**
 
 ### arbre
 
-> Quand Anselme est parti, sa mémoire est passée dans un jeune arbre du Bois. Je lui raconte ma journée. Parfois, l’écorce est tiède sous ma main. Les savants disent que c’est le soleil. Moi, je sais que c’est lui.
+> Anselme repose au pied d’un jeune arbre, en bas, comme le veut le Rite du Retour. Et j’ai gravé son nom au Bosquet. Je lui raconte ma journée ; parfois, le bois est tiède sous ma main. Les savants disent que c’est le soleil. Moi, je sais que c’est lui.
 
 - « Merci de me l’avoir raconté. » → accueil
 
 ### voix
 
-> Tu reviens du Bois ? Tes yeux brillent…
+> Tu reviens du Bosquet ? Tes yeux brillent…
 
-- « J’ai entendu une voix, dans l’arbre d’Anselme. Quelqu’un fredonnait. » → reconfort _(retient « ailis-reconfortee », +15 XP)_
+- « J’ai touché le nom d’Anselme, au Bosquet. J’ai entendu quelqu’un fredonner. » → reconfort _(retient « ailis-reconfortee », +15 XP)_
 - « Ce n’est rien. » → accueil
 
 ### reconfort
 
-> Aïlis pose sa main sur la tienne. — La chanson des cerfs-lucioles ? Oh… Alors il est bien là. Merci. Tu viens de me rendre un petit morceau de lui.
+> Aïlis pose sa main sur la tienne. — La chanson des cerfs-lucioles… C’est elle que je fredonnais en gravant son nom. Alors le Bosquet la garde. Merci : tu viens de me rendre un petit morceau de lui.
 
 - « Il veille sur vous deux. » → **fin**
 
-## Un très vieil Arbre-Souvenir
+## Un très vieil arbre gravé
 
-_Arbre-Souvenir_
+_Bosquet des Échos_
 
 Commence par : « arbre »
 
 ### arbre
 
-> Un très vieil arbre, couvert de noms gravés les uns sur les autres. Des centaines de vies sont passées dans son bois.
+> Un très vieil arbre, couvert de colonnes de signes gravés en verdani. En grandissant, le bois a fendu certains signes ; personne ne les corrige.
 
-- **[Mémoire 3]** _(sans repère « recit-voix-ecorce-recu »)_ « Poser la main sur l’écorce et écouter. » → voix _(retient « recit-voix-ecorce-recu », retient le Récit « Les voix de l’écorce », +10 XP)_
+- **[Mémoire 3]** _(sans repère « recit-voix-ecorce-recu »)_ « Poser la main sur les signes gravés et écouter. » → voix _(retient « recit-voix-ecorce-recu », retient le Récit « Les voix du Bosquet », +10 XP)_
 - **[Mémoire 3]** _(si repère « recit-voix-ecorce-recu »)_ « Écouter encore les voix. » → voix
 - « Lire quelques noms. » → noms
 - « Partir. » → **fin**
 
 ### voix
 
-> Les voix montent ensemble, comme un chœur : des rires, des berceuses, des noms. Tu comprends soudain pourquoi, ici, on ne dit pas « il est mort », mais « il est passé dans l’arbre ».
+> Des souvenirs qui ne sont pas les tiens montent sous tes doigts : des mains qui gravent, des rires, une berceuse, un nom murmuré. Ceux qui ont gravé ici te parlent encore.
 
 - « Laisser les voix se taire. » → **fin**
 
 ### noms
 
-> Des noms, des petits dessins de feuilles, des mots tendres. Certains sont si anciens que l’écorce les a presque refermés.
+> Des noms, des légendes, de petits dessins de feuilles. Là où le bois a fendu un signe, la fente fait désormais partie du souvenir.
 
 - « Partir. » → **fin**
 
-## L’arbre d’Anselme
+## Le nom d’Anselme
 
-_Arbre-Souvenir_
+_Bosquet des Échos_
 
 Commence par : « arbre »
 
 ### arbre
 
-> Un jeune arbre, encore fin, au tronc gravé d’un nom : Anselme Feuillevent. Quelqu’un a noué un ruban vert autour de ses racines.
+> Un jeune arbre gravé d’un nom, en lettres de verdani encore nettes : Anselme Feuillevent. Quelqu’un a noué un ruban vert autour de son tronc.
 
-- **[Mémoire 3]** « Poser la main sur l’écorce et écouter. » → voix _(retient « voix-anselme »)_
+- **[Mémoire 3]** « Poser la main sur le nom gravé. » → voix _(retient « voix-anselme »)_
 - « Laisser l’arbre en paix. » → **fin**
 
 ### voix
 
-> Sous ta paume, l’écorce est tiède. Très loin, quelqu’un fredonne une chanson douce, une chanson de cerfs-lucioles et de nuits d’été. Puis plus rien, que le vent.
+> Sous tes doigts, un souvenir qui n’est pas le tien : une main de vieille femme qui grave, lettre après lettre, en fredonnant une chanson douce, une chanson de cerfs-lucioles. Puis plus rien, que le vent.
 
 - « Retirer doucement la main. » → **fin**
 
@@ -487,7 +487,7 @@ Commence par : « accueil »
 
 ### accueil
 
-> Silence, s’il te plaît : le Conseil des Racines Profondes délibère. Les audiences se demandent par écrit, et la liste est longue… très longue.
+> Silence, s’il te plaît : là-haut, dans le grand amphithéâtre, le Conseil des Racines Profondes délibère. Les audiences se demandent par écrit, et la liste est longue… très longue.
 
 - « De quoi parle le Conseil ? » → sujet
 - **[réputation à canopee ≥ 10]** « Le Conseil accepterait-il de m’entendre ? » → estime
@@ -755,14 +755,14 @@ Commence par : « accueil »
 
 ### ville
 
-> Facile ! Ici, c’est le marché. La petite nacelle, près du grand tronc, monte aux Hautes Ramures : le Conseil, l’atelier du luthier, et chez moi. La longue passerelle à l’est mène au Bois des Aïeux, là où les arbres se souviennent.
+> Facile ! Ici, c’est le marché. La petite nacelle, près du grand tronc, monte aux Hautes Ramures : le Conseil, l’atelier du luthier, et chez moi. La longue passerelle à l’est mène au Bosquet des Échos, là où l’on grave et où l’on parle à ses morts.
 
-- « Les arbres se souviennent ? » → arbres
+- « On parle à ses morts ? » → arbres
 - « Merci, Malo. » → **fin**
 
 ### arbres
 
-> Quand quelqu’un meurt, sa mémoire passe dans un arbre. Mon grand-père Anselme est dans l’un d’eux. Mamie Aïlis va lui parler tous les soirs. Moi, je n’entends rien… mais je crois qu’il m’écoute quand même.
+> Quand quelqu’un meurt, on le met en terre au pied d’un arbre, tout en bas. Mon grand-père Anselme repose là. Mamie Aïlis a gravé son nom au Bosquet et va lui parler chaque soir. Moi, je n’entends rien… mais je crois qu’il m’écoute quand même.
 
 - « Il t’écoute, c’est certain. » → accueil
 
@@ -809,7 +809,7 @@ Commence par : « accueil »
 
 ### kael
 
-> Après la Grande Chute, Kael écrivit tout ce dont il se souvenait du monde perdu. Il fonda la première bibliothèque, à Convergence. Chaque Gardien porte un peu de son carnet. Un jour, tu iras voir sa bibliothèque, toi aussi.
+> Après la Grande Chute, Kael écrivit tout ce dont il se souvenait du monde perdu. Il fonda la première bibliothèque, à Sept-Portes. Chaque Gardien porte un peu de son carnet. Un jour, tu iras voir sa bibliothèque, toi aussi.
 
 - « J’aimerais beaucoup. » → accueil
 
@@ -1070,7 +1070,7 @@ Commence par : « vol » _(si repère « vol-grenier »)_ _(sans repère « veli
 
 ### gardien
 
-> Une élève d’Ilyane ? Alors tu es ici chez toi. Va voir Mirelle, au relais du Bois des Aïeux : elle a appris le métier avec Ilyane, il y a bien longtemps. La longue passerelle, à l’est du marché, y mène.
+> Une élève d’Ilyane ? Alors tu es ici chez toi. Va voir Mirelle, au relais du Bosquet des Échos : elle a appris le métier avec Ilyane, il y a bien longtemps. La longue passerelle, à l’est du marché, y mène.
 
 - « Merci, Véline. » → **fin**
 - « Et ta nacelle ? » → nacelle

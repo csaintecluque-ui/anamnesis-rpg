@@ -70,12 +70,12 @@
   {
     "id": "pelerine",
     "location": "canopee-aieux",
-    "name": "Une pèlerine du Bois",
+    "name": "Une pèlerine du Bosquet",
     "tile": "pelerine",
     "pace": 1.6,
     "path": [[9, 8], [11, 6], [15, 7], [17, 9], [13, 12], [9, 11]],
     "lines": [
-      "Chut… Je viens voir ma mère. Elle est passée dans le grand arbre, au printemps.",
+      "Chut… Je viens parler à ma mère. J’ai gravé son nom ici, au printemps.",
       "Ici, on ne pleure pas fort. On raconte."
     ]
   },
@@ -86,8 +86,8 @@
     "tile": "jardinier",
     "path": [[16, 12]],
     "lines": [
-      "Je soigne l’écorce des Arbres-Souvenirs : un peu de mousse là où elle s’abîme.",
-      "Les noms gravés, je n’y touche jamais. Ils ne m’appartiennent pas."
+      "Je soigne l’écorce des arbres gravés : un peu de mousse là où elle s’abîme.",
+      "Quand le bois fend un signe, on ne le corrige jamais. La fente fait partie du souvenir."
     ]
   },
   {

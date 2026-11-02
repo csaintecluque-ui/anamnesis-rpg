@@ -8,10 +8,10 @@
   ],
   "nodes": {
     "arbre": {
-      "text": "Un très vieil arbre, couvert de noms gravés les uns sur les autres. Des centaines de vies sont passées dans son bois.",
+      "text": "Un très vieil arbre, couvert de colonnes de signes gravés en verdani. En grandissant, le bois a fendu certains signes ; personne ne les corrige.",
       "options": [
         {
-          "text": "Poser la main sur l’écorce et écouter.",
+          "text": "Poser la main sur les signes gravés et écouter.",
           "requires": [
             {
               "attribute": "memory",
@@ -58,7 +58,7 @@
       ]
     },
     "voix": {
-      "text": "Les voix montent ensemble, comme un chœur : des rires, des berceuses, des noms. Tu comprends soudain pourquoi, ici, on ne dit pas « il est mort », mais « il est passé dans l’arbre ».",
+      "text": "Des souvenirs qui ne sont pas les tiens montent sous tes doigts : des mains qui gravent, des rires, une berceuse, un nom murmuré. Ceux qui ont gravé ici te parlent encore.",
       "options": [
         {
           "text": "Laisser les voix se taire.",
@@ -67,7 +67,7 @@
       ]
     },
     "noms": {
-      "text": "Des noms, des petits dessins de feuilles, des mots tendres. Certains sont si anciens que l’écorce les a presque refermés.",
+      "text": "Des noms, des légendes, de petits dessins de feuilles. Là où le bois a fendu un signe, la fente fait désormais partie du souvenir.",
       "options": [
         {
           "text": "Partir.",

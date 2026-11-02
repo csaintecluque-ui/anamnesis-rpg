@@ -19,7 +19,7 @@
   ],
   "nodes": {
     "accueil": {
-      "text": "Entre, entre. Tu as croisé mon petit-fils, je parie ? Malo court partout comme un écureuil. Moi, je ne vais plus bien loin : jusqu’au Bois des Aïeux, chaque soir, pour parler à mon Anselme.",
+      "text": "Entre, entre. Tu as croisé mon petit-fils, je parie ? Malo court partout comme un écureuil. Moi, je ne vais plus bien loin : jusqu’au Bosquet des Échos, chaque soir, pour parler à mon Anselme.",
       "options": [
         {
           "text": "Parler à un arbre ?",
@@ -32,7 +32,7 @@
       ]
     },
     "arbre": {
-      "text": "Quand Anselme est parti, sa mémoire est passée dans un jeune arbre du Bois. Je lui raconte ma journée. Parfois, l’écorce est tiède sous ma main. Les savants disent que c’est le soleil. Moi, je sais que c’est lui.",
+      "text": "Anselme repose au pied d’un jeune arbre, en bas, comme le veut le Rite du Retour. Et j’ai gravé son nom au Bosquet. Je lui raconte ma journée ; parfois, le bois est tiède sous ma main. Les savants disent que c’est le soleil. Moi, je sais que c’est lui.",
       "options": [
         {
           "text": "Merci de me l’avoir raconté.",
@@ -41,10 +41,10 @@
       ]
     },
     "voix": {
-      "text": "Tu reviens du Bois ? Tes yeux brillent…",
+      "text": "Tu reviens du Bosquet ? Tes yeux brillent…",
       "options": [
         {
-          "text": "J’ai entendu une voix, dans l’arbre d’Anselme. Quelqu’un fredonnait.",
+          "text": "J’ai touché le nom d’Anselme, au Bosquet. J’ai entendu quelqu’un fredonner.",
           "next": "reconfort",
           "effects": [
             {
@@ -62,7 +62,7 @@
       ]
     },
     "reconfort": {
-      "text": "Aïlis pose sa main sur la tienne. — La chanson des cerfs-lucioles ? Oh… Alors il est bien là. Merci. Tu viens de me rendre un petit morceau de lui.",
+      "text": "Aïlis pose sa main sur la tienne. — La chanson des cerfs-lucioles… C’est elle que je fredonnais en gravant son nom. Alors le Bosquet la garde. Merci : tu viens de me rendre un petit morceau de lui.",
       "options": [
         {
           "text": "Il veille sur vous deux.",

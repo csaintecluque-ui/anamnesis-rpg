@@ -8,10 +8,10 @@
   ],
   "nodes": {
     "arbre": {
-      "text": "Un jeune arbre, encore fin, au tronc gravé d’un nom : Anselme Feuillevent. Quelqu’un a noué un ruban vert autour de ses racines.",
+      "text": "Un jeune arbre gravé d’un nom, en lettres de verdani encore nettes : Anselme Feuillevent. Quelqu’un a noué un ruban vert autour de son tronc.",
       "options": [
         {
-          "text": "Poser la main sur l’écorce et écouter.",
+          "text": "Poser la main sur le nom gravé.",
           "requires": [
             {
               "attribute": "memory",
@@ -32,7 +32,7 @@
       ]
     },
     "voix": {
-      "text": "Sous ta paume, l’écorce est tiède. Très loin, quelqu’un fredonne une chanson douce, une chanson de cerfs-lucioles et de nuits d’été. Puis plus rien, que le vent.",
+      "text": "Sous tes doigts, un souvenir qui n’est pas le tien : une main de vieille femme qui grave, lettre après lettre, en fredonnant une chanson douce, une chanson de cerfs-lucioles. Puis plus rien, que le vent.",
       "options": [
         {
           "text": "Retirer doucement la main.",

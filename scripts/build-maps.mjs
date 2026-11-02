@@ -346,15 +346,13 @@ const LOCATION_NAMES = {
   'reserve-cendrefer': 'Réserve de l’étal Cendrefer',
 };
 
-function interior(id, { w = 7, h = 6, outside = 'gardebois', furniture = [], objects = [] }) {
+function interior(id, { w = 7, h = 6, outside = 'gardebois', floor = 'parquet', wall = 'mur', furniture = [], objects = [] }) {
   const m = new MapBuilder(w + 1, h + 1);
   m.ground.fill(0);
   for (let row = 0; row <= h; row++) {
     for (let col = 0; col <= w; col++) {
-      if (row === 0 || col === 0) {
-        m.setGround(col, row, 'parquet');
-        m.setObstacle(col, row, 'mur');
-      } else m.setGround(col, row, 'parquet');
+      m.setGround(col, row, floor);
+      if (row === 0 || col === 0) m.setObstacle(col, row, wall);
     }
   }
   const door = Math.ceil(w / 2);

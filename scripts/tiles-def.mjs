@@ -775,4 +775,130 @@ TILES.push(
   },
   npcTile('druide', { body: '#2e5a32', hair: '#2e5a32', skin: '#c49a74', accent: '#9fe0a0', extra: '<path d="M23 46 Q32 30 41 46" fill="#2e5a32" stroke="#1B1512" stroke-width="1"/><path d="M44 44 L46 82" stroke="#6b4a32" stroke-width="2.5"/>' }),
   npcTile('conseillere', { body: '#6a7a3a', hair: '#3a2a1c', accent: '#e2c27a', extra: '<path d="M24 40 Q32 34 40 40" stroke="#e2c27a" stroke-width="2" fill="none"/>' }),
+  // --- Ironheart, capitale de Ferros (chapitre 3, docs/univers/lieux/ironheart.md) : visuels provisoires. ------
+  { name: 'paves', svg: diamond('#5a5048') + '<path d="M10 80 L22 74 M22 86 L34 80 M34 74 L46 68 M30 90 L44 83 M42 80 L54 74" stroke="#433b35" stroke-width="1.4"/>' },
+  {
+    name: 'paves-cendre',
+    svg: diamond('#77706a') + '<circle cx="22" cy="80" r="2" fill="#5f5953"/><circle cx="38" cy="84" r="2.5" fill="#5f5953"/><circle cx="34" cy="74" r="1.5" fill="#8f8882"/>',
+  },
+  { name: 'dalles', svg: diamond('#6e655c') + '<path d="M16 72 L48 88 M48 72 L16 88" stroke="#544b43" stroke-width="1.2"/>' },
+  {
+    name: 'maison-brique',
+    blocking: true,
+    cover: 4,
+    svg:
+      diamond('#5a5048') +
+      shadow(24, 8) +
+      `<path d="M8 84 L8 34 L32 22 L56 34 L56 84 L32 96 Z" fill="#7a3f2a" stroke="${INK}" stroke-width="1.2"/>` +
+      '<path d="M8 46 L32 58 L56 46 M8 58 L32 70 L56 58 M8 70 L32 82 L56 70" stroke="#5a2c1c" stroke-width="1" fill="none"/>' +
+      `<path d="M4 36 L32 18 L60 36 L32 26 Z" fill="#3a3a44" stroke="${INK}" stroke-width="1"/>` +
+      `<path d="M26 92 L26 74 Q32 68 38 74 L38 89 Z" fill="${COPPER}" stroke="${INK}" stroke-width="1"/>` +
+      '<rect x="12" y="50" width="7" height="8" fill="#e8b860" opacity="0.85"/><rect x="45" y="50" width="7" height="8" fill="#e8b860" opacity="0.85"/>',
+  },
+  {
+    name: 'forge',
+    blocking: true,
+    cover: 4,
+    svg:
+      diamond('#5a5048') +
+      shadow(24, 8) +
+      `<path d="M6 84 L6 44 L32 32 L58 44 L58 84 L32 96 Z" fill="#4a4048" stroke="${INK}" stroke-width="1.2"/>` +
+      `<rect x="40" y="6" width="9" height="36" fill="#3a3238" stroke="${INK}"/>` +
+      '<circle cx="45" cy="4" r="5" fill="#8f8882" opacity="0.6"/><circle cx="50" cy="-2" r="4" fill="#8f8882" opacity="0.4"/>' +
+      `<path d="M20 90 L20 70 L44 70 L44 84 Z" fill="#f08a2c" stroke="${INK}"/>` +
+      '<path d="M24 86 Q32 74 40 82" stroke="#ffd060" stroke-width="3" fill="none"/>',
+  },
+  {
+    name: 'archives',
+    blocking: true,
+    cover: 4,
+    svg:
+      diamond('#6e655c') +
+      shadow(26, 8) +
+      `<path d="M4 84 L4 40 L32 26 L60 40 L60 84 L32 96 Z" fill="#9a9488" stroke="${INK}" stroke-width="1.2"/>` +
+      `<path d="M0 40 L32 14 L64 40 L32 30 Z" fill="#c8c0b0" stroke="${INK}" stroke-width="1"/>` +
+      '<path d="M12 46 L12 82 M22 50 L22 88 M42 50 L42 88 M52 46 L52 82" stroke="#e6e0d2" stroke-width="3"/>' +
+      `<path d="M27 94 L27 72 L37 72 L37 89 Z" fill="#3a3238" stroke="${INK}"/>` +
+      `<path d="M18 36 L46 36" stroke="${COPPER}" stroke-width="2"/>`,
+  },
+  {
+    name: 'reverbere',
+    blocking: true,
+    svg:
+      diamond('#5a5048') +
+      `<rect x="30" y="30" width="4" height="52" fill="#2e2a30"/>` +
+      '<circle cx="32" cy="26" r="13" fill="#ff7a5a" opacity="0.18"/>' +
+      `<path d="M26 18 L38 18 L36 32 L28 32 Z" fill="#ff8a6a" stroke="#2e2a30" stroke-width="2"/>`,
+  },
+  {
+    name: 'monte-charge',
+    blocking: true,
+    cover: 2,
+    svg:
+      diamond('#5a5048') +
+      '<path d="M14 0 L14 84 M50 0 L50 84" stroke="#3a3238" stroke-width="3"/>' +
+      `<path d="M14 50 L50 50 L50 82 L14 82 Z" fill="#6a5a4a" stroke="${INK}" stroke-width="1.2"/>` +
+      '<path d="M20 50 L20 82 M26 50 L26 82 M32 50 L32 82 M38 50 L38 82 M44 50 L44 82" stroke="#3a3238" stroke-width="1.5"/>' +
+      `<circle cx="32" cy="8" r="7" fill="none" stroke="${COPPER}" stroke-width="2"/>`,
+  },
+  {
+    name: 'puits',
+    blocking: true,
+    cover: 2,
+    svg:
+      diamond('#5a5048') +
+      shadow(16, 6) +
+      `<ellipse cx="32" cy="76" rx="16" ry="8" fill="#4a4048" stroke="${INK}"/>` +
+      '<ellipse cx="32" cy="74" rx="11" ry="5" fill="#2c4a55"/>' +
+      `<path d="M44 74 L44 44 L36 40" stroke="${COPPER}" stroke-width="3" fill="none"/>` +
+      '<circle cx="36" cy="40" r="3" fill="#C9804F"/>',
+  },
+  {
+    name: 'tente-cendres',
+    blocking: true,
+    cover: 2,
+    svg:
+      diamond('#77706a') +
+      shadow(22, 7) +
+      `<path d="M8 82 L18 50 L46 50 L56 82 Z" fill="#8a8276" stroke="${INK}" stroke-width="1"/>` +
+      `<path d="M6 52 L32 36 L58 52 Z" fill="#6a6058" stroke="${INK}" stroke-width="1"/>` +
+      '<path d="M20 82 L22 62 M44 82 L42 62" stroke="#4a4048" stroke-width="2"/>' +
+      '<circle cx="28" cy="70" r="3" fill="#e8e2d4"/><path d="M34 72 L42 66" stroke="#e8e2d4" stroke-width="2.5"/>',
+  },
+  {
+    name: 'tuyaux',
+    blocking: true,
+    svg:
+      diamond('#5a5048') +
+      `<path d="M10 84 L10 50 Q10 40 22 40 L54 40" stroke="#8a5a34" stroke-width="7" fill="none"/>` +
+      `<path d="M10 84 L10 50 Q10 40 22 40 L54 40" stroke="${COPPER}" stroke-width="3" fill="none"/>` +
+      '<circle cx="30" cy="40" r="5" fill="#6a4a2a"/>',
+  },
+  {
+    name: 'butoir',
+    blocking: true,
+    svg: diamond('#4a4038') + `<rect x="20" y="62" width="24" height="16" fill="#7a3f2a" stroke="${INK}"/>` + '<path d="M20 66 L44 66" stroke="#e8b860" stroke-width="3"/>',
+  },
+  npcTile('ferrome', {
+    body: '#6a6a74',
+    skin: '#8a8a94',
+    hair: '#4a4a54',
+    accent: COPPER,
+    extra: '<circle cx="29" cy="47" r="1.6" fill="#7fe0ff"/><circle cx="35" cy="47" r="1.6" fill="#7fe0ff"/><rect x="22" y="60" width="20" height="4" fill="#4a4a54"/>',
+  }),
+  npcTile('kaelis', { body: '#3a3238', hair: '#b0b0a8', skin: '#c49a74', accent: '#e8e2d4', extra: '<path d="M40 72 L48 66 M42 74 L50 70" stroke="#e8e2d4" stroke-width="2"/>' }),
+  npcTile('veilleuse', { body: '#4a5a6a', hair: '#2a2018', accent: COPPER, extra: '<rect x="40" y="60" width="7" height="10" fill="#ffd060" stroke="#1B1512"/>' }),
+  npcTile('noam', { body: '#2e3a4a', hair: '#1f1612', accent: '#c8c0b0', extra: '<circle cx="28" cy="48" r="3" fill="none" stroke="#C9804F"/><circle cx="36" cy="48" r="3" fill="none" stroke="#C9804F"/>' }),
+  npcTile('hedda', { body: '#7a4a2a', hair: '#c9a46a', accent: '#C9804F' }),
+  npcTile('rika', { body: '#5a4a3a', hair: '#8a4a24', accent: '#e8b860' }),
+  npcTile('garde-ferros', { body: '#3a3a44', hair: '#2a2018', accent: COPPER, extra: '<path d="M22 42 L42 42 L40 36 L24 36 Z" fill="#3a3a44" stroke="#1B1512"/>' }),
+  npcTile('aubergiste-bielle', { body: '#6a4a3a', hair: '#4a3524', accent: '#e8e2d4' }),
+  {
+    name: 'mur-brique',
+    blocking: true,
+    svg:
+      '<path d="M32 4 L64 20 L64 80 L32 96 L0 80 L0 20 Z" fill="#7a3f2a" stroke="#1B1512" stroke-width="1"/>' +
+      '<path d="M0 34 L32 50 L64 34 M0 48 L32 64 L64 48 M0 62 L32 78 L64 62" stroke="#5a2c1c" stroke-width="1" fill="none"/>' +
+      '<path d="M32 4 L64 20 L32 36 L0 20 Z" fill="#3a3238"/>',
+  },
 );

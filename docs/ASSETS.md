@@ -371,3 +371,27 @@ illustration (2,75) : **≈ 75 crédits**, marge comprise. Huit villes (Sept-Por
 passants partagés entre les deux villes d'un même pays) : **≈ 500 crédits** (≈ 100 pour le rattrapage, ≈ 400 pour
 les huit villes). Hors estimation : musique et sons, animations d'attaque, vidéos.
 
+### Version « belle » (choisie par Cyril le 2026-11-02 : « je veux un truc de beau ») : ≈ 1 400 crédits
+
+Tout est peint, plus animé et plus illustré que dans l'estimation ci-dessus ; 25 % de marge (deux essais pour
+choisir le meilleur portrait ou la meilleure illustration).
+
+| Poste | Rattrapage (jeu actuel) | Par nouvelle ville |
+|---|---|---|
+| PNJ nommés en pied et en portrait | 34 (68) | 17 (34) |
+| PNJ importants qui marchent | — | 4 (10) |
+| Passants, et marche de ceux qui marchent | 19 dont 8 qui marchent (29,5) | 9 dont 6 (19,5) |
+| Décors, sols, murs, kit d'intérieur, grands décors phares | 53 (28,5) | 43 (23,5) |
+| Ennemis et leur posture d'attaque | 6 (3) | 4 (4) |
+| Illustrations (carte du monde peinte, scènes clés) | 11 (30,25) | 4 (11) |
+| Fonds peints sous la carte | 2 (5,5) | 2 (5,5) |
+| Icônes des objets dans l'inventaire | 27 (13,5) | 8 (4) |
+| Habillage de l'interface (cadres, boutons ; logo intact) | 10 (5) | — |
+| Animations d'attaque en combat (6 avatars, 7 ennemis) | 18,5 | — |
+| **Total, marge comprise** | **≈ 250** | **≈ 140** |
+
+Huit villes à venir : ≈ 1 120 ; **total ≈ 1 370 crédits**. Au prix donné par Cyril (49 € par mois pour 1 000 crédits),
+≈ 70 € de crédits, soit deux mois d'abonnement (2 000 crédits) avec une bonne réserve, à vérifier : les crédits
+mensuels se cumulent-ils d'un mois à l'autre ? Hors estimation : musique et sons (Higgsfield a des modèles de musique ;
+prix à relever).
+

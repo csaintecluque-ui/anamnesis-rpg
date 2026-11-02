@@ -850,4 +850,6 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   Coralia, Khrysos, Auroraheim, Marche-Mère, Porto-Lumina en finale (`docs/gdd/villes.md`).
 - Estimation de la mise en beauté complète sur Higgsfield (`docs/ASSETS.md`) : ≈ 750 crédits (≈ 145 pour rattraper
   Canopéa et Ironheart, ≈ 75 par nouvelle ville) ; variante économe ≈ 500. Solde : 11,5.
+- Cyril : « 49 € par mois pour 1 000 crédits », « je veux un truc de beau » : version belle ≈ 1 400 crédits
+  (≈ 250 pour le rattrapage, ≈ 140 par ville), ≈ 70 € ; deux mois d'abonnement (`docs/ASSETS.md`).
 

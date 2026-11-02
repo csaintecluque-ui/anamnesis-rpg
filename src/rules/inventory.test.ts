@@ -79,7 +79,7 @@ describe('starting funds', () => {
   it('a new character holds the starting dagger in the right hand (docs/gdd/inventaire.md)', () => {
     const c = hero();
     expect(c.inventory).toEqual([{ itemId: 'dague', count: 1 }]);
-    expect(c.equipment).toEqual({ mainGauche: null, mainDroite: 'dague', armure: null });
+    expect(c.equipment).toEqual({ mainGauche: null, mainDroite: 'dague', armure: null, cristal: null });
   });
 });
 
@@ -161,7 +161,7 @@ describe('equip / unequip / armorBonus', () => {
     addItem(c, 'epee-longue', 1);
     expect(equip(c, 'epee-longue', 'mainGauche')).toBe(true);
     expect(equip(c, 'epee-longue', 'mainDroite')).toBe(true);
-    expect(c.equipment).toEqual({ mainGauche: null, mainDroite: 'epee-longue', armure: null });
+    expect(c.equipment).toEqual({ mainGauche: null, mainDroite: 'epee-longue', armure: null, cristal: null });
   });
 
   it('sums the armorBonus of every equipped item', () => {

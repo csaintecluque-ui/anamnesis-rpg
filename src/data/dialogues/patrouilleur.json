@@ -5,6 +5,17 @@
     {
       "requires": [
         {
+          "cristal": true
+        },
+        {
+          "notFlag": "liste-ferros"
+        }
+      ],
+      "node": "liste"
+    },
+    {
+      "requires": [
+        {
           "flag": "laissez-passer-ironheart"
         }
       ],
@@ -152,6 +163,69 @@
         },
         {
           "text": "Plus tard.",
+          "next": "fin"
+        }
+      ]
+    },
+    "liste": {
+      "text": "Le patrouilleur pointe ton cou du menton. — Un cristal. Nom, provenance. Il griffonne dans un carnet noir. — Ferros tient des listes : qui porte un cristal, on aime savoir où il dort. Rien de personnel.",
+      "effects": [
+        {
+          "setFlag": "liste-ferros"
+        }
+      ],
+      "options": [
+        {
+          "text": "C’est interdit ?",
+          "next": "liste-pourquoi"
+        },
+        {
+          "text": "Et le funiculaire ?",
+          "requires": [
+            {
+              "notFlag": "laissez-passer-ironheart"
+            }
+          ],
+          "next": "controle"
+        },
+        {
+          "text": "Et le funiculaire ?",
+          "requires": [
+            {
+              "flag": "laissez-passer-ironheart"
+            }
+          ],
+          "next": "passe"
+        },
+        {
+          "text": "Bon.",
+          "next": "fin"
+        }
+      ]
+    },
+    "liste-pourquoi": {
+      "text": "— Interdit, non. Surveillé. Les technomanciens, on les surveille de près, et qui joue au feu sans être pyromancien aussi. Garde-le sous ta chemise, et tout ira bien.",
+      "options": [
+        {
+          "text": "Et le funiculaire ?",
+          "requires": [
+            {
+              "notFlag": "laissez-passer-ironheart"
+            }
+          ],
+          "next": "controle"
+        },
+        {
+          "text": "Et le funiculaire ?",
+          "requires": [
+            {
+              "flag": "laissez-passer-ironheart"
+            }
+          ],
+          "next": "passe"
+        },
+        {
+          "text": "Compris.",
           "next": "fin"
         }
       ]

@@ -1,0 +1,134 @@
+{
+  "id": "tiven",
+  "speaker": "tiven",
+  "entries": [
+    {
+      "requires": [
+        {
+          "flag": "tiven-soigne"
+        }
+      ],
+      "node": "gueri"
+    },
+    {
+      "requires": [
+        {
+          "quest": "pret-terre",
+          "status": "active"
+        }
+      ],
+      "node": "quete"
+    },
+    {
+      "node": "blesse"
+    }
+  ],
+  "nodes": {
+    "blesse": {
+      "text": "Un jeune Nacellier souffle sur ses paumes rougies. — Une corde a filé entre mes mains. Ça brûle… Demain, je dois monter la nacelle, et je ne peux même pas fermer le poing.",
+      "options": [
+        {
+          "text": "Panser ses mains avec un bandage.",
+          "requires": [
+            {
+              "item": "bandage"
+            },
+            {
+              "notFlag": "tiven-panse"
+            }
+          ],
+          "effects": [
+            {
+              "takeItem": "bandage"
+            },
+            {
+              "setFlag": "tiven-panse"
+            },
+            {
+              "giveXp": 5
+            }
+          ],
+          "next": "panse"
+        },
+        {
+          "text": "Courage, Tiven.",
+          "next": "fin"
+        }
+      ]
+    },
+    "quete": {
+      "text": "Tiven tend ses paumes rougies. — C’est Vanel qui t’envoie ? Il dit que les cristaux écoutent mieux que les herboristes. Moi, je veux juste pouvoir fermer le poing demain.",
+      "options": [
+        {
+          "text": "Poser le cristal de Vie sur ses mains.",
+          "effects": [
+            {
+              "lancer": "guerison"
+            },
+            {
+              "setFlag": "tiven-soigne"
+            },
+            {
+              "giveXp": 15
+            }
+          ],
+          "next": "soin"
+        },
+        {
+          "text": "Panser ses mains avec un bandage.",
+          "requires": [
+            {
+              "item": "bandage"
+            },
+            {
+              "notFlag": "tiven-panse"
+            }
+          ],
+          "effects": [
+            {
+              "takeItem": "bandage"
+            },
+            {
+              "setFlag": "tiven-panse"
+            },
+            {
+              "giveXp": 5
+            }
+          ],
+          "next": "panse"
+        },
+        {
+          "text": "Je reviens.",
+          "next": "fin"
+        }
+      ]
+    },
+    "soin": {
+      "text": "Le cristal tiédit sous tes doigts, puis verdit comme une feuille au soleil. Une chaleur passe de tes mains aux siennes. Tiven ferme le poing, l’ouvre, le referme. — Ça ne brûle plus ! Va le dire à Vanel.",
+      "options": [
+        {
+          "text": "Prends soin de tes mains.",
+          "next": "fin"
+        }
+      ]
+    },
+    "panse": {
+      "text": "Tu serres le bandage avec soin. — Merci. Ça brûle encore, mais je pourrai tenir une corde.",
+      "options": [
+        {
+          "text": "Ménage-toi.",
+          "next": "fin"
+        }
+      ]
+    },
+    "gueri": {
+      "text": "Tiven te montre des paumes roses et neuves. — Regarde ! Aujourd’hui, j’ai déjà monté trois nacelles. Remercie Vanel pour moi.",
+      "options": [
+        {
+          "text": "Bon courage.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

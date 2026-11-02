@@ -30,6 +30,15 @@
           "next": "trouve"
         },
         {
+          "text": "Faire luire un cristal le long du mur.",
+          "effects": [
+            {
+              "lancer": "lueur"
+            }
+          ],
+          "next": "trouve"
+        },
+        {
           "text": "Passer son chemin.",
           "next": "fin"
         }

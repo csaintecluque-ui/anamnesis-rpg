@@ -11,7 +11,7 @@
  "tilewidth": 64,
  "tileheight": 32,
  "nextlayerid": 4,
- "nextobjectid": 8,
+ "nextobjectid": 9,
  "layers": [
   {
    "id": 1,
@@ -1037,6 +1037,19 @@
     },
     {
      "id": 3,
+     "name": "vanel",
+     "type": "pnj",
+     "x": 464,
+     "y": 336,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": []
+    },
+    {
+     "id": 4,
      "name": "porte-canopee-relais",
      "type": "porte",
      "x": 336,
@@ -1065,7 +1078,7 @@
      ]
     },
     {
-     "id": 4,
+     "id": 5,
      "name": "devant-canopee-relais",
      "type": "arrivee",
      "x": 368,
@@ -1078,7 +1091,7 @@
      "properties": []
     },
     {
-     "id": 5,
+     "id": 6,
      "name": "panneau-aieux",
      "type": "panneau",
      "x": 240,
@@ -1097,7 +1110,7 @@
      ]
     },
     {
-     "id": 6,
+     "id": 7,
      "name": "vers-marche",
      "type": "sortie",
      "x": 16,
@@ -1126,7 +1139,7 @@
      ]
     },
     {
-     "id": 7,
+     "id": 8,
      "name": "depuis-marche",
      "type": "arrivee",
      "x": 48,
@@ -1151,7 +1164,7 @@
    "tilewidth": 64,
    "tileheight": 96,
    "columns": 8,
-   "tilecount": 157,
+   "tilecount": 160,
    "margin": 0,
    "spacing": 0,
    "tiles": [
@@ -5062,6 +5075,81 @@
        "name": "nom",
        "type": "string",
        "value": "chef-caravane"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 157,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "vanel"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 158,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "tiven"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 159,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "tailleuse"
       },
       {
        "name": "bloquant",

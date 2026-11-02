@@ -453,6 +453,8 @@ function canopeeNacelle() {
   m.setObstacle(2, 16, 'panneau');
   m.object('halte-ouest', 'objet', 2, 16);
   m.object('malo', 'pnj', 13, 9);
+  // « Un prêt de la Terre » (docs/gdd/magie.md) : Tiven, le jeune Nacellier aux mains brûlées par les cordes.
+  m.object('tiven', 'pnj', 2, 12);
   m.object('panneau-canopee', 'panneau', 6, 16, { texte: 'Canopéa — la Grande Nacelle. Ici, rien ne touche le sol.' });
   return m.toTiled();
 }
@@ -488,6 +490,8 @@ function canopeeAieux() {
   for (const [c, r] of [[8, 6], [12, 5], [16, 6], [17, 10], [16, 14], [14, 16], [8, 14]]) m.setObstacle(c, r, 'arbre-souvenir');
   m.object('arbre-ancien', 'objet', 16, 6);
   m.object('arbre-anselme', 'objet', 8, 14);
+  // Le druide Vanel, au pied du grand arbre du sanctuaire (« Un prêt de la Terre », docs/gdd/magie.md).
+  m.object('vanel', 'pnj', 14, 10);
   house(m, 'canopee-relais', 'maison-cosse', [10, 13], [11, 14]);
   for (const [c, r] of [[10, 8], [15, 8], [14, 12]]) m.setObstacle(c, r, 'lanterne-verte');
   m.setObstacle(7, 11, 'panneau');
@@ -751,6 +755,8 @@ function ironheartMarche() {
   m.setObstacle(20, 8, 'comptoir');
   m.setObstacle(20, 9, 'comptoir');
   m.object('guichet-cendres', 'objet', 20, 9);
+  // La tailleuse de cristaux de forge (docs/gdd/magie.md) : ici, rien ne s'écrit.
+  m.object('tailleuse', 'pnj', 16, 9);
   m.setObstacle(19, 2, 'panneau');
   m.object('panneau-marche', 'panneau', 19, 2, { texte: 'Pas d’enseigne, pas de carte. Seulement l’huile des lampes, et ce qui se vend.' });
   return m.toTiled();

@@ -9,8 +9,10 @@ export interface ItemDef {
   description: string;
   weightKg: number;
   price: number;
-  /** Item can be equipped in a slot of this kind; absent for loose goods. */
-  slot?: 'main' | 'armure';
+  /** Item can be equipped in a slot of this kind; absent for loose goods. A crystal is worn at the neck. */
+  slot?: 'main' | 'armure' | 'cristal';
+  /** A crystal's power (src/data/powers.json, docs/gdd/magie.md), given while it is worn, with the Lueur. */
+  pouvoir?: string;
   /** Bonus to Défense while equipped (docs/gdd/combat.md). */
   armorBonus?: number;
   /** PV restored, then the item is consumed. */
@@ -54,7 +56,7 @@ export function tradeItems(character: Character, npcId?: string): ItemDef[] {
 }
 
 export function emptyEquipment(): Equipment {
-  return { mainGauche: null, mainDroite: null, armure: null };
+  return { mainGauche: null, mainDroite: null, armure: null, cristal: null };
 }
 
 export function ownedCount(character: Character, itemId: string): number {
@@ -118,6 +120,7 @@ export function sell(character: Character, itemId: string, count = 1): TradeErro
 
 export function canEquip(item: ItemDef, slot: Slot): boolean {
   if (slot === 'armure') return item.slot === 'armure';
+  if (slot === 'cristal') return item.slot === 'cristal';
   return item.slot === 'main';
 }
 

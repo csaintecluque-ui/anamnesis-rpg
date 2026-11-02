@@ -630,7 +630,7 @@ Commence par : « cristal »
 
 _Pension de la Bielle_
 
-Commence par : « accueil-2 » _(si quête « undefined » undefined)_, sinon « accueil-3 » _(si quête « undefined » undefined)_, sinon « accueil »
+Commence par : « cristal » _(si quête « undefined » undefined)_ _(sans repère « dorna-cristal »)_, sinon « accueil-2 » _(si quête « undefined » undefined)_, sinon « accueil-3 » _(si quête « undefined » undefined)_, sinon « accueil »
 
 ### accueil
 
@@ -689,6 +689,14 @@ Commence par : « accueil-2 » _(si quête « undefined » undefined)_, sinon «
 - « Manger ou dormir ? » → servir
 - « Quelles nouvelles ? » → nouvelles
 - « Au revoir. » → **fin**
+
+### cristal
+
+_Effet : retient « dorna-cristal »._
+
+> Dorna baisse la voix. — Range ce cristal sous ta chemise, tu veux ? Ici, on tient des listes. Les patrouilleurs notent qui en porte, et les pyromanciens n’aiment pas qu’on joue au feu sans eux.
+
+- « Merci du conseil. » → accueil
 
 ## L’Écho de la berceuse
 
@@ -1047,6 +1055,7 @@ _Effet : retient « enclume-vue »._
 > Une vieille enclume, noire de suie. Sur le plat, des mains gravées, grandes et petites, cinq en tout, posées côte à côte. L’Écho les rejoue un instant : des rires, puis plus rien.
 
 - **[Investigation 2]** « Examiner les marques. » → marques
+- « Approcher la lueur d’un cristal. » → marques _(+undefined XP)_
 - « Partir. » → **fin**
 
 ### marques
@@ -1241,6 +1250,7 @@ Commence par : « vide » _(si repère « vol-grenier »)_, sinon « sacs »
 
 - « Prendre un sac. » → pris _(donne 1 × « Graines-lumière », retient « vol-grenier »)_
 - _(si quête « Les graines qui manquent » en cours)_ _(sans repère « preuve-sceau »)_ **[Investigation 2]** « Examiner les rangées. » → indice _(retient « preuve-sceau », retient « indice-elvan », +10 XP)_
+- _(si quête « Les graines qui manquent » en cours)_ _(sans repère « preuve-sceau »)_ « Faire luire un cristal entre les rangées. » → indice _(+undefined XP, retient « preuve-sceau », retient « indice-elvan », +10 XP)_
 - « Les laisser où ils sont. » → **fin**
 
 ### pris
@@ -1254,6 +1264,7 @@ Commence par : « vide » _(si repère « vol-grenier »)_, sinon « sacs »
 > Il manque un sac dans la rangée. Le trou se voit.
 
 - _(si quête « Les graines qui manquent » en cours)_ _(sans repère « preuve-sceau »)_ **[Investigation 2]** « Examiner les rangées. » → indice _(retient « preuve-sceau », retient « indice-elvan », +10 XP)_
+- _(si quête « Les graines qui manquent » en cours)_ _(sans repère « preuve-sceau »)_ « Faire luire un cristal entre les rangées. » → indice _(+undefined XP, retient « preuve-sceau », retient « indice-elvan », +10 XP)_
 - « Partir. » → **fin**
 
 ### indice
@@ -2569,7 +2580,7 @@ Commence par : « apres » _(si repère « rail-bureau »)_, sinon « rapport »
 
 _Funiculaire des Manufactures-Moyennes_
 
-Commence par : « passe » _(si repère « laissez-passer-ironheart »)_, sinon « controle »
+Commence par : « liste » _(si quête « undefined » undefined)_ _(sans repère « liste-ferros »)_, sinon « passe » _(si repère « laissez-passer-ironheart »)_, sinon « controle »
 
 ### controle
 
@@ -2619,6 +2630,25 @@ _Effet : retient « laissez-passer-ironheart »._
 
 - « Monter. » → **fin** _(mène à « Ironheart — Les Manufactures-Moyennes »)_
 - « Plus tard. » → **fin**
+
+### liste
+
+_Effet : retient « liste-ferros »._
+
+> Le patrouilleur pointe ton cou du menton. — Un cristal. Nom, provenance. Il griffonne dans un carnet noir. — Ferros tient des listes : qui porte un cristal, on aime savoir où il dort. Rien de personnel.
+
+- « C’est interdit ? » → liste-pourquoi
+- _(sans repère « laissez-passer-ironheart »)_ « Et le funiculaire ? » → controle
+- _(si repère « laissez-passer-ironheart »)_ « Et le funiculaire ? » → passe
+- « Bon. » → **fin**
+
+### liste-pourquoi
+
+> — Interdit, non. Surveillé. Les technomanciens, on les surveille de près, et qui joue au feu sans être pyromancien aussi. Garde-le sous ta chemise, et tout ira bien.
+
+- _(sans repère « laissez-passer-ironheart »)_ « Et le funiculaire ? » → controle
+- _(si repère « laissez-passer-ironheart »)_ « Et le funiculaire ? » → passe
+- « Compris. » → **fin**
 
 ## La patrouilleuse des Manufactures
 
@@ -2743,6 +2773,7 @@ Commence par : « mur »
 
 - _(si repère « marche-cendres-indice »)_ « Chercher le passage, comme on te l’a dit. » → trouve
 - **[Investigation 2]** « Examiner le mur. » → trouve
+- « Faire luire un cristal le long du mur. » → trouve _(+undefined XP)_
 - « Passer son chemin. » → **fin**
 
 ### trouve
@@ -2926,6 +2957,7 @@ Commence par : « accueil »
 
 - « Voyons ce que tu vends. » → **fin** _(ouvre le Troc)_
 - « D’où viennent tes herbes ? » → herbes
+- « Tu vends des cristaux ? » → cristaux
 - « Au revoir. » → **fin**
 
 ### herbes
@@ -2933,6 +2965,13 @@ Commence par : « accueil »
 > Des branches hautes, là où le soleil touche en premier. On ne cueille jamais tout : une feuille sur trois reste à l’arbre. C’est la règle de la Sève.
 
 - « Une belle règle. » → accueil
+
+### cristaux
+
+> — Des cristaux de Vie, oui : deux cent cinquante Fers le petit. Mais si tu veux apprendre, va voir le druide Vanel, au Bosquet des Échos : les Druides Verts prêtent et enseignent pour rien. C’est leur loi.
+
+- « Voyons ce que tu vends. » → **fin** _(ouvre le Troc)_
+- « Merci, Sévane. » → accueil
 
 ## Sorn
 
@@ -3056,6 +3095,27 @@ _Effet : retient « sylvan-triumvirat-dit »._
 - « Quelles nouvelles ? » → rumeurs
 - « Au revoir. » → **fin**
 
+## La tailleuse de cristaux
+
+_Marché des Cendres_
+
+Commence par : « accueil »
+
+### accueil
+
+> Sous une tente basse, une femme aux mains noircies taille un cristal rouge veiné de noir. — Cristaux de forge, taillés ici, sous terre. Là-haut, qui en achète, on l’inscrit : Ferros tient des listes. Ici, rien ne s’écrit.
+
+- « Voyons tes cristaux. » → **fin** _(ouvre le Troc)_
+- « Que fait un cristal de forge ? » → forge
+- « Au revoir. » → **fin**
+
+### forge
+
+> — Il chauffe, il mord, il brûle : les Flammes forgées. Les pyromanciens en font des prières, les technomanciens des machines. Toi, fais-en ce que tu veux, mais pas sous le nez d’un patrouilleur.
+
+- « Voyons tes cristaux. » → **fin** _(ouvre le Troc)_
+- « Merci. » → **fin**
+
 ## L’Ancien Thalorin
 
 _Voix de Gaïa_
@@ -3086,6 +3146,45 @@ Commence par : « apres » _(si quête « L’audience » terminée)_, sinon « 
 > — Les Voix des Arbres soignent les racines du Bosquet. Déjà, les plus jeunes noms se réchauffent. Les plus vieux prendront plus de temps : ils ont toujours pris leur temps.
 
 - « Que la sève coule. » → **fin**
+
+## Tiven
+
+_Jeune Nacellier_
+
+Commence par : « gueri » _(si repère « tiven-soigne »)_, sinon « quete » _(si quête « Un prêt de la Terre » en cours)_, sinon « blesse »
+
+### blesse
+
+> Un jeune Nacellier souffle sur ses paumes rougies. — Une corde a filé entre mes mains. Ça brûle… Demain, je dois monter la nacelle, et je ne peux même pas fermer le poing.
+
+- _(si l’on porte « Bandage »)_ _(sans repère « tiven-panse »)_ « Panser ses mains avec un bandage. » → panse _(reprend 1 × « Bandage », retient « tiven-panse », +5 XP)_
+- « Courage, Tiven. » → **fin**
+
+### quete
+
+> Tiven tend ses paumes rougies. — C’est Vanel qui t’envoie ? Il dit que les cristaux écoutent mieux que les herboristes. Moi, je veux juste pouvoir fermer le poing demain.
+
+- « Poser le cristal de Vie sur ses mains. » → soin _(+undefined XP, retient « tiven-soigne », +15 XP)_
+- _(si l’on porte « Bandage »)_ _(sans repère « tiven-panse »)_ « Panser ses mains avec un bandage. » → panse _(reprend 1 × « Bandage », retient « tiven-panse », +5 XP)_
+- « Je reviens. » → **fin**
+
+### soin
+
+> Le cristal tiédit sous tes doigts, puis verdit comme une feuille au soleil. Une chaleur passe de tes mains aux siennes. Tiven ferme le poing, l’ouvre, le referme. — Ça ne brûle plus ! Va le dire à Vanel.
+
+- « Prends soin de tes mains. » → **fin**
+
+### panse
+
+> Tu serres le bandage avec soin. — Merci. Ça brûle encore, mais je pourrai tenir une corde.
+
+- « Ménage-toi. » → **fin**
+
+### gueri
+
+> Tiven te montre des paumes roses et neuves. — Regarde ! Aujourd’hui, j’ai déjà monté trois nacelles. Remercie Vanel pour moi.
+
+- « Bon courage. » → **fin**
 
 ## Tobias Cendrefer
 
@@ -3156,6 +3255,7 @@ Commence par : « trou »
 
 - « Regarder au fond. » → fond
 - **[Investigation 2]** « Examiner les outils. » → outils
+- « Éclairer le fond du trou d’un cristal. » → outils _(+undefined XP)_
 - « Partir. » → **fin**
 
 ### fond
@@ -3208,6 +3308,82 @@ _Effet : retient « cendriere-ouverte »._
 > — Hé ! Le guetteur te pousse dehors. — La prochaine fois, j’appelle les autres.
 
 - « Reculer. » → **fin**
+
+## Vanel Lentefeuille
+
+_Druide Vert, au Bosquet des Échos_
+
+Commence par : « apres » _(si quête « Un prêt de la Terre » terminée)_, sinon « retour » _(si quête « Un prêt de la Terre » en cours)_ _(si repère « tiven-soigne »)_, sinon « attente » _(si quête « Un prêt de la Terre » en cours)_, sinon « accueil »
+
+### accueil
+
+> Un druide en robe verte pose la main sur l’écorce du grand arbre, comme on prend un pouls. — Racines profondes. Je suis Vanel, Druide Vert. La magie est un prêt de la Terre : on ne la prend pas, on l’emprunte.
+
+- _(si quête « Un prêt de la Terre » pas commencée)_ « Apprends-moi. » → apprendre
+- « Qu’est-ce qu’un cristal de Résonance ? » → cristal
+- « Que la sève coule. » → **fin**
+
+### cristal
+
+> — Une pierre qui écoute la Terre depuis trois mille ans. Sa couleur dit son pouvoir : le vert guérit, le rouge brûle. Tout le monde peut s’en servir, en théorie. Certains l’entendent mieux que d’autres.
+
+- _(si quête « Un prêt de la Terre » pas commencée)_ « Apprends-moi. » → apprendre
+- « Merci, Vanel. » → **fin**
+
+### apprendre
+
+_Effet : lance la quête « Un prêt de la Terre », donne 1 × « Cristal de Vie prêté », retient « cristal-prete »._
+
+> Il décroche de son cou un petit cristal émeraude. — Je te le prête. Porte-le au cou, et va voir Tiven, à la Grande Nacelle : un jeune Nacellier s’est brûlé les mains aux cordes. Pose le cristal sur ses mains, et écoute.
+
+- « J’y vais. » → **fin**
+- « Et si je force trop ? » → prix
+
+### prix
+
+> — Alors tu sauras ce que coûte la magie. Quand le cristal n’a plus rien à donner, c’est toi qui paies : la fatigue, le nez qui saigne. Ne force jamais longtemps. Une bonne nuit de sommeil rend tout.
+
+- « Compris. » → **fin**
+
+### attente
+
+> Vanel ne quitte pas l’arbre des yeux. — Tiven t’attend à la Grande Nacelle, près du débarcadère. Le cristal au cou, d’abord : on n’entend pas une pierre qui dort au fond d’un sac.
+
+- « Et si je force trop ? » → prix
+- « J’y vais. » → **fin**
+
+### retour
+
+_Effet : termine la quête « Un prêt de la Terre », +40 XP, +undefined XP._
+
+> Vanel sourit avant que tu parles. — Je l’ai entendu d’ici, et l’arbre aussi. Garde le cristal : ce n’est pas un don, c’est un prêt. Tu le rendras en soignant à ton tour.
+
+- « Qu’apprend-on ensuite ? » → lueur
+- « Et à Ferros ? » → ferros
+- « Merci, Vanel. » → **fin**
+
+### lueur
+
+> — La Lueur. Tous les cristaux savent briller : pense à une lanterne, et il s’allume de sa couleur. Dans le noir, il montre ce que l’ombre cache. Pour le feu, il faut un cristal de forge… et ce n’est pas un druide qui te l’apprendra.
+
+- « Et à Ferros ? » → ferros
+- « Merci, Vanel. » → **fin**
+
+### ferros
+
+> — À Ferros, la magie est « l’étincelle du Souffle ». On l’y respecte, mais on tient des listes de ceux qui portent un cristal. Là-bas, garde-le sous ta chemise.
+
+- _(si quête « Un prêt de la Terre » terminée)_ « Qu’apprend-on ensuite ? » → lueur
+- « Merci, Vanel. » → **fin**
+
+### apres
+
+> — Racines profondes. Le cristal te parle encore ? Écoute-le. Et n’oublie pas : un prêt de la Terre se rend en soignant.
+
+- « Parle-moi de la Lueur. » → lueur
+- « Et à Ferros ? » → ferros
+- « Et si je force trop ? » → prix
+- « Que la sève coule. » → **fin**
 
 ## Varka
 

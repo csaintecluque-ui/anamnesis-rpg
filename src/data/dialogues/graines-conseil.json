@@ -59,6 +59,33 @@
           ]
         },
         {
+          "text": "Faire luire un cristal entre les rangées.",
+          "requires": [
+            {
+              "quest": "graines",
+              "status": "active"
+            },
+            {
+              "notFlag": "preuve-sceau"
+            }
+          ],
+          "effects": [
+            {
+              "lancer": "lueur"
+            },
+            {
+              "setFlag": "preuve-sceau"
+            },
+            {
+              "setFlag": "indice-elvan"
+            },
+            {
+              "giveXp": 10
+            }
+          ],
+          "next": "indice"
+        },
+        {
           "text": "Les laisser où ils sont.",
           "next": "fin"
         }
@@ -103,6 +130,33 @@
               "giveXp": 10
             }
           ]
+        },
+        {
+          "text": "Faire luire un cristal entre les rangées.",
+          "requires": [
+            {
+              "quest": "graines",
+              "status": "active"
+            },
+            {
+              "notFlag": "preuve-sceau"
+            }
+          ],
+          "effects": [
+            {
+              "lancer": "lueur"
+            },
+            {
+              "setFlag": "preuve-sceau"
+            },
+            {
+              "setFlag": "indice-elvan"
+            },
+            {
+              "giveXp": 10
+            }
+          ],
+          "next": "indice"
         },
         {
           "text": "Partir.",

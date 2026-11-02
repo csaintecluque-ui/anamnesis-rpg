@@ -1,0 +1,27 @@
+[
+  {
+    "id": "guerison",
+    "name": "Guérison naturelle",
+    "cost": 2,
+    "apCost": 3,
+    "combat": "soin",
+    "description": "Le cristal de Vie verdit et une chaleur referme les plaies : 5 PV, plus 2 par rang de Résonance."
+  },
+  {
+    "id": "flammes",
+    "name": "Flammes forgées",
+    "cost": 2,
+    "apCost": 3,
+    "combat": "attaque",
+    "range": 5,
+    "damage": { "count": 2, "sides": 6 },
+    "description": "Le cristal de forge rougeoie et une gerbe de flammes jaillit de ta main : 2d6 dégâts, jusqu’à 5 cases."
+  },
+  {
+    "id": "lueur",
+    "name": "Lueur",
+    "cost": 1,
+    "combat": null,
+    "description": "Tous les cristaux savent briller : il s’allume de sa couleur et montre ce que l’ombre cache."
+  }
+]

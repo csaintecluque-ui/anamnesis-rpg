@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import { ATTRIBUTES, SKILLS, attributeModifier, type AttributeId, type SkillId } from '../rules/attributes';
+import { ATTRIBUTES, CREATION_SKILLS, SKILLS, attributeModifier, type AttributeId, type SkillId } from '../rules/attributes';
 import {
   AVATARS,
   CREATION,
@@ -295,7 +295,8 @@ export class CreationScene extends Phaser.Scene {
 
     const attrs = finalAttributes(this.draft);
     const ranks = finalSkills(this.draft);
-    SKILLS.forEach((skill, i) => {
+    // Résonance is learned on the road (docs/gdd/magie.md): twelve skills here, as before.
+    CREATION_SKILLS.forEach((skill, i) => {
       const x0 = i < 6 ? 40 : 660;
       const y = 200 + (i % 6) * 66;
       this.rowLabel(x0 + 150, y, skill.name, skill.id);
@@ -306,7 +307,7 @@ export class CreationScene extends Phaser.Scene {
       this.add.text(x0 + 525, y, signed(bonus), { fontFamily: FONT_SERIF, fontSize: '26px', color: CSS.copper }).setOrigin(0, 0.5);
     });
 
-    const focused = SKILLS.find((s) => s.id === this.focus);
+    const focused = CREATION_SKILLS.find((s) => s.id === this.focus);
     this.focusLine(
       focused
         ? `${focused.name} (${attributeName(focused.attribute)}) — ${focused.description} Bonus au dé : attribut + rang.`

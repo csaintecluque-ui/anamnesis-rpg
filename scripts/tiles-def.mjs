@@ -1027,4 +1027,9 @@ TILES.push(
   // Voyager autrement : la convoyeuse de la Compagnie des Lisières, le chef de caravane.
   npcTile('convoyeuse', { body: '#6b4a32', hair: '#3a2a1c', accent: '#e8b860', extra: '<path d="M18 52 L46 60" stroke="#3a2a1c" stroke-width="3"/>' }),
   npcTile('chef-caravane', { body: '#5a6b3a', hair: '#8a6a4a', accent: '#e8b860', extra: '<path d="M22 40 L42 40 L38 34 L26 34 Z" fill="#6b4a32" stroke="#1B1512"/>' }),
+  // La magie (docs/gdd/magie.md) : le druide Vanel et son cristal de Vie, Tiven le jeune Nacellier, la tailleuse de
+  // cristaux du Marché des Cendres et son cristal de forge.
+  npcTile('vanel', { body: '#3a6a3a', hair: '#c8c0a8', skin: '#c49a74', accent: '#9fe0a0', extra: '<path d="M23 46 Q32 32 41 46" fill="#3a6a3a" stroke="#1B1512" stroke-width="1"/><path d="M27 56 L32 62 L37 56" stroke="#e2c27a" stroke-width="1.2" fill="none"/><path d="M32 62 L35 66 L32 71 L29 66 Z" fill="#5fe08a" stroke="#1B1512" stroke-width="0.8"/>' }),
+  npcTile('tiven', { body: '#6b5a3a', hair: '#8a5a30', skin: '#e0c4a8', accent: '#5fae5a', extra: '<path d="M18 50 L46 62" stroke="#a88456" stroke-width="2.5"/><circle cx="16" cy="70" r="3" fill="#e07a6a"/><circle cx="48" cy="70" r="3" fill="#e07a6a"/>' }),
+  npcTile('tailleuse', { body: '#3a302c', hair: '#1a1614', skin: '#b08a6a', accent: '#c03a2a', extra: '<path d="M40 60 L44 54 L48 60 L44 68 Z" fill="#c03a2a" stroke="#1B1512" stroke-width="0.8"/><path d="M42 58 L46 62" stroke="#1B1512" stroke-width="1"/>' }),
 );

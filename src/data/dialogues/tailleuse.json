@@ -1,0 +1,51 @@
+{
+  "id": "tailleuse",
+  "speaker": "tailleuse",
+  "entries": [
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Sous une tente basse, une femme aux mains noircies taille un cristal rouge veiné de noir. — Cristaux de forge, taillés ici, sous terre. Là-haut, qui en achète, on l’inscrit : Ferros tient des listes. Ici, rien ne s’écrit.",
+      "options": [
+        {
+          "text": "Voyons tes cristaux.",
+          "effects": [
+            {
+              "openTrade": true
+            }
+          ],
+          "next": "fin"
+        },
+        {
+          "text": "Que fait un cristal de forge ?",
+          "next": "forge"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "forge": {
+      "text": "— Il chauffe, il mord, il brûle : les Flammes forgées. Les pyromanciens en font des prières, les technomanciens des machines. Toi, fais-en ce que tu veux, mais pas sous le nez d’un patrouilleur.",
+      "options": [
+        {
+          "text": "Voyons tes cristaux.",
+          "effects": [
+            {
+              "openTrade": true
+            }
+          ],
+          "next": "fin"
+        },
+        {
+          "text": "Merci.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

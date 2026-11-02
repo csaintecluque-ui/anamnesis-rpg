@@ -3,7 +3,8 @@ import { CREATION, characterStats } from '../rules/character';
 import { QUESTS } from '../rules/dialogue';
 import { ITEMS, addItem, ownedCount, removeItem } from '../rules/inventory';
 import { RECITS } from '../rules/recits';
-import { allFlags, cycleQuest, makeOverpowered, restoreFullHp, toggleFlag, type QuestState } from '../rules/testTools';
+import { allFlags, cycleQuest, makeOverpowered, restoreFullHp, restoreFullResonance, toggleFlag, type QuestState } from '../rules/testTools';
+import { resonanceMax } from '../rules/magic';
 import { advance, formatDate, shortTime, waitUntil } from '../rules/time';
 import { placeOfLocation } from '../rules/world';
 import { LOCATIONS, type GameState } from '../state/gameState';
@@ -88,9 +89,13 @@ export function openDevPanel(state: GameState, onClose: (result: DevPanelResult)
   function renderCharacter(): void {
     const c = character!;
     main.append(
-      el('p', `${c.name} · niveau ${c.level} · PV ${c.hp} / ${characterStats(c).maxHp} · ${c.fers} Fers`, 'note'),
+      el('p', `${c.name} · niveau ${c.level} · PV ${c.hp} / ${characterStats(c).maxHp} · PR ${c.resonance} / ${resonanceMax(c)} · ${c.fers} Fers`, 'note'),
       row('Perso surpuissant (tout au maximum)', [button('Appliquer', () => (makeOverpowered(c), render()))]),
-      row('Points de vie', [button('PV au max', () => (restoreFullHp(c), render()))]),
+      row('Points de vie et de Résonance', [
+        button('PV au max', () => (restoreFullHp(c), render())),
+        button('PR au max', () => (restoreFullResonance(c), render())),
+        button('PR à 0', () => ((c.resonance = 0), render())),
+      ]),
       el('p', `Temps : ${shortTime(state.time)} — ${formatDate(state.time)}`, 'note'),
       row('Temps', [
         button('+1 moment', () => (advance(state.time, 1), render()), 'small'),

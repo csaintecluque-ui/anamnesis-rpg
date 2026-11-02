@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { ATTRIBUTES, SKILLS, attributeModifier, type Attributes } from './attributes';
+import { ATTRIBUTES, CREATION_SKILLS, SKILLS, attributeModifier, type Attributes } from './attributes';
 import { DIFFICULTY, meetsThreshold, resolveCheck, rollD20, successChance } from './checks';
 import {
   actionPoints,
@@ -22,9 +22,11 @@ const average: Attributes = {
 };
 
 describe('data', () => {
-  it('defines 7 attributes and 12 skills, each skill tied to a known attribute', () => {
+  it('defines 7 attributes and 13 skills (12 at creation, plus the Résonance), each tied to a known attribute', () => {
     expect(ATTRIBUTES).toHaveLength(7);
-    expect(SKILLS).toHaveLength(12);
+    expect(SKILLS).toHaveLength(13);
+    expect(CREATION_SKILLS.map((s) => s.id)).not.toContain('resonance');
+    expect(CREATION_SKILLS).toHaveLength(12);
     const ids = new Set(ATTRIBUTES.map((a) => a.id));
     for (const skill of SKILLS) expect(ids.has(skill.attribute)).toBe(true);
   });

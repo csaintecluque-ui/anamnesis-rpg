@@ -11,7 +11,7 @@
  "tilewidth": 64,
  "tileheight": 32,
  "nextlayerid": 4,
- "nextobjectid": 16,
+ "nextobjectid": 17,
  "layers": [
   {
    "id": 1,
@@ -1452,6 +1452,19 @@
     },
     {
      "id": 15,
+     "name": "tiven",
+     "type": "pnj",
+     "x": 80,
+     "y": 400,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": []
+    },
+    {
+     "id": 16,
      "name": "panneau-canopee",
      "type": "panneau",
      "x": 208,
@@ -1482,7 +1495,7 @@
    "tilewidth": 64,
    "tileheight": 96,
    "columns": 8,
-   "tilecount": 157,
+   "tilecount": 160,
    "margin": 0,
    "spacing": 0,
    "tiles": [
@@ -5393,6 +5406,81 @@
        "name": "nom",
        "type": "string",
        "value": "chef-caravane"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 157,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "vanel"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 158,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "tiven"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 159,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "tailleuse"
       },
       {
        "name": "bloquant",

@@ -1,6 +1,6 @@
 import avatarData from '../data/avatars.json';
 import featData from '../data/feats.json';
-import { ATTRIBUTES, SKILLS, SKILL_RANK_MAX, type AttributeId, type Attributes, type SkillId } from './attributes';
+import { ATTRIBUTES, CREATION_SKILLS, SKILLS, SKILL_RANK_MAX, type AttributeId, type Attributes, type SkillId } from './attributes';
 import { actionPoints, carryCapacityKg, defense, maxHitPoints, resistancePoints, talesRetained } from './derived';
 
 export type FeatId = 'tough' | 'marksman' | 'weapon-master' | 'kael-memory' | 'amira-spirit' | 'gorim-strength';
@@ -50,9 +50,12 @@ export interface CharacterDraft {
   feat: FeatId | null;
 }
 
-/** Two hands and armour (docs/gdd/inventaire.md). */
-export type Slot = 'mainGauche' | 'mainDroite' | 'armure';
-export const SLOTS: Slot[] = ['mainGauche', 'mainDroite', 'armure'];
+/** Two hands, armour, and a crystal worn at the neck (docs/gdd/inventaire.md, docs/gdd/magie.md). */
+export type Slot = 'mainGauche' | 'mainDroite' | 'armure' | 'cristal';
+export const SLOTS: Slot[] = ['mainGauche', 'mainDroite', 'armure', 'cristal'];
+
+/** Points de Résonance at rank 0 of the skill (docs/gdd/magie.md); each rank adds one. */
+export const RESONANCE_BASE = 3;
 
 export interface InventorySlotState {
   itemId: string;
@@ -72,6 +75,8 @@ export interface Character {
   attributes: Attributes;
   skills: SkillRanks;
   hp: number;
+  /** Points de Résonance left (docs/gdd/magie.md): spent by the powers of a worn crystal, all back after a night's sleep. */
+  resonance: number;
   /** Récits recueillis (docs/gdd/memoire.md, piste B), plafonnés par talesRetained. */
   recits: string[];
   /** La monnaie de Ferros (docs/univers/personnages/pnj.md). */
@@ -91,6 +96,7 @@ export interface CharacterStats {
 
 const ATTRIBUTE_IDS = ATTRIBUTES.map((a) => a.id);
 const SKILL_IDS = SKILLS.map((s) => s.id);
+const CREATION_SKILL_IDS = new Set(CREATION_SKILLS.map((s) => s.id));
 
 function fill<K extends string>(keys: K[], value: number): Record<K, number> {
   return Object.fromEntries(keys.map((k) => [k, value])) as Record<K, number>;
@@ -155,7 +161,7 @@ export function skillPointsLeft(d: CharacterDraft): number {
 }
 
 export function canRaiseSkill(d: CharacterDraft, id: SkillId): boolean {
-  return d.skillRanks[id] < CREATION.skillMaxAtCreation && skillPointsLeft(d) > 0;
+  return CREATION_SKILL_IDS.has(id) && d.skillRanks[id] < CREATION.skillMaxAtCreation && skillPointsLeft(d) > 0;
 }
 
 export function canLowerSkill(d: CharacterDraft, id: SkillId): boolean {
@@ -248,11 +254,13 @@ export function finalizeCharacter(d: CharacterDraft): Character {
     attributes: finalAttributes(d),
     skills: finalSkills(d),
     hp: 0,
+    resonance: 0,
     recits: [],
     fers: STARTING_FERS,
     inventory: [{ itemId: STARTING_WEAPON, count: 1 }],
-    equipment: { mainGauche: null, mainDroite: STARTING_WEAPON, armure: null },
+    equipment: { mainGauche: null, mainDroite: STARTING_WEAPON, armure: null, cristal: null },
   };
+  character.resonance = RESONANCE_BASE + character.skills.resonance;
   character.hp = characterStats(character).maxHp;
   return character;
 }
@@ -282,6 +290,7 @@ export function characterError(raw: unknown): string | null {
   if (!Number.isInteger(c.level) || (c.level as number) < 1) return 'niveau invalide.';
   if (typeof c.xp !== 'number' || !(c.xp >= 0)) return 'expérience invalide.';
   if (!Number.isInteger(c.hp) || (c.hp as number) < 0) return 'points de vie invalides.';
+  if (!Number.isInteger(c.resonance) || (c.resonance as number) < 0) return 'points de Résonance invalides.';
   const attrs = c.attributes as Record<string, unknown> | undefined;
   for (const id of ATTRIBUTE_IDS) {
     const v = attrs?.[id];

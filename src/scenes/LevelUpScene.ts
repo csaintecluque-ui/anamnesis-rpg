@@ -66,9 +66,11 @@ export class LevelUpScene extends Phaser.Scene {
         .setOrigin(0.5),
     );
 
+    // Thirteen skills with the Résonance (docs/gdd/magie.md): two columns of seven.
+    const perColumn = Math.ceil(SKILLS.length / 2);
     SKILLS.forEach((skill, i) => {
-      const x0 = i < 6 ? 60 : 680;
-      const y = 210 + (i % 6) * 70;
+      const x0 = i < perColumn ? 60 : 680;
+      const y = 206 + (i % perColumn) * (perColumn > 6 ? 62 : 70);
       this.layer.add(
         this.add.text(x0, y, skill.name, { fontFamily: FONT_SERIF, fontSize: '24px', color: CSS.parchment }).setOrigin(0, 0.5),
       );

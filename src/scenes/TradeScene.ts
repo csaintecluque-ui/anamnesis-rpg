@@ -4,6 +4,7 @@ import { combinedDiscount, merchantPlace, reputationLevel, reputationPrices } fr
 import { findPlace } from '../rules/world';
 import { characterStats, type Character, type Slot } from '../rules/character';
 import { armorBonus, buy, buyPrice, carriedWeightKg, equip, merchantCatalogue, merchantDiscount, ownedCount, sell, SELL_RATIO, tradeItems, unequip, useConsumable, type ItemDef } from '../rules/inventory';
+import { castOutsideCombat, combatPower, resonanceMax, wornCrystal } from '../rules/magic';
 import type { GameState } from '../state/gameState';
 import { addTextButton } from '../ui/button';
 import { onKeys, withKeyHint } from '../ui/keys';
@@ -21,7 +22,7 @@ const LAYOUT = HAS_MOUSE
 const ROWS_PER_PAGE = Math.floor((GAME_HEIGHT - 80 - LAYOUT.rowTop) / LAYOUT.rowHeight) + 1;
 const PAGER_Y = GAME_HEIGHT - 34;
 
-const SLOT_NAMES: Record<Slot, string> = { mainDroite: 'main droite', mainGauche: 'main gauche', armure: 'porté' };
+const SLOT_NAMES: Record<Slot, string> = { mainDroite: 'main droite', mainGauche: 'main gauche', armure: 'porté', cristal: 'au cou' };
 
 /** Buy, sell, equip and use items — docs/gdd/inventaire.md. A stall lists its trader's catalogue; the inventory, what is carried. */
 export class TradeScene extends Phaser.Scene {
@@ -93,11 +94,13 @@ export class TradeScene extends Phaser.Scene {
     const capacity = characterStats(c).carryKg;
     const weight = carriedWeightKg(c);
 
+    // With a crystal at the neck, its Points de Résonance (docs/gdd/magie.md).
+    const resonance = wornCrystal(c) ? ` · Résonance ${c.resonance} / ${resonanceMax(c)} PR` : '';
     this.layer.add(
       this.text(
         MARGIN,
         LAYOUT.statsY,
-        `${c.fers} Fers · Charge ${weight.toFixed(1)} / ${capacity} kg · Défense +${armorBonus(c)} d’armure`,
+        `${c.fers} Fers · Charge ${weight.toFixed(1)} / ${capacity} kg · Défense +${armorBonus(c)} d’armure${resonance}`,
         22,
         CSS.parchment,
       ),
@@ -129,7 +132,7 @@ export class TradeScene extends Phaser.Scene {
 
   private equippedSlot(itemId: string): Slot | null {
     const c = this.character();
-    for (const slot of ['mainGauche', 'mainDroite', 'armure'] as Slot[]) if (c.equipment[slot] === itemId) return slot;
+    for (const slot of ['mainGauche', 'mainDroite', 'armure', 'cristal'] as Slot[]) if (c.equipment[slot] === itemId) return slot;
     return null;
   }
 
@@ -155,6 +158,17 @@ export class TradeScene extends Phaser.Scene {
       x -= L.buttonWidth + 10;
     };
 
+    // The worn crystal of Vie heals here too: Guérison naturelle on oneself, outside a fight.
+    const power = equippedIn === 'cristal' ? combatPower(this.character()) : undefined;
+    if (power?.combat === 'soin') {
+      addButton(`Soigner (${power.cost} PR)`, () => {
+        const c = this.character();
+        const notices = c.hp >= characterStats(c).maxHp ? null : castOutsideCombat(c, power.id, true);
+        if (notices) this.message = notices.join(' · ');
+        else this.message = c.hp >= characterStats(c).maxHp ? 'Tu n’as aucune blessure à soigner.' : 'Tu n’as plus assez de forces : dors d’abord.';
+        this.redraw();
+      });
+    }
     if (item.healHp && owned > 0) addButton('Utiliser', () => this.act(() => useConsumable(this.character(), item.id, characterStats(this.character()).maxHp), `Tu utilises : ${item.name}.`));
     if (item.slot) {
       if (equippedIn) {
@@ -165,6 +179,7 @@ export class TradeScene extends Phaser.Scene {
           }, `Tu retires : ${item.name}.`),
         );
       }
+      else if (owned > 0 && item.slot === 'cristal') addButton('Porter', () => this.act(() => this.equipBestSlot(item), `Tu portes au cou : ${item.name}.`));
       else if (owned > 0) addButton('Équiper', () => this.act(() => this.equipBestSlot(item), `Tu équipes : ${item.name}.`));
     }
     if (owned > 0 && !item.quest) {
@@ -189,7 +204,7 @@ export class TradeScene extends Phaser.Scene {
 
   private equipBestSlot(item: ItemDef): boolean {
     const c = this.character();
-    const slot: Slot = item.slot === 'armure' ? 'armure' : c.equipment.mainGauche ? 'mainDroite' : 'mainGauche';
+    const slot: Slot = item.slot === 'armure' ? 'armure' : item.slot === 'cristal' ? 'cristal' : c.equipment.mainGauche ? 'mainDroite' : 'mainGauche';
     return equip(c, item.id, slot);
   }
 

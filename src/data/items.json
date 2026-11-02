@@ -190,5 +190,33 @@
     "weightKg": 0.1,
     "price": 0,
     "quest": true
+  },
+  {
+    "id": "cristal-vanel",
+    "name": "Cristal de Vie prêté",
+    "description": "Un petit cristal émeraude, prêté par le druide Vanel : « un prêt de la Terre ». Porté au cou, il donne la Guérison naturelle et la Lueur.",
+    "weightKg": 0.1,
+    "price": 0,
+    "slot": "cristal",
+    "pouvoir": "guerison",
+    "quest": true
+  },
+  {
+    "id": "cristal-vie",
+    "name": "Cristal de Vie",
+    "description": "Un petit cristal émeraude de Verdantis. Porté au cou, il donne la Guérison naturelle et la Lueur.",
+    "weightKg": 0.1,
+    "price": 250,
+    "slot": "cristal",
+    "pouvoir": "guerison"
+  },
+  {
+    "id": "cristal-forge",
+    "name": "Cristal de forge",
+    "description": "Rouge veiné de noir, taillé sous Ironheart. Porté au cou, il donne les Flammes forgées et la Lueur.",
+    "weightKg": 0.1,
+    "price": 250,
+    "slot": "cristal",
+    "pouvoir": "flammes"
   }
 ]

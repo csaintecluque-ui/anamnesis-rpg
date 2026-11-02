@@ -25,6 +25,15 @@
           "next": "outils"
         },
         {
+          "text": "Éclairer le fond du trou d’un cristal.",
+          "effects": [
+            {
+              "lancer": "lueur"
+            }
+          ],
+          "next": "outils"
+        },
+        {
           "text": "Partir.",
           "next": "fin"
         }

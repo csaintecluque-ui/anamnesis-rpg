@@ -24,6 +24,10 @@
           "next": "herbes"
         },
         {
+          "text": "Tu vends des cristaux ?",
+          "next": "cristaux"
+        },
+        {
           "text": "Au revoir.",
           "next": "fin"
         }
@@ -34,6 +38,24 @@
       "options": [
         {
           "text": "Une belle règle.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "cristaux": {
+      "text": "— Des cristaux de Vie, oui : deux cent cinquante Fers le petit. Mais si tu veux apprendre, va voir le druide Vanel, au Bosquet des Échos : les Druides Verts prêtent et enseignent pour rien. C’est leur loi.",
+      "options": [
+        {
+          "text": "Voyons ce que tu vends.",
+          "effects": [
+            {
+              "openTrade": true
+            }
+          ],
+          "next": "fin"
+        },
+        {
+          "text": "Merci, Sévane.",
           "next": "accueil"
         }
       ]

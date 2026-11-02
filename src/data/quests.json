@@ -171,5 +171,20 @@
         "texte": "Confier la lettre pour Ilyane à Hedda, à l’atelier Cendrefer : elle l’enverra à Gardebois."
       }
     ]
+  },
+  {
+    "id": "pret-terre",
+    "name": "Un prêt de la Terre",
+    "summary": "Au Bosquet des Échos, le druide Vanel prête un cristal de Vie à qui veut apprendre : « La magie est un prêt de la Terre. » Pour apprendre, il faut soigner.",
+    "etapes": [
+      {
+        "si": "cristal-prete",
+        "texte": "Porter au cou le cristal de Vie de Vanel, puis soigner les mains brûlées de Tiven, un jeune Nacellier de la Grande Nacelle."
+      },
+      {
+        "si": "tiven-soigne",
+        "texte": "Tiven est soigné : le dire à Vanel, au Bosquet des Échos."
+      }
+    ]
   }
 ]

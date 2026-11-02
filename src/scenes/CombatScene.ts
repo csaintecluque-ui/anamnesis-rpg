@@ -28,6 +28,7 @@ import {
   type Zone,
 } from '../rules/combat';
 import { DEFAULT_AVATAR } from '../rules/character';
+import { canCast, combatPower, healAmount, payCast, powerAttack, resonanceMax, type PowerDef } from '../rules/magic';
 import { placeOfLocation } from '../rules/world';
 import { findLocation, type GameState } from '../state/gameState';
 import { addTextButton, type TextButton } from '../ui/button';
@@ -55,8 +56,8 @@ const GRID = { line: 0xead9b8, reach: 0x5bc8d6, target: 0xd0583a, turn: 0xc9804f
 const STEP_ANIM_MS = 150;
 const WALK_FPS = 14;
 
-/** Moving, or attacking with the hero's attack at this index (one per weapon in hand). */
-type Mode = 'move' | number;
+/** Moving, attacking with the hero's attack at this index (one per weapon in hand), or with the crystal's power. */
+type Mode = 'move' | number | 'pouvoir';
 
 export interface CombatStartData {
   /** Enemy ids from enemies.json, one combatant per entry. */
@@ -98,6 +99,11 @@ export class CombatScene extends Phaser.Scene {
   private zoneButton?: TextButton;
   private moveButton?: TextButton;
   private attackButtons: TextButton[] = [];
+  /** The worn crystal's power for fights (docs/gdd/magie.md), its button and its Points de Résonance. */
+  private power?: PowerDef;
+  private powerProfile?: AttackProfile;
+  private powerButton?: TextButton;
+  private powerPoints?: Phaser.GameObjects.Text;
   private marker!: Phaser.GameObjects.Graphics;
   /** Grid, reach and hover drawn on the ground, under obstacles and fighters. */
   private overlay!: Phaser.GameObjects.Graphics;
@@ -139,6 +145,10 @@ export class CombatScene extends Phaser.Scene {
     this.originY = TOP + 64 * LAYOUT.arenaScale - Math.min(...ys);
 
     const hero = makeHeroCombatant(this.state.character!, data.heroTile);
+    this.power = combatPower(this.state.character!);
+    this.powerProfile = this.power?.combat === 'attaque' ? powerAttack(this.state.character!, this.power) : undefined;
+    this.powerButton = undefined;
+    this.powerPoints = undefined;
     const enemyDefs = data.enemyIds.map((id) => findEnemy(id)!);
     const enemies = enemyDefs.map((def, i) => makeEnemyCombatant(def, `${def.id}-${i}`, data.enemyTiles[i]));
     this.combatants = [hero, ...enemies];
@@ -286,7 +296,8 @@ export class CombatScene extends Phaser.Scene {
       }
       return;
     }
-    const attack = hero.attacks[this.mode];
+    const attack = this.currentAttack();
+    if (!attack) return;
     for (const enemy of this.combatants) {
       if (enemy.side !== 'enemies' || enemy.defeated) continue;
       const inRange = distance(hero.tile, enemy.tile) <= attack.range;
@@ -339,8 +350,9 @@ export class CombatScene extends Phaser.Scene {
     else if (this.mode === 'move') {
       this.hint.setText(this.reach.size > 0 ? 'Choisis une case bleue pour t’y rendre (1 PA par case).' : 'Plus assez de PA pour te déplacer.');
     } else {
-      const attack = hero.attacks[this.mode];
-      this.hint.setText(`Choisis un ennemi en rouge vif à portée (${attack.label}, ${attack.apCost} PA).`);
+      const attack = this.currentAttack()!;
+      const pr = this.mode === 'pouvoir' && this.power ? `, ${this.power.cost} PR` : '';
+      this.hint.setText(`Choisis un ennemi en rouge vif à portée (${attack.label}, ${attack.apCost} PA${pr}).`);
     }
     this.drawBoard();
   }
@@ -593,15 +605,35 @@ export class CombatScene extends Phaser.Scene {
     this.refreshBoard();
   }
 
+  /** The attack of the current mode: a weapon in hand, or the Flammes forgées. */
+  private currentAttack(): AttackProfile | undefined {
+    if (this.mode === 'move') return undefined;
+    return this.mode === 'pouvoir' ? this.powerProfile : this.hero().attacks[this.mode];
+  }
+
   private tryAttack(target: Combatant): void {
     const hero = this.hero();
-    if (this.mode === 'move') return;
-    const attack = hero.attacks[this.mode];
+    const attack = this.currentAttack();
+    if (!attack) return;
     if (!canAttack(hero, attack, target)) {
       this.appendLog(distance(hero.tile, target.tile) > attack.range ? 'Hors de portée.' : 'Pas assez de PA.');
       return;
     }
+    let bled = 0;
+    if (this.mode === 'pouvoir' && this.power) {
+      // Forcing the crystal costs PV (docs/gdd/magie.md); never the last one.
+      if (!canCast(this.state.character!, this.power.id, hero.hp)) {
+        this.appendLog('Tu n’as plus assez de forces pour le cristal.');
+        return;
+      }
+      bled = payCast(this.state.character!, this.power).hp;
+      hero.hp -= bled;
+    }
     this.performAttack(hero, attack, target, this.zone, coverBetween(hero.tile, target.tile, (t) => coverAt(this.arena, t)));
+    if (bled > 0) {
+      this.float(hero, `−${bled}`, CSS.muted);
+      this.log.setText(`${this.log.text} Ton nez saigne (−${bled} PV).`);
+    }
     this.updateActionBar();
     if (!this.checkOutcome()) this.refreshBoard();
   }
@@ -626,6 +658,27 @@ export class CombatScene extends Phaser.Scene {
     }
   }
 
+  /** Guérison naturelle, on the hero: PA and PR spent, PV back at once (docs/gdd/magie.md). */
+  private castHeal(): void {
+    if (!this.awaitingHero || this.busy || this.ended || !this.power) return;
+    const hero = this.hero();
+    const c = this.state.character!;
+    const apCost = this.power.apCost ?? 3;
+    if (hero.actionPoints < apCost) return this.appendLog('Pas assez de PA.');
+    if (hero.hp >= hero.maxHp) return this.appendLog('Tu n’as aucune blessure à soigner.');
+    if (!canCast(c, this.power.id, hero.hp)) return this.appendLog('Tu n’as plus assez de forces pour le cristal.');
+    hero.actionPoints -= apCost;
+    const bled = payCast(c, this.power).hp;
+    hero.hp -= bled;
+    const healed = Math.min(hero.maxHp - hero.hp, healAmount(c));
+    hero.hp += healed;
+    this.float(hero, `+${healed}`, '#9fe0a0');
+    this.appendLog(`Le cristal de Vie verdit : +${healed} PV.${bled > 0 ? ` Ton nez saigne (−${bled} PV).` : ''}`);
+    this.refreshToken(hero);
+    this.updateActionBar();
+    this.refreshBoard();
+  }
+
   private appendLog(line: string): void {
     this.log.setText(line);
   }
@@ -645,6 +698,20 @@ export class CombatScene extends Phaser.Scene {
       addTextButton(this, attackX + i * attackStep, y, a.label, () => this.setMode(i), size(attackWidth, L.labelFont)),
     );
     this.zoneButton = addTextButton(this, L.zone[0], y, '', () => this.cycleZone(), size(L.zone[1]));
+    // The crystal's power, top right where the arena leaves room (docs/gdd/magie.md).
+    const power = this.power;
+    const powerKey = DIGIT_KEYS[attacks.length + 1];
+    if (power) {
+      const width = HAS_MOUSE ? 270 : 330;
+      const px = GAME_WIDTH - 24 - width / 2;
+      const py = HAS_MOUSE ? 112 : 128;
+      const act = () => (power.combat === 'soin' ? this.castHeal() : this.setMode('pouvoir'));
+      this.powerButton = addTextButton(this, px, py, '', act, size(width, L.labelFont));
+      this.powerPoints = this.add
+        .text(px, py + L.buttonHeight / 2 + 6, '', { fontFamily: FONT_SERIF, fontSize: fs(17), color: CSS.muted })
+        .setOrigin(0.5, 0);
+      if (powerKey) onKeys(this, powerKey, act);
+    }
     addTextButton(this, L.endTurn[0], y, 'Fin du tour', () => this.endHeroTurn(), size(L.endTurn[1]));
     addTextButton(this, L.flee[0], y, 'Fuir', () => this.flee(), size(L.flee[1]));
     this.updateActionBar();
@@ -656,7 +723,7 @@ export class CombatScene extends Phaser.Scene {
     onKeys(this, ['SPACE'], () => this.endHeroTurn());
     if (SHOW_KEY_HINTS) {
       this.add
-        .text(GAME_WIDTH / 2, GAME_HEIGHT - 16, `Clavier : 1 Déplacer · ${attacks.map((a, i) => `${i + 2} ${a.label}`).join(' · ')} · Z zone visée · Espace fin du tour`, {
+        .text(GAME_WIDTH / 2, GAME_HEIGHT - 16, `Clavier : 1 Déplacer · ${attacks.map((a, i) => `${i + 2} ${a.label}`).join(' · ')}${power && powerKey ? ` · ${attacks.length + 2} ${power.name}` : ''} · Z zone visée · Espace fin du tour`, {
           fontFamily: FONT_SERIF,
           fontSize: '16px',
           color: CSS.muted,
@@ -708,7 +775,14 @@ export class CombatScene extends Phaser.Scene {
       const label = hero.attacks[i].label;
       button.setLabel(this.mode === i ? `▶ ${label}` : label);
     });
-    if (this.awaitingHero) this.banner.setText(`${hero.name} · PA ${hero.actionPoints}/${hero.maxActionPoints} · PV ${hero.hp}/${hero.maxHp}`);
+    const c = this.state.character!;
+    const resonance = this.power ? ` · PR ${c.resonance}/${resonanceMax(c)}` : '';
+    if (this.power) {
+      const label = `${this.power.name} · ${this.power.cost} PR`;
+      this.powerButton?.setLabel(this.mode === 'pouvoir' ? `▶ ${label}` : label);
+      this.powerPoints?.setText(`Résonance ${c.resonance} / ${resonanceMax(c)} PR`);
+    }
+    if (this.awaitingHero) this.banner.setText(`${hero.name} · PA ${hero.actionPoints}/${hero.maxActionPoints} · PV ${hero.hp}/${hero.maxHp}${resonance}`);
   }
 
   private refreshAll(): void {
@@ -719,7 +793,8 @@ export class CombatScene extends Phaser.Scene {
 
   /** The hit points lost stay lost after a fight won or fled: care, rest and soup matter (docs/gdd/combat.md). */
   private keepWounds(): void {
-    this.state.character!.hp = Math.max(1, Math.min(this.state.character!.hp, this.hero().hp));
+    // The hero's PV as the fight leaves them: wounds stay, and so does a Guérison naturelle.
+    this.state.character!.hp = Math.max(1, this.hero().hp);
   }
 
   private onVictory(): void {

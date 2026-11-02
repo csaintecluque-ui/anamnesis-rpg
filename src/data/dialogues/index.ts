@@ -66,9 +66,12 @@ import sauge1 from './sauge-1.json';
 import sauge2 from './sauge-2.json';
 import sevane from './sevane.json';
 import sylvan from './sylvan.json';
+import tailleuse from './tailleuse.json';
 import thalorin from './thalorin.json';
+import tiven from './tiven.json';
 import tobias from './tobias.json';
 import tracesFouille from './traces-fouille.json';
+import vanel from './vanel.json';
 import veilleuse from './veilleuse.json';
 import veline from './veline.json';
 import vieilleMachine from './vieille-machine.json';
@@ -143,9 +146,12 @@ export const DIALOGUES: Record<string, Dialogue> = {
   'sauge-2': sauge2 as Dialogue,
   sevane: sevane as Dialogue,
   sylvan: sylvan as Dialogue,
+  tailleuse: tailleuse as Dialogue,
   thalorin: thalorin as Dialogue,
+  tiven: tiven as Dialogue,
   tobias: tobias as Dialogue,
   'traces-fouille': tracesFouille as Dialogue,
+  vanel: vanel as Dialogue,
   veilleuse: veilleuse as Dialogue,
   veline: veline as Dialogue,
   'vieille-machine': vieilleMachine as Dialogue,

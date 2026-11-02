@@ -1,0 +1,210 @@
+{
+  "id": "vanel",
+  "speaker": "vanel",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "pret-terre",
+          "status": "done"
+        }
+      ],
+      "node": "apres"
+    },
+    {
+      "requires": [
+        {
+          "quest": "pret-terre",
+          "status": "active"
+        },
+        {
+          "flag": "tiven-soigne"
+        }
+      ],
+      "node": "retour"
+    },
+    {
+      "requires": [
+        {
+          "quest": "pret-terre",
+          "status": "active"
+        }
+      ],
+      "node": "attente"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Un druide en robe verte pose la main sur l’écorce du grand arbre, comme on prend un pouls. — Racines profondes. Je suis Vanel, Druide Vert. La magie est un prêt de la Terre : on ne la prend pas, on l’emprunte.",
+      "options": [
+        {
+          "text": "Apprends-moi.",
+          "requires": [
+            {
+              "quest": "pret-terre",
+              "status": "none"
+            }
+          ],
+          "next": "apprendre"
+        },
+        {
+          "text": "Qu’est-ce qu’un cristal de Résonance ?",
+          "next": "cristal"
+        },
+        {
+          "text": "Que la sève coule.",
+          "next": "fin"
+        }
+      ]
+    },
+    "cristal": {
+      "text": "— Une pierre qui écoute la Terre depuis trois mille ans. Sa couleur dit son pouvoir : le vert guérit, le rouge brûle. Tout le monde peut s’en servir, en théorie. Certains l’entendent mieux que d’autres.",
+      "options": [
+        {
+          "text": "Apprends-moi.",
+          "requires": [
+            {
+              "quest": "pret-terre",
+              "status": "none"
+            }
+          ],
+          "next": "apprendre"
+        },
+        {
+          "text": "Merci, Vanel.",
+          "next": "fin"
+        }
+      ]
+    },
+    "apprendre": {
+      "text": "Il décroche de son cou un petit cristal émeraude. — Je te le prête. Porte-le au cou, et va voir Tiven, à la Grande Nacelle : un jeune Nacellier s’est brûlé les mains aux cordes. Pose le cristal sur ses mains, et écoute.",
+      "effects": [
+        {
+          "startQuest": "pret-terre"
+        },
+        {
+          "giveItem": "cristal-vanel"
+        },
+        {
+          "setFlag": "cristal-prete"
+        }
+      ],
+      "options": [
+        {
+          "text": "J’y vais.",
+          "next": "fin"
+        },
+        {
+          "text": "Et si je force trop ?",
+          "next": "prix"
+        }
+      ]
+    },
+    "prix": {
+      "text": "— Alors tu sauras ce que coûte la magie. Quand le cristal n’a plus rien à donner, c’est toi qui paies : la fatigue, le nez qui saigne. Ne force jamais longtemps. Une bonne nuit de sommeil rend tout.",
+      "options": [
+        {
+          "text": "Compris.",
+          "next": "fin"
+        }
+      ]
+    },
+    "attente": {
+      "text": "Vanel ne quitte pas l’arbre des yeux. — Tiven t’attend à la Grande Nacelle, près du débarcadère. Le cristal au cou, d’abord : on n’entend pas une pierre qui dort au fond d’un sac.",
+      "options": [
+        {
+          "text": "Et si je force trop ?",
+          "next": "prix"
+        },
+        {
+          "text": "J’y vais.",
+          "next": "fin"
+        }
+      ]
+    },
+    "retour": {
+      "text": "Vanel sourit avant que tu parles. — Je l’ai entendu d’ici, et l’arbre aussi. Garde le cristal : ce n’est pas un don, c’est un prêt. Tu le rendras en soignant à ton tour.",
+      "effects": [
+        {
+          "completeQuest": "pret-terre"
+        },
+        {
+          "giveXp": 40
+        },
+        {
+          "apprendre": "resonance"
+        }
+      ],
+      "options": [
+        {
+          "text": "Qu’apprend-on ensuite ?",
+          "next": "lueur"
+        },
+        {
+          "text": "Et à Ferros ?",
+          "next": "ferros"
+        },
+        {
+          "text": "Merci, Vanel.",
+          "next": "fin"
+        }
+      ]
+    },
+    "lueur": {
+      "text": "— La Lueur. Tous les cristaux savent briller : pense à une lanterne, et il s’allume de sa couleur. Dans le noir, il montre ce que l’ombre cache. Pour le feu, il faut un cristal de forge… et ce n’est pas un druide qui te l’apprendra.",
+      "options": [
+        {
+          "text": "Et à Ferros ?",
+          "next": "ferros"
+        },
+        {
+          "text": "Merci, Vanel.",
+          "next": "fin"
+        }
+      ]
+    },
+    "ferros": {
+      "text": "— À Ferros, la magie est « l’étincelle du Souffle ». On l’y respecte, mais on tient des listes de ceux qui portent un cristal. Là-bas, garde-le sous ta chemise.",
+      "options": [
+        {
+          "text": "Qu’apprend-on ensuite ?",
+          "requires": [
+            {
+              "quest": "pret-terre",
+              "status": "done"
+            }
+          ],
+          "next": "lueur"
+        },
+        {
+          "text": "Merci, Vanel.",
+          "next": "fin"
+        }
+      ]
+    },
+    "apres": {
+      "text": "— Racines profondes. Le cristal te parle encore ? Écoute-le. Et n’oublie pas : un prêt de la Terre se rend en soignant.",
+      "options": [
+        {
+          "text": "Parle-moi de la Lueur.",
+          "next": "lueur"
+        },
+        {
+          "text": "Et à Ferros ?",
+          "next": "ferros"
+        },
+        {
+          "text": "Et si je force trop ?",
+          "next": "prix"
+        },
+        {
+          "text": "Que la sève coule.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

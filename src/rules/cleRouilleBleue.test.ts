@@ -83,7 +83,7 @@ describe('La Clé de Rouille Bleue', () => {
 
   it('finds the hidden market with a hint or Investigation 2', () => {
     const state = createNewGame(testCharacter({}, { investigation: 0 }));
-    expect(optionTexts(state, 'renfoncement', 'mur')).toEqual(['Examiner le mur.', 'Passer son chemin.']);
+    expect(optionTexts(state, 'renfoncement', 'mur')).toEqual(['Examiner le mur.', 'Faire luire un cristal le long du mur.', 'Passer son chemin.']);
     choose(state, 'rika', 'accueil', 'Le Marché des Cendres');
     choose(state, 'renfoncement', 'mur', 'Chercher le passage');
     expect(state.flags['marche-cendres-connu']).toBe(true);

@@ -7,7 +7,7 @@ import { LOCATIONS, createNewGame, findLocation, type GameState } from '../state
 import { ENCOUNTERS } from './combat';
 import { END, QUESTS, applyEffects, conditionMet, goesTo, hasStoryEntry, startNode, startsCombat, visibleOptions, type Dialogue, type Effect } from './dialogue';
 import { FIGURANTS, figurantLines, figurantsAt } from './figurants';
-import { merchantDiscount, ownedCount } from './inventory';
+import { equip, merchantDiscount, ownedCount } from './inventory';
 import { journalQuests } from './journal';
 import { levelForXp } from './leveling';
 import { choose, optionTexts, testCharacter } from './questTestKit';
@@ -595,6 +595,37 @@ describe('Parcours complet, d’une traite', () => {
     expect(maskedEntries(s, true)).toEqual([]);
   });
 
+  it('« Un prêt de la Terre » : Vanel prête un cristal de Vie, Tiven soigné, un rang de Résonance appris', () => {
+    walk(s, 'canopee-aieux');
+    expect(talk(s, 'vanel')).toBe('accueil');
+    say(s, 'vanel', 'accueil', 'Qu’est-ce qu’un cristal');
+    say(s, 'vanel', 'cristal', 'Apprends-moi');
+    expect(s.quests['pret-terre']).toBe('active');
+    expect(ownedCount(s.character!, 'cristal-vanel')).toBe(1);
+    expect(talk(s, 'vanel')).toBe('attente');
+    walk(s, 'canopee-nacelle');
+    expect(talk(s, 'tiven')).toBe('quete');
+    // Le cristal au fond du sac ne soigne personne : l'option attend qu'on le porte au cou.
+    const poser = () => visibleOptions(DIALOGUES.tiven.nodes.quete, s).find((v) => v.option.text.startsWith('Poser'))!;
+    expect(poser().missing).toBe('Il te faut porter un cristal de Vie.');
+    expect(equip(s.character!, 'cristal-vanel', 'cristal')).toBe(true);
+    expect(poser().enabled).toBe(true);
+    expect(poser().tags).toEqual(['Guérison naturelle · 2 PR']);
+    const pr = s.character!.resonance;
+    expect(gained(s, () => say(s, 'tiven', 'quete', 'Poser le cristal'))).toEqual({ xp: 15, fers: 0 });
+    expect(s.character!.resonance).toBe(pr - 2);
+    expect(talk(s, 'tiven')).toBe('gueri');
+    walk(s, 'canopee-aieux');
+    expect(gained(s, () => expect(talk(s, 'vanel')).toBe('retour'))).toEqual({ xp: 40, fers: 0 });
+    expect(s.quests['pret-terre']).toBe('done');
+    expect(s.character!.skills.resonance).toBe(1);
+    say(s, 'vanel', 'retour', 'Qu’apprend-on ensuite');
+    say(s, 'vanel', 'lueur', 'Et à Ferros');
+    expect(talk(s, 'vanel')).toBe('apres');
+    walk(s, 'canopee-nacelle');
+    expect(repeatableGains(s)).toEqual([]);
+  });
+
   it('Ironheart en train : Boulon, puis « La Clé de Rouille Bleue » confiée à Noam', () => {
     expect(talk(s, 'halte-ouest')).toBe('halte');
     say(s, 'halte-ouest', 'halte', 'Prendre le train');
@@ -615,6 +646,10 @@ describe('Parcours complet, d’une traite', () => {
     expect(journalStep(s, 'cle-rouille-bleue')?.step).toMatch(/Veilleuse/);
     walk(s, 'ironheart-forges');
 
+    // Le cristal au cou : Ferros tient des listes (docs/gdd/magie.md).
+    expect(talk(s, 'patrouilleur')).toBe('liste');
+    say(s, 'patrouilleur', 'liste', 'C’est interdit');
+    say(s, 'patrouilleur', 'liste-pourquoi', 'Et le funiculaire');
     expect(talk(s, 'patrouilleur')).toBe('controle');
     say(s, 'patrouilleur', 'controle', 'Montrer le sauf-conduit');
     say(s, 'patrouilleur', 'sauf', 'Monter');
@@ -640,7 +675,7 @@ describe('Parcours complet, d’une traite', () => {
     ]);
     say(s, 'veilleuse', 'question-cle', 'Lui parler de ce que la clé ouvre');
     expect(gained(s, () => say(s, 'veilleuse', 'ouvre', 'Aux Archives'))).toEqual({ xp: 25, fers: 0 });
-    expect(questItems(s)).toEqual(['cle-rouille-bleue', 'sauf-conduit']);
+    expect(questItems(s)).toEqual(['cle-rouille-bleue', 'cristal-vanel', 'sauf-conduit']);
     expect(journalStep(s, 'cle-rouille-bleue')?.step).toMatch(/J’ai la clé/);
     expect(talk(s, 'veilleuse')).toBe('avec-cle');
     walk(s, 'ironheart-manufactures');
@@ -648,7 +683,7 @@ describe('Parcours complet, d’une traite', () => {
     expect(talk(s, 'noam')).toBe('cle');
     expect(gained(s, () => say(s, 'noam', 'cle', 'La lui confier'))).toEqual({ xp: 70, fers: 0 });
     expect(s.quests['cle-rouille-bleue']).toBe('done');
-    expect(questItems(s)).toEqual(['sauf-conduit']);
+    expect(questItems(s)).toEqual(['cristal-vanel', 'sauf-conduit']);
     expect(reputationScore(s, 'ironheart')).toBe(10);
     expect(reputationScore(s, 'archives-ferros')).toBe(20);
     expect(talk(s, 'noam')).toBe('apres-archives');
@@ -659,6 +694,8 @@ describe('Parcours complet, d’une traite', () => {
 
   it('« Le Rail des Cendres » : les indices, Joss, le tunnel, la Cendrière, la dette rachetée', () => {
     walk(s, 'ironheart-pension');
+    expect(talk(s, 'dorna')).toBe('cristal');
+    say(s, 'dorna', 'cristal', 'Merci du conseil');
     expect(talk(s, 'dorna')).toBe('accueil');
     say(s, 'dorna', 'accueil', 'Quelles nouvelles');
     say(s, 'dorna', 'nouvelles', 'Et au triage');
@@ -713,18 +750,21 @@ describe('Parcours complet, d’une traite', () => {
     expect(talk(s, 'echo-chanson')).toBe('ecoute');
     say(s, 'echo-chanson', 'ecoute', 'Retenir la mélodie');
     expect(talk(s, 'enclume-marques')).toBe('enclume');
-    say(s, 'enclume-marques', 'enclume', 'Examiner les marques');
+    // La Lueur du cristal, à la place de l'Investigation : un Point de Résonance.
+    const pr = s.character!.resonance;
+    say(s, 'enclume-marques', 'enclume', 'Approcher la lueur');
+    expect(s.character!.resonance).toBe(pr - 1);
     expect(talk(s, 'echo-promesse')).toBe('promesse');
     say(s, 'echo-promesse', 'promesse', 'L’écouter jusqu’au bout');
     say(s, 'echo-promesse', 'choix', 'Le garder par écrit');
     say(s, 'echo-promesse', 'garder', 'Pour Ilyane');
-    expect(questItems(s)).toEqual(['lettre-echo', 'sauf-conduit']);
+    expect(questItems(s)).toEqual(['cristal-vanel', 'lettre-echo', 'sauf-conduit']);
     expect(journalStep(s, 'echos-forge')?.step).toMatch(/Hedda/);
     walk(s, 'ironheart-forges');
     walk(s, 'ironheart-atelier');
     expect(gained(s, () => expect(talk(s, 'hedda')).toBe('lettre'))).toEqual({ xp: 40, fers: 0 });
     expect(s.quests['echos-forge']).toBe('done');
-    expect(questItems(s)).toEqual(['sauf-conduit']);
+    expect(questItems(s)).toEqual(['cristal-vanel', 'sauf-conduit']);
     expect(talk(s, 'hedda')).toBe('accueil-remise');
     walk(s, 'ironheart-forges');
     walk(s, 'ironheart-martelroux');
@@ -761,7 +801,7 @@ describe('Parcours complet, d’une traite', () => {
   it('Bilan : tout est fini, rien ne traîne, rien ne se gagne deux fois', () => {
     expect(unfinished(s)).toEqual([]);
     expect(journalQuests(s).every((q) => q.done)).toBe(true);
-    expect(questItems(s)).toEqual(['sauf-conduit']);
+    expect(questItems(s)).toEqual(['cristal-vanel', 'sauf-conduit']);
     expect(s.character!.fers).toBe(20);
     expect(levelForXp(s.character!.xp)).toBe(4);
     expect(reputations(s)).toEqual({
@@ -1023,6 +1063,29 @@ describe('Variante : Ironheart avant les quêtes annexes (parole, combats, autre
     say(s, 'veline', 'graines-merci', 'Que la sève coule');
   });
 
+  it('« Un prêt de la Terre » à court de Résonance : le cristal forcé fait saigner du nez', () => {
+    walk(s, 'canopee-aieux');
+    expect(talk(s, 'vanel')).toBe('accueil');
+    say(s, 'vanel', 'accueil', 'Apprends-moi');
+    say(s, 'vanel', 'apprendre', 'Et si je force trop');
+    expect(equip(s.character!, 'cristal-vanel', 'cristal')).toBe(true);
+    walk(s, 'canopee-nacelle');
+    // Toute la Résonance déjà dépensée : chaque point manquant se paie de 3 PV, jamais du dernier.
+    s.character!.resonance = 0;
+    const hp = s.character!.hp;
+    expect(hp).toBeGreaterThan(6);
+    expect(talk(s, 'tiven')).toBe('quete');
+    const poser = visibleOptions(DIALOGUES.tiven.nodes.quete, s).find((v) => v.option.text.startsWith('Poser'))!;
+    expect(poser.tags).toEqual(['Guérison naturelle · 2 PR (nez qui saigne : −6 PV)']);
+    say(s, 'tiven', 'quete', 'Poser le cristal');
+    expect(s.character!.hp).toBe(hp - 6);
+    expect(s.character!.resonance).toBe(0);
+    walk(s, 'canopee-aieux');
+    expect(talk(s, 'vanel')).toBe('retour');
+    expect(s.quests['pret-terre']).toBe('done');
+    walk(s, 'canopee-nacelle');
+  });
+
   it('« Le carnet de chansons » et « La caravane de midi » en dernier, par la caravane payante', () => {
     expect(travel(s, 'gardebois')).toBeNull();
     expect(talk(s, 'ilyane')).toBe('carnet');
@@ -1085,7 +1148,7 @@ describe('Variante : Ironheart avant les quêtes annexes (parole, combats, autre
 
   it('Bilan de la variante', () => {
     expect(unfinished(s)).toEqual([]);
-    expect(questItems(s)).toEqual(['sauf-conduit']);
+    expect(questItems(s)).toEqual(['cristal-vanel', 'sauf-conduit']);
     expect(reputations(s)).toEqual({
       gardebois: 40,
       canopee: 50,

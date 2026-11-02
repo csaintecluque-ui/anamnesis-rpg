@@ -5,6 +5,17 @@
     {
       "requires": [
         {
+          "cristal": true
+        },
+        {
+          "notFlag": "dorna-cristal"
+        }
+      ],
+      "node": "cristal"
+    },
+    {
+      "requires": [
+        {
           "tousLes": 3,
           "decalage": 1
         }
@@ -179,6 +190,20 @@
         {
           "text": "Au revoir.",
           "next": "fin"
+        }
+      ]
+    },
+    "cristal": {
+      "text": "Dorna baisse la voix. — Range ce cristal sous ta chemise, tu veux ? Ici, on tient des listes. Les patrouilleurs notent qui en porte, et les pyromanciens n’aiment pas qu’on joue au feu sans eux.",
+      "effects": [
+        {
+          "setFlag": "dorna-cristal"
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci du conseil.",
+          "next": "accueil"
         }
       ]
     }

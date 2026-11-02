@@ -26,6 +26,15 @@
           ]
         },
         {
+          "text": "Approcher la lueur d’un cristal.",
+          "effects": [
+            {
+              "lancer": "lueur"
+            }
+          ],
+          "next": "marques"
+        },
+        {
           "text": "Partir.",
           "next": "fin"
         }

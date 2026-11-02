@@ -10,5 +10,6 @@
   { "id": "medicine", "name": "Médecine", "attribute": "intellect", "description": "Soins avancés, poisons." },
   { "id": "command", "name": "Commandement", "attribute": "presence", "description": "Inspirer, intimider." },
   { "id": "diplomacy", "name": "Diplomatie", "attribute": "presence", "description": "Persuader, négocier, troquer." },
-  { "id": "subterfuge", "name": "Subterfuge", "attribute": "presence", "description": "Mentir, bluffer, se déguiser." }
+  { "id": "subterfuge", "name": "Subterfuge", "attribute": "presence", "description": "Mentir, bluffer, se déguiser." },
+  { "id": "resonance", "name": "Résonance", "attribute": "vigor", "description": "Écouter un cristal porté au cou et en tirer la magie : chaque rang donne un Point de Résonance de plus.", "creation": false }
 ]

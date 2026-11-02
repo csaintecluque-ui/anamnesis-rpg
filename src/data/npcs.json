@@ -136,7 +136,8 @@
     "sells": [
       "bandage",
       "baume-mousse",
-      "corde"
+      "corde",
+      "cristal-vie"
     ],
     "place": "canopee"
   },
@@ -425,5 +426,25 @@
     "id": "halte-ouest",
     "name": "La halte de la ligne de l’Ouest",
     "role": "Au pied de la Grande Nacelle"
+  },
+  {
+    "id": "vanel",
+    "name": "Vanel Lentefeuille",
+    "role": "Druide Vert, au Bosquet des Échos"
+  },
+  {
+    "id": "tiven",
+    "name": "Tiven",
+    "role": "Jeune Nacellier"
+  },
+  {
+    "id": "tailleuse",
+    "name": "La tailleuse de cristaux",
+    "role": "Marché des Cendres",
+    "place": "ironheart",
+    "sells": [
+      "cristal-forge"
+    ],
+    "faction": "marches-cendres"
   }
 ]

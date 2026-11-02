@@ -15,7 +15,9 @@ export type SkillId =
   | 'medicine'
   | 'command'
   | 'diplomacy'
-  | 'subterfuge';
+  | 'subterfuge'
+  /** La magie (docs/gdd/magie.md) : not offered at creation, learned on the road. */
+  | 'resonance';
 
 export interface AttributeDef {
   id: AttributeId;
@@ -28,10 +30,14 @@ export interface SkillDef {
   name: string;
   attribute: AttributeId;
   description: string;
+  /** False when the skill cannot get ranks at creation (Résonance: learned on the road). */
+  creation?: boolean;
 }
 
 export const ATTRIBUTES = attributeData as AttributeDef[];
 export const SKILLS = skillData as SkillDef[];
+/** The skills offered at creation (all but those learned on the road). */
+export const CREATION_SKILLS = SKILLS.filter((s) => s.creation !== false);
 
 export type Attributes = Record<AttributeId, number>;
 

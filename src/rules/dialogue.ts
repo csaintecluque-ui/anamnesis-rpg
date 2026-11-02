@@ -5,6 +5,7 @@ import { resolveCheck, rollD20, successChance, type Rng } from './checks';
 import { characterStats } from './character';
 import { ENCOUNTERS } from './combat';
 import { addItem, findItem, ownedCount, removeItem } from './inventory';
+import { castCost, castOutsideCombat, findPower, hasPower, POWERS, restoreResonance, teachSkillRank, wornCrystal, type PowerId } from './magic';
 import { RECITS, findRecit, knowsRecit, learnRecit } from './recits';
 import { REPUTATION, reputationNotices, reputationScore, reputationTag } from './reputation';
 import { MOMENTS, advance, formatDate, isNight, momentOf, sleepUntil, waitUntil, type Moment } from './time';
@@ -29,7 +30,9 @@ export type Condition =
   /** The moment of the day (docs/gdd/temps.md): « jour » is any moment but « nuit ». A story condition. */
   | { moment: Moment | 'jour' }
   /** One day in `tousLes`, from the `decalage`-th (the news of the day at the inns). A story condition. */
-  | { tousLes: number; decalage: number };
+  | { tousLes: number; decalage: number }
+  /** A crystal is worn at the neck (true) or not (false): « on tient des listes » at Ironheart. A story condition. */
+  | { cristal: boolean };
 
 export type Effect =
   | { setFlag: string }
@@ -54,8 +57,15 @@ export type Effect =
   | { attendre: Moment }
   /** Moves the clock forward by this many moments (a train, a caravan). */
   | { avancer: number }
-  /** Sleeps until a moment (at least until the next of its kind): all PV back, and the game saves (DialogueScene). */
-  | { dormir: Moment };
+  /** Sleeps until a moment (at least until the next of its kind): all PV and PR back, and the game saves (DialogueScene). */
+  | { dormir: Moment }
+  /**
+   * Casts a power of the worn crystal (docs/gdd/magie.md): its PR are spent, and PV if forced. The option shows the
+   * power and its cost, greyed without the right crystal; what the power does is the rest of the option's effects.
+   */
+  | { lancer: PowerId }
+  /** Teaches one rank of a skill (Vanel teaches the Résonance). */
+  | { apprendre: SkillId };
 
 /** An action rolled with the d20 (docs/gdd/competences.md): the chance is shown, then `next` or `failNext` follows. */
 export interface Roll {
@@ -122,6 +132,7 @@ export function conditionMet(state: GameState, c: Condition): boolean {
   if ('item' in c) return !!state.character && ownedCount(state.character, c.item) >= (c.count ?? 1);
   if ('moment' in c) return c.moment === 'jour' ? !isNight(state.time) : momentOf(state.time) === c.moment;
   if ('tousLes' in c) return (state.time.day - 1) % c.tousLes === c.decalage;
+  if ('cristal' in c) return !!state.character && !!wornCrystal(state.character) === c.cristal;
   return (state.quests[c.quest] ?? 'none') === c.status;
 }
 
@@ -153,14 +164,27 @@ export function visibleOptions(node: DialogueNode, state: GameState): OptionView
     const failed = tests.filter((c) => !conditionMet(state, c));
     const tags = tests.map((c) => testLabel(c)!);
     if (option.roll) tags.push(`${skillName(option.roll.skill)} ${Math.round(rollChance(state, option.roll) * 100)} %`);
-    views.push({
-      option,
-      enabled: failed.length === 0,
-      tags,
-      missing: failed.length ? `Il te faut ${failed.map((c) => testLabel(c)).join(' et ')}.` : undefined,
-    });
+    const spell = castView(state, option);
+    if (spell) tags.push(spell.tag);
+    const missing = failed.length ? `Il te faut ${failed.map((c) => testLabel(c)).join(' et ')}.` : spell?.missing;
+    views.push({ option, enabled: !missing, tags, missing });
   }
   return views;
+}
+
+/** What a crystal is needed for each power, in « Il te faut porter… ». */
+const CRYSTAL_NEEDED: Record<PowerId, string> = { guerison: 'un cristal de Vie', flammes: 'un cristal de forge', lueur: 'un cristal' };
+
+/** An option that casts a power: its tag (« Lueur · 1 PR »), and what is missing to cast it. */
+function castView(state: GameState, option: DialogueOption): { tag: string; missing?: string } | null {
+  const effect = option.effects?.find((e) => 'lancer' in e);
+  const power = effect && 'lancer' in effect ? findPower(effect.lancer) : undefined;
+  const c = state.character;
+  if (!power || !c) return null;
+  if (!hasPower(c, power.id)) return { tag: `${power.name} · ${power.cost} PR`, missing: `Il te faut porter ${CRYSTAL_NEEDED[power.id]}.` };
+  const cost = castCost(c, power);
+  const tag = `${power.name} · ${power.cost} PR${cost.hp > 0 ? ` (nez qui saigne : −${cost.hp} PV)` : ''}`;
+  return { tag, missing: c.hp > cost.hp ? undefined : 'Tu n’as plus assez de forces : dors d’abord.' };
 }
 
 /** Attribute modifier + rank: what is added to the d20 for this skill. */
@@ -259,8 +283,15 @@ export function applyEffects(state: GameState, effects: Effect[] = []): string[]
       advance(state.time, effect.avancer);
     } else if ('dormir' in effect) {
       sleepUntil(state.time, effect.dormir);
-      if (state.character) state.character.hp = characterStats(state.character).maxHp;
+      if (state.character) {
+        state.character.hp = characterStats(state.character).maxHp;
+        restoreResonance(state.character);
+      }
       notices.push(`Tes forces sont revenues. ${ITS_MOMENT[momentOf(state.time)]} Nous sommes ${formatDate(state.time)}.`);
+    } else if ('lancer' in effect) {
+      if (state.character) notices.push(...(castOutsideCombat(state.character, effect.lancer) ?? []));
+    } else if ('apprendre' in effect) {
+      if (state.character && teachSkillRank(state.character, effect.apprendre)) notices.push(`+1 rang de ${skillName(effect.apprendre)}`);
     } else if ('heal' in effect) {
       if (state.character) {
         const max = characterStats(state.character).maxHp;
@@ -330,6 +361,8 @@ export function dialogueProblems(d: Dialogue): string[] {
       if ('takeItem' in e && !findItem(e.takeItem)) problems.push(`${where} : objet inconnu ${e.takeItem}`);
       if ('startCombat' in e && !ENCOUNTERS.some((x) => x.id === e.startCombat)) problems.push(`${where} : combat inconnu ${e.startCombat}`);
       if ('goTo' in e && !findLocation(e.goTo)) problems.push(`${where} : lieu inconnu ${e.goTo}`);
+      if ('lancer' in e && !POWERS.some((p) => p.id === e.lancer)) problems.push(`${where} : pouvoir inconnu ${e.lancer}`);
+      if ('apprendre' in e && !knownSkills.has(e.apprendre)) problems.push(`${where} : compétence inconnue ${e.apprendre}`);
     }
   };
 

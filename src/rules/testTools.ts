@@ -9,6 +9,7 @@ import { QUESTS } from './dialogue';
 import { FIGURANTS } from './figurants';
 import { addItem } from './inventory';
 import { xpForLevel } from './leveling';
+import { restoreResonance } from './magic';
 import { RECITS } from './recits';
 import { REPUTATION } from './reputation';
 import { RENCONTRES } from './world';
@@ -21,12 +22,16 @@ export const TEST_FERS = 50;
 /** Level of the overpowered character: high enough for every test, below any level-up screen. */
 export const OVERPOWERED_LEVEL = 10;
 export const OVERPOWERED_FERS = 9999;
-/** The best of each slot, given and worn. */
-const OVERPOWERED_GEAR = { mainDroite: 'marteau-forge', mainGauche: 'arbalete-ferros', armure: 'cuirasse-rivetee' } as const;
+/** The best of each slot, given and worn; the other crystal is given too, to swap at will. */
+const OVERPOWERED_GEAR = { mainDroite: 'marteau-forge', mainGauche: 'arbalete-ferros', armure: 'cuirasse-rivetee', cristal: 'cristal-forge' } as const;
+const OVERPOWERED_EXTRA = ['cristal-vie'];
 
 export function addTestFers(character: Character): void {
   character.fers += TEST_FERS;
 }
+
+/** Every Point de Résonance back (Outils de dev). */
+export { restoreResonance as restoreFullResonance } from './magic';
 
 /** Back to full PV; returns how many were restored. */
 export function restoreFullHp(character: Character): number {
@@ -51,8 +56,10 @@ export function makeOverpowered(character: Character): void {
     if (!character.inventory.some((s) => s.itemId === itemId)) addItem(character, itemId);
     character.equipment[slot] = itemId;
   }
+  for (const id of OVERPOWERED_EXTRA) if (!character.inventory.some((s) => s.itemId === id)) addItem(character, id);
   for (const r of RECITS) if (!character.recits.includes(r.id)) character.recits.push(r.id);
   character.hp = characterStats(character).maxHp;
+  restoreResonance(character);
 }
 
 export type QuestState = 'none' | 'active' | 'done';

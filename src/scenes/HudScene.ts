@@ -8,6 +8,7 @@ import { withKeyHint } from '../ui/keys';
 import { CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
 import { HAS_MOUSE } from '../ui/viewport';
 import { momentOf } from '../rules/time';
+import { resonanceMax, wornCrystal } from '../rules/magic';
 
 const TOAST_MS = 4000;
 /** Free band between the Menu button (left) and the Journal and Inventaire buttons (right). */
@@ -51,7 +52,6 @@ export class HudScene extends Phaser.Scene {
         fontSize: `${L.statusSize}px`,
         color: CSS.copper,
         align: 'center',
-        fixedWidth: HEADER_MAX_WIDTH,
       })
       .setOrigin(0.5);
     this.refreshStatus();
@@ -113,7 +113,13 @@ export class HudScene extends Phaser.Scene {
     const hero = this.state.character!;
     // A long name is shortened so that PV and Fers always fit in the band (24 characters are allowed).
     const name = hero.name.length > NAME_MAX ? `${hero.name.slice(0, NAME_MAX - 1).trimEnd()}…` : hero.name;
-    this.statusText.setText(`${name} · PV ${hero.hp} / ${characterStats(hero).maxHp} · niveau ${hero.level} · ${hero.fers} Fers`);
+    // With a crystal at the neck, its Points de Résonance (docs/gdd/magie.md).
+    const resonance = wornCrystal(hero) ? ` · PR ${hero.resonance} / ${resonanceMax(hero)}` : '';
+    const status = `${name} · PV ${hero.hp} / ${characterStats(hero).maxHp}${resonance} · niveau ${hero.level} · ${hero.fers} Fers`;
+    if (status !== this.statusText.text) {
+      this.statusText.setText(status).setFontSize(LAYOUT.statusSize);
+      for (let size = LAYOUT.statusSize - 1; this.statusText.width > HEADER_MAX_WIDTH && size >= 12; size--) this.statusText.setFontSize(size);
+    }
   }
 
   toast(message: string): void {

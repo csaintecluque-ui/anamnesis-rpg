@@ -1,9 +1,9 @@
-import { characterError, DEFAULT_AVATAR, STARTING_FERS, STARTING_WEAPON } from '../rules/character';
+import { characterError, DEFAULT_AVATAR, RESONANCE_BASE, STARTING_FERS, STARTING_WEAPON } from '../rules/character';
 import { findPlace, findRencontre } from '../rules/world';
 import { findLocation, type GameState } from '../state/gameState';
 import { START_TIME, isGameTime } from '../rules/time';
 
-export const SAVE_VERSION = 10;
+export const SAVE_VERSION = 11;
 export const SAVE_MAX_CHARS = 1_000_000;
 const GAME_MARKER = 'anamnesis';
 
@@ -78,6 +78,18 @@ const MIGRATIONS: Record<number, (save: Record<string, unknown>) => Record<strin
   8: (save) => ({ ...save, state: isRecord(save.state) ? { ...save.state, encounter: null } : save.state }),
   // v9 predates the time of day (docs/gdd/temps.md): the first morning.
   9: (save) => ({ ...save, state: isRecord(save.state) ? { ...save.state, time: { ...START_TIME } } : save.state }),
+  // v10 predates the magic (docs/gdd/magie.md): Résonance at rank 0, its Points de Résonance full, no crystal worn.
+  10: (save) => {
+    if (!isRecord(save.state) || !isRecord(save.state.character)) return save;
+    const c = save.state.character;
+    const character = {
+      ...c,
+      skills: { ...(isRecord(c.skills) ? c.skills : {}), resonance: 0 },
+      equipment: { ...(isRecord(c.equipment) ? c.equipment : {}), cristal: null },
+      resonance: RESONANCE_BASE,
+    };
+    return { ...save, state: { ...save.state, character } };
+  },
 };
 
 export function createSave(state: GameState, now: Date): SaveFile {

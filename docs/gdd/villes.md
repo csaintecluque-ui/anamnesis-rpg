@@ -25,10 +25,10 @@ Découper une ville en quartiers garde des cartes légères : important pour les
 2. **Lieux fermés et propriété** : porte verrouillée (Artisanat pour crocheter), coffres qu'on peut voler
    (Discrétion), **réputation par ville** : être vu baisse la réputation, change les prix et l'accueil.
 3. **Carte du monde et voyages** : train, dirigeable, navire (canon : un tour du monde prend environ deux semaines
-   de train [E3] ; dirigeables [E9]). Gardebois → Canopéa et Ironheart par la route et le rail ; Convergence au centre
+   de train [E3] ; dirigeables [E9]). Gardebois → Canopéa et Ironheart par la route et le rail ; Sept-Portes au centre
    de toutes les lignes ; Zephyria en dirigeable ; Marisol en navire.
 4. **Fond peint sous la carte** : feuillage (Canopéa), nuages (Aetherhaven, Windspire), sable qui défile
-   (Marche-Mère), mer (Coralys).
+   (Marche-Mère), mer (Coralia).
 5. **Mécanique propre à chaque ville** (une seule, simple) :
 
 | Ville | Mécanique | Nouveau dans le moteur ? |
@@ -36,12 +36,12 @@ Découper une ville en quartiers garde des cartes légères : important pour les
 | Canopéa | nacelles entre quartiers, passerelles-raccourcis (Athlétisme) | non (sorties, jets de dé) |
 | Ironheart | télégraphe : envoyer un message à un PNJ d'une autre ville | un peu (courrier) |
 | Ironhold | la Vieille Mine : petit donjon avec combat | non |
-| Convergence | **aucun combat possible** : les options d'attaque disparaissent | un peu (zone sans combat) |
+| Sept-Portes | **aucun combat possible** : les options d'attaque disparaissent | un peu (zone sans combat) |
 | Aetherhaven | sauts entre îlots (Athlétisme) ; départ des dirigeables | non |
 | Windspire | descente en planeur du sommet au pied | non (sortie spéciale) |
-| Coralys | marées : deux états de la carte, marée basse et marée haute | oui (variante de carte) |
+| Coralia | marées : deux états de la carte, marée basse et marée haute | oui (variante de carte) |
 | Marche-Mère | sable qui défile ; échange de Récits dans les cristaux-mémoire | oui (fond animé, échange) |
-| Crystallhaven | lire les cristaux (seuil de Mémoire) ; manteau contre le froid | un peu (condition d'objet) |
+| Khrysos | lire les cristaux (seuil de Mémoire) ; manteau contre le froid | un peu (condition d'objet) |
 | Auroraheim | alerte d'aurore : rentrer avant la fin d'un compte à rebours | oui (minuteur) |
 
 ## Monnaie
@@ -71,5 +71,5 @@ au lieu de 51).
 1. **Canopéa**, ville pilote, avec les systèmes communs (figurants, lieux fermés, réputation) : même continent que
    Gardebois, on y va à pied, et elle réutilise le style déjà peint.
 2. **Ironheart** : l'autre voisin de Gardebois, et le lien naturel avec la Gare Engloutie (Bureau des Permis).
-3. **Convergence** et la carte du monde : le centre du monde ouvre tous les voyages.
+3. **Sept-Portes** et la carte du monde : le centre du monde ouvre tous les voyages.
 4. Les sept autres, dans l'ordre que Cyril préfère.

@@ -26,7 +26,7 @@
   ],
   "distant": [
     { "name": "Ferros · Ironheart", "x": 640, "y": 50, "hint": "Au nord, par la Province Frontalière." },
-    { "name": "Terminus · Convergence", "x": 1110, "y": 440, "hint": "À l’est, au centre du monde." },
+    { "name": "Terminus · Sept-Portes", "x": 1110, "y": 440, "hint": "À l’est, au centre du monde." },
     { "name": "Zephyria · Aetherhaven", "x": 130, "y": 440, "hint": "Au sud-ouest, en dirigeable." }
   ],
   "zones": [

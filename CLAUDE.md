@@ -14,11 +14,13 @@ Il valide le lore, les noms, l'histoire et le ressenti de jeu. Toi, tu proposes 
   Tout est original et appartient à l'univers d'Anamnesis.
 - Univers : celui du roman de Cyril, *Anamnesis* (fantasy). Ton : lumineux, poétique, émotionnel.
   Le thème central est la mémoire (l'anamnèse : le ressouvenir).
-- **`docs/Lore/` fait foi.** C'est le lore canonique d'Anamnesis, fourni par Cyril. On ne le contredit jamais,
-  ni dans le jeu, ni dans les documents, ni dans les propositions. On ne le modifie pas sans son accord.
-  `docs/univers/` n'en est qu'une synthèse : en cas d'écart, `docs/Lore/` l'emporte.
+- **Le Notion « ANAMNESIS » de Cyril fait foi** (décision du 2026-11-02), en commençant par sa page
+  « Canon — arbitrages et décisions » (le roman *Chroniques Familiales* y est la référence). On ne le contredit
+  jamais, ni dans le jeu, ni dans les documents, ni dans les propositions. On ne le modifie pas (lecture seule).
+  Accès par le connecteur Notion, en local comme en session cloud. `docs/Lore/` (local) en est une version plus
+  ancienne ; `docs/univers/` n'est qu'une synthèse : en cas d'écart, Notion l'emporte.
   `docs/Lore/` et `docs/Carte Anamnesis.png` restent **en local** : ils sont exclus du dépôt public
-  (`.gitignore`) et ne doivent jamais être publiés.
+  (`.gitignore`) et ne doivent jamais être publiés ; le contenu de Notion non plus, au-delà de la synthèse.
   Quand le canon se contredit lui-même, ne tranche pas seul : consigne le point dans
   `docs/univers/zones-floues.md` et demande à Cyril.
 - **Ne jamais inventer de canon.** Tout élément de lore que tu crées (lieu, faction, personnage, nom)
@@ -70,7 +72,7 @@ Ne modifie jamais le dessin du logo.
 ## 7. Méthode de travail
 
 - **Au démarrage, lis uniquement `docs/JOURNAL.md` et `docs/INDEX.md`**, puis seulement les fichiers utiles
-  à la tâche du jour. Jamais tout `docs/Lore/` : seulement le fichier canon précis dont la tâche a besoin.
+  à la tâche du jour. Jamais tout le Notion : seulement la page canon précise dont la tâche a besoin.
 - **Pas de build ni de tests au démarrage** : seulement après une modification de code
   (`npm run typecheck`, `npm test`, `npm run build`). Les MCP se vérifient quand une tâche en a besoin.
 - **Ne pas deviner, vérifier** : avant d'affirmer un état (code, dépôt, outil), regarde-le.

@@ -23,7 +23,7 @@ Le fil, d'une ville à l'autre : la maladie mémorielle de Gardebois n'était pa
 | 1 | Gardebois | Le Dernier Train | fait (jalon 1) |
 | 2 | Canopéa | **L'audience** | porter au Conseil des Racines Profondes la nouvelle de Gardebois ; découvrir que les Arbres-Souvenirs du Bois des Aïeux commencent à se taire, et pourquoi |
 | 3 | Ironheart | Les papiers de la Gare | au Bureau des Permis, remonter la concession jusqu'à la Compagnie du Rail Cristallin et à son mystérieux bailleur |
-| 4 | Convergence | Les Mémoires du Monde Perdu | à la Grande Bibliothèque de Kael [E4], apprendre ce que transportait le dernier train ; ville sans combat : tout se joue par la parole |
+| 4 | Sept-Portes | Les Mémoires du Monde Perdu | à la Grande Bibliothèque de Kael [E4], apprendre ce que transportait le dernier train ; ville sans combat : tout se joue par la parole |
 | suite | autres continents | — | la piste des Réveilleurs, d'une voie endormie à l'autre |
 
 ## Canopéa : cinq quêtes

@@ -2,7 +2,7 @@
 
 > Décisions de Cyril (2026-11-01) : « OK pour tout » ; on commence par **Canopéa**, en visuels provisoires
 > (`docs/univers/lieux/canopee.md`), avec la carte du monde et des rencontres en route (`docs/gdd/carte-du-monde.md`).
-> Noms retenus pour le jeu (zone floue n° 15) : **Coralys**, **Crystallhaven**, **Ironheart**.
+> Noms alignés sur le Notion de Cyril (référence depuis le 2026-11-02) : **Coralia**, **Khrysos**, **Sept-Portes**, **Ironheart**.
 > Reste ouvert : Ironhold et Ironheart sont-elles deux villes ? (à vérifier dans `docs/Lore/`).
 > Chaque ville reste à confronter au canon avant d'être construite ; les détails ajoutés en la construisant sont
 > proposés « à valider » dans sa propre fiche.
@@ -27,17 +27,17 @@ Les sept continents sont tous couverts ; Verdantis a déjà Gardebois, d'où une
 | 1 | **Canopéa** | Verdantis | capitale dans les Arbres-Titans, rien ne touche le sol [E3, N1] |
 | 2 | **Ironheart** | Ferros | capitale impériale des forges, du rail et des papiers |
 | 3 | **Ironhold** | Ferros | la ville du héros Gorim [E3, E4], taillée dans la montagne ; pierre et tradition |
-| 4 | **Convergence** | Terminus | la ville de Kael, au centre du monde ; **aucun combat possible** (Nexus) [E3, E4] |
+| 4 | **Sept-Portes** | Terminus | la ville de Kael, au centre du monde ; **aucun combat possible** (Nexus) [E3, E4] |
 | 5 | **Aetherhaven** | Zephyria | capitale flottante à 3 000 m [E3] ; dirigeables et carillons |
 | 6 | **Windspire** | Zephyria | une cité-aiguille plantée dans le vent ; planeurs et cartes |
-| 7 | **Coralys** | Marisol | capitale bâtie sur un récif vivant ; les marées ouvrent et ferment les rues |
+| 7 | **Coralia** | Marisol | capitale bâtie sur un récif vivant ; les marées ouvrent et ferment les rues |
 | 8 | **Marche-Mère** | Solarix (Communion) | ville-caravane sur 12 Léviathans qui marchent [N5] |
-| 9 | **Crystallhaven** | Glacialis | capitale de glace et de cristal ; la mémoire figée dans les cristaux [R5] |
+| 9 | **Khrysos** | Glacialis | capitale de glace et de cristal ; la mémoire figée dans les cristaux [R5] |
 | 10 | **Auroraheim** | Glacialis | la ville sous les aurores ; on s'abrite quand les cloches sonnent |
 
 Villes de réserve, si Cyril préfère en échanger une : Murmureau, Verdepont, Lumigrain (Verdantis), Skyhaven,
 Cloudrest, Mistral (Zephyria) [E3, N1, N3]. Crystallis est écartée : son nom est en doublon dans le canon
-(`zones-floues.md`, point 16) et trop proche de Crystallhaven.
+(`zones-floues.md`, point 16) et trop proche de Khrysos.
 
 ## Ce que toutes les villes ont en commun (proposition)
 
@@ -87,9 +87,11 @@ Cloudrest, Mistral (Zephyria) [E3, N1, N3]. Crystallis est écartée : son nom e
   peuples [E7] ; télégraphe cristallin, vapeur cristalline [E9] ; monnaie : le Fer [N2].
 - **Allure** : briques sombres et cuivre, cheminées, passerelles de fer, réverbères à cristal rouge, rails partout.
   Pas de grisaille : la lumière chaude des forges, des bannières, une ville fière et pressée.
-- **Sa mémoire** : la mémoire écrite. Ironheart archive tout : registres, permis, télégrammes. Elle regarde vers
-  l'avenir, mais n'oublie rien de ce qu'elle a signé.
-- **Quartiers** : la Gare Impériale (arrivée en train) · les Ateliers · la Colline du Parlement.
+- **Sa mémoire** : la mémoire écrite. Ironheart archive tout (les Archives Centrales de Ferros [NOTION]) : registres,
+  permis, télégrammes. Elle regarde vers l'avenir, mais n'oublie rien de ce qu'elle a signé.
+- **Quartiers** (canon [NOTION : arbitrage]) : trois étages sociaux, du sol vers la lumière : les **Forges-Basses**
+  (arrivée en train, le Puits Trois, point d'eau à accès gradué) · les **Manufactures-Moyennes** (ateliers, bureaux) ·
+  les **Manufactures-Hautes** (Parlement, **Archives Centrales de Ferros**, fronton *MEMORIA FERROX*).
 - **Maisons** : Pension de la Bielle (auberge ouvrière) · Atelier Cendrefer (armes, armures, outils) · Bureau des
   Permis et Concessions · Salon du télégraphe (avec, à l'étage, le petit relais des Gardiens) · Maison Martelroux ·
   Galerie du Parlement (séances publiques) · ★ Archives scellées du Bureau.
@@ -133,7 +135,7 @@ Cloudrest, Mistral (Zephyria) [E3, N1, N3]. Crystallis est écartée : son nom e
 - **À vérifier dans le canon** : Ironhold et Ironheart sont-elles bien deux villes ? Où est Ironhold ? Gorim est
   nain dans le canon, mais les nains de Ferros relèvent du point 2 des zones floues : je ne les montre pas.
 
-## 4. Convergence, la cité des Sept Portes — Terminus
+## 4. Sept-Portes, la cité de Kael — Terminus
 
 - **Canon** : capitale de la Zone Franche (Conseil Œcuménique des Sept), au centre exact du monde, où convergent les
   lignes de ley [E3] ; le Nexus rend la violence impossible à moins de 100 km [E3] ; Grande Bibliothèque, Sept
@@ -209,9 +211,9 @@ Cloudrest, Mistral (Zephyria) [E3, N1, N3]. Crystallis est écartée : son nom e
   révèle des lieux sur la carte du monde) ; l'observatoire.
 - **À vérifier dans le canon** : tout (seul le nom est connu de la synthèse) ; Amira est-elle de Zephyria ?
 
-## 7. Coralys, la cité du corail — Marisol
+## 7. Coralia, la cité du corail — Marisol
 
-- **Canon** : capitale de la Thalassocratie (démocratie navale) ; nom Coralys ou Coralia (point 15) [E3, N4] ;
+- **Canon** : capitale de la Thalassocratie (démocratie navale) ; nom Coralia [NOTION : arbitrage] [E3, N4] ;
   la Grande Amiral Marina Azurios, le Premier Capitaine Kaito Waveborn [N4] ; Sélénides et sirènes [E7] ; les
   Profondeurs Chuchotantes [R4] ; Nerissa, « mémoire des mers » [R4] ; la Baleine-Mémoire [E8] ; tensions avec Ferros
   (Incident du Cargo Noir) [N4].
@@ -233,21 +235,21 @@ Cloudrest, Mistral (Zephyria) [E3, N1, N3]. Crystallis est écartée : son nom e
 - **Possibilités** : **les marées** : à marée basse, des passages et une grotte s'ouvrent ; plonger (Athlétisme)
   pour trouver des objets ; la Salle des Conques (Mémoire, Récits) ; on se méfie de qui arrive de Ferros
   (Diplomatie) ; partir en navire.
-- **À vérifier dans le canon** : description de la capitale (N4) ; Coralys ou Coralia ?
+- **À vérifier dans le canon** : description de la capitale (N4) ; (nom tranché : Coralia)
 
 ## 8. Marche-Mère, la ville qui marche — Solarix (Communion des Sables Vivants)
 
-- **Canon** : capitale de la Communion, ville-caravane sur 12 Léviathans ; matriarcat symbiotique, Reine des
-  Sables [N5] ; la Reine Shal'Vera et son dragon Kresh'Tal [N5] ; le Désert-qui-Marche, Aq'Shara [R7] ; *Kal'mesh*,
+- **Canon** : capitale de la Communion, ville-caravane ; matriarcat symbiotique, Reine des Sables [N5] ; un Léviathan
+  mesure jusqu'à 300 m et porte **un clan** (quelques centaines de personnes, tentes sur la plate-forme dorsale) ; la
+  Marche elle-même marche **autour** des Léviathans, à pied, à dos de monture et en convois [NOTION : arbitrage] ; la Reine Shal'Vera et son dragon Kresh'Tal [N5] ; le Désert-qui-Marche, Aq'Shara [R7] ; *Kal'mesh*,
   la mémoire partagée, les cristaux-mémoire, « Qui oublie meurt deux fois », « Le sable se souvient de chaque pas »
   [N5] ; Sables-Vivants, Hommes-de-Verre, dragons du désert [E7] ; Incident du Forage Noir avec Ferros [N5].
-- **Allure** : douze Léviathans géants marchent lentement dans le désert, chacun portant un quartier sur son dos :
-  tentes de toile claire, maisons de bois et de verre, voiles. Des passerelles relient les Léviathans qui marchent
-  côte à côte. Sous la carte, le sable défile.
+- **Allure** : une foule en marche sur des kilomètres, convois de chariots et tentes qu'on monte chaque soir, autour
+  des Léviathans qui portent les clans-souches et les sanctuaires. Sous la carte, le sable défile.
 - **Sa mémoire** : *Kal'mesh* [N5]. Dans la **Tente des Mille Pas**, chacun dépose un souvenir dans un
   cristal-mémoire et peut écouter ceux des autres.
-- **Quartiers** (trois des douze Léviathans, noms proposés) : Ush'Taar (le marché) · Vel'Amra (verriers et
-  familles) · Sha'Keth (le Léviathan de la Reine).
+- **Quartiers** (noms proposés) : le Camp du soir d'Ush'Taar (le marché, au sol, autour des chariots) · le convoi des
+  verriers Vel'Amra · le dos du Léviathan Sha'Keth (le clan de la Reine).
 - **Maisons** : la Halte (auberge) · Atelier des verriers (objets de verre, lentilles) · Tente des Mille Pas ·
   Pavillon de la Reine · Tente de Saal'Ema · Nid des dragonnets · Relais des Gardiens · ★ le Coffre des routes (le
   chemin que suivra la ville).
@@ -264,16 +266,15 @@ Cloudrest, Mistral (Zephyria) [E3, N1, N3]. Crystallis est écartée : son nom e
   créatures [E7]) ; pister (« le sable se souvient de chaque pas ») ; la méfiance envers Ferros (Forage Noir).
 - **À vérifier dans le canon** : description de Marche-Mère et des Léviathans (N5) ; noms des Léviathans.
 
-## 9. Crystallhaven, la cité de cristal — Glacialis
+## 9. Khrysos, la cité de cristal — Glacialis
 
-- **Canon** : capitale du Dominion Cristallin (Conseil des Neuf Cristaux) ; nom Crystallhaven ou Crystalheart
-  (point 15) [E3, N6] ; Bibliothèques de Glace, Mer Gelée [E3, N6] ; Enfants du Givre, Entités cristallines [E7-5] ;
+- **Canon** : capitale du Dominion Cristallin (Conseil des Neuf Cristaux) ; nom Khrysos [NOTION : arbitrage] [E3, N6] ; Bibliothèques de Glace, Mer Gelée [E3, N6] ; Enfants du Givre, Entités cristallines [E7-5] ;
   la Voie de l'Hiver Éveillé, Nörvath principe de mémoire, les cristaux « portent la mémoire du monde » [R5] ; la
   Mémoire du Gel [E7-5] ; Crysta Frostborn, Bjorn Glaceforge [N6] ; Guerre Froide du Nord contre Solarix [E10].
 - **Allure** : des tours de cristal à facettes qui attrapent la lumière, des rues de glace damée, des maisons à
   demi enterrées sous des toits de neige, des traîneaux. Une lumière bleue et pure.
 - **Sa mémoire** : la mémoire figée. Dans la **Bibliothèque de Glace**, des souvenirs dorment dans des blocs de
-  cristal qu'on peut « lire ». Le contraire de Convergence, où la mémoire est écrite.
+  cristal qu'on peut « lire ». Le contraire de Sept-Portes, où la mémoire est écrite.
 - **Quartiers** : le Port de la Mer Gelée (arrivée) · les Galeries Chaudes (marché couvert) · la Bibliothèque de
   Glace et la Salle des Neuf Cristaux.
 - **Maisons** : le Foyer (auberge à la cheminée géante) · Atelier Facettier (cristaux, manteaux) · Bibliothèque de
@@ -289,8 +290,8 @@ Cloudrest, Mistral (Zephyria) [E3, N1, N3]. Crystallis est écartée : son nom e
   - canon : **Crysta Frostborn**, **Bjorn Glaceforge** [N6].
 - **Possibilités** : lire les cristaux (Mémoire, Récits) ; le froid (un manteau pour sortir de la ville) ; le
   Conseil des Neuf ; on se méfie de qui arrive de Solarix (Guerre Froide du Nord).
-- **À vérifier dans le canon** : description de la capitale (N6) ; Crystallhaven ou Crystalheart ? Les Bibliothèques
-  de Glace sont-elles dans la capitale ?
+- **À vérifier dans le canon** : description de la capitale (N6) ; nom tranché : Khrysos ; la Grande Bibliothèque de Glace
+  [NOTION].
 
 ## 10. Auroraheim, la ville des aurores — Glacialis
 

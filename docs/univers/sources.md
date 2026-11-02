@@ -1,9 +1,12 @@
 # Univers — sources et statuts
 
-> **`docs/Lore/` fait foi.** Les fichiers de `docs/univers/` n'en sont qu'une synthèse de travail. En cas d'écart, le dossier `docs/Lore/` l'emporte.
+> **Le Notion « ANAMNESIS » de Cyril fait foi** (décision du 2026-11-02), à commencer par sa page « Canon —
+> arbitrages et décisions » (3 août 2026), qui fait du roman *Chroniques Familiales* la référence. `docs/Lore/` (local)
+> en est une version plus ancienne. Les fichiers de `docs/univers/` n'en sont qu'une synthèse : en cas d'écart, Notion
+> l'emporte. Code [NOTION] : une page du Notion, citée par son titre.
 > Rien de ce que Claude propose n'est canon tant que Cyril ne l'a pas validé.
 
-Statuts : **canon** (présent dans `docs/Lore/`) · **à valider** (proposition de Claude) · **à arbitrer** (le canon se contredit) · **rejeté**
+Statuts : **canon** (présent dans le Notion ou `docs/Lore/`) · **à valider** (proposition de Claude) · **à arbitrer** (le canon se contredit) · **rejeté**
 
 Synthèse établie le 2026-11-01 après lecture intégrale de `docs/Lore/` et de `docs/Carte Anamnesis.png`.
 

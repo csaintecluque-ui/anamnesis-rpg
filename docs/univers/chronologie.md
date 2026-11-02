@@ -1,11 +1,10 @@
 # Chronologie
 
-Référence E3 et E4. Les écarts entre sources sont listés dans `docs/univers/zones-floues.md` (points 6 à 13, non arbitrés : aucune date contestée n'est utilisée dans le jeu).
+Référence E3 et E4, corrigée par le Notion de Cyril (arbitrage du 3 août 2026 : An 0, Guerre du Rail 1380-1400, 100 Jours de Ténèbres 2750). Autres écarts : `docs/univers/zones-floues.md` (points 6 à 13 ; aucune date contestée n'est utilisée dans le jeu).
 
 | Date | Événement | Source |
 |---|---|---|
-| 25 AA | Rébellion des IA | E4 |
-| AN 0 | La Grande Chute : 72 heures d'échange nucléaire, puis le Projet Nexus déchire la barrière entre dimensions. Naissance de la magie et des premiers Surgeons | E4 |
+| AN 0 (14 mars 2024) | Le Nexus : les Surgeons s'ouvrent partout à la fois, sans cause connue ; le feu nucléaire suit, en réaction (72 heures). Pas de rébellion des IA ni de portail ouvert exprès (retirés du canon) | NOTION (arbitrage du 3 août 2026) |
 | 0 à 89 | Kael compile les *Mémoires du Monde Perdu* | E4 |
 | 75 | Elara découvre les Cristaux de Résonance | E3 |
 | 150 | Fondation d'Ironhold | E3 |

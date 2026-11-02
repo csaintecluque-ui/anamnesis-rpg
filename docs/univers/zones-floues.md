@@ -11,8 +11,25 @@ Ces décisions valent **pour le jeu**. Le dossier `docs/Lore/` reste inchangé.
 - **Point 3** : les Gardiens de Mémoire forment **un ordre de conteurs voyageurs, sans pouvoir magique**.
 - **Point 4** : la référence pour les cinq lois est **l'étape 2** [E2].
 - **Point 19** : public de 8 à 15 ans. Les ennemis sont **mis hors de combat**, sans mort ni gore, et les contenus adultes des fiches nations n'apparaissent pas dans le jeu.
-- **Point 15** (2026-11-01, avec le plan des dix villes) : pour le jeu, la capitale de Marisol s'appelle **Coralys**,
-  celle de Glacialis **Crystallhaven**, celle de Ferros **Ironheart**.
+- ~~Point 15 (2026-11-01) : Coralys, Crystallhaven, Ironheart~~ : remplacé par l'arbitrage du Notion ci-dessous.
+
+## Tranché par le Notion de Cyril (« Canon — arbitrages et décisions », 3 août 2026 ; référence depuis le 2026-11-02)
+
+- **Point 1** : le septième continent est Solarix, sa nation la **Communion des Sables Vivants** ; le Califat est abandonné.
+- **Point 2** : les **elfes** existent à Verdantis (Lyra Cœur-de-Sève est une elfe de 180 ans) ; les oreilles pointues de
+  Sylvan ne posent plus de problème.
+- **Points 6 à 13 (en partie)** : à l'An 0, **pas de rébellion des IA**, pas de guerre de vingt-cinq ans, pas de portail
+  ouvert exprès : les Surgeons s'ouvrent partout à la fois, sans cause connue, le 14 mars 2024 ; le feu nucléaire suit,
+  en réaction (72 heures). L'ère se compte en PA (après le Nexus), **PA ≡ AN**. **Guerre du Rail : 1380-1400 AN** (2301
+  abandonné). **Les 100 Jours de Ténèbres : 2750 AN.** Les autres écarts de chiffres restent à vérifier dans le Notion.
+- **Point 15** : capitale de Marisol **Coralia** ; cité de Glacialis **Khrysos** ; capitale de Terminus **Sept-Portes**
+  (« Convergence » désigne les Eaux de Convergence, à Marisol) ; capitale de Verdantis **Canopéa**. Ferros : **Ironheart**.
+- **Noms** : Arbres-Titans (l'espèce) et **Arbre Mémoire** (l'individu) ; **Grande Bibliothèque de Glace** (Glacialis) ;
+  la Grande Bibliothèque appartient à Terminus ; **Ferrômes** (automates conscients ; l'hybridation humain-machine reste
+  interdite) ; **Sylphes** : esprits de vent semi-éthérés, pas un peuple ailé ; **Sables-Vivants** ; **verdani** (langue).
+- **Léviathans** : jusqu'à 300 m, chacun porte un clan ; la Marche se déplace surtout autour d'eux, à pied et en convois.
+- Ironheart : trois étages, **Forges-Basses**, **Manufactures-Moyennes**, **Manufactures-Hautes** ; **Archives Centrales
+  de Ferros**. Verdantis : **Serre Mémoire**, **Bosquet des Échos** (où l'on grave), **Racine-Brisée**, **Ronces Vivantes**.
 - **Chronologie** (points 6 à 13) : pas encore arbitrée. Aucune date ni aucun bilan contesté n'est utilisé dans le jeu en attendant.
 
 ## Structure du monde

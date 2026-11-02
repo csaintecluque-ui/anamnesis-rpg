@@ -886,4 +886,4 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   perdu, emprise : −1 puis −2 aux jets ; le sommeil la desserre) ; onglet « Échos » du journal ; sauvegarde v14.
   Corrigé en passant : les objets à tuile (le vieux champignon) se dessinaient avant d'apparaître. 510 tests ;
   vérifié sur téléphone.
-
+- Cyril : « mets en ligne seulement » : étape 3 mise en ligne ; pas d'étape 4 pour l'instant. Notion : le système des Échos et ses ancrages du canon (les scènes inventées attendent la validation).

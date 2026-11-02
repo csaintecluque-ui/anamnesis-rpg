@@ -20,8 +20,8 @@
 1. En ligne (2026-11-02) : le temps et les auberges (`docs/gdd/temps.md`), la magie et « Un prêt de la Terre »
    (`docs/gdd/magie.md`). **Jeu complet validé** (`docs/gdd/jeu-complet.md`) ; ton : dark fantasy pour adultes
    (`docs/univers/ton.md`). En cours : **jalon 3** (`docs/gdd/jalon-3.md`) ; étape 1 (le combat pour adultes et à
-   plusieurs) et étape 2 (les compagnons) en ligne ; étape 3 (le Livre des Échos, `docs/gdd/echos.md`) sur la
-   branche, mise en ligne et textes à valider ; ensuite : les veillées du conteur. Mise en beauté à la fin.
+   plusieurs), 2 (les compagnons) et 3 (le Livre des Échos, `docs/gdd/echos.md` ; scènes inventées à valider) en
+   ligne ; ensuite : les veillées du conteur, sur le feu vert de Cyril. Mise en beauté à la fin.
 2. Codex : Sept-Portes (`AGENTS.md`). Notion : page « Anamnesis — le jeu », à tenir à jour à chaque mise en ligne.
 
 ## Points ouverts

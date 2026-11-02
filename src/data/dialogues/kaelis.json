@@ -36,6 +36,14 @@
       "node": "retour"
     },
     {
+      "requires": [
+        {
+          "flag": "fouille-elucidee"
+        }
+      ],
+      "node": "accueil-garrik"
+    },
+    {
       "node": "accueil"
     }
   ],
@@ -257,6 +265,38 @@
         {
           "text": "Merci, Kaelis.",
           "next": "fin"
+        }
+      ]
+    },
+    "accueil-garrik": {
+      "text": "Kaelis polit une mâchoire de Golem et lève à peine les yeux. — Ah. C’est toi qui as renvoyé Garrik de sous les arbres. Je ne suis pas rancunier : une fouille perdue, c’est un prix comme un autre. Pose ta question… si c’est la bonne.",
+      "options": [
+        {
+          "text": "Je cherche la clé de rouille bleue.",
+          "next": "mauvaise"
+        },
+        {
+          "text": "Pourquoi certaines reliques se souviennent-elles des morts ?",
+          "requires": [
+            {
+              "attribute": "memory",
+              "min": 3
+            }
+          ],
+          "next": "bonne"
+        },
+        {
+          "text": "Au Bosquet des Échos, le bois garde la main de qui a gravé. Et tes os ?",
+          "requires": [
+            {
+              "recit": "voix-ecorce"
+            }
+          ],
+          "next": "bonne"
+        },
+        {
+          "text": "Et toi, de quoi te souviens-tu ?",
+          "next": "refus"
         }
       ]
     }

@@ -50,7 +50,8 @@ Bleue », validée dans ses grandes lignes par Cyril le 2026-11-02). Canon : le 
 - **La Veilleuse du Rail** [NOTION, Studio] : ses parents ont pris un train de la vieille ligne et ne sont jamais revenus ; elle compte les wagons
   du convoi sans conducteur dans son sommeil. Près d'elle, **une vieille machine** qui se souvient (Mémoire 4).
 - **L'archiviste Noam** [NOTION, Studio] : il vouvoie et parle en fiches (« voir : … ») ; il garde le **Fonds Zéro**.
-- **Hedda Cendrefer** (sœur de Tobias), **Rika Martelroux** (mère de Brann), **Dorna Vissard** (la Pension).
+- **Hedda Cendrefer** (sœur de Tobias ; l'atelier est de la Compagnie des Lisières et honore la remise de Tobias),
+  **Rika Martelroux** (mère de Brann), **Dorna Vissard** (la Pension).
 - **Passants** : ouvriers en gris, un Veilleur de Rouille, un Ferrôme reconditionné et une marchande de cristaux au
   Marché, un employé en gris clair et un horloger aux Manufactures.
 

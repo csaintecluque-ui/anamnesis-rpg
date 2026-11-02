@@ -15,6 +15,19 @@
           "next": "brann"
         },
         {
+          "text": "J’ai rapporté sa caisse d’outils, sur la route de l’est.",
+          "requires": [
+            {
+              "quest": "caisse-egaree",
+              "status": "done"
+            },
+            {
+              "notFlag": "rika-merci"
+            }
+          ],
+          "next": "caisse"
+        },
+        {
           "text": "Le Marché des Cendres, ça te dit quelque chose ?",
           "next": "marche"
         },
@@ -44,6 +57,27 @@
         {
           "text": "Merci, Rika.",
           "next": "fin"
+        }
+      ]
+    },
+    "caisse": {
+      "text": "Rika pose son marteau. — C’était toi ? Il m’a écrit une lettre entière pour le raconter, sans une seule faute. Il ne m’écrit jamais ! Merci. Et si tu cherches quelque chose, ici, demande-moi d’abord.",
+      "effects": [
+        {
+          "setFlag": "rika-merci"
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "Il est fier de toi aussi.",
+          "next": "brann"
+        },
+        {
+          "text": "Je m’en souviendrai.",
+          "next": "accueil"
         }
       ]
     }

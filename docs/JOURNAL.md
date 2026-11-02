@@ -3,7 +3,7 @@
 ## État (2026-11-02)
 
 - Jalons 1 et 2 faits et en ligne (`docs/gdd/jalon-2.md`). 11,5 crédits Higgsfield restants.
-- 340 tests, typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
+- 344 tests, typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
 - Mode test caché : 5 touches sur la version (écran titre) → +50 Fers, PV au max dans le menu pause.
 
 ## Fait : Canopéa « finie à fond » (en ligne le 2026-11-02, validé par Cyril)

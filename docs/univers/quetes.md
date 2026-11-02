@@ -159,6 +159,9 @@ Lieux et personnages : `docs/univers/lieux/ironheart.md`. Tout ce qui suit est *
     chaque gare où il s'arrêta, une carte de toutes les voies endormies, et **une ligne grattée, avec soin** (le fil
     vers Sept-Portes et le Registre des Mains) ;
   - **la rendre à la Veilleuse** : « sa place est sur la ligne » ; on peut d'abord l'étudier avec elle (Érudition 3).
+- **Ce que le héros a fait avant compte** : Kaelis sait qui a renvoyé Garrik du sol sacré ; Noam a classé le
+  télégramme du conseil donné au Triumvirat (frontière, commerce ou accord) ; Hedda accorde la remise promise par Brann
+  et le prix de membre de la Compagnie des Lisières ; Rika remercie qui a rapporté la caisse de son fils.
 - **Réputation** : Ironheart +10 à la fin ; Travailleurs du Rail, Marches des Cendres et Archives de Ferros selon la
   fin (`src/data/reputation.json`).
 - **Reporté** : cacher la clé ou la garder (le Notion cite aussi ces choix) ; « Le Rail des Cendres » et « Les Échos

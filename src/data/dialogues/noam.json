@@ -39,6 +39,16 @@
           "next": "tout"
         },
         {
+          "text": "Classez-vous aussi les nouvelles de Verdantis ?",
+          "requires": [
+            {
+              "quest": "audience",
+              "status": "done"
+            }
+          ],
+          "next": "verdantis"
+        },
+        {
           "text": "Au revoir.",
           "next": "fin"
         }
@@ -144,6 +154,69 @@
         {
           "text": "Au revoir.",
           "next": "fin"
+        }
+      ]
+    },
+    "verdantis": {
+      "text": "— Tout télégramme est classé (voir : règlement, article neuf). Verdantis, dernier reçu : séance du Conseil de Canopéa.",
+      "options": [
+        {
+          "text": "Le lire.",
+          "requires": [
+            {
+              "flag": "conseil-frontiere"
+            }
+          ],
+          "next": "tg-frontiere"
+        },
+        {
+          "text": "Le lire.",
+          "requires": [
+            {
+              "flag": "conseil-commerce"
+            }
+          ],
+          "next": "tg-commerce"
+        },
+        {
+          "text": "Le lire.",
+          "requires": [
+            {
+              "flag": "conseil-accord"
+            }
+          ],
+          "next": "tg-accord"
+        },
+        {
+          "text": "Une autre fois.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "tg-frontiere": {
+      "text": "— « Verdantis ferme sa frontière aux prospecteurs de Ferros. Les Gardes Verts la tiennent. » Classé (voir : incidents diplomatiques). Au Bureau des Permis, on ne parle que de ça.",
+      "options": [
+        {
+          "text": "Merci.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "tg-commerce": {
+      "text": "— « Verdantis garde le commerce ouvert ; chaque chantier sera surveillé. » Classé (voir : accords commerciaux). Les marchands de la Lisière ont respiré, paraît-il.",
+      "options": [
+        {
+          "text": "Merci.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "tg-accord": {
+      "text": "— « Le sol sacré est fermé, la route reste ouverte. » Classé (voir : accords, catégorie rare : ceux qui satisfont tout le monde). Je l’ai relu deux fois.",
+      "options": [
+        {
+          "text": "Merci.",
+          "next": "accueil"
         }
       ]
     }

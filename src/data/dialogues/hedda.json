@@ -3,6 +3,14 @@
   "speaker": "hedda",
   "entries": [
     {
+      "requires": [
+        {
+          "flag": "remise-cendrefer"
+        }
+      ],
+      "node": "accueil-remise"
+    },
+    {
       "node": "accueil"
     }
   ],
@@ -35,6 +43,28 @@
         {
           "text": "Merci, Hedda.",
           "next": "accueil"
+        }
+      ]
+    },
+    "accueil-remise": {
+      "text": "— Atelier Cendrefer ! Attends… Tobias m’a écrit : c’est toi qui as rendu sa caisse au petit Brann. Chez les Cendrefer, une dette se paie en prix : tu auras le même que chez lui.",
+      "options": [
+        {
+          "text": "Voyons tes lames.",
+          "next": "fin",
+          "effects": [
+            {
+              "openTrade": true
+            }
+          ]
+        },
+        {
+          "text": "Un conseil, pour Ironheart ?",
+          "next": "conseil"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
         }
       ]
     }

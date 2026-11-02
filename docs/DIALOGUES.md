@@ -932,7 +932,7 @@ Commence par : « guichet »
 
 _Atelier Cendrefer_
 
-Commence par : « accueil »
+Commence par : « accueil-remise » _(si repère « remise-cendrefer »)_, sinon « accueil »
 
 ### accueil
 
@@ -947,6 +947,14 @@ Commence par : « accueil »
 > — Garde ton laissez-passer, ne traîne pas après le premier pont peint en rouge, et si tu entends sept coups de marteau, c’est l’heure des Litanies : on se tait. Ici, le travail est prière.
 
 - « Merci, Hedda. » → accueil
+
+### accueil-remise
+
+> — Atelier Cendrefer ! Attends… Tobias m’a écrit : c’est toi qui as rendu sa caisse au petit Brann. Chez les Cendrefer, une dette se paie en prix : tu auras le même que chez lui.
+
+- « Voyons tes lames. » → **fin** _(ouvre le Troc)_
+- « Un conseil, pour Ironheart ? » → conseil
+- « Au revoir. » → **fin**
 
 ## L’huissier du Conseil
 
@@ -1297,7 +1305,7 @@ _Effet : donne 1 × « Sauf-conduit du Triumvirat », termine la quête « L’a
 
 _Marchand d’ossements, Marches des Cendres_
 
-Commence par : « offre » _(si l’on porte « Clé de rouille bleue »)_, sinon « apres-vente » _(si repère « cle-vendue »)_, sinon « apres » _(si quête « La Clé de Rouille Bleue » terminée)_, sinon « retour » _(si repère « kaelis-parle »)_, sinon « accueil »
+Commence par : « offre » _(si l’on porte « Clé de rouille bleue »)_, sinon « apres-vente » _(si repère « cle-vendue »)_, sinon « apres » _(si quête « La Clé de Rouille Bleue » terminée)_, sinon « retour » _(si repère « kaelis-parle »)_, sinon « accueil-garrik » _(si repère « fouille-elucidee »)_, sinon « accueil »
 
 ### accueil
 
@@ -1393,6 +1401,15 @@ _Effet : retient « kaelis-parle »._
 
 - « Pourquoi ne pas la prendre toi-même ? » → pourquoi
 - « Merci, Kaelis. » → **fin**
+
+### accueil-garrik
+
+> Kaelis polit une mâchoire de Golem et lève à peine les yeux. — Ah. C’est toi qui as renvoyé Garrik de sous les arbres. Je ne suis pas rancunier : une fouille perdue, c’est un prix comme un autre. Pose ta question… si c’est la bonne.
+
+- « Je cherche la clé de rouille bleue. » → mauvaise
+- **[Mémoire 3]** « Pourquoi certaines reliques se souviennent-elles des morts ? » → bonne
+- _(si Récit « Les voix du Bosquet » connu)_ « Au Bosquet des Échos, le bois garde la main de qui a gravé. Et tes os ? » → bonne
+- « Et toi, de quoi te souviens-tu ? » → refus
 
 ## Des lettres éparpillées
 
@@ -1830,6 +1847,7 @@ Commence par : « cle » _(si l’on porte « Clé de rouille bleue »)_ _(si qu
 
 - « Je cherche ce qui concerne le dernier train. » → train
 - « Vous gardez tout ? » → tout
+- _(si quête « L’audience » terminée)_ « Classez-vous aussi les nouvelles de Verdantis ? » → verdantis
 - « Au revoir. » → **fin**
 
 ### tout
@@ -1878,6 +1896,33 @@ _Effet : retient « fonds-zero-connu »._
 > — Le Fonds Zéro est classé, enfin (voir : vous). Pour le reste, revenez quand vous aurez le Niveau Trois. Ou une très bonne raison.
 
 - « Au revoir. » → **fin**
+
+### verdantis
+
+> — Tout télégramme est classé (voir : règlement, article neuf). Verdantis, dernier reçu : séance du Conseil de Canopéa.
+
+- _(si repère « conseil-frontiere »)_ « Le lire. » → tg-frontiere
+- _(si repère « conseil-commerce »)_ « Le lire. » → tg-commerce
+- _(si repère « conseil-accord »)_ « Le lire. » → tg-accord
+- « Une autre fois. » → accueil
+
+### tg-frontiere
+
+> — « Verdantis ferme sa frontière aux prospecteurs de Ferros. Les Gardes Verts la tiennent. » Classé (voir : incidents diplomatiques). Au Bureau des Permis, on ne parle que de ça.
+
+- « Merci. » → accueil
+
+### tg-commerce
+
+> — « Verdantis garde le commerce ouvert ; chaque chantier sera surveillé. » Classé (voir : accords commerciaux). Les marchands de la Lisière ont respiré, paraît-il.
+
+- « Merci. » → accueil
+
+### tg-accord
+
+> — « Le sol sacré est fermé, la route reste ouverte. » Classé (voir : accords, catégorie rare : ceux qui satisfont tout le monde). Je l’ai relu deux fois.
+
+- « Merci. » → accueil
 
 ## Le patrouilleur à visière rouge
 
@@ -2016,6 +2061,7 @@ Commence par : « accueil »
 > Une chaudronnière aux bras couverts de suie lève les yeux. — Gardebois ? Tu connais mon Brann ? Il travaille chez Tobias Cendrefer… Il mange bien ? Il ne fait pas trop de bêtises ?
 
 - « Brann va bien. Il est honnête et travailleur. » → brann
+- _(si quête « La caisse égarée » terminée)_ _(sans repère « rika-merci »)_ « J’ai rapporté sa caisse d’outils, sur la route de l’est. » → caisse
 - « Le Marché des Cendres, ça te dit quelque chose ? » → marche
 - « Au revoir. » → **fin**
 
@@ -2032,6 +2078,15 @@ _Effet : retient « marche-cendres-indice »._
 > Elle baisse la voix. — Cherche le trou entre deux fonderies froides, à l’est, et ne dis à personne que tu l’as trouvé. Les gens bien n’y vont pas. Les gens bien ont tort, parfois.
 
 - « Merci, Rika. » → **fin**
+
+### caisse
+
+_Effet : retient « rika-merci », +10 XP._
+
+> Rika pose son marteau. — C’était toi ? Il m’a écrit une lettre entière pour le raconter, sans une seule faute. Il ne m’écrit jamais ! Merci. Et si tu cherches quelque chose, ici, demande-moi d’abord.
+
+- « Il est fier de toi aussi. » → brann
+- « Je m’en souviendrai. » → accueil
 
 ## Rocher moussu
 

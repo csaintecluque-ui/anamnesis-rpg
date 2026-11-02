@@ -738,4 +738,5 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   Kaelis, confier à Noam, rendre à la Veilleuse) ; trois factions de Ferros dans la réputation ; Ironheart révélée sur
   la carte du monde par la fin de « L'audience ».
 - Relecture : un héros à moins de 3 en Mémoire restait bloqué ; ajouté deux voies (acheter la réponse de Kaelis,
-  25 Fers ; parler du Fonds Zéro à la Veilleuse). 340 tests ; vérifié dans le navigateur.
+  25 Fers ; parler du Fonds Zéro à la Veilleuse). Les choix de Gardebois et de Canopéa comptent (Kaelis, Noam,
+  Hedda, Rika), comme le demande `AGENTS.md`. 344 tests ; vérifié dans le navigateur.

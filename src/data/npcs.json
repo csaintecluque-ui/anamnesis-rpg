@@ -315,7 +315,12 @@
       "lampe-cristal",
       "corde",
       "bandage"
-    ]
+    ],
+    "remise": {
+      "flag": "remise-cendrefer",
+      "taux": 0.2
+    },
+    "faction": "compagnie-lisieres"
   },
   {
     "id": "rika",

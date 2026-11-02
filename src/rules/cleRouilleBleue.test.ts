@@ -6,9 +6,9 @@ import { findObject, isWalkable, parseTiledMap, tileKey, type MapObject } from '
 import type { Tile } from '../engine/iso';
 import { createNewGame, findLocation, type GameState } from '../state/gameState';
 import { applyEffects, startNode } from './dialogue';
-import { ownedCount } from './inventory';
+import { merchantDiscount, ownedCount } from './inventory';
 import { choose, optionTexts, testCharacter } from './questTestKit';
-import { reputationScore } from './reputation';
+import { reputationPrices, reputationScore } from './reputation';
 import { knownPlaces } from './world';
 
 /** Ironheart et « La Clé de Rouille Bleue » (chapitre 3, docs/univers/quetes.md, docs/univers/lieux/ironheart.md). */
@@ -155,5 +155,42 @@ describe('La Clé de Rouille Bleue', () => {
   it('starts at the end of « L’audience » for a new game', () => {
     const effects = DIALOGUES['kael-marchevent'].nodes.envoi.effects ?? [];
     expect(effects).toContainEqual({ startQuest: Q });
+  });
+});
+
+describe('what Gardebois and Canopéa leave to Ironheart (AGENTS.md)', () => {
+  it('Kaelis knows who sent Garrik away from the sacred ground', () => {
+    const state = atIronheart();
+    expect(startNode(DIALOGUES.kaelis, state)).toBe('accueil');
+    state.flags['fouille-elucidee'] = true;
+    expect(startNode(DIALOGUES.kaelis, state)).toBe('accueil-garrik');
+    choose(state, 'kaelis', 'accueil-garrik', 'Pourquoi certaines reliques');
+    expect(state.flags['kaelis-parle']).toBe(true);
+  });
+
+  it('Noam reads the telegram of the advice given to the Triumvirat', () => {
+    const state = atIronheart();
+    state.flags['conseil-accord'] = true;
+    choose(state, 'noam', 'accueil', 'Classez-vous aussi');
+    expect(optionTexts(state, 'noam', 'verdantis')).toEqual(['Le lire.', 'Une autre fois.']);
+    choose(state, 'noam', 'verdantis', 'Le lire');
+  });
+
+  it('the Cendrefer family pays its debt: Hedda gives Tobias’s discount, Rika thanks the one who found Brann’s box', () => {
+    const state = atIronheart();
+    expect(merchantDiscount(state.flags, 'hedda')).toBe(0);
+    state.flags['remise-cendrefer'] = true;
+    state.quests['caisse-egaree'] = 'done';
+    expect(merchantDiscount(state.flags, 'hedda')).toBe(0.2);
+    expect(startNode(DIALOGUES.hedda, state)).toBe('accueil-remise');
+    choose(state, 'rika', 'accueil', 'J’ai rapporté sa caisse');
+    expect(optionTexts(state, 'rika', 'accueil')).not.toContain('J’ai rapporté sa caisse d’outils, sur la route de l’est.');
+  });
+
+  it('Hedda gives the member price of the Compagnie des Lisières', () => {
+    const state = atIronheart();
+    const before = reputationPrices(state, 'hedda');
+    state.flags['membre-compagnie-lisieres'] = true;
+    expect(reputationPrices(state, 'hedda')).toBeLessThan(before);
   });
 });

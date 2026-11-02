@@ -756,3 +756,20 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
 - Cyril : « Oui pour tout, mets en ligne, Codex sur Sept-Portes, n'oublie pas la mise en ligne des infos sur Notion
   aussi ». Détails validés ; `AGENTS.md` donne Sept-Portes à Codex ; `main` avancé, déploiement lancé. Notion : on n'y
   modifie aucune page existante, on publie les éléments validés dans une page dédiée (`CLAUDE.md`, `sources.md`).
+
+## 2026-11-02 (suite) : passe de qualité
+
+- Cyril : « test le tout pour vérifier la qualité ». Trois audits en parallèle (données et textes ; économie et
+  progression, avec 20 000 combats simulés par cas ; tour visuel de 29 lieux sur PC et téléphone, sauvegarde,
+  commerce, carte du monde, combat). Aucun blocage de progression, aucune erreur console.
+- Corrigé : XP infinie à l'Écho du dernier train ; option à jet dont l'effet s'appliquait même raté (mensonge à
+  l'huissier) ; accueil de Boulon jamais vu ; sacoche de la caravane impossible à remettre à Véline pendant une
+  descente ; lettre d'Ilyane restée à vie ; lettres de Malo ramassables à l'infini ; laissez-passer de Tobias
+  invendable ; effets de zone effacés avant le tour de la cible ; PV perdus oubliés après une victoire ; défaite
+  ramenée à Gardebois depuis Ironheart, sans message ; combats imposés après un jet raté ; Golem imbattable au niveau
+  prévu (0 à 1 %) ; XP du chapitre 1 (70) et du chapitre 3 ; Garrik vaincu sans XP ; textes non neutres pour le héros
+  (une quinzaine), formulations adoucies, coquilles ; héros caché à l'arrivée à Gardebois ; intérieurs collés en haut
+  à gauche ; noms de l'amphithéâtre ; menu pause ; commerce et boutons de combat sur téléphone ; tronc-titan coupé net ;
+  quatre PNJ sans visage. 367 tests ; vérifié sur PC et téléphone.
+- Reste (à proposer à Cyril) : lisibilité générale sur téléphone (plateau de combat, petits textes, création) ; trop
+  d'argent à Ironheart ; adhésion aux trois factions de Ferros.

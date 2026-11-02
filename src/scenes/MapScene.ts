@@ -21,7 +21,7 @@ import {
 } from '../rules/world';
 import { findLocation, type GameState } from '../state/gameState';
 import { onKeys } from '../ui/keys';
-import { COLORS, CSS, FONT_SERIF } from '../ui/theme';
+import { COLORS, CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
 import { MAP_ZOOM, RENDER_SCALE } from '../ui/viewport';
 import type { CombatStartData } from './CombatScene';
 import { FigurantLayer } from './Figurants';
@@ -120,7 +120,15 @@ export class MapScene extends Phaser.Scene {
 
     const worldWidth = (this.map.width + this.map.height) * (TILE_WIDTH / 2);
     const worldHeight = (this.map.width + this.map.height) * (TILE_HEIGHT / 2) + TOP_MARGIN;
-    this.cameras.main.setBounds(0, 0, worldWidth, worldHeight).setZoom(MAP_ZOOM * RENDER_SCALE).setBackgroundColor(COLORS.ink);
+    // A room smaller than the view is centred in it: the bounds grow around it (Phaser pins small worlds top-left).
+    const viewWidth = GAME_WIDTH / MAP_ZOOM;
+    const viewHeight = GAME_HEIGHT / MAP_ZOOM;
+    const boundsWidth = Math.max(worldWidth, viewWidth);
+    const boundsHeight = Math.max(worldHeight, viewHeight);
+    this.cameras.main
+      .setBounds((worldWidth - boundsWidth) / 2, (worldHeight - boundsHeight) / 2, boundsWidth, boundsHeight)
+      .setZoom(MAP_ZOOM * RENDER_SCALE)
+      .setBackgroundColor(COLORS.ink);
     this.cameras.main.startFollow(this.hero, true, 0.15, 0.15);
     this.cameras.main.centerOn(start.x, start.y);
 

@@ -264,7 +264,7 @@ function gardebois() {
     }
   }
 
-  m.object('entree', 'arrivee', 1, 4);
+  m.object('entree', 'arrivee', 3, 4);
   // Carte du monde (docs/gdd/carte-du-monde.md) : la route de l'ouest quitte Gardebois.
   m.object('vers-monde', 'sortie', 0, 4, { cible: CARTE_DU_MONDE, libelle: 'Quitter Gardebois' });
   m.object('vers-gare', 'sortie', 27, 18, { cible: 'gare-engloutie', arrivee: 'entree-gare', libelle: 'Vers la Gare Engloutie' });
@@ -627,9 +627,10 @@ function amphitheatre() {
   m.object('sortie', 'sortie', cc, h - 1, { cible: 'canopee-conseil', arrivee: 'depuis-amphitheatre', libelle: 'Sortir' });
   m.object('entree', 'arrivee', cc, h - 2);
   // Face à qui entre, sur une ligne : Lyra à gauche, Thalorin au milieu, Kael Marchevent à droite.
+  // Sur la même rangée à l'écran (même col + row), espacés pour que leurs noms ne se chevauchent pas.
   m.object('thalorin', 'pnj', cc - 1, cr);
-  m.object('lyra', 'pnj', cc - 3, cr + 1);
-  m.object('kael-marchevent', 'pnj', cc, cr - 2);
+  m.object('lyra', 'pnj', cc - 3, cr + 2);
+  m.object('kael-marchevent', 'pnj', cc + 1, cr - 2);
   return m.toTiled();
 }
 

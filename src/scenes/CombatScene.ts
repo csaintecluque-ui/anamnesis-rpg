@@ -41,7 +41,7 @@ const TOP = 70;
 /** Finger-sized on touch screens, compact with a mouse (docs/gdd/interface.md). */
 const LAYOUT = HAS_MOUSE
   ? { arenaScale: 1.25, bottomBar: 96, buttonHeight: 48, buttonFont: 20, labelFont: 18, move: [100, 150], attack: [260, 150, 160], zone: [590, 170], endTurn: [770, 170], flee: [GAME_WIDTH - 90, 140] }
-  : { arenaScale: 1, bottomBar: 150, buttonHeight: 76, buttonFont: 26, labelFont: 22, move: [150, 200], attack: [370, 180, 190], zone: [760, 200], endTurn: [970, 220], flee: [GAME_WIDTH - 110, 180] };
+  : { arenaScale: 1, bottomBar: 150, buttonHeight: 76, buttonFont: 24, labelFont: 22, move: [130, 180], attack: [330, 170, 185], zone: [720, 190], endTurn: [935, 200], flee: [GAME_WIDTH - 120, 170] };
 const LOG_Y = GAME_HEIGHT - LAYOUT.bottomBar - 30;
 /** Turn order panel, left of the arena: names live here, not above the tokens where they overlapped. */
 const ROSTER_X = 24;
@@ -752,6 +752,8 @@ export class CombatScene extends Phaser.Scene {
     this.time.delayedCall(1400, () => {
       this.scene.stop();
       if (restart) {
+        const hud = this.scene.get('Hud') as HudScene;
+        hud.events.once(Phaser.Scenes.Events.CREATE, () => onHud(hud));
         this.scene.stop('Hud');
         this.scene.stop('Map');
         this.scene.start('Map');

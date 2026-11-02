@@ -10,8 +10,8 @@ import { HAS_MOUSE } from '../ui/viewport';
 
 /** Finger-sized on touch screens, compact with a mouse (docs/gdd/interface.md). */
 const LAYOUT = HAS_MOUSE
-  ? { panel: 400, titleY: -140, titleSize: 30, firstY: -66, step: 64, buttonWidth: 300, buttonHeight: 52, buttonFont: 22 }
-  : { panel: 520, titleY: -200, titleSize: 36, firstY: -100, step: 96, buttonWidth: 380, buttonHeight: 80, buttonFont: 26 };
+  ? { panel: 440, titleY: -170, titleSize: 30, firstY: -100, step: 62, buttonWidth: 300, buttonHeight: 52, buttonFont: 22 }
+  : { panel: 620, titleY: -260, titleSize: 36, firstY: -180, step: 96, buttonWidth: 380, buttonHeight: 80, buttonFont: 26 };
 
 /** Opened from the HUD's Menu button; the map stays frozen underneath until « Reprendre ». */
 export class PauseScene extends Phaser.Scene {

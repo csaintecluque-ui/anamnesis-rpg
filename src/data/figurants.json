@@ -191,7 +191,7 @@
     "name": "Un commis de Ferros pressé",
     "tile": "colporteur-ferros",
     "pace": 0.8,
-    "path": [[3, 4], [9, 8], [13, 14], [16, 18], [9, 18], [7, 9]],
+    "path": [[5, 4], [9, 8], [13, 14], [16, 18], [9, 18], [7, 9]],
     "lines": [
       "Pas le temps, pas le temps ! Si je rate la caravane de midi, mon patron, lui, ne me ratera pas.",
       "Gardebois, c’est le seul marché où l’on paie en Fers et où l’on vous remercie en chansons."

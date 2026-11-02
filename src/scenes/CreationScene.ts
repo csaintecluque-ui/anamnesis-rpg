@@ -50,6 +50,7 @@ export class CreationScene extends Phaser.Scene {
   private step = 0;
   private focus?: string;
   private message?: string;
+  private messageText?: Phaser.GameObjects.Text;
   private resume?: GameState;
 
   constructor() {
@@ -101,8 +102,9 @@ export class CreationScene extends Phaser.Scene {
       width: last ? 330 : 230,
       height: 76,
     });
+    this.messageText = undefined;
     if (this.message) {
-      this.add
+      this.messageText = this.add
         .text(GAME_WIDTH / 2, FOOTER_Y, this.message, {
           fontFamily: FONT_SERIF,
           fontSize: '22px',
@@ -187,6 +189,12 @@ export class CreationScene extends Phaser.Scene {
     input.setAttribute('aria-label', 'Nom du personnage');
     input.addEventListener('input', () => {
       this.draft = { ...this.draft, name: input.value };
+      // « Donne un nom à ton personnage. » disappears as soon as a name is typed.
+      if (input.value.trim() && this.messageText) {
+        this.messageText.destroy();
+        this.messageText = undefined;
+        this.message = '';
+      }
     });
     input.addEventListener('keydown', (event) => {
       if (event.key === 'Enter') {

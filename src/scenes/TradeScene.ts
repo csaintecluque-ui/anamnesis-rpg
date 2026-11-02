@@ -15,7 +15,7 @@ const MARGIN = 60;
 /** Finger-sized on touch screens, compact with a mouse: the panel then starts right under the slim HUD bar. */
 const LAYOUT = HAS_MOUSE
   ? { panelTop: 60, titleY: 72, titleSize: 26, closeY: 92, closeWidth: 180, closeHeight: 44, closeFont: 20, statsY: 124, messageRight: GAME_WIDTH - MARGIN, rowTop: 162, rowHeight: 52, rowFont: 19, buttonWidth: 130, buttonHeight: 38, buttonFont: 17 }
-  : { panelTop: 100, titleY: 124, titleSize: 28, closeY: 130, closeWidth: 220, closeHeight: 64, closeFont: 24, statsY: 160, messageRight: GAME_WIDTH - 260, rowTop: 198, rowHeight: 60, rowFont: 20, buttonWidth: 150, buttonHeight: 48, buttonFont: 18 };
+  : { panelTop: 100, titleY: 122, titleSize: 28, closeY: 130, closeWidth: 220, closeHeight: 64, closeFont: 24, statsY: 172, messageRight: GAME_WIDTH - 260, rowTop: 214, rowHeight: 68, rowFont: 22, buttonWidth: 160, buttonHeight: 56, buttonFont: 20 };
 
 const SLOT_NAMES: Record<Slot, string> = { mainDroite: 'main droite', mainGauche: 'main gauche', armure: 'porté' };
 
@@ -132,24 +132,24 @@ export class TradeScene extends Phaser.Scene {
       x -= L.buttonWidth + 10;
     };
 
-    if (item.healHp && owned > 0) addButton('Utiliser', () => this.act(() => useConsumable(this.character(), item.id, characterStats(this.character()).maxHp), `${item.name} utilisé.`));
+    if (item.healHp && owned > 0) addButton('Utiliser', () => this.act(() => useConsumable(this.character(), item.id, characterStats(this.character()).maxHp), `Tu utilises : ${item.name}.`));
     if (item.slot) {
       if (equippedIn) {
         addButton('Retirer', () =>
           this.act(() => {
             unequip(this.character(), equippedIn);
             return true;
-          }, `${item.name} retiré.`),
+          }, `Tu retires : ${item.name}.`),
         );
       }
-      else if (owned > 0) addButton('Équiper', () => this.act(() => this.equipBestSlot(item), `${item.name} équipé.`));
+      else if (owned > 0) addButton('Équiper', () => this.act(() => this.equipBestSlot(item), `Tu équipes : ${item.name}.`));
     }
     if (owned > 0 && !item.quest) {
       addButton(`Vendre (${sellPrice})`, () =>
         this.act(() => {
           const error = sell(this.character(), item.id, 1);
           return error ? null : true;
-        }, `${item.name} vendu.`),
+        }, `Tu vends : ${item.name}.`),
       );
     }
     if (this.npcId && merchantCatalogue(this.npcId).some((i) => i.id === item.id)) {
@@ -159,7 +159,7 @@ export class TradeScene extends Phaser.Scene {
           if (error === 'trop-cher') return this.fail('Pas assez de Fers.');
           if (error === 'trop-lourd') return this.fail('Trop lourd à porter.');
           return true;
-        }, `${item.name} acheté.`),
+        }, `Tu achètes : ${item.name}.`),
       );
     }
   }

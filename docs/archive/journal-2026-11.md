@@ -687,3 +687,11 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   Cristallin, Route des Carrioles), leurs règles (`docs/gdd/factions.md`), l'histoire principale « Les voies
   endormies » en chapitres par ville et six quêtes (`docs/univers/quetes.md`), avec une nouvelle carte : le Sol des
   Racines, sous Canopéa.
+- Cyril : « Tu as accès au Lore, pourquoi tu dis non ? Sinon c'est dans Notion Anamnesis. » `docs/Lore/` est exclu
+  du dépôt (`.gitignore`), donc absent des sessions cloud ; mais le connecteur Notion y donne accès. Lu dans Notion :
+  la structure de l'espace « ANAMNESIS » et la page « Canon — arbitrages et décisions » (3 août 2026 : le roman
+  *Chroniques Familiales* devient la référence ; capitales Coralia, Khrysos, Sept-Portes ; pas de rébellion des IA,
+  les Surgeons s'ouvrent d'abord ; Léviathans de 300 m portant un clan ; Ironheart en Forges-Basses,
+  Manufactures-Moyennes et Manufactures-Hautes…), et l'existence, dans « ANAMNESIS ENGINE — Studio », de factions
+  (Travailleurs du Rail, Marches des Cendres, Archives de Ferros), de PNJ et de quêtes. Plusieurs choix récents
+  (Coralys, Crystallhaven, Convergence, Récit de Kael) viennent de l'ancienne base : à reprendre selon la réponse de Cyril.

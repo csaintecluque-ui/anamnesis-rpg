@@ -21,8 +21,8 @@
 
 ## Points ouverts
 
-- Session cloud sans `docs/Lore/` : tout est à confronter au canon en local. Ironhold et Ironheart : deux villes ?
-  Lyra, Thalorin, Kael Marchevent à décrire d'après N1.
+- **Notion « ANAMNESIS »** (accessible en session cloud, contrairement à `docs/Lore/`) a un canon plus récent :
+  page « Canon — arbitrages et décisions » (3 août 2026 ; Coralia, Khrysos, Sept-Portes…). Cyril doit dire laquelle fait foi.
 - Sylvan a des oreilles pointues (elfes, zone floue n° 2) : garder ou refaire (2 crédits).
 - Coquille dans `assets/brand/logo-small.svg` (trait parasite) : accord de Cyril requis.
 - Chronologie du canon non arbitrée (`docs/univers/zones-floues.md`, points 6 à 13).

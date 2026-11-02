@@ -867,4 +867,4 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   18+, brûlure et saignement, tireurs, soigneurs, essaims, Golem à deux phases, butin, bestiaire (canon « Faune &
   flore par continent » relu dans le Notion), compagnons en combat (Liane, Boulon, par les outils de dev),
   sauvegarde v12. 477 tests ; vérifié sur PC et téléphone.
-
+- Cyril : « Oui pour tout, mets en ligne » (étape 1 du jalon 3). Mis en ligne ; page Notion complétée.

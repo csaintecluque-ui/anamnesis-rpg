@@ -853,3 +853,10 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
 - Cyril : « 49 € par mois pour 1 000 crédits », « je veux un truc de beau » : version belle ≈ 1 400 crédits
   (≈ 250 pour le rattrapage, ≈ 140 par ville), ≈ 70 € ; deux mois d'abonnement (`docs/ASSETS.md`).
 
+## 2026-11-02 (suite) : le jeu complet
+
+- Cyril : « On va tout faire, finir le jeu, à la fin on fera la mise en beauté… un jeu vraiment complet… un truc de
+  fou ». Relu : la page « Canon — arbitrages et décisions », le Studio (piliers, régions, factions, quêtes, décisions).
+  Proposition écrite : `docs/gdd/jeu-complet.md` (les voies endormies, factions, ennemis, quêtes, douze activités,
+  feuille de route), à valider.
+

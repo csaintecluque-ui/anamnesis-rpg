@@ -20,7 +20,8 @@
 ## Prochaine étape
 
 1. En ligne (2026-11-02) : le temps et les auberges (`docs/gdd/temps.md`), la magie et « Un prêt de la Terre »
-   (`docs/gdd/magie.md`, tout validé). Prochaine étape : à proposer à Cyril.
+   (`docs/gdd/magie.md`, tout validé). Proposé : le jeu complet (`docs/gdd/jeu-complet.md`), à valider ;
+   la mise en beauté à la fin (≈ 1 400 crédits).
 2. Codex : Sept-Portes (`AGENTS.md`). Notion : page « Anamnesis — le jeu », à tenir à jour à chaque mise en ligne.
 
 ## Points ouverts

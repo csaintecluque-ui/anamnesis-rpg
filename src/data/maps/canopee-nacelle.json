@@ -11,7 +11,7 @@
  "tilewidth": 64,
  "tileheight": 32,
  "nextlayerid": 4,
- "nextobjectid": 14,
+ "nextobjectid": 16,
  "layers": [
   {
    "id": 1,
@@ -1027,7 +1027,7 @@
     0,
     0,
     0,
-    0,
+    15,
     0,
     0,
     0,
@@ -1413,6 +1413,32 @@
     },
     {
      "id": 12,
+     "name": "chef-caravane",
+     "type": "pnj",
+     "x": 176,
+     "y": 528,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": []
+    },
+    {
+     "id": 13,
+     "name": "halte-ouest",
+     "type": "objet",
+     "x": 80,
+     "y": 528,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": []
+    },
+    {
+     "id": 14,
      "name": "malo",
      "type": "pnj",
      "x": 432,
@@ -1425,7 +1451,7 @@
      "properties": []
     },
     {
-     "id": 13,
+     "id": 15,
      "name": "panneau-canopee",
      "type": "panneau",
      "x": 208,
@@ -1456,7 +1482,7 @@
    "tilewidth": 64,
    "tileheight": 96,
    "columns": 8,
-   "tilecount": 155,
+   "tilecount": 157,
    "margin": 0,
    "spacing": 0,
    "tiles": [
@@ -5317,6 +5343,56 @@
        "name": "nom",
        "type": "string",
        "value": "vieux-forgeron"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 155,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "convoyeuse"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 156,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "chef-caravane"
       },
       {
        "name": "bloquant",

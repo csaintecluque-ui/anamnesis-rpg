@@ -196,6 +196,23 @@ export class WorldMapScene extends Phaser.Scene {
         for (let k = 1; k < n; k++) g.fillCircle(a.x + ((b.x - a.x) * k) / n, a.y + ((b.y - a.y) * k) / n, 2);
       }
     }
+    // Railway lines (« Voyager autrement ») : a rail with its sleepers, and its name halfway.
+    for (const rail of WORLD.rails ?? []) {
+      const from = places.find((p) => p.id === rail.from);
+      const to = places.find((p) => p.id === rail.to);
+      if (!from || !to) continue;
+      const a = this.screen(from);
+      const b = this.screen(to);
+      const length = Math.hypot(b.x - a.x, b.y - a.y);
+      const [ux, uy] = [(b.x - a.x) / length, (b.y - a.y) / length];
+      g.lineStyle(3, 0x3a3238, 0.75).lineBetween(a.x, a.y, b.x, b.y);
+      g.lineStyle(2, 0x3a3238, 0.6);
+      for (let d = 16; d < length - 16; d += 12) {
+        const [cx, cy] = [a.x + ux * d, a.y + uy * d];
+        g.lineBetween(cx - uy * 5, cy + ux * 5, cx + uy * 5, cy - ux * 5);
+      }
+      this.label((a.x + b.x) / 2, (a.y + b.y) / 2 - 18, rail.name, '#3a3238');
+    }
     for (const place of places) {
       const p = this.screen(place);
       g.fillStyle(COPPER, 1).fillCircle(p.x, p.y, 11);

@@ -129,7 +129,7 @@ carte à créer.
 - **Construite** : le commis pressé (passant de Gardebois) ouvre un dialogue tant que la quête est à prendre. La
   sacoche sent la viande séchée : deux Loups de Rouille attendent sur la route, une seule fois (contourner : Survie 12).
   Véline la remet au chef de caravane : 30 XP, 15 Fers, membre de la Compagnie (prix de membre chez Tobias, −15 %).
-  **Reporté** : la caravane comme moyen de voyage.
+  La caravane comme moyen de voyage : construite le 2026-11-02 (« Voyager autrement », `docs/gdd/carte-du-monde.md`).
 
 ## Ironheart : le chapitre 3
 

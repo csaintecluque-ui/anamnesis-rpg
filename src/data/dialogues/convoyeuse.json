@@ -1,0 +1,134 @@
+{
+  "id": "convoyeuse",
+  "speaker": "convoyeuse",
+  "entries": [
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Une femme en manteau de route vérifie les sangles d’un chariot. — Compagnie des Lisières ! La caravane part à midi, tous les jours que la forêt fait. Où vas-tu ?",
+      "options": [
+        {
+          "text": "À Canopéa.",
+          "next": "canopee"
+        },
+        {
+          "text": "À Ironheart.",
+          "next": "ironheart",
+          "requires": [
+            {
+              "quest": "audience",
+              "status": "done"
+            }
+          ]
+        },
+        {
+          "text": "Pas aujourd’hui.",
+          "next": "fin"
+        }
+      ]
+    },
+    "canopee": {
+      "text": "— 15 Fers, et tu dors sur les sacs de farine. Rien pour les gens de la Compagnie : on ne fait pas payer la famille.",
+      "options": [
+        {
+          "text": "Montrer ta marque de la Compagnie.",
+          "next": "trajet-canopee",
+          "requires": [
+            {
+              "flag": "membre-compagnie-lisieres"
+            }
+          ]
+        },
+        {
+          "text": "Payer le voyage.",
+          "next": "trajet-canopee",
+          "requires": [
+            {
+              "notFlag": "membre-compagnie-lisieres"
+            },
+            {
+              "fers": 15
+            }
+          ],
+          "effects": [
+            {
+              "giveFers": -15
+            }
+          ]
+        },
+        {
+          "text": "Une autre fois.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "ironheart": {
+      "text": "— Ironheart, par la frontière. Ton sauf-conduit du Triumvirat suffira aux douaniers. 15 Fers, rien pour la Compagnie.",
+      "options": [
+        {
+          "text": "Montrer ta marque de la Compagnie.",
+          "next": "trajet-ironheart",
+          "requires": [
+            {
+              "flag": "membre-compagnie-lisieres"
+            }
+          ]
+        },
+        {
+          "text": "Payer le voyage.",
+          "next": "trajet-ironheart",
+          "requires": [
+            {
+              "notFlag": "membre-compagnie-lisieres"
+            },
+            {
+              "fers": 15
+            }
+          ],
+          "effects": [
+            {
+              "giveFers": -15
+            }
+          ]
+        },
+        {
+          "text": "Une autre fois.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "trajet-canopee": {
+      "text": "La caravane suit la route des Lisières. Les chariots grincent ; on chante fort pour tenir les Loups de Rouille à distance. À la tombée du jour, au pied des Arbres-Titans, la Grande Nacelle te monte jusqu’aux cimes.",
+      "options": [
+        {
+          "text": "Monter jusqu’aux cimes.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "canopee-nacelle",
+              "arrivee": "entree"
+            }
+          ]
+        }
+      ]
+    },
+    "trajet-ironheart": {
+      "text": "La caravane passe la frontière de Ferros. La forêt s’éclaircit, la terre devient cendre, et le ciel prend la couleur de la rouille. Au soir, la gare de l’Ouest d’Ironheart.",
+      "options": [
+        {
+          "text": "Descendre du chariot.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "ironheart-forges",
+              "arrivee": "entree"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

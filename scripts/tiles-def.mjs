@@ -1024,4 +1024,7 @@ TILES.push(
   npcTile('echo-furieux', { body: '#7fb0ff', hair: '#5a7ab0', skin: '#a8d0ff', accent: '#ffd060', extra: '<path d="M18 50 L12 44 M46 50 L52 44 M20 70 L12 74 M44 70 L52 74" stroke="#a8d0ff" stroke-width="2"/>' }),
   npcTile('hesk', { body: '#2a2624', hair: '#1a1614', skin: '#7a6a5a', accent: '#ff9a40', extra: '<circle cx="44" cy="58" r="4" fill="#ffd060" stroke="#1B1512"/>' }),
   npcTile('vieux-forgeron', { body: '#5a4a3a', hair: '#c8c0b0', accent: '#C9804F' }),
+  // Voyager autrement : la convoyeuse de la Compagnie des Lisières, le chef de caravane.
+  npcTile('convoyeuse', { body: '#6b4a32', hair: '#3a2a1c', accent: '#e8b860', extra: '<path d="M18 52 L46 60" stroke="#3a2a1c" stroke-width="3"/>' }),
+  npcTile('chef-caravane', { body: '#5a6b3a', hair: '#8a6a4a', accent: '#e8b860', extra: '<path d="M22 40 L42 40 L38 34 L26 34 Z" fill="#6b4a32" stroke="#1B1512"/>' }),
 );

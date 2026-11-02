@@ -53,6 +53,10 @@ import hesk from './hesk.json';
 import echoChanson from './echo-chanson.json';
 import enclumeMarques from './enclume-marques.json';
 import echoPromesse from './echo-promesse.json';
+import convoyeuse from './convoyeuse.json';
+import chefCaravane from './chef-caravane.json';
+import guichetOuest from './guichet-ouest.json';
+import halteOuest from './halte-ouest.json';
 import porteGrenier from './porte-grenier.json';
 import renfoncement from './renfoncement.json';
 import rika from './rika.json';
@@ -126,6 +130,10 @@ export const DIALOGUES: Record<string, Dialogue> = {
   'echo-chanson': echoChanson as Dialogue,
   'enclume-marques': enclumeMarques as Dialogue,
   'echo-promesse': echoPromesse as Dialogue,
+  convoyeuse: convoyeuse as Dialogue,
+  'chef-caravane': chefCaravane as Dialogue,
+  'guichet-ouest': guichetOuest as Dialogue,
+  'halte-ouest': halteOuest as Dialogue,
   'porte-grenier': porteGrenier as Dialogue,
   renfoncement: renfoncement as Dialogue,
   rika: rika as Dialogue,

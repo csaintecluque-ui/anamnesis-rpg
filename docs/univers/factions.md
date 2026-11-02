@@ -68,7 +68,7 @@ Maître des Guildes » à Glacialis). Pour combler, sans doublon avec les factio
 
 | Guilde | Où | Qui | Ce qu'elle veut | Ce qu'elle offre au héros | Tensions |
 |---|---|---|---|---|---|
-| **La Compagnie des Lisières** | Gardebois, Marché des Lisières | marchands verdantins et ferriens ; Tobias, le commis pressé | une frontière paisible où l'on commerce ; fixe les prix, délivre les laissez-passer, mène la « caravane de midi » | prix de membre, la caravane pour voyager vers Canopéa | un de ses marchands revend aux Marches des Cendres ce qui ne devrait pas l'être |
+| **La Compagnie des Lisières** | Gardebois, Marché des Lisières | marchands verdantins et ferriens ; Tobias, le commis pressé | une frontière paisible où l'on commerce ; fixe les prix, délivre les laissez-passer, mène la « caravane de midi » | prix de membre, la caravane (Gardebois ↔ Canopéa et Ironheart, gratuite pour les membres) | un de ses marchands revend aux Marches des Cendres ce qui ne devrait pas l'être |
 | **Les Nacelliers** | Canopéa | passeurs de nacelles et coursiers (Véline, Malo) | que la ville tienne et que rien ne tombe | rumeurs, raccourcis, **courrier** entre les villes | ils n'aiment pas qu'on descende sur le sol sacré |
 | **La Route des Carrioles** | sur les routes | colporteurs ambulants (la colporteuse) | le libre passage ; signes à la craie sur les bornes | objets d'autres pays, nouvelles, lieux révélés sur la carte | se méfient des douanes |
 

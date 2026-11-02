@@ -53,3 +53,22 @@ Code : `src/scenes/WorldMapScene.ts`, `src/rules/world.ts` ; données : `src/dat
 Une rencontre peut porter `story` (`{ quest, flag }`) : jamais tirée au hasard, elle attend au premier contrôle d'un
 voyage tant que la quête est en cours et le repère absent, puis pose le repère. Première : les Loups de Rouille de
 « La caravane de midi » (`loups-caravane`).
+
+## Voyager autrement (2026-11-02, demande de Cyril ; détails à valider)
+
+On peut toujours marcher sur la carte du monde (avec ses rencontres) ; le train et la caravane vont plus vite, sans
+rencontre, pour quelques Fers. Tout passe par des dialogues (effet `goTo`).
+
+- **Le train, ligne de l'Ouest** [NOTION : « La Note Technique » ; tarif de la fiche Verdantis, « Train Canopéa →
+  Ferros : ⓕ 80 », soit 80 Feuilles Vertes = **40 Fers**] : le guichet de la gare de l'Ouest (Ironheart) et la halte
+  de Canopéa, au pied de la Grande Nacelle. Il faut le sauf-conduit du Triumvirat (« L'audience ») pour passer la
+  frontière. **Routes commerciales** (« Le Rail des Cendres ») : 30 Fers si les cheminots ont repris leurs convois,
+  50 si les Marches des Cendres pillent encore. Le voyage : « quarante minutes sous une canopée de deux cents mètres,
+  dans des voitures à toit de verre » (canon).
+- **La caravane de la Compagnie des Lisières** : la convoyeuse à Gardebois (vers Canopéa et Ironheart), le chef de
+  caravane à Canopéa (vers Gardebois), Boulon à la gare de l'Ouest (les caisses de l'atelier Cendrefer pour
+  Gardebois). 15 Fers, gratuite pour les membres de la Compagnie.
+- **Carte du monde** : la ligne de l'Ouest est dessinée (rails et traverses) quand Canopéa et Ironheart sont connues
+  (`rails` dans `src/data/world.json`).
+- **Inventés pour le jeu (à valider)** : la convoyeuse, le chef de caravane (cité depuis « La caravane de midi »),
+  l'employée du guichet, la préposée de la halte ; la halte de Canopéa sur la ligne de l'Ouest.

@@ -354,7 +354,7 @@
     "name": "Une ouvrière en gris",
     "tile": "ouvrier",
     "pace": 0.9,
-    "path": [[6, 5], [16, 5], [16, 10], [6, 9]],
+    "path": [[6, 5], [16, 5], [16, 10], [8, 9]],
     "lines": [
       "Le premier pont peint en rouge ? Après, c’est surveillé. On passe vite, sans traîner.",
       "Sept coups de marteau, et tout le monde se tait : ce sont les Litanies."

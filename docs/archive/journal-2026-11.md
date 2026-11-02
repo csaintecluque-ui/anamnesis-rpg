@@ -793,3 +793,11 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   forgeron. Test : aucun personnage du roman n'est nommé. 381 tests ; vérifié sur téléphone.
 - Cyril : « Oui pour tout, mets en ligne » : détails validés (Hesk, les cinq mains, « On se retrouvera », l'oiseau de
   fer) ; `main` avancé ; page Notion mise à jour.
+
+## 2026-11-02 (suite) : voyager autrement
+
+- Cyril : « on part sur voyager autrement ». Canon vérifié : ⓕ est le symbole de la Feuille Verte ; « Train Canopéa →
+  Ferros : ⓕ 80 » vaut donc 40 Fers (et non 80 Fers, comme je l'avais écrit).
+- Construit : le train de la ligne de l'Ouest (guichet à Ironheart, halte à Canopéa ; 40 Fers, 30 ou 50 selon le
+  Rail des Cendres), la caravane de la Compagnie des Lisières (convoyeuse, chef de caravane, Boulon ; 15 Fers,
+  gratuite pour les membres), la ligne dessinée sur la carte du monde. 393 tests ; vérifié sur téléphone.

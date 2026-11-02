@@ -270,6 +270,8 @@ function gardebois() {
   m.object('vers-gare', 'sortie', 27, 18, { cible: 'gare-engloutie', arrivee: 'entree-gare', libelle: 'Vers la Gare Engloutie' });
   m.object('ilyane', 'pnj', 5, 15);
   m.object('tobias', 'pnj', 14, 8);
+  // La convoyeuse de la Compagnie des Lisières : la caravane vers Canopéa et Ironheart.
+  m.object('convoyeuse', 'pnj', 10, 3);
   m.object('liane', 'pnj', 19, 12);
   m.object('panneau-gare', 'panneau', 26, 17, { texte: 'Vers les Lisières Cultivées et la Gare Engloutie.' });
   m.object('panneau-entree', 'panneau', 1, 3, { texte: 'Gardebois — Marché des Lisières.' });
@@ -444,6 +446,10 @@ function canopeeNacelle() {
   m.object('depuis-aieux', 'arrivee', 24, 12);
   m.object('vers-aieux', 'sortie', 25, 12, { cible: 'canopee-aieux', arrivee: 'depuis-marche', libelle: 'Passerelle vers le Bosquet des Échos' });
   m.object('veline', 'pnj', 4, 12);
+  // Voyager autrement : la halte de la ligne de l'Ouest et le chef de caravane, au pied de la Grande Nacelle.
+  m.object('chef-caravane', 'pnj', 5, 16);
+  m.setObstacle(2, 16, 'panneau');
+  m.object('halte-ouest', 'objet', 2, 16);
   m.object('malo', 'pnj', 13, 9);
   m.object('panneau-canopee', 'panneau', 6, 16, { texte: 'Canopéa — la Grande Nacelle. Ici, rien ne touche le sol.' });
   return m.toTiled();
@@ -663,6 +669,9 @@ function ironheartForges() {
   m.setObstacle(0, 12, null);
   m.object('entree', 'arrivee', 4, 10);
   m.object('boulon', 'pnj', 5, 8);
+  // Le guichet de la ligne de l'Ouest (le train pour Canopéa).
+  m.setObstacle(6, 9, 'comptoir');
+  m.object('guichet-ouest', 'objet', 6, 9);
   // Les Forges-Basses : forges, tuyaux, réverbères à cristal rouge.
   for (const [c, r] of [[17, 3], [8, 3], [27, 6]]) m.setObstacle(c, r, 'forge');
   for (const [c, r] of [[10, 9], [13, 13], [18, 9], [22, 14], [6, 16], [25, 3]]) m.setObstacle(c, r, 'reverbere');

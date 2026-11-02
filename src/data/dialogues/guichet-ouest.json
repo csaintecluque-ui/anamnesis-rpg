@@ -1,0 +1,101 @@
+{
+  "id": "guichet-ouest",
+  "speaker": "guichet-ouest",
+  "entries": [
+    {
+      "node": "guichet"
+    }
+  ],
+  "nodes": {
+    "guichet": {
+      "text": "Guichet de la ligne de l’Ouest. Une employée en gris clair tamponne sans lever les yeux. « Halte de Canopéa, puis les ports : quatorze heures. » — Un billet pour Canopéa ?",
+      "options": [
+        {
+          "text": "Prendre un billet.",
+          "next": "train-canopee",
+          "requires": [
+            {
+              "quest": "audience",
+              "status": "done"
+            },
+            {
+              "notFlag": "rail-travailleurs"
+            },
+            {
+              "notFlag": "rail-marches"
+            },
+            {
+              "fers": 40
+            }
+          ],
+          "effects": [
+            {
+              "giveFers": -40
+            }
+          ]
+        },
+        {
+          "text": "Prendre un billet : les cheminots te font un prix.",
+          "next": "train-canopee",
+          "requires": [
+            {
+              "quest": "audience",
+              "status": "done"
+            },
+            {
+              "flag": "rail-travailleurs"
+            },
+            {
+              "fers": 30
+            }
+          ],
+          "effects": [
+            {
+              "giveFers": -30
+            }
+          ]
+        },
+        {
+          "text": "Prendre un billet : les convois ne sont plus sûrs, il faut payer l’assurance.",
+          "next": "train-canopee",
+          "requires": [
+            {
+              "quest": "audience",
+              "status": "done"
+            },
+            {
+              "flag": "rail-marches"
+            },
+            {
+              "fers": 50
+            }
+          ],
+          "effects": [
+            {
+              "giveFers": -50
+            }
+          ]
+        },
+        {
+          "text": "Pas aujourd’hui.",
+          "next": "fin"
+        }
+      ]
+    },
+    "train-canopee": {
+      "text": "Le train quitte Ironheart dans un souffle de vapeur cristalline. Puis la forêt : quarante minutes sous une canopée de deux cents mètres, dans une voiture à toit de verre. À la halte, la Grande Nacelle te monte jusqu’aux cimes.",
+      "options": [
+        {
+          "text": "Monter jusqu’aux cimes.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "canopee-nacelle",
+              "arrivee": "entree"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

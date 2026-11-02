@@ -34,6 +34,13 @@
       "description": "La capitale de Ferros : forges, funiculaires et archives, sous un ciel qui semble avoir rouillé."
     }
   ],
+  "rails": [
+    {
+      "from": "canopee",
+      "to": "ironheart",
+      "name": "Ligne de l’Ouest"
+    }
+  ],
   "distant": [
     {
       "name": "Terminus · Sept-Portes",

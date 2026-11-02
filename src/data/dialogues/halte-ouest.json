@@ -1,0 +1,114 @@
+{
+  "id": "halte-ouest",
+  "speaker": "halte-ouest",
+  "entries": [
+    {
+      "node": "halte"
+    }
+  ],
+  "nodes": {
+    "halte": {
+      "text": "Un panneau de bois vivant, au pied de la Grande Nacelle : « Ligne de l’Ouest — halte de Canopéa. Train pour Ferros chaque soir. » En dessous, plus petit : « Sauf-conduit exigé à la frontière. »",
+      "options": [
+        {
+          "text": "Prendre le train pour Ironheart.",
+          "next": "billet"
+        },
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "billet": {
+      "text": "La préposée de la halte compte sur ses doigts. — Ironheart, gare de l’Ouest : une nuit de train. Le sauf-conduit du Triumvirat t’ouvrira la frontière ; sans lui, on ne passe pas.",
+      "options": [
+        {
+          "text": "Prendre un billet.",
+          "next": "train-ironheart",
+          "requires": [
+            {
+              "quest": "audience",
+              "status": "done"
+            },
+            {
+              "notFlag": "rail-travailleurs"
+            },
+            {
+              "notFlag": "rail-marches"
+            },
+            {
+              "fers": 40
+            }
+          ],
+          "effects": [
+            {
+              "giveFers": -40
+            }
+          ]
+        },
+        {
+          "text": "Prendre un billet : les cheminots te font un prix.",
+          "next": "train-ironheart",
+          "requires": [
+            {
+              "quest": "audience",
+              "status": "done"
+            },
+            {
+              "flag": "rail-travailleurs"
+            },
+            {
+              "fers": 30
+            }
+          ],
+          "effects": [
+            {
+              "giveFers": -30
+            }
+          ]
+        },
+        {
+          "text": "Prendre un billet : les convois ne sont plus sûrs, il faut payer l’assurance.",
+          "next": "train-ironheart",
+          "requires": [
+            {
+              "quest": "audience",
+              "status": "done"
+            },
+            {
+              "flag": "rail-marches"
+            },
+            {
+              "fers": 50
+            }
+          ],
+          "effects": [
+            {
+              "giveFers": -50
+            }
+          ]
+        },
+        {
+          "text": "Pas aujourd’hui.",
+          "next": "fin"
+        }
+      ]
+    },
+    "train-ironheart": {
+      "text": "La Grande Nacelle te descend à la halte. Le train file sous la canopée, voitures à toit de verre ; puis la forêt s’arrête net, et commence la cendre. Au matin, la gare de l’Ouest d’Ironheart.",
+      "options": [
+        {
+          "text": "Descendre sur le quai.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "ironheart-forges",
+              "arrivee": "entree"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

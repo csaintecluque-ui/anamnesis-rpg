@@ -268,6 +268,7 @@ _Effet : lance la quête « La Clé de Rouille Bleue », retient « boulon-accue
 
 - « Un certain Kaelis, des Marches des Cendres. » → kaelis
 - « Que faut-il savoir, ici ? » → regles
+- « Une caravane pour Gardebois ? » → caravane
 - « Merci, Boulon. » → **fin**
 
 ### accueil
@@ -276,6 +277,7 @@ _Effet : lance la quête « La Clé de Rouille Bleue », retient « boulon-accue
 
 - _(si quête « La Clé de Rouille Bleue » en cours)_ « Où trouver Kaelis, des Marches des Cendres ? » → kaelis
 - « Que faut-il savoir, ici ? » → regles
+- « Une caravane pour Gardebois ? » → caravane
 - « Au revoir, Boulon. » → **fin**
 
 ### regles
@@ -291,6 +293,20 @@ _Effet : retient « marche-cendres-indice »._
 > — Kaelis ne tient boutique sur aucune carte. Les gens des forges disent : « Cherche le trou entre deux fonderies froides, et ne dis à personne que tu l’as trouvé. » À l’est, après le Puits Trois.
 
 - « Merci, Boulon. » → **fin**
+
+### caravane
+
+> — La Compagnie des Lisières charge ici, entre deux trains : les caisses de l’atelier Cendrefer pour Gardebois. Quinze Fers ; rien pour les gens de la Compagnie. Je porte ta malle.
+
+- _(si repère « membre-compagnie-lisieres »)_ « Montrer ta marque de la Compagnie. » → trajet-gardebois
+- _(sans repère « membre-compagnie-lisieres »)_ **[15 Fers]** « Payer le voyage. » → trajet-gardebois _(−15 Fers)_
+- « Une autre fois. » → **fin**
+
+### trajet-gardebois
+
+> Boulon hisse ta malle d’une seule main. La caravane quitte la cendre de Ferros, passe la frontière, retrouve la forêt. Le soir, les lanternes du Marché des Lisières s’allument entre les arbres : Gardebois.
+
+- « Descendre du chariot. » → **fin** _(mène à « Gardebois — Marché des Lisières »)_
 
 ## Brann Martelroux
 
@@ -468,6 +484,33 @@ Commence par : « partis » _(si repère « rencontre-cerfs-vus »)_, sinon « c
 
 - « Partir. » → **fin**
 
+## Le chef de caravane
+
+_Compagnie des Lisières_
+
+Commence par : « accueil »
+
+### accueil
+
+> Un homme au chapeau de cuir mâchonne un bout de viande séchée. — Le chef de caravane, c’est moi. On redescend vers Gardebois demain, et tous les jours d’après. Tu en es ?
+
+- « Pour Gardebois. » → gardebois
+- « Pas aujourd’hui. » → **fin**
+
+### gardebois
+
+> — 15 Fers. Rien si tu portes la marque de la Compagnie : on ne fait pas payer ceux qui nous ont rendu une sacoche.
+
+- _(si repère « membre-compagnie-lisieres »)_ « Montrer ta marque de la Compagnie. » → trajet-gardebois
+- _(sans repère « membre-compagnie-lisieres »)_ **[15 Fers]** « Payer le voyage. » → trajet-gardebois _(−15 Fers)_
+- « Une autre fois. » → accueil
+
+### trajet-gardebois
+
+> La caravane roule sans hâte, de borne en borne. Le soir, les lanternes du Marché des Lisières s’allument une à une entre les arbres : Gardebois.
+
+- « Descendre du chariot. » → **fin** _(mène à « Gardebois — Marché des Lisières »)_
+
 ## La colporteuse
 
 _Marchande ambulante_
@@ -526,6 +569,48 @@ Commence par : « presse » _(si quête « La caravane de midi » pas commencée
 > Pas le temps, pas le temps !
 
 - « … » → **fin**
+
+## La convoyeuse
+
+_Compagnie des Lisières, la caravane de midi_
+
+Commence par : « accueil »
+
+### accueil
+
+> Une femme en manteau de route vérifie les sangles d’un chariot. — Compagnie des Lisières ! La caravane part à midi, tous les jours que la forêt fait. Où vas-tu ?
+
+- « À Canopéa. » → canopee
+- _(si quête « L’audience » terminée)_ « À Ironheart. » → ironheart
+- « Pas aujourd’hui. » → **fin**
+
+### canopee
+
+> — 15 Fers, et tu dors sur les sacs de farine. Rien pour les gens de la Compagnie : on ne fait pas payer la famille.
+
+- _(si repère « membre-compagnie-lisieres »)_ « Montrer ta marque de la Compagnie. » → trajet-canopee
+- _(sans repère « membre-compagnie-lisieres »)_ **[15 Fers]** « Payer le voyage. » → trajet-canopee _(−15 Fers)_
+- « Une autre fois. » → accueil
+
+### ironheart
+
+> — Ironheart, par la frontière. Ton sauf-conduit du Triumvirat suffira aux douaniers. 15 Fers, rien pour la Compagnie.
+
+- _(si repère « membre-compagnie-lisieres »)_ « Montrer ta marque de la Compagnie. » → trajet-ironheart
+- _(sans repère « membre-compagnie-lisieres »)_ **[15 Fers]** « Payer le voyage. » → trajet-ironheart _(−15 Fers)_
+- « Une autre fois. » → accueil
+
+### trajet-canopee
+
+> La caravane suit la route des Lisières. Les chariots grincent ; on chante fort pour tenir les Loups de Rouille à distance. À la tombée du jour, au pied des Arbres-Titans, la Grande Nacelle te monte jusqu’aux cimes.
+
+- « Monter jusqu’aux cimes. » → **fin** _(mène à « Canopéa — La Grande Nacelle »)_
+
+### trajet-ironheart
+
+> La caravane passe la frontière de Ferros. La forêt s’éclaircit, la terre devient cendre, et le ciel prend la couleur de la rouille. Au soir, la gare de l’Ouest d’Ironheart.
+
+- « Descendre du chariot. » → **fin** _(mène à « Ironheart — Les Forges-Basses »)_
 
 ## Cristal de veille
 
@@ -1163,6 +1248,55 @@ Commence par : « guichet »
 > — L’administration va partout. Même là où elle n’a rien à faire. Il tamponne une fiche, toujours sans te regarder.
 
 - « Partir. » → **fin**
+
+## Le guichet de la ligne de l’Ouest
+
+_Gare de l’Ouest, Ironheart_
+
+Commence par : « guichet »
+
+### guichet
+
+> Guichet de la ligne de l’Ouest. Une employée en gris clair tamponne sans lever les yeux. « Halte de Canopéa, puis les ports : quatorze heures. » — Un billet pour Canopéa ?
+
+- _(si quête « L’audience » terminée)_ _(sans repère « rail-travailleurs »)_ _(sans repère « rail-marches »)_ **[40 Fers]** « Prendre un billet. » → train-canopee _(−40 Fers)_
+- _(si quête « L’audience » terminée)_ _(si repère « rail-travailleurs »)_ **[30 Fers]** « Prendre un billet : les cheminots te font un prix. » → train-canopee _(−30 Fers)_
+- _(si quête « L’audience » terminée)_ _(si repère « rail-marches »)_ **[50 Fers]** « Prendre un billet : les convois ne sont plus sûrs, il faut payer l’assurance. » → train-canopee _(−50 Fers)_
+- « Pas aujourd’hui. » → **fin**
+
+### train-canopee
+
+> Le train quitte Ironheart dans un souffle de vapeur cristalline. Puis la forêt : quarante minutes sous une canopée de deux cents mètres, dans une voiture à toit de verre. À la halte, la Grande Nacelle te monte jusqu’aux cimes.
+
+- « Monter jusqu’aux cimes. » → **fin** _(mène à « Canopéa — La Grande Nacelle »)_
+
+## La halte de la ligne de l’Ouest
+
+_Au pied de la Grande Nacelle_
+
+Commence par : « halte »
+
+### halte
+
+> Un panneau de bois vivant, au pied de la Grande Nacelle : « Ligne de l’Ouest — halte de Canopéa. Train pour Ferros chaque soir. » En dessous, plus petit : « Sauf-conduit exigé à la frontière. »
+
+- « Prendre le train pour Ironheart. » → billet
+- « Partir. » → **fin**
+
+### billet
+
+> La préposée de la halte compte sur ses doigts. — Ironheart, gare de l’Ouest : une nuit de train. Le sauf-conduit du Triumvirat t’ouvrira la frontière ; sans lui, on ne passe pas.
+
+- _(si quête « L’audience » terminée)_ _(sans repère « rail-travailleurs »)_ _(sans repère « rail-marches »)_ **[40 Fers]** « Prendre un billet. » → train-ironheart _(−40 Fers)_
+- _(si quête « L’audience » terminée)_ _(si repère « rail-travailleurs »)_ **[30 Fers]** « Prendre un billet : les cheminots te font un prix. » → train-ironheart _(−30 Fers)_
+- _(si quête « L’audience » terminée)_ _(si repère « rail-marches »)_ **[50 Fers]** « Prendre un billet : les convois ne sont plus sûrs, il faut payer l’assurance. » → train-ironheart _(−50 Fers)_
+- « Pas aujourd’hui. » → **fin**
+
+### train-ironheart
+
+> La Grande Nacelle te descend à la halte. Le train file sous la canopée, voitures à toit de verre ; puis la forêt s’arrête net, et commence la cendre. Au matin, la gare de l’Ouest d’Ironheart.
+
+- « Descendre sur le quai. » → **fin** _(mène à « Ironheart — Les Forges-Basses »)_
 
 ## Hedda Cendrefer
 

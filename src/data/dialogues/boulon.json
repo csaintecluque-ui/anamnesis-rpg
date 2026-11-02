@@ -39,6 +39,10 @@
           "next": "regles"
         },
         {
+          "text": "Une caravane pour Gardebois ?",
+          "next": "caravane"
+        },
+        {
           "text": "Merci, Boulon.",
           "next": "fin"
         }
@@ -60,6 +64,10 @@
         {
           "text": "Que faut-il savoir, ici ?",
           "next": "regles"
+        },
+        {
+          "text": "Une caravane pour Gardebois ?",
+          "next": "caravane"
         },
         {
           "text": "Au revoir, Boulon.",
@@ -87,6 +95,56 @@
         {
           "text": "Merci, Boulon.",
           "next": "fin"
+        }
+      ]
+    },
+    "caravane": {
+      "text": "— La Compagnie des Lisières charge ici, entre deux trains : les caisses de l’atelier Cendrefer pour Gardebois. Quinze Fers ; rien pour les gens de la Compagnie. Je porte ta malle.",
+      "options": [
+        {
+          "text": "Montrer ta marque de la Compagnie.",
+          "requires": [
+            {
+              "flag": "membre-compagnie-lisieres"
+            }
+          ],
+          "next": "trajet-gardebois"
+        },
+        {
+          "text": "Payer le voyage.",
+          "requires": [
+            {
+              "notFlag": "membre-compagnie-lisieres"
+            },
+            {
+              "fers": 15
+            }
+          ],
+          "effects": [
+            {
+              "giveFers": -15
+            }
+          ],
+          "next": "trajet-gardebois"
+        },
+        {
+          "text": "Une autre fois.",
+          "next": "fin"
+        }
+      ]
+    },
+    "trajet-gardebois": {
+      "text": "Boulon hisse ta malle d’une seule main. La caravane quitte la cendre de Ferros, passe la frontière, retrouve la forêt. Le soir, les lanternes du Marché des Lisières s’allument entre les arbres : Gardebois.",
+      "options": [
+        {
+          "text": "Descendre du chariot.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "gardebois",
+              "arrivee": "entree"
+            }
+          ]
         }
       ]
     }

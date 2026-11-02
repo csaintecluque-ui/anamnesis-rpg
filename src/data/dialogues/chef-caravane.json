@@ -1,0 +1,74 @@
+{
+  "id": "chef-caravane",
+  "speaker": "chef-caravane",
+  "entries": [
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Un homme au chapeau de cuir mâchonne un bout de viande séchée. — Le chef de caravane, c’est moi. On redescend vers Gardebois demain, et tous les jours d’après. Tu en es ?",
+      "options": [
+        {
+          "text": "Pour Gardebois.",
+          "next": "gardebois"
+        },
+        {
+          "text": "Pas aujourd’hui.",
+          "next": "fin"
+        }
+      ]
+    },
+    "gardebois": {
+      "text": "— 15 Fers. Rien si tu portes la marque de la Compagnie : on ne fait pas payer ceux qui nous ont rendu une sacoche.",
+      "options": [
+        {
+          "text": "Montrer ta marque de la Compagnie.",
+          "next": "trajet-gardebois",
+          "requires": [
+            {
+              "flag": "membre-compagnie-lisieres"
+            }
+          ]
+        },
+        {
+          "text": "Payer le voyage.",
+          "next": "trajet-gardebois",
+          "requires": [
+            {
+              "notFlag": "membre-compagnie-lisieres"
+            },
+            {
+              "fers": 15
+            }
+          ],
+          "effects": [
+            {
+              "giveFers": -15
+            }
+          ]
+        },
+        {
+          "text": "Une autre fois.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "trajet-gardebois": {
+      "text": "La caravane roule sans hâte, de borne en borne. Le soir, les lanternes du Marché des Lisières s’allument une à une entre les arbres : Gardebois.",
+      "options": [
+        {
+          "text": "Descendre du chariot.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "gardebois",
+              "arrivee": "entree"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

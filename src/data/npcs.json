@@ -404,5 +404,26 @@
     "id": "echo-promesse",
     "name": "Un Écho",
     "role": "Au fond de la galerie"
+  },
+  {
+    "id": "convoyeuse",
+    "name": "La convoyeuse",
+    "role": "Compagnie des Lisières, la caravane de midi",
+    "faction": "compagnie-lisieres"
+  },
+  {
+    "id": "chef-caravane",
+    "name": "Le chef de caravane",
+    "role": "Compagnie des Lisières"
+  },
+  {
+    "id": "guichet-ouest",
+    "name": "Le guichet de la ligne de l’Ouest",
+    "role": "Gare de l’Ouest, Ironheart"
+  },
+  {
+    "id": "halte-ouest",
+    "name": "La halte de la ligne de l’Ouest",
+    "role": "Au pied de la Grande Nacelle"
   }
 ]

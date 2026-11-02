@@ -1,0 +1,51 @@
+{
+  "periode": 3,
+  "tableaux": [
+    {
+      "id": "gardebois",
+      "ville": "gardebois",
+      "lieu": "maison-ilyane",
+      "col": 5,
+      "row": 1,
+      "nom": "le relais de Gardebois",
+      "demandeurs": ["Ilyane", "Un caravanier de la Compagnie", "Une famille du Marché"]
+    },
+    {
+      "id": "canopee",
+      "ville": "canopee",
+      "lieu": "canopee-relais",
+      "col": 4,
+      "row": 1,
+      "nom": "le relais de Canopéa",
+      "demandeurs": ["Mirelle", "Un Nacellier", "Un collectionneur des Hautes Ramures"]
+    },
+    {
+      "id": "ironheart",
+      "ville": "ironheart",
+      "lieu": "ironheart-pension",
+      "col": 2,
+      "row": 1,
+      "nom": "le mur de la Bielle",
+      "demandeurs": ["Dorna", "Un cheminot du triage", "Un employé des Archives"]
+    }
+  ],
+  "objets": [
+    { "id": "lanterne-chef-gare", "un": "une lanterne de chef de gare", "genre": "f" },
+    { "id": "plaque-emaillee", "un": "une plaque émaillée, au nom d’une gare", "genre": "f" },
+    { "id": "registre-quai", "un": "un registre de quai", "genre": "m" }
+  ],
+  "chasses": {
+    "1": [
+      { "ennemis": ["loup-rouille", "loup-rouille"], "titre": "Les Loups de Rouille", "phrase": "Des Loups de Rouille ont fait leur tanière", "fin": "Chasse-les." },
+      { "ennemis": ["guepe-rouille", "guepe-rouille", "guepe-rouille"], "titre": "Le nid de Guêpes-Rouille", "phrase": "Des Guêpes-Rouille ont bâti leur nid", "fin": "Chasse-les." }
+    ],
+    "2": [
+      { "ennemis": ["gecko-soudeur", "gecko-soudeur"], "titre": "Les Geckos-Soudeurs", "phrase": "Deux Geckos-Soudeurs crachent des étincelles", "fin": "Chasse-les." },
+      { "ennemis": ["griffe-sylve"], "titre": "La Griffe-Sylve", "phrase": "Une Griffe-Sylve guette dans le noir", "fin": "Chasse-la." }
+    ],
+    "3": [
+      { "ennemis": ["pilleur-cendres", "arbaletrier-cendres"], "titre": "Les pilleurs des Marches", "phrase": "Des pilleurs des Marches des Cendres fouillent", "fin": "Chasse-les." },
+      { "ennemis": ["echo-furieux", "echo-furieux"], "titre": "Les Échos furieux", "phrase": "Des Échos furieux hurlent", "fin": "Fais-les taire." }
+    ]
+  }
+}

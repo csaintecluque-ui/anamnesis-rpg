@@ -60,6 +60,8 @@ const state: GameState = {
   groupe: [{ id: 'liane', hp: 20 }],
   avis: { liane: 2 },
   emprise: 1,
+  voie: { site: 'halte-fougeres', seed: 42, depth: 2 },
+  contrats: { actif: null, faits: 3, pris: ['gardebois-0-pli'] },
 };
 
 describe('save codec', () => {
@@ -128,6 +130,8 @@ describe('save codec', () => {
         groupe: [],
         avis: {},
         emprise: 0,
+        voie: null,
+        contrats: { actif: null, faits: 0, pris: [] },
       });
     }
   });

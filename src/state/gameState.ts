@@ -13,6 +13,8 @@ export interface LocationDef {
   place?: string;
   /** A random encounter's map (docs/gdd/carte-du-monde.md): its content comes from the current encounter. */
   encounter?: boolean;
+  /** A sleeping line's level (docs/gdd/voies.md): its plan and content come from `GameState.voie`. */
+  voie?: boolean;
 }
 
 export const LOCATIONS = locationData as LocationDef[];
@@ -40,6 +42,49 @@ export interface GameState {
   avis: Record<string, number>;
   /** The pull of the Échos relived (src/rules/echos.ts): it weighs on the dice. */
   emprise: number;
+  /** The sleeping line being explored (src/rules/voies.ts, docs/gdd/voies.md), null the rest of the time. */
+  voie: VoieState | null;
+  /** The contracts of the Gardiens' boards (src/rules/contrats.ts). */
+  contrats: ContratsState;
+}
+
+/** A sleeping line under way: its site on the world map, the draw of its levels, and how deep the hero is. */
+export interface VoieState {
+  site: string;
+  seed: number;
+  depth: number;
+}
+
+export type ContratKind = 'pli' | 'recherche' | 'chasse';
+
+/** A contract taken from a board (docs/gdd/voies.md): everything needed to show it, follow it and pay it. */
+export interface Contrat {
+  /** Offer id: `<board>-<period>-<kind>`. */
+  id: string;
+  kind: ContratKind;
+  /** The board it was taken from, and where it is paid (a letter: the board it goes to). */
+  board: string;
+  titre: string;
+  texte: string;
+  /** A letter: the board it goes to. A search or a hunt: the sleeping line (world-map place). */
+  cible: string;
+  /** A search: the level where the thing lies, and the thing (src/data/items.json). */
+  depth?: number;
+  item?: string;
+  /** A hunt: the beasts to drive out, on the first level. */
+  enemies?: string[];
+  fers: number;
+  xp: number;
+  /** A hunt: the beasts are beaten. */
+  fait?: boolean;
+}
+
+export interface ContratsState {
+  actif: Contrat | null;
+  /** Contracts fulfilled, all boards together. */
+  faits: number;
+  /** Offers already taken (they do not come back on the board). */
+  pris: string[];
 }
 
 export type QuestStatus = 'active' | 'done';
@@ -60,6 +105,8 @@ export function createNewGame(character: Character | null = null): GameState {
     groupe: [],
     avis: {},
     emprise: 0,
+    voie: null,
+    contrats: { actif: null, faits: 0, pris: [] },
   };
 }
 

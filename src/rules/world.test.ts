@@ -46,7 +46,8 @@ const sequence = (...values: number[]) => {
 
 describe('world map (docs/gdd/carte-du-monde.md)', () => {
   it('knows Gardebois and Canopéa from the start', () => {
-    expect(knownPlaces({}).map((p) => p.id)).toEqual(['gardebois', 'canopee']);
+    // And the nearest sleeping line, the halte des Fougères (docs/gdd/voies.md).
+    expect(knownPlaces({}).map((p) => p.id)).toEqual(['gardebois', 'canopee', 'halte-fougeres']);
   });
 
   it('puts every house of a place on that place, and encounters nowhere', () => {

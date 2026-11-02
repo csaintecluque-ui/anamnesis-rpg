@@ -9,9 +9,10 @@ import { COMPANIONS, findCompanion, inParty, joinParty, leaveParty } from '../ru
 import { recordMet } from '../rules/bestiary';
 import { ECHOS, collectedEchos, echoFlag } from '../rules/echos';
 import { PUBLICS, heardRumeurs, rumeurFlag } from '../rules/veillees';
+import { VOIE_LOCATION, startVoie } from '../rules/voies';
 import { ENEMIES } from '../rules/combat';
 import { advance, formatDate, shortTime, waitUntil } from '../rules/time';
-import { placeOfLocation } from '../rules/world';
+import { WORLD, placeOfLocation } from '../rules/world';
 import { LOCATIONS, type GameState } from '../state/gameState';
 
 /**
@@ -152,11 +153,28 @@ export function openDevPanel(state: GameState, onClose: (result: DevPanelResult)
   function renderPlaces(): void {
     main.append(el('p', 'Toucher un lieu y emmène tout de suite, à son entrée.', 'note'));
     let lastPlace = '';
-    for (const l of LOCATIONS.filter((x) => !x.encounter)) {
+    for (const l of LOCATIONS.filter((x) => !x.encounter && !x.voie)) {
       const place = placeOfLocation(l.id)?.name ?? 'Ailleurs';
       if (place !== lastPlace) main.append(el('h2', (lastPlace = place)));
       main.append(row(l.name, [button('Y aller', () => finish({ goTo: { location: l.id, entrance: l.entrance } }))]));
     }
+    // Les voies endormies (docs/gdd/voies.md) : un nouveau tirage, au niveau choisi.
+    main.append(el('h2', 'Voies endormies'));
+    for (const site of WORLD.places.filter((p) => p.voie)) {
+      main.append(
+        row(`${site.name} (danger ${site.voie!.danger})`, [
+          ...[1, 2, 3].map((depth) =>
+            button(`Niveau ${depth}`, () => {
+              startVoie(state, site.id);
+              state.voie!.depth = depth;
+              finish({ goTo: { location: VOIE_LOCATION, entrance: 'entree' } });
+            }, 'small'),
+          ),
+        ]),
+      );
+    }
+    const hidden = WORLD.places.filter((p) => p.voie && p.revealedBy).map((p) => p.revealedBy!);
+    main.append(row('Révéler les trois voies sur la carte', [button('Révéler', () => (hidden.forEach((f) => (state.flags[f] = true)), render()))]));
   }
 
   function renderQuests(): void {

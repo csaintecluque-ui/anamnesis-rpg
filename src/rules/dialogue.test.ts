@@ -169,7 +169,8 @@ describe('dialogue files', () => {
   });
 
   it('gives every NPC of the map a dialogue', () => {
-    for (const npc of npcData) expect(DIALOGUES[npc.id], npc.id).toBeDefined();
+    // The crates and Échos of a sleeping line get theirs when the level is drawn (src/rules/voies.ts, voies.test.ts).
+    for (const npc of npcData.filter((n) => !n.id.startsWith('voie-'))) expect(DIALOGUES[npc.id], npc.id).toBeDefined();
   });
 
   it('Ilyane starts the quest, with a Perception 4 test (docs/gdd/tranche-verticale.md)', () => {

@@ -901,3 +901,14 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   528 tests ; vérifié sur PC et téléphone (Playwright).
 - Cyril : « Oui pour tout, mets en ligne » : chiffres, publics, rumeurs et secrets validés ; étape 4 mise en ligne ;
   page Notion « Anamnesis — le jeu » complétée (les veillées, leurs publics, rumeurs et secrets).
+
+## 2026-11-02 (suite) : jalon 3, étape 6, les voies endormies et les contrats
+
+- Cyril : « On passe à la 6, la 5 est en cours » (la passe sombre se fait dans une autre session).
+- Construit (`docs/gdd/voies.md`) : trois voies endormies sur la carte du monde (halte des Fougères, tunnel de la
+  Combe, Dépôt Sept), trois niveaux chacune ; quatre plans (quai, tunnel, dépôt, poste d'aiguillage) tirés et garnis au
+  hasard à chaque visite (bêtes qui attaquent à deux cases, caisses qui luisent, cadenas, pièges cachés, Échos de
+  l'Ancien Monde, coffre du chef de gare au terminus). Tableaux de contrats dans les relais de Gardebois et de Canopéa
+  et sur le mur de la Bielle : pli, recherche, chasse ; un à la fois ; renouvelés tous les trois jours ; au journal.
+  Sauvegarde v15. 548 tests (dont 360 visites tirées, toutes valides et accessibles) ; vérifié sur PC et téléphone.
+

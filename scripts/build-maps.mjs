@@ -964,6 +964,95 @@ function encounterMap(seed, { ground, treeShare, layout }) {
   return m.toTiled();
 }
 
+// Les voies endormies à explorer (docs/gdd/voies.md, jalon 3, étape 6) : une réserve de plans de l'Ancien Monde. Chaque
+// niveau d'une voie en tire un, puis le jeu le garnit au hasard sur ses points d'apparition : bêtes (`ennemi-1..3`),
+// caisses (`coffre-1..3`), pièges (`piege-1..4`), un Écho (`echo-1`), l'objet d'un contrat (`contrat`), la descente.
+function voiePlan(ground, layout) {
+  const m = cityBlock(18, 14, ground, 'mur-brique');
+  m.setObstacle(0, 7, null);
+  m.object('sortie', 'sortie', 0, 7, { cible: CARTE_DU_MONDE, libelle: 'Remonter à la surface' });
+  m.object('entree', 'arrivee', 2, 7);
+  const spots = layout(m);
+  for (const [name, [c, r]] of Object.entries(spots)) m.object(name, 'apparition', c, r);
+  return m.toTiled();
+}
+
+const blocks = (m, tile, cells) => cells.forEach(([c, r]) => m.setObstacle(c, r, tile));
+const fill = (m, tile, c0, r0, c1, r1) => {
+  for (let r = r0; r <= r1; r++) for (let c = c0; c <= c1; c++) m.setObstacle(c, r, tile);
+};
+
+const VOIE_MAPS = {
+  // Le quai : deux quais, deux voies, des wagons morts.
+  'voie-quai': voiePlan('dalles', (m) => {
+    m.rect(1, 1, 16, 4, 'quai');
+    m.rect(1, 10, 16, 12, 'quai');
+    m.line([1, 6], [16, 6], 'rail');
+    m.line([1, 8], [16, 8], 'rail');
+    blocks(m, 'wagon', [[6, 6], [7, 6], [8, 6], [11, 8], [12, 8]]);
+    blocks(m, 'ruine', [[4, 3], [9, 3], [14, 3], [4, 11], [9, 11], [14, 11]]);
+    blocks(m, 'reverbere', [[2, 2], [15, 12]]);
+    return {
+      'ennemi-1': [10, 2], 'ennemi-2': [12, 11], 'ennemi-3': [14, 7],
+      'coffre-1': [16, 1], 'coffre-2': [1, 12], 'coffre-3': [16, 11],
+      'piege-1': [5, 7], 'piege-2': [9, 7], 'piege-3': [12, 4], 'piege-4': [6, 12],
+      'echo-1': [7, 10], contrat: [7, 1], descente: [16, 7],
+    };
+  }),
+  // Le tunnel : une galerie en lacet, coupée par deux murs.
+  'voie-tunnel': voiePlan('sol-cendre', (m) => {
+    fill(m, 'mur-brique', 5, 4, 16, 4);
+    fill(m, 'mur-brique', 1, 9, 12, 9);
+    m.line([1, 7], [16, 7], 'rail');
+    m.line([5, 2], [16, 2], 'rail');
+    m.line([1, 11], [12, 11], 'rail');
+    blocks(m, 'wagon', [[8, 2], [9, 2]]);
+    blocks(m, 'tas-cendres', [[8, 5], [11, 8], [3, 2], [9, 12], [15, 12]]);
+    blocks(m, 'reverbere', [[6, 6], [13, 10]]);
+    return {
+      'ennemi-1': [12, 6], 'ennemi-2': [7, 11], 'ennemi-3': [3, 11],
+      'coffre-1': [16, 1], 'coffre-2': [16, 5], 'coffre-3': [16, 12],
+      'piege-1': [7, 7], 'piege-2': [14, 8], 'piege-3': [14, 9], 'piege-4': [10, 12],
+      'echo-1': [11, 1], contrat: [13, 3], descente: [1, 12],
+    };
+  }),
+  // Le dépôt : des allées de caisses, des tuyaux, un butoir.
+  'voie-depot': voiePlan('dalles', (m) => {
+    fill(m, 'caisses', 4, 1, 5, 4);
+    fill(m, 'caisses', 4, 9, 5, 12);
+    fill(m, 'caisses', 8, 3, 9, 5);
+    fill(m, 'caisses', 8, 9, 9, 12);
+    fill(m, 'caisses', 12, 1, 13, 4);
+    fill(m, 'caisses', 12, 9, 13, 11);
+    blocks(m, 'tuyaux', [[15, 1], [16, 2]]);
+    m.line([14, 12], [16, 12], 'rail');
+    blocks(m, 'butoir', [[16, 12]]);
+    blocks(m, 'reverbere', [[2, 2], [10, 7]]);
+    return {
+      'ennemi-1': [7, 7], 'ennemi-2': [11, 6], 'ennemi-3': [15, 5],
+      'coffre-1': [6, 1], 'coffre-2': [10, 12], 'coffre-3': [16, 10],
+      'piege-1': [6, 6], 'piege-2': [10, 8], 'piege-3': [14, 7], 'piege-4': [7, 11],
+      'echo-1': [2, 11], contrat: [11, 1], descente: [16, 7],
+    };
+  }),
+  // Le poste d'aiguillage : des voies qui se croisent, des leviers que plus personne ne tire.
+  'voie-aiguillage': voiePlan('sol-cendre', (m) => {
+    m.line([1, 7], [16, 7], 'rail');
+    m.line([3, 1], [14, 12], 'rail');
+    m.line([3, 12], [14, 1], 'rail');
+    blocks(m, 'poste-aiguillage', [[9, 4], [8, 10]]);
+    blocks(m, 'levier', [[11, 3], [6, 10]]);
+    blocks(m, 'reverbere', [[2, 2], [15, 2], [2, 11], [15, 11]]);
+    blocks(m, 'tas-cendres', [[5, 4], [12, 9]]);
+    return {
+      'ennemi-1': [10, 7], 'ennemi-2': [14, 4], 'ennemi-3': [13, 11],
+      'coffre-1': [1, 12], 'coffre-2': [16, 1], 'coffre-3': [16, 12],
+      'piege-1': [4, 7], 'piege-2': [12, 7], 'piege-3': [6, 3], 'piege-4': [11, 11],
+      'echo-1': [6, 7], contrat: [8, 1], descente: [16, 7],
+    };
+  }),
+};
+
 const ENCOUNTER_MAPS = {
   'rencontre-clairiere': encounterMap(5100, {
     ground: 'herbe-2',
@@ -1011,6 +1100,7 @@ for (const [id, map] of Object.entries({
   'ironheart-galerie': ironheartGalerie(),
   'canopee-amphitheatre': amphitheatre(),
   ...ENCOUNTER_MAPS,
+  ...VOIE_MAPS,
 })) {
   writeFileSync(new URL(`${id}.json`, out), JSON.stringify(map, null, 1) + '\n');
   console.log(`${id}.json`);

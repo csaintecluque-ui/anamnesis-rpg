@@ -516,5 +516,30 @@
     "id": "echo-train-passant",
     "name": "Un Écho",
     "role": "Le train qui ne s’arrête pas"
+  },
+  {
+    "id": "voie-coffre-1",
+    "name": "Une caisse",
+    "role": "Une caisse de l’Ancien Monde"
+  },
+  {
+    "id": "voie-coffre-2",
+    "name": "Une caisse",
+    "role": "Une caisse de l’Ancien Monde"
+  },
+  {
+    "id": "voie-coffre-3",
+    "name": "Une caisse",
+    "role": "Une caisse de l’Ancien Monde"
+  },
+  {
+    "id": "voie-echo",
+    "name": "Un Écho",
+    "role": "Un Écho de l’Ancien Monde"
+  },
+  {
+    "id": "voie-contrat",
+    "name": "Sous les gravats",
+    "role": "Ce qu’un contrat t’a envoyé chercher"
   }
 ]

@@ -4,6 +4,7 @@ import { MAPS } from '../data/maps';
 import npcData from '../data/npcs.json';
 import { ENEMIES } from '../rules/combat';
 import { RENCONTRES, WORLD, WORLD_MAP_TARGET, encounterObjects, placeOfLocation } from '../rules/world';
+import { VOIE_PLANS } from '../rules/voies';
 import { LOCATIONS, findLocation } from '../state/gameState';
 import type { Tile } from './iso';
 import { findPath } from './pathfinding';
@@ -51,7 +52,8 @@ describe('links between places', () => {
   });
 
   it('lets one leave every place for the world map, through its exits or those of the places around it', () => {
-    for (const l of LOCATIONS.filter((x) => !x.encounter)) expect(placeOfLocation(l.id), l.id).toBeDefined();
+    // Encounters, and the sleeping lines (docs/gdd/voies.md), lead back to the world map where they were met.
+    for (const l of LOCATIONS.filter((x) => !x.encounter && !x.voie)) expect(placeOfLocation(l.id), l.id).toBeDefined();
   });
 
   it('locks a door only behind a dialogue that can open it', () => {
@@ -186,7 +188,8 @@ describe('world map places', () => {
 
   it('are reached through an exit or a door leading to the world map', () => {
     for (const place of WORLD.places) {
-      const own = LOCATIONS.filter((l) => l.place === place.id).map((l) => mapOf(l.id));
+      // A sleeping line: every plan of its levels has its way back up (docs/gdd/voies.md).
+      const own = place.voie ? VOIE_PLANS.map((p) => parseTiledMap(MAPS[p.id])) : LOCATIONS.filter((l) => l.place === place.id).map((l) => mapOf(l.id));
       const out = own.some((m) => m.objects.some((o) => o.properties.cible === WORLD_MAP_TARGET));
       expect(out, place.id).toBe(true);
     }

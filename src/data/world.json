@@ -32,6 +32,47 @@
       "entrance": "entree",
       "revealedByQuest": "audience",
       "description": "La capitale de Ferros : forges, funiculaires et archives, sous un ciel qui semble avoir rouillé."
+    },
+    {
+      "id": "halte-fougeres",
+      "name": "La halte des Fougères",
+      "x": 860,
+      "y": 420,
+      "location": "voie-endormie",
+      "entrance": "entree",
+      "known": true,
+      "description": "Un quai de l’Ancien Monde mangé par les fougères, et un escalier qui descend sous la forêt.",
+      "voie": {
+        "danger": 1
+      }
+    },
+    {
+      "id": "tunnel-combe",
+      "name": "Le tunnel de la Combe",
+      "x": 640,
+      "y": 430,
+      "location": "voie-endormie",
+      "entrance": "entree",
+      "revealedByQuest": "dernier-train",
+      "description": "La bouche d’un tunnel de l’Ancien Monde, sous une colline. Les caravaniers font un détour.",
+      "voie": {
+        "danger": 2
+      },
+      "revealedBy": "connait-tunnel-combe"
+    },
+    {
+      "id": "depot-sept",
+      "name": "Le Dépôt Sept",
+      "x": 800,
+      "y": 120,
+      "location": "voie-endormie",
+      "entrance": "entree",
+      "revealedByQuest": "cle-rouille-bleue",
+      "description": "Un dépôt de l’Ancien Monde, sur la lisière de Ferros. Ferros l’a numéroté, puis l’a oublié.",
+      "voie": {
+        "danger": 3
+      },
+      "revealedBy": "connait-depot-sept"
     }
   ],
   "rails": [

@@ -29,5 +29,6 @@
   { "id": "ironheart-archives", "name": "Ironheart — Archives Centrales de Ferros", "scene": "Map", "map": "ironheart-archives", "entrance": "entree", "place": "ironheart" },
   { "id": "rencontre-clairiere", "name": "Une clairière", "scene": "Map", "map": "rencontre-clairiere", "entrance": "entree", "encounter": true },
   { "id": "rencontre-route", "name": "Sur la route", "scene": "Map", "map": "rencontre-route", "entrance": "entree", "encounter": true },
-  { "id": "rencontre-ruines", "name": "Des ruines de l’Ancien Monde", "scene": "Map", "map": "rencontre-ruines", "entrance": "entree", "encounter": true }
+  { "id": "rencontre-ruines", "name": "Des ruines de l’Ancien Monde", "scene": "Map", "map": "rencontre-ruines", "entrance": "entree", "encounter": true },
+  { "id": "voie-endormie", "name": "Une voie endormie", "scene": "Map", "map": "voie-quai", "entrance": "entree", "voie": true }
 ]

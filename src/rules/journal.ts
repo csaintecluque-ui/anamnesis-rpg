@@ -2,6 +2,7 @@ import type { GameState } from '../state/gameState';
 import { characterStats } from './character';
 import { QUESTS, type QuestDef } from './dialogue';
 import { findRecit, type RecitDef } from './recits';
+import { contractStep } from './contrats';
 import { FACTIONS, REPUTATION, findFaction, levelLabel, reputationLevel, reputationScore } from './reputation';
 import { findPlace, knownPlaces } from './world';
 
@@ -18,13 +19,16 @@ export function journalQuests(state: GameState): JournalQuest[] {
   const started = Object.keys(state.quests);
   const active = started.filter((id) => state.quests[id] === 'active').reverse();
   const done = QUESTS.filter((q) => state.quests[q.id] === 'done').map((q) => q.id);
-  return [...active, ...done].flatMap((id) => {
+  // The contract of the Gardiens under way (docs/gdd/voies.md), first.
+  const c = state.contrats.actif;
+  const contract: JournalQuest[] = c ? [{ id: `contrat-${c.id}`, name: `Contrat : ${c.titre}`, summary: c.texte, done: false, step: contractStep(state, c) }] : [];
+  return [...contract, ...[...active, ...done].flatMap((id) => {
     const quest = QUESTS.find((q) => q.id === id);
     if (!quest) return [];
     const done = state.quests[id] === 'done';
     const step = done ? undefined : [...(quest.etapes ?? [])].reverse().find((e) => state.flags[e.si])?.texte;
     return [{ ...quest, done, step }];
-  });
+  })];
 }
 
 /** Récits retained, the most recent last (the first is the next one forgotten), and how many fit. */

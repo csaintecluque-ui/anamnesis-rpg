@@ -1098,7 +1098,7 @@ Commence par : « apaise » _(si repère « echo-dernier-train-vu »)_, sinon «
 
 _Effet : retient le Récit « Le Savant Corvan »._
 
-> Un instant, tu es sur ce quai disparu. Une voix te revient, celle d’un savant qu’on emmenait loin du danger : « Dis-leur, pour Corvan. Dis-leur que même réussir peut tout détruire. » Puis l’Écho se dissipe, apaisé pour un temps.
+> Un instant, tu es sur ce quai disparu. Une voix te revient, celle d’un savant qu’on emmenait loin du danger : « Dis-leur que même réussir peut tout détruire. » Puis l’Écho se dissipe, apaisé pour un temps.
 
 - « … » → **fin**
 

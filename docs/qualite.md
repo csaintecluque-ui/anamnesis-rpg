@@ -43,8 +43,8 @@ en ligne des étapes 4 et 5 du jalon 3. Version vérifiée : `main` au commit `4
 - **« caste » ou « Classe » Technique** : le roman emploie les deux ; le jeu aussi (zone floue 32).
 - **La rencontre sur téléphone** : le combat part après l'annonce, comme sur PC (vérifié sur PC).
 
-## À trancher par Cyril
+## Décisions de Cyril (2026-11-02, « Oui pour tout, mets en ligne »)
 
-- **Corvan et le dernier train** (zone floue 32) : dans l'Écho du dernier train (jalon 1), un savant de la Chute dit
-  « Dis-leur, pour Corvan » ; or Corvan aurait tenté de rebâtir un réacteur **après** la Chute [E2]. Recommandation :
-  retirer le nom de Corvan de l'Écho (« Dis-leur que même réussir peut tout détruire »), en gardant le Récit.
+- Les corrections ci-dessus sont **mises en ligne**.
+- **Corvan et le dernier train** (zone floue 32) : dans l'Écho du dernier train, le savant de la Chute ne nomme plus
+  Corvan (« Dis-leur que même réussir peut tout détruire ») ; l'Écho donne toujours le Récit du savant Corvan.

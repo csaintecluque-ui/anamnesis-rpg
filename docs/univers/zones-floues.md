@@ -132,7 +132,8 @@ Ces décisions valent **pour le jeu**. Le dossier `docs/Lore/` reste inchangé.
 32. **Le savant Corvan et le dernier train** (relevé à la vérification qualité du 2026-11-02) : dans l'Écho du dernier
     train (jalon 1), un savant de la Grande Chute dit « Dis-leur, pour Corvan ». Or Corvan « a tenté de rebâtir un
     réacteur » de l'Ancien Monde [E2] : il aurait donc vécu **après** la Chute, et le savant du train ne pouvait pas le
-    connaître. À trancher par Cyril : laisser (Corvan d'avant la Chute), ou retirer le nom de l'Écho. Le roman parle
+    connaître. **Décision de Cyril (2026-11-02, « oui pour tout »)** : le nom est retiré de l'Écho (« Dis-leur que même
+    réussir peut tout détruire »), qui donne toujours le Récit du savant Corvan. Le roman parle
     aussi de « caste Technique » (V.1) et de « Classe Technique » (IV.6) : le jeu emploie les deux.
 
 ## Réponses de Cyril (2026-11-02, « Oui pour tout »)

@@ -56,7 +56,7 @@
     },
     "interieur": {
       "illustration": "echo-dernier-train",
-      "text": "Un instant, tu es sur ce quai disparu. Une voix te revient, celle d’un savant qu’on emmenait loin du danger : « Dis-leur, pour Corvan. Dis-leur que même réussir peut tout détruire. » Puis l’Écho se dissipe, apaisé pour un temps.",
+      "text": "Un instant, tu es sur ce quai disparu. Une voix te revient, celle d’un savant qu’on emmenait loin du danger : « Dis-leur que même réussir peut tout détruire. » Puis l’Écho se dissipe, apaisé pour un temps.",
       "effects": [
         {
           "learnRecit": "savant-corvan"

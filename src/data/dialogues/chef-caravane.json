@@ -8,7 +8,7 @@
   ],
   "nodes": {
     "accueil": {
-      "text": "Un homme au chapeau de cuir mâchonne un bout de viande séchée. — Le chef de caravane, c’est moi. On redescend vers Gardebois demain, et tous les jours d’après. Tu en es ?",
+      "text": "Un homme au chapeau de cuir mâchonne un bout de viande séchée. — Le chef de caravane, c’est moi. On redescend vers Gardebois aujourd’hui, comme tous les jours. Tu en es ?",
       "options": [
         {
           "text": "Pour Gardebois.",
@@ -21,7 +21,7 @@
       ]
     },
     "gardebois": {
-      "text": "— 15 Fers. Rien si tu portes la marque de la Compagnie : on ne fait pas payer ceux qui nous ont rendu une sacoche.",
+      "text": "— Quinze Fers. Rien si tu portes la marque de la Compagnie : on ne fait pas payer ceux qui nous ont rendu une sacoche.",
       "options": [
         {
           "text": "Montrer ta marque de la Compagnie.",

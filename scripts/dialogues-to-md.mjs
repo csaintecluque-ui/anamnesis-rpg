@@ -11,6 +11,11 @@ const attributes = read('src/data/attributes.json');
 const skills = read('src/data/skills.json');
 const items = read('src/data/items.json');
 const locations = read('src/data/locations.json');
+const powers = read('src/data/powers.json');
+const echos = read('src/data/echos.json');
+const companions = read('src/data/companions.json');
+const MOMENTS = { matin: 'le matin', midi: 'à midi', soir: 'le soir', nuit: 'la nuit', jour: 'le jour' };
+const companionName = (id) => nameOf(companions, id).split(' ')[0];
 
 const nameOf = (list, id) => list.find((x) => x.id === id)?.name ?? id;
 
@@ -23,8 +28,21 @@ function condition(c) {
   if ('fers' in c) return `**[${c.fers} Fers]**`;
   if ('reputation' in c) return `**[réputation à ${c.reputation} ≥ ${c.min}]**`;
   if ('item' in c) return `_(si l’on porte « ${nameOf(items, c.item)} »${(c.count ?? 1) > 1 ? ` × ${c.count}` : ''})_`;
-  const status = { none: 'pas commencée', active: 'en cours', done: 'terminée' }[c.status];
-  return `_(si quête « ${nameOf(quests, c.quest)} » ${status})_`;
+  if ('moment' in c) return `_(${MOMENTS[c.moment] ?? c.moment})_`;
+  if ('tousLes' in c) return `_(un jour sur ${c.tousLes}, le ${c.decalage + 1}e)_`;
+  if ('cristal' in c) return c.cristal ? '_(un cristal au cou)_' : '_(sans cristal au cou)_';
+  if ('compagnon' in c) return `_(si ${companionName(c.compagnon)} suit le héros)_`;
+  if ('avis' in c) {
+    const range = [c.min !== undefined ? `≥ ${c.min}` : '', c.max !== undefined ? `≤ ${c.max}` : ''].filter(Boolean).join(' et ');
+    return `_(avis de ${companionName(c.avis)} ${range})_`;
+  }
+  if ('lieu' in c) return `_(à « ${nameOf(locations, c.lieu)} »)_`;
+  if ('marques' in c) return `_(${c.marques} marque${c.marques > 1 ? 's' : ''} du cristal ou plus${c.max !== undefined ? `, ${c.max} au plus` : ''})_`;
+  if ('quest' in c) {
+    const status = { none: 'pas commencée', active: 'en cours', done: 'terminée' }[c.status];
+    return `_(si quête « ${nameOf(quests, c.quest)} » ${status})_`;
+  }
+  throw new Error(`condition inconnue : ${JSON.stringify(c)}`);
 }
 
 function effect(e) {
@@ -39,7 +57,20 @@ function effect(e) {
   if ('heal' in e) return `+${e.heal} PV`;
   if ('startCombat' in e) return `lance le combat « ${e.startCombat} »`;
   if ('goTo' in e) return `mène à « ${nameOf(locations, e.goTo)} »`;
-  return `+${e.giveXp} XP`;
+  if ('veillee' in e) return `ouvre la veillée « ${e.veillee} »`;
+  if ('attendre' in e) return `attend ${MOMENTS[e.attendre] ?? e.attendre}`;
+  if ('avancer' in e) return `fait passer ${e.avancer} moment${e.avancer > 1 ? 's' : ''}`;
+  if ('dormir' in e) return `dort jusqu’${e.dormir === 'matin' ? 'au matin' : `à ${MOMENTS[e.dormir] ?? e.dormir}`}`;
+  if ('lancer' in e) return `lance « ${nameOf(powers, e.lancer)} »`;
+  if ('apprendre' in e) return `apprend un rang de ${nameOf(skills, e.apprendre)}`;
+  if ('rejoindre' in e) return `${companionName(e.rejoindre)} se joint au héros`;
+  if ('quitter' in e) return `${companionName(e.quitter)} rentre chez soi`;
+  if ('avis' in e) return `avis de ${companionName(e.avis)} ${e.delta >= 0 ? '+' : '−'}${Math.abs(e.delta)}`;
+  if ('revivre' in e) return `revit l’Écho « ${echos.find((x) => x.id === e.revivre)?.titre ?? e.revivre} »`;
+  if ('blesser' in e) return `−${e.blesser} PV`;
+  if ('effacerMarques' in e) return 'efface les marques du cristal (et un rang de Résonance)';
+  if ('giveXp' in e) return `+${e.giveXp} XP`;
+  throw new Error(`effet inconnu : ${JSON.stringify(e)}`);
 }
 
 function titleOf(id) {

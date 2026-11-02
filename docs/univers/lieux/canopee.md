@@ -107,6 +107,6 @@ et celles des morts qui dorment à leur pied ; pas les machines ni les forages.
 - Passants : les Jeunes-Pousses et leurs échelles de corde, les Citoyens-Arbres et leurs ascenseurs [NOTION] (« ce qui
   tombe, la forêt le garde : les paniers, et les porteurs ») ; une pèlerine dont la mère « a choisi de partir »
   [NOTION : euthanasie légale] ; les Nacelliers tombés.
-- Elvan Morelle dénoncé est **banni** (« ici, on n'enferme pas : on retire les racines ») ; le gardien du grenier, un
-  Jeune-Pousse, est soupçonné si le héros a volé et nie.
+- Elvan Morelle dénoncé est **banni** (« ici, on n'enferme pas : on retire les racines ») ; la gardienne du grenier, une
+  Jeune-Pousse, est soupçonnée si le héros a volé et nie.
 - Vanel reprend les marques d'un cristal forcé, contre un rang de Résonance ; il enterre les éclats d'un cristal fendu.

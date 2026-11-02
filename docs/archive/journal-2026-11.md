@@ -916,3 +916,13 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
 - Cyril : « Je dis oui pour tout, mets le tout en ligne, puis fais-moi une vérification et un test qualité de
   l'ensemble des éléments du jeu. » Passe sombre validée (marques, Puits Trois, morts, zones floues 29 et 30) ;
   fusion de `main` (les veillées) ; mise en ligne.
+- Notion : page « Anamnesis — le jeu » complétée (la passe sombre ; le prix de la magie renvoie aux marques).
+
+## 2026-11-02 (suite) : vérification qualité de tout le jeu
+
+- 546 tests, typecheck, build ; audit des données (aucun repère cassé, aucun objet introuvable) ; les 28 lieux ouverts
+  dans Chromium sur PC et téléphone, sans erreur ; titre, création, journal, pause, carte du monde, rencontre et combat,
+  inventaire ; hors ligne ; `npm audit` (0 faille dans le jeu). Relecture complète des textes (agent).
+- Corrigé : une vingtaine de textes (fautes, cohérences : gardienne du grenier, levier, Aïlis, carnet, Tobias…),
+  figurines de Kerta, Tam et Dask, générateur de `docs/DIALOGUES.md` (69 « undefined »). Rapport : `docs/qualite.md`.
+  À trancher : Corvan dans l'Écho du dernier train (zone floue 32).

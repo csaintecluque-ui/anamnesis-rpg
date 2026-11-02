@@ -1069,4 +1069,11 @@ TILES.push(
   },
   npcTile('arbaletrier-cendres', { body: '#4a4440', hair: '#2a2018', accent: '#ff7a40', extra: '<path d="M40 52 L54 44 M44 44 L52 54" stroke="#6b4a32" stroke-width="2.5"/>' }),
   npcTile('rebouteuse-cendres', { body: '#5a4a44', hair: '#7a6a5a', accent: '#9fe0a0', extra: '<rect x="38" y="60" width="9" height="8" fill="#a88456" stroke="#1B1512" stroke-width="0.8"/>' }),
+  // La passe sombre (docs/gdd/passe-sombre.md) : « Le registre du Puits Trois ».
+  // Kerta, fondeuse en gris, avant-bras brûlés, un seau de fer.
+  npcTile('kerta', { body: '#6e6e68', hair: '#4a3a2c', skin: '#c99a7a', accent: '#a0522d', extra: '<path d="M44 66 L52 66 L50 76 L46 76 Z" fill="#5a5a60" stroke="#1B1512" stroke-width="0.8"/><path d="M45 66 Q48 60 51 66" fill="none" stroke="#1B1512" stroke-width="1"/>' }),
+  // Tam, riveteur maigre, le masque de feutre au cou.
+  npcTile('tam', { body: '#7a7a74', hair: '#2a2018', accent: '#3a3a3a', extra: '<rect x="26" y="52" width="12" height="5" rx="2" fill="#e8e2d4" stroke="#1B1512" stroke-width="0.8"/>' }),
+  // Le technicien Dask, Classe Technique : gris clair, chiffres bleus au poignet.
+  npcTile('dask', { body: '#b8b4aa', hair: '#1f1612', accent: '#2e5a9a', extra: '<rect x="44" y="62" width="5" height="3" fill="#2e5a9a"/><rect x="38" y="56" width="10" height="13" fill="#e8e2d4" stroke="#1B1512" stroke-width="0.8"/>' }),
 );

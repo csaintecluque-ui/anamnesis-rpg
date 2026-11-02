@@ -19,8 +19,8 @@
 
 1. **Jalon 3** (`docs/gdd/jalon-3.md`) : étapes 1 à 5 **validées et en ligne** (combat adulte, compagnons, Livre des
    Échos, veillées `docs/gdd/veillees.md`, passe sombre `docs/gdd/passe-sombre.md` ; scènes inventées des Échos à
-   valider). En cours : **vérification qualité de tout le jeu** (`docs/qualite.md`). Ensuite : étape 6 (ruines et
-   contrats), sur le feu vert de Cyril. Mise en beauté à la fin.
+   valider). **Vérification qualité faite** (`docs/qualite.md`) : corrections sur la branche, mise en ligne et
+   Corvan (zone floue 32) à trancher. Ensuite : étape 6 (ruines et contrats). Mise en beauté à la fin.
 2. Codex : Sept-Portes (`AGENTS.md`). Notion : page « Anamnesis — le jeu », à tenir à jour à chaque mise en ligne.
 
 ## Points ouverts

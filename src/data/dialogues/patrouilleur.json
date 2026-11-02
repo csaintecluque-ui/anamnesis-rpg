@@ -245,7 +245,7 @@
       "text": "Il te saisit le poignet. Sous la peau, tes veines luisent de la couleur du cristal. Il lâche aussitôt. — Rouille de l’âme. Ça, ce n’est plus une liste : c’est un signalement. À moins que tu aies une bonne raison.",
       "options": [
         {
-          "text": "« Une brûlure de forge, rien d’autre. »",
+          "text": "Bluffer : « Une brûlure de forge, rien d’autre. »",
           "next": "rouille-bluff",
           "roll": {
             "skill": "subterfuge",

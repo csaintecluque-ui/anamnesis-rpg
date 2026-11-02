@@ -35,14 +35,14 @@ _Effet : retient « indice-aiguillage », +10 XP._
 
 - _(sans repère « indice-aiguillage »)_ **[Investigation 2]** « Examiner le mécanisme. » → goupille
 - _(sans repère « indice-aiguillage »)_ **[Artisanat 2]** « Démonter le carter. » → goupille
-- _(sans repère « pilleurs-vaincus »)_ _(sans repère « pilleurs-suivis »)_ « Attendre la nuit, caché près du levier. » → veille _(+undefined XP)_
+- _(sans repère « pilleurs-vaincus »)_ _(sans repère « pilleurs-suivis »)_ « Attendre la nuit, caché près du levier. » → veille _(attend la nuit)_
 - « Laisser le levier. » → **fin**
 
 ### veille
 
 _Effet : retient « veille-aiguillage »._
 
-> La nuit tombe sur le triage. Vers trois heures, deux silhouettes en manteau de cendre forcent le levier de l’embranchement. Au loin approche un cliquetis de cristal, sans un souffle de vapeur.
+> La nuit tombe sur le triage. Vers trois heures, deux silhouettes en manteau de cendre abaissent le levier de l’embranchement, sans effort. Au loin approche un cliquetis de cristal, sans un souffle de vapeur.
 
 - « Les arrêter ! » → **fin** _(lance le combat « aiguillage-cendres »)_
 - **🎲 Discrétion 11** « Les laisser faire, et suivre le convoi. » → suivre, ✗ → veille-rate
@@ -265,12 +265,12 @@ Commence par : « grave » _(si repère « saule-grave »)_, sinon « lisse »
 
 > Un jeune arbre au tronc encore lisse, au bord du Bosquet. Personne n’y a gravé.
 
-- _(si quête « Ce que Liane veut oublier » en cours)_ _(si repère « oubli-choix-graver »)_ _(si quête « undefined » undefined)_ « Laisser Liane graver le nom de Saule. » → graver
+- _(si quête « Ce que Liane veut oublier » en cours)_ _(si repère « oubli-choix-graver »)_ _(si Liane suit le héros)_ « Laisser Liane graver le nom de Saule. » → graver
 - « Partir. » → **fin**
 
 ### graver
 
-_Effet : retient « saule-grave », termine la quête « Ce que Liane veut oublier », retient le Récit « Saule, le frère de Liane », +40 XP, +undefined XP._
+_Effet : retient « saule-grave », termine la quête « Ce que Liane veut oublier », retient le Récit « Saule, le frère de Liane », +40 XP, avis de Liane +3._
 
 > Liane grave lentement, en verdani, comme on le lui a appris. Quand elle pose la main sur l’écorce, elle pleure enfin, longtemps. Puis elle sourit. — Il riait trop fort. Le bois s’en souviendra. Moi aussi, maintenant, mais autrement.
 
@@ -341,7 +341,7 @@ _Effet : retient « marche-cendres-indice »._
 
 > Boulon hisse ta malle d’une seule main. La caravane quitte la cendre de Ferros, passe la frontière, retrouve la forêt. Le soir, les lanternes du Marché des Lisières s’allument entre les arbres : Gardebois.
 
-- « Descendre du chariot. » → **fin** _(+undefined XP, +undefined XP, mène à « Gardebois — Marché des Lisières »)_
+- « Descendre du chariot. » → **fin** _(attend à midi, attend le soir, mène à « Gardebois — Marché des Lisières »)_
 
 ### parler
 
@@ -370,14 +370,14 @@ _Effet : termine la quête « Le contrat de Boulon », +40 XP._
 
 > Boulon lit le papier trois fois, puis le plie en quatre, très lentement. — Je ne suis plus du matériel. … Alors je viens. Je porterai ce qu’il faut, et je me souviendrai de chaque endroit. Ce seront les miens.
 
-- « En route, Boulon. » → **fin** _(+undefined XP)_
+- « En route, Boulon. » → **fin** _(Boulon se joint au héros)_
 - « Attends-moi ici un peu. » → **fin**
 
 ### revient
 
 > — Tu reviens me chercher ? Je suis libre de dire oui. Ou de dire non. C’est nouveau.
 
-- _(si quête « undefined » undefined)_ « Viens, Boulon. » → **fin** _(+undefined XP)_
+- _(avis de Boulon ≥ -4)_ « Viens, Boulon. » → **fin** _(Boulon se joint au héros)_
 - « Une caravane pour Gardebois ? » → caravane
 - « Pas maintenant. » → **fin**
 
@@ -584,14 +584,14 @@ Commence par : « accueil »
 
 ### accueil
 
-> Un homme au chapeau de cuir mâchonne un bout de viande séchée. — Le chef de caravane, c’est moi. On redescend vers Gardebois demain, et tous les jours d’après. Tu en es ?
+> Un homme au chapeau de cuir mâchonne un bout de viande séchée. — Le chef de caravane, c’est moi. On redescend vers Gardebois aujourd’hui, comme tous les jours. Tu en es ?
 
 - « Pour Gardebois. » → gardebois
 - « Pas aujourd’hui. » → **fin**
 
 ### gardebois
 
-> — 15 Fers. Rien si tu portes la marque de la Compagnie : on ne fait pas payer ceux qui nous ont rendu une sacoche.
+> — Quinze Fers. Rien si tu portes la marque de la Compagnie : on ne fait pas payer ceux qui nous ont rendu une sacoche.
 
 - _(si repère « membre-compagnie-lisieres »)_ « Montrer ta marque de la Compagnie. » → trajet-gardebois
 - _(sans repère « membre-compagnie-lisieres »)_ **[15 Fers]** « Payer le voyage. » → trajet-gardebois _(−15 Fers)_
@@ -601,7 +601,7 @@ Commence par : « accueil »
 
 > La caravane roule sans hâte, de borne en borne. Le soir, les lanternes du Marché des Lisières s’allument une à une entre les arbres : Gardebois.
 
-- « Descendre du chariot. » → **fin** _(+undefined XP, +undefined XP, mène à « Gardebois — Marché des Lisières »)_
+- « Descendre du chariot. » → **fin** _(attend à midi, attend le soir, mène à « Gardebois — Marché des Lisières »)_
 
 ## La colporteuse
 
@@ -666,7 +666,7 @@ Commence par : « presse » _(si quête « La caravane de midi » pas commencée
 
 _Ferrôme, porteur à la gare de l’Ouest_
 
-Commence par : « gare » _(si quête « undefined » undefined)_, sinon « route-bon » _(si quête « undefined » undefined)_, sinon « route-froid » _(si quête « undefined » undefined)_, sinon « route »
+Commence par : « gare » _(à « Ironheart — Les Forges-Basses »)_, sinon « route-bon » _(avis de Boulon ≥ 3)_, sinon « route-froid » _(avis de Boulon ≤ -2)_, sinon « route »
 
 ### route
 
@@ -702,11 +702,11 @@ Commence par : « gare » _(si quête « undefined » undefined)_, sinon « rout
 
 > Boulon hisse ta malle sur le chariot, puis s’y hisse à son tour. La caravane quitte la cendre de Ferros, passe la frontière, retrouve la forêt. Le soir, les lanternes du Marché des Lisières.
 
-- « Descendre du chariot. » → **fin** _(+undefined XP, +undefined XP, mène à « Gardebois — Marché des Lisières »)_
+- « Descendre du chariot. » → **fin** _(attend à midi, attend le soir, mène à « Gardebois — Marché des Lisières »)_
 
 ### adieu
 
-_Effet : +undefined XP._
+_Effet : Boulon rentre chez soi._
 
 > — Je retourne au quai. Les malles ne se porteront pas toutes seules, même libres. Tu sais où me trouver.
 
@@ -716,7 +716,7 @@ _Effet : +undefined XP._
 
 _Herboriste_
 
-Commence par : « marques » _(si quête « undefined » undefined)_ _(sans repère « liane-a-vu-marques »)_, sinon « manger » _(si quête « Ce que Liane veut oublier » en cours)_ _(si l’on porte « Vieux Champignon-Mémoire »)_, sinon « nuit » _(si quête « Ce que Liane veut oublier » pas commencée)_ _(si quête « undefined » undefined)_, sinon « legere » _(si repère « liane-a-oublie »)_, sinon « route-bon » _(si quête « undefined » undefined)_, sinon « route-froid » _(si quête « undefined » undefined)_, sinon « route »
+Commence par : « marques » _(1 marque du cristal ou plus)_ _(sans repère « liane-a-vu-marques »)_, sinon « manger » _(si quête « Ce que Liane veut oublier » en cours)_ _(si l’on porte « Vieux Champignon-Mémoire »)_, sinon « nuit » _(si quête « Ce que Liane veut oublier » pas commencée)_ _(la nuit)_, sinon « legere » _(si repère « liane-a-oublie »)_, sinon « route-bon » _(avis de Liane ≥ 3)_, sinon « route-froid » _(avis de Liane ≤ -2)_, sinon « route »
 
 ### route
 
@@ -792,14 +792,14 @@ _Effet : lance la quête « Ce que Liane veut oublier », retient « oubli-aveu 
 
 > — Il faudra que je le touche, ce bois, après. … Je ne sais pas si je pourrai.
 
-- « Je serai là. » → **fin** _(+undefined XP)_
+- « Je serai là. » → **fin** _(avis de Liane +1)_
 - « En route. » → **fin**
 
 ### manger
 
 > Liane prend le champignon à deux mains. Il luit faiblement, pâle comme une lune. — Après, je ne saurai même plus pourquoi je l’ai mangé. Tu ne me le diras pas, hein ?
 
-- « Je ne te dirai rien. » → oublie _(reprend 1 × « Vieux Champignon-Mémoire », retient « liane-a-oublie », termine la quête « Ce que Liane veut oublier », +40 XP, +undefined XP)_
+- « Je ne te dirai rien. » → oublie _(reprend 1 × « Vieux Champignon-Mémoire », retient « liane-a-oublie », termine la quête « Ce que Liane veut oublier », +40 XP, avis de Liane +1)_
 - _(sans repère « oubli-choix-graver »)_ « Non : allons plutôt graver son nom. » → graver-ok _(reprend 1 × « Vieux Champignon-Mémoire », retient « oubli-choix-graver »)_
 - « Attends. Garde-le encore. » → **fin**
 
@@ -811,7 +811,7 @@ _Effet : lance la quête « Ce que Liane veut oublier », retient « oubli-aveu 
 
 ### adieu
 
-_Effet : +undefined XP._
+_Effet : Liane rentre chez soi._
 
 > — Bon. Mes malades m’attendent, de toute façon. Tu sais où me trouver : là où ça sent la menthe.
 
@@ -824,7 +824,7 @@ _Effet : retient « liane-a-vu-marques »._
 > Liane attrape ta main et la retourne, sans demander. — Tes veines. Tu forces ton cristal. J’ai vu des guérisseurs finir comme ça, à Gardebois : ils soignaient tout le monde, sauf eux. Vanel peut te les reprendre. Ne fais pas l’idiot·e.
 
 - « Je ferai attention. » → **fin**
-- « Je sais ce que je fais. » → **fin** _(+undefined XP)_
+- « Je sais ce que je fais. » → **fin** _(avis de Liane −1)_
 
 ## La convoyeuse
 
@@ -842,7 +842,7 @@ Commence par : « accueil »
 
 ### canopee
 
-> — 15 Fers, et tu dors sur les sacs de farine. Rien pour les gens de la Compagnie : on ne fait pas payer la famille.
+> — Quinze Fers, et tu dors sur les sacs de farine. Rien pour les gens de la Compagnie : on ne fait pas payer la famille.
 
 - _(si repère « membre-compagnie-lisieres »)_ « Montrer ta marque de la Compagnie. » → trajet-canopee
 - _(sans repère « membre-compagnie-lisieres »)_ **[15 Fers]** « Payer le voyage. » → trajet-canopee _(−15 Fers)_
@@ -850,7 +850,7 @@ Commence par : « accueil »
 
 ### ironheart
 
-> — Ironheart, par la frontière. Ton sauf-conduit du Triumvirat suffira aux douaniers. 15 Fers, rien pour la Compagnie.
+> — Ironheart, par la frontière. Ton sauf-conduit du Triumvirat suffira aux douaniers. Quinze Fers, rien pour la Compagnie.
 
 - _(si repère « membre-compagnie-lisieres »)_ « Montrer ta marque de la Compagnie. » → trajet-ironheart
 - _(sans repère « membre-compagnie-lisieres »)_ **[15 Fers]** « Payer le voyage. » → trajet-ironheart _(−15 Fers)_
@@ -860,13 +860,13 @@ Commence par : « accueil »
 
 > La caravane suit la route des Lisières. Les chariots grincent ; on chante fort pour tenir les Loups de Rouille à distance. À la tombée du jour, au pied des Arbres-Titans, la Grande Nacelle te monte jusqu’aux cimes.
 
-- « Monter jusqu’aux cimes. » → **fin** _(+undefined XP, +undefined XP, mène à « Canopéa — La Grande Nacelle »)_
+- « Monter jusqu’aux cimes. » → **fin** _(attend à midi, attend le soir, mène à « Canopéa — La Grande Nacelle »)_
 
 ### trajet-ironheart
 
 > La caravane passe la frontière de Ferros. La forêt s’éclaircit, la terre devient cendre, et le ciel prend la couleur de la rouille. Au soir, la gare de l’Ouest d’Ironheart.
 
-- « Descendre du chariot. » → **fin** _(+undefined XP, +undefined XP, mène à « Ironheart — Les Forges-Basses »)_
+- « Descendre du chariot. » → **fin** _(attend à midi, attend le soir, mène à « Ironheart — Les Forges-Basses »)_
 
 ## Cristal de veille
 
@@ -904,9 +904,9 @@ Commence par : « apres » _(si repère « dask-parrain »)_, sinon « dossier �
 
 ### nom
 
-> — Le masque. Déclaré à mon nom : le masque Dask. Le garçon montera comme mon assistant, bien payé. Les Manufactures le vendront aux fonderies qui paient. C’est ainsi que le progrès monte : avec ceux qui savent le porter.
+> — Le masque. Déclaré à mon nom : le masque Dask. Le garçon montera comme mon assistant, bien payé. Les Manufactures vendront le masque aux fonderies qui paient. C’est ainsi que le progrès monte : avec ceux qui savent le porter.
 
-- « Marché conclu. » → nom-ok _(retient « dask-parrain », retient « dask-nom », +undefined XP)_
+- « Marché conclu. » → nom-ok _(retient « dask-parrain », retient « dask-nom », avis de Boulon −1)_
 - « Non. » → dossier
 
 ### paye
@@ -953,7 +953,7 @@ _Effet : retient « dask-parrain », retient « faux-bancal »._
 
 _Pension de la Bielle_
 
-Commence par : « cristal » _(si quête « undefined » undefined)_ _(sans repère « dorna-cristal »)_, sinon « accueil-2 » _(si quête « undefined » undefined)_, sinon « accueil-3 » _(si quête « undefined » undefined)_, sinon « accueil »
+Commence par : « cristal » _(un cristal au cou)_ _(sans repère « dorna-cristal »)_, sinon « accueil-2 » _(un jour sur 3, le 2e)_, sinon « accueil-3 » _(un jour sur 3, le 3e)_, sinon « accueil »
 
 ### accueil
 
@@ -961,7 +961,7 @@ Commence par : « cristal » _(si quête « undefined » undefined)_ _(sans rep�
 
 - « Manger ou dormir ? » → servir
 - « Quelles nouvelles ? » → nouvelles
-- « Raconter un Récit à la veillée. » → **fin** _(+undefined XP)_
+- « Raconter un Récit à la veillée. » → **fin** _(ouvre la veillée « bielle »)_
 - « Au revoir. » → **fin**
 
 ### nouvelles
@@ -988,8 +988,8 @@ Commence par : « cristal » _(si quête « undefined » undefined)_ _(sans rep�
 > — Une soupe épaisse, ou un lit de camp ? Les lits grincent, mais ils tiennent. Comme les gens d’ici.
 
 - **[8 Fers]** « Une soupe épaisse. » → soupe _(−8 Fers, +15 PV)_
-- **[8 Fers]** « Un lit jusqu’au matin. » → dodo _(−8 Fers, +undefined XP)_
-- **[8 Fers]** « Un lit jusqu’à la nuit. » → dodo _(−8 Fers, +undefined XP)_
+- **[8 Fers]** « Un lit jusqu’au matin. » → dodo _(−8 Fers, dort jusqu’au matin)_
+- **[8 Fers]** « Un lit jusqu’à la nuit. » → dodo _(−8 Fers, dort jusqu’à la nuit)_
 - « Rien, merci. » → accueil
 
 ### dodo
@@ -1004,7 +1004,7 @@ Commence par : « cristal » _(si quête « undefined » undefined)_ _(sans rep�
 
 - « Manger ou dormir ? » → servir
 - « Quelles nouvelles ? » → nouvelles
-- « Raconter un Récit à la veillée. » → **fin** _(+undefined XP)_
+- « Raconter un Récit à la veillée. » → **fin** _(ouvre la veillée « bielle »)_
 - « Au revoir. » → **fin**
 
 ### accueil-3
@@ -1013,7 +1013,7 @@ Commence par : « cristal » _(si quête « undefined » undefined)_ _(sans rep�
 
 - « Manger ou dormir ? » → servir
 - « Quelles nouvelles ? » → nouvelles
-- « Raconter un Récit à la veillée. » → **fin** _(+undefined XP)_
+- « Raconter un Récit à la veillée. » → **fin** _(ouvre la veillée « bielle »)_
 - « Au revoir. » → **fin**
 
 ### cristal
@@ -1137,7 +1137,7 @@ _Effet : retient le Récit « On se retrouvera »._
 
 > L’Écho répète sa promesse, jusqu’au bout cette fois, et ta mémoire la garde. Il attend quelque chose de toi : qu’on le suive, qu’on le garde, ou qu’on le laisse.
 
-- _(si quête « Les Échos sous la Forge » en cours)_ **[Mémoire 3]** _(sans repère « echos-dechaines »)_ « Le suivre, là où il va. » → suivre _(retient « echos-suivis », termine la quête « Les Échos sous la Forge », +50 XP, donne 1 × « Oiseau de fer », +undefined XP)_
+- _(si quête « Les Échos sous la Forge » en cours)_ **[Mémoire 3]** _(sans repère « echos-dechaines »)_ « Le suivre, là où il va. » → suivre _(retient « echos-suivis », termine la quête « Les Échos sous la Forge », +50 XP, donne 1 × « Oiseau de fer », avis de Boulon +1)_
 - _(si quête « Les Échos sous la Forge » en cours)_ _(sans repère « echos-dechaines »)_ « Le garder par écrit. » → garder
 - _(si quête « Les Échos sous la Forge » en cours)_ « Le frapper pour le dissiper. » → frapper
 - « Réfléchir encore. » → **fin**
@@ -1158,8 +1158,8 @@ _Effet : retient le Récit « On se retrouvera »._
 
 > Garder l’Écho par écrit, pour qu’il ne se perde pas : la berceuse, les mains sur l’enclume, la promesse. Mais pour qui l’écrire ?
 
-- « Pour les Archives : Noam saura le classer. » → archiver _(donne 1 × « Relevé d’un Écho », retient « echo-releve », +undefined XP)_
-- « Pour Ilyane, qui saura l’écouter. » → confier _(donne 1 × « Lettre pour Ilyane », retient « echo-lettre », +undefined XP, +undefined XP)_
+- « Pour les Archives : Noam saura le classer. » → archiver _(donne 1 × « Relevé d’un Écho », retient « echo-releve », avis de Boulon +1)_
+- « Pour Ilyane, qui saura l’écouter. » → confier _(donne 1 × « Lettre pour Ilyane », retient « echo-lettre », avis de Liane +1, avis de Boulon +1)_
 - « Réfléchir encore. » → choix
 
 ### archiver
@@ -1178,7 +1178,7 @@ _Effet : retient le Récit « On se retrouvera »._
 
 > Hesk l’a dit : un Écho qu’on frappe se multiplie, et devient violent. Frapper quand même ?
 
-- « Frapper. » → **fin** _(+undefined XP, +undefined XP, retient « echos-dechaines », lance le combat « echos-furieux »)_
+- « Frapper. » → **fin** _(avis de Liane −1, avis de Boulon −2, retient « echos-dechaines », lance le combat « echos-furieux »)_
 - « Non. » → choix
 
 ### apaise
@@ -1333,9 +1333,9 @@ _Effet : retient « graines-elvan-avoue »._
 
 > Elvan s’assoit d’un coup. — Les Marches des Cendres paient trois fois le prix, à Ironheart. Trois fois ! Je me disais : quelques sacs, le Conseil ne verra rien… Il en reste six, là, dans le ballot.
 
-- « Je vais le dire au Conseil. » → denonce _(retient « graines-denonce », termine la quête « Les graines qui manquent », +30 XP, +undefined XP)_
-- **[Diplomatie 3]** « Rapporte-les toi-même au grenier, et la Compagnie gardera son honneur. » → rend _(retient « graines-rendues », termine la quête « Les graines qui manquent », +40 XP, +undefined XP, +undefined XP)_
-- « Partageons : quarante Fers, et je n’ai rien vu. » → part _(retient « graines-silence », +40 Fers, termine la quête « Les graines qui manquent », +10 XP, +undefined XP, +undefined XP)_
+- « Je vais le dire au Conseil. » → denonce _(retient « graines-denonce », termine la quête « Les graines qui manquent », +30 XP, avis de Liane +1)_
+- **[Diplomatie 3]** « Rapporte-les toi-même au grenier, et la Compagnie gardera son honneur. » → rend _(retient « graines-rendues », termine la quête « Les graines qui manquent », +40 XP, avis de Liane +2, avis de Boulon +1)_
+- « Partageons : quarante Fers, et je n’ai rien vu. » → part _(retient « graines-silence », +40 Fers, termine la quête « Les graines qui manquent », +10 XP, avis de Liane −2, avis de Boulon −1)_
 - « Laisse-moi réfléchir. » → **fin**
 
 ### denonce
@@ -1381,7 +1381,7 @@ _Effet : retient « enclume-vue »._
 > Une vieille enclume, noire de suie. Sur le plat, des mains gravées, grandes et petites, cinq en tout, posées côte à côte. L’Écho les rejoue un instant : des rires, puis plus rien.
 
 - **[Investigation 2]** « Examiner les marques. » → marques
-- « Approcher la lueur d’un cristal. » → marques _(+undefined XP)_
+- « Approcher la lueur d’un cristal. » → marques _(lance « Lueur »)_
 - « Partir. » → **fin**
 
 ### marques
@@ -1400,7 +1400,7 @@ Commence par : « explosee » _(si repère « foreuse-explosee »)_, sinon « fa
 
 > La foreuse de Brisefer mord la roche de la Faille dans un fracas de fer. Les ouvriers ne la quittent pas des yeux.
 
-- _(si quête « Le Dernier Train » en cours)_ « Attendre la nuit dans les ruines du quai. » → nuit _(+undefined XP)_
+- _(si quête « Le Dernier Train » en cours)_ « Attendre la nuit dans les ruines du quai. » → nuit _(attend la nuit)_
 - « S’éloigner. » → **fin**
 
 ### nuit
@@ -1415,7 +1415,7 @@ Commence par : « explosee » _(si repère « foreuse-explosee »)_, sinon « fa
 > 🌙 Te voilà au pied de la foreuse, dans l’odeur d’huile et de pierre chaude. Personne n’a rien vu.
 
 - **🎲 Artisanat 10** « Saboter le mécanisme. » → sabotee, ✗ → bruit
-- « Ouvrir la chaudière en grand, et courir. » → chaudiere _(retient « foreuse-sabotee », retient « foreuse-explosee », retient « chantier-arrete », termine la quête « Le Dernier Train », +70 XP, +30 Fers, +undefined XP)_
+- « Ouvrir la chaudière en grand, et courir. » → chaudiere _(retient « foreuse-sabotee », retient « foreuse-explosee », retient « chantier-arrete », termine la quête « Le Dernier Train », +70 XP, +30 Fers, avis de Liane −2)_
 - « Repartir sans rien toucher. » → **fin**
 
 ### sabotee
@@ -1482,7 +1482,7 @@ Commence par : « scellee » _(si repère « echos-dissipes »)_, sinon « apres
 
 > Une forge froide, la seule des Forges-Basses. Les ouvriers la contournent : « si une forge s’éteint d’elle-même, un esprit rouille rôde. » Pourtant, la pierre du foyer est tiède sous la main.
 
-- « Revenir à la nuit tombée. » → nuit _(+undefined XP)_
+- « Revenir à la nuit tombée. » → nuit _(attend la nuit)_
 - « Passer son chemin. » → **fin**
 
 ### nuit
@@ -1567,7 +1567,7 @@ Commence par : « rencontre »
 
 _Effet : retient « cle-mentionnee », retient « fouille-marches »._
 
-> — On est payés par les Marches des Cendres, au Marché d’Ironheart : un certain Kaelis, qui achète les vieilles choses. Ils cherchent une clé de rouille bleue, le long des anciennes voies. Celle-ci passe sous vos arbres.
+> — On est payés par les Marches des Cendres, au Marché des Cendres, à Ironheart : un certain Kaelis, qui achète les vieilles choses. Ils cherchent une clé de rouille bleue, le long des anciennes voies. Celle-ci passe sous vos arbres.
 
 - « Pars, et ne reviens jamais sur le sol sacré. » → depart _(retient « fouille-elucidee », +30 XP)_
 
@@ -1587,9 +1587,9 @@ Commence par : « vide » _(si repère « vol-grenier »)_, sinon « sacs »
 
 > Des sacs de graines-lumière, alignés comme des soldats. Chacun porte le sceau du Conseil : ce sont les semences des futurs arbres de Canopéa.
 
-- « Prendre un sac. » → pris _(donne 1 × « Graines-lumière », retient « vol-grenier », +undefined XP, +undefined XP)_
+- « Prendre un sac. » → pris _(donne 1 × « Graines-lumière », retient « vol-grenier », avis de Liane −2, avis de Boulon −1)_
 - _(si quête « Les graines qui manquent » en cours)_ _(sans repère « preuve-sceau »)_ **[Investigation 2]** « Examiner les rangées. » → indice _(retient « preuve-sceau », retient « indice-elvan », +10 XP)_
-- _(si quête « Les graines qui manquent » en cours)_ _(sans repère « preuve-sceau »)_ « Faire luire un cristal entre les rangées. » → indice _(+undefined XP, retient « preuve-sceau », retient « indice-elvan », +10 XP)_
+- _(si quête « Les graines qui manquent » en cours)_ _(sans repère « preuve-sceau »)_ « Faire luire un cristal entre les rangées. » → indice _(lance « Lueur », retient « preuve-sceau », retient « indice-elvan », +10 XP)_
 - « Les laisser où ils sont. » → **fin**
 
 ### pris
@@ -1603,7 +1603,7 @@ Commence par : « vide » _(si repère « vol-grenier »)_, sinon « sacs »
 > Il manque un sac dans la rangée. Le trou se voit.
 
 - _(si quête « Les graines qui manquent » en cours)_ _(sans repère « preuve-sceau »)_ **[Investigation 2]** « Examiner les rangées. » → indice _(retient « preuve-sceau », retient « indice-elvan », +10 XP)_
-- _(si quête « Les graines qui manquent » en cours)_ _(sans repère « preuve-sceau »)_ « Faire luire un cristal entre les rangées. » → indice _(+undefined XP, retient « preuve-sceau », retient « indice-elvan », +10 XP)_
+- _(si quête « Les graines qui manquent » en cours)_ _(sans repère « preuve-sceau »)_ « Faire luire un cristal entre les rangées. » → indice _(lance « Lueur », retient « preuve-sceau », retient « indice-elvan », +10 XP)_
 - « Partir. » → **fin**
 
 ### indice
@@ -1650,7 +1650,7 @@ Commence par : « guichet »
 
 > Le train quitte Ironheart dans un souffle de vapeur cristalline. Puis la forêt : quarante minutes sous une canopée de deux cents mètres, dans une voiture à toit de verre. À la halte, la Grande Nacelle te monte jusqu’aux cimes.
 
-- « Monter jusqu’aux cimes. » → **fin** _(+undefined XP, mène à « Canopéa — La Grande Nacelle »)_
+- « Monter jusqu’aux cimes. » → **fin** _(fait passer 2 moments, mène à « Canopéa — La Grande Nacelle »)_
 
 ## La halte de la ligne de l’Ouest
 
@@ -1678,7 +1678,7 @@ Commence par : « halte »
 
 > La Grande Nacelle te descend à la halte. Le train file sous la canopée, voitures à toit de verre ; puis la forêt s’arrête net, et commence la cendre. Une demi-journée plus tard, la gare de l’Ouest d’Ironheart.
 
-- « Descendre sur le quai. » → **fin** _(+undefined XP, mène à « Ironheart — Les Forges-Basses »)_
+- « Descendre sur le quai. » → **fin** _(fait passer 2 moments, mène à « Ironheart — Les Forges-Basses »)_
 
 ## Hedda Cendrefer
 
@@ -2296,7 +2296,7 @@ _Effet : retient « kaelis-parle », +15 XP._
 
 > — Elle est là, dans ta poche. Je l’entends rouiller d’ici. Cent Fers, et l’on n’en parle plus.
 
-- « La lui vendre, pour cent Fers. » → vendue _(reprend 1 × « Clé de rouille bleue », +100 Fers, retient « cle-vendue », termine la quête « La Clé de Rouille Bleue », +60 XP, +undefined XP, +undefined XP)_
+- « La lui vendre, pour cent Fers. » → vendue _(reprend 1 × « Clé de rouille bleue », +100 Fers, retient « cle-vendue », termine la quête « La Clé de Rouille Bleue », +60 XP, avis de Boulon −2, avis de Liane −1)_
 - « Qu’ouvre-t-elle ? » → ouvre
 - « Non, pas à toi. » → **fin**
 
@@ -2433,7 +2433,7 @@ _Effet : retient « lettres-ramassees »._
 
 ### traces
 
-> De larges empreintes rondes, et des touffes de mousse arrachées : un Ours-Mousse. Il a dû prendre la sacoche pour un nid bien douillet.
+> De larges empreintes rondes, et des touffes de mousse arrachées : un Ours-Mousse. Il a dû la traîner jusqu’à sa tanière.
 
 - « Ramasser les lettres. » → ramassees
 - « Partir. » → **fin**
@@ -2446,7 +2446,7 @@ Commence par : « apres » _(si quête « Les herbes de lisière » terminée)_,
 
 ### demande
 
-> Tu marches sur ma menthe. … Bon. L’apprenti·e d’Ilyane, c’est ça ? Alors rends-toi utile : il me faut de la sauge-lumière pour les malades, et mes genoux ne valent plus rien.
+> Tu marches sur ma menthe. … Bon. L’apprenti·e d’Ilyane, c’est ça ? Alors rends-toi utile : il me faut de la sauge-lumière pour les malades, et ils ne me laissent pas une minute.
 
 - « Où en trouver ? » → ou _(lance la quête « Les herbes de lisière »)_
 - « Une autre fois. » → **fin**
@@ -2473,21 +2473,21 @@ Commence par : « apres » _(si quête « Les herbes de lisière » terminée)_,
 
 > Mes malades vont un peu mieux. Reviens si tu croises d’autres herbes étranges.
 
-- _(si quête « undefined » undefined)_ « Viens avec moi, Liane. » → recrue
+- _(avis de Liane ≥ -4)_ « Viens avec moi, Liane. » → recrue
 - « … » → **fin**
 
 ### recrue
 
 > Liane te dévisage longtemps. — Mes malades… Sylvan les nourrira, et la sauge repousse sans moi. Mais je ne me bats pas pour les causes perdues, et je ne vole rien à personne. Compris ?
 
-- « Compris. » → **fin** _(+undefined XP)_
+- « Compris. » → **fin** _(Liane se joint au héros)_
 - « Je reviendrai. » → **fin**
 
 ## Lisandre Ramelune
 
 _Aubergiste du Nid_
 
-Commence par : « vote » _(si quête « L’audience » terminée)_ _(si repère « conseil-frontiere »)_ _(sans repère « lisandre-vote-dit »)_, sinon « vote-commerce » _(si quête « L’audience » terminée)_ _(si repère « conseil-commerce »)_ _(sans repère « lisandre-vote-commerce-dit »)_, sinon « vote-accord » _(si quête « L’audience » terminée)_ _(si repère « conseil-accord »)_ _(sans repère « lisandre-vote-accord-dit »)_, sinon « elvan-parti » _(si quête « Les graines qui manquent » terminée)_ _(si repère « graines-denonce »)_ _(sans repère « lisandre-elvan-parti-dit »)_, sinon « tournee » _(si quête « Les graines qui manquent » terminée)_ _(si repère « graines-silence »)_ _(sans repère « lisandre-tournee-dit »)_, sinon « nouvelles-vol » _(si repère « vol-grenier »)_ _(sans repère « lisandre-vol-dit »)_, sinon « flute » _(si quête « Le chant d’Anselme » terminée)_ _(sans repère « lisandre-flute-dit »)_, sinon « accueil-2 » _(si quête « undefined » undefined)_, sinon « accueil-3 » _(si quête « undefined » undefined)_, sinon « accueil »
+Commence par : « vote » _(si quête « L’audience » terminée)_ _(si repère « conseil-frontiere »)_ _(sans repère « lisandre-vote-dit »)_, sinon « vote-commerce » _(si quête « L’audience » terminée)_ _(si repère « conseil-commerce »)_ _(sans repère « lisandre-vote-commerce-dit »)_, sinon « vote-accord » _(si quête « L’audience » terminée)_ _(si repère « conseil-accord »)_ _(sans repère « lisandre-vote-accord-dit »)_, sinon « elvan-parti » _(si quête « Les graines qui manquent » terminée)_ _(si repère « graines-denonce »)_ _(sans repère « lisandre-elvan-parti-dit »)_, sinon « tournee » _(si quête « Les graines qui manquent » terminée)_ _(si repère « graines-silence »)_ _(sans repère « lisandre-tournee-dit »)_, sinon « nouvelles-vol » _(si repère « vol-grenier »)_ _(sans repère « lisandre-vol-dit »)_, sinon « flute » _(si quête « Le chant d’Anselme » terminée)_ _(sans repère « lisandre-flute-dit »)_, sinon « accueil-2 » _(un jour sur 3, le 2e)_, sinon « accueil-3 » _(un jour sur 3, le 3e)_, sinon « accueil »
 
 ### accueil
 
@@ -2495,7 +2495,7 @@ Commence par : « vote » _(si quête « L’audience » terminée)_ _(si repèr
 
 - « Manger ou dormir ? » → servir
 - « Quelles nouvelles ? » → nouvelles
-- « Raconter un Récit à la veillée. » → **fin** _(+undefined XP)_
+- « Raconter un Récit à la veillée. » → **fin** _(ouvre la veillée « nid »)_
 - « Au revoir. » → **fin**
 
 ### soupe
@@ -2579,8 +2579,8 @@ _Effet : retient « lisandre-flute-dit »._
 > — Une soupe, ou un hamac ? Les hamacs du Nid bercent au vent des cimes : on n’a jamais aussi bien dormi.
 
 - **[8 Fers]** « Une soupe de fleurs. » → soupe _(−8 Fers, +15 PV)_
-- **[10 Fers]** « Un hamac jusqu’au matin. » → dodo _(−10 Fers, +undefined XP)_
-- **[10 Fers]** « Un hamac jusqu’à la nuit. » → dodo _(−10 Fers, +undefined XP)_
+- **[10 Fers]** « Un hamac jusqu’au matin. » → dodo _(−10 Fers, dort jusqu’au matin)_
+- **[10 Fers]** « Un hamac jusqu’à la nuit. » → dodo _(−10 Fers, dort jusqu’à la nuit)_
 - « Rien, merci. » → accueil
 
 ### dodo
@@ -2595,7 +2595,7 @@ _Effet : retient « lisandre-flute-dit »._
 
 - « Manger ou dormir ? » → servir
 - « Quelles nouvelles ? » → nouvelles
-- « Raconter un Récit à la veillée. » → **fin** _(+undefined XP)_
+- « Raconter un Récit à la veillée. » → **fin** _(ouvre la veillée « nid »)_
 - « Au revoir. » → **fin**
 
 ### accueil-3
@@ -2604,7 +2604,7 @@ _Effet : retient « lisandre-flute-dit »._
 
 - « Manger ou dormir ? » → servir
 - « Quelles nouvelles ? » → nouvelles
-- « Raconter un Récit à la veillée. » → **fin** _(+undefined XP)_
+- « Raconter un Récit à la veillée. » → **fin** _(ouvre la veillée « nid »)_
 - « Au revoir. » → **fin**
 
 ## Lyra Cœur-de-Sève
@@ -2855,13 +2855,13 @@ Commence par : « apres » _(si quête « La berceuse oubliée » terminée)_, s
 
 ### silence
 
-> Nell serre son oiseau de bois et regarde la fenêtre. « Maman chante, mais je ne connais pas cette chanson. Avant, je la connaissais… je crois. »
+> Nell serre son oiseau de bois et regarde la fenêtre. — Maman chante, mais je ne connais pas cette chanson. Avant, je la connaissais… je crois.
 
 - « … » → **fin**
 
 ### chanson
 
-> Nell lève les yeux vers toi. « Tu connais une chanson ? »
+> Nell lève les yeux vers toi. — Tu connais une chanson ?
 
 - « Lui chanter la berceuse de l’Écho. » → souvenir _(termine la quête « La berceuse oubliée », +30 XP)_
 - « Pas encore. » → **fin**
@@ -3075,7 +3075,7 @@ Commence par : « apres » _(si repère « rail-bureau »)_, sinon « rapport »
 
 _Funiculaire des Manufactures-Moyennes_
 
-Commence par : « rouille » _(si quête « undefined » undefined)_ _(sans repère « rouille-ame »)_, sinon « liste » _(si quête « undefined » undefined)_ _(sans repère « liste-ferros »)_, sinon « passe » _(si repère « laissez-passer-ironheart »)_, sinon « controle »
+Commence par : « rouille » _(1 marque du cristal ou plus)_ _(sans repère « rouille-ame »)_, sinon « liste » _(un cristal au cou)_ _(sans repère « liste-ferros »)_, sinon « passe » _(si repère « laissez-passer-ironheart »)_, sinon « controle »
 
 ### controle
 
@@ -3149,7 +3149,7 @@ _Effet : retient « liste-ferros »._
 
 > Il te saisit le poignet. Sous la peau, tes veines luisent de la couleur du cristal. Il lâche aussitôt. — Rouille de l’âme. Ça, ce n’est plus une liste : c’est un signalement. À moins que tu aies une bonne raison.
 
-- **🎲 Subterfuge 13** « « Une brûlure de forge, rien d’autre. » » → rouille-bluff, ✗ → rouille-cellule
+- **🎲 Subterfuge 13** « Bluffer : « Une brûlure de forge, rien d’autre. » » → rouille-bluff, ✗ → rouille-cellule
 - **[20 Fers]** « Lui glisser vingt Fers. » → rouille-payee _(−20 Fers)_
 - « Je n’ai rien à cacher. » → rouille-cellule
 
@@ -3175,7 +3175,7 @@ _Effet : retient « rouille-ame »._
 
 ### rouille-cellule
 
-_Effet : retient « rouille-ame », retient « rouille-signalee », +undefined XP, +undefined XP._
+_Effet : retient « rouille-ame », retient « rouille-signalee », fait passer 1 moment, attend le matin._
 
 > 🌙 Le poste : une cellule de fer, un banc, un seau. On t’y garde « le temps de vérifier ton statut ». Au matin, un Veilleur de Rouille note tes veines, ton nom, ta pension, et l’on te relâche. Te voilà fiché·e, à l’encre rouge.
 
@@ -3314,7 +3314,7 @@ Commence par : « mur »
 
 - _(si repère « marche-cendres-indice »)_ « Chercher le passage, comme on te l’a dit. » → trouve
 - **[Investigation 2]** « Examiner le mur. » → trouve
-- « Faire luire un cristal le long du mur. » → trouve _(+undefined XP)_
+- « Faire luire un cristal le long du mur. » → trouve _(lance « Lueur »)_
 - « Passer son chemin. » → **fin**
 
 ### trouve
@@ -3411,7 +3411,7 @@ _Effet : retient « sauge-3-cueillie »._
 
 > Derrière la mousse, un paquet ciré : une bourse de Fers, une fiole de sève, et un mot plié en quatre, d’une écriture appliquée : « Pour la petite, si je ne reviens pas de la Lisière. »
 
-- « Tout prendre. » → cache-prise _(+30 Fers, donne 1 × « Fiole de sève », retient « cache-passeurs-prise », +undefined XP)_
+- « Tout prendre. » → cache-prise _(+30 Fers, donne 1 × « Fiole de sève », retient « cache-passeurs-prise », avis de Liane −1)_
 - « Remettre la mousse, et tout laisser. » → **fin**
 
 ### cache-prise
@@ -3590,7 +3590,7 @@ _Effet : retient « verite-rail »._
 
 _Aubergiste de la Racine_
 
-Commence par : « ilyane-chante » _(si quête « Le carnet de chansons » terminée)_ _(sans repère « sylvan-ilyane-chante-dit »)_, sinon « triumvirat » _(si quête « L’audience » terminée)_ _(sans repère « sylvan-triumvirat-dit »)_, sinon « accueil-2 » _(si quête « undefined » undefined)_, sinon « accueil-3 » _(si quête « undefined » undefined)_, sinon « accueil »
+Commence par : « ilyane-chante » _(si quête « Le carnet de chansons » terminée)_ _(sans repère « sylvan-ilyane-chante-dit »)_, sinon « triumvirat » _(si quête « L’audience » terminée)_ _(sans repère « sylvan-triumvirat-dit »)_, sinon « accueil-2 » _(un jour sur 3, le 2e)_, sinon « accueil-3 » _(un jour sur 3, le 3e)_, sinon « accueil »
 
 ### accueil
 
@@ -3598,7 +3598,7 @@ Commence par : « ilyane-chante » _(si quête « Le carnet de chansons » termi
 
 - « Manger ou dormir ? » → servir
 - « Quelles nouvelles ? » → rumeurs
-- « Raconter un Récit à la veillée. » → **fin** _(+undefined XP)_
+- « Raconter un Récit à la veillée. » → **fin** _(ouvre la veillée « racine »)_
 - « Au revoir. » → **fin**
 
 ### repas
@@ -3609,7 +3609,7 @@ Commence par : « ilyane-chante » _(si quête « Le carnet de chansons » termi
 
 ### rumeurs
 
-> On dit que la maladie des souvenirs vient de la Gare, depuis que Ferros y creuse. La petite Nell, chez les Lunelierre, ne reconnaît plus sa propre berceuse… Et Brann, le gamin de Tobias, a perdu une caisse sur la route de l’est.
+> On dit que la maladie des souvenirs vient de la Gare, depuis que Ferros y creuse. La petite Nell, chez les Lunelierre, ne reconnaît plus sa propre berceuse… Et Brann, l’apprenti de Tobias, a perdu une caisse sur la route de l’est.
 
 - « Et l’herboriste, Liane ? » → liane
 - « Merci. » → accueil
@@ -3641,8 +3641,8 @@ _Effet : retient « sylvan-triumvirat-dit »._
 > — Une soupe, ou une chambre ? La chambre du fond est calme : on n’y entend que le ruisseau.
 
 - **[8 Fers]** « Un repas chaud. » → repas _(−8 Fers, +15 PV)_
-- **[6 Fers]** « Une chambre jusqu’au matin. » → dodo _(−6 Fers, +undefined XP)_
-- **[6 Fers]** « Une chambre jusqu’à la nuit. » → dodo _(−6 Fers, +undefined XP)_
+- **[6 Fers]** « Une chambre jusqu’au matin. » → dodo _(−6 Fers, dort jusqu’au matin)_
+- **[6 Fers]** « Une chambre jusqu’à la nuit. » → dodo _(−6 Fers, dort jusqu’à la nuit)_
 - « Rien, merci. » → accueil
 
 ### dodo
@@ -3657,7 +3657,7 @@ _Effet : retient « sylvan-triumvirat-dit »._
 
 - « Manger ou dormir ? » → servir
 - « Quelles nouvelles ? » → rumeurs
-- « Raconter un Récit à la veillée. » → **fin** _(+undefined XP)_
+- « Raconter un Récit à la veillée. » → **fin** _(ouvre la veillée « racine »)_
 - « Au revoir. » → **fin**
 
 ### accueil-3
@@ -3666,7 +3666,7 @@ _Effet : retient « sylvan-triumvirat-dit »._
 
 - « Manger ou dormir ? » → servir
 - « Quelles nouvelles ? » → rumeurs
-- « Raconter un Récit à la veillée. » → **fin** _(+undefined XP)_
+- « Raconter un Récit à la veillée. » → **fin** _(ouvre la veillée « racine »)_
 - « Au revoir. » → **fin**
 
 ## La tailleuse de cristaux
@@ -3689,7 +3689,7 @@ Commence par : « accueil »
 > — Il chauffe, il mord, il brûle : les Flammes forgées. Les pyromanciens en font des prières, les technomanciens des machines. Toi, fais-en ce que tu veux, mais pas sous le nez d’un patrouilleur.
 
 - « Voyons tes cristaux. » → **fin** _(ouvre le Troc)_
-- _(si quête « undefined » undefined)_ « Tu regardes mes veines. » → veines
+- _(1 marque du cristal ou plus)_ « Tu regardes mes veines. » → veines
 - _(si l’on porte « Éclats de cristal »)_ « Tu rachètes des éclats ? » → eclats
 - « Merci. » → **fin**
 
@@ -3764,9 +3764,9 @@ _Effet : retient « tam-ecoute »._
 
 ### hedda
 
-> — Cendrefer ? L’atelier de la Compagnie, la sœur du marchand de Verdantis ? Elle n’est d’aucune de nos castes. Elle coudrait, peut-être. Mais une Innovation non déclarée, c’est une faute : c’est toi qui porterais les plans.
+> — Cendrefer ? L’atelier de la Compagnie, la sœur du marchand de Gardebois ? Elle n’est d’aucune de nos castes. Elle coudrait, peut-être. Mais une Innovation non déclarée, c’est une faute : c’est toi qui porterais les plans.
 
-- « Donne-les-moi. » → plans _(donne 1 × « Plans du masque de Tam », retient « plans-confies », +undefined XP)_
+- « Donne-les-moi. » → plans _(donne 1 × « Plans du masque de Tam », retient « plans-confies », avis de Boulon +1)_
 - « Pas encore. » → **fin**
 
 ### plans
@@ -3781,7 +3781,7 @@ _Effet : retient « tam-ecoute »._
 
 - _(sans repère « faux-bancal »)_ « Monte. Pour ta mère, et pour tes poumons. » → monte _(retient « tam-monte », termine la quête « Le registre du Puits Trois », +50 XP)_
 - _(si repère « faux-bancal »)_ « Monte. Pour ta mère, et pour tes poumons. » → monte _(retient « tam-arrete », termine la quête « Le registre du Puits Trois », +20 XP)_
-- _(sans repère « dask-nom »)_ « Reste, et donne le masque à ceux d’en bas. » → masques-choix _(+undefined XP)_
+- _(sans repère « dask-nom »)_ « Reste, et donne le masque à ceux d’en bas. » → masques-choix _(avis de Boulon +1)_
 - « Je ne sais pas. » → **fin**
 
 ### monte
@@ -3852,7 +3852,7 @@ Commence par : « gueri » _(si repère « tiven-soigne »)_, sinon « quete » 
 
 > Tiven tend ses paumes rougies. — C’est Vanel qui t’envoie ? Il dit que les cristaux écoutent mieux que les herboristes. Moi, je veux juste pouvoir fermer le poing demain.
 
-- « Poser le cristal de Vie sur ses mains. » → soin _(+undefined XP, retient « tiven-soigne », +15 XP, +undefined XP)_
+- « Poser le cristal de Vie sur ses mains. » → soin _(lance « Guérison naturelle », retient « tiven-soigne », +15 XP, avis de Liane +2)_
 - _(si l’on porte « Bandage »)_ _(sans repère « tiven-panse »)_ « Panser ses mains avec un bandage. » → panse _(reprend 1 × « Bandage », retient « tiven-panse », +5 XP)_
 - « Je reviens. » → **fin**
 
@@ -3957,7 +3957,7 @@ Commence par : « trou »
 
 - « Regarder au fond. » → fond
 - **[Investigation 2]** « Examiner les outils. » → outils
-- « Éclairer le fond du trou d’un cristal. » → outils _(+undefined XP)_
+- « Éclairer le fond du trou d’un cristal. » → outils _(lance « Lueur »)_
 - « Partir. » → **fin**
 
 ### fond
@@ -4015,7 +4015,7 @@ _Effet : retient « cendriere-ouverte »._
 
 _Druide Vert, au Bosquet des Échos_
 
-Commence par : « retour » _(si quête « Un prêt de la Terre » en cours)_ _(si repère « tiven-soigne »)_, sinon « eclats » _(si l’on porte « Éclats de cristal »)_ _(sans repère « vanel-eclats-vus »)_, sinon « marques » _(si quête « undefined » undefined)_ _(sans repère « vanel-a-vu-marques »)_, sinon « apres » _(si quête « Un prêt de la Terre » terminée)_, sinon « attente » _(si quête « Un prêt de la Terre » en cours)_, sinon « accueil »
+Commence par : « retour » _(si quête « Un prêt de la Terre » en cours)_ _(si repère « tiven-soigne »)_, sinon « eclats » _(si l’on porte « Éclats de cristal »)_ _(sans repère « vanel-eclats-vus »)_, sinon « marques » _(1 marque du cristal ou plus)_ _(sans repère « vanel-a-vu-marques »)_, sinon « apres » _(si quête « Un prêt de la Terre » terminée)_, sinon « attente » _(si quête « Un prêt de la Terre » en cours)_, sinon « accueil »
 
 ### accueil
 
@@ -4023,7 +4023,7 @@ Commence par : « retour » _(si quête « Un prêt de la Terre » en cours)_ _(
 
 - _(si quête « Un prêt de la Terre » pas commencée)_ « Apprends-moi. » → apprendre
 - « Qu’est-ce qu’un cristal de Résonance ? » → cristal
-- _(si quête « undefined » undefined)_ « Mes veines brillent, sous le cristal. » → marques
+- _(1 marque du cristal ou plus)_ « Mes veines brillent, sous le cristal. » → marques
 - « Que la sève coule. » → **fin**
 
 ### cristal
@@ -4044,9 +4044,9 @@ _Effet : lance la quête « Un prêt de la Terre », donne 1 × « Cristal de Vi
 
 ### prix
 
-> — Alors tu sauras ce que coûte la magie. Quand le cristal n’a plus rien à donner, c’est toi qui paies : le nez qui saigne, d’abord. Force souvent, et il te marque : les veines qui s’allument, le manque, la peau qui durcit. Le sommeil rend la fatigue. Pas les marques.
+> — Alors tu sauras ce que coûte la magie. Quand le cristal n’a plus rien à donner, c’est toi qui paies : le nez qui saigne, d’abord. Force souvent, et il te marque : les veines qui s’allument, le manque, la peau qui durcit. Le sommeil efface la fatigue. Pas les marques.
 
-- _(si quête « undefined » undefined)_ « Reprends mes marques. » → marques
+- _(1 marque du cristal ou plus)_ « Reprends mes marques. » → marques
 - « Compris. » → **fin**
 
 ### attente
@@ -4058,7 +4058,7 @@ _Effet : lance la quête « Un prêt de la Terre », donne 1 × « Cristal de Vi
 
 ### retour
 
-_Effet : termine la quête « Un prêt de la Terre », +40 XP, +undefined XP._
+_Effet : termine la quête « Un prêt de la Terre », +40 XP, apprend un rang de Résonance._
 
 > Vanel sourit avant que tu parles. — Je l’ai entendu d’ici, et l’arbre aussi. Garde le cristal : ce n’est pas un don, c’est un prêt. Tu le rendras en soignant à ton tour.
 
@@ -4068,7 +4068,7 @@ _Effet : termine la quête « Un prêt de la Terre », +40 XP, +undefined XP._
 
 ### lueur
 
-> — La Lueur. Tous les cristaux savent briller : pense à une lanterne, et il s’allume de sa couleur. Dans le noir, il montre ce que l’ombre cache. Pour le feu, il faut un cristal de forge… et ce n’est pas un druide qui te l’apprendra.
+> — La Lueur. Tous les cristaux savent briller : pense à une lanterne, et le tien s’allume de sa couleur. Dans le noir, il montre ce que l’ombre cache. Pour le feu, il faut un cristal de forge… et ce n’est pas un druide qui te l’apprendra.
 
 - « Et à Ferros ? » → ferros
 - « Merci, Vanel. » → **fin**
@@ -4095,7 +4095,7 @@ _Effet : retient « vanel-a-vu-marques »._
 
 > Vanel prend ton poignet et le tourne vers la lumière. Sous la peau, les veines luisent. — Tu as forcé. La Terre peut reprendre ce que tu lui as trop pris ; elle reprendra aussi un peu de ce que tu sais faire. C’est le prix, et personne ne le paie à ta place.
 
-- « Reprends-les. » → effacees _(+undefined XP)_
+- « Reprends-les. » → effacees _(efface les marques du cristal (et un rang de Résonance))_
 - « Je les garde. » → gardees
 
 ### effacees
@@ -4445,7 +4445,7 @@ _Effet : retient « descente-autorisee »._
 
 ### doute
 
-> Véline te regarde un long moment. — Bien. Alors aide-moi à trouver qui. En attendant, c’est le gardien du grenier qu’on soupçonne : un Jeune-Pousse qui dort sur une échelle de corde. S’il paie pour un autre, on le bannira.
+> Véline te regarde un long moment. — Bien. Alors aide-moi à trouver qui. En attendant, c’est la gardienne du grenier qu’on soupçonne : une Jeune-Pousse qui dort sur une échelle de corde. Si elle paie pour un autre, on la bannira.
 
 - « Je vais chercher. » → **fin**
 - « Qui pourrait savoir ? » → graines-piste

@@ -95,7 +95,7 @@
       ]
     },
     "veille": {
-      "text": "La nuit tombe sur le triage. Vers trois heures, deux silhouettes en manteau de cendre forcent le levier de l’embranchement. Au loin approche un cliquetis de cristal, sans un souffle de vapeur.",
+      "text": "La nuit tombe sur le triage. Vers trois heures, deux silhouettes en manteau de cendre abaissent le levier de l’embranchement, sans effort. Au loin approche un cliquetis de cristal, sans un souffle de vapeur.",
       "effects": [
         {
           "setFlag": "veille-aiguillage"

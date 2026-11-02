@@ -127,7 +127,7 @@
       {
         "quest": "chant-anselme",
         "lines": [
-          "Le soir, on entend une flûte, du côté du Bosquet. Aïlis Feuillevent, à ce qu’on dit. Ça faisait longtemps qu’elle ne jouait plus."
+          "Le soir, on entend une flûte, du côté du Bosquet. Aïlis Feuillevent, dit-on. Ça faisait longtemps qu’on ne l’entendait plus."
         ]
       }
     ]
@@ -326,7 +326,7 @@
       ]
     ],
     "lines": [
-      "Pas le temps ! Si je rate la caravane de midi, mon patron me retient la paie. À Ferros, une paie retenue, c’est l’eau du soir.",
+      "Pas le temps ! J’ai raté la caravane de midi : mon patron va me retenir la paie. À Ferros, c’est l’eau du soir.",
       "Ici, on me sert en dernier. « Ceux de Ferros, on s’en méfie », qu’ils disent. Je paie pareil, pourtant."
     ],
     "walk": "sprites/figurant-commis-ferros.png",
@@ -568,7 +568,7 @@
         "quest": "registre-puits",
         "flag": "masques-forges",
         "lines": [
-          "Un masque de feutre ! Je crache gris, maintenant, plus noir. Ma femme dit que c’est la couleur de l’espoir."
+          "Un masque de feutre ! Je crache gris, maintenant, et non plus noir. Ma femme dit que c’est la couleur de l’espoir."
         ]
       }
     ]

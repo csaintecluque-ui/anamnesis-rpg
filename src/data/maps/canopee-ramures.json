@@ -1341,7 +1341,7 @@
    "tilewidth": 64,
    "tileheight": 96,
    "columns": 8,
-   "tilecount": 165,
+   "tilecount": 168,
    "margin": 0,
    "spacing": 0,
    "tiles": [
@@ -5452,6 +5452,81 @@
        "name": "nom",
        "type": "string",
        "value": "rebouteuse-cendres"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 165,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "kerta"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 166,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "tam"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 167,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "dask"
       },
       {
        "name": "bloquant",

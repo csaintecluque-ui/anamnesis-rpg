@@ -5,6 +5,7 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `../AGENTS.md` : consignes pour Codex et les autres agents (renvoie à `CLAUDE.md`, qui fait foi ; ce que Canopéa laisse à Ironheart).
 
 - `JOURNAL.md` : état actuel, jalon en cours, prochaine étape (court). Historique : `archive/journal-AAAA-MM.md`.
+- `qualite.md` : vérification qualité de tout le jeu (2026-11-02) : ce qui a été testé, corrigé, laissé, à trancher.
 - `STYLE.md` : fiche de style des visuels de la phase 2 (direction, palette, formats, prompt commun) ; validée.
 - `ASSETS.md` : plan des images de la phase 2 et journal de chaque génération (date, outil, prompt, coût, fichier).
 - `DIALOGUES.md` : textes de tous les dialogues, générés par `npm run dialogues` (ne pas éditer à la main).
@@ -32,7 +33,7 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `personnages/pnj.md` : héros, Ilyane, Tobias, Ingrid, ennemis (validés).
 - `chronologie.md` : dates de référence.
 - `ton.md` : ton du corpus, ton du jeu (dark fantasy pour adultes, charte), sonorités des noms par nation.
-- `zones-floues.md` : 31 contradictions du canon, décisions de Cyril.
+- `zones-floues.md` : 32 contradictions du canon, décisions de Cyril.
 - `propositions.md` : propositions sans autre fichier (quête, attribut Mémoire), propositions rejetées.
 
 ## `gdd/` : conception du jeu (systèmes, chiffres, équilibrage)

@@ -135,7 +135,7 @@
       ]
     },
     "prix": {
-      "text": "— Alors tu sauras ce que coûte la magie. Quand le cristal n’a plus rien à donner, c’est toi qui paies : le nez qui saigne, d’abord. Force souvent, et il te marque : les veines qui s’allument, le manque, la peau qui durcit. Le sommeil rend la fatigue. Pas les marques.",
+      "text": "— Alors tu sauras ce que coûte la magie. Quand le cristal n’a plus rien à donner, c’est toi qui paies : le nez qui saigne, d’abord. Force souvent, et il te marque : les veines qui s’allument, le manque, la peau qui durcit. Le sommeil efface la fatigue. Pas les marques.",
       "options": [
         {
           "text": "Reprends mes marques.",
@@ -194,7 +194,7 @@
       ]
     },
     "lueur": {
-      "text": "— La Lueur. Tous les cristaux savent briller : pense à une lanterne, et il s’allume de sa couleur. Dans le noir, il montre ce que l’ombre cache. Pour le feu, il faut un cristal de forge… et ce n’est pas un druide qui te l’apprendra.",
+      "text": "— La Lueur. Tous les cristaux savent briller : pense à une lanterne, et le tien s’allume de sa couleur. Dans le noir, il montre ce que l’ombre cache. Pour le feu, il faut un cristal de forge… et ce n’est pas un druide qui te l’apprendra.",
       "options": [
         {
           "text": "Et à Ferros ?",

@@ -292,4 +292,4 @@ Détails, ancrages du canon et chiffres : `docs/gdd/passe-sombre.md`.
 - **Le Rail des Cendres** : vendre le silence aux Marches fait tuer **Joss** (« ni dette ouverte, ni témoin ») ; tout
   dire au Bureau le livre au tribunal (« sabotage d'un secteur stratégique » ; la trahison, c'est la mort [NOTION]).
 - **Les graines qui manquent** : Elvan dénoncé est **banni** (« on retire les racines ») ; si le héros a volé et nie,
-  c'est le gardien du grenier, un Jeune-Pousse, qu'on soupçonne.
+  c'est la gardienne du grenier, une Jeune-Pousse, qu'on soupçonne.

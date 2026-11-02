@@ -76,7 +76,7 @@ Quête **proposée** :
 | Triage des Cendres (« Le Rail des Cendres ») | le silence vendu aux **Marches** | **Joss est tué** (« entre deux wagons, les mains encore noires de graisse ; les Marches ne laissent ni dette ouverte, ni témoin ») ; il disparaît du triage |
 | idem | tout dire au **Bureau** | Joss est livré au tribunal : « sabotage d'un secteur stratégique » ; à Ferros, la trahison, c'est la mort [NOTION : peine de mort pour trahison ; grève interdite dans les secteurs stratégiques] |
 | Canopéa (« Les graines qui manquent ») | dénoncer **Elvan** | il est **banni** : « ici, on n'enferme pas, on retire les racines » [NOTION : bannissement pour la corruption ; les Sans-Racines comptent des bannis] ; la fleuriste l'a vu partir, sans nom |
-| idem | le héros a volé et **nie** | le gardien du grenier, un Jeune-Pousse, est soupçonné : on le bannira s'il paie pour un autre |
+| idem | le héros a volé et **nie** | la gardienne du grenier, une Jeune-Pousse, est soupçonnée : on la bannira si elle paie pour un autre |
 | Ironheart (le registre) | voir plus haut | Tam arrêté, ou monté, ou resté |
 
 ## 4. Le ton des trois villes

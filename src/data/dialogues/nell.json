@@ -29,7 +29,7 @@
   ],
   "nodes": {
     "silence": {
-      "text": "Nell serre son oiseau de bois et regarde la fenêtre. « Maman chante, mais je ne connais pas cette chanson. Avant, je la connaissais… je crois. »",
+      "text": "Nell serre son oiseau de bois et regarde la fenêtre. — Maman chante, mais je ne connais pas cette chanson. Avant, je la connaissais… je crois.",
       "options": [
         {
           "text": "…",
@@ -38,7 +38,7 @@
       ]
     },
     "chanson": {
-      "text": "Nell lève les yeux vers toi. « Tu connais une chanson ? »",
+      "text": "Nell lève les yeux vers toi. — Tu connais une chanson ?",
       "options": [
         {
           "text": "Lui chanter la berceuse de l’Écho.",

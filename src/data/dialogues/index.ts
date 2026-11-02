@@ -1,4 +1,5 @@
 import type { Dialogue } from '../../rules/dialogue';
+import { echoDialogues } from '../../rules/echos';
 import ailis from './ailis.json';
 import arbreAncien from './arbre-ancien.json';
 import arbreAnselme from './arbre-anselme.json';
@@ -164,4 +165,6 @@ export const DIALOGUES: Record<string, Dialogue> = {
   veline: veline as Dialogue,
   'vieille-machine': vieilleMachine as Dialogue,
   'voyageur-egare': voyageurEgare as Dialogue,
+  // Le Livre des Échos (docs/gdd/echos.md) : one dialogue per Écho, built from src/data/echos.json.
+  ...echoDialogues(),
 };

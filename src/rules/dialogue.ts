@@ -5,6 +5,7 @@ import { resolveCheck, rollD20, successChance, type Rng } from './checks';
 import { characterStats } from './character';
 import { ENCOUNTERS } from './combat';
 import { addItem, findItem, ownedCount, removeItem } from './inventory';
+import { easeEmprise, empriseMalus, ECHOS, relive } from './echos';
 import { avisOf, changeAvis, findCompanion, inParty, joinParty, leaveParty, restParty } from './companions';
 import { castCost, castOutsideCombat, findPower, hasPower, POWERS, restoreResonance, teachSkillRank, wornCrystal, type PowerId } from './magic';
 import { RECITS, findRecit, knowsRecit, learnRecit } from './recits';
@@ -78,7 +79,11 @@ export type Effect =
   /** A companion leaves the party and goes home. */
   | { quitter: string }
   /** A companion travelling with the hero thinks of this choice (+ or −); too low, they leave. */
-  | { avis: string; delta: number };
+  | { avis: string; delta: number }
+  /** Relives a gathered Écho (docs/gdd/echos.md): a moment of peace, time lost, the emprise grows. */
+  | { revivre: string }
+  /** Loses PV (a cursed Écho holding on); never below 1. */
+  | { blesser: number };
 
 /** An action rolled with the d20 (docs/gdd/competences.md): the chance is shown, then `next` or `failNext` follows. */
 export interface Roll {
@@ -203,11 +208,11 @@ function castView(state: GameState, option: DialogueOption): { tag: string; miss
   return { tag, missing: c.hp > cost.hp ? undefined : 'Tu n’as plus assez de forces : dors d’abord.' };
 }
 
-/** Attribute modifier + rank: what is added to the d20 for this skill. */
+/** Attribute modifier + rank, less the emprise of the Échos (docs/gdd/echos.md): what is added to the d20. */
 function rollBonus(state: GameState, skill: SkillId): number {
   const c = state.character;
   const attribute = SKILLS.find((s) => s.id === skill)!.attribute;
-  return attributeModifier(c?.attributes[attribute] ?? 3) + (c?.skills[skill] ?? 0);
+  return attributeModifier(c?.attributes[attribute] ?? 3) + (c?.skills[skill] ?? 0) - empriseMalus(state);
 }
 
 /** Probability (0–1) that the roll succeeds, shown on the option before choosing it. */
@@ -304,6 +309,7 @@ export function applyEffects(state: GameState, effects: Effect[] = []): string[]
         restoreResonance(state.character);
       }
       restParty(state);
+      easeEmprise(state);
       notices.push(`Tes forces sont revenues. ${ITS_MOMENT[momentOf(state.time)]} Nous sommes ${formatDate(state.time)}.`);
     } else if ('lancer' in effect) {
       if (state.character) notices.push(...(castOutsideCombat(state.character, effect.lancer) ?? []));
@@ -316,6 +322,14 @@ export function applyEffects(state: GameState, effects: Effect[] = []): string[]
       if (def && inParty(state, effect.quitter)) {
         leaveParty(state, effect.quitter);
         notices.push(`${def.name} quitte le groupe`);
+      }
+    } else if ('revivre' in effect) {
+      notices.push(...relive(state, effect.revivre));
+    } else if ('blesser' in effect) {
+      if (state.character) {
+        const lost = Math.min(effect.blesser, state.character.hp - 1);
+        state.character.hp -= lost;
+        if (lost > 0) notices.push(`−${lost} PV`);
       }
     } else if ('avis' in effect && 'delta' in effect) {
       notices.push(...changeAvis(state, effect.avis, effect.delta));
@@ -395,6 +409,7 @@ export function dialogueProblems(d: Dialogue): string[] {
       if ('goTo' in e && !findLocation(e.goTo)) problems.push(`${where} : lieu inconnu ${e.goTo}`);
       if ('lancer' in e && !POWERS.some((p) => p.id === e.lancer)) problems.push(`${where} : pouvoir inconnu ${e.lancer}`);
       if ('apprendre' in e && !knownSkills.has(e.apprendre)) problems.push(`${where} : compétence inconnue ${e.apprendre}`);
+      if ('revivre' in e && !ECHOS.some((x) => x.id === e.revivre)) problems.push(`${where} : Écho inconnu ${e.revivre}`);
       const companion = 'rejoindre' in e ? e.rejoindre : 'quitter' in e ? e.quitter : 'avis' in e ? e.avis : null;
       if (companion && !findCompanion(companion)) problems.push(`${where} : compagnon inconnu ${companion}`);
     }

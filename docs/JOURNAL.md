@@ -3,7 +3,7 @@
 ## État (2026-11-02)
 
 - Jalons 1 et 2 faits et en ligne (`docs/gdd/jalon-2.md`). 11,5 crédits Higgsfield restants.
-- 491 tests (dont le parcours complet d'affilée, `src/rules/parcours.test.ts`), typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
+- 510 tests (dont le parcours complet d'affilée, `src/rules/parcours.test.ts`), typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
 - Mode test caché : 5 touches sur la version (écran titre) → menu pause : +50 Fers, PV au max, **Outils de dev**
   (perso surpuissant, groupe, lieux, quêtes, repères, objets, Récits ; `docs/gdd/interface.md`).
 
@@ -20,8 +20,8 @@
 1. En ligne (2026-11-02) : le temps et les auberges (`docs/gdd/temps.md`), la magie et « Un prêt de la Terre »
    (`docs/gdd/magie.md`). **Jeu complet validé** (`docs/gdd/jeu-complet.md`) ; ton : dark fantasy pour adultes
    (`docs/univers/ton.md`). En cours : **jalon 3** (`docs/gdd/jalon-3.md`) ; étape 1 (le combat pour adultes et à
-   plusieurs) et étape 2 (les compagnons, `docs/gdd/compagnons.md`) en ligne ; en cours : étape 3, le Livre des
-   Échos. Mise en beauté à la fin.
+   plusieurs) et étape 2 (les compagnons) en ligne ; étape 3 (le Livre des Échos, `docs/gdd/echos.md`) sur la
+   branche, mise en ligne et textes à valider ; ensuite : les veillées du conteur. Mise en beauté à la fin.
 2. Codex : Sept-Portes (`AGENTS.md`). Notion : page « Anamnesis — le jeu », à tenir à jour à chaque mise en ligne.
 
 ## Points ouverts

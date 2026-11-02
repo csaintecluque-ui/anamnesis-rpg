@@ -31,3 +31,7 @@ C'est le cœur du jeu. Ces éléments relèvent de lois et de phénomènes du mo
   - Marisol : Nerissa, « mémoire des mers » [R4] ; la Baleine-Mémoire [E8].
   - Verdantis : arbres « dotés de mémoire » [R1] ; la mémoire du défunt passe dans l'arbre [N1] ; le **Champignon-Mémoire** « absorbe les souvenirs récents des marcheurs » [E8].
   - Ferros : les Maîtres des Braises lisent la mémoire du métal [R2] ; les Unités-Auric possèdent des cristaux de mémoire [E7-2].
+
+## Dans le jeu : le Livre des Échos (2026-11-02, `docs/gdd/echos.md`)
+
+Douze Échos à recueillir, des quatre types du canon ; l'emprise de ceux qu'on revit (le danger d'addiction du canon) pèse sur les jets de dé. Scènes à valider par Cyril.

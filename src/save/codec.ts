@@ -4,7 +4,7 @@ import { findLocation, type GameState } from '../state/gameState';
 import { START_TIME, isGameTime } from '../rules/time';
 import { findCompanion } from '../rules/companions';
 
-export const SAVE_VERSION = 13;
+export const SAVE_VERSION = 14;
 export const SAVE_MAX_CHARS = 1_000_000;
 const GAME_MARKER = 'anamnesis';
 
@@ -95,6 +95,8 @@ const MIGRATIONS: Record<number, (save: Record<string, unknown>) => Record<strin
   11: (save) => ({ ...save, state: isRecord(save.state) ? { ...save.state, bestiaire: {}, groupe: [] } : save.state }),
   // v12 predates the companions' opinions (docs/gdd/jalon-3.md, étape 2): none yet.
   12: (save) => ({ ...save, state: isRecord(save.state) ? { ...save.state, avis: {} } : save.state }),
+  // v13 predates the Livre des Échos (docs/gdd/echos.md): no emprise yet.
+  13: (save) => ({ ...save, state: isRecord(save.state) ? { ...save.state, emprise: 0 } : save.state }),
 };
 
 export function createSave(state: GameState, now: Date): SaveFile {
@@ -159,6 +161,7 @@ function validateState(state: unknown): string | null {
     return 'compagnons invalides.';
   }
   if (!isRecord(state.avis) || Object.values(state.avis).some((v) => !Number.isInteger(v))) return 'avis des compagnons invalides.';
+  if (!Number.isInteger(state.emprise) || (state.emprise as number) < 0) return 'emprise des Échos invalide.';
   if (state.character !== null) return characterError(state.character);
   return null;
 }

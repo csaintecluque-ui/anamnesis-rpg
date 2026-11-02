@@ -878,3 +878,12 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   arracher la page). Sauvegarde v13. Parcours : les deux fins de chaque quête. 491 tests ; vérifié sur téléphone.
 - Cyril : « Ok on est partie » : compagnons validés ; suite : le Livre des Échos. Mise en ligne en attente d'un « mets en ligne » explicite.
 - Cyril : « Mets en ligne et continue » : étape 2 mise en ligne.
+
+## 2026-11-02 (suite) : jalon 3, étape 3, le Livre des Échos
+
+- Construit (`docs/gdd/echos.md`) : douze Échos cachés (Gare, Gardebois, Canopéa, Ironheart), certains la nuit ; les
+  quatre types du canon (un maudit qui piège) ; recueillir (XP, page du livre, trois Récits) ; revivre (paix, temps
+  perdu, emprise : −1 puis −2 aux jets ; le sommeil la desserre) ; onglet « Échos » du journal ; sauvegarde v14.
+  Corrigé en passant : les objets à tuile (le vieux champignon) se dessinaient avant d'apparaître. 510 tests ;
+  vérifié sur téléphone.
+

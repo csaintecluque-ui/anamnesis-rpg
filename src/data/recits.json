@@ -61,5 +61,20 @@
     "id": "saule",
     "titre": "Saule, le frère de Liane",
     "texte": "Saule riait trop fort et grimpait trop haut. Il était parti gagner des Fers au chantier de Brisefer, à la Gare Engloutie, et les déblais l’ont pris un matin, sans un cri. Sa sœur a gravé son nom au Bosquet des Échos : le bois se souvient à sa place, et elle peut enfin dormir."
+  },
+  {
+    "id": "jeudi-ordinaire",
+    "titre": "Un jeudi ordinaire",
+    "texte": "Avant la Nuit, le dernier jour de l’Ancien Monde fut un jeudi comme les autres : des trains en retard, du café trop chaud, des enfants en retard pour l’école. Les Échos de la Gare Engloutie le rejouent sans fin, comme s’ils voulaient qu’on se souvienne que le monde, avant, était ordinaire."
+  },
+  {
+    "id": "soixante-douze-heures",
+    "titre": "Les soixante-douze heures",
+    "texte": "Quand les Surgeons se sont ouverts, les arsenaux de l’Ancien Monde ont cru à une attaque, et ils ont répondu. Il a fallu soixante-douze heures. Au triage d’Ironheart, un Écho le rejoue encore : les trains pleins, les trains vides, et l’horizon qui s’allume."
+  },
+  {
+    "id": "puits-trois",
+    "titre": "Le Puits Trois",
+    "texte": "À Ironheart, l’eau a toujours eu un ordre : le cuivre d’abord, le fer ensuite, et la rouille quand il en reste. Un Écho du Puits Trois rejoue une petite fille qui attend jusqu’au soir et repart le seau vide. Les gens des Forges-Basses disent qu’elle attend encore."
   }
 ]

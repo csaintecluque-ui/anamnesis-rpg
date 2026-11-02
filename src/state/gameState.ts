@@ -38,6 +38,8 @@ export interface GameState {
   groupe: { id: string; hp: number }[];
   /** What each companion thinks of the hero's choices (src/rules/companions.ts): too low, they leave. */
   avis: Record<string, number>;
+  /** The pull of the Échos relived (src/rules/echos.ts): it weighs on the dice. */
+  emprise: number;
 }
 
 export type QuestStatus = 'active' | 'done';
@@ -57,6 +59,7 @@ export function createNewGame(character: Character | null = null): GameState {
     bestiaire: {},
     groupe: [],
     avis: {},
+    emprise: 0,
   };
 }
 

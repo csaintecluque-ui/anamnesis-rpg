@@ -59,6 +59,7 @@ const state: GameState = {
   bestiaire: { 'rodeur-epine': 2 },
   groupe: [{ id: 'liane', hp: 20 }],
   avis: { liane: 2 },
+  emprise: 1,
 };
 
 describe('save codec', () => {
@@ -126,6 +127,7 @@ describe('save codec', () => {
         bestiaire: {},
         groupe: [],
         avis: {},
+        emprise: 0,
       });
     }
   });

@@ -1,5 +1,7 @@
 import Phaser from 'phaser';
 import { bestiaryEntries } from '../rules/bestiary';
+import { ECHOS, TYPE_LABELS, collectedEchos, empriseLabel } from '../rules/echos';
+import { findLocation } from '../state/gameState';
 import { journalQuests, journalRecits, journalReputation } from '../rules/journal';
 import { fontPx } from '../settings';
 import type { GameState } from '../state/gameState';
@@ -11,10 +13,11 @@ import { formatDate, momentOf } from '../rules/time';
 
 const MOMENT_WORDS = { matin: 'au matin', midi: 'à midi', soir: 'au soir', nuit: 'la nuit' } as const;
 
-type Tab = 'quetes' | 'recits' | 'reputation' | 'bestiaire';
+type Tab = 'quetes' | 'recits' | 'echos' | 'reputation' | 'bestiaire';
 const TABS: [Tab, string][] = [
   ['quetes', 'Quêtes'],
   ['recits', 'Récits'],
+  ['echos', 'Échos'],
   ['reputation', 'Réputation'],
   ['bestiaire', 'Bestiaire'],
 ];
@@ -22,8 +25,8 @@ const EFFECT_WORDS = { brulure: 'brûle', saignement: 'fait saigner', ralenti: '
 
 /** Finger-sized on touch screens, compact with a mouse (docs/gdd/interface.md). */
 const LAYOUT = HAS_MOUSE
-  ? { tabY: 104, tabHeight: 48, tabWidth: 200, rowHeight: 46, perPage: 9, listTop: 170, buttonFont: 20, closeHeight: 52, closeWidth: 220 }
-  : { tabY: 112, tabHeight: 68, tabWidth: 240, rowHeight: 66, perPage: 6, listTop: 186, buttonFont: 24, closeHeight: 72, closeWidth: 240 };
+  ? { tabY: 104, tabHeight: 48, tabWidth: 190, rowHeight: 46, perPage: 9, listTop: 170, buttonFont: 20, closeHeight: 52, closeWidth: 220 }
+  : { tabY: 112, tabHeight: 68, tabWidth: 224, rowHeight: 66, perPage: 6, listTop: 186, buttonFont: 24, closeHeight: 72, closeWidth: 240 };
 const LIST_X = 40;
 const LIST_WIDTH = 440;
 const DETAIL_X = 520;
@@ -103,6 +106,7 @@ export class JournalScene extends Phaser.Scene {
     if (this.tab === 'quetes') this.drawQuests();
     else if (this.tab === 'recits') this.drawRecits();
     else if (this.tab === 'bestiaire') this.drawBestiary();
+    else if (this.tab === 'echos') this.drawEchos();
     else this.drawReputation();
   }
 
@@ -226,5 +230,23 @@ export class JournalScene extends Phaser.Scene {
       },
       'Aucune créature rencontrée. Les routes et les ruines en sont pleines.',
     );
+  }
+
+  /** Le Livre des Échos (docs/gdd/echos.md) : the Échos gathered, and the emprise of those relived. */
+  private drawEchos(): void {
+    const echos = collectedEchos(this.state);
+    this.drawList(
+      echos.map((e) => ({ text: e.titre, muted: false })),
+      (i) => {
+        const e = echos[i];
+        const title = this.text(DETAIL_X, LAYOUT.listTop, e.titre, 30, CSS.copper, DETAIL_WIDTH);
+        const where = `${findLocation(e.lieu)?.name ?? e.lieu}${e.moment === 'nuit' ? ', la nuit' : ''} · ${TYPE_LABELS[e.type]}`;
+        const place = this.text(DETAIL_X, title.y + title.height + 6, where, 20, CSS.copper, DETAIL_WIDTH);
+        this.text(DETAIL_X, place.y + place.height + 18, e.texte, 24, CSS.parchment, DETAIL_WIDTH);
+      },
+      'Aucun Écho recueilli. Ils se cachent là où le passé a laissé une trace : gares, places, forges. Certains ne viennent que la nuit.',
+    );
+    const note = `Échos recueillis : ${echos.length} / ${ECHOS.length}. ${empriseLabel(this.state)}`;
+    this.text(DETAIL_X, GAME_HEIGHT - 20 - LAYOUT.closeHeight / 2, note, 18, CSS.muted, DETAIL_WIDTH - LAYOUT.closeWidth - 30).setOrigin(0, 0.5);
   }
 }

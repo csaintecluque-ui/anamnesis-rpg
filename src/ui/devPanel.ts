@@ -7,6 +7,7 @@ import { allFlags, cycleQuest, makeOverpowered, restoreFullHp, restoreFullResona
 import { resonanceMax } from '../rules/magic';
 import { COMPANIONS, findCompanion, inParty, joinParty, leaveParty } from '../rules/companions';
 import { recordMet } from '../rules/bestiary';
+import { ECHOS, collectedEchos, echoFlag } from '../rules/echos';
 import { ENEMIES } from '../rules/combat';
 import { advance, formatDate, shortTime, waitUntil } from '../rules/time';
 import { placeOfLocation } from '../rules/world';
@@ -131,6 +132,13 @@ export function openDevPanel(state: GameState, onClose: (result: DevPanelResult)
       ]));
     }
     main.append(row('Bestiaire', [button('Tout rencontrer', () => (recordMet(state, ENEMIES.map((e) => e.id)), render()))]));
+    main.append(
+      row(`Échos (${collectedEchos(state).length} / ${ECHOS.length} ; emprise ${state.emprise})`, [
+        button('Tout recueillir', () => (ECHOS.forEach((e) => (state.flags[echoFlag(e.id)] = true)), render())),
+        button('Emprise 0', () => ((state.emprise = 0), render()), 'small'),
+        button('+1', () => ((state.emprise += 1), render()), 'small'),
+      ]),
+    );
   }
 
   function renderPlaces(): void {

@@ -27,6 +27,7 @@ import { HAS_MOUSE, MAP_ZOOM, RENDER_SCALE } from '../ui/viewport';
 import type { CombatStartData } from './CombatScene';
 import { FigurantLayer } from './Figurants';
 import { PartyLayer } from './Party';
+import { echoObjects, echoShows } from '../rules/echos';
 import type { HudScene } from './HudScene';
 import type { WorldMapStartData } from './WorldMapScene';
 import { momentOf, type Moment } from '../rules/time';
@@ -82,6 +83,8 @@ export class MapScene extends Phaser.Scene {
   /** The companions following the hero (docs/gdd/jalon-3.md, étape 2), and who they were when the map was built. */
   private party!: PartyLayer;
   private partyIds = '';
+  /** The moment of the day when the map was built: some Échos only show at night (docs/gdd/echos.md). */
+  private builtAt = '';
 
   constructor() {
     super('Map');
@@ -99,6 +102,9 @@ export class MapScene extends Phaser.Scene {
     // A random encounter lays its enemies, people and objects on the map's spawn points (docs/gdd/carte-du-monde.md).
     const rencontre = location.encounter && state.encounter ? findRencontre(state.encounter.id) : undefined;
     if (rencontre) this.map.objects.push(...encounterObjects(rencontre, this.map.objects.filter((o) => o.type === 'apparition')));
+    // The Échos of this place (docs/gdd/echos.md, src/data/echos.json).
+    this.map.objects.push(...echoObjects(location.id));
+    this.builtAt = momentOf(state.time);
     this.registry.set('tileFrames', this.map.frames);
     this.originX = this.map.height * (TILE_WIDTH / 2);
     this.originY = TOP_MARGIN;
@@ -171,7 +177,7 @@ export class MapScene extends Phaser.Scene {
     // A dialogue or a fight may have picked a herb or sent enemies away. Scene events outlive a restart: unhook.
     const onResume = () => {
       // Someone joined or left the party (a dialogue): the map is rebuilt where the hero stands.
-      if (this.state.groupe.map((m) => m.id).join(',') !== this.partyIds) {
+      if (this.state.groupe.map((m) => m.id).join(',') !== this.partyIds || momentOf(this.state.time) !== this.builtAt) {
         this.state.entrance = null;
         this.scene.restart();
         return;
@@ -255,6 +261,8 @@ export class MapScene extends Phaser.Scene {
     const any = (list?: string) => (list ?? '').split(',').some((flag) => flag.trim() && this.state.flags[flag.trim()]);
     // A companion travelling with the hero is not at home (docs/gdd/jalon-3.md, étape 2).
     if (o.type === 'pnj' && this.state.groupe.some((m) => m.id === o.name)) return true;
+    // An Écho of the night is not there by day (docs/gdd/echos.md).
+    if (!echoShows(o.properties.moment, this.state)) return true;
     return any(o.properties.disparaitSi) || (!!o.properties.apparaitSi && !any(o.properties.apparaitSi));
   }
 
@@ -286,9 +294,12 @@ export class MapScene extends Phaser.Scene {
 
   /** Objects of a random encounter drawn with their own tile (property `tuile`): objects to touch, and decor. */
   private drawPlacedObjects(): void {
-    for (const o of this.map.objects.filter((x) => x.properties.tuile && x.type !== 'pnj')) {
+    // Not the objects gone, or not there yet (apparaitSi), nor the Échos of another moment.
+    for (const o of this.map.objects.filter((x) => x.properties.tuile && x.type !== 'pnj' && !this.gone(x))) {
       const f = this.feet(o);
       const image = this.add.image(f.x, f.y, 'tiles', this.map.frames[o.properties.tuile] ?? this.map.frames.pnj).setOrigin(0.5, 1).setDepth(f.y);
+      // An Écho is only half there.
+      if (o.properties.echo) image.setAlpha(0.55);
       if (o.type !== 'decor') this.interactables.push({ object: o, image });
     }
   }

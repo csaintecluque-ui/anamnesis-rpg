@@ -456,5 +456,65 @@
     "id": "champignon-ancien",
     "name": "Un vieux Champignon-Mémoire",
     "role": "Près du chantier de la Gare Engloutie"
+  },
+  {
+    "id": "echo-jeudi-ordinaire",
+    "name": "Un Écho",
+    "role": "Un jeudi ordinaire"
+  },
+  {
+    "id": "echo-lumiere",
+    "name": "Un Écho",
+    "role": "La lumière"
+  },
+  {
+    "id": "echo-voyageur",
+    "name": "Un Écho",
+    "role": "Le voyageur sans visage"
+  },
+  {
+    "id": "echo-graveur",
+    "name": "Un Écho",
+    "role": "La première graveuse"
+  },
+  {
+    "id": "echo-nacelle",
+    "name": "Un Écho",
+    "role": "Les premiers Nacelliers"
+  },
+  {
+    "id": "echo-conseil",
+    "name": "Un Écho",
+    "role": "Le vote sous la pluie"
+  },
+  {
+    "id": "echo-puits",
+    "name": "Un Écho",
+    "role": "Le Puits Trois"
+  },
+  {
+    "id": "echo-marche-avant",
+    "name": "Un Écho",
+    "role": "Le marché d’avant"
+  },
+  {
+    "id": "echo-registre",
+    "name": "Un Écho",
+    "role": "La ligne effacée"
+  },
+  {
+    "id": "echo-soixante-douze",
+    "name": "Un Écho",
+    "role": "Les soixante-douze heures"
+  },
+  {
+    "id": "echo-cendriere",
+    "name": "Un Écho",
+    "role": "La dernière chanson de la Cendrière"
+  },
+  {
+    "id": "echo-train-passant",
+    "name": "Un Écho",
+    "role": "Le train qui ne s’arrête pas"
   }
 ]

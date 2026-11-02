@@ -680,3 +680,10 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   (`src/data/reputation.json`), quatre paliers, prix des marchands de la ville (+20 % à −15 %, cumulés avec la remise
   de Tobias), condition de dialogue `reputation` (première : l'huissier du Conseil), message au changement de palier.
   Pas de nouvelle version de sauvegarde. 276 tests ; étal de Sévane vérifié dans le navigateur (méfiance, +20 %).
+- Cyril : paliers de réputation validés, mise en ligne de la réputation (`main` avancé, déploiement). Il préfère
+  développer le lore et les quêtes avant la ville suivante, et demande des factions « comme des guildes de marchands ».
+- Proposé (à valider) : factions du jeu (`docs/univers/factions.md` : Gardiens de Mémoire avec trois rangs, Gardiens de
+  l'Équilibre, Harmonistes, Réveilleurs ; guildes nouvelles : Compagnie des Lisières, Nacelliers, Compagnie du Rail
+  Cristallin, Route des Carrioles), leurs règles (`docs/gdd/factions.md`), l'histoire principale « Les voies
+  endormies » en chapitres par ville et six quêtes (`docs/univers/quetes.md`), avec une nouvelle carte : le Sol des
+  Racines, sous Canopéa.

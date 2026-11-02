@@ -1,6 +1,6 @@
 # Réputation par ville
 
-Demande de Cyril (2026-11-02) : « attaque la réputation ». **Fait le 2026-11-02 ; chiffres et paliers à valider.**
+Demande de Cyril (2026-11-02) : « attaque la réputation ». **Fait et en ligne le 2026-11-02 ; paliers validés par Cyril.**
 Code : `src/rules/reputation.ts` ; données : `src/data/reputation.json`. Plan des villes : `docs/gdd/villes.md`.
 
 ## Principe

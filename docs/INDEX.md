@@ -20,7 +20,8 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `lieux/gare-engloutie.md` : l'extérieur de la quête ; contenu détaillé validé.
 - `lieux/villes.md` : dix grandes villes sur les sept continents (quartiers, maisons, personnages) ; plan validé.
 - `lieux/canopee.md` : Canopéa, première ville construite (provisoire) ; détails nouveaux à valider.
-- `factions.md` : organisations, alliances, conflits en cours.
+- `factions.md` : organisations, alliances, conflits en cours ; factions et guildes du jeu proposées (à valider).
+- `quetes.md` : histoire principale « Les voies endormies » et quêtes des villes ; à valider.
 - `religions.md` : les sept religions.
 - `peuples.md` : peuples par nation, faune utile à la tranche.
 - `personnages/historiques.md` : figures historiques, entités légendaires, prophéties.
@@ -52,4 +53,5 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `villes.md` : gabarit d'une grande ville, systèmes communs, mécanique par ville, coûts, ordre ; validé.
 - `carte-du-monde.md` : carte du monde, voyages, rencontres aléatoires en route ; validé.
 - `figurants.md` : passants qui marchent et habitants à une ou deux répliques ; validé.
-- `reputation.md` : réputation par ville (paliers, prix, conditions de dialogue) ; chiffres à valider.
+- `reputation.md` : réputation par ville (paliers, prix, conditions de dialogue) ; paliers validés.
+- `factions.md` : réputation de faction, adhésion aux guildes, rangs des Gardiens de Mémoire ; à valider.

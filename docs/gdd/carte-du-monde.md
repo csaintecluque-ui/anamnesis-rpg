@@ -1,7 +1,8 @@
 # Carte du monde et rencontres aléatoires
 
 Demande de Cyril (2026-11-01) : une carte pour circuler entre les villes, puis des lieux aléatoires comme dans les CRPG de
-référence. **Fait le 2026-11-01, en visuels provisoires.** Les éléments marqués « à valider » attendent Cyril.
+référence. **Fait le 2026-11-01, en visuels provisoires ; validé et mis en ligne sur accord de Cyril le 2026-11-02.**
+Le tableau des rencontres est validé avec ; le dessin de la région reste à caler sur la carte de Cyril.
 Code : `src/scenes/WorldMapScene.ts`, `src/rules/world.ts` ; données : `src/data/world.json`, `src/data/rencontres.json`.
 
 ## La carte du monde
@@ -33,13 +34,13 @@ Code : `src/scenes/WorldMapScene.ts`, `src/rules/world.ts` ; données : `src/dat
 
 | Rencontre | Zone | Lieu | Contenu | Statut |
 |---|---|---|---|---|
-| Rôdeurs-Épine | forêt, lisière | clairière, route | 2 Rôdeurs-Épine [E8] ; contourner : Survie 11 | à valider |
-| Ours-Mousse | forêt | clairière | 1 Ours-Mousse [E8] (30 PV, Défense 12, 1d10) ; Survie 10 | à valider |
-| Loups de Rouille | lisière | route, ruines | 2 Loups de Rouille [E7-2] (12 PV, Défense 13, 8 PA) ; Survie 13 | à valider |
-| La colporteuse | forêt, lisière | route | marchande ambulante (troc) et sa carriole ; nouvelles des routes | à valider |
-| Un voyageur égaré | forêt, lisière | route, clairière | on lui retourne sa carte : 5 Fers, 10 XP | à valider |
-| Cerfs-Lucioles | forêt | clairière | émerveillement : 10 XP ; avec Survie 2, on les suit jusqu'à une source (+10 PV) | à valider |
-| La boîte de fer | forêt, lisière | ruines | « Pour qui en aura besoin » : 8 Fers et un bandage | à valider |
+| Rôdeurs-Épine | forêt, lisière | clairière, route | 2 Rôdeurs-Épine [E8] ; contourner : Survie 11 | validé |
+| Ours-Mousse | forêt | clairière | 1 Ours-Mousse [E8] (30 PV, Défense 12, 1d10) ; Survie 10 | validé |
+| Loups de Rouille | lisière | route, ruines | 2 Loups de Rouille [E7-2] (12 PV, Défense 13, 8 PA) ; Survie 13 | validé |
+| La colporteuse | forêt, lisière | route | marchande ambulante (troc) et sa carriole ; nouvelles des routes | validé |
+| Un voyageur égaré | forêt, lisière | route, clairière | on lui retourne sa carte : 5 Fers, 10 XP | validé |
+| Cerfs-Lucioles | forêt | clairière | émerveillement : 10 XP ; avec Survie 2, on les suit jusqu'à une source (+10 PV) | validé |
+| La boîte de fer | forêt, lisière | ruines | « Pour qui en aura besoin » : 8 Fers et un bandage | validé |
 
 ## Prochaines étapes possibles
 

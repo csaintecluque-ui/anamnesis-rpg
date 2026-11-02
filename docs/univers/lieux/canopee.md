@@ -15,7 +15,7 @@ du défunt passe dans l'arbre [E3, N1].
 
 Sept intérieurs, sept PNJ nommés. Toutes les maisons prévues sont là.
 
-## Détails nouveaux, inventés en écrivant les dialogues (à valider)
+## Détails nouveaux, inventés en écrivant les dialogues (validés par Cyril le 2026-11-02 : « vraiment pas mal »)
 
 | Élément | Proposition | Ancrage canon |
 |---|---|---|

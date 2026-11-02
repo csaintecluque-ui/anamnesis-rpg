@@ -11,10 +11,11 @@ Moteur : `src/rules/dialogue.ts` ; écran : `DialogueScene`. Textes à relire : 
   - **tests** `attribute` / `skill` avec un `min` (valeur de l'attribut, rang de la compétence) : l'option reste
     **visible et grisée**, précédée de « [Perception 4] » et suivie de « — Il te faut Perception 4. » ;
   - **argent** `fers` (un repas à l'auberge) : comme un test, l'option reste visible et grisée (« [5 Fers] ») ;
-  - **état de l'histoire** `flag`, `notFlag`, `quest` (`none` / `active` / `done`), `recit` (`docs/gdd/memoire.md`) :
+  - **état de l'histoire** `flag`, `notFlag`, `quest` (`none` / `active` / `done`), `recit` (`docs/gdd/memoire.md`),
+    `item` (+ `count` : on porte cet objet) :
     l'option est **masquée** tant que la condition est fausse.
 - **Effets** (sur un nœud à l'affichage, ou sur une option choisie) : `setFlag`, `startQuest`, `completeQuest`,
-  `giveXp`, `giveFers` (négatif pour payer), `giveItem` (+ `count`), `heal` (PV rendus), `learnRecit`
+  `giveXp`, `giveFers` (négatif pour payer), `giveItem` (+ `count`), `takeItem` (+ `count` : un objet de quête remis), `heal` (PV rendus), `learnRecit`
   (`docs/gdd/memoire.md`), `openTrade` (`docs/gdd/inventaire.md` : ouvre le Troc avec ce PNJ au lieu de refermer le
   dialogue), `startCombat` (referme le dialogue et lance sur la carte un combat de `src/data/encounters.json`),
   `goTo` (+ `arrivee` facultative : referme le dialogue et mène à un autre lieu, par exemple derrière une porte qu'on

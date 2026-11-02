@@ -5,6 +5,18 @@
     {
       "requires": [
         {
+          "quest": "chant-anselme",
+          "status": "active"
+        },
+        {
+          "item": "flute-anselme"
+        }
+      ],
+      "node": "flute"
+    },
+    {
+      "requires": [
+        {
           "flag": "voix-anselme"
         },
         {
@@ -12,6 +24,15 @@
         }
       ],
       "node": "voix"
+    },
+    {
+      "requires": [
+        {
+          "quest": "chant-anselme",
+          "status": "done"
+        }
+      ],
+      "node": "apres-chant"
     },
     {
       "node": "accueil"
@@ -37,6 +58,11 @@
         {
           "text": "Merci de me l’avoir raconté.",
           "next": "accueil"
+        }
+      ],
+      "effects": [
+        {
+          "setFlag": "anselme-connu"
         }
       ]
     },
@@ -66,6 +92,103 @@
       "options": [
         {
           "text": "Il veille sur vous deux.",
+          "next": "fin"
+        }
+      ]
+    },
+    "flute": {
+      "text": "Qu’est-ce que tu tiens là, mon enfant ? Une flûte… elle sent le bois d’en bas, le bois de la mousse.",
+      "options": [
+        {
+          "text": "Elouan l’a taillée dans une branche de l’arbre d’Anselme. Pour vous.",
+          "requires": [
+            {
+              "flag": "flute-fidele"
+            }
+          ],
+          "next": "chant-fidele",
+          "effects": [
+            {
+              "takeItem": "flute-anselme"
+            },
+            {
+              "completeQuest": "chant-anselme"
+            },
+            {
+              "learnRecit": "chant-anselme"
+            },
+            {
+              "giveXp": 40
+            }
+          ]
+        },
+        {
+          "text": "Elouan l’a taillée dans une branche de l’arbre d’Anselme. Pour vous.",
+          "requires": [
+            {
+              "notFlag": "flute-fidele"
+            }
+          ],
+          "next": "chant-carnet",
+          "effects": [
+            {
+              "takeItem": "flute-anselme"
+            },
+            {
+              "completeQuest": "chant-anselme"
+            },
+            {
+              "learnRecit": "chant-anselme"
+            },
+            {
+              "giveXp": 30
+            }
+          ]
+        },
+        {
+          "text": "Ce n’est rien. Je repasserai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "chant-fidele": {
+      "night": true,
+      "text": "Aïlis porte la flûte à ses lèvres. Les premières notes tremblent, puis la chanson des cerfs-lucioles monte, exactement comme elle la fredonnait en gravant le nom. Elle s’arrête, la main sur le bois. — Il est tiède. Il est là.",
+      "options": [
+        {
+          "text": "Il veille sur vous deux.",
+          "next": "merci"
+        }
+      ]
+    },
+    "chant-carnet": {
+      "night": true,
+      "text": "Aïlis joue la chanson du carnet, puis s’arrête et sourit. — Ce n’est pas tout à fait la mienne. Ilyane a toujours eu sa façon… Elle reprend, change une note, puis deux. Cette fois, c’est la sienne : elle vient de s’en souvenir.",
+      "options": [
+        {
+          "text": "Elle était là, tout près.",
+          "next": "merci"
+        }
+      ]
+    },
+    "merci": {
+      "text": "Je jouerai pour lui chaque soir, au Bosquet. Et quand Malo sera grand, je lui apprendrai. Merci, toi qui viens de si loin pour une vieille femme et son arbre.",
+      "options": [
+        {
+          "text": "Merci à vous, Aïlis.",
+          "next": "fin"
+        }
+      ]
+    },
+    "apres-chant": {
+      "text": "Entre, entre ! Tu entends ? Non, bien sûr, c’est le soir que je joue. Malo dit que les oiseaux répondent. Moi, je dis que c’est Anselme qui les fait chanter.",
+      "options": [
+        {
+          "text": "Parlez-moi encore d’Anselme.",
+          "next": "arbre"
+        },
+        {
+          "text": "Au revoir, Aïlis.",
           "next": "fin"
         }
       ]

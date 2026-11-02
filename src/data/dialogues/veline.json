@@ -28,6 +28,18 @@
     {
       "requires": [
         {
+          "quest": "chant-anselme",
+          "status": "active"
+        },
+        {
+          "notFlag": "branche-prise"
+        }
+      ],
+      "node": "descente-anselme"
+    },
+    {
+      "requires": [
+        {
           "flag": "canopee-accueillie"
         }
       ],
@@ -180,6 +192,25 @@
         },
         {
           "text": "Un instant.",
+          "next": "fin"
+        }
+      ]
+    },
+    "descente-anselme": {
+      "text": "Une branche de l’arbre d’Anselme, pour une flûte ? Aïlis sera heureuse… Le sol est sacré, mais une branche tombée, la forêt la donne. Je te descends. Ne prends que celle-là.",
+      "options": [
+        {
+          "text": "Allons-y.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "sol-racines",
+              "arrivee": "descente"
+            }
+          ]
+        },
+        {
+          "text": "Pas maintenant.",
           "next": "fin"
         }
       ]

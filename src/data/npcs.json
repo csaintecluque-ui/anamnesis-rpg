@@ -219,5 +219,10 @@
     "id": "sacoche-lettres",
     "name": "La sacoche des Nacelliers",
     "role": "Objet"
+  },
+  {
+    "id": "arbre-retour-anselme",
+    "name": "L’arbre d’Anselme",
+    "role": "Sol des Racines"
   }
 ]

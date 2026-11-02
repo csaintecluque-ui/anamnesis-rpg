@@ -4,7 +4,7 @@ import { ATTRIBUTES, SKILLS, attributeModifier, type AttributeId, type SkillId }
 import { resolveCheck, rollD20, successChance, type Rng } from './checks';
 import { characterStats } from './character';
 import { ENCOUNTERS } from './combat';
-import { addItem, findItem } from './inventory';
+import { addItem, findItem, ownedCount, removeItem } from './inventory';
 import { RECITS, findRecit, knowsRecit, learnRecit } from './recits';
 import { REPUTATION, reputationNotices, reputationScore, reputationTag } from './reputation';
 
@@ -16,6 +16,8 @@ export type Condition =
   | { notFlag: string }
   | { quest: string; status: 'none' | 'active' | 'done' }
   | { recit: string }
+  /** Carries this item (at least `count`, default 1): a story condition, the option is hidden otherwise. */
+  | { item: string; count?: number }
   /** Enough Fers to pay (a meal at the inn): a test, shown greyed when unmet. */
   | { fers: number }
   /** The town's opinion of the hero (docs/gdd/reputation.md): a test, shown greyed when unmet. */
@@ -30,6 +32,8 @@ export type Effect =
   | { learnRecit: string }
   /** Adds to the inventory (src/data/items.json). */
   | { giveItem: string; count?: number }
+  /** Takes from the inventory (a quest item handed over, stolen goods given back). */
+  | { takeItem: string; count?: number }
   /** Gives back hit points, up to the maximum. */
   | { heal: number }
   /** No state change: tells DialogueScene to open the Troc with this NPC instead of closing (docs/gdd/inventaire.md). */
@@ -99,6 +103,7 @@ export function conditionMet(state: GameState, c: Condition): boolean {
   if ('recit' in c) return knowsRecit(state.character, c.recit);
   if ('fers' in c) return (state.character?.fers ?? 0) >= c.fers;
   if ('reputation' in c) return reputationScore(state, c.reputation) >= c.min;
+  if ('item' in c) return !!state.character && ownedCount(state.character, c.item) >= (c.count ?? 1);
   return (state.quests[c.quest] ?? 'none') === c.status;
 }
 
@@ -216,6 +221,14 @@ export function applyEffects(state: GameState, effects: Effect[] = []): string[]
         addItem(state.character, effect.giveItem, count);
         notices.push(`+${count} ${findItem(effect.giveItem)?.name ?? effect.giveItem}`);
       }
+    } else if ('takeItem' in effect) {
+      if (state.character) {
+        const count = Math.min(effect.count ?? 1, ownedCount(state.character, effect.takeItem));
+        if (count > 0) {
+          removeItem(state.character, effect.takeItem, count);
+          notices.push(`−${count} ${findItem(effect.takeItem)?.name ?? effect.takeItem}`);
+        }
+      }
     } else if ('heal' in effect) {
       if (state.character) {
         const max = characterStats(state.character).maxHp;
@@ -273,6 +286,7 @@ export function dialogueProblems(d: Dialogue): string[] {
       if ('quest' in c && !knownQuests.has(c.quest)) problems.push(`${where} : quête inconnue ${c.quest}`);
       if ('recit' in c && !knownRecits.has(c.recit)) problems.push(`${where} : récit inconnu ${c.recit}`);
       if ('reputation' in c && !REPUTATION[c.reputation]) problems.push(`${where} : réputation inconnue ${c.reputation}`);
+      if ('item' in c && !findItem(c.item)) problems.push(`${where} : objet inconnu ${c.item}`);
     }
   };
   const checkEffects = (where: string, effects: Effect[] = []) => {
@@ -281,6 +295,7 @@ export function dialogueProblems(d: Dialogue): string[] {
       if (quest && !knownQuests.has(quest)) problems.push(`${where} : quête inconnue ${quest}`);
       if ('learnRecit' in e && !knownRecits.has(e.learnRecit)) problems.push(`${where} : récit inconnu ${e.learnRecit}`);
       if ('giveItem' in e && !findItem(e.giveItem)) problems.push(`${where} : objet inconnu ${e.giveItem}`);
+      if ('takeItem' in e && !findItem(e.takeItem)) problems.push(`${where} : objet inconnu ${e.takeItem}`);
       if ('startCombat' in e && !ENCOUNTERS.some((x) => x.id === e.startCombat)) problems.push(`${where} : combat inconnu ${e.startCombat}`);
       if ('goTo' in e && !findLocation(e.goTo)) problems.push(`${where} : lieu inconnu ${e.goTo}`);
     }

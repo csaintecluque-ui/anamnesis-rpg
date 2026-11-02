@@ -22,6 +22,7 @@ function condition(c) {
   if ('recit' in c) return `_(si Récit « ${titleOf(c.recit)} » connu)_`;
   if ('fers' in c) return `**[${c.fers} Fers]**`;
   if ('reputation' in c) return `**[réputation à ${c.reputation} ≥ ${c.min}]**`;
+  if ('item' in c) return `_(si l’on porte « ${nameOf(items, c.item)} »${(c.count ?? 1) > 1 ? ` × ${c.count}` : ''})_`;
   const status = { none: 'pas commencée', active: 'en cours', done: 'terminée' }[c.status];
   return `_(si quête « ${nameOf(quests, c.quest)} » ${status})_`;
 }
@@ -34,6 +35,7 @@ function effect(e) {
   if ('learnRecit' in e) return `retient le Récit « ${titleOf(e.learnRecit)} »`;
   if ('openTrade' in e) return 'ouvre le Troc';
   if ('giveItem' in e) return `donne ${e.count ?? 1} × « ${nameOf(items, e.giveItem)} »`;
+  if ('takeItem' in e) return `reprend ${e.count ?? 1} × « ${nameOf(items, e.takeItem)} »`;
   if ('heal' in e) return `+${e.heal} PV`;
   if ('startCombat' in e) return `lance le combat « ${e.startCombat} »`;
   if ('goTo' in e) return `mène à « ${nameOf(locations, e.goTo)} »`;

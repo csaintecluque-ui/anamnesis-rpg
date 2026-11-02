@@ -144,7 +144,7 @@ export class TradeScene extends Phaser.Scene {
       }
       else if (owned > 0) addButton('Équiper', () => this.act(() => this.equipBestSlot(item), `${item.name} équipé.`));
     }
-    if (owned > 0) {
+    if (owned > 0 && !item.quest) {
       addButton(`Vendre (${sellPrice})`, () =>
         this.act(() => {
           const error = sell(this.character(), item.id, 1);

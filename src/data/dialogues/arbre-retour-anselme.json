@@ -1,0 +1,109 @@
+{
+  "id": "arbre-retour-anselme",
+  "speaker": "arbre-retour-anselme",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "chant-anselme",
+          "status": "active"
+        },
+        {
+          "notFlag": "branche-prise"
+        }
+      ],
+      "node": "arbre-quete"
+    },
+    {
+      "node": "arbre"
+    }
+  ],
+  "nodes": {
+    "arbre": {
+      "text": "Au pied d’un jeune arbre, la mousse est encore fraîche. Un ruban vert est noué autour du tronc, le même qu’au Bosquet, tout là-haut. Ici repose Anselme Feuillevent.",
+      "options": [
+        {
+          "text": "Poser la main sur l’écorce.",
+          "next": "chaleur"
+        },
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "arbre-quete": {
+      "text": "Au pied d’un jeune arbre, un ruban vert noué autour du tronc : ici repose Anselme Feuillevent. Des branches tombées jonchent la mousse.",
+      "options": [
+        {
+          "text": "Ramasser une branche sèche.",
+          "next": "prise",
+          "effects": [
+            {
+              "giveItem": "branche-anselme"
+            },
+            {
+              "setFlag": "branche-prise"
+            }
+          ]
+        },
+        {
+          "text": "Toquer sur les branches, pour trouver celle qui chante.",
+          "requires": [
+            {
+              "skill": "crafting",
+              "min": 2
+            }
+          ],
+          "next": "chantante",
+          "effects": [
+            {
+              "giveItem": "branche-anselme"
+            },
+            {
+              "setFlag": "branche-prise"
+            },
+            {
+              "giveXp": 10
+            }
+          ]
+        },
+        {
+          "text": "Poser la main sur l’écorce.",
+          "next": "chaleur"
+        },
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "prise": {
+      "text": "Tu choisis une branche sèche, droite et légère, et tu la glisses dans ta besace en murmurant un merci. On ne sait jamais qui écoute.",
+      "options": [
+        {
+          "text": "Remonter vers la nacelle.",
+          "next": "fin"
+        }
+      ]
+    },
+    "chantante": {
+      "text": "Tu toques sur les branches, une à une. La plupart sonnent mat. Une seule répond, claire comme une goutte d’eau : celle-là chante déjà. Tu la glisses dans ta besace en murmurant un merci.",
+      "options": [
+        {
+          "text": "Remonter vers la nacelle.",
+          "next": "fin"
+        }
+      ]
+    },
+    "chaleur": {
+      "text": "L’écorce est tiède, comme une main qu’on vient de lâcher. Pas de voix, pas d’image : seulement cette chaleur, et un tour de main qu’on devine dans le pli des branches.",
+      "options": [
+        {
+          "text": "Retirer la main.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

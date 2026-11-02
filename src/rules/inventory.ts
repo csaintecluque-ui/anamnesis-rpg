@@ -15,6 +15,8 @@ export interface ItemDef {
   armorBonus?: number;
   /** PV restored, then the item is consumed. */
   healHp?: number;
+  /** Quest item: carried for someone, it cannot be sold. */
+  quest?: boolean;
 }
 
 export const ITEMS = itemData as ItemDef[];
@@ -91,7 +93,7 @@ export function removeItem(character: Character, itemId: string, count = 1): voi
   }
 }
 
-export type TradeError = 'inconnu' | 'trop-cher' | 'trop-lourd' | 'pas-en-stock';
+export type TradeError = 'inconnu' | 'trop-cher' | 'trop-lourd' | 'pas-en-stock' | 'objet-de-quete';
 
 export function buy(character: Character, itemId: string, count = 1, discount = 0): TradeError | null {
   const item = findItem(itemId);
@@ -108,6 +110,7 @@ export function sell(character: Character, itemId: string, count = 1): TradeErro
   const item = findItem(itemId);
   if (!item) return 'inconnu';
   if (ownedCount(character, itemId) < count) return 'pas-en-stock';
+  if (item.quest) return 'objet-de-quete';
   removeItem(character, itemId, count);
   character.fers += Math.floor(item.price * SELL_RATIO) * count;
   return null;

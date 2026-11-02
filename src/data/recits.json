@@ -18,5 +18,10 @@
     "id": "kael-chroniqueur",
     "titre": "Kael, le Premier Chroniqueur",
     "texte": "Après la Grande Chute, un homme nommé Kael écrivit tout ce dont il se souvenait du monde perdu : ce furent les Mémoires du Monde Perdu. Il fonda la première bibliothèque, à Sept-Portes. Depuis, d’un grand savant, on dit qu’il a « la mémoire de Kael »."
+  },
+  {
+    "id": "chant-anselme",
+    "titre": "Le chant d’Anselme",
+    "texte": "À Canopéa, on ne taille les flûtes que dans le bois tombé. Celle d’Aïlis Feuillevent vient de l’arbre au pied duquel repose Anselme : chaque soir, elle y joue la chanson des cerfs-lucioles, et le bois, dit-elle, est tiède sous ses doigts. Ce que l’arbre garde, la musique le rend."
   }
 ]

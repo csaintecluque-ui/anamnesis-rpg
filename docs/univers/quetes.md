@@ -60,12 +60,19 @@ carte à créer.
   [E8]), et voir les premières traces de fouille (lien avec « L'audience »).
 - **Fin** : les Nacelliers ouvrent leur **courrier** au héros ; Malo devient un ami.
 
-### 3. Le chant d'Anselme
+### 3. Le chant d'Anselme — **construite le 2026-11-02**
 
 - Suite du nom gravé d'Anselme (déjà en jeu). Elouan propose de tailler une flûte dans une branche tombée de l'arbre au
   pied duquel repose Anselme (Rite du Retour [NOTION]), pour qu'Aïlis puisse rejouer sa chanson chaque soir.
 - Il faut la branche (en bas, sur le Sol des Racines) et la mélodie (le souvenir d'Aïlis, recueilli au Bosquet).
 - **Fin** : le Récit « Le chant d'Anselme », la flûte offerte à Aïlis, estime de Canopéa. Sans combat.
+- **Construite** : Elouan la propose dès qu'Aïlis a parlé d'Anselme (ou qu'on a touché son nom). Véline descend le héros ;
+  l'arbre d'Anselme, au sud du Sol des Racines (ruban vert ; toucher l'écorce : « une chaleur, un tour de main »).
+  Branche : la ramasser, ou, avec Artisanat 2, trouver « celle qui chante » (+10 XP). Mélodie : le souvenir du Bosquet
+  (Mémoire 3) **ou**, sans Mémoire, le carnet de chansons d'Ilyane que montre Mirelle. Deux fins : la chanson exacte
+  (40 XP), ou celle du carnet, qu'Aïlis corrige d'elle-même en s'en souvenant (30 XP). +10 de réputation à Canopéa.
+  Détails nouveaux (à valider) : le ruban vert au pied de l'arbre, Elouan qui « ne descend plus », Aïlis qui ne chante
+  plus depuis la mort d'Anselme.
 
 ### 4. Les graines qui manquent (factions en conflit)
 

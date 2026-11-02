@@ -85,5 +85,21 @@
     "description": "Un sac de semences de Canopéa, au sceau du Conseil. Elles n’étaient pas à toi.",
     "weightKg": 1,
     "price": 30
+  },
+  {
+    "id": "branche-anselme",
+    "name": "Branche de l’arbre d’Anselme",
+    "description": "Une branche tombée, sèche et légère, ramassée sur le Sol des Racines. Elouan saura la faire chanter.",
+    "weightKg": 0.5,
+    "price": 0,
+    "quest": true
+  },
+  {
+    "id": "flute-anselme",
+    "name": "Flûte d’Anselme",
+    "description": "Taillée par Elouan dans une branche de l’arbre d’Anselme. Elle est pour Aïlis.",
+    "weightKg": 0.2,
+    "price": 0,
+    "quest": true
   }
 ]

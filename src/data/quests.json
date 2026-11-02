@@ -23,5 +23,10 @@
     "id": "lettres-malo",
     "name": "Les lettres de Malo",
     "summary": "Malo a laissé tomber la sacoche de lettres des Nacelliers dans le feuillage. Avec l’accord de Véline, descends sur le Sol des Racines, la forêt sacrée sous Canopéa, pour la retrouver."
+  },
+  {
+    "id": "chant-anselme",
+    "name": "Le chant d’Anselme",
+    "summary": "Depuis qu’Anselme repose au pied de son arbre, Aïlis ne chante plus. Elouan, le luthier, veut lui tailler une flûte dans une branche tombée de cet arbre, sur le Sol des Racines. Il lui faut la branche, et la mélodie."
   }
 ]

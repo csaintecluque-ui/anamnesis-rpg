@@ -570,6 +570,9 @@ function solRacines() {
   m.setObstacle(9, 10, 'lettres');
   m.object('lettres-eparpillees', 'objet', 9, 10);
   m.object('traces-fouille', 'objet', 13, 14);
+  // « Le chant d'Anselme » : l'arbre au pied duquel repose Anselme, au sud, loin de la tanière.
+  m.setObstacle(11, 18, 'arbre-retour');
+  m.object('arbre-retour-anselme', 'objet', 11, 18);
   // La tanière : la sacoche sous la patte d'un Ours-Mousse endormi (src/data/encounters.json).
   m.setObstacle(21, 6, 'sacoche');
   m.object('sacoche-lettres', 'coffre', 21, 6, { disparaitSi: 'sacoche-retrouvee' });
@@ -580,7 +583,7 @@ function solRacines() {
   });
 
   const keepClear = new Set(
-    [[4, 11], [3, 11], [5, 11], [4, 12], [5, 12], [6, 13], [5, 13], [3, 12], [20, 7], [9, 11], [10, 11], [10, 10], [8, 11], [12, 13], [12, 14], [13, 15], [19, 7], [20, 6], [20, 8], [21, 7], [22, 7], [21, 5], [19, 6], [19, 8]].map(
+    [[11, 18], [10, 18], [12, 18], [11, 17], [10, 17], [12, 17], [11, 19], [4, 11], [3, 11], [5, 11], [4, 12], [5, 12], [6, 13], [5, 13], [3, 12], [20, 7], [9, 11], [10, 11], [10, 10], [8, 11], [12, 13], [12, 14], [13, 15], [19, 7], [20, 6], [20, 8], [21, 7], [22, 7], [21, 5], [19, 6], [19, 8]].map(
       ([c, r]) => `${c},${r}`,
     ),
   );

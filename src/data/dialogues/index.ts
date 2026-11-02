@@ -2,6 +2,7 @@ import type { Dialogue } from '../../rules/dialogue';
 import ailis from './ailis.json';
 import arbreAncien from './arbre-ancien.json';
 import arbreAnselme from './arbre-anselme.json';
+import arbreRetourAnselme from './arbre-retour-anselme.json';
 import brann from './brann.json';
 import cacheRuines from './cache-ruines.json';
 import caisseEgaree from './caisse-egaree.json';
@@ -42,6 +43,7 @@ export const DIALOGUES: Record<string, Dialogue> = {
   ailis: ailis as Dialogue,
   'arbre-ancien': arbreAncien as Dialogue,
   'arbre-anselme': arbreAnselme as Dialogue,
+  'arbre-retour-anselme': arbreRetourAnselme as Dialogue,
   brann: brann as Dialogue,
   'cache-ruines': cacheRuines as Dialogue,
   'caisse-egaree': caisseEgaree as Dialogue,

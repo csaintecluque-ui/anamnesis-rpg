@@ -3,6 +3,72 @@
   "speaker": "elouan",
   "entries": [
     {
+      "requires": [
+        {
+          "quest": "chant-anselme",
+          "status": "done"
+        }
+      ],
+      "node": "apres"
+    },
+    {
+      "requires": [
+        {
+          "quest": "chant-anselme",
+          "status": "active"
+        },
+        {
+          "item": "flute-anselme"
+        }
+      ],
+      "node": "flute-prete"
+    },
+    {
+      "requires": [
+        {
+          "quest": "chant-anselme",
+          "status": "active"
+        },
+        {
+          "item": "branche-anselme"
+        }
+      ],
+      "node": "branche"
+    },
+    {
+      "requires": [
+        {
+          "quest": "chant-anselme",
+          "status": "active"
+        }
+      ],
+      "node": "attente"
+    },
+    {
+      "requires": [
+        {
+          "quest": "chant-anselme",
+          "status": "none"
+        },
+        {
+          "flag": "anselme-connu"
+        }
+      ],
+      "node": "proposition"
+    },
+    {
+      "requires": [
+        {
+          "quest": "chant-anselme",
+          "status": "none"
+        },
+        {
+          "flag": "voix-anselme"
+        }
+      ],
+      "node": "proposition"
+    },
+    {
       "node": "accueil"
     }
   ],
@@ -39,6 +105,178 @@
         {
           "text": "Je comprends.",
           "next": "accueil"
+        }
+      ]
+    },
+    "proposition": {
+      "text": "Tu reviens de chez Aïlis Feuillevent ? Je suis Elouan, le luthier. Depuis qu’Anselme est parti, Aïlis ne chante plus : sa voix tremble trop, dit-elle. Je voudrais lui tailler une flûte dans une branche tombée de l’arbre d’Anselme, en bas. Mais mes genoux ne descendent plus.",
+      "options": [
+        {
+          "text": "J’irai chercher la branche.",
+          "next": "explication",
+          "effects": [
+            {
+              "startQuest": "chant-anselme"
+            }
+          ]
+        },
+        {
+          "text": "Pourquoi une branche de son arbre ?",
+          "next": "pourquoi"
+        },
+        {
+          "text": "Pas maintenant.",
+          "next": "fin"
+        }
+      ]
+    },
+    "pourquoi": {
+      "text": "Le Rite du Retour : on met le défunt en terre au pied d’un arbre, et l’arbre garde de lui une chaleur, un tour de main. Une flûte taillée dans sa branche, c’est un peu d’Anselme qui jouera avec elle.",
+      "options": [
+        {
+          "text": "J’irai chercher la branche.",
+          "next": "explication",
+          "effects": [
+            {
+              "startQuest": "chant-anselme"
+            }
+          ],
+          "requires": [
+            {
+              "quest": "chant-anselme",
+              "status": "none"
+            }
+          ]
+        },
+        {
+          "text": "Je comprends.",
+          "next": "fin"
+        }
+      ]
+    },
+    "explication": {
+      "text": "Véline, à la Grande Nacelle, te descendra sur le Sol des Racines. Ramène une branche tombée, rien d’autre. Il me faudra aussi la mélodie : Aïlis la fredonnait en gravant son nom, au Bosquet des Échos. Mirelle, au relais, garde aussi de vieux carnets de chansons.",
+      "options": [
+        {
+          "text": "J’y vais.",
+          "next": "fin"
+        }
+      ]
+    },
+    "attente": {
+      "text": "Alors, cette branche ? Une branche tombée de l’arbre d’Anselme, sur le Sol des Racines : Véline te descendra. Et n’oublie pas la mélodie.",
+      "options": [
+        {
+          "text": "Rappelle-moi tout.",
+          "next": "explication"
+        },
+        {
+          "text": "J’y retourne.",
+          "next": "fin"
+        }
+      ]
+    },
+    "branche": {
+      "text": "Elouan prend la branche, la fait tourner, toque dessus du bout de l’ongle. — Bon bois. Il a déjà du vent dedans. Maintenant, la mélodie : sans elle, je taillerais une flûte muette.",
+      "options": [
+        {
+          "text": "Je l’ai entendue au Bosquet. Je peux te la fredonner.",
+          "requires": [
+            {
+              "flag": "voix-anselme"
+            }
+          ],
+          "next": "taille-fidele",
+          "effects": [
+            {
+              "takeItem": "branche-anselme"
+            },
+            {
+              "giveItem": "flute-anselme"
+            },
+            {
+              "setFlag": "flute-fidele"
+            },
+            {
+              "giveXp": 15
+            }
+          ]
+        },
+        {
+          "text": "Mirelle m’a montré la chanson, dans le carnet d’Ilyane.",
+          "requires": [
+            {
+              "flag": "melodie-carnet"
+            }
+          ],
+          "next": "taille-carnet",
+          "effects": [
+            {
+              "takeItem": "branche-anselme"
+            },
+            {
+              "giveItem": "flute-anselme"
+            }
+          ]
+        },
+        {
+          "text": "Où trouver la mélodie ?",
+          "next": "melodie"
+        },
+        {
+          "text": "Je reviens.",
+          "next": "fin"
+        }
+      ]
+    },
+    "melodie": {
+      "text": "Aïlis fredonnait en gravant le nom d’Anselme : le Bosquet des Échos a gardé ce souvenir, pour qui sait poser la main sur les signes. Sinon, demande à Mirelle, au relais du Bosquet : elle garde de vieux carnets de chansons.",
+      "options": [
+        {
+          "text": "Merci, Elouan.",
+          "next": "fin"
+        }
+      ]
+    },
+    "taille-fidele": {
+      "night": true,
+      "text": "Tu fredonnes ; Elouan écoute, les yeux fermés. Puis il taille, perce, souffle, retaille. Le soir tombe sur l’atelier. Enfin la flûte chante, et c’est la chanson du Bosquet, note pour note. — Elle est à Aïlis. Porte-la-lui.",
+      "options": [
+        {
+          "text": "J’y vais.",
+          "next": "fin"
+        }
+      ]
+    },
+    "taille-carnet": {
+      "night": true,
+      "text": "Elouan déchiffre la notation d’Ilyane en fronçant les sourcils, puis il taille, perce, souffle. Le soir tombe. La chanson des cerfs-lucioles sort enfin de la flûte. — C’est celle du carnet. Pas tout à fait celle d’Aïlis, peut-être… Porte-la-lui.",
+      "options": [
+        {
+          "text": "J’y vais.",
+          "next": "fin"
+        }
+      ]
+    },
+    "flute-prete": {
+      "text": "La flûte attend Aïlis, pas moi ! La Maison Feuillevent est juste à côté, aux Hautes Ramures.",
+      "options": [
+        {
+          "text": "J’y vais.",
+          "next": "fin"
+        }
+      ]
+    },
+    "apres": {
+      "text": "Chaque soir, j’entends la flûte d’Aïlis jusqu’ici. Les oiseaux se taisent pour l’écouter, puis ils répondent. Tu vois ? Le bois se souvient du vent.",
+      "options": [
+        {
+          "text": "Tu peux jouer quelque chose ?",
+          "next": "musique"
+        },
+        {
+          "text": "Au revoir, Elouan.",
+          "next": "fin"
         }
       ]
     }

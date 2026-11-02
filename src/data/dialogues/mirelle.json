@@ -3,6 +3,18 @@
   "speaker": "mirelle",
   "entries": [
     {
+      "requires": [
+        {
+          "quest": "chant-anselme",
+          "status": "active"
+        },
+        {
+          "notFlag": "melodie-carnet"
+        }
+      ],
+      "node": "chanson"
+    },
+    {
       "node": "accueil"
     }
   ],
@@ -94,6 +106,33 @@
       "options": [
         {
           "text": "J’aimerais beaucoup.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "chanson": {
+      "text": "Bienvenue au relais. Tu as l’air de chercher quelque chose… une histoire, une chanson ?",
+      "options": [
+        {
+          "text": "Connais-tu la chanson des cerfs-lucioles ?",
+          "next": "carnet"
+        },
+        {
+          "text": "Rien de particulier.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "carnet": {
+      "text": "Mirelle rit et sort un vieux carnet relié de ficelle. — Le carnet de chansons d’Ilyane. Elle chantait faux, mais elle écrivait juste. Tiens : la chanson des cerfs-lucioles, notée de sa main. Montre-la à Elouan, il saura la lire.",
+      "effects": [
+        {
+          "setFlag": "melodie-carnet"
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Mirelle.",
           "next": "accueil"
         }
       ]

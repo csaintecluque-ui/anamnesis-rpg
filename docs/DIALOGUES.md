@@ -13,7 +13,7 @@ _(si …)_ = option qui n’apparaît que dans cette situation ; → = où mène
 
 _Grand-mère de Malo_
 
-Commence par : « voix » _(si repère « voix-anselme »)_ _(sans repère « ailis-reconfortee »)_, sinon « accueil »
+Commence par : « flute » _(si quête « Le chant d’Anselme » en cours)_ _(si l’on porte « Flûte d’Anselme »)_, sinon « voix » _(si repère « voix-anselme »)_ _(sans repère « ailis-reconfortee »)_, sinon « apres-chant » _(si quête « Le chant d’Anselme » terminée)_, sinon « accueil »
 
 ### accueil
 
@@ -23,6 +23,8 @@ Commence par : « voix » _(si repère « voix-anselme »)_ _(sans repère « ai
 - « Au revoir, Aïlis. » → **fin**
 
 ### arbre
+
+_Effet : retient « anselme-connu »._
 
 > Anselme repose au pied d’un jeune arbre, en bas, comme le veut le Rite du Retour. Et j’ai gravé son nom au Bosquet. Je lui raconte ma journée ; parfois, le bois est tiède sous ma main. Les savants disent que c’est le soleil. Moi, je sais que c’est lui.
 
@@ -40,6 +42,39 @@ Commence par : « voix » _(si repère « voix-anselme »)_ _(sans repère « ai
 > Aïlis pose sa main sur la tienne. — La chanson des cerfs-lucioles… C’est elle que je fredonnais en gravant son nom. Alors le Bosquet la garde. Merci : tu viens de me rendre un petit morceau de lui.
 
 - « Il veille sur vous deux. » → **fin**
+
+### flute
+
+> Qu’est-ce que tu tiens là, mon enfant ? Une flûte… elle sent le bois d’en bas, le bois de la mousse.
+
+- _(si repère « flute-fidele »)_ « Elouan l’a taillée dans une branche de l’arbre d’Anselme. Pour vous. » → chant-fidele _(reprend 1 × « Flûte d’Anselme », termine la quête « Le chant d’Anselme », retient le Récit « Le chant d’Anselme », +40 XP)_
+- _(sans repère « flute-fidele »)_ « Elouan l’a taillée dans une branche de l’arbre d’Anselme. Pour vous. » → chant-carnet _(reprend 1 × « Flûte d’Anselme », termine la quête « Le chant d’Anselme », retient le Récit « Le chant d’Anselme », +30 XP)_
+- « Ce n’est rien. Je repasserai. » → **fin**
+
+### chant-fidele
+
+> 🌙 Aïlis porte la flûte à ses lèvres. Les premières notes tremblent, puis la chanson des cerfs-lucioles monte, exactement comme elle la fredonnait en gravant le nom. Elle s’arrête, la main sur le bois. — Il est tiède. Il est là.
+
+- « Il veille sur vous deux. » → merci
+
+### chant-carnet
+
+> 🌙 Aïlis joue la chanson du carnet, puis s’arrête et sourit. — Ce n’est pas tout à fait la mienne. Ilyane a toujours eu sa façon… Elle reprend, change une note, puis deux. Cette fois, c’est la sienne : elle vient de s’en souvenir.
+
+- « Elle était là, tout près. » → merci
+
+### merci
+
+> Je jouerai pour lui chaque soir, au Bosquet. Et quand Malo sera grand, je lui apprendrai. Merci, toi qui viens de si loin pour une vieille femme et son arbre.
+
+- « Merci à vous, Aïlis. » → **fin**
+
+### apres-chant
+
+> Entre, entre ! Tu entends ? Non, bien sûr, c’est le soir que je joue. Malo dit que les oiseaux répondent. Moi, je dis que c’est Anselme qui les fait chanter.
+
+- « Parlez-moi encore d’Anselme. » → arbre
+- « Au revoir, Aïlis. » → **fin**
 
 ## Un très vieil arbre gravé
 
@@ -86,6 +121,46 @@ Commence par : « arbre »
 > Sous tes doigts, un souvenir qui n’est pas le tien : une main de vieille femme qui grave, lettre après lettre, en fredonnant une chanson douce, une chanson de cerfs-lucioles. Puis plus rien, que le vent.
 
 - « Retirer doucement la main. » → **fin**
+
+## L’arbre d’Anselme
+
+_Sol des Racines_
+
+Commence par : « arbre-quete » _(si quête « Le chant d’Anselme » en cours)_ _(sans repère « branche-prise »)_, sinon « arbre »
+
+### arbre
+
+> Au pied d’un jeune arbre, la mousse est encore fraîche. Un ruban vert est noué autour du tronc, le même qu’au Bosquet, tout là-haut. Ici repose Anselme Feuillevent.
+
+- « Poser la main sur l’écorce. » → chaleur
+- « Partir. » → **fin**
+
+### arbre-quete
+
+> Au pied d’un jeune arbre, un ruban vert noué autour du tronc : ici repose Anselme Feuillevent. Des branches tombées jonchent la mousse.
+
+- « Ramasser une branche sèche. » → prise _(donne 1 × « Branche de l’arbre d’Anselme », retient « branche-prise »)_
+- **[Artisanat 2]** « Toquer sur les branches, pour trouver celle qui chante. » → chantante _(donne 1 × « Branche de l’arbre d’Anselme », retient « branche-prise », +10 XP)_
+- « Poser la main sur l’écorce. » → chaleur
+- « Partir. » → **fin**
+
+### prise
+
+> Tu choisis une branche sèche, droite et légère, et tu la glisses dans ta besace en murmurant un merci. On ne sait jamais qui écoute.
+
+- « Remonter vers la nacelle. » → **fin**
+
+### chantante
+
+> Tu toques sur les branches, une à une. La plupart sonnent mat. Une seule répond, claire comme une goutte d’eau : celle-là chante déjà. Tu la glisses dans ta besace en murmurant un merci.
+
+- « Remonter vers la nacelle. » → **fin**
+
+### chaleur
+
+> L’écorce est tiède, comme une main qu’on vient de lâcher. Pas de voix, pas d’image : seulement cette chaleur, et un tour de main qu’on devine dans le pli des branches.
+
+- « Retirer la main. » → **fin**
 
 ## Brann Martelroux
 
@@ -363,7 +438,7 @@ _Effet : retient le Récit « Le Savant Corvan »._
 
 _Luthier_
 
-Commence par : « accueil »
+Commence par : « apres » _(si quête « Le chant d’Anselme » terminée)_, sinon « flute-prete » _(si quête « Le chant d’Anselme » en cours)_ _(si l’on porte « Flûte d’Anselme »)_, sinon « branche » _(si quête « Le chant d’Anselme » en cours)_ _(si l’on porte « Branche de l’arbre d’Anselme »)_, sinon « attente » _(si quête « Le chant d’Anselme » en cours)_, sinon « proposition » _(si quête « Le chant d’Anselme » pas commencée)_ _(si repère « anselme-connu »)_, sinon « proposition » _(si quête « Le chant d’Anselme » pas commencée)_ _(si repère « voix-anselme »)_, sinon « accueil »
 
 ### accueil
 
@@ -384,6 +459,74 @@ Commence par : « accueil »
 > Parce qu’ils portent nos aïeux, pardi ! Couper un arbre, ici, c’est un peu comme brûler une bibliothèque. Les gens de Ferros ont du mal à le comprendre.
 
 - « Je comprends. » → accueil
+
+### proposition
+
+> Tu reviens de chez Aïlis Feuillevent ? Je suis Elouan, le luthier. Depuis qu’Anselme est parti, Aïlis ne chante plus : sa voix tremble trop, dit-elle. Je voudrais lui tailler une flûte dans une branche tombée de l’arbre d’Anselme, en bas. Mais mes genoux ne descendent plus.
+
+- « J’irai chercher la branche. » → explication _(lance la quête « Le chant d’Anselme »)_
+- « Pourquoi une branche de son arbre ? » → pourquoi
+- « Pas maintenant. » → **fin**
+
+### pourquoi
+
+> Le Rite du Retour : on met le défunt en terre au pied d’un arbre, et l’arbre garde de lui une chaleur, un tour de main. Une flûte taillée dans sa branche, c’est un peu d’Anselme qui jouera avec elle.
+
+- _(si quête « Le chant d’Anselme » pas commencée)_ « J’irai chercher la branche. » → explication _(lance la quête « Le chant d’Anselme »)_
+- « Je comprends. » → **fin**
+
+### explication
+
+> Véline, à la Grande Nacelle, te descendra sur le Sol des Racines. Ramène une branche tombée, rien d’autre. Il me faudra aussi la mélodie : Aïlis la fredonnait en gravant son nom, au Bosquet des Échos. Mirelle, au relais, garde aussi de vieux carnets de chansons.
+
+- « J’y vais. » → **fin**
+
+### attente
+
+> Alors, cette branche ? Une branche tombée de l’arbre d’Anselme, sur le Sol des Racines : Véline te descendra. Et n’oublie pas la mélodie.
+
+- « Rappelle-moi tout. » → explication
+- « J’y retourne. » → **fin**
+
+### branche
+
+> Elouan prend la branche, la fait tourner, toque dessus du bout de l’ongle. — Bon bois. Il a déjà du vent dedans. Maintenant, la mélodie : sans elle, je taillerais une flûte muette.
+
+- _(si repère « voix-anselme »)_ « Je l’ai entendue au Bosquet. Je peux te la fredonner. » → taille-fidele _(reprend 1 × « Branche de l’arbre d’Anselme », donne 1 × « Flûte d’Anselme », retient « flute-fidele », +15 XP)_
+- _(si repère « melodie-carnet »)_ « Mirelle m’a montré la chanson, dans le carnet d’Ilyane. » → taille-carnet _(reprend 1 × « Branche de l’arbre d’Anselme », donne 1 × « Flûte d’Anselme »)_
+- « Où trouver la mélodie ? » → melodie
+- « Je reviens. » → **fin**
+
+### melodie
+
+> Aïlis fredonnait en gravant le nom d’Anselme : le Bosquet des Échos a gardé ce souvenir, pour qui sait poser la main sur les signes. Sinon, demande à Mirelle, au relais du Bosquet : elle garde de vieux carnets de chansons.
+
+- « Merci, Elouan. » → **fin**
+
+### taille-fidele
+
+> 🌙 Tu fredonnes ; Elouan écoute, les yeux fermés. Puis il taille, perce, souffle, retaille. Le soir tombe sur l’atelier. Enfin la flûte chante, et c’est la chanson du Bosquet, note pour note. — Elle est à Aïlis. Porte-la-lui.
+
+- « J’y vais. » → **fin**
+
+### taille-carnet
+
+> 🌙 Elouan déchiffre la notation d’Ilyane en fronçant les sourcils, puis il taille, perce, souffle. Le soir tombe. La chanson des cerfs-lucioles sort enfin de la flûte. — C’est celle du carnet. Pas tout à fait celle d’Aïlis, peut-être… Porte-la-lui.
+
+- « J’y vais. » → **fin**
+
+### flute-prete
+
+> La flûte attend Aïlis, pas moi ! La Maison Feuillevent est juste à côté, aux Hautes Ramures.
+
+- « J’y vais. » → **fin**
+
+### apres
+
+> Chaque soir, j’entends la flûte d’Aïlis jusqu’ici. Les oiseaux se taisent pour l’écouter, puis ils répondent. Tu vois ? Le bois se souvient du vent.
+
+- « Tu peux jouer quelque chose ? » → musique
+- « Au revoir, Elouan. » → **fin**
 
 ## La foreuse de Brisefer
 
@@ -847,7 +990,7 @@ Commence par : « retour » _(si quête « Les lettres de Malo » en cours)_ _(s
 
 _Gardienne de Mémoire de Canopéa_
 
-Commence par : « accueil »
+Commence par : « chanson » _(si quête « Le chant d’Anselme » en cours)_ _(sans repère « melodie-carnet »)_, sinon « accueil »
 
 ### accueil
 
@@ -883,6 +1026,21 @@ Commence par : « accueil »
 > Après la Grande Chute, Kael écrivit tout ce dont il se souvenait du monde perdu. Il fonda la première bibliothèque, à Sept-Portes. Chaque Gardien porte un peu de son carnet. Un jour, tu iras voir sa bibliothèque, toi aussi.
 
 - « J’aimerais beaucoup. » → accueil
+
+### chanson
+
+> Bienvenue au relais. Tu as l’air de chercher quelque chose… une histoire, une chanson ?
+
+- « Connais-tu la chanson des cerfs-lucioles ? » → carnet
+- « Rien de particulier. » → accueil
+
+### carnet
+
+_Effet : retient « melodie-carnet »._
+
+> Mirelle rit et sort un vieux carnet relié de ficelle. — Le carnet de chansons d’Ilyane. Elle chantait faux, mais elle écrivait juste. Tiens : la chanson des cerfs-lucioles, notée de sa main. Montre-la à Elouan, il saura la lire.
+
+- « Merci, Mirelle. » → accueil
 
 ## Nell Lunelierre
 
@@ -1203,7 +1361,7 @@ _Effet : retient « fouille-vue », retient « fouille-marches »._
 
 _Passeuse de la Grande Nacelle_
 
-Commence par : « vol » _(si repère « vol-grenier »)_ _(sans repère « veline-vol-dit »)_, sinon « descente » _(si quête « Les lettres de Malo » en cours)_ _(sans repère « sacoche-retrouvee »)_, sinon « retour » _(si repère « canopee-accueillie »)_, sinon « accueil »
+Commence par : « vol » _(si repère « vol-grenier »)_ _(sans repère « veline-vol-dit »)_, sinon « descente » _(si quête « Les lettres de Malo » en cours)_ _(sans repère « sacoche-retrouvee »)_, sinon « descente-anselme » _(si quête « Le chant d’Anselme » en cours)_ _(sans repère « branche-prise »)_, sinon « retour » _(si repère « canopee-accueillie »)_, sinon « accueil »
 
 ### accueil
 
@@ -1262,6 +1420,13 @@ _Effet : retient « descente-autorisee »._
 
 - « Allons-y. » → **fin** _(mène à « Canopéa — Le Sol des Racines »)_
 - « Un instant. » → **fin**
+
+### descente-anselme
+
+> Une branche de l’arbre d’Anselme, pour une flûte ? Aïlis sera heureuse… Le sol est sacré, mais une branche tombée, la forêt la donne. Je te descends. Ne prends que celle-là.
+
+- « Allons-y. » → **fin** _(mène à « Canopéa — Le Sol des Racines »)_
+- « Pas maintenant. » → **fin**
 
 ## Un voyageur égaré
 

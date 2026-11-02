@@ -725,3 +725,22 @@ TILES.push(
       '<path d="M52 70 L58 52 M55 60 L60 62" stroke="#6a6058" stroke-width="2.5"/>',
   },
 );
+
+// --- Canopéa, quêtes du chapitre 2 (docs/univers/quetes.md) ---------------------------------------------------
+TILES.push(
+  {
+    // « Le chant d'Anselme » : le jeune arbre au pied duquel repose Anselme (Rite du Retour), ruban vert, branches tombées.
+    name: 'arbre-retour',
+    blocking: true,
+    cover: 3,
+    svg:
+      diamond('#334023') +
+      shadow(16, 6) +
+      `<path d="M29 84 Q30 64 30 46 L35 46 Q35 64 36 84 Z" fill="#6b4a32" stroke="${INK}" stroke-width="1"/>` +
+      '<path d="M28 62 Q32 66 37 62" stroke="#5fae5a" stroke-width="3" fill="none"/><path d="M36 63 L40 72 M35 64 L37 73" stroke="#5fae5a" stroke-width="2"/>' +
+      '<circle cx="32" cy="34" r="13" fill="#4d6b3a"/><circle cx="24" cy="40" r="8" fill="#5f8a45"/><circle cx="41" cy="39" r="8" fill="#5f8a45"/>' +
+      '<circle cx="33" cy="24" r="7" fill="#76a352"/>' +
+      '<path d="M10 86 L24 80 M44 90 L58 84 M14 90 L20 92" stroke="#8a6a46" stroke-width="2.5" stroke-linecap="round"/>' +
+      '<path d="M16 84 L13 81 M50 87 L52 83" stroke="#8a6a46" stroke-width="1.5" stroke-linecap="round"/>',
+  },
+);

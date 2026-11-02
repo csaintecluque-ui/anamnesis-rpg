@@ -21,6 +21,8 @@ Règles : `src/rules/inventory.ts` ; écran : `TradeScene`.
   lit `armorBonus`). Les armes en main sont celles du combat (`docs/gdd/combat.md`, « Armes ») : une arme achetée
   mais rangée dans le sac ne sert pas.
 - **Troc** : acheter dépense des Fers ; vendre rapporte la moitié du prix, arrondi à l'entier inférieur.
+  Les **objets de quête** (`quest: true` : la branche et la flûte d'Anselme…) ne se vendent pas ; un dialogue les reprend
+  (`takeItem`) quand on les remet.
 - **Catalogue par marchand** (depuis le 2026-11-01) : chaque marchand a sa liste (`sells` dans `src/data/npcs.json`,
   `merchantCatalogue`). L'étal montre ce qu'il vend, plus ce que le héros porte (pour pouvoir le vendre : un
   marchand rachète tout). « Acheter » n'apparaît que sur les objets de son catalogue. Stock illimité.

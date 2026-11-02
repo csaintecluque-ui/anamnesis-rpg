@@ -830,3 +830,5 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   départ le 1er du huitième mois de l'an 3000), quatre moments, la nuit sur la carte, le temps qui passe en route, en
   train, en caravane, en attendant la nuit et en dormant ; trois auberges (manger ou dormir, sauvegarde en dormant,
   nouvelles du jour) ; la date au journal ; le temps dans le mode développeur ; sauvegarde v10. Vérifié sur téléphone.
+  Repas d'auberge remonté à 8 Fers (canon : 15 à 30 Feuilles). Cyril : « Oui pour tout, mets en ligne » (date de
+  départ validée). Mis en ligne.

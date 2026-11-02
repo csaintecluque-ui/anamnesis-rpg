@@ -22,6 +22,8 @@ export interface WorldPlace {
   known?: boolean;
   revealedBy?: string;
   revealedByQuest?: string;
+  /** A sleeping line to explore (docs/gdd/voies.md): its danger, 1 to 3. */
+  voie?: { danger: number };
 }
 
 export interface WorldDef {

@@ -30,9 +30,17 @@ import ironheartArchivesJson from './ironheart-archives.json';
 import rencontreClairiereJson from './rencontre-clairiere.json';
 import rencontreRouteJson from './rencontre-route.json';
 import rencontreRuinesJson from './rencontre-ruines.json';
+import voieQuaiJson from './voie-quai.json';
+import voieTunnelJson from './voie-tunnel.json';
+import voieDepotJson from './voie-depot.json';
+import voieAiguillageJson from './voie-aiguillage.json';
 
 /** Tiled maps by id (`map` of src/data/locations.json). */
 export const MAPS: Record<string, TiledMapJson> = {
+  'voie-quai': voieQuaiJson as TiledMapJson,
+  'voie-tunnel': voieTunnelJson as TiledMapJson,
+  'voie-depot': voieDepotJson as TiledMapJson,
+  'voie-aiguillage': voieAiguillageJson as TiledMapJson,
   gardebois: gardeboisJson as TiledMapJson,
   'gare-engloutie': gareEngloutieJson as TiledMapJson,
   'maison-ilyane': maisonIlyaneJson as TiledMapJson,

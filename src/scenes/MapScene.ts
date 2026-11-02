@@ -28,6 +28,8 @@ import type { CombatStartData } from './CombatScene';
 import { FigurantLayer } from './Figurants';
 import { PartyLayer } from './Party';
 import { echoObjects, echoShows } from '../rules/echos';
+import { boardObjects } from '../rules/contrats';
+import { descend, groupFlag, groupNear, groupXp, leaveVoie, springTrap, voieLevel, voiePlan } from '../rules/voies';
 import type { HudScene } from './HudScene';
 import type { WorldMapStartData } from './WorldMapScene';
 import { momentOf, type Moment } from '../rules/time';
@@ -85,6 +87,11 @@ export class MapScene extends Phaser.Scene {
   private partyIds = '';
   /** The moment of the day when the map was built: some Échos only show at night (docs/gdd/echos.md). */
   private builtAt = '';
+  /**
+   * Groups of a sleeping line already fought here (docs/gdd/voies.md): after fleeing, they let the hero walk away;
+   * they attack again only once the hero has been out of their sight. Touching them still starts the fight.
+   */
+  private fought = new Set<string>();
 
   constructor() {
     super('Map');
@@ -98,7 +105,21 @@ export class MapScene extends Phaser.Scene {
       return;
     }
     this.state = state;
-    this.map = parseTiledMap(MAPS[location.map]);
+    // A sleeping line (docs/gdd/voies.md): the plan of this level, then what this visit's draw put on it.
+    if (location.voie && !state.voie) {
+      this.state.location = 'gardebois';
+      this.state.entrance = 'entree';
+      this.scene.restart();
+      return;
+    }
+    this.map = parseTiledMap(MAPS[location.voie && state.voie ? voiePlan(state.voie) : location.map]);
+    const level = location.voie && state.voie ? voieLevel(state, this.map) : null;
+    if (level) {
+      this.map.objects.push(...level.objects);
+      Object.assign(DIALOGUES, level.dialogues);
+    }
+    // The contracts' board of a Gardiens' relay (docs/gdd/voies.md).
+    this.map.objects.push(...boardObjects(location.id));
     // A random encounter lays its enemies, people and objects on the map's spawn points (docs/gdd/carte-du-monde.md).
     const rencontre = location.encounter && state.encounter ? findRencontre(state.encounter.id) : undefined;
     if (rencontre) this.map.objects.push(...encounterObjects(rencontre, this.map.objects.filter((o) => o.type === 'apparition')));
@@ -116,6 +137,7 @@ export class MapScene extends Phaser.Scene {
     this.pendingGoal = null;
     this.arrival = null;
     this.interactables = [];
+    this.fought = new Set();
 
     this.drawGround();
     this.drawObstacles();
@@ -171,7 +193,8 @@ export class MapScene extends Phaser.Scene {
     onKeys(this, ['I'], () => this.hud().openOverlay('Trade', {}));
     onKeys(this, ['J'], () => this.hud().openOverlay('Journal'));
 
-    this.scene.launch('Hud', { locationName: location.name });
+    this.scene.launch('Hud', { locationName: level?.title ?? location.name });
+    if (level) this.time.delayedCall(50, () => this.hud().toast(`${level.title}. Pour remonter à la surface, reviens à l’entrée.`));
     if (rencontre) this.announceEncounter(rencontre);
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => this.scene.stop('Hud'));
     // A dialogue or a fight may have picked a herb or sent enemies away. Scene events outlive a restart: unhook.
@@ -300,6 +323,12 @@ export class MapScene extends Phaser.Scene {
       const image = this.add.image(f.x, f.y, 'tiles', this.map.frames[o.properties.tuile] ?? this.map.frames.pnj).setOrigin(0.5, 1).setDepth(f.y);
       // An Écho is only half there.
       if (o.properties.echo) image.setAlpha(0.55);
+      // Something to search (a crate of a sleeping line): a copper glow at its foot, among the crates of the decor.
+      if (o.properties.lueur) {
+        const glow = this.add.ellipse(f.x, f.y - TILE_HEIGHT / 2, TILE_WIDTH * 1.1, TILE_HEIGHT * 1.1, COLORS.copper, 0.7).setDepth(f.y - 1);
+        this.tweens.add({ targets: glow, alpha: 0.3, duration: 900, yoyo: true, repeat: -1 });
+        image.setTint(0xffbf8a);
+      }
       if (o.type !== 'decor') this.interactables.push({ object: o, image });
     }
   }
@@ -354,6 +383,59 @@ export class MapScene extends Phaser.Scene {
     };
     const xp = rencontreXp(rencontre);
     this.launchFight(center, enemies.map((o) => o.properties.ennemi), enemies, ENCOUNTER_VICTORY_FLAG, xp > 0 ? [{ giveXp: xp }] : []);
+  }
+
+  // --- Sleeping lines (docs/gdd/voies.md) ---------------------------------------------------------
+
+  /**
+   * After each step in a sleeping line: a hidden trap underfoot, or beasts close enough to see the hero. Returns true
+   * when the walk stops there (hurt by a trap, or a fight starts).
+   */
+  private voieStep(): boolean {
+    if (!this.state.voie) return false;
+    const trap = this.map.objects.find((o) => o.type === 'piege' && o.col === this.heroTile.col && o.row === this.heroTile.row && !this.gone(o));
+    if (trap) {
+      const outcome = springTrap(this.state, trap);
+      this.hud().toast([outcome.text, ...outcome.notices].join('   ·   '));
+      if (!outcome.spotted) {
+        this.haltWalk();
+        return true;
+      }
+    }
+    // Out of sight of a group fled from: it may attack again later.
+    for (const g of [...this.fought]) if (groupNear(this.map.objects.filter((o) => o.properties.voie === g), this.heroTile, (o) => this.gone(o)) === null) this.fought.delete(g);
+    const group = groupNear(this.map.objects, this.heroTile, (o) => this.gone(o) || this.fought.has(o.properties.voie));
+    if (group) {
+      this.haltWalk();
+      this.fightVoieGroup(group);
+      return true;
+    }
+    return false;
+  }
+
+  /** Stops the walk where the hero stands, forgetting where they were going. */
+  private haltWalk(): void {
+    this.path = [];
+    this.pendingGoal = null;
+    this.arrival = null;
+    this.moving = false;
+    this.standStill();
+    this.marker.clear();
+  }
+
+  /** A group of a sleeping line attacks: the fight takes place right here. */
+  private fightVoieGroup(group: string): void {
+    const enemies = this.map.objects.filter((o) => o.type === 'ennemi' && o.properties.voie === group && !this.gone(o));
+    if (enemies.length === 0) return;
+    const all = [this.heroTile, ...enemies];
+    const center = {
+      col: Math.round(all.reduce((sum, t) => sum + t.col, 0) / all.length),
+      row: Math.round(all.reduce((sum, t) => sum + t.row, 0) / all.length),
+    };
+    this.fought.add(group);
+    const ids = enemies.map((o) => o.properties.ennemi);
+    const effects: Effect[] = [{ giveXp: groupXp(ids) }, ...(enemies[0].properties.contrat ? [{ contrat: 'fait' as const }] : [])];
+    this.launchFight(center, ids, enemies, groupFlag(group), effects);
   }
 
   private drawNpcs(): void {
@@ -478,6 +560,7 @@ export class MapScene extends Phaser.Scene {
         this.party.heroStepped(this.heroTile, STEP_MS);
         this.heroTile = next;
         this.state.position = { ...next };
+        if (this.voieStep()) return;
         this.stepAlong();
       },
     });
@@ -557,6 +640,19 @@ export class MapScene extends Phaser.Scene {
       this.fightEncounter();
       return;
     }
+    if (target.type === 'ennemi' && target.properties.voie) {
+      this.fightVoieGroup(target.properties.voie);
+      return;
+    }
+    if (target.type === 'descente') {
+      if (descend(this.state)) this.scene.restart();
+      return;
+    }
+    if (target.properties.contrats) {
+      this.scene.pause();
+      this.scene.launch('Contrats', { board: target.properties.contrats });
+      return;
+    }
     if (target.type === 'ennemi') {
       this.hud().toast(target.properties.texte ?? 'Mieux vaut ne pas s’approcher sans plan.');
       return;
@@ -628,7 +724,7 @@ export class MapScene extends Phaser.Scene {
   /** Leaves a place (or an encounter) for the world map, where one stands at that place (docs/gdd/carte-du-monde.md). */
   private openWorldMap(): void {
     const encounter = this.state.encounter;
-    const place = placeOfLocation(this.state.location);
+    const place = this.state.voie ? leaveVoie(this.state) : placeOfLocation(this.state.location);
     let start: WorldMapStartData;
     if (encounter) start = { x: encounter.x, y: encounter.y, destination: encounter.destination };
     else if (place) start = { x: place.x, y: place.y, destination: null, at: place.id };

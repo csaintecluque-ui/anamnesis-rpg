@@ -305,5 +305,37 @@
     "weightKg": 0.2,
     "price": 0,
     "quest": true
+  },
+  {
+    "id": "pli-scelle",
+    "name": "Pli scellé des Gardiens",
+    "description": "Une lettre pliée, cachetée de cire. On ne l’ouvre pas : on la porte.",
+    "weightKg": 0.1,
+    "price": 0,
+    "quest": true
+  },
+  {
+    "id": "lanterne-chef-gare",
+    "name": "Lanterne de chef de gare",
+    "description": "Une lanterne de l’Ancien Monde, verre rouge et verre vert. Elle ne s’est jamais allumée depuis.",
+    "weightKg": 1,
+    "price": 0,
+    "quest": true
+  },
+  {
+    "id": "plaque-emaillee",
+    "name": "Plaque émaillée",
+    "description": "Un nom de gare en lettres blanches sur fond bleu, que personne ne sait plus lire à voix haute.",
+    "weightKg": 1.5,
+    "price": 0,
+    "quest": true
+  },
+  {
+    "id": "registre-quai",
+    "name": "Registre de quai",
+    "description": "Les départs d’un jour d’il y a trois mille ans, à l’encre passée. Le dernier n’a pas d’heure d’arrivée.",
+    "weightKg": 0.5,
+    "price": 0,
+    "quest": true
   }
 ]

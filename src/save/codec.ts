@@ -3,8 +3,9 @@ import { findPlace, findRencontre } from '../rules/world';
 import { findLocation, type GameState } from '../state/gameState';
 import { START_TIME, isGameTime } from '../rules/time';
 import { findCompanion } from '../rules/companions';
+import { VOIE_DEPTH } from '../rules/voies';
 
-export const SAVE_VERSION = 14;
+export const SAVE_VERSION = 15;
 export const SAVE_MAX_CHARS = 1_000_000;
 const GAME_MARKER = 'anamnesis';
 
@@ -97,6 +98,8 @@ const MIGRATIONS: Record<number, (save: Record<string, unknown>) => Record<strin
   12: (save) => ({ ...save, state: isRecord(save.state) ? { ...save.state, avis: {} } : save.state }),
   // v13 predates the Livre des Échos (docs/gdd/echos.md): no emprise yet.
   13: (save) => ({ ...save, state: isRecord(save.state) ? { ...save.state, emprise: 0 } : save.state }),
+  // v14 predates the sleeping lines and the contracts (docs/gdd/voies.md): none under way, none taken.
+  14: (save) => ({ ...save, state: isRecord(save.state) ? { ...save.state, voie: null, contrats: { actif: null, faits: 0, pris: [] } } : save.state }),
 };
 
 export function createSave(state: GameState, now: Date): SaveFile {
@@ -162,8 +165,41 @@ function validateState(state: unknown): string | null {
   }
   if (!isRecord(state.avis) || Object.values(state.avis).some((v) => !Number.isInteger(v))) return 'avis des compagnons invalides.';
   if (!Number.isInteger(state.emprise) || (state.emprise as number) < 0) return 'emprise des Échos invalide.';
+  if (state.voie !== null && !isVoie(state.voie)) return 'voie endormie invalide.';
+  if (!isContrats(state.contrats)) return 'contrats invalides.';
   if (state.character !== null) return characterError(state.character);
   return null;
+}
+
+/** A sleeping line under way: a known site of the world map, a draw, a level within the line's depth. */
+function isVoie(value: unknown): boolean {
+  return (
+    isRecord(value) &&
+    typeof value.site === 'string' &&
+    !!findPlace(value.site)?.voie &&
+    Number.isInteger(value.seed) &&
+    Number.isInteger(value.depth) &&
+    (value.depth as number) >= 1 &&
+    (value.depth as number) <= VOIE_DEPTH
+  );
+}
+
+function isContrats(value: unknown): boolean {
+  if (!isRecord(value) || !Number.isInteger(value.faits) || (value.faits as number) < 0) return false;
+  if (!Array.isArray(value.pris) || value.pris.some((id) => typeof id !== 'string')) return false;
+  const c = value.actif;
+  if (c === null) return true;
+  return (
+    isRecord(c) &&
+    typeof c.id === 'string' &&
+    ['pli', 'recherche', 'chasse'].includes(c.kind as string) &&
+    typeof c.board === 'string' &&
+    typeof c.titre === 'string' &&
+    typeof c.texte === 'string' &&
+    typeof c.cible === 'string' &&
+    Number.isInteger(c.fers) &&
+    Number.isInteger(c.xp)
+  );
 }
 
 function isEncounter(value: unknown): boolean {

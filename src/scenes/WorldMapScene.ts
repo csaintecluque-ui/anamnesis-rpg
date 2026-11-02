@@ -20,6 +20,7 @@ import { addTextButton } from '../ui/button';
 import { COLORS, CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
 import { HAS_MOUSE } from '../ui/viewport';
 import { MOMENTS, advance, shortTime } from '../rules/time';
+import { startVoie } from '../rules/voies';
 
 /** Where the hero stands when the world map opens: a place they leave, or the spot of an encounter. */
 export interface WorldMapStartData {
@@ -192,7 +193,9 @@ export class WorldMapScene extends Phaser.Scene {
 
   private drawPlaces(): void {
     const g = this.add.graphics();
-    const places = knownPlaces(this.state.flags, this.state.quests);
+    const all = knownPlaces(this.state.flags, this.state.quests);
+    // The sleeping lines (docs/gdd/voies.md) are off the roads: no road leads there, and they get their own mark.
+    const places = all.filter((p) => !p.voie);
     // Known roads between places: a faint dotted line.
     g.fillStyle(0x6b4a32, 0.5);
     for (let i = 0; i < places.length; i++) {
@@ -220,13 +223,27 @@ export class WorldMapScene extends Phaser.Scene {
       }
       this.label((a.x + b.x) / 2, (a.y + b.y) / 2 - 18, rail.name, '#3a3238');
     }
-    for (const place of places) {
+    for (const place of all) {
       const p = this.screen(place);
-      g.fillStyle(COPPER, 1).fillCircle(p.x, p.y, 11);
-      g.lineStyle(3, INK, 1).strokeCircle(p.x, p.y, 11);
-      g.fillStyle(PARCHMENT, 1).fillCircle(p.x, p.y, 4);
+      if (place.voie) {
+        // A sleeping line: a dark mouth with two rails going down into it.
+        g.fillStyle(INK, 1).fillRect(p.x - 10, p.y - 10, 20, 20);
+        g.lineStyle(2, COPPER, 1).strokeRect(p.x - 10, p.y - 10, 20, 20);
+        g.lineStyle(2, PARCHMENT, 0.8).lineBetween(p.x - 4, p.y + 8, p.x - 2, p.y - 6).lineBetween(p.x + 4, p.y + 8, p.x + 2, p.y - 6);
+      } else {
+        g.fillStyle(COPPER, 1).fillCircle(p.x, p.y, 11);
+        g.lineStyle(3, INK, 1).strokeCircle(p.x, p.y, 11);
+        g.fillStyle(PARCHMENT, 1).fillCircle(p.x, p.y, 4);
+      }
       this.add
-        .text(p.x, p.y + 18, place.name, { fontFamily: FONT_SERIF, fontSize: `${LAYOUT.name}px`, color: CSS.ink, stroke: CSS.parchment, strokeThickness: 4 })
+        .text(p.x, p.y + 18, place.name, {
+          fontFamily: FONT_SERIF,
+          fontSize: `${LAYOUT.name}px`,
+          color: CSS.ink,
+          stroke: CSS.parchment,
+          strokeThickness: 4,
+          fontStyle: place.voie ? 'italic' : 'normal',
+        })
         .setOrigin(0.5, 0);
       const hit = this.add.circle(p.x, p.y, PLACE_HIT_RADIUS, 0x000000, 0.001).setInteractive({ useHandCursor: true });
       hit.on('pointerup', () => {
@@ -290,8 +307,8 @@ export class WorldMapScene extends Phaser.Scene {
 
   private offerPlace(place: WorldPlace): void {
     if (distanceBetween(this.pos, place) <= AT_PLACE) {
-      this.showPanel(`${place.name} — ${place.description}`, [
-        [`Entrer`, () => this.arrive(place)],
+      this.showPanel(`${place.name} — ${place.description}${dangerLabel(place)}`, [
+        [place.voie ? 'Descendre' : 'Entrer', () => this.arrive(place)],
         ['Rester sur la carte', () => this.clearPanel()],
       ]);
       return;
@@ -301,7 +318,7 @@ export class WorldMapScene extends Phaser.Scene {
 
   private offerTrip(place: WorldPlace, resumed: boolean): void {
     const time = travelTimeLabel(distanceBetween(this.pos, place));
-    const lead = resumed ? `Reprendre la route vers ${place.name} ?` : `${place.name} — ${place.description}`;
+    const lead = resumed ? `Reprendre la route vers ${place.name} ?` : `${place.name} — ${place.description}${dangerLabel(place)}`;
     this.showPanel(`${lead}\n(${time})`, [
       ['Partir', () => this.depart(place)],
       ['Choisir un autre lieu', () => this.clearPanel()],
@@ -322,6 +339,8 @@ export class WorldMapScene extends Phaser.Scene {
     this.state.encounter = null;
     this.state.location = place.location;
     this.state.entrance = place.entrance;
+    // A sleeping line: a new draw of its levels at each visit (docs/gdd/voies.md).
+    if (place.voie) startVoie(this.state, place.id);
     this.scene.start('Map');
   }
 
@@ -365,6 +384,12 @@ export class WorldMapScene extends Phaser.Scene {
     this.state.entrance = findLocation(terrain)?.entrance ?? 'entree';
     this.scene.start('Map');
   }
+}
+
+/** « Danger : ●●○ », for a sleeping line (docs/gdd/voies.md). */
+function dangerLabel(place: WorldPlace): string {
+  const danger = place.voie?.danger;
+  return danger ? `\nDanger : ${'●'.repeat(danger)}${'○'.repeat(3 - danger)} · trois niveaux, jusqu’au terminus.` : '';
 }
 
 /** Fixed-seed RNG (same as scripts/build-maps.mjs) for decor that must not change between visits. */

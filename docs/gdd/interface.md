@@ -118,3 +118,13 @@ tactiles reçoivent donc des tailles à eux (détection « pas de souris », `HA
   « Attendre le soir ». Conception : `docs/gdd/veillees.md`.
 - **Journal**, onglet « Récits » : les rumeurs entendues suivent les Récits (« Rumeur · … », lieu où on l'a entendue).
 - **Outils de dev** : « Soir » (temps) ; « Veillées : rumeurs → Toutes entendues » (onglet « Groupe »).
+
+## Jalon 3, étape 6 (2026-11-02) : les voies endormies et les contrats
+
+- **Carte du monde** : les voies endormies ont leur marque (une bouche noire, deux rails), leur nom en italique, pas de
+  route tracée ; le panneau dit leur danger (●○○) et propose « Descendre ».
+- **Dans une voie** : le haut de l'écran dit « La halte des Fougères — niveau 2 » (ou « — le terminus ») ; les caisses
+  à fouiller luisent de cuivre ; la descente est un trou dans le sol ; un piège ou des bêtes arrêtent la marche.
+- **Le tableau des contrats** (`ContratsScene`, touché dans un relais) : le contrat en cours (Rendre, Abandonner),
+  puis les offres (Prendre ; touches 1 à 3). Le contrat en cours s'affiche en tête du journal, onglet « Quêtes ».
+- **Outils de dev**, onglet « Lieux » : descendre dans chaque voie au niveau voulu ; révéler les trois voies.

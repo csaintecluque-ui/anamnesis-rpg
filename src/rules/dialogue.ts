@@ -93,6 +93,8 @@ export type Effect =
   | { revivre: string }
   /** Loses PV (a cursed Écho holding on); never below 1. */
   | { blesser: number }
+  /** The contract under way is fulfilled (a hunt's beasts beaten, docs/gdd/voies.md): back to its board. */
+  | { contrat: 'fait' }
   /** A Druide Vert takes back the marks of the crystal, and a rank of Résonance with them (src/rules/marques.ts). */
   | { effacerMarques: true };
 
@@ -341,6 +343,11 @@ export function applyEffects(state: GameState, effects: Effect[] = []): string[]
       }
     } else if ('revivre' in effect) {
       notices.push(...relive(state, effect.revivre));
+    } else if ('contrat' in effect) {
+      if (state.contrats.actif && !state.contrats.actif.fait) {
+        state.contrats.actif.fait = true;
+        notices.push('Contrat rempli : retourne au tableau des Gardiens');
+      }
     } else if ('blesser' in effect) {
       if (state.character) {
         const lost = Math.min(effect.blesser, state.character.hp - 1);

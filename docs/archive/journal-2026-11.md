@@ -918,6 +918,19 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   fusion de `main` (les veillées) ; mise en ligne.
 - Notion : page « Anamnesis — le jeu » complétée (la passe sombre ; le prix de la magie renvoie aux marques).
 
+## 2026-11-02 (suite) : jalon 3, étape 6, les voies endormies et les contrats
+
+- Cyril : « On passe à la 6, la 5 est en cours » (la passe sombre se fait dans une autre session).
+- Construit (`docs/gdd/voies.md`) : trois voies endormies sur la carte du monde (halte des Fougères, tunnel de la
+  Combe, Dépôt Sept), trois niveaux chacune ; quatre plans (quai, tunnel, dépôt, poste d'aiguillage) tirés et garnis au
+  hasard à chaque visite (bêtes qui attaquent à deux cases, caisses qui luisent, cadenas, pièges cachés, Échos de
+  l'Ancien Monde, coffre du chef de gare au terminus). Tableaux de contrats dans les relais de Gardebois et de Canopéa
+  et sur le mur de la Bielle : pli, recherche, chasse ; un à la fois ; renouvelés tous les trois jours ; au journal.
+  Sauvegarde v15. 548 tests (dont 360 visites tirées, toutes valides et accessibles) ; vérifié sur PC et téléphone.
+- Cyril : « Oui pour tout, mets en ligne » : noms des voies, Échos, mur de la Bielle, chiffres validés ; fusion de
+  `main` (la passe sombre) ; étape 6 mise en ligne ; page Notion « Anamnesis — le jeu » complétée (voies et contrats). La vérification qualité (autre session, pas encore sur `main`)
+  régénère toutes les cartes : à sa fusion, relancer `npm run maps` pour les plans `voie-*`.
+
 ## 2026-11-02 (suite) : vérification qualité de tout le jeu
 
 - 546 tests, typecheck, build ; audit des données (aucun repère cassé, aucun objet introuvable) ; les 28 lieux ouverts
@@ -926,3 +939,5 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
 - Corrigé : une vingtaine de textes (fautes, cohérences : gardienne du grenier, levier, Aïlis, carnet, Tobias…),
   figurines de Kerta, Tam et Dask, générateur de `docs/DIALOGUES.md` (69 « undefined »). Rapport : `docs/qualite.md`.
   À trancher : Corvan dans l'Écho du dernier train (zone floue 32).
+- Cyril : « Oui pour tout, mets en ligne ; étape 6 déjà ok » : corrections de la vérification mises en ligne ;
+  Corvan retiré de l'Écho du dernier train (zone floue 32) ; fusion de `main` (étape 6, faite dans une autre session).

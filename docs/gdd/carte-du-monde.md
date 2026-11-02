@@ -73,3 +73,8 @@ rencontre, pour quelques Fers. Tout passe par des dialogues (effet `goTo`).
   (`rails` dans `src/data/world.json`).
 - **Inventés pour le jeu (validés par Cyril)** : la convoyeuse, le chef de caravane (cité depuis « La caravane de midi »),
   l'employée du guichet, la préposée de la halte ; la halte de Canopéa sur la ligne de l'Ouest.
+
+## Les voies endormies (2026-11-02, jalon 3, étape 6)
+
+Trois ruines de l'Ancien Monde à explorer sur la carte (`voie` dans `src/data/world.json`), hors des routes : elles
+ne tirent pas de rencontre à l'arrivée, mais on y descend sur trois niveaux tirés au hasard (`docs/gdd/voies.md`).

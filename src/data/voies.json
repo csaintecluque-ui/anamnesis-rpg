@@ -1,0 +1,38 @@
+{
+  "profondeur": 3,
+  "plans": [
+    { "id": "voie-quai", "nom": "le quai" },
+    { "id": "voie-tunnel", "nom": "le tunnel" },
+    { "id": "voie-depot", "nom": "le dépôt" },
+    { "id": "voie-aiguillage", "nom": "le poste d’aiguillage" }
+  ],
+  "groupes": {
+    "1": [["loup-rouille", "loup-rouille"], ["guepe-rouille", "guepe-rouille", "guepe-rouille"], ["rodeur-epine", "rodeur-epine"]],
+    "2": [["gecko-soudeur", "gecko-soudeur"], ["loup-rouille", "loup-rouille", "loup-rouille"], ["pilleur-cendres", "arbaletrier-cendres"], ["griffe-sylve"]],
+    "3": [["pilleur-cendres", "pilleur-cendres", "rebouteuse-cendres"], ["gecko-soudeur", "guepe-rouille", "guepe-rouille"], ["echo-furieux", "echo-furieux"], ["griffe-sylve", "loup-rouille"]],
+    "4": [["arbaletrier-cendres", "pilleur-cendres", "rebouteuse-cendres"], ["echo-furieux", "echo-furieux", "echo-furieux"], ["griffe-sylve", "griffe-sylve"]],
+    "5": [["golem-ferraille", "gecko-soudeur"], ["arbaletrier-cendres", "arbaletrier-cendres", "pilleur-cendres", "rebouteuse-cendres"]]
+  },
+  "butin": {
+    "1": ["bandage", "corde", "carreaux"],
+    "2": ["baume-mousse", "bandage", "lampe-cristal", "carreaux"],
+    "3": ["fiole-seve", "baume-mousse", "lampe-cristal"],
+    "4": ["fiole-seve", "fiole-seve", "carreaux"],
+    "5": ["fiole-seve", "fiole-seve", "baume-mousse"]
+  },
+  "tresor": ["cristal-forge", "cristal-vie"],
+  "echos": [
+    { "id": "depart", "texte": "Un chef de gare en casquette lève son sifflet. Le quai est plein de gens pressés, de valises, de journaux. Il siffle. Personne ne monte. Il siffle encore." },
+    { "id": "enfants", "texte": "Deux enfants comptent les wagons à voix haute, le nez contre une vitre qui n’existe plus. Ils arrivent à douze, se disputent, recommencent." },
+    { "id": "annonce", "texte": "Une voix sans corps tombe du plafond : « En raison d’un incident, le train de huit heures douze est retardé. » Elle se répète, plus douce chaque fois, jusqu’à n’être qu’un souffle." },
+    { "id": "au-revoir", "texte": "Un homme et une femme se tiennent les mains sur le quai. Elle monte. Il reste. La porte se ferme entre eux, et l’Écho recommence, juste avant." },
+    { "id": "aiguilleur", "texte": "Un aiguilleur graisse un levier en sifflotant, puis lève la tête vers une lumière qu’on ne voit pas. Il lâche sa burette. L’Écho s’arrête là, toujours là." },
+    { "id": "terminus", "texte": "« Terminus, tout le monde descend. » Une rame vide ouvre ses portes sur le noir. Personne ne descend. Personne ne monte. Les portes se referment." }
+  ],
+  "pieges": [
+    { "id": "rail", "repere": "Un rail mal fixé, en travers du passage : tu l’enjambes.", "touche": "Un rail mal fixé bascule sous ton pied et te fauche la cheville." },
+    { "id": "dalle", "repere": "Une dalle sonne creux sous ta botte : tu passes à côté.", "touche": "Une dalle cède : tu tombes jusqu’à la taille dans une fosse hérissée de ferraille." },
+    { "id": "fil", "repere": "Un fil tendu au ras du sol, relié à une caisse de boulons : tu l’enjambes.", "touche": "Un fil tendu, une caisse qui bascule : une pluie de boulons rouillés." },
+    { "id": "vapeur", "repere": "Une conduite siffle doucement : tu attends qu’elle se taise pour passer.", "touche": "Une conduite crevée te crache un jet de vapeur brûlante au visage." }
+  ]
+}

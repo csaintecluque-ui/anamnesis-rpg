@@ -3,7 +3,7 @@
 ## État (2026-11-02)
 
 - Jalons 1 et 2 faits et en ligne (`docs/gdd/jalon-2.md`). 11,5 crédits Higgsfield restants.
-- 546 tests (dont le parcours complet d'affilée, `src/rules/parcours.test.ts`), typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
+- 566 tests (dont le parcours complet d'affilée, `src/rules/parcours.test.ts`), typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
 - Mode test caché : 5 touches sur la version (écran titre) → menu pause : +50 Fers, PV au max, **Outils de dev**
   (perso surpuissant, groupe, lieux, quêtes, repères, objets, Récits ; `docs/gdd/interface.md`).
 
@@ -17,10 +17,9 @@
 
 ## Prochaine étape
 
-1. **Jalon 3** (`docs/gdd/jalon-3.md`) : étapes 1 à 5 **validées et en ligne** (combat adulte, compagnons, Livre des
-   Échos, veillées `docs/gdd/veillees.md`, passe sombre `docs/gdd/passe-sombre.md` ; scènes inventées des Échos à
-   valider). **Vérification qualité faite** (`docs/qualite.md`) : corrections sur la branche, mise en ligne et
-   Corvan (zone floue 32) à trancher. Ensuite : étape 6 (ruines et contrats). Mise en beauté à la fin.
+1. **Jalon 3** (`docs/gdd/jalon-3.md`) : étapes 1 à 6 **validées et en ligne** (veillées `gdd/veillees.md`, passe
+   sombre `gdd/passe-sombre.md`, voies et contrats `gdd/voies.md` ; scènes inventées des Échos à valider) ;
+   **vérification qualité** faite et en ligne (`docs/qualite.md`). Ensuite : étape 7, sur le feu vert de Cyril.
 2. Codex : Sept-Portes (`AGENTS.md`). Notion : page « Anamnesis — le jeu », à tenir à jour à chaque mise en ligne.
 
 ## Points ouverts

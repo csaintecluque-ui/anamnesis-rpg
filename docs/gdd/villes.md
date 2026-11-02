@@ -61,7 +61,9 @@ Le Fer (monnaie de Ferros [N2]) est la seule monnaie du jeu. Les autres nations 
 | Fond peint | 1 ou 2 | ≈ 1 |
 | **Total** | **≈ 55** | **≈ 35** (Canopéa ≈ 25 : elle réutilise le style de Gardebois) |
 
-Soit **≈ 340 crédits pour les dix villes**, pour **11,5 crédits restants** (2026-11-02). Pistes : recharger le compte au fil des
+Soit **≈ 340 crédits pour les dix villes**, pour **11,5 crédits restants** (2026-11-02). **Recalé le 2026-11-02**
+d'après Canopéa et Ironheart construites (≈ 17 PNJ nommés par ville au lieu de 6) : **≈ 75 crédits par ville** ;
+estimation complète dans `docs/ASSETS.md` (« Mise en beauté complète »). Pistes : recharger le compte au fil des
 villes ; ou construire chaque ville d'abord en visuels provisoires (par code, comme au jalon 1) pour jouer et
 valider le plan, puis la peindre. Les dernières estimations ont été dépassées vers le bas (phase 2 : 26,5 crédits
 au lieu de 51).
@@ -72,7 +74,8 @@ au lieu de 51).
    Gardebois, on y va à pied, et elle réutilise le style déjà peint.
 2. **Ironheart** : l'autre voisin de Gardebois, et le lien naturel avec la Gare Engloutie (Bureau des Permis).
 3. **Sept-Portes** et la carte du monde : le centre du monde ouvre tous les voyages.
-4. Les sept autres, dans l'ordre que Cyril préfère. **Proposition du 2026-11-02, à valider** : un continent à la
+4. Les sept autres, dans l'ordre que Cyril préfère. **Ordre validé par Cyril le 2026-11-02** (« Oui très bien
+   l'ordre ») : un continent à la
    fois, la capitale d'abord (elle pose le canon du pays), et les mécaniques nouvelles du moteur au fil de l'eau :
    1. **Aetherhaven** (Zephyria) : déjà sur la carte du monde (« en dirigeable »), suite naturelle de l'histoire après
       Sept-Portes ; aucune mécanique nouvelle ; le dirigeable comme nouveau voyage ; cristal de Vent.
@@ -84,5 +87,4 @@ au lieu de 51).
    6. **Marche-Mère** (Communion) : la plus lourde à construire (ville qui marche, sable qui défile, échange de
       Récits) : quand le moteur sera mûr ; cristal de Sable.
    7. **Porto-Lumina** (Marisol) : en dernier, avec un soin particulier : c'est la ville où se termine le roman ;
-      rien de la famille n'y apparaîtra (question posée à Cyril : la garder en finale, ou la remplacer par une ville
-      de réserve).
+      rien de la famille n'y apparaîtra. Gardée en finale.

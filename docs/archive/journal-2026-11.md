@@ -843,3 +843,11 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   Vérifié sur PC et téléphone (dialogue grisé, inventaire, combat, montée de niveau, Bosquet).
 - Cyril : « Oui je suis en phase » (mise en ligne, noms Vanel, Tiven, la tailleuse ; Vigueur, cristal au cou, Lueur
   commune). Mis en ligne ; page Notion « Anamnesis — le jeu » complétée.
+
+## 2026-11-02 (suite) : l'ordre des villes, le coût de la mise en beauté
+
+- Ordre des sept autres villes proposé puis validé par Cyril (« Oui très bien l'ordre ») : Aetherhaven, Windspire,
+  Coralia, Khrysos, Auroraheim, Marche-Mère, Porto-Lumina en finale (`docs/gdd/villes.md`).
+- Estimation de la mise en beauté complète sur Higgsfield (`docs/ASSETS.md`) : ≈ 750 crédits (≈ 145 pour rattraper
+  Canopéa et Ironheart, ≈ 75 par nouvelle ville) ; variante économe ≈ 500. Solde : 11,5.
+

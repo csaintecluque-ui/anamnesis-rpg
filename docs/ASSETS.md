@@ -342,3 +342,32 @@ Deux demandes refusées à l'envoi par Higgsfield (limite de débit, 429), sans 
 `public/sprites/figurant-commis-ferros.png` et `figurant-garcon-curieux.png` (8 directions × 6 images,
 `npm run walk -- 2d anim2d/<nom> figurant-<nom> [hauteur]` ; le garçon à 42 px au lieu de 54, c'est un enfant).
 Vérifié dans le jeu : les deux marcheurs animés dans Gardebois, les trois autres immobiles, bulle du client.
+
+## Mise en beauté complète : estimation (2026-11-02, demandée par Cyril)
+
+Prix mesurés (`gpt_image_2_5`) : **0,5** crédit une image moyenne 1k (tuile, décor, personnage en pied, une direction de
+marche), **1,5** un portrait (haute 1k), **2,75** une illustration (haute 2k). Presque tout est passé au premier essai ;
+on compte 10 % de marge pour les reprises. Solde : 11,5 crédits (formule Plus).
+
+**1. Rattraper le jeu actuel** (Canopéa, Ironheart, routes ; 104 tuiles encore dessinées par code) :
+
+| Poste | Nombre | Crédits |
+|---|---|---|
+| PNJ nommés en pied (Véline, Malo, Hedda, Kaelis, Vanel…) | 34 | 17 |
+| Leurs portraits de dialogue | 34 | 51 |
+| Passants (tuiles) | 19 | 9,5 |
+| Planches de marche des passants qui marchent | 8 | 20 |
+| Ennemis et créatures (ours, loups, pilleurs, Échos furieux, cerfs) | 5 | 2,5 |
+| Décors (maisons-cosses, forges, réverbères, gradins…) | 38 | 19 |
+| Sols (plates-formes, passerelles, pavés, dalles…) et murs d'intérieur | 11 | 5,5 |
+| Illustrations (carte du monde peinte, l'amphithéâtre, Ironheart) | 3 | 8,25 |
+| **Total, marge comprise** | | **≈ 145** |
+
+**2. Chaque nouvelle ville** (calée sur Canopéa et Ironheart) : 17 PNJ en pied et en portrait (34), 9 passants dont
+4 qui marchent (14,5), 20 décors, 5 sols et un kit d'intérieur (14,5), 3 ennemis (1,5), un fond peint (1,5), une
+illustration (2,75) : **≈ 75 crédits**, marge comprise. Huit villes (Sept-Portes et les sept autres) : **≈ 600**.
+
+**Total : ≈ 750 crédits.** Variante économe (portraits pour les PNJ importants seulement, deux marcheurs par ville,
+passants partagés entre les deux villes d'un même pays) : **≈ 500 crédits** (≈ 100 pour le rattrapage, ≈ 400 pour
+les huit villes). Hors estimation : musique et sons, animations d'attaque, vidéos.
+

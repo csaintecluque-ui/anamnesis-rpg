@@ -1159,7 +1159,7 @@ describe('Variante : Ironheart avant les quêtes annexes (parole, combats, autre
     expect(hp).toBeGreaterThan(6);
     expect(talk(s, 'tiven')).toBe('quete');
     const poser = visibleOptions(DIALOGUES.tiven.nodes.quete, s).find((v) => v.option.text.startsWith('Poser'))!;
-    expect(poser.tags).toEqual(['Guérison naturelle · 2 PR (nez qui saigne : −6 PV)']);
+    expect(poser.tags).toEqual(['Guérison naturelle · 2 PR (nez qui saigne : −6 PV, risque de marque)']);
     // Le jet du prix est raté (un 1) : la première marque (docs/gdd/passe-sombre.md).
     const dice = vi.spyOn(Math, 'random').mockReturnValue(0);
     say(s, 'tiven', 'quete', 'Poser le cristal');

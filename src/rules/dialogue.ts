@@ -213,7 +213,8 @@ function castView(state: GameState, option: DialogueOption): { tag: string; miss
   if (!power || !c) return null;
   if (!hasPower(c, power.id)) return { tag: `${power.name} · ${power.cost} PR`, missing: `Il te faut porter ${CRYSTAL_NEEDED[power.id]}.` };
   const cost = castCost(c, power);
-  const tag = `${power.name} · ${power.cost} PR${cost.hp > 0 ? ` (nez qui saigne : −${cost.hp} PV)` : ''}`;
+  // Forcing is shown with its price: the nosebleed, and the mark it may leave (src/rules/marques.ts).
+  const tag = `${power.name} · ${power.cost} PR${cost.hp > 0 ? ` (nez qui saigne : −${cost.hp} PV, risque de marque)` : ''}`;
   return { tag, missing: c.hp > cost.hp ? undefined : 'Tu n’as plus assez de forces : dors d’abord.' };
 }
 

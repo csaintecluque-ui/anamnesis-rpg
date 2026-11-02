@@ -32,7 +32,8 @@ de cristaux »), mutation (« peau cristallisée »), folie arcanique ; les cris
   rouge (−5 à Ironheart ; le Veilleur de Rouille s'en souvient).
 - **Les éclats de cristal** : Vanel les enterre au pied du grand arbre ; la tailleuse les rachète 20 Fers (« je les
   retaille en perles pour les riches »).
-- **Écran** : la ligne du jet s'écrit sous le nez qui saigne ; l'inventaire affiche les marques à côté du titre ; le
+- **Écran** : l'option de dialogue qui force l'annonce (« nez qui saigne : −6 PV, risque de marque ») ; la ligne du
+  jet s'écrit sous le nez qui saigne ; l'inventaire affiche les marques à côté du titre ; le
   mode développeur a « Marques : Aucune / +1 ».
 - **Technique** : `src/rules/marques.ts` ; champ **facultatif** `character.marques` (0 à 3), absent des anciennes
   sauvegardes : **pas de nouvelle version de sauvegarde** (l'étape 4 se fait en parallèle) ; condition de dialogue

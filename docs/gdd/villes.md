@@ -72,4 +72,17 @@ au lieu de 51).
    Gardebois, on y va à pied, et elle réutilise le style déjà peint.
 2. **Ironheart** : l'autre voisin de Gardebois, et le lien naturel avec la Gare Engloutie (Bureau des Permis).
 3. **Sept-Portes** et la carte du monde : le centre du monde ouvre tous les voyages.
-4. Les sept autres, dans l'ordre que Cyril préfère.
+4. Les sept autres, dans l'ordre que Cyril préfère. **Proposition du 2026-11-02, à valider** : un continent à la
+   fois, la capitale d'abord (elle pose le canon du pays), et les mécaniques nouvelles du moteur au fil de l'eau :
+   1. **Aetherhaven** (Zephyria) : déjà sur la carte du monde (« en dirigeable »), suite naturelle de l'histoire après
+      Sept-Portes ; aucune mécanique nouvelle ; le dirigeable comme nouveau voyage ; cristal de Vent.
+   2. **Windspire** (Zephyria) : même pays, mêmes tuiles et figurants ; le planeur ; canon : seulement le nom.
+   3. **Coralia** (Marisol) : le navire ; les marées (deux états de carte, nouveau) ; cristal d'Eau.
+   4. **Khrysos** (Glacialis) : la Bibliothèque de Glace, la mémoire figée (le cœur du thème) ; le froid ; cristal
+      de Glace.
+   5. **Auroraheim** (Glacialis) : même pays ; l'alerte d'aurore (minuteur, nouveau) ; canon : seulement le nom.
+   6. **Marche-Mère** (Communion) : la plus lourde à construire (ville qui marche, sable qui défile, échange de
+      Récits) : quand le moteur sera mûr ; cristal de Sable.
+   7. **Porto-Lumina** (Marisol) : en dernier, avec un soin particulier : c'est la ville où se termine le roman ;
+      rien de la famille n'y apparaîtra (question posée à Cyril : la garder en finale, ou la remplacer par une ville
+      de réserve).

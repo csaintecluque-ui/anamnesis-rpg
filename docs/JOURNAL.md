@@ -3,27 +3,26 @@
 ## État (2026-11-02)
 
 - Jalons 1 et 2 faits et en ligne (`docs/gdd/jalon-2.md`). 11,5 crédits Higgsfield restants.
-- 285 tests, typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
+- 317 tests, typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
 - Mode test caché : 5 touches sur la version (écran titre) → +50 Fers, PV au max dans le menu pause.
 
-## Chantier en cours : les grandes villes (plan validé par Cyril le 2026-11-01)
+## Chantier en cours : Canopéa « finie à fond » (demande de Cyril, 2026-11-02)
 
-- Plan des dix villes : `docs/univers/lieux/villes.md` ; gabarit et coûts : `docs/gdd/villes.md`.
-- **En ligne** : Canopéa en provisoire (`docs/univers/lieux/canopee.md`), carte du monde et rencontres
-  (`docs/gdd/carte-du-monde.md`), 14 passants (`docs/gdd/figurants.md`), réputation par ville (`docs/gdd/reputation.md`).
+- **Sur la branche `canopee-a-fond`, pas encore en ligne** (accord de Cyril attendu) : les cinq quêtes de Canopéa et
+  « La caravane de midi » (`docs/univers/quetes.md`), l'amphithéâtre du Conseil, le journal (touche J), la réputation
+  des guildes, une ville qui réagit (`docs/univers/lieux/canopee.md`).
+- Moteur : conditions `item`, effet `takeItem`, objets de quête, `apparaitSi`, rencontres d'histoire, figurants à
+  dialogue et à `reactions`, étapes de quête (`etapes`).
 
 ## Prochaine étape
 
-1. **Le Notion fait foi** (décision de Cyril, 2026-11-02) : règle du projet, synthèse, noms et Canopéa alignés
-   (Coralia, Khrysos, Sept-Portes, Bosquet des Échos, Rite du Retour). Factions reprises d'ANAMNESIS ENGINE
-   (`docs/univers/factions.md`) ; histoire « Les voies endormies » et 6 quêtes (`docs/univers/quetes.md`) : validées.
-2. Fait et en ligne le 2026-11-02 : « Les lettres de Malo » et le Sol des Racines (`docs/univers/lieux/canopee.md`).
-3. Ensuite : « Le chant d'Anselme » (même carte), puis « L'audience », les factions, Ironheart.
+1. Cyril : essayer, valider les détails nouveaux (Garrik, Elvan Morelle, racines tranchées, page dix-sept…), mettre en
+   ligne (`main` avancé sur la branche).
+2. Ensuite : Ironheart (chapitre 3, « La Clé de Rouille Bleue ») ; images peintes de Canopéa quand les crédits suivront.
 
 ## Points ouverts
 
-- Tranché le 2026-11-02 : une seule monnaie (le Fer), l'ordre des Gardiens de Mémoire gardé, Porto-Lumina remplace
-  Ironhold, histoire et quêtes validées (`docs/univers/zones-floues.md`).
+- Thalorin : genre (`docs/univers/zones-floues.md`, point 22) ; joué sans pronom en attendant.
 - Coquille dans `assets/brand/logo-small.svg` (trait parasite) : accord de Cyril requis.
 - Chronologie du canon non arbitrée (`docs/univers/zones-floues.md`, points 6 à 13).
 - `npm audit` : vulnérabilités modérées dans les outils de build de la PWA ; à revoir avec workbox.

@@ -55,11 +55,20 @@ Sept intérieurs, sept PNJ nommés. Toutes les maisons prévues sont là.
   Thalorin** (dryade aux cheveux de feuilles) y siègent ; salutations du canon : « Racines profondes », « Que la sève
   coule ». Valeurs reprises : on ne ment pas au Conseil (« Racines Ouvertes »), méfiance envers Ferros.
 
+## Canopéa « finie à fond » (2026-11-02)
+
+- **Cinq quêtes** construites (`docs/univers/quetes.md`) : « Les lettres de Malo », « Le chant d'Anselme »,
+  « L'audience » (chapitre 2), « Les graines qui manquent », « Le carnet de chansons » ; plus « La caravane de midi »,
+  qui part de Gardebois et finit à la Grande Nacelle.
+- **Nouveaux lieux et PNJ** : l'amphithéâtre du Conseil (Kael Marchevent, Lyra, Thalorin, trois conseillers), l'arbre
+  d'Anselme et Garrik au Sol des Racines, Elvan Morelle au Nid.
+- **La ville réagit** : passants dont les répliques suivent l'histoire, nouvelles du jour (Lisandre, Malo, Mirelle),
+  réputation de Canopéa et des guildes (Compagnie des Lisières, Nacelliers) ; journal des quêtes.
+
 ## Reporté
 
-- **Réputation complète** : système commun prévu dans `docs/gdd/villes.md`. Les passants sont faits
-  (`docs/gdd/figurants.md`, huit à Canopéa).
-- **Images peintes** (phase 2) : plan et coût à présenter avant toute génération.
+- **Images peintes** (phase 2) : plan et coût à présenter avant toute génération (≈ 25 crédits ; 11,5 restants).
+- **Services des guildes** : la caravane comme moyen de voyage, le courrier des Nacelliers.
 
 ## Quête « Les lettres de Malo » et le Sol des Racines (construites le 2026-11-02)
 

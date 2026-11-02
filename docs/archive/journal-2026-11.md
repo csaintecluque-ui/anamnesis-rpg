@@ -710,3 +710,14 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   réputation à Canopéa. 285 tests ; vérifié dans le navigateur (descente, carte, dialogue de l'ours, combat) ; deux
   troncs et un arbre qui cachaient le héros à l'arrivée déplacés.
 - Cyril : « Oui mets en ligne » : `main` avancé, déploiement lancé.
+
+## 2026-11-02 (suite) : Canopéa « finie à fond »
+
+- Cyril : « finaliser à fond la première ville ». Fait sur la branche `canopee-a-fond` : « Le chant d'Anselme » (arbre
+  d'Anselme au Sol des Racines, deux fins), « L'audience » (amphithéâtre, Triumvirat, Garrik, choix du Conseil),
+  « Les graines qui manquent » (Elvan Morelle, trois fins, seconde chance du voleur), « Le carnet de chansons »,
+  « La caravane de midi » (commis qui parle, loups garantis, adhésion). Journal (quêtes avec étapes, Récits,
+  réputation), guildes (Compagnie des Lisières, Nacelliers, prix de membre), répliques qui suivent l'histoire, nouvelles
+  du jour, trois conseillers. Canon relu : fiche Verdantis du Notion (Triumvirat, Conseil, salutations, 40 % du
+  commerce avec Ferros, Rite du Retour sans pierre tombale). 317 tests ; vérifié dans le navigateur (PC et téléphone).
+

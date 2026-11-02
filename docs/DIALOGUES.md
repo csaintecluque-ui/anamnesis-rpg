@@ -3381,7 +3381,7 @@ _Effet : retient « descente-autorisee »._
 > Le Gardien de la Canopée m’a fait porter un mot : tu peux descendre autant qu’il le faudra. Je n’aime pas ça… Le sol sacré qui fait taire le Bosquet, ça ne s’est jamais vu.
 
 - « Descends-moi. » → **fin** _(mène à « Canopéa — Le Sol des Racines »)_
-- _(si quête « Les graines qui manquent » pas commencée)_ _(sans repère « vol-grenier »)_ « Quoi de neuf, à la nacelle ? » → graines-souci
+- _(si quête « Les graines qui manquent » pas commencée)_ _(sans repère « vol-grenier »)_ « Quoi de neuf, à la nacelle ? » → graines-souci _(lance la quête « Les graines qui manquent »)_
 - « Pas maintenant. » → **fin**
 
 ### graines-souci

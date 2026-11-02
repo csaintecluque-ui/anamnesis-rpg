@@ -19,7 +19,7 @@ import { ENCOUNTER_VICTORY_FLAG, WORLD_MAP_TARGET, clearEncounterFlags, findPlac
  * Parcours : le contenu actuel joué d'affilée, dans une seule partie (un seul GameState), comme le ferait un joueur :
  * on marche de porte en porte, on parle aux PNJ présents sur la carte, les combats sont gagnés (effets de victoire),
  * les jets de dés réussissent sauf mention contraire. Puis des variantes d'ordre et quelques cas limites.
- * Les incohérences trouvées sont marquées « BUG : » ; le test constate le comportement actuel.
+ * Les points encore à trancher par Cyril sont marqués « À trancher par Cyril » ; le reste vérifie le comportement voulu.
  */
 
 // --- Outils ------------------------------------------------------------------------------------------------------
@@ -452,6 +452,8 @@ describe('Parcours complet, d’une traite', () => {
     walk(s, 'canopee-ramures');
     walk(s, 'canopee-nacelle');
     expect(talk(s, 'malo')).toBe('flute');
+    expect(optionTexts(s, 'malo', 'flute')).toEqual(['Merci pour la nouvelle, Malo.', 'À bientôt, Malo.']);
+    say(s, 'malo', 'flute', 'Merci pour la nouvelle, Malo');
     expect(talk(s, 'malo')).toBe('ami');
   });
 
@@ -785,8 +787,8 @@ describe('Variante : Ironheart avant les quêtes annexes (parole, combats, autre
     say(s, 'ilyane', 'trouble', 'D’où vient ce mal');
     say(s, 'ilyane', 'cause', 'J’irai voir');
     walk(s, 'gare-engloutie');
-    // BUG : le repère « laissez-passer » de Tobias n'est lu nulle part (ni porte, ni dialogue de la Gare) :
-    // on entre sur le chantier et on parle à Ingrid sans lui ; les 50 Fers du laissez-passer ne servent à rien.
+    // À trancher par Cyril : le repère « laissez-passer » de Tobias n'est lu nulle part (ni porte, ni dialogue de la
+    // Gare) : on entre sur le chantier et on parle à Ingrid sans lui ; les 50 Fers du laissez-passer ne servent à rien.
     expect(s.flags['laissez-passer']).toBeUndefined();
     expect(talk(s, 'ingrid')).toBe('accueil');
     say(s, 'ingrid', 'accueil', 'Ce chantier');
@@ -820,34 +822,36 @@ describe('Variante : Ironheart avant les quêtes annexes (parole, combats, autre
     expect(questItems(s)).toEqual(['lettre-ilyane']);
   });
 
-  it('Pendant l’enquête, « Le chant d’Anselme » et « Les graines » ne peuvent pas commencer', () => {
-    // BUG (temporaire) : pendant l'enquête du Triumvirat (audience-tenue sans fouille-elucidee), les entrées
-    // prioritaires « inquiete » (Aïlis), « muet » (arbre d'Anselme) et « descente-conseil » (Véline) cachent ce qui
-    // lance « Le chant d'Anselme » (anselme-connu, voix-anselme) et « Les graines qui manquent » (startQuest).
-    expect(maskedEntries(s)).toEqual(
-      expect.arrayContaining([
-        'ailis: inquiete cache accueil ["{\\"setFlag\\":\\"anselme-connu\\"}"]',
-        'arbre-anselme: muet cache arbre ["{\\"setFlag\\":\\"voix-anselme\\"}"]',
-        'veline: descente-conseil cache retour ["{\\"startQuest\\":\\"graines\\"}"]',
-      ]),
-    );
+  it('Pendant l’enquête, « Le chant d’Anselme » commence par Aïlis ; « Les graines » s’annoncent chez Véline', () => {
+    // The Bosquet stays silent (muet): Aïlis tells of Anselme's tree from her « inquiete » entry instead.
     walk(s, 'canopee-conseil');
     walk(s, 'canopee-ramures');
     walk(s, 'canopee-feuillevent');
     expect(talk(s, 'ailis')).toBe('inquiete');
-    expect(optionTexts(s, 'ailis', 'inquiete')).toEqual(['Le Triumvirat m’a demandé de comprendre. Je trouverai.']);
+    expect(optionTexts(s, 'ailis', 'inquiete')).toEqual(['Parlez-moi de l’arbre où il repose.', 'Le Triumvirat m’a demandé de comprendre. Je trouverai.']);
+    say(s, 'ailis', 'inquiete', 'Parlez-moi de l’arbre');
+    expect(s.flags['anselme-connu']).toBe(true);
     walk(s, 'canopee-ramures');
     walk(s, 'canopee-atelier');
-    expect(talk(s, 'elouan')).toBe('accueil');
+    expect(talk(s, 'elouan')).toBe('proposition');
+    say(s, 'elouan', 'proposition', 'J’irai chercher');
+    expect(s.quests['chant-anselme']).toBe('active');
     walk(s, 'canopee-ramures');
     walk(s, 'canopee-nacelle');
     walk(s, 'canopee-aieux');
     expect(talk(s, 'arbre-anselme')).toBe('muet');
     walk(s, 'canopee-nacelle');
+
+    expect(talk(s, 'veline')).toBe('descente-conseil');
+    expect(optionTexts(s, 'veline', 'descente-conseil')).toEqual(['Descends-moi.', 'Quoi de neuf, à la nacelle ?', 'Pas maintenant.']);
+    say(s, 'veline', 'descente-conseil', 'Quoi de neuf');
+    // Pendant l'enquête aussi, « Quoi de neuf » lance « Les graines qui manquent », comme dans « retour ».
+    expect(s.quests.graines).toBe('active');
+    expect(maskedEntries(s, true)).toEqual([]);
   });
 
-  it('Garrik vaincu, la sacoche de Malo prise en passant, la frontière fermée', () => {
-    // Véline's inquiry entry comes before the letters' one; it lowers the hero all the same.
+  it('Garrik vaincu, la sacoche de Malo et la branche d’Anselme prises en passant, la frontière fermée', () => {
+    // Véline's inquiry entry comes before the letters' and Anselme's; it lowers the hero all the same.
     expect(talk(s, 'veline')).toBe('descente-conseil');
     say(s, 'veline', 'descente-conseil', 'Descends');
     expect(talk(s, 'garrik')).toBe('rencontre');
@@ -859,6 +863,9 @@ describe('Variante : Ironheart avant les quêtes annexes (parole, combats, autre
     expect(talk(s, 'sacoche-lettres')).toBe('ours');
     say(s, 'sacoche-lettres', 'ours', 'Glisser la main');
     expect(journalStep(s, 'lettres-malo')?.step).toMatch(/sacoche/);
+    expect(talk(s, 'arbre-retour-anselme')).toBe('arbre-quete');
+    say(s, 'arbre-retour-anselme', 'arbre-quete', 'Ramasser');
+    expect(journalStep(s, 'chant-anselme')?.step).toMatch(/branche/);
     walk(s, 'canopee-nacelle');
     walk(s, 'canopee-ramures');
     walk(s, 'canopee-conseil');
@@ -871,7 +878,7 @@ describe('Variante : Ironheart avant les quêtes annexes (parole, combats, autre
     say(s, 'kael-marchevent', 'choix', 'Fermez la frontière');
     say(s, 'kael-marchevent', 'fin-frontiere', 'Et moi');
     expect(s.quests.audience).toBe('done');
-    expect(questItems(s)).toEqual(['sauf-conduit']);
+    expect(questItems(s)).toEqual(['branche-anselme', 'sauf-conduit']);
     walk(s, 'canopee-conseil');
     walk(s, 'canopee-ramures');
     walk(s, 'canopee-nacelle');
@@ -894,7 +901,7 @@ describe('Variante : Ironheart avant les quêtes annexes (parole, combats, autre
     expect(talk(s, 'kaelis')).toBe('offre');
     expect(gained(s, () => say(s, 'kaelis', 'offre', 'La lui vendre'))).toEqual({ xp: 60, fers: 100 });
     expect(s.quests['cle-rouille-bleue']).toBe('done');
-    expect(questItems(s)).toEqual(['sauf-conduit']);
+    expect(questItems(s)).toEqual(['branche-anselme', 'sauf-conduit']);
     expect(talk(s, 'kaelis')).toBe('apres-vente');
     walk(s, 'ironheart-forges');
     expect(talk(s, 'veilleuse')).toBe('apres');
@@ -937,9 +944,13 @@ describe('Variante : Ironheart avant les quêtes annexes (parole, combats, autre
     say(s, 'echo-promesse', 'choix', 'Le frapper');
     say(s, 'echo-promesse', 'frapper', 'Frapper');
     expect(present(s, 'ironheart-galerie', 'echo-furieux-1')).toBe(true);
+    // Once struck, the Écho can no longer be ignored, followed or written down: only the fight is left.
+    expect(optionTexts(s, 'echo-promesse', 'promesse')).toEqual(['L’écouter jusqu’au bout.', 'Partir.']);
+    expect(optionTexts(s, 'echo-promesse', 'choix')).toEqual(['Le frapper pour le dissiper.', 'Réfléchir encore.']);
     win(s, 'echos-furieux');
     expect(s.quests['echos-forge']).toBe('done');
     expect(present(s, 'ironheart-galerie', 'echo-promesse')).toBe(false);
+    expect(present(s, 'ironheart-galerie', 'echo-furieux-1')).toBe(false);
     expect(talk(s, 'hesk')).toBe('colere');
     walk(s, 'ironheart-forges');
     expect(talk(s, 'forge-eteinte')).toBe('scellee');
@@ -952,20 +963,13 @@ describe('Variante : Ironheart avant les quêtes annexes (parole, combats, autre
     say(s, 'guichet-ouest', 'train-canopee', 'Monter');
     expect(talk(s, 'malo')).toBe('retour');
     say(s, 'malo', 'retour', 'La voici');
-    walk(s, 'canopee-ramures');
-    walk(s, 'canopee-feuillevent');
-    expect(talk(s, 'ailis')).toBe('accueil');
-    say(s, 'ailis', 'accueil', 'Parler à un arbre');
+    // The branch was taken during the inquiry: Véline has no reason to lower the hero again.
+    expect(talk(s, 'veline')).toBe('retour');
     walk(s, 'canopee-ramures');
     walk(s, 'canopee-atelier');
-    expect(talk(s, 'elouan')).toBe('proposition');
-    say(s, 'elouan', 'proposition', 'J’irai chercher');
+    expect(talk(s, 'elouan')).toBe('branche');
+    expect(optionTexts(s, 'elouan', 'branche')).toEqual(['Où trouver la mélodie ?', 'Je reviens.']);
     walk(s, 'canopee-ramures');
-    walk(s, 'canopee-nacelle');
-    expect(talk(s, 'veline')).toBe('descente-anselme');
-    say(s, 'veline', 'descente-anselme', 'Allons-y');
-    expect(talk(s, 'arbre-retour-anselme')).toBe('arbre-quete');
-    say(s, 'arbre-retour-anselme', 'arbre-quete', 'Ramasser');
     walk(s, 'canopee-nacelle');
     walk(s, 'canopee-aieux');
     walk(s, 'canopee-relais');
@@ -991,8 +995,8 @@ describe('Variante : Ironheart avant les quêtes annexes (parole, combats, autre
   });
 
   it('« Les graines qui manquent » après Ironheart : Elvan dénoncé quitte le Nid', () => {
-    expect(talk(s, 'veline')).toBe('retour');
-    say(s, 'veline', 'retour', 'Quoi de neuf');
+    // Déjà lancée pendant l'enquête du Triumvirat (Véline, « Quoi de neuf »).
+    expect(s.quests.graines).toBe('active');
     walk(s, 'canopee-auberge');
     expect(talk(s, 'lisandre')).toBe('vote');
     say(s, 'lisandre', 'vote', 'Merci pour la nouvelle');
@@ -1021,10 +1025,11 @@ describe('Variante : Ironheart avant les quêtes annexes (parole, combats, autre
     expect(talk(s, 'veline')).toBe('caravane');
     say(s, 'veline', 'caravane', 'La voici');
     expect(s.quests['caravane-midi']).toBe('done');
-    // BUG (faible) : par la caravane (ou le train) on ne croise jamais les Loups, mais le commis remercie quand même
-    // pour « ce que les loups n'ont pas eu » (src/data/figurants.json, commis-ferros, reactions).
+    // By the caravan (or the train) the wolves are never met: the commis does not speak of them.
     expect(s.flags['loups-caravane']).toBeUndefined();
-    expect(figurantLines(figurantsAt('gardebois').find((f) => f.dialogue === 'commis-caravane')!, s)[0]).toMatch(/loups/);
+    const commis = figurantLines(figurantsAt('gardebois').find((f) => f.dialogue === 'commis-caravane')!, s)[0];
+    expect(commis).toMatch(/viande séchée/);
+    expect(commis).not.toMatch(/loups/);
     expect(talk(s, 'chef-caravane')).toBe('accueil');
     say(s, 'chef-caravane', 'accueil', 'Pour Gardebois');
     say(s, 'chef-caravane', 'gardebois', 'Montrer ta marque');
@@ -1150,7 +1155,7 @@ describe('Variante : « Le Rail des Cendres » avant « La Clé de Rouille Bleue
     expect(questItems(s)).toEqual(['sauf-conduit']);
   });
 
-  it('Le Rail commence d’abord ; dès que Kaelis a parlé, la Veilleuse ne dit plus rien des convois', () => {
+  it('Le Rail commence d’abord ; pendant la Clé, la Veilleuse parle encore des convois', () => {
     expect(travel(s, 'ironheart')).toBeNull();
     walk(s, 'ironheart-triage');
     expect(talk(s, 'varka')).toBe('accueil');
@@ -1168,11 +1173,15 @@ describe('Variante : « Le Rail des Cendres » avant « La Clé de Rouille Bleue
     say(s, 'kaelis', 'accueil-garrik', 'Pourquoi certaines reliques');
     walk(s, 'ironheart-forges');
     expect(talk(s, 'veilleuse')).toBe('question-cle');
-    // BUG (faible) : src/data/dialogues/veilleuse.json — l'entrée « question-cle » (puis « avec-cle ») passe avant
-    // « accueil » et n'offre pas « Les convois du triage… » : l'indice indice-veilleuse du Rail est caché tant que
-    // « La Clé » n'est pas finie (non bloquant : Joss parle avec les deux autres indices).
-    expect(optionTexts(s, 'veilleuse', 'question-cle')).not.toContain('Les convois du triage, qui partent seuls la nuit ?');
-    expect(maskedEntries(s)).toContain('veilleuse: question-cle cache accueil ["{\\"setFlag\\":\\"indice-veilleuse\\"}"]');
+    // « question-cle » is full (four options): the Rail's clue is one step further, in « ouvre ».
+    expect(maskedEntries(s).filter((m) => m.startsWith('veilleuse'))).toEqual([]);
+    say(s, 'veilleuse', 'question-cle', 'Lui parler de ce que la clé ouvre');
+    expect(optionTexts(s, 'veilleuse', 'ouvre')).toContain('Les convois du triage, qui partent seuls la nuit ?');
+    expect(gained(s, () => say(s, 'veilleuse', 'ouvre', 'Les convois du triage'))).toEqual({ xp: 5, fers: 0 });
+    expect(journalStep(s, 'rail-cendres')?.step).toMatch(/Veilleuse/);
+    expect(talk(s, 'veilleuse')).toBe('question-cle');
+    say(s, 'veilleuse', 'question-cle', 'Lui parler de ce que la clé ouvre');
+    expect(optionTexts(s, 'veilleuse', 'ouvre')).not.toContain('Les convois du triage, qui partent seuls la nuit ?');
   });
 
   it('La garde de nuit ratée, Joss convaincu, le silence vendu à Sorn', () => {
@@ -1195,10 +1204,9 @@ describe('Variante : « Le Rail des Cendres » avant « La Clé de Rouille Bleue
     expect(gained(s, () => say(s, 'sorn', 'marche', 'Marché conclu'))).toEqual({ xp: 30, fers: 80 });
     expect(s.quests['rail-cendres']).toBe('done');
     walk(s, 'ironheart-triage');
-    // BUG (moyen) : src/data/maps/ironheart-triage.json — les pilleurs (apparaitSi veille-aiguillage) ne disparaissent
-    // qu'avec pilleurs-vaincus ou pilleurs-suivis : après une garde ratée, ils « forcent le levier » pour toujours,
-    // même quête finie, et le levier (« levier ») n'offre plus de quoi les combattre.
-    expect(present(s, 'ironheart-triage', 'pilleur-1')).toBe(true);
+    // The Rail is settled (here by the Marches): the pilleurs left standing after the failed watch are gone too.
+    expect(present(s, 'ironheart-triage', 'pilleur-1')).toBe(false);
+    expect(present(s, 'ironheart-triage', 'pilleur-2')).toBe(false);
     expect(talk(s, 'aiguillage')).toBe('levier');
     expect(talk(s, 'varka')).toBe('apres-marches');
     expect(talk(s, 'joss')).toBe('apres');
@@ -1336,22 +1344,19 @@ describe('Variante : Canopéa d’abord, puis Gardebois', () => {
 // ---------------------------------------------------------------------------------------------------------------
 
 describe('Cas limites', () => {
-  it('BUG (faible) : Ingrid termine « Le Dernier Train » sans qu’Ilyane l’ait jamais donné', () => {
-    // src/data/dialogues/ingrid.json, nœud « cause » : les options qui terminent la quête ne demandent pas qu'elle
-    // soit en cours ; on peut aller droit à la Gare, la terminer, et Ilyane dit « resolu » sans s'être présentée.
-    const s = createNewGame(testCharacter({}, { diplomacy: 3 }));
+  it('Ingrid ne termine pas « Le Dernier Train » tant qu’Ilyane ne l’a pas donné', () => {
+    const s = createNewGame(testCharacter({}, { diplomacy: 3, command: 3 }));
+    s.character!.recits.push('savant-corvan');
     walk(s, 'gare-engloutie');
     expect(talk(s, 'ingrid')).toBe('accueil');
     say(s, 'ingrid', 'accueil', 'Ce chantier');
-    say(s, 'ingrid', 'cause', 'Arrêtez le forage');
-    expect(s.quests['dernier-train']).toBe('done');
+    expect(optionTexts(s, 'ingrid', 'cause')).toEqual(['Je reviendrai.']);
+    expect(s.quests['dernier-train']).toBeUndefined();
     walk(s, 'gardebois');
-    expect(talk(s, 'ilyane')).toBe('resolu');
+    expect(talk(s, 'ilyane')).toBe('accueil');
   });
 
-  it('BUG (faible) : l’Écho frappé, le combat fui, puis l’Écho « laissé à son silence » : les Échos furieux restent', () => {
-    // src/data/maps/ironheart-galerie.json : echo-furieux-* (apparaitSi echos-dechaines) ne partent qu'avec
-    // echos-dissipes ; src/data/dialogues/echo-promesse.json laisse encore « ignorer » après echos-dechaines.
+  it('L’Écho frappé, le combat fui : plus d’autre issue que le combat, et les Échos furieux restent jusque-là', () => {
     const s = createNewGame(testCharacter());
     s.quests.audience = 'done';
     s.location = 'ironheart-forges';
@@ -1362,21 +1367,32 @@ describe('Cas limites', () => {
     say(s, 'echo-promesse', 'promesse', 'L’écouter jusqu’au bout');
     say(s, 'echo-promesse', 'choix', 'Le frapper');
     say(s, 'echo-promesse', 'frapper', 'Frapper');
-    // The hero flees the fight: no victory flag.
+    // The hero flees the fight: no victory flag. The Écho can no longer be ignored, followed or written down.
     expect(talk(s, 'echo-promesse')).toBe('promesse');
-    say(s, 'echo-promesse', 'promesse', 'Laisser l’Écho à son silence');
-    expect(s.quests['echos-forge']).toBe('done');
+    expect(optionTexts(s, 'echo-promesse', 'promesse')).toEqual(['L’écouter jusqu’au bout.', 'Partir.']);
+    say(s, 'echo-promesse', 'promesse', 'L’écouter jusqu’au bout');
+    expect(optionTexts(s, 'echo-promesse', 'choix')).toEqual(['Le frapper pour le dissiper.', 'Réfléchir encore.']);
+    expect(s.quests['echos-forge']).toBe('active');
     expect(present(s, 'ironheart-galerie', 'echo-furieux-1')).toBe(true);
-    expect(talk(s, 'hesk')).toBe('apres');
+    expect(talk(s, 'hesk')).toBe('accueil');
+    // The fight, at last, settles everything.
+    say(s, 'echo-promesse', 'choix', 'Le frapper');
+    say(s, 'echo-promesse', 'frapper', 'Frapper');
+    win(s, 'echos-furieux');
+    expect(s.quests['echos-forge']).toBe('done');
+    expect(present(s, 'ironheart-galerie', 'echo-furieux-1')).toBe(false);
+    expect(talk(s, 'hesk')).toBe('colere');
   });
 
-  it('Malo annonce la flûte avant de parler de ses lettres : la quête reste offerte la fois suivante', () => {
+  it('Malo annonce la flûte avant de parler de ses lettres, puis enchaîne sur elles', () => {
     const s = createNewGame(testCharacter());
     s.quests['chant-anselme'] = 'done';
     s.location = 'canopee-nacelle';
     expect(talk(s, 'malo')).toBe('flute');
-    say(s, 'malo', 'flute', 'Merci pour la nouvelle');
-    expect(optionTexts(s, 'malo', 'accueil').some((t) => t.startsWith('Je peux t’aider'))).toBe(false);
-    expect(talk(s, 'malo')).toBe('souci');
+    expect(optionTexts(s, 'malo', 'flute')).toEqual(['Merci pour la nouvelle.', 'À bientôt, Malo.']);
+    say(s, 'malo', 'flute', 'Merci pour la nouvelle.');
+    say(s, 'malo', 'souci', 'Je peux t’aider');
+    expect(s.quests['lettres-malo']).toBe('active');
+    expect(talk(s, 'malo')).toBe('attente');
   });
 });

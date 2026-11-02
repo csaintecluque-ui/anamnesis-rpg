@@ -320,6 +320,7 @@
         },
         {
           "text": "Quoi de neuf, à la nacelle ?",
+          "next": "graines-souci",
           "requires": [
             {
               "quest": "graines",
@@ -329,7 +330,11 @@
               "notFlag": "vol-grenier"
             }
           ],
-          "next": "graines-souci"
+          "effects": [
+            {
+              "startQuest": "graines"
+            }
+          ]
         },
         {
           "text": "Pas maintenant.",

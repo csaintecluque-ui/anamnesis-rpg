@@ -802,3 +802,16 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   Rail des Cendres), la caravane de la Compagnie des Lisières (convoyeuse, chef de caravane, Boulon ; 15 Fers,
   gratuite pour les membres), la ligne dessinée sur la carte du monde. 393 tests ; vérifié sur téléphone.
 - Cyril : « Oui pour tout, mets en ligne, ensuite fais une analyse de conformité ». Validé et mis en ligne.
+
+## 2026-11-02 (suite) : analyse de conformité
+
+- Trois volets : partie jouée d'affilée dans un seul état (13 quêtes, voyages, trois autres ordres ; test
+  `src/rules/parcours.test.ts`, 41 cas) ; cohérence jeu ↔ docs ↔ Notion ; parcours réel sur le build de production
+  (création, commerce, caravane, sauvegarde, rechargement, hors ligne : RAS ; aucune erreur).
+- Corrigé : vingt écarts de documentation et du Notion (« reporté » déjà construit, XP, statuts, INDEX, zones floues
+  renumérotées) ; l'étal de Hedda dépassait de l'écran (pagination) ; convoyeuse cachée par un arbre ; nom long qui
+  masquait les Fers ; options de dialogue au doigt ; pilleurs restés après le Rail ; Aïlis et Véline bloquaient deux
+  quêtes pendant l'enquête ; indice de la Veilleuse caché pendant la Clé ; Écho frappé puis ignoré ; Ingrid qui finissait
+  une quête non donnée ; Malo et sa flûte ; réplique des loups.
+- À trancher par Cyril : le laissez-passer de Tobias (aujourd'hui sans effet) ; le plafond des Récits (Mémoire + 1),
+  qui fait oublier le Récit de Corvan avant Ironheart.

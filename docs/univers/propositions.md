@@ -2,7 +2,7 @@
 
 Une proposition n'est canon qu'après validation de Cyril. Chaque élément vit dans le fichier de son thème, avec son statut :
 - lieux : `docs/univers/lieux/gardebois.md` (validé), `docs/univers/lieux/gare-engloutie.md` (validé),
-  `docs/univers/lieux/villes.md` (dix grandes villes, plan validé), `docs/univers/lieux/canopee.md` (détails à valider) ;
+  `docs/univers/lieux/villes.md` (dix grandes villes, plan validé), `docs/univers/lieux/canopee.md` et `docs/univers/lieux/ironheart.md` (validés) ;
 - personnages : `docs/univers/personnages/pnj.md` (validé) ;
 - systèmes : `docs/gdd/`.
 

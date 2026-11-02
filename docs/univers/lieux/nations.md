@@ -1,6 +1,6 @@
 # Nations et lieux du canon
 
-Sources et statuts : `docs/univers/sources.md`. Les « ou » sur les capitales sont des contradictions du canon (`docs/univers/zones-floues.md`, point 15).
+Sources et statuts : `docs/univers/sources.md`. Les « ou » sur les capitales sont des contradictions du canon (`docs/univers/zones-floues.md`, point 16).
 
 | Continent | Nation (gouvernement) | Capitale | Lieux notables | Sources |
 |---|---|---|---|---|

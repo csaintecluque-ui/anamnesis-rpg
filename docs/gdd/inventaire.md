@@ -11,7 +11,7 @@ Règles : `src/rules/inventory.ts` ; écran : `TradeScene`.
 - **Monnaie de départ** : 15 Fers (`STARTING_FERS`), volontairement **moins** que le laissez-passer de Tobias
   (cinquante Fers) : convaincre reste la voie la plus sûre tôt dans la tranche.
 - **Gagner des Fers** (validé par Cyril le 2026-11-01) : chaque résolution de « Le Dernier Train » rapporte **30 Fers**
-  (en plus des 40 XP), et une caisse de prospection abandonnée à la Gare Engloutie contient une bourse de **25 Fers**
+  (en plus des 70 XP), et une caisse de prospection abandonnée à la Gare Engloutie contient une bourse de **25 Fers**
   (une seule fois). Une partie complète dispose donc d'environ 70 Fers, de quoi acheter une armure. Effet de
   dialogue `giveFers`.
 - **Poids** : chaque objet porté (équipé ou non) compte dans la Charge (`docs/gdd/attributs.md`). Acheter au-delà de la

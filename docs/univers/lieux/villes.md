@@ -38,7 +38,7 @@ Les sept continents sont tous couverts ; Verdantis a déjà Gardebois, d'où une
 
 Villes de réserve, si Cyril préfère en échanger une : Murmureau, Verdepont, Lumigrain (Verdantis), Skyhaven,
 Cloudrest, Mistral (Zephyria) [E3, N1, N3]. Crystallis est écartée : son nom est en doublon dans le canon
-(`zones-floues.md`, point 16) et trop proche de Khrysos.
+(`zones-floues.md`, point 17) et trop proche de Khrysos.
 
 ## Ce que toutes les villes ont en commun (proposition)
 
@@ -85,7 +85,7 @@ Cloudrest, Mistral (Zephyria) [E3, N1, N3]. Crystallis est écartée : son nom e
 
 ## 2. Ironheart, la capitale des forges — Ferros
 
-- **Canon** : capitale de l'Empire Fédéral (Empereur et Parlement) [E3, N2] ; « L'Enclume » dans le JDR (point 15) ;
+- **Canon** : capitale de l'Empire Fédéral (Empereur et Parlement) [E3, N2] ; « L'Enclume » dans le JDR (point 16) ;
   l'Empereur Théodric Ferron VII, le Chancelier Markus Steelheart [N2] ; automates et Chasseurs d'Orage parmi les
   peuples [E7] ; télégraphe cristallin, vapeur cristalline [E9] ; monnaie : le Fer [N2].
 - **Allure** : briques sombres et cuivre, cheminées, passerelles de fer, réverbères à cristal rouge, rails partout.
@@ -108,7 +108,8 @@ Cloudrest, Mistral (Zephyria) [E3, N1, N3]. Crystallis est écartée : son nom e
     la gare ; il se souvient de chaque voyageur qu'il a porté (les Unités-Auric, rares oracles-machines, sont onze
     dans tout l'Empire [NOTION]) ;
   - **Konrad Haut-Fourneau**, député, ardent défenseur du progrès ;
-  - canon : **Markus Steelheart** (audience possible), **Théodric Ferron VII** (vu de loin, lors d'un défilé).
+  - canon : **Théodric Ferron VII** (vu de loin, lors d'un défilé) ; le Chancelier Markus Steelheart n'est pas mis en
+    jeu pour l'instant (homonyme d'un personnage du roman, qu'on ne fait jamais apparaître).
 - **Possibilités** : le plus grand marché d'armes et d'armures ; le Bureau des Permis, où se signent les papiers de
   prospection (lien avec la Gare Engloutie) : consulter (Investigation), faire tamponner un faux (Subterfuge),
   crocheter les archives (Artisanat) ; assister au Parlement ; envoyer un télégramme à Gardebois ; un Récit tiré des

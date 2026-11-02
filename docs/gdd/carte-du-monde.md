@@ -11,9 +11,10 @@ Code : `src/scenes/WorldMapScene.ts`, `src/rules/world.ts` ; données : `src/dat
   Grande Nacelle). On se trouve alors sur la ville qu'on quitte.
 - **On voyage** en touchant un lieu connu : le panneau dit la durée (« environ 2 jours de marche »), puis le marqueur
   du héros traverse la carte. Le compteur affiche le jour de voyage. Toucher la ville où l'on est permet d'y rentrer.
-- **Lieux connus** : Gardebois et Canopéa. Un lieu peut aussi apparaître plus tard grâce à un repère (`revealedBy`).
-- **Terres lointaines** écrites au bord, pas encore accessibles : Ferros (nord), Terminus (est), Zephyria (sud-ouest),
-  d'après la place des continents [E3].
+- **Lieux connus** : Gardebois et Canopéa ; Ironheart apparaît à la fin de « L'audience » (`revealedByQuest`). Un lieu
+  peut aussi apparaître grâce à un repère (`revealedBy`).
+- **Terres lointaines** écrites au bord, pas encore accessibles : Terminus · Sept-Portes (est) et Zephyria · Aetherhaven
+  (sud-ouest), d'après la place des continents [E3] ; Ferros, d'abord au nord, est devenu accessible avec Ironheart.
 - **À valider** : le dessin de la région (forêts, frontière de Ferros, montagnes) et les positions de Gardebois et de
   Canopéa sont provisoires ; à caler sur la carte de Cyril (`docs/Carte Anamnesis.png`, absente de la session cloud).
 - **Pas de sauvegarde** sur la carte du monde : on sauvegarde dans les lieux, comme avant.

@@ -2487,7 +2487,7 @@ Commence par : « apres » _(si repère « rail-bureau »)_, sinon « rapport »
 
 ## Le patrouilleur à visière rouge
 
-_Funiculaire des Forges-Basses_
+_Funiculaire des Manufactures-Moyennes_
 
 Commence par : « passe » _(si repère « laissez-passer-ironheart »)_, sinon « controle »
 
@@ -2555,7 +2555,7 @@ Commence par : « ferme »
 
 ### haut
 
-> — La Tour de l’Empereur, la Grande Forge Centrale. Et des gens qui ne donnent plus de nouvelles. Je n’en sais pas plus, et ça me va très bien.
+> — Là-haut ? Des gens qui ne donnent plus de nouvelles. Je n’en sais pas plus, et ça me va très bien.
 
 - « Merci. » → **fin**
 

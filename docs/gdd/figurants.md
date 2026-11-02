@@ -18,7 +18,7 @@ Code : `src/scenes/Figurants.ts` (sur la carte), `src/rules/figurants.ts` ; donn
 - Tests (`src/engine/figurants.test.ts`) : trajets sur des cases libres et reliées, personne devant une porte, une sortie
   ou une arrivée, une ou deux répliques courtes.
 
-## Les quatorze figurants (validés par Cyril le 2026-11-02, en ligne)
+## Les quatorze premiers figurants (validés par Cyril le 2026-11-02, en ligne ; 27 en tout depuis Ironheart)
 
 | Lieu | Figurant | Marche ? | En deux mots |
 |---|---|---|---|

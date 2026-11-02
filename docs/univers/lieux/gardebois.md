@@ -26,4 +26,5 @@ Demande de Cyril : des habitations où entrer, plus de PNJ, des quêtes. PNJ pro
 ## Passants (validés par Cyril le 2026-11-02 : « Oui, pas bête »)
 
 Un commis de Ferros pressé, une lavandière, un garçon curieux, un vieux joueur de pipeau, et un client somnolent à
-l'Auberge de la Racine : une ou deux répliques chacun, sans quête (`docs/gdd/figurants.md`).
+l'Auberge de la Racine : une ou deux répliques chacun, sans quête, sauf le commis, qui donne « La caravane de midi »
+(`docs/gdd/figurants.md`).

@@ -77,7 +77,7 @@ carte à créer.
 ### 2. Les lettres de Malo (Nacelliers) — **construite le 2026-11-02**
 
 - Malo a laissé tomber la sacoche de lettres des Nacelliers. Véline obtient qu'on descende le héros, une seule fois.
-- En bas : retrouver les lettres (Survie ou Perception), éviter ou affronter ce qui rôde (Rôdeurs-Épine, Ours-Mousse
+- En bas : retrouver les lettres (ramassage libre ; Survie 2 pour lire les traces), éviter ou affronter ce qui rôde (Rôdeurs-Épine, Ours-Mousse
   [E8]), et voir les premières traces de fouille (lien avec « L'audience »).
 - **Fin** : les Nacelliers ouvrent leur **courrier** au héros ; Malo devient un ami.
 
@@ -144,7 +144,7 @@ Lieux et personnages : `docs/univers/lieux/ironheart.md`. Les détails nouveaux 
 - **Le Marché des Cendres** [NOTION, roman V.1] : on le trouve par l'indice de Boulon ou de Rika Martelroux, ou en
   examinant le renfoncement sans enseigne (Investigation 2).
 - **Kaelis** ne répond qu'à « la bonne question » : pourquoi certaines reliques se souviennent des morts (Mémoire 3,
-  ou le Récit de l'Arbre ancien) ; sinon, « tout se vend » : la réponse coûte **25 Fers**. Il a vu la clé au cou de la
+  ou le Récit « Les voix du Bosquet ») ; sinon, « tout se vend » : la réponse coûte **25 Fers**. Il a vu la clé au cou de la
   **Veilleuse du Rail** [NOTION, Studio], au dépôt de la vieille ligne, et il rachètera la clé **100 Fers**.
 - **La Veilleuse** entend le **convoi sans conducteur** (Récit) ; elle donne la clé à qui a vu le dernier train dans
   l'Écho de la Gare Engloutie, à qui écoute le convoi avec elle (Mémoire 3), à qui la convainc (Diplomatie 3), ou à
@@ -164,8 +164,8 @@ Lieux et personnages : `docs/univers/lieux/ironheart.md`. Les détails nouveaux 
   et le prix de membre de la Compagnie des Lisières ; Rika remercie qui a rapporté la caisse de son fils.
 - **Réputation** : Ironheart +10 à la fin ; Travailleurs du Rail, Marches des Cendres et Archives de Ferros selon la
   fin (`src/data/reputation.json`).
-- **Reporté** : cacher la clé ou la garder (le Notion cite aussi ces choix) ; « Le Rail des Cendres » et « Les Échos
-  sous la Forge » ; le Bureau des Permis, le Parlement et le télégraphe de `villes.md`.
+- **Reporté** : cacher la clé ou la garder (le Notion cite aussi ces choix) ; le Bureau des Permis, le Parlement et le
+  télégraphe de `villes.md`.
 
 ## Ferros : une quête secondaire
 
@@ -192,15 +192,16 @@ Le reste, proposé, est **validé par Cyril le 2026-11-02**.
   rouler vers l'ouest (Mémoire 3 : Récit « La machine qui roulait vers l'ouest »).
 - **Trois fins** :
   - **aux cheminots** (Varka) : ils reprennent leurs convois, Joss rembourse en travaillant (ou le héros rachète sa
-    dette, 30 Fers), la machine dort au dépôt de la Veilleuse ; Travailleurs du Rail +20 (+10), Marches −10 ;
+    dette, 30 Fers), la machine dort au dépôt de la Veilleuse ; Travailleurs du Rail +20 (+10), Marches −10, Ironheart +5 ;
   - **au Bureau** (Ostrik) : prime de 60 Fers, Joss renvoyé, la machine saisie « pour l'Empire » ; Ironheart +10,
     Travailleurs du Rail −15, Marches −10 ;
   - **aux Marches** (Sorn) : 80 Fers pour se taire, un convoi sur dix part encore seul ; Marches +15, Travailleurs du
     Rail −20, Ironheart −10.
 - **Les routes commerciales** : pour l'instant, par la réputation d'Ironheart (les prix de la ville) et ce que disent
-  les cheminots ; **reporté** : un vrai effet sur les marchandises et le train.
+  les cheminots, et par le prix du train (« Voyager autrement » : 30 ou 50 Fers) ; **reporté** : un effet sur les
+  marchandises.
 
-## 9. Les Échos sous la Forge (Ferros, quête cachée) — **construite et validée le 2026-11-02 (option A de Cyril)**
+### 9. Les Échos sous la Forge (Ferros, quête cachée) — **construite et validée le 2026-11-02 (option A de Cyril)**
 
 Canon [NOTION, Studio] : fiche vide (Idea, Hidden, Ferros) ; conflit « Des souvenirs ne devraient pas exister dans
 cette période de Ferros » ; choix : ignorer, suivre, archiver, détruire, confier à un proche ; conséquence « Débloque
@@ -236,3 +237,5 @@ Décisions de Cyril (2026-11-02) : **option A**, des Échos familiaux anonymes e
 3. « Les graines qui manquent », « Le carnet de chansons », « La caravane de midi ».
 4. Ironheart et « La Clé de Rouille Bleue » (construits le 2026-11-02).
 5. « Le Rail des Cendres » (construite le 2026-11-02).
+6. « Les Échos sous la Forge » (construite le 2026-11-02).
+7. « Voyager autrement » : le train et la caravane (construits le 2026-11-02).

@@ -70,40 +70,42 @@ Ces décisions valent **pour le jeu**. Le dossier `docs/Lore/` reste inchangé.
 
 ## Chiffres et noms
 
-14. **Populations** : le monde compte 72 millions d'habitants [E3, WEB] ou 5 milliards [E4]. Glacialis : 2 millions [E3] ou 14 millions [N6]. Marisol : 15 ou 22 millions. Ironheart : 4 ou 5 millions.
-15. **Capitales** :
+15. **Populations** : le monde compte 72 millions d'habitants [E3, WEB] ou 5 milliards [E4]. Glacialis : 2 millions [E3] ou 14 millions [N6]. Marisol : 15 ou 22 millions. Ironheart : 4 ou 5 millions.
+16. **Capitales** :
     - Ferros : Ironheart, ou « L'Enclume » [JDR] ;
     - Glacialis : Crystallhaven, ou Crystalheart ;
     - Califat : Solara, ou Mirapolis ;
     - Marisol : Coralys, ou Coralia.
-16. **Doublons de noms** :
+17. **Doublons de noms** :
     - « Kael » : le Dernier Survivant et le Gardien Kael Marchevent ;
     - « Crystallis » : cité en ruine [E2] et ville-académie de Verdantis [N1].
-17. **Géographie** : Winterwatch (Glacialis) serait frontalière de Terminus [N6], alors que Glacialis est au pôle et Terminus au centre.
+18. **Géographie** : Winterwatch (Glacialis) serait frontalière de Terminus [N6], alors que Glacialis est au pôle et Terminus au centre.
 
 ## Règles et ton
 
-18. **Le JDR** :
+19. **Le JDR** :
     - armes modernes (fusil d'assaut, drone-espion) face au niveau XIXe et à l'interdiction des drones [E2, E9] ;
     - ton « néo-noir urbain » ;
     - races absentes ailleurs (Demi-Elfes, Gobelins Méca, Sang-Acier).
-19. **Le public 8 à 15 ans** et certains contenus des fiches nations (drogues, polygamie, peines corporelles…) : à écarter du jeu, sans toucher au canon.
-20. **Restes de conversations avec une IA** dans N5, E7-1 et RES (« Voulez-vous que je continue… ») : simple nettoyage éventuel, si Cyril le souhaite.
-21. **Création de personnage dans le JDR** : 27 points pour 6 attributs de 1 à 5 donnent 4,5 de moyenne, alors que le même JDR fixe la moyenne humaine à 3. Il manque peut-être une table de coûts.
+20. **Le public 8 à 15 ans** et certains contenus des fiches nations (drogues, polygamie, peines corporelles…) : à écarter du jeu, sans toucher au canon.
+21. **Restes de conversations avec une IA** dans N5, E7-1 et RES (« Voulez-vous que je continue… ») : simple nettoyage éventuel, si Cyril le souhaite.
+22. **Création de personnage dans le JDR** : 27 points pour 6 attributs de 1 à 5 donnent 4,5 de moyenne, alors que le même JDR fixe la moyenne humaine à 3. Il manque peut-être une table de coûts.
 
-22. **Thalorin** (2026-11-02, en écrivant « L'audience ») : la fiche Verdantis dit « Ancien Thalorin » (dryade, âge
+23. **Thalorin** (2026-11-02, en écrivant « L'audience ») : la fiche Verdantis dit « Ancien Thalorin » (dryade, âge
     inconnu) et, plus loin, « Triumvirat actuel : 2 femmes, 1 homme », alors que Lyra est une femme et Kael Marchevent un
     homme ; la même fiche dit les dryades « souvent non-genrées ». **Dans le jeu, Thalorin est « l'Ancien Thalorin »,
     « la dryade », sans pronom ni accord genré** (choix validé par Cyril le 2026-11-02).
 
-23. **Kharos** (lu le 2026-11-02, pour « Les Échos sous la Forge ») : Titan mort, « fondu en une montagne
+24. **Kharos** (lu le 2026-11-02, pour « Les Échos sous la Forge ») : Titan mort, « fondu en une montagne
     rougeoyante » (« La Forge du Dernier Souffle »), ou dieu « scellé au cœur de Ferros », « existence non confirmée »
     (bestiaire). Le volcan porte trois noms (Cœur de Braise, Mont Forgeron Éternel, Mont Forgeciel). La Forge-Titan est
     dite « capitale impériale » ici, la capitale est Ironheart ailleurs (« l'Enclume = quartier de la Grande Forge
-    Centrale » : « à trancher » dans le Notion). La langue : « Ferrique » ou « Ferrian ». **Question à Cyril.**
-24. **Détruire un Écho** : la quête du Studio propose le choix « détruire », mais la Loi de la Mémoire Vivante dit
-    qu'un Écho ne peut être que dissipé, et que tenter de le détruire le multiplie et le rend violent. Proposition :
-    le choix existe, et il a exactement cette conséquence.
+    Centrale » : « à trancher » dans le Notion). La langue : « Ferrique » ou « Ferrian ». **Décision de Cyril
+    (2026-11-02) : dans le jeu, Kharos reste vague (« le souffle de Kharos »)** ; le jeu ne nomme ni la Tour de l'Empereur
+    ni la Grande Forge Centrale tant que leur place n'est pas tranchée. Volcan, capitale et langue : question ouverte.
+25. **Détruire un Écho** : la quête du Studio propose le choix « détruire », mais la Loi de la Mémoire Vivante dit
+    qu'un Écho ne peut être que dissipé, et que tenter de le détruire le multiplie et le rend violent. **Décision de
+    Cyril (2026-11-02)** : le choix existe, et il a exactement cette conséquence (deux Échos furieux, combat).
 
 ## Réponses de Cyril (2026-11-02, « Oui pour tout »)
 
@@ -119,4 +121,8 @@ Ces décisions valent **pour le jeu**. Le dossier `docs/Lore/` reste inchangé.
 - **Gardiens de Mémoire** : dans le Notion, c'est un **thème** central, pas une organisation attestée ; le jeu en fait
   un ordre de conteurs voyageurs (décision de Cyril, point 3), à confirmer.
 - **Ironhold** : ancienne cité-État devenue Ferros, sources contradictoires sur ses dates : on la retire des dix villes.
-- **Serre Mémoire** : à Canopéa selon les légendes, dans un village selon le roman (IV.4).
+
+## Questions encore ouvertes
+
+- **Serre Mémoire** : à Canopéa selon les légendes, dans un village selon le roman (IV.4). Non tranché ; le jeu n'y
+  fait pas référence.

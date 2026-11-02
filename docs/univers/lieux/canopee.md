@@ -68,7 +68,7 @@ Sept intérieurs, sept PNJ nommés. Toutes les maisons prévues sont là.
 ## Reporté
 
 - **Images peintes** (phase 2) : plan et coût à présenter avant toute génération (≈ 25 crédits ; 11,5 restants).
-- **Services des guildes** : la caravane comme moyen de voyage, le courrier des Nacelliers.
+- **Services des guildes** : le courrier des Nacelliers (la caravane est construite : « Voyager autrement »).
 
 ## Quête « Les lettres de Malo » et le Sol des Racines (construites le 2026-11-02)
 

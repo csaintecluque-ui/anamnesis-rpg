@@ -8,12 +8,12 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `STYLE.md` : fiche de style des visuels de la phase 2 (direction, palette, formats, prompt commun) ; validée.
 - `ASSETS.md` : plan des images de la phase 2 et journal de chaque génération (date, outil, prompt, coût, fichier).
 - `DIALOGUES.md` : textes de tous les dialogues, générés par `npm run dialogues` (ne pas éditer à la main).
-- `Lore/` : **lore canonique de Cyril, fait foi**, local seulement (jamais publié). Ouvrir le fichier précis
+- `Lore/` : ancienne version du lore de Cyril (le Notion « ANAMNESIS » fait foi), local seulement (jamais publié). Ouvrir le fichier précis
   indiqué par un code source ([E2], [N1]…) de `univers/sources.md`, pas le dossier entier.
 
 ## `univers/` : synthèse du lore, avec statuts (canon, à valider, à arbitrer, rejeté)
 
-- `sources.md` : règle « `Lore/` fait foi », légende des statuts, table des codes sources → fichiers de `Lore/`.
+- `sources.md` : règle « le Notion fait foi », publication dans « Anamnesis — le jeu », statuts, codes sources.
 - `monde.md` : concept, époque, continents, phénomènes, cinq lois, interdits, technologie.
 - `magie.md` : cristaux, sources, limites (non liée à la mémoire).
 - `memoire.md` : Mémoire Vivante, Échos, Gardiens de Mémoire, Kael, mémoire dans chaque culture.
@@ -21,10 +21,10 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `lieux/gardebois.md` : Marché des Lisières, le hub (validé).
 - `lieux/gare-engloutie.md` : l'extérieur de la quête ; contenu détaillé validé.
 - `lieux/villes.md` : dix grandes villes sur les sept continents (quartiers, maisons, personnages) ; plan validé.
-- `lieux/canopee.md` : Canopéa, première ville construite (provisoire) ; détails nouveaux à valider.
+- `lieux/canopee.md` : Canopéa, première ville construite (provisoire) ; validé.
 - `lieux/ironheart.md` : Ironheart (chapitre 3), canon résumé et ville construite ; validé.
-- `factions.md` : organisations, alliances, conflits en cours ; factions et guildes du jeu proposées (à valider).
-- `quetes.md` : histoire principale « Les voies endormies » et quêtes des villes ; à valider.
+- `factions.md` : organisations, alliances, conflits en cours ; factions et guildes du jeu (validées).
+- `quetes.md` : histoire principale « Les voies endormies » et quêtes des villes ; validé.
 - `religions.md` : les sept religions.
 - `peuples.md` : peuples par nation, faune utile à la tranche.
 - `personnages/historiques.md` : figures historiques, entités légendaires, prophéties.
@@ -32,7 +32,7 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `personnages/pnj.md` : héros, Ilyane, Tobias, Ingrid, ennemis (validés).
 - `chronologie.md` : dates de référence.
 - `ton.md` : ton, public 8–15 ans, sonorités des noms par nation.
-- `zones-floues.md` : 21 contradictions du canon, décisions de Cyril.
+- `zones-floues.md` : 25 contradictions du canon, décisions de Cyril.
 - `propositions.md` : propositions sans autre fichier (quête, attribut Mémoire), propositions rejetées.
 
 ## `gdd/` : conception du jeu (systèmes, chiffres, équilibrage)
@@ -49,12 +49,12 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `dialogues.md` : format JSON, conditions, effets, contrôles.
 - `inventaire.md` : objets, Fers, équipement, troc.
 - `progression.md` : seuils d'XP, montée de niveau.
-- `sauvegarde.md` : emplacements, format, export/import, versions v1 à v8.
+- `sauvegarde.md` : emplacements, format, export/import, versions v1 à v9.
 - `interface.md` : HUD, menu pause, options, PC (netteté, raccourcis, plein écran).
 - `animation.md` : marche animée des personnages, méthodes 2D et 3D, comparaison du pilote.
-- `jalon-2.md` : proposition du jalon 2 (retour de Cyril sur la phase 2, animation, avatars, contenu) ; à valider.
+- `jalon-2.md` : le jalon 2 (phase 2, animation, avatars, contenu) ; fait et en ligne.
 - `villes.md` : gabarit d'une grande ville, systèmes communs, mécanique par ville, coûts, ordre ; validé.
 - `carte-du-monde.md` : carte du monde, voyages, rencontres aléatoires en route ; validé.
 - `figurants.md` : passants qui marchent et habitants à une ou deux répliques ; validé.
 - `reputation.md` : réputation par ville (paliers, prix, conditions de dialogue) ; paliers validés.
-- `factions.md` : réputation de faction, adhésion aux guildes, rangs des Gardiens de Mémoire ; à valider.
+- `factions.md` : réputation de faction, adhésion aux guildes, rangs des Gardiens de Mémoire ; validé.

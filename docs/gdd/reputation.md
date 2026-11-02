@@ -18,7 +18,7 @@ Code : `src/rules/reputation.ts` ; données : `src/data/reputation.json`. Plan d
 | Amitié | 25 et plus | « la ville te fait confiance » | −15 % |
 
 - **Effets** :
-  - prix des marchands **de la ville** (`place` dans `npcs.json` : Tobias à Gardebois, Sévane à Canopéa), cumulés avec
+  - prix des marchands **de la ville** (`place` dans `npcs.json` : Tobias à Gardebois, Sévane à Canopéa, Hedda à Ironheart), cumulés avec
     une remise propre (Tobias après « La caisse égarée ») ; la colporteuse, qui voyage, n'en tient pas compte ;
     l'étal affiche le palier et le pourcentage, chaque prix « prix d'ami » ou « prix fort » ;
   - une **condition de dialogue** `{ "reputation": "<ville>", "min": <score> }`, affichée comme un test (option grisée
@@ -43,6 +43,10 @@ Code : `src/rules/reputation.ts` ; données : `src/data/reputation.json`. Plan d
 | Gardebois | « Le carnet de chansons » | +5 |
 | Compagnie des Lisières | « La caravane de midi » ; Elvan qui rend tout / dénoncé | +15 ; +5 / −15 |
 | Nacelliers | « Les lettres de Malo » ; « Le chant d'Anselme » ; graines retrouvées | +15 ; +5 ; +5 |
+| Ironheart | « La Clé de Rouille Bleue » ; Rail : aux cheminots / au Bureau / aux Marches | +10 ; +5 / +10 / −10 |
+| Travailleurs du Rail | clé rendue à la Veilleuse / vendue ; Rail : cheminots (+ dette de Joss) / Bureau / Marches | +20 / −10 ; +20 (+10) / −15 / −20 |
+| Marches des Cendres | clé vendue / aux Archives / à la Veilleuse ; Rail : Marches / cheminots / Bureau | +20 / −10 / −5 ; +15 / −10 / −10 |
+| Archives de Ferros | clé aux Archives / vendue ; Échos archivés | +20 / −10 ; +10 |
 
 Premier usage d'une condition : l'huissier du Conseil, à Canopéa, laisse entendre une audience à partir de l'estime.
 Les quêtes des villes ajouteront leurs propres sources.

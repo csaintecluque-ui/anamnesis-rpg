@@ -35,7 +35,7 @@ Découper une ville en quartiers garde des cartes légères : important pour les
 |---|---|---|
 | Canopéa | nacelles entre quartiers, passerelles-raccourcis (Athlétisme) | non (sorties, jets de dé) |
 | Ironheart | télégraphe : envoyer un message à un PNJ d'une autre ville | un peu (courrier) |
-| Ironhold | la Vieille Mine : petit donjon avec combat | non |
+| Porto-Lumina (remplace Ironhold, décision de Cyril) | à décrire d'après le Notion | non |
 | Sept-Portes | **aucun combat possible** : les options d'attaque disparaissent | un peu (zone sans combat) |
 | Aetherhaven | sauts entre îlots (Athlétisme) ; départ des dirigeables | non |
 | Windspire | descente en planeur du sommet au pied | non (sortie spéciale) |
@@ -61,7 +61,7 @@ Le Fer (monnaie de Ferros [N2]) est la seule monnaie du jeu. Les autres nations 
 | Fond peint | 1 ou 2 | ≈ 1 |
 | **Total** | **≈ 55** | **≈ 35** (Canopéa ≈ 25 : elle réutilise le style de Gardebois) |
 
-Soit **≈ 340 crédits pour les dix villes**, pour **19 crédits restants**. Pistes : recharger le compte au fil des
+Soit **≈ 340 crédits pour les dix villes**, pour **11,5 crédits restants** (2026-11-02). Pistes : recharger le compte au fil des
 villes ; ou construire chaque ville d'abord en visuels provisoires (par code, comme au jalon 1) pour jouer et
 valider le plan, puis la peindre. Les dernières estimations ont été dépassées vers le bas (phase 2 : 26,5 crédits
 au lieu de 51).

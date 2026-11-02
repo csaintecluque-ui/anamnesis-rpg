@@ -65,7 +65,8 @@ Ces décisions valent **pour le jeu**. Le dossier `docs/Lore/` reste inchangé.
     Technique » dit la voie achevée de force en 1400, toujours en service (la ligne de l'Ouest, quatorze heures
     d'Ironheart aux ports). Le récit aussi diffère (Coalition Verte et batailles, ou guerre « commencée par un devis »
     et Alliance Verte et Bleue). Le jeu n'utilise que ce qui est commun : la Guerre du Rail (1380-1400) et les machines
-    sans hommes du Chantier Ouest (« Le Rail des Cendres »). **Question à Cyril.**
+    sans hommes du Chantier Ouest (« Le Rail des Cendres »). **Tranché par Cyril le 2026-11-02 : « La Note Technique »
+    fait foi** (la ligne de l'Ouest a été achevée en 1400 et roule encore, quatorze heures d'Ironheart aux ports).
 
 ## Chiffres et noms
 

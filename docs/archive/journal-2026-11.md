@@ -773,3 +773,7 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   quatre PNJ sans visage. 367 tests ; vérifié sur PC et téléphone.
 - Reste (à proposer à Cyril) : lisibilité générale sur téléphone (plateau de combat, petits textes, création) ; trop
   d'argent à Ironheart ; adhésion aux trois factions de Ferros.
+- Cyril : « Oui pour tout, mets en ligne ». Passe de qualité mise en ligne ; coquille du petit logo corrigée (une
+  espace manquante dans le tracé du C : `62.2931.73` → `62.29 31.73`, le dessin est inchangé) ; Guerre du Rail :
+  « La Note Technique » fait foi ; accord pour des objets propres à Hedda et pour un chantier de lisibilité sur
+  téléphone.

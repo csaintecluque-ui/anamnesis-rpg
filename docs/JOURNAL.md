@@ -20,11 +20,11 @@
 
 ## Prochaine étape
 
-1. Passe de qualité faite sur la branche (bugs, équilibrage, textes, affichage) : mise en ligne à valider par Cyril.
+1. Passe de qualité en ligne (2026-11-02). Ensuite (accord de Cyril) : objets propres à Hedda (arbalète…), puis
+   lisibilité sur téléphone (plateau de combat, petits textes, création).
 2. Codex : Sept-Portes (`AGENTS.md`). Notion : page « Anamnesis — le jeu », à tenir à jour à chaque mise en ligne.
 
 ## Points ouverts
 
-- Coquille dans `assets/brand/logo-small.svg` (trait parasite) : accord de Cyril requis.
-- Chronologie du canon non arbitrée (`docs/univers/zones-floues.md`, points 6 à 14).
+- Chronologie du canon non arbitrée (`docs/univers/zones-floues.md`, points 6 à 13 ; le 14 est tranché).
 - `npm audit` : vulnérabilités modérées dans les outils de build de la PWA ; à revoir avec workbox.

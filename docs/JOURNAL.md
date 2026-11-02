@@ -16,9 +16,8 @@
 
 ## Prochaine étape
 
-1. Fait et en ligne (2026-11-02) : 14 passants et habitants à une ou deux répliques (`docs/gdd/figurants.md`).
-   Peinture des 5 passants de Gardebois lancée (2,5 crédits sur 7,5, solde 16,5) : **bloquée**, l'hôte
-   `d8j0ntlcm91z4.cloudfront.net` (images Higgsfield) est refusé par le réseau de l'environnement cloud.
+1. En ligne : 14 passants (`docs/gdd/figurants.md`). Peinture de ceux de Gardebois **bloquée** (2,5 crédits sur 7,5) :
+   l'hôte des images Higgsfield `d8j0ntlcm91z4.cloudfront.net` est refusé par le réseau de la session cloud.
 2. Ensuite : réputation par ville, puis Ironheart ; les quêtes des villes après.
 
 ## Points ouverts

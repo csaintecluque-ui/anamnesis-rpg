@@ -344,7 +344,7 @@ export class CreationScene extends Phaser.Scene {
       this.add.text(x, y, value, { fontFamily: FONT_SERIF, fontSize: `${size}px`, color }).setOrigin(0, 0.5);
 
     this.add
-      .text(GAME_WIDTH / 2, 140, `${draft.name.trim()} — Humain, en apprentissage chez les Gardiens de Mémoire`, {
+      .text(GAME_WIDTH / 2, 140, `${draft.name.trim()} — origine humaine, en apprentissage chez les Gardiens de Mémoire`, {
         fontFamily: FONT_SERIF,
         fontSize: '28px',
         color: CSS.parchment,

@@ -49,7 +49,7 @@
   ],
   "nodes": {
     "accueil": {
-      "text": "Un homme maigre polit une mâchoire de Golem sous une lampe à huile. Autour de lui, des fémurs polis, des vertèbres en colliers. — Tout se vend, ici. Même ce qui se souvient. Pose ta question… si c’est la bonne.",
+      "text": "Un homme maigre polit une mâchoire de Golem sous une lampe à huile. Autour de lui, des os de bêtes polis, des dents de loup en colliers. — Tout se vend, ici. Même ce qui se souvient. Pose ta question… si c’est la bonne.",
       "options": [
         {
           "text": "Je cherche la clé de rouille bleue.",
@@ -111,7 +111,7 @@
       ]
     },
     "bonne": {
-      "text": "Il pose la mâchoire. — Parce qu’on les a tenues longtemps, avec amour ou avec peur : le métal garde la main. Tu es de ceux qui écoutent. Alors écoute : la clé, je l’ai vue au cou de la Veilleuse du Rail, au bout de la ligne qu’on dit maudite.",
+      "text": "Il pose la mâchoire. — Parce qu’on les a tenues longtemps, avec amour ou avec peur : le métal garde la main. Toi, tu sais écouter. Alors écoute : la clé, je l’ai vue au cou de la Veilleuse du Rail, au bout de la ligne qu’on dit maudite.",
       "effects": [
         {
           "setFlag": "kaelis-parle"
@@ -186,7 +186,7 @@
               "completeQuest": "cle-rouille-bleue"
             },
             {
-              "giveXp": 40
+              "giveXp": 60
             }
           ]
         },
@@ -219,7 +219,7 @@
       ]
     },
     "apres": {
-      "text": "— Tu as choisi un autre acheteur, à ce qu’on dit. Dommage. Les Marches n’oublient pas… mais elles ne se fâchent pas longtemps.",
+      "text": "— Tu as choisi de ne pas me la vendre, à ce qu’on dit. Dommage. Les Marches n’oublient pas… mais elles ne se fâchent pas longtemps.",
       "options": [
         {
           "text": "Au revoir.",

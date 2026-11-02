@@ -40,11 +40,22 @@ Règles : `src/rules/combat.ts` ; écran : `src/scenes/CombatScene.ts` ; donnée
   Le journal l'annonce (« à couvert, +2 en Défense »). Pour l'instant, seul le héros tire : la couverture protège
   donc les ennemis.
 - **Fuite (validé le 2026-11-01)** : il faut **atteindre le bord de la zone de combat** (n'importe quelle case du pourtour),
-  puis toucher « Fuir ». Ailleurs, le jeu le rappelle. Fuir referme le combat sans autre conséquence.
-- **Défaite du héros** : non létale, comme pour les ennemis. Le héros est ramené à 1 PV à l'entrée de Gardebois
-  (par Ilyane ; sur la route, par des voyageurs : `docs/gdd/carte-du-monde.md`).
-- **Victoire** : mêmes effets que les résolutions par la parole (`chantier-arrete`, quête terminée, 40 XP),
+  puis toucher « Fuir ». Ailleurs, le jeu le rappelle. Fuir referme le combat.
+- **Blessures (passe de qualité, 2026-11-02)** : les PV perdus le restent après une victoire ou une fuite (1 PV au
+  moins) ; on se soigne avec les objets, la soupe ou un lit (Mirelle, Dorna). Avant, le héros repartait toujours
+  intact.
+- **Défaite du héros** : non létale, comme pour les ennemis. Le héros est ramené à 1 PV à l'entrée de la ville du
+  lieu (Gardebois, par Ilyane ; Canopéa ; Ironheart) ; sur la route, à Gardebois, par des voyageurs
+  (`docs/gdd/carte-du-monde.md`).
+- **Aucun combat imposé** : après un jet raté qui mène à l'affrontement (Garrik démasqué, pilleurs qui surprennent le
+  héros), on peut toujours reculer.
+- **Effets de zone** : ils durent tout le tour suivant de la cible (un ennemi désarmé n'attaque pas), puis s'effacent.
+- **Victoire** : mêmes effets que les résolutions par la parole (`chantier-arrete`, quête terminée, 70 XP),
   pour que les trois résolutions restent équilibrées.
+- **Équilibrage (passe de qualité, 2026-11-02, par simulation de 20 000 combats)** : le Golem passe de 44 PV, Déf 14,
+  +3, 2d6 à **30 PV, Déf 12, +2, 1d8** ; les Rôdeurs-Épine de 7 à **5 PA** (une attaque par tour). Avant : le combat du
+  Golem était gagné 0 à 1 % des fois au niveau 1 ; après : environ 40 % avec l'épée au niveau 1, plus de 80 % au
+  niveau 2 avec Mêlée 3 (il reste un combat de fin de chapitre, évitable par la parole ou le sabotage).
 - **IA ennemie** : simple — se rapproche si hors de portée, attaque sinon, jusqu'à épuisement des PA.
 - **Armure** : son bonus de Défense compte en combat (`makeHeroCombatant`).
 

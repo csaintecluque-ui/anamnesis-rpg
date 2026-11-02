@@ -21,7 +21,7 @@
     "center": "garrik",
     "enemies": [{ "id": "fouilleur", "object": "garrik" }],
     "victoryFlag": "garrik-vaincu",
-    "victoryEffects": [{ "setFlag": "fouille-elucidee" }, { "setFlag": "fouille-marches" }, { "setFlag": "cle-mentionnee" }]
+    "victoryEffects": [{ "setFlag": "fouille-elucidee" }, { "setFlag": "fouille-marches" }, { "setFlag": "cle-mentionnee" }, { "giveXp": 20 }]
   },
   {
     "id": "aiguillage-cendres",

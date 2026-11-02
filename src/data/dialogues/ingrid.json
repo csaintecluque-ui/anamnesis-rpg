@@ -29,19 +29,19 @@
           "text": "Arrêtez le forage : à chaque coup, l’Écho se multiplie, et le mal avec lui.",
           "next": "convaincue",
           "requires": [{ "skill": "diplomacy", "min": 3 }],
-          "effects": [{ "setFlag": "chantier-arrete" }, { "completeQuest": "dernier-train" }, { "giveXp": 40 }, { "giveFers": 30 }]
+          "effects": [{ "setFlag": "chantier-arrete" }, { "completeQuest": "dernier-train" }, { "giveXp": 70 }, { "giveFers": 30 }]
         },
         {
           "text": "Je parle au nom des Gardiens de Mémoire : cessez, maintenant.",
           "next": "convaincue",
           "requires": [{ "skill": "command", "min": 3 }],
-          "effects": [{ "setFlag": "chantier-arrete" }, { "completeQuest": "dernier-train" }, { "giveXp": 40 }, { "giveFers": 30 }]
+          "effects": [{ "setFlag": "chantier-arrete" }, { "completeQuest": "dernier-train" }, { "giveXp": 70 }, { "giveFers": 30 }]
         },
         {
           "text": "Je connais l’histoire du savant Corvan. Écoutez-la avant de creuser plus loin.",
           "next": "convaincue-recit",
           "requires": [{ "recit": "savant-corvan" }],
-          "effects": [{ "setFlag": "chantier-arrete" }, { "completeQuest": "dernier-train" }, { "giveXp": 40 }, { "giveFers": 30 }]
+          "effects": [{ "setFlag": "chantier-arrete" }, { "completeQuest": "dernier-train" }, { "giveXp": 70 }, { "giveFers": 30 }]
         },
         { "text": "Je reviendrai.", "next": "fin" }
       ]
@@ -51,7 +51,7 @@
       "options": [{ "text": "Merci.", "next": "fin" }]
     },
     "convaincue-recit": {
-      "text": "Corvan ? Je connais l’histoire, oui… et vous avez raison : il a réussi, et ça ne l’a pas sauvé. J’arrête la foreuse. On ne force pas deux fois la même faute.",
+      "text": "Corvan ? Je connais l’histoire, oui… et vous avez raison : il a réussi, et ça ne l’a pas sauvé. J’arrête la foreuse. On ne commet pas deux fois la même faute.",
       "options": [{ "text": "Merci.", "next": "fin" }]
     },
     "apres-sabotage": {

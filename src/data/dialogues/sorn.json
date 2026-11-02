@@ -16,7 +16,7 @@
   ],
   "nodes": {
     "accueil": {
-      "text": "Un homme au manteau de cendre compte des caisses de minerai. — Un curieux. Les curieux coûtent cher, ici. Je suis Sorn, et je rachète ce que Ferros oublie : les vieilles machines, et les dettes.",
+      "text": "Un homme au manteau de cendre compte des caisses de minerai. — De la visite. Les visites coûtent cher, ici. Je suis Sorn, et je rachète ce que Ferros oublie : les vieilles machines, et les dettes.",
       "effects": [
         {
           "setFlag": "verite-rail"
@@ -99,7 +99,7 @@
       ]
     },
     "apres": {
-      "text": "— Tiens, notre ami. La machine roule, les wagons arrivent. Tout le monde y gagne… presque.",
+      "text": "— Tiens, une tête connue. La machine roule, les wagons arrivent. Tout le monde y gagne… presque.",
       "options": [
         {
           "text": "Au revoir.",

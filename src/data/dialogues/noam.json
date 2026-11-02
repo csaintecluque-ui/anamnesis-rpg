@@ -97,7 +97,7 @@
       ]
     },
     "cle": {
-      "text": "Noam ôte ses lunettes. Pour la première fois, il parle sans note. — Donnez-la-moi. Je vous ouvre le Fonds Zéro, et vous serez le premier à voir ce qu’il contient depuis la fondation de la ville.",
+      "text": "Noam ôte ses lunettes. Pour la première fois, il parle sans note. — Donnez-la-moi. Je vous ouvre le Fonds Zéro, et vos yeux seront les premiers à voir ce qu’il contient depuis la fondation de la ville.",
       "options": [
         {
           "text": "La lui confier.",
@@ -113,7 +113,7 @@
               "completeQuest": "cle-rouille-bleue"
             },
             {
-              "giveXp": 50
+              "giveXp": 70
             },
             {
               "learnRecit": "carnet-dernier-train"

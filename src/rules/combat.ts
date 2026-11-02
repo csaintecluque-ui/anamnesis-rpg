@@ -170,7 +170,7 @@ export function makeHeroCombatant(character: Character, tile: Tile): Combatant {
     tile,
     status: emptyStatus(),
     defeated: false,
-    defeatText: `${character.name} est mis hors de combat.`,
+    defeatText: `${character.name} est hors de combat.`,
   };
 }
 
@@ -318,7 +318,10 @@ export function resolveAttack(
   return { hit: true, critical, fumble: false, damage, zoneEffect: zoneEffect && !target.defeated ? zoneEffect : null, defeated: target.defeated };
 }
 
-/** Resets PA for a new turn, applying the previous turn's zone effects (docs/gdd/combat.md). */
+/**
+ * Resets PA for a new turn, applying the zone effects received since the combatant's last turn (docs/gdd/combat.md):
+ * they last the whole of this turn (a disarmed combatant cannot attack), and are cleared by endTurn.
+ */
 export function startTurn(combatant: Combatant): void {
   if (combatant.status.stunned) {
     combatant.actionPoints = 0;
@@ -327,6 +330,10 @@ export function startTurn(combatant: Combatant): void {
   } else {
     combatant.actionPoints = combatant.maxActionPoints;
   }
+}
+
+/** The zone effects suffered are spent once the combatant's turn is over. */
+export function endTurn(combatant: Combatant): void {
   combatant.status = emptyStatus();
 }
 

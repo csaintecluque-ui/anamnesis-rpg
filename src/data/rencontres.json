@@ -54,7 +54,7 @@
     "weight": 2,
     "terrains": ["rencontre-clairiere"],
     "hostile": false,
-    "intro": "Au crépuscule, des lumières dansent entre les arbres : des Cerfs-Lucioles.",
+    "intro": "Au crépuscule, des lumières dansent entre les arbres : des cerfs-lucioles.",
     "objects": [{ "id": "cerfs-lucioles", "type": "objet", "tile": "cerf-luciole", "spawn": "objet-1" }]
   },
   {

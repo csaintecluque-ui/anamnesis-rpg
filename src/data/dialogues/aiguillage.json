@@ -144,7 +144,7 @@
       ]
     },
     "veille-rate": {
-      "text": "Un caillou roule sous ta botte. Les silhouettes se retournent : — Un guetteur ! Elles lâchent le levier et foncent sur toi.",
+      "text": "Un caillou roule sous ta botte. Les silhouettes se retournent : — On nous guette ! Elles lâchent le levier et foncent sur toi.",
       "options": [
         {
           "text": "Se défendre !",
@@ -154,6 +154,10 @@
               "startCombat": "aiguillage-cendres"
             }
           ]
+        },
+        {
+          "text": "Fuir dans l’ombre des wagons.",
+          "next": "fin"
         }
       ]
     }

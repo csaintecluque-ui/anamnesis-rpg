@@ -978,4 +978,15 @@ TILES.push(
   npcTile('sorn', { body: '#4e4945', hair: '#1f1612', accent: '#ff7a40', extra: '<path d="M20 78 L44 78 L46 88 L18 88 Z" fill="#4e4945" stroke="#1B1512"/>' }),
   npcTile('pilleur-cendres', { body: '#5a5450', hair: '#2a2018', accent: '#ff7a40', extra: '<path d="M24 46 L40 46 L40 52 L24 52 Z" fill="#3a3633"/>' }),
   npcTile('cheminot', { body: '#2e4a6a', hair: '#3a2a1c', accent: '#C9804F' }),
+  // Leurs propres traits pour quatre PNJ d'Ironheart qui prenaient la silhouette générique (passe de qualité).
+  npcTile('boulon', {
+    body: '#6a6a74',
+    skin: '#8a8a94',
+    hair: '#4a4a54',
+    accent: COPPER,
+    extra: '<circle cx="29" cy="47" r="1.6" fill="#7fe0ff"/><circle cx="35" cy="47" r="1.6" fill="#7fe0ff"/><rect x="40" y="62" width="12" height="10" rx="1" fill="#6b4a32" stroke="#1B1512"/>',
+  }),
+  npcTile('patrouilleur', { body: '#2e2a30', hair: '#2e2a30', accent: '#c03a2a', extra: '<path d="M22 42 L42 42 L40 36 L24 36 Z" fill="#2e2a30" stroke="#1B1512"/><rect x="24" y="44" width="16" height="4" fill="#ff5a3a"/>' }),
+  npcTile('patrouilleuse-haute', { body: '#2e2a30', hair: '#5a3a24', accent: '#c03a2a', extra: '<path d="M22 42 L42 42 L40 36 L24 36 Z" fill="#2e2a30" stroke="#1B1512"/><rect x="24" y="44" width="16" height="4" fill="#ff5a3a"/>' }),
+  npcTile('dorna', { body: '#6a4a3a', hair: '#8a6a4a', accent: '#e8e2d4', extra: '<rect x="24" y="62" width="16" height="16" fill="#e8e2d4" opacity="0.85"/>' }),
 );

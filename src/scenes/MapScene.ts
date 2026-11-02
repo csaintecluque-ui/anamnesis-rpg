@@ -520,7 +520,7 @@ export class MapScene extends Phaser.Scene {
     this.scene.pause('Hud');
     this.scene.launch('Combat', {
       enemyIds: ['golem-ferraille', 'rodeur-epine', 'rodeur-epine'],
-      victoryEffects: [{ setFlag: 'chantier-arrete' }, { completeQuest: 'dernier-train' }, { giveXp: 40 }, { giveFers: 30 }],
+      victoryEffects: [{ setFlag: 'chantier-arrete' }, { completeQuest: 'dernier-train' }, { giveXp: 70 }, { giveFers: 30 }],
       victoryFlag: 'golem-vaincu',
       arena,
       heroTile,

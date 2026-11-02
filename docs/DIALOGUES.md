@@ -57,9 +57,10 @@ _Effet : retient « pilleurs-suivis », retient « cendriere-ouverte », +15 XP.
 
 ### veille-rate
 
-> Un caillou roule sous ta botte. Les silhouettes se retournent : — Un guetteur ! Elles lâchent le levier et foncent sur toi.
+> Un caillou roule sous ta botte. Les silhouettes se retournent : — On nous guette ! Elles lâchent le levier et foncent sur toi.
 
 - « Se défendre ! » → **fin** _(lance le combat « aiguillage-cendres »)_
+- « Fuir dans l’ombre des wagons. » → **fin**
 
 ## Aïlis Feuillevent
 
@@ -133,7 +134,7 @@ _Effet : retient « anselme-connu »._
 > Je suis allée au Bosquet hier soir. J’ai posé la main sur le nom d’Anselme et… rien. Le bois était froid. Comme s’il était parti une seconde fois.
 
 - _(si quête « Le chant d’Anselme » terminée)_ « Vous avez encore sa chanson. » → chanson-reste
-- « Le Triumvirat m’a chargé de comprendre. Je trouverai. » → **fin**
+- « Le Triumvirat m’a demandé de comprendre. Je trouverai. » → **fin**
 
 ### chanson-reste
 
@@ -257,11 +258,11 @@ Commence par : « arbre-quete » _(si quête « Le chant d’Anselme » en cours
 
 _Ferrôme, porteur à la gare de l’Ouest_
 
-Commence par : « accueil-quete » _(si quête « L’audience » terminée)_ _(si quête « La Clé de Rouille Bleue » pas commencée)_, sinon « accueil »
+Commence par : « accueil-quete » _(si quête « L’audience » terminée)_ _(sans repère « boulon-accueilli »)_, sinon « accueil »
 
 ### accueil-quete
 
-_Effet : lance la quête « La Clé de Rouille Bleue »._
+_Effet : lance la quête « La Clé de Rouille Bleue », retient « boulon-accueilli »._
 
 > Un Ferrôme lourd comme une locomotive soulève trois malles d’une seule main. — Bienvenue à Ironheart. Je m’appelle Boulon. Un sceau d’émeraude à ta ceinture ? Les Verts ne viennent pas souvent. Tu cherches quelque chose, ou quelqu’un ?
 
@@ -495,7 +496,7 @@ Commence par : « presse » _(si quête « La caravane de midi » pas commencée
 
 ### presse
 
-> Pas le temps, pas le temps ! Enfin… si, maintenant : j’ai raté la caravane de midi. Et cette sacoche devait partir avec elle, pour Canopéa, avant ce soir ! Mon patron va me pendre à un Arbre-Titan.
+> Pas le temps, pas le temps ! Enfin… si, maintenant : j’ai raté la caravane de midi. Et cette sacoche devait partir avec elle, pour Canopéa, avant ce soir ! Mon patron va me suspendre par les bretelles à un Arbre-Titan.
 
 - « Je peux la porter à Canopéa. » → merci _(donne 1 × « Sacoche de la Compagnie », lance la quête « La caravane de midi »)_
 - « Qu’y a-t-il dedans ? » → dedans
@@ -611,7 +612,7 @@ _Effet : retient « berceuse-recueillie », retient le Récit « La berceuse de 
 
 _Écho du Passé_
 
-Commence par : « approche »
+Commence par : « apaise » _(si repère « echo-dernier-train-vu »)_, sinon « approche »
 
 ### approche
 
@@ -634,6 +635,13 @@ _Effet : retient le Récit « Le Savant Corvan »._
 > Tu restes en retrait. Les images s’effacent sans te livrer leurs secrets, mais tu as vu assez pour comprendre : ce train n’aurait pas dû partir, et pourtant il est parti.
 
 - « … » → **fin**
+
+### apaise
+
+> L’Écho s’est apaisé, pour un temps. Sur le quai, les silhouettes ne sont plus qu’un frisson de lumière, et le sifflet un souffle lointain.
+
+- **[Mémoire 4]** « Entrer dans l’Écho. » → interieur
+- « S’éloigner. » → **fin**
 
 ## Elouan Chante-Bois
 
@@ -663,7 +671,7 @@ Commence par : « apres » _(si quête « Le chant d’Anselme » terminée)_, s
 
 ### proposition
 
-> Tu reviens de chez Aïlis Feuillevent ? Je suis Elouan, le luthier. Depuis qu’Anselme est parti, Aïlis ne chante plus : sa voix tremble trop, dit-elle. Je voudrais lui tailler une flûte dans une branche tombée de l’arbre d’Anselme, en bas. Mais mes genoux ne descendent plus.
+> Je suis Elouan, le luthier. Tu connais Aïlis Feuillevent ? Depuis qu’Anselme est parti, elle ne chante plus : sa voix tremble trop, dit-elle. Je voudrais lui tailler une flûte dans une branche tombée de l’arbre d’Anselme, en bas. Mais mes genoux ne descendent plus.
 
 - « J’irai chercher la branche. » → explication _(lance la quête « Le chant d’Anselme »)_
 - « Pourquoi une branche de son arbre ? » → pourquoi
@@ -821,7 +829,7 @@ Commence par : « faussee » _(si repère « foreuse-sabotee »)_, sinon « arre
 
 > 🌙 La nuit tombe sur la Gare. Le chantier s’endort ; seule une lanterne veille encore, près de la tente de Brisefer.
 
-- **🎲 Discrétion 10** « Te glisser jusqu’à la foreuse. » → au-pied, ✗ → repere
+- **🎲 Discrétion 10** « Se glisser jusqu’à la foreuse. » → au-pied, ✗ → repere
 - « Renoncer et attendre le jour. » → **fin**
 
 ### au-pied
@@ -833,7 +841,7 @@ Commence par : « faussee » _(si repère « foreuse-sabotee »)_, sinon « arre
 
 ### sabotee
 
-_Effet : retient « foreuse-sabotee », retient « chantier-arrete », termine la quête « Le Dernier Train », +40 XP, +30 Fers._
+_Effet : retient « foreuse-sabotee », retient « chantier-arrete », termine la quête « Le Dernier Train », +70 XP, +30 Fers._
 
 > 🌙 Une goupille retirée, un engrenage faussé : la foreuse ne repartira pas avant longtemps. Tu regagnes l’ombre sans un bruit.
 
@@ -920,6 +928,7 @@ Commence par : « rencontre »
 
 - **[Diplomatie 3]** « Du calme. Personne n’a besoin de se battre. » → convaincu
 - « Alors on va régler ça. » → **fin** _(lance le combat « fouilleur-sol »)_
+- « Reculer, les mains levées. » → **fin**
 
 ### aveu
 
@@ -1216,9 +1225,9 @@ Commence par : « apres-sabotage » _(si repère « foreuse-sabotee »)_, sinon 
 
 > La maladie mémorielle ? On en a entendu parler. Mais la Faille vaut de l’or en cristaux, et j’ai des papiers signés. Je ne m’arrête pas pour une rumeur de marché.
 
-- **[Diplomatie 3]** « Arrêtez le forage : à chaque coup, l’Écho se multiplie, et le mal avec lui. » → convaincue _(retient « chantier-arrete », termine la quête « Le Dernier Train », +40 XP, +30 Fers)_
-- **[Commandement 3]** « Je parle au nom des Gardiens de Mémoire : cessez, maintenant. » → convaincue _(retient « chantier-arrete », termine la quête « Le Dernier Train », +40 XP, +30 Fers)_
-- _(si Récit « Le Savant Corvan » connu)_ « Je connais l’histoire du savant Corvan. Écoutez-la avant de creuser plus loin. » → convaincue-recit _(retient « chantier-arrete », termine la quête « Le Dernier Train », +40 XP, +30 Fers)_
+- **[Diplomatie 3]** « Arrêtez le forage : à chaque coup, l’Écho se multiplie, et le mal avec lui. » → convaincue _(retient « chantier-arrete », termine la quête « Le Dernier Train », +70 XP, +30 Fers)_
+- **[Commandement 3]** « Je parle au nom des Gardiens de Mémoire : cessez, maintenant. » → convaincue _(retient « chantier-arrete », termine la quête « Le Dernier Train », +70 XP, +30 Fers)_
+- _(si Récit « Le Savant Corvan » connu)_ « Je connais l’histoire du savant Corvan. Écoutez-la avant de creuser plus loin. » → convaincue-recit _(retient « chantier-arrete », termine la quête « Le Dernier Train », +70 XP, +30 Fers)_
 - « Je reviendrai. » → **fin**
 
 ### convaincue
@@ -1229,7 +1238,7 @@ Commence par : « apres-sabotage » _(si repère « foreuse-sabotee »)_, sinon 
 
 ### convaincue-recit
 
-> Corvan ? Je connais l’histoire, oui… et vous avez raison : il a réussi, et ça ne l’a pas sauvé. J’arrête la foreuse. On ne force pas deux fois la même faute.
+> Corvan ? Je connais l’histoire, oui… et vous avez raison : il a réussi, et ça ne l’a pas sauvé. J’arrête la foreuse. On ne commet pas deux fois la même faute.
 
 - « Merci. » → **fin**
 
@@ -1416,7 +1425,7 @@ Commence par : « apres » _(si quête « L’audience » terminée)_, sinon « 
 
 ### envoi
 
-_Effet : donne 1 × « Sauf-conduit du Triumvirat », termine la quête « L’audience », lance la quête « La Clé de Rouille Bleue », retient le Récit « Le Triumvirat Vert », +60 XP._
+_Effet : donne 1 × « Sauf-conduit du Triumvirat », termine la quête « L’audience », lance la quête « La Clé de Rouille Bleue », retient le Récit « Le Triumvirat Vert », +60 XP, reprend 1 × « Lettre d’Ilyane »._
 
 > Kael te tend un sauf-conduit scellé d’une feuille d’émeraude. — Les Marches des Cendres tiennent marché à Ironheart, en Ferros. Va voir qui paie, et pourquoi. Le Triumvirat Vert te le demande.
 
@@ -1436,7 +1445,7 @@ Commence par : « offre » _(si l’on porte « Clé de rouille bleue »)_, sino
 
 ### accueil
 
-> Un homme maigre polit une mâchoire de Golem sous une lampe à huile. Autour de lui, des fémurs polis, des vertèbres en colliers. — Tout se vend, ici. Même ce qui se souvient. Pose ta question… si c’est la bonne.
+> Un homme maigre polit une mâchoire de Golem sous une lampe à huile. Autour de lui, des os de bêtes polis, des dents de loup en colliers. — Tout se vend, ici. Même ce qui se souvient. Pose ta question… si c’est la bonne.
 
 - « Je cherche la clé de rouille bleue. » → mauvaise
 - **[Mémoire 3]** « Pourquoi certaines reliques se souviennent-elles des morts ? » → bonne
@@ -1462,7 +1471,7 @@ Commence par : « offre » _(si l’on porte « Clé de rouille bleue »)_, sino
 
 _Effet : retient « kaelis-parle », +15 XP._
 
-> Il pose la mâchoire. — Parce qu’on les a tenues longtemps, avec amour ou avec peur : le métal garde la main. Tu es de ceux qui écoutent. Alors écoute : la clé, je l’ai vue au cou de la Veilleuse du Rail, au bout de la ligne qu’on dit maudite.
+> Il pose la mâchoire. — Parce qu’on les a tenues longtemps, avec amour ou avec peur : le métal garde la main. Toi, tu sais écouter. Alors écoute : la clé, je l’ai vue au cou de la Veilleuse du Rail, au bout de la ligne qu’on dit maudite.
 
 - « Pourquoi ne pas la prendre toi-même ? » → pourquoi
 - « Merci, Kaelis. » → **fin**
@@ -1491,7 +1500,7 @@ _Effet : retient « kaelis-parle », +15 XP._
 
 > — Elle est là, dans ta poche. Je l’entends rouiller d’ici. Cent Fers, et l’on n’en parle plus.
 
-- « La lui vendre, pour cent Fers. » → vendue _(reprend 1 × « Clé de rouille bleue », +100 Fers, retient « cle-vendue », termine la quête « La Clé de Rouille Bleue », +40 XP)_
+- « La lui vendre, pour cent Fers. » → vendue _(reprend 1 × « Clé de rouille bleue », +100 Fers, retient « cle-vendue », termine la quête « La Clé de Rouille Bleue », +60 XP)_
 - « Qu’ouvre-t-elle ? » → ouvre
 - « Non, pas à toi. » → **fin**
 
@@ -1509,7 +1518,7 @@ _Effet : retient « kaelis-parle », +15 XP._
 
 ### apres
 
-> — Tu as choisi un autre acheteur, à ce qu’on dit. Dommage. Les Marches n’oublient pas… mais elles ne se fâchent pas longtemps.
+> — Tu as choisi de ne pas me la vendre, à ce qu’on dit. Dommage. Les Marches n’oublient pas… mais elles ne se fâchent pas longtemps.
 
 - « Au revoir. » → **fin**
 
@@ -1721,7 +1730,7 @@ Commence par : « apres » _(si quête « L’audience » terminée)_, sinon « 
 
 ### apres
 
-> — Grâce à toi, le Conseil a décidé avec des faits. C’est rare, et précieux. Que la sève coule, voyageur.
+> — Grâce à toi, le Conseil a décidé avec des faits. C’est rare, et précieux. Que la sève coule pour toi.
 
 - « Que la sève coule. » → **fin**
 
@@ -2000,9 +2009,9 @@ _Effet : retient « fonds-zero-connu »._
 
 ### cle
 
-> Noam ôte ses lunettes. Pour la première fois, il parle sans note. — Donnez-la-moi. Je vous ouvre le Fonds Zéro, et vous serez le premier à voir ce qu’il contient depuis la fondation de la ville.
+> Noam ôte ses lunettes. Pour la première fois, il parle sans note. — Donnez-la-moi. Je vous ouvre le Fonds Zéro, et vos yeux seront les premiers à voir ce qu’il contient depuis la fondation de la ville.
 
-- « La lui confier. » → ouverture _(reprend 1 × « Clé de rouille bleue », retient « cle-archives », termine la quête « La Clé de Rouille Bleue », +50 XP, retient le Récit « Le carnet du dernier train »)_
+- « La lui confier. » → ouverture _(reprend 1 × « Clé de rouille bleue », retient « cle-archives », termine la quête « La Clé de Rouille Bleue », +70 XP, retient le Récit « Le carnet du dernier train »)_
 - « Pas encore. » → **fin**
 
 ### ouverture
@@ -2108,7 +2117,7 @@ Commence par : « passe » _(si repère « laissez-passer-ironheart »)_, sinon 
 
 _Effet : retient « laissez-passer-ironheart »._
 
-> Il fait tourner le sceau d’émeraude entre ses gros doigts. — Visiteur diplomatique de Verdantis. Pas d’histoires là-haut, compris ?
+> Il fait tourner le sceau d’émeraude entre ses gros doigts. — Laissez-passer diplomatique de Verdantis. Pas d’histoires là-haut, compris ?
 
 - « Monter. » → **fin** _(mène à « Ironheart — Les Manufactures-Moyennes »)_
 - « Plus tard. » → **fin**
@@ -2117,7 +2126,7 @@ _Effet : retient « laissez-passer-ironheart »._
 
 _Effet : retient « laissez-passer-ironheart »._
 
-> — Dix Fers. Visiteur, une semaine, Manufactures-Moyennes seulement. Il tamponne un carton gris et te le tend.
+> — Dix Fers. Visite d’une semaine, Manufactures-Moyennes seulement. Il tamponne un carton gris et te le tend.
 
 - « Monter. » → **fin** _(mène à « Ironheart — Les Manufactures-Moyennes »)_
 - « Plus tard. » → **fin**
@@ -2313,7 +2322,7 @@ _Effet : retient « rika-merci », +10 XP._
 
 > Rika pose son marteau. — C’était toi ? Il m’a écrit une lettre entière pour le raconter, sans une seule faute. Il ne m’écrit jamais ! Merci. Et si tu cherches quelque chose, ici, demande-moi d’abord.
 
-- « Il est fier de toi aussi. » → brann
+- « Il est fier de toi aussi. » → **fin**
 - « Je m’en souviendrai. » → accueil
 
 ## Rocher moussu
@@ -2468,7 +2477,7 @@ Commence par : « apres » _(si repère « rail-marches »)_, sinon « accueil �
 
 _Effet : retient « verite-rail »._
 
-> Un homme au manteau de cendre compte des caisses de minerai. — Un curieux. Les curieux coûtent cher, ici. Je suis Sorn, et je rachète ce que Ferros oublie : les vieilles machines, et les dettes.
+> Un homme au manteau de cendre compte des caisses de minerai. — De la visite. Les visites coûtent cher, ici. Je suis Sorn, et je rachète ce que Ferros oublie : les vieilles machines, et les dettes.
 
 - « Ces convois appartiennent au rail. » → rail
 - _(si quête « Le Rail des Cendres » en cours)_ « Combien pour mon silence ? » → marche
@@ -2496,7 +2505,7 @@ _Effet : retient « verite-rail »._
 
 ### apres
 
-> — Tiens, notre ami. La machine roule, les wagons arrivent. Tout le monde y gagne… presque.
+> — Tiens, une tête connue. La machine roule, les wagons arrivent. Tout le monde y gagne… presque.
 
 - « Au revoir. » → **fin**
 
@@ -2615,6 +2624,7 @@ Commence par : « accueil »
 
 > Cinquante Fers, et c’est un prix d’ami. Ne fais pas cette tête : à Ferros, tout se paie, même l’amitié.
 
+- **[50 Fers]** « Payer cinquante Fers. » → achete _(−50 Fers, retient « laissez-passer »)_
 - « Je n’ai pas cette somme. » → chantier
 - « Au revoir. » → **fin**
 
@@ -2629,6 +2639,12 @@ Commence par : « accueil »
 > Fais-en bon usage. Et si tu croises Brisefer, dis-lui que l’étal Cendrefer vend des lampes qui ne s’éteignent pas sous terre.
 
 - « Au revoir. » → **fin**
+
+### achete
+
+> Tobias compte les pièces deux fois. — Prix d’ami. Et si Brisefer te pose la question, tu ne l’as pas eu de moi.
+
+- « Merci, Tobias. » → **fin**
 
 ## Un trou de fouille
 
@@ -2703,7 +2719,7 @@ Commence par : « apres-rail » _(si repère « rail-travailleurs »)_, sinon «
 
 ### accueil
 
-> Une femme en bleu de chauffe se chauffe les mains au brasero. — Le triage ne roule plus la nuit. Pas une grève : la grève est interdite, ici. On a peur, c’est tout. La peur, elle, n’est pas encore interdite.
+> Une femme en bleu de chauffe se réchauffe les mains au brasero. — Le triage ne roule plus la nuit. Pas une grève : la grève est interdite, ici. On a peur, c’est tout. La peur, elle, n’est pas encore interdite.
 
 - « Peur de quoi ? » → convois
 - « Au revoir. » → **fin**
@@ -2784,7 +2800,7 @@ _Effet : lance la quête « Le Rail des Cendres »._
 
 ### garde
 
-> — Cache-toi près du levier de l’embranchement, à la nuit tombée. Mes gars resteront au dépôt : s’il y a du grabuge, crie fort. Et ne joue pas les héros.
+> — Cache-toi près du levier de l’embranchement, à la nuit tombée. Mes gars resteront au dépôt : s’il y a du grabuge, crie fort. Et pas d’imprudence.
 
 - « Entendu. » → enquete
 
@@ -2847,7 +2863,7 @@ _Effet : donne 1 × « Clé de rouille bleue », retient « cle-obtenue », +25 
 
 > — Alors, cette clé ? Elle chante encore ?
 
-- « Te la rendre : sa place est sur la ligne. » → rendue _(reprend 1 × « Clé de rouille bleue », retient « cle-veilleuse », termine la quête « La Clé de Rouille Bleue », +40 XP)_
+- « Te la rendre : sa place est sur la ligne. » → rendue _(reprend 1 × « Clé de rouille bleue », retient « cle-veilleuse », termine la quête « La Clé de Rouille Bleue », +60 XP)_
 - **[Érudition 3]** _(sans repère « cle-etudiee »)_ « L’étudier d’abord avec toi. » → etude
 - « Pas encore. » → **fin**
 
@@ -2857,7 +2873,7 @@ _Effet : retient « cle-etudiee », +10 XP._
 
 > Sous la rouille bleue, à la loupe de la Veilleuse, un numéro apparaît : un sceau des Archives de Ferros, et deux mots, « Fonds Zéro ». La clé ouvre un coffre des Archives Centrales.
 
-- « Te la rendre. » → rendue _(reprend 1 × « Clé de rouille bleue », retient « cle-veilleuse », termine la quête « La Clé de Rouille Bleue », +40 XP)_
+- « Te la rendre. » → rendue _(reprend 1 × « Clé de rouille bleue », retient « cle-veilleuse », termine la quête « La Clé de Rouille Bleue », +60 XP)_
 - « La garder encore un peu. » → **fin**
 
 ### rendue
@@ -2900,7 +2916,7 @@ _Effet : retient « indice-veilleuse », +5 XP._
 
 _Passeuse de la Grande Nacelle_
 
-Commence par : « vol » _(si repère « vol-grenier »)_ _(sans repère « veline-vol-dit »)_, sinon « soupcon » _(si repère « vol-grenier »)_ _(si repère « veline-vol-dit »)_ _(si quête « Les graines qui manquent » pas commencée)_, sinon « descente-conseil » _(si quête « L’audience » en cours)_ _(si repère « audience-tenue »)_ _(sans repère « fouille-elucidee »)_, sinon « descente » _(si quête « Les lettres de Malo » en cours)_ _(sans repère « sacoche-retrouvee »)_, sinon « descente-anselme » _(si quête « Le chant d’Anselme » en cours)_ _(sans repère « branche-prise »)_, sinon « caravane » _(si quête « La caravane de midi » en cours)_ _(si l’on porte « Sacoche de la Compagnie »)_, sinon « graines-merci » _(si quête « Les graines qui manquent » terminée)_ _(sans repère « veline-graines-dit »)_ _(sans repère « graines-silence »)_, sinon « graines-tant-pis » _(si quête « Les graines qui manquent » terminée)_ _(sans repère « veline-graines-dit »)_ _(si repère « graines-silence »)_, sinon « retour » _(si repère « canopee-accueillie »)_, sinon « accueil »
+Commence par : « vol » _(si repère « vol-grenier »)_ _(sans repère « veline-vol-dit »)_, sinon « soupcon » _(si repère « vol-grenier »)_ _(si repère « veline-vol-dit »)_ _(si quête « Les graines qui manquent » pas commencée)_, sinon « caravane » _(si quête « La caravane de midi » en cours)_ _(si l’on porte « Sacoche de la Compagnie »)_, sinon « descente-conseil » _(si quête « L’audience » en cours)_ _(si repère « audience-tenue »)_ _(sans repère « fouille-elucidee »)_, sinon « descente » _(si quête « Les lettres de Malo » en cours)_ _(sans repère « sacoche-retrouvee »)_, sinon « descente-anselme » _(si quête « Le chant d’Anselme » en cours)_ _(sans repère « branche-prise »)_, sinon « graines-merci » _(si quête « Les graines qui manquent » terminée)_ _(sans repère « veline-graines-dit »)_ _(sans repère « graines-silence »)_, sinon « graines-tant-pis » _(si quête « Les graines qui manquent » terminée)_ _(sans repère « veline-graines-dit »)_ _(si repère « graines-silence »)_, sinon « retour » _(si repère « canopee-accueillie »)_, sinon « accueil »
 
 ### accueil
 
@@ -2912,7 +2928,7 @@ Commence par : « vol » _(si repère « vol-grenier »)_ _(sans repère « veli
 
 ### gardien
 
-> Une élève d’Ilyane ? Alors tu es ici chez toi. Va voir Mirelle, au relais du Bosquet des Échos : elle a appris le métier avec Ilyane, il y a bien longtemps. La longue passerelle, à l’est du marché, y mène.
+> Tu apprends auprès d’Ilyane ? Alors tu es ici chez toi. Va voir Mirelle, au relais du Bosquet des Échos : elle a appris le métier avec Ilyane, il y a bien longtemps. La longue passerelle, à l’est du marché, y mène.
 
 - « Merci, Véline. » → **fin**
 - « Et ta nacelle ? » → nacelle
@@ -2990,7 +3006,7 @@ _Effet : retient « descente-autorisee »._
 
 ### soupcon
 
-> Je repense au grenier. Il y manque bien plus qu’un sac : une dizaine, depuis une lune. Et quelqu’un t’a vu là-haut, le jour où la porte a été forcée. Dis-moi que je me trompe.
+> Je repense au grenier. Il y manque bien plus qu’un sac : une dizaine, depuis une lune. Et on a vu ta silhouette là-haut, le jour où la porte a été forcée. Dis-moi que je me trompe.
 
 - _(si l’on porte « Graines-lumière »)_ « C’était moi. Voici le sac. » → pardon _(reprend 1 × « Graines-lumière », retient « graines-rapportees », lance la quête « Les graines qui manquent », +10 XP)_
 - « C’était moi, et je le regrette. » → aveu-vol _(retient « vol-avoue », lance la quête « Les graines qui manquent »)_

@@ -20,6 +20,7 @@ import {
   rollDice,
   rollDie,
   rollInitiative,
+  endTurn,
   startTurn,
   type Combatant,
   type Rng,
@@ -202,13 +203,18 @@ describe('resolveAttack', () => {
 describe('startTurn', () => {
   const golem = findEnemy('golem-ferraille')!;
 
-  it('restores full PA and clears status by default', () => {
+  it('restores full PA; a disarmed combatant cannot attack this turn, and endTurn clears the effects', () => {
     const c = makeEnemyCombatant(golem, 'g', { col: 0, row: 0 });
+    const h = makeHeroCombatant(hero(), { col: 1, row: 0 });
     c.actionPoints = 0;
     c.status.disarmed = true;
     startTurn(c);
     expect(c.actionPoints).toBe(golem.actionPoints);
+    expect(canAttack(c, c.attacks[0], h)).toBe(false);
+    endTurn(c);
     expect(c.status).toEqual({ stunned: false, disarmed: false, slowed: false });
+    startTurn(c);
+    expect(canAttack(c, c.attacks[0], h)).toBe(true);
   });
 
   it('a stunned combatant gets no PA this turn', () => {

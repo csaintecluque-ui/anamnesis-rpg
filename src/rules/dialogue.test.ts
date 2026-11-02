@@ -203,7 +203,7 @@ describe('dialogue files', () => {
     expect(resolutions).toHaveLength(4);
     for (const effects of resolutions) {
       expect(effects).toContainEqual({ setFlag: 'chantier-arrete' });
-      expect(effects).toContainEqual({ giveXp: 40 });
+      expect(effects).toContainEqual({ giveXp: 70 });
       expect(effects).toContainEqual({ giveFers: 30 });
     }
   });

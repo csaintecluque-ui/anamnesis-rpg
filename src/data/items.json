@@ -113,7 +113,7 @@
   {
     "id": "sauf-conduit",
     "name": "Sauf-conduit du Triumvirat",
-    "description": "Scellé d’une feuille d’émeraude : le Triumvirat Vert de Verdantis recommande celui qui le porte.",
+    "description": "Scellé d’une feuille d’émeraude : le Triumvirat Vert de Verdantis recommande qui le porte.",
     "weightKg": 0.1,
     "price": 0,
     "quest": true

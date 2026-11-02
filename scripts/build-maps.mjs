@@ -328,7 +328,7 @@ function gareEngloutie() {
   m.object('caisse-prospection', 'coffre', 17, 11);
   m.object('foreuse', 'foreuse', 19, 8);
   m.object('panneau-gare', 'panneau', 2, 8, {
-    texte: 'Gare engloutie — la forêt a repris ce que les hommes avaient laissé.',
+    texte: 'Gare Engloutie — la forêt a repris ce que les hommes avaient laissé.',
   });
   return m.toTiled();
 }
@@ -567,7 +567,7 @@ function solRacines() {
   m.object('nacelle-remontee', 'porte', 3, 10, { cible: 'canopee-nacelle', arrivee: 'entree', libelle: 'Remonter par la nacelle' });
   m.object('descente', 'arrivee', 4, 11);
   m.setObstacle(9, 10, 'lettres');
-  m.object('lettres-eparpillees', 'objet', 9, 10);
+  m.object('lettres-eparpillees', 'objet', 9, 10, { disparaitSi: 'lettres-ramassees' });
   m.object('traces-fouille', 'objet', 13, 14);
   // La tanière : la sacoche sous la patte d'un Ours-Mousse endormi (src/data/encounters.json).
   m.setObstacle(21, 6, 'sacoche');

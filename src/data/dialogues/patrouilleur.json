@@ -57,7 +57,7 @@
       ]
     },
     "sauf": {
-      "text": "Il fait tourner le sceau d’émeraude entre ses gros doigts. — Visiteur diplomatique de Verdantis. Pas d’histoires là-haut, compris ?",
+      "text": "Il fait tourner le sceau d’émeraude entre ses gros doigts. — Laissez-passer diplomatique de Verdantis. Pas d’histoires là-haut, compris ?",
       "effects": [
         {
           "setFlag": "laissez-passer-ironheart"
@@ -81,7 +81,7 @@
       ]
     },
     "achat": {
-      "text": "— Dix Fers. Visiteur, une semaine, Manufactures-Moyennes seulement. Il tamponne un carton gris et te le tend.",
+      "text": "— Dix Fers. Visite d’une semaine, Manufactures-Moyennes seulement. Il tamponne un carton gris et te le tend.",
       "effects": [
         {
           "setFlag": "laissez-passer-ironheart"

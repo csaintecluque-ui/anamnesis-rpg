@@ -9,8 +9,7 @@
           "status": "done"
         },
         {
-          "quest": "cle-rouille-bleue",
-          "status": "none"
+          "notFlag": "boulon-accueilli"
         }
       ],
       "node": "accueil-quete"
@@ -25,6 +24,9 @@
       "effects": [
         {
           "startQuest": "cle-rouille-bleue"
+        },
+        {
+          "setFlag": "boulon-accueilli"
         }
       ],
       "options": [

@@ -21,12 +21,14 @@ import {
   numberDuplicateNames,
   resolveAttack,
   rollInitiative,
+  endTurn,
   startTurn,
   type AttackProfile,
   type Combatant,
   type Zone,
 } from '../rules/combat';
 import { DEFAULT_AVATAR } from '../rules/character';
+import { placeOfLocation } from '../rules/world';
 import { findLocation, type GameState } from '../state/gameState';
 import { addTextButton, type TextButton } from '../ui/button';
 import { DIGIT_KEYS, SHOW_KEY_HINTS, onKeys } from '../ui/keys';
@@ -482,6 +484,7 @@ export class CombatScene extends Phaser.Scene {
 
   private nextTurn(): void {
     if (this.checkOutcome()) return;
+    if (this.turnIndex >= 0) endTurn(this.current());
     do {
       this.turnIndex = (this.turnIndex + 1) % this.order.length;
     } while (this.current().defeated);
@@ -691,6 +694,7 @@ export class CombatScene extends Phaser.Scene {
     }
     this.ended = true;
     this.appendLog('Tu te replies.');
+    this.keepWounds();
     this.closeAfter(false, () => {});
   }
 
@@ -711,8 +715,14 @@ export class CombatScene extends Phaser.Scene {
 
   // --- Outcome ---------------------------------------------------------------
 
+  /** The hit points lost stay lost after a fight won or fled: care, rest and soup matter (docs/gdd/combat.md). */
+  private keepWounds(): void {
+    this.state.character!.hp = Math.max(1, Math.min(this.state.character!.hp, this.hero().hp));
+  }
+
   private onVictory(): void {
     this.appendLog('Combat gagné.');
+    this.keepWounds();
     const notices = applyEffects(this.state, [...this.config.victoryEffects]);
     this.state.flags[this.config.victoryFlag] = true;
     this.closeAfter(false, (hud) => {
@@ -721,20 +731,21 @@ export class CombatScene extends Phaser.Scene {
   }
 
   private onDefeat(): void {
-    this.appendLog(`${this.hero().name} est mis hors de combat.`);
+    this.appendLog(`${this.hero().name} est hors de combat.`);
     this.state.character!.hp = 1;
-    // On the road (docs/gdd/carte-du-monde.md), travellers find the hero and bring them back to Gardebois.
+    // On the road (docs/gdd/carte-du-monde.md), travellers find the hero and bring them back to Gardebois; in a town
+    // or near one, the hero wakes up at its entrance.
     const onTheRoad = this.state.encounter !== null;
+    const place = onTheRoad ? undefined : placeOfLocation(this.state.location);
     this.state.encounter = null;
-    this.state.location = findLocation('gardebois')!.id;
-    this.state.entrance = 'entree';
-    this.closeAfter(true, (hud) =>
-      hud.toast(
-        onTheRoad
-          ? 'Des voyageurs te trouvent sur la route et te ramènent à Gardebois, le temps de reprendre des forces.'
-          : 'Ilyane te ramène au Marché des Lisières le temps de reprendre des forces.',
-      ),
-    );
+    this.state.location = place?.location ?? findLocation('gardebois')!.id;
+    this.state.entrance = place?.entrance ?? 'entree';
+    const message = onTheRoad
+      ? 'Des voyageurs te trouvent sur la route et te ramènent à Gardebois, le temps de reprendre des forces.'
+      : !place || place.id === 'gardebois'
+        ? 'Ilyane te ramène au Marché des Lisières, le temps de reprendre des forces.'
+        : `On te ramène à ${place.name}, le temps de reprendre des forces.`;
+    this.closeAfter(true, (hud) => hud.toast(message));
   }
 
   private closeAfter(restart: boolean, onHud: (hud: HudScene) => void): void {

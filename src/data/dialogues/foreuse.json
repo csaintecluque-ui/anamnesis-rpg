@@ -24,7 +24,7 @@
       "text": "La nuit tombe sur la Gare. Le chantier s’endort ; seule une lanterne veille encore, près de la tente de Brisefer.",
       "options": [
         {
-          "text": "Te glisser jusqu’à la foreuse.",
+          "text": "Se glisser jusqu’à la foreuse.",
           "roll": { "skill": "stealth", "difficulty": 10 },
           "next": "au-pied",
           "failNext": "repere"
@@ -52,7 +52,7 @@
         { "setFlag": "foreuse-sabotee" },
         { "setFlag": "chantier-arrete" },
         { "completeQuest": "dernier-train" },
-        { "giveXp": 40 },
+        { "giveXp": 70 },
         { "giveFers": 30 }
       ],
       "options": [{ "text": "Attendre le jour.", "next": "fin" }]

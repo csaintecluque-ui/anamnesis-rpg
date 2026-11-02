@@ -156,3 +156,28 @@ describe('Le Rail des Cendres: three endings', () => {
     expect(figurantLines(cheminot, state)[0]).toMatch(/convoi parti seul/);
   });
 });
+
+describe('quality pass (2026-11-02)', () => {
+  it('lets one walk away from the pilleurs after a failed watch', () => {
+    expect(DIALOGUES.aiguillage.nodes['veille-rate'].options.some((o) => o.next === 'fin' && !o.effects)).toBe(true);
+  });
+
+  it('gives no more experience from the Écho once it has been seen', () => {
+    const state = createNewGame(testCharacter({ memory: 4 }));
+    choose(state, 'echo-dernier-train', 'approche', 'Observer');
+    expect(startNode(DIALOGUES['echo-dernier-train'], state)).toBe('apaise');
+    const xp = state.character!.xp;
+    choose(state, 'echo-dernier-train', 'apaise', 'Entrer dans l’Écho');
+    expect(state.character!.xp).toBe(xp);
+    expect(state.character!.recits).toContain('savant-corvan');
+  });
+
+  it('greets the hero at the station once, even when Kael already sent them for the key', () => {
+    const state = createNewGame(testCharacter());
+    state.quests.audience = 'done';
+    state.quests['cle-rouille-bleue'] = 'active';
+    expect(startNode(DIALOGUES.boulon, state)).toBe('accueil-quete');
+    applyEffects(state, DIALOGUES.boulon.nodes['accueil-quete'].effects);
+    expect(startNode(DIALOGUES.boulon, state)).toBe('accueil');
+  });
+});

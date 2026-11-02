@@ -31,6 +31,18 @@
     {
       "requires": [
         {
+          "quest": "caravane-midi",
+          "status": "active"
+        },
+        {
+          "item": "sacoche-compagnie"
+        }
+      ],
+      "node": "caravane"
+    },
+    {
+      "requires": [
+        {
           "quest": "audience",
           "status": "active"
         },
@@ -66,18 +78,6 @@
         }
       ],
       "node": "descente-anselme"
-    },
-    {
-      "requires": [
-        {
-          "quest": "caravane-midi",
-          "status": "active"
-        },
-        {
-          "item": "sacoche-compagnie"
-        }
-      ],
-      "node": "caravane"
     },
     {
       "requires": [
@@ -150,7 +150,7 @@
       ]
     },
     "gardien": {
-      "text": "Une élève d’Ilyane ? Alors tu es ici chez toi. Va voir Mirelle, au relais du Bosquet des Échos : elle a appris le métier avec Ilyane, il y a bien longtemps. La longue passerelle, à l’est du marché, y mène.",
+      "text": "Tu apprends auprès d’Ilyane ? Alors tu es ici chez toi. Va voir Mirelle, au relais du Bosquet des Échos : elle a appris le métier avec Ilyane, il y a bien longtemps. La longue passerelle, à l’est du marché, y mène.",
       "options": [
         {
           "text": "Merci, Véline.",
@@ -347,7 +347,7 @@
       ]
     },
     "soupcon": {
-      "text": "Je repense au grenier. Il y manque bien plus qu’un sac : une dizaine, depuis une lune. Et quelqu’un t’a vu là-haut, le jour où la porte a été forcée. Dis-moi que je me trompe.",
+      "text": "Je repense au grenier. Il y manque bien plus qu’un sac : une dizaine, depuis une lune. Et on a vu ta silhouette là-haut, le jour où la porte a été forcée. Dis-moi que je me trompe.",
       "options": [
         {
           "text": "C’était moi. Voici le sac.",

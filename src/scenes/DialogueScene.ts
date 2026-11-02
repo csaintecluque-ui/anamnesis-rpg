@@ -163,6 +163,16 @@ export class DialogueScene extends Phaser.Scene {
     frame.on('pointerover', () => text.setColor(CSS.copper));
     frame.on('pointerout', () => text.setColor(CSS.parchment));
     const choose = () => {
+      // An option with a roll only has its effects when the roll succeeds (a failed lie starts nothing).
+      const roll = view.option.roll;
+      if (roll) {
+        const outcome = performRoll(this.state, roll);
+        this.rollNotice = outcome.notice;
+        if (!outcome.success) {
+          this.show(view.option.failNext!);
+          return;
+        }
+      }
       this.notices.push(...applyEffects(this.state, view.option.effects));
       if (opensTrade(view.option.effects)) {
         this.scene.stop();
@@ -182,13 +192,6 @@ export class DialogueScene extends Phaser.Scene {
         this.scene.resume('Map');
         this.scene.stop();
         (this.scene.get('Map') as MapScene).goToLocation(place.location, place.arrivee);
-        return;
-      }
-      const roll = view.option.roll;
-      if (roll) {
-        const outcome = performRoll(this.state, roll);
-        this.rollNotice = outcome.notice;
-        this.show(outcome.success ? view.option.next : view.option.failNext!);
         return;
       }
       this.show(view.option.next);

@@ -150,7 +150,8 @@ describe('L’audience', () => {
     expect(opts[2].roll).toEqual({ skill: 'subterfuge', difficulty: 12 });
     expect(startsCombat(DIALOGUES.garrik.nodes.defensif.options[1].effects)).toBe('fouilleur-sol');
     expect(startsCombat(DIALOGUES.garrik.nodes.demasque.options[1].effects)).toBe('fouilleur-sol');
-    // A lie that fails still leaves a way out: talk or fight.
-    expect(visibleOptions(DIALOGUES.garrik.nodes.demasque, state).map((v) => v.option.text)).toHaveLength(2);
+    // A lie that fails still leaves a way out: talk, fight, or step back (the fight is never forced).
+    expect(visibleOptions(DIALOGUES.garrik.nodes.demasque, state).map((v) => v.option.text)).toHaveLength(3);
+    expect(DIALOGUES.garrik.nodes.demasque.options.some((o) => o.next === 'fin' && !o.effects)).toBe(true);
   });
 });

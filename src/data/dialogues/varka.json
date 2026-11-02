@@ -53,7 +53,7 @@
   ],
   "nodes": {
     "accueil": {
-      "text": "Une femme en bleu de chauffe se chauffe les mains au brasero. — Le triage ne roule plus la nuit. Pas une grève : la grève est interdite, ici. On a peur, c’est tout. La peur, elle, n’est pas encore interdite.",
+      "text": "Une femme en bleu de chauffe se réchauffe les mains au brasero. — Le triage ne roule plus la nuit. Pas une grève : la grève est interdite, ici. On a peur, c’est tout. La peur, elle, n’est pas encore interdite.",
       "options": [
         {
           "text": "Peur de quoi ?",
@@ -238,7 +238,7 @@
       ]
     },
     "garde": {
-      "text": "— Cache-toi près du levier de l’embranchement, à la nuit tombée. Mes gars resteront au dépôt : s’il y a du grabuge, crie fort. Et ne joue pas les héros.",
+      "text": "— Cache-toi près du levier de l’embranchement, à la nuit tombée. Mes gars resteront au dépôt : s’il y a du grabuge, crie fort. Et pas d’imprudence.",
       "options": [
         {
           "text": "Entendu.",

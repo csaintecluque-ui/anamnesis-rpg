@@ -280,6 +280,9 @@
         },
         {
           "giveXp": 60
+        },
+        {
+          "takeItem": "lettre-ilyane"
         }
       ]
     },

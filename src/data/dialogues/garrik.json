@@ -115,6 +115,10 @@
               "startCombat": "fouilleur-sol"
             }
           ]
+        },
+        {
+          "text": "Reculer, les mains levées.",
+          "next": "fin"
         }
       ]
     },

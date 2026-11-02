@@ -86,12 +86,12 @@
           "text": "Une soupe épaisse.",
           "requires": [
             {
-              "fers": 5
+              "fers": 8
             }
           ],
           "effects": [
             {
-              "giveFers": -5
+              "giveFers": -8
             },
             {
               "heal": 15

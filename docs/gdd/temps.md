@@ -35,13 +35,13 @@ Entrer dans une maison ou changer de quartier ne fait pas passer le temps.
 
 | Auberge | Ville | Repas | Nuit |
 |---|---|---|---|
-| Auberge de la Racine (Sylvan) | Gardebois | 5 Fers, +15 PV | 6 Fers |
-| Auberge du Nid (Lisandre, hamacs) | Canopéa | 5 Fers, +15 PV | 10 Fers |
-| Pension de la Bielle (Dorna) | Ironheart | 5 Fers, +15 PV | 8 Fers |
+| Auberge de la Racine (Sylvan) | Gardebois | 8 Fers, +15 PV | 6 Fers |
+| Auberge du Nid (Lisandre, hamacs) | Canopéa | 8 Fers, +15 PV | 10 Fers |
+| Pension de la Bielle (Dorna) | Ironheart | 8 Fers, +15 PV | 8 Fers |
 
 - « Manger ou dormir ? » : dormir rend tous les PV et **sauvegarde la partie** (emplacement automatique).
 - L'accueil change chaque jour, sur trois jours, avec une **nouvelle du jour**.
-- Canon des prix : un repas au restaurant coûte ⓕ 15 à 30 (7,5 à 15 Fers) ; aucun prix de nuit dans le canon.
+- Canon des prix : un repas coûte ⓕ 15 à 30 (7,5 à 15 Fers) : le repas d’auberge est à 8 Fers ; aucun prix de nuit dans le canon.
 
 ## Dialogues
 

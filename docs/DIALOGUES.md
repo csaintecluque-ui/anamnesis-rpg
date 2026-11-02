@@ -663,7 +663,7 @@ Commence par : « accueil-2 » _(si quête « undefined » undefined)_, sinon «
 
 > — Une soupe épaisse, ou un lit de camp ? Les lits grincent, mais ils tiennent. Comme les gens d’ici.
 
-- **[5 Fers]** « Une soupe épaisse. » → soupe _(−5 Fers, +15 PV)_
+- **[8 Fers]** « Une soupe épaisse. » → soupe _(−8 Fers, +15 PV)_
 - **[8 Fers]** « Un lit jusqu’au matin. » → dodo _(−8 Fers, +undefined XP)_
 - **[8 Fers]** « Un lit jusqu’à la nuit. » → dodo _(−8 Fers, +undefined XP)_
 - « Rien, merci. » → accueil
@@ -2123,7 +2123,7 @@ _Effet : retient « lisandre-flute-dit »._
 
 > — Une soupe, ou un hamac ? Les hamacs du Nid bercent au vent des cimes : on n’a jamais aussi bien dormi.
 
-- **[5 Fers]** « Une soupe de fleurs. » → soupe _(−5 Fers, +15 PV)_
+- **[8 Fers]** « Une soupe de fleurs. » → soupe _(−8 Fers, +15 PV)_
 - **[10 Fers]** « Un hamac jusqu’au matin. » → dodo _(−10 Fers, +undefined XP)_
 - **[10 Fers]** « Un hamac jusqu’à la nuit. » → dodo _(−10 Fers, +undefined XP)_
 - « Rien, merci. » → accueil
@@ -3029,7 +3029,7 @@ _Effet : retient « sylvan-triumvirat-dit »._
 
 > — Une soupe, ou une chambre ? La chambre du fond est calme : on n’y entend que le ruisseau.
 
-- **[5 Fers]** « Un repas chaud. » → repas _(−5 Fers, +15 PV)_
+- **[8 Fers]** « Un repas chaud. » → repas _(−8 Fers, +15 PV)_
 - **[6 Fers]** « Une chambre jusqu’au matin. » → dodo _(−6 Fers, +undefined XP)_
 - **[6 Fers]** « Une chambre jusqu’à la nuit. » → dodo _(−6 Fers, +undefined XP)_
 - « Rien, merci. » → accueil

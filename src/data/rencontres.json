@@ -65,5 +65,16 @@
     "hostile": false,
     "intro": "Des ruines de l’Ancien Monde affleurent sous la mousse. Quelque chose brille sous une dalle.",
     "objects": [{ "id": "cache-ruines", "type": "coffre", "tile": "caisses", "spawn": "objet-1" }]
+  },
+  {
+    "id": "loups-caravane",
+    "zones": ["lisiere", "foret"],
+    "weight": 0,
+    "terrains": ["rencontre-route"],
+    "hostile": true,
+    "intro": "Deux Loups de Rouille surgissent sur la route, le nez au vent : la sacoche de la Compagnie sent la viande séchée du chef de caravane.",
+    "enemies": ["loup-rouille", "loup-rouille"],
+    "avoid": { "skill": "survival", "difficulty": 12 },
+    "story": { "quest": "caravane-midi", "flag": "loups-caravane" }
   }
 ]

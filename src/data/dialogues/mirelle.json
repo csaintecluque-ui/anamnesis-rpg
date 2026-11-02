@@ -10,9 +10,25 @@
         },
         {
           "notFlag": "melodie-carnet"
+        },
+        {
+          "quest": "carnet-chansons",
+          "status": "none"
         }
       ],
       "node": "chanson"
+    },
+    {
+      "requires": [
+        {
+          "quest": "chant-anselme",
+          "status": "active"
+        },
+        {
+          "notFlag": "melodie-carnet"
+        }
+      ],
+      "node": "chanson-copie"
     },
     {
       "node": "accueil"
@@ -57,6 +73,34 @@
     "ilyane": {
       "text": "Nous avons fait notre apprentissage ensemble, il y a bien longtemps. Elle voulait tout entendre ; moi, tout écrire. Dis-lui que je garde encore son carnet de chansons… et qu’elle chante toujours aussi faux, j’en suis sûre.",
       "options": [
+        {
+          "text": "Je peux le lui rapporter, si tu veux.",
+          "next": "carnet-confie",
+          "requires": [
+            {
+              "quest": "carnet-chansons",
+              "status": "none"
+            }
+          ],
+          "effects": [
+            {
+              "giveItem": "carnet-chansons"
+            },
+            {
+              "startQuest": "carnet-chansons"
+            }
+          ]
+        },
+        {
+          "text": "Je le lui ai rendu.",
+          "next": "carnet-rendu",
+          "requires": [
+            {
+              "quest": "carnet-chansons",
+              "status": "done"
+            }
+          ]
+        },
         {
           "text": "Je le lui dirai.",
           "next": "accueil"
@@ -134,6 +178,38 @@
         {
           "text": "Merci, Mirelle.",
           "next": "accueil"
+        }
+      ]
+    },
+    "carnet-confie": {
+      "text": "Tu ferais ça ? Tiens. Il a voyagé avec moi trente ans ; il est temps qu’il rentre. Dis-lui de chanter la chanson de la page dix-sept. Elle saura pourquoi.",
+      "options": [
+        {
+          "text": "Je le lui porterai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "carnet-rendu": {
+      "text": "Elle a chanté la dix-sept ? Faux, j’imagine. Mirelle rit, puis s’essuie les yeux. — Merci. Certains souvenirs ont besoin de voyager pour rester vivants.",
+      "options": [
+        {
+          "text": "Elle a chanté faux.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "chanson-copie": {
+      "text": "La chanson des cerfs-lucioles ? Je l’ai recopiée avant de confier le carnet d’Ilyane : la voici. Montre-la à Elouan, il saura la lire.",
+      "options": [
+        {
+          "text": "Merci, Mirelle.",
+          "next": "accueil"
+        }
+      ],
+      "effects": [
+        {
+          "setFlag": "melodie-carnet"
         }
       ]
     }

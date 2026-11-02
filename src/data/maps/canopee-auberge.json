@@ -11,7 +11,7 @@
  "tilewidth": 64,
  "tileheight": 32,
  "nextlayerid": 4,
- "nextobjectid": 4,
+ "nextobjectid": 5,
  "layers": [
   {
    "id": 1,
@@ -123,7 +123,7 @@
     43,
     43,
     0,
-    0,
+    106,
     0,
     38,
     63,
@@ -215,6 +215,25 @@
      "rotation": 0,
      "visible": true,
      "properties": []
+    },
+    {
+     "id": 4,
+     "name": "elvan",
+     "type": "pnj",
+     "x": 176,
+     "y": 144,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": [
+      {
+       "name": "disparaitSi",
+       "type": "string",
+       "value": "graines-denonce"
+      }
+     ]
     }
    ]
   }
@@ -225,11 +244,11 @@
    "name": "tiles",
    "image": "../../../public/tiles/tiles.png",
    "imagewidth": 512,
-   "imageheight": 1248,
+   "imageheight": 1344,
    "tilewidth": 64,
    "tileheight": 96,
    "columns": 8,
-   "tilecount": 104,
+   "tilecount": 106,
    "margin": 0,
    "spacing": 0,
    "tiles": [
@@ -2825,6 +2844,56 @@
        "name": "couverture",
        "type": "int",
        "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 104,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "elvan"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 105,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "ballots"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 2
       },
       {
        "name": "grand",

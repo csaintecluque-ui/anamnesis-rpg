@@ -758,4 +758,18 @@ TILES.push(
   npcTile('lyra', { body: '#5f8a45', hair: '#e8d8a8', skin: '#e0c4a8', accent: '#e2c27a', extra: '<path d="M24 40 Q20 58 22 70 M40 40 Q44 58 42 70" stroke="#e8d8a8" stroke-width="3" fill="none"/><path d="M23 52 l-3 2 M41 56 l3 2" stroke="#5fae5a" stroke-width="2"/>' }),
   npcTile('thalorin', { body: '#4d6b3a', hair: '#7fae5a', skin: '#9aa47a', accent: '#c8f0c0', extra: '<circle cx="25" cy="38" r="5" fill="#5f8a45"/><circle cx="39" cy="38" r="5" fill="#5f8a45"/><circle cx="32" cy="33" r="5" fill="#76a352"/>' }),
   npcTile('garrik', { body: '#5a5048', hair: '#2a2018', skin: '#c49a74', accent: '#9a8a7a', extra: '<path d="M42 40 L44 76" stroke="#6b4a32" stroke-width="3" stroke-linecap="round"/><path d="M36 42 Q44 34 52 42" stroke="#8a8a90" stroke-width="3" fill="none"/>' }),
+  npcTile('elvan', { body: '#7a6a3a', hair: '#5a3020', accent: '#d9c49a', extra: '<circle cx="38" cy="66" r="3" fill="#a88456" stroke="#1B1512" stroke-width="0.8"/>' }),
+  {
+    // « Les graines qui manquent » : les ballots d'Elvan ; l'un d'eux luit, à qui sait regarder.
+    name: 'ballots',
+    blocking: true,
+    cover: 2,
+    svg:
+      diamond('#a88456') +
+      shadow(18, 6) +
+      `<path d="M12 82 Q10 66 22 64 Q34 66 32 82 Z" fill="#c9b48a" stroke="${INK}" stroke-width="1"/>` +
+      `<path d="M30 84 Q28 62 42 60 Q56 62 52 84 Z" fill="#b8a07a" stroke="${INK}" stroke-width="1"/>` +
+      '<path d="M14 72 L30 72 M32 70 L52 70" stroke="#5fae5a" stroke-width="2"/>' +
+      '<circle cx="44" cy="76" r="2" fill="#e8f5a0" opacity="0.8"/>',
+  },
 );

@@ -24,7 +24,8 @@
       "flag": "remise-cendrefer",
       "taux": 0.2
     },
-    "place": "gardebois"
+    "place": "gardebois",
+    "faction": "compagnie-lisieres"
   },
   {
     "id": "ingrid",
@@ -244,5 +245,15 @@
     "id": "garrik",
     "name": "Garrik",
     "role": "Fouilleur"
+  },
+  {
+    "id": "elvan",
+    "name": "Elvan Morelle",
+    "role": "Marchand de la Compagnie des Lisières"
+  },
+  {
+    "id": "commis-caravane",
+    "name": "Le commis de Ferros",
+    "role": "Compagnie des Lisières"
   }
 ]

@@ -64,6 +64,24 @@
       "text": "Le Conseil des Racines Profondes se réunit beaucoup, ces temps-ci : on parle de la frontière, de Ferros, de ces forages… Et le petit Malo a encore traversé la passerelle du Bois en courant. Un jour, il s’envolera.",
       "options": [
         {
+          "text": "Il manque des graines au grenier. As-tu vu passer quelque chose ?",
+          "next": "graines",
+          "requires": [
+            {
+              "quest": "graines",
+              "status": "active"
+            },
+            {
+              "notFlag": "indice-elvan"
+            }
+          ],
+          "effects": [
+            {
+              "setFlag": "indice-elvan"
+            }
+          ]
+        },
+        {
           "text": "Merci.",
           "next": "accueil"
         }
@@ -73,7 +91,34 @@
       "text": "Tu as entendu ? Quelqu’un a forcé le grenier des semences, dans les Hautes Ramures. Voler des graines à Canopéa… c’est comme voler l’avenir. Le Conseil est furieux.",
       "options": [
         {
+          "text": "Il manque des graines au grenier. As-tu vu passer quelque chose ?",
+          "next": "graines",
+          "requires": [
+            {
+              "quest": "graines",
+              "status": "active"
+            },
+            {
+              "notFlag": "indice-elvan"
+            }
+          ],
+          "effects": [
+            {
+              "setFlag": "indice-elvan"
+            }
+          ]
+        },
+        {
           "text": "Merci.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "graines": {
+      "text": "Lisandre baisse la voix. — Un marchand de la Compagnie des Lisières a pris pension ici : Elvan Morelle. Il paie en Fers tout neufs, et repart chaque semaine avec des ballots bien lourds pour du tissu. Il est là, au fond.",
+      "options": [
+        {
+          "text": "Merci, Lisandre.",
           "next": "accueil"
         }
       ]

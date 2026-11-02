@@ -31,6 +31,34 @@
           ]
         },
         {
+          "text": "Examiner les rangées.",
+          "next": "indice",
+          "requires": [
+            {
+              "quest": "graines",
+              "status": "active"
+            },
+            {
+              "notFlag": "preuve-sceau"
+            },
+            {
+              "skill": "investigation",
+              "min": 2
+            }
+          ],
+          "effects": [
+            {
+              "setFlag": "preuve-sceau"
+            },
+            {
+              "setFlag": "indice-elvan"
+            },
+            {
+              "giveXp": 10
+            }
+          ]
+        },
+        {
           "text": "Les laisser où ils sont.",
           "next": "fin"
         }
@@ -47,6 +75,43 @@
     },
     "vide": {
       "text": "Il manque un sac dans la rangée. Le trou se voit.",
+      "options": [
+        {
+          "text": "Examiner les rangées.",
+          "next": "indice",
+          "requires": [
+            {
+              "quest": "graines",
+              "status": "active"
+            },
+            {
+              "notFlag": "preuve-sceau"
+            },
+            {
+              "skill": "investigation",
+              "min": 2
+            }
+          ],
+          "effects": [
+            {
+              "setFlag": "preuve-sceau"
+            },
+            {
+              "setFlag": "indice-elvan"
+            },
+            {
+              "giveXp": 10
+            }
+          ]
+        },
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "indice": {
+      "text": "Entre les sacs, de la paille d’emballage de Ferros, et un éclat de cire brune : le sceau d’un marchand, une tête de cerf. Ceux de la Compagnie des Lisières en portent un. Celui-là, tu le reconnaîtras.",
       "options": [
         {
           "text": "Partir.",

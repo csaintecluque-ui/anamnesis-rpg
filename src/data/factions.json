@@ -1,0 +1,4 @@
+[
+  { "id": "compagnie-lisieres", "name": "la Compagnie des Lisières", "membre": "membre-compagnie-lisieres" },
+  { "id": "nacelliers", "name": "les Nacelliers", "membre": "nacelliers-amis" }
+]

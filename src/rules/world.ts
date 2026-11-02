@@ -58,6 +58,11 @@ export interface RencontreDef {
   decor?: { tile: string; spawn: string }[];
   /** Hostile encounters can be skirted with a roll (Survie): the d20 against this difficulty. */
   avoid?: { skill: SkillId; difficulty: number };
+  /**
+   * Story encounter, never drawn at random: met at the first check of a journey while `quest` is active and `flag`
+   * is not set; meeting it sets `flag` (« La caravane de midi » : les Loups de Rouille).
+   */
+  story?: { quest: string; flag: string };
 }
 
 /** Where the hero stands while an encounter lasts: the world-map position to come back to. */
@@ -125,8 +130,16 @@ export function rollEncounter(zone: string, rng: Rng = Math.random): RencontreDe
   return pickRencontre(zone, rng);
 }
 
+/** The story encounter waiting on this road, if any (checked before the random ones). */
+export function storyRencontre(
+  state: { flags: Record<string, true>; quests: Record<string, 'active' | 'done'> },
+  zone: string,
+): RencontreDef | null {
+  return RENCONTRES.find((r) => r.story && r.zones.includes(zone) && state.quests[r.story.quest] === 'active' && !state.flags[r.story.flag]) ?? null;
+}
+
 export function pickRencontre(zone: string, rng: Rng = Math.random): RencontreDef | null {
-  const pool = RENCONTRES.filter((r) => r.zones.includes(zone));
+  const pool = RENCONTRES.filter((r) => r.zones.includes(zone) && !r.story);
   const total = pool.reduce((sum, r) => sum + r.weight, 0);
   let roll = rng() * total;
   for (const r of pool) {

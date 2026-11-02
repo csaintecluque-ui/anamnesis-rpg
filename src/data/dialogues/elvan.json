@@ -1,0 +1,240 @@
+{
+  "id": "elvan",
+  "speaker": "elvan",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "graines",
+          "status": "done"
+        },
+        {
+          "flag": "graines-rendues"
+        }
+      ],
+      "node": "apres-rendu"
+    },
+    {
+      "requires": [
+        {
+          "quest": "graines",
+          "status": "done"
+        },
+        {
+          "flag": "graines-silence"
+        }
+      ],
+      "node": "apres-silence"
+    },
+    {
+      "requires": [
+        {
+          "quest": "graines",
+          "status": "active"
+        },
+        {
+          "flag": "graines-elvan-avoue"
+        }
+      ],
+      "node": "aveu"
+    },
+    {
+      "requires": [
+        {
+          "quest": "graines",
+          "status": "active"
+        },
+        {
+          "flag": "indice-elvan"
+        }
+      ],
+      "node": "confrontation"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Elvan Morelle, de la Compagnie des Lisières : tissus de Gardebois, cordes de Ferros. Je repars bientôt, alors si tu veux quelque chose, c’est maintenant… mais tout est déjà promis, j’en ai peur.",
+      "options": [
+        {
+          "text": "Que transportes-tu ?",
+          "next": "ballots"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "ballots": {
+      "text": "Du tissu. Beaucoup de tissu. Rien qui t’intéresse, crois-moi. Il pose la main sur un ballot, comme sans y penser.",
+      "options": [
+        {
+          "text": "Bien sûr.",
+          "next": "fin"
+        }
+      ]
+    },
+    "confrontation": {
+      "text": "Elvan referme vite un ballot. — Des graines ? Je vends du tissu, moi. Demande à n’importe qui.",
+      "options": [
+        {
+          "text": "Ce sceau à tête de cerf, entre les sacs du grenier, c’est le tien.",
+          "next": "aveu",
+          "requires": [
+            {
+              "flag": "preuve-sceau"
+            }
+          ]
+        },
+        {
+          "text": "Ton ballot brille. Le tissu ne brille pas.",
+          "next": "aveu",
+          "requires": [
+            {
+              "attribute": "perception",
+              "min": 4
+            }
+          ]
+        },
+        {
+          "text": "Ouvre ce ballot.",
+          "next": "aveu",
+          "roll": {
+            "skill": "command",
+            "difficulty": 12
+          },
+          "failNext": "refus"
+        },
+        {
+          "text": "Je reviendrai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "refus": {
+      "text": "— Sûrement pas. Tu n’es pas de la garde, que je sache. Elvan croise les bras sur son ballot.",
+      "options": [
+        {
+          "text": "Je reviendrai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "aveu": {
+      "text": "Elvan s’assoit d’un coup. — Les Marches des Cendres paient trois fois le prix, à Ironheart. Trois fois ! Je me disais : quelques sacs, le Conseil ne verra rien… Il en reste six, là, dans le ballot.",
+      "options": [
+        {
+          "text": "Je vais le dire au Conseil.",
+          "next": "denonce",
+          "effects": [
+            {
+              "setFlag": "graines-denonce"
+            },
+            {
+              "completeQuest": "graines"
+            },
+            {
+              "giveXp": 30
+            }
+          ]
+        },
+        {
+          "text": "Rapporte-les toi-même au grenier, et la Compagnie gardera son honneur.",
+          "next": "rend",
+          "requires": [
+            {
+              "skill": "diplomacy",
+              "min": 3
+            }
+          ],
+          "effects": [
+            {
+              "setFlag": "graines-rendues"
+            },
+            {
+              "completeQuest": "graines"
+            },
+            {
+              "giveXp": 40
+            }
+          ]
+        },
+        {
+          "text": "Partageons : quarante Fers, et je n’ai rien vu.",
+          "next": "part",
+          "effects": [
+            {
+              "setFlag": "graines-silence"
+            },
+            {
+              "giveFers": 40
+            },
+            {
+              "completeQuest": "graines"
+            },
+            {
+              "giveXp": 10
+            }
+          ]
+        },
+        {
+          "text": "Laisse-moi réfléchir.",
+          "next": "fin"
+        }
+      ],
+      "effects": [
+        {
+          "setFlag": "graines-elvan-avoue"
+        }
+      ]
+    },
+    "denonce": {
+      "text": "Elvan blêmit. — La Compagnie ne me le pardonnera pas… ni à toi. Un Garde Vert l’emmène le soir même, ballot compris. À Canopéa, on n’aime pas ceux qui vendent l’avenir.",
+      "options": [
+        {
+          "text": "Les graines rentreront au grenier.",
+          "next": "fin"
+        }
+      ]
+    },
+    "rend": {
+      "text": "Il hésite longtemps, puis charge le ballot sur son épaule. — Je les rapporte ce soir, par la nacelle de Véline. Je dirai que je les ai retrouvées. Merci… de m’avoir laissé ça.",
+      "options": [
+        {
+          "text": "Que la sève coule, Elvan.",
+          "next": "fin"
+        }
+      ]
+    },
+    "part": {
+      "text": "Elvan compte quarante Fers, sans te regarder. — Pas un mot, hein ? À Ironheart, on te dirait que c’est du commerce.",
+      "options": [
+        {
+          "text": "Pas un mot.",
+          "next": "fin"
+        }
+      ]
+    },
+    "apres-rendu": {
+      "text": "Elvan te salue d’un signe de tête. — Je n’ai jamais si bien dormi. La Compagnie m’a gardé, tu sais. Elle ne sait pas tout… mais moi, je sais.",
+      "options": [
+        {
+          "text": "Au revoir, Elvan.",
+          "next": "fin"
+        }
+      ]
+    },
+    "apres-silence": {
+      "text": "Elvan détourne les yeux. — On n’a rien à se dire, toi et moi. C’est mieux comme ça.",
+      "options": [
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

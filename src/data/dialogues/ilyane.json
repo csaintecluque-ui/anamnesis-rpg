@@ -5,6 +5,18 @@
     {
       "requires": [
         {
+          "quest": "carnet-chansons",
+          "status": "active"
+        },
+        {
+          "item": "carnet-chansons"
+        }
+      ],
+      "node": "carnet"
+    },
+    {
+      "requires": [
+        {
           "quest": "audience",
           "status": "done"
         }
@@ -222,6 +234,39 @@
           "next": "fin"
         }
       ]
+    },
+    "carnet": {
+      "text": "Qu’est-ce que… Mon carnet de chansons ! Mirelle l’a gardé tout ce temps ? Elle t’a dit laquelle chanter, je parie. La dix-sept.",
+      "options": [
+        {
+          "text": "La dix-sept. Elle a dit que tu saurais pourquoi.",
+          "next": "dix-sept",
+          "effects": [
+            {
+              "takeItem": "carnet-chansons"
+            },
+            {
+              "completeQuest": "carnet-chansons"
+            },
+            {
+              "learnRecit": "deux-apprenties"
+            },
+            {
+              "giveXp": 25
+            }
+          ]
+        }
+      ]
+    },
+    "dix-sept": {
+      "text": "Ilyane chante, et c’est vrai qu’elle chante faux. Mais c’est la chanson de deux apprenties qui se juraient de tout écouter et de tout écrire, et sa voix tremble au bon endroit. — Elle avait raison, Mirelle. Il fallait l’écrire.",
+      "options": [
+        {
+          "text": "C’était beau. Même faux.",
+          "next": "fin"
+        }
+      ],
+      "night": true
     }
   }
 }

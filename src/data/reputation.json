@@ -3,14 +3,31 @@
     { "quest": "dernier-train", "points": 15 },
     { "quest": "berceuse", "points": 10 },
     { "quest": "herbes-lisiere", "points": 5 },
-    { "quest": "caisse-egaree", "points": 5 }
+    { "quest": "caisse-egaree", "points": 5 },
+    { "quest": "carnet-chansons", "points": 5 }
   ],
   "canopee": [
     { "quest": "lettres-malo", "points": 10 },
     { "quest": "chant-anselme", "points": 10 },
     { "quest": "audience", "points": 15 },
     { "flag": "mensonge-huissier", "points": -5 },
+    { "flag": "graines-rapportees", "points": 20 },
+    { "flag": "vol-avoue", "points": 10 },
+    { "flag": "graines-denonce", "points": 15 },
+    { "flag": "graines-rendues", "points": 10 },
+    { "flag": "graines-silence", "points": -5 },
     { "flag": "ailis-reconfortee", "points": 10 },
     { "flag": "vol-grenier", "points": -20 }
+  ],
+  "compagnie-lisieres": [
+    { "quest": "caravane-midi", "points": 15 },
+    { "flag": "graines-rendues", "points": 5 },
+    { "flag": "graines-denonce", "points": -15 }
+  ],
+  "nacelliers": [
+    { "quest": "lettres-malo", "points": 15 },
+    { "quest": "chant-anselme", "points": 5 },
+    { "flag": "graines-denonce", "points": 5 },
+    { "flag": "graines-rendues", "points": 5 }
   ]
 }

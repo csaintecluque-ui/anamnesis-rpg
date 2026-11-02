@@ -505,8 +505,9 @@ Object.assign(LOCATION_NAMES, {
 Object.assign(INTERIORS, {
   'canopee-auberge': interior('canopee-auberge', {
     outside: 'canopee-nacelle',
-    furniture: [[1, 2, 'hamac'], [1, 4, 'hamac'], [6, 1, 'cristal-veille'], [3, 3, 'comptoir'], [4, 3, 'comptoir'], [6, 4, 'table']],
-    objects: [['lisandre', 'pnj', 4, 2]],
+    furniture: [[1, 2, 'hamac'], [1, 4, 'hamac'], [6, 1, 'cristal-veille'], [3, 3, 'comptoir'], [4, 3, 'comptoir'], [6, 4, 'table'], [6, 3, 'ballots']],
+    // « Les graines qui manquent » : Elvan Morelle, en pension au fond, avec ses ballots ; dénoncé, il s'en va.
+    objects: [['lisandre', 'pnj', 4, 2], ['elvan', 'pnj', 5, 4, { disparaitSi: 'graines-denonce' }]],
   }),
   'canopee-comptoir': interior('canopee-comptoir', {
     outside: 'canopee-nacelle',

@@ -35,6 +35,14 @@ Code : `src/rules/reputation.ts` ; données : `src/data/reputation.json`. Plan d
 | Gardebois | « La caisse égarée » terminée | +5 |
 | Canopéa | Aïlis réconfortée (la voix d'Anselme) | +10 |
 | Canopéa | Un sac volé au grenier des semences | −20 |
+| Canopéa | « Les lettres de Malo », « Le chant d'Anselme » | +10 chacune |
+| Canopéa | « L'audience » | +15 |
+| Canopéa | Mensonge à l'huissier | −5 |
+| Canopéa | Le sac volé rendu / le vol avoué | +20 / +10 |
+| Canopéa | Graines : Elvan dénoncé / qui rend tout / le silence partagé | +15 / +10 / −5 |
+| Gardebois | « Le carnet de chansons » | +5 |
+| Compagnie des Lisières | « La caravane de midi » ; Elvan qui rend tout / dénoncé | +15 ; +5 / −15 |
+| Nacelliers | « Les lettres de Malo » ; « Le chant d'Anselme » ; graines retrouvées | +15 ; +5 ; +5 |
 
 Premier usage d'une condition : l'huissier du Conseil, à Canopéa, laisse entendre une audience à partir de l'estime.
 Les quêtes des villes ajouteront leurs propres sources.

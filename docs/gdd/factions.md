@@ -19,3 +19,14 @@ mécanisme : `docs/gdd/reputation.md`.
 - **Affichage** : un écran « Réputation » dans le menu, une ligne par ville et par faction.
 - **Code prévu** : `reputation.json` gagne une partie `factions` ; un marchand porte `place` ou `faction` ;
   l'adhésion est un repère (`membre-compagnie-lisieres`). Pas de nouvelle version de sauvegarde.
+
+## Construit le 2026-11-02 (avec les quêtes de Canopéa)
+
+- `src/data/factions.json` (Compagnie des Lisières, Nacelliers : nom et repère d'adhésion) ; leurs sources de réputation
+  dans `src/data/reputation.json`, à côté des villes, avec les mêmes paliers ; condition `reputation` et messages
+  « Réputation auprès de la Compagnie des Lisières : … » (« on te fait confiance » au lieu de « la ville »).
+- Adhésion : `membre-compagnie-lisieres` (« La caravane de midi ») ; `nacelliers-amis` (« Les lettres de Malo »).
+- Prix de membre : un marchand porte `faction` (Tobias : Compagnie des Lisières) ; un membre y paie −15 %, ou le prix
+  de la ville s'il est meilleur, sans cumul.
+- **Reste** : l'écran « Réputation » (prévu dans le journal), les rangs des Gardiens de Mémoire, les services (caravane,
+  courrier entre villes), les factions de Ferros (avec Ironheart).

@@ -45,3 +45,9 @@ Gardebois est déjà peint : ses cinq figurants (avec le client de l'auberge) y 
 les peindre avec la méthode 2D validée (`docs/gdd/animation.md`) : en pied 0,5 crédit, planche de marche 2,5 ;
 soit 2 marcheurs × 3 + 3 immobiles × 0,5 = **≈ 7,5 crédits** sur 19. Ceux de Canopéa attendront la peinture de la ville.
 Un figurant peint qui marche reçoit une planche (`walk`, 8 directions) : il est animé comme le héros, sans petit saut.
+
+## Figurant qui parle (2026-11-02)
+
+Un figurant peut porter `dialogue` : tant qu'une entrée **conditionnelle** de ce dialogue est vraie, le toucher ouvre le
+dialogue au lieu de la bulle ; sa dernière entrée (sans condition) veut dire « rien à dire » et rend la bulle. Premier :
+le commis de Ferros pressé, qui donne « La caravane de midi ».

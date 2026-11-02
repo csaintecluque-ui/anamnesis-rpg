@@ -95,7 +95,7 @@ carte à créer.
   Détails nouveaux (à valider) : le ruban vert au pied de l'arbre, Elouan qui « ne descend plus », Aïlis qui ne chante
   plus depuis la mort d'Anselme.
 
-### 4. Les graines qui manquent (factions en conflit)
+### 4. Les graines qui manquent (factions en conflit) — **construite le 2026-11-02**
 
 - Il manque des sacs au grenier des semences. Si le héros en a volé un, Véline le soupçonne : on peut le rapporter et
   retrouver l'estime perdue (une seconde chance).
@@ -103,19 +103,33 @@ carte à créer.
   aux **Marches des Cendres** (« ils vendent parfois ce qui devrait rester sacré »).
 - **Choix** : le dénoncer (estime de Canopéa, méfiance de la Compagnie), le convaincre de tout rendre (Diplomatie), ou se
   taire contre une part (Fers ; la ville l'apprendra peut-être).
+- **Construite** : Véline la donne (« Quoi de neuf, à la nacelle ? ») ; si le héros a volé, elle le soupçonne : rendre
+  le sac (+20, la méfiance s'efface), avouer sans le sac (+10) ou nier. Pistes : Lisandre, au Nid (sans test), ou le
+  grenier avec Investigation 2 (le sceau à tête de cerf, +10 XP, preuve). **Elvan Morelle**, en pension au Nid, nie ; on
+  le fait avouer par la preuve, Perception 4 (« ton ballot brille ») ou un jet de Commandement 12. Fins : dénoncer
+  (30 XP ; Canopéa +15, Compagnie −15, il est emmené), Diplomatie 3 : qu'il rende tout lui-même (40 XP ; Canopéa +10,
+  Compagnie +5), ou partager (40 Fers, 10 XP ; Canopéa −5 : « un marchand a payé une tournée »).
+  Détails nouveaux (à valider) : Elvan Morelle, le sceau à tête de cerf, « trois fois le prix » à Ironheart.
 
-### 5. Le carnet de chansons (courrier entre villes)
+### 5. Le carnet de chansons (courrier entre villes) — **construite le 2026-11-02**
 
 - Mirelle confie au héros le vieux carnet de chansons d'Ilyane ; on le rapporte à Gardebois par la carte du monde ;
   Ilyane chante l'une des chansons : un Récit.
+- **Construite** : « la chanson de la page dix-sept », celle de deux apprenties qui se juraient de tout écouter et de tout
+  écrire ; Récit « Les deux apprenties » (à valider), 25 XP, +5 à Gardebois. Mirelle a recopié la chanson des
+  cerfs-lucioles avant de confier le carnet (« Le chant d'Anselme » reste possible).
 
 ## Gardebois : une quête de guilde
 
-### 6. La caravane de midi (Compagnie des Lisières)
+### 6. La caravane de midi (Compagnie des Lisières) — **construite le 2026-11-02**
 
 - Le commis pressé a raté sa caravane : porter sa sacoche jusqu'à Canopéa avant le soir ; sur la route, une rencontre
   garantie (des Loups de Rouille [E7-2]) : combat, ruse ou détour (Survie).
 - **Fin** : adhésion à la Compagnie des Lisières (prix de membre, la caravane comme moyen de voyage).
+- **Construite** : le commis pressé (passant de Gardebois) ouvre un dialogue tant que la quête est à prendre. La
+  sacoche sent la viande séchée : deux Loups de Rouille attendent sur la route, une seule fois (contourner : Survie 12).
+  Véline la remet au chef de caravane : 30 XP, 15 Fers, membre de la Compagnie (prix de membre chez Tobias, −15 %).
+  **Reporté** : la caravane comme moyen de voyage.
 
 ## Ordre de construction proposé
 

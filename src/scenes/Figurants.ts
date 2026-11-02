@@ -72,6 +72,15 @@ export class FigurantLayer {
       .sort((a, b) => b.image.depth - a.image.depth)[0];
   }
 
+  /** They stop and turn to the hero for a while (a dialogue opens instead of a bubble). */
+  hold(w: Walker): void {
+    if (w.sheet) {
+      w.facing = facingOf(w.tile, this.host.heroTile());
+      this.standStill(w);
+    }
+    w.busyUntil = this.scene.time.now + TALK_MS;
+  }
+
   /** They stop, turn to the hero and say their next line. */
   talk(w: Walker): void {
     const hero = this.host.feet(this.host.heroTile());

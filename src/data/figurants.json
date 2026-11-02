@@ -101,7 +101,8 @@
       "Pas le temps, pas le temps ! Si je rate la caravane de midi, mon patron, lui, ne me ratera pas.",
       "Gardebois, c’est le seul marché où l’on paie en Fers et où l’on vous remercie en chansons."
     ],
-    "walk": "sprites/figurant-commis-ferros.png"
+    "walk": "sprites/figurant-commis-ferros.png",
+    "dialogue": "commis-caravane"
   },
   {
     "id": "lavandiere",

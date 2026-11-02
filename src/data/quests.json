@@ -33,5 +33,20 @@
     "id": "audience",
     "name": "L’audience",
     "summary": "Porter au Triumvirat Vert de Canopéa la nouvelle de ce qui s’est passé à la Gare Engloutie. Depuis peu, les noms gravés du Bosquet des Échos se taisent : le Triumvirat veut des faits, pas des rumeurs."
+  },
+  {
+    "id": "graines",
+    "name": "Les graines qui manquent",
+    "summary": "Une dizaine de sacs de graines-lumière ont disparu du grenier des semences de Canopéa. Véline croit qu’ils sont passés par sa nacelle, sous les bâches d’un marchand."
+  },
+  {
+    "id": "carnet-chansons",
+    "name": "Le carnet de chansons",
+    "summary": "Mirelle t’a confié le vieux carnet de chansons d’Ilyane. Rapporte-le à Gardebois, et demande à Ilyane de chanter la chanson de la page dix-sept."
+  },
+  {
+    "id": "caravane-midi",
+    "name": "La caravane de midi",
+    "summary": "Un commis de Ferros a raté la caravane de midi de la Compagnie des Lisières. Porte sa sacoche à Canopéa, à Véline, au pied de la Grande Nacelle. Gare aux Loups de Rouille près de la frontière."
   }
 ]

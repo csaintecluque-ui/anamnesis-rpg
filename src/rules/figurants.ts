@@ -16,6 +16,11 @@ export interface FigurantDef {
   lines: string[];
   /** Step duration multiplier: below 1 hurries (children), above 1 dawdles. */
   pace?: number;
+  /**
+   * A dialogue (src/data/dialogues/) opened instead of the bubble while one of its conditional entries holds; its
+   * last, unconditional entry means « nothing to say »: back to the bubble (the commis of « La caravane de midi »).
+   */
+  dialogue?: string;
   /** Painted walk sheet (public/, 8 directions × 64 × 96 frames, npm run walk); without it, the tile hops along. */
   walk?: string;
 }

@@ -1,4 +1,6 @@
 import type { Dialogue } from '../../rules/dialogue';
+import commisCaravane from './commis-caravane.json';
+import elvan from './elvan.json';
 import thalorin from './thalorin.json';
 import lyra from './lyra.json';
 import kaelMarchevent from './kael-marchevent.json';
@@ -44,6 +46,8 @@ import voyageurEgare from './voyageur-egare.json';
 
 /** Dialogue files by object name (PNJ, Écho or object) of the maps. */
 export const DIALOGUES: Record<string, Dialogue> = {
+  'commis-caravane': commisCaravane as Dialogue,
+  elvan: elvan as Dialogue,
   thalorin: thalorin as Dialogue,
   lyra: lyra as Dialogue,
   'kael-marchevent': kaelMarchevent as Dialogue,

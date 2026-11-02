@@ -16,6 +16,21 @@
     {
       "requires": [
         {
+          "flag": "vol-grenier"
+        },
+        {
+          "flag": "veline-vol-dit"
+        },
+        {
+          "quest": "graines",
+          "status": "none"
+        }
+      ],
+      "node": "soupcon"
+    },
+    {
+      "requires": [
+        {
           "quest": "audience",
           "status": "active"
         },
@@ -51,6 +66,48 @@
         }
       ],
       "node": "descente-anselme"
+    },
+    {
+      "requires": [
+        {
+          "quest": "caravane-midi",
+          "status": "active"
+        },
+        {
+          "item": "sacoche-compagnie"
+        }
+      ],
+      "node": "caravane"
+    },
+    {
+      "requires": [
+        {
+          "quest": "graines",
+          "status": "done"
+        },
+        {
+          "notFlag": "veline-graines-dit"
+        },
+        {
+          "notFlag": "graines-silence"
+        }
+      ],
+      "node": "graines-merci"
+    },
+    {
+      "requires": [
+        {
+          "quest": "graines",
+          "status": "done"
+        },
+        {
+          "notFlag": "veline-graines-dit"
+        },
+        {
+          "flag": "graines-silence"
+        }
+      ],
+      "node": "graines-tant-pis"
     },
     {
       "requires": [
@@ -130,6 +187,24 @@
     "retour": {
       "text": "Encore toi ! La nacelle t’attend quand tu veux redescendre. Et si tu te perds, demande au petit Malo : il connaît chaque planche de la ville.",
       "options": [
+        {
+          "text": "Quoi de neuf, à la nacelle ?",
+          "next": "graines-souci",
+          "requires": [
+            {
+              "quest": "graines",
+              "status": "none"
+            },
+            {
+              "notFlag": "vol-grenier"
+            }
+          ],
+          "effects": [
+            {
+              "startQuest": "graines"
+            }
+          ]
+        },
         {
           "text": "À plus tard, Véline.",
           "next": "fin"
@@ -245,6 +320,179 @@
         },
         {
           "text": "Pas maintenant.",
+          "next": "fin"
+        }
+      ]
+    },
+    "graines-souci": {
+      "text": "Rien de bon. Il manque une dizaine de sacs au grenier des semences, depuis une lune. Et je crois qu’ils sont passés par ma nacelle, sous les bâches d’un marchand. Je n’ai rien vu… ou pas assez. Trouve qui, s’il te plaît.",
+      "options": [
+        {
+          "text": "Je vais chercher.",
+          "next": "fin"
+        },
+        {
+          "text": "Qui pourrait savoir ?",
+          "next": "graines-piste"
+        }
+      ]
+    },
+    "graines-piste": {
+      "text": "Lisandre, au Nid : tous les marchands y dorment, et elle entend tout. Et le grenier lui-même, aux Hautes Ramures… s’il te laisse entrer.",
+      "options": [
+        {
+          "text": "Merci, Véline.",
+          "next": "fin"
+        }
+      ]
+    },
+    "soupcon": {
+      "text": "Je repense au grenier. Il y manque bien plus qu’un sac : une dizaine, depuis une lune. Et quelqu’un t’a vu là-haut, le jour où la porte a été forcée. Dis-moi que je me trompe.",
+      "options": [
+        {
+          "text": "C’était moi. Voici le sac.",
+          "next": "pardon",
+          "requires": [
+            {
+              "item": "graines-lumiere"
+            }
+          ],
+          "effects": [
+            {
+              "takeItem": "graines-lumiere"
+            },
+            {
+              "setFlag": "graines-rapportees"
+            },
+            {
+              "startQuest": "graines"
+            },
+            {
+              "giveXp": 10
+            }
+          ]
+        },
+        {
+          "text": "C’était moi, et je le regrette.",
+          "next": "aveu-vol",
+          "effects": [
+            {
+              "setFlag": "vol-avoue"
+            },
+            {
+              "startQuest": "graines"
+            }
+          ]
+        },
+        {
+          "text": "Tu te trompes.",
+          "next": "doute",
+          "effects": [
+            {
+              "startQuest": "graines"
+            }
+          ]
+        }
+      ]
+    },
+    "pardon": {
+      "text": "Véline reprend le sac, longuement. — À Canopéa, on dit : « racines ouvertes ». Tu viens de l’être. Mais les autres sacs ? Ce n’est pas toi, ça. Ils sont passés par ma nacelle, sous des bâches de marchand. Aide-moi à trouver qui.",
+      "options": [
+        {
+          "text": "Je vais chercher.",
+          "next": "fin"
+        },
+        {
+          "text": "Qui pourrait savoir ?",
+          "next": "graines-piste"
+        }
+      ]
+    },
+    "aveu-vol": {
+      "text": "Véline soupire. — Au moins, tu ne mens pas. Les autres sacs, ce n’est pas toi : ils sont passés par ma nacelle, sous des bâches de marchand. Aide-moi à les retrouver, et la ville oubliera peut-être.",
+      "options": [
+        {
+          "text": "Je vais chercher.",
+          "next": "fin"
+        },
+        {
+          "text": "Qui pourrait savoir ?",
+          "next": "graines-piste"
+        }
+      ]
+    },
+    "doute": {
+      "text": "Véline te regarde un long moment. — Bien. Alors aide-moi à trouver qui. Une dizaine de sacs sont passés par ma nacelle, sous des bâches de marchand. Ça vaudra mieux pour tout le monde.",
+      "options": [
+        {
+          "text": "Je vais chercher.",
+          "next": "fin"
+        },
+        {
+          "text": "Qui pourrait savoir ?",
+          "next": "graines-piste"
+        }
+      ]
+    },
+    "graines-merci": {
+      "text": "Les sacs sont revenus au grenier ! La ville en parle à chaque passerelle. Tu as rendu à Canopéa ses arbres de demain.",
+      "options": [
+        {
+          "text": "Que la sève coule.",
+          "next": "fin",
+          "effects": [
+            {
+              "setFlag": "veline-graines-dit"
+            }
+          ]
+        }
+      ]
+    },
+    "graines-tant-pis": {
+      "text": "Les sacs ne sont jamais revenus. Tant pis… Merci d’avoir cherché. On dit au Nid qu’un marchand a payé une tournée à tout le monde, l’autre soir. Drôle de hasard.",
+      "options": [
+        {
+          "text": "Drôle de hasard.",
+          "next": "fin",
+          "effects": [
+            {
+              "setFlag": "veline-graines-dit"
+            }
+          ]
+        }
+      ]
+    },
+    "caravane": {
+      "text": "La sacoche de la Compagnie ! Le chef de caravane tournait en rond depuis midi. Donne : je la lui remets, il attend au pied de ma nacelle.",
+      "options": [
+        {
+          "text": "La voici.",
+          "next": "caravane-fin",
+          "effects": [
+            {
+              "takeItem": "sacoche-compagnie"
+            },
+            {
+              "completeQuest": "caravane-midi"
+            },
+            {
+              "setFlag": "membre-compagnie-lisieres"
+            },
+            {
+              "giveXp": 30
+            },
+            {
+              "giveFers": 15
+            }
+          ]
+        }
+      ]
+    },
+    "caravane-fin": {
+      "text": "Il te fait dire merci, et ceci : « Qui porte nos sacoches quand personne ne le fait est des nôtres. » Te voilà membre de la Compagnie des Lisières : chez Tobias, à Gardebois, tu auras les prix de membre.",
+      "options": [
+        {
+          "text": "Merci, Véline.",
           "next": "fin"
         }
       ]

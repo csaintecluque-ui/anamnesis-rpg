@@ -397,6 +397,45 @@ Commence par : « accueil »
 
 - « Merci. » → accueil
 
+## Le commis de Ferros
+
+_Compagnie des Lisières_
+
+Commence par : « presse » _(si quête « La caravane de midi » pas commencée)_, sinon « attente » _(si quête « La caravane de midi » en cours)_ _(si l’on porte « Sacoche de la Compagnie »)_, sinon « rien »
+
+### presse
+
+> Pas le temps, pas le temps ! Enfin… si, maintenant : j’ai raté la caravane de midi. Et cette sacoche devait partir avec elle, pour Canopéa, avant ce soir ! Mon patron va me pendre à un Arbre-Titan.
+
+- « Je peux la porter à Canopéa. » → merci _(donne 1 × « Sacoche de la Compagnie », lance la quête « La caravane de midi »)_
+- « Qu’y a-t-il dedans ? » → dedans
+- « Bon courage. » → **fin**
+
+### dedans
+
+> Des lettres de change, des échantillons, et la viande séchée du chef de caravane. Il y tient plus qu’aux lettres, entre nous. Rien de dangereux… sauf pour les Loups de Rouille, qui ont du flair.
+
+- « Je peux la porter à Canopéa. » → merci _(donne 1 × « Sacoche de la Compagnie », lance la quête « La caravane de midi »)_
+- « Bon courage. » → **fin**
+
+### merci
+
+> Vrai de vrai ? Tiens ! À Canopéa, donne-la à Véline, à la Grande Nacelle : la caravane s’arrête au pied de sa nacelle. Prends la route de l’ouest, par la carte. Et gare aux Loups de Rouille, près de la frontière !
+
+- « J’y vais. » → **fin**
+
+### attente
+
+> Tu es encore là ? Canopéa, la Grande Nacelle, Véline ! Vite, vite, avant que le chef de caravane ne mange ses bottes.
+
+- « J’y vais. » → **fin**
+
+### rien
+
+> Pas le temps, pas le temps !
+
+- « … » → **fin**
+
 ## Cristal de veille
 
 _Objet_
@@ -567,6 +606,81 @@ Commence par : « apres » _(si quête « Le chant d’Anselme » terminée)_, s
 - « Tu peux jouer quelque chose ? » → musique
 - « Au revoir, Elouan. » → **fin**
 
+## Elvan Morelle
+
+_Marchand de la Compagnie des Lisières_
+
+Commence par : « apres-rendu » _(si quête « Les graines qui manquent » terminée)_ _(si repère « graines-rendues »)_, sinon « apres-silence » _(si quête « Les graines qui manquent » terminée)_ _(si repère « graines-silence »)_, sinon « aveu » _(si quête « Les graines qui manquent » en cours)_ _(si repère « graines-elvan-avoue »)_, sinon « confrontation » _(si quête « Les graines qui manquent » en cours)_ _(si repère « indice-elvan »)_, sinon « accueil »
+
+### accueil
+
+> Elvan Morelle, de la Compagnie des Lisières : tissus de Gardebois, cordes de Ferros. Je repars bientôt, alors si tu veux quelque chose, c’est maintenant… mais tout est déjà promis, j’en ai peur.
+
+- « Que transportes-tu ? » → ballots
+- « Au revoir. » → **fin**
+
+### ballots
+
+> Du tissu. Beaucoup de tissu. Rien qui t’intéresse, crois-moi. Il pose la main sur un ballot, comme sans y penser.
+
+- « Bien sûr. » → **fin**
+
+### confrontation
+
+> Elvan referme vite un ballot. — Des graines ? Je vends du tissu, moi. Demande à n’importe qui.
+
+- _(si repère « preuve-sceau »)_ « Ce sceau à tête de cerf, entre les sacs du grenier, c’est le tien. » → aveu
+- **[Perception 4]** « Ton ballot brille. Le tissu ne brille pas. » → aveu
+- **🎲 Commandement 12** « Ouvre ce ballot. » → aveu, ✗ → refus
+- « Je reviendrai. » → **fin**
+
+### refus
+
+> — Sûrement pas. Tu n’es pas de la garde, que je sache. Elvan croise les bras sur son ballot.
+
+- « Je reviendrai. » → **fin**
+
+### aveu
+
+_Effet : retient « graines-elvan-avoue »._
+
+> Elvan s’assoit d’un coup. — Les Marches des Cendres paient trois fois le prix, à Ironheart. Trois fois ! Je me disais : quelques sacs, le Conseil ne verra rien… Il en reste six, là, dans le ballot.
+
+- « Je vais le dire au Conseil. » → denonce _(retient « graines-denonce », termine la quête « Les graines qui manquent », +30 XP)_
+- **[Diplomatie 3]** « Rapporte-les toi-même au grenier, et la Compagnie gardera son honneur. » → rend _(retient « graines-rendues », termine la quête « Les graines qui manquent », +40 XP)_
+- « Partageons : quarante Fers, et je n’ai rien vu. » → part _(retient « graines-silence », +40 Fers, termine la quête « Les graines qui manquent », +10 XP)_
+- « Laisse-moi réfléchir. » → **fin**
+
+### denonce
+
+> Elvan blêmit. — La Compagnie ne me le pardonnera pas… ni à toi. Un Garde Vert l’emmène le soir même, ballot compris. À Canopéa, on n’aime pas ceux qui vendent l’avenir.
+
+- « Les graines rentreront au grenier. » → **fin**
+
+### rend
+
+> Il hésite longtemps, puis charge le ballot sur son épaule. — Je les rapporte ce soir, par la nacelle de Véline. Je dirai que je les ai retrouvées. Merci… de m’avoir laissé ça.
+
+- « Que la sève coule, Elvan. » → **fin**
+
+### part
+
+> Elvan compte quarante Fers, sans te regarder. — Pas un mot, hein ? À Ironheart, on te dirait que c’est du commerce.
+
+- « Pas un mot. » → **fin**
+
+### apres-rendu
+
+> Elvan te salue d’un signe de tête. — Je n’ai jamais si bien dormi. La Compagnie m’a gardé, tu sais. Elle ne sait pas tout… mais moi, je sais.
+
+- « Au revoir, Elvan. » → **fin**
+
+### apres-silence
+
+> Elvan détourne les yeux. — On n’a rien à se dire, toi et moi. C’est mieux comme ça.
+
+- « … » → **fin**
+
 ## La foreuse de Brisefer
 
 _Objet_
@@ -709,6 +823,7 @@ Commence par : « vide » _(si repère « vol-grenier »)_, sinon « sacs »
 > Des sacs de graines-lumière, alignés comme des soldats. Chacun porte le sceau du Conseil : ce sont les semences des futurs arbres de Canopéa.
 
 - « Prendre un sac. » → pris _(donne 1 × « Graines-lumière », retient « vol-grenier »)_
+- _(si quête « Les graines qui manquent » en cours)_ _(sans repère « preuve-sceau »)_ **[Investigation 2]** « Examiner les rangées. » → indice _(retient « preuve-sceau », retient « indice-elvan », +10 XP)_
 - « Les laisser où ils sont. » → **fin**
 
 ### pris
@@ -720,6 +835,13 @@ Commence par : « vide » _(si repère « vol-grenier »)_, sinon « sacs »
 ### vide
 
 > Il manque un sac dans la rangée. Le trou se voit.
+
+- _(si quête « Les graines qui manquent » en cours)_ _(sans repère « preuve-sceau »)_ **[Investigation 2]** « Examiner les rangées. » → indice _(retient « preuve-sceau », retient « indice-elvan », +10 XP)_
+- « Partir. » → **fin**
+
+### indice
+
+> Entre les sacs, de la paille d’emballage de Ferros, et un éclat de cire brune : le sceau d’un marchand, une tête de cerf. Ceux de la Compagnie des Lisières en portent un. Celui-là, tu le reconnaîtras.
 
 - « Partir. » → **fin**
 
@@ -805,7 +927,7 @@ _Effet : retient « mensonge-huissier »._
 
 _Gardienne de Mémoire de Gardebois_
 
-Commence par : « nouvelles-canopee » _(si quête « L’audience » terminée)_, sinon « resolu » _(si quête « Le Dernier Train » terminée)_, sinon « en-cours » _(si quête « Le Dernier Train » en cours)_, sinon « accueil »
+Commence par : « carnet » _(si quête « Le carnet de chansons » en cours)_ _(si l’on porte « Carnet de chansons d’Ilyane »)_, sinon « nouvelles-canopee » _(si quête « L’audience » terminée)_, sinon « resolu » _(si quête « Le Dernier Train » terminée)_, sinon « en-cours » _(si quête « Le Dernier Train » en cours)_, sinon « accueil »
 
 ### resolu
 
@@ -887,6 +1009,18 @@ _Effet : lance la quête « Le Dernier Train »._
 > Mirelle m’a écrit par le courrier des Nacelliers : tu as parlé devant le Triumvirat Vert ! Et maintenant, Ironheart, et les Marches des Cendres… Prends garde à toi. Là-bas, on vend tout, même les souvenirs.
 
 - « Je reviendrai te raconter. » → **fin**
+
+### carnet
+
+> Qu’est-ce que… Mon carnet de chansons ! Mirelle l’a gardé tout ce temps ? Elle t’a dit laquelle chanter, je parie. La dix-sept.
+
+- « La dix-sept. Elle a dit que tu saurais pourquoi. » → dix-sept _(reprend 1 × « Carnet de chansons d’Ilyane », termine la quête « Le carnet de chansons », retient le Récit « Les deux apprenties », +25 XP)_
+
+### dix-sept
+
+> 🌙 Ilyane chante, et c’est vrai qu’elle chante faux. Mais c’est la chanson de deux apprenties qui se juraient de tout écouter et de tout écrire, et sa voix tremble au bon endroit. — Elle avait raison, Mirelle. Il fallait l’écrire.
+
+- « C’était beau. Même faux. » → **fin**
 
 ## Ingrid Brisefer
 
@@ -1147,13 +1281,21 @@ Commence par : « accueil »
 
 > Le Conseil des Racines Profondes se réunit beaucoup, ces temps-ci : on parle de la frontière, de Ferros, de ces forages… Et le petit Malo a encore traversé la passerelle du Bois en courant. Un jour, il s’envolera.
 
+- _(si quête « Les graines qui manquent » en cours)_ _(sans repère « indice-elvan »)_ « Il manque des graines au grenier. As-tu vu passer quelque chose ? » → graines _(retient « indice-elvan »)_
 - « Merci. » → accueil
 
 ### nouvelles-vol
 
 > Tu as entendu ? Quelqu’un a forcé le grenier des semences, dans les Hautes Ramures. Voler des graines à Canopéa… c’est comme voler l’avenir. Le Conseil est furieux.
 
+- _(si quête « Les graines qui manquent » en cours)_ _(sans repère « indice-elvan »)_ « Il manque des graines au grenier. As-tu vu passer quelque chose ? » → graines _(retient « indice-elvan »)_
 - « Merci. » → accueil
+
+### graines
+
+> Lisandre baisse la voix. — Un marchand de la Compagnie des Lisières a pris pension ici : Elvan Morelle. Il paie en Fers tout neufs, et repart chaque semaine avec des ballots bien lourds pour du tissu. Il est là, au fond.
+
+- « Merci, Lisandre. » → accueil
 
 ## Lyra Cœur-de-Sève
 
@@ -1303,7 +1445,7 @@ Commence par : « retour » _(si quête « Les lettres de Malo » en cours)_ _(s
 
 _Gardienne de Mémoire de Canopéa_
 
-Commence par : « chanson » _(si quête « Le chant d’Anselme » en cours)_ _(sans repère « melodie-carnet »)_, sinon « accueil »
+Commence par : « chanson » _(si quête « Le chant d’Anselme » en cours)_ _(sans repère « melodie-carnet »)_ _(si quête « Le carnet de chansons » pas commencée)_, sinon « chanson-copie » _(si quête « Le chant d’Anselme » en cours)_ _(sans repère « melodie-carnet »)_, sinon « accueil »
 
 ### accueil
 
@@ -1324,6 +1466,8 @@ Commence par : « chanson » _(si quête « Le chant d’Anselme » en cours)_ _
 
 > Nous avons fait notre apprentissage ensemble, il y a bien longtemps. Elle voulait tout entendre ; moi, tout écrire. Dis-lui que je garde encore son carnet de chansons… et qu’elle chante toujours aussi faux, j’en suis sûre.
 
+- _(si quête « Le carnet de chansons » pas commencée)_ « Je peux le lui rapporter, si tu veux. » → carnet-confie _(donne 1 × « Carnet de chansons d’Ilyane », lance la quête « Le carnet de chansons »)_
+- _(si quête « Le carnet de chansons » terminée)_ « Je le lui ai rendu. » → carnet-rendu
 - « Je le lui dirai. » → accueil
 
 ### ordre
@@ -1352,6 +1496,26 @@ Commence par : « chanson » _(si quête « Le chant d’Anselme » en cours)_ _
 _Effet : retient « melodie-carnet »._
 
 > Mirelle rit et sort un vieux carnet relié de ficelle. — Le carnet de chansons d’Ilyane. Elle chantait faux, mais elle écrivait juste. Tiens : la chanson des cerfs-lucioles, notée de sa main. Montre-la à Elouan, il saura la lire.
+
+- « Merci, Mirelle. » → accueil
+
+### carnet-confie
+
+> Tu ferais ça ? Tiens. Il a voyagé avec moi trente ans ; il est temps qu’il rentre. Dis-lui de chanter la chanson de la page dix-sept. Elle saura pourquoi.
+
+- « Je le lui porterai. » → **fin**
+
+### carnet-rendu
+
+> Elle a chanté la dix-sept ? Faux, j’imagine. Mirelle rit, puis s’essuie les yeux. — Merci. Certains souvenirs ont besoin de voyager pour rester vivants.
+
+- « Elle a chanté faux. » → accueil
+
+### chanson-copie
+
+_Effet : retient « melodie-carnet »._
+
+> La chanson des cerfs-lucioles ? Je l’ai recopiée avant de confier le carnet d’Ilyane : la voici. Montre-la à Elouan, il saura la lire.
 
 - « Merci, Mirelle. » → accueil
 
@@ -1705,7 +1869,7 @@ _Effet : retient « fouille-vue », retient « fouille-marches »._
 
 _Passeuse de la Grande Nacelle_
 
-Commence par : « vol » _(si repère « vol-grenier »)_ _(sans repère « veline-vol-dit »)_, sinon « descente-conseil » _(si quête « L’audience » en cours)_ _(si repère « audience-tenue »)_ _(sans repère « fouille-elucidee »)_, sinon « descente » _(si quête « Les lettres de Malo » en cours)_ _(sans repère « sacoche-retrouvee »)_, sinon « descente-anselme » _(si quête « Le chant d’Anselme » en cours)_ _(sans repère « branche-prise »)_, sinon « retour » _(si repère « canopee-accueillie »)_, sinon « accueil »
+Commence par : « vol » _(si repère « vol-grenier »)_ _(sans repère « veline-vol-dit »)_, sinon « soupcon » _(si repère « vol-grenier »)_ _(si repère « veline-vol-dit »)_ _(si quête « Les graines qui manquent » pas commencée)_, sinon « descente-conseil » _(si quête « L’audience » en cours)_ _(si repère « audience-tenue »)_ _(sans repère « fouille-elucidee »)_, sinon « descente » _(si quête « Les lettres de Malo » en cours)_ _(sans repère « sacoche-retrouvee »)_, sinon « descente-anselme » _(si quête « Le chant d’Anselme » en cours)_ _(sans repère « branche-prise »)_, sinon « caravane » _(si quête « La caravane de midi » en cours)_ _(si l’on porte « Sacoche de la Compagnie »)_, sinon « graines-merci » _(si quête « Les graines qui manquent » terminée)_ _(sans repère « veline-graines-dit »)_ _(sans repère « graines-silence »)_, sinon « graines-tant-pis » _(si quête « Les graines qui manquent » terminée)_ _(sans repère « veline-graines-dit »)_ _(si repère « graines-silence »)_, sinon « retour » _(si repère « canopee-accueillie »)_, sinon « accueil »
 
 ### accueil
 
@@ -1739,6 +1903,7 @@ Commence par : « vol » _(si repère « vol-grenier »)_ _(sans repère « veli
 
 > Encore toi ! La nacelle t’attend quand tu veux redescendre. Et si tu te perds, demande au petit Malo : il connaît chaque planche de la ville.
 
+- _(si quête « Les graines qui manquent » pas commencée)_ _(sans repère « vol-grenier »)_ « Quoi de neuf, à la nacelle ? » → graines-souci _(lance la quête « Les graines qui manquent »)_
 - « À plus tard, Véline. » → **fin**
 - « Rappelle-moi le fonctionnement de la nacelle. » → nacelle
 
@@ -1778,6 +1943,72 @@ _Effet : retient « descente-autorisee »._
 
 - « Descends-moi. » → **fin** _(mène à « Canopéa — Le Sol des Racines »)_
 - « Pas maintenant. » → **fin**
+
+### graines-souci
+
+> Rien de bon. Il manque une dizaine de sacs au grenier des semences, depuis une lune. Et je crois qu’ils sont passés par ma nacelle, sous les bâches d’un marchand. Je n’ai rien vu… ou pas assez. Trouve qui, s’il te plaît.
+
+- « Je vais chercher. » → **fin**
+- « Qui pourrait savoir ? » → graines-piste
+
+### graines-piste
+
+> Lisandre, au Nid : tous les marchands y dorment, et elle entend tout. Et le grenier lui-même, aux Hautes Ramures… s’il te laisse entrer.
+
+- « Merci, Véline. » → **fin**
+
+### soupcon
+
+> Je repense au grenier. Il y manque bien plus qu’un sac : une dizaine, depuis une lune. Et quelqu’un t’a vu là-haut, le jour où la porte a été forcée. Dis-moi que je me trompe.
+
+- _(si l’on porte « Graines-lumière »)_ « C’était moi. Voici le sac. » → pardon _(reprend 1 × « Graines-lumière », retient « graines-rapportees », lance la quête « Les graines qui manquent », +10 XP)_
+- « C’était moi, et je le regrette. » → aveu-vol _(retient « vol-avoue », lance la quête « Les graines qui manquent »)_
+- « Tu te trompes. » → doute _(lance la quête « Les graines qui manquent »)_
+
+### pardon
+
+> Véline reprend le sac, longuement. — À Canopéa, on dit : « racines ouvertes ». Tu viens de l’être. Mais les autres sacs ? Ce n’est pas toi, ça. Ils sont passés par ma nacelle, sous des bâches de marchand. Aide-moi à trouver qui.
+
+- « Je vais chercher. » → **fin**
+- « Qui pourrait savoir ? » → graines-piste
+
+### aveu-vol
+
+> Véline soupire. — Au moins, tu ne mens pas. Les autres sacs, ce n’est pas toi : ils sont passés par ma nacelle, sous des bâches de marchand. Aide-moi à les retrouver, et la ville oubliera peut-être.
+
+- « Je vais chercher. » → **fin**
+- « Qui pourrait savoir ? » → graines-piste
+
+### doute
+
+> Véline te regarde un long moment. — Bien. Alors aide-moi à trouver qui. Une dizaine de sacs sont passés par ma nacelle, sous des bâches de marchand. Ça vaudra mieux pour tout le monde.
+
+- « Je vais chercher. » → **fin**
+- « Qui pourrait savoir ? » → graines-piste
+
+### graines-merci
+
+> Les sacs sont revenus au grenier ! La ville en parle à chaque passerelle. Tu as rendu à Canopéa ses arbres de demain.
+
+- « Que la sève coule. » → **fin** _(retient « veline-graines-dit »)_
+
+### graines-tant-pis
+
+> Les sacs ne sont jamais revenus. Tant pis… Merci d’avoir cherché. On dit au Nid qu’un marchand a payé une tournée à tout le monde, l’autre soir. Drôle de hasard.
+
+- « Drôle de hasard. » → **fin** _(retient « veline-graines-dit »)_
+
+### caravane
+
+> La sacoche de la Compagnie ! Le chef de caravane tournait en rond depuis midi. Donne : je la lui remets, il attend au pied de ma nacelle.
+
+- « La voici. » → caravane-fin _(reprend 1 × « Sacoche de la Compagnie », termine la quête « La caravane de midi », retient « membre-compagnie-lisieres », +30 XP, +15 Fers)_
+
+### caravane-fin
+
+> Il te fait dire merci, et ceci : « Qui porte nos sacoches quand personne ne le fait est des nôtres. » Te voilà membre de la Compagnie des Lisières : chez Tobias, à Gardebois, tu auras les prix de membre.
+
+- « Merci, Véline. » → **fin**
 
 ## Un voyageur égaré
 

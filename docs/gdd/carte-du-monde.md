@@ -47,3 +47,9 @@ Code : `src/scenes/WorldMapScene.ts`, `src/rules/world.ts` ; données : `src/dat
 - Des **lieux découverts** en route (un hameau, une ruine) qui restent ensuite sur la carte.
 - Le **temps** qui passe (jour et nuit, date du voyage), des rencontres qui dépendent du niveau.
 - Les autres régions quand les villes suivantes seront construites (`docs/gdd/villes.md`).
+
+## Rencontres d'histoire (2026-11-02)
+
+Une rencontre peut porter `story` (`{ quest, flag }`) : jamais tirée au hasard, elle attend au premier contrôle d'un
+voyage tant que la quête est en cours et le repère absent, puis pose le repère. Première : les Loups de Rouille de
+« La caravane de midi » (`loups-caravane`).

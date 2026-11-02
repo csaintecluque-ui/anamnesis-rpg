@@ -9,7 +9,7 @@ import { findPath } from '../engine/pathfinding';
 import { bigBlock, findObject, isBigAnchor, isWalkable, parseTiledMap, tileKey, type GameMap, type MapObject } from '../engine/tiledMap';
 import { DEFAULT_AVATAR } from '../rules/character';
 import { ENCOUNTERS, findEnemy } from '../rules/combat';
-import type { Effect } from '../rules/dialogue';
+import { hasStoryEntry, type Effect } from '../rules/dialogue';
 import {
   ENCOUNTER_VICTORY_FLAG,
   WORLD_MAP_TARGET,
@@ -321,6 +321,13 @@ export class MapScene extends Phaser.Scene {
     const tile = screenToTile({ x: pointer.worldX - this.originX, y: pointer.worldY - this.originY });
     const passerBy = this.figurants.hit(pointer.worldX, pointer.worldY);
     if (passerBy) {
+      const dialogue = passerBy.def.dialogue && DIALOGUES[passerBy.def.dialogue];
+      if (dialogue && hasStoryEntry(dialogue, this.state)) {
+        this.figurants.hold(passerBy);
+        this.scene.pause();
+        this.scene.launch('Dialogue', { id: dialogue.id });
+        return;
+      }
       this.figurants.talk(passerBy);
       return;
     }

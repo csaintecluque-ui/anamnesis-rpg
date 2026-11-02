@@ -117,5 +117,21 @@
     "weightKg": 0.1,
     "price": 0,
     "quest": true
+  },
+  {
+    "id": "carnet-chansons",
+    "name": "Carnet de chansons d’Ilyane",
+    "description": "Relié de ficelle, couvert d’une écriture soignée. Trente ans de voyage avec Mirelle. Il rentre à Gardebois.",
+    "weightKg": 0.3,
+    "price": 0,
+    "quest": true
+  },
+  {
+    "id": "sacoche-compagnie",
+    "name": "Sacoche de la Compagnie",
+    "description": "Scellée d’un nœud de corde verte. Pour le chef de la caravane de midi, à Canopéa.",
+    "weightKg": 1,
+    "price": 0,
+    "quest": true
   }
 ]

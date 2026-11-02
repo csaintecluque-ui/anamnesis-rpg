@@ -191,6 +191,12 @@ export function startNode(dialogue: Dialogue, state: GameState): string {
   return entry.node;
 }
 
+/** True when a conditional entry holds, not just the last, unconditional one (a figurant who has something to say). */
+export function hasStoryEntry(dialogue: Dialogue, state: GameState): boolean {
+  const index = dialogue.entries.findIndex((e) => (e.requires ?? []).every((c) => conditionMet(state, c)));
+  return index >= 0 && index < dialogue.entries.length - 1;
+}
+
 /** Applies effects to the live state; returns player-facing notices (new quest, experience…). */
 export function applyEffects(state: GameState, effects: Effect[] = []): string[] {
   const notices: string[] = [];

@@ -9,6 +9,7 @@ import {
   knownPlaces,
   pickTerrain,
   rollEncounter,
+  storyRencontre,
   travelTimeLabel,
   zoneAt,
   type RencontreDef,
@@ -106,7 +107,8 @@ export class WorldMapScene extends Phaser.Scene {
     this.status.setText(`En route vers ${place.name} · jour ${day}`);
 
     for (let i = encounterChecks(before, this.trip.travelled); i > 0; i--) {
-      const met = rollEncounter(zoneAt(this.pos.x, this.pos.y), this.rng);
+      const zone = zoneAt(this.pos.x, this.pos.y);
+      const met = storyRencontre(this.state, zone) ?? rollEncounter(zone, this.rng);
       if (met) {
         this.meet(met);
         return;
@@ -297,6 +299,7 @@ export class WorldMapScene extends Phaser.Scene {
   private meet(r: RencontreDef): void {
     const destination = this.trip?.place ?? null;
     this.trip = null;
+    if (r.story) this.state.flags[r.story.flag] = true;
     this.status.setText('Rencontre !');
     const goOn = () => {
       if (destination) this.depart(destination);

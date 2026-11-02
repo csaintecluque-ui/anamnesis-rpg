@@ -6,6 +6,7 @@ import { createNewGame } from '../state/gameState';
 import { buyPrice, findItem } from './inventory';
 import {
   LEVELS,
+  findFaction,
   REPUTATION,
   combinedDiscount,
   levelOf,
@@ -22,7 +23,7 @@ describe('reputation', () => {
   it('only counts known towns, quests and story flags', () => {
     const quests = new Set(QUESTS.map((q) => q.id));
     for (const [place, sources] of Object.entries(REPUTATION)) {
-      expect(findPlace(place), place).toBeDefined();
+      expect(findPlace(place) ?? findFaction(place), place).toBeDefined();
       for (const s of sources) {
         expect(!!s.quest !== !!s.flag, `${place}: a quest or a flag`).toBe(true);
         if (s.quest) expect(quests.has(s.quest), s.quest).toBe(true);

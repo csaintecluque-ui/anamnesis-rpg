@@ -32,7 +32,7 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `personnages/pnj.md` : héros, Ilyane, Tobias, Ingrid, ennemis (validés).
 - `chronologie.md` : dates de référence.
 - `ton.md` : ton, public 8–15 ans, sonorités des noms par nation.
-- `zones-floues.md` : 25 contradictions du canon, décisions de Cyril.
+- `zones-floues.md` : 28 contradictions du canon, décisions de Cyril.
 - `propositions.md` : propositions sans autre fichier (quête, attribut Mémoire), propositions rejetées.
 
 ## `gdd/` : conception du jeu (systèmes, chiffres, équilibrage)

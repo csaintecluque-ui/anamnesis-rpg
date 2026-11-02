@@ -106,6 +106,15 @@ Ces décisions valent **pour le jeu**. Le dossier `docs/Lore/` reste inchangé.
 25. **Détruire un Écho** : la quête du Studio propose le choix « détruire », mais la Loi de la Mémoire Vivante dit
     qu'un Écho ne peut être que dissipé, et que tenter de le détruire le multiplie et le rend violent. **Décision de
     Cyril (2026-11-02)** : le choix existe, et il a exactement cette conséquence (deux Échos furieux, combat).
+26. **Couleurs des cristaux** (lu le 2026-11-02) : trois versions (« Règles fondamentales » : bleu = eau ; JDR : bleu =
+    air, ambre = eau, blanc = glace, pourpre = lumière, rouge = feu ; « Géographie » : Ferros rouges et noirs,
+    Solarix rouges et orangés, Glacialis bleus et blancs). « Forge/Ferros » et « Feu/Solarix » n'existent pas tels
+    quels. Le vert = vie fait l'accord.
+27. **Ferros, culte et travail** : Forges-Temples et fêtes (page religion) contre « pas de temple, pas d'office, pas de
+    jour chômé » et douze heures par jour (roman III.1) ; la fiche nation dit six jours de huit heures.
+28. **Saisons et calendrier** : saisons « imprévisibles » (Règles) contre des fêtes calées sur solstices et équinoxes
+    (Verdantis, climat équatorial) ; deux listes de fêtes de Verdantis. Crystallis : ville vivante (fiche) ou ruine
+    hantée (Règles). Le JDR fait de Solarix et de la Communion deux nations (le Canon §3 : continent et nation).
 
 ## Réponses de Cyril (2026-11-02, « Oui pour tout »)
 

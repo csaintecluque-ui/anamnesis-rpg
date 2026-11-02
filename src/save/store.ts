@@ -33,6 +33,16 @@ export class SaveStore {
     this.storage = storage;
   }
 
+  /** The most recent readable save of all slots (where the hero resumes after dying), or null. */
+  latest(): SaveFile | null {
+    let best: SaveFile | null = null;
+    for (const slot of SLOTS) {
+      const content = this.read(slot.id);
+      if (content.kind === 'save' && (!best || content.save.savedAt > best.savedAt)) best = content.save;
+    }
+    return best;
+  }
+
   read(slot: SlotId): SlotContent {
     const text = this.storage.getItem(SAVE_KEY_PREFIX + slot);
     if (text === null) return { kind: 'empty' };

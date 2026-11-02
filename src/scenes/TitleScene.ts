@@ -70,6 +70,14 @@ export class TitleScene extends Phaser.Scene {
     });
 
     this.addVersion();
+    // Dark fantasy for adults (décision de Cyril, 2026-11-02 ; docs/univers/ton.md).
+    this.add
+      .text(cx, GAME_HEIGHT - 26, 'Jeu pour adultes (18 ans et plus) : violence, mort et thèmes sombres.', {
+        fontFamily: FONT_SERIF,
+        fontSize: HAS_MOUSE ? '16px' : '20px',
+        color: CSS.muted,
+      })
+      .setOrigin(0.5);
 
     // Discreet signature (CLAUDE.md §6): seal + "Anamnesis · CSC".
     this.add.image(GAME_WIDTH - 70, GAME_HEIGHT - 70, 'seal').setDisplaySize(72, 72).setAlpha(0.85);

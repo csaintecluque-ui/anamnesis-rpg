@@ -3,44 +3,104 @@
     "id": "caisse-egaree",
     "center": "caisse-egaree",
     "enemies": [
-      { "id": "rodeur-epine", "object": "rodeur-caisse-1" },
-      { "id": "rodeur-epine", "object": "rodeur-caisse-2" }
+      {
+        "id": "rodeur-epine",
+        "object": "rodeur-caisse-1"
+      },
+      {
+        "id": "rodeur-epine",
+        "object": "rodeur-caisse-2"
+      }
     ],
     "victoryFlag": "rodeurs-caisse-vaincus",
-    "victoryEffects": [{ "giveXp": 20 }]
+    "victoryEffects": [
+      {
+        "giveXp": 20
+      }
+    ]
   },
   {
     "id": "ours-sacoche",
     "center": "sacoche-lettres",
-    "enemies": [{ "id": "ours-mousse", "object": "ours-sol" }],
+    "enemies": [
+      {
+        "id": "ours-mousse",
+        "object": "ours-sol"
+      }
+    ],
     "victoryFlag": "ours-sol-vaincu",
-    "victoryEffects": [{ "giveXp": 15 }]
+    "victoryEffects": [
+      {
+        "giveXp": 15
+      }
+    ]
   },
   {
     "id": "fouilleur-sol",
     "center": "garrik",
-    "enemies": [{ "id": "fouilleur", "object": "garrik" }],
+    "enemies": [
+      {
+        "id": "fouilleur",
+        "object": "garrik"
+      }
+    ],
     "victoryFlag": "garrik-vaincu",
-    "victoryEffects": [{ "setFlag": "fouille-elucidee" }, { "setFlag": "fouille-marches" }, { "setFlag": "cle-mentionnee" }, { "giveXp": 20 }]
+    "victoryEffects": [
+      {
+        "setFlag": "fouille-elucidee"
+      },
+      {
+        "setFlag": "fouille-marches"
+      },
+      {
+        "setFlag": "cle-mentionnee"
+      },
+      {
+        "giveXp": 20
+      }
+    ]
   },
   {
     "id": "aiguillage-cendres",
     "center": "aiguillage",
     "enemies": [
-      { "id": "pilleur-cendres", "object": "pilleur-1" },
-      { "id": "pilleur-cendres", "object": "pilleur-2" }
+      {
+        "id": "pilleur-cendres",
+        "object": "pilleur-1"
+      },
+      {
+        "id": "arbaletrier-cendres",
+        "object": "pilleur-2"
+      }
     ],
     "victoryFlag": "pilleurs-vaincus",
-    "victoryEffects": [{ "giveXp": 20 }]
+    "victoryEffects": [
+      {
+        "giveXp": 20
+      }
+    ]
   },
   {
     "id": "echos-furieux",
     "center": "echo-promesse",
     "enemies": [
-      { "id": "echo-furieux", "object": "echo-furieux-1" },
-      { "id": "echo-furieux", "object": "echo-furieux-2" }
+      {
+        "id": "echo-furieux",
+        "object": "echo-furieux-1"
+      },
+      {
+        "id": "echo-furieux",
+        "object": "echo-furieux-2"
+      }
     ],
     "victoryFlag": "echos-dissipes",
-    "victoryEffects": [{ "completeQuest": "echos-forge" }, { "giveXp": 20 }]
+    "victoryEffects": [
+      {
+        "completeQuest": "echos-forge"
+      },
+      {
+        "giveXp": 20
+      }
+    ]
   }
 ]

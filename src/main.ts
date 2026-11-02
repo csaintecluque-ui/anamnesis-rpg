@@ -2,6 +2,7 @@ import Phaser from 'phaser';
 import { BootScene } from './scenes/BootScene';
 import { CombatScene } from './scenes/CombatScene';
 import { CreationScene } from './scenes/CreationScene';
+import { DeathScene } from './scenes/DeathScene';
 import { DialogueScene } from './scenes/DialogueScene';
 import { HudScene } from './scenes/HudScene';
 import { JournalScene } from './scenes/JournalScene';
@@ -40,6 +41,7 @@ const game = new Phaser.Game({
     TitleScene,
     CreationScene,
     MapScene,
+    DeathScene,
     WorldMapScene,
     HudScene,
     DialogueScene,

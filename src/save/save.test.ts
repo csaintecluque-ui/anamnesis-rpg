@@ -56,6 +56,8 @@ const state: GameState = {
   quests: { 'dernier-train': 'active' },
   encounter: null,
   time: { day: 3, phase: 2 },
+  bestiaire: { 'rodeur-epine': 2 },
+  groupe: [{ id: 'liane', hp: 20 }],
 };
 
 describe('save codec', () => {
@@ -120,6 +122,8 @@ describe('save codec', () => {
         quests: {},
         encounter: null,
         time: { day: 1, phase: 0 },
+        bestiaire: {},
+        groupe: [],
       });
     }
   });

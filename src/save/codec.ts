@@ -2,8 +2,9 @@ import { characterError, DEFAULT_AVATAR, RESONANCE_BASE, STARTING_FERS, STARTING
 import { findPlace, findRencontre } from '../rules/world';
 import { findLocation, type GameState } from '../state/gameState';
 import { START_TIME, isGameTime } from '../rules/time';
+import { findCompanion } from '../rules/companions';
 
-export const SAVE_VERSION = 11;
+export const SAVE_VERSION = 12;
 export const SAVE_MAX_CHARS = 1_000_000;
 const GAME_MARKER = 'anamnesis';
 
@@ -90,6 +91,8 @@ const MIGRATIONS: Record<number, (save: Record<string, unknown>) => Record<strin
     };
     return { ...save, state: { ...save.state, character } };
   },
+  // v11 predates the bestiary and the companions (docs/gdd/jalon-3.md): nothing met, nobody along.
+  11: (save) => ({ ...save, state: isRecord(save.state) ? { ...save.state, bestiaire: {}, groupe: [] } : save.state }),
 };
 
 export function createSave(state: GameState, now: Date): SaveFile {
@@ -144,6 +147,15 @@ function validateState(state: unknown): string | null {
   }
   if (state.encounter !== null && !isEncounter(state.encounter)) return 'rencontre invalide.';
   if (!isGameTime(state.time)) return 'heure du jour invalide.';
+  if (!isRecord(state.bestiaire) || Object.values(state.bestiaire).some((v) => !Number.isInteger(v) || (v as number) < 0)) {
+    return 'bestiaire invalide.';
+  }
+  if (
+    !Array.isArray(state.groupe) ||
+    state.groupe.some((m) => !isRecord(m) || typeof m.id !== 'string' || !findCompanion(m.id) || !Number.isInteger(m.hp) || (m.hp as number) < 1)
+  ) {
+    return 'compagnons invalides.';
+  }
   if (state.character !== null) return characterError(state.character);
   return null;
 }

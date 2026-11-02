@@ -1253,11 +1253,11 @@
    "name": "tiles",
    "image": "../../../public/tiles/tiles.png",
    "imagewidth": 512,
-   "imageheight": 1920,
+   "imageheight": 2016,
    "tilewidth": 64,
    "tileheight": 96,
    "columns": 8,
-   "tilecount": 160,
+   "tilecount": 165,
    "margin": 0,
    "spacing": 0,
    "tiles": [
@@ -5243,6 +5243,131 @@
        "name": "nom",
        "type": "string",
        "value": "tailleuse"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 160,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "griffe-sylve"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 161,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "guepe-rouille"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 162,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "gecko-soudeur"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 163,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "arbaletrier-cendres"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 164,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "rebouteuse-cendres"
       },
       {
        "name": "bloquant",

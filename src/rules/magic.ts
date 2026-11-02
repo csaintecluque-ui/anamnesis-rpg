@@ -119,6 +119,8 @@ export function powerAttack(c: Character, power: PowerDef): AttackProfile {
     damage: power.damage ?? { count: 1, sides: 6 },
     damageBonus: Math.max(0, mod),
     apCost: power.apCost ?? ATTACK_AP_COST,
+    // The fire clings: the target burns for two turns (docs/gdd/combat.md, « Effets »).
+    onHit: power.id === 'flammes' ? { effet: 'brulure' } : undefined,
   };
 }
 

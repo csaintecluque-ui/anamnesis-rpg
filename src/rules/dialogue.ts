@@ -5,6 +5,7 @@ import { resolveCheck, rollD20, successChance, type Rng } from './checks';
 import { characterStats } from './character';
 import { ENCOUNTERS } from './combat';
 import { addItem, findItem, ownedCount, removeItem } from './inventory';
+import { restParty } from './companions';
 import { castCost, castOutsideCombat, findPower, hasPower, POWERS, restoreResonance, teachSkillRank, wornCrystal, type PowerId } from './magic';
 import { RECITS, findRecit, knowsRecit, learnRecit } from './recits';
 import { REPUTATION, reputationNotices, reputationScore, reputationTag } from './reputation';
@@ -287,6 +288,7 @@ export function applyEffects(state: GameState, effects: Effect[] = []): string[]
         state.character.hp = characterStats(state.character).maxHp;
         restoreResonance(state.character);
       }
+      restParty(state);
       notices.push(`Tes forces sont revenues. ${ITS_MOMENT[momentOf(state.time)]} Nous sommes ${formatDate(state.time)}.`);
     } else if ('lancer' in effect) {
       if (state.character) notices.push(...(castOutsideCombat(state.character, effect.lancer) ?? []));

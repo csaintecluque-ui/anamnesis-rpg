@@ -1032,4 +1032,41 @@ TILES.push(
   npcTile('vanel', { body: '#3a6a3a', hair: '#c8c0a8', skin: '#c49a74', accent: '#9fe0a0', extra: '<path d="M23 46 Q32 32 41 46" fill="#3a6a3a" stroke="#1B1512" stroke-width="1"/><path d="M27 56 L32 62 L37 56" stroke="#e2c27a" stroke-width="1.2" fill="none"/><path d="M32 62 L35 66 L32 71 L29 66 Z" fill="#5fe08a" stroke="#1B1512" stroke-width="0.8"/>' }),
   npcTile('tiven', { body: '#6b5a3a', hair: '#8a5a30', skin: '#e0c4a8', accent: '#5fae5a', extra: '<path d="M18 50 L46 62" stroke="#a88456" stroke-width="2.5"/><circle cx="16" cy="70" r="3" fill="#e07a6a"/><circle cx="48" cy="70" r="3" fill="#e07a6a"/>' }),
   npcTile('tailleuse', { body: '#3a302c', hair: '#1a1614', skin: '#b08a6a', accent: '#c03a2a', extra: '<path d="M40 60 L44 54 L48 60 L44 68 Z" fill="#c03a2a" stroke="#1B1512" stroke-width="0.8"/><path d="M42 58 L46 62" stroke="#1B1512" stroke-width="1"/>' }),
+  // Jalon 3 (docs/gdd/jalon-3.md) : de nouveaux ennemis du canon (« Faune & flore par continent ») et des pilleurs.
+  {
+    name: 'griffe-sylve',
+    sprite: true,
+    svg:
+      shadow(16, 5) +
+      `<path d="M10 80 Q14 66 26 64 Q38 60 46 64 L52 56 L56 64 L50 70 L50 80 L44 80 L42 72 L22 72 L18 80 Z" fill="#3e6a34" stroke="${INK}" stroke-width="1.5"/>` +
+      '<path d="M18 68 Q22 62 26 68 M30 64 Q34 58 38 64" stroke="#7fae5a" stroke-width="2" fill="none"/>' +
+      '<path d="M10 74 Q4 70 6 62" stroke="#3e6a34" stroke-width="3" fill="none"/>' +
+      '<circle cx="51" cy="61" r="1.4" fill="#f0e070"/>',
+  },
+  {
+    name: 'guepe-rouille',
+    sprite: true,
+    svg:
+      shadow(14, 4) +
+      [[24, 56], [38, 50], [32, 66]]
+        .map(
+          ([x, y]) =>
+            `<ellipse cx="${x}" cy="${y}" rx="7" ry="4" fill="#b8642a" stroke="${INK}" stroke-width="1"/>` +
+            `<path d="M${x - 3} ${y - 4} L${x - 6} ${y - 10} M${x + 2} ${y - 4} L${x + 5} ${y - 10}" stroke="#d8e0f0" stroke-width="2" opacity="0.8"/>` +
+            `<path d="M${x - 2} ${y - 3} L${x - 2} ${y + 3} M${x + 2} ${y - 3} L${x + 2} ${y + 3}" stroke="#3a2010" stroke-width="1.5"/>`,
+        )
+        .join(''),
+  },
+  {
+    name: 'gecko-soudeur',
+    sprite: true,
+    svg:
+      shadow(16, 4) +
+      `<path d="M10 80 Q20 70 32 72 Q44 70 52 64 L56 68 L50 74 Q42 80 32 80 Z" fill="#6a6a74" stroke="${INK}" stroke-width="1.5"/>` +
+      '<path d="M18 80 L14 84 M28 80 L26 85 M38 79 L40 84" stroke="#4a4a54" stroke-width="2"/>' +
+      '<circle cx="52" cy="66" r="1.5" fill="#ffd060"/>' +
+      '<path d="M57 64 L62 60 M57 66 L63 66 M57 68 L61 72" stroke="#ffb040" stroke-width="1.5"/>',
+  },
+  npcTile('arbaletrier-cendres', { body: '#4a4440', hair: '#2a2018', accent: '#ff7a40', extra: '<path d="M40 52 L54 44 M44 44 L52 54" stroke="#6b4a32" stroke-width="2.5"/>' }),
+  npcTile('rebouteuse-cendres', { body: '#5a4a44', hair: '#7a6a5a', accent: '#9fe0a0', extra: '<rect x="38" y="60" width="9" height="8" fill="#a88456" stroke="#1B1512" stroke-width="0.8"/>' }),
 );

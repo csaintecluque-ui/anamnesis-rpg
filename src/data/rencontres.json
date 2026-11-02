@@ -1,80 +1,257 @@
 [
   {
     "id": "rodeurs",
-    "zones": ["foret", "lisiere"],
+    "zones": [
+      "foret",
+      "lisiere"
+    ],
     "weight": 3,
-    "terrains": ["rencontre-clairiere", "rencontre-route"],
+    "terrains": [
+      "rencontre-clairiere",
+      "rencontre-route"
+    ],
     "hostile": true,
     "intro": "Des feuillages bougent contre le vent : deux Rôdeurs-Épine guettent le chemin.",
-    "enemies": ["rodeur-epine", "rodeur-epine"],
-    "avoid": { "skill": "survival", "difficulty": 11 }
+    "enemies": [
+      "rodeur-epine",
+      "rodeur-epine"
+    ],
+    "avoid": {
+      "skill": "survival",
+      "difficulty": 11
+    }
   },
   {
     "id": "ours-mousse",
-    "zones": ["foret"],
+    "zones": [
+      "foret"
+    ],
     "weight": 2,
-    "terrains": ["rencontre-clairiere"],
+    "terrains": [
+      "rencontre-clairiere"
+    ],
     "hostile": true,
     "intro": "Un Ours-Mousse fouille une souche en grognant. Il n’aime pas qu’on le dérange.",
-    "enemies": ["ours-mousse"],
-    "avoid": { "skill": "survival", "difficulty": 10 }
+    "enemies": [
+      "ours-mousse"
+    ],
+    "avoid": {
+      "skill": "survival",
+      "difficulty": 10
+    }
   },
   {
     "id": "loups-rouille",
-    "zones": ["lisiere"],
+    "zones": [
+      "lisiere"
+    ],
     "weight": 3,
-    "terrains": ["rencontre-route", "rencontre-ruines"],
+    "terrains": [
+      "rencontre-route",
+      "rencontre-ruines"
+    ],
     "hostile": true,
     "intro": "Deux Loups de Rouille rôdent près de la frontière, le pelage couleur de vieux fer.",
-    "enemies": ["loup-rouille", "loup-rouille"],
-    "avoid": { "skill": "survival", "difficulty": 13 }
+    "enemies": [
+      "loup-rouille",
+      "loup-rouille"
+    ],
+    "avoid": {
+      "skill": "survival",
+      "difficulty": 13
+    }
   },
   {
     "id": "colporteuse",
-    "zones": ["foret", "lisiere"],
+    "zones": [
+      "foret",
+      "lisiere"
+    ],
     "weight": 2,
-    "terrains": ["rencontre-route"],
+    "terrains": [
+      "rencontre-route"
+    ],
     "hostile": false,
     "intro": "Une carriole bariolée est arrêtée au bord du chemin. Sa propriétaire te fait signe.",
-    "npcs": [{ "id": "colporteuse", "spawn": "pnj-1" }],
-    "decor": [{ "tile": "carriole", "spawn": "decor-1" }]
+    "npcs": [
+      {
+        "id": "colporteuse",
+        "spawn": "pnj-1"
+      }
+    ],
+    "decor": [
+      {
+        "tile": "carriole",
+        "spawn": "decor-1"
+      }
+    ]
   },
   {
     "id": "voyageur",
-    "zones": ["foret", "lisiere"],
+    "zones": [
+      "foret",
+      "lisiere"
+    ],
     "weight": 2,
-    "terrains": ["rencontre-route", "rencontre-clairiere"],
+    "terrains": [
+      "rencontre-route",
+      "rencontre-clairiere"
+    ],
     "hostile": false,
     "intro": "Un voyageur est assis sur une pierre, une carte entre les mains et l’air perdu.",
-    "npcs": [{ "id": "voyageur-egare", "spawn": "pnj-1" }]
+    "npcs": [
+      {
+        "id": "voyageur-egare",
+        "spawn": "pnj-1"
+      }
+    ]
   },
   {
     "id": "cerfs-lucioles",
-    "zones": ["foret"],
+    "zones": [
+      "foret"
+    ],
     "weight": 2,
-    "terrains": ["rencontre-clairiere"],
+    "terrains": [
+      "rencontre-clairiere"
+    ],
     "hostile": false,
     "intro": "Au crépuscule, des lumières dansent entre les arbres : des cerfs-lucioles.",
-    "objects": [{ "id": "cerfs-lucioles", "type": "objet", "tile": "cerf-luciole", "spawn": "objet-1" }]
+    "objects": [
+      {
+        "id": "cerfs-lucioles",
+        "type": "objet",
+        "tile": "cerf-luciole",
+        "spawn": "objet-1"
+      }
+    ]
   },
   {
     "id": "cache",
-    "zones": ["foret", "lisiere"],
+    "zones": [
+      "foret",
+      "lisiere"
+    ],
     "weight": 1,
-    "terrains": ["rencontre-ruines"],
+    "terrains": [
+      "rencontre-ruines"
+    ],
     "hostile": false,
     "intro": "Des ruines de l’Ancien Monde affleurent sous la mousse. Quelque chose brille sous une dalle.",
-    "objects": [{ "id": "cache-ruines", "type": "coffre", "tile": "caisses", "spawn": "objet-1" }]
+    "objects": [
+      {
+        "id": "cache-ruines",
+        "type": "coffre",
+        "tile": "caisses",
+        "spawn": "objet-1"
+      }
+    ]
   },
   {
     "id": "loups-caravane",
-    "zones": ["lisiere", "foret"],
+    "zones": [
+      "lisiere",
+      "foret"
+    ],
     "weight": 0,
-    "terrains": ["rencontre-route"],
+    "terrains": [
+      "rencontre-route"
+    ],
     "hostile": true,
     "intro": "Deux Loups de Rouille surgissent sur la route, le nez au vent : la sacoche de la Compagnie sent la viande séchée du chef de caravane.",
-    "enemies": ["loup-rouille", "loup-rouille"],
-    "avoid": { "skill": "survival", "difficulty": 12 },
-    "story": { "quest": "caravane-midi", "flag": "loups-caravane" }
+    "enemies": [
+      "loup-rouille",
+      "loup-rouille"
+    ],
+    "avoid": {
+      "skill": "survival",
+      "difficulty": 12
+    },
+    "story": {
+      "quest": "caravane-midi",
+      "flag": "loups-caravane"
+    }
+  },
+  {
+    "id": "griffe-sylve",
+    "zones": [
+      "foret"
+    ],
+    "weight": 2,
+    "terrains": [
+      "rencontre-clairiere"
+    ],
+    "hostile": true,
+    "intro": "Les fougères frémissent, puis s’immobilisent. Deux yeux verts te fixent depuis les feuilles : une Griffe-Sylve.",
+    "enemies": [
+      "griffe-sylve"
+    ],
+    "avoid": {
+      "skill": "survival",
+      "difficulty": 13
+    }
+  },
+  {
+    "id": "guepes-rouille",
+    "zones": [
+      "lisiere"
+    ],
+    "weight": 2,
+    "terrains": [
+      "rencontre-route",
+      "rencontre-ruines"
+    ],
+    "hostile": true,
+    "intro": "Un bourdonnement de métal monte d’un wagon renversé : un nid de Guêpes-Rouille, et elles t’ont senti.",
+    "enemies": [
+      "guepe-rouille",
+      "guepe-rouille",
+      "guepe-rouille"
+    ],
+    "avoid": {
+      "skill": "stealth",
+      "difficulty": 12
+    }
+  },
+  {
+    "id": "gecko-soudeur",
+    "zones": [
+      "lisiere"
+    ],
+    "weight": 2,
+    "terrains": [
+      "rencontre-ruines"
+    ],
+    "hostile": true,
+    "intro": "Des étincelles jaillissent entre les dalles : deux Geckos-Soudeurs défendent leur ruine.",
+    "enemies": [
+      "gecko-soudeur",
+      "gecko-soudeur"
+    ],
+    "avoid": {
+      "skill": "survival",
+      "difficulty": 11
+    }
+  },
+  {
+    "id": "pilleurs-route",
+    "zones": [
+      "lisiere"
+    ],
+    "weight": 2,
+    "terrains": [
+      "rencontre-route"
+    ],
+    "hostile": true,
+    "intro": "Trois déserteurs des Marches des Cendres barrent la route : « Péage. Tout ce que tu portes. »",
+    "enemies": [
+      "pilleur-cendres",
+      "arbaletrier-cendres",
+      "rebouteuse-cendres"
+    ],
+    "avoid": {
+      "skill": "subterfuge",
+      "difficulty": 13
+    }
   }
 ]

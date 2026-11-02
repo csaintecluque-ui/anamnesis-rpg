@@ -22,6 +22,37 @@ export interface WeaponDef {
   damage: Dice;
 }
 
+/** An effect a blow can leave (docs/gdd/combat.md, « Effets ») : the lingering ones hurt at the start of each turn. */
+export type HitEffect = 'brulure' | 'saignement' | 'ralenti' | 'etourdi';
+export type Lingering = 'brulure' | 'saignement';
+export interface OnHit {
+  effet: HitEffect;
+  /** 0 to 1; always when absent. */
+  chance?: number;
+}
+export const LINGERING: Record<Lingering, { turns: number; damage: Dice; label: string }> = {
+  brulure: { turns: 2, damage: { count: 1, sides: 4 }, label: 'brûlé·e' },
+  saignement: { turns: 3, damage: { count: 1, sides: 2 }, label: 'en sang' },
+};
+
+/** A boss turns harder once hurt enough (docs/gdd/combat.md, « Boss à phases »). */
+export interface PhaseDef {
+  /** Share of the maximum PV at or under which the phase starts. */
+  seuil: number;
+  texte: string;
+  attackBonus?: number;
+  actionPoints?: number;
+  defense?: number;
+}
+
+/** What a beaten enemy may leave (docs/gdd/combat.md, « Butin »). */
+export interface LootDef {
+  item?: string;
+  /** Fers, between the two numbers. */
+  fers?: [number, number];
+  chance: number;
+}
+
 export interface EnemyDef {
   id: string;
   name: string;
@@ -35,6 +66,16 @@ export interface EnemyDef {
   defeatText: string;
   /** Tile drawn for this enemy (name in scripts/tiles-def.mjs). */
   tile: string;
+  /** In tiles: 1 (default) strikes up close, more shoots from afar. */
+  range?: number;
+  onHit?: OnHit;
+  /** A healer tends its wounded allies instead of striking, when one needs it. */
+  soin?: { amount: Dice; range: number };
+  phases?: PhaseDef[];
+  butin?: LootDef[];
+  /** The bestiary page (docs/gdd/combat.md, « Bestiaire ») and where it comes from in the canon. */
+  description?: string;
+  source?: string;
 }
 
 /**
@@ -64,7 +105,7 @@ export function findEnemy(id: string): EnemyDef | undefined {
 /** docs/gdd/combat.md: aim at a zone for a penalty, with an effect that lasts the target's next turn. */
 export type Zone = 'corps' | 'tete' | 'bras' | 'jambes';
 
-export const ZONES: { id: Zone; label: string; toHitPenalty: number; effect: keyof Combatant['status'] | null }[] = [
+export const ZONES: { id: Zone; label: string; toHitPenalty: number; effect: 'stunned' | 'disarmed' | 'slowed' | null }[] = [
   { id: 'corps', label: 'Corps', toHitPenalty: 0, effect: null },
   { id: 'tete', label: 'Tête', toHitPenalty: -4, effect: 'stunned' },
   { id: 'bras', label: 'Bras', toHitPenalty: -2, effect: 'disarmed' },
@@ -88,6 +129,8 @@ export interface AttackProfile {
   damageBonus: number;
   /** 3 PA, fixed (docs/gdd/combat.md). */
   apCost: number;
+  /** An effect the blow may leave on the target. */
+  onHit?: OnHit;
 }
 
 export const ATTACK_AP_COST = 3;
@@ -105,12 +148,19 @@ export interface Combatant {
   initiative: number;
   attacks: AttackProfile[];
   tile: Tile;
-  status: { stunned: boolean; disarmed: boolean; slowed: boolean };
+  /** Zone effects last one turn; burning and bleeding count the turns they still hurt. */
+  status: { stunned: boolean; disarmed: boolean; slowed: boolean; burning: number; bleeding: number };
   defeated: boolean;
   defeatText: string;
+  /** For an enemy: its id in enemies.json (bestiary, loot). For a companion: its id in companions.json. */
+  kind?: string;
+  heal?: { amount: Dice; range: number };
+  phases?: PhaseDef[];
+  /** Phases already begun. */
+  phase: number;
 }
 
-const emptyStatus = () => ({ stunned: false, disarmed: false, slowed: false });
+const emptyStatus = () => ({ stunned: false, disarmed: false, slowed: false, burning: 0, bleeding: 0 });
 
 /** Fallback when no weapon is held (docs/gdd/combat.md). */
 export const UNARMED = 'mains-nues';
@@ -146,11 +196,12 @@ export function enemyAttack(enemy: EnemyDef): AttackProfile {
   return {
     weaponId: enemy.id,
     label: enemy.name,
-    range: 1,
+    range: enemy.range ?? 1,
     toHitBonus: enemy.attackBonus,
     damage: enemy.damage,
     damageBonus: 0,
     apCost: ATTACK_AP_COST,
+    onHit: enemy.onHit,
   };
 }
 
@@ -170,7 +221,8 @@ export function makeHeroCombatant(character: Character, tile: Tile): Combatant {
     tile,
     status: emptyStatus(),
     defeated: false,
-    defeatText: `${character.name} est hors de combat.`,
+    defeatText: `${character.name} tombe.`,
+    phase: 0,
   };
 }
 
@@ -190,6 +242,10 @@ export function makeEnemyCombatant(enemy: EnemyDef, id: string, tile: Tile): Com
     status: emptyStatus(),
     defeated: false,
     defeatText: enemy.defeatText,
+    kind: enemy.id,
+    heal: enemy.soin,
+    phases: enemy.phases,
+    phase: 0,
   };
 }
 
@@ -271,13 +327,17 @@ export function canAttack(attacker: Combatant, attack: AttackProfile, target: Co
   );
 }
 
+export type ZoneStatus = 'stunned' | 'disarmed' | 'slowed';
+
 export interface AttackResult {
   hit: boolean;
   critical: boolean;
   fumble: boolean;
   damage: number;
-  zoneEffect: keyof Combatant['status'] | null;
+  zoneEffect: ZoneStatus | null;
   defeated: boolean;
+  /** The effect the blow left (burning, bleeding…), if any. */
+  inflicted: HitEffect | null;
 }
 
 /** Chance (0 to 1) that resolveAttack hits: shown before the player commits (docs/gdd/combat.md). */
@@ -305,7 +365,7 @@ export function resolveAttack(
   const total = roll + attack.toHitBonus + zoneDef.toHitPenalty;
   const hit = !fumble && (critical || total >= target.defense + coverBonus);
 
-  if (!hit) return { hit: false, critical: false, fumble, damage: 0, zoneEffect: null, defeated: false };
+  if (!hit) return { hit: false, critical: false, fumble, damage: 0, zoneEffect: null, defeated: false, inflicted: null };
 
   const dice = rollDice(attack.damage, rng) + (critical ? rollDice(attack.damage, rng) : 0);
   const damage = Math.max(0, dice + attack.damageBonus);
@@ -314,8 +374,81 @@ export function resolveAttack(
 
   const zoneEffect = zoneDef.effect;
   if (zoneEffect && !target.defeated) target.status[zoneEffect] = true;
+  const inflicted = !target.defeated && attack.onHit && rng() < (attack.onHit.chance ?? 1) ? attack.onHit.effet : null;
+  if (inflicted) inflict(target, inflicted);
 
-  return { hit: true, critical, fumble: false, damage, zoneEffect: zoneEffect && !target.defeated ? zoneEffect : null, defeated: target.defeated };
+  return { hit: true, critical, fumble: false, damage, zoneEffect: zoneEffect && !target.defeated ? zoneEffect : null, defeated: target.defeated, inflicted };
+}
+
+export function inflict(target: Combatant, effet: HitEffect): void {
+  if (effet === 'brulure') target.status.burning = LINGERING.brulure.turns;
+  else if (effet === 'saignement') target.status.bleeding = LINGERING.saignement.turns;
+  else if (effet === 'ralenti') target.status.slowed = true;
+  else target.status.stunned = true;
+}
+
+/**
+ * At the start of its turn, a burning or bleeding fighter loses PV (one roll per effect) and one turn of each effect.
+ * Returns what each effect took.
+ */
+export function lingeringDamage(c: Combatant, rng: Rng = Math.random): { brulure: number; saignement: number } {
+  const taken = { brulure: 0, saignement: 0 };
+  if (c.defeated) return taken;
+  if (c.status.burning > 0) {
+    taken.brulure = rollDice(LINGERING.brulure.damage, rng);
+    c.status.burning--;
+  }
+  if (c.status.bleeding > 0) {
+    taken.saignement = rollDice(LINGERING.saignement.damage, rng);
+    c.status.bleeding--;
+  }
+  c.hp = Math.max(0, c.hp - taken.brulure - taken.saignement);
+  c.defeated = c.hp === 0;
+  return taken;
+}
+
+/** A healer can tend this ally: both standing, the ally hurt and within reach, PA enough. */
+export function canHeal(healer: Combatant, target: Combatant): boolean {
+  return (
+    !!healer.heal &&
+    !healer.defeated &&
+    !target.defeated &&
+    healer.side === target.side &&
+    target.hp < target.maxHp &&
+    healer.actionPoints >= ATTACK_AP_COST &&
+    distance(healer.tile, target.tile) <= healer.heal.range
+  );
+}
+
+export function resolveHeal(healer: Combatant, target: Combatant, rng: Rng = Math.random): number {
+  healer.actionPoints -= ATTACK_AP_COST;
+  const healed = Math.min(target.maxHp - target.hp, rollDice(healer.heal!.amount, rng));
+  target.hp += healed;
+  return healed;
+}
+
+/** A boss hurt enough enters its next phase: harder blows, more PA, a thicker hide. Returns that phase, if any. */
+export function nextPhase(c: Combatant): PhaseDef | null {
+  const phase = c.phases?.[c.phase];
+  if (!phase || c.defeated || c.hp > phase.seuil * c.maxHp) return null;
+  c.phase++;
+  for (const a of c.attacks) a.toHitBonus += phase.attackBonus ?? 0;
+  c.maxActionPoints += phase.actionPoints ?? 0;
+  c.defense += phase.defense ?? 0;
+  return phase;
+}
+
+/** What the beaten enemies leave: items and Fers, each by its chance. */
+export function rollLoot(enemies: EnemyDef[], rng: Rng = Math.random): { items: string[]; fers: number } {
+  const loot = { items: [] as string[], fers: 0 };
+  for (const enemy of enemies) {
+    for (const entry of enemy.butin ?? []) {
+      if (rng() >= entry.chance) continue;
+      if (entry.item) loot.items.push(entry.item);
+      if (entry.fers) loot.fers += entry.fers[0] + Math.floor(rng() * (entry.fers[1] - entry.fers[0] + 1));
+    }
+  }
+  return loot;
 }
 
 /**
@@ -332,9 +465,9 @@ export function startTurn(combatant: Combatant): void {
   }
 }
 
-/** The zone effects suffered are spent once the combatant's turn is over. */
+/** The zone effects suffered are spent once the combatant's turn is over; burning and bleeding go on. */
 export function endTurn(combatant: Combatant): void {
-  combatant.status = emptyStatus();
+  combatant.status = { ...emptyStatus(), burning: combatant.status.burning, bleeding: combatant.status.bleeding };
 }
 
 export function isVictory(combatants: Combatant[]): boolean {

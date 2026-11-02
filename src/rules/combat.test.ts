@@ -212,7 +212,7 @@ describe('startTurn', () => {
     expect(c.actionPoints).toBe(golem.actionPoints);
     expect(canAttack(c, c.attacks[0], h)).toBe(false);
     endTurn(c);
-    expect(c.status).toEqual({ stunned: false, disarmed: false, slowed: false });
+    expect(c.status).toEqual({ stunned: false, disarmed: false, slowed: false, burning: 0, bleeding: 0 });
     startTurn(c);
     expect(canAttack(c, c.attacks[0], h)).toBe(true);
   });

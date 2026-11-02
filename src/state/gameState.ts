@@ -32,6 +32,10 @@ export interface GameState {
   encounter: { id: string; x: number; y: number; destination: string | null } | null;
   /** The day and the moment of the day (src/rules/time.ts, docs/gdd/temps.md). */
   time: GameTime;
+  /** Kinds of enemies met, and how many were beaten (src/rules/bestiary.ts). */
+  bestiaire: Record<string, number>;
+  /** The companions travelling with the hero, and their PV (src/rules/companions.ts). */
+  groupe: { id: string; hp: number }[];
 }
 
 export type QuestStatus = 'active' | 'done';
@@ -48,6 +52,8 @@ export function createNewGame(character: Character | null = null): GameState {
     quests: {},
     encounter: null,
     time: { ...START_TIME },
+    bestiaire: {},
+    groupe: [],
   };
 }
 

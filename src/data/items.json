@@ -218,5 +218,61 @@
     "price": 250,
     "slot": "cristal",
     "pouvoir": "flammes"
+  },
+  {
+    "id": "epines-rodeur",
+    "name": "Épines de Rôdeur",
+    "description": "Une poignée d’épines souples, encore acérées. Une matière pour l’artisanat.",
+    "weightKg": 0.2,
+    "price": 4
+  },
+  {
+    "id": "crocs-rouille",
+    "name": "Crocs de Loup de Rouille",
+    "description": "Des crocs teintés de rouille. Les forgerons d’Ironheart en font des pointes.",
+    "weightKg": 0.3,
+    "price": 6
+  },
+  {
+    "id": "fourrure-mousse",
+    "name": "Fourrure d’Ours-Mousse",
+    "description": "Une fourrure épaisse où la mousse pousse encore.",
+    "weightKg": 2,
+    "price": 15
+  },
+  {
+    "id": "coeur-ferraille",
+    "name": "Cœur de ferraille",
+    "description": "Le cœur de cristal du Golem, éteint et tiède. Il vaut cher au Marché des Cendres.",
+    "weightKg": 3,
+    "price": 25
+  },
+  {
+    "id": "griffes-sylve",
+    "name": "Griffes de Griffe-Sylve",
+    "description": "Des griffes vertes et fines comme des feuilles.",
+    "weightKg": 0.2,
+    "price": 8
+  },
+  {
+    "id": "dards-rouille",
+    "name": "Dards de Guêpe-Rouille",
+    "description": "Des dards qui rongent encore le métal qu’ils touchent.",
+    "weightKg": 0.1,
+    "price": 3
+  },
+  {
+    "id": "glande-soudeur",
+    "name": "Glande de Gecko-Soudeur",
+    "description": "Une glande chaude qui crépite d’étincelles.",
+    "weightKg": 0.3,
+    "price": 8
+  },
+  {
+    "id": "carreaux",
+    "name": "Carreaux d’arbalète",
+    "description": "Une poignée de carreaux de Ferros.",
+    "weightKg": 0.5,
+    "price": 4
   }
 ]

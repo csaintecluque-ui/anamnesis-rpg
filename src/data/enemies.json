@@ -6,11 +6,30 @@
     "hp": 30,
     "defense": 12,
     "attackBonus": 2,
-    "damage": { "count": 1, "sides": 8 },
+    "damage": {
+      "count": 1,
+      "sides": 8
+    },
     "actionPoints": 5,
     "initiativeBonus": -1,
     "xp": 50,
-    "defeatText": "Le Golem de Ferraille s’éteint dans un dernier grincement, et retombe immobile."
+    "defeatText": "Le Golem de Ferraille s’éteint dans un dernier grincement, et retombe immobile.",
+    "phases": [
+      {
+        "seuil": 0.5,
+        "texte": "Le Golem s’emballe : ses fourneaux rougissent, la vapeur siffle, ses coups pleuvent plus vite.",
+        "attackBonus": 2,
+        "actionPoints": 2
+      }
+    ],
+    "butin": [
+      {
+        "item": "coeur-ferraille",
+        "chance": 1
+      }
+    ],
+    "description": "Un assemblage de ferraille de l’Ancien Monde, animé par un cœur de cristal. Les foreurs de Ferros en lâchent sur les chantiers qu’ils veulent garder.",
+    "source": "Golems de Ferraille [E2]"
   },
   {
     "id": "rodeur-epine",
@@ -19,11 +38,26 @@
     "hp": 14,
     "defense": 12,
     "attackBonus": 2,
-    "damage": { "count": 1, "sides": 6 },
+    "damage": {
+      "count": 1,
+      "sides": 6
+    },
     "actionPoints": 5,
     "initiativeBonus": 2,
     "xp": 15,
-    "defeatText": "Le Rôdeur-Épine détale en gémissant, et disparaît dans les fourrés."
+    "defeatText": "Le Rôdeur-Épine s’effondre dans les fourrés, ses épines encore hérissées. Il ne se relève pas.",
+    "onHit": {
+      "effet": "saignement",
+      "chance": 0.3
+    },
+    "butin": [
+      {
+        "item": "epines-rodeur",
+        "chance": 0.6
+      }
+    ],
+    "description": "« Canidé recouvert d’épines flexibles. Rapide et agressif. » Ses épines s’accrochent à la peau et la font saigner.",
+    "source": "Notion, « Faune & flore par continent »"
   },
   {
     "id": "ours-mousse",
@@ -32,11 +66,22 @@
     "hp": 30,
     "defense": 12,
     "attackBonus": 3,
-    "damage": { "count": 1, "sides": 10 },
+    "damage": {
+      "count": 1,
+      "sides": 10
+    },
     "actionPoints": 5,
     "initiativeBonus": 0,
     "xp": 35,
-    "defeatText": "L’Ours-Mousse grogne une dernière fois, puis repart dans les fougères en se dandinant."
+    "defeatText": "L’Ours-Mousse s’affaisse dans les fougères avec un long souffle, et ne bouge plus.",
+    "butin": [
+      {
+        "item": "fourrure-mousse",
+        "chance": 0.8
+      }
+    ],
+    "description": "« Ours massif couvert de mousse douce, territorial mais calme. » Le laisser en paix est presque toujours possible.",
+    "source": "Notion, « Faune & flore par continent »"
   },
   {
     "id": "loup-rouille",
@@ -45,11 +90,26 @@
     "hp": 12,
     "defense": 13,
     "attackBonus": 2,
-    "damage": { "count": 1, "sides": 6 },
+    "damage": {
+      "count": 1,
+      "sides": 6
+    },
     "actionPoints": 8,
     "initiativeBonus": 3,
     "xp": 15,
-    "defeatText": "Le Loup de Rouille recule en grondant, puis file vers les collines du nord."
+    "defeatText": "Le Loup de Rouille roule dans la poussière, et ne se relève pas.",
+    "onHit": {
+      "effet": "saignement",
+      "chance": 0.4
+    },
+    "butin": [
+      {
+        "item": "crocs-rouille",
+        "chance": 0.6
+      }
+    ],
+    "description": "Une bête des collines de Ferros, au pelage couleur de vieux fer. Elle chasse en meute et mord pour faire saigner.",
+    "source": "Ferros, « Races & peuples » (Notion)"
   },
   {
     "id": "fouilleur",
@@ -58,11 +118,25 @@
     "hp": 20,
     "defense": 11,
     "attackBonus": 2,
-    "damage": { "count": 1, "sides": 6 },
+    "damage": {
+      "count": 1,
+      "sides": 6
+    },
     "actionPoints": 6,
     "initiativeBonus": 0,
     "xp": 20,
-    "defeatText": "Le fouilleur lâche sa pioche et lève les mains. — Assez ! C’est Kaelis qui paie, au Marché des Cendres d’Ironheart ! On cherche une clé de rouille bleue, c’est tout !"
+    "defeatText": "Le fouilleur lâche sa pioche et lève les mains. — Assez ! C’est Kaelis qui paie, au Marché des Cendres d’Ironheart ! On cherche une clé de rouille bleue, c’est tout !",
+    "butin": [
+      {
+        "fers": [
+          3,
+          10
+        ],
+        "chance": 1
+      }
+    ],
+    "description": "Un fouilleur payé par les Marches des Cendres, pioche à la main, qui creuse le sol sacré pour une clé.",
+    "source": "jeu"
   },
   {
     "id": "pilleur-cendres",
@@ -71,11 +145,25 @@
     "hp": 16,
     "defense": 12,
     "attackBonus": 2,
-    "damage": { "count": 1, "sides": 6 },
+    "damage": {
+      "count": 1,
+      "sides": 6
+    },
     "actionPoints": 6,
     "initiativeBonus": 1,
     "xp": 15,
-    "defeatText": "Le pilleur lève les mains. — Assez ! On ne vole que des wagons ! C’est la machine qui conduit : nous, on décharge, à la Cendrière, au bout de l’embranchement !"
+    "defeatText": "Le pilleur lève les mains. — Assez ! On ne vole que des wagons ! C’est la machine qui conduit : nous, on décharge, à la Cendrière, au bout de l’embranchement !",
+    "butin": [
+      {
+        "fers": [
+          2,
+          8
+        ],
+        "chance": 1
+      }
+    ],
+    "description": "Un pilleur des Marches des Cendres : il décharge ce que les machines sans homme volent sur le rail.",
+    "source": "jeu (Marches des Cendres : Studio)"
   },
   {
     "id": "echo-furieux",
@@ -84,10 +172,170 @@
     "hp": 14,
     "defense": 12,
     "attackBonus": 2,
-    "damage": { "count": 1, "sides": 6 },
+    "damage": {
+      "count": 1,
+      "sides": 6
+    },
     "actionPoints": 6,
     "initiativeBonus": 1,
     "xp": 15,
-    "defeatText": "L’Écho se défait en lumière, avec un soupir. Il reviendra."
+    "defeatText": "L’Écho se défait en lumière, avec un soupir. Il reviendra.",
+    "description": "Un Écho frappé : au lieu de se dissiper, il s’est multiplié et devient violent. On ne peut que le disperser, pour un temps.",
+    "source": "Loi de la Mémoire Vivante [E2]"
+  },
+  {
+    "id": "griffe-sylve",
+    "tile": "griffe-sylve",
+    "name": "Griffe-Sylve",
+    "hp": 16,
+    "defense": 14,
+    "attackBonus": 3,
+    "damage": {
+      "count": 1,
+      "sides": 6
+    },
+    "actionPoints": 7,
+    "initiativeBonus": 3,
+    "xp": 20,
+    "onHit": {
+      "effet": "saignement",
+      "chance": 0.4
+    },
+    "defeatText": "La Griffe-Sylve s’abat entre les racines ; son pelage reprend la couleur des feuilles mortes.",
+    "butin": [
+      {
+        "item": "griffes-sylve",
+        "chance": 0.6
+      }
+    ],
+    "description": "« Félin vert à camouflage végétal. Prédateur discret. » On ne la voit qu’au moment où elle bondit.",
+    "source": "Notion, « Faune & flore par continent »"
+  },
+  {
+    "id": "guepe-rouille",
+    "tile": "guepe-rouille",
+    "name": "Guêpes-Rouille",
+    "hp": 5,
+    "defense": 14,
+    "attackBonus": 2,
+    "damage": {
+      "count": 1,
+      "sides": 3
+    },
+    "actionPoints": 8,
+    "initiativeBonus": 4,
+    "xp": 6,
+    "onHit": {
+      "effet": "ralenti",
+      "chance": 0.35
+    },
+    "defeatText": "L’essaim retombe, une poignée d’ailes rousses dans la poussière.",
+    "butin": [
+      {
+        "item": "dards-rouille",
+        "chance": 0.5
+      }
+    ],
+    "description": "« Injecte venin dissolvant les alliages. » En essaim, elles engourdissent les membres et rongent les armures.",
+    "source": "Notion, « Faune & flore par continent »"
+  },
+  {
+    "id": "gecko-soudeur",
+    "tile": "gecko-soudeur",
+    "name": "Gecko-Soudeur",
+    "hp": 10,
+    "defense": 13,
+    "attackBonus": 3,
+    "damage": {
+      "count": 1,
+      "sides": 4
+    },
+    "actionPoints": 6,
+    "initiativeBonus": 1,
+    "xp": 12,
+    "range": 3,
+    "onHit": {
+      "effet": "brulure",
+      "chance": 0.5
+    },
+    "defeatText": "Le Gecko-Soudeur se recroqueville, et sa dernière étincelle s’éteint.",
+    "butin": [
+      {
+        "item": "glande-soudeur",
+        "chance": 0.5
+      }
+    ],
+    "description": "« Recrache étincelles pour se défendre. » De loin, ses gerbes brûlent la peau.",
+    "source": "Notion, « Faune & flore par continent »"
+  },
+  {
+    "id": "arbaletrier-cendres",
+    "tile": "arbaletrier-cendres",
+    "name": "Arbalétrier des Marches",
+    "hp": 12,
+    "defense": 11,
+    "attackBonus": 3,
+    "damage": {
+      "count": 1,
+      "sides": 8
+    },
+    "actionPoints": 6,
+    "initiativeBonus": 1,
+    "xp": 15,
+    "range": 5,
+    "defeatText": "L’arbalétrier jette son arme et lève les mains. — Je me rends ! Je ne fais que tirer, moi !",
+    "butin": [
+      {
+        "fers": [
+          2,
+          8
+        ],
+        "chance": 1
+      },
+      {
+        "item": "carreaux",
+        "chance": 0.5
+      }
+    ],
+    "description": "Un tireur des Marches des Cendres, arbalète de Ferros à l’épaule : il garde les pilleurs de loin.",
+    "source": "jeu (Marches des Cendres : Studio)"
+  },
+  {
+    "id": "rebouteuse-cendres",
+    "tile": "rebouteuse-cendres",
+    "name": "Rebouteuse des Marches",
+    "hp": 12,
+    "defense": 11,
+    "attackBonus": 1,
+    "damage": {
+      "count": 1,
+      "sides": 4
+    },
+    "actionPoints": 6,
+    "initiativeBonus": 0,
+    "xp": 15,
+    "soin": {
+      "amount": {
+        "count": 2,
+        "sides": 4
+      },
+      "range": 3
+    },
+    "defeatText": "La rebouteuse laisse tomber sa sacoche de baumes. — Assez… Je soigne, je ne me bats pas.",
+    "butin": [
+      {
+        "item": "baume-mousse",
+        "chance": 0.6
+      },
+      {
+        "fers": [
+          1,
+          6
+        ],
+        "chance": 1
+      }
+    ],
+    "description": "Elle recoud les pilleurs des Marches entre deux convois : tant qu’elle tient debout, ils se relèvent.",
+    "source": "jeu (Marches des Cendres : Studio)"
   }
 ]

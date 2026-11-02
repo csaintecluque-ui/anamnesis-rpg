@@ -19,6 +19,7 @@ import {
   rencontreXp,
   type RencontreDef,
 } from '../rules/world';
+import { saveStore } from '../save/browser';
 import { findLocation, type GameState } from '../state/gameState';
 import { onKeys } from '../ui/keys';
 import { COLORS, CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
@@ -125,6 +126,9 @@ export class MapScene extends Phaser.Scene {
     this.heroTile = this.startTile(location.entrance);
     this.state.position = { ...this.heroTile };
     this.state.entrance = null;
+    // A save at every place (docs/gdd/jalon-3.md): death sends the hero back to the last one, never far.
+    const saved = saveStore.write('auto', this.state);
+    if (!saved.ok) console.warn('Sauvegarde auto impossible :', saved.error);
     const start = this.feet(this.heroTile);
     this.hero = this.add.sprite(start.x, start.y, 'tiles', this.map.frames.heros).setOrigin(0.5, 1).setDepth(start.y);
     this.setUpWalk();

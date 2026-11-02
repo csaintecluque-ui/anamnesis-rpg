@@ -1,0 +1,25 @@
+[
+  {
+    "id": "liane",
+    "name": "Liane Sève-Claire",
+    "tile": "liane",
+    "hp": 24,
+    "defense": 11,
+    "actionPoints": 6,
+    "initiativeBonus": 1,
+    "attacks": [{ "label": "Fronde", "range": 4, "toHitBonus": 2, "damage": { "count": 1, "sides": 4 } }],
+    "soin": { "amount": { "count": 2, "sides": 4 }, "range": 3 },
+    "description": "Herboriste de Gardebois : une fronde, et des sèves qui referment les plaies."
+  },
+  {
+    "id": "boulon",
+    "name": "Boulon",
+    "tile": "boulon",
+    "hp": 40,
+    "defense": 13,
+    "actionPoints": 5,
+    "initiativeBonus": -1,
+    "attacks": [{ "label": "Poings de fer", "range": 1, "toHitBonus": 3, "damage": { "count": 1, "sides": 8 } }],
+    "description": "Un Ferrôme, porteur à la gare de l’Ouest : lent, lourd, et il se souvient de chaque voyageur."
+  }
+]

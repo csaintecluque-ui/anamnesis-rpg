@@ -29,7 +29,6 @@ import {
 } from '../rules/combat';
 import { DEFAULT_AVATAR } from '../rules/character';
 import { canCast, combatPower, healAmount, payCast, powerAttack, resonanceMax, type PowerDef } from '../rules/magic';
-import { placeOfLocation } from '../rules/world';
 import { findLocation, type GameState } from '../state/gameState';
 import { addTextButton, type TextButton } from '../ui/button';
 import { DIGIT_KEYS, SHOW_KEY_HINTS, onKeys } from '../ui/keys';
@@ -810,22 +809,18 @@ export class CombatScene extends Phaser.Scene {
     });
   }
 
+  /** The hero dies (décision de Cyril, 2026-11-02 ; docs/univers/ton.md): the game resumes from the last save. */
   private onDefeat(): void {
-    this.appendLog(`${this.hero().name} est hors de combat.`);
-    this.state.character!.hp = 1;
-    // On the road (docs/gdd/carte-du-monde.md), travellers find the hero and bring them back to Gardebois; in a town
-    // or near one, the hero wakes up at its entrance.
-    const onTheRoad = this.state.encounter !== null;
-    const place = onTheRoad ? undefined : placeOfLocation(this.state.location);
-    this.state.encounter = null;
-    this.state.location = place?.location ?? findLocation('gardebois')!.id;
-    this.state.entrance = place?.entrance ?? 'entree';
-    const message = onTheRoad
-      ? 'Des voyageurs te trouvent sur la route et te ramènent à Gardebois, le temps de reprendre des forces.'
-      : !place || place.id === 'gardebois'
-        ? 'Ilyane te ramène au Marché des Lisières, le temps de reprendre des forces.'
-        : `On te ramène à ${place.name}, le temps de reprendre des forces.`;
-    this.closeAfter(true, (hud) => hud.toast(message));
+    const hero = this.hero();
+    this.appendLog(`${hero.name} tombe, et ne se relève pas.`);
+    const killer = this.combatants.find((c) => c.side === 'enemies' && !c.defeated);
+    const cause = killer ? `Tombé·e sous les coups de ${killer.name}${placeName(this.state.location)}.` : 'Tombé·e au combat.';
+    this.time.delayedCall(1600, () => {
+      this.scene.stop('Hud');
+      this.scene.stop('Map');
+      this.scene.stop();
+      this.scene.start('Death', { name: this.state.character!.name, cause });
+    });
   }
 
   private closeAfter(restart: boolean, onHud: (hud: HudScene) => void): void {
@@ -844,4 +839,11 @@ export class CombatScene extends Phaser.Scene {
       }
     });
   }
+}
+
+/** « , à Ironheart — Les Forges-Basses », « , sur la route », for the death screen. */
+function placeName(location: string): string {
+  const place = findLocation(location);
+  if (!place) return '';
+  return place.encounter ? ', sur la route' : `, à ${place.name}`;
 }

@@ -171,10 +171,14 @@ export class WorldMapScene extends Phaser.Scene {
 
   /** An italic note on a parchment patch, readable over the forests. */
   private label(x: number, y: number, text: string, color: string): void {
-    const t = this.add.text(x, y, text, { fontFamily: FONT_SERIF, fontSize: '15px', color, align: 'center', fontStyle: 'italic' }).setOrigin(0.5);
+    const t = this.add
+      .text(x, y, text, { fontFamily: FONT_SERIF, fontSize: HAS_MOUSE ? '15px' : '19px', color, align: 'center', fontStyle: 'italic' })
+      .setOrigin(0.5);
     const left = MAP_X + 10 + t.width / 2;
     const right = MAP_X + WORLD.width * SCALE - 10 - t.width / 2;
     t.setX(Math.min(right, Math.max(left, x)));
+    // Above the panel that opens at the bottom when a place is touched, so it never hides a far land.
+    t.setY(Math.min(y, GAME_HEIGHT - LAYOUT.panelHeight - 12 - t.height / 2));
     this.add.rectangle(t.x, t.y, t.width + 14, t.height + 8, PARCHMENT, 0.85).setStrokeStyle(1, 0x8a7a66, 0.6);
     t.setDepth(1);
   }

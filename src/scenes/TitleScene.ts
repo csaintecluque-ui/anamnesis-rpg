@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import { getSettings, saveSettings } from '../settings';
 import { COLORS, CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
+import { HAS_MOUSE } from '../ui/viewport';
 
 /** Taps on the version number that toggle the hidden test mode (docs/gdd/interface.md, « Mode test »). */
 const TEST_MODE_TAPS = 5;
@@ -52,13 +53,14 @@ export class TitleScene extends Phaser.Scene {
 
     entries.forEach((entry, i) => {
       const text = this.add
-        .text(cx, 360 + i * 64, entry.label, {
+        .text(cx, 360 + i * (HAS_MOUSE ? 64 : 82), entry.label, {
           fontFamily: FONT_SERIF,
-          fontSize: '34px',
+          fontSize: HAS_MOUSE ? '34px' : '40px',
           color: entry.enabled ? CSS.parchment : CSS.muted,
         })
         .setOrigin(0.5)
-        .setPadding(24, 10, 24, 10);
+        // Finger-sized hit area on touch screens (docs/gdd/interface.md).
+        .setPadding(HAS_MOUSE ? 24 : 48, HAS_MOUSE ? 10 : 20, HAS_MOUSE ? 24 : 48, HAS_MOUSE ? 10 : 20);
 
       if (!entry.enabled) return;
       text.setInteractive({ useHandCursor: true });

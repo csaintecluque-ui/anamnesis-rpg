@@ -25,6 +25,7 @@ import {
 import { createNewGame, findLocation, type GameState } from '../state/gameState';
 import { addTextButton } from '../ui/button';
 import { COLORS, CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
+import { HAS_MOUSE } from '../ui/viewport';
 
 export interface CreationSceneData {
   draft?: CharacterDraft;
@@ -40,7 +41,12 @@ const STEPS = ['Nom et apparence', 'Attributs', 'Compétences', 'Don', 'Récapit
 const AVATAR_SIZE = 124;
 const AVATAR_GAP = 22;
 const FOOTER_Y = GAME_HEIGHT - 55;
-const SMALL = { width: 64, height: 58, fontSize: 32 };
+/** The − and + buttons: wider for a finger on touch screens (docs/gdd/interface.md). */
+const SMALL = HAS_MOUSE ? { width: 64, height: 58, fontSize: 32 } : { width: 84, height: 60, fontSize: 36 };
+const ATTRIBUTE_TOP = HAS_MOUSE ? 196 : 192;
+const ATTRIBUTE_STEP = HAS_MOUSE ? 62 : 64;
+/** The help line under the rows; on touch screens, lower and narrower, between the two footer buttons. */
+const FOCUS = HAS_MOUSE ? { y: 612, width: 1150 } : { y: 636, width: 720 };
 
 const attributeName = (id: AttributeId): string => ATTRIBUTES.find((a) => a.id === id)?.name ?? id;
 const signed = (n: number): string => (n >= 0 ? `+${n}` : `${n}`);
@@ -245,7 +251,7 @@ export class CreationScene extends Phaser.Scene {
 
     const finals = finalAttributes(this.draft);
     ATTRIBUTES.forEach((attr, i) => {
-      const y = 196 + i * 62;
+      const y = ATTRIBUTE_TOP + i * ATTRIBUTE_STEP;
       this.rowLabel(260, y, attr.name, attr.id);
       addTextButton(this, 460, y, '−', () => this.setAttr(attr.id, -1), { ...SMALL, enabled: canLowerAttribute(this.draft, attr.id) });
       this.add.text(530, y, String(this.draft.allocated[attr.id]), { fontFamily: FONT_SERIF, fontSize: '30px', color: CSS.parchment }).setOrigin(0.5);
@@ -408,12 +414,12 @@ export class CreationScene extends Phaser.Scene {
 
   private focusLine(value: string): void {
     this.add
-      .text(GAME_WIDTH / 2, 612, value, {
+      .text(GAME_WIDTH / 2, FOCUS.y, value, {
         fontFamily: FONT_SERIF,
         fontSize: '22px',
         color: CSS.muted,
         align: 'center',
-        wordWrap: { width: 1150 },
+        wordWrap: { width: FOCUS.width },
       })
       .setOrigin(0.5);
   }

@@ -22,7 +22,7 @@ import {
 import { findLocation, type GameState } from '../state/gameState';
 import { onKeys } from '../ui/keys';
 import { COLORS, CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
-import { MAP_ZOOM, RENDER_SCALE } from '../ui/viewport';
+import { HAS_MOUSE, MAP_ZOOM, RENDER_SCALE } from '../ui/viewport';
 import type { CombatStartData } from './CombatScene';
 import { FigurantLayer } from './Figurants';
 import type { HudScene } from './HudScene';
@@ -307,7 +307,7 @@ export class MapScene extends Phaser.Scene {
       const frame = this.map.frames[npc.name] ?? this.map.frames.pnj;
       const image = this.add.image(f.x, f.y, 'tiles', frame).setOrigin(0.5, 1).setDepth(f.y);
       const label = this.add
-        .text(f.x, f.y - 70, npcName(npc), { fontFamily: FONT_SERIF, fontSize: '13px', color: CSS.parchment, stroke: CSS.ink, strokeThickness: 3 })
+        .text(f.x, f.y - 70, npcName(npc), { fontFamily: FONT_SERIF, fontSize: HAS_MOUSE ? '13px' : '17px', color: CSS.parchment, stroke: CSS.ink, strokeThickness: 3 })
         .setOrigin(0.5, 1)
         .setDepth(100000);
       this.interactables.push({ object: npc, image, label });

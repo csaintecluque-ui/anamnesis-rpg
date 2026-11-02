@@ -20,8 +20,8 @@
 
 ## Prochaine étape
 
-1. En ligne (2026-11-02) : passe de qualité, logo corrigé, pièces de Hedda. Ensuite (accord de Cyril) : lisibilité
-   sur téléphone (plateau de combat, petits textes, création).
+1. En ligne (2026-11-02) : passe de qualité, logo corrigé, pièces de Hedda, lisibilité sur téléphone.
+   Prochaine étape : à proposer à Cyril.
 2. Codex : Sept-Portes (`AGENTS.md`). Notion : page « Anamnesis — le jeu », à tenir à jour à chaque mise en ligne.
 
 ## Points ouverts

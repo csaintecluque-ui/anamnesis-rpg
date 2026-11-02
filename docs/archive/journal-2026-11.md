@@ -779,3 +779,5 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   téléphone.
 - Hedda vend ses propres pièces (marteau de forge 70, arbalète de Ferros 80, cuirasse rivetée 120 Fers) : de quoi
   dépenser l'argent d'Ironheart. Mis en ligne avec l'accord de Cyril.
+- Lisibilité sur téléphone (accord de Cyril) : plateau de combat et textes agrandis au doigt, menu du titre, boutons
+  de la création, noms des PNJ, étiquettes de la carte du monde ; vérifié en 844 × 390 (iPhone en paysage). En ligne.

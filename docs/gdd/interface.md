@@ -76,3 +76,14 @@ Pour essayer le jeu sans tout rejouer (demande de Cyril, 2026-11-01).
 - Trois onglets : **Quêtes** (en cours d'abord, puis terminées ✓ ; à droite : résumé et « Où j'en suis », la dernière
   étape atteinte, `etapes` dans `quests.json`), **Récits** (ceux qu'on retient, et le plafond Mémoire + 1),
   **Réputation** (villes connues, guildes fréquentées, « membre »). Code : `src/rules/journal.ts`, `JournalScene`.
+
+## Lisibilité sur téléphone (2026-11-02, accord de Cyril)
+
+Sur un téléphone en paysage, l'écran logique de 1280 × 720 est affiché à environ la moitié de sa taille : les écrans
+tactiles reçoivent donc des tailles à eux (détection « pas de souris », `HAS_MOUSE`).
+- Combat : plateau agrandi (× 1,2), textes × 1,3 (bandeau, journal, ordre du tour, noms), boutons espacés.
+- Écran titre : menu en 40 px, zones de toucher élargies. Création : boutons − et + plus larges (84 px), aide
+  placée entre les deux boutons du bas.
+- Carte : noms des PNJ en 17 px. Carte du monde : étiquettes en 19 px, jamais sous le panneau du bas.
+- Commerce : titre et ligne des Fers séparés, boutons de 56 px. Menu pause : cadre ajusté aux cinq boutons.
+- Reste un choix : le jeu garde le format 16:9 (bandes noires sur les côtés d'un iPhone).

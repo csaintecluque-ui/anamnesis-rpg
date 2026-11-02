@@ -40,13 +40,15 @@ const TOP = 70;
 
 /** Finger-sized on touch screens, compact with a mouse (docs/gdd/interface.md). */
 const LAYOUT = HAS_MOUSE
-  ? { arenaScale: 1.25, bottomBar: 96, buttonHeight: 48, buttonFont: 20, labelFont: 18, move: [100, 150], attack: [260, 150, 160], zone: [590, 170], endTurn: [770, 170], flee: [GAME_WIDTH - 90, 140] }
-  : { arenaScale: 1, bottomBar: 150, buttonHeight: 76, buttonFont: 24, labelFont: 22, move: [130, 180], attack: [330, 170, 185], zone: [720, 190], endTurn: [935, 200], flee: [GAME_WIDTH - 120, 170] };
+  ? { arenaScale: 1.25, text: 1, bottomBar: 96, buttonHeight: 48, buttonFont: 20, labelFont: 18, move: [100, 150], attack: [260, 150, 160], zone: [590, 170], endTurn: [770, 170], flee: [GAME_WIDTH - 90, 140] }
+  : { arenaScale: 1.2, text: 1.3, bottomBar: 150, buttonHeight: 76, buttonFont: 24, labelFont: 22, move: [130, 180], attack: [330, 170, 185], zone: [720, 190], endTurn: [935, 200], flee: [GAME_WIDTH - 120, 170] };
 const LOG_Y = GAME_HEIGHT - LAYOUT.bottomBar - 30;
 /** Turn order panel, left of the arena: names live here, not above the tokens where they overlapped. */
+/** Text size on this layout: larger on a phone, where the 1280 × 720 screen is drawn at about half size. */
+const fs = (px: number): string => `${Math.round(px * LAYOUT.text)}px`;
 const ROSTER_X = 24;
 const ROSTER_Y = 90;
-const ROSTER_LINE = 28;
+const ROSTER_LINE = Math.round(28 * LAYOUT.text);
 const HP_BAR_WIDTH = 44;
 /** Readable board (docs/gdd/combat.md, « Lisibilité ») : grid, reach, target and turn colours. */
 const GRID = { line: 0xead9b8, reach: 0x5bc8d6, target: 0xd0583a, turn: 0xc9804f };
@@ -148,27 +150,27 @@ export class CombatScene extends Phaser.Scene {
     this.add.rectangle(GAME_WIDTH / 2, GAME_HEIGHT / 2, GAME_WIDTH, GAME_HEIGHT, COLORS.ink, 0.97).setInteractive();
     this.drawArena();
     this.banner = this.add
-      .text(GAME_WIDTH / 2, 30, '', { fontFamily: FONT_SERIF, fontSize: '26px', color: CSS.copper })
+      .text(GAME_WIDTH / 2, 30, '', { fontFamily: FONT_SERIF, fontSize: fs(26), color: CSS.copper })
       .setOrigin(0.5);
     this.log = this.add
-      .text(GAME_WIDTH / 2, LOG_Y, '', { fontFamily: FONT_SERIF, fontSize: '20px', color: CSS.parchment, align: 'center', wordWrap: { width: 1100 } })
+      .text(GAME_WIDTH / 2, LOG_Y, '', { fontFamily: FONT_SERIF, fontSize: fs(20), color: CSS.parchment, align: 'center', wordWrap: { width: 1100 } })
       .setOrigin(0.5);
     this.marker = this.add.graphics().setDepth(5000);
     this.overlay = this.add.graphics().setDepth(1);
     this.hint = this.add
-      .text(GAME_WIDTH / 2, 62, '', { fontFamily: FONT_SERIF, fontSize: '18px', color: CSS.muted })
+      .text(GAME_WIDTH / 2, 62, '', { fontFamily: FONT_SERIF, fontSize: fs(18), color: CSS.muted })
       .setOrigin(0.5);
     this.costLabel = this.add
-      .text(0, 0, '', { fontFamily: FONT_SERIF, fontSize: '18px', color: CSS.parchment, stroke: CSS.ink, strokeThickness: 4 })
+      .text(0, 0, '', { fontFamily: FONT_SERIF, fontSize: fs(18), color: CSS.parchment, stroke: CSS.ink, strokeThickness: 4 })
       .setOrigin(0.5, 1)
       .setDepth(7000)
       .setVisible(false);
-    this.add.text(ROSTER_X, ROSTER_Y - 34, 'Ordre du tour', { fontFamily: FONT_SERIF, fontSize: '20px', color: CSS.copper });
+    this.add.text(ROSTER_X, ROSTER_Y - 34, 'Ordre du tour', { fontFamily: FONT_SERIF, fontSize: fs(20), color: CSS.copper });
     this.roster = this.add.text(ROSTER_X, ROSTER_Y, '', {
       fontFamily: FONT_SERIF,
-      fontSize: '18px',
+      fontSize: fs(18),
       color: CSS.parchment,
-      lineSpacing: ROSTER_LINE - 22,
+      lineSpacing: ROSTER_LINE - Math.round(22 * LAYOUT.text),
     });
 
     for (const c of this.combatants) this.addToken(c);
@@ -408,7 +410,7 @@ export class CombatScene extends Phaser.Scene {
   private float(c: Combatant, text: string, color: string): void {
     const f = this.feet(c.tile);
     const label = this.add
-      .text(f.x, f.y - 70 * LAYOUT.arenaScale, text, { fontFamily: FONT_SERIF, fontSize: '24px', color, stroke: CSS.ink, strokeThickness: 4 })
+      .text(f.x, f.y - 70 * LAYOUT.arenaScale, text, { fontFamily: FONT_SERIF, fontSize: fs(24), color, stroke: CSS.ink, strokeThickness: 4 })
       .setOrigin(0.5, 1)
       .setDepth(8000);
     this.tweens.add({ targets: label, y: label.y - 30, alpha: 0, delay: 500, duration: 700, onComplete: () => label.destroy() });
@@ -419,7 +421,7 @@ export class CombatScene extends Phaser.Scene {
     const image = this.tokenImage(c, f).setOrigin(0.5, 1).setScale(LAYOUT.arenaScale).setDepth(f.y + 1);
     const hpBar = this.add.graphics().setDepth(6000);
     const name = this.add
-      .text(f.x, f.y - 80 * LAYOUT.arenaScale, c.name, { fontFamily: FONT_SERIF, fontSize: '16px', color: CSS.parchment, stroke: CSS.ink, strokeThickness: 3 })
+      .text(f.x, f.y - 80 * LAYOUT.arenaScale, c.name, { fontFamily: FONT_SERIF, fontSize: fs(16), color: CSS.parchment, stroke: CSS.ink, strokeThickness: 3 })
       .setOrigin(0.5, 1)
       .setDepth(6001)
       .setVisible(false);

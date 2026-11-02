@@ -1,0 +1,42 @@
+{
+  "id": "hedda",
+  "speaker": "hedda",
+  "entries": [
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "— Atelier Cendrefer ! Tu viens de Gardebois ? Alors tu as vu mon frère Tobias. Il vend toujours trop cher et parle trop fort ? Bien : il va bien.",
+      "options": [
+        {
+          "text": "Voyons tes lames.",
+          "next": "fin",
+          "effects": [
+            {
+              "openTrade": true
+            }
+          ]
+        },
+        {
+          "text": "Un conseil, pour Ironheart ?",
+          "next": "conseil"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "conseil": {
+      "text": "— Garde ton laissez-passer, ne traîne pas après le premier pont peint en rouge, et si tu entends sept coups de marteau, c’est l’heure des Litanies : on se tait. Ici, le travail est prière.",
+      "options": [
+        {
+          "text": "Merci, Hedda.",
+          "next": "accueil"
+        }
+      ]
+    }
+  }
+}

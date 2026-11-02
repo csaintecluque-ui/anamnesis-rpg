@@ -1,0 +1,63 @@
+{
+  "id": "renfoncement",
+  "speaker": "renfoncement",
+  "entries": [
+    {
+      "node": "mur"
+    }
+  ],
+  "nodes": {
+    "mur": {
+      "text": "Entre deux fonderies éteintes, un renfoncement sans enseigne. Un mur noirci de suie, et rien d’autre… en apparence.",
+      "options": [
+        {
+          "text": "Chercher le passage, comme on te l’a dit.",
+          "requires": [
+            {
+              "flag": "marche-cendres-indice"
+            }
+          ],
+          "next": "trouve"
+        },
+        {
+          "text": "Examiner le mur.",
+          "requires": [
+            {
+              "skill": "investigation",
+              "min": 2
+            }
+          ],
+          "next": "trouve"
+        },
+        {
+          "text": "Passer son chemin.",
+          "next": "fin"
+        }
+      ]
+    },
+    "trouve": {
+      "text": "Derrière une tôle mal fixée, un tunnel s’enfonce sous les fondations, éclairé à l’huile. Une odeur de cendre monte d’en bas.",
+      "effects": [
+        {
+          "setFlag": "marche-cendres-connu"
+        }
+      ],
+      "options": [
+        {
+          "text": "Descendre.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "ironheart-marche",
+              "arrivee": "depuis-forges"
+            }
+          ]
+        },
+        {
+          "text": "Pas maintenant.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "id": "boulon",
+  "speaker": "boulon",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "audience",
+          "status": "done"
+        },
+        {
+          "quest": "cle-rouille-bleue",
+          "status": "none"
+        }
+      ],
+      "node": "accueil-quete"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil-quete": {
+      "text": "Un Ferrôme lourd comme une locomotive soulève trois malles d’une seule main. — Bienvenue à Ironheart. Je m’appelle Boulon. Un sceau d’émeraude à ta ceinture ? Les Verts ne viennent pas souvent. Tu cherches quelque chose, ou quelqu’un ?",
+      "effects": [
+        {
+          "startQuest": "cle-rouille-bleue"
+        }
+      ],
+      "options": [
+        {
+          "text": "Un certain Kaelis, des Marches des Cendres.",
+          "next": "kaelis"
+        },
+        {
+          "text": "Que faut-il savoir, ici ?",
+          "next": "regles"
+        },
+        {
+          "text": "Merci, Boulon.",
+          "next": "fin"
+        }
+      ]
+    },
+    "accueil": {
+      "text": "— Bonjour. Boulon, porteur de la gare de l’Ouest. Je me souviens de chaque malle que j’ai portée : des milliers. Tu veux savoir quelque chose ?",
+      "options": [
+        {
+          "text": "Où trouver Kaelis, des Marches des Cendres ?",
+          "requires": [
+            {
+              "quest": "cle-rouille-bleue",
+              "status": "active"
+            }
+          ],
+          "next": "kaelis"
+        },
+        {
+          "text": "Que faut-il savoir, ici ?",
+          "next": "regles"
+        },
+        {
+          "text": "Au revoir, Boulon.",
+          "next": "fin"
+        }
+      ]
+    },
+    "regles": {
+      "text": "— Garde ton laissez-passer sur toi : les visières rouges vérifient. Bois au Puits Trois, jamais au Un ni au Deux. Et on dit qu’il ne faut pas regarder un Ferrôme dans les yeux plus de deux secondes. Moi, tu peux. Je ne mords pas.",
+      "options": [
+        {
+          "text": "Merci, Boulon.",
+          "next": "fin"
+        }
+      ]
+    },
+    "kaelis": {
+      "text": "— Kaelis ne tient boutique sur aucune carte. Les gens des forges disent : « Cherche le trou entre deux fonderies froides, et ne dis à personne que tu l’as trouvé. » À l’est, après le Puits Trois.",
+      "effects": [
+        {
+          "setFlag": "marche-cendres-indice"
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Boulon.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

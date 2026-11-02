@@ -1,0 +1,151 @@
+{
+  "id": "noam",
+  "speaker": "noam",
+  "entries": [
+    {
+      "requires": [
+        {
+          "item": "cle-rouille-bleue"
+        },
+        {
+          "quest": "cle-rouille-bleue",
+          "status": "active"
+        }
+      ],
+      "node": "cle"
+    },
+    {
+      "requires": [
+        {
+          "flag": "cle-archives"
+        }
+      ],
+      "node": "apres-archives"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "— Archives Centrales de Ferros, comptoir public (voir : règlement, article quatre). Fonds ordinaires : consultation libre. Fonds scellés : Niveau Trois (voir : une autorisation, un motif, un patron).",
+      "options": [
+        {
+          "text": "Je cherche ce qui concerne le dernier train.",
+          "next": "train"
+        },
+        {
+          "text": "Vous gardez tout ?",
+          "next": "tout"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "tout": {
+      "text": "— Ferros ne brûle rien : Ferros classe (voir : devise officieuse). Ce qui n’est pas classé n’existe pas encore.",
+      "options": [
+        {
+          "text": "Je vois.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "train": {
+      "text": "Noam ajuste ses lunettes. — Fonds Zéro (voir : coffre de fer scellé, arrivé avec les premiers habitants de la vallée). Contenu : non classé. Motif : clé manquante. La seule pièce de ces Archives que nous n’ayons jamais pu ranger.",
+      "effects": [
+        {
+          "setFlag": "fonds-zero-connu"
+        }
+      ],
+      "options": [
+        {
+          "text": "Et si je trouvais cette clé ?",
+          "requires": [
+            {
+              "quest": "cle-rouille-bleue",
+              "status": "active"
+            }
+          ],
+          "next": "si"
+        },
+        {
+          "text": "Merci.",
+          "next": "fin"
+        }
+      ]
+    },
+    "si": {
+      "text": "— Alors vous auriez rendu à Ferros un service considérable (voir : reconnaissance des Archives, article premier).",
+      "options": [
+        {
+          "text": "Je verrai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "cle": {
+      "text": "Noam ôte ses lunettes. Pour la première fois, il parle sans note. — Donnez-la-moi. Je vous ouvre le Fonds Zéro, et vous serez le premier à voir ce qu’il contient depuis la fondation de la ville.",
+      "options": [
+        {
+          "text": "La lui confier.",
+          "next": "ouverture",
+          "effects": [
+            {
+              "takeItem": "cle-rouille-bleue"
+            },
+            {
+              "setFlag": "cle-archives"
+            },
+            {
+              "completeQuest": "cle-rouille-bleue"
+            },
+            {
+              "giveXp": 50
+            },
+            {
+              "learnRecit": "carnet-dernier-train"
+            }
+          ]
+        },
+        {
+          "text": "Pas encore.",
+          "next": "fin"
+        }
+      ]
+    },
+    "ouverture": {
+      "text": "Dans la salle des fonds scellés, le coffre s’ouvre en grinçant. Dedans : le carnet de bord du dernier train, et la carte de toutes les voies endormies. Une ligne a été grattée, avec soin. Noam pâlit et referme vite le carnet.",
+      "options": [
+        {
+          "text": "Qui a gratté cette ligne ?",
+          "next": "gratte"
+        },
+        {
+          "text": "Merci, Noam.",
+          "next": "fin"
+        }
+      ]
+    },
+    "gratte": {
+      "text": "— Classé. (Voir : plus tard.) Il ne te regarde pas. — Vous avez rendu service aux Archives. Elles s’en souviendront : c’est leur métier.",
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "apres-archives": {
+      "text": "— Le Fonds Zéro est classé, enfin (voir : vous). Pour le reste, revenez quand vous aurez le Niveau Trois. Ou une très bonne raison.",
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

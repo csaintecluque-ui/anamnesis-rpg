@@ -56,7 +56,8 @@ describe('links between places', () => {
 
   it('locks a door only behind a dialogue that can open it', () => {
     for (const map of maps.values()) {
-      for (const door of map.objects.filter((o) => o.type === 'porte' && o.properties.verrou)) {
+      // A door marked `toujoursFermee` is closed on purpose (the funicular of the Manufactures-Hautes).
+      for (const door of map.objects.filter((o) => o.type === 'porte' && o.properties.verrou && !o.properties.toujoursFermee)) {
         const dialogue = DIALOGUES[door.properties.dialogue];
         expect(dialogue, door.name).toBeDefined();
         const opens = Object.values(dialogue.nodes).some((n) => n.effects?.some((e) => 'setFlag' in e && e.setFlag === door.properties.verrou));

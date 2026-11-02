@@ -29,5 +29,21 @@
     { "quest": "chant-anselme", "points": 5 },
     { "flag": "graines-denonce", "points": 5 },
     { "flag": "graines-rendues", "points": 5 }
+  ],
+  "ironheart": [
+    { "quest": "cle-rouille-bleue", "points": 10 }
+  ],
+  "travailleurs-rail": [
+    { "flag": "cle-veilleuse", "points": 20 },
+    { "flag": "cle-vendue", "points": -10 }
+  ],
+  "marches-cendres": [
+    { "flag": "cle-vendue", "points": 20 },
+    { "flag": "cle-archives", "points": -10 },
+    { "flag": "cle-veilleuse", "points": -5 }
+  ],
+  "archives-ferros": [
+    { "flag": "cle-archives", "points": 20 },
+    { "flag": "cle-vendue", "points": -10 }
   ]
 }

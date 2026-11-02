@@ -633,6 +633,166 @@ function amphitheatre() {
   return m.toTiled();
 }
 
+// --- Ironheart, capitale de Ferros (chapitre 3, docs/univers/lieux/ironheart.md ; visuels provisoires) ------------
+// Canon [NOTION, Chroniques Familiales] : Forges-Basses (ateliers, dortoirs, Puits Trois), un funiculaire et un poste de
+// contrôle vers les Manufactures-Moyennes (Archives Centrales), le Marché des Cendres caché sous deux fonderies éteintes.
+
+/** A town block: brick walls all around, an opening where `open` says. */
+function cityBlock(width, height, ground, wall = 'maison-brique') {
+  const m = new MapBuilder(width, height);
+  m.ground.fill(gid(ground));
+  for (let col = 0; col < width; col++) {
+    m.setObstacle(col, 0, wall);
+    m.setObstacle(col, height - 1, wall);
+  }
+  for (let row = 0; row < height; row++) {
+    m.setObstacle(0, row, wall);
+    m.setObstacle(width - 1, row, wall);
+  }
+  return m;
+}
+
+function ironheartForges() {
+  const m = cityBlock(30, 24, 'paves');
+  // La gare de l'Ouest (proposition : le canon ne décrit aucune gare d'Ironheart) : quai, rails, un wagon.
+  m.rect(1, 8, 7, 13, 'quai');
+  m.line([1, 11], [8, 11], 'rail');
+  m.setObstacle(2, 11, 'wagon');
+  m.object('vers-monde', 'sortie', 0, 12, { cible: CARTE_DU_MONDE, libelle: 'Quitter Ironheart' });
+  m.setObstacle(0, 12, null);
+  m.object('entree', 'arrivee', 4, 10);
+  m.object('boulon', 'pnj', 5, 8);
+  // Les Forges-Basses : forges, tuyaux, réverbères à cristal rouge.
+  for (const [c, r] of [[17, 3], [8, 3], [27, 6]]) m.setObstacle(c, r, 'forge');
+  for (const [c, r] of [[10, 9], [13, 13], [18, 9], [22, 14], [6, 16], [25, 3]]) m.setObstacle(c, r, 'reverbere');
+  for (const [c, r] of [[20, 3], [21, 3], [4, 20], [5, 20]]) m.setObstacle(c, r, 'tuyaux');
+  for (const [c, r] of [[12, 18], [13, 18], [26, 10]]) m.setObstacle(c, r, 'caisses');
+  // Le Puits Trois et son registre des transferts.
+  m.setObstacle(11, 6, 'puits');
+  m.setObstacle(12, 5, 'panneau');
+  m.object('registre-puits', 'panneau', 12, 5, {
+    texte: 'Puits Trois. « L’eau des Puits Un et Deux est réservée. » Le registre des transferts : « Équipe Orvel, deux départs pour les Manufactures-Moyennes. »',
+  });
+  house(m, 'ironheart-pension', 'maison-brique', [9, 16], [10, 17]);
+  house(m, 'ironheart-atelier', 'forge', [15, 7], [15, 8]);
+  house(m, 'ironheart-martelroux', 'maison-brique', [19, 17], [20, 18]);
+  // Le renfoncement sans enseigne, entre deux fonderies éteintes : l'entrée du Marché des Cendres.
+  m.setObstacle(24, 8, 'forge');
+  m.setObstacle(24, 12, 'forge');
+  m.setObstacle(24, 10, 'renfoncement');
+  m.object('entree-marche', 'porte', 24, 10, {
+    cible: 'ironheart-marche',
+    arrivee: 'depuis-forges',
+    libelle: 'Le renfoncement sans enseigne',
+    verrou: 'marche-cendres-connu',
+    dialogue: 'renfoncement',
+  });
+  m.object('devant-renfoncement', 'arrivee', 23, 10);
+  // La vieille ligne, qu'on dit maudite, et son dépôt.
+  m.line([18, 20], [28, 20], 'rail');
+  m.setObstacle(26, 20, 'wagon');
+  m.setObstacle(27, 20, 'wagon');
+  m.setObstacle(28, 20, 'butoir');
+  m.object('veilleuse', 'pnj', 23, 19);
+  m.object('vieille-machine', 'objet', 26, 20);
+  // Le funiculaire des Manufactures-Moyennes, et le patrouilleur qui le garde.
+  m.setObstacle(14, 2, 'monte-charge');
+  m.object('funiculaire', 'porte', 14, 2, {
+    cible: 'ironheart-manufactures',
+    arrivee: 'funiculaire-arrivee',
+    libelle: 'Le funiculaire',
+    verrou: 'laissez-passer-ironheart',
+    dialogue: 'patrouilleur',
+  });
+  m.object('devant-funiculaire', 'arrivee', 14, 3);
+  m.object('patrouilleur', 'pnj', 12, 3);
+  m.setObstacle(3, 15, 'panneau');
+  m.object('panneau-ironheart', 'panneau', 3, 15, { texte: 'Ironheart — les Forges-Basses. Per Ferrum et Ignem.' });
+  return m.toTiled();
+}
+
+function ironheartMarche() {
+  const m = cityBlock(22, 18, 'dalles', 'rocher');
+  m.object('vers-forges', 'sortie', 0, 9, { cible: 'ironheart-forges', arrivee: 'devant-renfoncement', libelle: 'Remonter le tunnel' });
+  m.setObstacle(0, 9, null);
+  m.object('depuis-forges', 'arrivee', 2, 9);
+  for (const [c, r] of [[5, 4], [8, 13], [14, 3], [15, 13], [5, 12]]) m.setObstacle(c, r, 'tente-cendres');
+  for (const [c, r] of [[9, 5], [10, 5], [17, 9], [17, 10], [11, 12]]) m.setObstacle(c, r, 'etal');
+  for (const [c, r] of [[3, 6], [7, 9], [13, 8], [19, 5], [19, 13], [3, 13]]) m.setObstacle(c, r, 'reverbere');
+  for (const [c, r] of [[6, 8], [16, 6]]) m.setObstacle(c, r, 'caisses');
+  // L'échoppe de Kaelis, et le guichet d'archives au fond de la caverne [NOTION, roman V.1].
+  m.setObstacle(12, 5, 'etal');
+  m.object('kaelis', 'pnj', 12, 6);
+  m.setObstacle(20, 8, 'comptoir');
+  m.setObstacle(20, 9, 'comptoir');
+  m.object('guichet-cendres', 'objet', 20, 9);
+  m.setObstacle(19, 2, 'panneau');
+  m.object('panneau-marche', 'panneau', 19, 2, { texte: 'Pas d’enseigne, pas de carte. Seulement l’huile des lampes, et ce qui se vend.' });
+  return m.toTiled();
+}
+
+function ironheartManufactures() {
+  const m = cityBlock(26, 20, 'dalles');
+  m.setObstacle(2, 10, 'monte-charge');
+  m.object('funiculaire-descente', 'porte', 2, 10, { cible: 'ironheart-forges', arrivee: 'devant-funiculaire', libelle: 'Redescendre aux Forges-Basses' });
+  m.object('funiculaire-arrivee', 'arrivee', 3, 10);
+  // Le tramway à vapeur sur ses rails surélevés (dessinés au sol, provisoirement).
+  m.line([1, 15], [24, 15], 'rail');
+  house(m, 'ironheart-archives', 'archives', [14, 4], [14, 5]);
+  for (const [c, r] of [[6, 6], [11, 9], [18, 9], [8, 13], [20, 12]]) m.setObstacle(c, r, 'reverbere');
+  for (const [c, r] of [[6, 3], [9, 3], [19, 3], [5, 17], [10, 17], [16, 17]]) m.setObstacle(c, r, 'maison-brique');
+  // Le funiculaire des Manufactures-Hautes : on n'y monte pas.
+  m.setObstacle(22, 3, 'monte-charge');
+  m.object('funiculaire-hautes', 'porte', 22, 3, {
+    cible: 'ironheart-manufactures',
+    libelle: 'Le funiculaire des Manufactures-Hautes',
+    verrou: 'jamais-ouvert',
+    toujoursFermee: 'oui',
+    dialogue: 'patrouilleuse-haute',
+  });
+  m.object('patrouilleuse-haute', 'pnj', 20, 5);
+  m.setObstacle(13, 7, 'panneau');
+  m.object('panneau-archives', 'panneau', 13, 7, { texte: 'ARCHIVES CENTRALES DE FERROS — MEMORIA FERROX. Comptoir public au rez-de-chaussée.' });
+  return m.toTiled();
+}
+
+Object.assign(LOCATION_NAMES, {
+  'ironheart-pension': 'Pension de la Bielle',
+  'ironheart-atelier': 'Atelier Cendrefer',
+  'ironheart-martelroux': 'Maison Martelroux',
+  'ironheart-archives': 'Archives Centrales de Ferros',
+});
+
+const FERROS_ROOM = { floor: 'dalles', wall: 'mur-brique' };
+Object.assign(INTERIORS, {
+  'ironheart-pension': interior('ironheart-pension', {
+    ...FERROS_ROOM,
+    outside: 'ironheart-forges',
+    furniture: [[1, 1, 'lit'], [1, 3, 'lit'], [3, 3, 'comptoir'], [4, 3, 'comptoir'], [6, 1, 'tonneaux'], [6, 4, 'table']],
+    objects: [['dorna', 'pnj', 4, 2]],
+  }),
+  'ironheart-atelier': interior('ironheart-atelier', {
+    ...FERROS_ROOM,
+    outside: 'ironheart-forges',
+    furniture: [[2, 1, 'etabli'], [3, 1, 'etabli'], [6, 1, 'caisses'], [6, 2, 'caisses'], [1, 4, 'etagere']],
+    objects: [['hedda', 'pnj', 4, 2]],
+  }),
+  'ironheart-martelroux': interior('ironheart-martelroux', {
+    ...FERROS_ROOM,
+    outside: 'ironheart-forges',
+    furniture: [[1, 2, 'lit'], [5, 4, 'table'], [6, 1, 'cheminee'], [3, 1, 'etagere']],
+    objects: [['rika', 'pnj', 3, 3]],
+  }),
+  'ironheart-archives': interior('ironheart-archives', {
+    ...FERROS_ROOM,
+    w: 9,
+    h: 7,
+    outside: 'ironheart-manufactures',
+    furniture: [[1, 1, 'etagere'], [2, 1, 'etagere'], [3, 1, 'etagere'], [6, 1, 'etagere'], [7, 1, 'etagere'], [8, 1, 'etagere'], [3, 4, 'comptoir'], [4, 4, 'comptoir'], [5, 4, 'comptoir']],
+    objects: [['noam', 'pnj', 4, 3]],
+  }),
+});
+
 // --- Lieux de rencontre aléatoire (docs/gdd/carte-du-monde.md) ---------------------------------------------
 // Petites cartes où l'on tombe en voyage, comme les rencontres de la carte du monde des CRPG de référence. Leur
 // contenu (ennemis, PNJ, objets) vient de src/data/rencontres.json et se pose sur les points d'apparition.
@@ -716,6 +876,9 @@ for (const [id, map] of Object.entries({
   'canopee-ramures': canopeeRamures(),
   'canopee-aieux': canopeeAieux(),
   'sol-racines': solRacines(),
+  'ironheart-forges': ironheartForges(),
+  'ironheart-marche': ironheartMarche(),
+  'ironheart-manufactures': ironheartManufactures(),
   'canopee-amphitheatre': amphitheatre(),
   ...ENCOUNTER_MAPS,
 })) {

@@ -1,0 +1,219 @@
+{
+  "id": "kaelis",
+  "speaker": "kaelis",
+  "entries": [
+    {
+      "requires": [
+        {
+          "item": "cle-rouille-bleue"
+        }
+      ],
+      "node": "offre"
+    },
+    {
+      "requires": [
+        {
+          "flag": "cle-vendue"
+        }
+      ],
+      "node": "apres-vente"
+    },
+    {
+      "requires": [
+        {
+          "quest": "cle-rouille-bleue",
+          "status": "done"
+        }
+      ],
+      "node": "apres"
+    },
+    {
+      "requires": [
+        {
+          "flag": "kaelis-parle"
+        }
+      ],
+      "node": "retour"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Un homme maigre polit une mâchoire de Golem sous une lampe à huile. Autour de lui, des fémurs polis, des vertèbres en colliers. — Tout se vend, ici. Même ce qui se souvient. Pose ta question… si c’est la bonne.",
+      "options": [
+        {
+          "text": "Je cherche la clé de rouille bleue.",
+          "next": "mauvaise"
+        },
+        {
+          "text": "Pourquoi certaines reliques se souviennent-elles des morts ?",
+          "requires": [
+            {
+              "attribute": "memory",
+              "min": 3
+            }
+          ],
+          "next": "bonne"
+        },
+        {
+          "text": "Au Bosquet des Échos, le bois garde la main de qui a gravé. Et tes os ?",
+          "requires": [
+            {
+              "recit": "voix-ecorce"
+            }
+          ],
+          "next": "bonne"
+        },
+        {
+          "text": "Et toi, de quoi te souviens-tu ?",
+          "next": "refus"
+        }
+      ]
+    },
+    "mauvaise": {
+      "text": "Kaelis sourit sans montrer les dents. — Tout le monde la cherche. Ce n’est pas la bonne question.",
+      "options": [
+        {
+          "text": "Essayer autre chose.",
+          "next": "accueil"
+        },
+        {
+          "text": "Je reviendrai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "refus": {
+      "text": "— Je vends des souvenirs. Je ne donne pas les miens. Il reprend son polissage.",
+      "options": [
+        {
+          "text": "Pardon.",
+          "next": "accueil"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "bonne": {
+      "text": "Il pose la mâchoire. — Parce qu’on les a tenues longtemps, avec amour ou avec peur : le métal garde la main. Tu es de ceux qui écoutent. Alors écoute : la clé, je l’ai vue au cou de la Veilleuse du Rail, au bout de la ligne qu’on dit maudite.",
+      "effects": [
+        {
+          "setFlag": "kaelis-parle"
+        },
+        {
+          "giveXp": 15
+        }
+      ],
+      "options": [
+        {
+          "text": "Pourquoi ne pas la prendre toi-même ?",
+          "next": "pourquoi"
+        },
+        {
+          "text": "Merci, Kaelis.",
+          "next": "fin"
+        }
+      ]
+    },
+    "pourquoi": {
+      "text": "— On ne prend rien à la Veilleuse : les cheminots veillent sur elle. Rapporte-moi la clé, et je te la paie cent Fers. Les Marches paient toujours leurs dettes.",
+      "options": [
+        {
+          "text": "Qu’ouvre-t-elle ?",
+          "next": "ouvre"
+        },
+        {
+          "text": "J’y réfléchirai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "ouvre": {
+      "text": "— Une archive. Celle du dernier train : ce qu’il emportait, ce qu’il a laissé en route. Les Archives Centrales en gardent le coffre. Nous, nous avons les acheteurs.",
+      "options": [
+        {
+          "text": "Je vois.",
+          "next": "fin"
+        }
+      ]
+    },
+    "retour": {
+      "text": "— Alors, cette Veilleuse ? Cent Fers, toujours. Je ne change jamais un prix.",
+      "options": [
+        {
+          "text": "Qu’ouvre-t-elle, déjà ?",
+          "next": "ouvre"
+        },
+        {
+          "text": "À plus tard.",
+          "next": "fin"
+        }
+      ]
+    },
+    "offre": {
+      "text": "— Elle est là, dans ta poche. Je l’entends rouiller d’ici. Cent Fers, et l’on n’en parle plus.",
+      "options": [
+        {
+          "text": "La lui vendre, pour cent Fers.",
+          "next": "vendue",
+          "effects": [
+            {
+              "takeItem": "cle-rouille-bleue"
+            },
+            {
+              "giveFers": 100
+            },
+            {
+              "setFlag": "cle-vendue"
+            },
+            {
+              "completeQuest": "cle-rouille-bleue"
+            },
+            {
+              "giveXp": 40
+            }
+          ]
+        },
+        {
+          "text": "Qu’ouvre-t-elle ?",
+          "next": "ouvre"
+        },
+        {
+          "text": "Non, pas à toi.",
+          "next": "fin"
+        }
+      ]
+    },
+    "vendue": {
+      "text": "Kaelis fait disparaître la clé dans un coffret doublé de velours noir. — Les Marches te remercient. Si un jour tu as quelque chose à vendre, même un souvenir, tu sais où me trouver.",
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "apres-vente": {
+      "text": "— Les acheteurs sont contents. Toi aussi, j’espère.",
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "apres": {
+      "text": "— Tu as choisi un autre acheteur, à ce qu’on dit. Dommage. Les Marches n’oublient pas… mais elles ne se fâchent pas longtemps.",
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

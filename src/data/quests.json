@@ -98,5 +98,24 @@
         "texte": "Les Loups de Rouille sont derrière moi. Porter la sacoche à Véline, à la Grande Nacelle."
       }
     ]
+  },
+  {
+    "id": "cle-rouille-bleue",
+    "name": "La Clé de Rouille Bleue",
+    "summary": "Le fouilleur Garrik l’a avoué : les Marches des Cendres cherchent la clé de rouille bleue, que transportait le dernier train. Kaelis tient échoppe à Ironheart, au Marché des Cendres, que personne ne trouve sur les cartes.",
+    "etapes": [
+      {
+        "si": "marche-cendres-connu",
+        "texte": "Le Marché des Cendres est caché dans un renfoncement sans enseigne, entre deux fonderies éteintes des Forges-Basses. Y trouver Kaelis."
+      },
+      {
+        "si": "kaelis-parle",
+        "texte": "Kaelis a vu la clé au cou de la Veilleuse du Rail, au bout de la vieille ligne qu’on dit maudite."
+      },
+      {
+        "si": "cle-obtenue",
+        "texte": "J’ai la clé de rouille bleue. La vendre à Kaelis, la confier à l’archiviste Noam, aux Archives Centrales, ou la rendre à la Veilleuse."
+      }
+    ]
   }
 ]

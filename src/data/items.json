@@ -133,5 +133,13 @@
     "weightKg": 1,
     "price": 0,
     "quest": true
+  },
+  {
+    "id": "cle-rouille-bleue",
+    "name": "Clé de rouille bleue",
+    "description": "Une vieille clé couverte d’une rouille bleue, douce comme de la mousse. Elle chante quand un train approche.",
+    "weightKg": 0.1,
+    "price": 0,
+    "quest": true
   }
 ]

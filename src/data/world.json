@@ -22,15 +22,41 @@
       "entrance": "entree",
       "known": true,
       "description": "La capitale de Verdantis, dans les Arbres-Titans : rien n’y touche le sol."
+    },
+    {
+      "id": "ironheart",
+      "name": "Ironheart",
+      "x": 700,
+      "y": 64,
+      "location": "ironheart-forges",
+      "entrance": "entree",
+      "revealedByQuest": "audience",
+      "description": "La capitale de Ferros : forges, funiculaires et archives, sous un ciel qui semble avoir rouillé."
     }
   ],
   "distant": [
-    { "name": "Ferros · Ironheart", "x": 640, "y": 50, "hint": "Au nord, par la Province Frontalière." },
-    { "name": "Terminus · Sept-Portes", "x": 1110, "y": 440, "hint": "À l’est, au centre du monde." },
-    { "name": "Zephyria · Aetherhaven", "x": 130, "y": 440, "hint": "Au sud-ouest, en dirigeable." }
+    {
+      "name": "Terminus · Sept-Portes",
+      "x": 1110,
+      "y": 440,
+      "hint": "À l’est, au centre du monde."
+    },
+    {
+      "name": "Zephyria · Aetherhaven",
+      "x": 130,
+      "y": 440,
+      "hint": "Au sud-ouest, en dirigeable."
+    }
   ],
   "zones": [
-    { "id": "lisiere", "name": "Lisière de Ferros", "x0": 700, "y0": 0, "x1": 1200, "y1": 330 }
+    {
+      "id": "lisiere",
+      "name": "Lisière de Ferros",
+      "x0": 700,
+      "y0": 0,
+      "x1": 1200,
+      "y1": 330
+    }
   ],
   "defaultZone": "foret",
   "travel": {

@@ -901,4 +901,16 @@ TILES.push(
       '<path d="M0 34 L32 50 L64 34 M0 48 L32 64 L64 48 M0 62 L32 78 L64 62" stroke="#5a2c1c" stroke-width="1" fill="none"/>' +
       '<path d="M32 4 L64 20 L32 36 L0 20 Z" fill="#3a3238"/>',
   },
+  {
+    name: 'renfoncement',
+    blocking: true,
+    svg:
+      diamond('#3a3238') +
+      `<path d="M10 84 L10 40 L32 30 L54 40 L54 84 L32 96 Z" fill="#2e2a30" stroke="${INK}" stroke-width="1"/>` +
+      '<path d="M22 90 L22 58 Q32 50 42 58 L42 85 Z" fill="#0e0b0a"/>' +
+      '<circle cx="32" cy="72" r="2" fill="#ffb060" opacity="0.6"/>',
+  },
+  npcTile('ouvrier', { body: '#7a7a74', hair: '#3a2a1c', accent: '#b08a50' }),
+  npcTile('veilleur-rouille', { body: '#4a3a3a', hair: '#8a8a8a', accent: '#c05a3a', extra: '<path d="M42 60 L50 52" stroke="#c9a46a" stroke-width="2"/><circle cx="50" cy="51" r="3" fill="none" stroke="#c9a46a" stroke-width="1.5"/>' }),
+  npcTile('archiviste-guichet', { body: '#5a6a7a', hair: '#2a2018', accent: '#7fb0ff' }),
 );

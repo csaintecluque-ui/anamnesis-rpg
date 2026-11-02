@@ -1,0 +1,39 @@
+{
+  "id": "vieille-machine",
+  "speaker": "vieille-machine",
+  "entries": [
+    {
+      "node": "machine"
+    }
+  ],
+  "nodes": {
+    "machine": {
+      "text": "Une locomotive de l’Ancien Monde, rouge de rouille, et pourtant astiquée comme un jour de fête. Sur la cabine, quelqu’un a peint neuf petits wagons.",
+      "options": [
+        {
+          "text": "Poser la main sur le métal.",
+          "requires": [
+            {
+              "attribute": "memory",
+              "min": 4
+            }
+          ],
+          "next": "souvenir"
+        },
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "souvenir": {
+      "text": "Le métal se souvient d’une main : celle d’une femme qui chante en conduisant, très loin d’ici, il y a très longtemps.",
+      "options": [
+        {
+          "text": "Retirer la main.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

@@ -1,4 +1,7 @@
 [
   { "id": "compagnie-lisieres", "name": "la Compagnie des Lisières", "membre": "membre-compagnie-lisieres" },
-  { "id": "nacelliers", "name": "les Nacelliers", "membre": "nacelliers-amis" }
+  { "id": "nacelliers", "name": "les Nacelliers", "membre": "nacelliers-amis" },
+  { "id": "travailleurs-rail", "name": "les Travailleurs du Rail", "membre": "membre-travailleurs-rail" },
+  { "id": "marches-cendres", "name": "les Marches des Cendres", "membre": "membre-marches-cendres" },
+  { "id": "archives-ferros", "name": "les Archives de Ferros", "membre": "membre-archives-ferros" }
 ]

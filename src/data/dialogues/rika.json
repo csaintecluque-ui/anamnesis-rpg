@@ -1,0 +1,51 @@
+{
+  "id": "rika",
+  "speaker": "rika",
+  "entries": [
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Une chaudronnière aux bras couverts de suie lève les yeux. — Gardebois ? Tu connais mon Brann ? Il travaille chez Tobias Cendrefer… Il mange bien ? Il ne fait pas trop de bêtises ?",
+      "options": [
+        {
+          "text": "Brann va bien. Il est honnête et travailleur.",
+          "next": "brann"
+        },
+        {
+          "text": "Le Marché des Cendres, ça te dit quelque chose ?",
+          "next": "marche"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "brann": {
+      "text": "Rika sourit pour la première fois. — Maladroit, je parie, comme son père. Dis-lui que sa mère est fière de lui. Et qu’il écrive, de temps en temps.",
+      "options": [
+        {
+          "text": "Je le lui dirai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "marche": {
+      "text": "Elle baisse la voix. — Cherche le trou entre deux fonderies froides, à l’est, et ne dis à personne que tu l’as trouvé. Les gens bien n’y vont pas. Les gens bien ont tort, parfois.",
+      "effects": [
+        {
+          "setFlag": "marche-cendres-indice"
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Rika.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

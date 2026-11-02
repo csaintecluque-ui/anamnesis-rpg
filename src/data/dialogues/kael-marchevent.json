@@ -273,6 +273,9 @@
           "completeQuest": "audience"
         },
         {
+          "startQuest": "cle-rouille-bleue"
+        },
+        {
           "learnRecit": "triumvirat-vert"
         },
         {

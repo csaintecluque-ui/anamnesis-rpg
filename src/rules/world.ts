@@ -18,9 +18,10 @@ export interface WorldPlace {
   location: string;
   entrance: string;
   description: string;
-  /** Shown from the start; otherwise once the `revealedBy` flag is set. */
+  /** Shown from the start; otherwise once the `revealedBy` flag is set, or the `revealedByQuest` quest is done. */
   known?: boolean;
   revealedBy?: string;
+  revealedByQuest?: string;
 }
 
 export interface WorldDef {
@@ -92,8 +93,10 @@ export function findRencontre(id: string): RencontreDef | undefined {
   return RENCONTRES.find((r) => r.id === id);
 }
 
-export function knownPlaces(flags: Record<string, true>): WorldPlace[] {
-  return WORLD.places.filter((p) => p.known || (p.revealedBy && flags[p.revealedBy]));
+export function knownPlaces(flags: Record<string, true>, quests: Record<string, string> = {}): WorldPlace[] {
+  return WORLD.places.filter(
+    (p) => p.known || (p.revealedBy && flags[p.revealedBy]) || (p.revealedByQuest && quests[p.revealedByQuest] === 'done'),
+  );
 }
 
 /** The world-map place a location belongs to (a house of Gardebois belongs to Gardebois). */

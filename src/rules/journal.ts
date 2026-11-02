@@ -45,7 +45,7 @@ export interface JournalStanding {
 
 /** Every known town, then the guilds the hero has dealt with (a score, or membership). */
 export function journalReputation(state: GameState): JournalStanding[] {
-  const towns = knownPlaces(state.flags)
+  const towns = knownPlaces(state.flags, state.quests)
     .filter((p) => REPUTATION[p.id])
     .map((p): JournalStanding => ({ id: p.id, name: findPlace(p.id)!.name, kind: 'ville', label: levelLabel(p.id, reputationLevel(state, p.id)), member: false }));
   const guilds = FACTIONS.filter((f) => reputationScore(state, f.id) !== 0 || state.flags[f.membre]).map(

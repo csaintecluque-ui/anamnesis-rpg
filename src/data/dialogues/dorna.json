@@ -1,0 +1,59 @@
+{
+  "id": "dorna",
+  "speaker": "dorna",
+  "entries": [
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "— Pension de la Bielle ! Lit de camp et soupe épaisse, comme à l’usine. Nom d’une gueuse, tu as l’air d’avoir marché des jours !",
+      "options": [
+        {
+          "text": "Une soupe et un lit.",
+          "requires": [
+            {
+              "fers": 8
+            }
+          ],
+          "next": "repas",
+          "effects": [
+            {
+              "giveFers": -8
+            },
+            {
+              "heal": 100
+            }
+          ]
+        },
+        {
+          "text": "Quelles nouvelles ?",
+          "next": "nouvelles"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "repas": {
+      "text": "Une soupe de grain, du pain noir, et un lit de camp qui grince. Au réveil, tes forces sont revenues.",
+      "options": [
+        {
+          "text": "Merci, Dorna.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "nouvelles": {
+      "text": "— On dit qu’un convoi sans conducteur passe encore sur la vieille ligne, la nuit. On dit que les Marches des Cendres paient cher les vieilleries des gares. Et on dit que les Archives veulent tout savoir. Moi, je dis : mange ta soupe.",
+      "options": [
+        {
+          "text": "Merci, Dorna.",
+          "next": "accueil"
+        }
+      ]
+    }
+  }
+}

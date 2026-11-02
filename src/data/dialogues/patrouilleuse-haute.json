@@ -1,0 +1,33 @@
+{
+  "id": "patrouilleuse-haute",
+  "speaker": "patrouilleuse-haute",
+  "entries": [
+    {
+      "node": "ferme"
+    }
+  ],
+  "nodes": {
+    "ferme": {
+      "text": "— Manufactures-Hautes. Accès réservé, sur convocation. Personne ne monte sans y être appelé, et ceux qui y montent ne redescendent guère.",
+      "options": [
+        {
+          "text": "Qu’y a-t-il, là-haut ?",
+          "next": "haut"
+        },
+        {
+          "text": "Je comprends.",
+          "next": "fin"
+        }
+      ]
+    },
+    "haut": {
+      "text": "— La Tour de l’Empereur, la Grande Forge Centrale. Et des gens qui ne donnent plus de nouvelles. Je n’en sais pas plus, et ça me va très bien.",
+      "options": [
+        {
+          "text": "Merci.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

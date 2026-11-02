@@ -1,14 +1,9 @@
 import type { Dialogue } from '../../rules/dialogue';
-import commisCaravane from './commis-caravane.json';
-import elvan from './elvan.json';
-import thalorin from './thalorin.json';
-import lyra from './lyra.json';
-import kaelMarchevent from './kael-marchevent.json';
-import garrik from './garrik.json';
 import ailis from './ailis.json';
 import arbreAncien from './arbre-ancien.json';
 import arbreAnselme from './arbre-anselme.json';
 import arbreRetourAnselme from './arbre-retour-anselme.json';
+import boulon from './boulon.json';
 import brann from './brann.json';
 import cacheRuines from './cache-ruines.json';
 import caisseEgaree from './caisse-egaree.json';
@@ -16,46 +11,58 @@ import caisseProspection from './caisse-prospection.json';
 import carnetsIlyane from './carnets-ilyane.json';
 import cerfsLucioles from './cerfs-lucioles.json';
 import colporteuse from './colporteuse.json';
+import commisCaravane from './commis-caravane.json';
 import cristalVeille from './cristal-veille.json';
+import dorna from './dorna.json';
 import echoBerceuse from './echo-berceuse.json';
 import echoDernierTrain from './echo-dernier-train.json';
 import elouan from './elouan.json';
+import elvan from './elvan.json';
 import foreuse from './foreuse.json';
+import garrik from './garrik.json';
 import grainesConseil from './graines-conseil.json';
+import guichetCendres from './guichet-cendres.json';
+import hedda from './hedda.json';
 import huissier from './huissier.json';
 import ilyane from './ilyane.json';
 import ingrid from './ingrid.json';
+import kaelMarchevent from './kael-marchevent.json';
+import kaelis from './kaelis.json';
 import lettresEparpillees from './lettres-eparpillees.json';
 import liane from './liane.json';
 import lisandre from './lisandre.json';
+import lyra from './lyra.json';
 import maelis from './maelis.json';
 import malo from './malo.json';
 import mirelle from './mirelle.json';
 import nell from './nell.json';
+import noam from './noam.json';
+import patrouilleur from './patrouilleur.json';
+import patrouilleuseHaute from './patrouilleuse-haute.json';
 import porteGrenier from './porte-grenier.json';
+import renfoncement from './renfoncement.json';
+import rika from './rika.json';
 import rocherSauge from './rocher-sauge.json';
 import sacocheLettres from './sacoche-lettres.json';
 import sauge1 from './sauge-1.json';
 import sauge2 from './sauge-2.json';
 import sevane from './sevane.json';
 import sylvan from './sylvan.json';
+import thalorin from './thalorin.json';
 import tobias from './tobias.json';
 import tracesFouille from './traces-fouille.json';
+import veilleuse from './veilleuse.json';
 import veline from './veline.json';
+import vieilleMachine from './vieille-machine.json';
 import voyageurEgare from './voyageur-egare.json';
 
 /** Dialogue files by object name (PNJ, Écho or object) of the maps. */
 export const DIALOGUES: Record<string, Dialogue> = {
-  'commis-caravane': commisCaravane as Dialogue,
-  elvan: elvan as Dialogue,
-  thalorin: thalorin as Dialogue,
-  lyra: lyra as Dialogue,
-  'kael-marchevent': kaelMarchevent as Dialogue,
-  garrik: garrik as Dialogue,
   ailis: ailis as Dialogue,
   'arbre-ancien': arbreAncien as Dialogue,
   'arbre-anselme': arbreAnselme as Dialogue,
   'arbre-retour-anselme': arbreRetourAnselme as Dialogue,
+  boulon: boulon as Dialogue,
   brann: brann as Dialogue,
   'cache-ruines': cacheRuines as Dialogue,
   'caisse-egaree': caisseEgaree as Dialogue,
@@ -63,31 +70,48 @@ export const DIALOGUES: Record<string, Dialogue> = {
   'carnets-ilyane': carnetsIlyane as Dialogue,
   'cerfs-lucioles': cerfsLucioles as Dialogue,
   colporteuse: colporteuse as Dialogue,
+  'commis-caravane': commisCaravane as Dialogue,
   'cristal-veille': cristalVeille as Dialogue,
+  dorna: dorna as Dialogue,
   'echo-berceuse': echoBerceuse as Dialogue,
   'echo-dernier-train': echoDernierTrain as Dialogue,
   elouan: elouan as Dialogue,
+  elvan: elvan as Dialogue,
   foreuse: foreuse as Dialogue,
+  garrik: garrik as Dialogue,
   'graines-conseil': grainesConseil as Dialogue,
+  'guichet-cendres': guichetCendres as Dialogue,
+  hedda: hedda as Dialogue,
   huissier: huissier as Dialogue,
   ilyane: ilyane as Dialogue,
   ingrid: ingrid as Dialogue,
+  'kael-marchevent': kaelMarchevent as Dialogue,
+  kaelis: kaelis as Dialogue,
   'lettres-eparpillees': lettresEparpillees as Dialogue,
   liane: liane as Dialogue,
   lisandre: lisandre as Dialogue,
+  lyra: lyra as Dialogue,
   maelis: maelis as Dialogue,
   malo: malo as Dialogue,
   mirelle: mirelle as Dialogue,
   nell: nell as Dialogue,
+  noam: noam as Dialogue,
+  patrouilleur: patrouilleur as Dialogue,
+  'patrouilleuse-haute': patrouilleuseHaute as Dialogue,
   'porte-grenier': porteGrenier as Dialogue,
+  renfoncement: renfoncement as Dialogue,
+  rika: rika as Dialogue,
   'rocher-sauge': rocherSauge as Dialogue,
   'sacoche-lettres': sacocheLettres as Dialogue,
   'sauge-1': sauge1 as Dialogue,
   'sauge-2': sauge2 as Dialogue,
   sevane: sevane as Dialogue,
   sylvan: sylvan as Dialogue,
+  thalorin: thalorin as Dialogue,
   tobias: tobias as Dialogue,
   'traces-fouille': tracesFouille as Dialogue,
+  veilleuse: veilleuse as Dialogue,
   veline: veline as Dialogue,
+  'vieille-machine': vieilleMachine as Dialogue,
   'voyageur-egare': voyageurEgare as Dialogue,
 };

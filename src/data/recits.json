@@ -33,5 +33,15 @@
     "id": "deux-apprenties",
     "titre": "Les deux apprenties",
     "texte": "Deux apprenties Gardiennes de Mémoire se jurèrent un soir, à Gardebois : l’une écouterait tout, l’autre écrirait tout. L’une s’appelle Ilyane, l’autre Mirelle. Leur carnet de chansons a voyagé trente ans avant de revenir. On dit qu’une chanson écrite n’oublie jamais, même chantée faux."
+  },
+  {
+    "id": "carnet-dernier-train",
+    "titre": "Le carnet du dernier train",
+    "texte": "Dans le Fonds Zéro des Archives de Ferros dormait le carnet de bord du dernier train : chaque gare où il s’arrêta, et ce qu’il y laissa. Une carte de toutes les voies endormies l’accompagne. Une ligne a été grattée, avec soin."
+  },
+  {
+    "id": "convoi-sans-conducteur",
+    "titre": "Le convoi sans conducteur",
+    "texte": "Sur la vieille ligne d’Ironheart passe parfois un convoi translucide, bleu pâle bordé d’or, sans personne aux commandes. Aux fenêtres, des visages tranquilles. La Veilleuse du Rail l’entend avant qu’il existe, et compte ses wagons dans son sommeil."
   }
 ]

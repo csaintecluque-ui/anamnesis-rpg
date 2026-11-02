@@ -181,7 +181,7 @@ export class WorldMapScene extends Phaser.Scene {
 
   private drawPlaces(): void {
     const g = this.add.graphics();
-    const places = knownPlaces(this.state.flags);
+    const places = knownPlaces(this.state.flags, this.state.quests);
     // Known roads between places: a faint dotted line.
     g.fillStyle(0x6b4a32, 0.5);
     for (let i = 0; i < places.length; i++) {

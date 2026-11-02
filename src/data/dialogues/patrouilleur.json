@@ -1,0 +1,160 @@
+{
+  "id": "patrouilleur",
+  "speaker": "patrouilleur",
+  "entries": [
+    {
+      "requires": [
+        {
+          "flag": "laissez-passer-ironheart"
+        }
+      ],
+      "node": "passe"
+    },
+    {
+      "node": "controle"
+    }
+  ],
+  "nodes": {
+    "controle": {
+      "text": "Un patrouilleur en armure noircie lève sa visière rouge. — Funiculaire des Manufactures-Moyennes. Laissez-passer.",
+      "options": [
+        {
+          "text": "Montrer le sauf-conduit du Triumvirat.",
+          "requires": [
+            {
+              "item": "sauf-conduit"
+            }
+          ],
+          "next": "sauf"
+        },
+        {
+          "text": "Acheter un laissez-passer de visiteur.",
+          "requires": [
+            {
+              "fers": 10
+            }
+          ],
+          "next": "achat",
+          "effects": [
+            {
+              "giveFers": -10
+            }
+          ]
+        },
+        {
+          "text": "Bluffer : « Je livre pour l’atelier Cendrefer. »",
+          "next": "bluff-ok",
+          "roll": {
+            "skill": "subterfuge",
+            "difficulty": 13
+          },
+          "failNext": "bluff-rate"
+        },
+        {
+          "text": "Je repasserai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "sauf": {
+      "text": "Il fait tourner le sceau d’émeraude entre ses gros doigts. — Visiteur diplomatique de Verdantis. Pas d’histoires là-haut, compris ?",
+      "effects": [
+        {
+          "setFlag": "laissez-passer-ironheart"
+        }
+      ],
+      "options": [
+        {
+          "text": "Monter.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "ironheart-manufactures",
+              "arrivee": "funiculaire-arrivee"
+            }
+          ]
+        },
+        {
+          "text": "Plus tard.",
+          "next": "fin"
+        }
+      ]
+    },
+    "achat": {
+      "text": "— Dix Fers. Visiteur, une semaine, Manufactures-Moyennes seulement. Il tamponne un carton gris et te le tend.",
+      "effects": [
+        {
+          "setFlag": "laissez-passer-ironheart"
+        }
+      ],
+      "options": [
+        {
+          "text": "Monter.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "ironheart-manufactures",
+              "arrivee": "funiculaire-arrivee"
+            }
+          ]
+        },
+        {
+          "text": "Plus tard.",
+          "next": "fin"
+        }
+      ]
+    },
+    "bluff-ok": {
+      "text": "— Cendrefer ? Bon. Dépêche-toi, et pas de détours.",
+      "effects": [
+        {
+          "setFlag": "laissez-passer-ironheart"
+        }
+      ],
+      "options": [
+        {
+          "text": "Monter.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "ironheart-manufactures",
+              "arrivee": "funiculaire-arrivee"
+            }
+          ]
+        },
+        {
+          "text": "Plus tard.",
+          "next": "fin"
+        }
+      ]
+    },
+    "bluff-rate": {
+      "text": "— Sans bon de livraison ? Circule, avant que je te garde au poste le temps de vérifier.",
+      "options": [
+        {
+          "text": "Circuler.",
+          "next": "fin"
+        }
+      ]
+    },
+    "passe": {
+      "text": "— Laissez-passer en règle. Le funiculaire part quand il part.",
+      "options": [
+        {
+          "text": "Monter.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "ironheart-manufactures",
+              "arrivee": "funiculaire-arrivee"
+            }
+          ]
+        },
+        {
+          "text": "Plus tard.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

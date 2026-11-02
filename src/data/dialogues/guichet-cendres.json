@@ -1,0 +1,33 @@
+{
+  "id": "guichet-cendres",
+  "speaker": "guichet-cendres",
+  "entries": [
+    {
+      "node": "guichet"
+    }
+  ],
+  "nodes": {
+    "guichet": {
+      "text": "Au fond de la caverne, un guichet d’archives. Un employé aux chiffres bleus tatoués au poignet range des fiches sans lever les yeux. — Caste Technique uniquement. Les autres, circulez.",
+      "options": [
+        {
+          "text": "Que fait un guichet d’archives ici ?",
+          "next": "pourquoi"
+        },
+        {
+          "text": "Circuler.",
+          "next": "fin"
+        }
+      ]
+    },
+    "pourquoi": {
+      "text": "— L’administration va partout. Même là où elle n’a rien à faire. Il tamponne une fiche, toujours sans te regarder.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

@@ -201,6 +201,44 @@ Commence par : « arbre-quete » _(si quête « Le chant d’Anselme » en cours
 
 - « Retirer la main. » → **fin**
 
+## Boulon
+
+_Ferrôme, porteur à la gare de l’Ouest_
+
+Commence par : « accueil-quete » _(si quête « L’audience » terminée)_ _(si quête « La Clé de Rouille Bleue » pas commencée)_, sinon « accueil »
+
+### accueil-quete
+
+_Effet : lance la quête « La Clé de Rouille Bleue »._
+
+> Un Ferrôme lourd comme une locomotive soulève trois malles d’une seule main. — Bienvenue à Ironheart. Je m’appelle Boulon. Un sceau d’émeraude à ta ceinture ? Les Verts ne viennent pas souvent. Tu cherches quelque chose, ou quelqu’un ?
+
+- « Un certain Kaelis, des Marches des Cendres. » → kaelis
+- « Que faut-il savoir, ici ? » → regles
+- « Merci, Boulon. » → **fin**
+
+### accueil
+
+> — Bonjour. Boulon, porteur de la gare de l’Ouest. Je me souviens de chaque malle que j’ai portée : des milliers. Tu veux savoir quelque chose ?
+
+- _(si quête « La Clé de Rouille Bleue » en cours)_ « Où trouver Kaelis, des Marches des Cendres ? » → kaelis
+- « Que faut-il savoir, ici ? » → regles
+- « Au revoir, Boulon. » → **fin**
+
+### regles
+
+> — Garde ton laissez-passer sur toi : les visières rouges vérifient. Bois au Puits Trois, jamais au Un ni au Deux. Et on dit qu’il ne faut pas regarder un Ferrôme dans les yeux plus de deux secondes. Moi, tu peux. Je ne mords pas.
+
+- « Merci, Boulon. » → **fin**
+
+### kaelis
+
+_Effet : retient « marche-cendres-indice »._
+
+> — Kaelis ne tient boutique sur aucune carte. Les gens des forges disent : « Cherche le trou entre deux fonderies froides, et ne dis à personne que tu l’as trouvé. » À l’est, après le Puits Trois.
+
+- « Merci, Boulon. » → **fin**
+
 ## Brann Martelroux
 
 _Apprenti de Tobias_
@@ -448,6 +486,32 @@ Commence par : « cristal »
 
 - « Se reposer un instant. » → **fin** _(+40 PV)_
 - « S’éloigner. » → **fin**
+
+## Dorna Vissard
+
+_Pension de la Bielle_
+
+Commence par : « accueil »
+
+### accueil
+
+> — Pension de la Bielle ! Lit de camp et soupe épaisse, comme à l’usine. Nom d’une gueuse, tu as l’air d’avoir marché des jours !
+
+- **[8 Fers]** « Une soupe et un lit. » → repas _(−8 Fers, +100 PV)_
+- « Quelles nouvelles ? » → nouvelles
+- « Au revoir. » → **fin**
+
+### repas
+
+> Une soupe de grain, du pain noir, et un lit de camp qui grince. Au réveil, tes forces sont revenues.
+
+- « Merci, Dorna. » → accueil
+
+### nouvelles
+
+> — On dit qu’un convoi sans conducteur passe encore sur la vieille ligne, la nuit. On dit que les Marches des Cendres paient cher les vieilleries des gares. Et on dit que les Archives veulent tout savoir. Moi, je dis : mange ta soupe.
+
+- « Merci, Dorna. » → accueil
 
 ## L’Écho de la berceuse
 
@@ -845,6 +909,45 @@ Commence par : « vide » _(si repère « vol-grenier »)_, sinon « sacs »
 
 - « Partir. » → **fin**
 
+## Le guichet du fond
+
+_Archives, caste Technique_
+
+Commence par : « guichet »
+
+### guichet
+
+> Au fond de la caverne, un guichet d’archives. Un employé aux chiffres bleus tatoués au poignet range des fiches sans lever les yeux. — Caste Technique uniquement. Les autres, circulez.
+
+- « Que fait un guichet d’archives ici ? » → pourquoi
+- « Circuler. » → **fin**
+
+### pourquoi
+
+> — L’administration va partout. Même là où elle n’a rien à faire. Il tamponne une fiche, toujours sans te regarder.
+
+- « Partir. » → **fin**
+
+## Hedda Cendrefer
+
+_Atelier Cendrefer_
+
+Commence par : « accueil »
+
+### accueil
+
+> — Atelier Cendrefer ! Tu viens de Gardebois ? Alors tu as vu mon frère Tobias. Il vend toujours trop cher et parle trop fort ? Bien : il va bien.
+
+- « Voyons tes lames. » → **fin** _(ouvre le Troc)_
+- « Un conseil, pour Ironheart ? » → conseil
+- « Au revoir. » → **fin**
+
+### conseil
+
+> — Garde ton laissez-passer, ne traîne pas après le premier pont peint en rouge, et si tu entends sept coups de marteau, c’est l’heure des Litanies : on se tait. Ici, le travail est prière.
+
+- « Merci, Hedda. » → accueil
+
 ## L’huissier du Conseil
 
 _Huissier_
@@ -1178,7 +1281,7 @@ Commence par : « apres » _(si quête « L’audience » terminée)_, sinon « 
 
 ### envoi
 
-_Effet : donne 1 × « Sauf-conduit du Triumvirat », termine la quête « L’audience », retient le Récit « Le Triumvirat Vert », +60 XP._
+_Effet : donne 1 × « Sauf-conduit du Triumvirat », termine la quête « L’audience », lance la quête « La Clé de Rouille Bleue », retient le Récit « Le Triumvirat Vert », +60 XP._
 
 > Kael te tend un sauf-conduit scellé d’une feuille d’émeraude. — Les Marches des Cendres tiennent marché à Ironheart, en Ferros. Va voir qui paie, et pourquoi. Le Triumvirat Vert te le demande.
 
@@ -1189,6 +1292,90 @@ _Effet : donne 1 × « Sauf-conduit du Triumvirat », termine la quête « L’a
 > — Racines profondes. Ironheart t’attend, et nous attendons de tes nouvelles. Montre le sauf-conduit aux Gardes Verts de la frontière : ils te laisseront passer.
 
 - « Que la sève coule. » → **fin**
+
+## Kaelis
+
+_Marchand d’ossements, Marches des Cendres_
+
+Commence par : « offre » _(si l’on porte « Clé de rouille bleue »)_, sinon « apres-vente » _(si repère « cle-vendue »)_, sinon « apres » _(si quête « La Clé de Rouille Bleue » terminée)_, sinon « retour » _(si repère « kaelis-parle »)_, sinon « accueil »
+
+### accueil
+
+> Un homme maigre polit une mâchoire de Golem sous une lampe à huile. Autour de lui, des fémurs polis, des vertèbres en colliers. — Tout se vend, ici. Même ce qui se souvient. Pose ta question… si c’est la bonne.
+
+- « Je cherche la clé de rouille bleue. » → mauvaise
+- **[Mémoire 3]** « Pourquoi certaines reliques se souviennent-elles des morts ? » → bonne
+- _(si Récit « Les voix du Bosquet » connu)_ « Au Bosquet des Échos, le bois garde la main de qui a gravé. Et tes os ? » → bonne
+- « Et toi, de quoi te souviens-tu ? » → refus
+
+### mauvaise
+
+> Kaelis sourit sans montrer les dents. — Tout le monde la cherche. Ce n’est pas la bonne question.
+
+- « Essayer autre chose. » → accueil
+- « Je reviendrai. » → **fin**
+
+### refus
+
+> — Je vends des souvenirs. Je ne donne pas les miens. Il reprend son polissage.
+
+- « Pardon. » → accueil
+- « Au revoir. » → **fin**
+
+### bonne
+
+_Effet : retient « kaelis-parle », +15 XP._
+
+> Il pose la mâchoire. — Parce qu’on les a tenues longtemps, avec amour ou avec peur : le métal garde la main. Tu es de ceux qui écoutent. Alors écoute : la clé, je l’ai vue au cou de la Veilleuse du Rail, au bout de la ligne qu’on dit maudite.
+
+- « Pourquoi ne pas la prendre toi-même ? » → pourquoi
+- « Merci, Kaelis. » → **fin**
+
+### pourquoi
+
+> — On ne prend rien à la Veilleuse : les cheminots veillent sur elle. Rapporte-moi la clé, et je te la paie cent Fers. Les Marches paient toujours leurs dettes.
+
+- « Qu’ouvre-t-elle ? » → ouvre
+- « J’y réfléchirai. » → **fin**
+
+### ouvre
+
+> — Une archive. Celle du dernier train : ce qu’il emportait, ce qu’il a laissé en route. Les Archives Centrales en gardent le coffre. Nous, nous avons les acheteurs.
+
+- « Je vois. » → **fin**
+
+### retour
+
+> — Alors, cette Veilleuse ? Cent Fers, toujours. Je ne change jamais un prix.
+
+- « Qu’ouvre-t-elle, déjà ? » → ouvre
+- « À plus tard. » → **fin**
+
+### offre
+
+> — Elle est là, dans ta poche. Je l’entends rouiller d’ici. Cent Fers, et l’on n’en parle plus.
+
+- « La lui vendre, pour cent Fers. » → vendue _(reprend 1 × « Clé de rouille bleue », +100 Fers, retient « cle-vendue », termine la quête « La Clé de Rouille Bleue », +40 XP)_
+- « Qu’ouvre-t-elle ? » → ouvre
+- « Non, pas à toi. » → **fin**
+
+### vendue
+
+> Kaelis fait disparaître la clé dans un coffret doublé de velours noir. — Les Marches te remercient. Si un jour tu as quelque chose à vendre, même un souvenir, tu sais où me trouver.
+
+- « Au revoir. » → **fin**
+
+### apres-vente
+
+> — Les acheteurs sont contents. Toi aussi, j’espère.
+
+- « Au revoir. » → **fin**
+
+### apres
+
+> — Tu as choisi un autre acheteur, à ce qu’on dit. Dommage. Les Marches n’oublient pas… mais elles ne se fâchent pas longtemps.
+
+- « Au revoir. » → **fin**
 
 ## Des lettres éparpillées
 
@@ -1614,6 +1801,141 @@ Commence par : « apres » _(si quête « La berceuse oubliée » terminée)_, s
 
 - « … » → **fin**
 
+## L’archiviste Noam
+
+_Archives Centrales de Ferros_
+
+Commence par : « cle » _(si l’on porte « Clé de rouille bleue »)_ _(si quête « La Clé de Rouille Bleue » en cours)_, sinon « apres-archives » _(si repère « cle-archives »)_, sinon « accueil »
+
+### accueil
+
+> — Archives Centrales de Ferros, comptoir public (voir : règlement, article quatre). Fonds ordinaires : consultation libre. Fonds scellés : Niveau Trois (voir : une autorisation, un motif, un patron).
+
+- « Je cherche ce qui concerne le dernier train. » → train
+- « Vous gardez tout ? » → tout
+- « Au revoir. » → **fin**
+
+### tout
+
+> — Ferros ne brûle rien : Ferros classe (voir : devise officieuse). Ce qui n’est pas classé n’existe pas encore.
+
+- « Je vois. » → accueil
+
+### train
+
+_Effet : retient « fonds-zero-connu »._
+
+> Noam ajuste ses lunettes. — Fonds Zéro (voir : coffre de fer scellé, arrivé avec les premiers habitants de la vallée). Contenu : non classé. Motif : clé manquante. La seule pièce de ces Archives que nous n’ayons jamais pu ranger.
+
+- _(si quête « La Clé de Rouille Bleue » en cours)_ « Et si je trouvais cette clé ? » → si
+- « Merci. » → **fin**
+
+### si
+
+> — Alors vous auriez rendu à Ferros un service considérable (voir : reconnaissance des Archives, article premier).
+
+- « Je verrai. » → **fin**
+
+### cle
+
+> Noam ôte ses lunettes. Pour la première fois, il parle sans note. — Donnez-la-moi. Je vous ouvre le Fonds Zéro, et vous serez le premier à voir ce qu’il contient depuis la fondation de la ville.
+
+- « La lui confier. » → ouverture _(reprend 1 × « Clé de rouille bleue », retient « cle-archives », termine la quête « La Clé de Rouille Bleue », +50 XP, retient le Récit « Le carnet du dernier train »)_
+- « Pas encore. » → **fin**
+
+### ouverture
+
+> Dans la salle des fonds scellés, le coffre s’ouvre en grinçant. Dedans : le carnet de bord du dernier train, et la carte de toutes les voies endormies. Une ligne a été grattée, avec soin. Noam pâlit et referme vite le carnet.
+
+- « Qui a gratté cette ligne ? » → gratte
+- « Merci, Noam. » → **fin**
+
+### gratte
+
+> — Classé. (Voir : plus tard.) Il ne te regarde pas. — Vous avez rendu service aux Archives. Elles s’en souviendront : c’est leur métier.
+
+- « Au revoir. » → **fin**
+
+### apres-archives
+
+> — Le Fonds Zéro est classé, enfin (voir : vous). Pour le reste, revenez quand vous aurez le Niveau Trois. Ou une très bonne raison.
+
+- « Au revoir. » → **fin**
+
+## Le patrouilleur à visière rouge
+
+_Funiculaire des Forges-Basses_
+
+Commence par : « passe » _(si repère « laissez-passer-ironheart »)_, sinon « controle »
+
+### controle
+
+> Un patrouilleur en armure noircie lève sa visière rouge. — Funiculaire des Manufactures-Moyennes. Laissez-passer.
+
+- _(si l’on porte « Sauf-conduit du Triumvirat »)_ « Montrer le sauf-conduit du Triumvirat. » → sauf
+- **[10 Fers]** « Acheter un laissez-passer de visiteur. » → achat _(−10 Fers)_
+- **🎲 Subterfuge 13** « Bluffer : « Je livre pour l’atelier Cendrefer. » » → bluff-ok, ✗ → bluff-rate
+- « Je repasserai. » → **fin**
+
+### sauf
+
+_Effet : retient « laissez-passer-ironheart »._
+
+> Il fait tourner le sceau d’émeraude entre ses gros doigts. — Visiteur diplomatique de Verdantis. Pas d’histoires là-haut, compris ?
+
+- « Monter. » → **fin** _(mène à « Ironheart — Les Manufactures-Moyennes »)_
+- « Plus tard. » → **fin**
+
+### achat
+
+_Effet : retient « laissez-passer-ironheart »._
+
+> — Dix Fers. Visiteur, une semaine, Manufactures-Moyennes seulement. Il tamponne un carton gris et te le tend.
+
+- « Monter. » → **fin** _(mène à « Ironheart — Les Manufactures-Moyennes »)_
+- « Plus tard. » → **fin**
+
+### bluff-ok
+
+_Effet : retient « laissez-passer-ironheart »._
+
+> — Cendrefer ? Bon. Dépêche-toi, et pas de détours.
+
+- « Monter. » → **fin** _(mène à « Ironheart — Les Manufactures-Moyennes »)_
+- « Plus tard. » → **fin**
+
+### bluff-rate
+
+> — Sans bon de livraison ? Circule, avant que je te garde au poste le temps de vérifier.
+
+- « Circuler. » → **fin**
+
+### passe
+
+> — Laissez-passer en règle. Le funiculaire part quand il part.
+
+- « Monter. » → **fin** _(mène à « Ironheart — Les Manufactures-Moyennes »)_
+- « Plus tard. » → **fin**
+
+## La patrouilleuse des Manufactures
+
+_Funiculaire des Manufactures-Hautes_
+
+Commence par : « ferme »
+
+### ferme
+
+> — Manufactures-Hautes. Accès réservé, sur convocation. Personne ne monte sans y être appelé, et ceux qui y montent ne redescendent guère.
+
+- « Qu’y a-t-il, là-haut ? » → haut
+- « Je comprends. » → **fin**
+
+### haut
+
+> — La Tour de l’Empereur, la Grande Forge Centrale. Et des gens qui ne donnent plus de nouvelles. Je n’en sais pas plus, et ça me va très bien.
+
+- « Merci. » → **fin**
+
 ## Porte du grenier des semences
 
 _Objet_
@@ -1642,6 +1964,57 @@ _Effet : retient « grenier-deverrouille »._
 
 - « Réessayer. » → verrouillee
 - « Partir. » → **fin**
+
+## Un renfoncement sans enseigne
+
+_Entre deux fonderies éteintes_
+
+Commence par : « mur »
+
+### mur
+
+> Entre deux fonderies éteintes, un renfoncement sans enseigne. Un mur noirci de suie, et rien d’autre… en apparence.
+
+- _(si repère « marche-cendres-indice »)_ « Chercher le passage, comme on te l’a dit. » → trouve
+- **[Investigation 2]** « Examiner le mur. » → trouve
+- « Passer son chemin. » → **fin**
+
+### trouve
+
+_Effet : retient « marche-cendres-connu »._
+
+> Derrière une tôle mal fixée, un tunnel s’enfonce sous les fondations, éclairé à l’huile. Une odeur de cendre monte d’en bas.
+
+- « Descendre. » → **fin** _(mène à « Ironheart — Le Marché des Cendres »)_
+- « Pas maintenant. » → **fin**
+
+## Rika Martelroux
+
+_Chaudronnière, mère de Brann_
+
+Commence par : « accueil »
+
+### accueil
+
+> Une chaudronnière aux bras couverts de suie lève les yeux. — Gardebois ? Tu connais mon Brann ? Il travaille chez Tobias Cendrefer… Il mange bien ? Il ne fait pas trop de bêtises ?
+
+- « Brann va bien. Il est honnête et travailleur. » → brann
+- « Le Marché des Cendres, ça te dit quelque chose ? » → marche
+- « Au revoir. » → **fin**
+
+### brann
+
+> Rika sourit pour la première fois. — Maladroit, je parie, comme son père. Dis-lui que sa mère est fière de lui. Et qu’il écrive, de temps en temps.
+
+- « Je le lui dirai. » → **fin**
+
+### marche
+
+_Effet : retient « marche-cendres-indice »._
+
+> Elle baisse la voix. — Cherche le trou entre deux fonderies froides, à l’est, et ne dis à personne que tu l’as trouvé. Les gens bien n’y vont pas. Les gens bien ont tort, parfois.
+
+- « Merci, Rika. » → **fin**
 
 ## Rocher moussu
 
@@ -1945,6 +2318,95 @@ _Effet : retient « fouille-vue », retient « fouille-marches »._
 
 - « Garder ça en mémoire. » → **fin**
 
+## La Veilleuse du Rail
+
+_Travailleurs du Rail_
+
+Commence par : « avec-cle » _(si l’on porte « Clé de rouille bleue »)_ _(si quête « La Clé de Rouille Bleue » en cours)_, sinon « rendue-apres » _(si repère « cle-veilleuse »)_, sinon « apres » _(si repère « cle-obtenue »)_, sinon « question-cle » _(si repère « kaelis-parle »)_ _(si quête « La Clé de Rouille Bleue » en cours)_, sinon « accueil »
+
+### accueil
+
+> Une femme en veste de cheminot, une lampe à la main, compte à mi-voix : — … sept, huit, neuf wagons. Elle se tourne vers toi. — Le neuvième n’existe pas. Pas encore. Tu l’entends, toi aussi ?
+
+- « Tu entends les trains ? » → trains
+- « Qui es-tu ? » → qui
+- « Au revoir. » → **fin**
+
+### qui
+
+> — Ici, on m’appelle la Veilleuse. Je garde la vieille ligne et sa machine, pour les Travailleurs du Rail. Tout le monde la dit maudite. Moi, je dis qu’elle attend.
+
+- « Elle attend quoi ? » → trains
+- « Au revoir. » → **fin**
+
+### trains
+
+> — Toujours le même convoi, sans conducteur. Je l’entends avant qu’il passe. Mes parents l’ont pris, un soir, quand j’étais petite, et ne sont jamais revenus. Je garde la machine. Au cas où il les ramènerait.
+
+- **[Mémoire 3]** « Laisse-moi écouter avec toi. » → ecoute
+- « Merci de me l’avoir dit. » → **fin**
+
+### ecoute
+
+_Effet : retient le Récit « Le convoi sans conducteur »._
+
+> Vous écoutez ensemble. Un convoi passe, translucide, bleu pâle bordé d’or. Aux fenêtres, des visages tranquilles ; aucun n’a peur. La Veilleuse serre ton bras. — Tu les as vus sourire ? Alors ils ne souffrent pas.
+
+- _(si repère « kaelis-parle »)_ _(si quête « La Clé de Rouille Bleue » en cours)_ « Et la clé, à ton cou ? » → don
+- « Merci de m’avoir laissé écouter. » → **fin**
+
+### question-cle
+
+> La Veilleuse compte ses wagons à mi-voix. Au creux de sa main, une clé couverte d’une rouille bleue, douce comme de la mousse. — Elle chante quand le convoi approche. Kaelis t’envoie ? Il n’aura pas ma clé.
+
+- _(si Récit « Le Savant Corvan » connu)_ « J’ai vu le dernier train, moi aussi, dans l’Écho de la Gare Engloutie. » → don
+- **[Mémoire 3]** « Laisse-moi écouter le convoi avec toi. » → ecoute
+- **[Diplomatie 3]** « Kaelis la vendrait. Moi, je veux savoir ce qu’elle ouvre, et pourquoi on fouille vos gares. » → don
+- « Je reviendrai. » → **fin**
+
+### don
+
+_Effet : donne 1 × « Clé de rouille bleue », retient « cle-obtenue », +25 XP._
+
+> La Veilleuse ouvre la main. — Prends-la. Elle te parlera mieux qu’à moi. Mais si tu découvres ce qu’elle ouvre, reviens me le dire. Promis ?
+
+- « Promis. » → **fin**
+
+### avec-cle
+
+> — Alors, cette clé ? Elle chante encore ?
+
+- « Te la rendre : sa place est sur la ligne. » → rendue _(reprend 1 × « Clé de rouille bleue », retient « cle-veilleuse », termine la quête « La Clé de Rouille Bleue », +40 XP)_
+- **[Érudition 3]** _(sans repère « cle-etudiee »)_ « L’étudier d’abord avec toi. » → etude
+- « Pas encore. » → **fin**
+
+### etude
+
+_Effet : retient « cle-etudiee », +10 XP._
+
+> Sous la rouille bleue, à la loupe de la Veilleuse, un numéro apparaît : un sceau des Archives de Ferros, et deux mots, « Fonds Zéro ». La clé ouvre un coffre des Archives Centrales.
+
+- « Te la rendre. » → rendue _(reprend 1 × « Clé de rouille bleue », retient « cle-veilleuse », termine la quête « La Clé de Rouille Bleue », +40 XP)_
+- « La garder encore un peu. » → **fin**
+
+### rendue
+
+> Elle referme la main sur la clé. — Alors elle restera sur la ligne, là où elle chante. Les Travailleurs du Rail n’oublieront pas ce que tu as fait.
+
+- « Prends soin d’elle. » → **fin**
+
+### rendue-apres
+
+> — La clé chante toujours, la nuit. Je compte les wagons, et je ne me sens plus seule.
+
+- « À bientôt. » → **fin**
+
+### apres
+
+> — Tu as fait ton choix, avec la clé. Je l’entends parfois, loin d’ici… Elle chante encore. Prends soin de toi.
+
+- « Au revoir. » → **fin**
+
 ## Véline Nacelière
 
 _Passeuse de la Grande Nacelle_
@@ -2089,6 +2551,25 @@ _Effet : retient « descente-autorisee »._
 > Il te fait dire merci, et ceci : « Qui porte nos sacoches quand personne ne le fait est des nôtres. » Te voilà membre de la Compagnie des Lisières : chez Tobias, à Gardebois, tu auras les prix de membre.
 
 - « Merci, Véline. » → **fin**
+
+## La vieille machine
+
+_Ligne qu’on dit maudite_
+
+Commence par : « machine »
+
+### machine
+
+> Une locomotive de l’Ancien Monde, rouge de rouille, et pourtant astiquée comme un jour de fête. Sur la cabine, quelqu’un a peint neuf petits wagons.
+
+- **[Mémoire 4]** « Poser la main sur le métal. » → souvenir
+- « Partir. » → **fin**
+
+### souvenir
+
+> Le métal se souvient d’une main : celle d’une femme qui chante en conduisant, très loin d’ici, il y a très longtemps.
+
+- « Retirer la main. » → **fin**
 
 ## Un voyageur égaré
 

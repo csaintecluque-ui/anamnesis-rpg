@@ -17,6 +17,13 @@ import canopeeGrenierJson from './canopee-grenier.json';
 import canopeeRelaisJson from './canopee-relais.json';
 import solRacinesJson from './sol-racines.json';
 import canopeeAmphitheatreJson from './canopee-amphitheatre.json';
+import ironheartForgesJson from './ironheart-forges.json';
+import ironheartMarcheJson from './ironheart-marche.json';
+import ironheartManufacturesJson from './ironheart-manufactures.json';
+import ironheartPensionJson from './ironheart-pension.json';
+import ironheartAtelierJson from './ironheart-atelier.json';
+import ironheartMartelrouxJson from './ironheart-martelroux.json';
+import ironheartArchivesJson from './ironheart-archives.json';
 import rencontreClairiereJson from './rencontre-clairiere.json';
 import rencontreRouteJson from './rencontre-route.json';
 import rencontreRuinesJson from './rencontre-ruines.json';
@@ -41,6 +48,13 @@ export const MAPS: Record<string, TiledMapJson> = {
   'canopee-relais': canopeeRelaisJson as TiledMapJson,
   'sol-racines': solRacinesJson as TiledMapJson,
   'canopee-amphitheatre': canopeeAmphitheatreJson as TiledMapJson,
+  'ironheart-forges': ironheartForgesJson as TiledMapJson,
+  'ironheart-marche': ironheartMarcheJson as TiledMapJson,
+  'ironheart-manufactures': ironheartManufacturesJson as TiledMapJson,
+  'ironheart-pension': ironheartPensionJson as TiledMapJson,
+  'ironheart-atelier': ironheartAtelierJson as TiledMapJson,
+  'ironheart-martelroux': ironheartMartelrouxJson as TiledMapJson,
+  'ironheart-archives': ironheartArchivesJson as TiledMapJson,
   'rencontre-clairiere': rencontreClairiereJson as TiledMapJson,
   'rencontre-route': rencontreRouteJson as TiledMapJson,
   'rencontre-ruines': rencontreRuinesJson as TiledMapJson,

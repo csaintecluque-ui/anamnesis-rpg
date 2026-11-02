@@ -255,5 +255,76 @@
     "id": "commis-caravane",
     "name": "Le commis de Ferros",
     "role": "Compagnie des Lisières"
+  },
+  {
+    "id": "boulon",
+    "name": "Boulon",
+    "role": "Ferrôme, porteur à la gare de l’Ouest"
+  },
+  {
+    "id": "patrouilleur",
+    "name": "Le patrouilleur à visière rouge",
+    "role": "Funiculaire des Forges-Basses"
+  },
+  {
+    "id": "patrouilleuse-haute",
+    "name": "La patrouilleuse des Manufactures",
+    "role": "Funiculaire des Manufactures-Hautes"
+  },
+  {
+    "id": "renfoncement",
+    "name": "Un renfoncement sans enseigne",
+    "role": "Entre deux fonderies éteintes"
+  },
+  {
+    "id": "kaelis",
+    "name": "Kaelis",
+    "role": "Marchand d’ossements, Marches des Cendres"
+  },
+  {
+    "id": "guichet-cendres",
+    "name": "Le guichet du fond",
+    "role": "Archives, caste Technique"
+  },
+  {
+    "id": "veilleuse",
+    "name": "La Veilleuse du Rail",
+    "role": "Travailleurs du Rail"
+  },
+  {
+    "id": "vieille-machine",
+    "name": "La vieille machine",
+    "role": "Ligne qu’on dit maudite"
+  },
+  {
+    "id": "noam",
+    "name": "L’archiviste Noam",
+    "role": "Archives Centrales de Ferros"
+  },
+  {
+    "id": "hedda",
+    "name": "Hedda Cendrefer",
+    "role": "Atelier Cendrefer",
+    "place": "ironheart",
+    "sells": [
+      "dague",
+      "epee-longue",
+      "arc",
+      "armure-cuir",
+      "armure-ferraille",
+      "lampe-cristal",
+      "corde",
+      "bandage"
+    ]
+  },
+  {
+    "id": "rika",
+    "name": "Rika Martelroux",
+    "role": "Chaudronnière, mère de Brann"
+  },
+  {
+    "id": "dorna",
+    "name": "Dorna Vissard",
+    "role": "Pension de la Bielle"
   }
 ]

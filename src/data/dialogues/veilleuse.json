@@ -1,0 +1,287 @@
+{
+  "id": "veilleuse",
+  "speaker": "veilleuse",
+  "entries": [
+    {
+      "requires": [
+        {
+          "item": "cle-rouille-bleue"
+        },
+        {
+          "quest": "cle-rouille-bleue",
+          "status": "active"
+        }
+      ],
+      "node": "avec-cle"
+    },
+    {
+      "requires": [
+        {
+          "flag": "cle-veilleuse"
+        }
+      ],
+      "node": "rendue-apres"
+    },
+    {
+      "requires": [
+        {
+          "flag": "cle-obtenue"
+        }
+      ],
+      "node": "apres"
+    },
+    {
+      "requires": [
+        {
+          "flag": "kaelis-parle"
+        },
+        {
+          "quest": "cle-rouille-bleue",
+          "status": "active"
+        }
+      ],
+      "node": "question-cle"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Une femme en veste de cheminot, une lampe à la main, compte à mi-voix : — … sept, huit, neuf wagons. Elle se tourne vers toi. — Le neuvième n’existe pas. Pas encore. Tu l’entends, toi aussi ?",
+      "options": [
+        {
+          "text": "Tu entends les trains ?",
+          "next": "trains"
+        },
+        {
+          "text": "Qui es-tu ?",
+          "next": "qui"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "qui": {
+      "text": "— Ici, on m’appelle la Veilleuse. Je garde la vieille ligne et sa machine, pour les Travailleurs du Rail. Tout le monde la dit maudite. Moi, je dis qu’elle attend.",
+      "options": [
+        {
+          "text": "Elle attend quoi ?",
+          "next": "trains"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "trains": {
+      "text": "— Toujours le même convoi, sans conducteur. Je l’entends avant qu’il passe. Mes parents l’ont pris, un soir, quand j’étais petite, et ne sont jamais revenus. Je garde la machine. Au cas où il les ramènerait.",
+      "options": [
+        {
+          "text": "Laisse-moi écouter avec toi.",
+          "requires": [
+            {
+              "attribute": "memory",
+              "min": 3
+            }
+          ],
+          "next": "ecoute"
+        },
+        {
+          "text": "Merci de me l’avoir dit.",
+          "next": "fin"
+        }
+      ]
+    },
+    "ecoute": {
+      "text": "Vous écoutez ensemble. Un convoi passe, translucide, bleu pâle bordé d’or. Aux fenêtres, des visages tranquilles ; aucun n’a peur. La Veilleuse serre ton bras. — Tu les as vus sourire ? Alors ils ne souffrent pas.",
+      "effects": [
+        {
+          "learnRecit": "convoi-sans-conducteur"
+        }
+      ],
+      "options": [
+        {
+          "text": "Et la clé, à ton cou ?",
+          "requires": [
+            {
+              "flag": "kaelis-parle"
+            },
+            {
+              "quest": "cle-rouille-bleue",
+              "status": "active"
+            }
+          ],
+          "next": "don"
+        },
+        {
+          "text": "Merci de m’avoir laissé écouter.",
+          "next": "fin"
+        }
+      ]
+    },
+    "question-cle": {
+      "text": "La Veilleuse compte ses wagons à mi-voix. Au creux de sa main, une clé couverte d’une rouille bleue, douce comme de la mousse. — Elle chante quand le convoi approche. Kaelis t’envoie ? Il n’aura pas ma clé.",
+      "options": [
+        {
+          "text": "J’ai vu le dernier train, moi aussi, dans l’Écho de la Gare Engloutie.",
+          "requires": [
+            {
+              "recit": "savant-corvan"
+            }
+          ],
+          "next": "don"
+        },
+        {
+          "text": "Laisse-moi écouter le convoi avec toi.",
+          "requires": [
+            {
+              "attribute": "memory",
+              "min": 3
+            }
+          ],
+          "next": "ecoute"
+        },
+        {
+          "text": "Kaelis la vendrait. Moi, je veux savoir ce qu’elle ouvre, et pourquoi on fouille vos gares.",
+          "requires": [
+            {
+              "skill": "diplomacy",
+              "min": 3
+            }
+          ],
+          "next": "don"
+        },
+        {
+          "text": "Je reviendrai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "don": {
+      "text": "La Veilleuse ouvre la main. — Prends-la. Elle te parlera mieux qu’à moi. Mais si tu découvres ce qu’elle ouvre, reviens me le dire. Promis ?",
+      "effects": [
+        {
+          "giveItem": "cle-rouille-bleue"
+        },
+        {
+          "setFlag": "cle-obtenue"
+        },
+        {
+          "giveXp": 25
+        }
+      ],
+      "options": [
+        {
+          "text": "Promis.",
+          "next": "fin"
+        }
+      ]
+    },
+    "avec-cle": {
+      "text": "— Alors, cette clé ? Elle chante encore ?",
+      "options": [
+        {
+          "text": "Te la rendre : sa place est sur la ligne.",
+          "next": "rendue",
+          "effects": [
+            {
+              "takeItem": "cle-rouille-bleue"
+            },
+            {
+              "setFlag": "cle-veilleuse"
+            },
+            {
+              "completeQuest": "cle-rouille-bleue"
+            },
+            {
+              "giveXp": 40
+            }
+          ]
+        },
+        {
+          "text": "L’étudier d’abord avec toi.",
+          "requires": [
+            {
+              "skill": "lore",
+              "min": 3
+            },
+            {
+              "notFlag": "cle-etudiee"
+            }
+          ],
+          "next": "etude"
+        },
+        {
+          "text": "Pas encore.",
+          "next": "fin"
+        }
+      ]
+    },
+    "etude": {
+      "text": "Sous la rouille bleue, à la loupe de la Veilleuse, un numéro apparaît : un sceau des Archives de Ferros, et deux mots, « Fonds Zéro ». La clé ouvre un coffre des Archives Centrales.",
+      "effects": [
+        {
+          "setFlag": "cle-etudiee"
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "Te la rendre.",
+          "next": "rendue",
+          "effects": [
+            {
+              "takeItem": "cle-rouille-bleue"
+            },
+            {
+              "setFlag": "cle-veilleuse"
+            },
+            {
+              "completeQuest": "cle-rouille-bleue"
+            },
+            {
+              "giveXp": 40
+            }
+          ]
+        },
+        {
+          "text": "La garder encore un peu.",
+          "next": "fin"
+        }
+      ]
+    },
+    "rendue": {
+      "text": "Elle referme la main sur la clé. — Alors elle restera sur la ligne, là où elle chante. Les Travailleurs du Rail n’oublieront pas ce que tu as fait.",
+      "options": [
+        {
+          "text": "Prends soin d’elle.",
+          "next": "fin"
+        }
+      ]
+    },
+    "rendue-apres": {
+      "text": "— La clé chante toujours, la nuit. Je compte les wagons, et je ne me sens plus seule.",
+      "options": [
+        {
+          "text": "À bientôt.",
+          "next": "fin"
+        }
+      ]
+    },
+    "apres": {
+      "text": "— Tu as fait ton choix, avec la clé. Je l’entends parfois, loin d’ici… Elle chante encore. Prends soin de toi.",
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

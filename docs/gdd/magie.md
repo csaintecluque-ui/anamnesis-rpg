@@ -13,7 +13,7 @@ Code : `src/rules/magic.ts` ; données : `src/data/powers.json`, cristaux dans `
 - **Le coût** (canon : fatigue, nez qui saigne) : chaque pouvoir coûte des **Points de Résonance (PR)**. S'il en manque,
   on peut forcer : chaque point manquant coûte **3 PV** (« Ton nez saigne »). Pas de mutation ni de folie, pour le
   public de 8 à 15 ans prévu alors. On ne peut jamais forcer jusqu'à son dernier PV. Depuis le passage en dark
-  fantasy : **les marques du cristal** (jalon 3, étape 5, `docs/gdd/passe-sombre.md`, à valider) : forcer se joue au
+  fantasy : **les marques du cristal** (jalon 3, étape 5, `docs/gdd/passe-sombre.md`, validées par Cyril) : forcer se joue au
   d20 ; raté, une marque (les veines, le manque, la peau de cristal), puis le cristal se fend.
 - **La récupération** (canon : « 8 à 12 h de sommeil ») : une nuit à l'auberge rend tous les PR, comme les PV.
 

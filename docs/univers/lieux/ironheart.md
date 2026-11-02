@@ -77,7 +77,18 @@ Les quêtes sont détaillées dans `docs/univers/quetes.md` (chapitre 3 et « Le
   conseille de le cacher.
 - La Lueur d'un cristal ouvre aussi le renfoncement sans enseigne et éclaire l'enclume aux mains gravées.
 
-## La passe sombre (2026-11-02, `docs/gdd/passe-sombre.md`, **à valider**)
+## Les veillées de la Bielle (2026-11-02, propositions **validées par Cyril** le 2026-11-02)
+
+Le soir, à la Pension de la Bielle, on écoute des histoires (`docs/gdd/veillees.md`). Le public : des cheminots du
+triage, des ouvriers en gris, et, près de la porte, **un homme qui ne boit pas** (et qui prend des notes). Il aime les
+trains et les machines ; pas les histoires de puissants (« ici, on tient des listes, et les murs ont des oreilles »).
+
+| Rumeur | Ce qu'elle ouvre | Ancrage |
+|---|---|---|
+| **De la part de Dorna** | l'hiver où les visières rouges la cherchaient, **Dorna a caché la tailleuse de cristaux** ; de sa part, un cristal de forge à moitié prix (125 Fers), « et tu ne le portes pas devant les visières » | NOTION (roman : on tient des listes, les visières rouges) |
+| **Ta fiche, aux Archives** | chaque étranger a sa fiche ; l'**article onze** oblige Noam à la montrer : « À surveiller. Signalé·e par : » un nom rayé (« voir : article douze ») | NOTION (« Ferros ne brûle rien : Ferros classe ») |
+
+## La passe sombre (2026-11-02, `docs/gdd/passe-sombre.md`, **validé par Cyril** le 2026-11-02)
 
 - **Kerta Orvel** (fondeuse, dans la file du Puits Trois), **Tam Orvel** (son fils, riveteur, près du registre), **le
   technicien Dask** (Classe Technique, Manufactures-Moyennes) : « Le registre du Puits Trois ».

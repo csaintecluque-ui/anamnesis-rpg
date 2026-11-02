@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import { DIALOGUES } from '../data/dialogues';
 import npcData from '../data/npcs.json';
-import { END, applyEffects, goesTo, opensTrade, performRoll, startNode, startsCombat, visibleOptions, type Dialogue, type OptionView } from '../rules/dialogue';
+import { END, applyEffects, goesTo, opensTrade, opensVeillee, performRoll, startNode, startsCombat, visibleOptions, type Dialogue, type OptionView } from '../rules/dialogue';
 import { fontPx, textScale } from '../settings';
 import type { GameState } from '../state/gameState';
 import type { MapScene } from './MapScene';
@@ -185,6 +185,13 @@ export class DialogueScene extends Phaser.Scene {
       if (opensTrade(view.option.effects)) {
         this.scene.stop();
         this.scene.launch('Trade', { npcId: this.dialogue.speaker });
+        return;
+      }
+      // The veillée of the inn (docs/gdd/veillees.md): its own screen, over the paused map.
+      const veillee = opensVeillee(view.option.effects);
+      if (veillee) {
+        this.scene.stop();
+        this.scene.launch('Veillee', { publicId: veillee });
         return;
       }
       const fight = startsCombat(view.option.effects);

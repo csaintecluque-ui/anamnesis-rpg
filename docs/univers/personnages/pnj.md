@@ -42,13 +42,13 @@ Sonorités : Verdantis douce, Ferros martelée (`docs/univers/ton.md`). Quêtes 
 | **Saule** | petit frère de Liane, mort sous les déblais du chantier de Brisefer, à la Gare Engloutie ; jamais vu en jeu | maladie mémorielle [E2], Bosquet des Échos [NOTION] | validé |
 | **Boulon**, compagnon | le Ferrôme porteur, inscrit « matériel de quai » au registre des Archives (rachat : 120 Fers) | Ferrômes au statut juridique ambigu [NOTION] | validé |
 
-## La passe sombre (jalon 3, étape 5, 2026-11-02, **à valider**)
+## La passe sombre (jalon 3, étape 5, 2026-11-02, **validés par Cyril**)
 
 `docs/gdd/passe-sombre.md`. Sonorité de Ferros : dure, martelée.
 
 | Élément | Proposition | Ancrage canon | Statut |
 |---|---|---|---|
-| **Kerta Orvel** | fondeuse des Forges-Basses, avant-bras couturés de brûlures, veuve ; veut que son fils monte de caste | le Puits Trois, le registre des transferts [NOTION, roman] ; « Équipe Orvel » sur le registre (déjà en jeu) | à valider |
-| **Tam Orvel** | son fils, dix-neuf ans, riveteur ; crache noir ; a inventé un masque de feutre et de charbon de bois, qu'il veut laisser en bas | l'Innovation qui fait changer de caste [NOTION, roman IV.6] | à valider |
-| **Le technicien Dask** | Classe Technique, chiffres bleus au poignet ; parraine contre de l'argent, la fidélité, ou la paternité du masque | parrain de Classe Technique [NOTION, roman IV.6] | à valider |
-| **Pell** | ouvrier de Brisefer, vingt-deux ans, veilleur de nuit à la Gare ; meurt si le héros fait sauter la chaudière ; jamais vu en jeu | — | à valider |
+| **Kerta Orvel** | fondeuse des Forges-Basses, avant-bras couturés de brûlures, veuve ; veut que son fils monte de caste | le Puits Trois, le registre des transferts [NOTION, roman] ; « Équipe Orvel » sur le registre (déjà en jeu) | validé |
+| **Tam Orvel** | son fils, dix-neuf ans, riveteur ; crache noir ; a inventé un masque de feutre et de charbon de bois, qu'il veut laisser en bas | l'Innovation qui fait changer de caste [NOTION, roman IV.6] | validé |
+| **Le technicien Dask** | Classe Technique, chiffres bleus au poignet ; parraine contre de l'argent, la fidélité, ou la paternité du masque | parrain de Classe Technique [NOTION, roman IV.6] | validé |
+| **Pell** | ouvrier de Brisefer, vingt-deux ans, veilleur de nuit à la Gare ; meurt si le héros fait sauter la chaudière ; jamais vu en jeu | — | validé |

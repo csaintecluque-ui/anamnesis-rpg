@@ -38,3 +38,9 @@ Les trois pistes reposent sur des lois et des phénomènes du monde, pas sur la 
 - **Obtenir un Récit** : l'effet `{ learnRecit: id }`, posé sur un nœud d'Écho (voir `docs/univers/lieux/gare-engloutie.md`).
 - **Récits de l'histoire principale** (décision de Cyril, 2026-11-02) : marqués `principal` dans `src/data/recits.json`
   (le savant Corvan, le Triumvirat Vert, le carnet du dernier train) ; jamais oubliés, hors du plafond.
+
+## Raconter le soir : les veillées (2026-11-02)
+
+La piste B a sa scène à elle : le soir, à l'auberge, on raconte un Récit à un public qui a ses goûts (Fers,
+renommée, rumeurs qui ouvrent des secrets). Chaque Récit porte ses thèmes (`themes` dans `recits.json`) :
+`docs/gdd/veillees.md`.

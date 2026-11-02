@@ -1,11 +1,11 @@
-# La passe sombre (jalon 3, étape 5) : construite le 2026-11-02, **textes et inventions à valider**
+# La passe sombre (jalon 3, étape 5) : construite le 2026-11-02, **validée par Cyril** (« Je dis oui pour tout »)
 
 Demande de Cyril (2026-11-02) : « L'étape 4 est en cours, passe à la 5 » (les veillées se font dans une autre
 session). Plan validé (`docs/gdd/jalon-3.md`) : réécrire Gardebois, Canopéa et Ironheart dans le ton adulte (morts
 possibles, conséquences, castes du Puits Trois, prix de la magie). Charte : `docs/univers/ton.md`. Textes complets :
 `docs/DIALOGUES.md`. Canon relu dans le Notion pour l'occasion (fiches Ferros et Verdantis, roman II.3, III.1, III.4,
 III.7, IV.6, V.1, « Règles fondamentales du monde », « Les Treize Jours », « La Sève Éternelle ») : ce qui suit marque
-[NOTION] ce qui en vient ; le reste est **proposé**.
+[NOTION] ce qui en vient ; le reste est **proposé**, et validé par Cyril le 2026-11-02.
 
 ## 1. Le prix de la magie : les marques du cristal
 
@@ -91,7 +91,7 @@ Quête **proposée** :
   Véline.
 - **Toujours dans la charte** : pas de torture, pas de gore gratuit ; les morts viennent de nos choix et se pleurent.
 
-## Propositions à valider par Cyril
+## Propositions validées par Cyril le 2026-11-02 (« Je dis oui pour tout, mets le tout en ligne »)
 
 1. Le système des **marques** (trois marques, le cristal qui se fend, Vanel qui les reprend contre un rang) et ses
    noms (« les veines », « le manque », « la peau de cristal »).

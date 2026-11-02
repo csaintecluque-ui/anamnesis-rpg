@@ -961,6 +961,7 @@ Commence par : « cristal » _(si quête « undefined » undefined)_ _(sans rep�
 
 - « Manger ou dormir ? » → servir
 - « Quelles nouvelles ? » → nouvelles
+- « Raconter un Récit à la veillée. » → **fin** _(+undefined XP)_
 - « Au revoir. » → **fin**
 
 ### nouvelles
@@ -1003,6 +1004,7 @@ Commence par : « cristal » _(si quête « undefined » undefined)_ _(sans rep�
 
 - « Manger ou dormir ? » → servir
 - « Quelles nouvelles ? » → nouvelles
+- « Raconter un Récit à la veillée. » → **fin** _(+undefined XP)_
 - « Au revoir. » → **fin**
 
 ### accueil-3
@@ -1011,6 +1013,7 @@ Commence par : « cristal » _(si quête « undefined » undefined)_ _(sans rep�
 
 - « Manger ou dormir ? » → servir
 - « Quelles nouvelles ? » → nouvelles
+- « Raconter un Récit à la veillée. » → **fin** _(+undefined XP)_
 - « Au revoir. » → **fin**
 
 ### cristal
@@ -2484,15 +2487,15 @@ Commence par : « apres » _(si quête « Les herbes de lisière » terminée)_,
 
 _Aubergiste du Nid_
 
-Commence par : « vote » _(si quête « L’audience » terminée)_ _(si repère « conseil-frontiere »)_ _(sans repère « lisandre-vote-dit »)_, sinon « vote-commerce » _(si quête « L’audience » terminée)_ _(si repère « conseil-commerce »)_ _(sans repère « lisandre-vote-commerce-dit »)_, sinon « vote-accord » _(si quête « L’audience » terminée)_ _(si repère « conseil-accord »)_ _(sans repère « lisandre-vote-accord-dit »)_, sinon « elvan-parti » _(si quête « Les graines qui manquent » terminée)_ _(si repère « graines-denonce »)_ _(sans repère « lisandre-elvan-parti-dit »)_, sinon « tournee » _(si quête « Les graines qui manquent » terminée)_ _(si repère « graines-silence »)_ _(sans repère « lisandre-tournee-dit »)_, sinon « flute » _(si quête « Le chant d’Anselme » terminée)_ _(sans repère « lisandre-flute-dit »)_, sinon « accueil-2 » _(si quête « undefined » undefined)_, sinon « accueil-3 » _(si quête « undefined » undefined)_, sinon « accueil »
+Commence par : « vote » _(si quête « L’audience » terminée)_ _(si repère « conseil-frontiere »)_ _(sans repère « lisandre-vote-dit »)_, sinon « vote-commerce » _(si quête « L’audience » terminée)_ _(si repère « conseil-commerce »)_ _(sans repère « lisandre-vote-commerce-dit »)_, sinon « vote-accord » _(si quête « L’audience » terminée)_ _(si repère « conseil-accord »)_ _(sans repère « lisandre-vote-accord-dit »)_, sinon « elvan-parti » _(si quête « Les graines qui manquent » terminée)_ _(si repère « graines-denonce »)_ _(sans repère « lisandre-elvan-parti-dit »)_, sinon « tournee » _(si quête « Les graines qui manquent » terminée)_ _(si repère « graines-silence »)_ _(sans repère « lisandre-tournee-dit »)_, sinon « nouvelles-vol » _(si repère « vol-grenier »)_ _(sans repère « lisandre-vol-dit »)_, sinon « flute » _(si quête « Le chant d’Anselme » terminée)_ _(sans repère « lisandre-flute-dit »)_, sinon « accueil-2 » _(si quête « undefined » undefined)_, sinon « accueil-3 » _(si quête « undefined » undefined)_, sinon « accueil »
 
 ### accueil
 
 > Bienvenue au Nid ! Ici, on dort en hamac et on mange des soupes de fleurs. Pas de feu chez nous : les braises et les branches ne font pas bon ménage. Ce sont nos cristaux qui chauffent les bols.
 
 - « Manger ou dormir ? » → servir
-- _(sans repère « vol-grenier »)_ « Quelles nouvelles ? » → nouvelles
-- _(si repère « vol-grenier »)_ « Quelles nouvelles ? » → nouvelles-vol
+- « Quelles nouvelles ? » → nouvelles
+- « Raconter un Récit à la veillée. » → **fin** _(+undefined XP)_
 - « Au revoir. » → **fin**
 
 ### soupe
@@ -2509,6 +2512,8 @@ Commence par : « vote » _(si quête « L’audience » terminée)_ _(si repèr
 - « Merci. » → accueil
 
 ### nouvelles-vol
+
+_Effet : retient « lisandre-vol-dit »._
 
 > Tu as entendu ? Quelqu’un a forcé le grenier des semences, dans les Hautes Ramures. Voler des graines à Canopéa… c’est comme voler l’avenir. Le Conseil est furieux.
 
@@ -2589,8 +2594,8 @@ _Effet : retient « lisandre-flute-dit »._
 > Bienvenue au Nid ! Ce matin, une nacelle a grincé si fort que tout le marché a levé la tête. Véline dit que ce n’est rien. Véline dit toujours que ce n’est rien.
 
 - « Manger ou dormir ? » → servir
-- _(sans repère « vol-grenier »)_ « Quelles nouvelles ? » → nouvelles
-- _(si repère « vol-grenier »)_ « Quelles nouvelles ? » → nouvelles-vol
+- « Quelles nouvelles ? » → nouvelles
+- « Raconter un Récit à la veillée. » → **fin** _(+undefined XP)_
 - « Au revoir. » → **fin**
 
 ### accueil-3
@@ -2598,8 +2603,8 @@ _Effet : retient « lisandre-flute-dit »._
 > Bienvenue au Nid ! Les cristaux de veille ont brillé toute la nuit au Bosquet : Mirelle dit que les noms gravés parlaient plus fort. Une soupe de fleurs, pour fêter ça ?
 
 - « Manger ou dormir ? » → servir
-- _(sans repère « vol-grenier »)_ « Quelles nouvelles ? » → nouvelles
-- _(si repère « vol-grenier »)_ « Quelles nouvelles ? » → nouvelles-vol
+- « Quelles nouvelles ? » → nouvelles
+- « Raconter un Récit à la veillée. » → **fin** _(+undefined XP)_
 - « Au revoir. » → **fin**
 
 ## Lyra Cœur-de-Sève
@@ -2892,6 +2897,7 @@ Commence par : « releve » _(si l’on porte « Relevé d’un Écho »)_ _(si 
 
 > — Ferros ne brûle rien : Ferros classe (voir : devise officieuse). Ce qui n’est pas classé n’existe pas encore.
 
+- _(si repère « rumeur-fiche-archives »)_ _(sans repère « fiche-lue »)_ « Et ma fiche ? L’article onze vous oblige à la montrer. » → fiche
 - « Je vois. » → accueil
 
 ### train
@@ -3011,6 +3017,21 @@ _Effet : retient « registre-surpris »._
 > — Je vous prie de lâcher ce registre (voir : délits, article six). Noam ne crie pas. Il note. Il note votre nom.
 
 - « Partir. » → **fin**
+
+### fiche
+
+_Effet : retient « fiche-lue », +20 XP._
+
+> Noam se fige, puis tire un carton gris d’un tiroir. — Article onze. Exact. « Gardien·ne de Mémoire, arrivé·e par la gare de l’Ouest. Pose des questions. Fréquente la Pension de la Bielle. À surveiller. Signalé·e par : » Le nom est rayé.
+
+- « Qui m’a signalé·e ? » → fiche-qui
+- « Merci, Noam. » → **fin**
+
+### fiche-qui
+
+> — Rayé (voir : article douze). Il range le carton. Pour la première fois, il a l’air de s’excuser.
+
+- « Au revoir. » → **fin**
 
 ## Le contrôleur Ostrik
 
@@ -3239,6 +3260,7 @@ Commence par : « verrouillee »
 > Une porte ronde, fermée par une serrure de bois et de cuivre. Une plaque indique : « Grenier des semences — propriété du Conseil ».
 
 - **🎲 Artisanat 12** « Crocheter la serrure. » → ouverte, ✗ → echec
+- _(si repère « rumeur-cle-nichoir »)_ « Chercher la clé dans le nichoir, au-dessus de la porte. » → nichoir
 - « Laisser la porte tranquille. » → **fin**
 
 ### ouverte
@@ -3256,6 +3278,15 @@ _Effet : retient « grenier-deverrouille »._
 
 - « Réessayer. » → verrouillee
 - « Partir. » → **fin**
+
+### nichoir
+
+_Effet : retient « grenier-deverrouille »._
+
+> Sous la paille du nichoir, tes doigts trouvent une petite clé de cuivre, tiède comme un œuf. La serrure tourne sans un bruit.
+
+- « Entrer. » → **fin** _(mène à « Canopéa — Grenier des semences »)_
+- « Remettre la clé, et partir. » → **fin**
 
 ## Le registre des départs
 
@@ -3343,6 +3374,7 @@ Commence par : « vide » _(si repère « sauge-3-cueillie »)_, sinon « cherch
 
 > Un gros rocher couvert de mousse.
 
+- _(si repère « rumeur-cache-passeurs »)_ _(sans repère « cache-passeurs-prise »)_ « Glisser la main sous le rebord, là où cachent les passeurs. » → cache
 - « … » → **fin**
 
 ### chercher
@@ -3351,6 +3383,7 @@ Commence par : « vide » _(si repère « sauge-3-cueillie »)_, sinon « cherch
 
 - **[Perception 4]** « Repérer la lueur sous la mousse. » → trouve
 - **🎲 Survie 11** « Suivre l’odeur poivrée de la sauge. » → trouve, ✗ → rien
+- _(si repère « rumeur-cache-passeurs »)_ _(sans repère « cache-passeurs-prise »)_ « Glisser la main sous le rebord, là où cachent les passeurs. » → cache
 - « Laisser tomber. » → **fin**
 
 ### trouve
@@ -3370,6 +3403,20 @@ _Effet : retient « sauge-3-cueillie »._
 ### vide
 
 > Le creux sous le rocher, où poussait la sauge-lumière.
+
+- _(si repère « rumeur-cache-passeurs »)_ _(sans repère « cache-passeurs-prise »)_ « Glisser la main sous le rebord, là où cachent les passeurs. » → cache
+- « … » → **fin**
+
+### cache
+
+> Derrière la mousse, un paquet ciré : une bourse de Fers, une fiole de sève, et un mot plié en quatre, d’une écriture appliquée : « Pour la petite, si je ne reviens pas de la Lisière. »
+
+- « Tout prendre. » → cache-prise _(+30 Fers, donne 1 × « Fiole de sève », retient « cache-passeurs-prise », +undefined XP)_
+- « Remettre la mousse, et tout laisser. » → **fin**
+
+### cache-prise
+
+> Tu remets la mousse en place, et le mot avec. Un soir, quelqu’un la soulèvera et ne trouvera que de la terre.
 
 - « … » → **fin**
 
@@ -3474,6 +3521,7 @@ Commence par : « accueil »
 
 > Des branches hautes, là où le soleil touche en premier. On ne cueille jamais tout : une feuille sur trois reste à l’arbre. C’est la règle de la Sève.
 
+- _(si repère « rumeur-seve-aieux »)_ « Et la sève qu’on tire au pied des arbres des morts ? » → aieux
 - « Une belle règle. » → accueil
 
 ### cristaux
@@ -3482,6 +3530,19 @@ Commence par : « accueil »
 
 - « Voyons ce que tu vends. » → **fin** _(ouvre le Troc)_
 - « Merci, Sévane. » → accueil
+
+### aieux
+
+> Sévane pâlit, et regarde la porte. — Qui t’a dit ça ? … Trente Fers la fiole. Une gorgée à la fois, et jamais deux soirs de suite : on finit par ne plus vouloir que leurs voix.
+
+- **[30 Fers]** « Payer trente Fers. » → aieux-achetee _(−30 Fers, donne 1 × « Sève des aïeux »)_
+- « Laisser ça. » → accueil
+
+### aieux-achetee
+
+> Elle glisse la fiole dans ta main sans la regarder. — Tu ne l’as pas eue ici. Et tu ne l’as pas eue du tout.
+
+- « Merci, Sévane. » → **fin**
 
 ## Sorn
 
@@ -3537,6 +3598,7 @@ Commence par : « ilyane-chante » _(si quête « Le carnet de chansons » termi
 
 - « Manger ou dormir ? » → servir
 - « Quelles nouvelles ? » → rumeurs
+- « Raconter un Récit à la veillée. » → **fin** _(+undefined XP)_
 - « Au revoir. » → **fin**
 
 ### repas
@@ -3595,6 +3657,7 @@ _Effet : retient « sylvan-triumvirat-dit »._
 
 - « Manger ou dormir ? » → servir
 - « Quelles nouvelles ? » → rumeurs
+- « Raconter un Récit à la veillée. » → **fin** _(+undefined XP)_
 - « Au revoir. » → **fin**
 
 ### accueil-3
@@ -3603,6 +3666,7 @@ _Effet : retient « sylvan-triumvirat-dit »._
 
 - « Manger ou dormir ? » → servir
 - « Quelles nouvelles ? » → rumeurs
+- « Raconter un Récit à la veillée. » → **fin** _(+undefined XP)_
 - « Au revoir. » → **fin**
 
 ## La tailleuse de cristaux
@@ -3617,7 +3681,7 @@ Commence par : « accueil »
 
 - « Voyons tes cristaux. » → **fin** _(ouvre le Troc)_
 - « Que fait un cristal de forge ? » → forge
-- _(si l’on porte « Éclats de cristal »)_ « Tu rachètes des éclats ? » → eclats
+- _(si repère « rumeur-part-de-dorna »)_ _(sans repère « cristal-dorna-achete »)_ « Je viens de la part de Dorna. » → dorna
 - « Au revoir. » → **fin**
 
 ### forge
@@ -3626,6 +3690,7 @@ Commence par : « accueil »
 
 - « Voyons tes cristaux. » → **fin** _(ouvre le Troc)_
 - _(si quête « undefined » undefined)_ « Tu regardes mes veines. » → veines
+- _(si l’on porte « Éclats de cristal »)_ « Tu rachètes des éclats ? » → eclats
 - « Merci. » → **fin**
 
 ### eclats
@@ -3640,6 +3705,19 @@ Commence par : « accueil »
 > — Tu forces. Ça se voit d’ici. J’en ai connu un, aux Forges, qui forçait chaque soir pour tenir sa cadence. À la fin, sa peau sonnait comme du verre, et il ne parlait plus qu’à son cristal. Les Druides Verts savent reprendre ça. Pas nous.
 
 - « Voyons tes cristaux. » → **fin** _(ouvre le Troc)_
+- « Merci. » → **fin**
+
+### dorna
+
+> La tailleuse pose son burin, longtemps. — Dorna. … Un cristal de forge, alors : cent vingt-cinq Fers, la moitié du prix. Et tu ne le portes pas devant les visières rouges.
+
+- **[125 Fers]** « Payer cent vingt-cinq Fers. » → dorna-achete _(−125 Fers, donne 1 × « Cristal de forge », retient « cristal-dorna-achete »)_
+- « Pas maintenant. » → accueil
+
+### dorna-achete
+
+> Elle enveloppe le cristal dans un chiffon noir. — Dis à Dorna que la tente est toujours là. Elle comprendra.
+
 - « Merci. » → **fin**
 
 ## Tam Orvel
@@ -3817,6 +3895,7 @@ Commence par : « accueil »
 
 - « Voir l’étal. » → **fin** _(ouvre le Troc)_
 - « Parlons d’autre chose. » → accueil
+- _(si repère « rumeur-arbalete-convoi »)_ _(sans repère « arbalete-convoi-achetee »)_ « Et ces arbalètes « tombées d’un convoi » ? » → arbalete
 - « Au revoir. » → **fin**
 
 ### chantier
@@ -3852,6 +3931,19 @@ Commence par : « accueil »
 > Tobias compte les pièces deux fois. — Prix d’ami. Et si Brisefer te pose la question, tu ne l’as pas eu de moi.
 
 - « Merci, Tobias. » → **fin**
+
+### arbalete
+
+> Tobias regarde à droite, à gauche, puis soulève une toile sous l’étal. — Trente-cinq Fers. Elle est neuve, elle tire droit, et elle n’a jamais existé.
+
+- **[35 Fers]** « Payer trente-cinq Fers. » → arbalete-achetee _(−35 Fers, donne 1 × « Arbalète de Ferros », retient « arbalete-convoi-achetee »)_
+- « Non merci. » → accueil
+
+### arbalete-achetee
+
+> — Et si ma sœur te demande d’où elle vient, tu l’as trouvée sur la route.
+
+- « Promis. » → **fin**
 
 ## Un trou de fouille
 

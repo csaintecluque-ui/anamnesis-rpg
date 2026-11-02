@@ -120,11 +120,11 @@ Ces décisions valent **pour le jeu**. Le dossier `docs/Lore/` reste inchangé.
     parle ni de castes ni de puits (« méritocratie industrielle, mobilité sociale encouragée »). Le roman dit aussi
     « Forges-Hautes » (IV.6) là où le Canon dit « Manufactures-Hautes », et place le tatouage de la caste Technique
     sur la tempe (IV.6) ou au poignet (V.1). **Le jeu suit le roman et la page Canon** (castes, Manufactures-Hautes,
-    poignet) : à confirmer.
+    poignet) : **confirmé par Cyril** le 2026-11-02 (« oui pour tout »).
 30. **La justice de Verdantis** : « jamais eu besoin de prisons » et le dissident « soigné » sans durée maximale
     (« Les Treize Jours ») contre dix ans de prison pour un arbre centenaire coupé et la perpétuité (fiche nation) ; la
     fiche prévoit aussi le bannissement (corruption, trois violations). **Le jeu bannit Elvan** et ne montre pas de
-    prison : à confirmer.
+    prison : **confirmé par Cyril** le 2026-11-02.
 31. **Fiche Verdantis restée sur l'ancien canon** : « Arbre-Mère Sylvéa » (au lieu de l'Arbre Mémoire), la langue
     « Sylvain » (au lieu du verdani), des elfes « humains mutés » (« Le Premier Consentement » : les buveurs de la
     Sève) ; un arbre coupé est remplacé par deux (« La Sève Éternelle ») ou par dix (fiche). Les Métallides, humains à

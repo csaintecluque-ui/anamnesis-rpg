@@ -146,9 +146,10 @@ describe('Canopéa dialogues (docs/univers/lieux/villes.md)', () => {
     expect(state.character!.inventory.some((s) => s.itemId === 'graines-lumiere')).toBe(true);
     expect(startNode(DIALOGUES['graines-conseil'], state)).toBe('vide');
     expect(startNode(DIALOGUES.veline, state)).toBe('vol');
-    const news = visibleOptions(DIALOGUES.lisandre.nodes.accueil, state).map((v) => v.option.next);
-    expect(news).toContain('nouvelles-vol');
-    expect(news).not.toContain('nouvelles');
+    // Lisandre tells it once, as the news of the day (her « Quelles nouvelles ? » made room for the veillée).
+    expect(startNode(DIALOGUES.lisandre, state)).toBe('nouvelles-vol');
+    applyEffects(state, DIALOGUES.lisandre.nodes['nouvelles-vol'].effects);
+    expect(startNode(DIALOGUES.lisandre, state)).not.toBe('nouvelles-vol');
   });
 
   it('lets one hear Anselme with Mémoire 3, and comfort Aïlis once', () => {

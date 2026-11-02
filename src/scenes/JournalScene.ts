@@ -3,6 +3,7 @@ import { bestiaryEntries } from '../rules/bestiary';
 import { ECHOS, TYPE_LABELS, collectedEchos, empriseLabel } from '../rules/echos';
 import { findLocation } from '../state/gameState';
 import { journalQuests, journalRecits, journalReputation } from '../rules/journal';
+import { heardRumeurs } from '../rules/veillees';
 import { fontPx } from '../settings';
 import type { GameState } from '../state/gameState';
 import { addTextButton } from '../ui/button';
@@ -169,18 +170,27 @@ export class JournalScene extends Phaser.Scene {
     );
   }
 
+  /** The Récits retained, then the rumours heard at the veillées (docs/gdd/veillees.md), which open secrets. */
   private drawRecits(): void {
     const { recits, cap } = journalRecits(this.state);
+    const rumeurs = heardRumeurs(this.state);
     this.drawList(
-      recits.map((r) => ({ text: r.titre, muted: false })),
+      [...recits.map((r) => ({ text: r.titre, muted: false })), ...rumeurs.map((r) => ({ text: `Rumeur · ${r.titre}`, muted: true }))],
       (i) => {
+        if (i >= recits.length) {
+          const r = rumeurs[i - recits.length];
+          const title = this.text(DETAIL_X, LAYOUT.listTop, r.titre, 30, CSS.copper, DETAIL_WIDTH);
+          const where = this.text(DETAIL_X, title.y + title.height + 6, `Rumeur entendue à la veillée · ${r.ou}`, 20, CSS.copper, DETAIL_WIDTH);
+          this.text(DETAIL_X, where.y + where.height + 18, r.texte, 24, CSS.parchment, DETAIL_WIDTH);
+          return;
+        }
         const r = recits[i];
         const title = this.text(DETAIL_X, LAYOUT.listTop, r.titre, 30, CSS.copper, DETAIL_WIDTH);
         this.text(DETAIL_X, title.y + title.height + 18, r.texte, 24, CSS.parchment, DETAIL_WIDTH);
       },
-      'Aucun Récit retenu. Les Échos, les anciens et les livres en gardent : écoute-les.',
+      'Aucun Récit retenu. Les Échos, les anciens et les livres en gardent : écoute-les. Le soir, à l’auberge, raconte-les.',
     );
-    if (recits.length > 0) {
+    if (recits.length > 0 && this.selected < recits.length) {
       const ordinary = recits.filter((r) => !r.principal).length;
       const note = `Tu retiens ${ordinary} Récit${ordinary > 1 ? 's' : ''} sur ${cap} (Mémoire + 1). Au-delà, le plus ancien s’efface ; ceux de l’histoire principale restent.`;
       this.text(DETAIL_X, GAME_HEIGHT - 20 - LAYOUT.closeHeight / 2, note, 18, CSS.muted, DETAIL_WIDTH - LAYOUT.closeWidth - 30).setOrigin(0, 0.5);

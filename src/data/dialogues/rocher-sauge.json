@@ -28,6 +28,18 @@
       "text": "Un gros rocher couvert de mousse.",
       "options": [
         {
+          "text": "Glisser la main sous le rebord, là où cachent les passeurs.",
+          "requires": [
+            {
+              "flag": "rumeur-cache-passeurs"
+            },
+            {
+              "notFlag": "cache-passeurs-prise"
+            }
+          ],
+          "next": "cache"
+        },
+        {
           "text": "…",
           "next": "fin"
         }
@@ -54,6 +66,18 @@
           },
           "next": "trouve",
           "failNext": "rien"
+        },
+        {
+          "text": "Glisser la main sous le rebord, là où cachent les passeurs.",
+          "requires": [
+            {
+              "flag": "rumeur-cache-passeurs"
+            },
+            {
+              "notFlag": "cache-passeurs-prise"
+            }
+          ],
+          "next": "cache"
         },
         {
           "text": "Laisser tomber.",
@@ -86,6 +110,55 @@
     },
     "vide": {
       "text": "Le creux sous le rocher, où poussait la sauge-lumière.",
+      "options": [
+        {
+          "text": "Glisser la main sous le rebord, là où cachent les passeurs.",
+          "requires": [
+            {
+              "flag": "rumeur-cache-passeurs"
+            },
+            {
+              "notFlag": "cache-passeurs-prise"
+            }
+          ],
+          "next": "cache"
+        },
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ]
+    },
+    "cache": {
+      "text": "Derrière la mousse, un paquet ciré : une bourse de Fers, une fiole de sève, et un mot plié en quatre, d’une écriture appliquée : « Pour la petite, si je ne reviens pas de la Lisière. »",
+      "options": [
+        {
+          "text": "Tout prendre.",
+          "effects": [
+            {
+              "giveFers": 30
+            },
+            {
+              "giveItem": "fiole-seve"
+            },
+            {
+              "setFlag": "cache-passeurs-prise"
+            },
+            {
+              "avis": "liane",
+              "delta": -1
+            }
+          ],
+          "next": "cache-prise"
+        },
+        {
+          "text": "Remettre la mousse, et tout laisser.",
+          "next": "fin"
+        }
+      ]
+    },
+    "cache-prise": {
+      "text": "Tu remets la mousse en place, et le mot avec. Un soir, quelqu’un la soulèvera et ne trouvera que de la terre.",
       "options": [
         {
           "text": "…",

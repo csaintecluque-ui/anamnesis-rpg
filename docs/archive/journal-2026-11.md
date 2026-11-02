@@ -886,7 +886,21 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   perdu, emprise : −1 puis −2 aux jets ; le sommeil la desserre) ; onglet « Échos » du journal ; sauvegarde v14.
   Corrigé en passant : les objets à tuile (le vieux champignon) se dessinaient avant d'apparaître. 510 tests ;
   vérifié sur téléphone.
+- Cyril : « mets en ligne seulement » : étape 3 mise en ligne ; pas d'étape 4 pour l'instant. Notion : le système des Échos et ses ancrages du canon (les scènes inventées attendent la validation).
 
+## 2026-11-02 (suite) : jalon 3, étape 4, les veillées du conteur
+
+- Cyril : « L'étape 3 est en train de mouliner, passe à l'étape 4. » (L'étape 3 était déjà sur `main`.)
+- Construit (`docs/gdd/veillees.md`) : chez Sylvan, Lisandre et Dorna, « Raconter un Récit à la veillée » ; un écran à
+  part (`VeilleeScene`) : le public et ses goûts, chaque Récit retenu avec ce qu'ils en penseront et la chance ; d20 +
+  la meilleure compétence de Présence ; triomphe, bon accueil, redite, échec ; chapeau en Fers, XP, renommée (+3 de
+  réputation par Récit, trois au plus), une rumeur par triomphe ; la veillée dure jusqu'à la nuit ; « Attendre le
+  soir » sinon. Thèmes sur les quinze Récits. Six rumeurs, six secrets (cache des passeurs, arbalète de Tobias, clé du
+  nichoir, sève des aïeux, cristal « de la part de Dorna », fiche des Archives). Rumeurs au journal (onglet Récits).
+  Lisandre dit la nouvelle du grenier forcé une fois, en accueil. Pas de nouvelle version de sauvegarde.
+  528 tests ; vérifié sur PC et téléphone (Playwright).
+- Cyril : « Oui pour tout, mets en ligne » : chiffres, publics, rumeurs et secrets validés ; étape 4 mise en ligne ;
+  page Notion « Anamnesis — le jeu » complétée (les veillées, leurs publics, rumeurs et secrets).
 
 ## 2026-11-02 (suite) : jalon 3, étape 5, la passe sombre
 
@@ -899,3 +913,6 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   chaudière de la Gare), Joss (les Marches, ou le tribunal du Bureau) ; Elvan banni ; passants des trois villes
   réécrits. Pas de nouvelle version de sauvegarde (`character.marques` facultatif), pour ne pas croiser l'étape 4.
   528 tests ; vérifié sur PC et téléphone (Forges-Basses, dialogue de Kerta, inventaire avec trois marques).
+- Cyril : « Je dis oui pour tout, mets le tout en ligne, puis fais-moi une vérification et un test qualité de
+  l'ensemble des éléments du jeu. » Passe sombre validée (marques, Puits Trois, morts, zones floues 29 et 30) ;
+  fusion de `main` (les veillées) ; mise en ligne.

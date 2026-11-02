@@ -20,6 +20,15 @@
           "failNext": "echec"
         },
         {
+          "text": "Chercher la clé dans le nichoir, au-dessus de la porte.",
+          "requires": [
+            {
+              "flag": "rumeur-cle-nichoir"
+            }
+          ],
+          "next": "nichoir"
+        },
+        {
           "text": "Laisser la porte tranquille.",
           "next": "fin"
         }
@@ -57,6 +66,29 @@
         },
         {
           "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "nichoir": {
+      "text": "Sous la paille du nichoir, tes doigts trouvent une petite clé de cuivre, tiède comme un œuf. La serrure tourne sans un bruit.",
+      "effects": [
+        {
+          "setFlag": "grenier-deverrouille"
+        }
+      ],
+      "options": [
+        {
+          "text": "Entrer.",
+          "effects": [
+            {
+              "goTo": "canopee-grenier"
+            }
+          ],
+          "next": "fin"
+        },
+        {
+          "text": "Remettre la clé, et partir.",
           "next": "fin"
         }
       ]

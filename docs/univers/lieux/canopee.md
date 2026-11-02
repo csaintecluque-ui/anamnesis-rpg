@@ -91,7 +91,18 @@ Quête validée par Cyril (`docs/univers/quetes.md`). Textes : `docs/DIALOGUES.m
   Nacelle, des cristaux de Vie au Comptoir de la Sève (Sévane, 250 Fers). Validé par Cyril.
 - La Lueur d'un cristal révèle aussi le sceau de cire dans le grenier des semences.
 
-## La passe sombre (2026-11-02, `docs/gdd/passe-sombre.md`, **à valider**)
+## Les veillées du Nid (2026-11-02, propositions **validées par Cyril** le 2026-11-02)
+
+Le soir, dans les hamacs du Nid, on écoute des histoires (`docs/gdd/veillees.md`). Le public : des Nacelliers, des
+cultivateurs des cimes, un druide qui écoute les yeux fermés (« Que la sève coule »). Il aime les histoires d'arbres
+et celles des morts qui dorment à leur pied ; pas les machines ni les forages.
+
+| Rumeur | Ce qu'elle ouvre | Ancrage |
+|---|---|---|
+| **La clé du nichoir** | la gardienne du grenier des semences cache sa clé dans le nichoir au-dessus de la porte : le grenier s'ouvre sans crocheter | — |
+| **La sève des aïeux** | sous son comptoir, Sévane vend une sève tirée au pied des arbres où reposent les morts : « une gorgée, et l'on sent leur main sur l'épaule » ; **défendue** ; « jamais deux soirs de suite : on finit par ne plus vouloir que leurs voix » | NOTION (Rite du Retour : l'arbre garde « une chaleur, un tour de main ») ; E2 (l'addiction au passé) |
+
+## La passe sombre (2026-11-02, `docs/gdd/passe-sombre.md`, **validé par Cyril** le 2026-11-02)
 
 - Passants : les Jeunes-Pousses et leurs échelles de corde, les Citoyens-Arbres et leurs ascenseurs [NOTION] (« ce qui
   tombe, la forêt le garde : les paniers, et les porteurs ») ; une pèlerine dont la mère « a choisi de partir »

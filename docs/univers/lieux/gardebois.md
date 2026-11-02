@@ -29,7 +29,18 @@ Un commis de Ferros pressé, une lavandière, un garçon curieux, un vieux joueu
 l'Auberge de la Racine : une ou deux répliques chacun, sans quête, sauf le commis, qui donne « La caravane de midi »
 (`docs/gdd/figurants.md`).
 
-## La passe sombre (2026-11-02, `docs/gdd/passe-sombre.md`, **à valider**)
+## Les veillées de la Racine (2026-11-02, propositions **validées par Cyril** le 2026-11-02)
+
+Le soir, à l'Auberge de la Racine, on écoute des histoires (`docs/gdd/veillees.md`). Le public : des caravaniers de la
+Compagnie, des familles du Marché, deux marchands de Ferros qui font semblant de ne pas écouter. Il aime les chansons
+et les histoires de famille ; pas les histoires de morts (« la maladie des souvenirs nous en raconte assez »).
+
+| Rumeur | Ce qu'elle ouvre | Ancrage |
+|---|---|---|
+| **La cache des passeurs** | sous le rocher moussu, au sud du marché, les passeurs de la Lisière cachent ce qu'ils ne montrent pas aux Gardes Verts : 30 Fers, une fiole de sève, et un mot « Pour la petite, si je ne reviens pas de la Lisière » | — (passeurs inventés) |
+| **Ce que Tobias garde sous l'étal** | des arbalètes de Ferros « tombées d'un convoi », à moitié prix ; « si ma sœur te demande… » | N2 (Ferros) ; les convois volés du « Rail des Cendres » |
+
+## La passe sombre (2026-11-02, `docs/gdd/passe-sombre.md`, **validé par Cyril** le 2026-11-02)
 
 - Passants : un commis de Ferros servi en dernier [NOTION : « immigrants de Ferros méfiés »] ; une voisine qui revit la
   Chute et se jette au ruisseau ; le vieux joueur de pipeau et la chanson des enterrements ; un client qui boit pour ne

@@ -80,6 +80,17 @@
     {
       "requires": [
         {
+          "flag": "vol-grenier"
+        },
+        {
+          "notFlag": "lisandre-vol-dit"
+        }
+      ],
+      "node": "nouvelles-vol"
+    },
+    {
+      "requires": [
+        {
           "quest": "chant-anselme",
           "status": "done"
         },
@@ -121,21 +132,16 @@
         },
         {
           "text": "Quelles nouvelles ?",
-          "requires": [
-            {
-              "notFlag": "vol-grenier"
-            }
-          ],
           "next": "nouvelles"
         },
         {
-          "text": "Quelles nouvelles ?",
-          "requires": [
+          "text": "Raconter un Récit à la veillée.",
+          "effects": [
             {
-              "flag": "vol-grenier"
+              "veillee": "nid"
             }
           ],
-          "next": "nouvelles-vol"
+          "next": "fin"
         },
         {
           "text": "Au revoir.",
@@ -181,6 +187,11 @@
     },
     "nouvelles-vol": {
       "text": "Tu as entendu ? Quelqu’un a forcé le grenier des semences, dans les Hautes Ramures. Voler des graines à Canopéa… c’est comme voler l’avenir. Le Conseil est furieux.",
+      "effects": [
+        {
+          "setFlag": "lisandre-vol-dit"
+        }
+      ],
       "options": [
         {
           "text": "Il manque des graines au grenier. As-tu vu passer quelque chose ?",
@@ -377,21 +388,16 @@
         },
         {
           "text": "Quelles nouvelles ?",
-          "requires": [
-            {
-              "notFlag": "vol-grenier"
-            }
-          ],
           "next": "nouvelles"
         },
         {
-          "text": "Quelles nouvelles ?",
-          "requires": [
+          "text": "Raconter un Récit à la veillée.",
+          "effects": [
             {
-              "flag": "vol-grenier"
+              "veillee": "nid"
             }
           ],
-          "next": "nouvelles-vol"
+          "next": "fin"
         },
         {
           "text": "Au revoir.",
@@ -408,21 +414,16 @@
         },
         {
           "text": "Quelles nouvelles ?",
-          "requires": [
-            {
-              "notFlag": "vol-grenier"
-            }
-          ],
           "next": "nouvelles"
         },
         {
-          "text": "Quelles nouvelles ?",
-          "requires": [
+          "text": "Raconter un Récit à la veillée.",
+          "effects": [
             {
-              "flag": "vol-grenier"
+              "veillee": "nid"
             }
           ],
-          "next": "nouvelles-vol"
+          "next": "fin"
         },
         {
           "text": "Au revoir.",

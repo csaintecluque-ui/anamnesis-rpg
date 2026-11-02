@@ -60,5 +60,5 @@ Sources et statuts : `docs/univers/sources.md`.
   brisent, qui « rejettent certains utilisateurs » (rejet jamais décrit) ; abus : « brûler les canaux magiques internes
   (permanent) ».
 - **Ferros** : « magie mal utilisée = rouille de l'âme » (sans symptôme décrit) [NOTION, Forge du Dernier Souffle].
-- **Dans le jeu** (à valider, `docs/gdd/passe-sombre.md`) : les **marques du cristal** : les veines, le manque, la peau
+- **Dans le jeu** (validé par Cyril le 2026-11-02, `docs/gdd/passe-sombre.md`) : les **marques du cristal** : les veines, le manque, la peau
   de cristal, puis le cristal qui se fend ; Vanel les reprend contre un rang de Résonance.

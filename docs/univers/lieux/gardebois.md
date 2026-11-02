@@ -22,3 +22,8 @@ Demande de Cyril : des habitations où entrer, plus de PNJ, des quêtes. PNJ pro
 | Quête A | **« La berceuse oubliée »** (Maëlis Lunelierre) : sa fille Nell a oublié la berceuse de sa mère. Un Écho près de l'Arbre-Titan la chante encore ; avec Mémoire ou Érudition, on la recueille et on la rapporte. Récompense : un Récit, de l'XP | E2 (Échos, maladie mémorielle) ; thème de l'anamnèse | validé |
 | Quête B | **« Les herbes de lisière »** (Liane Sève-Claire, herboriste) : trouver trois touffes de sauge-lumière cachées dans Gardebois (Survie ou Perception pour les repérer). Récompense : bandages, une potion | N1 (forêt) | validé |
 | Quête C | **« La caisse égarée »** (Brann Martelroux, apprenti de Tobias) : une caisse d'outils tombée d'un chariot, gardée par deux Rôdeurs-Épine près de la route ; on la reprend par la force, la discrétion ou en les éloignant (Survie). Récompense : des Fers, un prix chez Tobias | E8 (Rôdeurs-Épine), N2 | validé |
+
+## Passants (proposition du 2026-11-02, à valider)
+
+Un commis de Ferros pressé, une lavandière, un garçon curieux, un vieux joueur de pipeau, et un client somnolent à
+l'Auberge de la Racine : une ou deux répliques chacun, sans quête (`docs/gdd/figurants.md`).

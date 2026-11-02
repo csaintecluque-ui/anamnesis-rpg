@@ -658,3 +658,13 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
 - `npm run dialogues` complété (objets, soins, combats, lieux : 5 lignes « undefined » corrigées dans DIALOGUES.md).
 - 264 tests ; vérifié dans le navigateur (PC et iPhone en paysage) : quartiers, intérieurs, carte du monde, voyage,
   rencontre, combat. Poussé sur la branche ; pas encore en ligne (accord de Cyril attendu).
+
+## 2026-11-02 : mise en ligne de Canopéa ; passants et habitants « de remplissage »
+
+- Cyril : « vraiment pas mal », mise en ligne accordée ; détails de Canopéa et rencontres validés. `main` avancé sur
+  la branche, déploiement GitHub Pages réussi.
+- Demande : des passants qui marchent, et des PNJ à une ou deux interactions sans utilité, « pour combler ».
+- Fait : `src/data/figurants.json` (14 figurants : 8 à Canopéa, 4 à Gardebois, 2 dans les auberges),
+  `FigurantLayer` (trajets en boucle, pas sautillés, bulle de réplique au toucher, immobiles bloquants),
+  silhouettes provisoires améliorées (bras, accessoires). 269 tests ; vérifié dans le navigateur (marche, bulles,
+  Canopéa et Gardebois). Sur la branche ; mise en ligne à confirmer par Cyril.

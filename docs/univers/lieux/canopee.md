@@ -34,5 +34,6 @@ Sept intérieurs, sept PNJ nommés. Toutes les maisons prévues sont là.
 
 - **Lyra Cœur-de-Sève, Thalorin, Kael Marchevent** (canon, N1) : pas encore dans la ville. Ils arriveront avec les
   quêtes, après vérification de leur description dans `docs/Lore/` (absent de la session cloud).
-- **Figurants** (passants qui marchent) et réputation complète : système commun prévu dans `docs/gdd/villes.md`.
+- **Réputation complète** : système commun prévu dans `docs/gdd/villes.md`. Les passants sont faits
+  (`docs/gdd/figurants.md`, huit à Canopéa).
 - **Images peintes** (phase 2) : plan et coût à présenter avant toute génération.

@@ -24,6 +24,7 @@ import { onKeys } from '../ui/keys';
 import { COLORS, CSS, FONT_SERIF } from '../ui/theme';
 import { MAP_ZOOM, RENDER_SCALE } from '../ui/viewport';
 import type { CombatStartData } from './CombatScene';
+import { FigurantLayer } from './Figurants';
 import type { HudScene } from './HudScene';
 import type { WorldMapStartData } from './WorldMapScene';
 
@@ -63,6 +64,8 @@ export class MapScene extends Phaser.Scene {
   private marker!: Phaser.GameObjects.Graphics;
   /** NPCs and signs, hit-tested on their whole image: a tap on a body lands on the tile behind its feet. */
   private interactables: { object: MapObject; image: Phaser.GameObjects.Image }[] = [];
+  /** Passers-by and townsfolk with a line or two (docs/gdd/figurants.md). */
+  private figurants!: FigurantLayer;
 
   constructor() {
     super('Map');
@@ -97,6 +100,14 @@ export class MapScene extends Phaser.Scene {
     this.drawNpcs();
     this.drawEnemies();
     this.drawPlacedObjects();
+    this.figurants = new FigurantLayer(this, {
+      frames: this.map.frames,
+      feet: (t) => this.feet(t),
+      walkable: (t) => this.walkable(t),
+      heroTile: () => this.heroTile,
+    });
+    this.figurants.spawn(location.id);
+    for (const tile of this.figurants.standingTiles()) this.occupied.add(tileKey(tile));
     this.marker = this.add.graphics().setDepth(1);
 
     this.heroTile = this.startTile(location.entrance);
@@ -305,6 +316,11 @@ export class MapScene extends Phaser.Scene {
 
   private onTap(pointer: Phaser.Input.Pointer): void {
     const tile = screenToTile({ x: pointer.worldX - this.originX, y: pointer.worldY - this.originY });
+    const passerBy = this.figurants.hit(pointer.worldX, pointer.worldY);
+    if (passerBy) {
+      this.figurants.talk(passerBy);
+      return;
+    }
     const hit = this.interactables
       .filter(({ object, image }) => (object.col === tile.col && object.row === tile.row) || hitsBody(image, pointer.worldX, pointer.worldY))
       .sort((a, b) => b.image.depth - a.image.depth)[0];

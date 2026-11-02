@@ -431,16 +431,24 @@ const leafSea =
   '<circle cx="20" cy="78" r="6" fill="#2b4022"/><circle cx="40" cy="84" r="7" fill="#26391f"/>' +
   '<circle cx="34" cy="72" r="5" fill="#33502a"/><circle cx="16" cy="86" r="3" fill="#3d5c31" opacity="0.8"/>' +
   '<circle cx="46" cy="76" r="3" fill="#3d5c31" opacity="0.7"/>';
-/** A person, simple but readable: body colour, skin, hair; `small` for a child. */
-const person = ({ body, skin = '#d9b28e', hair = '#4a3524', small = false, accent = PARCHMENT }) => {
+/**
+ * A person, simple but readable: body colour, skin, hair, arms; `small` for a child, `old` for grey hair and a
+ * stoop; `extra` adds an accessory drawn on top (basket, hat, staff…), in the same 64 × 96 frame.
+ */
+const person = ({ body, skin = '#d9b28e', hair = '#4a3524', small = false, accent = PARCHMENT, extra = '' }) => {
   const s = small ? 0.8 : 1;
   const t = (y) => 82 - (82 - y) * s;
+  const x = (dx) => 32 + dx * s;
   return (
     shadow(11, 4) +
-    `<path d="M${32 - 10 * s} 82 Q${32 - 12 * s} ${t(60)} 32 ${t(56)} Q${32 + 12 * s} ${t(60)} ${32 + 10 * s} 82 Z" fill="${body}" stroke="${INK}" stroke-width="1.5"/>` +
-    `<path d="M${32 - 8 * s} ${t(66)} L${32 + 8 * s} ${t(66)}" stroke="${accent}" stroke-width="2" opacity="0.8"/>` +
+    `<path d="M${x(-4)} ${t(70)} L${x(-12)} ${t(78)} M${x(4)} ${t(70)} L${x(12)} ${t(78)}" stroke="${body}" stroke-width="${4 * s}" stroke-linecap="round"/>` +
+    `<path d="M${x(-10)} 82 Q${x(-12)} ${t(60)} 32 ${t(56)} Q${x(12)} ${t(60)} ${x(10)} 82 Z" fill="${body}" stroke="${INK}" stroke-width="1.5"/>` +
+    `<path d="M${x(-12)} ${t(78)} l0 0" stroke="${skin}" stroke-width="${5 * s}" stroke-linecap="round"/>` +
+    `<path d="M${x(12)} ${t(78)} l0 0" stroke="${skin}" stroke-width="${5 * s}" stroke-linecap="round"/>` +
+    `<path d="M${x(-8)} ${t(66)} L${x(8)} ${t(66)}" stroke="${accent}" stroke-width="2" opacity="0.8"/>` +
     `<circle cx="32" cy="${t(48)}" r="${8 * s}" fill="${skin}" stroke="${INK}" stroke-width="1.5"/>` +
-    `<path d="M${32 - 8 * s} ${t(47)} Q32 ${t(36)} ${32 + 8 * s} ${t(47)} Q32 ${t(42)} ${32 - 8 * s} ${t(47)} Z" fill="${hair}"/>`
+    `<path d="M${x(-8)} ${t(47)} Q32 ${t(36)} ${x(8)} ${t(47)} Q32 ${t(42)} ${x(-8)} ${t(47)} Z" fill="${hair}"/>` +
+    extra
   );
 };
 const npcTile = (name, look) => ({ name, sprite: true, svg: person(look) });
@@ -618,4 +626,64 @@ TILES.push(
       '<path d="M12 58 L52 58" stroke="#ead9b8" stroke-width="3"/>' +
       '<circle cx="20" cy="78" r="6" fill="none" stroke="#3a2a1c" stroke-width="3"/><circle cx="44" cy="78" r="6" fill="none" stroke="#3a2a1c" stroke-width="3"/>',
   },
+  // --- Passants et habitants « de remplissage » (docs/gdd/figurants.md) : une ou deux répliques, sans quête. ---
+  npcTile('fleuriste', {
+    body: '#b0679a',
+    hair: '#3a2a1c',
+    extra: '<path d="M38 74 Q46 70 50 76 L46 82 L38 80 Z" fill="#8a6a42" stroke="#1B1512"/><circle cx="42" cy="71" r="2.5" fill="#f0e0ff"/><circle cx="47" cy="72" r="2.5" fill="#ffd27a"/>',
+  }),
+  npcTile('porteur', {
+    body: '#7a6a4a',
+    hair: '#2a2018',
+    extra: '<rect x="22" y="30" width="20" height="12" rx="3" fill="#a88456" stroke="#1B1512"/><circle cx="28" cy="32" r="2" fill="#b0365a"/><circle cx="34" cy="31" r="2" fill="#6a3aa0"/>',
+  }),
+  npcTile('enfant-a', { body: '#4d8ab0', hair: '#c9a46a', small: true }),
+  npcTile('vieillard', {
+    body: '#6a6058',
+    hair: '#e8e2d4',
+    extra: '<path d="M46 60 L50 84" stroke="#6b4a32" stroke-width="3" stroke-linecap="round"/>',
+  }),
+  npcTile('tisseuse', {
+    body: '#5f8a45',
+    hair: '#8a4a24',
+    extra: '<path d="M14 68 Q22 62 30 70 L28 80 Q20 74 14 78 Z" fill="#7fa860" stroke="#1B1512" opacity="0.9"/>',
+  }),
+  npcTile('messager', {
+    body: '#3f6a8a',
+    hair: '#1f1612',
+    extra: '<rect x="38" y="66" width="10" height="7" fill="#ead9b8" stroke="#1B1512"/><path d="M38 66 L43 70 L48 66" stroke="#C9804F" fill="none"/>',
+  }),
+  npcTile('pelerine', {
+    body: '#8a8276',
+    hair: '#5a3020',
+    extra: '<path d="M22 46 Q32 30 42 46 L42 56 Q32 50 22 56 Z" fill="#8a8276" stroke="#1B1512" opacity="0.95"/>',
+  }),
+  npcTile('jardinier', {
+    body: '#6b5338',
+    hair: '#7a7068',
+    extra: '<path d="M20 40 L44 40 L38 34 L26 34 Z" fill="#c9a46a" stroke="#1B1512"/>',
+  }),
+  npcTile('colporteur-ferros', {
+    body: '#8a5a3a',
+    hair: '#2a2018',
+    accent: '#C9804F',
+    extra: '<rect x="14" y="56" width="12" height="18" rx="2" fill="#6b4a32" stroke="#1B1512"/><path d="M14 62 L26 62" stroke="#C9804F"/>',
+  }),
+  npcTile('lavandiere', {
+    body: '#7a8aa0',
+    hair: '#4a3524',
+    extra: '<ellipse cx="46" cy="76" rx="9" ry="5" fill="#a88456" stroke="#1B1512"/><path d="M40 74 Q46 70 52 74" stroke="#ead9b8" stroke-width="2" fill="none"/>',
+  }),
+  npcTile('enfant-b', { body: '#c9804f', hair: '#2a2018', small: true, skin: '#b98a64' }),
+  npcTile('joueur-pipeau', {
+    body: '#5a4a6a',
+    hair: '#d8d0c0',
+    extra: '<path d="M30 54 L44 58" stroke="#c9a46a" stroke-width="3" stroke-linecap="round"/>',
+  }),
+  npcTile('client', { body: '#6a7a5a', hair: '#5a3020', skin: '#c49a74' }),
+  npcTile('voyageuse', {
+    body: '#9a6a4a',
+    hair: '#1f1612',
+    extra: '<path d="M18 56 L18 76 L28 76 L28 58 Z" fill="#6b5338" stroke="#1B1512"/>',
+  }),
 );

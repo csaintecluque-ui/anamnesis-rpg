@@ -50,4 +50,5 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `animation.md` : marche animée des personnages, méthodes 2D et 3D, comparaison du pilote.
 - `jalon-2.md` : proposition du jalon 2 (retour de Cyril sur la phase 2, animation, avatars, contenu) ; à valider.
 - `villes.md` : gabarit d'une grande ville, systèmes communs, mécanique par ville, coûts, ordre ; validé.
-- `carte-du-monde.md` : carte du monde, voyages, rencontres aléatoires en route ; contenu à valider.
+- `carte-du-monde.md` : carte du monde, voyages, rencontres aléatoires en route ; validé.
+- `figurants.md` : passants qui marchent et habitants à une ou deux répliques ; contenu à valider.

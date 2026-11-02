@@ -1,0 +1,161 @@
+[
+  {
+    "id": "fleuriste",
+    "location": "canopee-nacelle",
+    "name": "Une marchande de fleurs",
+    "tile": "fleuriste",
+    "path": [[11, 13], [16, 14], [19, 13], [17, 10]],
+    "lines": [
+      "Des fleurs de lune, cueillies ce matin au bout des branches ! Elles ne s’ouvrent que la nuit.",
+      "Non, je ne les cueille pas toutes : une sur trois reste à l’arbre. C’est la règle de la Sève."
+    ]
+  },
+  {
+    "id": "porteur",
+    "location": "canopee-nacelle",
+    "name": "Un porteur de paniers",
+    "tile": "porteur",
+    "path": [[9, 14], [14, 15], [18, 12], [11, 11]],
+    "lines": [
+      "Attention, ça passe ! Trois paniers de baies pour l’auberge du Nid.",
+      "Le plus dur, ce n’est pas le poids. C’est de ne rien laisser tomber."
+    ]
+  },
+  {
+    "id": "fillette-canopee",
+    "location": "canopee-nacelle",
+    "name": "Une petite fille qui joue",
+    "tile": "enfant-a",
+    "pace": 0.7,
+    "path": [[13, 11], [13, 13], [18, 13], [18, 11]],
+    "lines": [
+      "On joue à « rien ne touche le sol » ! Si tu marches sur une feuille, tu as perdu.",
+      "Malo ? Il court trop vite, personne ne l’attrape jamais."
+    ]
+  },
+  {
+    "id": "vieillard",
+    "location": "canopee-nacelle",
+    "name": "Un vieil homme",
+    "tile": "vieillard",
+    "path": [[4, 16]],
+    "lines": [
+      "J’ai vu passer trois générations de nacelles. Celle de Véline est la plus douce.",
+      "Assieds-toi un peu, si tu veux. Les nuages, ça se regarde lentement."
+    ]
+  },
+  {
+    "id": "tisseuse",
+    "location": "canopee-ramures",
+    "name": "Une tisseuse de feuilles",
+    "tile": "tisseuse",
+    "path": [[13, 12]],
+    "lines": [
+      "Je tisse des voiles de feuilles pour les fenêtres. Elles laissent passer la lumière, pas la pluie.",
+      "Les gens de Ferros me demandent si c’est de la toile. Je leur réponds : c’est de la patience."
+    ]
+  },
+  {
+    "id": "messager",
+    "location": "canopee-ramures",
+    "name": "Un messager du Conseil",
+    "tile": "messager",
+    "pace": 0.8,
+    "path": [[11, 7], [6, 11], [9, 15], [15, 11]],
+    "lines": [
+      "Pardon, pardon ! Message urgent pour le Conseil… comme tous les messages.",
+      "Une audience ? Apporte de la patience. Et un coussin."
+    ]
+  },
+  {
+    "id": "pelerine",
+    "location": "canopee-aieux",
+    "name": "Une pèlerine du Bois",
+    "tile": "pelerine",
+    "pace": 1.6,
+    "path": [[9, 8], [11, 6], [15, 7], [17, 9], [13, 12], [9, 11]],
+    "lines": [
+      "Chut… Je viens voir ma mère. Elle est passée dans le grand arbre, au printemps.",
+      "Ici, on ne pleure pas fort. On raconte."
+    ]
+  },
+  {
+    "id": "soigneur-ecorce",
+    "location": "canopee-aieux",
+    "name": "Un soigneur d’écorce",
+    "tile": "jardinier",
+    "path": [[16, 12]],
+    "lines": [
+      "Je soigne l’écorce des Arbres-Souvenirs : un peu de mousse là où elle s’abîme.",
+      "Les noms gravés, je n’y touche jamais. Ils ne m’appartiennent pas."
+    ]
+  },
+  {
+    "id": "commis-ferros",
+    "location": "gardebois",
+    "name": "Un commis de Ferros pressé",
+    "tile": "colporteur-ferros",
+    "pace": 0.8,
+    "path": [[3, 4], [9, 8], [13, 14], [16, 18], [9, 18], [7, 9]],
+    "lines": [
+      "Pas le temps, pas le temps ! Si je rate la caravane de midi, mon patron, lui, ne me ratera pas.",
+      "Gardebois, c’est le seul marché où l’on paie en Fers et où l’on vous remercie en chansons."
+    ]
+  },
+  {
+    "id": "lavandiere",
+    "location": "gardebois",
+    "name": "Une lavandière",
+    "tile": "lavandiere",
+    "path": [[19, 16]],
+    "lines": [
+      "L’eau du ruisseau descend de la canopée. Elle sent la pluie et les fleurs.",
+      "Ici, le linge sèche en une heure, quand le vent vient de la forêt."
+    ]
+  },
+  {
+    "id": "garcon-curieux",
+    "location": "gardebois",
+    "name": "Un garçon curieux",
+    "tile": "enfant-b",
+    "pace": 0.7,
+    "path": [[11, 9], [15, 10], [17, 11], [13, 13]],
+    "lines": [
+      "Tu es chez les Gardiens de Mémoire ? Raconte-moi une histoire, avec un dragon gentil !",
+      "Hier, j’ai vu un Rôdeur-Épine ! Enfin… ou un buisson. Un buisson très méchant."
+    ]
+  },
+  {
+    "id": "joueur-pipeau",
+    "location": "gardebois",
+    "name": "Un vieux joueur de pipeau",
+    "tile": "joueur-pipeau",
+    "path": [[10, 14]],
+    "lines": [
+      "Une chanson pour un Fer, deux chansons pour deux Fers… et la troisième, je l’offre.",
+      "Ilyane dit que les chansons sont des souvenirs qui ont appris à voler."
+    ]
+  },
+  {
+    "id": "client-somnolent",
+    "location": "auberge-racine",
+    "name": "Un client somnolent",
+    "tile": "client",
+    "path": [[6, 5]],
+    "lines": [
+      "Mmh ? Non, je ne dors pas. Je réfléchis avec les yeux fermés.",
+      "La soupe de Sylvan, c’est la meilleure de la lisière. Ne le lui dis pas : il ne passerait plus la porte."
+    ]
+  },
+  {
+    "id": "voyageuse-fourbue",
+    "location": "canopee-auberge",
+    "name": "Une voyageuse fourbue",
+    "tile": "voyageuse",
+    "path": [[2, 4]],
+    "lines": [
+      "Trois jours de marche depuis le sud… Ce hamac est la plus belle chose du monde.",
+      "On m’avait dit qu’on dormait mal, ici, à cause du vent. On m’avait menti."
+    ]
+  }
+]

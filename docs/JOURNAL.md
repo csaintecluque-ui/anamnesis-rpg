@@ -3,20 +3,25 @@
 ## État (2026-11-02)
 
 - Jalons 1 et 2 faits et en ligne (`docs/gdd/jalon-2.md`). 11,5 crédits Higgsfield restants.
-- 317 tests, typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
+- 340 tests, typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
 - Mode test caché : 5 touches sur la version (écran titre) → +50 Fers, PV au max dans le menu pause.
 
-## Chantier en cours : Canopéa « finie à fond » (demande de Cyril, 2026-11-02)
+## Fait : Canopéa « finie à fond » (en ligne le 2026-11-02, validé par Cyril)
 
-- **En ligne le 2026-11-02** (validé par Cyril, détails nouveaux compris) : les cinq quêtes de Canopéa et
-  « La caravane de midi » (`docs/univers/quetes.md`), l'amphithéâtre du Conseil, le journal (touche J), la réputation
-  des guildes, une ville qui réagit (`docs/univers/lieux/canopee.md`).
+- Les cinq quêtes de Canopéa et « La caravane de midi », l'amphithéâtre, le journal (touche J), la réputation des
+  guildes, une ville qui réagit (`docs/univers/lieux/canopee.md`, `docs/univers/quetes.md`).
 - Moteur : conditions `item`, effet `takeItem`, objets de quête, `apparaitSi`, rencontres d'histoire, figurants à
   dialogue et à `reactions`, étapes de quête (`etapes`).
 
+## Chantier en cours : Ironheart, chapitre 3 (demande de Cyril, 2026-11-02)
+
+- **Construit sur la branche, pas encore en ligne** : Forges-Basses, Marché des Cendres, Manufactures-Moyennes,
+  « La Clé de Rouille Bleue » et ses trois fins (`docs/univers/lieux/ironheart.md`, `docs/univers/quetes.md`).
+- À faire valider par Cyril : les détails nouveaux (Boulon, gare de l'Ouest, Fonds Zéro, carnet du dernier train…).
+
 ## Prochaine étape
 
-1. Ensuite : Ironheart (chapitre 3, « La Clé de Rouille Bleue ») ; images peintes de Canopéa quand les crédits suivront.
+1. Mise en ligne d'Ironheart (accord de Cyril) ; puis Sept-Portes (chapitre 4) ou « Le Rail des Cendres ».
 
 ## Points ouverts
 

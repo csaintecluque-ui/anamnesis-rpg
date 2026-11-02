@@ -1313,6 +1313,7 @@ Commence par : « offre » _(si l’on porte « Clé de rouille bleue »)_, sino
 > Kaelis sourit sans montrer les dents. — Tout le monde la cherche. Ce n’est pas la bonne question.
 
 - « Essayer autre chose. » → accueil
+- « Tout se vend, as-tu dit. Combien, la réponse ? » → prix
 - « Je reviendrai. » → **fin**
 
 ### refus
@@ -1376,6 +1377,22 @@ _Effet : retient « kaelis-parle », +15 XP._
 > — Tu as choisi un autre acheteur, à ce qu’on dit. Dommage. Les Marches n’oublient pas… mais elles ne se fâchent pas longtemps.
 
 - « Au revoir. » → **fin**
+
+### prix
+
+> Kaelis lève enfin les yeux. — Vingt-cinq Fers. Les bonnes questions coûtent moins cher, mais tout le monde n’a pas de quoi les poser.
+
+- **[25 Fers]** « Payer vingt-cinq Fers. » → achetee _(−25 Fers)_
+- « Trop cher pour moi. » → **fin**
+
+### achetee
+
+_Effet : retient « kaelis-parle »._
+
+> Il compte les pièces sans les regarder. — La clé, je l’ai vue au cou de la Veilleuse du Rail, au bout de la ligne qu’on dit maudite. Une réponse vendue, une question payée : nous sommes quittes.
+
+- « Pourquoi ne pas la prendre toi-même ? » → pourquoi
+- « Merci, Kaelis. » → **fin**
 
 ## Des lettres éparpillées
 
@@ -2361,7 +2378,7 @@ _Effet : retient le Récit « Le convoi sans conducteur »._
 
 - _(si Récit « Le Savant Corvan » connu)_ « J’ai vu le dernier train, moi aussi, dans l’Écho de la Gare Engloutie. » → don
 - **[Mémoire 3]** « Laisse-moi écouter le convoi avec toi. » → ecoute
-- **[Diplomatie 3]** « Kaelis la vendrait. Moi, je veux savoir ce qu’elle ouvre, et pourquoi on fouille vos gares. » → don
+- « Lui parler de ce que la clé ouvre. » → ouvre
 - « Je reviendrai. » → **fin**
 
 ### don
@@ -2406,6 +2423,14 @@ _Effet : retient « cle-etudiee », +10 XP._
 > — Tu as fait ton choix, avec la clé. Je l’entends parfois, loin d’ici… Elle chante encore. Prends soin de toi.
 
 - « Au revoir. » → **fin**
+
+### ouvre
+
+> — Ce qu’elle ouvre ? Tout le monde veut le savoir. Personne ne veut l’écouter.
+
+- **[Diplomatie 3]** « Kaelis la vendrait. Moi, je veux savoir ce qu’elle ouvre, et pourquoi on fouille vos gares. » → don
+- _(si repère « fonds-zero-connu »)_ « Aux Archives, un coffre de fer attend sa clé depuis la fondation : le Fonds Zéro. » → don
+- « Je reviendrai. » → **fin**
 
 ## Véline Nacelière
 

@@ -93,8 +93,9 @@ Cloudrest, Mistral (Zephyria) [E3, N1, N3]. Crystallis est écartée : son nom e
 - **Sa mémoire** : la mémoire écrite. Ironheart archive tout (les Archives Centrales de Ferros [NOTION]) : registres,
   permis, télégrammes. Elle regarde vers l'avenir, mais n'oublie rien de ce qu'elle a signé.
 - **Quartiers** (canon [NOTION : arbitrage]) : trois étages sociaux, du sol vers la lumière : les **Forges-Basses**
-  (arrivée en train, le Puits Trois, point d'eau à accès gradué) · les **Manufactures-Moyennes** (ateliers, bureaux) ·
-  les **Manufactures-Hautes** (Parlement, **Archives Centrales de Ferros**, fronton *MEMORIA FERROX*).
+  (arrivée en train, le Puits Trois, point d'eau à accès gradué) · les **Manufactures-Moyennes** (ateliers, bureaux,
+  **Archives Centrales de Ferros**, fronton *MEMORIA FERROX* [NOTION, roman III.7]) · les **Manufactures-Hautes**
+  (Parlement). Ville construite : `docs/univers/lieux/ironheart.md`.
 - **Maisons** : Pension de la Bielle (auberge ouvrière) · Atelier Cendrefer (armes, armures, outils) · Bureau des
   Permis et Concessions · Salon du télégraphe (avec, à l'étage, le petit relais des Gardiens) · Maison Martelroux ·
   Galerie du Parlement (séances publiques) · ★ Archives scellées du Bureau.

@@ -38,4 +38,20 @@ Bleue », validée dans ses grandes lignes par Cyril le 2026-11-02). Canon : le 
 | **Le Marché des Cendres** (souterrain) | tentes et étals à la lumière de l'huile, l'échoppe de Kaelis, le guichet d'archives au fond |
 | **Les Manufactures-Moyennes** | le poste de contrôle du funiculaire, les Archives Centrales (Noam), le funiculaire des Manufactures-Hautes, fermé |
 
-Les personnages et la quête sont détaillés dans `docs/univers/quetes.md` (chapitre 3).
+| **Maisons** | la Pension de la Bielle (Dorna Vissard : soupe et lit, 8 Fers), l'atelier Cendrefer (Hedda : armes et outils de Ferros), la maison Martelroux (Rika), les Archives Centrales (Noam) |
+
+### Personnages (propositions, à valider ; [NOTION] : repris du canon)
+
+- **Boulon**, Ferrôme porteur à la gare de l'Ouest : il se souvient de chaque voyageur ; c'est lui qui lance la quête.
+- **Le patrouilleur à visière rouge** du funiculaire [NOTION, roman : les visières rouges] ; **la patrouilleuse** du
+  funiculaire des Manufactures-Hautes, qui ne laisse monter personne.
+- **Kaelis**, marchand d'ossements des Marches des Cendres [NOTION, Studio] ; le **guichet du fond**, tenu par la
+  caste Technique [NOTION, roman].
+- **La Veilleuse du Rail** [NOTION, Studio] : ses parents ont pris un train de la vieille ligne et ne sont jamais revenus ; elle compte les wagons
+  du convoi sans conducteur dans son sommeil. Près d'elle, **une vieille machine** qui se souvient (Mémoire 4).
+- **L'archiviste Noam** [NOTION, Studio] : il vouvoie et parle en fiches (« voir : … ») ; il garde le **Fonds Zéro**.
+- **Hedda Cendrefer** (sœur de Tobias), **Rika Martelroux** (mère de Brann), **Dorna Vissard** (la Pension).
+- **Passants** : ouvriers en gris, un Veilleur de Rouille, un Ferrôme reconditionné et une marchande de cristaux au
+  Marché, un employé en gris clair et un horloger aux Manufactures.
+
+La quête est détaillée dans `docs/univers/quetes.md` (chapitre 3).

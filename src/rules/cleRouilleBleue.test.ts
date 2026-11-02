@@ -89,11 +89,32 @@ describe('La Clé de Rouille Bleue', () => {
     expect(state.flags['marche-cendres-connu']).toBe(true);
   });
 
-  it('only answers Kaelis’s riddle with Mémoire 3 or the Récit of the Bosquet', () => {
+  it('only answers Kaelis’s riddle with Mémoire 3 or the Récit of the Bosquet; otherwise the answer is bought', () => {
     const state = atIronheart({ memory: 2 });
     expect(optionTexts(state, 'kaelis', 'accueil')).not.toContain('Au Bosquet des Échos, le bois garde la main de qui a gravé. Et tes os ?');
     choose(state, 'kaelis', 'accueil', 'Je cherche la clé');
     expect(state.flags['kaelis-parle']).toBeUndefined();
+    choose(state, 'kaelis', 'mauvaise', 'Tout se vend');
+    state.character!.fers = 30;
+    choose(state, 'kaelis', 'prix', 'Payer vingt-cinq Fers');
+    expect(state.character!.fers).toBe(5);
+    expect(state.flags['kaelis-parle']).toBe(true);
+  });
+
+  it('can be finished without Mémoire or Diplomatie: the Fonds Zéro convinces the Veilleuse', () => {
+    const state = atIronheart({ memory: 2 }, { diplomacy: 0 });
+    state.character!.fers = 30;
+    meetBoulon(state);
+    choose(state, 'kaelis', 'accueil', 'Je cherche la clé');
+    choose(state, 'kaelis', 'mauvaise', 'Tout se vend');
+    choose(state, 'kaelis', 'prix', 'Payer');
+    choose(state, 'veilleuse', 'question-cle', 'Lui parler de ce que la clé ouvre');
+    expect(optionTexts(state, 'veilleuse', 'ouvre').some((t) => t.startsWith('Aux Archives'))).toBe(false);
+    choose(state, 'noam', 'accueil', 'Je cherche ce qui concerne le dernier train');
+    choose(state, 'veilleuse', 'ouvre', 'Aux Archives');
+    expect(ownedCount(state.character!, 'cle-rouille-bleue')).toBe(1);
+    choose(state, 'noam', 'cle', 'La lui confier');
+    expect(state.quests[Q]).toBe('done');
   });
 
   it('ends with Kaelis: the Marches des Cendres pay', () => {

@@ -58,6 +58,9 @@ Règles de jeu : `docs/gdd/factions.md`. Histoire et quêtes : `docs/univers/que
 Objet commun : **la clé de rouille bleue**, qui ouvre « une archive que plusieurs factions veulent détruire ou
 exploiter » (quête « La Clé de Rouille Bleue », Notion).
 
+Dans le jeu (2026-11-02) : les trois factions de Ferros ont leur réputation, gagnée ou perdue selon la fin de « La Clé
+de Rouille Bleue » (`docs/univers/quetes.md`, chapitre 3) ; on ne les rejoint pas encore.
+
 ### Guildes ajoutées pour le jeu (validées par Cyril le 2026-11-02)
 
 Le Notion ne nomme aucune guilde marchande (seulement un « Conseil des Guildes » à Ferros et un « Cristal Marchand,

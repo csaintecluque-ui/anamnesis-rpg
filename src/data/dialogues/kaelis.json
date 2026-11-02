@@ -80,6 +80,10 @@
           "next": "accueil"
         },
         {
+          "text": "Tout se vend, as-tu dit. Combien, la réponse ?",
+          "next": "prix"
+        },
+        {
           "text": "Je reviendrai.",
           "next": "fin"
         }
@@ -211,6 +215,47 @@
       "options": [
         {
           "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "prix": {
+      "text": "Kaelis lève enfin les yeux. — Vingt-cinq Fers. Les bonnes questions coûtent moins cher, mais tout le monde n’a pas de quoi les poser.",
+      "options": [
+        {
+          "text": "Payer vingt-cinq Fers.",
+          "requires": [
+            {
+              "fers": 25
+            }
+          ],
+          "effects": [
+            {
+              "giveFers": -25
+            }
+          ],
+          "next": "achetee"
+        },
+        {
+          "text": "Trop cher pour moi.",
+          "next": "fin"
+        }
+      ]
+    },
+    "achetee": {
+      "text": "Il compte les pièces sans les regarder. — La clé, je l’ai vue au cou de la Veilleuse du Rail, au bout de la ligne qu’on dit maudite. Une réponse vendue, une question payée : nous sommes quittes.",
+      "effects": [
+        {
+          "setFlag": "kaelis-parle"
+        }
+      ],
+      "options": [
+        {
+          "text": "Pourquoi ne pas la prendre toi-même ?",
+          "next": "pourquoi"
+        },
+        {
+          "text": "Merci, Kaelis.",
           "next": "fin"
         }
       ]

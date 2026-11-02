@@ -724,3 +724,18 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   pronom). `main` avancé sur la branche, déploiement lancé.
 - Cyril valide aussi les détails du « Chant d'Anselme » (ruban vert, Elouan qui ne descend plus, Aïlis qui ne chantait
   plus). Il fera Ironheart avec Codex.
+
+## 2026-11-02 (suite) : Ironheart, chapitre 3
+
+- Cyril : « vérifie sur GitHub, puis Ironheart, le chapitre 3 avec « La Clé de Rouille Bleue » ». GitHub vérifié :
+  branche à jour avec `main` (9 commits de l'autre session), déploiements réussis, 317 tests au vert.
+- Canon relu dans le Notion (roman I.1, II.3, III.1, III.7, IV.6, V.1 ; fiches du Studio) : synthèse dans
+  `docs/univers/lieux/ironheart.md`. Les Archives Centrales sont dans les Manufactures-Moyennes (roman III.7) :
+  `villes.md` corrigé.
+- Construit : Forges-Basses (gare de l'Ouest, Puits Trois, funiculaire, dépôt de la Veilleuse, trois maisons), le
+  Marché des Cendres caché sous les fonderies, les Manufactures-Moyennes (poste de contrôle, Archives, funiculaire des
+  Manufactures-Hautes fermé) ; 25 tuiles provisoires ; 12 PNJ, 7 passants ; la quête et ses trois fins (vendre à
+  Kaelis, confier à Noam, rendre à la Veilleuse) ; trois factions de Ferros dans la réputation ; Ironheart révélée sur
+  la carte du monde par la fin de « L'audience ».
+- Relecture : un héros à moins de 3 en Mémoire restait bloqué ; ajouté deux voies (acheter la réponse de Kaelis,
+  25 Fers ; parler du Fonds Zéro à la Veilleuse). 340 tests ; vérifié dans le navigateur.

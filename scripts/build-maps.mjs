@@ -712,7 +712,7 @@ function ironheartForges() {
 }
 
 function ironheartMarche() {
-  const m = cityBlock(22, 18, 'dalles', 'rocher');
+  const m = cityBlock(22, 18, 'dalles', 'mur-brique');
   m.object('vers-forges', 'sortie', 0, 9, { cible: 'ironheart-forges', arrivee: 'devant-renfoncement', libelle: 'Remonter le tunnel' });
   m.setObstacle(0, 9, null);
   m.object('depuis-forges', 'arrivee', 2, 9);

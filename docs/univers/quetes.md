@@ -131,9 +131,42 @@ carte à créer.
   Véline la remet au chef de caravane : 30 XP, 15 Fers, membre de la Compagnie (prix de membre chez Tobias, −15 %).
   **Reporté** : la caravane comme moyen de voyage.
 
+## Ironheart : le chapitre 3
+
+### 7. La Clé de Rouille Bleue (histoire principale, chapitre 3) — **construite le 2026-11-02**
+
+Lieux et personnages : `docs/univers/lieux/ironheart.md`. Tout ce qui suit est **proposé, à valider**, sauf les
+éléments marqués [NOTION].
+
+- **Départ** : à la fin de « L'audience », Kael Marchevent envoie le héros à Ironheart ; la ville apparaît sur la carte
+  du monde. À la gare de l'Ouest, **Boulon**, le Ferrôme porteur, se souvient d'un voyageur qui demandait la clé : il
+  nomme **Kaelis** [NOTION, Studio] et le Marché des Cendres.
+- **Le Marché des Cendres** [NOTION, roman V.1] : on le trouve par l'indice de Boulon ou de Rika Martelroux, ou en
+  examinant le renfoncement sans enseigne (Investigation 2).
+- **Kaelis** ne répond qu'à « la bonne question » : pourquoi certaines reliques se souviennent des morts (Mémoire 3,
+  ou le Récit de l'Arbre ancien) ; sinon, « tout se vend » : la réponse coûte **25 Fers**. Il a vu la clé au cou de la
+  **Veilleuse du Rail** [NOTION, Studio], au dépôt de la vieille ligne, et il rachètera la clé **100 Fers**.
+- **La Veilleuse** entend le **convoi sans conducteur** (Récit) ; elle donne la clé à qui a vu le dernier train dans
+  l'Écho de la Gare Engloutie, à qui écoute le convoi avec elle (Mémoire 3), à qui la convainc (Diplomatie 3), ou à
+  qui lui apprend qu'un coffre l'attend aux Archives : le **Fonds Zéro**, « arrivé avec les premiers habitants de la
+  vallée » (appris de Noam).
+- **Monter aux Manufactures-Moyennes** : le funiculaire et son poste de contrôle [NOTION, roman] ; on passe avec le
+  sauf-conduit du Triumvirat, un laissez-passer de visiteur (10 Fers) ou un bluff (Subterfuge 13). Le funiculaire des
+  Manufactures-Hautes reste fermé.
+- **Trois fins** :
+  - **la vendre à Kaelis** : 100 Fers ; les Marches des Cendres apprécient, les Archives et le Rail moins ;
+  - **la confier à Noam** [NOTION, Studio] : le Fonds Zéro s'ouvre sur le **carnet de bord du dernier train** (Récit) :
+    chaque gare où il s'arrêta, une carte de toutes les voies endormies, et **une ligne grattée, avec soin** (le fil
+    vers Sept-Portes et le Registre des Mains) ;
+  - **la rendre à la Veilleuse** : « sa place est sur la ligne » ; on peut d'abord l'étudier avec elle (Érudition 3).
+- **Réputation** : Ironheart +10 à la fin ; Travailleurs du Rail, Marches des Cendres et Archives de Ferros selon la
+  fin (`src/data/reputation.json`).
+- **Reporté** : cacher la clé ou la garder (le Notion cite aussi ces choix) ; « Le Rail des Cendres » et « Les Échos
+  sous la Forge » ; le Bureau des Permis, le Parlement et le télégraphe de `villes.md`.
+
 ## Ordre de construction proposé
 
 1. Le Sol des Racines (nouvelle carte) avec « Les lettres de Malo » et « Le chant d'Anselme ».
 2. « L'audience » (Kael Marchevent, Lyra) et le système de factions.
 3. « Les graines qui manquent », « Le carnet de chansons », « La caravane de midi ».
-4. Ironheart et « La Clé de Rouille Bleue ».
+4. Ironheart et « La Clé de Rouille Bleue » (construits le 2026-11-02).

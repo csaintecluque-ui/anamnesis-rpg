@@ -146,14 +146,8 @@
           "next": "ecoute"
         },
         {
-          "text": "Kaelis la vendrait. Moi, je veux savoir ce qu’elle ouvre, et pourquoi on fouille vos gares.",
-          "requires": [
-            {
-              "skill": "diplomacy",
-              "min": 3
-            }
-          ],
-          "next": "don"
+          "text": "Lui parler de ce que la clé ouvre.",
+          "next": "ouvre"
         },
         {
           "text": "Je reviendrai.",
@@ -279,6 +273,34 @@
       "options": [
         {
           "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "ouvre": {
+      "text": "— Ce qu’elle ouvre ? Tout le monde veut le savoir. Personne ne veut l’écouter.",
+      "options": [
+        {
+          "text": "Kaelis la vendrait. Moi, je veux savoir ce qu’elle ouvre, et pourquoi on fouille vos gares.",
+          "requires": [
+            {
+              "skill": "diplomacy",
+              "min": 3
+            }
+          ],
+          "next": "don"
+        },
+        {
+          "text": "Aux Archives, un coffre de fer attend sa clé depuis la fondation : le Fonds Zéro.",
+          "requires": [
+            {
+              "flag": "fonds-zero-connu"
+            }
+          ],
+          "next": "don"
+        },
+        {
+          "text": "Je reviendrai.",
           "next": "fin"
         }
       ]

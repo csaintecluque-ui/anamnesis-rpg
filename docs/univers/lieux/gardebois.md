@@ -29,7 +29,7 @@ Un commis de Ferros pressé, une lavandière, un garçon curieux, un vieux joueu
 l'Auberge de la Racine : une ou deux répliques chacun, sans quête, sauf le commis, qui donne « La caravane de midi »
 (`docs/gdd/figurants.md`).
 
-## Les veillées de la Racine (2026-11-02, propositions **à valider**)
+## Les veillées de la Racine (2026-11-02, propositions **validées par Cyril** le 2026-11-02)
 
 Le soir, à l'Auberge de la Racine, on écoute des histoires (`docs/gdd/veillees.md`). Le public : des caravaniers de la
 Compagnie, des familles du Marché, deux marchands de Ferros qui font semblant de ne pas écouter. Il aime les chansons

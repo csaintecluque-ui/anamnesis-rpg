@@ -70,7 +70,7 @@ Les quêtes sont détaillées dans `docs/univers/quetes.md` (chapitre 3 et « Le
   conseille de le cacher.
 - La Lueur d'un cristal ouvre aussi le renfoncement sans enseigne et éclaire l'enclume aux mains gravées.
 
-## Les veillées de la Bielle (2026-11-02, propositions **à valider**)
+## Les veillées de la Bielle (2026-11-02, propositions **validées par Cyril** le 2026-11-02)
 
 Le soir, à la Pension de la Bielle, on écoute des histoires (`docs/gdd/veillees.md`). Le public : des cheminots du
 triage, des ouvriers en gris, et, près de la porte, **un homme qui ne boit pas** (et qui prend des notes). Il aime les

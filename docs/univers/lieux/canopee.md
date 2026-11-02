@@ -91,7 +91,7 @@ Quête validée par Cyril (`docs/univers/quetes.md`). Textes : `docs/DIALOGUES.m
   Nacelle, des cristaux de Vie au Comptoir de la Sève (Sévane, 250 Fers). Validé par Cyril.
 - La Lueur d'un cristal révèle aussi le sceau de cire dans le grenier des semences.
 
-## Les veillées du Nid (2026-11-02, propositions **à valider**)
+## Les veillées du Nid (2026-11-02, propositions **validées par Cyril** le 2026-11-02)
 
 Le soir, dans les hamacs du Nid, on écoute des histoires (`docs/gdd/veillees.md`). Le public : des Nacelliers, des
 cultivateurs des cimes, un druide qui écoute les yeux fermés (« Que la sève coule »). Il aime les histoires d'arbres

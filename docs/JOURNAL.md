@@ -21,7 +21,7 @@
    (`docs/gdd/magie.md`). **Jeu complet validé** (`docs/gdd/jeu-complet.md`) ; ton : dark fantasy pour adultes
    (`docs/univers/ton.md`). En cours : **jalon 3** (`docs/gdd/jalon-3.md`) ; étape 1 (le combat pour adultes et à
    plusieurs), 2 (les compagnons) et 3 (le Livre des Échos, `docs/gdd/echos.md` ; scènes inventées à valider) en
-   ligne ; étape 4 (les veillées, `docs/gdd/veillees.md`) sur la branche, à valider ; puis la passe sombre.
+   ligne ; étape 4 (les veillées, `docs/gdd/veillees.md`) validée et en ligne ; ensuite : la passe sombre.
 2. Codex : Sept-Portes (`AGENTS.md`). Notion : page « Anamnesis — le jeu », à tenir à jour à chaque mise en ligne.
 
 ## Points ouverts

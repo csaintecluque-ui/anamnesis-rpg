@@ -1,9 +1,11 @@
-# Les veillées du conteur (jalon 3, étape 4 ; construite le 2026-11-02, chiffres et textes à valider)
+# Les veillées du conteur (jalon 3, étape 4 ; construite le 2026-11-02, validée et mise en ligne par Cyril le 2026-11-02)
 
 Plan : `docs/gdd/jalon-3.md` ; idée validée dans `docs/gdd/jeu-complet.md` (« une mécanique propre à Anamnesis »).
 Code : `src/rules/veillees.ts`, écran `src/scenes/VeilleeScene.ts` ; données : `src/data/veillees.json` (les publics),
 `themes` dans `src/data/recits.json`. Lore proposé : sections « Les veillées » de `docs/univers/lieux/gardebois.md`,
 `canopee.md` et `ironheart.md`.
+
+Cyril (2026-11-02) : « Oui pour tout, mets en ligne » : chiffres, publics, rumeurs et secrets validés.
 
 ## Le principe
 

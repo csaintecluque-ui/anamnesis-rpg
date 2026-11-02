@@ -30,5 +30,21 @@
     "attribute": "agility",
     "range": 6,
     "damage": { "count": 1, "sides": 8 }
+  },
+  {
+    "id": "marteau-forge",
+    "name": "Marteau de forge",
+    "skill": "melee",
+    "attribute": "body",
+    "range": 1,
+    "damage": { "count": 1, "sides": 10 }
+  },
+  {
+    "id": "arbalete-ferros",
+    "name": "Arbalète de Ferros",
+    "skill": "ranged",
+    "attribute": "agility",
+    "range": 6,
+    "damage": { "count": 1, "sides": 10 }
   }
 ]

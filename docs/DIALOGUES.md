@@ -1007,6 +1007,7 @@ Commence par : « accueil-remise » _(si repère « remise-cendrefer »)_, sinon
 > — Atelier Cendrefer ! Tu viens de Gardebois ? Alors tu as vu mon frère Tobias. Il vend toujours trop cher et parle trop fort ? Bien : il va bien.
 
 - « Voyons tes lames. » → **fin** _(ouvre le Troc)_
+- « Qu’as-tu de plus que ton frère ? » → forge
 - « Un conseil, pour Ironheart ? » → conseil
 - « Au revoir. » → **fin**
 
@@ -1021,8 +1022,16 @@ Commence par : « accueil-remise » _(si repère « remise-cendrefer »)_, sinon
 > — Atelier Cendrefer ! Attends… Tobias m’a écrit : c’est toi qui as rendu sa caisse au petit Brann. Chez les Cendrefer, une dette se paie en prix : tu auras le même que chez lui.
 
 - « Voyons tes lames. » → **fin** _(ouvre le Troc)_
+- « Qu’as-tu de plus que ton frère ? » → forge
 - « Un conseil, pour Ironheart ? » → conseil
 - « Au revoir. » → **fin**
+
+### forge
+
+> — Tobias vend ce qui voyage bien. Moi, je forge ce qui pèse : un marteau des Forges-Basses, une arbalète réglée ici même, une cuirasse rivetée. Ça se paie, mais ça dure.
+
+- « Voyons ça. » → **fin** _(ouvre le Troc)_
+- « Merci, Hedda. » → **fin**
 
 ## L’huissier du Conseil
 

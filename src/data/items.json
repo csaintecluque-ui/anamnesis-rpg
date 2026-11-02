@@ -42,6 +42,31 @@
     "armorBonus": 2
   },
   {
+    "id": "marteau-forge",
+    "name": "Marteau de forge",
+    "description": "Le marteau des Forges-Basses : « le travail est prière », dit-on chez Hedda. Lourd, et il ne pardonne pas.",
+    "weightKg": 5,
+    "price": 70,
+    "slot": "main"
+  },
+  {
+    "id": "arbalete-ferros",
+    "name": "Arbalète de Ferros",
+    "description": "Acier trempé et cordage de chanvre ciré, réglée à l’atelier Cendrefer.",
+    "weightKg": 4,
+    "price": 80,
+    "slot": "main"
+  },
+  {
+    "id": "cuirasse-rivetee",
+    "name": "Cuirasse rivetée",
+    "description": "Plaques de tôle rivées sur du cuir épais, comme en portent les patrouilleurs, sans la visière rouge.",
+    "weightKg": 18,
+    "price": 120,
+    "slot": "armure",
+    "armorBonus": 3
+  },
+  {
     "id": "lampe-cristal",
     "name": "Lampe à cristal",
     "description": "Elle ne s’éteint pas sous terre, dit Tobias.",

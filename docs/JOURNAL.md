@@ -3,7 +3,7 @@
 ## État (2026-11-02)
 
 - Jalons 1 et 2 faits et en ligne (`docs/gdd/jalon-2.md`). 11,5 crédits Higgsfield restants.
-- 367 tests, typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
+- 368 tests, typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
 - Mode test caché : 5 touches sur la version (écran titre) → +50 Fers, PV au max dans le menu pause.
 
 ## Fait et en ligne (2026-11-02, validé par Cyril)
@@ -20,8 +20,8 @@
 
 ## Prochaine étape
 
-1. Passe de qualité en ligne (2026-11-02). Ensuite (accord de Cyril) : objets propres à Hedda (arbalète…), puis
-   lisibilité sur téléphone (plateau de combat, petits textes, création).
+1. En ligne (2026-11-02) : passe de qualité, logo corrigé, pièces de Hedda. Ensuite (accord de Cyril) : lisibilité
+   sur téléphone (plateau de combat, petits textes, création).
 2. Codex : Sept-Portes (`AGENTS.md`). Notion : page « Anamnesis — le jeu », à tenir à jour à chaque mise en ligne.
 
 ## Points ouverts

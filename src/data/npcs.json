@@ -314,7 +314,10 @@
       "armure-ferraille",
       "lampe-cristal",
       "corde",
-      "bandage"
+      "bandage",
+      "marteau-forge",
+      "arbalete-ferros",
+      "cuirasse-rivetee"
     ],
     "remise": {
       "flag": "remise-cendrefer",

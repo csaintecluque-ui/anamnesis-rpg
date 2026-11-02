@@ -777,3 +777,5 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   espace manquante dans le tracé du C : `62.2931.73` → `62.29 31.73`, le dessin est inchangé) ; Guerre du Rail :
   « La Note Technique » fait foi ; accord pour des objets propres à Hedda et pour un chantier de lisibilité sur
   téléphone.
+- Hedda vend ses propres pièces (marteau de forge 70, arbalète de Ferros 80, cuirasse rivetée 120 Fers) : de quoi
+  dépenser l'argent d'Ironheart. Mis en ligne avec l'accord de Cyril.

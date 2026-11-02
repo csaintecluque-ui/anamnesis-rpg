@@ -40,3 +40,14 @@ Règles : `src/rules/inventory.ts` ; écran : `TradeScene`.
 - **Écran** : `TradeScene`, ouvert soit depuis le bouton « Inventaire » du HUD (seulement les objets portés, sans achat :
   consulter/équiper/utiliser/vendre), soit depuis un dialogue dont une option porte l'effet
   `openTrade` (Tobias : « Voir l'étal. »), avec achat en plus.
+
+## Les pièces de Hedda (Ironheart, accord de Cyril le 2026-11-02)
+
+À Ironheart, on gagne beaucoup (Kaelis paie 100 Fers, Sorn 80, Ostrik 60) et l'étal de Tobias ne suffisait plus.
+Hedda Cendrefer vend aussi ses propres pièces, entre 70 et 120 Fers :
+
+| Objet | Prix | Effet |
+|---|---|---|
+| Marteau de forge | 70 | arme de mêlée, 1d10 (Épée longue : 1d8), 5 kg |
+| Arbalète de Ferros | 80 | arme de tir, portée 6, 1d10 (Arc : 1d8), 4 kg |
+| Cuirasse rivetée | 120 | armure, +3 en Défense (ferraille : +2), 18 kg |

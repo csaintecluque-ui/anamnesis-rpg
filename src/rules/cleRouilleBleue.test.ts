@@ -194,3 +194,19 @@ describe('what Gardebois and Canopéa leave to Ironheart (AGENTS.md)', () => {
     expect(reputationPrices(state, 'hedda')).toBeLessThan(before);
   });
 });
+
+describe('Hedda’s own wares (quality pass, 2026-11-02)', () => {
+  it('sells Ferros gear worth the Fers earned at Ironheart', async () => {
+    const npcs = (await import('../data/npcs.json')).default as { id: string; sells?: string[] }[];
+    const items = (await import('../data/items.json')).default as { id: string; price: number }[];
+    const weapons = (await import('../data/weapons.json')).default as { id: string }[];
+    const sells = npcs.find((n) => n.id === 'hedda')!.sells!;
+    for (const id of ['marteau-forge', 'arbalete-ferros', 'cuirasse-rivetee']) {
+      expect(sells, id).toContain(id);
+      const price = items.find((i) => i.id === id)!.price;
+      expect(price, id).toBeGreaterThanOrEqual(70);
+      expect(price, id).toBeLessThanOrEqual(120);
+    }
+    for (const id of ['marteau-forge', 'arbalete-ferros']) expect(weapons.some((w) => w.id === id), id).toBe(true);
+  });
+});

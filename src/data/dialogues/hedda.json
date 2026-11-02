@@ -28,6 +28,10 @@
           ]
         },
         {
+          "text": "Qu’as-tu de plus que ton frère ?",
+          "next": "forge"
+        },
+        {
           "text": "Un conseil, pour Ironheart ?",
           "next": "conseil"
         },
@@ -59,11 +63,33 @@
           ]
         },
         {
+          "text": "Qu’as-tu de plus que ton frère ?",
+          "next": "forge"
+        },
+        {
           "text": "Un conseil, pour Ironheart ?",
           "next": "conseil"
         },
         {
           "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "forge": {
+      "text": "— Tobias vend ce qui voyage bien. Moi, je forge ce qui pèse : un marteau des Forges-Basses, une arbalète réglée ici même, une cuirasse rivetée. Ça se paie, mais ça dure.",
+      "options": [
+        {
+          "text": "Voyons ça.",
+          "next": "fin",
+          "effects": [
+            {
+              "openTrade": true
+            }
+          ]
+        },
+        {
+          "text": "Merci, Hedda.",
           "next": "fin"
         }
       ]

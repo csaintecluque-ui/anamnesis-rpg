@@ -9,6 +9,7 @@ import { easeEmprise, empriseMalus, ECHOS, relive } from './echos';
 import { avisOf, changeAvis, findCompanion, inParty, joinParty, leaveParty, restParty } from './companions';
 import { castCost, castOutsideCombat, findPower, hasPower, POWERS, restoreResonance, teachSkillRank, wornCrystal, type PowerId } from './magic';
 import { RECITS, findRecit, knowsRecit, learnRecit } from './recits';
+import { effacerMarques, manqueMalus, marquesOf } from './marques';
 import { REPUTATION, reputationNotices, reputationScore, reputationTag } from './reputation';
 import { MOMENTS, advance, formatDate, isNight, momentOf, sleepUntil, waitUntil, type Moment } from './time';
 
@@ -40,7 +41,12 @@ export type Condition =
   /** What this companion thinks of the hero, between `min` and `max` (both optional). A story condition. */
   | { avis: string; min?: number; max?: number }
   /** The hero stands in this place (src/data/locations.json). A story condition. */
-  | { lieu: string };
+  | { lieu: string }
+  /**
+   * The hero bears at least `marques` marks of the crystal (src/rules/marques.ts), and at most `max`: what the
+   * town sees on the skin. A story condition.
+   */
+  | { marques: number; max?: number };
 
 export type Effect =
   | { setFlag: string }
@@ -83,7 +89,9 @@ export type Effect =
   /** Relives a gathered Écho (docs/gdd/echos.md): a moment of peace, time lost, the emprise grows. */
   | { revivre: string }
   /** Loses PV (a cursed Écho holding on); never below 1. */
-  | { blesser: number };
+  | { blesser: number }
+  /** A Druide Vert takes back the marks of the crystal, and a rank of Résonance with them (src/rules/marques.ts). */
+  | { effacerMarques: true };
 
 /** An action rolled with the d20 (docs/gdd/competences.md): the chance is shown, then `next` or `failNext` follows. */
 export interface Roll {
@@ -154,6 +162,7 @@ export function conditionMet(state: GameState, c: Condition): boolean {
   if ('compagnon' in c) return inParty(state, c.compagnon);
   if ('avis' in c) return avisOf(state, c.avis) >= (c.min ?? -Infinity) && avisOf(state, c.avis) <= (c.max ?? Infinity);
   if ('lieu' in c) return state.location === c.lieu;
+  if ('marques' in c) return marquesOf(state.character) >= c.marques && marquesOf(state.character) <= (c.max ?? Infinity);
   return (state.quests[c.quest] ?? 'none') === c.status;
 }
 
@@ -208,11 +217,14 @@ function castView(state: GameState, option: DialogueOption): { tag: string; miss
   return { tag, missing: c.hp > cost.hp ? undefined : 'Tu n’as plus assez de forces : dors d’abord.' };
 }
 
-/** Attribute modifier + rank, less the emprise of the Échos (docs/gdd/echos.md): what is added to the d20. */
+/**
+ * Attribute modifier + rank, less the emprise of the Échos (docs/gdd/echos.md) and the craving of a marked hero
+ * without a crystal (src/rules/marques.ts): what is added to the d20.
+ */
 function rollBonus(state: GameState, skill: SkillId): number {
   const c = state.character;
   const attribute = SKILLS.find((s) => s.id === skill)!.attribute;
-  return attributeModifier(c?.attributes[attribute] ?? 3) + (c?.skills[skill] ?? 0) - empriseMalus(state);
+  return attributeModifier(c?.attributes[attribute] ?? 3) + (c?.skills[skill] ?? 0) - empriseMalus(state) - manqueMalus(c);
 }
 
 /** Probability (0–1) that the roll succeeds, shown on the option before choosing it. */
@@ -330,6 +342,11 @@ export function applyEffects(state: GameState, effects: Effect[] = []): string[]
         const lost = Math.min(effect.blesser, state.character.hp - 1);
         state.character.hp -= lost;
         if (lost > 0) notices.push(`−${lost} PV`);
+      }
+    } else if ('effacerMarques' in effect) {
+      const rank = state.character?.skills.resonance ?? 0;
+      if (state.character && effacerMarques(state.character)) {
+        notices.push(rank > 0 ? 'Les marques s’effacent ; ta Résonance perd un rang' : 'Les marques s’effacent');
       }
     } else if ('avis' in effect && 'delta' in effect) {
       notices.push(...changeAvis(state, effect.avis, effect.delta));

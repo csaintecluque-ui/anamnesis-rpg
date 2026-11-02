@@ -5,6 +5,7 @@ import { findPlace } from '../rules/world';
 import { characterStats, type Character, type Slot } from '../rules/character';
 import { armorBonus, buy, buyPrice, carriedWeightKg, equip, merchantCatalogue, merchantDiscount, ownedCount, sell, SELL_RATIO, tradeItems, unequip, useConsumable, type ItemDef } from '../rules/inventory';
 import { castOutsideCombat, combatPower, resonanceMax, wornCrystal } from '../rules/magic';
+import { marquesBorne } from '../rules/marques';
 import type { GameState } from '../state/gameState';
 import { addTextButton } from '../ui/button';
 import { onKeys, withKeyHint } from '../ui/keys';
@@ -67,6 +68,9 @@ export class TradeScene extends Phaser.Scene {
         .setOrigin(0, 0.5);
     }
 
+    // The hero's own bag: the price of forcing the crystal, beside the title (src/rules/marques.ts).
+    if (!this.npcId) this.showMarques(heading);
+
     addTextButton(this, GAME_WIDTH - MARGIN - L.closeWidth / 2, L.closeY, withKeyHint('Fermer', 'Échap'), () => this.close(), {
       width: L.closeWidth,
       height: L.closeHeight,
@@ -77,6 +81,25 @@ export class TradeScene extends Phaser.Scene {
 
     this.layer = this.add.container(0, 0);
     this.redraw();
+  }
+
+  /** « Marques du cristal : les veines, le manque — −1 aux jets sans cristal », between the title and the Fermer button. */
+  private showMarques(heading: Phaser.GameObjects.Text): void {
+    const borne = marquesBorne(this.character());
+    if (!borne.length) return;
+    const effects = borne.filter((m) => m.niveau >= 2).map((m) => m.effet.replace(/\.$/, ''));
+    const text = `Marques du cristal : ${borne.map((m) => m.nom.toLowerCase()).join(', ')}${effects.length ? ` (${effects.join(' ; ')})` : ''}`;
+    const x = heading.x + heading.width + 24;
+    const width = GAME_WIDTH - MARGIN - LAYOUT.closeWidth - 24 - x;
+    this.add
+      .text(x, heading.y + heading.height / 2, text, {
+        fontFamily: FONT_SERIF,
+        fontSize: `${Math.round(LAYOUT.titleSize * 0.62)}px`,
+        color: CSS.copper,
+        fontStyle: 'italic',
+        wordWrap: { width },
+      })
+      .setOrigin(0, 0.5);
   }
 
   /** The trader's own discount combined with the town's opinion (negative: dearer). */

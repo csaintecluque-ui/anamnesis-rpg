@@ -5,6 +5,18 @@
     {
       "requires": [
         {
+          "item": "plans-masque"
+        },
+        {
+          "quest": "registre-puits",
+          "status": "active"
+        }
+      ],
+      "node": "masques"
+    },
+    {
+      "requires": [
+        {
           "item": "lettre-echo"
         },
         {
@@ -120,6 +132,29 @@
         },
         {
           "giveXp": 40
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Hedda.",
+          "next": "fin"
+        }
+      ]
+    },
+    "masques": {
+      "text": "Hedda déplie le papier, le lit deux fois. — Du feutre, du charbon, trois lanières. Bête comme tout, et personne n’y avait pensé. Une Innovation non déclarée… Elle sourit de travers. — L’atelier est à la Compagnie des Lisières, pas à Ferros. J’en coudrai cent.",
+      "effects": [
+        {
+          "takeItem": "plans-masque"
+        },
+        {
+          "setFlag": "masques-forges"
+        },
+        {
+          "completeQuest": "registre-puits"
+        },
+        {
+          "giveXp": 50
         }
       ],
       "options": [

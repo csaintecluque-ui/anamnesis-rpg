@@ -115,6 +115,22 @@
     {
       "flag": "rail-marches",
       "points": -10
+    },
+    {
+      "flag": "masques-forges",
+      "points": 10
+    },
+    {
+      "flag": "tam-monte",
+      "points": 5
+    },
+    {
+      "flag": "tam-arrete",
+      "points": -5
+    },
+    {
+      "flag": "rouille-signalee",
+      "points": -5
     }
   ],
   "travailleurs-rail": [

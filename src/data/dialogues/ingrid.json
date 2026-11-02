@@ -5,6 +5,14 @@
     {
       "requires": [
         {
+          "flag": "foreuse-explosee"
+        }
+      ],
+      "node": "apres-explosion"
+    },
+    {
+      "requires": [
+        {
           "flag": "foreuse-sabotee"
         }
       ],
@@ -216,6 +224,28 @@
       "options": [
         {
           "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "apres-explosion": {
+      "text": "Ingrid a les mains bandées et les yeux secs. — Pell. Vingt-deux ans. Il gardait la lanterne parce qu’il avait peur du noir. On l’a enterré ce matin, au bord du quai. La foreuse ne creusera plus. Si j’apprends qui a fait ça…",
+      "options": [
+        {
+          "text": "Je suis désolé·e.",
+          "next": "fin"
+        },
+        {
+          "text": "Il ne fallait pas creuser ici.",
+          "next": "explosion-dur"
+        }
+      ]
+    },
+    "explosion-dur": {
+      "text": "— Peut-être. La Faille rendait les gens malades, je le sais, maintenant. Mais ce n’est pas la Faille qui a tué Pell.",
+      "options": [
+        {
+          "text": "…",
           "next": "fin"
         }
       ]

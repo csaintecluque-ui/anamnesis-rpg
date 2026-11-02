@@ -37,6 +37,17 @@
     {
       "requires": [
         {
+          "flag": "foreuse-explosee"
+        },
+        {
+          "notFlag": "ilyane-sait-pell"
+        }
+      ],
+      "node": "pell"
+    },
+    {
+      "requires": [
+        {
           "quest": "dernier-train",
           "status": "done"
         }
@@ -293,6 +304,20 @@
         {
           "text": "Je la garderai.",
           "next": "fin"
+        }
+      ]
+    },
+    "pell": {
+      "text": "Ilyane ne te regarde pas tout de suite. — Le vent a porté la fumée jusqu’ici. Un garçon de Ferros est mort, à la Gare. La maladie recule ; personne ne revit plus la Chute. Mais lui, personne ne le revivra. Un Gardien se souvient aussi de ce qu’il a coûté.",
+      "effects": [
+        {
+          "setFlag": "ilyane-sait-pell"
+        }
+      ],
+      "options": [
+        {
+          "text": "Je m’en souviendrai.",
+          "next": "resolu"
         }
       ]
     }

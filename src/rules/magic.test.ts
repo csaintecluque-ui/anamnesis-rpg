@@ -65,7 +65,12 @@ describe('casting outside a fight', () => {
     c.resonance = 1;
     expect(castOutsideCombat(c, 'lueur')).toEqual(['Lueur : −1 PR']);
     const hp = c.hp;
-    expect(castOutsideCombat(c, 'lueur')).toEqual(['Lueur : plus de Résonance', 'Ton nez saigne : −3 PV']);
+    // A 20 on the price roll: no mark this time (src/rules/marques.ts).
+    expect(castOutsideCombat(c, 'lueur', false, () => 0.99)).toEqual([
+      'Lueur : plus de Résonance',
+      'Ton nez saigne : −3 PV',
+      'Jet de Vigueur : 20 + 1 = 21 contre 12 : le cristal te laisse en paix, cette fois.',
+    ]);
     expect(c.hp).toBe(hp - 3);
     c.hp = 3;
     expect(canCast(c, 'lueur')).toBe(false);

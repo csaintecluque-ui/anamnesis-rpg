@@ -5,6 +5,14 @@
     {
       "requires": [
         {
+          "flag": "foreuse-explosee"
+        }
+      ],
+      "node": "explosee"
+    },
+    {
+      "requires": [
+        {
           "flag": "foreuse-sabotee"
         }
       ],
@@ -86,6 +94,34 @@
           },
           "next": "sabotee",
           "failNext": "bruit"
+        },
+        {
+          "text": "Ouvrir la chaudière en grand, et courir.",
+          "next": "chaudiere",
+          "effects": [
+            {
+              "setFlag": "foreuse-sabotee"
+            },
+            {
+              "setFlag": "foreuse-explosee"
+            },
+            {
+              "setFlag": "chantier-arrete"
+            },
+            {
+              "completeQuest": "dernier-train"
+            },
+            {
+              "giveXp": 70
+            },
+            {
+              "giveFers": 30
+            },
+            {
+              "avis": "liane",
+              "delta": -2
+            }
+          ]
         },
         {
           "text": "Repartir sans rien toucher.",
@@ -170,6 +206,25 @@
     },
     "faussee": {
       "text": "La foreuse est muette, un engrenage faussé dans le ventre.",
+      "options": [
+        {
+          "text": "S’éloigner.",
+          "next": "fin"
+        }
+      ]
+    },
+    "chaudiere": {
+      "text": "Tu ouvres la vanne en grand et tu cours. Derrière toi, la chaudière hurle, puis éclate. Le feu éclaire tout le quai. Au matin, on compte : la foreuse est morte. Le garçon qui veillait sous la lanterne aussi.",
+      "night": true,
+      "options": [
+        {
+          "text": "Attendre le jour.",
+          "next": "fin"
+        }
+      ]
+    },
+    "explosee": {
+      "text": "La foreuse n’est plus qu’une carcasse noire, ouverte comme une fleur de fer. Au bord du quai, de la terre fraîche, et une lanterne éteinte posée dessus.",
       "options": [
         {
           "text": "S’éloigner.",

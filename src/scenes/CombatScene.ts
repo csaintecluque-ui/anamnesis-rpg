@@ -746,22 +746,33 @@ export class CombatScene extends Phaser.Scene {
       return;
     }
     let bled = 0;
+    let prix: string[] = [];
     if (this.mode === 'pouvoir' && this.power && hero === this.hero()) {
       // Forcing the crystal costs PV (docs/gdd/magie.md); never the last one.
       if (!canCast(this.state.character!, this.power.id, hero.hp)) {
         this.appendLog('Tu n’as plus assez de forces pour le cristal.');
         return;
       }
-      bled = payCast(this.state.character!, this.power).hp;
+      ({ hp: bled, prix } = payCast(this.state.character!, this.power));
       hero.hp -= bled;
     }
     this.performAttack(hero, attack, target, this.zone, coverBetween(hero.tile, target.tile, (t) => coverAt(this.arena, t)));
+    const split = this.loseSplitCrystal();
     if (bled > 0) {
       this.float(hero, `−${bled}`, CSS.muted);
-      this.log.setText(`${this.log.text} Ton nez saigne (−${bled} PV).`);
+      this.log.setText(`${this.log.text} Ton nez saigne (−${bled} PV).${prixLine(prix)}`);
     }
+    if (split) this.mode = 'move';
     this.updateActionBar();
     if (!this.checkOutcome()) this.refreshBoard();
+  }
+
+  /** A crystal split by the price of forcing (src/rules/marques.ts) takes its power with it. */
+  private loseSplitCrystal(): boolean {
+    if (!this.power || this.state.character!.equipment.cristal) return false;
+    this.power = undefined;
+    this.powerProfile = undefined;
+    return true;
   }
 
   private performAttack(attacker: Combatant, attack: AttackProfile, target: Combatant, zone: Zone, cover: number): void {
@@ -808,12 +819,13 @@ export class CombatScene extends Phaser.Scene {
     if (hero.hp >= hero.maxHp) return this.appendLog('Tu n’as aucune blessure à soigner.');
     if (!canCast(c, this.power.id, hero.hp)) return this.appendLog('Tu n’as plus assez de forces pour le cristal.');
     hero.actionPoints -= apCost;
-    const bled = payCast(c, this.power).hp;
+    const { hp: bled, prix } = payCast(c, this.power);
     hero.hp -= bled;
+    this.loseSplitCrystal();
     const healed = Math.min(hero.maxHp - hero.hp, healAmount(c));
     hero.hp += healed;
     this.float(hero, `+${healed}`, '#9fe0a0');
-    this.appendLog(`Le cristal de Vie verdit : +${healed} PV.${bled > 0 ? ` Ton nez saigne (−${bled} PV).` : ''}`);
+    this.appendLog(`Le cristal de Vie verdit : +${healed} PV.${bled > 0 ? ` Ton nez saigne (−${bled} PV).` : ''}${prixLine(prix)}`);
     this.refreshToken(hero);
     this.updateActionBar();
     this.refreshBoard();
@@ -998,6 +1010,11 @@ export class CombatScene extends Phaser.Scene {
 }
 
 /** « , à Ironheart — Les Forges-Basses », « , sur la route », for the death screen. */
+/** The lasting price of a forced cast, after the nosebleed (src/rules/marques.ts). */
+function prixLine(prix: string[]): string {
+  return prix.length ? `\n${prix.join(' ')}` : '';
+}
+
 function placeName(location: string): string {
   const place = findLocation(location);
   if (!place) return '';

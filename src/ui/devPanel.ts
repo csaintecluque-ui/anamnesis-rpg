@@ -1,4 +1,5 @@
 import { ATTRIBUTES, SKILLS, SKILL_RANK_MAX } from '../rules/attributes';
+import { MARQUES_MAX, marquesOf } from '../rules/marques';
 import { CREATION, characterStats } from '../rules/character';
 import { QUESTS } from '../rules/dialogue';
 import { ITEMS, addItem, ownedCount, removeItem } from '../rules/inventory';
@@ -100,6 +101,10 @@ export function openDevPanel(state: GameState, onClose: (result: DevPanelResult)
         button('PV au max', () => (restoreFullHp(c), render())),
         button('PR au max', () => (restoreFullResonance(c), render())),
         button('PR à 0', () => ((c.resonance = 0), render())),
+      ]),
+      row(`Marques du cristal (${marquesOf(c)} / ${MARQUES_MAX})`, [
+        button('Aucune', () => ((c.marques = 0), render()), 'small'),
+        button('+1', () => ((c.marques = Math.min(MARQUES_MAX, marquesOf(c) + 1)), render()), 'small'),
       ]),
       el('p', `Temps : ${shortTime(state.time)} — ${formatDate(state.time)}`, 'note'),
       row('Temps', [

@@ -1,0 +1,158 @@
+{
+  "id": "kerta",
+  "speaker": "kerta",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "registre-puits",
+          "status": "done"
+        },
+        {
+          "flag": "tam-arrete"
+        }
+      ],
+      "node": "apres-arrete"
+    },
+    {
+      "requires": [
+        {
+          "quest": "registre-puits",
+          "status": "done"
+        },
+        {
+          "flag": "tam-monte"
+        }
+      ],
+      "node": "apres-monte"
+    },
+    {
+      "requires": [
+        {
+          "quest": "registre-puits",
+          "status": "done"
+        },
+        {
+          "flag": "masques-forges"
+        }
+      ],
+      "node": "apres-masques"
+    },
+    {
+      "requires": [
+        {
+          "quest": "registre-puits",
+          "status": "active"
+        }
+      ],
+      "node": "attente"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Une femme aux avant-bras couturés de brûlures attend son tour au Puits Trois, un seau de fer à la main. La file ne parle pas. Elle, si, à voix basse : — Tu n’es pas d’ici. Tant mieux. Ici, personne ne m’aidera.",
+      "options": [
+        {
+          "text": "Qu’est-ce qui ne va pas ?",
+          "next": "probleme"
+        },
+        {
+          "text": "Pourquoi la file se tait-elle ?",
+          "next": "file"
+        },
+        {
+          "text": "Bonne journée.",
+          "next": "fin"
+        }
+      ]
+    },
+    "file": {
+      "text": "— Parce que les seaux de cuivre passent devant, et que le gardien entend tout. Le Un et le Deux, c’est pour les castes d’en haut : un Ouvrier qui s’y risque, ça finit mal. Le Trois, c’est le nôtre. L’eau a le goût de la forge.",
+      "options": [
+        {
+          "text": "Et toi, qu’est-ce qui ne va pas ?",
+          "next": "probleme"
+        },
+        {
+          "text": "Je vois.",
+          "next": "fin"
+        }
+      ]
+    },
+    "probleme": {
+      "text": "— Mon fils, Tam. Dix-neuf ans, riveteur. Il crache noir, comme son père avant de mourir. Il a inventé un masque qui garde les poumons. Une Innovation, ça se déclare : alors on change de caste, on part aux Manufactures, où l’air se respire.",
+      "options": [
+        {
+          "text": "Où est le problème ?",
+          "next": "probleme2"
+        }
+      ]
+    },
+    "probleme2": {
+      "text": "— Il faut un parrain de Classe Technique, et personne ne parraine un Ouvrier pour rien. Et Tam ne veut pas monter : il veut que le masque reste en bas. Il va mourir pour une idée. Va voir Dask, le technicien, aux Manufactures. Fais-le monter.",
+      "effects": [
+        {
+          "startQuest": "registre-puits"
+        }
+      ],
+      "options": [
+        {
+          "text": "J’irai voir Dask.",
+          "next": "fin"
+        },
+        {
+          "text": "Et ce que veut Tam ?",
+          "next": "tam-veut"
+        }
+      ]
+    },
+    "tam-veut": {
+      "text": "— Tam veut ce que voulait son père : changer les choses d’ici. Son père est mort à quarante et un ans ; aux Forges, on dit que c’est un bel âge. Moi, je dis que c’est mon fils. Il est là, près du registre. Parle-lui, puis va voir Dask.",
+      "options": [
+        {
+          "text": "D’accord.",
+          "next": "fin"
+        }
+      ]
+    },
+    "attente": {
+      "text": "Kerta remplit son seau sans te regarder. — Dask, aux Manufactures-Moyennes, près des Archives. Il a les chiffres bleus au poignet. Il parraine quand ça lui rapporte. Tam, lui, est près du registre. Il tousse moins quand on ne le regarde pas.",
+      "options": [
+        {
+          "text": "J’y vais.",
+          "next": "fin"
+        }
+      ]
+    },
+    "apres-monte": {
+      "text": "Kerta se tient seule dans la file. — Il a pris le convoi ce matin. Il ne s’est pas retourné ; je le lui avais demandé. Là-haut, l’air se respire. Ceux qui montent ne redescendent guère, et ne nous regardent plus pareil. C’est le prix.",
+      "options": [
+        {
+          "text": "Il respire. C’est l’essentiel.",
+          "next": "fin"
+        }
+      ]
+    },
+    "apres-masques": {
+      "text": "Kerta porte un masque de feutre au cou, comme toute la file. — Tu lui as donné raison. Les autres respirent mieux, grâce à lui. Lui tousse encore. Tu ne seras pas là le jour où il crachera rouge. Moi, si.",
+      "options": [
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ]
+    },
+    "apres-arrete": {
+      "text": "Kerta est dans la file. Son seau est vide ; elle ne le remplit pas. — Les visières rouges l’ont pris à l’inspection. « Faux d’Innovateur. » Un sceau qui bavait. Personne ne me dit où il est. Personne ne me le dira jamais. Va-t’en.",
+      "options": [
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

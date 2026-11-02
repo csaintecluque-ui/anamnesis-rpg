@@ -694,8 +694,11 @@ function ironheartForges() {
   m.setObstacle(11, 6, 'puits');
   m.setObstacle(12, 5, 'panneau');
   m.object('registre-puits', 'panneau', 12, 5, {
-    texte: 'Puits Trois. « L’eau des Puits Un et Deux est réservée. » Le registre des transferts : « Équipe Orvel, deux départs pour les Manufactures-Moyennes. »',
+    texte: 'Puits Trois — Ouvriers. « Puits Un et Deux : castes supérieures. Tout Ouvrier qui s’y présente sera retenu. » Le registre des transferts : « Équipe Orvel, deux départs pour les Manufactures-Moyennes. »',
   });
+  // « Le registre du Puits Trois » (jalon 3, étape 5, docs/gdd/passe-sombre.md) : Kerta dans la file, Tam près du registre.
+  m.object('kerta', 'pnj', 9, 6);
+  m.object('tam', 'pnj', 13, 6, { disparaitSi: 'tam-monte,tam-arrete' });
   house(m, 'ironheart-pension', 'maison-brique', [9, 16], [10, 17]);
   house(m, 'ironheart-atelier', 'forge', [15, 7], [15, 8]);
   house(m, 'ironheart-martelroux', 'maison-brique', [19, 17], [20, 18]);
@@ -789,6 +792,8 @@ function ironheartManufactures() {
     dialogue: 'patrouilleuse-haute',
   });
   m.object('patrouilleuse-haute', 'pnj', 20, 5);
+  // Le parrain de Classe Technique (« Le registre du Puits Trois »).
+  m.object('dask', 'pnj', 16, 8);
   m.setObstacle(13, 7, 'panneau');
   m.object('panneau-archives', 'panneau', 13, 7, { texte: 'ARCHIVES CENTRALES DE FERROS — MEMORIA FERROX. Comptoir public au rez-de-chaussée.' });
   return m.toTiled();
@@ -821,7 +826,8 @@ function ironheartTriage() {
   m.setObstacle(17, 9, 'poste-aiguillage');
   m.setObstacle(13, 9, 'levier');
   m.object('aiguillage', 'objet', 13, 9);
-  m.object('joss', 'pnj', 16, 10, { disparaitSi: 'rail-bureau' });
+  // Renvoyé devant le tribunal (le Bureau), ou réduit au silence (les Marches) : docs/gdd/passe-sombre.md.
+  m.object('joss', 'pnj', 16, 10, { disparaitSi: 'rail-bureau,rail-marches' });
   // Les pilleurs des Marches, la nuit de la garde (« Le Rail des Cendres »).
   const pilleurs = { ennemi: 'pilleur-cendres', apparaitSi: 'veille-aiguillage', disparaitSi: 'pilleurs-vaincus,pilleurs-suivis,rail-travailleurs,rail-bureau,rail-marches', texte: 'Un pilleur en manteau de cendre force le levier.' };
   m.object('pilleur-1', 'ennemi', 14, 8, pilleurs);

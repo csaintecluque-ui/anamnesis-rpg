@@ -54,7 +54,7 @@ Une rencontre peut porter `story` (`{ quest, flag }`) : jamais tirée au hasard,
 voyage tant que la quête est en cours et le repère absent, puis pose le repère. Première : les Loups de Rouille de
 « La caravane de midi » (`loups-caravane`).
 
-## Voyager autrement (2026-11-02, demande de Cyril ; détails à valider)
+## Voyager autrement (2026-11-02, demande de Cyril ; validé le 2026-11-02)
 
 On peut toujours marcher sur la carte du monde (avec ses rencontres) ; le train et la caravane vont plus vite, sans
 rencontre, pour quelques Fers. Tout passe par des dialogues (effet `goTo`).
@@ -70,5 +70,5 @@ rencontre, pour quelques Fers. Tout passe par des dialogues (effet `goTo`).
   Gardebois). 15 Fers, gratuite pour les membres de la Compagnie.
 - **Carte du monde** : la ligne de l'Ouest est dessinée (rails et traverses) quand Canopéa et Ironheart sont connues
   (`rails` dans `src/data/world.json`).
-- **Inventés pour le jeu (à valider)** : la convoyeuse, le chef de caravane (cité depuis « La caravane de midi »),
+- **Inventés pour le jeu (validés par Cyril)** : la convoyeuse, le chef de caravane (cité depuis « La caravane de midi »),
   l'employée du guichet, la préposée de la halte ; la halte de Canopéa sur la ligne de l'Ouest.

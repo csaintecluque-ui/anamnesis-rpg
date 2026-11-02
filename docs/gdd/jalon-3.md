@@ -14,7 +14,7 @@ quand Cyril le dit. Tout s'essaie à Gardebois, Canopéa et Ironheart, qu'on enr
 | 6. Les ruines et les contrats | des voies endormies à explorer sur la carte du monde, tirées d'une réserve de plans ; un tableau de contrats dans chaque relais des Gardiens | à faire |
 | 7. Les factions et l'artisanat | rangs et quêtes d'adhésion des six factions existantes ; la forge d'Ironheart et les herbes de Canopéa | à faire |
 
-## À confirmer par Cyril
+## Réponses de Cyril (2026-11-02)
 
-- Les limites du ton : sexualité suggérée, jamais explicite ; violence réelle mais pas de torture complaisante.
-- La mort du héros : vraie mort et rechargement (recommandé), ou « on te ramène » comme aujourd'hui.
+« Sexualité possiblement montrée mais en effet pas de torture, je suis d'accord sur la mort » : charte dans
+`docs/univers/ton.md` ; la mort du héros est réelle (on recharge la dernière sauvegarde).

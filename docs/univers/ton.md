@@ -12,16 +12,19 @@ Sources et statuts : `docs/univers/sources.md`.
 « J'aime bien le côté image fantasy, mais dans un univers sombre, plus de 18 ans. » Cette décision vaut **pour le
 jeu** ; elle remplace le public 8 à 15 ans (point 19 des décisions, `zones-floues.md`). Le Notion n'est pas modifié.
 
-**Charte proposée** (les points marqués « à confirmer » attendent Cyril) :
+**Charte** (validée par Cyril le 2026-11-02) :
 - **Sombre, mais jamais nihiliste** : le monde est dur, la mémoire et la beauté y restent une lumière (interdit du
   canon : « aucun nihilisme total » [E1]). Poétique et émotionnel, comme le roman.
-- **Violence réelle** : on peut tuer et mourir ; les PNJ peuvent mourir de nos choix ; le sang et les blessures se
-  voient. Jamais gratuite : pas de torture complaisante, pas d'horreur pour l'horreur.
+- **Violence réelle** : on peut tuer et mourir (le héros aussi : on recharge alors la dernière sauvegarde) ; les PNJ
+  peuvent mourir de nos choix ; le sang et les blessures se voient. Jamais gratuite, et **pas de torture** (« en effet
+  pas de torture », Cyril).
 - **Thèmes adultes** : deuil, guerre, misère et castes (le Puits Trois d'Ironheart), fanatisme, trahison, addiction
   (aux Échos, aux cristaux : un danger [canon]), folie et mutation (les vrais prix de la magie [canon]), le prix des
   Surgeons (mémoire, années, identité [canon]). Les contenus adultes des fiches nations (drogues, peines
   corporelles…) peuvent revenir, tels que le canon les décrit.
-- **Sexualité** : suggérée, hors champ, jamais explicite (à confirmer).
+- **Sexualité** : elle peut être montrée (« possiblement montrée », Cyril), entre adultes consentants, avec le ton
+  poétique du jeu ; jamais pornographique : c'est aussi la règle de GitHub, qui héberge le jeu (le contenu sexuel non
+  pornographique y est admis, pas la pornographie).
 - **Toujours interdits** : les interdits absolus du canon (aucun génocide, aucun stéréotype culturel réel, aucune
   toute-puissance, aucun retour à la technologie d'avant) ; aucun personnage du roman ; rien qui sexualise un mineur.
 - **Avertissement** à l'écran titre (« Contenu pour adultes ») quand le contenu sombre arrive.

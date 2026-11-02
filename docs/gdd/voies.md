@@ -1,9 +1,12 @@
-# Les voies endormies et les contrats (jalon 3, étape 6 ; construite le 2026-11-02, chiffres et textes à valider)
+# Les voies endormies et les contrats (jalon 3, étape 6 ; construite le 2026-11-02, validée et mise en ligne par Cyril le 2026-11-02)
 
 Plan : `docs/gdd/jalon-3.md` ; idée validée dans `docs/gdd/jeu-complet.md` (activités 4 et 5). Code :
 `src/rules/voies.ts`, `src/rules/contrats.ts`, écran `src/scenes/ContratsScene.ts` ; données : `src/data/voies.json`,
 `src/data/contrats.json`, les sites dans `src/data/world.json` ; plans : `scripts/build-maps.mjs` (`voie-*`). Lore
 proposé : `docs/univers/lieux/voies-endormies.md`. Sauvegarde v15 (`docs/gdd/sauvegarde.md`).
+
+Cyril (2026-11-02) : « Oui pour tout, mets en ligne » : noms, Échos, mur de la Bielle (en attendant le relais
+d'Ironheart), chiffres validés ; l'escorte reste pour plus tard.
 
 ## Les voies endormies à explorer
 

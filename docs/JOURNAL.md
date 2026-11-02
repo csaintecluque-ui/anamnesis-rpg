@@ -19,8 +19,8 @@
 
 1. **Jalon 3** (`docs/gdd/jalon-3.md`) : étapes 1 à 5 **validées et en ligne** (combat adulte, compagnons, Livre des
    Échos, veillées `docs/gdd/veillees.md`, passe sombre `docs/gdd/passe-sombre.md` ; scènes inventées des Échos à
-   valider). Étape 6 (voies endormies et contrats, `docs/gdd/voies.md`) construite sur la branche, à valider. En cours
-   ailleurs : **vérification qualité de tout le jeu** (`docs/qualite.md`). Mise en beauté à la fin.
+   valider) ; étape 6 (voies endormies et contrats, `docs/gdd/voies.md`) **validée et en ligne**. En cours ailleurs :
+   **vérification qualité de tout le jeu** (`docs/qualite.md`). Ensuite : étape 7, sur le feu vert de Cyril.
 2. Codex : Sept-Portes (`AGENTS.md`). Notion : page « Anamnesis — le jeu », à tenir à jour à chaque mise en ligne.
 
 ## Points ouverts

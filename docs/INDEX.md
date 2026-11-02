@@ -23,7 +23,7 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `lieux/villes.md` : dix grandes villes sur les sept continents (quartiers, maisons, personnages) ; plan validé.
 - `lieux/canopee.md` : Canopéa, première ville construite (provisoire) ; validé.
 - `lieux/ironheart.md` : Ironheart (chapitre 3), canon résumé et ville construite ; validé.
-- `lieux/voies-endormies.md` : les trois voies endormies à explorer, leurs Échos, les tableaux des contrats ; à valider.
+- `lieux/voies-endormies.md` : les trois voies endormies à explorer, leurs Échos, les tableaux des contrats ; validé.
 - `factions.md` : organisations, alliances, conflits en cours ; factions et guildes du jeu (validées).
 - `quetes.md` : histoire principale « Les voies endormies » et quêtes des villes ; validé.
 - `religions.md` : les sept religions.
@@ -60,7 +60,7 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `jalon-3.md` : le jalon 3, le cœur du jeu complet (combat, compagnons, Échos, veillées, ruines, contrats…) ; en cours.
 - `compagnons.md` : les compagnons (suivi, avis, départ), Liane et Boulon, leurs quêtes ; validé.
 - `veillees.md` : les veillées du conteur (publics, goûts, jet, chapeau, renommée, rumeurs et secrets) ; validé.
-- `voies.md` : les voies endormies à explorer (plans, niveaux, bêtes, caisses, pièges) et les contrats des Gardiens ; à valider.
+- `voies.md` : les voies endormies à explorer (plans, niveaux, bêtes, caisses, pièges) et les contrats des Gardiens ; validé.
 - `echos.md` : le Livre des Échos (douze Échos cachés, types, emprise) ; textes à valider.
 - `passe-sombre.md` : la passe sombre (marques du cristal, « Le registre du Puits Trois », morts et conséquences) ; validée.
 - `villes.md` : gabarit d'une grande ville, systèmes communs, mécanique par ville, coûts, ordre ; validé.

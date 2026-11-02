@@ -632,6 +632,35 @@ Commence par : « apres-sabotage » _(si repère « foreuse-sabotee »)_, sinon 
 
 - « Tant mieux. » → **fin**
 
+## Des lettres éparpillées
+
+_Objet_
+
+Commence par : « lettres »
+
+### lettres
+
+> Quelques lettres, éparpillées entre les racines, encore sèches. Des traces dans la mousse partent vers le nord-est, comme si quelque chose avait traîné la sacoche.
+
+- « Ramasser les lettres. » → ramassees
+- **[Survie 2]** « Lire les traces. » → traces
+- « Laisser les lettres. » → **fin**
+
+### ramassees
+
+_Effet : retient « lettres-ramassees »._
+
+> Tu glisses les lettres dans ta besace. Plus loin, au nord-est, les traces s’enfoncent sous les fougères.
+
+- « Suivre les traces. » → **fin**
+
+### traces
+
+> De larges empreintes rondes, et des touffes de mousse arrachées : un Ours-Mousse. Il a dû prendre la sacoche pour un nid bien douillet.
+
+- « Ramasser les lettres. » → ramassees
+- « Partir. » → **fin**
+
 ## Liane Sève-Claire
 
 _Herboriste_
@@ -743,7 +772,7 @@ Commence par : « apres » _(si quête « La berceuse oubliée » terminée)_, s
 
 _Coursier des passerelles_
 
-Commence par : « accueil »
+Commence par : « retour » _(si quête « Les lettres de Malo » en cours)_ _(si repère « sacoche-retrouvee »)_, sinon « attente » _(si quête « Les lettres de Malo » en cours)_, sinon « ami » _(si quête « Les lettres de Malo » terminée)_, sinon « souci »
 
 ### accueil
 
@@ -771,6 +800,48 @@ Commence par : « accueil »
 > Tomber ? Jamais ! Bon… une fois. Mais un filet de lianes m’a rattrapé. Mamie dit que la forêt n’aime pas qu’on lui jette des enfants.
 
 - « Elle a bien raison. » → accueil
+
+### souci
+
+> Salut… Je suis Malo, coursier des passerelles. Enfin, coursier… Je viens de laisser tomber la sacoche des Nacelliers. Toutes les lettres de la semaine, dans le feuillage ! Si Véline l’apprend…
+
+- « Je peux t’aider à la retrouver. » → aide _(lance la quête « Les lettres de Malo »)_
+- « Montre-moi plutôt la ville. » → ville
+- « Courage, Malo. » → **fin**
+
+### aide
+
+> C’est vrai ? Elle est tombée tout en bas, sur le Sol des Racines. Mais le sol est sacré : personne n’y descend sans l’accord des Nacelliers. Demande à Véline, à la Grande Nacelle. Si elle dit oui… elle te descendra.
+
+- « J’y vais. » → **fin**
+
+### attente
+
+> Alors ? La sacoche est en cuir brun, avec le fermoir de cuivre des Nacelliers. Si tu vois des lettres par terre, c’est que tu chauffes !
+
+- « Je la cherche encore. » → **fin**
+- « Rappelle-moi ce qu’il faut faire. » → aide
+- « Montre-moi la ville. » → ville
+
+### retour
+
+> La sacoche ! Tu l’as retrouvée ! Toutes les lettres sont là… presque toutes. Merci, merci ! Tiens, ce n’est pas grand-chose, mais c’est de bon cœur.
+
+- « La voici, Malo. » → remerciements _(termine la quête « Les lettres de Malo », +30 XP, +10 Fers, retient « nacelliers-amis »)_
+
+### remerciements
+
+> Véline dit que tu as « le pied sûr ». Chez les Nacelliers, c’est le plus beau compliment. Si un jour tu as une lettre à faire porter, viens nous voir !
+
+- « Avec plaisir, Malo. » → **fin**
+
+### ami
+
+> Salut, toi ! Grâce à toi, toutes les lettres sont arrivées. Les Nacelliers disent que tu as « le pied sûr ». Tu veux que je te montre un raccourci ?
+
+- « Montre-moi la ville. » → ville
+- « Tu n’as jamais peur de tomber ? » → peur
+- « À plus tard, Malo. » → **fin**
 
 ## Mirelle Doucebranche
 
@@ -913,6 +984,50 @@ _Effet : retient « sauge-3-cueillie »._
 
 - « … » → **fin**
 
+## La sacoche des Nacelliers
+
+_Objet_
+
+Commence par : « ours » _(sans repère « ours-sol-vaincu »)_ _(sans repère « ours-sol-eloigne »)_, sinon « libre »
+
+### ours
+
+> La sacoche est là, sous la patte d’un Ours-Mousse endormi, roulé dans la mousse comme dans un édredon.
+
+- **🎲 Discrétion 11** « Glisser la main sous sa patte, tout doucement. » → prise, ✗ → reveil
+- **[Survie 2]** « L’attirer plus loin avec une poignée de baies. » → eloigne
+- « Le réveiller et l’affronter. » → **fin** _(lance le combat « ours-sacoche »)_
+- « Reculer sans bruit. » → **fin**
+
+### reveil
+
+> L’ours ouvre un œil, puis deux. Il grogne et se dresse de toute sa hauteur, la sacoche toujours sous lui.
+
+- « Se défendre ! » → **fin** _(lance le combat « ours-sacoche »)_
+- « Reculer vers la nacelle. » → **fin**
+
+### eloigne
+
+_Effet : retient « ours-sol-eloigne »._
+
+> L’ours renifle, se lève en bâillant et suit la piste de baies en grognant de plaisir. La voie est libre.
+
+- « Prendre la sacoche. » → prise
+
+### libre
+
+> La sacoche des Nacelliers, en cuir brun, est restée dans la mousse. Le fermoir de cuivre a tenu : les lettres sont là.
+
+- « La prendre. » → prise
+
+### prise
+
+_Effet : retient « sacoche-retrouvee »._
+
+> Tu passes la sacoche à ton épaule. Il est temps de remonter par la nacelle et de rendre ses lettres à Malo.
+
+- « Partir. » → **fin**
+
 ## Sauge-lumière
 
 _Plante_
@@ -1054,11 +1169,41 @@ Commence par : « accueil »
 
 - « Au revoir. » → **fin**
 
+## Un trou de fouille
+
+_Objet_
+
+Commence par : « trou »
+
+### trou
+
+> Un trou carré, étayé de planches neuves, au bord d’une vieille voie à demi enfouie sous les racines. Des outils de Ferros traînent encore à côté.
+
+- « Regarder au fond. » → fond
+- **[Investigation 2]** « Examiner les outils. » → outils
+- « Partir. » → **fin**
+
+### fond
+
+_Effet : retient « fouille-vue »._
+
+> Au fond, un tronçon de rail rouillé, et des marques de pioche toutes fraîches. Quelqu’un fouille le sol sacré, et pas pour y planter des graines.
+
+- « Partir. » → **fin**
+
+### outils
+
+_Effet : retient « fouille-vue », retient « fouille-marches »._
+
+> Des pelles de Ferros, et une étiquette de marchand, à l’encre : « Lot douze, reliques. À livrer au Marché des Cendres. »
+
+- « Garder ça en mémoire. » → **fin**
+
 ## Véline Nacelière
 
 _Passeuse de la Grande Nacelle_
 
-Commence par : « vol » _(si repère « vol-grenier »)_ _(sans repère « veline-vol-dit »)_, sinon « retour » _(si repère « canopee-accueillie »)_, sinon « accueil »
+Commence par : « vol » _(si repère « vol-grenier »)_ _(sans repère « veline-vol-dit »)_, sinon « descente » _(si quête « Les lettres de Malo » en cours)_ _(sans repère « sacoche-retrouvee »)_, sinon « retour » _(si repère « canopee-accueillie »)_, sinon « accueil »
 
 ### accueil
 
@@ -1100,6 +1245,23 @@ Commence par : « vol » _(si repère « vol-grenier »)_ _(sans repère « veli
 > Tu sais la nouvelle ? Quelqu’un a forcé le grenier des semences, là-haut. Voler des graines à Canopéa… c’est voler les arbres de demain. Si tu vois quelque chose, préviens le Conseil.
 
 - « Je garderai les yeux ouverts. » → **fin** _(retient « veline-vol-dit »)_
+
+### descente
+
+> Malo t’a parlé de la sacoche, n’est-ce pas ? Je l’ai vue tomber… Descendre sur le Sol des Racines, ce n’est pas rien : le sol est sacré.
+
+- _(sans repère « descente-autorisee »)_ « Je peux la chercher, si tu me descends. » → permission
+- _(si repère « descente-autorisee »)_ « Redescends-moi, s’il te plaît. » → **fin** _(mène à « Canopéa — Le Sol des Racines »)_
+- « Pas maintenant. » → **fin**
+
+### permission
+
+_Effet : retient « descente-autorisee »._
+
+> Les lettres des Nacelliers, c’est sacré aussi, à sa façon. Bon. Je te descends. Ne prends rien d’autre que la sacoche, ne grave rien, et remonte par la même nacelle.
+
+- « Allons-y. » → **fin** _(mène à « Canopéa — Le Sol des Racines »)_
+- « Un instant. » → **fin**
 
 ## Un voyageur égaré
 

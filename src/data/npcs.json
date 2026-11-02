@@ -204,5 +204,20 @@
     "id": "cache-ruines",
     "name": "Une boîte de fer",
     "role": "Objet"
+  },
+  {
+    "id": "lettres-eparpillees",
+    "name": "Des lettres éparpillées",
+    "role": "Objet"
+  },
+  {
+    "id": "traces-fouille",
+    "name": "Un trou de fouille",
+    "role": "Objet"
+  },
+  {
+    "id": "sacoche-lettres",
+    "name": "La sacoche des Nacelliers",
+    "role": "Objet"
   }
 ]

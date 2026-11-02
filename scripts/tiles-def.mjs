@@ -691,4 +691,37 @@ TILES.push(
     hair: '#1f1612',
     extra: '<path d="M18 56 L18 76 L28 76 L28 58 Z" fill="#6b5338" stroke="#1B1512"/>',
   }),
+  // --- Le Sol des Racines, sous Canopéa (quête « Les lettres de Malo », docs/univers/quetes.md) ---------------
+  {
+    name: 'sacoche',
+    blocking: true,
+    svg:
+      shadow(14, 5) +
+      `<path d="M20 82 L18 66 Q32 60 46 66 L44 82 Z" fill="#7a4a2a" stroke="${INK}" stroke-width="1.2"/>` +
+      '<path d="M18 66 Q32 72 46 66" stroke="#5a3020" stroke-width="2" fill="#8a5a34"/>' +
+      `<rect x="29" y="68" width="6" height="5" fill="${COPPER}" stroke="${INK}" stroke-width="0.8"/>` +
+      '<path d="M22 66 Q32 46 42 66" stroke="#5a3020" stroke-width="2" fill="none"/>' +
+      `<path d="M38 62 L46 56 L48 60 L40 66 Z" fill="${PARCHMENT}" stroke="${INK}" stroke-width="0.6"/>`,
+  },
+  {
+    name: 'lettres',
+    blocking: true,
+    svg:
+      `<path d="M14 80 L26 74 L34 78 L22 84 Z" fill="${PARCHMENT}" stroke="${INK}" stroke-width="0.8"/>` +
+      `<path d="M30 86 L42 80 L50 84 L38 90 Z" fill="#f2e6cc" stroke="${INK}" stroke-width="0.8"/>` +
+      `<path d="M36 74 L46 70 L52 73 L42 77 Z" fill="${PARCHMENT}" stroke="${INK}" stroke-width="0.8"/>` +
+      `<circle cx="24" cy="79" r="1.5" fill="${COPPER}"/><circle cx="40" cy="85" r="1.5" fill="${COPPER}"/>`,
+  },
+  {
+    name: 'trou-fouille',
+    blocking: true,
+    cover: 2,
+    svg:
+      diamond('#3a2a1c') +
+      '<path d="M14 80 L32 71 L50 80 L32 89 Z" fill="#1f1612"/>' +
+      '<path d="M14 80 L14 76 M50 80 L50 76 M32 71 L32 67 M32 89 L32 85" stroke="#b38f5e" stroke-width="2.5"/>' +
+      '<path d="M14 76 L32 67 L50 76" stroke="#b38f5e" stroke-width="2" fill="none"/>' +
+      `<path d="M24 82 L40 76" stroke="${COPPER}" stroke-width="2" opacity="0.8"/>` +
+      '<path d="M52 70 L58 52 M55 60 L60 62" stroke="#6a6058" stroke-width="2.5"/>',
+  },
 );

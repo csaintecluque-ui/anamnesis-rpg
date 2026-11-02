@@ -18,5 +18,10 @@
     "id": "caisse-egaree",
     "name": "La caisse égarée",
     "summary": "Une caisse d’outils de Brann Martelroux est tombée près de la route de l’est. Deux Rôdeurs-Épine la gardent."
+  },
+  {
+    "id": "lettres-malo",
+    "name": "Les lettres de Malo",
+    "summary": "Malo a laissé tomber la sacoche de lettres des Nacelliers dans le feuillage. Avec l’accord de Véline, descends sur le Sol des Racines, la forêt sacrée sous Canopéa, pour la retrouver."
   }
 ]

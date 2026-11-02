@@ -3,7 +3,37 @@
   "speaker": "malo",
   "entries": [
     {
-      "node": "accueil"
+      "requires": [
+        {
+          "quest": "lettres-malo",
+          "status": "active"
+        },
+        {
+          "flag": "sacoche-retrouvee"
+        }
+      ],
+      "node": "retour"
+    },
+    {
+      "requires": [
+        {
+          "quest": "lettres-malo",
+          "status": "active"
+        }
+      ],
+      "node": "attente"
+    },
+    {
+      "requires": [
+        {
+          "quest": "lettres-malo",
+          "status": "done"
+        }
+      ],
+      "node": "ami"
+    },
+    {
+      "node": "souci"
     }
   ],
   "nodes": {
@@ -52,6 +82,103 @@
         {
           "text": "Elle a bien raison.",
           "next": "accueil"
+        }
+      ]
+    },
+    "souci": {
+      "text": "Salut… Je suis Malo, coursier des passerelles. Enfin, coursier… Je viens de laisser tomber la sacoche des Nacelliers. Toutes les lettres de la semaine, dans le feuillage ! Si Véline l’apprend…",
+      "options": [
+        {
+          "text": "Je peux t’aider à la retrouver.",
+          "next": "aide",
+          "effects": [
+            {
+              "startQuest": "lettres-malo"
+            }
+          ]
+        },
+        {
+          "text": "Montre-moi plutôt la ville.",
+          "next": "ville"
+        },
+        {
+          "text": "Courage, Malo.",
+          "next": "fin"
+        }
+      ]
+    },
+    "aide": {
+      "text": "C’est vrai ? Elle est tombée tout en bas, sur le Sol des Racines. Mais le sol est sacré : personne n’y descend sans l’accord des Nacelliers. Demande à Véline, à la Grande Nacelle. Si elle dit oui… elle te descendra.",
+      "options": [
+        {
+          "text": "J’y vais.",
+          "next": "fin"
+        }
+      ]
+    },
+    "attente": {
+      "text": "Alors ? La sacoche est en cuir brun, avec le fermoir de cuivre des Nacelliers. Si tu vois des lettres par terre, c’est que tu chauffes !",
+      "options": [
+        {
+          "text": "Je la cherche encore.",
+          "next": "fin"
+        },
+        {
+          "text": "Rappelle-moi ce qu’il faut faire.",
+          "next": "aide"
+        },
+        {
+          "text": "Montre-moi la ville.",
+          "next": "ville"
+        }
+      ]
+    },
+    "retour": {
+      "text": "La sacoche ! Tu l’as retrouvée ! Toutes les lettres sont là… presque toutes. Merci, merci ! Tiens, ce n’est pas grand-chose, mais c’est de bon cœur.",
+      "options": [
+        {
+          "text": "La voici, Malo.",
+          "next": "remerciements",
+          "effects": [
+            {
+              "completeQuest": "lettres-malo"
+            },
+            {
+              "giveXp": 30
+            },
+            {
+              "giveFers": 10
+            },
+            {
+              "setFlag": "nacelliers-amis"
+            }
+          ]
+        }
+      ]
+    },
+    "remerciements": {
+      "text": "Véline dit que tu as « le pied sûr ». Chez les Nacelliers, c’est le plus beau compliment. Si un jour tu as une lettre à faire porter, viens nous voir !",
+      "options": [
+        {
+          "text": "Avec plaisir, Malo.",
+          "next": "fin"
+        }
+      ]
+    },
+    "ami": {
+      "text": "Salut, toi ! Grâce à toi, toutes les lettres sont arrivées. Les Nacelliers disent que tu as « le pied sûr ». Tu veux que je te montre un raccourci ?",
+      "options": [
+        {
+          "text": "Montre-moi la ville.",
+          "next": "ville"
+        },
+        {
+          "text": "Tu n’as jamais peur de tomber ?",
+          "next": "peur"
+        },
+        {
+          "text": "À plus tard, Malo.",
+          "next": "fin"
         }
       ]
     }

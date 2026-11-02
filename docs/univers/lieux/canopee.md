@@ -54,3 +54,18 @@ Sept intérieurs, sept PNJ nommés. Toutes les maisons prévues sont là.
 - **Réputation complète** : système commun prévu dans `docs/gdd/villes.md`. Les passants sont faits
   (`docs/gdd/figurants.md`, huit à Canopéa).
 - **Images peintes** (phase 2) : plan et coût à présenter avant toute génération.
+
+## Quête « Les lettres de Malo » et le Sol des Racines (construites le 2026-11-02)
+
+Quête validée par Cyril (`docs/univers/quetes.md`). Textes : `docs/DIALOGUES.md` ; carte : `sol-racines`.
+
+- **Départ** : Malo a laissé tomber la sacoche des Nacelliers ; le sol est sacré, il faut l'accord de Véline.
+- **Véline** descend le héros en nacelle (« Ne prends rien d'autre que la sacoche, ne grave rien »), puis le redescend
+  sans redemander tant que la sacoche n'est pas retrouvée.
+- **Le Sol des Racines** (nouvelle carte) : les pieds des Arbres-Titans, une vieille voie à demi enfouie, des lettres
+  éparpillées (avec Survie 2, on lit les traces d'un Ours-Mousse), un trou de fouille (avec Investigation 2, une
+  étiquette : « Lot douze, reliques. À livrer au Marché des Cendres. » : piste pour « L'audience »).
+- **La sacoche**, sous la patte d'un Ours-Mousse endormi : la prendre en douce (Discrétion, difficulté 11 ; raté, l'ours
+  se réveille), l'éloigner avec des baies (Survie 2), ou le combattre (15 XP).
+- **Fin** : Malo rend les lettres aux Nacelliers ; 30 XP, 10 Fers, +10 de réputation à Canopéa, repère
+  `nacelliers-amis` (le courrier des Nacelliers viendra avec le système de factions).

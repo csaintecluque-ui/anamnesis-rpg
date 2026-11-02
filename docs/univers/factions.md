@@ -58,7 +58,7 @@ Règles de jeu : `docs/gdd/factions.md`. Histoire et quêtes : `docs/univers/que
 Objet commun : **la clé de rouille bleue**, qui ouvre « une archive que plusieurs factions veulent détruire ou
 exploiter » (quête « La Clé de Rouille Bleue », Notion).
 
-### Guildes ajoutées pour le jeu (propositions, à valider)
+### Guildes ajoutées pour le jeu (validées par Cyril le 2026-11-02)
 
 Le Notion ne nomme aucune guilde marchande (seulement un « Conseil des Guildes » à Ferros et un « Cristal Marchand,
 Maître des Guildes » à Glacialis). Pour combler, sans doublon avec les factions reprises :

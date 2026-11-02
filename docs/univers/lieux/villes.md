@@ -27,7 +27,7 @@ Les sept continents sont tous couverts ; Verdantis a déjà Gardebois, d'où une
 |---|---|---|---|
 | 1 | **Canopéa** | Verdantis | capitale dans les Arbres-Titans, rien ne touche le sol [E3, N1] |
 | 2 | **Ironheart** | Ferros | capitale impériale des forges, du rail et des papiers |
-| 3 | **Ironhold** | Ferros | la ville du héros Gorim [E3, E4], taillée dans la montagne ; pierre et tradition |
+| 3 | **Porto-Lumina** | Marisol | port d'environ 50 000 habitants [NOTION] ; remplace Ironhold (choix de Cyril, 2026-11-02) ; fiche à écrire |
 | 4 | **Sept-Portes** | Terminus | la ville de Kael, au centre du monde ; **aucun combat possible** (Nexus) [E3, E4] |
 | 5 | **Aetherhaven** | Zephyria | capitale flottante à 3 000 m [E3] ; dirigeables et carillons |
 | 6 | **Windspire** | Zephyria | une cité-aiguille plantée dans le vent ; planeurs et cartes |
@@ -114,7 +114,7 @@ Cloudrest, Mistral (Zephyria) [E3, N1, N3]. Crystallis est écartée : son nom e
   souvenirs de Boulon.
 - **À vérifier dans le canon** : description d'Ironheart (N2) ; nature des Unités-Auric (E7-2).
 
-## 3. Ironhold, la vieille forteresse — Ferros
+## 3. (Ancienne fiche) Ironhold — Ferros : **retirée**, remplacée par Porto-Lumina
 
 - **Canon** : fondée par Gorim, héros de Ferros [E3, E4] (sa date touche au point 12 des zones floues : non
   utilisée) ; Chaîne des Titans, Cimetière des Titans [E3] ; la Forge du Dernier Souffle, Kharos le Titan Mourant ;

@@ -1,0 +1,65 @@
+{
+  "id": "traces-fouille",
+  "speaker": "traces-fouille",
+  "entries": [
+    {
+      "node": "trou"
+    }
+  ],
+  "nodes": {
+    "trou": {
+      "text": "Un trou carré, étayé de planches neuves, au bord d’une vieille voie à demi enfouie sous les racines. Des outils de Ferros traînent encore à côté.",
+      "options": [
+        {
+          "text": "Regarder au fond.",
+          "next": "fond"
+        },
+        {
+          "text": "Examiner les outils.",
+          "requires": [
+            {
+              "skill": "investigation",
+              "min": 2
+            }
+          ],
+          "next": "outils"
+        },
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "fond": {
+      "text": "Au fond, un tronçon de rail rouillé, et des marques de pioche toutes fraîches. Quelqu’un fouille le sol sacré, et pas pour y planter des graines.",
+      "effects": [
+        {
+          "setFlag": "fouille-vue"
+        }
+      ],
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "outils": {
+      "text": "Des pelles de Ferros, et une étiquette de marchand, à l’encre : « Lot douze, reliques. À livrer au Marché des Cendres. »",
+      "effects": [
+        {
+          "setFlag": "fouille-vue"
+        },
+        {
+          "setFlag": "fouille-marches"
+        }
+      ],
+      "options": [
+        {
+          "text": "Garder ça en mémoire.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

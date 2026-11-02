@@ -16,6 +16,18 @@
     {
       "requires": [
         {
+          "quest": "lettres-malo",
+          "status": "active"
+        },
+        {
+          "notFlag": "sacoche-retrouvee"
+        }
+      ],
+      "node": "descente"
+    },
+    {
+      "requires": [
+        {
           "flag": "canopee-accueillie"
         }
       ],
@@ -112,6 +124,63 @@
               "setFlag": "veline-vol-dit"
             }
           ]
+        }
+      ]
+    },
+    "descente": {
+      "text": "Malo t’a parlé de la sacoche, n’est-ce pas ? Je l’ai vue tomber… Descendre sur le Sol des Racines, ce n’est pas rien : le sol est sacré.",
+      "options": [
+        {
+          "text": "Je peux la chercher, si tu me descends.",
+          "requires": [
+            {
+              "notFlag": "descente-autorisee"
+            }
+          ],
+          "next": "permission"
+        },
+        {
+          "text": "Redescends-moi, s’il te plaît.",
+          "requires": [
+            {
+              "flag": "descente-autorisee"
+            }
+          ],
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "sol-racines",
+              "arrivee": "descente"
+            }
+          ]
+        },
+        {
+          "text": "Pas maintenant.",
+          "next": "fin"
+        }
+      ]
+    },
+    "permission": {
+      "text": "Les lettres des Nacelliers, c’est sacré aussi, à sa façon. Bon. Je te descends. Ne prends rien d’autre que la sacoche, ne grave rien, et remonte par la même nacelle.",
+      "effects": [
+        {
+          "setFlag": "descente-autorisee"
+        }
+      ],
+      "options": [
+        {
+          "text": "Allons-y.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "sol-racines",
+              "arrivee": "descente"
+            }
+          ]
+        },
+        {
+          "text": "Un instant.",
+          "next": "fin"
         }
       ]
     }

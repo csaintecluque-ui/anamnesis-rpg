@@ -8,5 +8,12 @@
     ],
     "victoryFlag": "rodeurs-caisse-vaincus",
     "victoryEffects": [{ "giveXp": 20 }]
+  },
+  {
+    "id": "ours-sacoche",
+    "center": "sacoche-lettres",
+    "enemies": [{ "id": "ours-mousse", "object": "ours-sol" }],
+    "victoryFlag": "ours-sol-vaincu",
+    "victoryEffects": [{ "giveXp": 15 }]
   }
 ]

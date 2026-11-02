@@ -1,0 +1,114 @@
+{
+  "id": "sacoche-lettres",
+  "speaker": "sacoche-lettres",
+  "entries": [
+    {
+      "requires": [
+        {
+          "notFlag": "ours-sol-vaincu"
+        },
+        {
+          "notFlag": "ours-sol-eloigne"
+        }
+      ],
+      "node": "ours"
+    },
+    {
+      "node": "libre"
+    }
+  ],
+  "nodes": {
+    "ours": {
+      "text": "La sacoche est là, sous la patte d’un Ours-Mousse endormi, roulé dans la mousse comme dans un édredon.",
+      "options": [
+        {
+          "text": "Glisser la main sous sa patte, tout doucement.",
+          "next": "prise",
+          "roll": {
+            "skill": "stealth",
+            "difficulty": 11
+          },
+          "failNext": "reveil"
+        },
+        {
+          "text": "L’attirer plus loin avec une poignée de baies.",
+          "requires": [
+            {
+              "skill": "survival",
+              "min": 2
+            }
+          ],
+          "next": "eloigne"
+        },
+        {
+          "text": "Le réveiller et l’affronter.",
+          "next": "fin",
+          "effects": [
+            {
+              "startCombat": "ours-sacoche"
+            }
+          ]
+        },
+        {
+          "text": "Reculer sans bruit.",
+          "next": "fin"
+        }
+      ]
+    },
+    "reveil": {
+      "text": "L’ours ouvre un œil, puis deux. Il grogne et se dresse de toute sa hauteur, la sacoche toujours sous lui.",
+      "options": [
+        {
+          "text": "Se défendre !",
+          "next": "fin",
+          "effects": [
+            {
+              "startCombat": "ours-sacoche"
+            }
+          ]
+        },
+        {
+          "text": "Reculer vers la nacelle.",
+          "next": "fin"
+        }
+      ]
+    },
+    "eloigne": {
+      "text": "L’ours renifle, se lève en bâillant et suit la piste de baies en grognant de plaisir. La voie est libre.",
+      "effects": [
+        {
+          "setFlag": "ours-sol-eloigne"
+        }
+      ],
+      "options": [
+        {
+          "text": "Prendre la sacoche.",
+          "next": "prise"
+        }
+      ]
+    },
+    "libre": {
+      "text": "La sacoche des Nacelliers, en cuir brun, est restée dans la mousse. Le fermoir de cuivre a tenu : les lettres sont là.",
+      "options": [
+        {
+          "text": "La prendre.",
+          "next": "prise"
+        }
+      ]
+    },
+    "prise": {
+      "text": "Tu passes la sacoche à ton épaule. Il est temps de remonter par la nacelle et de rendre ses lettres à Malo.",
+      "effects": [
+        {
+          "setFlag": "sacoche-retrouvee"
+        }
+      ],
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

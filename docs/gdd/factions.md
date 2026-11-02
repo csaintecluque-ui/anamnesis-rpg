@@ -1,4 +1,4 @@
-# Factions : règles de jeu (proposition du 2026-11-02, à valider)
+# Factions : règles de jeu (proposition du 2026-11-02, validée par Cyril le 2026-11-02)
 
 Factions retenues : celles du Notion (ANAMNESIS ENGINE : Travailleurs du Rail, Marches des Cendres, Archives de
 Ferros) et trois guildes ajoutées (Compagnie des Lisières, Nacelliers, Route des Carrioles).

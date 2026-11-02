@@ -6,6 +6,7 @@
     { "quest": "caisse-egaree", "points": 5 }
   ],
   "canopee": [
+    { "quest": "lettres-malo", "points": 10 },
     { "flag": "ailis-reconfortee", "points": 10 },
     { "flag": "vol-grenier", "points": -20 }
   ]

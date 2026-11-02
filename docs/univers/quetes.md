@@ -1,4 +1,4 @@
-# Histoire et quêtes : propositions (2026-11-02, **à valider par Cyril**)
+# Histoire et quêtes (proposées le 2026-11-02, **validées par Cyril le 2026-11-02**)
 
 Demande de Cyril : « continuer à développer le Lore et des quêtes ». Canon : le Notion « ANAMNESIS » [NOTION] ;
 factions : `docs/univers/factions.md` (dont celles reprises d'ANAMNESIS ENGINE). Tout ce qui n'est pas marqué
@@ -53,7 +53,7 @@ carte à créer.
   d'une voie de l'Ancien Monde enfouie sous les racines.
 - **Fin** : le Triumvirat envoie le héros à Ironheart. Récompense : estime de Canopéa, XP, un Récit.
 
-### 2. Les lettres de Malo (Nacelliers)
+### 2. Les lettres de Malo (Nacelliers) — **construite le 2026-11-02**
 
 - Malo a laissé tomber la sacoche de lettres des Nacelliers. Véline obtient qu'on descende le héros, une seule fois.
 - En bas : retrouver les lettres (Survie ou Perception), éviter ou affronter ce qui rôde (Rôdeurs-Épine, Ours-Mousse

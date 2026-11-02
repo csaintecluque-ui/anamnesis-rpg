@@ -84,7 +84,14 @@ Ces décisions valent **pour le jeu**. Le dossier `docs/Lore/` reste inchangé.
 20. **Restes de conversations avec une IA** dans N5, E7-1 et RES (« Voulez-vous que je continue… ») : simple nettoyage éventuel, si Cyril le souhaite.
 21. **Création de personnage dans le JDR** : 27 points pour 6 attributs de 1 à 5 donnent 4,5 de moyenne, alors que le même JDR fixe la moyenne humaine à 3. Il manque peut-être une table de coûts.
 
-## Questions ouvertes après la lecture du Notion (2026-11-02)
+## Réponses de Cyril (2026-11-02, « Oui pour tout »)
+
+- **Monnaie** : une seule monnaie de jeu, le Fer, pour l'instant.
+- **Gardiens de Mémoire** : on garde l'ordre de conteurs voyageurs du héros.
+- **Ironhold** : remplacée dans les dix villes par **Porto-Lumina**, port de Marisol (à décrire d'après le Notion).
+- L'histoire « Les voies endormies » et les six quêtes (`docs/univers/quetes.md`) sont validées.
+
+## Questions ouvertes après la lecture du Notion (2026-11-02), tranchées ci-dessus
 
 - **Monnaie** : le canon donne la Feuille Verte à Verdantis (1 Feuille = 0,5 Fer), le Fer à Ferros, le Nexus comme
   monnaie mondiale ; le jeu compte tout en Fers. Garder une seule monnaie de jeu, ou changer selon le pays ?

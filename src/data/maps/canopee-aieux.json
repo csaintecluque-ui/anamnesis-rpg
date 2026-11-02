@@ -1147,11 +1147,11 @@
    "name": "tiles",
    "image": "../../../public/tiles/tiles.png",
    "imagewidth": 512,
-   "imageheight": 1152,
+   "imageheight": 1248,
    "tilewidth": 64,
    "tileheight": 96,
    "columns": 8,
-   "tilecount": 95,
+   "tilecount": 98,
    "margin": 0,
    "spacing": 0,
    "tiles": [
@@ -3522,6 +3522,81 @@
        "name": "couverture",
        "type": "int",
        "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 95,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "sacoche"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 96,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "lettres"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 97,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "trou-fouille"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 2
       },
       {
        "name": "grand",

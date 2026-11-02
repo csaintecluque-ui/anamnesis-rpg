@@ -1,0 +1,61 @@
+{
+  "id": "lettres-eparpillees",
+  "speaker": "lettres-eparpillees",
+  "entries": [
+    {
+      "node": "lettres"
+    }
+  ],
+  "nodes": {
+    "lettres": {
+      "text": "Quelques lettres, éparpillées entre les racines, encore sèches. Des traces dans la mousse partent vers le nord-est, comme si quelque chose avait traîné la sacoche.",
+      "options": [
+        {
+          "text": "Ramasser les lettres.",
+          "next": "ramassees"
+        },
+        {
+          "text": "Lire les traces.",
+          "requires": [
+            {
+              "skill": "survival",
+              "min": 2
+            }
+          ],
+          "next": "traces"
+        },
+        {
+          "text": "Laisser les lettres.",
+          "next": "fin"
+        }
+      ]
+    },
+    "ramassees": {
+      "text": "Tu glisses les lettres dans ta besace. Plus loin, au nord-est, les traces s’enfoncent sous les fougères.",
+      "effects": [
+        {
+          "setFlag": "lettres-ramassees"
+        }
+      ],
+      "options": [
+        {
+          "text": "Suivre les traces.",
+          "next": "fin"
+        }
+      ]
+    },
+    "traces": {
+      "text": "De larges empreintes rondes, et des touffes de mousse arrachées : un Ours-Mousse. Il a dû prendre la sacoche pour un nid bien douillet.",
+      "options": [
+        {
+          "text": "Ramasser les lettres.",
+          "next": "ramassees"
+        },
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

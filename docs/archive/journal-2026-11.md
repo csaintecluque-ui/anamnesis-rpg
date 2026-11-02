@@ -703,3 +703,9 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   (aucune nommée dans le canon). Factions et quêtes réécrites autour des Travailleurs du Rail, des Marches des Cendres,
   des Archives de Ferros et de la clé de rouille bleue ; « Compagnie du Rail Cristallin » retirée. Elfes canon : la
   question des oreilles de Sylvan est close.
+- Cyril : « Oui pour tout » (histoire et quêtes, une seule monnaie, Gardiens de Mémoire, Porto-Lumina) ; on commence
+  par « Les lettres de Malo ». Fait : nouvelle carte du Sol des Racines (troncs d'Arbres-Titans, vieille voie, fouille,
+  tanière), quête `lettres-malo` (Malo, Véline et sa descente en nacelle par l'effet `goTo`, lettres éparpillées, trou de
+  fouille et étiquette du Marché des Cendres, sacoche sous l'Ours-Mousse : Discrétion, Survie ou combat), +10 de
+  réputation à Canopéa. 285 tests ; vérifié dans le navigateur (descente, carte, dialogue de l'ours, combat) ; deux
+  troncs et un arbre qui cachaient le héros à l'arrivée déplacés.

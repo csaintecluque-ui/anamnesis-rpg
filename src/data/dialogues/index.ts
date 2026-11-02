@@ -18,6 +18,7 @@ import grainesConseil from './graines-conseil.json';
 import huissier from './huissier.json';
 import ilyane from './ilyane.json';
 import ingrid from './ingrid.json';
+import lettresEparpillees from './lettres-eparpillees.json';
 import liane from './liane.json';
 import lisandre from './lisandre.json';
 import maelis from './maelis.json';
@@ -26,11 +27,13 @@ import mirelle from './mirelle.json';
 import nell from './nell.json';
 import porteGrenier from './porte-grenier.json';
 import rocherSauge from './rocher-sauge.json';
+import sacocheLettres from './sacoche-lettres.json';
 import sauge1 from './sauge-1.json';
 import sauge2 from './sauge-2.json';
 import sevane from './sevane.json';
 import sylvan from './sylvan.json';
 import tobias from './tobias.json';
+import tracesFouille from './traces-fouille.json';
 import veline from './veline.json';
 import voyageurEgare from './voyageur-egare.json';
 
@@ -55,6 +58,7 @@ export const DIALOGUES: Record<string, Dialogue> = {
   huissier: huissier as Dialogue,
   ilyane: ilyane as Dialogue,
   ingrid: ingrid as Dialogue,
+  'lettres-eparpillees': lettresEparpillees as Dialogue,
   liane: liane as Dialogue,
   lisandre: lisandre as Dialogue,
   maelis: maelis as Dialogue,
@@ -63,11 +67,13 @@ export const DIALOGUES: Record<string, Dialogue> = {
   nell: nell as Dialogue,
   'porte-grenier': porteGrenier as Dialogue,
   'rocher-sauge': rocherSauge as Dialogue,
+  'sacoche-lettres': sacocheLettres as Dialogue,
   'sauge-1': sauge1 as Dialogue,
   'sauge-2': sauge2 as Dialogue,
   sevane: sevane as Dialogue,
   sylvan: sylvan as Dialogue,
   tobias: tobias as Dialogue,
+  'traces-fouille': tracesFouille as Dialogue,
   veline: veline as Dialogue,
   'voyageur-egare': voyageurEgare as Dialogue,
 };

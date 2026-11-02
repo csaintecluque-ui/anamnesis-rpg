@@ -542,6 +542,62 @@ Object.assign(INTERIORS, {
   }),
 });
 
+// --- Le Sol des Racines, sous Canopéa (docs/univers/quetes.md, « Les lettres de Malo ») ----------------------
+// La forêt sacrée au pied des Arbres-Titans : aucun bâtiment ne touche le sol [NOTION]. On n'y descend qu'avec la
+// nacelle des Nacelliers. Une voie de l'Ancien Monde y affleure sous les racines, là où quelqu'un a fouillé.
+function solRacines() {
+  const m = new MapBuilder(26, 22);
+  const rng = mulberry32(6100);
+  m.ground.fill(gid('herbe-sombre'));
+  for (let col = 0; col < m.width; col++) {
+    m.setObstacle(col, 0, 'arbre');
+    m.setObstacle(col, m.height - 1, 'arbre');
+  }
+  for (let row = 0; row < m.height; row++) {
+    m.setObstacle(0, row, 'arbre');
+    m.setObstacle(m.width - 1, row, 'arbre');
+  }
+  // Les pieds des Arbres-Titans, qui portent la ville loin au-dessus.
+  for (const [c, r] of [[6, 4], [15, 3], [5, 17], [19, 16], [22, 13]]) titan(m, c, r);
+  // La vieille voie, à demi enfouie, et la fouille.
+  m.line([9, 13], [18, 13], 'rail');
+  m.setObstacle(13, 14, 'trou-fouille');
+  m.setObstacle(14, 15, 'caisses');
+
+  m.setObstacle(3, 10, 'nacelle');
+  m.object('nacelle-remontee', 'porte', 3, 10, { cible: 'canopee-nacelle', arrivee: 'entree', libelle: 'Remonter par la nacelle' });
+  m.object('descente', 'arrivee', 4, 11);
+  m.setObstacle(9, 10, 'lettres');
+  m.object('lettres-eparpillees', 'objet', 9, 10);
+  m.object('traces-fouille', 'objet', 13, 14);
+  // La tanière : la sacoche sous la patte d'un Ours-Mousse endormi (src/data/encounters.json).
+  m.setObstacle(21, 6, 'sacoche');
+  m.object('sacoche-lettres', 'coffre', 21, 6, { disparaitSi: 'sacoche-retrouvee' });
+  m.object('ours-sol', 'ennemi', 20, 7, {
+    ennemi: 'ours-mousse',
+    disparaitSi: 'ours-sol-vaincu,ours-sol-eloigne',
+    texte: 'Un Ours-Mousse dort, roulé dans la mousse. Mieux vaut ne pas le réveiller sans plan.',
+  });
+
+  const keepClear = new Set(
+    [[4, 11], [3, 11], [5, 11], [4, 12], [5, 12], [6, 13], [5, 13], [3, 12], [20, 7], [9, 11], [10, 11], [10, 10], [8, 11], [12, 13], [12, 14], [13, 15], [19, 7], [20, 6], [20, 8], [21, 7], [22, 7], [21, 5], [19, 6], [19, 8]].map(
+      ([c, r]) => `${c},${r}`,
+    ),
+  );
+  for (let row = 1; row < m.height - 1; row++) {
+    for (let col = 1; col < m.width - 1; col++) {
+      if (m.groundAt(col, row) !== gid('herbe-sombre') || m.obstacleAt(col, row) !== 0 || keepClear.has(`${col},${row}`)) continue;
+      const roll = rng();
+      if (roll < 0.07) m.setObstacle(col, row, 'arbre');
+      else if (roll < 0.13) m.setObstacle(col, row, 'fougeres');
+      else if (roll < 0.16) m.setObstacle(col, row, 'champignons');
+      else if (roll < 0.18) m.setObstacle(col, row, 'souche');
+      else if (roll < 0.4) m.setGround(col, row, 'herbe');
+    }
+  }
+  return m.toTiled();
+}
+
 // --- Lieux de rencontre aléatoire (docs/gdd/carte-du-monde.md) ---------------------------------------------
 // Petites cartes où l'on tombe en voyage, comme les rencontres de la carte du monde des CRPG de référence. Leur
 // contenu (ennemis, PNJ, objets) vient de src/data/rencontres.json et se pose sur les points d'apparition.
@@ -624,6 +680,7 @@ for (const [id, map] of Object.entries({
   'canopee-nacelle': canopeeNacelle(),
   'canopee-ramures': canopeeRamures(),
   'canopee-aieux': canopeeAieux(),
+  'sol-racines': solRacines(),
   ...ENCOUNTER_MAPS,
 })) {
   writeFileSync(new URL(`${id}.json`, out), JSON.stringify(map, null, 1) + '\n');

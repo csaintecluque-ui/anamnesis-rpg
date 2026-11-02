@@ -739,3 +739,385 @@ describe('Parcours complet, d’une traite', () => {
     diag('fin', s);
   });
 });
+
+// ---------------------------------------------------------------------------------------------------------------
+// Variante B : la parole à la Gare, l'audience tout de suite, Ironheart avant les quêtes annexes de Canopéa.
+// ---------------------------------------------------------------------------------------------------------------
+
+describe('Variante : Ironheart avant les quêtes annexes (parole, combats, autres fins)', () => {
+  const s = createNewGame(testCharacter({}, { diplomacy: 3, survival: 2 }));
+
+  it('« Le Dernier Train » par la parole, sans passer chez Tobias', () => {
+    expect(talk(s, 'ilyane')).toBe('accueil');
+    say(s, 'ilyane', 'accueil', 'Que se passe-t-il');
+    say(s, 'ilyane', 'trouble', 'D’où vient ce mal');
+    say(s, 'ilyane', 'cause', 'J’irai voir');
+    walk(s, 'gare-engloutie');
+    expect(s.flags['laissez-passer']).toBeUndefined();
+    expect(talk(s, 'ingrid')).toBe('accueil');
+    say(s, 'ingrid', 'accueil', 'Ce chantier');
+    expect(gained(s, () => say(s, 'ingrid', 'cause', 'Arrêtez le forage'))).toEqual({ xp: 70, fers: 30 });
+    expect(s.quests['dernier-train']).toBe('done');
+    expect(talk(s, 'foreuse')).toBe('arretee');
+    expect(talk(s, 'ingrid')).toBe('apres');
+    walk(s, 'gardebois');
+    expect(talk(s, 'ilyane')).toBe('resolu');
+    say(s, 'ilyane', 'resolu', 'Et maintenant');
+  });
+
+  it('Canopéa par la carte du monde : pas de Loups sans la sacoche ; l’audience commence', () => {
+    expect(travel(s, 'canopee')).toBeNull();
+    expect(talk(s, 'veline')).toBe('accueil');
+    say(s, 'veline', 'accueil', 'Juste quelqu’un qui voyage');
+    expect(talk(s, 'malo')).toBe('souci');
+    say(s, 'malo', 'souci', 'Je peux t’aider');
+    walk(s, 'canopee-ramures');
+    walk(s, 'canopee-conseil');
+    expect(talk(s, 'huissier')).toBe('lettre');
+    say(s, 'huissier', 'lettre', 'Entrer');
+    expect(talk(s, 'kael-marchevent')).toBe('audience');
+    say(s, 'kael-marchevent', 'audience', 'Une foreuse');
+    say(s, 'kael-marchevent', 'recit-gare', 'Les papiers');
+    say(s, 'kael-marchevent', 'lyra', 'Et ce mal');
+    say(s, 'kael-marchevent', 'thalorin', 'Je peux chercher');
+    expect(questItems(s)).toEqual(['lettre-ilyane']);
+  });
+
+  it('Pendant l’enquête, « Le chant d’Anselme » ne peut pas commencer', () => {
+    diag('B pendant l’enquête', s);
+    walk(s, 'canopee-conseil');
+    walk(s, 'canopee-ramures');
+    walk(s, 'canopee-feuillevent');
+    expect(talk(s, 'ailis')).toBe('inquiete');
+    console.log('ailis inquiete', optionTexts(s, 'ailis', 'inquiete'));
+    walk(s, 'canopee-ramures');
+    walk(s, 'canopee-atelier');
+    expect(talk(s, 'elouan')).toBe('accueil');
+    walk(s, 'canopee-ramures');
+    walk(s, 'canopee-nacelle');
+    walk(s, 'canopee-aieux');
+    expect(talk(s, 'arbre-anselme')).toBe('muet');
+    walk(s, 'canopee-nacelle');
+  });
+
+  it('Garrik vaincu, la sacoche prise en passant, la frontière fermée', () => {
+    expect(talk(s, 'veline')).toBe('descente-conseil');
+    say(s, 'veline', 'descente-conseil', 'Descends');
+    expect(talk(s, 'garrik')).toBe('rencontre');
+    say(s, 'garrik', 'rencontre', 'Ce sol est sacré');
+    expect(startsCombat(DIALOGUES.garrik.nodes.defensif.options[1].effects)).toBe('fouilleur-sol');
+    say(s, 'garrik', 'defensif', 'Alors je vais te faire partir');
+    win(s, 'fouilleur-sol');
+    expect(present(s, 'sol-racines', 'garrik')).toBe(false);
+    expect(talk(s, 'sacoche-lettres')).toBe('ours');
+    say(s, 'sacoche-lettres', 'ours', 'Glisser la main');
+    walk(s, 'canopee-nacelle');
+    walk(s, 'canopee-ramures');
+    walk(s, 'canopee-conseil');
+    say(s, 'huissier', 'retour', 'Entrer');
+    expect(talk(s, 'kael-marchevent')).toBe('rapport');
+    say(s, 'kael-marchevent', 'rapport', 'Des fouilleurs');
+    say(s, 'kael-marchevent', 'rapport-suite', 'Ils cherchent');
+    say(s, 'kael-marchevent', 'cle', 'Que va faire');
+    say(s, 'kael-marchevent', 'choix', 'Fermez la frontière');
+    say(s, 'kael-marchevent', 'fin-frontiere', 'Et moi');
+    expect(s.quests.audience).toBe('done');
+    expect(questItems(s)).toEqual(['sauf-conduit']);
+    walk(s, 'canopee-conseil');
+    walk(s, 'canopee-ramures');
+    walk(s, 'canopee-nacelle');
+  });
+
+  it('Ironheart d’abord : la clé vendue à Kaelis', () => {
+    expect(travel(s, 'ironheart')).toBeNull();
+    expect(talk(s, 'boulon')).toBe('accueil-quete');
+    say(s, 'boulon', 'accueil-quete', 'Un certain Kaelis');
+    say(s, 'renfoncement', 'mur', 'Chercher le passage');
+    say(s, 'renfoncement', 'trouve', 'Descendre');
+    expect(talk(s, 'kaelis')).toBe('accueil-garrik');
+    say(s, 'kaelis', 'accueil-garrik', 'Pourquoi certaines reliques');
+    walk(s, 'ironheart-forges');
+    expect(talk(s, 'veilleuse')).toBe('question-cle');
+    say(s, 'veilleuse', 'question-cle', 'Laisse-moi écouter');
+    say(s, 'veilleuse', 'ecoute', 'Et la clé');
+    walk(s, 'ironheart-marche');
+    expect(talk(s, 'kaelis')).toBe('offre');
+    expect(gained(s, () => say(s, 'kaelis', 'offre', 'La lui vendre'))).toEqual({ xp: 60, fers: 100 });
+    expect(s.quests['cle-rouille-bleue']).toBe('done');
+    expect(talk(s, 'kaelis')).toBe('apres-vente');
+    walk(s, 'ironheart-forges');
+    expect(talk(s, 'veilleuse')).toBe('apres');
+  });
+
+  it('« Le Rail des Cendres » : la garde de nuit, les pilleurs vaincus, le Bureau prévenu', () => {
+    walk(s, 'ironheart-triage');
+    say(s, 'varka', 'accueil', 'Peur de quoi');
+    say(s, 'varka', 'convois', 'Je vais trouver');
+    expect(talk(s, 'varka')).toBe('enquete');
+    say(s, 'varka', 'enquete', 'Monter la garde');
+    expect(talk(s, 'aiguillage')).toBe('levier-quete');
+    say(s, 'aiguillage', 'levier-quete', 'Attendre la nuit');
+    expect(present(s, 'ironheart-triage', 'pilleur-1')).toBe(true);
+    say(s, 'aiguillage', 'veille', 'Les arrêter');
+    win(s, 'aiguillage-cendres');
+    expect(present(s, 'ironheart-triage', 'pilleur-1')).toBe(false);
+    expect(journalStep(s, 'rail-cendres')?.step).toMatch(/pilleurs/);
+    say(s, 'tunnel-cendriere', 'guetteur', '« Tes deux amis');
+    say(s, 'tunnel-cendriere', 'passe', 'Entrer');
+    expect(talk(s, 'sorn')).toBe('accueil');
+    walk(s, 'ironheart-triage');
+    expect(talk(s, 'ostrik')).toBe('rapport');
+    expect(gained(s, () => say(s, 'ostrik', 'rapport', 'Tout'))).toEqual({ xp: 40, fers: 60 });
+    expect(present(s, 'ironheart-triage', 'joss')).toBe(false);
+    expect(present(s, 'ironheart-cendriere', 'sorn')).toBe(false);
+    expect(talk(s, 'varka')).toBe('apres-bureau');
+    walk(s, 'ironheart-forges');
+  });
+
+  it('« Les Échos sous la Forge » : l’Écho frappé, la galerie scellée', () => {
+    say(s, 'forge-eteinte', 'jour', 'Revenir à la nuit');
+    say(s, 'forge-eteinte', 'nuit', 'Ouvrir la trappe');
+    expect(talk(s, 'echo-promesse')).toBe('promesse');
+    say(s, 'echo-promesse', 'promesse', 'L’écouter jusqu’au bout');
+    say(s, 'echo-promesse', 'choix', 'Le frapper');
+    say(s, 'echo-promesse', 'frapper', 'Frapper');
+    expect(present(s, 'ironheart-galerie', 'echo-furieux-1')).toBe(true);
+    win(s, 'echos-furieux');
+    expect(s.quests['echos-forge']).toBe('done');
+    expect(talk(s, 'hesk')).toBe('colere');
+    walk(s, 'ironheart-forges');
+    expect(talk(s, 'forge-eteinte')).toBe('scellee');
+  });
+
+  it('Retour à Canopéa en train : Malo, puis « Le chant d’Anselme » par le carnet', () => {
+    expect(optionTexts(s, 'guichet-ouest', 'guichet')).toContain('Prendre un billet.');
+    expect(gained(s, () => say(s, 'guichet-ouest', 'guichet', 'Prendre un billet.'))).toEqual({ xp: 0, fers: -40 });
+    say(s, 'guichet-ouest', 'train-canopee', 'Monter');
+    expect(talk(s, 'malo')).toBe('retour');
+    say(s, 'malo', 'retour', 'La voici');
+    walk(s, 'canopee-ramures');
+    walk(s, 'canopee-feuillevent');
+    expect(talk(s, 'ailis')).toBe('accueil');
+    say(s, 'ailis', 'accueil', 'Parler à un arbre');
+    walk(s, 'canopee-ramures');
+    walk(s, 'canopee-atelier');
+    expect(talk(s, 'elouan')).toBe('proposition');
+    say(s, 'elouan', 'proposition', 'J’irai chercher');
+    walk(s, 'canopee-ramures');
+    walk(s, 'canopee-nacelle');
+    expect(talk(s, 'veline')).toBe('descente-anselme');
+    say(s, 'veline', 'descente-anselme', 'Allons-y');
+    say(s, 'arbre-retour-anselme', 'arbre-quete', 'Ramasser');
+    walk(s, 'canopee-nacelle');
+    walk(s, 'canopee-aieux');
+    walk(s, 'canopee-relais');
+    expect(talk(s, 'mirelle')).toBe('chanson');
+    say(s, 'mirelle', 'chanson', 'Connais-tu');
+    say(s, 'mirelle', 'carnet', 'Merci, Mirelle');
+    say(s, 'mirelle', 'accueil', 'Tu connais Ilyane');
+    say(s, 'mirelle', 'ilyane', 'Je peux le lui rapporter');
+    walk(s, 'canopee-aieux');
+    walk(s, 'canopee-nacelle');
+    walk(s, 'canopee-ramures');
+    walk(s, 'canopee-atelier');
+    expect(talk(s, 'elouan')).toBe('branche');
+    say(s, 'elouan', 'branche', 'Mirelle m’a montré');
+    walk(s, 'canopee-ramures');
+    walk(s, 'canopee-feuillevent');
+    expect(talk(s, 'ailis')).toBe('flute');
+    expect(gained(s, () => say(s, 'ailis', 'flute', 'Elouan l’a taillée'))).toEqual({ xp: 30, fers: 0 });
+    walk(s, 'canopee-ramures');
+    walk(s, 'canopee-nacelle');
+  });
+
+  it('« Les graines qui manquent » après Ironheart : Elvan dénoncé quitte le Nid', () => {
+    expect(talk(s, 'veline')).toBe('retour');
+    say(s, 'veline', 'retour', 'Quoi de neuf');
+    walk(s, 'canopee-auberge');
+    expect(talk(s, 'lisandre')).toBe('vote');
+    say(s, 'lisandre', 'vote', 'Merci pour la nouvelle');
+    say(s, 'lisandre', 'accueil', 'Quelles nouvelles');
+    say(s, 'lisandre', 'nouvelles', 'Il manque des graines');
+    expect(talk(s, 'elvan')).toBe('confrontation');
+    say(s, 'elvan', 'confrontation', 'Ton ballot brille');
+    say(s, 'elvan', 'aveu', 'Je vais le dire');
+    expect(present(s, 'canopee-auberge', 'elvan')).toBe(false);
+    expect(talk(s, 'lisandre')).toBe('elvan-parti');
+    walk(s, 'canopee-nacelle');
+  });
+
+  it('« Le carnet de chansons » et « La caravane de midi » en dernier, par la caravane payante', () => {
+    expect(travel(s, 'gardebois')).toBeNull();
+    expect(talk(s, 'ilyane')).toBe('carnet');
+    say(s, 'ilyane', 'carnet', 'La dix-sept');
+    expect(talk(s, 'commis-caravane')).toBe('presse');
+    say(s, 'commis-caravane', 'presse', 'Je peux la porter');
+    say(s, 'convoyeuse', 'accueil', 'À Canopéa');
+    expect(gained(s, () => say(s, 'convoyeuse', 'canopee', 'Payer le voyage'))).toEqual({ xp: 0, fers: -15 });
+    say(s, 'convoyeuse', 'trajet-canopee', 'Monter');
+    expect(talk(s, 'veline')).toBe('caravane');
+    say(s, 'veline', 'caravane', 'La voici');
+    expect(s.quests['caravane-midi']).toBe('done');
+    console.log('commis', figurantLines(figurantsAt('gardebois').find((f) => f.dialogue === 'commis-caravane')!, s), s.flags['loups-caravane']);
+    say(s, 'chef-caravane', 'accueil', 'Pour Gardebois');
+    say(s, 'chef-caravane', 'gardebois', 'Montrer ta marque');
+    say(s, 'chef-caravane', 'trajet-gardebois', 'Descendre');
+  });
+
+  it('Gardebois en dernier : berceuse, herbes, caisse par le combat', () => {
+    walk(s, 'maison-lunelierre');
+    say(s, 'maelis', 'demande', 'Je vais t’aider');
+    walk(s, 'gardebois');
+    expect(talk(s, 'echo-berceuse')).toBe('chant');
+    say(s, 'echo-berceuse', 'chant', 'Noter les vers');
+    walk(s, 'maison-lunelierre');
+    expect(talk(s, 'nell')).toBe('chanson');
+    say(s, 'nell', 'chanson', 'Lui chanter');
+    walk(s, 'gardebois');
+    say(s, 'liane', 'demande', 'Où en trouver');
+    say(s, 'sauge-1', 'cueillir', 'La cueillir');
+    say(s, 'sauge-2', 'cueillir', 'La cueillir');
+    say(s, 'rocher-sauge', 'chercher', 'Suivre l’odeur');
+    expect(talk(s, 'liane')).toBe('rendu');
+    say(s, 'liane', 'rendu', 'Merci, Liane');
+    walk(s, 'reserve-cendrefer');
+    say(s, 'brann', 'demande', 'Je vais la chercher');
+    walk(s, 'gardebois');
+    expect(talk(s, 'caisse-egaree')).toBe('gardee');
+    say(s, 'caisse-egaree', 'gardee', 'Les affronter');
+    win(s, 'caisse-egaree');
+    expect(talk(s, 'caisse-egaree')).toBe('libre');
+    say(s, 'caisse-egaree', 'libre', 'Prendre la caisse');
+    walk(s, 'reserve-cendrefer');
+    say(s, 'brann', 'rendu', 'Merci, Brann');
+  });
+
+  it('Bilan de la variante', () => {
+    expect(QUESTS.filter((q) => s.quests[q.id] !== 'done').map((q) => q.id)).toEqual([]);
+    expect(questItems(s)).toEqual(['sauf-conduit']);
+    console.log('bilan B', { xp: s.character!.xp, fers: s.character!.fers }, ['gardebois', 'canopee', 'ironheart', 'compagnie-lisieres', 'nacelliers', 'travailleurs-rail', 'marches-cendres', 'archives-ferros'].map((p) => `${p}=${reputationScore(s, p)}`));
+    diag('fin B', s);
+  });
+});
+
+// ---------------------------------------------------------------------------------------------------------------
+// Variante C : « Le Rail des Cendres » avant « La Clé », la garde de nuit ratée, le silence vendu aux Marches.
+// ---------------------------------------------------------------------------------------------------------------
+
+/** Gardebois and « L’audience » the short way: the Récit of Corvan for Ingrid, Commandement for Garrik. */
+function prelude(s: GameState): void {
+  say(s, 'ilyane', 'accueil', 'Que se passe-t-il');
+  say(s, 'ilyane', 'trouble', 'D’où vient ce mal');
+  say(s, 'ilyane', 'cause', 'J’irai voir');
+  walk(s, 'gare-engloutie');
+  expect(talk(s, 'echo-dernier-train')).toBe('approche');
+  say(s, 'echo-dernier-train', 'approche', 'Entrer dans l’Écho');
+  expect(talk(s, 'ingrid')).toBe('accueil');
+  say(s, 'ingrid', 'accueil', 'Ce chantier');
+  say(s, 'ingrid', 'cause', 'Je connais l’histoire du savant Corvan');
+  walk(s, 'gardebois');
+  say(s, 'ilyane', 'resolu', 'Et maintenant');
+  travel(s, 'canopee');
+  walk(s, 'canopee-ramures');
+  walk(s, 'canopee-conseil');
+  say(s, 'huissier', 'lettre', 'Entrer');
+  say(s, 'kael-marchevent', 'audience', 'Ilyane');
+  say(s, 'kael-marchevent', 'lettre', 'Une foreuse');
+  say(s, 'kael-marchevent', 'recit-gare', 'Les papiers');
+  say(s, 'kael-marchevent', 'lyra', 'Et ce mal');
+  say(s, 'kael-marchevent', 'thalorin', 'Je peux chercher');
+  walk(s, 'canopee-conseil');
+  walk(s, 'canopee-ramures');
+  walk(s, 'canopee-nacelle');
+  expect(talk(s, 'veline')).toBe('descente-conseil');
+  say(s, 'veline', 'descente-conseil', 'Descends');
+  say(s, 'garrik', 'rencontre', 'Pose cette pioche');
+  say(s, 'garrik', 'intimide', 'Qui t’a payé');
+  say(s, 'garrik', 'aveu', 'Pars');
+  walk(s, 'canopee-nacelle');
+  walk(s, 'canopee-ramures');
+  walk(s, 'canopee-conseil');
+  say(s, 'huissier', 'retour', 'Entrer');
+  say(s, 'kael-marchevent', 'rapport', 'Des fouilleurs');
+  say(s, 'kael-marchevent', 'rapport-suite', 'Que va faire');
+  say(s, 'kael-marchevent', 'choix', 'Gardez le commerce');
+  say(s, 'kael-marchevent', 'fin-commerce', 'Et moi');
+  expect(s.quests.audience).toBe('done');
+  walk(s, 'canopee-conseil');
+  walk(s, 'canopee-ramures');
+  walk(s, 'canopee-nacelle');
+}
+
+describe('Variante : « Le Rail des Cendres » avant « La Clé de Rouille Bleue »', () => {
+  const s = createNewGame(testCharacter({}, { diplomacy: 2, command: 2 }));
+
+  it('Gardebois et l’audience par le chemin court', () => {
+    prelude(s);
+    expect(knowsRecit(s.character, 'savant-corvan')).toBe(true);
+  });
+
+  it('Le Rail commence d’abord ; Kaelis parle ; la Veilleuse ne parle plus des convois', () => {
+    expect(travel(s, 'ironheart')).toBeNull();
+    walk(s, 'ironheart-triage');
+    say(s, 'varka', 'accueil', 'Peur de quoi');
+    say(s, 'varka', 'convois', 'Je vais trouver');
+    walk(s, 'ironheart-forges');
+    expect(talk(s, 'veilleuse')).toBe('accueil');
+    expect(optionTexts(s, 'veilleuse', 'accueil')).toContain('Les convois du triage, qui partent seuls la nuit ?');
+    say(s, 'boulon', 'accueil-quete', 'Un certain Kaelis');
+    say(s, 'renfoncement', 'mur', 'Chercher le passage');
+    say(s, 'renfoncement', 'trouve', 'Descendre');
+    say(s, 'kaelis', 'accueil-garrik', 'Pourquoi certaines reliques');
+    walk(s, 'ironheart-forges');
+    expect(talk(s, 'veilleuse')).toBe('question-cle');
+    console.log('C veilleuse', optionTexts(s, 'veilleuse', 'question-cle'));
+    diag('C rail + kaelis', s);
+  });
+
+  it('La garde de nuit ratée, Joss convaincu, le silence vendu à Sorn', () => {
+    walk(s, 'ironheart-triage');
+    say(s, 'aiguillage', 'levier-quete', 'Attendre la nuit');
+    // The roll fails: « veille-rate », then run away.
+    choose(s, 'aiguillage', 'veille-rate', 'Fuir');
+    expect(present(s, 'ironheart-triage', 'pilleur-1')).toBe(true);
+    expect(talk(s, 'registre-departs')).toBe('registre');
+    expect(talk(s, 'joss')).toBe('soupcon');
+    say(s, 'joss', 'soupcon', 'Je ne suis pas du Bureau');
+    say(s, 'joss', 'avoue', 'Comment entrer');
+    say(s, 'tunnel-cendriere', 'guetteur', '« Levier ouvert. »');
+    say(s, 'tunnel-cendriere', 'passe', 'Entrer');
+    say(s, 'sorn', 'accueil', 'Combien');
+    expect(gained(s, () => say(s, 'sorn', 'marche', 'Marché conclu'))).toEqual({ xp: 30, fers: 80 });
+    expect(s.quests['rail-cendres']).toBe('done');
+    walk(s, 'ironheart-triage');
+    console.log('C pilleurs après la fin', present(s, 'ironheart-triage', 'pilleur-1'), talk(s, 'aiguillage'));
+    expect(talk(s, 'varka')).toBe('apres-marches');
+    expect(talk(s, 'joss')).toBe('apres');
+    walk(s, 'ironheart-forges');
+  });
+
+  it('La Clé ensuite : la Veilleuse la garde, étudiée d’abord', () => {
+    expect(talk(s, 'veilleuse')).toBe('question-cle');
+    say(s, 'veilleuse', 'question-cle', 'J’ai vu le dernier train');
+    expect(talk(s, 'veilleuse')).toBe('avec-cle');
+    say(s, 'veilleuse', 'avec-cle', 'L’étudier d’abord');
+    expect(gained(s, () => say(s, 'veilleuse', 'etude', 'Te la rendre'))).toEqual({ xp: 60, fers: 0 });
+    expect(s.quests['cle-rouille-bleue']).toBe('done');
+    expect(talk(s, 'veilleuse')).toBe('rendue-apres');
+    walk(s, 'ironheart-marche');
+    expect(talk(s, 'kaelis')).toBe('apres');
+    walk(s, 'ironheart-forges');
+  });
+
+  it('« Les Échos » : suivre l’Écho, garder l’oiseau de fer ; le train coûte plus cher', () => {
+    say(s, 'forge-eteinte', 'jour', 'Revenir à la nuit');
+    say(s, 'forge-eteinte', 'nuit', 'Ouvrir la trappe');
+    say(s, 'echo-promesse', 'promesse', 'L’écouter jusqu’au bout');
+    say(s, 'echo-promesse', 'choix', 'Le suivre');
+    expect(s.quests['echos-forge']).toBe('done');
+    walk(s, 'ironheart-forges');
+    expect(optionTexts(s, 'guichet-ouest', 'guichet')).toEqual(['Prendre un billet : les convois ne sont plus sûrs.', 'Pas aujourd’hui.'].map((t, i) => (i === 0 ? optionTexts(s, 'guichet-ouest', 'guichet')[0] : t)));
+    console.log('bilan C', questItems(s), ['ironheart', 'travailleurs-rail', 'marches-cendres', 'archives-ferros'].map((p) => `${p}=${reputationScore(s, p)}`));
+    diag('fin C', s);
+  });
+});

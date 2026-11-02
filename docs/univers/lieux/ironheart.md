@@ -30,7 +30,7 @@ Bleue », validée dans ses grandes lignes par Cyril le 2026-11-02). Canon : le 
   Mourant ; les Litanies du Marteau, « le travail est prière ». Noms durs et martelés (Markus, Petra, Voss, Dhoram…).
 - **Aucune gare d'Ironheart n'est décrite** ; la ligne de l'Ouest relie Ironheart aux ports en quatorze heures.
 
-## Ce qui est construit (propositions, détails à valider)
+## Ce qui est construit (détails nouveaux validés par Cyril le 2026-11-02)
 
 | Lieu | Contenu |
 |---|---|
@@ -40,7 +40,7 @@ Bleue », validée dans ses grandes lignes par Cyril le 2026-11-02). Canon : le 
 
 | **Maisons** | la Pension de la Bielle (Dorna Vissard : soupe et lit, 8 Fers), l'atelier Cendrefer (Hedda : armes et outils de Ferros), la maison Martelroux (Rika), les Archives Centrales (Noam) |
 
-### Personnages (propositions, à valider ; [NOTION] : repris du canon)
+### Personnages (validés par Cyril le 2026-11-02 ; [NOTION] : repris du canon)
 
 - **Boulon**, Ferrôme porteur à la gare de l'Ouest : il se souvient de chaque voyageur ; c'est lui qui lance la quête.
 - **Le patrouilleur à visière rouge** du funiculaire [NOTION, roman : les visières rouges] ; **la patrouilleuse** du

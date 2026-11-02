@@ -133,10 +133,10 @@ carte à créer.
 
 ## Ironheart : le chapitre 3
 
-### 7. La Clé de Rouille Bleue (histoire principale, chapitre 3) — **construite le 2026-11-02**
+### 7. La Clé de Rouille Bleue (histoire principale, chapitre 3) — **construite et validée le 2026-11-02**
 
-Lieux et personnages : `docs/univers/lieux/ironheart.md`. Tout ce qui suit est **proposé, à valider**, sauf les
-éléments marqués [NOTION].
+Lieux et personnages : `docs/univers/lieux/ironheart.md`. Les détails nouveaux sont **validés par Cyril le
+2026-11-02** ; les éléments marqués [NOTION] viennent du canon.
 
 - **Départ** : à la fin de « L'audience », Kael Marchevent envoie le héros à Ironheart ; la ville apparaît sur la carte
   du monde. À la gare de l'Ouest, **Boulon**, le Ferrôme porteur, se souvient d'un voyageur qui demandait la clé : il

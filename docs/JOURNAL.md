@@ -13,15 +13,14 @@
 - Moteur : conditions `item`, effet `takeItem`, objets de quête, `apparaitSi`, rencontres d'histoire, figurants à
   dialogue et à `reactions`, étapes de quête (`etapes`).
 
-## Chantier en cours : Ironheart, chapitre 3 (demande de Cyril, 2026-11-02)
+## Fait : Ironheart, chapitre 3 (en ligne le 2026-11-02, validé par Cyril)
 
-- **Construit sur la branche, pas encore en ligne** : Forges-Basses, Marché des Cendres, Manufactures-Moyennes,
-  « La Clé de Rouille Bleue » et ses trois fins (`docs/univers/lieux/ironheart.md`, `docs/univers/quetes.md`).
-- À faire valider par Cyril : les détails nouveaux (Boulon, gare de l'Ouest, Fonds Zéro, carnet du dernier train…).
+- Forges-Basses, Marché des Cendres, Manufactures-Moyennes, « La Clé de Rouille Bleue » et ses trois fins
+  (`docs/univers/lieux/ironheart.md`, `docs/univers/quetes.md`) ; les choix de Canopéa y comptent.
 
 ## Prochaine étape
 
-1. Mise en ligne d'Ironheart (accord de Cyril) ; puis Sept-Portes (chapitre 4) ou « Le Rail des Cendres ».
+1. « Le Rail des Cendres » (proposé à Codex, `AGENTS.md`) ; ensuite Sept-Portes (chapitre 4).
 
 ## Points ouverts
 

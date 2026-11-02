@@ -740,3 +740,5 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
 - Relecture : un héros à moins de 3 en Mémoire restait bloqué ; ajouté deux voies (acheter la réponse de Kaelis,
   25 Fers ; parler du Fonds Zéro à la Veilleuse). Les choix de Gardebois et de Canopéa comptent (Kaelis, Noam,
   Hedda, Rika), comme le demande `AGENTS.md`. 344 tests ; vérifié dans le navigateur.
+- Cyril : « Oui pour tout, mets en ligne » : détails nouveaux validés ; `AGENTS.md` dit à Codex que le chapitre 3 est
+  fait et lui propose « Le Rail des Cendres » ; `main` avancé sur la branche, déploiement lancé.

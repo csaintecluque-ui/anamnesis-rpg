@@ -9,10 +9,11 @@ direction artistique, logo de Cyril, méthode de travail). Ce fichier-ci n'ajout
 ## Démarrage
 
 1. `CLAUDE.md`, puis `docs/JOURNAL.md` (état, prochaine étape) et `docs/INDEX.md` (une ligne par document).
-2. Seulement ensuite, les documents utiles à la tâche. Chapitre en cours : Ironheart (chapitre 3,
-   « La Clé de Rouille Bleue ») ; histoire et suites attendues : `docs/univers/quetes.md` ; factions :
-   `docs/univers/factions.md` ; plan de la ville : `docs/univers/lieux/villes.md` ; gabarit d'une grande ville :
-   `docs/gdd/villes.md`.
+2. Seulement ensuite, les documents utiles à la tâche. **Ironheart et le chapitre 3 (« La Clé de Rouille Bleue ») sont
+   faits et en ligne** (`docs/univers/lieux/ironheart.md`) : ne pas les refaire, les compléter. Prochain chantier
+   proposé (accord de Cyril, 2026-11-02) : la quête secondaire « Le Rail des Cendres » à Ironheart. Histoire et suites
+   attendues : `docs/univers/quetes.md` ; factions : `docs/univers/factions.md` ; plan des villes :
+   `docs/univers/lieux/villes.md` ; gabarit d'une grande ville : `docs/gdd/villes.md`.
 
 ## Canon
 

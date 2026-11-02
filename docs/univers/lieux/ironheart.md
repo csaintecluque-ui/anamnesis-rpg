@@ -29,6 +29,13 @@ Bleue », validée dans ses grandes lignes par Cyril le 2026-11-02). Canon : le 
 - **Culture** : juron « Nom d'une gueuse ! » ; devises *Per Ferrum et Ignem*, *Labor Omnia Vincit* ; Kharos, le Titan
   Mourant ; les Litanies du Marteau, « le travail est prière ». Noms durs et martelés (Markus, Petra, Voss, Dhoram…).
 - **Aucune gare d'Ironheart n'est décrite** ; la ligne de l'Ouest relie Ironheart aux ports en quatorze heures.
+- **Les castes** (relu le 2026-11-02, roman II.3, III.4, III.7, IV.6, V.1) : les **Ouvriers** ; la **Classe
+  Technique** (chiffres bleus tatoués) ; le statut d'**Innovateur** ; le **contremaître** (insigne de bronze). On monte
+  par une Innovation validée par un **inspecteur de zone**, avec un **parrain de Classe Technique** (« vous transférez
+  sous ma responsabilité ») ; le nom s'affiche au registre du Puits Trois, puis un **convoi** emmène aux
+  Manufactures-Moyennes. « Un Ouvrier qui s'y risque [au Puits Un ou Deux], ça finit mal. » Ceux qui montent « ne vous
+  regardent plus pareil ». **Peines** : la cellule « le temps de vérifier » ; la mort pour trahison ; peines sévères
+  pour les drogues dures ; travaux forcés pour le sacrilège. La fiche nation ne parle pas de castes (zone floue 29).
 
 ## Ce qui est construit (détails nouveaux validés par Cyril le 2026-11-02)
 
@@ -69,3 +76,12 @@ Les quêtes sont détaillées dans `docs/univers/quetes.md` (chapitre 3 et « Le
 - **On tient des listes** (canon, roman) : le patrouilleur du funiculaire inscrit qui porte un cristal ; Dorna
   conseille de le cacher.
 - La Lueur d'un cristal ouvre aussi le renfoncement sans enseigne et éclaire l'enclume aux mains gravées.
+
+## La passe sombre (2026-11-02, `docs/gdd/passe-sombre.md`, **à valider**)
+
+- **Kerta Orvel** (fondeuse, dans la file du Puits Trois), **Tam Orvel** (son fils, riveteur, près du registre), **le
+  technicien Dask** (Classe Technique, Manufactures-Moyennes) : « Le registre du Puits Trois ».
+- Le panneau du Puits Trois : « Puits Un et Deux : castes supérieures. Tout Ouvrier qui s'y présente sera retenu. »
+- **La rouille de l'âme** : le patrouilleur du funiculaire signale les veines lumineuses d'un cristal forcé ; une nuit au
+  poste, ou vingt Fers dans son gant.
+- **Joss Brakel** peut mourir (les Marches) ou être livré au tribunal (le Bureau).

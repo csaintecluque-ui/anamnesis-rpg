@@ -887,3 +887,15 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   Corrigé en passant : les objets à tuile (le vieux champignon) se dessinaient avant d'apparaître. 510 tests ;
   vérifié sur téléphone.
 
+
+## 2026-11-02 (suite) : jalon 3, étape 5, la passe sombre
+
+- Cyril : « L'étape 4 est en cours, passe à la 5 » (les veillées se font dans une autre session). Canon relu dans le
+  Notion (agent, lecture seule) : castes de Ferros (roman II.3, III.4, III.7, IV.6, V.1), fiches Ferros et Verdantis,
+  « Règles fondamentales » (prix de la magie), « Les Treize Jours ». Trois nouvelles zones floues (29 à 31).
+- Construit (`docs/gdd/passe-sombre.md`) : les **marques du cristal** (forcer se joue au d20 ; les veines, le manque,
+  la peau de cristal, puis le cristal se fend ; Vanel les reprend contre un rang de Résonance ; la « rouille de l'âme »
+  au funiculaire) ; « **Le registre du Puits Trois** » (Kerta, Tam, Dask ; trois fins) ; **morts** : Pell (la
+  chaudière de la Gare), Joss (les Marches, ou le tribunal du Bureau) ; Elvan banni ; passants des trois villes
+  réécrits. Pas de nouvelle version de sauvegarde (`character.marques` facultatif), pour ne pas croiser l'étape 4.
+  528 tests ; vérifié sur PC et téléphone (Forges-Basses, dialogue de Kerta, inventaire avec trois marques).

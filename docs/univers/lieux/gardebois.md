@@ -28,3 +28,10 @@ Demande de Cyril : des habitations où entrer, plus de PNJ, des quêtes. PNJ pro
 Un commis de Ferros pressé, une lavandière, un garçon curieux, un vieux joueur de pipeau, et un client somnolent à
 l'Auberge de la Racine : une ou deux répliques chacun, sans quête, sauf le commis, qui donne « La caravane de midi »
 (`docs/gdd/figurants.md`).
+
+## La passe sombre (2026-11-02, `docs/gdd/passe-sombre.md`, **à valider**)
+
+- Passants : un commis de Ferros servi en dernier [NOTION : « immigrants de Ferros méfiés »] ; une voisine qui revit la
+  Chute et se jette au ruisseau ; le vieux joueur de pipeau et la chanson des enterrements ; un client qui boit pour ne
+  plus revoir la Chute. Maëlis : « Ce matin, elle m'a appelée madame. »
+- À la Gare, la chaudière ouverte en grand tue **Pell** ; Ingrid l'a enterré au bord du quai ; Ilyane s'en souvient.

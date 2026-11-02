@@ -90,3 +90,12 @@ Quête validée par Cyril (`docs/univers/quetes.md`). Textes : `docs/DIALOGUES.m
 - Le druide **Vanel** au pied du grand arbre du Bosquet des Échos (« Un prêt de la Terre »), **Tiven** à la Grande
   Nacelle, des cristaux de Vie au Comptoir de la Sève (Sévane, 250 Fers). Validé par Cyril.
 - La Lueur d'un cristal révèle aussi le sceau de cire dans le grenier des semences.
+
+## La passe sombre (2026-11-02, `docs/gdd/passe-sombre.md`, **à valider**)
+
+- Passants : les Jeunes-Pousses et leurs échelles de corde, les Citoyens-Arbres et leurs ascenseurs [NOTION] (« ce qui
+  tombe, la forêt le garde : les paniers, et les porteurs ») ; une pèlerine dont la mère « a choisi de partir »
+  [NOTION : euthanasie légale] ; les Nacelliers tombés.
+- Elvan Morelle dénoncé est **banni** (« ici, on n'enferme pas : on retire les racines ») ; le gardien du grenier, un
+  Jeune-Pousse, est soupçonné si le héros a volé et nie.
+- Vanel reprend les marques d'un cristal forcé, contre un rang de Résonance ; il enterre les éclats d'un cristal fendu.

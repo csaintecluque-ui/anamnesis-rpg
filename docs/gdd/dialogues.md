@@ -13,7 +13,7 @@ Moteur : `src/rules/dialogue.ts` ; écran : `DialogueScene`. Textes à relire : 
   - **argent** `fers` (un repas à l'auberge) : comme un test, l'option reste visible et grisée (« [5 Fers] ») ;
   - **état de l'histoire** `flag`, `notFlag`, `quest` (`none` / `active` / `done`), `recit` (`docs/gdd/memoire.md`),
     `item` (+ `count` : on porte cet objet), `moment` et `tousLes` (`docs/gdd/temps.md`), `cristal` (un cristal est
-    porté au cou, `docs/gdd/magie.md`) :
+    porté au cou, `docs/gdd/magie.md`), `marques` (+ `max` : les marques du cristal, `docs/gdd/passe-sombre.md`) :
     l'option est **masquée** tant que la condition est fausse.
   - **pouvoir** : une option qui a l'effet `lancer` affiche son coût (« [Lueur · 1 PR] ») et reste grisée sans le bon
     cristal au cou (« Il te faut porter un cristal de Vie. »).
@@ -23,7 +23,8 @@ Moteur : `src/rules/dialogue.ts` ; écran : `DialogueScene`. Textes à relire : 
   dialogue), `startCombat` (referme le dialogue et lance sur la carte un combat de `src/data/encounters.json`),
   `goTo` (+ `arrivee` facultative : referme le dialogue et mène à un autre lieu, par exemple derrière une porte qu'on
   vient de crocheter), `attendre`, `avancer`, `dormir` (`docs/gdd/temps.md`), `lancer` (un pouvoir du cristal porté :
-  PR dépensés, ou PV si l'on force) et `apprendre` (un rang de compétence) (`docs/gdd/magie.md`).
+  PR dépensés, ou PV si l'on force) et `apprendre` (un rang de compétence) (`docs/gdd/magie.md`) ; `effacerMarques` (un Druide Vert reprend les marques
+  du cristal, et un rang de Résonance avec elles, `docs/gdd/passe-sombre.md`).
   Les messages (« Nouvelle quête : … », « +25 points d'expérience », « Récit retenu : … ») s'affichent en haut du panneau.
 - **Jets de dé** (`roll` sur une option) : une action risquée (se cacher, saboter, crocheter) se joue au d20,
   selon `docs/gdd/competences.md` (d20 + mod. d'attribut + rang ≥ difficulté). L'option affiche sa chance de réussite

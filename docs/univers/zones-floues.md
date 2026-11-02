@@ -115,6 +115,20 @@ Ces décisions valent **pour le jeu**. Le dossier `docs/Lore/` reste inchangé.
 28. **Saisons et calendrier** : saisons « imprévisibles » (Règles) contre des fêtes calées sur solstices et équinoxes
     (Verdantis, climat équatorial) ; deux listes de fêtes de Verdantis. Crystallis : ville vivante (fiche) ou ruine
     hantée (Règles). Le JDR fait de Solarix et de la Communion deux nations (le Canon §3 : continent et nation).
+29. **Les castes de Ferros** (relu le 2026-11-02, pour la passe sombre) : le roman (II.3, IV.6) décrit des castes
+    (Ouvriers, Classe Technique, Innovateurs), des puits par caste et un registre des transferts ; la fiche nation ne
+    parle ni de castes ni de puits (« méritocratie industrielle, mobilité sociale encouragée »). Le roman dit aussi
+    « Forges-Hautes » (IV.6) là où le Canon dit « Manufactures-Hautes », et place le tatouage de la caste Technique
+    sur la tempe (IV.6) ou au poignet (V.1). **Le jeu suit le roman et la page Canon** (castes, Manufactures-Hautes,
+    poignet) : à confirmer.
+30. **La justice de Verdantis** : « jamais eu besoin de prisons » et le dissident « soigné » sans durée maximale
+    (« Les Treize Jours ») contre dix ans de prison pour un arbre centenaire coupé et la perpétuité (fiche nation) ; la
+    fiche prévoit aussi le bannissement (corruption, trois violations). **Le jeu bannit Elvan** et ne montre pas de
+    prison : à confirmer.
+31. **Fiche Verdantis restée sur l'ancien canon** : « Arbre-Mère Sylvéa » (au lieu de l'Arbre Mémoire), la langue
+    « Sylvain » (au lieu du verdani), des elfes « humains mutés » (« Le Premier Consentement » : les buveurs de la
+    Sève) ; un arbre coupé est remplacé par deux (« La Sève Éternelle ») ou par dix (fiche). Les Métallides, humains à
+    exosquelette de métal vivant, face à l'hybridation homme-machine punie de mort (Canon §6). Le jeu n'en dit rien.
 
 ## Réponses de Cyril (2026-11-02, « Oui pour tout »)
 

@@ -17,7 +17,7 @@
 1. **Le Notion fait foi** (décision de Cyril, 2026-11-02) : règle du projet, synthèse, noms et Canopéa alignés
    (Coralia, Khrysos, Sept-Portes, Bosquet des Échos, Rite du Retour). Factions reprises d'ANAMNESIS ENGINE
    (`docs/univers/factions.md`) ; histoire « Les voies endormies » et 6 quêtes (`docs/univers/quetes.md`) : validées.
-2. Fait le 2026-11-02 : « Les lettres de Malo » et le Sol des Racines (`docs/univers/lieux/canopee.md`).
+2. Fait et en ligne le 2026-11-02 : « Les lettres de Malo » et le Sol des Racines (`docs/univers/lieux/canopee.md`).
 3. Ensuite : « Le chant d'Anselme » (même carte), puis « L'audience », les factions, Ironheart.
 
 ## Points ouverts

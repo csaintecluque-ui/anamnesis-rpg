@@ -20,8 +20,8 @@
 
 ## Prochaine étape
 
-1. En ligne (2026-11-02) : passe de qualité, logo, pièces de Hedda, lisibilité sur téléphone. Sur la branche :
-   « Les Échos sous la Forge » (quête cachée, option A) : détails et mise en ligne à valider par Cyril.
+1. En ligne (2026-11-02) : passe de qualité, logo, pièces de Hedda, lisibilité sur téléphone, « Les Échos sous la
+   Forge » (quête cachée, validée). Prochaine étape : à proposer à Cyril.
 2. Codex : Sept-Portes (`AGENTS.md`). Notion : page « Anamnesis — le jeu », à tenir à jour à chaque mise en ligne.
 
 ## Points ouverts

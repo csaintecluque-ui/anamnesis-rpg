@@ -200,7 +200,7 @@ Le reste, proposé, est **validé par Cyril le 2026-11-02**.
 - **Les routes commerciales** : pour l'instant, par la réputation d'Ironheart (les prix de la ville) et ce que disent
   les cheminots ; **reporté** : un vrai effet sur les marchandises et le train.
 
-## 9. Les Échos sous la Forge (Ferros, quête cachée) — **construite le 2026-11-02 (option A de Cyril), détails à valider**
+## 9. Les Échos sous la Forge (Ferros, quête cachée) — **construite et validée le 2026-11-02 (option A de Cyril)**
 
 Canon [NOTION, Studio] : fiche vide (Idea, Hidden, Ferros) ; conflit « Des souvenirs ne devraient pas exister dans
 cette période de Ferros » ; choix : ignorer, suivre, archiver, détruire, confier à un proche ; conséquence « Débloque

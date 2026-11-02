@@ -791,3 +791,5 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
 - Construit : la forge froide (Forges-Basses), la galerie sous la forge (Hesk, trois Échos, enclume), cinq fins, deux
   Échos furieux, l'oiseau de fer, le Récit « On se retrouvera », les suites chez Noam, Hedda et Ilyane, un vieux
   forgeron. Test : aucun personnage du roman n'est nommé. 381 tests ; vérifié sur téléphone.
+- Cyril : « Oui pour tout, mets en ligne » : détails validés (Hesk, les cinq mains, « On se retrouvera », l'oiseau de
+  fer) ; `main` avancé ; page Notion mise à jour.

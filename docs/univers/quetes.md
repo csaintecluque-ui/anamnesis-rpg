@@ -246,7 +246,7 @@ Canopéa ») ; personnages et textes validés ensuite (« Oui je suis en phase �
   rang de Résonance (40 XP). Il parle du prix (fatigue, nez qui saigne, le sommeil rend tout), de la Lueur et de Ferros,
   où « on tient des listes ».
 
-## Les compagnons (jalon 3, étape 2 ; construites le 2026-11-02, **à valider**)
+## Les compagnons (jalon 3, étape 2 ; construites et validées le 2026-11-02)
 
 ### 11. Ce que Liane veut oublier
 

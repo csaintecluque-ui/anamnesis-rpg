@@ -1,4 +1,4 @@
-# Les compagnons (jalon 3, étape 2 ; construite le 2026-11-02, textes à valider)
+# Les compagnons (jalon 3, étape 2 ; construite le 2026-11-02, validée par Cyril : « Ok on est partie »)
 
 Plan : `docs/gdd/jalon-3.md`. Code : `src/rules/companions.ts`, `src/scenes/Party.ts` ; données :
 `src/data/companions.json` ; dialogues `compagnon-liane`, `compagnon-boulon`. Combat à plusieurs : `docs/gdd/combat.md`.
@@ -44,7 +44,7 @@ Plan : `docs/gdd/jalon-3.md`. Code : `src/rules/companions.ts`, `src/scenes/Part
 - **Ce qu'il aime** : garder les Échos et les mémoires (les archiver, les confier, suivre l'Écho). **Ce qu'il n'aime
   pas** : vendre la clé à Kaelis, frapper un Écho, voler.
 
-## À valider par Cyril
+## Validé par Cyril le 2026-11-02
 
 Les deux quêtes et leurs textes ; Saule, le frère de Liane, et sa mort au chantier de Brisefer ; le registre des
 Ferrômes aux Archives et le prix du rachat.

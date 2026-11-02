@@ -876,4 +876,4 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   Elvan, Kaelis, l'Écho de la promesse, Tiven. Liane (« Ce que Liane veut oublier » : oublier Saule avec le vieux
   Champignon-Mémoire, ou graver son nom au Bosquet) ; Boulon (« Le contrat de Boulon » : Noam, racheter, convaincre ou
   arracher la page). Sauvegarde v13. Parcours : les deux fins de chaque quête. 491 tests ; vérifié sur téléphone.
-
+- Cyril : « Ok on est partie » : compagnons validés ; suite : le Livre des Échos. Mise en ligne en attente d'un « mets en ligne » explicite.

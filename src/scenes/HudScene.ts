@@ -11,6 +11,8 @@ import { HAS_MOUSE } from '../ui/viewport';
 const TOAST_MS = 4000;
 /** Free band between the Menu button (left) and the Journal and Inventaire buttons (right). */
 const HEADER_MAX_WIDTH = HAS_MOUSE ? 600 : 470;
+/** Longest hero name shown in the status line before it is shortened. */
+const NAME_MAX = HAS_MOUSE ? 20 : 12;
 
 /** Finger-sized on touch screens; on PC a slim bar leaves the map most of the screen. */
 const LAYOUT = HAS_MOUSE
@@ -35,7 +37,7 @@ export class HudScene extends Phaser.Scene {
 
     const L = LAYOUT;
     // Interactive so that taps on the bar do not fall through to the map below.
-    this.add.rectangle(GAME_WIDTH / 2, L.barHeight / 2, GAME_WIDTH, L.barHeight, 0x1b1512, 0.75).setInteractive();
+    this.add.rectangle(GAME_WIDTH / 2, L.barHeight / 2, GAME_WIDTH, L.barHeight, 0x1b1512, 0.96).setInteractive();
     this.add
       .text(GAME_WIDTH / 2, L.titleY, data.locationName ?? '', {
         fontFamily: FONT_SERIF,
@@ -105,7 +107,9 @@ export class HudScene extends Phaser.Scene {
 
   private refreshStatus(): void {
     const hero = this.state.character!;
-    this.statusText.setText(`${hero.name} · PV ${hero.hp} / ${characterStats(hero).maxHp} · niveau ${hero.level} · ${hero.fers} Fers`);
+    // A long name is shortened so that PV and Fers always fit in the band (24 characters are allowed).
+    const name = hero.name.length > NAME_MAX ? `${hero.name.slice(0, NAME_MAX - 1).trimEnd()}…` : hero.name;
+    this.statusText.setText(`${name} · PV ${hero.hp} / ${characterStats(hero).maxHp} · niveau ${hero.level} · ${hero.fers} Fers`);
   }
 
   toast(message: string): void {

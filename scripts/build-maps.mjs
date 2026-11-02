@@ -270,8 +270,10 @@ function gardebois() {
   m.object('vers-gare', 'sortie', 27, 18, { cible: 'gare-engloutie', arrivee: 'entree-gare', libelle: 'Vers la Gare Engloutie' });
   m.object('ilyane', 'pnj', 5, 15);
   m.object('tobias', 'pnj', 14, 8);
-  // La convoyeuse de la Compagnie des Lisières : la caravane vers Canopéa et Ironheart.
+  // La convoyeuse de la Compagnie des Lisières : la caravane vers Canopéa et Ironheart. Les cases devant elle sont
+  // dégagées après coup (sans changer le tirage de la forêt, qui placerait autrement tous les arbres ailleurs).
   m.object('convoyeuse', 'pnj', 10, 3);
+  for (const [c, r] of [[11, 4], [12, 5], [11, 5], [12, 4], [10, 4], [11, 3]]) m.setObstacle(c, r, null);
   m.object('liane', 'pnj', 19, 12);
   m.object('panneau-gare', 'panneau', 26, 17, { texte: 'Vers les Lisières Cultivées et la Gare Engloutie.' });
   m.object('panneau-entree', 'panneau', 1, 3, { texte: 'Gardebois — Marché des Lisières.' });

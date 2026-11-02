@@ -17,6 +17,10 @@ const LAYOUT = HAS_MOUSE
   ? { panelTop: 60, titleY: 72, titleSize: 26, closeY: 92, closeWidth: 180, closeHeight: 44, closeFont: 20, statsY: 124, messageRight: GAME_WIDTH - MARGIN, rowTop: 162, rowHeight: 52, rowFont: 19, buttonWidth: 130, buttonHeight: 38, buttonFont: 17 }
   : { panelTop: 100, titleY: 122, titleSize: 28, closeY: 130, closeWidth: 220, closeHeight: 64, closeFont: 24, statsY: 172, messageRight: GAME_WIDTH - 260, rowTop: 214, rowHeight: 68, rowFont: 22, buttonWidth: 160, buttonHeight: 56, buttonFont: 20 };
 
+/** Rows that fit above the page buttons; a longer list (Hedda's stall, a full bag) is shown page by page. */
+const ROWS_PER_PAGE = Math.floor((GAME_HEIGHT - 80 - LAYOUT.rowTop) / LAYOUT.rowHeight) + 1;
+const PAGER_Y = GAME_HEIGHT - 34;
+
 const SLOT_NAMES: Record<Slot, string> = { mainDroite: 'main droite', mainGauche: 'main gauche', armure: 'porté' };
 
 /** Buy, sell, equip and use items — docs/gdd/inventaire.md. A stall lists its trader's catalogue; the inventory, what is carried. */
@@ -25,6 +29,7 @@ export class TradeScene extends Phaser.Scene {
   private npcId: string | undefined;
   private layer!: Phaser.GameObjects.Container;
   private message = '';
+  private page = 0;
 
   constructor() {
     super('Trade');
@@ -34,6 +39,7 @@ export class TradeScene extends Phaser.Scene {
     this.state = this.registry.get('game') as GameState;
     this.npcId = data.npcId;
     this.message = '';
+    this.page = 0;
 
     this.add.rectangle(0, 0, GAME_WIDTH, GAME_HEIGHT, COLORS.ink, 0.45).setOrigin(0, 0).setInteractive();
     const L = LAYOUT;
@@ -101,7 +107,24 @@ export class TradeScene extends Phaser.Scene {
 
     const rows = tradeItems(c, this.npcId);
     if (rows.length === 0) this.layer.add(this.text(MARGIN, LAYOUT.rowTop, 'Ton sac est vide.', LAYOUT.rowFont, CSS.muted));
-    rows.forEach((item, i) => this.drawRow(item, LAYOUT.rowTop + i * LAYOUT.rowHeight));
+    const pages = Math.max(1, Math.ceil(rows.length / ROWS_PER_PAGE));
+    this.page = Math.min(this.page, pages - 1);
+    rows
+      .slice(this.page * ROWS_PER_PAGE, (this.page + 1) * ROWS_PER_PAGE)
+      .forEach((item, i) => this.drawRow(item, LAYOUT.rowTop + i * LAYOUT.rowHeight));
+    if (pages > 1) this.drawPager(pages);
+  }
+
+  /** « Précédents » and « Suivants », and where we are, under the rows. */
+  private drawPager(pages: number): void {
+    const button = { width: LAYOUT.buttonWidth + 40, height: LAYOUT.buttonHeight, fontSize: LAYOUT.buttonFont };
+    const turn = (step: number) => {
+      this.page = (this.page + step + pages) % pages;
+      this.redraw();
+    };
+    this.layer.add(addTextButton(this, MARGIN + button.width / 2, PAGER_Y, '◀ Précédents', () => turn(-1), button).container);
+    this.layer.add(this.text(GAME_WIDTH / 2, PAGER_Y, `Page ${this.page + 1} / ${pages}`, LAYOUT.rowFont, CSS.muted, 0.5));
+    this.layer.add(addTextButton(this, GAME_WIDTH - MARGIN - button.width / 2, PAGER_Y, 'Suivants ▶', () => turn(1), button).container);
   }
 
   private equippedSlot(itemId: string): Slot | null {

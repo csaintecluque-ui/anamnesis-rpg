@@ -7,12 +7,14 @@ import type { GameState } from '../state/gameState';
 import type { MapScene } from './MapScene';
 import { DIGIT_KEYS, onKeys } from '../ui/keys';
 import { COLORS, CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
+import { HAS_MOUSE } from '../ui/viewport';
 
 const MARGIN = 60;
 /** Side of the speaker's portrait, at the top left of the panel; name and text move right of it. */
 const PORTRAIT = 150;
 const PORTRAIT_GAP = 24;
-const OPTION_MIN_HEIGHT = 62;
+/** Finger-sized on touch screens (≈ 42 px on a landscape phone), compact with a mouse. */
+const OPTION_MIN_HEIGHT = HAS_MOUSE ? 62 : 76;
 const OPTION_GAP = 8;
 const OPTIONS_BOTTOM = GAME_HEIGHT - 30;
 /** Backdrop over the map for night scenes (nodes with `night`). */

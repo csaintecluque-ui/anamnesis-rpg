@@ -11,6 +11,7 @@
 - Le code est écrit en TypeScript ; le dépôt GitHub `anamnesis-rpg` est public.
 - Les 7 attributs, les 12 compétences, la résolution au d20, les dons et l'origine Humain seule sont adoptés.
 - La mécanique de mémoire combine les pistes **A et B** ; la piste C sert de fil moral à la quête principale.
-- Le combat est non létal (public de 8 à 15 ans).
+- ~~Le combat est non létal (public de 8 à 15 ans).~~ Depuis le 2026-11-02 : dark fantasy pour adultes (18+),
+  violence réelle (`docs/univers/ton.md`).
 - La tranche verticale se déroule à Gardebois, avec la quête « Le Dernier Train ».
 - Le PC (Linux, Windows) est une cible principale, au même titre que le téléphone (`docs/gdd/interface.md`).

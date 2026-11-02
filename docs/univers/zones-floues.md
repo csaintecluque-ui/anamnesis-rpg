@@ -10,7 +10,7 @@ Ces décisions valent **pour le jeu**. Le dossier `docs/Lore/` reste inchangé.
 - **Point 2** : pour la tranche, Verdantis compte **des humains, des dryades et des Enfants des Surgeons**.
 - **Point 3** : les Gardiens de Mémoire forment **un ordre de conteurs voyageurs, sans pouvoir magique**.
 - **Point 4** : la référence pour les cinq lois est **l'étape 2** [E2].
-- **Point 19** : public de 8 à 15 ans. Les ennemis sont **mis hors de combat**, sans mort ni gore, et les contenus adultes des fiches nations n'apparaissent pas dans le jeu.
+- ~~**Point 19** : public de 8 à 15 ans. Les ennemis sont **mis hors de combat**, sans mort ni gore, et les contenus adultes des fiches nations n'apparaissent pas dans le jeu.~~ Remplacé le 2026-11-02 par une nouvelle décision de Cyril : **dark fantasy pour adultes (18+)** (`docs/univers/ton.md`) ; le point 20 est levé.
 - ~~Point 15 (2026-11-01) : Coralys, Crystallhaven, Ironheart~~ : remplacé par l'arbitrage du Notion ci-dessous.
 
 ## Tranché par le Notion de Cyril (« Canon — arbitrages et décisions », 3 août 2026 ; référence depuis le 2026-11-02)

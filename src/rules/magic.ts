@@ -29,7 +29,7 @@ export interface PowerDef {
 export const POWERS = powerData as PowerDef[];
 /** Every crystal shines: the Lueur comes with any of them. */
 export const LUEUR: PowerId = 'lueur';
-/** Each Point de Résonance missing is paid in PV: the nose bleeds (canon), nothing worse (public 8–15). */
+/** Each Point de Résonance missing is paid in PV: the nose bleeds (canon); the canon's lasting costs may come later. */
 export const OVERUSE_HP_PER_POINT = 3;
 
 export function findPower(id: string): PowerDef | undefined {

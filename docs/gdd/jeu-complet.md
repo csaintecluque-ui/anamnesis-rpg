@@ -1,4 +1,4 @@
-# Le jeu complet — proposition (2026-11-02, **à valider par Cyril**)
+# Le jeu complet — proposition du 2026-11-02, **validée par Cyril** (« Je suis en phase avec tes recommandations »)
 
 Demande de Cyril (2026-11-02) : « un jeu vraiment complet, avec les factions, les ennemis, une ligne directrice, avec
 quête principale, puis les quêtes annexes ; des possibilités à côté pour continuer à vouloir jouer en plus des quêtes.
@@ -16,7 +16,8 @@ décisions », Studio ANAMNESIS ENGINE : piliers, régions, factions, quêtes), 
   mauvaise, **pas de combat obligatoire** (toujours la parole, la ruse ou la fuite).
 - Garde-fous : l'origine des Surgeons reste **sans explication** (« le seul fait du monde qui n'ait jamais reçu
   d'explication », [canon]) ; les grandes révélations et les fins sont décidées par Cyril ; aucun personnage du roman,
-  aucun Écho familial nommé ; rien du Projet Réseau, des Eaux et du Rituel de Convergence ; public de 8 à 15 ans.
+  aucun Écho familial nommé ; rien du Projet Réseau, des Eaux et du Rituel de Convergence. **Ton** : dark fantasy
+  pour adultes (décision de Cyril, 2026-11-02, `docs/univers/ton.md`).
 
 ## 1. La ligne directrice : « Les voies endormies » (quête principale)
 
@@ -134,3 +135,12 @@ rivalités (monter haut chez l'une ferme le sommet de l'autre) ; elles pèsent s
    veillées, ruines et contrats) ?
 4. Les compagnons : on en tire parmi les personnages déjà là (Liane l'herboriste, Boulon le Ferrôme…) ou on en
    invente de nouveaux, un par région ?
+
+## Réponses de Cyril (2026-11-02)
+
+« Pour ce qui est des histoires, j'aime bien le côté image FANTASY mais dans un univers sombre plus de 18 ans. Je suis
+en phase avec tes recommandations. » Donc : ligne directrice validée ; chapitres 5 à 10 dans l'ordre que le joueur
+veut ; toutes les activités, en commençant par les compagnons, le Livre des Échos et les veillées, puis les ruines et
+les contrats ; compagnons : deux déjà connus pour commencer (Liane, Boulon), puis un nouveau par pays. Ton : dark
+fantasy pour adultes. Suite : `docs/gdd/jalon-3.md`.
+

@@ -1,0 +1,20 @@
+# Jalon 3 : le cœur du jeu complet (validé par Cyril le 2026-11-02)
+
+Plan d'ensemble : `docs/gdd/jeu-complet.md`. Ton : dark fantasy pour adultes (`docs/univers/ton.md`). Codex fait
+Sept-Portes en parallèle (`AGENTS.md`). Chaque étape : tests, vérification sur PC et téléphone, puis mise en ligne
+quand Cyril le dit. Tout s'essaie à Gardebois, Canopéa et Ironheart, qu'on enrichit au passage.
+
+| Étape | Contenu | État |
+|---|---|---|
+| 1. Le combat, pour adultes et à plusieurs | la mort est réelle (les ennemis meurent, fuient ou se rendent ; le héros vaincu meurt : on recharge, avec une sauvegarde automatique à chaque lieu) ; plusieurs héros dans l'arène (les compagnons, joués à tour de rôle) ; ennemis variés (tir, soin, protection, essaims) ; effets (brûlure, saignement, ralenti, étourdi) ; boss à phases ; butin ; **bestiaire** dans le journal ; avertissement « Contenu pour adultes » à l'écran titre | à faire |
+| 2. Les deux premiers compagnons | **Liane Sève-Claire** (herboriste de Gardebois) et **Boulon** (le Ferrôme de la gare d'Ironheart) : les recruter, leurs mots en route, leur avis sur nos choix, leur quête personnelle ; ils peuvent partir si on les déçoit | à faire |
+| 3. Le Livre des Échos | une douzaine d'Échos cachés (Gardebois, Canopéa, Ironheart, les routes ; certains la nuit seulement) ; le danger de vouloir les revivre [canon] ; un onglet du journal | à faire |
+| 4. Les veillées du conteur | le soir, à l'auberge, raconter un Récit à un public qui a ses goûts : Fers, réputation, rumeurs qui ouvrent des secrets | à faire |
+| 5. La passe sombre | réécrire Gardebois, Canopéa et Ironheart dans le ton adulte : morts possibles, conséquences, castes du Puits Trois, prix de la magie | à faire |
+| 6. Les ruines et les contrats | des voies endormies à explorer sur la carte du monde, tirées d'une réserve de plans ; un tableau de contrats dans chaque relais des Gardiens | à faire |
+| 7. Les factions et l'artisanat | rangs et quêtes d'adhésion des six factions existantes ; la forge d'Ironheart et les herbes de Canopéa | à faire |
+
+## À confirmer par Cyril
+
+- Les limites du ton : sexualité suggérée, jamais explicite ; violence réelle mais pas de torture complaisante.
+- La mort du héros : vraie mort et rechargement (recommandé), ou « on te ramène » comme aujourd'hui.

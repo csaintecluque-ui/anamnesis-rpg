@@ -859,4 +859,7 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   fou ». Relu : la page « Canon — arbitrages et décisions », le Studio (piliers, régions, factions, quêtes, décisions).
   Proposition écrite : `docs/gdd/jeu-complet.md` (les voies endormies, factions, ennemis, quêtes, douze activités,
   feuille de route), à valider.
+- Cyril : « j'aime bien le côté image FANTASY mais dans un univers sombre plus de 18 ans. Je suis en phase avec tes
+  recommandations. » Jeu complet validé ; ton du jeu : dark fantasy pour adultes (remplace le point 19, public 8–15) ;
+  charte dans `docs/univers/ton.md`, CLAUDE.md mis à jour ; plan du jalon 3 (`docs/gdd/jalon-3.md`).
 

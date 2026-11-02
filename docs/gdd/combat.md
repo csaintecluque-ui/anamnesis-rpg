@@ -13,7 +13,8 @@ Règles : `src/rules/combat.ts` ; écran : `src/scenes/CombatScene.ts` ; donnée
 - **Magie** (`docs/gdd/magie.md`) : avec un cristal au cou, un bouton en haut à droite lance son pouvoir : Flammes
   forgées (une attaque à 5 cases, 3 PA et 2 PR) ou Guérison naturelle (3 PA et 2 PR, PV rendus aussitôt). Les PV
   rendus en combat restent après le combat.
-- **Ton** : public de 8 à 15 ans [E1].
+- **Ton** : à l'origine, public de 8 à 15 ans [E1] ; depuis le 2026-11-02, dark fantasy pour adultes
+  (`docs/univers/ton.md`) : ce qui suit sera revu au jalon 3 (`docs/gdd/jalon-3.md`).
   - Les ennemis sont **mis hors de combat** : les créatures fuient, les golems s'éteignent, les humains se rendent.
   - Pas de gore. Le combat est toujours évitable dans la quête principale.
 

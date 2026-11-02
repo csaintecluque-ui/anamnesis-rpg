@@ -12,7 +12,8 @@ Il valide le lore, les noms, l'histoire et le ressenti de jeu. Toi, tu proposes 
   conséquences durables des choix, combat à points d'action.
 - **Aucune reprise** des noms, textes, graphismes, sons ou marques de Fallout ou d'un autre jeu.
   Tout est original et appartient à l'univers d'Anamnesis.
-- Univers : celui du roman de Cyril, *Anamnesis* (fantasy). Ton : lumineux, poétique, émotionnel.
+- Univers : celui du roman de Cyril, *Anamnesis* (fantasy). Ton du jeu (décision de Cyril, 2026-11-02) : **dark fantasy
+  pour adultes (18+)**, sombre, poétique, émotionnel, jamais gratuit ni nihiliste (`docs/univers/ton.md`).
   Le thème central est la mémoire (l'anamnèse : le ressouvenir).
 - **Le Notion « ANAMNESIS » de Cyril fait foi** (décision du 2026-11-02), en commençant par sa page
   « Canon — arbitrages et décisions » (le roman *Chroniques Familiales* y est la référence). On ne le contredit

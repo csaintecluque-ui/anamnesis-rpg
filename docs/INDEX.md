@@ -31,7 +31,7 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `personnages/contemporains.md` : dirigeants et figures de l'AN 3000.
 - `personnages/pnj.md` : héros, Ilyane, Tobias, Ingrid, ennemis (validés).
 - `chronologie.md` : dates de référence.
-- `ton.md` : ton, public 8–15 ans, sonorités des noms par nation.
+- `ton.md` : ton du corpus, ton du jeu (dark fantasy pour adultes, charte), sonorités des noms par nation.
 - `zones-floues.md` : 28 contradictions du canon, décisions de Cyril.
 - `propositions.md` : propositions sans autre fichier (quête, attribut Mémoire), propositions rejetées.
 
@@ -55,7 +55,8 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `temps.md` : le temps (calendrier du canon, matin/midi/soir/nuit), la nuit, les auberges ; validé.
 - `magie.md` : la magie (cristaux au cou, compétence Résonance, PR, trois pouvoirs, « Un prêt de la Terre ») ; validée.
 - `jalon-2.md` : le jalon 2 (phase 2, animation, avatars, contenu) ; fait et en ligne.
-- `jeu-complet.md` : le jeu complet (ligne directrice, factions, ennemis, quêtes, activités, feuille de route) ; à valider.
+- `jeu-complet.md` : le jeu complet (ligne directrice, factions, ennemis, quêtes, activités, feuille de route) ; validé.
+- `jalon-3.md` : le jalon 3, le cœur du jeu complet (combat, compagnons, Échos, veillées, ruines, contrats…) ; en cours.
 - `villes.md` : gabarit d'une grande ville, systèmes communs, mécanique par ville, coûts, ordre ; validé.
 - `carte-du-monde.md` : carte du monde, voyages, rencontres aléatoires en route ; validé.
 - `figurants.md` : passants qui marchent et habitants à une ou deux répliques ; validé.

@@ -8,6 +8,8 @@ Fiche unique, reprise dans **tous** les prompts d'images (`CLAUDE.md` §5). Plan
 - **Peinture numérique douce et lumineuse** : formes simples et lisibles en petit, contours légèrement marqués,
   lumière chaude, couleurs saturées sans être criardes. Un monde dangereux mais beau, jamais sombre ni sale.
 - **Public 8–15 ans** : pas de sang, pas de blessure visible, des créatures impressionnantes mais pas effrayantes.
+  **À revoir avant la mise en beauté** : depuis le 2026-11-02, le jeu est une dark fantasy pour adultes (« le côté
+  image fantasy, mais dans un univers sombre », `docs/univers/ton.md`).
 - **Vue isométrique 2:1** pour la carte et le combat (losange deux fois plus large que haut, comme les tuiles actuelles).
   Lumière venant du **haut à gauche**, ombres douces vers le bas à droite, sur toutes les images.
 - **Originalité** : aucun nom d'artiste, de studio, de film ou de jeu dans les prompts ; on décrit le rendu voulu.

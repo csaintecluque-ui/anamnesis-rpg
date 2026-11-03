@@ -5,6 +5,7 @@ import { ATTRIBUTES, SKILLS, attributeModifier, skillScoreOf, type AttributeId, 
 import { resolveCheck, rollD20, successChance, type Rng } from './checks';
 import { characterStats } from './character';
 import { ENCOUNTERS, GOLEM_FIGHT, VOIE_FIGHT } from './combat';
+import { dreamFragment } from './heros';
 import { addItem, findItem, ownedCount, removeItem } from './inventory';
 import { collectedEchos, easeEmprise, empriseMalus, ECHOS, fadeSouvenirs, relive, souvenirBonus } from './echos';
 import { gardienNotices, gardienRank, rankNotices } from './factions';
@@ -438,6 +439,9 @@ export function applyEffects(state: GameState, effects: Effect[] = []): string[]
       easeEmprise(state);
       fadeSouvenirs(state.flags);
       notices.push(`Tes forces sont revenues. ${ITS_MOMENT[momentOf(state.time)]} Nous sommes ${formatDate(state.time)}.`);
+      // A fragment of the hero's own past may come back in the night (piste A ; étude, F1).
+      const reve = dreamFragment(state);
+      if (reve) notices.push(reve);
     } else if ('lancer' in effect) {
       if (state.character) notices.push(...(castOutsideCombat(state.character, effect.lancer) ?? []));
     } else if ('rejoindre' in effect) {

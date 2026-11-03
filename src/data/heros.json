@@ -1,0 +1,35 @@
+{
+  "page": "Ce qui n’est pas à moi",
+  "enfant": {
+    "flag": "heros-enfant",
+    "titre": "L’enfant à la fenêtre",
+    "texte": "Dans l’Écho du dernier train, un enfant s’est retourné vers moi, et vers personne d’autre : « Tu es venu·e. Les autres n’ont pas entendu. »"
+  },
+  "fragments": [
+    {
+      "id": "vapeur",
+      "flag": "heros-fragment-vapeur",
+      "chapitre": 2,
+      "titre": "La vapeur",
+      "texte": "Une odeur de vapeur, chaude, un peu sucrée. Celle d’un quai, l’hiver. Je ne sais pas d’où je la connais.",
+      "reve": "Cette nuit, tu rêves d’une odeur de vapeur, chaude et sucrée. Au réveil, elle est encore dans ta gorge."
+    },
+    {
+      "id": "main",
+      "flag": "heros-fragment-main",
+      "chapitre": 3,
+      "titre": "La main",
+      "texte": "Une petite main contre une vitre, les doigts écartés. Quand j’y pense, la mienne se ferme sur rien.",
+      "reve": "Cette nuit, une main tient la tienne, puis la lâche. Tu te réveilles le poing serré."
+    },
+    {
+      "id": "voix",
+      "flag": "heros-fragment-voix",
+      "chapitre": 4,
+      "titre": "La voix qui compte",
+      "texte": "Une voix d’enfant compte jusqu’à sept, et recommence. Elle compte pour moi.",
+      "reve": "Cette nuit, une voix d’enfant compte jusqu’à sept, et recommence. Tu te réveilles en comptant avec elle."
+    }
+  ],
+  "manque": "Il manque encore quelque chose. Un quai, peut-être."
+}

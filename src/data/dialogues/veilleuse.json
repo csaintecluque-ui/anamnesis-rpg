@@ -107,8 +107,33 @@
           "next": "ecoute"
         },
         {
+          "text": "Dans la Combe, des hommes ont entendu ton train, avant la Chute.",
+          "next": "combe",
+          "requires": [
+            {
+              "flag": "echo-voie-tunnel-combe"
+            },
+            {
+              "quest": "cle-rouille-bleue",
+              "status": "active"
+            },
+            {
+              "notFlag": "cle-obtenue"
+            }
+          ]
+        },
+        {
           "text": "Merci de me l’avoir dit.",
           "next": "fin"
+        }
+      ]
+    },
+    "combe": {
+      "text": "La Veilleuse cesse de compter. — Avant la Chute ? Alors il roulait déjà, et d’autres l’entendaient. Je ne suis pas folle, ou nous sommes plusieurs à l’être. Elle ouvre la main sur la clé.",
+      "options": [
+        {
+          "text": "Prendre la clé.",
+          "next": "don"
         }
       ]
     },

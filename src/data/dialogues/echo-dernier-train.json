@@ -72,7 +72,31 @@
       ],
       "options": [
         {
+          "text": "Rester encore un instant.",
+          "next": "enfant",
+          "requires": [
+            {
+              "notFlag": "heros-enfant"
+            }
+          ]
+        },
+        {
           "text": "…",
+          "next": "fin"
+        }
+      ]
+    },
+    "enfant": {
+      "illustration": "echo-dernier-train",
+      "text": "À une fenêtre du dernier wagon, un enfant se retourne. Il ne regarde ni le savant ni le quai : il te regarde, toi. Ses lèvres bougent. « Tu es venu·e. Les autres n’ont pas entendu. » Puis la vitre se vide.",
+      "effects": [
+        {
+          "setFlag": "heros-enfant"
+        }
+      ],
+      "options": [
+        {
+          "text": "Rester là, sans comprendre.",
           "next": "fin"
         }
       ]

@@ -142,12 +142,48 @@
           "next": "demande"
         },
         {
+          "text": "Le dernier train tirait un fourgon plombé. Personne ne l’a écrit : je l’ai vu passer.",
+          "next": "fourgon",
+          "requires": [
+            {
+              "flag": "echo-voie-halte-fougeres"
+            }
+          ]
+        },
+        {
+          "text": "Voie sept. Le nom commençait par Alta.",
+          "next": "alta",
+          "requires": [
+            {
+              "flag": "echo-voie-depot-sept"
+            }
+          ]
+        },
+        {
           "text": "Une main contre une main : déposer une de mes histoires au Registre.",
           "next": "edda-demande",
           "raconter": {
             "donne": true,
             "neutre": "depot"
           }
+        }
+      ]
+    },
+    "fourgon": {
+      "text": "Ambroise cesse d’écrire. — Un fourgon plombé. Cela ne se lit dans aucun livre d’ici : c’était sur un quai. Vous ne citez pas ce que vous avez vu.",
+      "options": [
+        {
+          "text": "Alors, cette page ?",
+          "next": "convaincu"
+        }
+      ]
+    },
+    "alta": {
+      "text": "Ambroise pose sa plume, très lentement. — Ce mot-là n’est sorti du Fonds Muet pour personne. Si vous l’avez, c’est qu’un mur vous l’a dit, et les murs ne citent pas.",
+      "options": [
+        {
+          "text": "Alors, cette page ?",
+          "next": "convaincu"
         }
       ]
     },

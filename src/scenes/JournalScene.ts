@@ -5,6 +5,9 @@ import { ECHOS, TYPE_LABELS, collectedEchos, empriseLabel } from '../rules/echos
 import { findLocation } from '../state/gameState';
 import { journalQuests, journalRecits, journalReputation } from '../rules/journal';
 import { NORMAL_DIFFICULTY, characterFiche } from '../rules/fiche';
+import { herosPage } from '../rules/heros';
+import { HISTOIRES } from '../rules/voies';
+import { findPlace } from '../rules/world';
 import { gardienRank, gardienRankName, nextGardienRank } from '../rules/factions';
 import { heardRumeurs } from '../rules/veillees';
 import { fontPx } from '../settings';
@@ -307,10 +310,40 @@ export class JournalScene extends Phaser.Scene {
   /** Le Livre des Échos (docs/gdd/echos.md) : the Échos gathered, and the emprise of those relived. */
   private drawEchos(): void {
     const echos = collectedEchos(this.state);
+    // First, the hero's own page (piste A ; étude, F1), then the Échos of the story heard at the end of the lines.
+    const page = herosPage(this.state);
+    const histoires = Object.entries(HISTOIRES).filter(([, h]) => this.state.flags[h.flag]);
+    const extra = (page ? 1 : 0) + histoires.length;
     this.drawList(
-      echos.map((e) => ({ text: e.titre, muted: false })),
-      (i) => {
-        const e = echos[i];
+      [
+        ...(page ? [{ text: page.titre, muted: false }] : []),
+        ...histoires.map(([, h]) => ({ text: h.titre, muted: false })),
+        ...echos.map((e) => ({ text: e.titre, muted: false })),
+      ],
+      (index) => {
+        if (page && index === 0) {
+          let y = this.text(DETAIL_X, LAYOUT.listTop, page.titre, 30, CSS.copper, DETAIL_WIDTH).y + 50;
+          for (const l of page.lignes) {
+            // What has not come back yet keeps its name too: a dash, nothing more.
+            if (!l.texte) {
+              y = this.text(DETAIL_X, y, '—', 20, CSS.muted).y + 40;
+              continue;
+            }
+            const title = this.text(DETAIL_X, y, l.titre, 20, CSS.copper, DETAIL_WIDTH);
+            const body = this.text(DETAIL_X, title.y + title.height + 2, l.texte, 20, CSS.parchment, DETAIL_WIDTH);
+            y = body.y + body.height + 12;
+          }
+          if (page.manque) this.text(DETAIL_X, y + 4, page.manque, 18, CSS.muted, DETAIL_WIDTH);
+          return;
+        }
+        if (index < extra) {
+          const [site, h] = histoires[index - (page ? 1 : 0)];
+          const title = this.text(DETAIL_X, LAYOUT.listTop, h.titre, 30, CSS.copper, DETAIL_WIDTH);
+          const place = this.text(DETAIL_X, title.y + title.height + 6, `${findPlace(site)?.name ?? site}, au terminus · Écho de l’histoire`, 20, CSS.copper, DETAIL_WIDTH);
+          this.text(DETAIL_X, place.y + place.height + 18, `${h.scene} ${h.suite}`, 22, CSS.parchment, DETAIL_WIDTH);
+          return;
+        }
+        const e = echos[index - extra];
         const title = this.text(DETAIL_X, LAYOUT.listTop, e.titre, 30, CSS.copper, DETAIL_WIDTH);
         const where = `${findLocation(e.lieu)?.name ?? e.lieu}${e.moment === 'nuit' ? ', la nuit' : ''} · ${TYPE_LABELS[e.type]}`;
         const place = this.text(DETAIL_X, title.y + title.height + 6, where, 20, CSS.copper, DETAIL_WIDTH);

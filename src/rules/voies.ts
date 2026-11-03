@@ -3,6 +3,7 @@ import { isWalkable, tileKey, type GameMap, type MapObject } from '../engine/til
 import type { GameState, VoieState } from '../state/gameState';
 import type { Rng } from './checks';
 import { VOIE_FIGHT, findEnemy } from './combat';
+import { findFragment } from './heros';
 import { applyEffects, performRoll, type Dialogue, type DialogueOption, type Effect } from './dialogue';
 import { findItem, ownedCount } from './inventory';
 import { advance } from './time';
@@ -25,9 +26,31 @@ interface VoieData {
   pieges: { id: string; repere: string; touche: string }[];
   /** Things a quest sends the hero to fetch on a given level (the adhesion quests, docs/gdd/factions.md). */
   quetes: { quest: string; item: string; flag: string; site: string; depth: number }[];
+  /** An Écho of the story at the terminus of each line, by site (validated by Cyril, 2026-11-03). */
+  histoires: Record<string, HistoireDef>;
 }
 
+/**
+ * Les Échos du fond des voies (étude du 2026-11-03, « un jeu plus long » ; docs/univers/lieux/voies-endormies.md) :
+ * a moment of the story, fixed, at the terminus; heard to the end, it opens an answer in a key scene of the story,
+ * and the hero alone notices a detail that is his (a fragment of his past, src/rules/heros.ts).
+ */
+export interface HistoireDef {
+  titre: string;
+  flag: string;
+  /** The fragment of the hero's past it brings back (src/data/heros.json). */
+  fragment: string;
+  xp: number;
+  scene: string;
+  suite: string;
+  detail: string;
+}
+
+
 const DATA = voieData as VoieData;
+
+export const HISTOIRES = DATA.histoires;
+export const HISTOIRE_ID = 'voie-histoire';
 
 /** How many levels a line goes down: the last one is the terminus. */
 export const VOIE_DEPTH = DATA.profondeur;
@@ -182,7 +205,7 @@ function groupCells(map: GameMap, spot: { col: number; row: number }, count: num
 }
 
 /** The level the hero stands in: its plan, and what this visit's draw put on it. */
-export function voieLevel(state: Pick<GameState, 'voie' | 'contrats' | 'character' | 'quests' | 'voiesFaites'>, map: GameMap): VoieLevel {
+export function voieLevel(state: Pick<GameState, 'voie' | 'contrats' | 'character' | 'quests' | 'voiesFaites' | 'flags'>, map: GameMap): VoieLevel {
   const voie = state.voie!;
   const rng = seededRng(voie.seed * 97 + voie.depth * 13 + 7);
   const tier = tierOf(voie);
@@ -260,6 +283,12 @@ export function voieLevel(state: Pick<GameState, 'voie' | 'contrats' | 'characte
   }
 
   if (!terminus) objects.push({ name: 'voie-descente', type: 'descente', ...at.get('descente')!, properties: { tuile: 'trou-fouille' } });
+  // The Écho of the story, at the terminus, where the descent would be, until heard to the end.
+  const histoire = terminus ? HISTOIRES[site] : undefined;
+  if (histoire && !state.flags?.[histoire.flag]) {
+    objects.push({ name: HISTOIRE_ID, type: 'objet', ...at.get('descente')!, properties: { tuile: 'echo', disparaitSi: histoire.flag } });
+    dialogues[HISTOIRE_ID] = histoireDialogue(histoire);
+  }
   return { plan: voiePlan(voie), title: voieTitle(voie), tier, terminus, objects, dialogues };
 }
 
@@ -358,6 +387,26 @@ function groupDialogue(group: string, enemies: string[], tier: number, yieldShar
             },
           }
         : {}),
+    },
+  };
+}
+
+/** The Écho of the story: the scene, its end, then what the hero alone notices (a fragment of his past). */
+function histoireDialogue(h: HistoireDef): Dialogue {
+  return {
+    id: HISTOIRE_ID,
+    speaker: 'voie-echo',
+    entries: [{ node: 'scene' }],
+    nodes: {
+      scene: {
+        text: h.scene,
+        options: [
+          { text: 'Écouter jusqu’au bout.', next: 'suite' },
+          { text: 'Partir.', next: 'fin' },
+        ],
+      },
+      suite: { text: h.suite, effects: [{ setFlag: h.flag }, { giveXp: h.xp }], options: [{ text: 'Rester encore un instant.', next: 'detail' }] },
+      detail: { text: h.detail, effects: [{ setFlag: findFragment(h.fragment)?.flag ?? h.fragment }], options: [{ text: 'Partir.', next: 'fin' }] },
     },
   };
 }

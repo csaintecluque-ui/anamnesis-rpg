@@ -227,7 +227,21 @@ _Effet : retient « registre-lu »._
 > — Il y a trois jours. Une demande de consultation, au nom d’Edda Varn. Refusée. Nous ne motivons pas les refus.
 
 - « Et si c’est moi qui la demande ? » → demande
+- _(si repère « echo-voie-halte-fougeres »)_ « Le dernier train tirait un fourgon plombé. Personne ne l’a écrit : je l’ai vu passer. » → fourgon
+- _(si repère « echo-voie-depot-sept »)_ « Voie sept. Le nom commençait par Alta. » → alta
 - « Une main contre une main : déposer une de mes histoires au Registre. » → edda-demande 📖 donner un Récit : autres → depot
+
+### fourgon
+
+> Ambroise cesse d’écrire. — Un fourgon plombé. Cela ne se lit dans aucun livre d’ici : c’était sur un quai. Vous ne citez pas ce que vous avez vu.
+
+- « Alors, cette page ? » → convaincu
+
+### alta
+
+> Ambroise pose sa plume, très lentement. — Ce mot-là n’est sorti du Fonds Muet pour personne. Si vous l’avez, c’est qu’un mur vous l’a dit, et les murs ne citent pas.
+
+- « Alors, cette page ? » → convaincu
 
 ### demande
 
@@ -1415,7 +1429,16 @@ _Effet : retient le Récit « Le savant du dernier quai »._
 
 > Un instant, tu es sur ce quai disparu. Une voix te revient, celle d’un savant qu’on emmenait loin du danger : « Dis-leur que même réussir peut tout détruire. » Puis l’Écho se dissipe, apaisé pour un temps.
 
+- _(sans repère « heros-enfant »)_ « Rester encore un instant. » → enfant
 - « … » → **fin**
+
+### enfant
+
+_Effet : retient « heros-enfant »._
+
+> À une fenêtre du dernier wagon, un enfant se retourne. Il ne regarde ni le savant ni le quai : il te regarde, toi. Ses lèvres bougent. « Tu es venu·e. Les autres n’ont pas entendu. » Puis la vitre se vide.
+
+- « Rester là, sans comprendre. » → **fin**
 
 ### observe
 
@@ -5798,7 +5821,14 @@ Commence par : « avec-cle » _(si l’on porte « Clé de rouille bleue »)_ _(
 _Si Boulon voyage avec toi :_ Boulon, très bas : — Moi aussi, je compte. Les voyageurs. Chacun a un poids différent, même ceux qui ne reviennent pas.
 
 - **[Mémoire 3]** « Laisse-moi écouter avec toi. » → ecoute
+- _(si repère « echo-voie-tunnel-combe »)_ _(si quête « La Clé de Rouille Bleue » en cours)_ _(sans repère « cle-obtenue »)_ « Dans la Combe, des hommes ont entendu ton train, avant la Chute. » → combe
 - « Merci de me l’avoir dit. » → **fin**
+
+### combe
+
+> La Veilleuse cesse de compter. — Avant la Chute ? Alors il roulait déjà, et d’autres l’entendaient. Je ne suis pas folle, ou nous sommes plusieurs à l’être. Elle ouvre la main sur la clé.
+
+- « Prendre la clé. » → don
 
 ### ecoute
 

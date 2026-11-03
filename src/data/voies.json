@@ -38,5 +38,34 @@
   "quetes": [
     { "quest": "lanterne-triage", "item": "lanterne-chef-gare", "flag": "lanterne-triage-trouvee", "site": "depot-sept", "depth": 2 },
     { "quest": "ce-qui-se-souvient", "item": "plaque-emaillee", "flag": "plaque-kaelis-trouvee", "site": "tunnel-combe", "depth": 2 }
-  ]
+  ],
+  "histoires": {
+    "halte-fougeres": {
+      "titre": "Passé sans arrêt",
+      "flag": "echo-voie-halte-fougeres",
+      "fragment": "main",
+      "xp": 20,
+      "scene": "Sur le quai de la halte, un garde-barrière note l’heure dans son registre. Un train passe sans ralentir, toutes vitres allumées ; aux fenêtres, des enfants agitent la main. Derrière eux roule un fourgon sans fenêtre, fermé au plomb.",
+      "suite": "Le garde-barrière écrit : « Passé sans arrêt. Un fourgon plombé. » Il relit, et souligne. L’Écho recommence.",
+      "detail": "Une main se plaque contre une vitre, petite, les doigts écartés. Personne d’autre ne la voit. Ta propre main se ferme toute seule, sur rien, et tu ne sais pas pourquoi elle tremble."
+    },
+    "tunnel-combe": {
+      "titre": "Le train qui n’était pas prévu",
+      "flag": "echo-voie-tunnel-combe",
+      "fragment": "vapeur",
+      "xp": 20,
+      "scene": "Dans le noir du tunnel, une équipe de nuit répare la voie à la lampe. Le chef relit sa feuille : aucun train avant l’aube. Les rails se mettent à chanter. Les hommes se plaquent contre la paroi, et attendent.",
+      "suite": "Rien ne passe. Les rails chantent encore longtemps. Le chef écrit : « Entendu un train. Pas de train. »",
+      "detail": "Une odeur te prend à la gorge : de la vapeur, chaude, un peu sucrée, celle d’un quai l’hiver. Les hommes de l’Écho ne la sentent pas. Toi, tu la reconnais, et tu ne sais pas d’où."
+    },
+    "depot-sept": {
+      "titre": "Le tableau des départs",
+      "flag": "echo-voie-depot-sept",
+      "fragment": "voix",
+      "xp": 20,
+      "scene": "Dans le hall du dépôt, le grand tableau claque ses lettres. Une silhouette floue passe une raclette sur une seule ligne, lentement, avec soin, jusqu’à ce qu’il n’en reste presque rien.",
+      "suite": "On lit encore : « Voie 7 — ALTA ». La silhouette range la raclette dans sa poche, et l’Écho recommence.",
+      "detail": "Sous le claquement des lettres, une voix d’enfant compte : un, deux, trois, jusqu’à sept, et recommence. Personne ne compte, dans l’Écho. La voix compte pour toi."
+    }
+  }
 }

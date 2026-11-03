@@ -19,7 +19,6 @@ Lien du jeu : https://csaintecluque-ui.github.io/anamnesis-rpg/ (la version s'af
 - [ ] **Pell peut être sauvé** (chantier 2, ta feuille de route le proposait) : avec Médecine 3, on le tire du feu de
       la chaudière ; il vit, sans ses mains, et Ingrid, Ilyane et la lavandière le disent. Sans Médecine, il meurt dans
       tes bras. On garde (recommandé), ou Pell meurt toujours ?
-- [ ] **Mettre en ligne les chantiers 1 et 2**, pour pouvoir les essayer (ils sont sur la branche) : dis « mets en ligne ».
 - [ ] Dans ton Notion, quand tu veux : les contradictions du canon sur Terminus (`docs/univers/zones-floues.md`,
       points 33 à 37).
 
@@ -41,7 +40,7 @@ Lien du jeu : https://csaintecluque-ui.github.io/anamnesis-rpg/ (la version s'af
 - [ ] **Lisibilité** à 1920 × 1080 : un texte trop petit, ou trop grand ?
 - Remarques :
 
-## Chantier 1 — Une mémoire pour le héros (en cours, sur la branche)
+## Chantier 1 — Une mémoire pour le héros (en ligne le 2026-11-03)
 
 - [ ] **Oublier un Récit** : apprendre un Récit de trop ; l'écran « Ta mémoire est pleine » ; choisir, en voyant à quoi
       sert chacun (veillées, réponses qu'il ouvre).
@@ -56,7 +55,7 @@ Lien du jeu : https://csaintecluque-ui.github.io/anamnesis-rpg/ (la version s'af
       contre une main », le Fonds Muet). Le choix est-il dur ? le prix juste ?
 - Remarques :
 
-## Chantier 2 — Tests et compétences (sur la branche)
+## Chantier 2 — Tests et compétences (en ligne le 2026-11-03)
 
 - [ ] **Les infobulles des options** : « Il faut Diplomatie 4 : tu as 3 (rang 2, Présence +1) » ; un seuil compte
       maintenant ton attribut. Les tests te semblent-ils plus durs au chapitre 3 et 4 qu'au 1 ?

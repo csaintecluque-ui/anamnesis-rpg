@@ -1024,3 +1024,5 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   plus le forçage des caisses des voies, et chaque remède soigne 2 PV de plus par point de Médecine ; l'atelier
   demande Artisanat (forge) ou Médecine (herbes), sinon l'hôte fait le travail pour le double ; le rang plafonne à
   niveau + 2 ; libellé « Contourner » corrigé. 651 tests ; vérifié en 720p (atelier, palissade).
+- Cyril : « Ok mets en ligne les deux chantiers puis attaque le 3e » : chantiers 1 et 2 en ligne ; chantier 3 (le
+  combat) commencé.

@@ -15,9 +15,9 @@ Cyril sur PC et sa validation. Aucun nouveau système d'ici là.
 | Chantier | Contenu | État |
 |---|---|---|
 | 0 | PC d'abord : `CLAUDE.md`, infobulles, raccourcis, barre d'actions, taille du texte | **en ligne** (2026-11-03) ; partie de Cyril sur PC à faire |
-| 1 | Une mémoire pour le héros : oubli choisi, champignon, Échos tentants et cachés, dons de Récit **faits (branche)** ; Écho du héros à valider (`univers/personnages/heros.md`) | en cours |
-| 2 | Recalibrer tests et compétences : seuils rang + attribut, courbe par chapitre, Athlétisme et Médecine ×5, atelier par compétence, rang ≤ niveau + 2 **faits (branche)** ; Pell sauvable à valider | en cours |
-| 3 | Refaire le combat | à faire |
+| 1 | Une mémoire pour le héros : oubli choisi, champignon, Échos tentants et cachés, dons de Récit ; Écho du héros à valider (`univers/personnages/heros.md`) | **en ligne** (2026-11-03) ; partie de Cyril à faire |
+| 2 | Recalibrer tests et compétences : seuils rang + attribut, courbe par chapitre, Athlétisme et Médecine ×5, atelier par compétence, rang ≤ niveau + 2 ; Pell sauvable à valider | **en ligne** (2026-11-03) ; partie de Cyril à faire |
+| 3 | Refaire le combat | en cours |
 | 4 | Compagnons présents, ennemi incarné | à faire |
 | 5 | Passe d'écriture | à faire |
 | 6 | Économie et progression | à faire |

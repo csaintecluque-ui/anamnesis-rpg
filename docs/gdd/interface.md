@@ -150,3 +150,29 @@ tactiles reçoivent donc des tailles à eux (détection « pas de souris », `HA
 - **Dialogues** : les gains (réputation, rangs, objets) passent sous le nom quand ils ne tiennent pas sur sa ligne,
   au lieu de déborder dessus. « Réputation auprès des Nacelliers » (et non « de les »).
 - **Outils de dev**, onglet « Lieux » : « Toute la carte » révèle tous les lieux de la carte du monde.
+
+## PC d'abord (feuille de route, chantier 0, 2026-11-03)
+
+Décision de Cyril : le jeu se joue sur PC (souris et clavier, 1920 × 1080) ; le téléphone reste une cible d'essai.
+L'écran logique reste 1280 × 720, dessiné 1,5 fois plus grand sur un écran 1080p (`RENDER_SCALE`).
+
+- **Infobulles au survol** (`src/ui/tooltip.ts`, textes : `src/rules/hints.ts`) :
+  - sur la carte, ce qu'un clic ferait : « Ilyane Voix-d'Écorce — parler », « Le Fonds Muet — fermée », « Loup de
+    Rouille — combattre », « Une caisse qui luit — la fouiller », « Un Écho — l'écouter », les sorties ; la main
+    remplace la flèche ;
+  - dans un dialogue, sur une option à jet ou à condition : « Jet : un d20 + 2 (Subterfuge) contre 13. Chances : 50 %. »,
+    « Il faut Diplomatie 3 : tu as 1. » (même grisée) ;
+  - au combat, sur un combattant : PV, Défense, portée, effets ; sur la carte du monde, le lieu et le temps de marche ;
+  - dans l'inventaire, la fiche suit l'objet sous la souris.
+- **Raccourcis clavier** :
+  - carte : **flèches, ZQSD ou WASD** pour marcher (une case tant que la touche est tenue) ; **E, Espace ou Entrée**
+    pour parler ou agir avec le plus proche (à trois pas au plus) ; I, J, Échap comme avant ;
+  - dialogue : 1 à 9, et Entrée ou Espace quand il n'y a qu'une réponse ;
+  - combat : 1 Déplacer (et les flèches pour avancer d'une case), 2 et 3 les armes, 4 le pouvoir, **Tab** pour viser
+    un ennemi, **Entrée** pour le frapper, Z la zone, Espace la fin du tour ; Fuir reste à la souris ;
+  - carte du monde : **Tab** ou les flèches pour passer d'un lieu à l'autre, **Entrée** pour partir, **Échap** pour fermer ;
+  - inventaire : ← → les onglets, ↑ ↓ les objets, 1 à 4 les boutons ; journal : ← → ou Tab, les onglets ;
+  - écran titre : ↑ ↓ et Entrée ; écran de la mort : Entrée pour reprendre, Échap pour le titre.
+- **Barre d'actions** du combat : chaque bouton porte sa touche (« 1 · Déplacer », « 3 · Arc · 12 », « Espace · Fin du
+  tour »).
+- **Texte** : les étiquettes de la carte du monde passent à 17 px ; le reste se lit déjà à 1080p.

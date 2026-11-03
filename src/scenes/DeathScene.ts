@@ -2,6 +2,7 @@ import Phaser from 'phaser';
 import { saveStore } from '../save/browser';
 import { findLocation } from '../state/gameState';
 import { addTextButton } from '../ui/button';
+import { onKeys, withKeyHint } from '../ui/keys';
 import { COLORS, CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
 import { HAS_MOUSE } from '../ui/viewport';
 import { formatDate } from '../rules/time';
@@ -40,13 +41,16 @@ export class DeathScene extends Phaser.Scene {
       this.add
         .text(cx, 360, `Dernière sauvegarde : ${place}${when}.`, { fontFamily: FONT_SERIF, fontSize: HAS_MOUSE ? '20px' : '24px', color: CSS.copper, align: 'center', wordWrap: { width: 1100 } })
         .setOrigin(0.5);
-      addTextButton(this, cx, 450, 'Reprendre à la dernière sauvegarde', () => {
+      const resume = () => {
         const location = findLocation(save.state.location);
         if (!location || !save.state.character) return this.scene.start('Title');
         this.registry.set('game', structuredClone(save.state));
         this.scene.start(location.scene);
-      }, button);
+      };
+      addTextButton(this, cx, 450, withKeyHint('Reprendre à la dernière sauvegarde', 'Entrée'), resume, button);
+      onKeys(this, ['ENTER', 'SPACE'], resume);
     }
-    addTextButton(this, cx, save ? 560 : 450, 'Retour au titre', () => this.scene.start('Title'), button);
+    addTextButton(this, cx, save ? 560 : 450, withKeyHint('Retour au titre', 'Échap'), () => this.scene.start('Title'), button);
+    onKeys(this, ['ESC'], () => this.scene.start('Title'));
   }
 }

@@ -65,6 +65,13 @@ export class JournalScene extends Phaser.Scene {
       fontSize: L.buttonFont,
     });
     onKeys(this, ['ESC', 'J'], () => this.close());
+    // ← → or Tab: the previous or next tab (« PC d'abord »).
+    const step = (d: number) => {
+      const at = TABS.findIndex(([id]) => id === this.tab);
+      this.show(TABS[(at + d + TABS.length) % TABS.length][0]);
+    };
+    onKeys(this, ['RIGHT', 'TAB'], () => step(1));
+    onKeys(this, ['LEFT'], () => step(-1));
     this.layer = this.add.container(0, 0);
     this.redraw();
   }

@@ -21,6 +21,8 @@ import { COLORS, CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
 import { HAS_MOUSE } from '../ui/viewport';
 import { MOMENTS, advance, shortTime } from '../rules/time';
 import { startVoie } from '../rules/voies';
+import { onKeys, withKeyHint } from '../ui/keys';
+import { Tooltip } from '../ui/tooltip';
 
 /** Where the hero stands when the world map opens: a place they leave, or the spot of an encounter. */
 export interface WorldMapStartData {
@@ -47,7 +49,7 @@ const COPPER = COLORS.copper;
 
 /** Finger-sized on touch screens (docs/gdd/interface.md). */
 const LAYOUT = HAS_MOUSE
-  ? { panelHeight: 150, text: 20, button: { height: 48, fontSize: 20, width: 230 }, name: 20, back: { width: 220, height: 44, fontSize: 18 } }
+  ? { panelHeight: 150, text: 20, button: { height: 48, fontSize: 20, width: 300 }, name: 20, back: { width: 220, height: 44, fontSize: 18 } }
   : { panelHeight: 210, text: 24, button: { height: 76, fontSize: 24, width: 300 }, name: 24, back: { width: 250, height: 60, fontSize: 21 } };
 
 /**
@@ -64,6 +66,10 @@ export class WorldMapScene extends Phaser.Scene {
   /** `moments`: the moments of the day already counted for this stretch of road (src/rules/time.ts). */
   private trip: { place: WorldPlace; from: { x: number; y: number }; travelled: number; moments: number } | null = null;
   private rng: () => number = Math.random;
+  /** The panel's buttons, for Enter (the first) and Escape (the last) ; the place picked with Tab. */
+  private panelActions: (() => void)[] = [];
+  private picked = -1;
+  private tooltip!: Tooltip;
 
   constructor() {
     super('WorldMap');
@@ -74,6 +80,8 @@ export class WorldMapScene extends Phaser.Scene {
     this.pos = { x: data.x, y: data.y };
     this.trip = null;
     this.panel = [];
+    this.panelActions = [];
+    this.picked = -1;
 
     this.drawMap();
     this.trail = this.add.graphics();
@@ -84,8 +92,15 @@ export class WorldMapScene extends Phaser.Scene {
     this.add.rectangle(GAME_WIDTH / 2, MAP_Y / 2, GAME_WIDTH, MAP_Y, INK);
     this.add.text(GAME_WIDTH / 2, 22, WORLD.title, { fontFamily: FONT_SERIF, fontSize: '26px', color: CSS.parchment }).setOrigin(0.5);
     this.status = this.add
-      .text(GAME_WIDTH / 2, 52, 'Touche un lieu pour t’y rendre.', { fontFamily: FONT_SERIF, fontSize: '18px', color: CSS.copper })
+      .text(GAME_WIDTH / 2, 52, HAS_MOUSE ? 'Clique un lieu, ou choisis-le avec Tab et pars avec Entrée.' : 'Touche un lieu pour t’y rendre.', { fontFamily: FONT_SERIF, fontSize: '18px', color: CSS.copper })
       .setOrigin(0.5);
+    this.tooltip = new Tooltip(this);
+    // Clavier (« PC d'abord ») : Tab or the arrows go from place to place, Enter takes the panel's first button,
+    // Escape its last one (stay, choose another place).
+    onKeys(this, ['TAB', 'RIGHT', 'DOWN'], () => this.pickPlace(1));
+    onKeys(this, ['LEFT', 'UP'], () => this.pickPlace(-1));
+    onKeys(this, ['ENTER', 'SPACE'], () => this.panelActions[0]?.());
+    onKeys(this, ['ESC'], () => this.panelActions[this.panelActions.length - 1]?.());
 
     const destination = data.destination ? findPlace(data.destination) : undefined;
     if (destination) this.offerTrip(destination, true);
@@ -189,7 +204,7 @@ export class WorldMapScene extends Phaser.Scene {
   /** An italic note on a parchment patch, readable over the forests. */
   private label(x: number, y: number, text: string, color: string): void {
     const t = this.add
-      .text(x, y, text, { fontFamily: FONT_SERIF, fontSize: HAS_MOUSE ? '15px' : '19px', color, align: 'center', fontStyle: 'italic' })
+      .text(x, y, text, { fontFamily: FONT_SERIF, fontSize: HAS_MOUSE ? '17px' : '19px', color, align: 'center', fontStyle: 'italic' })
       .setOrigin(0.5);
     const left = MAP_X + 10 + t.width / 2;
     const right = MAP_X + WORLD.width * SCALE - 10 - t.width / 2;
@@ -258,6 +273,11 @@ export class WorldMapScene extends Phaser.Scene {
       hit.on('pointerup', () => {
         if (!this.trip) this.offerPlace(place);
       });
+      hit.on('pointermove', (pointer: Phaser.Input.Pointer) => {
+        const here = distanceBetween(this.pos, place) <= AT_PLACE;
+        this.tooltip.show(`${place.name}${here ? ' — tu es ici' : ` — ${travelTimeLabel(distanceBetween(this.pos, place))}`}`, pointer.worldX, pointer.worldY);
+      });
+      hit.on('pointerout', () => this.tooltip.hide());
     }
   }
 
@@ -285,6 +305,16 @@ export class WorldMapScene extends Phaser.Scene {
   private clearPanel(): void {
     for (const o of this.panel) o.destroy();
     this.panel = [];
+    this.panelActions = [];
+  }
+
+  /** Tab, the arrows: the next or the previous known place, its panel open. */
+  private pickPlace(step: number): void {
+    if (this.trip) return;
+    const places = knownPlaces(this.state.flags, this.state.quests);
+    if (!places.length) return;
+    this.picked = (this.picked + step + places.length) % places.length;
+    this.offerPlace(places[this.picked]);
   }
 
   /**
@@ -313,11 +343,16 @@ export class WorldMapScene extends Phaser.Scene {
     const ring = this.add.circle(spot.x, spot.y, 22, COPPER, 0).setStrokeStyle(3, COPPER, 1).setDepth(19);
     this.tweens.add({ targets: ring, scale: 1.35, duration: 700, yoyo: true, repeat: -1 });
     this.panel.push(frame, label, ring);
+    this.panelActions = buttons.map(([, action]) => action);
+    this.tooltip?.hide();
     const w = LAYOUT.button.width;
     const gap = 30;
     const total = buttons.length * w + (buttons.length - 1) * gap;
     buttons.forEach(([caption, action], i) => {
-      const button = addTextButton(this, GAME_WIDTH / 2 - total / 2 + w / 2 + i * (w + gap), y + h / 2 - LAYOUT.button.height / 2 - 12, caption, action, LAYOUT.button);
+      // On PC, the keys that press them: Enter for the first button, Escape for the last.
+      const key = i === 0 ? 'Entrée' : i === buttons.length - 1 ? 'Échap' : '';
+      const label = key ? withKeyHint(caption, key) : caption;
+      const button = addTextButton(this, GAME_WIDTH / 2 - total / 2 + w / 2 + i * (w + gap), y + h / 2 - LAYOUT.button.height / 2 - 12, label, action, LAYOUT.button);
       button.container.setDepth(22);
       this.panel.push(button.container);
     });

@@ -9,6 +9,8 @@ import { DIGIT_KEYS, onKeys } from '../ui/keys';
 import { COLORS, CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
 import { HAS_MOUSE } from '../ui/viewport';
 import { saveStore } from '../save/browser';
+import { optionHint } from '../rules/hints';
+import { Tooltip } from '../ui/tooltip';
 
 const MARGIN = 60;
 /** Side of the speaker's portrait, at the top left of the panel; name and text move right of it. */
@@ -44,6 +46,8 @@ export class DialogueScene extends Phaser.Scene {
   private nameRight = MARGIN;
   /** What pressing 1, 2, 3… does on the current node (undefined for a greyed option). */
   private choices: ((() => void) | undefined)[] = [];
+  /** With a mouse: what a roll or a test of the option under it asks, and the chances. */
+  private tooltip!: Tooltip;
 
   constructor() {
     super('Dialogue');
@@ -82,13 +86,19 @@ export class DialogueScene extends Phaser.Scene {
     });
     this.nameRight = name.x + name.width;
     this.layer = this.add.container(0, 0);
+    this.tooltip = new Tooltip(this);
     DIGIT_KEYS.forEach((keys, i) => onKeys(this, keys, () => this.choices[i]?.()));
+    // A node with a single way on: Enter or Space takes it (« PC d'abord »).
+    onKeys(this, ['ENTER', 'SPACE'], () => {
+      if (this.choices.length === 1) this.choices[0]?.();
+    });
 
     this.show(startNode(this.dialogue, this.state));
   }
 
   private show(nodeId: string): void {
     if (nodeId === END) return this.close();
+    this.tooltip.hide();
     const node = this.dialogue.nodes[nodeId];
     this.notices.push(...applyEffects(this.state, node.effects));
     this.layer.removeAll(true);
@@ -166,6 +176,13 @@ export class DialogueScene extends Phaser.Scene {
       .rectangle(GAME_WIDTH / 2, y, width, height, view.enabled ? 0x2a211c : 0x1f1915)
       .setStrokeStyle(2, COLORS.copper, view.enabled ? 0.8 : 0.25);
     this.layer.add([frame, text]);
+    // The details of a roll or a test, on hover, even for a greyed option.
+    const hint = optionHint(view, this.state);
+    if (hint) {
+      frame.setInteractive({ useHandCursor: view.enabled });
+      frame.on('pointermove', (p: Phaser.Input.Pointer) => this.tooltip.show(hint, p.worldX, p.worldY));
+      frame.on('pointerout', () => this.tooltip.hide());
+    }
     if (!view.enabled) return bottom - height;
 
     frame.setInteractive({ useHandCursor: true });

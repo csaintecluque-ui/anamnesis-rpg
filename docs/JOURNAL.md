@@ -3,7 +3,7 @@
 ## État (2026-11-03)
 
 - Jalons 1, 2 et 3 faits et en ligne ; jalon 4, chapitre 4 (Sept-Portes) en ligne et validé ; page Notion à jour.
-- 630 tests (dont le parcours complet d'affilée, `src/rules/parcours.test.ts`), typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
+- 633 tests (dont le parcours complet d'affilée, `src/rules/parcours.test.ts`), typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
 - Mode test caché : 5 touches sur la version (écran titre) → menu pause : +50 Fers, PV au max, **Outils de dev**.
 - **Décisions de Cyril (2026-11-03)** : le jeu se joue **sur PC** (le téléphone n'est qu'une cible d'essai) ; le
   ressenti est déjà testé : on corrige avant tout nouvel essai.
@@ -15,7 +15,7 @@ Cyril sur PC et sa validation. Aucun nouveau système d'ici là.
 
 | Chantier | Contenu | État |
 |---|---|---|
-| 0 | PC d'abord : `CLAUDE.md`, infobulles, raccourcis, barre d'actions, taille du texte | **en cours** |
+| 0 | PC d'abord : `CLAUDE.md`, infobulles, raccourcis, barre d'actions, taille du texte | **fait sur la branche** ; partie de Cyril sur PC à faire |
 | 1 | Une mémoire pour le héros (Écho personnel, oubli choisi, Échos tentants) | à faire |
 | 2 | Recalibrer tests et compétences | à faire |
 | 3 | Refaire le combat | à faire |

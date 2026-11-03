@@ -46,13 +46,14 @@ import { addTextButton, type TextButton } from '../ui/button';
 import { DIGIT_KEYS, SHOW_KEY_HINTS, onKeys } from '../ui/keys';
 import { COLORS, CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
 import { HAS_MOUSE } from '../ui/viewport';
+import { Tooltip } from '../ui/tooltip';
 import type { HudScene } from './HudScene';
 
 const TOP = 70;
 
 /** Finger-sized on touch screens, compact with a mouse (docs/gdd/interface.md). */
 const LAYOUT = HAS_MOUSE
-  ? { arenaScale: 1.25, text: 1, bottomBar: 96, buttonHeight: 48, buttonFont: 20, labelFont: 18, move: [100, 150], attack: [260, 150, 160], zone: [590, 170], endTurn: [770, 170], flee: [GAME_WIDTH - 90, 140] }
+  ? { arenaScale: 1.25, text: 1, bottomBar: 96, buttonHeight: 48, buttonFont: 20, labelFont: 18, move: [95, 160], attack: [285, 200, 210], zone: [700, 190], endTurn: [905, 200], flee: [GAME_WIDTH - 90, 140] }
   : { arenaScale: 1.2, text: 1.3, bottomBar: 150, buttonHeight: 76, buttonFont: 24, labelFont: 22, move: [130, 180], attack: [330, 170, 185], zone: [720, 190], endTurn: [935, 200], flee: [GAME_WIDTH - 120, 170] };
 const LOG_Y = GAME_HEIGHT - LAYOUT.bottomBar - 30;
 /** Turn order panel, left of the arena: names live here, not above the tokens where they overlapped. */
@@ -131,6 +132,10 @@ export class CombatScene extends Phaser.Scene {
   private busy = false;
   /** Obstacles of the arena, faded when they hide a fighter or the hovered cell. */
   private obstacleImages: Phaser.GameObjects.Image[] = [];
+  /** With a mouse: a fighter's PV, Défense and reach under the pointer (« PC d'abord »). */
+  private tooltip!: Tooltip;
+  /** The enemy picked with Tab, struck with Enter. */
+  private focusId: string | null = null;
 
   constructor() {
     super('Combat');
@@ -143,6 +148,8 @@ export class CombatScene extends Phaser.Scene {
     this.mode = 'move';
     this.zone = 'corps';
     this.tokens.clear();
+    this.tooltip = new Tooltip(this);
+    this.focusId = null;
     this.obstacleImages = [];
     this.reach = new Map();
     this.hoverTile = null;
@@ -484,9 +491,54 @@ export class CombatScene extends Phaser.Scene {
     // Hover shows the name (with a mouse); taps still go to the arena's own handler.
     image.setInteractive({ pixelPerfect: false });
     image.on('pointerover', () => this.setHovered(c.id));
-    image.on('pointerout', () => this.setHovered(null));
+    image.on('pointerout', () => {
+      this.setHovered(null);
+      this.tooltip.hide();
+    });
+    image.on('pointermove', (p: Phaser.Input.Pointer) => this.tooltip.show(this.fighterTip(c), p.worldX, p.worldY));
     this.tokens.set(c.id, { image, hpBar, name });
     this.refreshToken(c);
+  }
+
+  /** « Loup de Rouille 1 · PV 9/14 · Défense 12 · frappe au corps à corps · saigne ». */
+  private fighterTip(c: Combatant): string | null {
+    if (c.defeated) return null;
+    const attack = c.attacks[0];
+    const reach = c.heal ? 'soigne ses alliés' : attack ? (attack.range > 1 ? `tire jusqu’à ${attack.range} cases` : 'frappe au corps à corps') : '';
+    const effects = [c.status.burning > 0 ? 'brûle' : '', c.status.bleeding > 0 ? 'saigne' : '', c.status.slowed ? 'ralenti·e' : '', c.status.stunned ? 'étourdi·e' : '', c.status.disarmed ? 'désarmé·e' : '']
+      .filter(Boolean)
+      .join(', ');
+    return [`${c.name} · PV ${c.hp}/${c.maxHp} · Défense ${c.defense}`, c.side === 'enemies' ? reach : '', effects].filter(Boolean).join('\n');
+  }
+
+  /** Tab: the next enemy still standing, shown as if hovered (its name, the chance to hit it). */
+  private focusNext(): void {
+    if (!this.awaitingHero || this.busy) return;
+    const enemies = this.combatants.filter((c) => c.side === 'enemies' && !c.defeated);
+    if (!enemies.length) return;
+    const at = enemies.findIndex((c) => c.id === this.focusId);
+    const next = enemies[(at + 1) % enemies.length];
+    this.focusId = next.id;
+    this.hoverTile = next.tile;
+    this.setHovered(next.id);
+    this.drawBoard();
+  }
+
+  /** Enter: strike the enemy picked with Tab, with the weapon or power of the current mode. */
+  private strikeFocus(): void {
+    const target = this.combatants.find((c) => c.id === this.focusId && !c.defeated);
+    if (!target || !this.awaitingHero || this.busy || this.ended) return;
+    if (this.mode === 'move' || this.mode === 'soin') return this.appendLog('Choisis d’abord une arme (2 ou 3) ou ton pouvoir (4).');
+    this.tryAttack(target);
+  }
+
+  /** The arrows (or ZQSD, WASD): one step, in Déplacer mode, if this turn's PA allow it. */
+  private stepHero(x: number, y: number): void {
+    if (!this.awaitingHero || this.busy || this.ended || this.mode !== 'move') return;
+    const hero = this.actor();
+    const next = { col: hero.tile.col + Math.sign(x + y), row: hero.tile.row + Math.sign(y - x) };
+    const path = this.reach.get(tileKey(next));
+    if (path) void this.heroMove(path);
   }
 
   private setHovered(id: string | null): void {
@@ -875,18 +927,24 @@ export class CombatScene extends Phaser.Scene {
         .setOrigin(0.5, 0);
       onKeys(this, DIGIT_KEYS[3], act);
     }
-    addTextButton(this, L.endTurn[0], y, 'Fin du tour', () => this.endHeroTurn(), size(L.endTurn[1]));
+    addTextButton(this, L.endTurn[0], y, HAS_MOUSE ? 'Espace · Fin du tour' : 'Fin du tour', () => this.endHeroTurn(), size(L.endTurn[1]));
     addTextButton(this, L.flee[0], y, 'Fuir', () => this.flee(), size(L.flee[1]));
     this.updateActionBar();
 
     // No shortcut for Fuir: leaving a fight should never happen by a stray key press.
     onKeys(this, DIGIT_KEYS[0], () => this.setMode('move'));
+    onKeys(this, ['TAB'], () => this.focusNext());
+    onKeys(this, ['ENTER'], () => this.strikeFocus());
+    onKeys(this, ['UP', 'W'], () => this.stepHero(0, -1));
+    onKeys(this, ['DOWN', 'S'], () => this.stepHero(0, 1));
+    onKeys(this, ['LEFT', 'Q', 'A'], () => this.stepHero(-1, 0));
+    onKeys(this, ['RIGHT', 'D'], () => this.stepHero(1, 0));
     [0, 1].forEach((i) => onKeys(this, DIGIT_KEYS[i + 1], () => i < this.actor().attacks.length && this.setMode(i)));
     onKeys(this, ['Z'], () => this.cycleZone());
     onKeys(this, ['SPACE'], () => this.endHeroTurn());
     if (SHOW_KEY_HINTS) {
       this.add
-        .text(GAME_WIDTH / 2, GAME_HEIGHT - 16, `Clavier : 1 Déplacer · 2 et 3 attaques${power || healers ? ' · 4 pouvoir ou soin' : ''} · Z zone visée · Espace fin du tour`, {
+        .text(GAME_WIDTH / 2, GAME_HEIGHT - 16, `Clavier : 1 Déplacer (flèches pour avancer) · 2 et 3 attaques${power || healers ? ' · 4 pouvoir ou soin' : ''} · Tab viser, Entrée frapper · Z zone visée · Espace fin du tour`, {
           fontFamily: FONT_SERIF,
           fontSize: '16px',
           color: CSS.muted,
@@ -937,22 +995,24 @@ export class CombatScene extends Phaser.Scene {
   private updateActionBar(): void {
     const actor = this.actor();
     const isHero = actor === this.hero();
-    this.zoneButton?.setLabel(`Zone : ${findZone(this.zone).label}`);
-    this.moveButton?.setLabel(this.mode === 'move' ? '▶ Déplacer' : 'Déplacer');
+    // On PC, each button shows its key (the action bar, « PC d'abord »).
+    const key = (k: string, label: string) => (HAS_MOUSE ? `${k} · ${label}` : label);
+    this.zoneButton?.setLabel(key('Z', `Zone : ${findZone(this.zone).label}`));
+    this.moveButton?.setLabel(this.mode === 'move' ? `▶ ${key('1', 'Déplacer')}` : key('1', 'Déplacer'));
     this.attackButtons.forEach((button, i) => {
       const attack = actor.attacks[i];
       button.container.setVisible(!!attack);
       // A bow or a crossbow shows its arrows or bolts left.
       const left = attack ? ammoLeft(actor, attack) : Infinity;
-      const label = attack ? `${attack.label}${Number.isFinite(left) ? ` · ${left}` : ''}` : '';
+      const label = attack ? key(String(i + 2), `${attack.label}${Number.isFinite(left) ? ` · ${left}` : ''}`) : '';
       if (attack) button.setLabel(this.mode === i ? `▶ ${label}` : label);
     });
     const c = this.state.character!;
     const resonance = this.power && isHero ? ` · PR ${c.resonance}/${resonanceMax(c)}` : '';
     if (this.powerButton) {
       let label = '';
-      if (isHero && this.power) label = `${this.mode === 'pouvoir' ? '▶ ' : ''}${this.power.name} · ${this.power.cost} PR`;
-      else if (actor.heal) label = `${this.mode === 'soin' ? '▶ ' : ''}Soigner · 3 PA`;
+      if (isHero && this.power) label = `${this.mode === 'pouvoir' ? '▶ ' : ''}${key('4', `${this.power.name} · ${this.power.cost} PR`)}`;
+      else if (actor.heal) label = `${this.mode === 'soin' ? '▶ ' : ''}${key('4', 'Soigner · 3 PA')}`;
       this.powerButton.container.setVisible(!!label);
       if (label) this.powerButton.setLabel(label);
       this.powerPoints?.setVisible(isHero && !!this.power).setText(`Résonance ${c.resonance} / ${resonanceMax(c)} PR`);

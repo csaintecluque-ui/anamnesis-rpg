@@ -270,6 +270,15 @@ export class TradeScene extends Phaser.Scene {
       this.message = '';
       this.redraw();
     });
+    // With a mouse, the card follows the item under it (« PC d'abord »).
+    if (HAS_MOUSE) {
+      frame.on('pointerover', () => {
+        if (this.selected === item.id) return;
+        this.selected = item.id;
+        this.message = '';
+        this.redraw();
+      });
+    }
     this.layer.add(frame);
     const worn = equippedIn ? ' ◆' : '';
     const label = `${item.name}${owned > 1 ? `  ×${owned}` : ''}${worn}`;

@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { onKeys } from '../ui/keys';
 import { getSettings, saveSettings } from '../settings';
 import { COLORS, CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
 import { HAS_MOUSE } from '../ui/viewport';
@@ -51,6 +52,7 @@ export class TitleScene extends Phaser.Scene {
       { label: 'Options', enabled: true, action: () => this.scene.launch('Options') },
     ];
 
+    const items: { text: Phaser.GameObjects.Text; action?: () => void }[] = [];
     entries.forEach((entry, i) => {
       const text = this.add
         .text(cx, 360 + i * (HAS_MOUSE ? 64 : 82), entry.label, {
@@ -67,6 +69,19 @@ export class TitleScene extends Phaser.Scene {
       text.on('pointerover', () => text.setColor(CSS.copper));
       text.on('pointerout', () => text.setColor(CSS.parchment));
       text.on('pointerup', () => entry.action?.());
+      items.push({ text, action: entry.action });
+    });
+    // Clavier (« PC d'abord ») : ↑ ↓ choose, Enter starts.
+    let at = -1;
+    const pick = (step: number) => {
+      if (this.scene.isActive('Options')) return;
+      at = (at + step + items.length) % items.length;
+      items.forEach((it, i) => it.text.setColor(i === at ? CSS.copper : CSS.parchment));
+    };
+    onKeys(this, ['DOWN', 'S', 'TAB'], () => pick(1));
+    onKeys(this, ['UP', 'Z', 'W'], () => pick(-1));
+    onKeys(this, ['ENTER', 'SPACE'], () => {
+      if (!this.scene.isActive('Options')) items[Math.max(0, at)]?.action?.();
     });
 
     this.addVersion();

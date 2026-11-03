@@ -1006,3 +1006,7 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   PC ; le ressenti est déjà testé ; sept chantiers dans l'ordre (0 : PC d'abord ; 1 : une mémoire pour le héros ;
   2 : tests et compétences ; 3 : combat ; 4 : compagnons et ennemi ; 5 : écriture ; 6 : économie), avant tout nouveau
   chapitre ; aucun nouveau système d'ici là. `CLAUDE.md` (section 2) passé en « PC d'abord » ; `AGENTS.md` y renvoie.
+- Chantier 0 fait sur la branche (`docs/gdd/interface.md`, « PC d'abord ») : infobulles au survol (carte, dialogues,
+  combat, carte du monde, inventaire), marche aux flèches/ZQSD/WASD, E pour agir, Tab et Entrée pour viser et frapper
+  en combat ou choisir un lieu, touches sur la barre d'actions, journal et écrans titre et mort au clavier. 633 tests ;
+  vérifié en 1920 × 1080 (captures et déplacement au clavier). Reste : la partie de Cyril sur PC.

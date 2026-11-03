@@ -9,6 +9,7 @@ import { CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
 import { HAS_MOUSE } from '../ui/viewport';
 import { momentOf } from '../rules/time';
 import { resonanceMax, wornCrystal } from '../rules/magic';
+import { Tooltip } from '../ui/tooltip';
 
 const TOAST_MS = 4000;
 /** Free band between the Menu button (left) and the Journal and Inventaire buttons (right). */
@@ -31,6 +32,8 @@ export class HudScene extends Phaser.Scene {
   private titleText!: Phaser.GameObjects.Text;
   private locationName = '';
   private state!: GameState;
+  /** What a click would do on what the mouse is over, on the map (docs/gdd/interface.md, « PC d'abord »). */
+  private tooltip!: Tooltip;
 
   constructor() {
     super('Hud');
@@ -96,6 +99,12 @@ export class HudScene extends Phaser.Scene {
       })
       .setOrigin(0.5)
       .setVisible(false);
+    this.tooltip = new Tooltip(this);
+  }
+
+  /** The map's tooltip, at (x, y) in logical screen coordinates; null hides it. */
+  tip(text: string | null, x = 0, y = 0): void {
+    this.tooltip?.show(text, x, y);
   }
 
   update(): void {

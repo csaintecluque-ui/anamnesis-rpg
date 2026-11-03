@@ -9,7 +9,11 @@ export const SHOW_KEY_HINTS = HAS_MOUSE;
 
 /** Phaser key names (keydown-<NAME>); a listener is removed with its scene. */
 export function onKeys(scene: Phaser.Scene, keys: string[], handler: () => void): void {
-  for (const key of keys) scene.input.keyboard?.on(`keydown-${key}`, handler);
+  for (const key of keys) {
+    scene.input.keyboard?.on(`keydown-${key}`, handler);
+    // Tab picks things in the game (a place, an enemy, a tab): the browser must not move the focus away.
+    if (key === 'TAB') scene.input.keyboard?.addCapture(key);
+  }
 }
 
 /** "Menu" → "Menu (Échap)" on PC, unchanged elsewhere. */

@@ -25,6 +25,8 @@ import { findLocation, type GameState } from '../state/gameState';
 import { onKeys } from '../ui/keys';
 import { COLORS, CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
 import { HAS_MOUSE, MAP_ZOOM, RENDER_SCALE } from '../ui/viewport';
+import { mapObjectHint } from '../rules/hints';
+import { findCompanion } from '../rules/companions';
 import type { CombatStartData } from './CombatScene';
 import { FigurantLayer } from './Figurants';
 import { PartyLayer } from './Party';
@@ -105,6 +107,8 @@ export class MapScene extends Phaser.Scene {
   private fadedForHero = new Set<Phaser.GameObjects.Image>();
   /** The traps of a sleeping line seen in the lamp's light (docs/gdd/voies.md, « La lampe »). */
   private trapMarks!: Phaser.GameObjects.Graphics;
+  /** Arrows, ZQSD (AZERTY) or WASD (QWERTY): one cell at a time, as long as the key is held (« PC d'abord »). */
+  private moveKeys: Phaser.Input.Keyboard.Key[][] = [];
 
   constructor() {
     super('Map');
@@ -208,6 +212,10 @@ export class MapScene extends Phaser.Scene {
     this.cameras.main.centerOn(start.x, start.y);
 
     this.input.on('pointerup', (pointer: Phaser.Input.Pointer) => this.onTap(pointer));
+    // With a mouse, what a click would do on what lies under it (docs/gdd/interface.md, « PC d'abord »).
+    if (HAS_MOUSE) this.input.on('pointermove', (pointer: Phaser.Input.Pointer) => this.onHover(pointer));
+    this.setUpMoveKeys();
+    onKeys(this, ['E', 'SPACE', 'ENTER'], () => this.interactNearest());
     // Only while the map runs: overlays pause it, so these keys cannot reopen anything over them.
     onKeys(this, ['ESC'], () => this.hud().openOverlay('Pause'));
     onKeys(this, ['I'], () => this.hud().openOverlay('Trade', {}));
@@ -242,6 +250,74 @@ export class MapScene extends Phaser.Scene {
 
   update(_time: number, delta: number): void {
     if (this.state) this.state.playTimeSeconds += delta / 1000;
+    if (!this.moving && this.state) this.stepByKeys();
+  }
+
+  // --- Clavier et souris (feuille de route, chantier 0 : « PC d'abord ») ----------------------------
+
+  /** Screen directions to cells: up the screen is north-west on the map, right is north-east. */
+  private setUpMoveKeys(): void {
+    const keyboard = this.input.keyboard;
+    if (!keyboard) return;
+    const keys = (names: string[]) => names.map((n) => keyboard.addKey(n));
+    this.moveKeys = [keys(['UP', 'Z', 'W']), keys(['DOWN', 'S']), keys(['LEFT', 'Q', 'A']), keys(['RIGHT', 'D'])];
+    // A key released while a dialogue was open must not keep the hero walking.
+    const onResume = () => keyboard.resetKeys();
+    // An overlay opens (a dialogue, the inventory, a fight): no tooltip nor hand cursor left behind.
+    const onPause = () => {
+      this.input.setDefaultCursor('default');
+      if (this.scene.isActive('Hud')) this.hud().tip(null);
+    };
+    this.events.on(Phaser.Scenes.Events.RESUME, onResume);
+    this.events.on(Phaser.Scenes.Events.PAUSE, onPause);
+    this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
+      this.events.off(Phaser.Scenes.Events.RESUME, onResume);
+      this.events.off(Phaser.Scenes.Events.PAUSE, onPause);
+      this.input.setDefaultCursor('default');
+    });
+  }
+
+  private stepByKeys(): void {
+    const [up, down, left, right] = this.moveKeys.map((group) => group.some((k) => k.isDown));
+    const y = (down ? 1 : 0) - (up ? 1 : 0);
+    const x = (right ? 1 : 0) - (left ? 1 : 0);
+    if (!x && !y) return;
+    // Screen (x, y) to cells: col grows to the lower right, row to the lower left.
+    const dc = Math.sign(x + y);
+    const dr = Math.sign(y - x);
+    const next = { col: this.heroTile.col + dc, row: this.heroTile.row + dr };
+    this.hud().tip(null);
+    if (this.walkable(next)) this.goTo(next, () => this.checkExit());
+  }
+
+  /** E, Space or Enter: the nearest person or thing within reach (a few steps at most), as a click would. */
+  private interactNearest(): void {
+    if (this.moving) return;
+    const reach = (o: MapObject) => Math.max(Math.abs(o.col - this.heroTile.col), Math.abs(o.row - this.heroTile.row));
+    const target = this.interactables
+      .filter(({ object, image }) => image.visible && !this.gone(object) && reach(object) <= 3)
+      .sort((a, b) => reach(a.object) - reach(b.object))[0]?.object;
+    if (target) this.walkNextTo(target, () => this.interact(target));
+  }
+
+  /** The tooltip of what is under the mouse: a companion, a passer-by, a person or a thing, a way out. */
+  private onHover(pointer: Phaser.Input.Pointer): void {
+    let text: string | null = null;
+    const companion = this.party.hit(pointer.worldX, pointer.worldY);
+    const passerBy = companion ? undefined : this.figurants.hit(pointer.worldX, pointer.worldY);
+    if (companion) text = `${findCompanion(companion)?.name ?? companion} — parler`;
+    else if (passerBy) text = `${passerBy.def.name} — parler`;
+    else {
+      const tile = screenToTile({ x: pointer.worldX - this.originX, y: pointer.worldY - this.originY });
+      const hit = this.interactables
+        .filter(({ object, image }) => image.visible && ((object.col === tile.col && object.row === tile.row) || hitsBody(image, pointer.worldX, pointer.worldY)))
+        .sort((a, b) => b.image.depth - a.image.depth)[0];
+      const exit = this.map.objects.find((o) => o.type === 'sortie' && o.col === tile.col && o.row === tile.row);
+      const target = hit?.object ?? exit;
+      if (target) text = mapObjectHint(target, this.state);
+    }
+    this.input.setDefaultCursor(text ? 'pointer' : 'default');
+    if (this.scene.isActive('Hud')) this.hud().tip(text, pointer.x / RENDER_SCALE, pointer.y / RENDER_SCALE);
   }
 
   // --- Drawing ------------------------------------------------------------

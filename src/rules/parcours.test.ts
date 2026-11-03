@@ -908,8 +908,8 @@ describe('Parcours complet, d’une traite', () => {
     say(s, 'ambroise', 'chaine', 'Et personne d’autre');
     expect(present(s, 'sept-portes-auberge', 'edda')).toBe(true);
     say(s, 'ambroise', 'edda-demande', 'Et si c’est moi');
-    // La parole : Diplomatie 3.
-    say(s, 'ambroise', 'demande', '«');
+    // La parole : le Récit de Kael, appris chez Mirelle (Diplomatie 3 ne suffit plus : il faut 4, rang et Présence).
+    say(s, 'ambroise', 'demande', 'Kael a bâti');
     walk(s, 'sept-portes-fonds-muet');
     expect(gained(s, () => expect(talk(s, 'page-dernier-depart')).toBe('page'))).toEqual({ xp: 50, fers: 0 });
     expect(knowsRecit(s.character, 'dernier-depart')).toBe(true);
@@ -1488,7 +1488,7 @@ function prelude(s: GameState): void {
 }
 
 describe('Variante : « Le Rail des Cendres » avant « La Clé de Rouille Bleue »', () => {
-  const s = createNewGame(testCharacter({}, { diplomacy: 2, command: 2 }));
+  const s = createNewGame(testCharacter({}, { diplomacy: 3, command: 2 }));
 
   it('Gardebois et l’audience par le chemin court (Récit de Corvan, Commandement)', () => {
     prelude(s);

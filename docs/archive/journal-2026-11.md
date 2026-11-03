@@ -1017,3 +1017,10 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   emprise +2), cinq Échos cachés (Mémoire 4 ou 5), et un don de Récit par chapitre (l'Écho du dernier train, le vieil
   arbre du Bosquet, la Veilleuse, Ambroise). Proposition d'Écho personnel du héros : `univers/personnages/heros.md`.
   643 tests ; vérifié en 1080p (écran d'oubli, don à la Veilleuse).
+- Cyril : « Ok mets le dans la to do » (l'Écho du héros et les questions du chantier 4 dans `docs/a-essayer.md`).
+  Chantier 2 sur la branche (`docs/gdd/competences.md`) : les seuils de dialogue comptent le rang et l'attribut
+  (l'infobulle détaille) ; douze seuils relevés et une courbe par chapitre gardée par un test ; l'Athlétisme et la
+  Médecine servent cinq fois chacune (escalades, fuites ; Pell tiré du feu, les malades de Liane, Tiven, Tam, Joss),
+  plus le forçage des caisses des voies, et chaque remède soigne 2 PV de plus par point de Médecine ; l'atelier
+  demande Artisanat (forge) ou Médecine (herbes), sinon l'hôte fait le travail pour le double ; le rang plafonne à
+  niveau + 2 ; libellé « Contourner » corrigé. 651 tests ; vérifié en 720p (atelier, palissade).

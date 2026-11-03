@@ -57,6 +57,19 @@
       "text": "— Parce qu’il y a du noir dedans. Tout le monde en a, ici, au bout de quelques années. Moi, j’ai trouvé comment en avoir moins. Personne n’a rien demandé.",
       "options": [
         {
+          "text": "Montre-moi. Et respire.",
+          "requires": [
+            {
+              "skill": "medicine",
+              "min": 3
+            },
+            {
+              "notFlag": "tam-ausculte"
+            }
+          ],
+          "next": "ausculte"
+        },
+        {
           "text": "Bonne journée.",
           "next": "fin"
         }
@@ -261,6 +274,23 @@
       "options": [
         {
           "text": "Prends soin de toi.",
+          "next": "fin"
+        }
+      ]
+    },
+    "ausculte": {
+      "text": "Tu écoutes son dos. Ça siffle, tout en bas, comme une forge qu’on étouffe. — Alors ? Tu peux le dire, tout le monde le sait, ici. Le masque ralentit le noir. Il ne le chasse pas.",
+      "effects": [
+        {
+          "setFlag": "tam-ausculte"
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "Bonne journée.",
           "next": "fin"
         }
       ]

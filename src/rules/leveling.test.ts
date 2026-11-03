@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { SKILL_RANK_MAX } from './attributes';
 import { characterStats, changeAttribute, changeSkill, createDraft, finalizeCharacter, toggleOriginBonus, type Character, type CharacterDraft } from './character';
 import {
   applyLevelUp,
@@ -7,6 +8,7 @@ import {
   hasPendingLevelUp,
   levelForXp,
   lowerLevelSkill,
+  maxRankAt,
   raiseLevelSkill,
   startLevelUp,
   xpForLevel,
@@ -66,6 +68,17 @@ describe('level-up skill allocation', () => {
     expect(raiseLevelSkill(state, 'survival')).toBe(state);
   });
 
+  it('caps a rank at the level + 2 (feuille de route, chantier 2): 4 at level 2, 7 at level 5', () => {
+    const c = hero();
+    expect([maxRankAt(1), maxRankAt(2), maxRankAt(5), maxRankAt(12)]).toEqual([3, 4, 7, SKILL_RANK_MAX]);
+    let state = startLevelUp(c);
+    expect(state.maxRank).toBe(4);
+    state = { ...state, skillRanks: { ...state.skillRanks, survival: 4 }, pointsLeft: 5 };
+    expect(canRaiseLevelSkill(state, 'survival')).toBe(false);
+    c.level = 4;
+    expect(startLevelUp(c).maxRank).toBe(7);
+  });
+
   it('lowering only undoes points spent this level-up, never below the starting rank', () => {
     const c = hero();
     let state = startLevelUp(c);
@@ -83,7 +96,8 @@ describe('applyLevelUp', () => {
     const c = hero();
     c.hp = 1;
     let state = startLevelUp(c);
-    while (state.pointsLeft > 0) state = raiseLevelSkill(state, 'survival');
+    for (const id of ['survival', 'lore', 'diplomacy', 'medicine'] as const) while (canRaiseLevelSkill(state, id)) state = raiseLevelSkill(state, id);
+    expect(state.pointsLeft).toBe(0);
     applyLevelUp(c, state);
     expect(c.level).toBe(2);
     expect(c.skills.survival).toBeGreaterThan(0);

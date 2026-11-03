@@ -16,7 +16,10 @@ Lien du jeu : https://csaintecluque-ui.github.io/anamnesis-rpg/ (la version s'af
 - [ ] **Pour le chantier 4** (`docs/gdd/histoire-prenante.md`) : Ilyane qui perd la mémoire d'un chapitre à l'autre,
       oui ? peut-on la sauver, et à quel prix ? Et pourquoi Edda Varn court après le dernier train : l'argent des
       Réveilleurs, ou quelqu'un à elle dans ce train (recommandé) ?
-- [ ] **Mettre en ligne le chantier 1**, pour pouvoir l'essayer (il est sur la branche) : dis « mets en ligne ».
+- [ ] **Pell peut être sauvé** (chantier 2, ta feuille de route le proposait) : avec Médecine 3, on le tire du feu de
+      la chaudière ; il vit, sans ses mains, et Ingrid, Ilyane et la lavandière le disent. Sans Médecine, il meurt dans
+      tes bras. On garde (recommandé), ou Pell meurt toujours ?
+- [ ] **Mettre en ligne les chantiers 1 et 2**, pour pouvoir les essayer (ils sont sur la branche) : dis « mets en ligne ».
 - [ ] Dans ton Notion, quand tu veux : les contradictions du canon sur Terminus (`docs/univers/zones-floues.md`,
       points 33 à 37).
 
@@ -51,6 +54,20 @@ Lien du jeu : https://csaintecluque-ui.github.io/anamnesis-rpg/ (la version s'af
 - [ ] **Donner un Récit** (on l'oublie) : à l'Écho du dernier train (entrer sans Mémoire 4), au vieil arbre du Bosquet
       muet, à la Veilleuse (la clé contre une histoire de trains ; elle refuse les autres), à Ambroise (« une main
       contre une main », le Fonds Muet). Le choix est-il dur ? le prix juste ?
+- Remarques :
+
+## Chantier 2 — Tests et compétences (sur la branche)
+
+- [ ] **Les infobulles des options** : « Il faut Diplomatie 4 : tu as 3 (rang 2, Présence +1) » ; un seuil compte
+      maintenant ton attribut. Les tests te semblent-ils plus durs au chapitre 3 et 4 qu'au 1 ?
+- [ ] **Un héros athlétique** : la palissade de la Gare la nuit, la lucarne du grenier des semences (Canopéa), sauter
+      sur le dernier wagon (le triage d'Ironheart, la nuit), bousculer le guetteur du tunnel (après un raté), la
+      verrière du Fonds Muet (Sept-Portes, la nuit) ; contourner les Geckos-Soudeurs sur la route ; forcer une caisse.
+- [ ] **Un héros médecin** : les malades de Liane, **Pell dans le feu** (ouvrir la chaudière de la foreuse), les mains de
+      Tiven, la toux de Tam, l'insomnie de Joss ; un bandage soigne 2 PV de plus par point de Médecine.
+- [ ] **L'atelier** (Hedda, Sévane) : sans Artisanat ou Médecine, « Faire forger » coûte le double ; avec, « Forger ».
+      Le prix te paraît-il juste ?
+- [ ] **Montée de niveau** : le rang maximum (niveau + 2) s'affiche ; est-ce gênant ?
 - Remarques :
 
 ## Déjà en ligne, pas encore essayé sur PC

@@ -147,7 +147,7 @@
           "requires": [
             {
               "skill": "diplomacy",
-              "min": 3
+              "min": 4
             }
           ],
           "next": "convaincu"
@@ -157,7 +157,7 @@
           "requires": [
             {
               "skill": "lore",
-              "min": 3
+              "min": 4
             }
           ],
           "next": "convaincu"

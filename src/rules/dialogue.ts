@@ -1,7 +1,7 @@
 import questData from '../data/quests.json';
 import veilleeData from '../data/veillees.json';
 import { findLocation, type GameState } from '../state/gameState';
-import { ATTRIBUTES, SKILLS, attributeModifier, type AttributeId, type SkillId } from './attributes';
+import { ATTRIBUTES, SKILLS, attributeModifier, skillScoreOf, type AttributeId, type SkillId } from './attributes';
 import { resolveCheck, rollD20, successChance, type Rng } from './checks';
 import { characterStats } from './character';
 import { ENCOUNTERS } from './combat';
@@ -208,7 +208,8 @@ const isTest = (
 
 export function conditionMet(state: GameState, c: Condition): boolean {
   if ('attribute' in c) return (state.character?.attributes[c.attribute] ?? 0) >= c.min;
-  if ('skill' in c) return (state.character?.skills[c.skill] ?? 0) >= c.min;
+  // A test of skill counts the rank and the attribute behind it (feuille de route, chantier 2).
+  if ('skill' in c) return skillScore(state, c.skill) >= c.min;
   if ('flag' in c) return state.flags[c.flag] === true;
   if ('notFlag' in c) return state.flags[c.notFlag] !== true;
   if ('recit' in c) return knowsRecit(state.character, c.recit);
@@ -224,6 +225,14 @@ export function conditionMet(state: GameState, c: Condition): boolean {
   if ('marques' in c) return marquesOf(state.character) >= c.marques && marquesOf(state.character) <= (c.max ?? Infinity);
   if ('echos' in c) return collectedEchos(state).length >= c.echos;
   return (state.quests[c.quest] ?? 'none') === c.status;
+}
+
+/**
+ * What a test of skill weighs: the rank plus the modifier of its attribute (Diplomatie and Présence, Athlétisme and
+ * Corps…), as for the dice (feuille de route, chantier 2). The « souvenir vif » and the emprise only touch the dice.
+ */
+export function skillScore(state: Pick<GameState, 'character'>, skill: SkillId): number {
+  return state.character ? skillScoreOf(state.character, skill) : attributeModifier(3);
 }
 
 /** "Perception 4", "Diplomatie 2" — shown as [tag] before the option. */

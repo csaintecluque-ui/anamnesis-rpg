@@ -72,7 +72,7 @@ Quête **proposée** :
 
 | Où | Choix | Conséquence (proposée) |
 |---|---|---|
-| Gare Engloutie (« Le Dernier Train ») | nouvelle option au pied de la foreuse : **ouvrir la chaudière en grand** (pas de jet) | la foreuse explose ; **Pell**, vingt-deux ans, qui veillait sous la lanterne « parce qu'il avait peur du noir », meurt ; Ingrid l'a enterré au bord du quai ; Ilyane : « Un Gardien se souvient aussi de ce qu'il a coûté » ; la lavandière ; Liane −2 |
+| Gare Engloutie (« Le Dernier Train ») | nouvelle option au pied de la foreuse : **ouvrir la chaudière en grand** (pas de jet) | la foreuse explose ; **Pell**, vingt-deux ans, qui veillait sous la lanterne « parce qu'il avait peur du noir », meurt ; Ingrid l'a enterré au bord du quai ; Ilyane : « Un Gardien se souvient aussi de ce qu'il a coûté » ; la lavandière ; Liane −2. Chantier 2 (à valider) : avec **Médecine 3**, on le tire du feu, il vit sans ses mains (`pell-sauve`) ; sans, il meurt dans tes bras ou seul |
 | Triage des Cendres (« Le Rail des Cendres ») | le silence vendu aux **Marches** | **Joss est tué** (« entre deux wagons, les mains encore noires de graisse ; les Marches ne laissent ni dette ouverte, ni témoin ») ; il disparaît du triage |
 | idem | tout dire au **Bureau** | Joss est livré au tribunal : « sabotage d'un secteur stratégique » ; à Ferros, la trahison, c'est la mort [NOTION : peine de mort pour trahison ; grève interdite dans les secteurs stratégiques] |
 | Canopéa (« Les graines qui manquent ») | dénoncer **Elvan** | il est **banni** : « ici, on n'enferme pas, on retire les racines » [NOTION : bannissement pour la corruption ; les Sans-Racines comptent des bannis] ; la fleuriste l'a vu partir, sans nom |

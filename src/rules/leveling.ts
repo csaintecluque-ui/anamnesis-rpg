@@ -21,19 +21,29 @@ export interface LevelUpState {
   /** Working copy of the skill ranks, including points already spent this level-up. */
   skillRanks: SkillRanks;
   pointsLeft: number;
+  /** The highest rank at the new level (feuille de route, chantier 2) : niveau + 2, never above SKILL_RANK_MAX. */
+  maxRank: number;
+}
+
+/** A rank never goes past the level plus this (3 at level 1, as at creation; 7 at level 5). */
+export const RANK_OVER_LEVEL = 2;
+
+/** The highest rank a skill may reach at this level. */
+export function maxRankAt(level: number): number {
+  return Math.min(SKILL_RANK_MAX, level + RANK_OVER_LEVEL);
 }
 
 export function startLevelUp(character: Character): LevelUpState {
-  return { skillRanks: { ...character.skills }, pointsLeft: skillPointsPerLevel(character.attributes) };
+  return { skillRanks: { ...character.skills }, pointsLeft: skillPointsPerLevel(character.attributes), maxRank: maxRankAt(character.level + 1) };
 }
 
 export function canRaiseLevelSkill(state: LevelUpState, id: SkillId): boolean {
-  return state.pointsLeft > 0 && state.skillRanks[id] < SKILL_RANK_MAX;
+  return state.pointsLeft > 0 && state.skillRanks[id] < state.maxRank;
 }
 
 export function raiseLevelSkill(state: LevelUpState, id: SkillId): LevelUpState {
   if (!canRaiseLevelSkill(state, id)) return state;
-  return { skillRanks: { ...state.skillRanks, [id]: state.skillRanks[id] + 1 }, pointsLeft: state.pointsLeft - 1 };
+  return { ...state, skillRanks: { ...state.skillRanks, [id]: state.skillRanks[id] + 1 }, pointsLeft: state.pointsLeft - 1 };
 }
 
 /** Lowering only gives back points spent this level-up: never below the character's rank at its start. */
@@ -43,7 +53,7 @@ export function canLowerLevelSkill(character: Character, state: LevelUpState, id
 
 export function lowerLevelSkill(character: Character, state: LevelUpState, id: SkillId): LevelUpState {
   if (!canLowerLevelSkill(character, state, id)) return state;
-  return { skillRanks: { ...state.skillRanks, [id]: state.skillRanks[id] - 1 }, pointsLeft: state.pointsLeft + 1 };
+  return { ...state, skillRanks: { ...state.skillRanks, [id]: state.skillRanks[id] - 1 }, pointsLeft: state.pointsLeft + 1 };
 }
 
 /** Applies one level: +1 niveau, the new skill ranks, a full heal (docs/gdd/progression.md). */

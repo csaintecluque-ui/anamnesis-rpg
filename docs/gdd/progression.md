@@ -4,6 +4,8 @@ Règles : `src/rules/leveling.ts` ; écran : `LevelUpScene`.
 
 - **Seuils d'expérience** (validé par Cyril le 2026-11-01) : `50 × niveau × (niveau − 1)` XP cumulés pour
   atteindre un niveau — niveau 2 à 100 XP, niveau 3 à 300, niveau 4 à 600…
+- **Plafond** (chantier 2, 2026-11-03) : un rang ne dépasse pas **niveau + 2** (3 au niveau 1, 7 au niveau 5,
+  10 au plus) ; l'écran l'affiche (« rang maximum : 4 »). `maxRankAt`, `src/rules/leveling.ts`.
 - **À chaque niveau** : `3 + mod. Intellect` points de compétence à répartir (`docs/gdd/competences.md`), un repos
   complet (les PV reviennent au maximum). Pas de point d'attribut supplémentaire : seules les compétences progressent (validé par Cyril le 2026-11-01).
 - **Plusieurs niveaux d'un coup** (XP gagnée en une fois qui franchit deux seuils) : traités un par un, chacun avec

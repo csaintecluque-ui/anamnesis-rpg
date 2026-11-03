@@ -53,6 +53,20 @@
           "flag": "foreuse-explosee"
         },
         {
+          "flag": "pell-sauve"
+        },
+        {
+          "notFlag": "ilyane-sait-pell"
+        }
+      ],
+      "node": "pell-vivant"
+    },
+    {
+      "requires": [
+        {
+          "flag": "foreuse-explosee"
+        },
+        {
           "notFlag": "ilyane-sait-pell"
         }
       ],
@@ -357,6 +371,20 @@
         {
           "text": "Merci, Ilyane.",
           "next": "fin"
+        }
+      ]
+    },
+    "pell-vivant": {
+      "text": "Ilyane ne te regarde pas tout de suite. — Le vent a porté la fumée jusqu’ici. Un garçon de Ferros a brûlé, à la Gare ; il vivra, sans ses mains. La maladie recule. Un Gardien se souvient aussi de ce qu’il a coûté.",
+      "effects": [
+        {
+          "setFlag": "ilyane-sait-pell"
+        }
+      ],
+      "options": [
+        {
+          "text": "Je m’en souviendrai.",
+          "next": "resolu"
         }
       ]
     }

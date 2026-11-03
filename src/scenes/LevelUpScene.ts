@@ -58,7 +58,7 @@ export class LevelUpScene extends Phaser.Scene {
     );
     this.layer.add(
       this.add
-        .text(GAME_WIDTH / 2, 148, `Points de compétence à répartir : ${this.levelUp.pointsLeft}`, {
+        .text(GAME_WIDTH / 2, 148, `Points de compétence à répartir : ${this.levelUp.pointsLeft}  ·  rang maximum : ${this.levelUp.maxRank}`, {
           fontFamily: FONT_SERIF,
           fontSize: '24px',
           color: CSS.parchment,

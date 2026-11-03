@@ -29,7 +29,7 @@
           ],
           "roll": {
             "skill": "subterfuge",
-            "difficulty": 13
+            "difficulty": 14
           },
           "next": "faux-ok",
           "failNext": "faux-rate"
@@ -69,7 +69,7 @@
           ],
           "roll": {
             "skill": "investigation",
-            "difficulty": 13
+            "difficulty": 14
           },
           "next": "main-fausse",
           "failNext": "rien"

@@ -51,6 +51,31 @@
           "next": "panse"
         },
         {
+          "text": "Soigner la brûlure : de l’eau froide, de la graisse propre, un linge serré.",
+          "requires": [
+            {
+              "skill": "medicine",
+              "min": 3
+            },
+            {
+              "notFlag": "tiven-panse"
+            }
+          ],
+          "effects": [
+            {
+              "setFlag": "tiven-panse"
+            },
+            {
+              "giveXp": 10
+            },
+            {
+              "avis": "liane",
+              "delta": 1
+            }
+          ],
+          "next": "panse-medecine"
+        },
+        {
           "text": "Courage, Tiven.",
           "next": "fin"
         }
@@ -102,6 +127,31 @@
           "next": "panse"
         },
         {
+          "text": "Soigner la brûlure : de l’eau froide, de la graisse propre, un linge serré.",
+          "requires": [
+            {
+              "skill": "medicine",
+              "min": 3
+            },
+            {
+              "notFlag": "tiven-panse"
+            }
+          ],
+          "effects": [
+            {
+              "setFlag": "tiven-panse"
+            },
+            {
+              "giveXp": 10
+            },
+            {
+              "avis": "liane",
+              "delta": 1
+            }
+          ],
+          "next": "panse-medecine"
+        },
+        {
           "text": "Je reviens.",
           "next": "fin"
         }
@@ -130,6 +180,15 @@
       "options": [
         {
           "text": "Bon courage.",
+          "next": "fin"
+        }
+      ]
+    },
+    "panse-medecine": {
+      "text": "Tu rinces, tu graisses, tu serres. Tiven grimace, puis souffle. — Ça tire, mais ça ne brûle plus. Où est-ce qu’on apprend ça ?",
+      "options": [
+        {
+          "text": "Ménage-toi.",
           "next": "fin"
         }
       ]

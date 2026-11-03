@@ -14,6 +14,20 @@ de Canopéa »). Code : `src/rules/artisanat.ts`, écran `src/scenes/AtelierScen
   et le bouton « Forger » ou « Préparer », grisé tant qu'il manque quelque chose. Une arme ou une armure portée,
   améliorée, reste portée.
 
+## La compétence (chantier 2, 2026-11-03)
+
+Chaque recette demande une compétence (`competence` dans `recettes.json`) : **Artisanat** à la forge, **Médecine** aux
+herbes, d'un seuil de 1 à 4 (rang + modificateur d'Intellect). Sans elle, l'hôte fait le travail : **le double des
+Fers**, et le bouton devient « Faire forger » ou « Faire préparer ». La ligne de la recette le dit : « Artisanat 3 : tu
+as 2, Hedda le fait ».
+
+| Recette | Seuil |
+|---|---|
+| 10 carreaux · 3 bandages | 1 |
+| Dague dentelée · Armure de cuir clouté · 2 baumes de mousse | 2 |
+| Épée trempée · Fiole de sève · Sève de Résonance | 3 |
+| Cuirasse au cœur de ferraille | 4 |
+
 ## Les recettes
 
 | Atelier | Donne | Il faut | Fers | Effet |

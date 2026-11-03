@@ -53,7 +53,7 @@ describe('what they think', () => {
     expect(applyEffects(state, steal)).toContain('Liane en a assez, et quitte le groupe');
     expect(state.avis.liane).toBeLessThanOrEqual(AVIS_DEPART);
     expect(state.groupe).toEqual([]);
-    expect(optionTexts(state, 'liane', 'apres')).toEqual(['…']);
+    expect(optionTexts(state, 'liane', 'apres')).toEqual(['Laisse-moi voir tes malades.', '…']);
   });
 
   it('shows in her greeting', () => {

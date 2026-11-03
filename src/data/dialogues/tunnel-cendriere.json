@@ -85,6 +85,49 @@
       "text": "— Hé ! Le guetteur te pousse dehors. — La prochaine fois, j’appelle les autres.",
       "options": [
         {
+          "text": "Le bousculer, et filer dans le noir du tunnel.",
+          "roll": {
+            "skill": "athletics",
+            "difficulty": 13
+          },
+          "next": "force-passage",
+          "failNext": "rattrape"
+        },
+        {
+          "text": "Reculer.",
+          "next": "fin"
+        }
+      ]
+    },
+    "force-passage": {
+      "text": "Tu passes sous son bras et tu cours. Derrière toi, des jurons, un sifflet, puis plus rien : le tunnel avale tout.",
+      "effects": [
+        {
+          "setFlag": "cendriere-ouverte"
+        }
+      ],
+      "options": [
+        {
+          "text": "Entrer.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "ironheart-cendriere",
+              "arrivee": "depuis-tunnel"
+            }
+          ]
+        }
+      ]
+    },
+    "rattrape": {
+      "text": "Il te rattrape par le col et te jette sur le ballast. — La prochaine fois, j’appelle les autres.",
+      "effects": [
+        {
+          "blesser": 3
+        }
+      ],
+      "options": [
+        {
           "text": "Reculer.",
           "next": "fin"
         }

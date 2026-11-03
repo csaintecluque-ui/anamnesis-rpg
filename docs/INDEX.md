@@ -46,7 +46,7 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `decisions.md` : état du GDD, principe d'adaptation du JDR, décisions validées.
 - `cahier-des-charges.md` : brief initial de Cyril (systèmes attendus, 8 points du jalon 1).
 - `attributs.md` : 7 attributs, valeurs dérivées (PV, Défense, PA, Charge, Récits).
-- `competences.md` : 12 compétences et la Résonance, résolution des tests (d20, seuils de dialogue).
+- `competences.md` : 12 compétences et la Résonance, résolution des tests (d20, seuils de dialogue), la courbe des tests par chapitre et le rôle de chaque compétence (chantier 2).
 - `creation.md` : origine, dons, règles de l'écran de création.
 - `memoire.md` : mécanique signature (Échos, Récits, choix) et son implémentation.
 - `combat.md` : règles du combat, arène, IA ; mort réelle, effets, ennemis variés, butin, bestiaire, compagnons.

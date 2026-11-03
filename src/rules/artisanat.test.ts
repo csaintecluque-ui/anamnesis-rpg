@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { createNewGame, type GameState } from '../state/gameState';
-import { ATELIERS, RECETTES, craft, missing, recettesOf } from './artisanat';
+import { ATELIERS, KEEPER_FEE_FACTOR, RECETTES, canMakeOneself, costOf, craft, missing, recettesOf } from './artisanat';
 import { findWeapon } from './combat';
 import { applyEffects } from './dialogue';
 import { armorBonus, equip, findItem, ownedCount } from './inventory';
@@ -40,6 +40,7 @@ describe('the recipes', () => {
 describe('crafting', () => {
   it('says what is missing, then takes the materials and the Fers, and gives the thing', () => {
     const state = game();
+    state.character!.skills.medicine = 3;
     state.character!.fers = 10;
     const r = recette('fiole-seve');
     expect(missing(state, r)).toEqual(['2 Épines de Rôdeur']);
@@ -48,6 +49,29 @@ describe('crafting', () => {
     const fioles = ownedCount(state.character!, 'fiole-seve');
     expect(craft(state, r)).toEqual(['−2 Épines de Rôdeur', `−${r.fers} Fers`, '+1 Fiole de sève']);
     expect([ownedCount(state.character!, 'epines-rodeur'), ownedCount(state.character!, 'fiole-seve'), state.character!.fers]).toEqual([1, fioles + 1, 10 - r.fers]);
+  });
+
+  it('asks Artisanat at the forge, Médecine at the herbs; without it, the keeper does the work, for twice the Fers', () => {
+    for (const r of RECETTES) {
+      expect(r.competence.skill, r.id).toBe(r.atelier === 'forge' ? 'crafting' : 'medicine');
+      expect(r.competence.min, r.id).toBeGreaterThanOrEqual(1);
+      expect(r.competence.min, r.id).toBeLessThanOrEqual(4);
+    }
+    const state = game();
+    const c = state.character!;
+    const r = recette('epee-trempee');
+    c.skills.crafting = 0;
+    c.attributes.intellect = 3;
+    expect([canMakeOneself(state, r), costOf(state, r)]).toEqual([false, KEEPER_FEE_FACTOR * r.fers]);
+    c.fers = r.fers;
+    give(state, 'epee-longue');
+    give(state, 'crocs-rouille', 2);
+    expect(missing(state, r)).toEqual([`${r.fers} Fers`]);
+    c.skills.crafting = 2;
+    c.attributes.intellect = 4;
+    expect([canMakeOneself(state, r), costOf(state, r), missing(state, r)]).toEqual([true, r.fers, []]);
+    expect(craft(state, r)).toContain(`−${r.fers} Fers`);
+    expect(c.fers).toBe(0);
   });
 
   it('an armour worn when improved is worn again, improved', () => {

@@ -16,6 +16,10 @@
       }
     ],
     "fers": 30,
+    "competence": {
+      "skill": "crafting",
+      "min": 3
+    },
     "texte": "1d10 au lieu de 1d8."
   },
   {
@@ -35,6 +39,10 @@
       }
     ],
     "fers": 15,
+    "competence": {
+      "skill": "crafting",
+      "min": 2
+    },
     "texte": "1d6 au lieu de 1d4."
   },
   {
@@ -58,6 +66,10 @@
       }
     ],
     "fers": 25,
+    "competence": {
+      "skill": "crafting",
+      "min": 2
+    },
     "texte": "Armure +2 au lieu de +1."
   },
   {
@@ -77,6 +89,10 @@
       }
     ],
     "fers": 50,
+    "competence": {
+      "skill": "crafting",
+      "min": 4
+    },
     "texte": "Armure +4 au lieu de +3."
   },
   {
@@ -93,6 +109,10 @@
       }
     ],
     "fers": 5,
+    "competence": {
+      "skill": "crafting",
+      "min": 1
+    },
     "texte": "Dix carreaux d’arbalète."
   },
   {
@@ -109,6 +129,10 @@
       }
     ],
     "fers": 4,
+    "competence": {
+      "skill": "medicine",
+      "min": 2
+    },
     "texte": "Deux baumes : 12 PV chacun."
   },
   {
@@ -124,6 +148,10 @@
       }
     ],
     "fers": 6,
+    "competence": {
+      "skill": "medicine",
+      "min": 3
+    },
     "texte": "Une fiole : 20 PV."
   },
   {
@@ -143,6 +171,10 @@
       }
     ],
     "fers": 12,
+    "competence": {
+      "skill": "medicine",
+      "min": 3
+    },
     "texte": "Rend 3 Points de Résonance."
   },
   {
@@ -159,6 +191,10 @@
       }
     ],
     "fers": 3,
+    "competence": {
+      "skill": "medicine",
+      "min": 1
+    },
     "texte": "Trois bandages, cautérisés à la glande de Gecko-Soudeur : 8 PV chacun."
   }
 ]

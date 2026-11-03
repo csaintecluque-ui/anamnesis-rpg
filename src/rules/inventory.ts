@@ -1,5 +1,6 @@
 import itemData from '../data/items.json';
 import npcData from '../data/npcs.json';
+import { skillScoreOf } from './attributes';
 import { SLOTS, type Character, type Equipment, type Slot } from './character';
 import { carryCapacityKg } from './derived';
 
@@ -147,11 +148,22 @@ export function unequip(character: Character, slot: Slot): void {
   character.equipment[slot] = null;
 }
 
-/** Restores HP from a healing item (e.g. a bandage), consuming one; returns the HP actually restored, or null if unusable. */
+/** Médecine (feuille de route, chantier 2) : each point of the skill makes a remedy heal this much more. */
+export const HEAL_PER_MEDICINE = 2;
+
+/** The PV a remedy gives back more, by the hero's Médecine (never less than nothing). */
+export function medicineHealBonus(character: Character): number {
+  return HEAL_PER_MEDICINE * Math.max(0, skillScoreOf(character, 'medicine'));
+}
+
+/**
+ * Restores HP from a healing item (e.g. a bandage), consuming one, with the bonus of the hero's Médecine; returns the
+ * HP actually restored, or null if unusable.
+ */
 export function useConsumable(character: Character, itemId: string, maxHp: number): number | null {
   const item = findItem(itemId);
   if (!item?.healHp || ownedCount(character, itemId) === 0 || character.hp >= maxHp) return null;
-  const restored = Math.min(item.healHp, maxHp - character.hp);
+  const restored = Math.min(item.healHp + medicineHealBonus(character), maxHp - character.hp);
   character.hp += restored;
   removeItem(character, itemId, 1);
   return restored;

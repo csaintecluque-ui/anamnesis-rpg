@@ -29,6 +29,15 @@
           "next": "nichoir"
         },
         {
+          "text": "Grimper jusqu’à la lucarne, par la grosse branche.",
+          "roll": {
+            "skill": "athletics",
+            "difficulty": 12
+          },
+          "next": "lucarne",
+          "failNext": "branche"
+        },
+        {
           "text": "Laisser la porte tranquille.",
           "next": "fin"
         }
@@ -89,6 +98,47 @@
         },
         {
           "text": "Remettre la clé, et partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "lucarne": {
+      "text": "La branche tient. Tu te glisses par la lucarne et tu tires le verrou de l’intérieur : la porte ronde s’ouvre sur une odeur de graines sèches.",
+      "effects": [
+        {
+          "setFlag": "grenier-deverrouille"
+        }
+      ],
+      "options": [
+        {
+          "text": "Entrer.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "canopee-grenier"
+            }
+          ]
+        },
+        {
+          "text": "Ne pas entrer pour l’instant.",
+          "next": "fin"
+        }
+      ]
+    },
+    "branche": {
+      "text": "La branche ploie, puis plie. Tu redescends plus vite que prévu, et une passerelle grince non loin.",
+      "effects": [
+        {
+          "blesser": 2
+        }
+      ],
+      "options": [
+        {
+          "text": "Réessayer.",
+          "next": "verrouillee"
+        },
+        {
+          "text": "Partir.",
           "next": "fin"
         }
       ]

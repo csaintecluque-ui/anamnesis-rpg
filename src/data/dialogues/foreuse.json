@@ -6,6 +6,17 @@
       "requires": [
         {
           "flag": "foreuse-explosee"
+        },
+        {
+          "flag": "pell-sauve"
+        }
+      ],
+      "node": "explosee-pell"
+    },
+    {
+      "requires": [
+        {
+          "flag": "foreuse-explosee"
         }
       ],
       "node": "explosee"
@@ -75,6 +86,15 @@
           },
           "next": "au-pied",
           "failNext": "repere"
+        },
+        {
+          "text": "Escalader la palissade, côté ruines.",
+          "roll": {
+            "skill": "athletics",
+            "difficulty": 11
+          },
+          "next": "au-pied",
+          "failNext": "palissade"
         },
         {
           "text": "Renoncer et attendre le jour.",
@@ -214,7 +234,70 @@
       ]
     },
     "chaudiere": {
-      "text": "Tu ouvres la vanne en grand et tu cours. Derrière toi, la chaudière hurle, puis éclate. Le feu éclaire tout le quai. Au matin, on compte : la foreuse est morte. Le garçon qui veillait sous la lanterne aussi.",
+      "text": "Tu ouvres la vanne en grand et tu cours. Derrière toi, la chaudière hurle, puis éclate. Le feu éclaire tout le quai. Sous la lanterne renversée, quelqu’un crie : le garçon qui veillait.",
+      "night": true,
+      "options": [
+        {
+          "text": "Revenir dans le feu : le tirer de là, serrer ses brûlures.",
+          "requires": [
+            {
+              "skill": "medicine",
+              "min": 3
+            }
+          ],
+          "next": "pell-sauve",
+          "effects": [
+            {
+              "setFlag": "pell-sauve"
+            },
+            {
+              "avis": "liane",
+              "delta": 1
+            },
+            {
+              "giveXp": 20
+            }
+          ]
+        },
+        {
+          "text": "Revenir dans le feu.",
+          "next": "pell-perdu"
+        },
+        {
+          "text": "Courir, sans te retourner.",
+          "next": "pell-mort"
+        }
+      ]
+    },
+    "explosee": {
+      "text": "La foreuse n’est plus qu’une carcasse noire, ouverte comme une fleur de fer. Au bord du quai, de la terre fraîche, et une lanterne éteinte posée dessus.",
+      "options": [
+        {
+          "text": "S’éloigner.",
+          "next": "fin"
+        }
+      ]
+    },
+    "palissade": {
+      "text": "Une planche pourrie cède sous ton pied. Tu retombes dans les orties, avec un bruit de bois mort. Une lanterne se lève : « Qui va là ? » Brisefer saura qu’on a rôdé ici.",
+      "night": true,
+      "effects": [
+        {
+          "setFlag": "surpris-de-nuit"
+        },
+        {
+          "blesser": 2
+        }
+      ],
+      "options": [
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ]
+    },
+    "pell-sauve": {
+      "text": "Tu le tires hors des flammes, tu coupes, tu serres, tu refroidis. Au matin, Brisefer le trouve sous sa tente, bandé jusqu’aux coudes. Il vivra. Ses mains, non.",
       "night": true,
       "options": [
         {
@@ -223,8 +306,28 @@
         }
       ]
     },
-    "explosee": {
-      "text": "La foreuse n’est plus qu’une carcasse noire, ouverte comme une fleur de fer. Au bord du quai, de la terre fraîche, et une lanterne éteinte posée dessus.",
+    "pell-perdu": {
+      "text": "Tu le tires hors des flammes. Il respire encore quand tu le poses sur le quai, puis il ne respire plus. Tu ne savais pas quoi serrer, ni où.",
+      "night": true,
+      "options": [
+        {
+          "text": "Attendre le jour.",
+          "next": "fin"
+        }
+      ]
+    },
+    "pell-mort": {
+      "text": "Au matin, on compte : la foreuse est morte. Le garçon qui veillait sous la lanterne aussi.",
+      "night": true,
+      "options": [
+        {
+          "text": "Attendre le jour.",
+          "next": "fin"
+        }
+      ]
+    },
+    "explosee-pell": {
+      "text": "La foreuse n’est plus qu’une carcasse noire, ouverte comme une fleur de fer. Sous la tente de Brisefer, quelqu’un gémit dans son sommeil, les mains bandées jusqu’aux coudes.",
       "options": [
         {
           "text": "S’éloigner.",

@@ -1,9 +1,9 @@
 import npcData from '../data/npcs.json';
 import type { MapObject } from '../engine/tiledMap';
 import type { GameState } from '../state/gameState';
-import { ATTRIBUTES, SKILLS } from './attributes';
+import { ATTRIBUTES, SKILLS, attributeModifier } from './attributes';
 import { findEnemy } from './combat';
-import { rollBonus, rollChance, type OptionView } from './dialogue';
+import { rollBonus, rollChance, skillScore, type OptionView } from './dialogue';
 import { ECHOS, echoFlag } from './echos';
 
 /**
@@ -54,7 +54,10 @@ export function optionHint(view: OptionView, state: GameState): string | null {
   for (const r of view.option.requires ?? []) {
     if ('skill' in r) {
       const skill = SKILLS.find((s) => s.id === r.skill);
-      lines.push(`Il faut ${skill?.name ?? r.skill} ${r.min} : tu as ${c?.skills[r.skill] ?? 0}.`);
+      const attribute = ATTRIBUTES.find((a) => a.id === skill?.attribute);
+      const mod = attributeModifier(c?.attributes[skill?.attribute ?? 'body'] ?? 3);
+      const detail = `rang ${c?.skills[r.skill] ?? 0}, ${attribute?.name ?? ''} ${mod < 0 ? '−' : '+'}${Math.abs(mod)}`;
+      lines.push(`Il faut ${skill?.name ?? r.skill} ${r.min} : tu as ${skillScore(state, r.skill)} (${detail}).`);
     } else if ('attribute' in r) {
       const attribute = ATTRIBUTES.find((a) => a.id === r.attribute);
       lines.push(`Il faut ${attribute?.name ?? r.attribute} ${r.min} : tu as ${c?.attributes[r.attribute] ?? 0}.`);

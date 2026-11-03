@@ -62,6 +62,30 @@
           "failNext": "surpris"
         },
         {
+          "text": "Par le toit : la gouttière, puis la verrière du Fonds.",
+          "requires": [
+            {
+              "moment": "nuit"
+            },
+            {
+              "quest": "memoires-monde-perdu",
+              "status": "active"
+            },
+            {
+              "flag": "registre-lu"
+            },
+            {
+              "notFlag": "raccompagne-nuit"
+            }
+          ],
+          "roll": {
+            "skill": "athletics",
+            "difficulty": 14
+          },
+          "next": "verriere",
+          "failNext": "gouttiere"
+        },
+        {
           "text": "Partir.",
           "next": "fin"
         }
@@ -120,6 +144,39 @@
             }
           ],
           "next": "fin"
+        }
+      ]
+    },
+    "verriere": {
+      "text": "Trois étages de pierre froide, une verrière mal jointe. Tu te laisses glisser entre deux rayonnages, sans un bruit. Ici, personne n’a pensé à garder le ciel.",
+      "effects": [
+        {
+          "setFlag": "fonds-muet-ouvert"
+        }
+      ],
+      "options": [
+        {
+          "text": "Descendre dans le Fonds.",
+          "effects": [
+            {
+              "goTo": "sept-portes-fonds-muet"
+            }
+          ],
+          "next": "fin"
+        }
+      ]
+    },
+    "gouttiere": {
+      "text": "La gouttière cède sous ta main. Tu tombes dans la cour, deux étages plus bas, au pied du portier.",
+      "effects": [
+        {
+          "blesser": 4
+        }
+      ],
+      "options": [
+        {
+          "text": "…",
+          "next": "surpris"
         }
       ]
     }

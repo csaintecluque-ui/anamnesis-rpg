@@ -74,6 +74,19 @@
       "text": "Alors, cette sauge ? Trois touffes, pas deux.",
       "options": [
         {
+          "text": "Laisse-moi voir tes malades.",
+          "requires": [
+            {
+              "skill": "medicine",
+              "min": 2
+            },
+            {
+              "notFlag": "liane-malades-vus"
+            }
+          ],
+          "next": "malades"
+        },
+        {
           "text": "J’y retourne.",
           "next": "fin"
         }
@@ -117,6 +130,19 @@
           "next": "recrue"
         },
         {
+          "text": "Laisse-moi voir tes malades.",
+          "requires": [
+            {
+              "skill": "medicine",
+              "min": 2
+            },
+            {
+              "notFlag": "liane-malades-vus"
+            }
+          ],
+          "next": "malades"
+        },
+        {
           "text": "…",
           "next": "fin"
         }
@@ -134,6 +160,27 @@
           ],
           "next": "fin"
         },
+        {
+          "text": "Je reviendrai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "malades": {
+      "text": "Liane te regarde faire, bras croisés. — Le pouls, les yeux, la langue : tu sais lire un malade. Ils n’ont pas de fièvre. Ils revivent quelque chose. Mes herbes calment le corps ; le reste vient de la Gare.",
+      "effects": [
+        {
+          "setFlag": "liane-malades-vus"
+        },
+        {
+          "avis": "liane",
+          "delta": 1
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
         {
           "text": "Je reviendrai.",
           "next": "fin"

@@ -247,7 +247,8 @@ function crateDialogue(id: string, k: number, tier: number, chief: boolean, rng:
   }
   if (chief && rng() < 0.15) loot.push({ giveItem: pick(rng, DATA.tresor) });
   const locked = chief || rng() < 0.35;
-  const force: DialogueOption = { text: 'Forcer le couvercle, à mains nues.', effects: [{ blesser: 3 }], next: 'ouverte' };
+  // L'Athlétisme (feuille de route, chantier 2) : a strong arm opens it clean; missed, it opens all the same, and hurts.
+  const force: DialogueOption = { text: 'Forcer le couvercle, à mains nues.', roll: { skill: 'athletics', difficulty: 9 + tier }, next: 'ouverte', failNext: 'arrachee' };
   const leave: DialogueOption = { text: 'Laisser.', next: 'fin' };
   const text = chief
     ? 'Le coffre du chef de gare : fer noir, une plaque de cuivre, un nom qu’on a gratté. Un cadenas rongé le tient fermé.'
@@ -265,7 +266,16 @@ function crateDialogue(id: string, k: number, tier: number, chief: boolean, rng:
           ? [{ text: 'Crocheter le cadenas.', roll: { skill: 'crafting', difficulty: 9 + tier }, next: 'ouverte', failNext: 'coince' }, force, leave]
           : [{ text: 'L’ouvrir.', next: 'ouverte' }, leave],
       },
-      ...(locked ? { coince: { text: 'Le cadenas tient bon, et ta lime glisse sur la rouille.', options: [force, leave] } } : {}),
+      ...(locked
+        ? {
+            coince: { text: 'Le cadenas tient bon, et ta lime glisse sur la rouille.', options: [force, leave] },
+            arrachee: {
+              text: 'Le couvercle cède d’un coup, et ta main avec : une écharde de fer jusqu’à l’os.',
+              effects: [{ blesser: 3 }],
+              options: [{ text: 'Ouvrir.', next: 'ouverte' }],
+            },
+          }
+        : {}),
       ouverte: {
         text: 'Le couvercle cède dans un nuage de poussière. Dedans, ce que quelqu’un a laissé là, il y a très longtemps, ou hier.',
         effects: loot,

@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import { performRoll, rollChance } from '../rules/dialogue';
+import { SKILLS } from '../rules/attributes';
 import {
   WORLD,
   clearEncounterFlags,
@@ -419,7 +420,8 @@ export class WorldMapScene extends Phaser.Scene {
     this.showPanel(r.intro, [
       ['Approcher', () => this.startEncounter(r, destination)],
       [
-        `Contourner (Survie ${chance} %)`,
+        // The roll's own skill (Survie, Discrétion, Subterfuge…), not always Survie.
+        `Contourner (${SKILLS.find((s) => s.id === avoid.skill)?.name ?? avoid.skill} ${chance} %)`,
         () => {
           const outcome = performRoll(this.state, avoid);
           if (outcome.success) this.showPanel(`Tu t’éloignes sans bruit.\n${outcome.notice}`, [['Continuer', goOn]]);

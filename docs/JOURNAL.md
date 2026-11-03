@@ -3,7 +3,7 @@
 ## État (2026-11-03)
 
 - Jalons 1, 2 et 3 faits et en ligne ; jalon 4, chapitre 4 (Sept-Portes) en ligne et validé ; page Notion à jour.
-- 643 tests (dont le parcours complet d'affilée, `src/rules/parcours.test.ts`), typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
+- 651 tests (dont le parcours complet d'affilée, `src/rules/parcours.test.ts`), typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
 - **Décisions de Cyril (2026-11-03)** : le jeu se joue **sur PC** (le téléphone n'est qu'une cible d'essai) ; le
   ressenti est déjà testé : on corrige avant tout nouvel essai.
 
@@ -16,7 +16,7 @@ Cyril sur PC et sa validation. Aucun nouveau système d'ici là.
 |---|---|---|
 | 0 | PC d'abord : `CLAUDE.md`, infobulles, raccourcis, barre d'actions, taille du texte | **en ligne** (2026-11-03) ; partie de Cyril sur PC à faire |
 | 1 | Une mémoire pour le héros : oubli choisi, champignon, Échos tentants et cachés, dons de Récit **faits (branche)** ; Écho du héros à valider (`univers/personnages/heros.md`) | en cours |
-| 2 | Recalibrer tests et compétences | à faire |
+| 2 | Recalibrer tests et compétences : seuils rang + attribut, courbe par chapitre, Athlétisme et Médecine ×5, atelier par compétence, rang ≤ niveau + 2 **faits (branche)** ; Pell sauvable à valider | en cours |
 | 3 | Refaire le combat | à faire |
 | 4 | Compagnons présents, ennemi incarné | à faire |
 | 5 | Passe d'écriture | à faire |

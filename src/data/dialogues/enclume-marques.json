@@ -21,7 +21,7 @@
           "requires": [
             {
               "skill": "investigation",
-              "min": 2
+              "min": 3
             }
           ]
         },

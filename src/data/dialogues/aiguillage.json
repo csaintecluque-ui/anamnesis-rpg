@@ -53,7 +53,7 @@
             },
             {
               "skill": "investigation",
-              "min": 2
+              "min": 3
             }
           ],
           "next": "goupille"
@@ -66,7 +66,7 @@
             },
             {
               "skill": "crafting",
-              "min": 2
+              "min": 3
             }
           ],
           "next": "goupille"
@@ -116,9 +116,18 @@
           "next": "suivre",
           "roll": {
             "skill": "stealth",
-            "difficulty": 11
+            "difficulty": 12
           },
           "failNext": "veille-rate"
+        },
+        {
+          "text": "Sauter sur le dernier wagon quand il passe.",
+          "roll": {
+            "skill": "athletics",
+            "difficulty": 13
+          },
+          "next": "wagon",
+          "failNext": "wagon-rate"
         }
       ]
     },
@@ -162,6 +171,46 @@
         },
         {
           "text": "Fuir dans l’ombre des wagons.",
+          "next": "fin"
+        }
+      ]
+    },
+    "wagon": {
+      "text": "Une machine trapue, sans cabine ni conducteur, attelle trois wagons. Au passage du dernier, tu sautes : le fer froid, le vent, et l’embranchement qui file sous les terrils.",
+      "effects": [
+        {
+          "setFlag": "pilleurs-suivis"
+        },
+        {
+          "setFlag": "cendriere-ouverte"
+        },
+        {
+          "giveXp": 15
+        }
+      ],
+      "options": [
+        {
+          "text": "S’accrocher jusqu’au bout.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "ironheart-cendriere",
+              "arrivee": "depuis-tunnel"
+            }
+          ]
+        }
+      ]
+    },
+    "wagon-rate": {
+      "text": "Tes doigts glissent sur le fer. Tu roules sur le ballast, et le convoi disparaît sous les terrils sans t’avoir vu.",
+      "effects": [
+        {
+          "blesser": 3
+        }
+      ],
+      "options": [
+        {
+          "text": "Se relever.",
           "next": "fin"
         }
       ]

@@ -33,8 +33,8 @@ _Effet : retient « indice-aiguillage », +10 XP._
 
 > Le levier de l’embranchement, peint en rouge : « Embranchement de la Cendrière — fermé au trafic ». Pourtant, ses rails brillent comme si l’on y roulait chaque nuit.
 
-- _(sans repère « indice-aiguillage »)_ **[Investigation 2]** « Examiner le mécanisme. » → goupille
-- _(sans repère « indice-aiguillage »)_ **[Artisanat 2]** « Démonter le carter. » → goupille
+- _(sans repère « indice-aiguillage »)_ **[Investigation 3]** « Examiner le mécanisme. » → goupille
+- _(sans repère « indice-aiguillage »)_ **[Artisanat 3]** « Démonter le carter. » → goupille
 - _(sans repère « pilleurs-vaincus »)_ _(sans repère « pilleurs-suivis »)_ « Attendre la nuit, caché près du levier. » → veille _(attend la nuit)_
 - « Laisser le levier. » → **fin**
 
@@ -45,7 +45,8 @@ _Effet : retient « veille-aiguillage »._
 > La nuit tombe sur le triage. Vers trois heures, deux silhouettes en manteau de cendre abaissent le levier de l’embranchement, sans effort. Au loin approche un cliquetis de cristal, sans un souffle de vapeur.
 
 - « Les arrêter ! » → **fin** _(lance le combat « aiguillage-cendres »)_
-- **🎲 Discrétion 11** « Les laisser faire, et suivre le convoi. » → suivre, ✗ → veille-rate
+- **🎲 Discrétion 12** « Les laisser faire, et suivre le convoi. » → suivre, ✗ → veille-rate
+- **🎲 Athlétisme 13** « Sauter sur le dernier wagon quand il passe. » → wagon, ✗ → wagon-rate
 
 ### suivre
 
@@ -61,6 +62,22 @@ _Effet : retient « pilleurs-suivis », retient « cendriere-ouverte », +15 XP.
 
 - « Se défendre ! » → **fin** _(lance le combat « aiguillage-cendres »)_
 - « Fuir dans l’ombre des wagons. » → **fin**
+
+### wagon
+
+_Effet : retient « pilleurs-suivis », retient « cendriere-ouverte », +15 XP._
+
+> Une machine trapue, sans cabine ni conducteur, attelle trois wagons. Au passage du dernier, tu sautes : le fer froid, le vent, et l’embranchement qui file sous les terrils.
+
+- « S’accrocher jusqu’au bout. » → **fin** _(mène à « Ironheart — La Cendrière »)_
+
+### wagon-rate
+
+_Effet : −3 PV._
+
+> Tes doigts glissent sur le fer. Tu roules sur le ballast, et le convoi disparaît sous les terrils sans t’avoir vu.
+
+- « Se relever. » → **fin**
 
 ## Aïlis Feuillevent
 
@@ -195,8 +212,8 @@ _Effet : retient « registre-lu »._
 > — Le Fonds Muet ne se cite pas. Il ne se cache pas non plus : ici, on ne cache rien. Convainquez-moi qu’un lecteur n’est pas un citeur.
 
 - _(si Récit « Kael, le Premier Chroniqueur » connu)_ « Kael a bâti cette bibliothèque sur une seule règle. Il a lu, lui, avant de la poser. » → convaincu
-- **[Diplomatie 3]** « « On ne cache rien », dites-vous. Alors ne me cachez pas cette page. » → convaincu
-- **[Érudition 3]** « Une provenance n’est pas une vérité. Je ne la citerai pas : je la lirai. » → convaincu
+- **[Diplomatie 4]** « « On ne cache rien », dites-vous. Alors ne me cachez pas cette page. » → convaincu
+- **[Érudition 4]** « Une provenance n’est pas une vérité. Je ne la citerai pas : je la lirai. » → convaincu
 - « Je reviendrai. » → **fin**
 
 ### convaincu
@@ -585,7 +602,7 @@ Commence par : « libre » _(si repère « rodeurs-caisse-vaincus »)_, sinon «
 > La caisse de Brann est là, dans l’herbe. Deux Rôdeurs-Épine la flairent en grondant, sans la quitter des yeux.
 
 - **🎲 Survie 12** « Les éloigner avec une branche fumante. » → eloignes, ✗ → reperes
-- **🎲 Discrétion 13** « Se glisser jusqu’à la caisse sans bruit. » → prise, ✗ → reperes
+- **🎲 Discrétion 12** « Se glisser jusqu’à la caisse sans bruit. » → prise, ✗ → reperes
 - « Les affronter. » → **fin** _(lance le combat « caisse-egaree »)_
 - « Revenir plus tard. » → **fin**
 
@@ -1560,7 +1577,7 @@ _Effet : retient « enclume-vue »._
 
 > Une vieille enclume, noire de suie. Sur le plat, des mains gravées, grandes et petites, cinq en tout, posées côte à côte. L’Écho les rejoue un instant : des rires, puis plus rien.
 
-- **[Investigation 2]** « Examiner les marques. » → marques
+- **[Investigation 3]** « Examiner les marques. » → marques
 - « Approcher la lueur d’un cristal. » → marques _(lance « Lueur »)_
 - « Partir. » → **fin**
 
@@ -1574,7 +1591,7 @@ _Effet : retient « enclume-vue »._
 
 _Objet_
 
-Commence par : « explosee » _(si repère « foreuse-explosee »)_, sinon « faussee » _(si repère « foreuse-sabotee »)_, sinon « arretee » _(si repère « chantier-arrete »)_, sinon « gardee » _(si repère « surpris-de-nuit »)_, sinon « jour »
+Commence par : « explosee-pell » _(si repère « foreuse-explosee »)_ _(si repère « pell-sauve »)_, sinon « explosee » _(si repère « foreuse-explosee »)_, sinon « faussee » _(si repère « foreuse-sabotee »)_, sinon « arretee » _(si repère « chantier-arrete »)_, sinon « gardee » _(si repère « surpris-de-nuit »)_, sinon « jour »
 
 ### jour
 
@@ -1588,6 +1605,7 @@ Commence par : « explosee » _(si repère « foreuse-explosee »)_, sinon « fa
 > 🌙 La nuit tombe sur la Gare. Le chantier s’endort ; seule une lanterne veille encore, près de la tente de Brisefer.
 
 - **🎲 Discrétion 10** « Se glisser jusqu’à la foreuse. » → au-pied, ✗ → repere
+- **🎲 Athlétisme 11** « Escalader la palissade, côté ruines. » → au-pied, ✗ → palissade
 - « Renoncer et attendre le jour. » → **fin**
 
 ### au-pied
@@ -1642,13 +1660,47 @@ _Effet : retient « surpris-de-nuit »._
 
 ### chaudiere
 
-> 🌙 Tu ouvres la vanne en grand et tu cours. Derrière toi, la chaudière hurle, puis éclate. Le feu éclaire tout le quai. Au matin, on compte : la foreuse est morte. Le garçon qui veillait sous la lanterne aussi.
+> 🌙 Tu ouvres la vanne en grand et tu cours. Derrière toi, la chaudière hurle, puis éclate. Le feu éclaire tout le quai. Sous la lanterne renversée, quelqu’un crie : le garçon qui veillait.
 
-- « Attendre le jour. » → **fin**
+- **[Médecine 3]** « Revenir dans le feu : le tirer de là, serrer ses brûlures. » → pell-sauve _(retient « pell-sauve », avis de Liane +1, +20 XP)_
+- « Revenir dans le feu. » → pell-perdu
+- « Courir, sans te retourner. » → pell-mort
 
 ### explosee
 
 > La foreuse n’est plus qu’une carcasse noire, ouverte comme une fleur de fer. Au bord du quai, de la terre fraîche, et une lanterne éteinte posée dessus.
+
+- « S’éloigner. » → **fin**
+
+### palissade
+
+_Effet : retient « surpris-de-nuit », −2 PV._
+
+> 🌙 Une planche pourrie cède sous ton pied. Tu retombes dans les orties, avec un bruit de bois mort. Une lanterne se lève : « Qui va là ? » Brisefer saura qu’on a rôdé ici.
+
+- « … » → **fin**
+
+### pell-sauve
+
+> 🌙 Tu le tires hors des flammes, tu coupes, tu serres, tu refroidis. Au matin, Brisefer le trouve sous sa tente, bandé jusqu’aux coudes. Il vivra. Ses mains, non.
+
+- « Attendre le jour. » → **fin**
+
+### pell-perdu
+
+> 🌙 Tu le tires hors des flammes. Il respire encore quand tu le poses sur le quai, puis il ne respire plus. Tu ne savais pas quoi serrer, ni où.
+
+- « Attendre le jour. » → **fin**
+
+### pell-mort
+
+> 🌙 Au matin, on compte : la foreuse est morte. Le garçon qui veillait sous la lanterne aussi.
+
+- « Attendre le jour. » → **fin**
+
+### explosee-pell
+
+> La foreuse n’est plus qu’une carcasse noire, ouverte comme une fleur de fer. Sous la tente de Brisefer, quelqu’un gémit dans son sommeil, les mains bandées jusqu’aux coudes.
 
 - « S’éloigner. » → **fin**
 
@@ -2134,7 +2186,7 @@ _Effet : retient « mensonge-huissier »._
 
 _Gardienne de Mémoire de Gardebois_
 
-Commence par : « echo-lettre » _(si repère « echos-confies »)_ _(sans repère « ilyane-echo-lu »)_, sinon « carnet » _(si quête « Le carnet de chansons » en cours)_ _(si l’on porte « Carnet de chansons d’Ilyane »)_, sinon « appel-sept-portes » _(si quête « La Clé de Rouille Bleue » terminée)_ _(si quête « Les Mémoires du Monde Perdu » pas commencée)_, sinon « nouvelles-canopee » _(si quête « L’audience » terminée)_, sinon « pell » _(si repère « foreuse-explosee »)_ _(sans repère « ilyane-sait-pell »)_, sinon « resolu » _(si quête « Le Dernier Train » terminée)_, sinon « en-cours » _(si quête « Le Dernier Train » en cours)_, sinon « accueil »
+Commence par : « echo-lettre » _(si repère « echos-confies »)_ _(sans repère « ilyane-echo-lu »)_, sinon « carnet » _(si quête « Le carnet de chansons » en cours)_ _(si l’on porte « Carnet de chansons d’Ilyane »)_, sinon « appel-sept-portes » _(si quête « La Clé de Rouille Bleue » terminée)_ _(si quête « Les Mémoires du Monde Perdu » pas commencée)_, sinon « nouvelles-canopee » _(si quête « L’audience » terminée)_, sinon « pell-vivant » _(si repère « foreuse-explosee »)_ _(si repère « pell-sauve »)_ _(sans repère « ilyane-sait-pell »)_, sinon « pell » _(si repère « foreuse-explosee »)_ _(sans repère « ilyane-sait-pell »)_, sinon « resolu » _(si quête « Le Dernier Train » terminée)_, sinon « en-cours » _(si quête « Le Dernier Train » en cours)_, sinon « accueil »
 
 ### resolu
 
@@ -2257,11 +2309,19 @@ _Effet : retient « ilyane-sait-pell »._
 
 - « Merci, Ilyane. » → **fin**
 
+### pell-vivant
+
+_Effet : retient « ilyane-sait-pell »._
+
+> Ilyane ne te regarde pas tout de suite. — Le vent a porté la fumée jusqu’ici. Un garçon de Ferros a brûlé, à la Gare ; il vivra, sans ses mains. La maladie recule. Un Gardien se souvient aussi de ce qu’il a coûté.
+
+- « Je m’en souviendrai. » → resolu
+
 ## Ingrid Brisefer
 
 _Ingénieure, prospection de Ferros_
 
-Commence par : « apres-explosion » _(si repère « foreuse-explosee »)_, sinon « apres-sabotage » _(si repère « foreuse-sabotee »)_, sinon « apres » _(si quête « Le Dernier Train » terminée)_, sinon « soupcon » _(si repère « surpris-de-nuit »)_, sinon « barriere » _(si quête « Le Dernier Train » en cours)_ _(sans repère « laissez-passer »)_, sinon « accueil »
+Commence par : « apres-explosion-pell » _(si repère « foreuse-explosee »)_ _(si repère « pell-sauve »)_, sinon « apres-explosion » _(si repère « foreuse-explosee »)_, sinon « apres-sabotage » _(si repère « foreuse-sabotee »)_, sinon « apres » _(si quête « Le Dernier Train » terminée)_, sinon « soupcon » _(si repère « surpris-de-nuit »)_, sinon « barriere » _(si quête « Le Dernier Train » en cours)_ _(sans repère « laissez-passer »)_, sinon « accueil »
 
 ### accueil
 
@@ -2336,6 +2396,12 @@ Commence par : « apres-explosion » _(si repère « foreuse-explosee »)_, sino
 
 - « … » → **fin**
 
+### apres-explosion-pell
+
+> Ingrid a les mains bandées et les yeux secs. — Pell vit. Vingt-deux ans, et plus de mains pour tenir une lanterne. On dit qu’une ombre est revenue le chercher dans le feu. La même qui l’y avait mis, je suppose.
+
+- « … » → **fin**
+
 ## Joss Brakel
 
 _Aiguilleur de nuit_
@@ -2360,7 +2426,7 @@ Commence par : « merci » _(si repère « dette-joss-payee »)_, sinon « apres
 > Joss serre sa lanterne. — Je fais mon travail. Qu’est-ce que tu veux ?
 
 - _(si repère « indice-aiguillage »)_ _(si repère « indice-registre »)_ « La goupille limée, ta signature au registre : tout te désigne. » → aveu
-- **[Diplomatie 2]** « Je ne suis pas du Bureau. Dis-moi ce qui te tient. » → aveu
+- **[Diplomatie 3]** « Je ne suis pas du Bureau. Dis-moi ce qui te tient. » → aveu
 - **[Commandement 3]** « Parle-moi, ou tu parleras au contrôleur. » → aveu
 - « Je reviendrai. » → **fin**
 
@@ -2377,6 +2443,7 @@ _Effet : retient « joss-avoue », +15 XP._
 
 > — Personne. Seulement le minerai, et la confiance. Varka me regarde comme un frère. Je ne dors plus.
 
+- **[Médecine 3]** _(sans repère « joss-sommeil »)_ « Je peux te donner de quoi dormir. » → sommeil
 - « Merci, Joss. » → **fin**
 
 ### avoue
@@ -2403,6 +2470,14 @@ _Effet : retient « joss-avoue », +15 XP._
 > Joss astique sa lanterne, sans un mot. Il ne te regarde pas dans les yeux.
 
 - « Au revoir. » → **fin**
+
+### sommeil
+
+_Effet : retient « joss-sommeil », +10 XP._
+
+> Tu lui dis quelles herbes, combien, à quelle heure. Il écoute comme un enfant. — Dormir… Si je dors, je rêve du levier. Mais merci.
+
+- « Bonne nuit, Joss. » → **fin**
 
 ## Josse Sept-Routes
 
@@ -2826,6 +2901,7 @@ Commence par : « apres » _(si quête « Les herbes de lisière » terminée)_,
 
 > Alors, cette sauge ? Trois touffes, pas deux.
 
+- **[Médecine 2]** _(sans repère « liane-malades-vus »)_ « Laisse-moi voir tes malades. » → malades
 - « J’y retourne. » → **fin**
 
 ### rendu
@@ -2839,6 +2915,7 @@ Commence par : « apres » _(si quête « Les herbes de lisière » terminée)_,
 > Mes malades vont un peu mieux. Reviens si tu croises d’autres herbes étranges.
 
 - _(avis de Liane ≥ -4)_ « Viens avec moi, Liane. » → recrue
+- **[Médecine 2]** _(sans repère « liane-malades-vus »)_ « Laisse-moi voir tes malades. » → malades
 - « … » → **fin**
 
 ### recrue
@@ -2846,6 +2923,14 @@ Commence par : « apres » _(si quête « Les herbes de lisière » terminée)_,
 > Liane te dévisage longtemps. — Mes malades… Sylvan les nourrira, et la sauge repousse sans moi. Mais je ne me bats pas pour les causes perdues, et je ne vole rien à personne. Compris ?
 
 - « Compris. » → **fin** _(Liane se joint au héros)_
+- « Je reviendrai. » → **fin**
+
+### malades
+
+_Effet : retient « liane-malades-vus », avis de Liane +1, +10 XP._
+
+> Liane te regarde faire, bras croisés. — Le pouls, les yeux, la langue : tu sais lire un malade. Ils n’ont pas de fièvre. Ils revivent quelque chose. Mes herbes calment le corps ; le reste vient de la Gare.
+
 - « Je reviendrai. » → **fin**
 
 ## Lior Rose-des-Vents
@@ -3605,6 +3690,7 @@ _Effet : retient « liste-ferros »._
 
 - **🎲 Subterfuge 13** « Bluffer : « Une brûlure de forge, rien d’autre. » » → rouille-bluff, ✗ → rouille-cellule
 - **[20 Fers]** « Lui glisser vingt Fers. » → rouille-payee _(−20 Fers)_
+- **[Commandement 4]** « Lâche ce poignet. Tu n’as rien vu. » → rouille-ordre
 - « Je n’ai rien à cacher. » → rouille-cellule
 
 ### rouille-bluff
@@ -3634,6 +3720,16 @@ _Effet : retient « rouille-ame », retient « rouille-signalee », fait passer 
 > 🌙 Le poste : une cellule de fer, un banc, un seau. On t’y garde « le temps de vérifier ton statut ». Au matin, un Veilleur de Rouille note tes veines, ton nom, ta pension, et l’on te relâche. Te voilà fiché·e, à l’encre rouge.
 
 - « Sortir. » → **fin**
+
+### rouille-ordre
+
+_Effet : retient « rouille-ame »._
+
+> Il lâche ton poignet comme un fer trop chaud et recule d’un pas, sans savoir pourquoi. — Je n’ai rien vu. Mais couvre ça : le prochain n’obéira peut-être pas.
+
+- _(sans repère « laissez-passer-ironheart »)_ « Et le funiculaire ? » → controle
+- _(si repère « laissez-passer-ironheart »)_ « Et le funiculaire ? » → passe
+- « Bon. » → **fin**
 
 ## La patrouilleuse des Manufactures
 
@@ -3686,7 +3782,7 @@ _Effet : retient « verite-rail »._
 
 > Une plaque de cuivre, presque effacée : « CHANTIER OUEST — MACHINE SANS HOMME — 1388 ». Une machine du temps de la Guerre du Rail, que les Marches ont trouvée et remise en marche.
 
-- **[Érudition 2]** « Se souvenir de ce qu’on raconte du Chantier Ouest. » → chantier
+- **[Érudition 3]** « Se souvenir de ce qu’on raconte du Chantier Ouest. » → chantier
 - « S’éloigner. » → **fin**
 
 ### chantier
@@ -3715,6 +3811,7 @@ Commence par : « fermee »
 
 - _(la nuit)_ _(si quête « Les Mémoires du Monde Perdu » en cours)_ _(si repère « registre-lu »)_ _(sans repère « raccompagne-nuit »)_ **🎲 Discrétion 14** « Passer quand le portier tourne le dos. » → passe, ✗ → surpris
 - _(la nuit)_ _(si quête « Les Mémoires du Monde Perdu » en cours)_ _(si repère « registre-lu »)_ _(si repère « rumeur-portier-nuit »)_ _(sans repère « raccompagne-nuit »)_ **🎲 Discrétion 10** « Attendre la troisième cloche, et sa ronde des étages (la rumeur). » → passe, ✗ → surpris
+- _(la nuit)_ _(si quête « Les Mémoires du Monde Perdu » en cours)_ _(si repère « registre-lu »)_ _(sans repère « raccompagne-nuit »)_ **🎲 Athlétisme 14** « Par le toit : la gouttière, puis la verrière du Fonds. » → verriere, ✗ → gouttiere
 - « Partir. » → **fin**
 
 ### passe
@@ -3741,6 +3838,22 @@ _Effet : retient « raccompagne »._
 
 - « Revenir à Sept-Portes, à pied. » → **fin** _(fait passer 8 moments, mène à « Sept-Portes — la place des Sept Portes »)_
 
+### verriere
+
+_Effet : retient « fonds-muet-ouvert »._
+
+> Trois étages de pierre froide, une verrière mal jointe. Tu te laisses glisser entre deux rayonnages, sans un bruit. Ici, personne n’a pensé à garder le ciel.
+
+- « Descendre dans le Fonds. » → **fin** _(mène à « Sept-Portes — le Fonds Muet »)_
+
+### gouttiere
+
+_Effet : −4 PV._
+
+> La gouttière cède sous ta main. Tu tombes dans la cour, deux étages plus bas, au pied du portier.
+
+- « … » → surpris
+
 ## Porte du grenier des semences
 
 _Objet_
@@ -3753,6 +3866,7 @@ Commence par : « verrouillee »
 
 - **🎲 Artisanat 12** « Crocheter la serrure. » → ouverte, ✗ → echec
 - _(si repère « rumeur-cle-nichoir »)_ « Chercher la clé dans le nichoir, au-dessus de la porte. » → nichoir
+- **🎲 Athlétisme 12** « Grimper jusqu’à la lucarne, par la grosse branche. » → lucarne, ✗ → branche
 - « Laisser la porte tranquille. » → **fin**
 
 ### ouverte
@@ -3780,6 +3894,24 @@ _Effet : retient « grenier-deverrouille »._
 - « Entrer. » → **fin** _(mène à « Canopéa — Grenier des semences »)_
 - « Remettre la clé, et partir. » → **fin**
 
+### lucarne
+
+_Effet : retient « grenier-deverrouille »._
+
+> La branche tient. Tu te glisses par la lucarne et tu tires le verrou de l’intérieur : la porte ronde s’ouvre sur une odeur de graines sèches.
+
+- « Entrer. » → **fin** _(mène à « Canopéa — Grenier des semences »)_
+- « Ne pas entrer pour l’instant. » → **fin**
+
+### branche
+
+_Effet : −2 PV._
+
+> La branche ploie, puis plie. Tu redescends plus vite que prévu, et une passerelle grince non loin.
+
+- « Réessayer. » → verrouillee
+- « Partir. » → **fin**
+
 ## Le portier de nuit
 
 _Gardien de la Bibliothèque, la nuit_
@@ -3802,9 +3934,9 @@ Commence par : « registre »
 
 > Un grand livre ouvert sur un lutrin, à la vue de tous : les demandes de consultation, chacune signée d’une main.
 
-- _(si quête « Les Mémoires du Monde Perdu » en cours)_ _(si repère « registre-lu »)_ _(sans repère « fonds-muet-ouvert »)_ _(sans repère « raccompagne-ruse »)_ **🎲 Subterfuge 13** « Inscrire une demande au nom d’un Chroniqueur. » → faux-ok, ✗ → faux-rate
+- _(si quête « Les Mémoires du Monde Perdu » en cours)_ _(si repère « registre-lu »)_ _(sans repère « fonds-muet-ouvert »)_ _(sans repère « raccompagne-ruse »)_ **🎲 Subterfuge 14** « Inscrire une demande au nom d’un Chroniqueur. » → faux-ok, ✗ → faux-rate
 - _(si quête « Les Mémoires du Monde Perdu » en cours)_ _(si repère « registre-lu »)_ _(si repère « rumeur-main-grise »)_ _(sans repère « main-edda-fausse »)_ « Chercher, plus haut, la main d’Edda Varn (la rumeur). » → main-fausse
-- _(si quête « Les Mémoires du Monde Perdu » en cours)_ _(si repère « registre-lu »)_ _(sans repère « main-edda-fausse »)_ **🎲 Investigation 13** « Examiner la demande d’Edda Varn. » → main-fausse, ✗ → rien
+- _(si quête « Les Mémoires du Monde Perdu » en cours)_ _(si repère « registre-lu »)_ _(sans repère « main-edda-fausse »)_ **🎲 Investigation 14** « Examiner la demande d’Edda Varn. » → main-fausse, ✗ → rien
 - « Laisser le registre. » → **fin**
 
 ### faux-ok
@@ -3882,7 +4014,7 @@ Commence par : « mur »
 > Entre deux fonderies éteintes, un renfoncement sans enseigne. Un mur noirci de suie, et rien d’autre… en apparence.
 
 - _(si repère « marche-cendres-indice »)_ « Chercher le passage, comme on te l’a dit. » → trouve
-- **[Investigation 2]** « Examiner le mur. » → trouve
+- **[Investigation 3]** « Examiner le mur. » → trouve
 - « Faire luire un cristal le long du mur. » → trouve _(lance « Lueur »)_
 - « Passer son chemin. » → **fin**
 
@@ -4307,6 +4439,7 @@ Commence par : « apres-masques » _(si quête « Le registre du Puits Trois » 
 
 > — Parce qu’il y a du noir dedans. Tout le monde en a, ici, au bout de quelques années. Moi, j’ai trouvé comment en avoir moins. Personne n’a rien demandé.
 
+- **[Médecine 3]** _(sans repère « tam-ausculte »)_ « Montre-moi. Et respire. » → ausculte
 - « Bonne journée. » → **fin**
 
 ### parle
@@ -4374,6 +4507,14 @@ _Effet : retient « tam-ecoute »._
 
 - « Prends soin de toi. » → **fin**
 
+### ausculte
+
+_Effet : retient « tam-ausculte », +10 XP._
+
+> Tu écoutes son dos. Ça siffle, tout en bas, comme une forge qu’on étouffe. — Alors ? Tu peux le dire, tout le monde le sait, ici. Le masque ralentit le noir. Il ne le chasse pas.
+
+- « Bonne journée. » → **fin**
+
 ## L’Ancien Thalorin
 
 _Voix de Gaïa_
@@ -4416,6 +4557,7 @@ Commence par : « gueri » _(si repère « tiven-soigne »)_, sinon « quete » 
 > Un jeune Nacellier souffle sur ses paumes rougies. — Une corde a filé entre mes mains. Ça brûle… Demain, je dois monter la nacelle, et je ne peux même pas fermer le poing.
 
 - _(si l’on porte « Bandage »)_ _(sans repère « tiven-panse »)_ « Panser ses mains avec un bandage. » → panse _(reprend 1 × « Bandage », retient « tiven-panse », +5 XP)_
+- **[Médecine 3]** _(sans repère « tiven-panse »)_ « Soigner la brûlure : de l’eau froide, de la graisse propre, un linge serré. » → panse-medecine _(retient « tiven-panse », +10 XP, avis de Liane +1)_
 - « Courage, Tiven. » → **fin**
 
 ### quete
@@ -4424,6 +4566,7 @@ Commence par : « gueri » _(si repère « tiven-soigne »)_, sinon « quete » 
 
 - « Poser le cristal de Vie sur ses mains. » → soin _(lance « Guérison naturelle », retient « tiven-soigne », +15 XP, avis de Liane +2)_
 - _(si l’on porte « Bandage »)_ _(sans repère « tiven-panse »)_ « Panser ses mains avec un bandage. » → panse _(reprend 1 × « Bandage », retient « tiven-panse », +5 XP)_
+- **[Médecine 3]** _(sans repère « tiven-panse »)_ « Soigner la brûlure : de l’eau froide, de la graisse propre, un linge serré. » → panse-medecine _(retient « tiven-panse », +10 XP, avis de Liane +1)_
 - « Je reviens. » → **fin**
 
 ### soin
@@ -4443,6 +4586,12 @@ Commence par : « gueri » _(si repère « tiven-soigne »)_, sinon « quete » 
 > Tiven te montre des paumes roses et neuves. — Regarde ! Aujourd’hui, j’ai déjà monté trois nacelles. Remercie Vanel pour moi.
 
 - « Bon courage. » → **fin**
+
+### panse-medecine
+
+> Tu rinces, tu graisses, tu serres. Tiven grimace, puis souffle. — Ça tire, mais ça ne brûle plus. Où est-ce qu’on apprend ça ?
+
+- « Ménage-toi. » → **fin**
 
 ## Tobias Cendrefer
 
@@ -4578,6 +4727,23 @@ _Effet : retient « cendriere-ouverte »._
 ### repere
 
 > — Hé ! Le guetteur te pousse dehors. — La prochaine fois, j’appelle les autres.
+
+- **🎲 Athlétisme 13** « Le bousculer, et filer dans le noir du tunnel. » → force-passage, ✗ → rattrape
+- « Reculer. » → **fin**
+
+### force-passage
+
+_Effet : retient « cendriere-ouverte »._
+
+> Tu passes sous son bras et tu cours. Derrière toi, des jurons, un sifflet, puis plus rien : le tunnel avale tout.
+
+- « Entrer. » → **fin** _(mène à « Ironheart — La Cendrière »)_
+
+### rattrape
+
+_Effet : −3 PV._
+
+> Il te rattrape par le col et te jette sur le ballast. — La prochaine fois, j’appelle les autres.
 
 - « Reculer. » → **fin**
 
@@ -5091,6 +5257,7 @@ Commence par : « machine »
 > Une locomotive de l’Ancien Monde, rouge de rouille, et pourtant astiquée comme un jour de fête. Sur la cabine, quelqu’un a peint neuf petits wagons.
 
 - **[Mémoire 4]** « Poser la main sur le métal. » → souvenir
+- **[Artisanat 3]** _(sans repère « capot-vu »)_ « Ouvrir le capot. » → capot _(retient « capot-vu », +10 XP)_
 - « Partir. » → **fin**
 
 ### souvenir
@@ -5098,6 +5265,12 @@ Commence par : « machine »
 > Le métal se souvient d’une main : celle d’une femme qui chante en conduisant, très loin d’ici, il y a très longtemps.
 
 - « Retirer la main. » → **fin**
+
+### capot
+
+> Des joints neufs, de l’huile du jour, des boulons serrés à la main. Quelqu’un l’entretient en secret, comme on soigne un cheval qu’on n’a plus le droit de monter.
+
+- « Refermer le capot. » → **fin**
 
 ## Un voyageur égaré
 

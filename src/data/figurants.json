@@ -375,6 +375,13 @@
         "lines": [
           "On a vu la lueur de la Gare jusqu’ici, cette nuit-là. Ma voisine dort, maintenant. Un garçon de Ferros, lui, dort pour toujours."
         ]
+      },
+      {
+        "quest": "dernier-train",
+        "flag": "pell-sauve",
+        "lines": [
+          "La lueur de la Gare, on l’a vue d’ici. Ma voisine dort, maintenant. Un garçon de Ferros, lui, a perdu ses mains."
+        ]
       }
     ]
   },

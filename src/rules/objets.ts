@@ -2,7 +2,7 @@ import powerData from '../data/powers.json';
 import recetteData from '../data/recettes.json';
 import weaponData from '../data/weapons.json';
 import { SKILLS } from './attributes';
-import { findItem, SELL_RATIO, type ItemDef } from './inventory';
+import { findItem, HEAL_PER_MEDICINE, SELL_RATIO, type ItemDef } from './inventory';
 
 /**
  * The bag sorted and explained (docs/gdd/inventaire.md, « Le sac rangé », demande de Cyril du 2026-11-03) : each item in
@@ -64,7 +64,7 @@ export function itemUses(item: ItemDef): string[] {
     const power = POWERS.find((p) => p.id === item.pouvoir)?.name;
     lines.push(`Se porte au cou : ${power ? `${power} et la Lueur` : 'la Lueur'}, avec des Points de Résonance.`);
   }
-  if (item.healHp) lines.push(`Soigne ${item.healHp} points de vie, hors combat (bouton « Utiliser »).`);
+  if (item.healHp) lines.push(`Soigne ${item.healHp} points de vie, plus ${HEAL_PER_MEDICINE} par point de Médecine, hors combat (bouton « Utiliser »).`);
   if (item.resonance) lines.push(`Rend ${item.resonance} Points de Résonance au cristal porté (bouton « Boire »).`);
   const made = RECETTES.find((r) => r.produit.item === item.id);
   if (made) lines.push(`Se fabrique : ${ATELIER_WHERE[made.atelier] ?? made.atelier}.`);

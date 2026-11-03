@@ -29,6 +29,8 @@ import {
   tradeItems,
   unequip,
   useConsumable,
+  medicineHealBonus,
+  HEAL_PER_MEDICINE,
 } from './inventory';
 
 function hero(): Character {
@@ -182,6 +184,16 @@ describe('useConsumable', () => {
     const restored = useConsumable(c, 'bandage', c.hp + 20);
     expect(restored).toBe(8);
     expect(ownedCount(c, 'bandage')).toBe(1);
+  });
+
+  it('heals 2 PV more for each point of Médecine (feuille de route, chantier 2)', () => {
+    const c = hero();
+    c.skills.medicine = 2;
+    c.attributes.intellect = 4;
+    addItem(c, 'bandage', 1);
+    c.hp = c.hp - 30;
+    expect(medicineHealBonus(c)).toBe(3 * HEAL_PER_MEDICINE);
+    expect(useConsumable(c, 'bandage', c.hp + 30)).toBe(8 + 3 * HEAL_PER_MEDICINE);
   });
 
   it('never overheals, and refuses when full or unowned', () => {

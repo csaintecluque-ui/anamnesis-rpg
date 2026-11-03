@@ -141,7 +141,7 @@ describe('exploring', () => {
     expect(state.voie).toBeNull();
   });
 
-  it('a crate gives Fers, sometimes more; a locked one can be forced at the cost of some PV', () => {
+  it('a crate gives Fers, sometimes more; a locked one can be forced (Athlétisme), and a missed try costs some PV', () => {
     for (let seed = 0; seed < 30; seed++) {
       const state = inVoie({ site: 'tunnel-combe', seed, depth: 3 });
       const { level } = levelOf(state);
@@ -150,9 +150,15 @@ describe('exploring', () => {
       const hp = state.character!.hp;
       const crate = level.dialogues['voie-coffre-1'];
       const locked = crate.nodes.caisse.options.some((o) => o.roll);
-      choose(state, 'voie-coffre-1', 'caisse', locked ? 'Forcer le couvercle' : 'L’ouvrir');
+      const missed = locked && seed % 2 === 1;
+      if (missed) {
+        const force = crate.nodes.caisse.options.find((o) => o.text.startsWith('Forcer'))!;
+        expect(force.roll?.skill).toBe('athletics');
+        applyEffects(state, crate.nodes[force.failNext!].effects);
+        choose(state, 'voie-coffre-1', force.failNext!, 'Ouvrir');
+      } else choose(state, 'voie-coffre-1', 'caisse', locked ? 'Forcer le couvercle' : 'L’ouvrir');
       expect(state.character!.fers, String(seed)).toBeGreaterThan(fers);
-      expect(state.character!.hp).toBe(locked ? hp - 3 : hp);
+      expect(state.character!.hp).toBe(missed ? hp - 3 : hp);
       expect(state.flags['voie-coffre-1-ouvert']).toBe(true);
     }
   });

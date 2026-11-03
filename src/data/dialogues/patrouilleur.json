@@ -268,6 +268,16 @@
           ]
         },
         {
+          "text": "Lâche ce poignet. Tu n’as rien vu.",
+          "requires": [
+            {
+              "skill": "command",
+              "min": 4
+            }
+          ],
+          "next": "rouille-ordre"
+        },
+        {
           "text": "Je n’ai rien à cacher.",
           "next": "rouille-cellule"
         }
@@ -357,6 +367,38 @@
       "options": [
         {
           "text": "Sortir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "rouille-ordre": {
+      "text": "Il lâche ton poignet comme un fer trop chaud et recule d’un pas, sans savoir pourquoi. — Je n’ai rien vu. Mais couvre ça : le prochain n’obéira peut-être pas.",
+      "effects": [
+        {
+          "setFlag": "rouille-ame"
+        }
+      ],
+      "options": [
+        {
+          "text": "Et le funiculaire ?",
+          "next": "controle",
+          "requires": [
+            {
+              "notFlag": "laissez-passer-ironheart"
+            }
+          ]
+        },
+        {
+          "text": "Et le funiculaire ?",
+          "next": "passe",
+          "requires": [
+            {
+              "flag": "laissez-passer-ironheart"
+            }
+          ]
+        },
+        {
+          "text": "Bon.",
           "next": "fin"
         }
       ]

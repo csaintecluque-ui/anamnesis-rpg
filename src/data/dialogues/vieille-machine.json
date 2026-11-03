@@ -21,6 +21,27 @@
           "next": "souvenir"
         },
         {
+          "text": "Ouvrir le capot.",
+          "requires": [
+            {
+              "skill": "crafting",
+              "min": 3
+            },
+            {
+              "notFlag": "capot-vu"
+            }
+          ],
+          "effects": [
+            {
+              "setFlag": "capot-vu"
+            },
+            {
+              "giveXp": 10
+            }
+          ],
+          "next": "capot"
+        },
+        {
           "text": "Partir.",
           "next": "fin"
         }
@@ -31,6 +52,15 @@
       "options": [
         {
           "text": "Retirer la main.",
+          "next": "fin"
+        }
+      ]
+    },
+    "capot": {
+      "text": "Des joints neufs, de l’huile du jour, des boulons serrés à la main. Quelqu’un l’entretient en secret, comme on soigne un cheval qu’on n’a plus le droit de monter.",
+      "options": [
+        {
+          "text": "Refermer le capot.",
           "next": "fin"
         }
       ]

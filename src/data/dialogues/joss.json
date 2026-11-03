@@ -103,7 +103,7 @@
           "requires": [
             {
               "skill": "diplomacy",
-              "min": 2
+              "min": 3
             }
           ]
         },
@@ -148,6 +148,19 @@
       "text": "— Personne. Seulement le minerai, et la confiance. Varka me regarde comme un frère. Je ne dors plus.",
       "options": [
         {
+          "text": "Je peux te donner de quoi dormir.",
+          "requires": [
+            {
+              "skill": "medicine",
+              "min": 3
+            },
+            {
+              "notFlag": "joss-sommeil"
+            }
+          ],
+          "next": "sommeil"
+        },
+        {
           "text": "Merci, Joss.",
           "next": "fin"
         }
@@ -189,6 +202,23 @@
       "options": [
         {
           "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "sommeil": {
+      "text": "Tu lui dis quelles herbes, combien, à quelle heure. Il écoute comme un enfant. — Dormir… Si je dors, je rêve du levier. Mais merci.",
+      "effects": [
+        {
+          "setFlag": "joss-sommeil"
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "Bonne nuit, Joss.",
           "next": "fin"
         }
       ]

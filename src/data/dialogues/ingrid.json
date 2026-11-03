@@ -6,6 +6,17 @@
       "requires": [
         {
           "flag": "foreuse-explosee"
+        },
+        {
+          "flag": "pell-sauve"
+        }
+      ],
+      "node": "apres-explosion-pell"
+    },
+    {
+      "requires": [
+        {
+          "flag": "foreuse-explosee"
         }
       ],
       "node": "apres-explosion"
@@ -243,6 +254,15 @@
     },
     "explosion-dur": {
       "text": "— Peut-être. La Faille rendait les gens malades, je le sais, maintenant. Mais ce n’est pas la Faille qui a tué Pell.",
+      "options": [
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ]
+    },
+    "apres-explosion-pell": {
+      "text": "Ingrid a les mains bandées et les yeux secs. — Pell vit. Vingt-deux ans, et plus de mains pour tenir une lanterne. On dit qu’une ombre est revenue le chercher dans le feu. La même qui l’y avait mis, je suppose.",
       "options": [
         {
           "text": "…",

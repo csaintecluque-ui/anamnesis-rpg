@@ -57,7 +57,7 @@
           "text": "Se glisser jusqu’à la caisse sans bruit.",
           "roll": {
             "skill": "stealth",
-            "difficulty": 13
+            "difficulty": 12
           },
           "next": "prise",
           "failNext": "reperes"

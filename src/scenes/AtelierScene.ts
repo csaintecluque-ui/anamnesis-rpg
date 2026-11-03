@@ -1,5 +1,7 @@
 import Phaser from 'phaser';
-import { ATELIERS, craft, missing, recettesOf, type Recette } from '../rules/artisanat';
+import { ATELIERS, canMakeOneself, costOf, craft, missing, recettesOf, type Recette } from '../rules/artisanat';
+import { SKILLS } from '../rules/attributes';
+import { skillScore } from '../rules/dialogue';
 import { findItem, ownedCount } from '../rules/inventory';
 import { fontPx } from '../settings';
 import type { GameState } from '../state/gameState';
@@ -65,7 +67,9 @@ export class AtelierScene extends Phaser.Scene {
     const L = LAYOUT;
     let y = L.titleY + L.closeHeight / 2 + 12;
     const fers = this.state.character?.fers ?? 0;
-    y = this.text(MARGIN, y, `Tu as ${fers} Fers. Les matières viennent du butin des bêtes ; chaque recette coûte aussi quelques Fers.`, 19, CSS.muted, TEXT_WIDTH, true).getBounds().bottom;
+    const host = ATELIERS[this.atelier]?.hoteNom ?? 'L’artisan';
+    const intro = `Tu as ${fers} Fers. Les matières viennent du butin des bêtes ; chaque recette coûte aussi quelques Fers. Sans la compétence, ${host} fait le travail : le double des Fers.`;
+    y = this.text(MARGIN, y, intro, 19, CSS.muted, TEXT_WIDTH, true).getBounds().bottom;
     if (this.message) y = this.text(MARGIN, y + 6, this.message, 19, CSS.copper, TEXT_WIDTH).getBounds().bottom;
     const top = y + 14;
     const list = recettesOf(this.atelier);
@@ -86,9 +90,14 @@ export class AtelierScene extends Phaser.Scene {
     const lacks = missing(this.state, r);
     const textWidth = TEXT_WIDTH - B.width - 40;
     const title = this.text(MARGIN + 14, top + 8, name, 20, lacks.length ? CSS.muted : CSS.parchment, textWidth);
+    // The skill (feuille de route, chantier 2) : with it, one's own hands; without it, the keeper's, for twice the Fers.
+    const own = canMakeOneself(this.state, r);
+    const skill = `${SKILLS.find((s) => s.id === r.competence.skill)?.name ?? r.competence.skill} ${r.competence.min}`;
+    const host = ATELIERS[this.atelier]?.hoteNom ?? 'L’artisan';
     const needs = [
       ...r.ingredients.map((i) => `${findItem(i.item)?.name ?? i.item} ${c ? Math.min(ownedCount(c, i.item), i.count) : 0}/${i.count}`),
-      `${r.fers} Fers`,
+      `${costOf(this.state, r)} Fers`,
+      own ? `${skill} (tu as ${skillScore(this.state, r.competence.skill)})` : `${skill} : tu as ${skillScore(this.state, r.competence.skill)}, ${host} le fait`,
     ].join('  ·  ');
     this.text(MARGIN + 14, title.getBounds().bottom + 4, needs, 17, lacks.length ? CSS.muted : CSS.copper, textWidth, true);
     const make = () => {
@@ -96,7 +105,7 @@ export class AtelierScene extends Phaser.Scene {
       this.message = notices.length ? notices.join('   ·   ') : `Il te manque : ${missing(this.state, r).join(', ')}.`;
       this.redraw();
     };
-    const verb = ATELIERS[this.atelier]?.verbe ?? 'Faire';
+    const verb = (own ? ATELIERS[this.atelier]?.verbe : ATELIERS[this.atelier]?.faireFaire) ?? 'Faire';
     this.layer.add(addTextButton(this, GAME_WIDTH - MARGIN - 14 - B.width / 2, top + (L.rowHeight - 8) / 2, verb, make, { ...B, enabled: lacks.length === 0 }).container);
     if (!lacks.length) this.choices[index] = make;
   }

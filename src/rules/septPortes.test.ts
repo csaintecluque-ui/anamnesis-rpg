@@ -168,7 +168,11 @@ describe('« Les Mémoires du Monde Perdu »', () => {
     state.time = { day: 1, phase: 1 };
     expect(optionTexts(state, 'porte-fonds-muet', 'fermee')).toEqual(['Partir.']);
     waitUntil(state.time, 'nuit');
-    expect(optionTexts(state, 'porte-fonds-muet', 'fermee')).toEqual(['Passer quand le portier tourne le dos.', 'Partir.']);
+    expect(optionTexts(state, 'porte-fonds-muet', 'fermee')).toEqual([
+      'Passer quand le portier tourne le dos.',
+      'Par le toit : la gouttière, puis la verrière du Fonds.',
+      'Partir.',
+    ]);
     state.flags[rumeurFlag('portier-nuit')] = true;
     const rumour = visibleOptions(DIALOGUES['porte-fonds-muet'].nodes.fermee, state).find((v) => v.option.text.startsWith('Attendre'))!;
     expect(rumour.option.roll).toEqual({ skill: 'stealth', difficulty: 10 });
@@ -184,8 +188,27 @@ describe('« Les Mémoires du Monde Perdu »', () => {
     expect([fresh.location, momentOf(fresh.time)]).toEqual(['sept-portes-fonds-muet', 'nuit']);
   });
 
-  it('the grey lady sold the line: 200 Fers, Liane and Boulon think less of it', () => {
+  it('the roof: Athlétisme 14, by the verrière; a fall hurts, and ends in the car', () => {
     const state = arrive();
+    toRegister(state);
+    waitUntil(state.time, 'nuit');
+    const roof = visibleOptions(DIALOGUES['porte-fonds-muet'].nodes.fermee, state).find((v) => v.option.text.startsWith('Par le toit'))!;
+    expect(roof.option.roll).toEqual({ skill: 'athletics', difficulty: 14 });
+    const hp = state.character!.hp;
+    expect(fail(state, 'porte-fonds-muet', 'fermee', 'Par le toit')).toBe('gouttiere');
+    expect(state.character!.hp).toBe(hp - 4);
+    choose(state, 'porte-fonds-muet', 'gouttiere', '…');
+    raccompagne(state, 'porte-fonds-muet', 'surpris');
+    const fresh = arrive();
+    toRegister(fresh);
+    waitUntil(fresh.time, 'nuit');
+    say(fresh, 'porte-fonds-muet', 'fermee', 'Par le toit');
+    say(fresh, 'porte-fonds-muet', 'verriere', 'Descendre');
+    expect(fresh.location).toBe('sept-portes-fonds-muet');
+  });
+
+  it('the grey lady sold the line: 200 Fers, Liane and Boulon think less of it', () => {
+    const state = arrive({ lore: 4 });
     toRegister(state);
     say(state, 'ambroise', 'edda-demande', 'Et si c’est moi');
     say(state, 'ambroise', 'demande', 'Une provenance');
@@ -201,7 +224,7 @@ describe('« Les Mémoires du Monde Perdu »', () => {
   });
 
   it('the grey lady denounced: her hand is false (Investigation 13 or the rumour); she leaves in the car', () => {
-    const state = arrive();
+    const state = arrive({ lore: 4 });
     toRegister(state);
     say(state, 'ambroise', 'edda-demande', 'Et si c’est moi');
     say(state, 'ambroise', 'demande', 'Une provenance');
@@ -235,7 +258,7 @@ describe('« Les Mémoires du Monde Perdu »', () => {
   });
 
   it('silence: the hero leaves first; she will follow', () => {
-    const state = arrive();
+    const state = arrive({ lore: 4 });
     toRegister(state);
     say(state, 'ambroise', 'edda-demande', 'Et si c’est moi');
     say(state, 'ambroise', 'demande', 'Une provenance');

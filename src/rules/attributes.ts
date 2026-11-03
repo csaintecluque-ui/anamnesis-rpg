@@ -50,3 +50,12 @@ export const SKILL_RANK_MAX = 10;
 export function attributeModifier(score: number): number {
   return score - ATTRIBUTE_AVERAGE;
 }
+
+/**
+ * A skill as the tests count it (feuille de route, chantier 2) : its rank, plus the modifier of the attribute behind it.
+ * Diplomatie 2 with Présence 4 makes 3.
+ */
+export function skillScoreOf(who: { skills: Partial<Record<SkillId, number>>; attributes: Attributes }, skill: SkillId): number {
+  const attribute = SKILLS.find((s) => s.id === skill)!.attribute;
+  return (who.skills[skill] ?? 0) + attributeModifier(who.attributes[attribute] ?? ATTRIBUTE_AVERAGE);
+}

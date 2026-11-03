@@ -32,7 +32,7 @@ describe('what an item is good for', () => {
   });
 
   it('says what care gives back, and where a matter is used or a piece is made', () => {
-    expect(itemUses(item('bandage'))).toEqual(['Soigne 8 points de vie, hors combat (bouton « Utiliser »).', 'Se fabrique : les herbes de Sévane, à Canopéa.']);
+    expect(itemUses(item('bandage'))).toEqual(['Soigne 8 points de vie, plus 2 par point de Médecine, hors combat (bouton « Utiliser »).', 'Se fabrique : les herbes de Sévane, à Canopéa.']);
     expect(itemUses(item('seve-resonance'))[0]).toMatch(/^Rend 3 Points de Résonance/);
     expect(itemUses(item('crocs-rouille'))).toEqual(['Entre dans Épée trempée, Armure de cuir clouté : la forge d’Hedda, à Ironheart.']);
     expect(itemUses(item('cle-rouille-bleue'))).toEqual(['Objet de quête : on le porte pour quelqu’un, il ne se vend pas.']);

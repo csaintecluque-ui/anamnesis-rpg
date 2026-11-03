@@ -16,9 +16,9 @@ Cyril sur PC et sa validation. Aucun nouveau système d'ici là.
 |---|---|---|
 | 0 | PC d'abord : `CLAUDE.md`, infobulles, raccourcis, barre d'actions, taille du texte | **en ligne** (2026-11-03) ; partie de Cyril sur PC à faire |
 | 1 | Une mémoire pour le héros : oubli choisi, champignon, Échos tentants et cachés, dons de Récit ; Écho du héros à valider (`univers/personnages/heros.md`) | **en ligne** (2026-11-03) ; partie de Cyril à faire |
-| 2 | Recalibrer tests et compétences : seuils rang + attribut, courbe par chapitre, Athlétisme et Médecine ×5, atelier par compétence, rang ≤ niveau + 2 ; Pell sauvable à valider | **en ligne** (2026-11-03) ; partie de Cyril à faire |
-| 3 | Refaire le combat : PA et coût par arme, visée +1 PA et résistance, 2 capacités par ennemi, IA, force par chapitre, voie pacifiste ; simulation (écart ≤ 14 points) **faits (branche)** | en cours |
-| 4 | Compagnons présents, ennemi incarné | à faire |
+| 2 | Recalibrer tests et compétences : seuils rang + attribut, courbe par chapitre, Athlétisme et Médecine ×5, atelier par compétence, rang ≤ niveau + 2 ; Pell sauvable (validé) | **en ligne** (2026-11-03) ; partie de Cyril à faire |
+| 3 | Refaire le combat : PA et coût par arme, visée +1 PA et résistance, 2 capacités par ennemi, IA, force par chapitre, voie pacifiste ; simulation (écart ≤ 14 points) | **en ligne** (2026-11-03) ; partie de Cyril à faire |
+| 4 | Compagnons présents, ennemi incarné (Ilyane oublie, Edda a perdu quelqu'un dans le train : validés) | en cours |
 | 5 | Passe d'écriture | à faire |
 | 6 | Économie et progression | à faire |
 

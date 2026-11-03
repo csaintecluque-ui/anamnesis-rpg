@@ -7,6 +7,7 @@ Détails propres à la Gare Engloutie (dialogue d'Ingrid, nœud « resolu » d'I
 |---|---|---|---|
 | Personnage jouable | Un nouveau personnage (choix de Cyril), **apprenti·e Gardien·ne de Mémoire**, envoyé·e là où le passé se réveille | E1, E9, NC | validé |
 | PNJ 1 | **Ilyane Voix-d'Écorce**, Gardienne de Mémoire de Gardebois, mentor ; donne la quête | E1, N1 | validé |
+| Ilyane oublie (2026-11-03) | Depuis sa vision du train plein d'enfants, la maladie mémorielle a pris racine en elle : d'un chapitre à l'autre, elle perd quelque chose (une chanson, un nom, puis celui du héros). Jusqu'où, et si on peut la sauver, à quel prix : à proposer | `docs/gdd/histoire-prenante.md`, levier 4 | validé par Cyril (le principe) ; la suite à valider |
 | PNJ 2 | **Tobias Cendrefer**, marchand de Ferros au marché ; troc, rumeurs | N2 | validé |
 | PNJ 3 | **L'ingénieure Ingrid Brisefer**, cheffe de la prospection de Ferros ; ni méchante, ni naïve | N2, E10 | validé |
 | Dialogues d'Ilyane et de Tobias | Texte complet dans `docs/DIALOGUES.md`. Détails nouveaux : la maladie dure **depuis trois nuits** ; Ilyane a eu la vision d'un **train plein d'enfants** sur le quai ; les prospecteurs ont des **papiers signés à Ferros** ; la garde de Gardebois surveille la frontière ; le laissez-passer coûte **cinquante Fers** ; l'étal **Cendrefer** vend des lampes à cristal | E2 (maladie mémorielle, Mémoire Vivante), E10 (Trois Failles), N2 (monnaie : le Fer) | validé |

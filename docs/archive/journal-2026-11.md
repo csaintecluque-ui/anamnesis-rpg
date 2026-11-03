@@ -1032,3 +1032,6 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   couvert, fuir), la force des bêtes de la route et des voies qui suit les chapitres, et la voie pacifiste des voies
   endormies (Discrétion, fuite à l'Athlétisme, un Récit pour les Échos). Simulation (`combatSim.ts`) : l'écart entre
   tactiques tombe à 14 points au plus (avant : 25 points en faveur des bras). 667 tests ; vérifié en 1080p.
+- Cyril : « 1 mets en ligne, 2 oui, 3 oui pour moi » : chantier 3 en ligne ; Ilyane oublie d'un chapitre à l'autre,
+  Edda Varn court après le train parce que quelqu'un à elle y était (validés : le principe) ; Pell sauvable avec la
+  Médecine, gardé. Chantier 4 commencé.

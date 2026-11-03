@@ -49,6 +49,7 @@ Muet »), « Histoire et lore » [NOTION].
 | **Le portier de nuit** | garde la Bibliothèque la nuit | NOTION |
 | **Deux Éprouveurs** | une paire qui tente, chaque jour, de se frapper : « La main s'arrête. » | NOTION |
 | **La dame en gris** | courtière de Ferros, à l'Auberge des Sept Routes, au service de ceux qui achètent les voies endormies (les Réveilleurs, sans le dire) ; sa main au Registre : **Edda Varn** | quêtes validées (les Réveilleurs derrière l'argent) |
+| **Pourquoi elle court** (2026-11-03) | Edda Varn court après le dernier train parce que **quelqu'un à elle était dans ce train** ; l'argent des Réveilleurs n'est que le moyen. Qui : à proposer | validé par Cyril (le principe) ; qui, à valider |
 | **La page du dernier départ** | la ligne grattée du carnet du dernier train, recopiée et vendue à la Bibliothèque l'an dernier ; sa chaîne passe par une maison que Nakh-Rim a touchée : elle dort au **Fonds Muet**, on ne la cite pas | NOTION (le Fonds Muet) ; `quetes.md` (la ligne grattée) |
 | **Ce que dit la ligne** | « Dernier départ, voie sept. Terminus : Altavent, sous les Hauts de Zephyria. Déchargé : sept caisses plombées. Reçu : personne. » La piste mène à Zephyria (Aetherhaven, chapitre 5, dans l'ordre validé) | à valider (Altavent est inventé) |
 | **L'Écho des Trois Cents** | au monument : le quatre-vingt-unième jour, trois cents qui sortent de l'Anneau ; Aldara : « Je ne sais plus si je me souviens, ou si l'on me l'a raconté. » | NOTION (« Le siège ») |

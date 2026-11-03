@@ -13,12 +13,12 @@ Lien du jeu : https://csaintecluque-ui.github.io/anamnesis-rpg/ (la version s'af
       (un nom qu'il a fait effacer lui-même), ou une autre ?
 - [ ] **La vérité derrière l'enfant** : tu l'écris (recommandé, même en quelques lignes ; elle reste secrète jusqu'à la
       fin), ou Claude te propose trois versions ?
-- [ ] **Pour le chantier 4** (`docs/gdd/histoire-prenante.md`) : Ilyane qui perd la mémoire d'un chapitre à l'autre,
-      oui ? peut-on la sauver, et à quel prix ? Et pourquoi Edda Varn court après le dernier train : l'argent des
-      Réveilleurs, ou quelqu'un à elle dans ce train (recommandé) ?
-- [ ] **Pell peut être sauvé** (chantier 2, ta feuille de route le proposait) : avec Médecine 3, on le tire du feu de
+- [x] **Pour le chantier 4** : Ilyane perd la mémoire d'un chapitre à l'autre ; Edda Varn court après le dernier train
+      parce que quelqu'un à elle y était (réponse de Cyril, 2026-11-03 : « oui »). Restent à proposer : jusqu'où va la
+      perte d'Ilyane et le prix pour la sauver ; qui Edda a perdu.
+- [x] **Pell peut être sauvé** (chantier 2, ta feuille de route le proposait) : avec Médecine 3, on le tire du feu de
       la chaudière ; il vit, sans ses mains, et Ingrid, Ilyane et la lavandière le disent. Sans Médecine, il meurt dans
-      tes bras. On garde (recommandé), ou Pell meurt toujours ?
+      tes bras. On garde (recommandé), ou Pell meurt toujours ? **Cyril, 2026-11-03 : on garde.**
 - [ ] Dans ton Notion, quand tu veux : les contradictions du canon sur Terminus (`docs/univers/zones-floues.md`,
       points 33 à 37).
 
@@ -69,7 +69,7 @@ Lien du jeu : https://csaintecluque-ui.github.io/anamnesis-rpg/ (la version s'af
 - [ ] **Montée de niveau** : le rang maximum (niveau + 2) s'affiche ; est-ce gênant ?
 - Remarques :
 
-## Chantier 3 — Le combat refait (sur la branche)
+## Chantier 3 — Le combat refait (en ligne le 2026-11-03)
 
 - [ ] **Les PA et les armes** : 7 PA ; la dague frappe pour 2 PA (trois coups par tour), l'épée pour 3. Viser une zone
       coûte 1 PA de plus (pas à la dague). Le survol d'un ennemi donne aussi la chance que l'effet prenne (« effet 55 % ») :

@@ -974,3 +974,5 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
 - 612 tests ; vérifié sur PC et téléphone (captures). Corrigé : un nœud « fin » qui finissait la quête trop tôt (le
   contrôle des dialogues le refuse désormais), la Porte du sud cachée par l'enceinte, les arrivées à l'ombre des
   maisons, la Porte « de la Communion » renommée Porte de Solarix (le continent). Sur la branche, à valider.
+- Cyril : « Mets en ligne, je fais les essais, et on poussera sur Notion après » : chapitre 4 mis en ligne (`main`) ;
+  noms, lore et chiffres pas encore validés ; page Notion « Anamnesis — le jeu » à compléter après son essai.

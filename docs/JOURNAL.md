@@ -9,16 +9,16 @@
 
 ## Jalon 4 en cours (`docs/gdd/jalon-4.md`) : l'histoire principale continue
 
-- Étape 1, **chapitre 4, Sept-Portes** (« Les Mémoires du Monde Perdu ») : **construit le 2026-11-03 sur la branche
-  `claude/elegant-mayer-hdmb3c`, à valider par Cyril** ; pas encore en ligne. Repris de Codex (`AGENTS.md`).
+- Étape 1, **chapitre 4, Sept-Portes** (« Les Mémoires du Monde Perdu ») : construit et **en ligne** (2026-11-03,
+  « Mets en ligne ») ; noms, lore et chiffres encore à valider. Repris de Codex (`AGENTS.md`).
   Lore et noms proposés : `docs/univers/lieux/sept-portes.md` ; contradictions du canon : zones floues 33 à 37.
 - Étape 2 : l'essai de Cyril (une partie sur téléphone) ; étape 3 : chapitre 5, Aetherhaven.
 
 ## Prochaine étape
 
-1. Réponses de Cyril sur le chapitre 4 (noms, Altavent, la septième Porte, chiffres), puis « mets en ligne » : pousser
-   sur `main`, compléter la page Notion « Anamnesis — le jeu ».
-2. L'essai de Cyril et ses remarques sur le dosage.
+1. L'essai de Cyril (en cours) et ses remarques sur le dosage ; ses réponses sur le chapitre 4 (noms, Altavent, la
+   septième Porte, chiffres).
+2. Après l'essai, à sa demande : compléter la page Notion « Anamnesis — le jeu » (chapitre 4, éléments validés).
 
 ## Points ouverts
 

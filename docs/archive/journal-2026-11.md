@@ -1096,3 +1096,4 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   forme A, à construire.
 - Sur la branche : au chapitre 2, un fourré ferme la fouille de Garrik, l'Ours-Mousse dort à la seule entrée sur la
   sacoche de Malo (Discrétion, baies, combat). Vérifié à l'écran. 730 tests.
+- Cyril : « oui, mets en ligne » : l'obstacle du chapitre 2 mis en ligne.

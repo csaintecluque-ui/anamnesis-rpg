@@ -195,6 +195,15 @@ En ligne le 2026-11-03 (tes textes du 3 novembre) :
 - [ ] **Les Échos du fond des voies** : au terminus de la halte, de la Combe, du Dépôt Sept ; puis la réponse de plus
       chez la Veilleuse (la Combe) ou chez Ambroise (la halte, le Dépôt Sept).
 
+## Les obstacles par chapitre (en ligne le 2026-11-03)
+
+- [ ] **Chapitre 2** : au Sol des Racines, un fourré ferme la fouille de Garrik ; l'Ours-Mousse dort à la seule entrée,
+      sur la sacoche de Malo. Discrétion, baies ou combat : lequel as-tu choisi, et était-ce clair ?
+- [ ] **Chapitre 3** : la Veilleuse n'est plus à son dépôt pendant la quête de la clé (un mot à la craie) ; on la trouve
+      à la Cendrière, par le tunnel du triage.
+- [ ] **Les répliques d'Ilyane** à chaque retour, après un fragment revenu.
+- Remarques :
+
 ## Déjà en ligne, pas encore essayé sur PC
 
 - [ ] **Chapitre 4, Sept-Portes** sans le mode surpuissant : l'arrivée par la Porte du sud, le Registre, l'une des trois

@@ -1,0 +1,20 @@
+{
+  "id": "portier-nuit",
+  "speaker": "portier-nuit",
+  "entries": [
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Un homme à la lanterne sourde. — La Bibliothèque dort, et les livres aussi. Revenez quand le Conservateur sera au guichet.",
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

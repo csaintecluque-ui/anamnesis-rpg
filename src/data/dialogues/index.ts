@@ -84,6 +84,21 @@ import veilleuse from './veilleuse.json';
 import veline from './veline.json';
 import vieilleMachine from './vieille-machine.json';
 import voyageurEgare from './voyageur-egare.json';
+// Chapitre 4, Sept-Portes (docs/gdd/jalon-4.md).
+import ambroise from './ambroise.json';
+import arlo from './arlo.json';
+import edda from './edda.json';
+import greffiere from './greffiere.json';
+import hesper from './hesper.json';
+import josse from './josse.json';
+import lior from './lior.json';
+import marchandeNations from './marchande-nations.json';
+import mina from './mina.json';
+import pageDernierDepart from './page-dernier-depart.json';
+import porteFondsMuet from './porte-fonds-muet.json';
+import portierNuit from './portier-nuit.json';
+import registreConsultations from './registre-consultations.json';
+import registreMains from './registre-mains.json';
 
 /** Dialogue files by object name (PNJ, Écho or object) of the maps. */
 export const DIALOGUES: Record<string, Dialogue> = {
@@ -171,6 +186,21 @@ export const DIALOGUES: Record<string, Dialogue> = {
   veline: veline as Dialogue,
   'vieille-machine': vieilleMachine as Dialogue,
   'voyageur-egare': voyageurEgare as Dialogue,
+  // Chapitre 4, Sept-Portes.
+  ambroise: ambroise as Dialogue,
+  arlo: arlo as Dialogue,
+  edda: edda as Dialogue,
+  greffiere: greffiere as Dialogue,
+  hesper: hesper as Dialogue,
+  josse: josse as Dialogue,
+  lior: lior as Dialogue,
+  'marchande-nations': marchandeNations as Dialogue,
+  mina: mina as Dialogue,
+  'page-dernier-depart': pageDernierDepart as Dialogue,
+  'porte-fonds-muet': porteFondsMuet as Dialogue,
+  'portier-nuit': portierNuit as Dialogue,
+  'registre-consultations': registreConsultations as Dialogue,
+  'registre-mains': registreMains as Dialogue,
   // Le Livre des Échos (docs/gdd/echos.md) : one dialogue per Écho, built from src/data/echos.json.
   ...echoDialogues(),
 };

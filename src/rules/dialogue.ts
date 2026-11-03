@@ -435,6 +435,8 @@ export function dialogueProblems(d: Dialogue): string[] {
   const knownSkills = new Set(SKILLS.map((s) => s.id));
   const knownQuests = new Set(QUESTS.map((q) => q.id));
   const knownRecits = new Set(RECITS.map((r) => r.id));
+  // `fin` closes the conversation: a node with that name would never be shown, its effects never applied.
+  if (ids.has(END)) problems.push(`nœud nommé « ${END} » : c’est la fin de la conversation`);
 
   const checkConditions = (where: string, conditions: Condition[] = []) => {
     for (const c of conditions) {

@@ -34,7 +34,8 @@ export interface WorldDef {
   /** Railway lines between places, drawn once both ends are known (the train itself is taken at the stations). */
   rails?: { from: string; to: string; name: string }[];
   /** Far lands drawn at the edge of the map, not reachable yet. */
-  distant: { name: string; x: number; y: number; hint: string }[];
+  /** Once the place `remplacePar` is known, its far land is drawn as a place instead (Sept-Portes). */
+  distant: { name: string; x: number; y: number; hint: string; remplacePar?: string }[];
   zones: { id: string; name: string; x0: number; y0: number; x1: number; y1: number }[];
   defaultZone: string;
   travel: {

@@ -19,11 +19,12 @@ const ironheartKnown = (state: GameState) => {
 };
 
 describe('the boards', () => {
-  it('hang in the three relays, on a free cell within reach, off the passers-by’s paths', () => {
+  it('hang in the four relays, on a free cell within reach, off the passers-by’s paths', () => {
     expect(TABLEAUX.map((t) => [t.id, t.lieu])).toEqual([
       ['gardebois', 'maison-ilyane'],
       ['canopee', 'canopee-relais'],
       ['ironheart', 'ironheart-pension'],
+      ['sept-portes', 'sept-portes-gardiens'],
     ]);
     for (const t of TABLEAUX) {
       const map = parseTiledMap(MAPS[findLocation(t.lieu)!.map]);

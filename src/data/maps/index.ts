@@ -34,6 +34,16 @@ import voieQuaiJson from './voie-quai.json';
 import voieTunnelJson from './voie-tunnel.json';
 import voieDepotJson from './voie-depot.json';
 import voieAiguillageJson from './voie-aiguillage.json';
+import septPortesJson from './sept-portes.json';
+import septPortesParvisJson from './sept-portes-parvis.json';
+import septPortesHallesJson from './sept-portes-halles.json';
+import septPortesBibliothequeJson from './sept-portes-bibliotheque.json';
+import septPortesFondsMuetJson from './sept-portes-fonds-muet.json';
+import septPortesGardiensJson from './sept-portes-gardiens.json';
+import septPortesAubergeJson from './sept-portes-auberge.json';
+import septPortesCartographeJson from './sept-portes-cartographe.json';
+import septPortesConseilJson from './sept-portes-conseil.json';
+import septPortesJumeauxJson from './sept-portes-jumeaux.json';
 
 /** Tiled maps by id (`map` of src/data/locations.json). */
 export const MAPS: Record<string, TiledMapJson> = {
@@ -72,4 +82,14 @@ export const MAPS: Record<string, TiledMapJson> = {
   'rencontre-clairiere': rencontreClairiereJson as TiledMapJson,
   'rencontre-route': rencontreRouteJson as TiledMapJson,
   'rencontre-ruines': rencontreRuinesJson as TiledMapJson,
+  'sept-portes': septPortesJson as TiledMapJson,
+  'sept-portes-parvis': septPortesParvisJson as TiledMapJson,
+  'sept-portes-halles': septPortesHallesJson as TiledMapJson,
+  'sept-portes-bibliotheque': septPortesBibliothequeJson as TiledMapJson,
+  'sept-portes-fonds-muet': septPortesFondsMuetJson as TiledMapJson,
+  'sept-portes-gardiens': septPortesGardiensJson as TiledMapJson,
+  'sept-portes-auberge': septPortesAubergeJson as TiledMapJson,
+  'sept-portes-cartographe': septPortesCartographeJson as TiledMapJson,
+  'sept-portes-conseil': septPortesConseilJson as TiledMapJson,
+  'sept-portes-jumeaux': septPortesJumeauxJson as TiledMapJson,
 };

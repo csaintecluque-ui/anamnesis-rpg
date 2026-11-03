@@ -34,6 +34,16 @@
       "description": "La capitale de Ferros : forges, funiculaires et archives, sous un ciel qui semble avoir rouillé."
     },
     {
+      "id": "sept-portes",
+      "name": "Sept-Portes",
+      "x": 1100,
+      "y": 455,
+      "location": "sept-portes",
+      "entrance": "depuis-porte-sud",
+      "revealedBy": "porte-sud-connue",
+      "description": "Au bout de la route de l’est, la Porte du sud : un portail qui ne se ferme jamais. De l’autre côté, Sept-Portes, la cité de Kael, au centre du monde. Là-bas, aucune main ne se lève sur personne."
+    },
+    {
       "id": "halte-fougeres",
       "name": "La halte des Fougères",
       "x": 860,
@@ -87,7 +97,8 @@
       "name": "Terminus · Sept-Portes",
       "x": 1110,
       "y": 440,
-      "hint": "À l’est, au centre du monde."
+      "hint": "À l’est, au centre du monde.",
+      "remplacePar": "sept-portes"
     },
     {
       "name": "Zephyria · Aetherhaven",

@@ -91,5 +91,12 @@
     "titre": "Le Puits Trois",
     "texte": "À Ironheart, l’eau a toujours eu un ordre : le cuivre d’abord, le fer ensuite, et la rouille quand il en reste. Un Écho du Puits Trois rejoue une petite fille qui attend jusqu’au soir et repart le seau vide. Les gens des Forges-Basses disent qu’elle attend encore.",
     "themes": ["puissants", "familles"]
+  },
+  {
+    "id": "dernier-depart",
+    "titre": "La page du dernier départ",
+    "texte": "Au Fonds Muet de Sept-Portes, une page recopiée rend la ligne grattée du carnet du dernier train : « Dernier départ, voie sept. Terminus : Altavent, sous les Hauts de Zephyria. Déchargé : sept caisses plombées. Reçu : personne. »",
+    "principal": true,
+    "themes": ["trains", "mysteres", "ancien-monde"]
   }
 ]

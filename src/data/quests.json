@@ -270,5 +270,32 @@
         "texte": "La plaque est dans ton sac : rapporte-la à Kaelis, au Marché des Cendres."
       }
     ]
+  },
+  {
+    "id": "memoires-monde-perdu",
+    "name": "Les Mémoires du Monde Perdu",
+    "summary": "Hesper Mille-Récits, doyenne des Gardiens de Mémoire, appelle le héros à Sept-Portes : tout ce qui passe par la cité de Kael laisse une main au Registre des Mains, et la clé de rouille bleue a une chaîne.",
+    "etapes": [
+      {
+        "si": "hesper-vue",
+        "texte": "Hesper t’envoie au guichet de la Grande Bibliothèque, chez le Conservateur, sur le parvis."
+      },
+      {
+        "si": "registre-lu",
+        "texte": "La page du dernier départ dort au Fonds Muet. Pour y entrer : convaincre le Conservateur, ruser au registre des consultations, ou passer le portier, la nuit."
+      },
+      {
+        "si": "fonds-muet-ouvert",
+        "texte": "Le Fonds Muet t’est ouvert : la porte basse, au fond de la Bibliothèque."
+      },
+      {
+        "si": "page-lue",
+        "texte": "Tu as lu la page. La dame en gris de l’Auberge des Sept Routes voudra savoir ce qu’elle dit ; puis retourne voir Hesper."
+      },
+      {
+        "si": "edda-reglee",
+        "texte": "Retourne voir Hesper, à la maison mère des Gardiens."
+      }
+    ]
   }
 ]

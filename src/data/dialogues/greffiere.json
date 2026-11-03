@@ -1,0 +1,50 @@
+{
+  "id": "greffiere",
+  "speaker": "greffiere",
+  "entries": [
+    {
+      "requires": [
+        {
+          "flag": "edda-raccompagnee"
+        }
+      ],
+      "node": "liste-edda"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "— Salle du Conseil Œcuménique. Sept sièges, sept nations, et un greffe. Je tiens la liste des raccompagnés : on n’y inscrit pas des criminels, seulement des noms.",
+      "options": [
+        {
+          "text": "Le Conseil siège souvent ?",
+          "next": "conseil"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "conseil": {
+      "text": "— Quand il le faut. Il a signé une reddition, en 1861, et créé le Fonds Muet, en 2521. Pour le reste, il discute. C’est ce qu’on fait, quand on ne peut pas se battre.",
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "liste-edda": {
+      "text": "— Une main de plus, ce matin : « Se disant Edda Varn, de Ferros. » Raccompagnée. Personne ne l’a touchée. C’est écrit.",
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

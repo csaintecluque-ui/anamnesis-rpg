@@ -169,7 +169,8 @@ export class WorldMapScene extends Phaser.Scene {
       this.label(label.x, label.y, lisiere.name, '#7a4a2a');
     }
     // Lands beyond: written at the edge, not reachable yet.
-    for (const far of WORLD.distant) {
+    const known = new Set(knownPlaces(this.state.flags, this.state.quests).map((p) => p.id));
+    for (const far of WORLD.distant.filter((d) => !d.remplacePar || !known.has(d.remplacePar))) {
       const p = this.screen(far);
       this.label(p.x, p.y, `${far.name}\n${far.hint}`, '#5a4a38');
     }

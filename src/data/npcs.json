@@ -561,5 +561,91 @@
     "id": "voie-quete",
     "name": "Sous les gravats",
     "role": "Ce qu’une quête t’a envoyé chercher"
+  },
+  {
+    "id": "ambroise",
+    "name": "Ambroise Encrelune",
+    "role": "Conservateur de la Grande Bibliothèque"
+  },
+  {
+    "id": "hesper",
+    "name": "Hesper Mille-Récits",
+    "role": "Doyenne des Gardiens de Mémoire"
+  },
+  {
+    "id": "josse",
+    "name": "Josse Sept-Routes",
+    "role": "Aubergiste des Sept Routes"
+  },
+  {
+    "id": "lior",
+    "name": "Lior Rose-des-Vents",
+    "role": "Cartographe"
+  },
+  {
+    "id": "arlo",
+    "name": "Arlo",
+    "role": "Un des jumeaux"
+  },
+  {
+    "id": "mina",
+    "name": "Mina",
+    "role": "Une des jumeaux"
+  },
+  {
+    "id": "greffiere",
+    "name": "La greffière du Conseil",
+    "role": "Greffe du Conseil Œcuménique des Sept"
+  },
+  {
+    "id": "portier-nuit",
+    "name": "Le portier de nuit",
+    "role": "Gardien de la Bibliothèque, la nuit"
+  },
+  {
+    "id": "edda",
+    "name": "La dame en gris",
+    "role": "Une courtière de Ferros"
+  },
+  {
+    "id": "marchande-nations",
+    "name": "La marchande des nations",
+    "role": "Marché des nations",
+    "place": "sept-portes",
+    "sells": [
+      "bandage",
+      "baume-mousse",
+      "fiole-seve",
+      "corde",
+      "lampe-cristal",
+      "carreaux",
+      "cristal-vie",
+      "cristal-forge"
+    ]
+  },
+  {
+    "id": "registre-mains",
+    "name": "Le Registre des Mains",
+    "role": "Grande Bibliothèque"
+  },
+  {
+    "id": "registre-consultations",
+    "name": "Le registre des consultations",
+    "role": "Grande Bibliothèque"
+  },
+  {
+    "id": "porte-fonds-muet",
+    "name": "La porte du Fonds Muet",
+    "role": "Grande Bibliothèque"
+  },
+  {
+    "id": "page-dernier-depart",
+    "name": "La page du dernier départ",
+    "role": "Fonds Muet"
+  },
+  {
+    "id": "echo-trois-cents",
+    "name": "Un Écho",
+    "role": "Les Trois Cents"
   }
 ]

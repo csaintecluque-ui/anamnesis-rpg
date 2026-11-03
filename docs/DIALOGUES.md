@@ -143,6 +143,101 @@ _Effet : retient « anselme-connu »._
 
 - « Je trouverai. » → **fin**
 
+## Ambroise Encrelune
+
+_Conservateur de la Grande Bibliothèque_
+
+Commence par : « denonce » _(si quête « Les Mémoires du Monde Perdu » en cours)_ _(si repère « page-lue »)_ _(si repère « main-edda-fausse »)_ _(sans repère « edda-reglee »)_, sinon « registre » _(si quête « Les Mémoires du Monde Perdu » en cours)_ _(si repère « hesper-vue »)_ _(sans repère « registre-lu »)_, sinon « demande » _(si quête « Les Mémoires du Monde Perdu » en cours)_ _(si repère « registre-lu »)_ _(sans repère « fonds-muet-ouvert »)_, sinon « accueil »
+
+### accueil
+
+> Un homme en robe d’encre, les doigts tachés. — Grande Bibliothèque, guichet du Registre des Mains. On enregistre, on ne cherche pas. Que voulez-vous savoir, et de qui ?
+
+- « Qu’est-ce que le Registre des Mains ? » → mains
+- « Et le Fonds Muet ? » → muet
+- « Au revoir. » → **fin**
+
+### mains
+
+> — Depuis 640, chaque pièce entrée ici : de qui, à quelle date, contre combien, et ce que le vendeur affirmait. Onze millions six cent mille lignes. Pas une opinion.
+
+- « Je vois. » → accueil
+
+### muet
+
+> — Les pièces dont la chaîne passe par une main qu’a touchée Nakh-Rim, le faussaire. Il s’est dénoncé lui-même, en 2519. On les garde, on les classe, on les restaure. On ne les cite pas.
+
+- « Je vois. » → accueil
+
+### registre
+
+> Il ouvre un livre épais comme une porte. — Vous cherchez une chaîne ? Dites-moi l’objet, je vous lis les mains.
+
+- « Une clé de rouille bleue, et le carnet du dernier train. » → chaine
+
+### chaine
+
+> Il tourne les pages sans hâte. — Le carnet : jamais entré. Mais l’an dernier, une page recopiée, « la ligne que Ferros a grattée », vendue quarante Nexus. Sa chaîne passe par une maison qu’a touchée Nakh-Rim : elle dort au Fonds Muet. On ne la cite pas.
+
+- « Et personne d’autre ne l’a demandée ? » → edda-demande
+
+### edda-demande
+
+_Effet : retient « registre-lu »._
+
+> — Il y a trois jours. Une demande de consultation, au nom d’Edda Varn. Refusée. Nous ne motivons pas les refus.
+
+- « Et si c’est moi qui la demande ? » → demande
+
+### demande
+
+> — Le Fonds Muet ne se cite pas. Il ne se cache pas non plus : ici, on ne cache rien. Convainquez-moi qu’un lecteur n’est pas un citeur.
+
+- _(si Récit « Kael, le Premier Chroniqueur » connu)_ « Kael a bâti cette bibliothèque sur une seule règle. Il a lu, lui, avant de la poser. » → convaincu
+- **[Diplomatie 3]** « « On ne cache rien », dites-vous. Alors ne me cachez pas cette page. » → convaincu
+- **[Érudition 3]** « Une provenance n’est pas une vérité. Je ne la citerai pas : je la lirai. » → convaincu
+- « Je reviendrai. » → **fin**
+
+### convaincu
+
+_Effet : retient « fonds-muet-ouvert », retient « fonds-muet-parole »._
+
+> Ambroise te regarde longtemps, puis décroche une clé de son cou. — Un lecteur n’est pas quelqu’un qui comprend. C’est quelqu’un qui sacrifie tout le reste. La porte basse, au fond. Ne citez rien.
+
+- « Merci. » → **fin**
+
+### denonce
+
+> — Vous déposez contre une main ? Déposez. Ici, c’est la seule chose qu’on écoute jusqu’au bout.
+
+- _(sans repère « faux-registre »)_ « Edda Varn est morte il y a trente ans. La dame en gris emprunte sa main. » → denonce-ok
+- _(si repère « faux-registre »)_ « Edda Varn est morte il y a trente ans. La dame en gris emprunte sa main. » → denonce-faux
+- « Je reviendrai. » → **fin**
+
+### denonce-ok
+
+_Effet : retient « edda-raccompagnee », retient « edda-reglee », retient « edda-partie », +30 XP._
+
+> Ambroise ouvre le registre des consultations, compare, et referme. — Falsifier une main, ici, c’est le seul crime. Il n’y aura pas de coup. Il y aura une voiture.
+
+- « C’est juste. » → **fin**
+
+### denonce-faux
+
+_Effet : retient « edda-raccompagnee », retient « edda-reglee », retient « edda-partie »._
+
+> Ambroise compare, longtemps. Puis il pose le doigt sur une autre ligne : ta demande de consultation. — Celle-ci non plus n’est pas à vous. « Si ce n’est pas moi, la méthode est dehors. » Vous partirez ensemble.
+
+- « Monter dans la voiture. » → racc
+
+### racc
+
+_Effet : retient « raccompagne »._
+
+> Deux agents en gris clair. Personne ne te touche : on t’ouvre une portière. La voiture roule une journée, jusqu’au cent unième kilomètre, et l’on te pose sur le bas-côté. Il te faut deux jours pour revenir.
+
+- « Revenir à Sept-Portes, à pied. » → **fin** _(fait passer 8 moments, mène à « Sept-Portes — la place des Sept Portes »)_
+
 ## Un très vieil arbre gravé
 
 _Bosquet des Échos_
@@ -288,6 +383,18 @@ _Effet : retient « saule-grave », termine la quête « Ce que Liane veut oubli
 > Sous tes doigts monte un souvenir qui n’est pas le tien : un garçon qui grimpe trop haut, et une sœur qui lui crie de redescendre, en riant.
 
 - « Partir. » → **fin**
+
+## Arlo
+
+_Un des jumeaux_
+
+Commence par : « accueil »
+
+### accueil
+
+> Un garçon aux cheveux presque blancs. — On a appris la doctrine, cette année ! « Si l’Anneau n’arrête pas, c’est permis. » Maman dit que c’est la phrase la plus triste du monde. Papa dit que c’est la plus juste. Ils se disputent, mais sans se taper.
+
+- « Au revoir. » → **fin**
 
 ## Boulon
 
@@ -1199,6 +1306,51 @@ _Effet : retient le Récit « On se retrouvera »._
 
 - « Partir. » → **fin**
 
+## La dame en gris
+
+_Une courtière de Ferros_
+
+Commence par : « offre » _(si quête « Les Mémoires du Monde Perdu » en cours)_ _(si repère « page-lue »)_ _(sans repère « edda-reglee »)_, sinon « accueil »
+
+### accueil
+
+> Une femme en manteau gris de Ferros, gants fins, ne lève pas les yeux de son thé. — Vous aussi, vous venez pour la Bibliothèque ? On y vend tout. Sauf des réponses.
+
+- « Qui êtes-vous ? » → qui
+- « Au revoir. » → **fin**
+
+### qui
+
+> — Une courtière. J’achète ce que les autres ont lu. C’est un métier honnête, à Sept-Portes : rien n’y est caché, tout y a un prix.
+
+- « Au revoir. » → **fin**
+
+### offre
+
+> La dame en gris lève enfin les yeux. — Vous l’avez lue. Ça se voit à vos mains. Deux cents Fers pour ce que dit la ligne, et vous n’entendrez plus parler de moi.
+
+- « La lui vendre, pour deux cents Fers. » → vendue _(+200 Fers, retient « ligne-vendue », retient « edda-reglee », retient « edda-partie », avis de Liane −2, avis de Boulon −1)_
+- _(si repère « main-edda-fausse »)_ « Je sais qui vous êtes : Edda Varn est morte il y a trente ans. » → morte
+- « Non. » → refus _(retient « edda-reglee », retient « edda-suit », retient « edda-partie »)_
+
+### vendue
+
+> Elle compte les Fers sans les regarder, écoute la ligne une fois et la répète sans faute. — Altavent. Merci. Les routes sont longues ; on ne se reverra pas.
+
+- « … » → **fin**
+
+### morte
+
+> Elle sourit pour la première fois. — Et alors ? Ici, personne ne peut me toucher. Allez donc le dire au Conservateur. Il enregistrera.
+
+- « … » → **fin**
+
+### refus
+
+> — Comme vous voudrez. Elle repose sa tasse, laisse une pièce et se lève. — Les routes sont longues. On se reverra, quelque part entre ici et Altavent.
+
+- « … » → **fin**
+
 ## Elouan Chante-Bois
 
 _Luthier_
@@ -1612,6 +1764,31 @@ Commence par : « vide » _(si repère « vol-grenier »)_, sinon « sacs »
 
 - « Partir. » → **fin**
 
+## La greffière du Conseil
+
+_Greffe du Conseil Œcuménique des Sept_
+
+Commence par : « liste-edda » _(si repère « edda-raccompagnee »)_, sinon « accueil »
+
+### accueil
+
+> — Salle du Conseil Œcuménique. Sept sièges, sept nations, et un greffe. Je tiens la liste des raccompagnés : on n’y inscrit pas des criminels, seulement des noms.
+
+- « Le Conseil siège souvent ? » → conseil
+- « Au revoir. » → **fin**
+
+### conseil
+
+> — Quand il le faut. Il a signé une reddition, en 1861, et créé le Fonds Muet, en 2521. Pour le reste, il discute. C’est ce qu’on fait, quand on ne peut pas se battre.
+
+- « Au revoir. » → **fin**
+
+### liste-edda
+
+> — Une main de plus, ce matin : « Se disant Edda Varn, de Ferros. » Raccompagnée. Personne ne l’a touchée. C’est écrit.
+
+- « Au revoir. » → **fin**
+
 ## Le guichet du fond
 
 _Archives, caste Technique_
@@ -1779,6 +1956,74 @@ Commence par : « colere » _(si repère « echos-dissipes »)_, sinon « apres 
 
 - « Remonter. » → **fin**
 
+## Hesper Mille-Récits
+
+_Doyenne des Gardiens de Mémoire_
+
+Commence par : « fin-vendue » _(si quête « Les Mémoires du Monde Perdu » en cours)_ _(si repère « edda-reglee »)_ _(si repère « ligne-vendue »)_, sinon « fin-denonce » _(si quête « Les Mémoires du Monde Perdu » en cours)_ _(si repère « edda-reglee »)_ _(si repère « edda-raccompagnee »)_, sinon « fin-silence » _(si quête « Les Mémoires du Monde Perdu » en cours)_ _(si repère « edda-reglee »)_, sinon « page » _(si quête « Les Mémoires du Monde Perdu » en cours)_ _(si repère « page-lue »)_, sinon « appel » _(si quête « Les Mémoires du Monde Perdu » en cours)_ _(sans repère « hesper-vue »)_, sinon « en-cours » _(si quête « Les Mémoires du Monde Perdu » en cours)_, sinon « apres » _(si quête « Les Mémoires du Monde Perdu » terminée)_, sinon « accueil »
+
+### accueil
+
+> Une vieille femme en cape couleur parchemin pose sa lanterne. — Un Gardien de Gardebois ? Ilyane t’a bien formé, à te voir. Repose-toi ici, et regarde le tableau : on y épingle ce qu’on nous demande.
+
+- « Merci, Hesper. » → **fin**
+
+### appel
+
+_Effet : retient « hesper-vue »._
+
+> Une vieille femme en cape couleur parchemin pose sa lanterne. — Te voilà. Ilyane m’a écrit que tu écoutais bien. Ici, on n’écoute pas : on lit les mains. Tout ce qui passe par Sept-Portes laisse une ligne au Registre : de qui, quand, contre combien.
+
+- « Et la clé de rouille bleue ? » → cle
+
+### cle
+
+> — La clé, je ne sais pas. Mais le carnet qu’elle ouvre a une ligne grattée, et ce qu’on gratte, quelqu’un l’a recopié un jour. Va au guichet du Registre, sur le parvis. Le Conservateur s’appelle Ambroise. Il enregistre ; il ne cherche pas. Toi, tu chercheras.
+
+- « J’y vais. » → **fin**
+
+### en-cours
+
+> — Le Registre ne ment pas, et il ne dit pas vrai non plus : il dit qui. Cherche qui.
+
+- « À plus tard. » → **fin**
+
+### page
+
+> — Tu l’as lue. Ça se voit : tu marches comme quelqu’un qui porte quelque chose. Une dame en gris loge aux Sept Routes, et elle cherche la même chose que toi. Va la voir, ou ne va pas la voir. Mais décide.
+
+- « Bien. » → **fin**
+
+### fin-vendue
+
+_Effet : termine la quête « Les Mémoires du Monde Perdu », +60 XP, retient « piste-zephyria », avis de Liane −1._
+
+> Hesper écoute, et sa lanterne baisse. — Tu as vendu une ligne. Ici, c’est un métier honnête. Chez les Gardiens, on transmet ; on ne vend pas. Altavent, sous les Hauts de Zephyria… Ils y seront avant toi. Alors cours.
+
+- « Je pars pour Zephyria. » → **fin**
+
+### fin-denonce
+
+_Effet : termine la quête « Les Mémoires du Monde Perdu », +80 XP, retient « piste-zephyria »._
+
+> — Raccompagnée. Personne ne l’a touchée, et elle est au cent unième kilomètre. C’est la seule justice qu’on ait ici : elle est propre, et elle est terrible. Altavent, sous les Hauts de Zephyria. La piste est à toi.
+
+- « Je pars pour Zephyria. » → **fin**
+
+### apres
+
+> — Les Gardiens te gardent une chambre, ici, quand tu veux. Et le tableau a toujours besoin de bras.
+
+- « Au revoir. » → **fin**
+
+### fin-silence
+
+_Effet : termine la quête « Les Mémoires du Monde Perdu », +80 XP, retient « piste-zephyria »._
+
+> — Tu t’es tue, et elle te suivra : les routes sont longues. Altavent, sous les Hauts de Zephyria. La Porte de Zephyria ne s’ouvre qu’avec un sauf-conduit de la Confédération : il faudra le trouver.
+
+- « Je pars pour Zephyria. » → **fin**
+
 ## L’huissier du Conseil
 
 _Huissier_
@@ -1861,7 +2106,7 @@ _Effet : retient « mensonge-huissier »._
 
 _Gardienne de Mémoire de Gardebois_
 
-Commence par : « echo-lettre » _(si repère « echos-confies »)_ _(sans repère « ilyane-echo-lu »)_, sinon « carnet » _(si quête « Le carnet de chansons » en cours)_ _(si l’on porte « Carnet de chansons d’Ilyane »)_, sinon « nouvelles-canopee » _(si quête « L’audience » terminée)_, sinon « pell » _(si repère « foreuse-explosee »)_ _(sans repère « ilyane-sait-pell »)_, sinon « resolu » _(si quête « Le Dernier Train » terminée)_, sinon « en-cours » _(si quête « Le Dernier Train » en cours)_, sinon « accueil »
+Commence par : « echo-lettre » _(si repère « echos-confies »)_ _(sans repère « ilyane-echo-lu »)_, sinon « carnet » _(si quête « Le carnet de chansons » en cours)_ _(si l’on porte « Carnet de chansons d’Ilyane »)_, sinon « appel-sept-portes » _(si quête « La Clé de Rouille Bleue » terminée)_ _(si quête « Les Mémoires du Monde Perdu » pas commencée)_, sinon « nouvelles-canopee » _(si quête « L’audience » terminée)_, sinon « pell » _(si repère « foreuse-explosee »)_ _(sans repère « ilyane-sait-pell »)_, sinon « resolu » _(si quête « Le Dernier Train » terminée)_, sinon « en-cours » _(si quête « Le Dernier Train » en cours)_, sinon « accueil »
 
 ### resolu
 
@@ -1971,6 +2216,18 @@ _Effet : retient « ilyane-sait-pell »._
 > Ilyane ne te regarde pas tout de suite. — Le vent a porté la fumée jusqu’ici. Un garçon de Ferros est mort, à la Gare. La maladie recule ; personne ne revit plus la Chute. Mais lui, personne ne le revivra. Un Gardien se souvient aussi de ce qu’il a coûté.
 
 - « Je m’en souviendrai. » → resolu
+
+### appel-sept-portes
+
+> Ilyane te tend une lettre cachetée de cire grise. — Hesper Mille-Récits, la doyenne des Gardiens, à Sept-Portes. Elle écrit : « Tout ce qui passe par Sept-Portes laisse une main au Registre. La clé a une chaîne. Envoie-moi ton Gardien. »
+
+- « J’irai à Sept-Portes. » → porte-sud _(lance la quête « Les Mémoires du Monde Perdu », retient « porte-sud-connue »)_
+
+### porte-sud
+
+> — Prends la route de l’est, au-delà de la forêt : la Porte du sud ne se ferme jamais. De l’autre côté, personne ne pourra lever la main sur toi. Ce n’est pas la même chose que d’être en sécurité.
+
+- « Merci, Ilyane. » → **fin**
 
 ## Ingrid Brisefer
 
@@ -2118,6 +2375,66 @@ _Effet : retient « joss-avoue », +15 XP._
 > Joss astique sa lanterne, sans un mot. Il ne te regarde pas dans les yeux.
 
 - « Au revoir. » → **fin**
+
+## Josse Sept-Routes
+
+_Aubergiste des Sept Routes_
+
+Commence par : « accueil-2 » _(un jour sur 3, le 2e)_, sinon « accueil-3 » _(un jour sur 3, le 3e)_, sinon « accueil »
+
+### accueil
+
+> Un homme rond, au foulard de six couleurs. — Auberge des Sept Routes ! J’ai fait trois fois le tour du monde et je suis revenu ici trois fois : c’est le seul endroit où personne ne se bat pour la dernière chaise.
+
+- « Manger ou dormir ? » → servir
+- « Quelles nouvelles ? » → nouvelles
+- « Raconter un Récit à la veillée. » → **fin** _(ouvre la veillée « sept-routes »)_
+- « Au revoir. » → **fin**
+
+### accueil-2
+
+> — Sept Routes ! Ce matin, une caravane de la Communion a passé sa Porte avec un chameau de trop. Le contrôleur l’a enregistré, et le chameau dort dans ma cour.
+
+- « Manger ou dormir ? » → servir
+- « Quelles nouvelles ? » → nouvelles
+- « Raconter un Récit à la veillée. » → **fin** _(ouvre la veillée « sept-routes »)_
+- « Au revoir. » → **fin**
+
+### accueil-3
+
+> — Sept Routes ! Les Éprouveurs ont encore essayé de se frapper sur la place, ce matin. La main s’arrête toujours. Ils notent quand même.
+
+- « Manger ou dormir ? » → servir
+- « Quelles nouvelles ? » → nouvelles
+- « Raconter un Récit à la veillée. » → **fin** _(ouvre la veillée « sept-routes »)_
+- « Au revoir. » → **fin**
+
+### nouvelles
+
+> — Une dame en gris, de Ferros, loue la chambre du fond depuis trois jours. Elle boit du thé, ne parle à personne, et paie en Nexus tout neufs.
+
+- « Merci. » → accueil
+
+### servir
+
+> — Une soupe des six pays, ou une chambre ? Ici, on paie en Nexus ; pour toi, des Fers, au cours du jour.
+
+- **[8 Fers]** « Une soupe des six pays. » → repas _(−8 Fers, +15 PV)_
+- **[12 Fers]** « Une chambre jusqu’au matin. » → dodo _(−12 Fers, dort jusqu’au matin)_
+- **[12 Fers]** « Une chambre jusqu’à la nuit. » → dodo _(−12 Fers, dort jusqu’à la nuit)_
+- « Rien, merci. » → accueil
+
+### repas
+
+> Une soupe où flottent des herbes de Verdantis, du poivre de la Communion et un poisson de Marisol. Ça ne devrait pas aller ensemble. Ça va.
+
+- « Merci, Josse. » → accueil
+
+### dodo
+
+> Une chambre étroite qui donne sur la place. Toute la nuit, les Portes bourdonnent doucement. Tu dors comme jamais.
+
+- « Se lever. » → **fin**
 
 ## Kael Marchevent
 
@@ -2503,6 +2820,33 @@ Commence par : « apres » _(si quête « Les herbes de lisière » terminée)_,
 - « Compris. » → **fin** _(Liane se joint au héros)_
 - « Je reviendrai. » → **fin**
 
+## Lior Rose-des-Vents
+
+_Cartographe_
+
+Commence par : « altavent » _(si quête « Les Mémoires du Monde Perdu » en cours)_ _(si repère « page-lue »)_ _(sans repère « altavent-situe »)_, sinon « accueil »
+
+### accueil
+
+> Un homme maigre, un rouleau sous le bras, une boussole au cou. — Lior Rose-des-Vents, cartographe. Les Sept Portes mènent partout, et aucune carte ne le dit bien. Je les dessine, moi.
+
+- « Où mènent-elles ? » → portes
+- « Au revoir. » → **fin**
+
+### portes
+
+> — Une par pays d’en face : Verdantis par la Porte du sud, Ferros, Zephyria, Marisol, Glacialis, Solarix. Et la septième. Les contrôleurs n’en disent rien, et je n’ai jamais pu la dessiner.
+
+- « Merci, Lior. » → **fin**
+
+### altavent
+
+_Effet : retient « altavent-situe », +15 XP._
+
+> — Altavent ? Lior déroule trois cartes, puis une quatrième, très vieille. — Là. Une gare de l’Ancien Monde, sous les Hauts de Zephyria. Aujourd’hui, au-dessus, à trois mille mètres, flotte Aetherhaven.
+
+- « Merci, Lior. » → **fin**
+
 ## Lisandre Ramelune
 
 _Aubergiste du Nid_
@@ -2780,6 +3124,31 @@ _Effet : retient « malo-flute-dit »._
 - _(si quête « Les lettres de Malo » pas commencée)_ « Merci pour la nouvelle. » → souci
 - _(si quête « Les lettres de Malo » terminée)_ « Merci pour la nouvelle, Malo. » → ami
 - « À bientôt, Malo. » → **fin**
+
+## La marchande des nations
+
+_Marché des nations_
+
+Commence par : « accueil »
+
+### accueil
+
+> — Des baumes de Verdantis, des carreaux de Ferros, des cristaux de partout ! Ici, on paie en Nexus ; pour toi, des Fers, au cours du jour.
+
+- « Voyons ça. » → **fin** _(ouvre le Troc)_
+- « Au revoir. » → **fin**
+
+## Mina
+
+_Une des jumeaux_
+
+Commence par : « accueil »
+
+### accueil
+
+> — Moi, je sais ce que c’est, le raccompagnement : deux agents, une voiture, et on te pose au cent unième kilomètre. On y joue, dans la cour. C’est toujours Arlo qu’on raccompagne.
+
+- « Au revoir. » → **fin**
 
 ## Mirelle Doucebranche
 
@@ -3108,6 +3477,26 @@ Commence par : « apres » _(si repère « rail-bureau »)_, sinon « rapport »
 
 - « Au revoir. » → **fin**
 
+## La page du dernier départ
+
+_Fonds Muet_
+
+Commence par : « relue » _(si repère « page-lue »)_, sinon « page »
+
+### page
+
+_Effet : retient le Récit « La page du dernier départ », retient « page-lue », +50 XP._
+
+> Sur le lutrin, une feuille recopiée d’une main patiente. Une seule ligne, celle que Ferros a grattée : « Dernier départ, voie sept. Terminus : Altavent, sous les Hauts de Zephyria. Déchargé : sept caisses plombées. Reçu : personne. »
+
+- « Refermer le Fonds. » → **fin**
+
+### relue
+
+> La page du dernier départ. Altavent. Sept caisses. Personne pour les recevoir.
+
+- « … » → **fin**
+
 ## Le patrouilleur à visière rouge
 
 _Funiculaire des Manufactures-Moyennes_
@@ -3286,6 +3675,44 @@ _Effet : retient « pilote-ecoute », retient le Récit « La machine qui roulai
 
 - « Retirer la main. » → **fin**
 
+## La porte du Fonds Muet
+
+_Grande Bibliothèque_
+
+Commence par : « fermee »
+
+### fermee
+
+> Une porte basse, sans serrure visible. Une plaque : « Fonds Muet. On garde, on classe, on restaure. On ne cite pas. » Le jour, le Conservateur veille au guichet ; la nuit, un portier.
+
+- _(la nuit)_ _(si quête « Les Mémoires du Monde Perdu » en cours)_ _(si repère « registre-lu »)_ _(sans repère « raccompagne-nuit »)_ **🎲 Discrétion 14** « Passer quand le portier tourne le dos. » → passe, ✗ → surpris
+- _(la nuit)_ _(si quête « Les Mémoires du Monde Perdu » en cours)_ _(si repère « registre-lu »)_ _(si repère « rumeur-portier-nuit »)_ _(sans repère « raccompagne-nuit »)_ **🎲 Discrétion 10** « Attendre la troisième cloche, et sa ronde des étages (la rumeur). » → passe, ✗ → surpris
+- « Partir. » → **fin**
+
+### passe
+
+_Effet : retient « fonds-muet-ouvert »._
+
+> La porte cède sans un bruit : elle n’était pas fermée, seulement gardée.
+
+- « Entrer. » → **fin** _(mène à « Sept-Portes — le Fonds Muet »)_
+
+### surpris
+
+_Effet : retient « raccompagne-nuit »._
+
+> Une lanterne sourde s’allume derrière toi. Le portier ne te touche pas ; il ne le pourrait pas. — Je vais chercher la voiture.
+
+- « … » → racc
+
+### racc
+
+_Effet : retient « raccompagne »._
+
+> Deux agents en gris clair. Personne ne te touche : on t’ouvre une portière. La voiture roule une journée, jusqu’au cent unième kilomètre, et l’on te pose sur le bas-côté. Il te faut deux jours pour revenir.
+
+- « Revenir à Sept-Portes, à pied. » → **fin** _(fait passer 8 moments, mène à « Sept-Portes — la place des Sept Portes »)_
+
 ## Porte du grenier des semences
 
 _Objet_
@@ -3325,6 +3752,71 @@ _Effet : retient « grenier-deverrouille »._
 - « Entrer. » → **fin** _(mène à « Canopéa — Grenier des semences »)_
 - « Remettre la clé, et partir. » → **fin**
 
+## Le portier de nuit
+
+_Gardien de la Bibliothèque, la nuit_
+
+Commence par : « accueil »
+
+### accueil
+
+> Un homme à la lanterne sourde. — La Bibliothèque dort, et les livres aussi. Revenez quand le Conservateur sera au guichet.
+
+- « Au revoir. » → **fin**
+
+## Le registre des consultations
+
+_Grande Bibliothèque_
+
+Commence par : « registre »
+
+### registre
+
+> Un grand livre ouvert sur un lutrin, à la vue de tous : les demandes de consultation, chacune signée d’une main.
+
+- _(si quête « Les Mémoires du Monde Perdu » en cours)_ _(si repère « registre-lu »)_ _(sans repère « fonds-muet-ouvert »)_ _(sans repère « raccompagne-ruse »)_ **🎲 Subterfuge 13** « Inscrire une demande au nom d’un Chroniqueur. » → faux-ok, ✗ → faux-rate
+- _(si quête « Les Mémoires du Monde Perdu » en cours)_ _(si repère « registre-lu »)_ _(si repère « rumeur-main-grise »)_ _(sans repère « main-edda-fausse »)_ « Chercher, plus haut, la main d’Edda Varn (la rumeur). » → main-fausse
+- _(si quête « Les Mémoires du Monde Perdu » en cours)_ _(si repère « registre-lu »)_ _(sans repère « main-edda-fausse »)_ **🎲 Investigation 13** « Examiner la demande d’Edda Varn. » → main-fausse, ✗ → rien
+- « Laisser le registre. » → **fin**
+
+### faux-ok
+
+_Effet : retient « fonds-muet-ouvert », retient « faux-registre »._
+
+> Tu signes d’une main qui n’est pas la tienne. Personne ne regarde : ici, on enregistre. Une heure plus tard, la demande est accordée, sans motif, comme les refus.
+
+- « … » → **fin**
+
+### faux-rate
+
+_Effet : retient « raccompagne-ruse »._
+
+> Ta plume hésite sur la dernière lettre. Derrière toi, une voix calme : — Cette main n’est pas la vôtre. Nous ne crions pas. Nous appelons une voiture.
+
+- « … » → racc
+
+### main-fausse
+
+_Effet : retient « main-edda-fausse »._
+
+> Plus haut dans le Registre, trente ans plus tôt : « Edda Varn, de Ferros. Main close : décédée. » La dame en gris signe d’une main morte.
+
+- « … » → **fin**
+
+### rien
+
+> Une écriture appliquée, sans une rature. Tu ne vois rien d’autre.
+
+- « … » → **fin**
+
+### racc
+
+_Effet : retient « raccompagne »._
+
+> Deux agents en gris clair. Personne ne te touche : on t’ouvre une portière. La voiture roule une journée, jusqu’au cent unième kilomètre, et l’on te pose sur le bas-côté. Il te faut deux jours pour revenir.
+
+- « Revenir à Sept-Portes, à pied. » → **fin** _(fait passer 8 moments, mène à « Sept-Portes — la place des Sept Portes »)_
+
 ## Le registre des départs
 
 _Triage des Cendres_
@@ -3338,6 +3830,18 @@ _Effet : retient « indice-registre »._
 > Le registre des départs. Trois nuits du mois, la même ligne : « Convoi de minerai, trois wagons — parti sans conducteur. » Et chaque fois, en bas, la signature de l’aiguilleur de nuit : J. Brakel.
 
 - « Refermer le registre. » → **fin**
+
+## Le Registre des Mains
+
+_Grande Bibliothèque_
+
+Commence par : « livre »
+
+### livre
+
+> Le Registre des Mains, ouvert à la page du jour. Des lignes serrées, sans une rature : de qui, à quelle date, contre combien, et ce que le vendeur affirmait. Seul le Conservateur lit pour les visiteurs.
+
+- « … » → **fin**
 
 ## Un renfoncement sans enseigne
 

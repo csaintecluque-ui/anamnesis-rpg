@@ -39,8 +39,8 @@ function evening(recits: string[], presence = 3, skills: Partial<Record<'diploma
 const die = (face: number) => () => (face - 1) / 20;
 
 describe('the publics of the veillées', () => {
-  it('meet at the three inns, each with its host, its town and its tastes', () => {
-    expect(PUBLICS.map((p) => p.id)).toEqual(['racine', 'nid', 'bielle']);
+  it('meet at the four inns, each with its host, its town and its tastes', () => {
+    expect(PUBLICS.map((p) => p.id)).toEqual(['racine', 'nid', 'bielle', 'sept-routes']);
     for (const p of PUBLICS) {
       expect(findLocation(p.lieu), p.id).toBeDefined();
       expect(DIALOGUES[p.hote], p.id).toBeDefined();

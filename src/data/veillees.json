@@ -88,5 +88,35 @@
         "texte": "Un vieux cheminot, sans lever les yeux de sa soupe : « Aux Archives, chaque étranger a sa fiche. Toi aussi. Demande-la à l’archiviste : l’article onze l’oblige à te la montrer. Personne ne le demande jamais. »"
       }
     ]
+  },
+  {
+    "id": "sept-routes",
+    "lieu": "sept-portes-auberge",
+    "hote": "josse",
+    "ville": "sept-portes",
+    "nom": "Auberge des Sept Routes",
+    "public": "Des voyageurs de toutes les nations, qui se disputent dans six langues : une pilote de Zephyria, deux marins de Marisol, un Glacien qui ne dit rien, une nomade des Sables.",
+    "gouts": "Ici, on aime l’Ancien Monde et les mystères : tout le monde est venu acheter une réponse. Les chansons, non. À Sept-Portes, une légende ne se chante pas : elle s’achète.",
+    "aime": ["ancien-monde", "mysteres"],
+    "deteste": ["chansons"],
+    "reactions": {
+      "triomphe": "Dans six langues, on se tait. Le Glacien pose sa chope. Quand tu as fini, la pilote de Zephyria lance une pièce, puis toute la salle : des Nexus, des Fers, des Feuilles, un coquillage. Josse traduit tout en Fers.",
+      "succes": "On t’écoute, et l’on se dispute ensuite sur ce que tu as voulu dire : c’est bon signe, à Sept-Portes. Le bol de Josse fait le tour.",
+      "redite": "« On l’a achetée la semaine dernière, celle-là. » Quelques pièces, par politesse.",
+      "echec": "Au milieu, quelqu’un demande d’où tu tiens ton histoire. Tu ne sais pas répondre. Ici, c’est la seule question qui compte.",
+      "deteste": "Au premier couplet, la salle éclate de rire. « Une chanson ! » La nomade des Sables te tend une pièce, pour que tu t’arrêtes."
+    },
+    "rumeurs": [
+      {
+        "id": "portier-nuit",
+        "titre": "La troisième cloche",
+        "texte": "Un étudiant en robe d’encre, à mi-voix : « Le portier de nuit de la Bibliothèque ? À la troisième cloche, il fait sa ronde des étages. La porte basse du fond reste seule le temps d’une prière. »"
+      },
+      {
+        "id": "main-grise",
+        "titre": "La main de la dame en gris",
+        "texte": "Josse, en essuyant une chope : « La dame en gris, au fond, signe Edda Varn. Une Edda Varn de Ferros est morte il y a trente ans : sa main est close au Registre, tout le monde peut le lire. Personne ne lit. »"
+      }
+    ]
   }
 ]

@@ -245,7 +245,7 @@ function maskedEntries(state: GameState, questsOnly = false): string[] {
   return out;
 }
 
-const NAVIGATION = ['gardebois', 'canopee', 'ironheart', 'compagnie-lisieres', 'nacelliers', 'travailleurs-rail', 'marches-cendres', 'archives-ferros'];
+const NAVIGATION = ['gardebois', 'canopee', 'ironheart', 'sept-portes', 'compagnie-lisieres', 'nacelliers', 'travailleurs-rail', 'marches-cendres', 'archives-ferros'];
 const reputations = (state: GameState) => Object.fromEntries(NAVIGATION.map((p) => [p, reputationScore(state, p)]));
 
 // ---------------------------------------------------------------------------------------------------------------
@@ -822,6 +822,12 @@ describe('Parcours complet, d’une traite', () => {
     say(s, 'boulon', 'trajet-gardebois', 'Descendre');
     expect(s.location).toBe('gardebois');
     expect(gained(s, () => expect(talk(s, 'ilyane')).toBe('echo-lettre'))).toEqual({ xp: 10, fers: 0 });
+    // La Clé finie, Ilyane a une lettre de Hesper : le chapitre 4 s'ouvre, la Porte du sud paraît sur la carte.
+    expect(talk(s, 'ilyane')).toBe('appel-sept-portes');
+    expect(knownPlaces(s.flags, s.quests).map((p) => p.id)).not.toContain('sept-portes');
+    say(s, 'ilyane', 'appel-sept-portes', 'J’irai à Sept-Portes');
+    expect(s.quests['memoires-monde-perdu']).toBe('active');
+    expect(knownPlaces(s.flags, s.quests).map((p) => p.id)).toContain('sept-portes');
     expect(talk(s, 'ilyane')).toBe('nouvelles-canopee');
     walk(s, 'auberge-racine');
     expect(talk(s, 'sylvan')).toBe('triumvirat');
@@ -886,6 +892,54 @@ describe('Parcours complet, d’une traite', () => {
     expect(repeatableGains(s)).toEqual([]);
   });
 
+  it('« Les Mémoires du Monde Perdu » : Sept-Portes, Ambroise convaincu, la page, la dame en gris dénoncée', () => {
+    travel(s, 'sept-portes');
+    expect(s.location).toBe('sept-portes');
+    walk(s, 'sept-portes-parvis');
+    walk(s, 'sept-portes-gardiens');
+    expect(talk(s, 'hesper')).toBe('appel');
+    say(s, 'hesper', 'appel', 'Et la clé');
+    say(s, 'hesper', 'cle', 'J’y vais');
+    expect(talk(s, 'hesper')).toBe('en-cours');
+    walk(s, 'sept-portes-parvis');
+    walk(s, 'sept-portes-bibliotheque');
+    expect(talk(s, 'ambroise')).toBe('registre');
+    say(s, 'ambroise', 'registre', 'Une clé de rouille bleue');
+    say(s, 'ambroise', 'chaine', 'Et personne d’autre');
+    expect(present(s, 'sept-portes-auberge', 'edda')).toBe(true);
+    say(s, 'ambroise', 'edda-demande', 'Et si c’est moi');
+    // La parole : Diplomatie 3.
+    say(s, 'ambroise', 'demande', '«');
+    walk(s, 'sept-portes-fonds-muet');
+    expect(gained(s, () => expect(talk(s, 'page-dernier-depart')).toBe('page'))).toEqual({ xp: 50, fers: 0 });
+    expect(knowsRecit(s.character, 'dernier-depart')).toBe(true);
+    expect(journalStep(s, 'memoires-monde-perdu')?.step).toMatch(/Edda|dame en gris|Hesper/);
+    walk(s, 'sept-portes-bibliotheque');
+    expect(talk(s, 'registre-consultations')).toBe('registre');
+    say(s, 'registre-consultations', 'registre', 'Examiner la demande d’Edda Varn');
+    expect(s.flags['main-edda-fausse']).toBe(true);
+    walk(s, 'sept-portes-parvis');
+    walk(s, 'sept-portes');
+    walk(s, 'sept-portes-auberge');
+    expect(talk(s, 'edda')).toBe('offre');
+    say(s, 'edda', 'offre', 'Je sais qui vous êtes');
+    walk(s, 'sept-portes');
+    walk(s, 'sept-portes-parvis');
+    walk(s, 'sept-portes-bibliotheque');
+    expect(talk(s, 'ambroise')).toBe('denonce');
+    expect(gained(s, () => say(s, 'ambroise', 'denonce', 'Edda Varn est morte'))).toEqual({ xp: 30, fers: 0 });
+    expect(present(s, 'sept-portes-auberge', 'edda')).toBe(false);
+    expect(s.flags.raccompagne).toBeUndefined();
+    walk(s, 'sept-portes-parvis');
+    walk(s, 'sept-portes-gardiens');
+    expect(gained(s, () => expect(talk(s, 'hesper')).toBe('fin-denonce'))).toEqual({ xp: 80, fers: 0 });
+    expect(s.quests['memoires-monde-perdu']).toBe('done');
+    expect(s.flags['piste-zephyria']).toBe(true);
+    expect(talk(s, 'hesper')).toBe('apres');
+    expect(reputationScore(s, 'sept-portes')).toBe(25);
+    expect(repeatableGains(s)).toEqual([]);
+  });
+
   it('Bilan : tout est fini, rien ne traîne, rien ne se gagne deux fois', () => {
     expect(unfinished(s)).toEqual([]);
     expect(journalQuests(s).every((q) => q.done)).toBe(true);
@@ -896,6 +950,7 @@ describe('Parcours complet, d’une traite', () => {
       gardebois: 40,
       canopee: 55,
       ironheart: 25,
+      'sept-portes': 25,
       'compagnie-lisieres': 20,
       nacelliers: 25,
       'travailleurs-rail': 30,
@@ -1310,6 +1365,44 @@ describe('Variante : Ironheart avant les quêtes annexes (parole, combats, autre
     expect(talk(s, 'kerta')).toBe('apres-monte');
   });
 
+  it('« Les Mémoires du Monde Perdu » de nuit : le portier passé, la ligne vendue à la dame en gris', () => {
+    expect(travel(s, 'gardebois')).toBeNull();
+    expect(talk(s, 'ilyane')).toBe('appel-sept-portes');
+    say(s, 'ilyane', 'appel-sept-portes', 'J’irai à Sept-Portes');
+    travel(s, 'sept-portes');
+    walk(s, 'sept-portes-parvis');
+    walk(s, 'sept-portes-gardiens');
+    expect(talk(s, 'hesper')).toBe('appel');
+    walk(s, 'sept-portes-parvis');
+    walk(s, 'sept-portes-bibliotheque');
+    expect(talk(s, 'ambroise')).toBe('registre');
+    say(s, 'ambroise', 'registre', 'Une clé de rouille bleue');
+    say(s, 'ambroise', 'chaine', 'Et personne d’autre');
+    say(s, 'ambroise', 'edda-demande', 'Et si c’est moi');
+    say(s, 'ambroise', 'demande', 'Je reviendrai');
+    // La nuit, Discrétion 14 pour passer le portier.
+    waitUntil(s.time, 'nuit');
+    expect(talk(s, 'porte-fonds-muet')).toBe('fermee');
+    say(s, 'porte-fonds-muet', 'fermee', 'Passer quand le portier');
+    say(s, 'porte-fonds-muet', 'passe', 'Entrer');
+    expect(s.location).toBe('sept-portes-fonds-muet');
+    expect(talk(s, 'page-dernier-depart')).toBe('page');
+    walk(s, 'sept-portes-bibliotheque');
+    walk(s, 'sept-portes-parvis');
+    walk(s, 'sept-portes');
+    walk(s, 'sept-portes-auberge');
+    expect(talk(s, 'edda')).toBe('offre');
+    expect(optionTexts(s, 'edda', 'offre')).toEqual(['La lui vendre, pour deux cents Fers.', 'Non.']);
+    expect(gained(s, () => say(s, 'edda', 'offre', 'La lui vendre'))).toEqual({ xp: 0, fers: 200 });
+    expect(present(s, 'sept-portes-auberge', 'edda')).toBe(false);
+    walk(s, 'sept-portes');
+    walk(s, 'sept-portes-parvis');
+    walk(s, 'sept-portes-gardiens');
+    expect(gained(s, () => expect(talk(s, 'hesper')).toBe('fin-vendue'))).toEqual({ xp: 60, fers: 0 });
+    expect(s.quests['memoires-monde-perdu']).toBe('done');
+    expect(reputationScore(s, 'sept-portes')).toBe(15);
+  });
+
   it('Bilan de la variante', () => {
     expect(unfinished(s)).toEqual([]);
     expect(questItems(s)).toEqual(['cristal-vanel', 'sauf-conduit']);
@@ -1317,6 +1410,7 @@ describe('Variante : Ironheart avant les quêtes annexes (parole, combats, autre
       gardebois: 40,
       canopee: 50,
       ironheart: 25,
+      'sept-portes': 15,
       'compagnie-lisieres': 0,
       nacelliers: 25,
       'travailleurs-rail': -25,

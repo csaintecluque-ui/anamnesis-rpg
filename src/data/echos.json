@@ -132,5 +132,16 @@
     "type": "complet",
     "xp": 10,
     "texte": "Un train de l’Ancien Monde passe sur la vieille ligne, sans s’arrêter, si près que tu sens le vent. Aux fenêtres, des visages tournés vers toi ; une main se lève, peut-être pour toi. Puis plus rien que les rails rouillés."
+  },
+  {
+    "id": "trois-cents",
+    "titre": "Les Trois Cents",
+    "lieu": "sept-portes-halles",
+    "col": 21,
+    "row": 6,
+    "moment": "jour",
+    "type": "complet",
+    "xp": 20,
+    "texte": "Le quatre-vingt-unième jour. Trois cents personnes passent la ligne de l’Anneau, en rangs serrés : des Éprouveurs au brassard blanc, des volontaires, un rameur de dix-sept ans. Derrière elles, la main peut de nouveau se lever. Elles le savent. Elles avancent."
   }
 ]

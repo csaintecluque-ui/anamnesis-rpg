@@ -849,5 +849,267 @@
         ]
       }
     ]
+  },
+  {
+    "id": "eprouveuse",
+    "location": "sept-portes",
+    "name": "Une Éprouveuse",
+    "tile": "eprouveur",
+    "path": [
+      [
+        15,
+        9
+      ]
+    ],
+    "lines": [
+      "Un, deux… Son poing s’arrête à un doigt de la joue de son binôme. « Sept heures dix : la main s’arrête. Noté. »",
+      "Quatre-vingts Éprouveurs, par paires. On essaie de frapper, pour savoir ce que l’Anneau refuse."
+    ]
+  },
+  {
+    "id": "eprouveur",
+    "location": "sept-portes",
+    "name": "Un Éprouveur",
+    "tile": "eprouveur",
+    "path": [
+      [
+        16,
+        9
+      ]
+    ],
+    "lines": [
+      "« Encore ? » Il ne cligne même plus des yeux. Après vingt ans de coups arrêtés, on ne cligne plus.",
+      "L’Anneau n’arrête que le coup. La dette, la clause, le raccompagnement : ça, il le laisse passer."
+    ]
+  },
+  {
+    "id": "voyageuse-zephyria",
+    "location": "sept-portes",
+    "name": "Une voyageuse de Zephyria",
+    "tile": "voyageuse-zephyria",
+    "path": [
+      [
+        9,
+        11
+      ],
+      [
+        12,
+        15
+      ],
+      [
+        17,
+        15
+      ],
+      [
+        19,
+        11
+      ]
+    ],
+    "lines": [
+      "Trois jours que j’attends un tampon pour rentrer chez moi. Ici, même le vent a besoin d’un sauf-conduit.",
+      "Six langues sur une seule place, et tout le monde finit par compter en Nexus."
+    ],
+    "reactions": [
+      {
+        "flag": "page-lue",
+        "lines": [
+          "Les Hauts de Zephyria ? C’est chez moi. Il n’y a plus de rails, là-haut, depuis bien avant ma grand-mère."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "marin-marisol",
+    "location": "sept-portes",
+    "name": "Un marin de Marisol",
+    "tile": "marin-marisol",
+    "path": [
+      [
+        19,
+        8
+      ],
+      [
+        23,
+        9
+      ],
+      [
+        23,
+        11
+      ],
+      [
+        19,
+        12
+      ]
+    ],
+    "lines": [
+      "La Porte laisse passer les marins, pas leurs tonneaux. Alors on vend ici ce qu’on a dans les poches.",
+      "Un coquillage pour un Nexus ? Non ? Un demi ? À Sept-Portes, tout a un prix, même le sel."
+    ]
+  },
+  {
+    "id": "nomade-sables",
+    "location": "sept-portes",
+    "name": "Une nomade des Sables",
+    "tile": "nomade-sables",
+    "path": [
+      [
+        6,
+        10
+      ]
+    ],
+    "lines": [
+      "J’ai encore du sable dans les bottes. Ici, des gens l’achètent au poids, pour un désert qu’ils ne verront jamais."
+    ]
+  },
+  {
+    "id": "glacien",
+    "location": "sept-portes",
+    "name": "Un Glacien",
+    "tile": "glacien",
+    "path": [
+      [
+        19,
+        17
+      ]
+    ],
+    "lines": [
+      "Cinquante ans que je n’ai pas repassé ma Porte. Le Dominion ne reçoit que sur invitation. On ne m’invite plus."
+    ]
+  },
+  {
+    "id": "chroniqueur",
+    "location": "sept-portes-parvis",
+    "name": "Un Chroniqueur",
+    "tile": "archiviste-guichet",
+    "path": [
+      [
+        9,
+        5
+      ],
+      [
+        15,
+        5
+      ],
+      [
+        15,
+        7
+      ],
+      [
+        9,
+        7
+      ]
+    ],
+    "lines": [
+      "On enregistre, on ne cherche pas. C’est la première chose qu’on apprend ici, et la seule qu’on n’oublie jamais.",
+      "Onze millions six cent mille lignes, au Registre des Mains. Pas une que l’Ordre ait vérifiée."
+    ],
+    "reactions": [
+      {
+        "flag": "edda-raccompagnee",
+        "lines": [
+          "On a raccompagné une dame en gris : une main close depuis trente ans. L’Ordre ne cherche pas. Quelqu’un a cherché."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "etudiante-encre",
+    "location": "sept-portes-parvis",
+    "name": "Une étudiante en robe d’encre",
+    "tile": "pelerine",
+    "pace": 0.8,
+    "path": [
+      [
+        8,
+        12
+      ],
+      [
+        16,
+        12
+      ],
+      [
+        16,
+        14
+      ],
+      [
+        8,
+        14
+      ]
+    ],
+    "lines": [
+      "« Un lecteur n’est pas quelqu’un qui comprend. C’est quelqu’un qui sacrifie tout le reste. » Je sacrifie le sommeil.",
+      "La Borne Première ? Huit noms. On nous les fait réciter le premier jour. Je les ai déjà oubliés, ne le dites pas."
+    ]
+  },
+  {
+    "id": "marchande-fruits",
+    "location": "sept-portes-halles",
+    "name": "Une marchande de fruits",
+    "tile": "fleuriste",
+    "path": [
+      [
+        8,
+        10
+      ]
+    ],
+    "lines": [
+      "Des fruits de toutes les nations ! Le fond du cratère ? Personne n’y descend. Ce n’est pas défendu. On n’y va pas, c’est tout."
+    ]
+  },
+  {
+    "id": "pelerine-trois-cents",
+    "location": "sept-portes-halles",
+    "name": "Une pèlerine",
+    "tile": "pelerine",
+    "pace": 1.3,
+    "path": [
+      [
+        20,
+        8
+      ],
+      [
+        24,
+        8
+      ],
+      [
+        24,
+        10
+      ],
+      [
+        20,
+        10
+      ]
+    ],
+    "lines": [
+      "Je viens chaque année. Chez nous, on dit qu’un des deux cent vingt était de la famille. Toutes les familles le disent.",
+      "Le plus jeune avait dix-sept ans. Un rameur. Je pense à lui, surtout."
+    ]
+  },
+  {
+    "id": "porteur-halles",
+    "location": "sept-portes-halles",
+    "name": "Un porteur",
+    "tile": "porteur",
+    "path": [
+      [
+        5,
+        7
+      ],
+      [
+        5,
+        13
+      ],
+      [
+        11,
+        17
+      ],
+      [
+        15,
+        17
+      ]
+    ],
+    "lines": [
+      "Le grain arrive de Ferros par le rail, en deux jours. Les pêches, à dos d’homme. Le mien."
+    ]
   }
 ]

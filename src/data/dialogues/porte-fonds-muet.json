@@ -1,0 +1,127 @@
+{
+  "id": "porte-fonds-muet",
+  "speaker": "porte-fonds-muet",
+  "entries": [
+    {
+      "node": "fermee"
+    }
+  ],
+  "nodes": {
+    "fermee": {
+      "text": "Une porte basse, sans serrure visible. Une plaque : « Fonds Muet. On garde, on classe, on restaure. On ne cite pas. » Le jour, le Conservateur veille au guichet ; la nuit, un portier.",
+      "options": [
+        {
+          "text": "Passer quand le portier tourne le dos.",
+          "requires": [
+            {
+              "moment": "nuit"
+            },
+            {
+              "quest": "memoires-monde-perdu",
+              "status": "active"
+            },
+            {
+              "flag": "registre-lu"
+            },
+            {
+              "notFlag": "raccompagne-nuit"
+            }
+          ],
+          "roll": {
+            "skill": "stealth",
+            "difficulty": 14
+          },
+          "next": "passe",
+          "failNext": "surpris"
+        },
+        {
+          "text": "Attendre la troisième cloche, et sa ronde des étages (la rumeur).",
+          "requires": [
+            {
+              "moment": "nuit"
+            },
+            {
+              "quest": "memoires-monde-perdu",
+              "status": "active"
+            },
+            {
+              "flag": "registre-lu"
+            },
+            {
+              "flag": "rumeur-portier-nuit"
+            },
+            {
+              "notFlag": "raccompagne-nuit"
+            }
+          ],
+          "roll": {
+            "skill": "stealth",
+            "difficulty": 10
+          },
+          "next": "passe",
+          "failNext": "surpris"
+        },
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "passe": {
+      "text": "La porte cède sans un bruit : elle n’était pas fermée, seulement gardée.",
+      "effects": [
+        {
+          "setFlag": "fonds-muet-ouvert"
+        }
+      ],
+      "options": [
+        {
+          "text": "Entrer.",
+          "effects": [
+            {
+              "goTo": "sept-portes-fonds-muet"
+            }
+          ],
+          "next": "fin"
+        }
+      ]
+    },
+    "surpris": {
+      "text": "Une lanterne sourde s’allume derrière toi. Le portier ne te touche pas ; il ne le pourrait pas. — Je vais chercher la voiture.",
+      "effects": [
+        {
+          "setFlag": "raccompagne-nuit"
+        }
+      ],
+      "options": [
+        {
+          "text": "…",
+          "next": "racc"
+        }
+      ]
+    },
+    "racc": {
+      "text": "Deux agents en gris clair. Personne ne te touche : on t’ouvre une portière. La voiture roule une journée, jusqu’au cent unième kilomètre, et l’on te pose sur le bas-côté. Il te faut deux jours pour revenir.",
+      "effects": [
+        {
+          "setFlag": "raccompagne"
+        }
+      ],
+      "options": [
+        {
+          "text": "Revenir à Sept-Portes, à pied.",
+          "effects": [
+            {
+              "avancer": 8
+            },
+            {
+              "goTo": "sept-portes",
+              "arrivee": "depuis-porte-sud"
+            }
+          ],
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

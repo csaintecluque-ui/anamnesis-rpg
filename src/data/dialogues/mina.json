@@ -1,0 +1,20 @@
+{
+  "id": "mina",
+  "speaker": "mina",
+  "entries": [
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "— Moi, je sais ce que c’est, le raccompagnement : deux agents, une voiture, et on te pose au cent unième kilomètre. On y joue, dans la cour. C’est toujours Arlo qu’on raccompagne.",
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

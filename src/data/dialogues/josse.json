@@ -1,0 +1,194 @@
+{
+  "id": "josse",
+  "speaker": "josse",
+  "entries": [
+    {
+      "requires": [
+        {
+          "tousLes": 3,
+          "decalage": 1
+        }
+      ],
+      "node": "accueil-2"
+    },
+    {
+      "requires": [
+        {
+          "tousLes": 3,
+          "decalage": 2
+        }
+      ],
+      "node": "accueil-3"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Un homme rond, au foulard de six couleurs. — Auberge des Sept Routes ! J’ai fait trois fois le tour du monde et je suis revenu ici trois fois : c’est le seul endroit où personne ne se bat pour la dernière chaise.",
+      "options": [
+        {
+          "text": "Manger ou dormir ?",
+          "next": "servir"
+        },
+        {
+          "text": "Quelles nouvelles ?",
+          "next": "nouvelles"
+        },
+        {
+          "text": "Raconter un Récit à la veillée.",
+          "effects": [
+            {
+              "veillee": "sept-routes"
+            }
+          ],
+          "next": "fin"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "accueil-2": {
+      "text": "— Sept Routes ! Ce matin, une caravane de la Communion a passé sa Porte avec un chameau de trop. Le contrôleur l’a enregistré, et le chameau dort dans ma cour.",
+      "options": [
+        {
+          "text": "Manger ou dormir ?",
+          "next": "servir"
+        },
+        {
+          "text": "Quelles nouvelles ?",
+          "next": "nouvelles"
+        },
+        {
+          "text": "Raconter un Récit à la veillée.",
+          "effects": [
+            {
+              "veillee": "sept-routes"
+            }
+          ],
+          "next": "fin"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "accueil-3": {
+      "text": "— Sept Routes ! Les Éprouveurs ont encore essayé de se frapper sur la place, ce matin. La main s’arrête toujours. Ils notent quand même.",
+      "options": [
+        {
+          "text": "Manger ou dormir ?",
+          "next": "servir"
+        },
+        {
+          "text": "Quelles nouvelles ?",
+          "next": "nouvelles"
+        },
+        {
+          "text": "Raconter un Récit à la veillée.",
+          "effects": [
+            {
+              "veillee": "sept-routes"
+            }
+          ],
+          "next": "fin"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "nouvelles": {
+      "text": "— Une dame en gris, de Ferros, loue la chambre du fond depuis trois jours. Elle boit du thé, ne parle à personne, et paie en Nexus tout neufs.",
+      "options": [
+        {
+          "text": "Merci.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "servir": {
+      "text": "— Une soupe des six pays, ou une chambre ? Ici, on paie en Nexus ; pour toi, des Fers, au cours du jour.",
+      "options": [
+        {
+          "text": "Une soupe des six pays.",
+          "requires": [
+            {
+              "fers": 8
+            }
+          ],
+          "effects": [
+            {
+              "giveFers": -8
+            },
+            {
+              "heal": 15
+            }
+          ],
+          "next": "repas"
+        },
+        {
+          "text": "Une chambre jusqu’au matin.",
+          "requires": [
+            {
+              "fers": 12
+            }
+          ],
+          "effects": [
+            {
+              "giveFers": -12
+            },
+            {
+              "dormir": "matin"
+            }
+          ],
+          "next": "dodo"
+        },
+        {
+          "text": "Une chambre jusqu’à la nuit.",
+          "requires": [
+            {
+              "fers": 12
+            }
+          ],
+          "effects": [
+            {
+              "giveFers": -12
+            },
+            {
+              "dormir": "nuit"
+            }
+          ],
+          "next": "dodo"
+        },
+        {
+          "text": "Rien, merci.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "repas": {
+      "text": "Une soupe où flottent des herbes de Verdantis, du poivre de la Communion et un poisson de Marisol. Ça ne devrait pas aller ensemble. Ça va.",
+      "options": [
+        {
+          "text": "Merci, Josse.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "dodo": {
+      "text": "Une chambre étroite qui donne sur la place. Toute la nuit, les Portes bourdonnent doucement. Tu dors comme jamais.",
+      "options": [
+        {
+          "text": "Se lever.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "id": "page-dernier-depart",
+  "speaker": "page-dernier-depart",
+  "entries": [
+    {
+      "requires": [
+        {
+          "flag": "page-lue"
+        }
+      ],
+      "node": "relue"
+    },
+    {
+      "node": "page"
+    }
+  ],
+  "nodes": {
+    "page": {
+      "text": "Sur le lutrin, une feuille recopiée d’une main patiente. Une seule ligne, celle que Ferros a grattée : « Dernier départ, voie sept. Terminus : Altavent, sous les Hauts de Zephyria. Déchargé : sept caisses plombées. Reçu : personne. »",
+      "effects": [
+        {
+          "learnRecit": "dernier-depart"
+        },
+        {
+          "setFlag": "page-lue"
+        },
+        {
+          "giveXp": 50
+        }
+      ],
+      "options": [
+        {
+          "text": "Refermer le Fonds.",
+          "next": "fin"
+        }
+      ]
+    },
+    "relue": {
+      "text": "La page du dernier départ. Altavent. Sept caisses. Personne pour les recevoir.",
+      "options": [
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

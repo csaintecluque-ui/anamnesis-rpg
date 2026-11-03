@@ -270,5 +270,31 @@
       "quest": "ce-qui-se-souvient",
       "points": -5
     }
+  ],
+  "sept-portes": [
+    {
+      "quest": "memoires-monde-perdu",
+      "points": 15
+    },
+    {
+      "flag": "edda-raccompagnee",
+      "points": 10
+    },
+    {
+      "flag": "raccompagne",
+      "points": -10
+    },
+    {
+      "flag": "conteur-sept-routes-1",
+      "points": 3
+    },
+    {
+      "flag": "conteur-sept-routes-2",
+      "points": 3
+    },
+    {
+      "flag": "conteur-sept-routes-3",
+      "points": 3
+    }
   ]
 }

@@ -28,6 +28,19 @@
     {
       "requires": [
         {
+          "quest": "cle-rouille-bleue",
+          "status": "done"
+        },
+        {
+          "quest": "memoires-monde-perdu",
+          "status": "none"
+        }
+      ],
+      "node": "appel-sept-portes"
+    },
+    {
+      "requires": [
+        {
           "quest": "audience",
           "status": "done"
         }
@@ -318,6 +331,32 @@
         {
           "text": "Je m’en souviendrai.",
           "next": "resolu"
+        }
+      ]
+    },
+    "appel-sept-portes": {
+      "text": "Ilyane te tend une lettre cachetée de cire grise. — Hesper Mille-Récits, la doyenne des Gardiens, à Sept-Portes. Elle écrit : « Tout ce qui passe par Sept-Portes laisse une main au Registre. La clé a une chaîne. Envoie-moi ton Gardien. »",
+      "options": [
+        {
+          "text": "J’irai à Sept-Portes.",
+          "effects": [
+            {
+              "startQuest": "memoires-monde-perdu"
+            },
+            {
+              "setFlag": "porte-sud-connue"
+            }
+          ],
+          "next": "porte-sud"
+        }
+      ]
+    },
+    "porte-sud": {
+      "text": "— Prends la route de l’est, au-delà de la forêt : la Porte du sud ne se ferme jamais. De l’autre côté, personne ne pourra lever la main sur toi. Ce n’est pas la même chose que d’être en sécurité.",
+      "options": [
+        {
+          "text": "Merci, Ilyane.",
+          "next": "fin"
         }
       ]
     }

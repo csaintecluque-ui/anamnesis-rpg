@@ -1,0 +1,161 @@
+{
+  "id": "registre-consultations",
+  "speaker": "registre-consultations",
+  "entries": [
+    {
+      "node": "registre"
+    }
+  ],
+  "nodes": {
+    "registre": {
+      "text": "Un grand livre ouvert sur un lutrin, à la vue de tous : les demandes de consultation, chacune signée d’une main.",
+      "options": [
+        {
+          "text": "Inscrire une demande au nom d’un Chroniqueur.",
+          "requires": [
+            {
+              "quest": "memoires-monde-perdu",
+              "status": "active"
+            },
+            {
+              "flag": "registre-lu"
+            },
+            {
+              "notFlag": "fonds-muet-ouvert"
+            },
+            {
+              "notFlag": "raccompagne-ruse"
+            }
+          ],
+          "roll": {
+            "skill": "subterfuge",
+            "difficulty": 13
+          },
+          "next": "faux-ok",
+          "failNext": "faux-rate"
+        },
+        {
+          "text": "Chercher, plus haut, la main d’Edda Varn (la rumeur).",
+          "requires": [
+            {
+              "quest": "memoires-monde-perdu",
+              "status": "active"
+            },
+            {
+              "flag": "registre-lu"
+            },
+            {
+              "flag": "rumeur-main-grise"
+            },
+            {
+              "notFlag": "main-edda-fausse"
+            }
+          ],
+          "next": "main-fausse"
+        },
+        {
+          "text": "Examiner la demande d’Edda Varn.",
+          "requires": [
+            {
+              "quest": "memoires-monde-perdu",
+              "status": "active"
+            },
+            {
+              "flag": "registre-lu"
+            },
+            {
+              "notFlag": "main-edda-fausse"
+            }
+          ],
+          "roll": {
+            "skill": "investigation",
+            "difficulty": 13
+          },
+          "next": "main-fausse",
+          "failNext": "rien"
+        },
+        {
+          "text": "Laisser le registre.",
+          "next": "fin"
+        }
+      ]
+    },
+    "faux-ok": {
+      "text": "Tu signes d’une main qui n’est pas la tienne. Personne ne regarde : ici, on enregistre. Une heure plus tard, la demande est accordée, sans motif, comme les refus.",
+      "effects": [
+        {
+          "setFlag": "fonds-muet-ouvert"
+        },
+        {
+          "setFlag": "faux-registre"
+        }
+      ],
+      "options": [
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ]
+    },
+    "faux-rate": {
+      "text": "Ta plume hésite sur la dernière lettre. Derrière toi, une voix calme : — Cette main n’est pas la vôtre. Nous ne crions pas. Nous appelons une voiture.",
+      "effects": [
+        {
+          "setFlag": "raccompagne-ruse"
+        }
+      ],
+      "options": [
+        {
+          "text": "…",
+          "next": "racc"
+        }
+      ]
+    },
+    "main-fausse": {
+      "text": "Plus haut dans le Registre, trente ans plus tôt : « Edda Varn, de Ferros. Main close : décédée. » La dame en gris signe d’une main morte.",
+      "effects": [
+        {
+          "setFlag": "main-edda-fausse"
+        }
+      ],
+      "options": [
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ]
+    },
+    "rien": {
+      "text": "Une écriture appliquée, sans une rature. Tu ne vois rien d’autre.",
+      "options": [
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ]
+    },
+    "racc": {
+      "text": "Deux agents en gris clair. Personne ne te touche : on t’ouvre une portière. La voiture roule une journée, jusqu’au cent unième kilomètre, et l’on te pose sur le bas-côté. Il te faut deux jours pour revenir.",
+      "effects": [
+        {
+          "setFlag": "raccompagne"
+        }
+      ],
+      "options": [
+        {
+          "text": "Revenir à Sept-Portes, à pied.",
+          "effects": [
+            {
+              "avancer": 8
+            },
+            {
+              "goTo": "sept-portes",
+              "arrivee": "depuis-porte-sud"
+            }
+          ],
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

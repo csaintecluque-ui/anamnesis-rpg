@@ -195,6 +195,11 @@ export class MapScene extends Phaser.Scene {
 
     this.scene.launch('Hud', { locationName: level?.title ?? location.name });
     if (level) this.time.delayedCall(50, () => this.hud().toast(`${level.title}. Pour remonter à la surface, reviens à l’entrée.`));
+    // The Anneau (docs/univers/lieux/sept-portes.md): said once, on arriving at Sept-Portes.
+    if (location.nexus && !state.flags['anneau-senti']) {
+      state.flags['anneau-senti'] = true;
+      this.time.delayedCall(50, () => this.hud().toast('Ici, aucune main ne se lèvera sur personne. Tu le sens dans tes poings : ils ne serreront plus.'));
+    }
     if (rencontre) this.announceEncounter(rencontre);
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => this.scene.stop('Hud'));
     // A dialogue or a fight may have picked a herb or sent enemies away. Scene events outlive a restart: unhook.

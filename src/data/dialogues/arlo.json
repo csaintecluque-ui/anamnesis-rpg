@@ -1,0 +1,20 @@
+{
+  "id": "arlo",
+  "speaker": "arlo",
+  "entries": [
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Un garçon aux cheveux presque blancs. — On a appris la doctrine, cette année ! « Si l’Anneau n’arrête pas, c’est permis. » Maman dit que c’est la phrase la plus triste du monde. Papa dit que c’est la plus juste. Ils se disputent, mais sans se taper.",
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

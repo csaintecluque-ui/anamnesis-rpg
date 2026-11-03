@@ -1,0 +1,274 @@
+{
+  "id": "ambroise",
+  "speaker": "ambroise",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "memoires-monde-perdu",
+          "status": "active"
+        },
+        {
+          "flag": "page-lue"
+        },
+        {
+          "flag": "main-edda-fausse"
+        },
+        {
+          "notFlag": "edda-reglee"
+        }
+      ],
+      "node": "denonce"
+    },
+    {
+      "requires": [
+        {
+          "quest": "memoires-monde-perdu",
+          "status": "active"
+        },
+        {
+          "flag": "hesper-vue"
+        },
+        {
+          "notFlag": "registre-lu"
+        }
+      ],
+      "node": "registre"
+    },
+    {
+      "requires": [
+        {
+          "quest": "memoires-monde-perdu",
+          "status": "active"
+        },
+        {
+          "flag": "registre-lu"
+        },
+        {
+          "notFlag": "fonds-muet-ouvert"
+        }
+      ],
+      "node": "demande"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Un homme en robe d’encre, les doigts tachés. — Grande Bibliothèque, guichet du Registre des Mains. On enregistre, on ne cherche pas. Que voulez-vous savoir, et de qui ?",
+      "options": [
+        {
+          "text": "Qu’est-ce que le Registre des Mains ?",
+          "next": "mains"
+        },
+        {
+          "text": "Et le Fonds Muet ?",
+          "next": "muet"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "mains": {
+      "text": "— Depuis 640, chaque pièce entrée ici : de qui, à quelle date, contre combien, et ce que le vendeur affirmait. Onze millions six cent mille lignes. Pas une opinion.",
+      "options": [
+        {
+          "text": "Je vois.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "muet": {
+      "text": "— Les pièces dont la chaîne passe par une main qu’a touchée Nakh-Rim, le faussaire. Il s’est dénoncé lui-même, en 2519. On les garde, on les classe, on les restaure. On ne les cite pas.",
+      "options": [
+        {
+          "text": "Je vois.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "registre": {
+      "text": "Il ouvre un livre épais comme une porte. — Vous cherchez une chaîne ? Dites-moi l’objet, je vous lis les mains.",
+      "options": [
+        {
+          "text": "Une clé de rouille bleue, et le carnet du dernier train.",
+          "next": "chaine"
+        }
+      ]
+    },
+    "chaine": {
+      "text": "Il tourne les pages sans hâte. — Le carnet : jamais entré. Mais l’an dernier, une page recopiée, « la ligne que Ferros a grattée », vendue quarante Nexus. Sa chaîne passe par une maison qu’a touchée Nakh-Rim : elle dort au Fonds Muet. On ne la cite pas.",
+      "options": [
+        {
+          "text": "Et personne d’autre ne l’a demandée ?",
+          "next": "edda-demande"
+        }
+      ]
+    },
+    "edda-demande": {
+      "text": "— Il y a trois jours. Une demande de consultation, au nom d’Edda Varn. Refusée. Nous ne motivons pas les refus.",
+      "effects": [
+        {
+          "setFlag": "registre-lu"
+        }
+      ],
+      "options": [
+        {
+          "text": "Et si c’est moi qui la demande ?",
+          "next": "demande"
+        }
+      ]
+    },
+    "demande": {
+      "text": "— Le Fonds Muet ne se cite pas. Il ne se cache pas non plus : ici, on ne cache rien. Convainquez-moi qu’un lecteur n’est pas un citeur.",
+      "options": [
+        {
+          "text": "Kael a bâti cette bibliothèque sur une seule règle. Il a lu, lui, avant de la poser.",
+          "requires": [
+            {
+              "recit": "kael-chroniqueur"
+            }
+          ],
+          "next": "convaincu"
+        },
+        {
+          "text": "« On ne cache rien », dites-vous. Alors ne me cachez pas cette page.",
+          "requires": [
+            {
+              "skill": "diplomacy",
+              "min": 3
+            }
+          ],
+          "next": "convaincu"
+        },
+        {
+          "text": "Une provenance n’est pas une vérité. Je ne la citerai pas : je la lirai.",
+          "requires": [
+            {
+              "skill": "lore",
+              "min": 3
+            }
+          ],
+          "next": "convaincu"
+        },
+        {
+          "text": "Je reviendrai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "convaincu": {
+      "text": "Ambroise te regarde longtemps, puis décroche une clé de son cou. — Un lecteur n’est pas quelqu’un qui comprend. C’est quelqu’un qui sacrifie tout le reste. La porte basse, au fond. Ne citez rien.",
+      "effects": [
+        {
+          "setFlag": "fonds-muet-ouvert"
+        },
+        {
+          "setFlag": "fonds-muet-parole"
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci.",
+          "next": "fin"
+        }
+      ]
+    },
+    "denonce": {
+      "text": "— Vous déposez contre une main ? Déposez. Ici, c’est la seule chose qu’on écoute jusqu’au bout.",
+      "options": [
+        {
+          "text": "Edda Varn est morte il y a trente ans. La dame en gris emprunte sa main.",
+          "requires": [
+            {
+              "notFlag": "faux-registre"
+            }
+          ],
+          "next": "denonce-ok"
+        },
+        {
+          "text": "Edda Varn est morte il y a trente ans. La dame en gris emprunte sa main.",
+          "requires": [
+            {
+              "flag": "faux-registre"
+            }
+          ],
+          "next": "denonce-faux"
+        },
+        {
+          "text": "Je reviendrai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "denonce-ok": {
+      "text": "Ambroise ouvre le registre des consultations, compare, et referme. — Falsifier une main, ici, c’est le seul crime. Il n’y aura pas de coup. Il y aura une voiture.",
+      "effects": [
+        {
+          "setFlag": "edda-raccompagnee"
+        },
+        {
+          "setFlag": "edda-reglee"
+        },
+        {
+          "setFlag": "edda-partie"
+        },
+        {
+          "giveXp": 30
+        }
+      ],
+      "options": [
+        {
+          "text": "C’est juste.",
+          "next": "fin"
+        }
+      ]
+    },
+    "denonce-faux": {
+      "text": "Ambroise compare, longtemps. Puis il pose le doigt sur une autre ligne : ta demande de consultation. — Celle-ci non plus n’est pas à vous. « Si ce n’est pas moi, la méthode est dehors. » Vous partirez ensemble.",
+      "effects": [
+        {
+          "setFlag": "edda-raccompagnee"
+        },
+        {
+          "setFlag": "edda-reglee"
+        },
+        {
+          "setFlag": "edda-partie"
+        }
+      ],
+      "options": [
+        {
+          "text": "Monter dans la voiture.",
+          "next": "racc"
+        }
+      ]
+    },
+    "racc": {
+      "text": "Deux agents en gris clair. Personne ne te touche : on t’ouvre une portière. La voiture roule une journée, jusqu’au cent unième kilomètre, et l’on te pose sur le bas-côté. Il te faut deux jours pour revenir.",
+      "effects": [
+        {
+          "setFlag": "raccompagne"
+        }
+      ],
+      "options": [
+        {
+          "text": "Revenir à Sept-Portes, à pied.",
+          "effects": [
+            {
+              "avancer": 8
+            },
+            {
+              "goTo": "sept-portes",
+              "arrivee": "depuis-porte-sud"
+            }
+          ],
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

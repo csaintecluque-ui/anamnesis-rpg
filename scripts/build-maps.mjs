@@ -970,6 +970,191 @@ function encounterMap(seed, { ground, treeShare, layout }) {
   return m.toTiled();
 }
 
+// --- Sept-Portes, la cité de Kael, au centre du monde (chapitre 4, docs/univers/lieux/sept-portes.md) -------------
+// Canon [NOTION, Terminus] : les Sept Portes, portails permanents dans l'enceinte de la ville, un par continent ; la
+// Grande Bibliothèque ; les Halles Basses, le Cratère de Sartharion rebâti en marché. Aucun combat possible (l'Anneau).
+
+/** A walled city block whose walls are the houses of every nation, one after the other. */
+function nationsBlock(width, height, ground) {
+  const m = new MapBuilder(width, height);
+  m.ground.fill(gid(ground));
+  const walls = ['maison-brique', 'maison-pilotis', 'archives', 'maison-cosse', 'dome'];
+  let i = 0;
+  for (let col = 0; col < width; col++) {
+    m.setObstacle(col, 0, walls[i++ % walls.length]);
+    m.setObstacle(col, height - 1, walls[i++ % walls.length]);
+  }
+  for (let row = 1; row < height - 1; row++) {
+    m.setObstacle(0, row, walls[i++ % walls.length]);
+    m.setObstacle(width - 1, row, walls[i++ % walls.length]);
+  }
+  return m;
+}
+
+Object.assign(LOCATION_NAMES, {
+  'sept-portes-auberge': 'Auberge des Sept Routes',
+  'sept-portes-cartographe': 'Échoppe du cartographe',
+  'sept-portes-jumeaux': 'Maison des jumeaux',
+  'sept-portes-bibliotheque': 'La Grande Bibliothèque',
+  'sept-portes-gardiens': 'Maison mère des Gardiens de Mémoire',
+  'sept-portes-conseil': 'Salle du Conseil Œcuménique',
+});
+
+/** La place des Sept Portes : l'arrivée par la Porte du sud, les six autres arches, le marché des nations. */
+function septPortesPlace() {
+  const m = nationsBlock(28, 22, 'paves');
+  // La mosaïque aux sept rayons, au milieu de la place.
+  for (let row = 6; row <= 14; row++) for (let col = 10; col <= 18; col++) if ((col - 14) ** 2 + (row - 10) ** 2 <= 17) m.setGround(col, row, 'mosaique');
+  // La Porte du sud, vers Verdantis (canon : Aldara en est venue), dans l'enceinte même, entre deux réverbères :
+  // rien ne la cache. On arrive trois pas devant, hors de l'ombre des maisons.
+  m.setObstacle(14, 21, 'porte-nexus');
+  m.setObstacle(13, 21, 'reverbere');
+  m.setObstacle(15, 21, 'reverbere');
+  m.object('porte-sud', 'porte', 14, 21, { cible: CARTE_DU_MONDE, libelle: 'La Porte du sud, vers Verdantis' });
+  m.object('depuis-porte-sud', 'arrivee', 14, 18);
+  m.object('entree', 'arrivee', 14, 18);
+  // Les six autres Portes, au nord : fermées sans sauf-conduit du pays d'en face.
+  const portes = [
+    ['porte-ferros', 4, 'La Porte de Ferros. Le contrôleur feuillette un registre : « Laissez-passer impérial ? Non ? Alors ce sera le rail, deux jours. »'],
+    ['porte-zephyria', 8, 'La Porte de Zephyria. Un vent tiède passe sous l’arche. Le contrôleur : « Sauf-conduit de la Confédération, s’il vous plaît. Non ? Pas aujourd’hui. »'],
+    ['porte-marisol', 12, 'La Porte de Marisol. Ça sent le sel. « Une lettre de l’Amirauté, et je vous laisse passer. »'],
+    ['porte-glacialis', 16, 'La Porte de Glacialis. Du givre sur les dalles, même en été. « Le Dominion ne reçoit que sur invitation. »'],
+    ['porte-solarix', 20, 'La Porte de Solarix. Du sable fin roule sous l’arche. « Les Marches viennent à vous, voyageur. Pas l’inverse. »'],
+    ['porte-septieme', 24, 'La septième Porte. Le contrôleur ne lève pas les yeux. « Celle-ci, on ne la demande pas. » Tu ne sauras pas où elle mène.'],
+  ];
+  for (const [name, col, texte] of portes) {
+    m.setObstacle(col, 2, 'porte-nexus');
+    m.object(name, 'panneau', col, 2, { texte });
+  }
+  // Le marché des nations.
+  for (const [c, r] of [[7, 7], [8, 7], [20, 7], [21, 7], [7, 13], [21, 13]]) m.setObstacle(c, r, 'etal');
+  for (const [c, r] of [[5, 6], [23, 6]]) m.setObstacle(c, r, 'tente');
+  m.object('marchande-nations', 'pnj', 8, 8);
+  for (const [c, r] of [[10, 4], [18, 4], [10, 16], [18, 16], [3, 10], [25, 10]]) m.setObstacle(c, r, 'reverbere');
+  house(m, 'sept-portes-auberge', 'maison-brique', [4, 14], [5, 15]);
+  house(m, 'sept-portes-cartographe', 'maison-pilotis', [24, 13], [23, 14]);
+  house(m, 'sept-portes-jumeaux', 'maison-cosse', [23, 18], [22, 18]);
+  // Vers le parvis de la Grande Bibliothèque (ouest) et les Halles Basses (est).
+  m.setObstacle(0, 10, null);
+  m.object('vers-parvis', 'sortie', 0, 10, { cible: 'sept-portes-parvis', arrivee: 'depuis-place', libelle: 'Le parvis de la Grande Bibliothèque' });
+  m.object('depuis-parvis', 'arrivee', 1, 10);
+  m.setObstacle(27, 10, null);
+  m.object('vers-halles', 'sortie', 27, 10, { cible: 'sept-portes-halles', arrivee: 'depuis-place', libelle: 'Les Halles Basses' });
+  // Côté est, les maisons de l'enceinte passent devant : on arrive trois pas plus loin, pour rester visible.
+  m.object('depuis-halles', 'arrivee', 24, 10);
+  return m.toTiled();
+}
+
+/** Le parvis de la Grande Bibliothèque : la Bibliothèque, la maison mère des Gardiens, le Conseil Œcuménique. */
+function septPortesParvis() {
+  const m = nationsBlock(26, 20, 'dalles');
+  // La façade de la Grande Bibliothèque, au nord, et sa porte.
+  for (const col of [8, 9, 10, 11, 13, 14, 15, 16]) m.setObstacle(col, 2, 'archives');
+  house(m, 'sept-portes-bibliotheque', 'archives', [12, 2], [12, 3]);
+  // La Borne Première [NOTION] : les noms des huit receveurs, le seul monument jamais restauré.
+  m.setObstacle(12, 9, 'stele');
+  m.object('borne-premiere', 'panneau', 12, 9, {
+    texte: 'La Borne Première. Huit noms, que personne n’a jamais effacés : ceux qui ont reçu les premiers mots, à la première génération après le Nexus. C’est le seul monument de la ville qu’on ait jamais restauré.',
+  });
+  house(m, 'sept-portes-gardiens', 'maison-pilotis', [4, 9], [5, 10]);
+  house(m, 'sept-portes-conseil', 'dome', [20, 9], [19, 10]);
+  for (const [c, r] of [[7, 6], [17, 6], [7, 14], [17, 14]]) m.setObstacle(c, r, 'reverbere');
+  for (const [c, r] of [[3, 15], [22, 15], [10, 16], [15, 16]]) m.setObstacle(c, r, 'arbre');
+  m.setObstacle(25, 10, null);
+  m.object('vers-place', 'sortie', 25, 10, { cible: 'sept-portes', arrivee: 'depuis-parvis', libelle: 'La place des Sept Portes' });
+  m.object('depuis-place', 'arrivee', 22, 10);
+  return m.toTiled();
+}
+
+/** Les Halles Basses : le Cratère de Sartharion rebâti en marché aux fruits, la statue d'Aldara, les Trois Cents. */
+function septPortesHalles() {
+  const m = nationsBlock(26, 20, 'paves');
+  // Le cratère, deux kilomètres dans le canon : ici, un grand creux de dalles, les étals tout autour.
+  for (let row = 4; row <= 16; row++) for (let col = 7; col <= 19; col++) if ((col - 13) ** 2 + (row - 10) ** 2 <= 30) m.setGround(col, row, 'dalles');
+  for (const [c, r] of [[9, 5], [17, 5], [7, 10], [19, 10], [9, 15], [17, 15]]) m.setObstacle(c, r, 'etal');
+  for (const [c, r] of [[10, 5], [16, 15], [8, 13]]) m.setObstacle(c, r, 'tonneaux');
+  // La statue d'Aldara, à trois cents pas du bord ; le monument des Trois Cents (le siège de 1861).
+  m.setObstacle(3, 4, 'stele');
+  m.object('statue-aldara', 'panneau', 3, 4, {
+    texte: 'Aldara, debout sur une ligne, haute comme dix maisons. Au socle : « Je ne sais plus si je me souviens, ou si l’on me l’a raconté. »',
+  });
+  for (const col of [21, 22, 23]) m.setObstacle(col, 4, 'stele');
+  m.object('monument-trois-cents', 'panneau', 22, 4, {
+    texte: 'Le monument des Trois Cents. Quatre-vingts Éprouveurs et deux cent vingt volontaires, sortis de l’Anneau au quatre-vingt-unième jour du siège, en 1861. Le plus jeune avait dix-sept ans ; c’était un rameur.',
+  });
+  for (const [c, r] of [[4, 16], [22, 16]]) m.setObstacle(c, r, 'arbre');
+  m.setObstacle(0, 10, null);
+  m.object('vers-place', 'sortie', 0, 10, { cible: 'sept-portes', arrivee: 'depuis-halles', libelle: 'La place des Sept Portes' });
+  m.object('depuis-place', 'arrivee', 1, 10);
+  m.object('entree', 'arrivee', 1, 10);
+  return m.toTiled();
+}
+
+Object.assign(INTERIORS, {
+  'sept-portes-bibliotheque': (() => {
+    const json = interior('sept-portes-bibliotheque', {
+      w: 11,
+      h: 9,
+      outside: 'sept-portes-parvis',
+      floor: 'dalles',
+      furniture: [
+        [2, 1, 'etagere'], [3, 1, 'etagere'], [4, 1, 'etagere'], [6, 1, 'etagere'], [7, 1, 'etagere'], [10, 1, 'etagere'],
+        [1, 3, 'etagere'], [1, 4, 'etagere'], [1, 6, 'etagere'],
+        [9, 0, 'renfoncement'],
+        [5, 4, 'lutrin'], [8, 5, 'comptoir'], [9, 5, 'comptoir'], [3, 7, 'lutrin'], [10, 7, 'cristal-veille'],
+      ],
+      objects: [
+        ['ambroise', 'pnj', 8, 4, { moment: 'jour' }],
+        ['portier-nuit', 'pnj', 4, 8, { moment: 'nuit' }],
+        ['registre-mains', 'objet', 5, 4],
+        ['registre-consultations', 'objet', 3, 7],
+        ['verre-sacre', 'panneau', 10, 7, { texte: 'Sous verre sacré, les manuscrits de Kael : une écriture serrée, qui ne laisse aucune marge. Une main d’enfant, d’abord, puis celle d’un vieil homme.' }],
+        ['porte-fonds-muet', 'porte', 9, 0, { cible: 'sept-portes-fonds-muet', arrivee: 'entree', libelle: 'Le Fonds Muet', verrou: 'fonds-muet-ouvert', dialogue: 'porte-fonds-muet' }],
+        ['devant-sept-portes-fonds-muet', 'arrivee', 9, 1],
+      ],
+    });
+    return json;
+  })(),
+  'sept-portes-fonds-muet': interior('sept-portes-fonds-muet', {
+    outside: 'sept-portes-bibliotheque',
+    floor: 'dalles',
+    furniture: [[1, 1, 'etagere'], [2, 1, 'etagere'], [5, 1, 'etagere'], [6, 1, 'etagere'], [1, 3, 'etagere'], [1, 4, 'etagere'], [4, 3, 'lutrin']],
+    objects: [['page-dernier-depart', 'objet', 4, 3]],
+  }),
+  'sept-portes-gardiens': interior('sept-portes-gardiens', {
+    w: 8,
+    h: 6,
+    outside: 'sept-portes-parvis',
+    furniture: [[2, 1, 'etagere'], [3, 1, 'etagere'], [7, 1, 'cheminee'], [5, 3, 'cristal-veille'], [7, 5, 'table']],
+    objects: [['hesper', 'pnj', 4, 2]],
+  }),
+  'sept-portes-auberge': interior('sept-portes-auberge', {
+    w: 8,
+    h: 6,
+    outside: 'sept-portes',
+    furniture: [[1, 1, 'tonneaux'], [1, 2, 'tonneaux'], [7, 1, 'cheminee'], [3, 3, 'comptoir'], [4, 3, 'comptoir'], [2, 5, 'table'], [7, 4, 'table']],
+    objects: [['josse', 'pnj', 4, 2], ['edda', 'pnj', 6, 4, { apparaitSi: 'registre-lu', disparaitSi: 'edda-partie' }]],
+  }),
+  'sept-portes-cartographe': interior('sept-portes-cartographe', {
+    outside: 'sept-portes',
+    furniture: [[2, 1, 'etagere'], [5, 1, 'etagere'], [4, 3, 'table'], [1, 4, 'caisses']],
+    objects: [['lior', 'pnj', 3, 2]],
+  }),
+  'sept-portes-conseil': interior('sept-portes-conseil', {
+    w: 8,
+    h: 6,
+    outside: 'sept-portes-parvis',
+    floor: 'dalles',
+    furniture: [[2, 1, 'gradin'], [3, 1, 'gradin'], [4, 1, 'gradin'], [5, 1, 'gradin'], [6, 1, 'gradin'], [4, 3, 'table']],
+    objects: [['greffiere', 'pnj', 5, 3]],
+  }),
+  'sept-portes-jumeaux': interior('sept-portes-jumeaux', {
+    outside: 'sept-portes',
+    furniture: [[1, 1, 'lit'], [2, 1, 'lit'], [6, 1, 'etagere'], [4, 3, 'table']],
+    objects: [['arlo', 'pnj', 3, 2], ['mina', 'pnj', 5, 2]],
+  }),
+});
+
 // Les voies endormies à explorer (docs/gdd/voies.md, jalon 3, étape 6) : une réserve de plans de l'Ancien Monde. Chaque
 // niveau d'une voie en tire un, puis le jeu le garnit au hasard sur ses points d'apparition : bêtes (`ennemi-1..3`),
 // caisses (`coffre-1..3`), pièges (`piege-1..4`), un Écho (`echo-1`), l'objet d'un contrat (`contrat`), la descente.
@@ -1104,6 +1289,9 @@ for (const [id, map] of Object.entries({
   'ironheart-triage': ironheartTriage(),
   'ironheart-cendriere': ironheartCendriere(),
   'ironheart-galerie': ironheartGalerie(),
+  'sept-portes': septPortesPlace(),
+  'sept-portes-parvis': septPortesParvis(),
+  'sept-portes-halles': septPortesHalles(),
   'canopee-amphitheatre': amphitheatre(),
   ...ENCOUNTER_MAPS,
   ...VOIE_MAPS,

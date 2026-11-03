@@ -1077,3 +1077,93 @@ TILES.push(
   // Le technicien Dask, Classe Technique : gris clair, chiffres bleus au poignet.
   npcTile('dask', { body: '#b8b4aa', hair: '#1f1612', accent: '#2e5a9a', extra: '<rect x="44" y="62" width="5" height="3" fill="#2e5a9a"/><rect x="38" y="56" width="10" height="13" fill="#e8e2d4" stroke="#1B1512" stroke-width="0.8"/>' }),
 );
+
+// Sept-Portes, la cité de Kael, au centre du monde (chapitre 4, docs/univers/lieux/sept-portes.md) : provisoire.
+TILES.push(
+  // Une des Sept Portes, portails permanents vers chaque continent [NOTION, Géographie] : une arche de pierre et sa
+  // lumière, de la couleur du pays.
+  {
+    name: 'porte-nexus',
+    blocking: true,
+    cover: 4,
+    svg:
+      diamond('#8a8070') +
+      shadow(24, 8) +
+      `<path d="M8 86 L8 40 Q32 6 56 40 L56 86 L46 90 L46 44 Q32 22 18 44 L18 90 Z" fill="#b8ae9c" stroke="${INK}" stroke-width="1.2"/>` +
+      '<path d="M18 90 L18 44 Q32 22 46 44 L46 90 Q32 96 18 90 Z" fill="#8fd0c0" opacity="0.55"/>' +
+      '<path d="M24 84 Q32 50 40 84" stroke="#e8fff4" stroke-width="2" fill="none" opacity="0.7"/>' +
+      `<circle cx="32" cy="22" r="3" fill="${COPPER}"/>`,
+  },
+  // La mosaïque de la place des Portes : sept rayons qui partent du centre.
+  {
+    name: 'mosaique',
+    svg:
+      diamond('#cbbf9f') +
+      '<path d="M32 66 L32 94 M18 73 L46 87 M46 73 L18 87" stroke="#a8956a" stroke-width="2"/>' +
+      `<circle cx="32" cy="80" r="3" fill="${COPPER}"/>`,
+  },
+  // Le mémorial des trois cents (Bataille du Nexus, 1861) : une stèle couverte de noms.
+  {
+    name: 'stele',
+    blocking: true,
+    cover: 2,
+    svg:
+      diamond('#9a9080') +
+      shadow(14, 5) +
+      `<path d="M20 86 L20 36 Q32 26 44 36 L44 86 Z" fill="#d8d0bc" stroke="${INK}" stroke-width="1.2"/>` +
+      '<path d="M25 44 L39 44 M25 50 L39 50 M25 56 L39 56 M25 62 L39 62 M25 68 L39 68 M25 74 L39 74" stroke="#7a705e" stroke-width="1.5"/>',
+  },
+  // Le lutrin du Registre des Mains : un grand livre ouvert.
+  {
+    name: 'lutrin',
+    blocking: true,
+    svg:
+      shadow(12, 4) +
+      '<rect x="29" y="58" width="6" height="26" fill="#5a3e2a"/>' +
+      `<path d="M14 58 L32 50 L50 58 L32 66 Z" fill="#efe6cf" stroke="${INK}" stroke-width="1"/>` +
+      '<path d="M32 50 L32 66 M19 57 L28 53 M36 53 L45 57" stroke="#8a7a5a" stroke-width="1"/>',
+  },
+  // Un dôme de pierre claire (le Conseil Œcuménique des Sept).
+  {
+    name: 'dome',
+    blocking: true,
+    cover: 4,
+    svg:
+      diamond('#8a8070') +
+      shadow(26, 8) +
+      `<path d="M6 84 L6 54 L58 54 L58 84 L32 96 Z" fill="#c8bfae" stroke="${INK}" stroke-width="1.2"/>` +
+      `<path d="M6 54 Q32 6 58 54 Z" fill="#d9d2c2" stroke="${INK}" stroke-width="1.2"/>` +
+      `<path d="M27 94 L27 72 L37 72 L37 90 Z" fill="#3a3238" stroke="${INK}"/>` +
+      `<path d="M12 60 L52 60" stroke="${COPPER}" stroke-width="2"/>`,
+  },
+);
+
+// Les habitants de Sept-Portes (provisoires) : la ville de tous les peuples.
+TILES.push(
+  // Ambroise Encrelune, Conservateur : robe d'encre, doigts tachés, un registre sous le bras.
+  npcTile('ambroise', { body: '#2e2a3a', hair: '#d8d4cc', accent: '#c9a24a', extra: '<rect x="38" y="58" width="12" height="9" fill="#efe6cf" stroke="#1B1512" stroke-width="0.8"/>' }),
+  // Hesper Mille-Récits, doyenne des Gardiens : cape couleur parchemin, une lanterne.
+  npcTile('hesper', { body: '#a8956a', hair: '#e8e4dc', skin: '#c9a07e', accent: '#C9804F', extra: '<circle cx="48" cy="64" r="4" fill="#ffd27a" stroke="#1B1512" stroke-width="0.8"/>' }),
+  // Josse Sept-Routes, aubergiste : tablier, foulard de toutes les couleurs.
+  npcTile('josse', { body: '#7a5a3c', hair: '#3a2a1c', accent: '#d8504a', extra: '<path d="M24 54 L40 54 L36 60 L28 60 Z" fill="#3a8ab0"/>' }),
+  // Lior Rose-des-Vents, cartographe : un rouleau, une boussole au cou.
+  npcTile('lior', { body: '#4a6a7a', hair: '#8a5a2c', accent: '#e8d8a0', extra: '<rect x="42" y="56" width="4" height="16" rx="2" fill="#efe6cf" stroke="#1B1512" stroke-width="0.8"/>' }),
+  // Arlo et Mina, jumeaux de neuf ans : mère de Marisol, père de Glacialis.
+  npcTile('arlo', { small: true, body: '#3a7aa0', hair: '#e8e0c8', accent: '#e8f4ff' }),
+  npcTile('mina', { small: true, body: '#5a9ab8', hair: '#e8e0c8', accent: '#3a7aa0' }),
+  // La greffière du Conseil Œcuménique : gris perle, plume d'argent.
+  npcTile('greffiere', { body: '#8a8a94', hair: '#2a2420', accent: '#d8d8e0', extra: '<path d="M44 52 L50 44" stroke="#d8d8e0" stroke-width="2"/>' }),
+  // Le portier de nuit de la Bibliothèque : lanterne sourde, clés.
+  npcTile('portier-nuit', { body: '#1f2430', hair: '#4a4a4a', accent: '#ffd27a', extra: '<circle cx="47" cy="66" r="3" fill="#ffd27a" opacity="0.8"/>' }),
+  // Edda Varn, la dame en gris : manteau gris de Ferros, gants.
+  npcTile('edda', { body: '#6a6a70', hair: '#1a1614', skin: '#d9b8a0', accent: '#3a3a40' }),
+  // La marchande des nations : étoffes de six pays.
+  npcTile('marchande-nations', { body: '#9a5a7a', hair: '#2a1a14', skin: '#a87a5a', accent: '#e8c84a' }),
+  // Passants : un Éprouveur (brassard blanc), une voyageuse de Zephyria, un marin de Marisol, une nomade des Sables,
+  // un Glacien.
+  npcTile('eprouveur', { body: '#e8e4dc', hair: '#3a2a1c', accent: '#1B1512', extra: '<rect x="20" y="58" width="8" height="5" fill="#ffffff" stroke="#1B1512" stroke-width="0.6"/>' }),
+  npcTile('voyageuse-zephyria', { body: '#b8d0e8', hair: '#e8d8a0', accent: '#ffffff', extra: '<path d="M18 50 Q14 40 22 44" stroke="#ffffff" stroke-width="2" fill="none"/>' }),
+  npcTile('marin-marisol', { body: '#2a4a7a', hair: '#1a1410', skin: '#8a5a3c', accent: '#e8e0c8' }),
+  npcTile('nomade-sables', { body: '#c8a060', hair: '#2a1a10', skin: '#8a5a3c', accent: '#a0402a', extra: '<path d="M22 46 Q32 36 42 46" stroke="#c8a060" stroke-width="5" fill="none"/>' }),
+  npcTile('glacien', { body: '#d0e0ec', hair: '#f0f4f8', skin: '#e8d8d0', accent: '#5a8ab0' }),
+);

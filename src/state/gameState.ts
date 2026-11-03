@@ -15,6 +15,8 @@ export interface LocationDef {
   encounter?: boolean;
   /** A sleeping line's level (docs/gdd/voies.md): its plan and content come from `GameState.voie`. */
   voie?: boolean;
+  /** Within the Anneau of the Nexus, at Sept-Portes (docs/univers/lieux/sept-portes.md): no blow can be struck. */
+  nexus?: boolean;
 }
 
 export const LOCATIONS = locationData as LocationDef[];

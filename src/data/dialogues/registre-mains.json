@@ -1,0 +1,20 @@
+{
+  "id": "registre-mains",
+  "speaker": "registre-mains",
+  "entries": [
+    {
+      "node": "livre"
+    }
+  ],
+  "nodes": {
+    "livre": {
+      "text": "Le Registre des Mains, ouvert à la page du jour. Des lignes serrées, sans une rature : de qui, à quelle date, contre combien, et ce que le vendeur affirmait. Seul le Conservateur lit pour les visiteurs.",
+      "options": [
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

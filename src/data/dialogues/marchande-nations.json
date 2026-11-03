@@ -1,0 +1,29 @@
+{
+  "id": "marchande-nations",
+  "speaker": "marchande-nations",
+  "entries": [
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "— Des baumes de Verdantis, des carreaux de Ferros, des cristaux de partout ! Ici, on paie en Nexus ; pour toi, des Fers, au cours du jour.",
+      "options": [
+        {
+          "text": "Voyons ça.",
+          "effects": [
+            {
+              "openTrade": true
+            }
+          ],
+          "next": "fin"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

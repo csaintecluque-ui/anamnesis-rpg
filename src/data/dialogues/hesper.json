@@ -1,0 +1,218 @@
+{
+  "id": "hesper",
+  "speaker": "hesper",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "memoires-monde-perdu",
+          "status": "active"
+        },
+        {
+          "flag": "edda-reglee"
+        },
+        {
+          "flag": "ligne-vendue"
+        }
+      ],
+      "node": "fin-vendue"
+    },
+    {
+      "requires": [
+        {
+          "quest": "memoires-monde-perdu",
+          "status": "active"
+        },
+        {
+          "flag": "edda-reglee"
+        },
+        {
+          "flag": "edda-raccompagnee"
+        }
+      ],
+      "node": "fin-denonce"
+    },
+    {
+      "requires": [
+        {
+          "quest": "memoires-monde-perdu",
+          "status": "active"
+        },
+        {
+          "flag": "edda-reglee"
+        }
+      ],
+      "node": "fin-silence"
+    },
+    {
+      "requires": [
+        {
+          "quest": "memoires-monde-perdu",
+          "status": "active"
+        },
+        {
+          "flag": "page-lue"
+        }
+      ],
+      "node": "page"
+    },
+    {
+      "requires": [
+        {
+          "quest": "memoires-monde-perdu",
+          "status": "active"
+        },
+        {
+          "notFlag": "hesper-vue"
+        }
+      ],
+      "node": "appel"
+    },
+    {
+      "requires": [
+        {
+          "quest": "memoires-monde-perdu",
+          "status": "active"
+        }
+      ],
+      "node": "en-cours"
+    },
+    {
+      "requires": [
+        {
+          "quest": "memoires-monde-perdu",
+          "status": "done"
+        }
+      ],
+      "node": "apres"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Une vieille femme en cape couleur parchemin pose sa lanterne. — Un Gardien de Gardebois ? Ilyane t’a bien formé, à te voir. Repose-toi ici, et regarde le tableau : on y épingle ce qu’on nous demande.",
+      "options": [
+        {
+          "text": "Merci, Hesper.",
+          "next": "fin"
+        }
+      ]
+    },
+    "appel": {
+      "text": "Une vieille femme en cape couleur parchemin pose sa lanterne. — Te voilà. Ilyane m’a écrit que tu écoutais bien. Ici, on n’écoute pas : on lit les mains. Tout ce qui passe par Sept-Portes laisse une ligne au Registre : de qui, quand, contre combien.",
+      "effects": [
+        {
+          "setFlag": "hesper-vue"
+        }
+      ],
+      "options": [
+        {
+          "text": "Et la clé de rouille bleue ?",
+          "next": "cle"
+        }
+      ]
+    },
+    "cle": {
+      "text": "— La clé, je ne sais pas. Mais le carnet qu’elle ouvre a une ligne grattée, et ce qu’on gratte, quelqu’un l’a recopié un jour. Va au guichet du Registre, sur le parvis. Le Conservateur s’appelle Ambroise. Il enregistre ; il ne cherche pas. Toi, tu chercheras.",
+      "options": [
+        {
+          "text": "J’y vais.",
+          "next": "fin"
+        }
+      ]
+    },
+    "en-cours": {
+      "text": "— Le Registre ne ment pas, et il ne dit pas vrai non plus : il dit qui. Cherche qui.",
+      "options": [
+        {
+          "text": "À plus tard.",
+          "next": "fin"
+        }
+      ]
+    },
+    "page": {
+      "text": "— Tu l’as lue. Ça se voit : tu marches comme quelqu’un qui porte quelque chose. Une dame en gris loge aux Sept Routes, et elle cherche la même chose que toi. Va la voir, ou ne va pas la voir. Mais décide.",
+      "options": [
+        {
+          "text": "Bien.",
+          "next": "fin"
+        }
+      ]
+    },
+    "fin-vendue": {
+      "text": "Hesper écoute, et sa lanterne baisse. — Tu as vendu une ligne. Ici, c’est un métier honnête. Chez les Gardiens, on transmet ; on ne vend pas. Altavent, sous les Hauts de Zephyria… Ils y seront avant toi. Alors cours.",
+      "effects": [
+        {
+          "completeQuest": "memoires-monde-perdu"
+        },
+        {
+          "giveXp": 60
+        },
+        {
+          "setFlag": "piste-zephyria"
+        },
+        {
+          "avis": "liane",
+          "delta": -1
+        }
+      ],
+      "options": [
+        {
+          "text": "Je pars pour Zephyria.",
+          "next": "fin"
+        }
+      ]
+    },
+    "fin-denonce": {
+      "text": "— Raccompagnée. Personne ne l’a touchée, et elle est au cent unième kilomètre. C’est la seule justice qu’on ait ici : elle est propre, et elle est terrible. Altavent, sous les Hauts de Zephyria. La piste est à toi.",
+      "effects": [
+        {
+          "completeQuest": "memoires-monde-perdu"
+        },
+        {
+          "giveXp": 80
+        },
+        {
+          "setFlag": "piste-zephyria"
+        }
+      ],
+      "options": [
+        {
+          "text": "Je pars pour Zephyria.",
+          "next": "fin"
+        }
+      ]
+    },
+    "apres": {
+      "text": "— Les Gardiens te gardent une chambre, ici, quand tu veux. Et le tableau a toujours besoin de bras.",
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "fin-silence": {
+      "text": "— Tu t’es tue, et elle te suivra : les routes sont longues. Altavent, sous les Hauts de Zephyria. La Porte de Zephyria ne s’ouvre qu’avec un sauf-conduit de la Confédération : il faudra le trouver.",
+      "effects": [
+        {
+          "completeQuest": "memoires-monde-perdu"
+        },
+        {
+          "giveXp": 80
+        },
+        {
+          "setFlag": "piste-zephyria"
+        }
+      ],
+      "options": [
+        {
+          "text": "Je pars pour Zephyria.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "id": "lior",
+  "speaker": "lior",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "memoires-monde-perdu",
+          "status": "active"
+        },
+        {
+          "flag": "page-lue"
+        },
+        {
+          "notFlag": "altavent-situe"
+        }
+      ],
+      "node": "altavent"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Un homme maigre, un rouleau sous le bras, une boussole au cou. — Lior Rose-des-Vents, cartographe. Les Sept Portes mènent partout, et aucune carte ne le dit bien. Je les dessine, moi.",
+      "options": [
+        {
+          "text": "Où mènent-elles ?",
+          "next": "portes"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "portes": {
+      "text": "— Une par pays d’en face : Verdantis par la Porte du sud, Ferros, Zephyria, Marisol, Glacialis, Solarix. Et la septième. Les contrôleurs n’en disent rien, et je n’ai jamais pu la dessiner.",
+      "options": [
+        {
+          "text": "Merci, Lior.",
+          "next": "fin"
+        }
+      ]
+    },
+    "altavent": {
+      "text": "— Altavent ? Lior déroule trois cartes, puis une quatrième, très vieille. — Là. Une gare de l’Ancien Monde, sous les Hauts de Zephyria. Aujourd’hui, au-dessus, à trois mille mètres, flotte Aetherhaven.",
+      "effects": [
+        {
+          "setFlag": "altavent-situe"
+        },
+        {
+          "giveXp": 15
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Lior.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

@@ -27,6 +27,15 @@
       "row": 1,
       "nom": "le mur de la Bielle",
       "demandeurs": ["Dorna", "Un cheminot du triage", "Un employé des Archives"]
+    },
+    {
+      "id": "sept-portes",
+      "ville": "sept-portes",
+      "lieu": "sept-portes-gardiens",
+      "col": 6,
+      "row": 1,
+      "nom": "le relais de Sept-Portes",
+      "demandeurs": ["Hesper", "Un Chroniqueur", "Une voyageuse de Zephyria"]
     }
   ],
   "objets": [

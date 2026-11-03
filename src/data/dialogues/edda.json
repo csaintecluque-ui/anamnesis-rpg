@@ -1,0 +1,130 @@
+{
+  "id": "edda",
+  "speaker": "edda",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "memoires-monde-perdu",
+          "status": "active"
+        },
+        {
+          "flag": "page-lue"
+        },
+        {
+          "notFlag": "edda-reglee"
+        }
+      ],
+      "node": "offre"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Une femme en manteau gris de Ferros, gants fins, ne lève pas les yeux de son thé. — Vous aussi, vous venez pour la Bibliothèque ? On y vend tout. Sauf des réponses.",
+      "options": [
+        {
+          "text": "Qui êtes-vous ?",
+          "next": "qui"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "qui": {
+      "text": "— Une courtière. J’achète ce que les autres ont lu. C’est un métier honnête, à Sept-Portes : rien n’y est caché, tout y a un prix.",
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "offre": {
+      "text": "La dame en gris lève enfin les yeux. — Vous l’avez lue. Ça se voit à vos mains. Deux cents Fers pour ce que dit la ligne, et vous n’entendrez plus parler de moi.",
+      "options": [
+        {
+          "text": "La lui vendre, pour deux cents Fers.",
+          "effects": [
+            {
+              "giveFers": 200
+            },
+            {
+              "setFlag": "ligne-vendue"
+            },
+            {
+              "setFlag": "edda-reglee"
+            },
+            {
+              "setFlag": "edda-partie"
+            },
+            {
+              "avis": "liane",
+              "delta": -2
+            },
+            {
+              "avis": "boulon",
+              "delta": -1
+            }
+          ],
+          "next": "vendue"
+        },
+        {
+          "text": "Je sais qui vous êtes : Edda Varn est morte il y a trente ans.",
+          "requires": [
+            {
+              "flag": "main-edda-fausse"
+            }
+          ],
+          "next": "morte"
+        },
+        {
+          "text": "Non.",
+          "effects": [
+            {
+              "setFlag": "edda-reglee"
+            },
+            {
+              "setFlag": "edda-suit"
+            },
+            {
+              "setFlag": "edda-partie"
+            }
+          ],
+          "next": "refus"
+        }
+      ]
+    },
+    "vendue": {
+      "text": "Elle compte les Fers sans les regarder, écoute la ligne une fois et la répète sans faute. — Altavent. Merci. Les routes sont longues ; on ne se reverra pas.",
+      "options": [
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ]
+    },
+    "morte": {
+      "text": "Elle sourit pour la première fois. — Et alors ? Ici, personne ne peut me toucher. Allez donc le dire au Conservateur. Il enregistrera.",
+      "options": [
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ]
+    },
+    "refus": {
+      "text": "— Comme vous voudrez. Elle repose sa tasse, laisse une pièce et se lève. — Les routes sont longues. On se reverra, quelque part entre ici et Altavent.",
+      "options": [
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

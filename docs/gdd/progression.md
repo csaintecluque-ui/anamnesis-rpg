@@ -24,4 +24,4 @@ Règles : `src/rules/leveling.ts` ; écran : `LevelUpScene`.
 
 ## Chantier 6 (2026-11-03)
 
-Un don tous les trois niveaux (3, 6, 9), et un trait facultatif à la création : `docs/gdd/economie.md`.
+Un don tous les deux niveaux (2, 4, 6… ; décision de Cyril du 2026-11-03), et un trait facultatif à la création : `docs/gdd/economie.md`.

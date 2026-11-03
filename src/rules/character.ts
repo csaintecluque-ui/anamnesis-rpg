@@ -42,7 +42,7 @@ export interface FeatDef {
   id: FeatId;
   name: string;
   description: string;
-  /** Only taken on levelling up (levels 3, 6, 9), not at creation. */
+  /** Only taken on levelling up (levels 2, 4, 6…), not at creation. */
   niveau?: boolean;
   effects: FeatEffects;
 }
@@ -61,8 +61,8 @@ export interface TraitDef {
 export const TRAITS = traitData as TraitDef[];
 export const findTrait = (id?: string | null): TraitDef | undefined => TRAITS.find((t) => t.id === id);
 
-/** A feat every three levels (feuille de route, chantier 6). */
-export const DON_EVERY = 3;
+/** A feat every two levels (décision de Cyril, 2026-11-03, étude F2 ; avant : tous les trois, chantier 6). */
+export const DON_EVERY = 2;
 
 /** Everything the hero's feats, level feats and trait add up to. */
 export function heroEffects(c: Pick<Character, 'feat' | 'dons' | 'trait'>): FeatEffects[] {
@@ -80,7 +80,7 @@ export function donsAvailable(c: Pick<Character, 'feat' | 'dons'>): FeatDef[] {
   return FEATS.filter((f) => !owned.has(f.id));
 }
 
-/** Whether the hero is owed a feat at their level (3, 6, 9…). */
+/** Whether the hero is owed a feat at their level (2, 4, 6…). */
 export function donDue(c: Pick<Character, 'level' | 'dons'>): boolean {
   return (c.dons?.length ?? 0) < Math.floor(c.level / DON_EVERY);
 }

@@ -47,7 +47,7 @@ Gardebois atteint 40 en jouant tout ; Canopéa, 55.
 
 ## La progression
 
-- **Un don tous les trois niveaux** (3, 6, 9) : les six dons de la création, ou trois dons de niveau : **Langue
+- **Un don tous les deux niveaux** (2, 4, 6… ; décision de Cyril du 2026-11-03, étude F2 ; d'abord tous les trois) : les six dons de la création, ou trois dons de niveau : **Langue
   d'argent** (−10 % chez tous les marchands), **Peau de cuir** (+1 Défense), **Sang-froid** (+2 aux jets de
   résistance). L'écran de montée de niveau le propose après les points de compétence.
 - **Un trait à la création**, facultatif, un avantage et son prix : **Mémoire trouée** (un Récit de moins, un point

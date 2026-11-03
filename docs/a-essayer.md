@@ -7,7 +7,7 @@ Lien du jeu : https://csaintecluque-ui.github.io/anamnesis-rpg/ (la version s'af
 
 ## À décider (les questions qui attendent ta réponse)
 
-- [ ] **L'Écho personnel du héros** (chantier 1, `docs/univers/personnages/heros.md`) : piste **A, « La main
+- [x] **L'Écho personnel du héros** Cyril, 2026-11-03 : **piste A**. (chantier 1, `docs/univers/personnages/heros.md`) : piste **A, « La main
       lâchée »** (recommandée : aucun souvenir avant huit ans ; dans l'Écho du dernier train, un enfant se retourne,
       « Tu es venu·e. Les autres n'ont pas entendu. » ; un fragment par chapitre), ou piste **B, « Le nom gratté »**
       (un nom qu'il a fait effacer lui-même), ou une autre ?
@@ -36,12 +36,11 @@ Lien du jeu : https://csaintecluque-ui.github.io/anamnesis-rpg/ (la version s'af
       Canopéa, Ingrid qui paie la garde, le cœur du Golem dans la foreuse. On garde ?
 - [ ] Dans ton Notion, quand tu veux : les contradictions du canon sur Terminus (`docs/univers/zones-floues.md`,
       points 33 à 37).
-- [ ] **Étude du 3 novembre, les dons** : un tous les 3 niveaux (ton chantier 6) ou tous les 2 (l'étude, F2) ?
-      Recommandé : garder 3 jusqu'à ta partie.
-- [ ] **Étude, l'ordre de la vague 2** (`docs/gdd/etude-2026-11-03.md`, § 3) : le Golem attaquable et le premier
-      combat obligatoire d'abord, puis la fiche du dé (recommandé) ?
-- [ ] **Étude, un Écho de l'histoire au fond de chaque voie** (un jeu plus long) : Claude te propose leurs textes, à
-      valider avant d'entrer dans le jeu ?
+- [x] **Étude du 3 novembre, les dons** Cyril : **tous les 2 niveaux**. (ton chantier 6 disait 3 ; l'étude, F2, disait 2)
+- [x] **Étude, l'ordre de la vague 2** Cyril : oui. (`docs/gdd/etude-2026-11-03.md`, § 3) : le Golem attaquable et le premier
+      combat obligatoire d'abord, puis la fiche du dé.
+- [x] **Étude, un Écho de l'histoire au fond de chaque voie** Cyril : oui, Claude propose les textes, à valider avant
+      d'entrer dans le jeu.
 
 ## Chantier 0 — PC d'abord (en ligne le 2026-11-03, version `043c702`)
 
@@ -145,7 +144,7 @@ Lien du jeu : https://csaintecluque-ui.github.io/anamnesis-rpg/ (la version s'af
       pas t'offrir ?
 - Remarques :
 
-## Étude du 3 novembre, vague 1 « jouable » (branche `claude/eloquent-newton-qvomzy`, pas encore en ligne)
+## Étude du 3 novembre, vague 1 « jouable » (en ligne le 2026-11-03)
 
 Critère de l'étude : le chapitre 1 sans frustration de navigation, la caisse gagnée par un héros de parole niveau 1.
 
@@ -162,6 +161,7 @@ Critère de l'étude : le chapitre 1 sans frustration de navigation, la caisse g
 - [ ] **Meurs une fois** (le Golem à 4 PV, par exemple) : les deux boutons, « Te réveiller à Gardebois : tu oublies
       « … » ». Le prix te semble-t-il juste ?
 - [ ] **Le journal** avec un contrat pris : l'étude ne l'y voyait pas, le code l'y met ; et chez toi ?
+- [ ] **Un don tous les deux niveaux** (ta décision) : au niveau 2, l'écran du don après les points de compétence.
 - Remarques :
 
 ## Déjà en ligne, pas encore essayé sur PC

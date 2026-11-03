@@ -17,19 +17,21 @@ import { resonanceMax } from './magic';
 import { testCharacter } from './questTestKit';
 import { heroDiscount } from './reputation';
 
-/** La progression (feuille de route, chantier 6) : un don tous les trois niveaux, des traits qui ont un prix. */
+/** La progression (chantier 6 ; décision de Cyril du 2026-11-03) : un don tous les deux niveaux, des traits qui ont un prix. */
 
-describe('a feat every three levels', () => {
-  it('is owed at levels 3, 6 and 9, among the feats not yet taken', () => {
+describe('a feat every two levels', () => {
+  it('is owed at levels 2, 4 and 6, among the feats not yet taken', () => {
     const c = testCharacter();
     expect(donDue(c)).toBe(false);
-    c.level = 3;
+    c.level = 2;
     expect(donDue(c)).toBe(true);
     expect(donsAvailable(c).map((f) => f.id)).not.toContain(c.feat);
     takeDon(c, 'peau-dure');
     expect(donDue(c)).toBe(false);
     expect(donsAvailable(c).map((f) => f.id)).not.toContain('peau-dure');
-    c.level = 6;
+    c.level = 3;
+    expect(donDue(c)).toBe(false);
+    c.level = 4;
     expect(donDue(c)).toBe(true);
   });
 

@@ -115,7 +115,7 @@ export class LevelUpScene extends Phaser.Scene {
     );
     this.layer.add(
       this.add
-        .text(GAME_WIDTH / 2, 146, 'Tous les trois niveaux, un don de plus. Choisis-le : il est pour toujours.', { fontFamily: FONT_SERIF, fontSize: '22px', color: CSS.parchment })
+        .text(GAME_WIDTH / 2, 146, 'Tous les deux niveaux, un don de plus. Choisis-le : il est pour toujours.', { fontFamily: FONT_SERIF, fontSize: '22px', color: CSS.parchment })
         .setOrigin(0.5),
     );
     donsAvailable(c).forEach((feat, i) => {
@@ -148,7 +148,7 @@ export class LevelUpScene extends Phaser.Scene {
     if (this.choosingDon || this.levelUp.pointsLeft > 0) return;
     const character = this.character();
     applyLevelUp(character, this.levelUp);
-    // Levels 3, 6, 9: a feat before anything else.
+    // Levels 2, 4, 6…: a feat before anything else.
     if (donDue(character)) {
       this.choosingDon = true;
       this.redraw();

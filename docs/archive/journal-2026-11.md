@@ -1089,3 +1089,6 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   les voies à la taille du groupe (5 bêtes au plus seul, 2 de plus par compagnon ; mesuré sur 200 tirages). Proposés
   à Cyril : les répliques d'Ilyane qui remarque les fragments (A ou B) ; un obstacle par chapitre. 726 tests.
 - Cyril : « 1 oui, 2 A, 3 oui » : vitrines et voies allégées mises en ligne ; Ilyane remarque sans rien savoir (A) ; les trois obstacles à construire.
+- Sur la branche : Ilyane remarque les fragments (variante A) ; au chapitre 3, la Veilleuse a suivi son convoi à la
+  Cendrière pendant la quête de la clé (le tunnel devient le passage). Chapitre 4 laissé : le dé y fait déjà
+  l'obstacle. Chapitre 2 : deux formes proposées à Cyril. 728 tests.

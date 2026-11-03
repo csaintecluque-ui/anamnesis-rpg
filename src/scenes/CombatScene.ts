@@ -71,6 +71,9 @@ const HP_BAR_WIDTH = 44;
 /** Readable board (docs/gdd/combat.md, « Lisibilité ») : grid, reach, target and turn colours. */
 const GRID = { line: 0xead9b8, reach: 0x5bc8d6, target: 0xd0583a, turn: 0xc9804f };
 const STEP_ANIM_MS = 150;
+/** The AI's pace (enemies and companions): a pause before its turn, and after each blow or care (étude, E9: 550 ms was slow). */
+const AI_START_MS = 300;
+const AI_ACTION_MS = 400;
 const WALK_FPS = 14;
 
 /**
@@ -653,7 +656,9 @@ export class CombatScene extends Phaser.Scene {
     this.banner.setText(`Tour de ${c.name}${c.status.stunned ? ' (étourdi·e)' : c.status.slowed ? ' (ralenti·e)' : ''}`);
     this.refreshAll();
 
-    if (c.side === 'heroes') {
+    // The player plays the hero; the companions play themselves, like the enemies (décision de Cyril, 2026-11-03 ;
+    // étude, E12): no more waiting for « their » turn to pass.
+    if (c === this.hero()) {
       this.mode = 'move';
       this.awaitingHero = true;
       this.updateActionBar();
@@ -662,7 +667,7 @@ export class CombatScene extends Phaser.Scene {
       this.awaitingHero = false;
       this.updateActionBar();
       this.refreshBoard();
-      this.time.delayedCall(400, () => void this.runEnemyTurn(c));
+      this.time.delayedCall(AI_START_MS, () => void this.runAiTurn(c));
     }
   }
 
@@ -681,10 +686,11 @@ export class CombatScene extends Phaser.Scene {
   }
 
   /**
-   * The enemy's turn, each step and blow shown in turn, as the AI decides (docs/gdd/combat.md, « IA ») : it flees
-   * when beaten (Fuite), tends a wounded ally, finishes the weakest hero within reach, or walks (a shooter to cover).
+   * An enemy's turn, or a companion's, each step and blow shown in turn, as the AI decides (docs/gdd/combat.md,
+   * « IA ») : it flees when beaten (Fuite), tends a wounded ally, finishes the weakest foe within reach, or walks (a
+   * shooter to cover).
    */
-  private async runEnemyTurn(enemy: Combatant): Promise<void> {
+  private async runAiTurn(enemy: Combatant): Promise<void> {
     for (let guard = 0; guard < 14 && !enemy.defeated && !this.hero().defeated; guard++) {
       const action = nextEnemyAction(enemy, this.aiContext());
       if (action.kind === 'end') break;
@@ -701,13 +707,13 @@ export class CombatScene extends Phaser.Scene {
         this.float(action.target, `+${healed}`, '#9fe0a0');
         this.appendLog(`${enemy.name} soigne ${action.target.name} : +${healed} PV.`);
         this.refreshToken(action.target);
-        await this.wait(550);
+        await this.wait(AI_ACTION_MS);
         continue;
       }
       if (action.kind === 'attack') {
         this.performAttack(enemy, action.attack, action.target, 'corps', action.cover);
         if (this.checkOutcome()) return;
-        await this.wait(550);
+        await this.wait(AI_ACTION_MS);
         continue;
       }
       const from = enemy.tile;

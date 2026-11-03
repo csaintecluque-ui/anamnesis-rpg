@@ -23,7 +23,7 @@ describe('the tabs of the bag', () => {
 describe('what an item is good for', () => {
   it('says the damage of a weapon, the Défense of an armour, the powers of a crystal', () => {
     expect(itemUses(item('epee-longue'))).toEqual([
-      'Arme de corps à corps : 1d8 de dégâts (Mêlée).',
+      'Arme de corps à corps : 1d8 de dégâts, +1 par deux rangs de Mêlée.',
       'Entre dans Épée trempée : la forge de Ragna, à Ironheart.',
     ]);
     expect(itemUses(item('arbalete-ferros'))[0]).toMatch(/^Arme de tir, portée 6 : 1d10 de dégâts/);

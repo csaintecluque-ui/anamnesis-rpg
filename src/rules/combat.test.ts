@@ -11,6 +11,7 @@ import {
   findWeapon,
   heldWeapons,
   heroAttacks,
+  HERO_HIT_BONUS,
   hitChance,
   isAdjacent,
   isDefeat,
@@ -274,13 +275,14 @@ describe('heroAttacks', () => {
     expect(heldWeapons(armed(hero())).map((w) => w.id)).toEqual(['epee-longue', 'arc']);
   });
 
-  it('builds Épée longue and Arc from Corps/Agilité and the matching skill ranks', () => {
+  it('builds Épée longue and Arc from Corps/Agilité and the matching skill ranks (+2 to hit, + half the rank to damage)', () => {
     const c = armed(hero('tough'));
     const attacks = heroAttacks(c);
     const sword = attacks.find((a) => a.weaponId === 'epee-longue')!;
     const bow = attacks.find((a) => a.weaponId === 'arc')!;
-    expect(sword.toHitBonus).toBe(c.attributes.body - 3 + c.skills.melee);
-    expect(bow.toHitBonus).toBe(c.attributes.agility - 3 + c.skills.ranged);
+    expect(sword.toHitBonus).toBe(HERO_HIT_BONUS + c.attributes.body - 3 + c.skills.melee);
+    expect(bow.toHitBonus).toBe(HERO_HIT_BONUS + c.attributes.agility - 3 + c.skills.ranged);
+    expect(sword.damageBonus).toBe(c.attributes.body - 3 + Math.floor(c.skills.melee / 2));
     expect(sword.range).toBe(1);
   });
 

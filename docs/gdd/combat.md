@@ -208,3 +208,52 @@ Vigueur 4, Mêlée = niveau + 2.
 Avant, la difficulté baissait de chapitre en chapitre ; elle reste désormais à peu près la même pour un héros du
 niveau attendu. Les groupes dangereux (bandes des Marches, trois Loups, trois Échos) le restent : on les évite, on les
 contourne, ou on y vient avec des compagnons (non simulés), et les Échos s'apaisent d'un Récit.
+
+## Étude du 3 novembre : un héros de parole qui se défend (E1, E2, E3, E12)
+
+L'étude complète (`docs/gdd/etude-2026-11-03.md`) a montré que le combat ne mesurait qu'un guerrier : un héros de
+parole (Présence 6, Diplomatie 3, Mêlée 3, dague) perdait plus d'une fois sur deux contre les deux Rôdeurs de la caisse.
+Chaque point d'attribut comptait trois fois (toucher, dégâts, PV) ; un rang de compétence, une seule.
+
+- **E1** : +2 au toucher pour toutes les armes du héros (`HERO_HIT_BONUS`, `src/rules/combat.ts`). Pas pour les
+  pouvoirs du cristal ni pour les compagnons, qui ont leurs propres chiffres.
+- **E2** : les dégâts d'une arme = dé + modificateur d'attribut + **rang ÷ 2** (arrondi bas, `rankDamage`) : Mêlée 3,
+  +1 ; Mêlée 5, +2. La fiche de l'arme le dit (« +1 par deux rangs de Mêlée »).
+- **E12** (décision de Cyril) : les compagnons jouent seuls, avec l'IA des ennemis (`combatAi.ts`) : Liane soigne un
+  allié sous 60 % de ses PV, sinon tire sur le plus faible à portée ; Boulon frappe. Plus d'attente de « leur » tour.
+  Rythme de l'IA : 300 ms avant son tour, 400 ms entre deux actions (550 avant).
+- **F3** (+PV par niveau) et **E4** (renfort par chapitre plafonné) : non appliqués. F3 n'apporte que 1 à 3 points
+  (simulation ci-dessous) ; E4 change l'équilibre des chapitres 3 et 4 (guerrier niveau 3 contre les pilleurs :
+  34 % → 73 %) et attend la vague 2.
+
+Simulation, 300 combats au corps, `combatSim.ts`, graine fixe. Parleur : Présence 6, Mêlée 3, dague, sans armure.
+Guerrier : Corps 5, Vigueur 5, Mêlée 3, épée longue, cuir. Liane et Boulon jouent par l'IA.
+
+| Cas | Avant | E1 seul | E1 + E2 (en ligne) |
+|---|---|---|---|
+| Parleur niv. 1 · 2 Rôdeurs (la caisse) | 32 | 42 | 81 |
+| Parleur niv. 2 · 2 Rôdeurs | 45 | 58 | 91 |
+| Parleur niv. 2 · 2 Loups, ch. 1 | 30 | 45 | 76 |
+| Parleur niv. 2 · 2 Loups, ch. 2 | 7 | 10 | 40 |
+| Parleur niv. 2 · 3 Loups, ch. 2 | 0 | 0 | 3 |
+| Parleur niv. 2 · Golem + 2 Rôdeurs | 0 | 2 | 11 |
+| Parleur niv. 3 · pilleur, arbalétrier, rebouteuse, ch. 3 | 0 | 0 | 0 |
+| Guerrier niv. 2 · Golem + 2 Rôdeurs | 64 | 79 | 89 |
+| Guerrier niv. 2 · 3 Loups, ch. 2 | 20 | 36 | 54 |
+| Guerrier niv. 3 · pilleur, arbalétrier, rebouteuse, ch. 3 | 11 | 16 | 29 |
+
+Avec les compagnons (avant : Liane ne faisait que tirer dans la simulation ; après : elle soigne, par l'IA) :
+
+| Cas | Avant | Après |
+|---|---|---|
+| Parleur niv. 2 + Liane · 2 Rôdeurs | 95 | 100 |
+| Parleur niv. 3 + Liane · 2 Loups, ch. 2 | 72 | 96 |
+| Parleur niv. 2 + Liane · Golem + 2 Rôdeurs | 25 | 88 |
+| Parleur niv. 3 + Liane + Boulon · 3 Loups, ch. 2 | 53 | 83 |
+
+Lecture : le parleur se défend seul contre ce qui garde une caisse ; contre une meute ou un boss, il lui faut Liane, la
+fuite, le détour ou la parole. Liane qui soigne deux fois par tour pèse lourd (le Golem passe de 25 à 88 %) : c'est ce
+qu'un joueur attentif faisait déjà à la main ; à surveiller dans la partie de Cyril. Le garde-fou
+(`combatChantier3.test.ts`, « a hero of words ») vérifie à chaque test : parleur niv. 2 seul contre 2 Rôdeurs ≥ 60 %,
+niv. 3 avec Liane contre 2 Loups du ch. 2 ≥ 60 %, et toujours < 30 % seul contre le Golem. L'écart entre tactiques
+reste sous 15 points.

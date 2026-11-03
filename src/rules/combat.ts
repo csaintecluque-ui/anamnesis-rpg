@@ -200,6 +200,15 @@ export const ATTACK_AP_COST = 3;
 export const MOVE_AP_COST_PER_TILE = 1;
 /** Aiming at the head, the arms or the legs costs this many PA more (feuille de route, chantier 3). */
 export const AIM_AP_EXTRA = 1;
+/**
+ * Every hero's weapon blow, to hit: a trained hand finds its mark, whatever the build (étude du 2026-11-03, E1 ;
+ * docs/gdd/etude-2026-11-03.md). Without it a hero of words, dagger in hand, lost 55 % of the fights at the crate.
+ */
+export const HERO_HIT_BONUS = 2;
+/** The rank of the weapon's skill adds half itself to the damage (E2): skill counts for everyone, not Corps alone. */
+export function rankDamage(rank: number): number {
+  return Math.floor(rank / 2);
+}
 /** The resistance roll against a zone's effect: d20 + resistance ≥ this + the damage of the blow (a heavy blow takes surer). */
 export const RESIST_BASE = 8;
 
@@ -298,9 +307,9 @@ export function heroAttacks(character: Character): AttackProfile[] {
       label: weapon.name,
       range: isRanged ? weapon.range * (feat.rangeMultiplier ?? 1) : weapon.range,
       // A dulled weapon misses more (src/rules/usure.ts ; chantier 6).
-      toHitBonus: mod + rank + hitBonus - wearPenalty(character, weapon.id),
+      toHitBonus: HERO_HIT_BONUS + mod + rank + hitBonus - wearPenalty(character, weapon.id),
       damage: weapon.damage,
-      damageBonus: mod + (isRanged ? (feat.rangedDamage ?? 0) : (feat.meleeDamage ?? 0)),
+      damageBonus: mod + rankDamage(rank) + (isRanged ? (feat.rangedDamage ?? 0) : (feat.meleeDamage ?? 0)),
       apCost: weapon.apCost ?? ATTACK_AP_COST,
       aimExtra: weapon.aimExtra,
       munition: weapon.munition,

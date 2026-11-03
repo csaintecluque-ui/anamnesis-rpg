@@ -25,6 +25,7 @@ import { attributeModifier } from './attributes';
 import { characterStats } from './character';
 import { addItem } from './inventory';
 import { testCharacter } from './questTestKit';
+import { findCompanion, makeCompanionCombatant } from './companions';
 
 /** Le combat refait (feuille de route, chantier 3 ; docs/gdd/combat.md, « Chantier 3 »). */
 
@@ -197,4 +198,42 @@ describe('the tactics, simulated (feuille de route : « aucune tactique ne dépa
       expect(Math.max(...rates) - Math.min(...rates), TACTICS.map((t, i) => `${t} ${rates[i]} %`).join(', ')).toBeLessThanOrEqual(15);
     }, 60000);
   }
+});
+
+/**
+ * Un héros de parole doit pouvoir se défendre (étude du 2026-11-03, E3 ; docs/gdd/etude-2026-11-03.md) : contre ce
+ * qui garde une caisse, seul ; contre une meute de la route, avec Liane. Pas contre un boss : là, il lui faut la fuite,
+ * le détour ou la parole.
+ */
+describe('a hero of words, simulated (étude, E3)', () => {
+  const RUNS = 200;
+  const parleur = (level: number, companions: string[], foes: string[], chapter: number) => () => {
+    const c = testCharacter({ body: 3, agility: 3, vigor: 3, intellect: 3, perception: 3, presence: 6, memory: 3 }, { melee: 3, diplomacy: 3 });
+    c.feat = 'kael-memory';
+    c.level = level;
+    addItem(c, 'dague', 1);
+    c.equipment.mainDroite = 'dague';
+    c.hp = characterStats(c).maxHp;
+    const allies = companions.map((id, i) => {
+      const def = findCompanion(id)!;
+      return makeCompanionCombatant(def, def.hp, at(1, 5 + i));
+    });
+    const enemies = foes.map((id, i) => strengthen(enemy(id, at(9 + (i % 2), 2 + 2 * i), i), chapter));
+    const initiative: Record<string, number> = { hero: 0 };
+    for (const a of allies) initiative[a.id] = findCompanion(a.kind!)!.initiativeBonus;
+    for (const e of enemies) initiative[e.id] = findEnemy(e.kind!)!.initiativeBonus;
+    return { heroes: [makeHeroCombatant(c, at(1, 4)), ...allies], enemies, initiative };
+  };
+
+  it('level 2, a dagger, alone: two Rôdeurs-Épines (the crate) at least 6 times out of 10', () => {
+    expect(winRate(parleur(2, [], ['rodeur-epine', 'rodeur-epine'], 1), 'corps', RUNS)).toBeGreaterThanOrEqual(0.6);
+  }, 60000);
+
+  it('level 3, with Liane: two Loups de Rouille of chapter 2 at least 6 times out of 10', () => {
+    expect(winRate(parleur(3, ['liane'], ['loup-rouille', 'loup-rouille'], 2), 'corps', RUNS)).toBeGreaterThanOrEqual(0.6);
+  }, 60000);
+
+  it('still no match, alone, for the Golem and its Rôdeurs: one wins there by other means', () => {
+    expect(winRate(parleur(2, [], ['golem-ferraille', 'rodeur-epine', 'rodeur-epine'], 1), 'corps', RUNS)).toBeLessThan(0.3);
+  }, 60000);
 });

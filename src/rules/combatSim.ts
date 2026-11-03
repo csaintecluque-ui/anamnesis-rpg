@@ -78,7 +78,8 @@ function heroTurn(hero: Combatant, tactic: Tactic, ctx: AiContext, rng: Rng): vo
   }
 }
 
-function enemyTurn(enemy: Combatant, ctx: AiContext, rng: Rng): void {
+/** An enemy's turn, or a companion's: the same AI for both sides (src/rules/combatAi.ts). */
+function aiTurn(enemy: Combatant, ctx: AiContext, rng: Rng): void {
   for (let guard = 0; guard < 20; guard++) {
     const action = nextEnemyAction(enemy, ctx);
     if (action.kind === 'end') return;
@@ -118,8 +119,9 @@ export function simulateFight(
       lingeringDamage(c, rng);
       if (!c.defeated) {
         startTurn(c);
-        if (c.side === 'heroes') heroTurn(c, tactic, ctx, rng);
-        else enemyTurn(c, ctx, rng);
+        // The hero plays the tactic; the companions play themselves, as on the combat screen (étude, E12).
+        if (c === heroes[0]) heroTurn(c, tactic, ctx, rng);
+        else aiTurn(c, ctx, rng);
         endTurn(c);
       }
       // The hero's death ends it, whatever the companions.

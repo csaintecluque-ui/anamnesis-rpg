@@ -5,7 +5,10 @@ import { FACINGS, facingOf, type Facing } from '../engine/facing';
 import { findPath, reachable } from '../engine/pathfinding';
 import { tileKey } from '../engine/tiledMap';
 import { applyEffects, type Effect } from '../rules/dialogue';
+import { findItem } from '../rules/inventory';
 import {
+  ammoLeft,
+  settleAmmo,
   ENEMIES,
   ZONES,
   LINGERING,
@@ -741,6 +744,10 @@ export class CombatScene extends Phaser.Scene {
     const hero = this.actor();
     const attack = this.currentAttack();
     if (!attack) return;
+    if (ammoLeft(hero, attack) <= 0) {
+      this.appendLog(`Plus de ${(findItem(attack.munition!)?.name ?? 'munitions').toLowerCase()} : change d’arme dans ta main, ou bats-toi à mains nues.`);
+      return;
+    }
     if (!canAttack(hero, attack, target)) {
       this.appendLog(distance(hero.tile, target.tile) > attack.range ? 'Hors de portée.' : 'Pas assez de PA.');
       return;
@@ -919,6 +926,8 @@ export class CombatScene extends Phaser.Scene {
     }
     this.ended = true;
     this.appendLog('Tu te replies.');
+    // The arrows shot stay on the field.
+    settleAmmo(this.state.character!, this.hero(), false);
     const hurt = this.keepWounds();
     this.closeAfter(false, (hud) => {
       if (hurt.length) hud.toast(hurt.join('   ·   '));
@@ -933,7 +942,10 @@ export class CombatScene extends Phaser.Scene {
     this.attackButtons.forEach((button, i) => {
       const attack = actor.attacks[i];
       button.container.setVisible(!!attack);
-      if (attack) button.setLabel(this.mode === i ? `▶ ${attack.label}` : attack.label);
+      // A bow or a crossbow shows its arrows or bolts left.
+      const left = attack ? ammoLeft(actor, attack) : Infinity;
+      const label = attack ? `${attack.label}${Number.isFinite(left) ? ` · ${left}` : ''}` : '';
+      if (attack) button.setLabel(this.mode === i ? `▶ ${label}` : label);
     });
     const c = this.state.character!;
     const resonance = this.power && isHero ? ` · PR ${c.resonance}/${resonanceMax(c)}` : '';
@@ -969,8 +981,13 @@ export class CombatScene extends Phaser.Scene {
     const beaten = this.combatants.filter((c) => c.side === 'enemies' && c.defeated && c.kind).map((c) => c.kind!);
     recordDefeated(this.state, beaten);
     const loot = rollLoot(beaten.map((k) => ENEMIES.find((e) => e.id === k)!).filter(Boolean));
-    const lootEffects: Effect[] = [...loot.items.map((item): Effect => ({ giveItem: item })), ...(loot.fers > 0 ? [{ giveFers: loot.fers }] : [])];
-    const notices = [...hurt, ...applyEffects(this.state, [...this.config.victoryEffects, ...lootEffects])];
+    // The same item found several times is given at once (three bolts, not three times a bolt).
+    const counts = new Map<string, number>();
+    for (const item of loot.items) counts.set(item, (counts.get(item) ?? 0) + 1);
+    const lootEffects: Effect[] = [...[...counts].map(([item, count]): Effect => (count > 1 ? { giveItem: item, count } : { giveItem: item })), ...(loot.fers > 0 ? [{ giveFers: loot.fers }] : [])];
+    // Half the arrows shot are picked up again (docs/gdd/combat.md, « Munitions »).
+    const picked = settleAmmo(this.state.character!, this.hero(), true);
+    const notices = [...hurt, ...picked, ...applyEffects(this.state, [...this.config.victoryEffects, ...lootEffects])];
     this.state.flags[this.config.victoryFlag] = true;
     this.closeAfter(false, (hud) => {
       if (notices.length) hud.toast(notices.join('   ·   '));

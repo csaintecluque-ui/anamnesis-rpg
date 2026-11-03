@@ -45,7 +45,8 @@
     "skill": "ranged",
     "attribute": "agility",
     "range": 6,
-    "damage": { "count": 1, "sides": 8 }
+    "damage": { "count": 1, "sides": 8 },
+    "munition": "fleches"
   },
   {
     "id": "marteau-forge",
@@ -61,6 +62,7 @@
     "skill": "ranged",
     "attribute": "agility",
     "range": 6,
-    "damage": { "count": 1, "sides": 10 }
+    "damage": { "count": 1, "sides": 10 },
+    "munition": "carreaux"
   }
 ]

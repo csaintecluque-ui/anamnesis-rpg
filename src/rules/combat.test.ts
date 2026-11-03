@@ -1,5 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import {
+  ammoLeft,
+  rollLoot,
+  settleAmmo,
   canAttack,
   coverBetween,
   distance,
@@ -26,7 +29,8 @@ import {
   type Rng,
 } from './combat';
 import { changeAttribute, changeSkill, createDraft, finalizeCharacter, toggleOriginBonus, type Character, type CharacterDraft } from './character';
-import { addItem, equip } from './inventory';
+import { addItem, equip, ownedCount } from './inventory';
+import { testCharacter } from './questTestKit';
 
 function hero(feat: 'tough' | 'marksman' | 'weapon-master' = 'tough') {
   let d: CharacterDraft = { ...createDraft(), name: 'Aube', feat };
@@ -356,3 +360,56 @@ describe('hitChance', () => {
   });
 });
 
+
+describe('Munitions (docs/gdd/combat.md) : a bow shoots arrows, a crossbow bolts', () => {
+  const archer = (arrows: number) => {
+    const c = testCharacter();
+    addItem(c, 'arc', 1);
+    equip(c, 'arc', 'mainDroite');
+    if (arrows) addItem(c, 'fleches', arrows);
+    return c;
+  };
+  const target = () => makeEnemyCombatant(findEnemy('loup-rouille')!, 'loup', { col: 3, row: 0 });
+
+  it('counts the arrows at the start of the fight, and spends one per shot, hit or miss', () => {
+    const c = archer(2);
+    const hero = makeHeroCombatant(c, { col: 0, row: 0 });
+    const bow = hero.attacks.find((a) => a.weaponId === 'arc')!;
+    expect([bow.munition, ammoLeft(hero, bow)]).toEqual(['fleches', 2]);
+    const wolf = target();
+    resolveAttack(hero, bow, wolf, 'corps', 0, () => 0.01);
+    hero.actionPoints = 10;
+    resolveAttack(hero, bow, wolf, 'corps', 0, () => 0.99);
+    expect([ammoLeft(hero, bow), hero.fired]).toEqual([0, { fleches: 2 }]);
+    hero.actionPoints = 10;
+    expect(canAttack(hero, bow, wolf)).toBe(false);
+  });
+
+  it('cannot shoot without arrows; the dagger needs none', () => {
+    const c = archer(0);
+    addItem(c, 'dague', 1);
+    equip(c, 'dague', 'mainGauche');
+    const hero = makeHeroCombatant(c, { col: 0, row: 0 });
+    const [bow, dagger] = ['arc', 'dague'].map((id) => hero.attacks.find((a) => a.weaponId === id)!);
+    expect([ammoLeft(hero, bow), ammoLeft(hero, dagger)]).toEqual([0, Infinity]);
+    expect(canAttack(hero, bow, target())).toBe(false);
+  });
+
+  it('picks half the arrows up after a fight won, none after fleeing', () => {
+    const won = archer(10);
+    const hero = makeHeroCombatant(won, { col: 0, row: 0 });
+    hero.fired = { fleches: 5 };
+    expect(settleAmmo(won, hero, true)).toEqual(['Tu ramasses 2 de tes flèches.']);
+    expect(ownedCount(won, 'fleches')).toBe(7);
+    const fled = archer(10);
+    const runner = makeHeroCombatant(fled, { col: 0, row: 0 });
+    runner.fired = { fleches: 5 };
+    expect(settleAmmo(fled, runner, false)).toEqual([]);
+    expect(ownedCount(fled, 'fleches')).toBe(5);
+  });
+
+  it('a crossbowman of the Marches leaves three bolts at a time', () => {
+    const loot = rollLoot([findEnemy('arbaletrier-cendres')!], () => 0);
+    expect(loot.items.filter((i) => i === 'carreaux')).toHaveLength(3);
+  });
+});

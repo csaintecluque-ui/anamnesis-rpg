@@ -5,7 +5,7 @@ import { findObject, isWalkable, parseTiledMap, tileKey, type GameMap, type MapO
 import { createNewGame, findLocation, type GameState, type VoieState } from '../state/gameState';
 import { findEnemy } from './combat';
 import { applyEffects, dialogueProblems } from './dialogue';
-import { findItem, ownedCount } from './inventory';
+import { addItem, findItem, ownedCount } from './inventory';
 import { choose, testCharacter } from './questTestKit';
 import {
   VOIE_DEPTH,
@@ -14,6 +14,10 @@ import {
   groupNear,
   leaveVoie,
   springTrap,
+  carriesLamp,
+  clearVoieFlags,
+  lightTraps,
+  trapSeenFlag,
   startVoie,
   tierOf,
   voieLevel,
@@ -162,6 +166,26 @@ describe('exploring', () => {
     const hp = state.character!.hp;
     const hit = springTrap(state, { ...trap, properties: { piege: 'rail', disparaitSi: 'voie-piege-2' } }, () => 0);
     expect([hit.spotted, state.character!.hp]).toEqual([false, hp - 6]);
+  });
+
+  it('with the crystal lamp, traps are seen two steps away and stepped over (docs/gdd/voies.md, « La lampe »)', () => {
+    const state = inVoie({ site: 'halte-fougeres', seed: 3, depth: 2 });
+    const near: MapObject = { name: 'voie-piege-1', type: 'piege', col: 6, row: 7, properties: { piege: 'dalle', disparaitSi: 'voie-piege-1' } };
+    const far: MapObject = { name: 'voie-piege-2', type: 'piege', col: 9, row: 7, properties: { piege: 'rail', disparaitSi: 'voie-piege-2' } };
+    const hero = { col: 4, row: 7 };
+    expect(carriesLamp(state)).toBe(false);
+    expect(lightTraps(state, [near, far], hero, () => false)).toEqual([]);
+    addItem(state.character!, 'lampe-cristal', 1);
+    expect(lightTraps(state, [near, far], hero, () => false)).toEqual([near]);
+    expect(lightTraps(state, [near, far], hero, () => false)).toEqual([]);
+    expect(state.flags[trapSeenFlag(near)]).toBe(true);
+    // Stepped on anyway: no roll, no harm, no XP.
+    const [hp, xp] = [state.character!.hp, state.character!.xp];
+    const outcome = springTrap(state, near, () => 0);
+    expect([outcome.spotted, outcome.notices, state.character!.hp, state.character!.xp]).toEqual([true, [], hp, xp]);
+    // A new level forgets what was seen.
+    clearVoieFlags(state.flags);
+    expect(state.flags[trapSeenFlag(near)]).toBeUndefined();
   });
 
   it('beasts see the hero within two cells', () => {

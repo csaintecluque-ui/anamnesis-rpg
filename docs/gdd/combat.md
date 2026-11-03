@@ -108,3 +108,18 @@ Ton : `docs/univers/ton.md`. Code : `src/rules/combat.ts`, `companions.ts`, `bes
   ruines), trois déserteurs des Marches qui font « péage » (Subterfuge 13 pour passer). À l'aiguillage du triage, l'un
   des deux pilleurs est désormais un arbalétrier.
 
+## Munitions (demande de Cyril, 2026-11-03, à valider)
+
+« Ce serait bien qu'il y ait un système de flèches ou carreaux. » Règles : `src/rules/combat.ts` (`ammoLeft`,
+`settleAmmo`) ; données : `munition` dans `src/data/weapons.json`.
+
+- L'**Arc** tire des **flèches**, l'**Arbalète de Ferros** des **carreaux** : un par tir, touché ou raté. Le bouton
+  d'attaque montre ce qui reste (« Arc · 7 »). Sans munitions, l'arme ne tire plus : « Plus de flèches : change d'arme
+  dans ta main, ou bats-toi à mains nues. »
+- **Après un combat gagné**, on ramasse la moitié de ce qu'on a tiré (arrondi en dessous) ; après une fuite, rien.
+- **Prix** : 2 Fers pièce, 0,05 kg. Flèches chez Tobias, Hedda et la marchande des nations ; carreaux chez Hedda et la
+  marchande des nations ; dix carreaux à la forge d'Hedda (deux dards de Guêpe-Rouille et 5 Fers, recette inchangée).
+- **Butin** : un arbalétrier des Marches laisse 3 carreaux (une fois sur deux) ; une caisse des voies endormies en
+  donne 8, flèches ou carreaux.
+- **Sauvegardes** : version 16 ; qui possède déjà un arc ou une arbalète reçoit 20 flèches ou carreaux (`docs/gdd/sauvegarde.md`).
+  Le « Perso surpuissant » des outils de dev en a 99 de chaque.

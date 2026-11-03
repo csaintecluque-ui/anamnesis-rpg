@@ -294,7 +294,8 @@
       },
       {
         "item": "carreaux",
-        "chance": 0.5
+        "chance": 0.5,
+        "count": 3
       }
     ],
     "description": "Un tireur des Marches des Cendres, arbalète de Ferros à l’épaule : il garde les pilleurs de loin.",

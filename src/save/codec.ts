@@ -5,7 +5,7 @@ import { START_TIME, isGameTime } from '../rules/time';
 import { findCompanion } from '../rules/companions';
 import { VOIE_DEPTH } from '../rules/voies';
 
-export const SAVE_VERSION = 15;
+export const SAVE_VERSION = 16;
 export const SAVE_MAX_CHARS = 1_000_000;
 const GAME_MARKER = 'anamnesis';
 
@@ -100,7 +100,27 @@ const MIGRATIONS: Record<number, (save: Record<string, unknown>) => Record<strin
   13: (save) => ({ ...save, state: isRecord(save.state) ? { ...save.state, emprise: 0 } : save.state }),
   // v14 predates the sleeping lines and the contracts (docs/gdd/voies.md): none under way, none taken.
   14: (save) => ({ ...save, state: isRecord(save.state) ? { ...save.state, voie: null, contrats: { actif: null, faits: 0, pris: [] } } : save.state }),
+  // v15 predates the arrows and bolts (docs/gdd/combat.md, « Munitions »): a bow or a crossbow already owned comes with
+  // twenty of them, so that no one finds their weapon empty.
+  15: (save) => {
+    if (!isRecord(save.state) || !isRecord(save.state.character) || !Array.isArray(save.state.character.inventory)) return save;
+    const inventory = [...(save.state.character.inventory as { itemId: string; count: number }[])];
+    for (const [weapon, munition] of AMMO_OF_V16) {
+      if (!inventory.some((s) => s.itemId === weapon)) continue;
+      const slot = inventory.find((s) => s.itemId === munition);
+      if (slot) slot.count = Math.max(slot.count, MIGRATED_AMMO);
+      else inventory.push({ itemId: munition, count: MIGRATED_AMMO });
+    }
+    return { ...save, state: { ...save.state, character: { ...save.state.character, inventory } } };
+  },
 };
+
+/** The weapons that shoot, as of version 16, and what (src/data/weapons.json). */
+const AMMO_OF_V16: [string, string][] = [
+  ['arc', 'fleches'],
+  ['arbalete-ferros', 'carreaux'],
+];
+const MIGRATED_AMMO = 20;
 
 export function createSave(state: GameState, now: Date): SaveFile {
   return { game: GAME_MARKER, version: SAVE_VERSION, savedAt: now.toISOString(), state: structuredClone(state) };

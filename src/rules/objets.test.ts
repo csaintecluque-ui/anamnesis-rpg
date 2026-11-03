@@ -49,3 +49,13 @@ describe('what an item is good for', () => {
     for (const i of lore) expect(i.lore!.length, i.id).toBeLessThanOrEqual(140);
   });
 });
+
+describe('arrows, bolts and the lamp (docs/gdd/combat.md, docs/gdd/voies.md)', () => {
+  it('say what shoots what, and what the lamp is for', () => {
+    expect(itemUses(item('arc'))[1]).toBe('Tire des flèches : une par tir ; après un combat gagné, on en ramasse la moitié.');
+    expect(itemUses(item('fleches'))[0]).toMatch(/^Munitions : Arc\./);
+    expect(itemUses(item('carreaux'))[0]).toMatch(/^Munitions : Arbalète de Ferros\./);
+    expect(['fleches', 'carreaux'].map((id) => categoryOf(item(id)))).toEqual(['equipement', 'equipement']);
+    expect(itemUses(item('lampe-cristal'))[0]).toMatch(/voies endormies.*pièges à deux pas/);
+  });
+});

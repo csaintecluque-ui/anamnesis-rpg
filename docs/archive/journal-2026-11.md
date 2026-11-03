@@ -988,3 +988,7 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   « L'étal de la marchande des nations » (et non « L'étal La marchande… »). 623 tests ; vérifié sur PC et iPhone.
 - Cyril : « Oui comme tu le dis, ce serait bien qu'il y ait un système de flèches ou carreaux, idem pour la lampe, et
   mets en ligne » : inventaire en ligne, lignes de lore gardées ; munitions et lampe à construire.
+- Construit sur la branche (à valider) : les munitions (flèches pour l'arc, carreaux pour l'arbalète, un par tir, la
+  moitié ramassée après un combat gagné, 2 Fers pièce ; sauvegarde v16 : 20 offertes à qui a déjà l'arme ; 99 pour le
+  perso surpuissant) et la lampe (voies endormies sombres sans elle ; avec, pièges vus à deux pas, contournés,
+  enjambés sans jet). 630 tests ; vérifié en émulation iPhone (combat, voie avec et sans lampe).

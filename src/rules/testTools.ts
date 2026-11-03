@@ -25,6 +25,8 @@ export const OVERPOWERED_FERS = 9999;
 /** The best of each slot, given and worn; the other crystal is given too, to swap at will. */
 const OVERPOWERED_GEAR = { mainDroite: 'marteau-forge', mainGauche: 'arbalete-ferros', armure: 'cuirasse-rivetee', cristal: 'cristal-forge' } as const;
 const OVERPOWERED_EXTRA = ['cristal-vie'];
+/** Arrows and bolts, so that the crossbow in hand (and a bow) can shoot (docs/gdd/combat.md, « Munitions »). */
+const OVERPOWERED_AMMO = { carreaux: 99, fleches: 99 };
 
 export function addTestFers(character: Character): void {
   character.fers += TEST_FERS;
@@ -57,6 +59,10 @@ export function makeOverpowered(character: Character): void {
     character.equipment[slot] = itemId;
   }
   for (const id of OVERPOWERED_EXTRA) if (!character.inventory.some((s) => s.itemId === id)) addItem(character, id);
+  for (const [id, count] of Object.entries(OVERPOWERED_AMMO)) {
+    const have = character.inventory.find((s) => s.itemId === id)?.count ?? 0;
+    if (have < count) addItem(character, id, count - have);
+  }
   for (const r of RECITS) if (!character.recits.includes(r.id)) character.recits.push(r.id);
   character.hp = characterStats(character).maxHp;
   restoreResonance(character);

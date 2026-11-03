@@ -37,6 +37,7 @@ Code : `src/save/codec.ts` (format, validation, migrations), `src/save/store.ts`
 | v13 | `avis` : ce que chaque compagnon pense du héros (`docs/gdd/compagnons.md`) | aucun avis |
 | v14 | `emprise` : l'emprise des Échos revécus (`docs/gdd/echos.md`) | 0 |
 | v15 | `voie` (la voie endormie en cours : site, graine, niveau) et `contrats` (le contrat en cours, le compte, les offres prises) (`docs/gdd/voies.md`) | aucune voie, aucun contrat |
+| v16 | (même format) l'arc et l'arbalète consomment des munitions (`docs/gdd/combat.md`, « Munitions ») | qui possède un arc ou une arbalète reçoit 20 flèches ou carreaux |
 
 - **`character.marques`** (2026-11-02, `docs/gdd/passe-sombre.md`) : champ **facultatif** (0 à 3), absent = 0 ; pas
   de nouvelle version : une sauvegarde v14 sans marques reste valide (l'étape 4 du jalon 3 se fait en parallèle).

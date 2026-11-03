@@ -24,7 +24,7 @@ interface Recette {
   ingredients: { item: string; count: number }[];
 }
 const RECETTES = recetteData as Recette[];
-const WEAPONS = weaponData as { id: string; skill: string; range: number; damage: { count: number; sides: number } }[];
+const WEAPONS = weaponData as { id: string; name: string; skill: string; range: number; damage: { count: number; sides: number }; munition?: string }[];
 const POWERS = powerData as { id: string; name: string }[];
 
 /** Where each workshop is, in a sentence (src/rules/artisanat.ts). */
@@ -48,13 +48,17 @@ export function categoryOf(item: ItemDef): ItemCategory {
 
 /** What an item is good for, in a few short lines, from the rules; empty when it is only worth its price. */
 export function itemUses(item: ItemDef): string[] {
-  const lines: string[] = [];
+  const lines: string[] = item.usage ? [item.usage] : [];
   const weapon = item.slot === 'main' ? WEAPONS.find((w) => w.id === item.id) : undefined;
   if (weapon) {
     const skill = SKILLS.find((s) => s.id === weapon.skill)?.name ?? weapon.skill;
     const kind = weapon.range > 1 ? `Arme de tir, portée ${weapon.range}` : 'Arme de corps à corps';
     lines.push(`${kind} : ${weapon.damage.count}d${weapon.damage.sides} de dégâts (${skill}).`);
+    const ammo = weapon.munition ? findItem(weapon.munition) : undefined;
+    if (ammo) lines.push(`Tire des ${ammo.name.toLowerCase()} : une par tir ; après un combat gagné, on en ramasse la moitié.`);
   }
+  const shotBy = WEAPONS.filter((w) => w.munition === item.id).map((w) => findItem(w.id)?.name ?? w.name);
+  if (shotBy.length) lines.push(`Munitions : ${shotBy.join(', ')}. Une par tir ; après un combat gagné, on en ramasse la moitié.`);
   if (item.slot === 'armure') lines.push(`Armure : +${item.armorBonus ?? 0} en Défense, en route comme en combat.`);
   if (item.slot === 'cristal') {
     const power = POWERS.find((p) => p.id === item.pouvoir)?.name;

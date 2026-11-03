@@ -5,7 +5,7 @@ import type { Tile } from '../engine/iso';
 import { attributeModifier, type AttributeId, type SkillId } from './attributes';
 import { characterStats, findFeat, type Character } from './character';
 import type { Effect } from './dialogue';
-import { armorBonus } from './inventory';
+import { addItem, armorBonus, findItem, ownedCount, removeItem } from './inventory';
 
 export interface Dice {
   count: number;
@@ -20,6 +20,8 @@ export interface WeaponDef {
   /** In tiles; 1 means melee (adjacent, 8 directions). */
   range: number;
   damage: Dice;
+  /** What it shoots, one per shot (an item: arrows, bolts ; docs/gdd/combat.md, « Munitions »). */
+  munition?: string;
 }
 
 /** An effect a blow can leave (docs/gdd/combat.md, « Effets ») : the lingering ones hurt at the start of each turn. */
@@ -48,6 +50,8 @@ export interface PhaseDef {
 /** What a beaten enemy may leave (docs/gdd/combat.md, « Butin »). */
 export interface LootDef {
   item?: string;
+  /** How many of the item (arrows and bolts come by the handful); 1 by default. */
+  count?: number;
   /** Fers, between the two numbers. */
   fers?: [number, number];
   chance: number;
@@ -131,6 +135,8 @@ export interface AttackProfile {
   apCost: number;
   /** An effect the blow may leave on the target. */
   onHit?: OnHit;
+  /** The item each shot spends (a bow's arrows), if any. */
+  munition?: string;
 }
 
 export const ATTACK_AP_COST = 3;
@@ -158,6 +164,9 @@ export interface Combatant {
   phases?: PhaseDef[];
   /** Phases already begun. */
   phase: number;
+  /** The hero's arrows and bolts: what is left, and what was shot (settled after the fight, settleAmmo). */
+  ammo?: Record<string, number>;
+  fired?: Record<string, number>;
 }
 
 const emptyStatus = () => ({ stunned: false, disarmed: false, slowed: false, burning: 0, bleeding: 0 });
@@ -188,6 +197,7 @@ export function heroAttacks(character: Character): AttackProfile[] {
       damage: weapon.damage,
       damageBonus: mod + (isRanged ? (feat.rangedDamage ?? 0) : (feat.meleeDamage ?? 0)),
       apCost: ATTACK_AP_COST,
+      munition: weapon.munition,
     };
   });
 }
@@ -223,7 +233,43 @@ export function makeHeroCombatant(character: Character, tile: Tile): Combatant {
     defeated: false,
     defeatText: `${character.name} tombe.`,
     phase: 0,
+    ...heroAmmo(character),
   };
+}
+
+// --- Munitions (docs/gdd/combat.md) : a bow shoots arrows, a crossbow bolts, one per shot -------------------------
+
+/** Share of the arrows and bolts shot that are picked up again after a fight won. */
+export const AMMO_RECOVERED = 0.5;
+
+/** The arrows and bolts of the weapons in hand, counted at the start of a fight. */
+function heroAmmo(character: Character): Pick<Combatant, 'ammo' | 'fired'> {
+  const kinds = [...new Set(heroAttacks(character).map((a) => a.munition).filter((m): m is string => !!m))];
+  if (!kinds.length) return {};
+  return { ammo: Object.fromEntries(kinds.map((m) => [m, ownedCount(character, m)])), fired: Object.fromEntries(kinds.map((m) => [m, 0])) };
+}
+
+/** Arrows or bolts left for this attack (Infinity when it needs none). */
+export function ammoLeft(attacker: Combatant, attack: AttackProfile): number {
+  return attack.munition ? (attacker.ammo?.[attack.munition] ?? 0) : Infinity;
+}
+
+/**
+ * After the fight, the arrows and bolts shot leave the bag; once it is won, half of them (rounded down) are picked up
+ * again. Returns « Tu ramasses 2 de tes flèches. », or nothing.
+ */
+export function settleAmmo(character: Character, hero: Combatant, won: boolean): string[] {
+  const notices: string[] = [];
+  for (const [munition, shot] of Object.entries(hero.fired ?? {})) {
+    if (shot <= 0) continue;
+    removeItem(character, munition, shot);
+    const back = won ? Math.floor(shot * AMMO_RECOVERED) : 0;
+    if (back > 0) {
+      addItem(character, munition, back);
+      notices.push(`Tu ramasses ${back} de tes ${(findItem(munition)?.name ?? munition).toLowerCase()}.`);
+    }
+  }
+  return notices;
 }
 
 export function makeEnemyCombatant(enemy: EnemyDef, id: string, tile: Tile): Combatant {
@@ -323,6 +369,7 @@ export function canAttack(attacker: Combatant, attack: AttackProfile, target: Co
     !target.defeated &&
     !attacker.status.disarmed &&
     attacker.actionPoints >= attack.apCost &&
+    ammoLeft(attacker, attack) > 0 &&
     distance(attacker.tile, target.tile) <= attack.range
   );
 }
@@ -358,6 +405,11 @@ export function resolveAttack(
   rng: Rng = Math.random,
 ): AttackResult {
   attacker.actionPoints -= attack.apCost;
+  // A shot spends an arrow or a bolt, hit or miss.
+  if (attack.munition && attacker.ammo && attacker.fired) {
+    attacker.ammo[attack.munition] = Math.max(0, (attacker.ammo[attack.munition] ?? 0) - 1);
+    attacker.fired[attack.munition] = (attacker.fired[attack.munition] ?? 0) + 1;
+  }
   const zoneDef = findZone(zone);
   const roll = rollDie(20, rng);
   const fumble = roll === 1;
@@ -444,7 +496,7 @@ export function rollLoot(enemies: EnemyDef[], rng: Rng = Math.random): { items: 
   for (const enemy of enemies) {
     for (const entry of enemy.butin ?? []) {
       if (rng() >= entry.chance) continue;
-      if (entry.item) loot.items.push(entry.item);
+      if (entry.item) for (let n = 0; n < (entry.count ?? 1); n++) loot.items.push(entry.item);
       if (entry.fers) loot.fers += entry.fers[0] + Math.floor(rng() * (entry.fers[1] - entry.fers[0] + 1));
     }
   }

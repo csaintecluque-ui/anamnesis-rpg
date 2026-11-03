@@ -54,6 +54,8 @@ describe('mode développeur', () => {
     expect(hasPendingLevelUp(c)).toBe(false);
     expect(c.hp).toBe(characterStats(c).maxHp);
     expect(c.equipment.armure).toBe('cuirasse-rivetee');
+    // The crossbow in hand can shoot.
+    expect(c.inventory.find((s) => s.itemId === 'carreaux')?.count).toBe(99);
     expect(c.recits.length).toBe(RECITS.length);
     expect(characterError(JSON.parse(JSON.stringify(c)))).toBeNull();
   });

@@ -58,8 +58,9 @@ certains objets un bout de lore ; là, tous les objets se suivent ». Règles : 
   (Utiliser, Boire, Soigner, Équiper, Porter, Retirer, Vendre, Acheter).
 - À un étal, l'écran s'ouvre sur l'onglet de ce que vend le marchand ; son prix est à droite de chaque ligne.
 - Clavier : ← → changent d'onglet, ↑ ↓ d'objet, 1 à 4 les boutons de la fiche.
-- **Constat** : la corde, la lampe à cristal et les carreaux ne servent encore à rien d'autre qu'à être vendus
-  (l'arbalète ne consomme pas de carreaux).
+- **Munitions et lampe** (demande de Cyril, 2026-11-03) : flèches et carreaux rangés dans « Équipement »
+  (`docs/gdd/combat.md`, « Munitions ») ; la lampe éclaire les voies endormies (`docs/gdd/voies.md`, « La lampe ») ;
+  `usage` dans `items.json` dit ce que les règles ne peuvent pas déduire. La corde ne sert encore à rien.
 
 ## Les pièces de Hedda (Ironheart, accord de Cyril le 2026-11-02)
 

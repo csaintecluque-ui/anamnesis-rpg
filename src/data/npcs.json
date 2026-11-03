@@ -18,7 +18,8 @@
       "armure-ferraille",
       "lampe-cristal",
       "corde",
-      "bandage"
+      "bandage",
+      "fleches"
     ],
     "remise": {
       "flag": "remise-cendrefer",
@@ -318,7 +319,9 @@
       "bandage",
       "marteau-forge",
       "arbalete-ferros",
-      "cuirasse-rivetee"
+      "cuirasse-rivetee",
+      "fleches",
+      "carreaux"
     ],
     "remise": {
       "flag": "remise-cendrefer",
@@ -620,7 +623,8 @@
       "lampe-cristal",
       "carreaux",
       "cristal-vie",
-      "cristal-forge"
+      "cristal-forge",
+      "fleches"
     ]
   },
   {

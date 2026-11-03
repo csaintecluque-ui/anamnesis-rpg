@@ -24,7 +24,7 @@ d'Ironheart), chiffres validés ; l'escorte reste pour plus tard.
 |---|---|---|
 | **Bêtes** | 1 ou 2 groupes au niveau 1, 2 ou 3 plus bas | elles attaquent quand on passe à deux cases ; on les combat sur place ; XP : la moitié de leur valeur |
 | **Caisses** | 1 ou 2, plus le **coffre du chef de gare** au terminus | elles luisent ; Fers (4 + 4 × danger à 10 + 6 × danger) et souvent un objet ; parfois un cadenas : Artisanat (9 + danger), ou forcer (−3 PV) ; au terminus : double, et parfois un cristal |
-| **Pièges** cachés | de 0 à 4, plus nombreux en profondeur | sur un passage : Investigation (9 + danger) pour les voir à temps (+5 XP), sinon 2 + 2 × danger PV |
+| **Pièges** cachés | de 0 à 4, plus nombreux en profondeur | sur un passage : Investigation (9 + danger) pour les voir à temps (+5 XP), sinon 2 + 2 × danger PV ; avec la lampe, voir plus bas |
 | **Un Écho** | un niveau sur deux | un moment ordinaire de l'Ancien Monde (six scènes) : 10 XP |
 
 | Danger | Bêtes (une au hasard) |
@@ -34,6 +34,17 @@ d'Ironheart), chiffres validés ; l'escorte reste pour plus tard.
 | 3 | 2 pilleurs et une rebouteuse · un Gecko et 2 Guêpes · 2 Échos furieux · une Griffe-Sylve et un Loup |
 | 4 | arbalétrier, pilleur et rebouteuse · 3 Échos furieux · 2 Griffes-Sylves |
 | 5 | un Golem de Ferraille et un Gecko · 2 arbalétriers, un pilleur et une rebouteuse |
+
+## La lampe (demande de Cyril, 2026-11-03, à valider)
+
+La **lampe à cristal** (15 Fers chez Tobias, Hedda, la colporteuse et la marchande des nations ; parfois dans une
+caisse) sert enfin sous terre. Règles : `carriesLamp`, `lightTraps` dans `src/rules/voies.ts`.
+
+- **Sans lampe**, une voie endormie est sombre (le moment du jour n'y compte plus) ; en arrivant : « Il fait sombre :
+  une lampe à cristal te montrerait les pièges. »
+- **Avec la lampe dans le sac** (rien à équiper), la voie est éclairée, et **les pièges se voient à deux pas** tout
+  autour du héros : marqués d'un losange rouge, ils le restent jusqu'au niveau suivant. Le chemin les contourne quand
+  il le peut ; marcher dessus quand même, c'est les enjamber, sans jet, sans dégâts (et sans les 5 XP du jet).
 
 ## Les contrats des Gardiens
 

@@ -189,9 +189,24 @@ describe('save codec', () => {
     });
     const withBow = v6({ ...state.character!, inventory: [{ itemId: 'arc', count: 1 }], equipment: { mainGauche: 'arc', mainDroite: null, armure: null } });
     expect(withBow.ok && withBow.value.state.character).toMatchObject({
-      inventory: [{ itemId: 'arc', count: 1 }],
+      // The bow comes with its arrows (version 16).
+      inventory: [{ itemId: 'arc', count: 1 }, { itemId: 'fleches', count: 20 }],
       equipment: { mainGauche: 'arc', mainDroite: null, armure: null },
     });
+  });
+
+  it('migrates a version 15 save: a bow or a crossbow already owned comes with twenty arrows or bolts', () => {
+    const v15 = (inventory: object[]) =>
+      parseSave(JSON.stringify({ game: 'anamnesis', version: 15, savedAt: NOW.toISOString(), state: { ...state, character: { ...state.character!, inventory } } }));
+    const archer = v15([{ itemId: 'arc', count: 1 }, { itemId: 'arbalete-ferros', count: 1 }, { itemId: 'carreaux', count: 5 }]);
+    expect(archer.ok && archer.value.state.character!.inventory).toEqual([
+      { itemId: 'arc', count: 1 },
+      { itemId: 'arbalete-ferros', count: 1 },
+      { itemId: 'carreaux', count: 20 },
+      { itemId: 'fleches', count: 20 },
+    ]);
+    const swordsman = v15([{ itemId: 'dague', count: 1 }, { itemId: 'carreaux', count: 5 }]);
+    expect(swordsman.ok && swordsman.value.state.character!.inventory).toEqual([{ itemId: 'dague', count: 1 }, { itemId: 'carreaux', count: 5 }]);
   });
 
   it('migrates a version 7 save by giving the hero the look of the first version', () => {

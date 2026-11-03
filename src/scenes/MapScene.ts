@@ -30,7 +30,7 @@ import { FigurantLayer } from './Figurants';
 import { PartyLayer } from './Party';
 import { echoObjects, echoShows } from '../rules/echos';
 import { boardObjects } from '../rules/contrats';
-import { descend, groupFlag, groupNear, groupXp, leaveVoie, springTrap, voieLevel, voiePlan } from '../rules/voies';
+import { carriesLamp, descend, groupFlag, groupNear, groupXp, leaveVoie, lightTraps, springTrap, trapSeenFlag, voieLevel, voiePlan } from '../rules/voies';
 import type { HudScene } from './HudScene';
 import type { WorldMapStartData } from './WorldMapScene';
 import { momentOf, type Moment } from '../rules/time';
@@ -64,6 +64,9 @@ const MOMENT_VEILS: Record<Moment, { color: number; alpha: number }> = {
   soir: { color: 0x5a2a08, alpha: 0.2 },
   nuit: { color: 0x0a1030, alpha: 0.5 },
 };
+/** Under the ground, the moment of the day does not matter: without a lamp, one sees badly (docs/gdd/voies.md). */
+const VOIE_DARK = { color: 0x05070f, alpha: 0.42 };
+const LIT_TRAP = 0xc0503a;
 
 export class MapScene extends Phaser.Scene {
   private momentVeil!: Phaser.GameObjects.Rectangle;
@@ -100,6 +103,8 @@ export class MapScene extends Phaser.Scene {
   private obstacleImages: Phaser.GameObjects.Image[] = [];
   private fadedForThings = new Set<Phaser.GameObjects.Image>();
   private fadedForHero = new Set<Phaser.GameObjects.Image>();
+  /** The traps of a sleeping line seen in the lamp's light (docs/gdd/voies.md, « La lampe »). */
+  private trapMarks!: Phaser.GameObjects.Graphics;
 
   constructor() {
     super('Map');
@@ -165,6 +170,7 @@ export class MapScene extends Phaser.Scene {
     this.figurants.spawn(location.id);
     for (const tile of this.figurants.standingTiles()) this.occupied.add(tileKey(tile));
     this.marker = this.add.graphics().setDepth(1);
+    this.trapMarks = this.add.graphics().setDepth(2);
 
     this.heroTile = this.startTile(location.entrance);
     this.state.position = { ...this.heroTile };
@@ -176,6 +182,7 @@ export class MapScene extends Phaser.Scene {
     this.hero = this.add.sprite(start.x, start.y, 'tiles', this.map.frames.heros).setOrigin(0.5, 1).setDepth(start.y);
     this.revealThings();
     this.revealHero(this.heroTile);
+    this.lightTraps(false);
     this.setUpWalk();
     this.party = new PartyLayer(this, { frames: this.map.frames, feet: (t) => this.feet(t), walkable: (t) => this.walkable(t) });
     this.partyIds = state.groupe.map((m) => m.id).join(',');
@@ -207,7 +214,10 @@ export class MapScene extends Phaser.Scene {
     onKeys(this, ['J'], () => this.hud().openOverlay('Journal'));
 
     this.scene.launch('Hud', { locationName: level?.title ?? location.name });
-    if (level) this.time.delayedCall(50, () => this.hud().toast(`${level.title}. Pour remonter à la surface, reviens à l’entrée.`));
+    if (level) {
+      const light = carriesLamp(state) ? 'Ta lampe à cristal éclaire le passage : tu verras les pièges à deux pas.' : 'Il fait sombre : une lampe à cristal te montrerait les pièges.';
+      this.time.delayedCall(50, () => this.hud().toast(`${level.title}. ${light} Pour remonter, reviens à l’entrée.`));
+    }
     // The Anneau (docs/univers/lieux/sept-portes.md): said once, on arriving at Sept-Portes.
     if (location.nexus && !state.flags['anneau-senti']) {
       state.flags['anneau-senti'] = true;
@@ -310,8 +320,34 @@ export class MapScene extends Phaser.Scene {
 
   /** Evening light and night darkness over the map; nothing in the morning and at noon. */
   private showMoment(): void {
-    const veil = MOMENT_VEILS[momentOf(this.state.time)];
+    const veil = this.state.voie ? (carriesLamp(this.state) ? MOMENT_VEILS.midi : VOIE_DARK) : MOMENT_VEILS[momentOf(this.state.time)];
     this.momentVeil.setFillStyle(veil.color, veil.alpha);
+  }
+
+  /** The lamp shows the traps two steps away; seen, they are marked, and the walk goes round them when it can. */
+  private lightTraps(announce = true): void {
+    if (!this.state.voie) return;
+    const seen = lightTraps(this.state, this.map.objects, this.heroTile, (o) => this.gone(o));
+    this.trapMarks.clear();
+    for (const trap of this.map.objects.filter((o) => o.type === 'piege' && !this.gone(o) && this.state.flags[trapSeenFlag(o)])) {
+      const c = this.center(trap);
+      const [w, h] = [TILE_WIDTH / 2 - 6, TILE_HEIGHT / 2 - 3];
+      this.trapMarks.lineStyle(3, LIT_TRAP, 0.9).strokePoints([{ x: c.x, y: c.y - h }, { x: c.x + w, y: c.y }, { x: c.x, y: c.y + h }, { x: c.x - w, y: c.y }], true);
+      this.trapMarks.lineStyle(2, LIT_TRAP, 0.9).lineBetween(c.x - 8, c.y - 4, c.x + 8, c.y + 4).lineBetween(c.x - 8, c.y + 4, c.x + 8, c.y - 4);
+    }
+    if (seen.length === 0 || !announce) return;
+    this.hud().toast(seen.length > 1 ? 'Ta lampe éclaire des pièges.' : 'Ta lampe éclaire un piège.');
+    // A walk under way goes round what was just seen.
+    if (this.moving && this.path.length) this.pendingGoal = this.path[this.path.length - 1];
+  }
+
+  private litTrapAt(tile: Tile): boolean {
+    return this.map.objects.some((o) => o.type === 'piege' && o.col === tile.col && o.row === tile.row && !this.gone(o) && !!this.state.flags[trapSeenFlag(o)]);
+  }
+
+  /** The way to a cell, round the traps seen when there is one, straight through otherwise (they are then stepped over). */
+  private route(from: Tile, to: Tile): Tile[] | null {
+    return findPath(from, to, (t) => this.walkable(t) && !this.litTrapAt(t)) ?? findPath(from, to, this.walkable);
   }
 
   private refreshGone(): void {
@@ -470,11 +506,13 @@ export class MapScene extends Phaser.Scene {
     if (trap) {
       const outcome = springTrap(this.state, trap);
       this.hud().toast([outcome.text, ...outcome.notices].join('   ·   '));
+      this.lightTraps();
       if (!outcome.spotted) {
         this.haltWalk();
         return true;
       }
     }
+    this.lightTraps();
     // Out of sight of a group fled from: it may attack again later.
     for (const g of [...this.fought]) if (groupNear(this.map.objects.filter((o) => o.properties.voie === g), this.heroTile, (o) => this.gone(o)) === null) this.fought.delete(g);
     const group = groupNear(this.map.objects, this.heroTile, (o) => this.gone(o) || this.fought.has(o.properties.voie));
@@ -597,7 +635,7 @@ export class MapScene extends Phaser.Scene {
   }
 
   private followPathTo(goal: Tile): void {
-    const path = findPath(this.heroTile, goal, this.walkable);
+    const path = this.route(this.heroTile, goal);
     if (!path) return;
     this.path = path;
     this.stepAlong();
@@ -607,7 +645,7 @@ export class MapScene extends Phaser.Scene {
     if (this.pendingGoal) {
       const goal = this.pendingGoal;
       this.pendingGoal = null;
-      this.path = findPath(this.heroTile, goal, this.walkable) ?? [];
+      this.path = this.route(this.heroTile, goal) ?? [];
     }
     const next = this.path.shift();
     if (!next) {

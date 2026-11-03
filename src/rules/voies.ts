@@ -4,7 +4,7 @@ import type { GameState, VoieState } from '../state/gameState';
 import type { Rng } from './checks';
 import { findEnemy } from './combat';
 import { applyEffects, performRoll, type Dialogue, type DialogueOption, type Effect } from './dialogue';
-import { findItem } from './inventory';
+import { findItem, ownedCount } from './inventory';
 import { advance } from './time';
 import { findPlace, type WorldPlace } from './world';
 
@@ -242,7 +242,8 @@ function crateDialogue(id: string, k: number, tier: number, chief: boolean, rng:
   const loot: Effect[] = [{ setFlag: chestFlag(k) }, { giveFers: fers }];
   if (chief || rng() < 0.6) {
     const item = pick(rng, DATA.butin[String(Math.min(MAX_TIER, tier + (chief ? 1 : 0)))]);
-    loot.push({ giveItem: item, count: item === 'carreaux' ? 5 : 1 });
+    // Arrows and bolts come by the handful (docs/gdd/combat.md, « Munitions »).
+    loot.push({ giveItem: item, count: item === 'carreaux' || item === 'fleches' ? 8 : 1 });
   }
   if (chief && rng() < 0.15) loot.push({ giveItem: pick(rng, DATA.tresor) });
   const locked = chief || rng() < 0.35;
@@ -350,11 +351,41 @@ export interface TrapOutcome {
   notices: string[];
 }
 
-/** A hidden trap under the hero's feet: an Investigation roll to see it in time, or PV lost. */
+// --- La lampe à cristal (docs/gdd/voies.md, « La lampe », demande de Cyril du 2026-11-03) ----------------------------
+
+export const LAMP_ITEM = 'lampe-cristal';
+/** How far the lamp shows the traps, in cells, all around the hero. */
+export const LAMP_RADIUS = 2;
+
+export const carriesLamp = (state: Pick<GameState, 'character'>): boolean => !!state.character && ownedCount(state.character, LAMP_ITEM) > 0;
+
+/** A trap seen in the lamp's light: it stays shown until the level is left (a `voie-` flag, cleared with it). */
+export const trapSeenFlag = (trap: MapObject): string => `${trap.properties.disparaitSi}-vu`;
+
+/** With the lamp, the traps within its reach are seen from where the hero stands. Returns those seen just now. */
+export function lightTraps(state: GameState, objects: MapObject[], hero: { col: number; row: number }, gone: (o: MapObject) => boolean): MapObject[] {
+  if (!carriesLamp(state)) return [];
+  const seen = objects.filter(
+    (o) =>
+      o.type === 'piege' &&
+      !gone(o) &&
+      !state.flags[trapSeenFlag(o)] &&
+      Math.max(Math.abs(o.col - hero.col), Math.abs(o.row - hero.row)) <= LAMP_RADIUS,
+  );
+  for (const trap of seen) state.flags[trapSeenFlag(trap)] = true;
+  return seen;
+}
+
+/**
+ * A hidden trap under the hero's feet: an Investigation roll to see it in time, or PV lost. A trap already seen in
+ * the lamp's light is stepped over, without a roll.
+ */
 export function springTrap(state: GameState, trap: MapObject, rng: Rng = Math.random): TrapOutcome {
   const def = DATA.pieges.find((p) => p.id === trap.properties.piege) ?? DATA.pieges[0];
   const tier = state.voie ? tierOf(state.voie) : 1;
+  const lit = !!state.flags[trapSeenFlag(trap)];
   state.flags[trap.properties.disparaitSi] = true;
+  if (lit) return { spotted: true, text: def.repere, notices: [] };
   const roll = performRoll(state, { skill: 'investigation', difficulty: 9 + tier }, rng);
   if (roll.success) return { spotted: true, text: def.repere, notices: [roll.notice, ...applyEffects(state, [{ giveXp: 5 }])] };
   return { spotted: false, text: def.touche, notices: [roll.notice, ...applyEffects(state, [{ blesser: 2 + 2 * tier }])] };

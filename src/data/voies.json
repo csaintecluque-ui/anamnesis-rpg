@@ -14,9 +14,9 @@
     "5": [["golem-ferraille", "gecko-soudeur"], ["arbaletrier-cendres", "arbaletrier-cendres", "pilleur-cendres", "rebouteuse-cendres"]]
   },
   "butin": {
-    "1": ["bandage", "corde", "carreaux"],
-    "2": ["baume-mousse", "bandage", "lampe-cristal", "carreaux"],
-    "3": ["fiole-seve", "baume-mousse", "lampe-cristal"],
+    "1": ["bandage", "corde", "carreaux", "fleches"],
+    "2": ["baume-mousse", "bandage", "lampe-cristal", "carreaux", "fleches"],
+    "3": ["fiole-seve", "baume-mousse", "lampe-cristal", "fleches"],
     "4": ["fiole-seve", "fiole-seve", "carreaux"],
     "5": ["fiole-seve", "fiole-seve", "baume-mousse"]
   },

@@ -115,7 +115,8 @@
     "name": "Lampe à cristal",
     "description": "Elle ne s’éteint pas sous terre, dit Tobias.",
     "weightKg": 1,
-    "price": 15
+    "price": 15,
+    "usage": "Dans les voies endormies, elle éclaire le chemin : on voit les pièges à deux pas, et l’on passe à côté."
   },
   {
     "id": "corde",
@@ -355,9 +356,18 @@
   {
     "id": "carreaux",
     "name": "Carreaux d’arbalète",
-    "description": "Une poignée de carreaux de Ferros.",
-    "weightKg": 0.5,
-    "price": 4
+    "description": "Des carreaux de Ferros, à pointe d’acier. Un par tir d’arbalète.",
+    "weightKg": 0.05,
+    "price": 2,
+    "categorie": "equipement"
+  },
+  {
+    "id": "fleches",
+    "name": "Flèches",
+    "description": "Des flèches de frêne, empennées de plumes grises. Une par tir d’arc.",
+    "weightKg": 0.05,
+    "price": 2,
+    "categorie": "equipement"
   },
   {
     "id": "champignon-memoire",

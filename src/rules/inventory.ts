@@ -25,6 +25,8 @@ export interface ItemDef {
   categorie?: 'equipement' | 'remedes' | 'matieres' | 'quete' | 'divers';
   /** A line of what is said about it, in italics under its description (docs/univers/objets.md). */
   lore?: string;
+  /** What it is good for, when the rules cannot say it (the lamp in the sleeping lines). */
+  usage?: string;
 }
 
 export const ITEMS = itemData as ItemDef[];

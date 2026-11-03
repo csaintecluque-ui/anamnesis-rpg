@@ -26,7 +26,11 @@
       "taux": 0.2
     },
     "place": "gardebois",
-    "faction": "compagnie-lisieres"
+    "faction": "compagnie-lisieres",
+    "vitrine": {
+      "item": "lampe-cristal",
+      "mot": "Sous terre, elle te montre les pièges à deux pas. Sans elle, tu marches dessus. Quinze Fers : le prix de deux jambes."
+    }
   },
   {
     "id": "ingrid",
@@ -146,7 +150,11 @@
       "cristal-vie",
       "champignon-memoire-frais"
     ],
-    "place": "canopee"
+    "place": "canopee",
+    "vitrine": {
+      "item": "cristal-vie",
+      "mot": "Porté au cou, il referme les plaies, les tiennes et celles des autres. Deux cent cinquante Fers ; je ne le garde pas pour n’importe qui."
+    }
   },
   {
     "id": "elouan",
@@ -333,7 +341,11 @@
       "flag": "remise-cendrefer",
       "taux": 0.2
     },
-    "faction": "compagnie-lisieres"
+    "faction": "compagnie-lisieres",
+    "vitrine": {
+      "item": "cuirasse-rivetee",
+      "mot": "La meilleure plaque de l’atelier : trois points de Défense, ce qui sépare un blessé d’un mort. Cent vingt Fers, et je ne marchande pas."
+    }
   },
   {
     "id": "rika",

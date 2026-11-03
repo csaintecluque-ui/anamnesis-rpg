@@ -45,6 +45,16 @@ export function merchantCatalogue(npcId: string): ItemDef[] {
 }
 
 /**
+ * The piece a trader puts forward (`vitrine` in npcs.json ; étude du 2026-11-03, G1) : one thing per town worth wanting,
+ * out of reach at first, with what the trader says of it. Null for anyone else.
+ */
+export function merchantShowcase(npcId?: string): { item: ItemDef; mot: string } | null {
+  const vitrine = (npcData as { id: string; vitrine?: { item: string; mot: string } }[]).find((n) => n.id === npcId)?.vitrine;
+  const item = vitrine && findItem(vitrine.item);
+  return vitrine && item ? { item, mot: vitrine.mot } : null;
+}
+
+/**
  * Share taken off this trader's prices, once earned (`remise` in npcs.json: the flag that grants it and the rate;
  * Tobias, after « La caisse égarée »).
  */

@@ -79,3 +79,17 @@ Le jour, un contremaître d'Ingrid barre l'accès au chantier de la Gare Englout
 Tobias, ou gratuit par la parole : Diplomatie 2). Sans lui, il reste la nuit (se glisser jusqu'à la foreuse) ou le
 Golem. Les Récits de l'histoire principale (le savant Corvan, le Triumvirat Vert, le carnet du dernier train) ne
 s'oublient jamais et ne comptent pas dans le plafond de Mémoire + 1 (`docs/gdd/memoire.md`).
+
+## La vitrine de chaque ville (étude du 2026-11-03, G1)
+
+Une économie qui s'équilibre ne fait rien désirer : chaque marchand de ville met en avant **une pièce**, hors de
+portée au début, avec ce qu'il en dit (`vitrine` dans `src/data/npcs.json`, `merchantShowcase`). L'étal s'ouvre
+dessus, et sa fiche commence par le mot du marchand.
+
+| Ville | Marchand | Vitrine | Prix |
+|---|---|---|---|
+| Gardebois | Tobias | la lampe à cristal (« Sous terre, elle te montre les pièges à deux pas ») | 15 |
+| Canopéa | Sévane | le cristal de Vie (« il referme les plaies, les tiennes et celles des autres ») | 250 |
+| Ironheart | Ragna | la cuirasse rivetée (« trois points de Défense, ce qui sépare un blessé d'un mort ») | 120 |
+
+Sept-Portes, ville sans combat, n'en a pas.

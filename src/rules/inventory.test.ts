@@ -22,6 +22,7 @@ import {
   findItem,
   ITEMS,
   merchantCatalogue,
+  merchantShowcase,
   merchantDiscount,
   ownedCount,
   removeItem,
@@ -212,5 +213,18 @@ describe('discount at a stall', () => {
     expect(merchantDiscount({ 'remise-cendrefer': true }, 'tobias')).toBe(0.2);
     expect(merchantDiscount({ 'remise-cendrefer': true }, 'ilyane')).toBe(0);
     expect(buyPrice(findItem('epee-longue')!, 0.2)).toBe(28);
+  });
+});
+
+describe('the showcase of a town (étude du 2026-11-03, G1)', () => {
+  it('one thing worth wanting per town merchant, sold at that stall, with what the trader says of it', () => {
+    for (const npc of ['tobias', 'sevane', 'hedda']) {
+      const showcase = merchantShowcase(npc)!;
+      expect(merchantCatalogue(npc).map((i) => i.id), npc).toContain(showcase.item.id);
+      expect(showcase.mot.length, npc).toBeGreaterThan(20);
+    }
+    expect(merchantShowcase('tobias')!.mot).toMatch(/pièges/);
+    expect(merchantShowcase('sevane')!.item.price).toBeGreaterThan(200);
+    expect(merchantShowcase('ilyane')).toBeNull();
   });
 });

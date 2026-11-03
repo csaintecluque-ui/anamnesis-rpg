@@ -4,7 +4,7 @@ import { crystalWear, repair, repairCost, wearOf } from '../rules/usure';
 import { combinedDiscount, deName, merchantPlace, reputationLevel, reputationPrices, reputationSells, heroDiscount } from '../rules/reputation';
 import { findPlace } from '../rules/world';
 import { characterStats, wearPenalty, type Character, type Slot } from '../rules/character';
-import { armorBonus, buy, buyPrice, carriedWeightKg, equip, merchantCatalogue, merchantDiscount, ownedCount, sell, SELL_RATIO, tradeItems, unequip, useConsumable, type ItemDef } from '../rules/inventory';
+import { armorBonus, buy, buyPrice, carriedWeightKg, equip, merchantCatalogue, merchantDiscount, merchantShowcase, ownedCount, sell, SELL_RATIO, tradeItems, unequip, useConsumable, type ItemDef } from '../rules/inventory';
 import { castOutsideCombat, combatPower, resonanceMax, useResonanceSap, wornCrystal } from '../rules/magic';
 import { marquesBorne } from '../rules/marques';
 import { CATEGORIES, categoryOf, itemUses, itemValue, itemsOf, type ItemCategory } from '../rules/objets';
@@ -120,6 +120,12 @@ export class TradeScene extends Phaser.Scene {
     const sold = this.npcId ? merchantCatalogue(this.npcId) : [];
     const first = CATEGORIES.find((c) => itemsOf(sold.length ? sold : shown, c.id).length > 0);
     this.tab = first?.id ?? 'equipement';
+    // A trader's showcase, shown first (étude, G1): the thing worth wanting in this town.
+    const showcase = merchantShowcase(this.npcId);
+    if (showcase) {
+      this.tab = categoryOf(showcase.item);
+      this.selected = showcase.item.id;
+    }
 
     this.layer = this.add.container(0, 0);
     this.redraw();
@@ -321,6 +327,8 @@ export class TradeScene extends Phaser.Scene {
       .filter(Boolean)
       .join(' · ');
     add(status, LAYOUT.textFont, CSS.muted, { fontStyle: 'italic' }, 12);
+    const showcase = merchantShowcase(this.npcId);
+    if (showcase?.item.id === item.id) add(`« ${showcase.mot} »`, LAYOUT.textFont, CSS.copper, { fontStyle: 'italic' }, 10);
     for (const use of itemUses(item)) add(`• ${use}`, LAYOUT.textFont, CSS.parchment, {}, 4);
     // Its wear (src/rules/usure.ts ; chantier 6).
     const wear = wearOf(this.character(), item.id);

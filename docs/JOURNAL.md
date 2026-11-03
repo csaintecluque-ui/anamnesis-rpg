@@ -17,7 +17,7 @@
 ## Prochaine étape
 
 1. L'essai de Cyril (en cours) et ses remarques sur le dosage ; ses réponses sur le chapitre 4 (noms, Altavent, la
-   septième Porte, chiffres). Correctifs de son premier essai iPhone en ligne ; inventaire en onglets fait sur la branche, à valider.
+   septième Porte, chiffres). Correctifs de son premier essai iPhone en ligne ; inventaire en onglets en ligne ; munitions et lampe demandées (en cours).
 2. Après l'essai, à sa demande : compléter la page Notion « Anamnesis — le jeu » (chapitre 4, éléments validés).
 
 ## Points ouverts

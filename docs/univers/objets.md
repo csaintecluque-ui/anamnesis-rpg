@@ -1,8 +1,8 @@
-# Ce qu'on dit des objets (propositions du 2026-11-03, **à valider**)
+# Ce qu'on dit des objets (propositions du 2026-11-03, **validées** par Cyril : « Oui comme tu le dis »)
 
 Demande de Cyril (2026-11-03) : « pour certains objets, un bout de lore ». Ces lignes s'affichent en italique sur la
 fiche de l'objet, dans l'inventaire (`lore` dans `src/data/items.json`, écran : `docs/gdd/inventaire.md`). Elles ne
-s'appuient que sur ce que le jeu a déjà validé ; ce qui est inventé est signalé. Toutes sont **à valider**.
+s'appuient que sur ce que le jeu a déjà validé ; ce qui est inventé est signalé. Gardées telles quelles (2026-11-03).
 
 | Objet | Ce qu'on en dit | Ancrage |
 |---|---|---|

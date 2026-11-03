@@ -27,7 +27,7 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `lieux/voies-endormies.md` : les trois voies endormies à explorer, leurs Échos, les tableaux des contrats ; validé.
 - `lieux/sept-portes.md` : Sept-Portes, la cité de Kael (chapitre 4) : canon résumé, propositions ; à valider.
 - `factions.md` : organisations, alliances, conflits en cours ; factions et guildes du jeu (validées).
-- `objets.md` : ce qu'on dit des objets (lignes de lore de l'inventaire) ; à valider.
+- `objets.md` : ce qu'on dit des objets (lignes de lore de l'inventaire) ; validé.
 - `quetes.md` : histoire principale « Les voies endormies » et quêtes des villes ; validé.
 - `religions.md` : les sept religions.
 - `peuples.md` : peuples par nation, faune utile à la tranche.

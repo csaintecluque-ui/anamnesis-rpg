@@ -54,7 +54,7 @@ certains objets un bout de lore ; là, tous les objets se suivent ». Règles : 
 - **La liste à gauche** (◆ : porté), **la fiche à droite** : le nom ; l'onglet, combien on en a, où il est porté ; **à quoi
   il sert**, tiré des règles (dégâts et compétence d'une arme, Défense d'une armure, pouvoirs d'un cristal, PV ou PR
   rendus, recettes où il entre, atelier qui le fabrique, « objet de quête : il ne se vend pas ») ; poids et valeur ; sa
-  description ; parfois **ce qu'on en dit**, en italique (`lore`, `docs/univers/objets.md`, à valider) ; ses boutons
+  description ; parfois **ce qu'on en dit**, en italique (`lore`, `docs/univers/objets.md`, validé) ; ses boutons
   (Utiliser, Boire, Soigner, Équiper, Porter, Retirer, Vendre, Acheter).
 - À un étal, l'écran s'ouvre sur l'onglet de ce que vend le marchand ; son prix est à droite de chaque ligne.
 - Clavier : ← → changent d'onglet, ↑ ↓ d'objet, 1 à 4 les boutons de la fiche.

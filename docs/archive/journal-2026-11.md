@@ -986,3 +986,5 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   certains objets un bout de lore ». Fait sur la branche (`docs/gdd/inventaire.md`, « Le sac rangé ») : cinq onglets,
   liste et fiche (à quoi sert l'objet, tiré des règles), onze lignes de lore à valider (`docs/univers/objets.md`) ;
   « L'étal de la marchande des nations » (et non « L'étal La marchande… »). 623 tests ; vérifié sur PC et iPhone.
+- Cyril : « Oui comme tu le dis, ce serait bien qu'il y ait un système de flèches ou carreaux, idem pour la lampe, et
+  mets en ligne » : inventaire en ligne, lignes de lore gardées ; munitions et lampe à construire.

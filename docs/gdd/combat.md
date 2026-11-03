@@ -271,3 +271,51 @@ dans la partie de Cyril, le levier est ce qu'elle rend (2d4) ou le seuil où ell
 (`combatChantier3.test.ts`, « a hero of words ») vérifie à chaque test : parleur niv. 2 seul contre 2 Rôdeurs ≥ 60 %,
 niv. 3 avec Liane contre 2 Loups du ch. 2 ≥ 60 %, et toujours < 30 % seul contre le Golem. L'écart entre tactiques
 reste sous 15 points.
+
+## Étude du 3 novembre : E4 et F3 simulés (proposition, **à valider**)
+
+Les deux derniers réglages de la vague 2. **E4** (l'étude) : les bêtes de la route prennent +25 % de PV par chapitre
+au lieu de +40 %, et leur bonus au toucher ne commence qu'au chapitre 4. **F3** : +1 PV par niveau pour le héros (5 +
+modificateur de Vigueur au lieu de 4). Simulation : 300 combats au corps par case, `combatSim.ts`, chapitres 1 / 2 / 3
+/ 4. Héros **moyen** : niveau du chapitre, Corps 4, Vigueur 4, Mêlée = niveau + 1, épée (trempée dès le ch. 3), cuir
+(clouté dès le 3). **Optimisé** : Corps 6, Agilité 4, Vigueur 4, Mêlée = niveau + 2. **Parleur** : Présence 6, Mêlée 3
+toujours, dague, avec Liane.
+
+| Groupe (héros moyen) | Aujourd'hui | E4 | F3 (+1 PV/niv.) | E4 + F3 |
+|---|---|---|---|---|
+| 2 Loups | 84 / 80 / 87 / 86 | 84 / 87 / 96 / 95 | 84 / 82 / 89 / 89 | 84 / 88 / 97 / 96 |
+| 3 Loups | 36 / 20 / 28 / 20 | 36 / 33 / 67 / 52 | 36 / 21 / 31 / 25 | 36 / 35 / 71 / 57 |
+| Pilleur, arbalétrier, rebouteuse | 41 / 31 / 42 / 32 | 41 / 42 / 73 / 63 | 41 / 33 / 47 / 38 | 41 / 44 / 77 / 69 |
+| 3 Échos furieux | 22 / 8 / 16 / 6 | 22 / 14 / 44 / 29 | 22 / 9 / 19 / 8 | 22 / 15 / 47 / 33 |
+| Golem + Gecko | 62 / 57 / 66 / 62 | 62 / 63 / 89 / 83 | 62 / 59 / 69 / 70 | 62 / 65 / 90 / 87 |
+
+| Groupe (héros optimisé) | Aujourd'hui | E4 | F3 | E4 + F3 |
+|---|---|---|---|---|
+| 3 Loups | 81 / 86 / 82 / 69 | 81 / 89 / 96 / 90 | 81 / 86 / 85 / 74 | 81 / 89 / 97 / 93 |
+| Pilleur, arbalétrier, rebouteuse | 81 / 85 / 85 / 73 | 81 / 87 / 94 / 92 | 81 / 86 / 88 / 79 | 81 / 89 / 95 / 95 |
+| 3 Échos furieux | 64 / 58 / 55 / 39 | 64 / 67 / 83 / 65 | 64 / 59 / 59 / 44 | 64 / 70 / 85 / 70 |
+
+Le parleur avec Liane (Mêlée 3 toute la partie) : 2 Loups 96 / 95 / 81 / 68 aujourd'hui, 96 / 96 / 95 / 88 avec E4 ;
+3 Loups 74 / 49 / 13 / 3 aujourd'hui, 74 / 62 / 49 / 17 avec E4. F3 ne change presque rien pour lui (+0 à +5).
+
+Lecture :
+
+- **E4 rend les chapitres 3 et 4 plus faciles que le chapitre 1** (3 Loups : 36 au ch. 1, 67 au ch. 3) : les groupes
+  dangereux cessent de l'être, à l'inverse de « un jeu tendu ». Claude ne le recommande pas tel quel.
+- **F3 seul** ajoute 1 à 8 points, surtout au chapitre 4 : modeste, mais c'est une montée de niveau qui se voit.
+- **Le vrai défaut d'aujourd'hui est la chute du chapitre 4** (+2 au toucher des bêtes) : l'optimisé passe de 82 à
+  69 contre 3 Loups, de 55 à 39 contre les Échos. Une variante l'efface sans toucher au reste : **plafonner le bonus
+  au toucher des bêtes à +1** (les PV +40 % restent).
+
+| Chapitres 3 / 4 | Aujourd'hui | Plafond +1 | Plafond +1 et F3 |
+|---|---|---|---|
+| Moyen · 3 Loups | 28 / 20 | 28 / 24 | 31 / 30 |
+| Moyen · pilleur, arbalétrier, rebouteuse | 42 / 32 | 42 / 34 | 47 / 44 |
+| Moyen · 3 Échos furieux | 16 / 6 | 16 / 8 | 19 / 11 |
+| Moyen · Golem + Gecko | 66 / 62 | 66 / 67 | 69 / 73 |
+| Optimisé · 3 Loups | 82 / 69 | 82 / 75 | 85 / 79 |
+| Optimisé · 3 Échos furieux | 55 / 39 | 55 / 45 | 59 / 49 |
+
+**Recommandation de Claude : plafond +1 et F3 (+1 PV par niveau)** : le chapitre 4 redevient aussi tendu que le 3, pas
+plus facile ; les groupes dangereux le restent ; le héros sent un peu plus chaque niveau. Le parleur, lui, reste fait
+pour éviter les meutes : avec Liane, la parole, la fuite ou la Discrétion.

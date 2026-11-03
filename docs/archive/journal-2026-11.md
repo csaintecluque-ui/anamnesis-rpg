@@ -1088,3 +1088,4 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
 - Sur la branche : une vitrine par ville (la lampe chez Tobias, le cristal de Vie chez Sévane, la cuirasse chez Ragna) ;
   les voies à la taille du groupe (5 bêtes au plus seul, 2 de plus par compagnon ; mesuré sur 200 tirages). Proposés
   à Cyril : les répliques d'Ilyane qui remarque les fragments (A ou B) ; un obstacle par chapitre. 726 tests.
+- Cyril : « 1 oui, 2 A, 3 oui » : vitrines et voies allégées mises en ligne ; Ilyane remarque sans rien savoir (A) ; les trois obstacles à construire.

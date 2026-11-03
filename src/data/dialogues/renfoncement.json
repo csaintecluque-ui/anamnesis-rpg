@@ -21,13 +21,17 @@
         },
         {
           "text": "Examiner le mur.",
+          "next": "trouve",
+          "roll": {
+            "skill": "investigation",
+            "difficulty": 12
+          },
+          "failNext": "mur-rien",
           "requires": [
             {
-              "skill": "investigation",
-              "min": 3
+              "notFlag": "mur-rate"
             }
-          ],
-          "next": "trouve"
+          ]
         },
         {
           "text": "Faire luire un cristal le long du mur.",
@@ -41,6 +45,25 @@
         {
           "text": "Passer son chemin.",
           "next": "fin"
+        }
+      ]
+    },
+    "mur-rien": {
+      "text": "Suie, briques, suie. Ta main glisse sur le mur sans rien accrocher. Si un passage existe, il ne se montre pas aujourd’hui.",
+      "options": [
+        {
+          "text": "Revenir au mur.",
+          "next": "mur"
+        },
+        {
+          "text": "Passer son chemin.",
+          "next": "fin"
+        }
+      ],
+      "effects": [
+        {
+          "setFlagFor": "mur-rate",
+          "days": 1
         }
       ]
     },

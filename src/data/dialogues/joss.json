@@ -100,26 +100,62 @@
         {
           "text": "Je ne suis pas du Bureau. Dis-moi ce qui te tient.",
           "next": "aveu",
+          "roll": {
+            "skill": "diplomacy",
+            "difficulty": 12
+          },
+          "failNext": "soupcon-ferme",
           "requires": [
             {
-              "skill": "diplomacy",
-              "min": 3
+              "notFlag": "joss-ferme-parole"
             }
           ]
         },
         {
           "text": "Parle-moi, ou tu parleras au contrôleur.",
           "next": "aveu",
+          "roll": {
+            "skill": "command",
+            "difficulty": 12
+          },
+          "failNext": "soupcon-menace",
           "requires": [
             {
-              "skill": "command",
-              "min": 3
+              "notFlag": "joss-ferme-ordre"
             }
           ]
         },
         {
           "text": "Je reviendrai.",
           "next": "fin"
+        }
+      ]
+    },
+    "soupcon-menace": {
+      "text": "Joss rit, d’un rire sec. — Le contrôleur ? Il dîne chez Varka le jeudi. Va le chercher, toi.",
+      "options": [
+        {
+          "text": "Je reviendrai.",
+          "next": "fin"
+        }
+      ],
+      "effects": [
+        {
+          "setFlag": "joss-ferme-ordre"
+        }
+      ]
+    },
+    "soupcon-ferme": {
+      "text": "— Tous ceux qui ne sont pas du Bureau disent ça. Joss lève sa lanterne entre vous deux. — Va-t’en.",
+      "options": [
+        {
+          "text": "Je reviendrai.",
+          "next": "fin"
+        }
+      ],
+      "effects": [
+        {
+          "setFlag": "joss-ferme-parole"
         }
       ]
     },
@@ -167,20 +203,38 @@
       "options": [
         {
           "text": "Je peux te donner de quoi dormir.",
+          "next": "sommeil",
+          "roll": {
+            "skill": "medicine",
+            "difficulty": 12
+          },
+          "failNext": "sommeil-rate",
           "requires": [
             {
-              "skill": "medicine",
-              "min": 3
+              "notFlag": "joss-sommeil"
             },
             {
-              "notFlag": "joss-sommeil"
+              "notFlag": "joss-sommeil-rate"
             }
-          ],
-          "next": "sommeil"
+          ]
         },
         {
           "text": "Merci, Joss.",
           "next": "fin"
+        }
+      ]
+    },
+    "sommeil-rate": {
+      "text": "Tu lui décris les herbes, les doses, l’heure. Il t’écoute à peine. — Ce qui m’empêche de dormir ne s’avale pas.",
+      "options": [
+        {
+          "text": "Merci, Joss.",
+          "next": "fin"
+        }
+      ],
+      "effects": [
+        {
+          "setFlag": "joss-sommeil-rate"
         }
       ]
     },

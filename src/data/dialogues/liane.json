@@ -75,20 +75,38 @@
       "options": [
         {
           "text": "Laisse-moi voir tes malades.",
+          "next": "malades",
+          "roll": {
+            "skill": "medicine",
+            "difficulty": 10
+          },
+          "failNext": "malades-rate",
           "requires": [
             {
-              "skill": "medicine",
-              "min": 2
+              "notFlag": "liane-malades-vus"
             },
             {
-              "notFlag": "liane-malades-vus"
+              "notFlag": "liane-malades-rate"
             }
-          ],
-          "next": "malades"
+          ]
         },
         {
           "text": "J’y retourne.",
           "next": "fin"
+        }
+      ]
+    },
+    "malades-rate": {
+      "text": "La vieille Brune te prend pour sa fille, puis ne te reconnaît plus. Tu prends le pouls, tu regardes les yeux : rien que tu saches lire. Liane : — Personne ne trouve. C’est ce qui me rend folle.",
+      "options": [
+        {
+          "text": "Je reviendrai.",
+          "next": "fin"
+        }
+      ],
+      "effects": [
+        {
+          "setFlag": "liane-malades-rate"
         }
       ]
     },
@@ -131,16 +149,20 @@
         },
         {
           "text": "Laisse-moi voir tes malades.",
+          "next": "malades",
+          "roll": {
+            "skill": "medicine",
+            "difficulty": 10
+          },
+          "failNext": "malades-rate",
           "requires": [
             {
-              "skill": "medicine",
-              "min": 2
+              "notFlag": "liane-malades-vus"
             },
             {
-              "notFlag": "liane-malades-vus"
+              "notFlag": "liane-malades-rate"
             }
-          ],
-          "next": "malades"
+          ]
         },
         {
           "text": "…",

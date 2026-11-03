@@ -165,27 +165,71 @@
         },
         {
           "text": "« On ne cache rien », dites-vous. Alors ne me cachez pas cette page.",
+          "next": "convaincu",
+          "roll": {
+            "skill": "diplomacy",
+            "difficulty": 14
+          },
+          "failNext": "demande-parole",
           "requires": [
             {
-              "skill": "diplomacy",
-              "min": 4
+              "notFlag": "ambroise-parole-refusee"
             }
-          ],
-          "next": "convaincu"
+          ]
         },
         {
           "text": "Une provenance n’est pas une vérité. Je ne la citerai pas : je la lirai.",
+          "next": "convaincu",
+          "roll": {
+            "skill": "lore",
+            "difficulty": 14
+          },
+          "failNext": "demande-savoir",
           "requires": [
             {
-              "skill": "lore",
-              "min": 4
+              "notFlag": "ambroise-savoir-refuse"
             }
-          ],
-          "next": "convaincu"
+          ]
         },
         {
           "text": "Je reviendrai.",
           "next": "fin"
+        }
+      ]
+    },
+    "demande-savoir": {
+      "text": "— Lire sans citer. Ambroise pose sa plume. — Tout le monde le promet ; personne ne le tient, une fois la page en tête. Vous n’êtes pas encore ce lecteur-là.",
+      "options": [
+        {
+          "text": "Autre chose.",
+          "next": "demande"
+        },
+        {
+          "text": "Je reviendrai.",
+          "next": "fin"
+        }
+      ],
+      "effects": [
+        {
+          "setFlag": "ambroise-savoir-refuse"
+        }
+      ]
+    },
+    "demande-parole": {
+      "text": "— Joli retournement. Ambroise sourit. — Je l’ai entendu cent fois, et chaque fois de quelqu’un qui voulait citer. Non.",
+      "options": [
+        {
+          "text": "Autre chose.",
+          "next": "demande"
+        },
+        {
+          "text": "Je reviendrai.",
+          "next": "fin"
+        }
+      ],
+      "effects": [
+        {
+          "setFlag": "ambroise-parole-refusee"
         }
       ]
     },

@@ -49,13 +49,17 @@
         },
         {
           "text": "Toquer sur les branches, pour trouver celle qui chante.",
+          "next": "chantante",
+          "roll": {
+            "skill": "crafting",
+            "difficulty": 11
+          },
+          "failNext": "branche-sourde",
           "requires": [
             {
-              "skill": "crafting",
-              "min": 2
+              "notFlag": "branche-sourde"
             }
           ],
-          "next": "chantante",
           "effects": [
             {
               "giveItem": "branche-anselme"
@@ -75,6 +79,24 @@
         {
           "text": "Partir.",
           "next": "fin"
+        }
+      ]
+    },
+    "branche-sourde": {
+      "text": "Tu toques, branche après branche. Elles sonnent toutes pareil, sèches et sourdes. Celle qui chante, si elle existe, se tait pour toi.",
+      "options": [
+        {
+          "text": "Revenir au jeune arbre.",
+          "next": "arbre-quete"
+        },
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ],
+      "effects": [
+        {
+          "setFlag": "branche-sourde"
         }
       ]
     },

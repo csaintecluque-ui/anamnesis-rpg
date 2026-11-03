@@ -125,13 +125,19 @@ describe('Sept-Portes maps', () => {
 });
 
 describe('« Les Mémoires du Monde Perdu »', () => {
-  it('the word: Ambroise convinced by Diplomatie, Érudition or the Récit of Kael', () => {
+  it('the word: Ambroise convinced by a Diplomatie or an Érudition roll (each once), or the Récit of Kael', () => {
     const state = arrive({ diplomacy: 0, lore: 0 });
     toRegister(state);
     say(state, 'ambroise', 'edda-demande', 'Et si c’est moi');
     const views = visibleOptions(DIALOGUES.ambroise.nodes.demande, state);
-    expect(views.map((v) => v.enabled)).toEqual([false, false, true]);
+    expect(views.map((v) => v.option.roll?.skill ?? null)).toEqual(['diplomacy', 'lore', null]);
+    expect(views.map((v) => v.option.roll?.difficulty ?? null)).toEqual([14, 14, null]);
     expect(views.map((v) => v.option.text)).toEqual([expect.stringMatching(/^« On ne cache rien/), expect.stringMatching(/^Une provenance/), 'Je reviendrai.']);
+    // A failed argument is not made twice.
+    const failed = DIALOGUES.ambroise.nodes[views[0].option.failNext!];
+    expect(failed.effects).toContainEqual({ setFlag: 'ambroise-parole-refusee' });
+    applyEffects(state, failed.effects);
+    expect(optionTexts(state, 'ambroise', 'demande')).toHaveLength(2);
     state.character!.recits.push('kael-chroniqueur');
     expect(optionTexts(state, 'ambroise', 'demande')[0]).toMatch(/^Kael a bâti/);
     say(state, 'ambroise', 'demande', 'Kael a bâti');

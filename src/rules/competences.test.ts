@@ -4,7 +4,7 @@ import { MAPS } from '../data/maps';
 import { parseTiledMap } from '../engine/tiledMap';
 import { createNewGame } from '../state/gameState';
 import type { SkillId } from './attributes';
-import { startNode, visibleOptions, type DialogueOption } from './dialogue';
+import { rollChance, startNode, visibleOptions, type DialogueOption } from './dialogue';
 import { choose, optionTexts, testCharacter } from './questTestKit';
 import { RENCONTRES } from './world';
 
@@ -103,10 +103,12 @@ describe('Médecine at the Gare', () => {
     expect(startNode(DIALOGUES.ilyane, state)).toBe('pell-vivant');
   });
 
-  it('without it, the hero goes back into the fire for nothing, or runs: Pell dies', () => {
+  it('a Médecine roll: without it, little chance; failed, Pell dies in the hero’s hands (étude, D1)', () => {
     const state = blowUp(0);
     const save = visibleOptions(DIALOGUES.foreuse.nodes.chaudiere, state).find((v) => v.option.text.startsWith('Revenir dans le feu :'))!;
-    expect(save.enabled).toBe(false);
+    expect(save.option.roll?.skill).toBe('medicine');
+    expect(rollChance(state, save.option.roll!)).toBeLessThan(rollChance(blowUp(3), save.option.roll!));
+    expect(DIALOGUES.foreuse.nodes[save.option.failNext!].effects ?? []).not.toContainEqual({ setFlag: 'pell-sauve' });
     expect(optionTexts(state, 'foreuse', 'chaudiere')).toHaveLength(3);
     choose(state, 'foreuse', 'chaudiere', 'Revenir dans le feu.');
     expect(state.flags['pell-sauve']).toBeUndefined();

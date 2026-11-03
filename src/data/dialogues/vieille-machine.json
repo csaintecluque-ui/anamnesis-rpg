@@ -22,13 +22,18 @@
         },
         {
           "text": "Ouvrir le capot.",
+          "next": "capot",
+          "roll": {
+            "skill": "crafting",
+            "difficulty": 12
+          },
+          "failNext": "capot-coince",
           "requires": [
             {
-              "skill": "crafting",
-              "min": 3
+              "notFlag": "capot-vu"
             },
             {
-              "notFlag": "capot-vu"
+              "notFlag": "capot-rate"
             }
           ],
           "effects": [
@@ -38,12 +43,30 @@
             {
               "giveXp": 10
             }
-          ],
-          "next": "capot"
+          ]
         },
         {
           "text": "Partir.",
           "next": "fin"
+        }
+      ]
+    },
+    "capot-coince": {
+      "text": "Le capot tient par trois boulons soudés de rouille. Tu forces ; ton outil cède avant eux.",
+      "options": [
+        {
+          "text": "Revenir à la machine.",
+          "next": "machine"
+        },
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ],
+      "effects": [
+        {
+          "setFlagFor": "capot-rate",
+          "days": 1
         }
       ]
     },

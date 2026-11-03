@@ -16,17 +16,40 @@
         },
         {
           "text": "Lire les traces.",
+          "next": "traces",
+          "roll": {
+            "skill": "survival",
+            "difficulty": 11
+          },
+          "failNext": "traces-perdues",
           "requires": [
             {
-              "skill": "survival",
-              "min": 2
+              "notFlag": "traces-lettres-perdues"
             }
-          ],
-          "next": "traces"
+          ]
         },
         {
           "text": "Laisser les lettres.",
           "next": "fin"
+        }
+      ]
+    },
+    "traces-perdues": {
+      "text": "Les traces se mêlent à celles des cerfs, puis disparaissent sous la mousse. Tu les perds.",
+      "options": [
+        {
+          "text": "Ramasser les lettres.",
+          "next": "ramassees"
+        },
+        {
+          "text": "Laisser les lettres.",
+          "next": "fin"
+        }
+      ],
+      "effects": [
+        {
+          "setFlagFor": "traces-lettres-perdues",
+          "days": 1
         }
       ]
     },

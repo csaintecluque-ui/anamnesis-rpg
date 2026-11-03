@@ -47,29 +47,37 @@
       "options": [
         {
           "text": "Examiner le mécanisme.",
+          "next": "goupille",
+          "roll": {
+            "skill": "investigation",
+            "difficulty": 12
+          },
+          "failNext": "mecanisme-rien",
           "requires": [
             {
               "notFlag": "indice-aiguillage"
             },
             {
-              "skill": "investigation",
-              "min": 3
+              "notFlag": "mecanisme-rate"
             }
-          ],
-          "next": "goupille"
+          ]
         },
         {
           "text": "Démonter le carter.",
+          "next": "goupille",
+          "roll": {
+            "skill": "crafting",
+            "difficulty": 12
+          },
+          "failNext": "carter-coince",
           "requires": [
             {
               "notFlag": "indice-aiguillage"
             },
             {
-              "skill": "crafting",
-              "min": 3
+              "notFlag": "carter-rate"
             }
-          ],
-          "next": "goupille"
+          ]
         },
         {
           "text": "Attendre la nuit, caché près du levier.",
@@ -91,6 +99,44 @@
         {
           "text": "Laisser le levier.",
           "next": "fin"
+        }
+      ]
+    },
+    "carter-coince": {
+      "text": "Les vis sont rondes d’usure ; ta lame ripe, et le carter ne bouge pas d’un doigt. Il te faudrait de meilleurs outils, ou un autre jour.",
+      "options": [
+        {
+          "text": "Revenir au levier.",
+          "next": "levier-quete"
+        },
+        {
+          "text": "Laisser le levier.",
+          "next": "fin"
+        }
+      ],
+      "effects": [
+        {
+          "setFlagFor": "carter-rate",
+          "days": 1
+        }
+      ]
+    },
+    "mecanisme-rien": {
+      "text": "Ressorts, tringles, une goupille couverte de graisse noire. Tout a l’air en ordre, et c’est peut-être ce qui cloche. Tu n’arrives pas à dire pourquoi, pas aujourd’hui.",
+      "options": [
+        {
+          "text": "Revenir au levier.",
+          "next": "levier-quete"
+        },
+        {
+          "text": "Laisser le levier.",
+          "next": "fin"
+        }
+      ],
+      "effects": [
+        {
+          "setFlagFor": "mecanisme-rate",
+          "days": 1
         }
       ]
     },

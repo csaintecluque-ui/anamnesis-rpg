@@ -256,13 +256,12 @@
       "options": [
         {
           "text": "Revenir dans le feu : le tirer de là, serrer ses brûlures.",
-          "requires": [
-            {
-              "skill": "medicine",
-              "min": 3
-            }
-          ],
           "next": "pell-sauve",
+          "roll": {
+            "skill": "medicine",
+            "difficulty": 12
+          },
+          "failNext": "pell-rate",
           "effects": [
             {
               "setFlag": "pell-sauve"
@@ -283,6 +282,16 @@
         {
           "text": "Courir, sans te retourner.",
           "next": "pell-mort"
+        }
+      ]
+    },
+    "pell-rate": {
+      "text": "Tu le tires hors des flammes, tu serres, tu refroidis, tout ce que tu sais. Ça ne suffit pas : la brûlure est trop large. Il meurt avant l’aube, une main dans la tienne.",
+      "night": true,
+      "options": [
+        {
+          "text": "Attendre le jour.",
+          "next": "fin"
         }
       ]
     },

@@ -40,13 +40,12 @@
         },
         {
           "text": "Noter les vers, un à un, sans en perdre un mot.",
-          "requires": [
-            {
-              "skill": "lore",
-              "min": 2
-            }
-          ],
-          "next": "retenue"
+          "next": "retenue",
+          "roll": {
+            "skill": "lore",
+            "difficulty": 10
+          },
+          "failNext": "echappe"
         },
         {
           "text": "Écouter encore, et encore.",

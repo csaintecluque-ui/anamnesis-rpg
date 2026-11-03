@@ -66,12 +66,13 @@ describe('L’audience', () => {
     expect(goesTo(enter.effects)).toEqual({ location: 'canopee-amphitheatre', arrivee: 'entree' });
   });
 
-  it('opens without the letter for a known name, Diplomatie 3, or a lie that may cost', () => {
+  it('opens without the letter for a known name, a Diplomatie roll (failed: try again tomorrow), or a lie that may cost', () => {
     const state = afterGardebois(createNewGame(testCharacter({}, { diplomacy: 2 })));
     expect(startNode(DIALOGUES.huissier, state)).toBe('nouvelles');
     const views = visibleOptions(DIALOGUES.huissier.nodes.nouvelles, state);
     expect(views[0].enabled).toBe(false);
-    expect(views[1].enabled).toBe(false);
+    expect(views[1].option.roll).toEqual({ skill: 'diplomacy', difficulty: 13 });
+    expect(DIALOGUES.huissier.nodes[views[1].option.failNext!].effects).toContainEqual({ setFlagFor: 'huissier-liste', days: 1 });
     expect(views[2].option.roll).toEqual({ skill: 'subterfuge', difficulty: 13 });
     expect(views[2].option.failNext).toBe('menteur');
     const before = reputationScore(state, 'canopee');
@@ -149,7 +150,9 @@ describe('L’audience', () => {
   it('offers four ways past the digger: talk, command, a lie, or a fight', () => {
     const state = createNewGame(testCharacter());
     const opts = DIALOGUES.garrik.nodes.rencontre.options;
-    expect(opts[1].requires).toEqual([{ skill: 'command', min: 2 }]);
+    // Commandement, a roll (étude, D1): failed, Garrik raises his pick, and one fights or steps back.
+    expect(opts[1].roll).toEqual({ skill: 'command', difficulty: 11 });
+    expect(DIALOGUES.garrik.nodes[opts[1].failNext!].options.map((o) => startsCombat(o.effects))).toEqual(['fouilleur-sol', null]);
     expect(opts[2].roll).toEqual({ skill: 'subterfuge', difficulty: 12 });
     expect(startsCombat(DIALOGUES.garrik.nodes.defensif.options[1].effects)).toBe('fouilleur-sol');
     expect(startsCombat(DIALOGUES.garrik.nodes.demasque.options[1].effects)).toBe('fouilleur-sol');

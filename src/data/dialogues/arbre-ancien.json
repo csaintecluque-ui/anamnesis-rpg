@@ -120,13 +120,17 @@
         {
           "text": "Examiner le pied de l’arbre.",
           "next": "seve",
+          "roll": {
+            "skill": "investigation",
+            "difficulty": 11
+          },
+          "failNext": "pied-rien",
           "requires": [
             {
-              "skill": "investigation",
-              "min": 2
+              "notFlag": "piste-racines"
             },
             {
-              "notFlag": "piste-racines"
+              "notFlag": "pied-arbre-rate"
             }
           ],
           "effects": [
@@ -154,6 +158,25 @@
         {
           "text": "Partir.",
           "next": "fin"
+        }
+      ]
+    },
+    "pied-rien": {
+      "text": "Tu fouilles la mousse au pied de l’arbre. De la terre, des racines, un scarabée qui s’enfuit. Rien qui parle, aujourd’hui.",
+      "options": [
+        {
+          "text": "Revenir à l’arbre.",
+          "next": "silence"
+        },
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ],
+      "effects": [
+        {
+          "setFlagFor": "pied-arbre-rate",
+          "days": 1
         }
       ]
     },

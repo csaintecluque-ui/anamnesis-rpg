@@ -116,10 +116,14 @@
         {
           "text": "Si ce chantier rend le marché malade, tes clients partiront. M’aider, c’est aider tes affaires.",
           "next": "convaincu",
+          "roll": {
+            "skill": "diplomacy",
+            "difficulty": 10
+          },
+          "failNext": "prix-sourire",
           "requires": [
             {
-              "skill": "diplomacy",
-              "min": 2
+              "notFlag": "tobias-sourire"
             }
           ],
           "effects": [
@@ -136,8 +140,48 @@
           "next": "prix"
         },
         {
+          "text": "Trente-cinq Fers, tu avais dit.",
+          "next": "prix-sourire",
+          "requires": [
+            {
+              "flag": "tobias-sourire"
+            }
+          ]
+        },
+        {
           "text": "Je trouverai un autre moyen.",
           "next": "fin"
+        }
+      ]
+    },
+    "prix-sourire": {
+      "text": "Tobias rit, franchement. — Joli. Tu as presque la voix de ma sœur. Pas tout à fait. Trente-cinq Fers, pour le sourire, et pas un de moins.",
+      "options": [
+        {
+          "text": "Payer trente-cinq Fers.",
+          "next": "achete",
+          "requires": [
+            {
+              "fers": 35
+            }
+          ],
+          "effects": [
+            {
+              "giveFers": -35
+            },
+            {
+              "setFlag": "laissez-passer"
+            }
+          ]
+        },
+        {
+          "text": "Je reviendrai avec la somme.",
+          "next": "fin"
+        }
+      ],
+      "effects": [
+        {
+          "setFlag": "tobias-sourire"
         }
       ]
     },

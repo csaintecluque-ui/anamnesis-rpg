@@ -32,13 +32,17 @@
         },
         {
           "text": "L’attirer plus loin avec une poignée de baies.",
+          "next": "eloigne",
+          "roll": {
+            "skill": "survival",
+            "difficulty": 11
+          },
+          "failNext": "baies-rate",
           "requires": [
             {
-              "skill": "survival",
-              "min": 2
+              "notFlag": "ours-baies-rate"
             }
-          ],
-          "next": "eloigne"
+          ]
         },
         {
           "text": "Le réveiller et l’affronter.",
@@ -52,6 +56,29 @@
         {
           "text": "Reculer sans bruit.",
           "next": "fin"
+        }
+      ]
+    },
+    "baies-rate": {
+      "text": "L’ours renifle les baies, ouvre un œil, puis l’autre. Il se lève, et il est plus grand debout.",
+      "options": [
+        {
+          "text": "Se défendre.",
+          "next": "fin",
+          "effects": [
+            {
+              "startCombat": "ours-sacoche"
+            }
+          ]
+        },
+        {
+          "text": "Reculer sans bruit.",
+          "next": "fin"
+        }
+      ],
+      "effects": [
+        {
+          "setFlag": "ours-baies-rate"
         }
       ]
     },

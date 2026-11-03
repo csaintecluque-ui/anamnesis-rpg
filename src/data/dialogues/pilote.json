@@ -44,16 +44,34 @@
         {
           "text": "Se souvenir de ce qu’on raconte du Chantier Ouest.",
           "next": "chantier",
+          "roll": {
+            "skill": "lore",
+            "difficulty": 12
+          },
+          "failNext": "chantier-oublie",
           "requires": [
             {
-              "skill": "lore",
-              "min": 3
+              "notFlag": "chantier-ouest-oublie"
             }
           ]
         },
         {
           "text": "S’éloigner.",
           "next": "fin"
+        }
+      ]
+    },
+    "chantier-oublie": {
+      "text": "Tu as lu ce nom quelque part, dans un livre des Gardiens. La page, elle, t’échappe.",
+      "options": [
+        {
+          "text": "S’éloigner.",
+          "next": "fin"
+        }
+      ],
+      "effects": [
+        {
+          "setFlag": "chantier-ouest-oublie"
         }
       ]
     },

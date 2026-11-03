@@ -91,13 +91,12 @@ describe('Le chant d’Anselme', () => {
     expect(state.quests['chant-anselme']).toBe('done');
   });
 
-  it('rewards Artisanat 2 with the branch that already sings', () => {
+  it('rewards an Artisanat roll with the branch that already sings; failed, the branches stay mute', () => {
     const state = createNewGame(testCharacter({}, { crafting: 1 }));
     state.quests['chant-anselme'] = 'active';
     const knock = () => visibleOptions(DIALOGUES['arbre-retour-anselme'].nodes['arbre-quete'], state)[1];
-    expect(knock().enabled).toBe(false);
-    state.character!.skills.crafting = 2;
-    expect(knock().enabled).toBe(true);
+    expect(knock().option.roll).toEqual({ skill: 'crafting', difficulty: 11 });
+    expect(knock().option.failNext).toBe('branche-sourde');
     const xp = state.character!.xp;
     choose(state, 'arbre-retour-anselme', 'arbre-quete', 'Toquer');
     expect(state.character!.xp - xp).toBe(10);

@@ -71,3 +71,30 @@ un jet sur quatre à 16 : au chapitre 5, les épreuves de sa spécialité seront
 
 L'artisanat (`docs/gdd/artisanat.md`) demande la compétence : Artisanat 1 à 4 à la forge, Médecine 1 à 3 aux herbes.
 Sans elle, Ragna ou Sévane font le travail, pour le double des Fers (bouton « Faire forger », « Faire préparer »).
+
+## Étude du 3 novembre : la compétence modifie le dé (D1 ; décision de Cyril : seuils pour les attributs, jet pour les compétences)
+
+Avant, un test de compétence dans un dialogue était une porte : « il te faut Diplomatie 3 » ; la fiche décidait seule,
+et l'on ne ratait jamais rien. Désormais **toute compétence se joue au dé** ; seuls les **attributs** (Mémoire,
+Perception…) restent des seuils : ils disent qui est le héros, pas ce qu'il tente.
+
+- **Les 45 seuils de compétence sont devenus des jets** (`roll` + `failNext`), même formule qu'avant :
+  d20 + modificateur d'attribut + rang (+ souvenir − emprise − manque) ≥ difficulté ; 20 réussit, 1 échoue.
+- **La difficulté suit la courbe du chantier 2** (et non la table de l'étude, plus dure au chapitre 1) : le seuil le
+  plus bas du chapitre donne son jet le plus facile. Chapitre 1 : seuil 2 → 10, 3 → 12. Chapitre 2 : 2 → 11, 3 → 13.
+  Chapitre 3 : 3 → 12, 4 → 14. Chapitre 4 : 3 → 13, 4 → 14, 5 → 15. Un héros qui avait juste le seuil réussit 55 à
+  65 % ; deux points de plus, 65 à 75 % ; un héros sans la compétence, 30 à 50 %.
+- **L'échec mène quelque part**, chaque fois écrit (`docs/DIALOGUES.md`) :
+  - **une parole ratée ne se répète pas** : un repère (`ingrid-braquee`, `garrik-ferme`, `veilleuse-mefiante`…) retire
+    l'option ; il reste les autres voies (une preuve, un Récit, la ruse, le combat) ;
+  - **un examen raté se retente le lendemain** (traces, outils, rangées, mur, mécanisme, et la liste de l'huissier
+    du Conseil) : repère d'un jour (`setFlagFor`), pour ne jamais fermer une quête ;
+  - **l'échec qui coûte ou qui change la scène** : Tobias rit et fait le laissez-passer à 35 Fers au lieu de 50 ;
+    Garrik lève sa pioche (combat ou recul) ; l'ours se réveille ; Pell meurt malgré tes soins ; le patrouilleur serre
+    le poignet (vingt Fers ou le poste).
+  - Exception : la berceuse de Maëlis se retente (rien d'autre en jeu qu'une chanson).
+- **Le jet se lit avant de choisir** : « [Diplomatie 55 %] » sur l'option, le détail au survol (« Jet : un d20 + 1
+  (Diplomatie) contre 14. Chances : 40 % »), le résultat écrit après coup ; la fiche de personnage (journal) donne le
+  bonus de chaque compétence et sa chance sur un test normal.
+- **Garde-fous** (`dialogue.test.ts`) : plus aucun seuil de compétence ; chaque jet a une suite d'échec différente de
+  sa réussite ; la courbe par chapitre (`competences.test.ts`) tient toujours.

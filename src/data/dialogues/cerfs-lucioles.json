@@ -32,13 +32,12 @@
         },
         {
           "text": "Les suivre sans un bruit.",
-          "requires": [
-            {
-              "skill": "survival",
-              "min": 2
-            }
-          ],
           "next": "suivre",
+          "roll": {
+            "skill": "survival",
+            "difficulty": 11
+          },
+          "failNext": "suivre-rate",
           "effects": [
             {
               "setFlag": "rencontre-cerfs-vus"
@@ -53,13 +52,12 @@
         },
         {
           "text": "Retirer la flèche, doucement.",
-          "requires": [
-            {
-              "skill": "medicine",
-              "min": 2
-            }
-          ],
           "next": "fleche",
+          "roll": {
+            "skill": "medicine",
+            "difficulty": 11
+          },
+          "failNext": "fleche-rate",
           "effects": [
             {
               "setFlag": "rencontre-cerfs-vus"
@@ -71,6 +69,34 @@
         },
         {
           "text": "Les laisser passer.",
+          "next": "fin"
+        }
+      ]
+    },
+    "fleche-rate": {
+      "text": "Le cerf se cabre au premier contact. La flèche casse net dans la plaie, et la harde s’enfuit avec lui, ses bois éteints.",
+      "effects": [
+        {
+          "setFlag": "rencontre-cerfs-vus"
+        }
+      ],
+      "options": [
+        {
+          "text": "Reprendre la route.",
+          "next": "fin"
+        }
+      ]
+    },
+    "suivre-rate": {
+      "text": "Une branche craque sous ton pied. Tous les bois s’éteignent ensemble, et la clairière est vide.",
+      "effects": [
+        {
+          "setFlag": "rencontre-cerfs-vus"
+        }
+      ],
+      "options": [
+        {
+          "text": "Reprendre la route.",
           "next": "fin"
         }
       ]

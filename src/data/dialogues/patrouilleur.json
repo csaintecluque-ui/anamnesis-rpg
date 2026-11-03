@@ -271,17 +271,49 @@
         },
         {
           "text": "Lâche ce poignet. Tu n’as rien vu.",
+          "next": "rouille-ordre",
+          "roll": {
+            "skill": "command",
+            "difficulty": 14
+          },
+          "failNext": "rouille-ordre-rate",
           "requires": [
             {
-              "skill": "command",
-              "min": 4
+              "notFlag": "patrouilleur-defie"
             }
-          ],
-          "next": "rouille-ordre"
+          ]
         },
         {
           "text": "Je n’ai rien à cacher.",
           "next": "rouille-cellule"
+        }
+      ]
+    },
+    "rouille-ordre-rate": {
+      "text": "Il ne lâche pas. Il serre. — Rien vu ? J’ai vu un porteur de cristal donner des ordres à une patrouille. Ça aussi, ça s’écrit.",
+      "options": [
+        {
+          "text": "Lui glisser vingt Fers.",
+          "next": "rouille-payee",
+          "requires": [
+            {
+              "fers": 20
+            }
+          ],
+          "effects": [
+            {
+              "giveFers": -20
+            }
+          ]
+        },
+        {
+          "text": "Je n’ai rien à cacher.",
+          "next": "rouille-cellule"
+        }
+      ],
+      "effects": [
+        {
+          "setFlag": "patrouilleur-defie"
         }
       ]
     },

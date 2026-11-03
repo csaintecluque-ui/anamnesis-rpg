@@ -18,10 +18,14 @@
         {
           "text": "Examiner les marques.",
           "next": "marques",
+          "roll": {
+            "skill": "investigation",
+            "difficulty": 12
+          },
+          "failNext": "marques-rien",
           "requires": [
             {
-              "skill": "investigation",
-              "min": 3
+              "notFlag": "marques-rate"
             }
           ]
         },
@@ -37,6 +41,25 @@
         {
           "text": "Partir.",
           "next": "fin"
+        }
+      ]
+    },
+    "marques-rien": {
+      "text": "Cinq mains, des doigts écartés, de la suie dans les creux. Tu les regardes longtemps, et l’Écho ne revient pas. Pas aujourd’hui.",
+      "options": [
+        {
+          "text": "Revenir à l’enclume.",
+          "next": "enclume"
+        },
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ],
+      "effects": [
+        {
+          "setFlagFor": "marques-rate",
+          "days": 1
         }
       ]
     },

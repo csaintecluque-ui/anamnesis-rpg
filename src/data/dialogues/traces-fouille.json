@@ -16,13 +16,17 @@
         },
         {
           "text": "Examiner les outils.",
+          "next": "outils",
+          "roll": {
+            "skill": "investigation",
+            "difficulty": 11
+          },
+          "failNext": "outils-rien",
           "requires": [
             {
-              "skill": "investigation",
-              "min": 2
+              "notFlag": "outils-rate"
             }
-          ],
-          "next": "outils"
+          ]
         },
         {
           "text": "Éclairer le fond du trou d’un cristal.",
@@ -36,6 +40,25 @@
         {
           "text": "Partir.",
           "next": "fin"
+        }
+      ]
+    },
+    "outils-rien": {
+      "text": "Des pelles, une pioche, une lanterne éteinte. De Ferros, sans doute. Rien de plus, pour aujourd’hui.",
+      "options": [
+        {
+          "text": "Regarder au fond.",
+          "next": "fond"
+        },
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ],
+      "effects": [
+        {
+          "setFlagFor": "outils-rate",
+          "days": 1
         }
       ]
     },

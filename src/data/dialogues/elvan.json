@@ -148,10 +148,14 @@
         {
           "text": "Rapporte-les toi-même au grenier, et la Compagnie gardera son honneur.",
           "next": "rend",
+          "roll": {
+            "skill": "diplomacy",
+            "difficulty": 13
+          },
+          "failNext": "aveu-refus",
           "requires": [
             {
-              "skill": "diplomacy",
-              "min": 3
+              "notFlag": "elvan-refuse"
             }
           ],
           "effects": [
@@ -208,6 +212,24 @@
       "effects": [
         {
           "setFlag": "graines-elvan-avoue"
+        }
+      ]
+    },
+    "aveu-refus": {
+      "text": "Elvan secoue la tête. — Entrer au grenier avec le ballot, pour qu’on me voie ? Non. Choisis : tu parles au Conseil, ou tu prends ta part.",
+      "options": [
+        {
+          "text": "Alors je choisis.",
+          "next": "aveu"
+        },
+        {
+          "text": "Laisse-moi réfléchir.",
+          "next": "fin"
+        }
+      ],
+      "effects": [
+        {
+          "setFlag": "elvan-refuse"
         }
       ]
     },

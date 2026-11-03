@@ -62,20 +62,38 @@
       "options": [
         {
           "text": "Montre-moi. Et respire.",
+          "next": "ausculte",
+          "roll": {
+            "skill": "medicine",
+            "difficulty": 12
+          },
+          "failNext": "ausculte-rate",
           "requires": [
             {
-              "skill": "medicine",
-              "min": 3
+              "notFlag": "tam-ausculte"
             },
             {
-              "notFlag": "tam-ausculte"
+              "notFlag": "tam-ausculte-rate"
             }
-          ],
-          "next": "ausculte"
+          ]
         },
         {
           "text": "Bonne journée.",
           "next": "fin"
+        }
+      ]
+    },
+    "ausculte-rate": {
+      "text": "Tam respire, tu écoutes. Ça siffle, ça grince, ça racle, et tu ne sais pas lire ce bruit-là. — Pas grave, dit-il. Personne ne sait.",
+      "options": [
+        {
+          "text": "Bonne journée.",
+          "next": "fin"
+        }
+      ],
+      "effects": [
+        {
+          "setFlag": "tam-ausculte-rate"
         }
       ]
     },

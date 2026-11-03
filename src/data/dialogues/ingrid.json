@@ -140,31 +140,39 @@
       "options": [
         {
           "text": "Arrêtez le forage : à chaque coup, l’Écho se multiplie, et le mal avec lui.",
+          "next": "resiste",
+          "roll": {
+            "skill": "diplomacy",
+            "difficulty": 12
+          },
+          "failNext": "cause-braquee",
           "requires": [
-            {
-              "skill": "diplomacy",
-              "min": 3
-            },
             {
               "quest": "dernier-train",
               "status": "active"
+            },
+            {
+              "notFlag": "ingrid-braquee"
             }
-          ],
-          "next": "resiste"
+          ]
         },
         {
           "text": "Je parle au nom des Gardiens de Mémoire : cessez, maintenant.",
+          "next": "resiste-ordre",
+          "roll": {
+            "skill": "command",
+            "difficulty": 12
+          },
+          "failNext": "ordre-rire",
           "requires": [
-            {
-              "skill": "command",
-              "min": 3
-            },
             {
               "quest": "dernier-train",
               "status": "active"
+            },
+            {
+              "notFlag": "ingrid-moquee"
             }
-          ],
-          "next": "resiste-ordre"
+          ]
         },
         {
           "text": "Lui raconter une histoire.",
@@ -186,6 +194,42 @@
         {
           "text": "Je reviendrai.",
           "next": "fin"
+        }
+      ]
+    },
+    "ordre-rire": {
+      "text": "Ingrid rit, et deux ouvriers rient avec elle. — Cessez ? Vous avez quel âge ? Allez jouer ailleurs, apprenti·e. Les Gardiens écoutent ; ils ne commandent pas.",
+      "options": [
+        {
+          "text": "Autre chose, alors.",
+          "next": "cause"
+        },
+        {
+          "text": "Je reviendrai.",
+          "next": "fin"
+        }
+      ],
+      "effects": [
+        {
+          "setFlag": "ingrid-moquee"
+        }
+      ]
+    },
+    "cause-braquee": {
+      "text": "— Encore un Gardien qui prêche. Ingrid se détourne vers la foreuse. — Revenez avec autre chose qu’un sermon, ou ne revenez pas.",
+      "options": [
+        {
+          "text": "Autre chose, alors.",
+          "next": "cause"
+        },
+        {
+          "text": "Je reviendrai.",
+          "next": "fin"
+        }
+      ],
+      "effects": [
+        {
+          "setFlag": "ingrid-braquee"
         }
       ]
     },
@@ -401,13 +445,17 @@
       "options": [
         {
           "text": "Ils dorment, oui. Ils ne rêvent plus. Demandez-leur ce qu’ils ont fait hier.",
+          "next": "resiste-2",
+          "roll": {
+            "skill": "investigation",
+            "difficulty": 10
+          },
+          "failNext": "resiste-rate",
           "requires": [
             {
-              "skill": "investigation",
-              "min": 2
+              "notFlag": "ingrid-preuve-ratee"
             }
-          ],
-          "next": "resiste-2"
+          ]
         },
         {
           "text": "Les malades de Liane, à Gardebois : venez les entendre une nuit.",
@@ -433,18 +481,40 @@
         }
       ]
     },
+    "resiste-rate": {
+      "text": "Tu cherches les mots, et les ouvriers haussent les épaules. — Des ouvriers fatigués, dit Ingrid. Vous en avez d’autres, des preuves ?",
+      "options": [
+        {
+          "text": "Peut-être.",
+          "next": "resiste"
+        },
+        {
+          "text": "Pas encore.",
+          "next": "fin"
+        }
+      ],
+      "effects": [
+        {
+          "setFlag": "ingrid-preuve-ratee"
+        }
+      ]
+    },
     "resiste-2": {
       "text": "Ingrid regarde la foreuse un long moment. — Admettons. Et si j’arrête ? Ferros envoie un autre ingénieur dans un mois, sans mes scrupules, et il creusera deux fois plus vite.",
       "options": [
         {
           "text": "Alors écrivez à Ferros que la Faille est instable. Vous, ils vous croiront.",
+          "next": "convaincue",
+          "roll": {
+            "skill": "diplomacy",
+            "difficulty": 12
+          },
+          "failNext": "resiste-2-rate",
           "requires": [
             {
-              "skill": "diplomacy",
-              "min": 3
+              "notFlag": "ingrid-refuse-lettre"
             }
-          ],
-          "next": "convaincue"
+          ]
         },
         {
           "text": "Un mois de répit, c’est un mois de malades en moins.",
@@ -453,6 +523,24 @@
         {
           "text": "Je reviendrai.",
           "next": "fin"
+        }
+      ]
+    },
+    "resiste-2-rate": {
+      "text": "— Mentir à Ferros, sur votre parole ? Ingrid replie ses papiers. — Non. Si je dois perdre ma place, ce sera pour une raison que je comprends.",
+      "options": [
+        {
+          "text": "Un mois de répit, c’est un mois de malades en moins.",
+          "next": "resiste-mois"
+        },
+        {
+          "text": "Je reviendrai.",
+          "next": "fin"
+        }
+      ],
+      "effects": [
+        {
+          "setFlag": "ingrid-refuse-lettre"
         }
       ]
     },
@@ -470,17 +558,35 @@
       "options": [
         {
           "text": "Gardebois a une garde, et la frontière a des yeux. Je peux les tourner vers vous.",
+          "next": "convaincue-peur",
+          "roll": {
+            "skill": "command",
+            "difficulty": 12
+          },
+          "failNext": "ordre-defi",
           "requires": [
             {
-              "skill": "command",
-              "min": 3
+              "notFlag": "ingrid-defie"
             }
-          ],
-          "next": "convaincue-peur"
+          ]
         },
         {
           "text": "Je reviendrai.",
           "next": "fin"
+        }
+      ]
+    },
+    "ordre-defi": {
+      "text": "— Tournez-les. Ingrid ne cille pas. — J’ai des papiers de Ferros. Votre garde les lira, et elle saluera.",
+      "options": [
+        {
+          "text": "Je reviendrai.",
+          "next": "fin"
+        }
+      ],
+      "effects": [
+        {
+          "setFlag": "ingrid-defie"
         }
       ]
     },

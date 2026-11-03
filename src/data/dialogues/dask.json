@@ -59,10 +59,14 @@
         {
           "text": "Un Innovateur qui vous doit tout vous sera fidèle.",
           "next": "convaincu",
+          "roll": {
+            "skill": "diplomacy",
+            "difficulty": 12
+          },
+          "failNext": "dossier-refus",
           "requires": [
             {
-              "skill": "diplomacy",
-              "min": 3
+              "notFlag": "dask-refuse"
             }
           ],
           "effects": [
@@ -83,6 +87,24 @@
             "difficulty": 14
           },
           "failNext": "faux-bancal"
+        }
+      ]
+    },
+    "dossier-refus": {
+      "text": "Dask sourit sans lever la plume. — Fidèle ? Un Innovateur est fidèle à qui l’a fait monter, jusqu’au jour où il monte plus haut. Une raison, j’ai dit.",
+      "options": [
+        {
+          "text": "Autre chose.",
+          "next": "dossier"
+        },
+        {
+          "text": "Je reviendrai.",
+          "next": "fin"
+        }
+      ],
+      "effects": [
+        {
+          "setFlag": "dask-refuse"
         }
       ]
     },

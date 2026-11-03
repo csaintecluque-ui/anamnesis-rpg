@@ -42,7 +42,7 @@ describe('the tooltip of a dialogue option', () => {
     const [ruse] = visibleOptions(DIALOGUES['registre-consultations'].nodes.registre, state);
     expect(optionHint(ruse, state)).toMatch(/^Jet : un d20 [+−] \d+ \(Subterfuge\) contre 14\.\nChances : \d+ %/);
     const [diplomacy] = visibleOptions(DIALOGUES.ambroise.nodes.demande, state);
-    expect(optionHint(diplomacy, state)).toBe('Il faut Diplomatie 4 : tu as 1 (rang 1, Présence +0).');
+    expect(optionHint(diplomacy, state)).toMatch(/^Jet : un d20 \+ 1 \(Diplomatie\) contre 14\.\nChances : 40 %/);
     const leave = visibleOptions(DIALOGUES.ambroise.nodes.demande, state).at(-1)!;
     expect(optionHint(leave, state)).toBeNull();
   });

@@ -143,10 +143,14 @@
         {
           "text": "Le Conseil parle de ce mal qui fait oublier. Je l’ai vu de près, et je sais d’où il vient.",
           "next": "admis",
+          "roll": {
+            "skill": "diplomacy",
+            "difficulty": 13
+          },
+          "failNext": "nouvelles-liste",
           "requires": [
             {
-              "skill": "diplomacy",
-              "min": 3
+              "notFlag": "huissier-liste"
             }
           ],
           "effects": [
@@ -172,6 +176,25 @@
         {
           "text": "Je reviendrai.",
           "next": "fin"
+        }
+      ]
+    },
+    "nouvelles-liste": {
+      "text": "— Tout le monde a vu ce mal de près, ces temps-ci. L’huissier trempe sa plume. — Votre nom ? Je l’inscris en bas de la liste. Repassez demain : elle aura bougé.",
+      "options": [
+        {
+          "text": "Autre chose.",
+          "next": "nouvelles"
+        },
+        {
+          "text": "Je reviendrai.",
+          "next": "fin"
+        }
+      ],
+      "effects": [
+        {
+          "setFlagFor": "huissier-liste",
+          "days": 1
         }
       ]
     },

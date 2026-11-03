@@ -33,9 +33,27 @@ _Effet : retient « indice-aiguillage », +10 XP._
 
 > Le levier de l’embranchement, peint en rouge : « Embranchement de la Cendrière — fermé au trafic ». Pourtant, ses rails brillent comme si l’on y roulait chaque nuit.
 
-- _(sans repère « indice-aiguillage »)_ **[Investigation 3]** « Examiner le mécanisme. » → goupille
-- _(sans repère « indice-aiguillage »)_ **[Artisanat 3]** « Démonter le carter. » → goupille
+- _(sans repère « indice-aiguillage »)_ _(sans repère « mecanisme-rate »)_ **🎲 Investigation 12** « Examiner le mécanisme. » → goupille, ✗ → mecanisme-rien
+- _(sans repère « indice-aiguillage »)_ _(sans repère « carter-rate »)_ **🎲 Artisanat 12** « Démonter le carter. » → goupille, ✗ → carter-coince
 - _(sans repère « pilleurs-vaincus »)_ _(sans repère « pilleurs-suivis »)_ « Attendre la nuit, caché près du levier. » → veille _(attend la nuit)_
+- « Laisser le levier. » → **fin**
+
+### carter-coince
+
+_Effet : retient « carter-rate » pour 1 jours._
+
+> Les vis sont rondes d’usure ; ta lame ripe, et le carter ne bouge pas d’un doigt. Il te faudrait de meilleurs outils, ou un autre jour.
+
+- « Revenir au levier. » → levier-quete
+- « Laisser le levier. » → **fin**
+
+### mecanisme-rien
+
+_Effet : retient « mecanisme-rate » pour 1 jours._
+
+> Ressorts, tringles, une goupille couverte de graisse noire. Tout a l’air en ordre, et c’est peut-être ce qui cloche. Tu n’arrives pas à dire pourquoi, pas aujourd’hui.
+
+- « Revenir au levier. » → levier-quete
 - « Laisser le levier. » → **fin**
 
 ### veille
@@ -216,8 +234,26 @@ _Effet : retient « registre-lu »._
 > — Le Fonds Muet ne se cite pas. Il ne se cache pas non plus : rien ne se cache à Sept-Portes. Convainquez-moi qu’un lecteur n’est pas un citeur.
 
 - _(si Récit « Kael, le Premier Chroniqueur » connu)_ « Kael a bâti cette bibliothèque sur une seule règle. Il a lu, lui, avant de la poser. » → convaincu
-- **[Diplomatie 4]** « « On ne cache rien », dites-vous. Alors ne me cachez pas cette page. » → convaincu
-- **[Érudition 4]** « Une provenance n’est pas une vérité. Je ne la citerai pas : je la lirai. » → convaincu
+- _(sans repère « ambroise-parole-refusee »)_ **🎲 Diplomatie 14** « « On ne cache rien », dites-vous. Alors ne me cachez pas cette page. » → convaincu, ✗ → demande-parole
+- _(sans repère « ambroise-savoir-refuse »)_ **🎲 Érudition 14** « Une provenance n’est pas une vérité. Je ne la citerai pas : je la lirai. » → convaincu, ✗ → demande-savoir
+- « Je reviendrai. » → **fin**
+
+### demande-savoir
+
+_Effet : retient « ambroise-savoir-refuse »._
+
+> — Lire sans citer. Ambroise pose sa plume. — Tout le monde le promet ; personne ne le tient, une fois la page en tête. Vous n’êtes pas encore ce lecteur-là.
+
+- « Autre chose. » → demande
+- « Je reviendrai. » → **fin**
+
+### demande-parole
+
+_Effet : retient « ambroise-parole-refusee »._
+
+> — Joli retournement. Ambroise sourit. — Je l’ai entendu cent fois, et chaque fois de quelqu’un qui voulait citer. Non.
+
+- « Autre chose. » → demande
 - « Je reviendrai. » → **fin**
 
 ### convaincu
@@ -308,8 +344,17 @@ _Si Liane voyage avec toi :_ Liane pose la main près de la tienne, sur les noms
 > Le très vieil arbre gravé. Sous ta main, les signes restent froids : ni voix ni souvenir ne montent du bois.
 
 - **[Mémoire 3]** _(sans repère « piste-racines »)_ « Écouter plus profond. » → pente _(retient « piste-racines », +10 XP)_
-- **[Investigation 2]** _(sans repère « piste-racines »)_ « Examiner le pied de l’arbre. » → seve _(retient « piste-racines », +10 XP)_
+- _(sans repère « piste-racines »)_ _(sans repère « pied-arbre-rate »)_ **🎲 Investigation 11** « Examiner le pied de l’arbre. » → seve, ✗ → pied-rien _(retient « piste-racines », +10 XP)_
 - _(sans repère « piste-racines »)_ « Confier une de tes histoires au vieil arbre. » → silence 📖 donner un Récit : autres → confie
+- « Partir. » → **fin**
+
+### pied-rien
+
+_Effet : retient « pied-arbre-rate » pour 1 jours._
+
+> Tu fouilles la mousse au pied de l’arbre. De la terre, des racines, un scarabée qui s’enfuit. Rien qui parle, aujourd’hui.
+
+- « Revenir à l’arbre. » → silence
 - « Partir. » → **fin**
 
 ### pente
@@ -375,8 +420,17 @@ Commence par : « arbre-quete » _(si quête « Le chant d’Anselme » en cours
 > Au pied d’un jeune arbre, un ruban vert noué autour du tronc : ici repose Anselme Feuillevent. Des branches tombées jonchent la mousse.
 
 - « Ramasser une branche sèche. » → prise _(donne 1 × « Branche de l’arbre d’Anselme », retient « branche-prise »)_
-- **[Artisanat 2]** « Toquer sur les branches, pour trouver celle qui chante. » → chantante _(donne 1 × « Branche de l’arbre d’Anselme », retient « branche-prise », +10 XP)_
+- _(sans repère « branche-sourde »)_ **🎲 Artisanat 11** « Toquer sur les branches, pour trouver celle qui chante. » → chantante, ✗ → branche-sourde _(donne 1 × « Branche de l’arbre d’Anselme », retient « branche-prise », +10 XP)_
 - « Poser la main sur l’écorce. » → chaleur
+- « Partir. » → **fin**
+
+### branche-sourde
+
+_Effet : retient « branche-sourde »._
+
+> Tu toques, branche après branche. Elles sonnent toutes pareil, sèches et sourdes. Celle qui chante, si elle existe, se tait pour toi.
+
+- « Revenir au jeune arbre. » → arbre-quete
 - « Partir. » → **fin**
 
 ### prise
@@ -707,9 +761,25 @@ Commence par : « partis » _(si repère « rencontre-cerfs-vus »)_, sinon « c
 > Une dizaine de cerfs traversent la clairière sans bruit. Leurs bois s’allument et s’éteignent, des lanternes qui respireraient. Le dernier boite : une flèche lui sort du flanc.
 
 - « Rester immobile et regarder. » → regard _(retient « rencontre-cerfs-vus », +10 XP)_
-- **[Survie 2]** « Les suivre sans un bruit. » → suivre _(retient « rencontre-cerfs-vus », +10 XP, +10 PV)_
-- **[Médecine 2]** « Retirer la flèche, doucement. » → fleche _(retient « rencontre-cerfs-vus », +15 XP)_
+- **🎲 Survie 11** « Les suivre sans un bruit. » → suivre, ✗ → suivre-rate _(retient « rencontre-cerfs-vus », +10 XP, +10 PV)_
+- **🎲 Médecine 11** « Retirer la flèche, doucement. » → fleche, ✗ → fleche-rate _(retient « rencontre-cerfs-vus », +15 XP)_
 - « Les laisser passer. » → **fin**
+
+### fleche-rate
+
+_Effet : retient « rencontre-cerfs-vus »._
+
+> Le cerf se cabre au premier contact. La flèche casse net dans la plaie, et la harde s’enfuit avec lui, ses bois éteints.
+
+- « Reprendre la route. » → **fin**
+
+### suivre-rate
+
+_Effet : retient « rencontre-cerfs-vus »._
+
+> Une branche craque sous ton pied. Tous les bois s’éteignent ensemble, et la clairière est vide.
+
+- « Reprendre la route. » → **fin**
 
 ### regard
 
@@ -1126,9 +1196,18 @@ Commence par : « apres » _(si repère « dask-parrain »)_, sinon « dossier �
 _Si Boulon voyage avec toi :_ Boulon, d’une voix égale : — Matériel de quai. Riveteur. Assistant. Ils ont toujours un mot pour vous ranger.
 
 - **[60 Fers]** « Soixante Fers, pour les mains à graisser. » → paye _(−60 Fers, retient « dask-parrain »)_
-- **[Diplomatie 3]** « Un Innovateur qui vous doit tout vous sera fidèle. » → convaincu _(retient « dask-parrain »)_
+- _(sans repère « dask-refuse »)_ **🎲 Diplomatie 12** « Un Innovateur qui vous doit tout vous sera fidèle. » → convaincu, ✗ → dossier-refus _(retient « dask-parrain »)_
 - « Que voulez-vous d’autre ? » → nom
 - **🎲 Subterfuge 14** « Pendant qu’il cherche un formulaire, apposer son sceau sur le dossier. » → faux-ok, ✗ → faux-bancal
+
+### dossier-refus
+
+_Effet : retient « dask-refuse »._
+
+> Dask sourit sans lever la plume. — Fidèle ? Un Innovateur est fidèle à qui l’a fait monter, jusqu’au jour où il monte plus haut. Une raison, j’ai dit.
+
+- « Autre chose. » → dossier
+- « Je reviendrai. » → **fin**
 
 ### nom
 
@@ -1276,7 +1355,7 @@ Commence par : « chant » _(si quête « La berceuse oubliée » en cours)_, si
 > Une jeune femme translucide fredonne, les yeux fermés. C’est la voix de Maëlis, plus jeune. Les mots t’échappent à peine chantés.
 
 - **[Mémoire 4]** « Entrer dans l’Écho et retenir la chanson. » → retenue
-- **[Érudition 2]** « Noter les vers, un à un, sans en perdre un mot. » → retenue
+- **🎲 Érudition 10** « Noter les vers, un à un, sans en perdre un mot. » → retenue, ✗ → echappe
 - **🎲 Investigation 12** « Écouter encore, et encore. » → retenue, ✗ → echappe
 - « S’éloigner. » → **fin**
 
@@ -1637,8 +1716,17 @@ _Effet : retient « graines-elvan-avoue »._
 > Elvan s’assoit d’un coup. — Les Marches des Cendres paient trois fois le prix, à Ironheart. Trois fois ! Je me disais : quelques sacs, le Conseil ne verra rien. Il en reste six, là, dans le ballot.
 
 - « Je vais le dire au Conseil. » → denonce _(retient « graines-denonce », termine la quête « Les graines qui manquent », +30 XP, avis de Liane +1)_
-- **[Diplomatie 3]** « Rapporte-les toi-même au grenier, et la Compagnie gardera son honneur. » → rend _(retient « graines-rendues », termine la quête « Les graines qui manquent », +40 XP, avis de Liane +2, avis de Boulon +1)_
+- _(sans repère « elvan-refuse »)_ **🎲 Diplomatie 13** « Rapporte-les toi-même au grenier, et la Compagnie gardera son honneur. » → rend, ✗ → aveu-refus _(retient « graines-rendues », termine la quête « Les graines qui manquent », +40 XP, avis de Liane +2, avis de Boulon +1)_
 - « Partageons : quarante Fers, et je n’ai rien vu. » → part _(retient « graines-silence », +40 Fers, termine la quête « Les graines qui manquent », +10 XP, avis de Liane −2, avis de Boulon −1)_
+- « Laisse-moi réfléchir. » → **fin**
+
+### aveu-refus
+
+_Effet : retient « elvan-refuse »._
+
+> Elvan secoue la tête. — Entrer au grenier avec le ballot, pour qu’on me voie ? Non. Choisis : tu parles au Conseil, ou tu prends ta part.
+
+- « Alors je choisis. » → aveu
 - « Laisse-moi réfléchir. » → **fin**
 
 ### denonce
@@ -1683,8 +1771,17 @@ _Effet : retient « enclume-vue »._
 
 > Une vieille enclume, noire de suie. Sur le plat, des mains gravées, grandes et petites, cinq en tout, posées côte à côte. L’Écho les rejoue un instant : des rires, puis plus rien.
 
-- **[Investigation 3]** « Examiner les marques. » → marques
+- _(sans repère « marques-rate »)_ **🎲 Investigation 12** « Examiner les marques. » → marques, ✗ → marques-rien
 - « Approcher la lueur d’un cristal. » → marques _(lance « Lueur »)_
+- « Partir. » → **fin**
+
+### marques-rien
+
+_Effet : retient « marques-rate » pour 1 jours._
+
+> Cinq mains, des doigts écartés, de la suie dans les creux. Tu les regardes longtemps, et l’Écho ne revient pas. Pas aujourd’hui.
+
+- « Revenir à l’enclume. » → enclume
 - « Partir. » → **fin**
 
 ### marques
@@ -1774,9 +1871,15 @@ _Effet : retient « surpris-de-nuit »._
 
 _Si Liane voyage avec toi :_ Liane court déjà vers le feu, la besace battant contre sa hanche. — Il y a quelqu’un ! Aide-moi, bon sang !
 
-- **[Médecine 3]** « Revenir dans le feu : le tirer de là, serrer ses brûlures. » → pell-sauve _(retient « pell-sauve », avis de Liane +1, +20 XP)_
+- **🎲 Médecine 12** « Revenir dans le feu : le tirer de là, serrer ses brûlures. » → pell-sauve, ✗ → pell-rate _(retient « pell-sauve », avis de Liane +1, +20 XP)_
 - « Revenir dans le feu. » → pell-perdu
 - « Courir, sans te retourner. » → pell-mort
+
+### pell-rate
+
+> 🌙 Tu le tires hors des flammes, tu serres, tu refroidis, tout ce que tu sais. Ça ne suffit pas : la brûlure est trop large. Il meurt avant l’aube, une main dans la tienne.
+
+- « Attendre le jour. » → **fin**
 
 ### explosee
 
@@ -1877,15 +1980,33 @@ Commence par : « rencontre »
 _Si Liane voyage avec toi :_ Liane, tout bas : — Il a les mains d’un homme qu’on paie pour ne pas réfléchir. Mon père avait les mêmes.
 
 - « Ce sol est sacré, et tu coupes les racines du Bosquet. » → defensif
-- **[Commandement 2]** « Pose cette pioche. Tout de suite. » → intimide
+- _(sans repère « garrik-defie »)_ **🎲 Commandement 11** « Pose cette pioche. Tout de suite. » → intimide, ✗ → intimide-rate
 - **🎲 Subterfuge 12** « Kaelis m’envoie voir où tu en es. » → complice, ✗ → demasque
 - « Je m’en vais. » → **fin**
+
+### intimide-rate
+
+_Effet : retient « garrik-defie »._
+
+> Garrik ne pose rien du tout. Il serre le manche, et ses phalanges blanchissent. — Tu donnes des ordres, toi ? En bas ? Il lève la pioche.
+
+- « Alors on va régler ça. » → **fin** _(lance le combat « fouilleur-sol »)_
+- « Reculer, les mains levées. » → **fin**
 
 ### defensif
 
 > — Les racines ? Je creuse le long d’une voie, moi, pas dans les racines ! Bon, il y en avait sur le chemin. Écoute, je suis payé à la pelletée, pas aux questions.
 
-- **[Diplomatie 3]** « Là-haut, des gens ne peuvent plus parler à leurs morts. À cause de ce trou. » → convaincu
+- _(sans repère « garrik-ferme »)_ **🎲 Diplomatie 13** « Là-haut, des gens ne peuvent plus parler à leurs morts. À cause de ce trou. » → convaincu, ✗ → defensif-rate
+- « Alors je vais te faire partir. » → **fin** _(lance le combat « fouilleur-sol »)_
+- « Je reviendrai. » → **fin**
+
+### defensif-rate
+
+_Effet : retient « garrik-ferme »._
+
+> — Des gens, là-haut. Garrik crache dans ses mains et reprend sa pioche. — Moi aussi, j’ai des gens. Ils mangent ce que je creuse.
+
 - « Alors je vais te faire partir. » → **fin** _(lance le combat « fouilleur-sol »)_
 - « Je reviendrai. » → **fin**
 
@@ -1911,8 +2032,17 @@ _Si Liane voyage avec toi :_ Liane, tout bas : — Il a les mains d’un homme q
 
 > — Kaelis n’envoie personne : il vient lui-même, ou il ne vient pas. Toi, tu es avec ceux d’en haut ! Il lève sa pioche.
 
-- **[Diplomatie 3]** « Du calme. Personne n’a besoin de se battre. » → convaincu
+- _(sans repère « garrik-ferme »)_ **🎲 Diplomatie 13** « Du calme. Personne n’a besoin de se battre. » → convaincu, ✗ → demasque-rate
 - « Alors on va régler ça. » → **fin** _(lance le combat « fouilleur-sol »)_
+- « Reculer, les mains levées. » → **fin**
+
+### demasque-rate
+
+_Effet : retient « garrik-ferme »._
+
+> — Le calme, c’est pour ceux d’en haut. La pioche siffle à un pouce de ta tête.
+
+- « Se défendre. » → **fin** _(lance le combat « fouilleur-sol »)_
 - « Reculer, les mains levées. » → **fin**
 
 ### aveu
@@ -1962,9 +2092,17 @@ Commence par : « vide » _(si repère « vol-grenier »)_, sinon « sacs »
 > Des sacs de graines-lumière, alignés comme des soldats. Chacun porte le sceau du Conseil : ce sont les semences des futurs arbres de Canopéa.
 
 - « Prendre un sac. » → pris _(donne 1 × « Graines-lumière », retient « vol-grenier », avis de Liane −2, avis de Boulon −1)_
-- _(si quête « Les graines qui manquent » en cours)_ _(sans repère « preuve-sceau »)_ **[Investigation 2]** « Examiner les rangées. » → indice _(retient « preuve-sceau », retient « indice-elvan », +10 XP)_
+- _(si quête « Les graines qui manquent » en cours)_ _(sans repère « preuve-sceau »)_ _(sans repère « rangees-rate »)_ **🎲 Investigation 11** « Examiner les rangées. » → indice, ✗ → rangees-rien _(retient « preuve-sceau », retient « indice-elvan », +10 XP)_
 - _(si quête « Les graines qui manquent » en cours)_ _(sans repère « preuve-sceau »)_ « Faire luire un cristal entre les rangées. » → indice _(lance « Lueur », retient « preuve-sceau », retient « indice-elvan », +10 XP)_
 - « Les laisser où ils sont. » → **fin**
+
+### rangees-rien
+
+_Effet : retient « rangees-rate » pour 1 jours._
+
+> Des sacs, des sceaux, des rangées. Tu comptes deux fois et tu perds le compte. La lumière baisse dans le grenier : il faudra revenir demain, avec des yeux frais.
+
+- « Partir. » → **fin**
 
 ### pris
 
@@ -1976,7 +2114,7 @@ Commence par : « vide » _(si repère « vol-grenier »)_, sinon « sacs »
 
 > Il manque un sac dans la rangée. Le trou se voit.
 
-- _(si quête « Les graines qui manquent » en cours)_ _(sans repère « preuve-sceau »)_ **[Investigation 2]** « Examiner les rangées. » → indice _(retient « preuve-sceau », retient « indice-elvan », +10 XP)_
+- _(si quête « Les graines qui manquent » en cours)_ _(sans repère « preuve-sceau »)_ _(sans repère « rangees-rate »)_ **🎲 Investigation 11** « Examiner les rangées. » → indice, ✗ → rangees-rien _(retient « preuve-sceau », retient « indice-elvan », +10 XP)_
 - _(si quête « Les graines qui manquent » en cours)_ _(sans repère « preuve-sceau »)_ « Faire luire un cristal entre les rangées. » → indice _(lance « Lueur », retient « preuve-sceau », retient « indice-elvan », +10 XP)_
 - « Partir. » → **fin**
 
@@ -2295,8 +2433,17 @@ Commence par : « apres » _(si quête « L’audience » terminée)_, sinon « 
 > Silence, s’il te plaît : là-haut, le Conseil des Racines Profondes délibère. Les audiences se demandent par écrit, et la liste est longue, très longue.
 
 - **[réputation à canopee ≥ 10]** « Je viens de Gardebois. J’ai vu ce que la foreuse a fait à la Gare Engloutie. » → admis _(lance la quête « L’audience »)_
-- **[Diplomatie 3]** « Le Conseil parle de ce mal qui fait oublier. Je l’ai vu de près, et je sais d’où il vient. » → admis _(lance la quête « L’audience »)_
+- _(sans repère « huissier-liste »)_ **🎲 Diplomatie 13** « Le Conseil parle de ce mal qui fait oublier. Je l’ai vu de près, et je sais d’où il vient. » → admis, ✗ → nouvelles-liste _(lance la quête « L’audience »)_
 - **🎲 Subterfuge 13** « Le Triumvirat m’attend. On a dû oublier de te prévenir. » → admis, ✗ → menteur _(lance la quête « L’audience »)_
+- « Je reviendrai. » → **fin**
+
+### nouvelles-liste
+
+_Effet : retient « huissier-liste » pour 1 jours._
+
+> — Tout le monde a vu ce mal de près, ces temps-ci. L’huissier trempe sa plume. — Votre nom ? Je l’inscris en bas de la liste. Repassez demain : elle aura bougé.
+
+- « Autre chose. » → nouvelles
 - « Je reviendrai. » → **fin**
 
 ### admis
@@ -2375,7 +2522,16 @@ _Si Liane voyage avec toi :_ Liane, à mi-voix : — Les Réveilleurs. On dit ç
 
 > Une maladie mémorielle. Les anciens textes le disent : quand on abîme un Écho du Passé, la mémoire du lieu déborde sur les vivants. Or, à l’est, des prospecteurs de Ferros fouillent la Gare Engloutie, là où l’une des Trois Failles vient de s’ouvrir.
 
-- **[Érudition 2]** « La loi de la Mémoire Vivante : un Écho qu’on déchire se multiplie. » → savant _(+10 XP)_
+- _(sans repère « loi-oubliee »)_ **🎲 Érudition 10** « La loi de la Mémoire Vivante : un Écho qu’on déchire se multiplie. » → savant, ✗ → cause-oubli _(+10 XP)_
+- « Pourquoi ne pas prévenir la garde ? » → garde
+- « J’irai voir ce qui se passe à la Gare. » → mission
+
+### cause-oubli
+
+_Effet : retient « loi-oubliee »._
+
+> Tu cherches la loi dans tes leçons. Elle t’échappe, à un mot près. Ilyane attend, puis sourit sans joie. — Tu la retrouveras. Les Gardiens oublient aussi, ces temps-ci.
+
 - « Pourquoi ne pas prévenir la garde ? » → garde
 - « J’irai voir ce qui se passe à la Gare. » → mission
 
@@ -2586,9 +2742,27 @@ _Si Liane voyage avec toi :_ Liane ne regarde pas l’ingénieure : elle regarde
 
 _Si Liane voyage avec toi :_ Liane, entre ses dents : — Une rumeur de marché. Mes malades tremblent toute la nuit, Brisefer. Et sous vos déblais, il y a un enfant que personne n’a compté.
 
-- **[Diplomatie 3]** _(si quête « Le Dernier Train » en cours)_ « Arrêtez le forage : à chaque coup, l’Écho se multiplie, et le mal avec lui. » → resiste
-- **[Commandement 3]** _(si quête « Le Dernier Train » en cours)_ « Je parle au nom des Gardiens de Mémoire : cessez, maintenant. » → resiste-ordre
+- _(si quête « Le Dernier Train » en cours)_ _(sans repère « ingrid-braquee »)_ **🎲 Diplomatie 12** « Arrêtez le forage : à chaque coup, l’Écho se multiplie, et le mal avec lui. » → resiste, ✗ → cause-braquee
+- _(si quête « Le Dernier Train » en cours)_ _(sans repère « ingrid-moquee »)_ **🎲 Commandement 12** « Je parle au nom des Gardiens de Mémoire : cessez, maintenant. » → resiste-ordre, ✗ → ordre-rire
 - _(si quête « Le Dernier Train » en cours)_ « Lui raconter une histoire. » → recit-refus 📖 raconter un Récit : savant-corvan → convaincue-quai ; corvan → convaincue-recit ; autres → recit-refus
+- « Je reviendrai. » → **fin**
+
+### ordre-rire
+
+_Effet : retient « ingrid-moquee »._
+
+> Ingrid rit, et deux ouvriers rient avec elle. — Cessez ? Vous avez quel âge ? Allez jouer ailleurs, apprenti·e. Les Gardiens écoutent ; ils ne commandent pas.
+
+- « Autre chose, alors. » → cause
+- « Je reviendrai. » → **fin**
+
+### cause-braquee
+
+_Effet : retient « ingrid-braquee »._
+
+> — Encore un Gardien qui prêche. Ingrid se détourne vers la foreuse. — Revenez avec autre chose qu’un sermon, ou ne revenez pas.
+
+- « Autre chose, alors. » → cause
 - « Je reviendrai. » → **fin**
 
 ### convaincue
@@ -2700,16 +2874,34 @@ _Si Liane voyage avec toi :_ Liane, tout bas : — Quelqu’un qui paie plus qu�
 
 > — Un Écho qui se multiplie ? Prouvez-le. Mes ouvriers dorment à poings fermés, eux.
 
-- **[Investigation 2]** « Ils dorment, oui. Ils ne rêvent plus. Demandez-leur ce qu’ils ont fait hier. » → resiste-2
+- _(sans repère « ingrid-preuve-ratee »)_ **🎲 Investigation 10** « Ils dorment, oui. Ils ne rêvent plus. Demandez-leur ce qu’ils ont fait hier. » → resiste-2, ✗ → resiste-rate
 - _(si repère « liane-malades-vus »)_ « Les malades de Liane, à Gardebois : venez les entendre une nuit. » → resiste-2
 - _(si repère « ingrid-sait-saule »)_ « Saule Sève-Claire, lui, ne rêve plus du tout. » → resiste-2
 - « Je n’ai pas de preuve. Pas encore. » → **fin**
+
+### resiste-rate
+
+_Effet : retient « ingrid-preuve-ratee »._
+
+> Tu cherches les mots, et les ouvriers haussent les épaules. — Des ouvriers fatigués, dit Ingrid. Vous en avez d’autres, des preuves ?
+
+- « Peut-être. » → resiste
+- « Pas encore. » → **fin**
 
 ### resiste-2
 
 > Ingrid regarde la foreuse un long moment. — Admettons. Et si j’arrête ? Ferros envoie un autre ingénieur dans un mois, sans mes scrupules, et il creusera deux fois plus vite.
 
-- **[Diplomatie 3]** « Alors écrivez à Ferros que la Faille est instable. Vous, ils vous croiront. » → convaincue
+- _(sans repère « ingrid-refuse-lettre »)_ **🎲 Diplomatie 12** « Alors écrivez à Ferros que la Faille est instable. Vous, ils vous croiront. » → convaincue, ✗ → resiste-2-rate
+- « Un mois de répit, c’est un mois de malades en moins. » → resiste-mois
+- « Je reviendrai. » → **fin**
+
+### resiste-2-rate
+
+_Effet : retient « ingrid-refuse-lettre »._
+
+> — Mentir à Ferros, sur votre parole ? Ingrid replie ses papiers. — Non. Si je dois perdre ma place, ce sera pour une raison que je comprends.
+
 - « Un mois de répit, c’est un mois de malades en moins. » → resiste-mois
 - « Je reviendrai. » → **fin**
 
@@ -2723,7 +2915,15 @@ _Si Liane voyage avec toi :_ Liane, tout bas : — Quelqu’un qui paie plus qu�
 
 > — Au nom des Gardiens ? Les Gardiens n’ont ni garde, ni loi, ni foreuse. Moi, j’ai les trois.
 
-- **[Commandement 3]** « Gardebois a une garde, et la frontière a des yeux. Je peux les tourner vers vous. » → convaincue-peur
+- _(sans repère « ingrid-defie »)_ **🎲 Commandement 12** « Gardebois a une garde, et la frontière a des yeux. Je peux les tourner vers vous. » → convaincue-peur, ✗ → ordre-defi
+- « Je reviendrai. » → **fin**
+
+### ordre-defi
+
+_Effet : retient « ingrid-defie »._
+
+> — Tournez-les. Ingrid ne cille pas. — J’ai des papiers de Ferros. Votre garde les lira, et elle saluera.
+
 - « Je reviendrai. » → **fin**
 
 ### convaincue-peur
@@ -2786,8 +2986,24 @@ Commence par : « merci » _(si repère « dette-joss-payee »)_, sinon « apres
 > Joss serre sa lanterne. — Je fais mon travail. Qu’est-ce que tu veux ?
 
 - _(si repère « indice-aiguillage »)_ _(si repère « indice-registre »)_ « La goupille limée, ta signature au registre : tout te désigne. » → aveu
-- **[Diplomatie 3]** « Je ne suis pas du Bureau. Dis-moi ce qui te tient. » → aveu
-- **[Commandement 3]** « Parle-moi, ou tu parleras au contrôleur. » → aveu
+- _(sans repère « joss-ferme-parole »)_ **🎲 Diplomatie 12** « Je ne suis pas du Bureau. Dis-moi ce qui te tient. » → aveu, ✗ → soupcon-ferme
+- _(sans repère « joss-ferme-ordre »)_ **🎲 Commandement 12** « Parle-moi, ou tu parleras au contrôleur. » → aveu, ✗ → soupcon-menace
+- « Je reviendrai. » → **fin**
+
+### soupcon-menace
+
+_Effet : retient « joss-ferme-ordre »._
+
+> Joss rit, d’un rire sec. — Le contrôleur ? Il dîne chez Varka le jeudi. Va le chercher, toi.
+
+- « Je reviendrai. » → **fin**
+
+### soupcon-ferme
+
+_Effet : retient « joss-ferme-parole »._
+
+> — Tous ceux qui ne sont pas du Bureau disent ça. Joss lève sa lanterne entre vous deux. — Va-t’en.
+
 - « Je reviendrai. » → **fin**
 
 ### aveu
@@ -2808,7 +3024,15 @@ _Si Liane voyage avec toi :_ Liane s’accroupit près de Joss. — Tu ne dors p
 
 > — Personne. Seulement le minerai, et la confiance. Varka m’appelle son frère. Je ne dors plus.
 
-- **[Médecine 3]** _(sans repère « joss-sommeil »)_ « Je peux te donner de quoi dormir. » → sommeil
+- _(sans repère « joss-sommeil »)_ _(sans repère « joss-sommeil-rate »)_ **🎲 Médecine 12** « Je peux te donner de quoi dormir. » → sommeil, ✗ → sommeil-rate
+- « Merci, Joss. » → **fin**
+
+### sommeil-rate
+
+_Effet : retient « joss-sommeil-rate »._
+
+> Tu lui décris les herbes, les doses, l’heure. Il t’écoute à peine. — Ce qui m’empêche de dormir ne s’avale pas.
+
 - « Merci, Joss. » → **fin**
 
 ### avoue
@@ -2993,7 +3217,14 @@ _Si Liane voyage avec toi :_ Liane, au fond des gradins, serre sa besace contre 
 
 - « Fermez la frontière aux prospecteurs. » → fin-frontiere _(retient « conseil-frontiere »)_
 - « Gardez le commerce, mais surveillez chaque chantier. » → fin-commerce _(retient « conseil-commerce »)_
-- **[Diplomatie 3]** « Le sol est sacré, la route ne l’est pas : fermez l’un, gardez l’autre. » → fin-accord _(retient « conseil-accord », +15 XP)_
+- **🎲 Diplomatie 13** « Le sol est sacré, la route ne l’est pas : fermez l’un, gardez l’autre. » → fin-accord, ✗ → choix-rate _(retient « conseil-accord », +15 XP)_
+
+### choix-rate
+
+> Kael hausse un sourcil ; Lyra sourit à peine. — Un compromis de Gardien, dit Kael. Joli. Mais un Conseil tranche, et c’est toi qu’on écoute : l’un ou l’autre.
+
+- « Fermez la frontière aux prospecteurs. » → fin-frontiere _(retient « conseil-frontiere »)_
+- « Gardez le commerce, mais surveillez chaque chantier. » → fin-commerce _(retient « conseil-commerce »)_
 
 ### fin-frontiere
 
@@ -3259,7 +3490,16 @@ Commence par : « lettres »
 > Quelques lettres, éparpillées entre les racines, encore sèches. Des traces dans la mousse partent vers le nord-est, comme si quelque chose avait traîné la sacoche.
 
 - « Ramasser les lettres. » → ramassees
-- **[Survie 2]** « Lire les traces. » → traces
+- _(sans repère « traces-lettres-perdues »)_ **🎲 Survie 11** « Lire les traces. » → traces, ✗ → traces-perdues
+- « Laisser les lettres. » → **fin**
+
+### traces-perdues
+
+_Effet : retient « traces-lettres-perdues » pour 1 jours._
+
+> Les traces se mêlent à celles des cerfs, puis disparaissent sous la mousse. Tu les perds.
+
+- « Ramasser les lettres. » → ramassees
 - « Laisser les lettres. » → **fin**
 
 ### ramassees
@@ -3300,8 +3540,16 @@ Commence par : « apres » _(si quête « Les herbes de lisière » terminée)_,
 
 > Alors, cette sauge ? Trois touffes. Je sais compter, moi.
 
-- **[Médecine 2]** _(sans repère « liane-malades-vus »)_ « Laisse-moi voir tes malades. » → malades
+- _(sans repère « liane-malades-vus »)_ _(sans repère « liane-malades-rate »)_ **🎲 Médecine 10** « Laisse-moi voir tes malades. » → malades, ✗ → malades-rate
 - « J’y retourne. » → **fin**
+
+### malades-rate
+
+_Effet : retient « liane-malades-rate »._
+
+> La vieille Brune te prend pour sa fille, puis ne te reconnaît plus. Tu prends le pouls, tu regardes les yeux : rien que tu saches lire. Liane : — Personne ne trouve. C’est ce qui me rend folle.
+
+- « Je reviendrai. » → **fin**
 
 ### rendu
 
@@ -3314,7 +3562,7 @@ Commence par : « apres » _(si quête « Les herbes de lisière » terminée)_,
 > Mes malades vont un peu mieux. Reviens si tu croises d’autres herbes étranges.
 
 - _(avis de Liane ≥ -4)_ « Viens avec moi, Liane. » → recrue
-- **[Médecine 2]** _(sans repère « liane-malades-vus »)_ « Laisse-moi voir tes malades. » → malades
+- _(sans repère « liane-malades-vus »)_ _(sans repère « liane-malades-rate »)_ **🎲 Médecine 10** « Laisse-moi voir tes malades. » → malades, ✗ → malades-rate
 - « … » → **fin**
 
 ### recrue
@@ -3906,8 +4154,17 @@ _Effet : reprend 1 × « Relevé d’un Écho », retient « echos-archives », 
 > Noam tire un registre épais et pose le doigt sur une ligne. — « Boulon. Ferrôme. Matériel de quai, gare de l’Ouest. Rachat : cent vingt Fers. » Un bien, ou une mémoire ? La loi ne tranche pas (voir : article non rédigé). Moi, je classe.
 
 - **[120 Fers]** « Racheter son contrat. » → rachete _(−120 Fers, retient « boulon-libre »)_
-- **[Érudition 3]** « Il se souvient de chaque voyageur : c’est une archive, pas un outil. » → reclasse _(retient « boulon-libre », retient « boulon-archive »)_
+- _(sans repère « noam-refuse-archive »)_ **🎲 Érudition 12** « Il se souvient de chaque voyageur : c’est une archive, pas un outil. » → reclasse, ✗ → reclasse-refus _(retient « boulon-libre », retient « boulon-archive »)_
 - **🎲 Discrétion 13** « Arracher la page, quand il aura le dos tourné. » → arrache, ✗ → surpris _(retient « boulon-libre », retient « registre-arrache »)_
+- « Autre chose. » → accueil
+
+### reclasse-refus
+
+_Effet : retient « noam-refuse-archive »._
+
+> Noam repose le doigt sur la ligne. — Une archive se consulte. Celle-ci porte des malles. Bel argument ; mauvais article. Il me faut un texte, une conviction ne se classe pas.
+
+- « Revenir au registre. » → registre
 - « Autre chose. » → accueil
 
 ### rachete
@@ -4108,7 +4365,16 @@ _Effet : retient « liste-ferros »._
 
 - **🎲 Subterfuge 13** « Bluffer : « Une brûlure de forge, rien d’autre. » » → rouille-bluff, ✗ → rouille-cellule
 - **[20 Fers]** « Lui glisser vingt Fers. » → rouille-payee _(−20 Fers)_
-- **[Commandement 4]** « Lâche ce poignet. Tu n’as rien vu. » → rouille-ordre
+- _(sans repère « patrouilleur-defie »)_ **🎲 Commandement 14** « Lâche ce poignet. Tu n’as rien vu. » → rouille-ordre, ✗ → rouille-ordre-rate
+- « Je n’ai rien à cacher. » → rouille-cellule
+
+### rouille-ordre-rate
+
+_Effet : retient « patrouilleur-defie »._
+
+> Il ne lâche pas. Il serre. — Rien vu ? J’ai vu un porteur de cristal donner des ordres à une patrouille. Ça aussi, ça s’écrit.
+
+- **[20 Fers]** « Lui glisser vingt Fers. » → rouille-payee _(−20 Fers)_
 - « Je n’ai rien à cacher. » → rouille-cellule
 
 ### rouille-bluff
@@ -4200,7 +4466,15 @@ _Effet : retient « verite-rail »._
 
 > Une plaque de cuivre, presque effacée : « CHANTIER OUEST — MACHINE SANS HOMME — 1388 ». Une machine du temps de la Guerre du Rail, que les Marches ont trouvée et remise en marche.
 
-- **[Érudition 3]** « Se souvenir de ce qu’on raconte du Chantier Ouest. » → chantier
+- _(sans repère « chantier-ouest-oublie »)_ **🎲 Érudition 12** « Se souvenir de ce qu’on raconte du Chantier Ouest. » → chantier, ✗ → chantier-oublie
+- « S’éloigner. » → **fin**
+
+### chantier-oublie
+
+_Effet : retient « chantier-ouest-oublie »._
+
+> Tu as lu ce nom quelque part, dans un livre des Gardiens. La page, elle, t’échappe.
+
 - « S’éloigner. » → **fin**
 
 ### chantier
@@ -4432,8 +4706,17 @@ Commence par : « mur »
 > Entre deux fonderies éteintes, un renfoncement sans enseigne. Un mur noirci de suie, et rien d’autre, en apparence.
 
 - _(si repère « marche-cendres-indice »)_ « Chercher le passage, comme on te l’a dit. » → trouve
-- **[Investigation 3]** « Examiner le mur. » → trouve
+- _(sans repère « mur-rate »)_ **🎲 Investigation 12** « Examiner le mur. » → trouve, ✗ → mur-rien
 - « Faire luire un cristal le long du mur. » → trouve _(lance « Lueur »)_
+- « Passer son chemin. » → **fin**
+
+### mur-rien
+
+_Effet : retient « mur-rate » pour 1 jours._
+
+> Suie, briques, suie. Ta main glisse sur le mur sans rien accrocher. Si un passage existe, il ne se montre pas aujourd’hui.
+
+- « Revenir au mur. » → mur
 - « Passer son chemin. » → **fin**
 
 ### trouve
@@ -4550,8 +4833,17 @@ Commence par : « ours » _(sans repère « ours-sol-vaincu »)_ _(sans repère 
 > La sacoche est là, sous la patte d’un Ours-Mousse endormi, roulé dans la mousse comme dans un édredon.
 
 - **🎲 Discrétion 11** « Glisser la main sous sa patte, tout doucement. » → prise, ✗ → reveil
-- **[Survie 2]** « L’attirer plus loin avec une poignée de baies. » → eloigne
+- _(sans repère « ours-baies-rate »)_ **🎲 Survie 11** « L’attirer plus loin avec une poignée de baies. » → eloigne, ✗ → baies-rate
 - « Le réveiller et l’affronter. » → **fin** _(lance le combat « ours-sacoche »)_
+- « Reculer sans bruit. » → **fin**
+
+### baies-rate
+
+_Effet : retient « ours-baies-rate »._
+
+> L’ours renifle les baies, ouvre un œil, puis l’autre. Il se lève, et il est plus grand debout.
+
+- « Se défendre. » → **fin** _(lance le combat « ours-sacoche »)_
 - « Reculer sans bruit. » → **fin**
 
 ### reveil
@@ -4874,7 +5166,15 @@ _Si Liane voyage avec toi :_ Liane écoute la toux, le front plissé. — Du noi
 
 _Si Boulon voyage avec toi :_ Boulon : — Je porte des malles depuis la gare jusqu’aux Manufactures. Là-haut, personne ne tousse. Je l’avais remarqué. Je ne savais pas que c’était une injustice.
 
-- **[Médecine 3]** _(sans repère « tam-ausculte »)_ « Montre-moi. Et respire. » → ausculte
+- _(sans repère « tam-ausculte »)_ _(sans repère « tam-ausculte-rate »)_ **🎲 Médecine 12** « Montre-moi. Et respire. » → ausculte, ✗ → ausculte-rate
+- « Bonne journée. » → **fin**
+
+### ausculte-rate
+
+_Effet : retient « tam-ausculte-rate »._
+
+> Tam respire, tu écoutes. Ça siffle, ça grince, ça racle, et tu ne sais pas lire ce bruit-là. — Pas grave, dit-il. Personne ne sait.
+
 - « Bonne journée. » → **fin**
 
 ### parle
@@ -5007,7 +5307,15 @@ Commence par : « gueri » _(si repère « tiven-soigne »)_, sinon « quete » 
 > Un jeune Nacellier souffle sur ses paumes rougies. — Une corde a filé entre mes mains. Ça brûle. Demain, je dois monter la nacelle, et je ne peux même pas fermer le poing.
 
 - _(si l’on porte « Bandage »)_ _(sans repère « tiven-panse »)_ « Panser ses mains avec un bandage. » → panse _(reprend 1 × « Bandage », retient « tiven-panse », +5 XP)_
-- **[Médecine 3]** _(sans repère « tiven-panse »)_ « Soigner la brûlure : de l’eau froide, de la graisse propre, un linge serré. » → panse-medecine _(retient « tiven-panse », +10 XP, avis de Liane +1)_
+- _(sans repère « tiven-panse »)_ _(sans repère « tiven-brulure-rate »)_ **🎲 Médecine 13** « Soigner la brûlure : de l’eau froide, de la graisse propre, un linge serré. » → panse-medecine, ✗ → panse-rate _(retient « tiven-panse », +10 XP, avis de Liane +1)_
+- « Courage, Tiven. » → **fin**
+
+### panse-rate
+
+_Effet : retient « tiven-brulure-rate »._
+
+> Tu serres le linge trop tôt, sur une peau trop chaude. Tiven grimace et retire ses mains. — Laisse. Ça ira.
+
 - « Courage, Tiven. » → **fin**
 
 ### quete
@@ -5016,7 +5324,7 @@ Commence par : « gueri » _(si repère « tiven-soigne »)_, sinon « quete » 
 
 - « Poser le cristal de Vie sur ses mains. » → soin _(lance « Guérison naturelle », retient « tiven-soigne », +15 XP, avis de Liane +2)_
 - _(si l’on porte « Bandage »)_ _(sans repère « tiven-panse »)_ « Panser ses mains avec un bandage. » → panse _(reprend 1 × « Bandage », retient « tiven-panse », +5 XP)_
-- **[Médecine 3]** _(sans repère « tiven-panse »)_ « Soigner la brûlure : de l’eau froide, de la graisse propre, un linge serré. » → panse-medecine _(retient « tiven-panse », +10 XP, avis de Liane +1)_
+- _(sans repère « tiven-panse »)_ _(sans repère « tiven-brulure-rate »)_ **🎲 Médecine 13** « Soigner la brûlure : de l’eau froide, de la graisse propre, un linge serré. » → panse-medecine, ✗ → panse-rate _(retient « tiven-panse », +10 XP, avis de Liane +1)_
 - « Je reviens. » → **fin**
 
 ### soin
@@ -5080,9 +5388,19 @@ Commence par : « accueil-passe » _(si repère « laissez-passer »)_, sinon «
 
 > Le chantier ? C’est l’ingénieure Ingrid Brisefer qui le dirige. Personne n’y entre sans laissez-passer. Il se trouve que j’en ai un, qui m’a coûté cher.
 
-- **[Diplomatie 2]** « Si ce chantier rend le marché malade, tes clients partiront. M’aider, c’est aider tes affaires. » → convaincu _(retient « laissez-passer », +25 XP)_
+- _(sans repère « tobias-sourire »)_ **🎲 Diplomatie 10** « Si ce chantier rend le marché malade, tes clients partiront. M’aider, c’est aider tes affaires. » → convaincu, ✗ → prix-sourire _(retient « laissez-passer », +25 XP)_
 - « Combien en veux-tu ? » → prix
+- _(si repère « tobias-sourire »)_ « Trente-cinq Fers, tu avais dit. » → prix-sourire
 - « Je trouverai un autre moyen. » → **fin**
+
+### prix-sourire
+
+_Effet : retient « tobias-sourire »._
+
+> Tobias rit, franchement. — Joli. Tu as presque la voix de ma sœur. Pas tout à fait. Trente-cinq Fers, pour le sourire, et pas un de moins.
+
+- **[35 Fers]** « Payer trente-cinq Fers. » → achete _(−35 Fers, retient « laissez-passer »)_
+- « Je reviendrai avec la somme. » → **fin**
 
 ### prix
 
@@ -5134,8 +5452,17 @@ Commence par : « trou »
 > Un trou carré, étayé de planches neuves, au bord d’une vieille voie à demi enfouie sous les racines. Des outils de Ferros traînent encore à côté.
 
 - « Regarder au fond. » → fond
-- **[Investigation 2]** « Examiner les outils. » → outils
+- _(sans repère « outils-rate »)_ **🎲 Investigation 11** « Examiner les outils. » → outils, ✗ → outils-rien
 - « Éclairer le fond du trou d’un cristal. » → outils _(lance « Lueur »)_
+- « Partir. » → **fin**
+
+### outils-rien
+
+_Effet : retient « outils-rate » pour 1 jours._
+
+> Des pelles, une pioche, une lanterne éteinte. De Ferros, sans doute. Rien de plus, pour aujourd’hui.
+
+- « Regarder au fond. » → fond
 - « Partir. » → **fin**
 
 ### fond
@@ -5508,8 +5835,17 @@ _Effet : donne 1 × « Clé de rouille bleue », retient « cle-obtenue », +25 
 > — Alors, cette clé ? Elle chante encore ?
 
 - « Te la rendre : sa place est sur la ligne. » → rendue _(reprend 1 × « Clé de rouille bleue », retient « cle-veilleuse », termine la quête « La Clé de Rouille Bleue », +60 XP)_
-- **[Érudition 3]** _(sans repère « cle-etudiee »)_ « L’étudier d’abord avec toi. » → etude
+- _(sans repère « cle-etudiee »)_ _(sans repère « cle-etude-ratee »)_ **🎲 Érudition 12** « L’étudier d’abord avec toi. » → etude, ✗ → etude-ratee
 - _(si quête « Le Rail des Cendres » en cours)_ _(sans repère « indice-veilleuse »)_ « Les convois du triage, qui partent seuls la nuit ? » → convois-triage
+- « Pas encore. » → **fin**
+
+### etude-ratee
+
+_Effet : retient « cle-etude-ratee »._
+
+> Vous penchez la tête sur la clé, longtemps. Elle chante une note, toujours la même, et tu n’en tires rien que tu saches écrire. La Veilleuse hausse les épaules. — Elle parle aux trains. À nous, elle ne doit rien.
+
+- « Revenir à la clé. » → avec-cle
 - « Pas encore. » → **fin**
 
 ### etude
@@ -5545,9 +5881,18 @@ _Effet : retient « cle-etudiee », +10 XP._
 
 > — Ce qu’elle ouvre ? Tout le monde veut le savoir. Personne ne veut l’écouter.
 
-- **[Diplomatie 3]** « Kaelis la vendrait. Moi, je veux savoir ce qu’elle ouvre, et pourquoi on fouille vos gares. » → don
+- _(sans repère « veilleuse-mefiante »)_ **🎲 Diplomatie 12** « Kaelis la vendrait. Moi, je veux savoir ce qu’elle ouvre, et pourquoi on fouille vos gares. » → don, ✗ → ouvre-mefiance
 - _(si repère « fonds-zero-connu »)_ « Aux Archives, un coffre de fer attend sa clé depuis la fondation : le Fonds Zéro. » → don
 - _(si quête « Le Rail des Cendres » en cours)_ _(sans repère « indice-veilleuse »)_ « Les convois du triage, qui partent seuls la nuit ? » → convois-triage
+- « Je reviendrai. » → **fin**
+
+### ouvre-mefiance
+
+_Effet : retient « veilleuse-mefiante »._
+
+> — Savoir, toujours savoir. La Veilleuse referme la main sur la clé. — Kaelis aussi voulait savoir. Il a fini par donner un prix.
+
+- « Autre chose. » → ouvre
 - « Je reviendrai. » → **fin**
 
 ### convois-triage
@@ -5735,7 +6080,16 @@ Commence par : « machine »
 > Une locomotive de l’Ancien Monde, rouge de rouille, et pourtant astiquée pour une fête qui ne vient pas. Sur la cabine, quelqu’un a peint neuf petits wagons.
 
 - **[Mémoire 4]** « Poser la main sur le métal. » → souvenir
-- **[Artisanat 3]** _(sans repère « capot-vu »)_ « Ouvrir le capot. » → capot _(retient « capot-vu », +10 XP)_
+- _(sans repère « capot-vu »)_ _(sans repère « capot-rate »)_ **🎲 Artisanat 12** « Ouvrir le capot. » → capot, ✗ → capot-coince _(retient « capot-vu », +10 XP)_
+- « Partir. » → **fin**
+
+### capot-coince
+
+_Effet : retient « capot-rate » pour 1 jours._
+
+> Le capot tient par trois boulons soudés de rouille. Tu forces ; ton outil cède avant eux.
+
+- « Revenir à la machine. » → machine
 - « Partir. » → **fin**
 
 ### souvenir

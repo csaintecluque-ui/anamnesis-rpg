@@ -183,12 +183,13 @@ describe('dialogue files', () => {
     expect(startNode(d, stateWith(3, 0))).not.toBe(startNode(d, { ...stateWith(3, 0), quests: { 'dernier-train': 'active' } }));
   });
 
-  it('Tobias gives the pass with a Diplomatie 2 test, only once the quest is active (docs/gdd/tranche-verticale.md)', () => {
+  it('Tobias gives the pass on a Diplomatie roll; failed, it costs 35 Fers instead of 50, and the roll is not offered again (étude, D1)', () => {
     const d = DIALOGUES.tobias;
-    const passOption = Object.values(d.nodes)
-      .flatMap((n) => n.options)
-      .find((o) => o.effects?.some((e) => 'setFlag' in e && e.setFlag === 'laissez-passer'));
-    expect(passOption?.requires).toContainEqual({ skill: 'diplomacy', min: 2 });
+    const passOption = d.nodes.chantier.options.find((o) => o.effects?.some((e) => 'setFlag' in e && e.setFlag === 'laissez-passer'))!;
+    expect(passOption.roll).toEqual({ skill: 'diplomacy', difficulty: 10 });
+    expect(passOption.requires).toContainEqual({ notFlag: 'tobias-sourire' });
+    expect(d.nodes[passOption.failNext!].effects).toContainEqual({ setFlag: 'tobias-sourire' });
+    expect(d.nodes['prix-sourire'].options[0].requires).toEqual([{ fers: 35 }]);
   });
 
   it('gives Fers and reports them', () => {
@@ -284,15 +285,28 @@ describe('dialogue files', () => {
 
   it('Ingrid resists: Diplomatie 3 or Commandement 3 over several exchanges, or the Récit of the quai or of Corvan, told (feuille de route, chantier 5)', () => {
     const d = DIALOGUES.ingrid;
-    const tests = Object.values(d.nodes).flatMap((n) => n.options.flatMap((o) => o.requires ?? []));
-    expect(tests).toContainEqual({ skill: 'diplomacy', min: 3 });
-    expect(tests).toContainEqual({ skill: 'command', min: 3 });
+    const rolls = Object.values(d.nodes).flatMap((n) => n.options.flatMap((o) => (o.roll ? [o.roll.skill] : [])));
+    expect(rolls).toContain('diplomacy');
+    expect(rolls).toContain('command');
     const tell = d.nodes.cause.options.find((o) => o.raconter)!;
     expect(tell.raconter?.recits).toEqual({ 'savant-corvan': 'convaincue-quai', corvan: 'convaincue-recit' });
     // Three exchanges: the claim, a proof, then a way out for her.
     expect(d.nodes.cause.options[0].next).toBe('resiste');
     expect(d.nodes.resiste.options.map((o) => o.next)).toContain('resiste-2');
     expect(d.nodes['resiste-2'].options.map((o) => o.next)).toContain('convaincue');
+  });
+});
+
+describe('the die decides the skills (étude du 2026-11-03, D1 ; décision de Cyril : seuils pour les attributs)', () => {
+  const options = Object.values(DIALOGUES).flatMap((d) => Object.entries(d.nodes).flatMap(([id, n]) => n.options.map((o) => ({ where: `${d.id}/${id}`, o }))));
+
+  it('no option asks for a skill score any more: a skill is a roll, an attribute a threshold', () => {
+    const left = options.filter(({ o }) => (o.requires ?? []).some((r) => 'skill' in r)).map(({ where, o }) => `${where} « ${o.text} »`);
+    expect(left).toEqual([]);
+  });
+
+  it('every roll leads somewhere else when it fails', () => {
+    for (const { where, o } of options.filter(({ o }) => o.roll)) expect(o.failNext, `${where} « ${o.text} »`).not.toBe(o.next);
   });
 });
 

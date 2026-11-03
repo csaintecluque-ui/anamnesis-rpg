@@ -280,10 +280,14 @@
         {
           "text": "La loi de la Mémoire Vivante : un Écho qu’on déchire se multiplie.",
           "next": "savant",
+          "roll": {
+            "skill": "lore",
+            "difficulty": 10
+          },
+          "failNext": "cause-oubli",
           "requires": [
             {
-              "skill": "lore",
-              "min": 2
+              "notFlag": "loi-oubliee"
             }
           ],
           "effects": [
@@ -299,6 +303,24 @@
         {
           "text": "J’irai voir ce qui se passe à la Gare.",
           "next": "mission"
+        }
+      ]
+    },
+    "cause-oubli": {
+      "text": "Tu cherches la loi dans tes leçons. Elle t’échappe, à un mot près. Ilyane attend, puis sourit sans joie. — Tu la retrouveras. Les Gardiens oublient aussi, ces temps-ci.",
+      "options": [
+        {
+          "text": "Pourquoi ne pas prévenir la garde ?",
+          "next": "garde"
+        },
+        {
+          "text": "J’irai voir ce qui se passe à la Gare.",
+          "next": "mission"
+        }
+      ],
+      "effects": [
+        {
+          "setFlag": "loi-oubliee"
         }
       ]
     },

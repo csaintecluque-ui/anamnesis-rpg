@@ -52,13 +52,18 @@
         },
         {
           "text": "Soigner la brûlure : de l’eau froide, de la graisse propre, un linge serré.",
+          "next": "panse-medecine",
+          "roll": {
+            "skill": "medicine",
+            "difficulty": 13
+          },
+          "failNext": "panse-rate",
           "requires": [
             {
-              "skill": "medicine",
-              "min": 3
+              "notFlag": "tiven-panse"
             },
             {
-              "notFlag": "tiven-panse"
+              "notFlag": "tiven-brulure-rate"
             }
           ],
           "effects": [
@@ -72,12 +77,25 @@
               "avis": "liane",
               "delta": 1
             }
-          ],
-          "next": "panse-medecine"
+          ]
         },
         {
           "text": "Courage, Tiven.",
           "next": "fin"
+        }
+      ]
+    },
+    "panse-rate": {
+      "text": "Tu serres le linge trop tôt, sur une peau trop chaude. Tiven grimace et retire ses mains. — Laisse. Ça ira.",
+      "options": [
+        {
+          "text": "Courage, Tiven.",
+          "next": "fin"
+        }
+      ],
+      "effects": [
+        {
+          "setFlag": "tiven-brulure-rate"
         }
       ]
     },
@@ -128,13 +146,18 @@
         },
         {
           "text": "Soigner la brûlure : de l’eau froide, de la graisse propre, un linge serré.",
+          "next": "panse-medecine",
+          "roll": {
+            "skill": "medicine",
+            "difficulty": 13
+          },
+          "failNext": "panse-rate",
           "requires": [
             {
-              "skill": "medicine",
-              "min": 3
+              "notFlag": "tiven-panse"
             },
             {
-              "notFlag": "tiven-panse"
+              "notFlag": "tiven-brulure-rate"
             }
           ],
           "effects": [
@@ -148,8 +171,7 @@
               "avis": "liane",
               "delta": 1
             }
-          ],
-          "next": "panse-medecine"
+          ]
         },
         {
           "text": "Je reviens.",

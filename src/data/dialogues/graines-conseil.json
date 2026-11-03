@@ -41,6 +41,11 @@
         {
           "text": "Examiner les rangées.",
           "next": "indice",
+          "roll": {
+            "skill": "investigation",
+            "difficulty": 11
+          },
+          "failNext": "rangees-rien",
           "requires": [
             {
               "quest": "graines",
@@ -50,8 +55,7 @@
               "notFlag": "preuve-sceau"
             },
             {
-              "skill": "investigation",
-              "min": 2
+              "notFlag": "rangees-rate"
             }
           ],
           "effects": [
@@ -99,6 +103,21 @@
         }
       ]
     },
+    "rangees-rien": {
+      "text": "Des sacs, des sceaux, des rangées. Tu comptes deux fois et tu perds le compte. La lumière baisse dans le grenier : il faudra revenir demain, avec des yeux frais.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ],
+      "effects": [
+        {
+          "setFlagFor": "rangees-rate",
+          "days": 1
+        }
+      ]
+    },
     "pris": {
       "text": "Tu glisses un sac dans ta besace. Il est léger, bien plus léger que ta conscience.",
       "options": [
@@ -114,6 +133,11 @@
         {
           "text": "Examiner les rangées.",
           "next": "indice",
+          "roll": {
+            "skill": "investigation",
+            "difficulty": 11
+          },
+          "failNext": "rangees-rien",
           "requires": [
             {
               "quest": "graines",
@@ -123,8 +147,7 @@
               "notFlag": "preuve-sceau"
             },
             {
-              "skill": "investigation",
-              "min": 2
+              "notFlag": "rangees-rate"
             }
           ],
           "effects": [

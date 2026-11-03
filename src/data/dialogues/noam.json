@@ -352,10 +352,15 @@
         },
         {
           "text": "Il se souvient de chaque voyageur : c’est une archive, pas un outil.",
+          "next": "reclasse",
+          "roll": {
+            "skill": "lore",
+            "difficulty": 12
+          },
+          "failNext": "reclasse-refus",
           "requires": [
             {
-              "skill": "lore",
-              "min": 3
+              "notFlag": "noam-refuse-archive"
             }
           ],
           "effects": [
@@ -365,8 +370,7 @@
             {
               "setFlag": "boulon-archive"
             }
-          ],
-          "next": "reclasse"
+          ]
         },
         {
           "text": "Arracher la page, quand il aura le dos tourné.",
@@ -388,6 +392,24 @@
         {
           "text": "Autre chose.",
           "next": "accueil"
+        }
+      ]
+    },
+    "reclasse-refus": {
+      "text": "Noam repose le doigt sur la ligne. — Une archive se consulte. Celle-ci porte des malles. Bel argument ; mauvais article. Il me faut un texte, une conviction ne se classe pas.",
+      "options": [
+        {
+          "text": "Revenir au registre.",
+          "next": "registre"
+        },
+        {
+          "text": "Autre chose.",
+          "next": "accueil"
+        }
+      ],
+      "effects": [
+        {
+          "setFlag": "noam-refuse-archive"
         }
       ]
     },

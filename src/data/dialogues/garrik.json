@@ -20,10 +20,14 @@
         {
           "text": "Pose cette pioche. Tout de suite.",
           "next": "intimide",
+          "roll": {
+            "skill": "command",
+            "difficulty": 11
+          },
+          "failNext": "intimide-rate",
           "requires": [
             {
-              "skill": "command",
-              "min": 2
+              "notFlag": "garrik-defie"
             }
           ]
         },
@@ -42,16 +46,43 @@
         }
       ]
     },
+    "intimide-rate": {
+      "text": "Garrik ne pose rien du tout. Il serre le manche, et ses phalanges blanchissent. — Tu donnes des ordres, toi ? En bas ? Il lève la pioche.",
+      "options": [
+        {
+          "text": "Alors on va régler ça.",
+          "next": "fin",
+          "effects": [
+            {
+              "startCombat": "fouilleur-sol"
+            }
+          ]
+        },
+        {
+          "text": "Reculer, les mains levées.",
+          "next": "fin"
+        }
+      ],
+      "effects": [
+        {
+          "setFlag": "garrik-defie"
+        }
+      ]
+    },
     "defensif": {
       "text": "— Les racines ? Je creuse le long d’une voie, moi, pas dans les racines ! Bon, il y en avait sur le chemin. Écoute, je suis payé à la pelletée, pas aux questions.",
       "options": [
         {
           "text": "Là-haut, des gens ne peuvent plus parler à leurs morts. À cause de ce trou.",
           "next": "convaincu",
+          "roll": {
+            "skill": "diplomacy",
+            "difficulty": 13
+          },
+          "failNext": "defensif-rate",
           "requires": [
             {
-              "skill": "diplomacy",
-              "min": 3
+              "notFlag": "garrik-ferme"
             }
           ]
         },
@@ -67,6 +98,29 @@
         {
           "text": "Je reviendrai.",
           "next": "fin"
+        }
+      ]
+    },
+    "defensif-rate": {
+      "text": "— Des gens, là-haut. Garrik crache dans ses mains et reprend sa pioche. — Moi aussi, j’ai des gens. Ils mangent ce que je creuse.",
+      "options": [
+        {
+          "text": "Alors je vais te faire partir.",
+          "next": "fin",
+          "effects": [
+            {
+              "startCombat": "fouilleur-sol"
+            }
+          ]
+        },
+        {
+          "text": "Je reviendrai.",
+          "next": "fin"
+        }
+      ],
+      "effects": [
+        {
+          "setFlag": "garrik-ferme"
         }
       ]
     },
@@ -103,10 +157,14 @@
         {
           "text": "Du calme. Personne n’a besoin de se battre.",
           "next": "convaincu",
+          "roll": {
+            "skill": "diplomacy",
+            "difficulty": 13
+          },
+          "failNext": "demasque-rate",
           "requires": [
             {
-              "skill": "diplomacy",
-              "min": 3
+              "notFlag": "garrik-ferme"
             }
           ]
         },
@@ -122,6 +180,29 @@
         {
           "text": "Reculer, les mains levées.",
           "next": "fin"
+        }
+      ]
+    },
+    "demasque-rate": {
+      "text": "— Le calme, c’est pour ceux d’en haut. La pioche siffle à un pouce de ta tête.",
+      "options": [
+        {
+          "text": "Se défendre.",
+          "next": "fin",
+          "effects": [
+            {
+              "startCombat": "fouilleur-sol"
+            }
+          ]
+        },
+        {
+          "text": "Reculer, les mains levées.",
+          "next": "fin"
+        }
+      ],
+      "effects": [
+        {
+          "setFlag": "garrik-ferme"
         }
       ]
     },

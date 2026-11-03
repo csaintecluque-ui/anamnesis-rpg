@@ -84,14 +84,16 @@ describe('Les lettres de Malo', () => {
     const options = DIALOGUES['sacoche-lettres'].nodes.ours.options;
     expect(options[0].roll).toEqual({ skill: 'stealth', difficulty: 11 });
     expect(options[0].failNext).toBe('reveil');
-    expect(options[1].requires).toEqual([{ skill: 'survival', min: 2 }]);
+    expect(options[1].roll).toEqual({ skill: 'survival', difficulty: 11 });
     expect(startsCombat(options[2].effects)).toBe('ours-sacoche');
-    expect(visibleOptions(DIALOGUES['sacoche-lettres'].nodes.ours, state)[1].enabled).toBe(false);
+    // Berries that fail wake the bear: a fight, or a step back.
+    expect(DIALOGUES['sacoche-lettres'].nodes[options[1].failNext!].options.map((o) => startsCombat(o.effects))).toEqual(['ours-sacoche', null]);
+    expect(visibleOptions(DIALOGUES['sacoche-lettres'].nodes.ours, state)[1].enabled).toBe(true);
   });
 
   it('leaves a lead for « L’audience »: the dig and the Marché des Cendres label', () => {
     const state = createNewGame();
-    expect(visibleOptions(DIALOGUES['traces-fouille'].nodes.trou, state)[1].enabled).toBe(false);
+    expect(visibleOptions(DIALOGUES['traces-fouille'].nodes.trou, state)[1].option.roll).toEqual({ skill: 'investigation', difficulty: 11 });
     choose(state, 'traces-fouille', 'trou', 'Regarder au fond');
     expect(state.flags['fouille-vue']).toBe(true);
     expect(state.flags['fouille-marches']).toBeUndefined();

@@ -218,16 +218,20 @@
         },
         {
           "text": "L’étudier d’abord avec toi.",
+          "next": "etude",
+          "roll": {
+            "skill": "lore",
+            "difficulty": 12
+          },
+          "failNext": "etude-ratee",
           "requires": [
             {
-              "skill": "lore",
-              "min": 3
+              "notFlag": "cle-etudiee"
             },
             {
-              "notFlag": "cle-etudiee"
+              "notFlag": "cle-etude-ratee"
             }
-          ],
-          "next": "etude"
+          ]
         },
         {
           "text": "Les convois du triage, qui partent seuls la nuit ?",
@@ -245,6 +249,24 @@
         {
           "text": "Pas encore.",
           "next": "fin"
+        }
+      ]
+    },
+    "etude-ratee": {
+      "text": "Vous penchez la tête sur la clé, longtemps. Elle chante une note, toujours la même, et tu n’en tires rien que tu saches écrire. La Veilleuse hausse les épaules. — Elle parle aux trains. À nous, elle ne doit rien.",
+      "options": [
+        {
+          "text": "Revenir à la clé.",
+          "next": "avec-cle"
+        },
+        {
+          "text": "Pas encore.",
+          "next": "fin"
+        }
+      ],
+      "effects": [
+        {
+          "setFlag": "cle-etude-ratee"
         }
       ]
     },
@@ -341,13 +363,17 @@
       "options": [
         {
           "text": "Kaelis la vendrait. Moi, je veux savoir ce qu’elle ouvre, et pourquoi on fouille vos gares.",
+          "next": "don",
+          "roll": {
+            "skill": "diplomacy",
+            "difficulty": 12
+          },
+          "failNext": "ouvre-mefiance",
           "requires": [
             {
-              "skill": "diplomacy",
-              "min": 3
+              "notFlag": "veilleuse-mefiante"
             }
-          ],
-          "next": "don"
+          ]
         },
         {
           "text": "Aux Archives, un coffre de fer attend sa clé depuis la fondation : le Fonds Zéro.",
@@ -374,6 +400,24 @@
         {
           "text": "Je reviendrai.",
           "next": "fin"
+        }
+      ]
+    },
+    "ouvre-mefiance": {
+      "text": "— Savoir, toujours savoir. La Veilleuse referme la main sur la clé. — Kaelis aussi voulait savoir. Il a fini par donner un prix.",
+      "options": [
+        {
+          "text": "Autre chose.",
+          "next": "ouvre"
+        },
+        {
+          "text": "Je reviendrai.",
+          "next": "fin"
+        }
+      ],
+      "effects": [
+        {
+          "setFlag": "veilleuse-mefiante"
         }
       ]
     },

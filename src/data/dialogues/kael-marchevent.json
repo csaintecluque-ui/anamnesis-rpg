@@ -216,18 +216,40 @@
         {
           "text": "Le sol est sacré, la route ne l’est pas : fermez l’un, gardez l’autre.",
           "next": "fin-accord",
-          "requires": [
-            {
-              "skill": "diplomacy",
-              "min": 3
-            }
-          ],
+          "roll": {
+            "skill": "diplomacy",
+            "difficulty": 13
+          },
+          "failNext": "choix-rate",
           "effects": [
             {
               "setFlag": "conseil-accord"
             },
             {
               "giveXp": 15
+            }
+          ]
+        }
+      ]
+    },
+    "choix-rate": {
+      "text": "Kael hausse un sourcil ; Lyra sourit à peine. — Un compromis de Gardien, dit Kael. Joli. Mais un Conseil tranche, et c’est toi qu’on écoute : l’un ou l’autre.",
+      "options": [
+        {
+          "text": "Fermez la frontière aux prospecteurs.",
+          "next": "fin-frontiere",
+          "effects": [
+            {
+              "setFlag": "conseil-frontiere"
+            }
+          ]
+        },
+        {
+          "text": "Gardez le commerce, mais surveillez chaque chantier.",
+          "next": "fin-commerce",
+          "effects": [
+            {
+              "setFlag": "conseil-commerce"
             }
           ]
         }

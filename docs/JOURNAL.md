@@ -15,7 +15,7 @@ Cyril sur PC et sa validation. Aucun nouveau système d'ici là.
 
 | Chantier | Contenu | État |
 |---|---|---|
-| 0 | PC d'abord : `CLAUDE.md`, infobulles, raccourcis, barre d'actions, taille du texte | **fait sur la branche** ; partie de Cyril sur PC à faire |
+| 0 | PC d'abord : `CLAUDE.md`, infobulles, raccourcis, barre d'actions, taille du texte | **en ligne** (2026-11-03) ; partie de Cyril sur PC à faire |
 | 1 | Une mémoire pour le héros (Écho personnel, oubli choisi, Échos tentants) | à faire |
 | 2 | Recalibrer tests et compétences | à faire |
 | 3 | Refaire le combat | à faire |

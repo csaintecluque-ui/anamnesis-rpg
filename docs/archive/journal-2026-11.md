@@ -1010,3 +1010,4 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   combat, carte du monde, inventaire), marche aux flèches/ZQSD/WASD, E pour agir, Tab et Entrée pour viser et frapper
   en combat ou choisir un lieu, touches sur la barre d'actions, journal et écrans titre et mort au clavier. 633 tests ;
   vérifié en 1920 × 1080 (captures et déplacement au clavier). Reste : la partie de Cyril sur PC.
+- Cyril : « Mets en ligne » : chantier 0 en ligne ; sa partie sur PC clôturera le chantier.

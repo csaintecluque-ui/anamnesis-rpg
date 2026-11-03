@@ -87,7 +87,7 @@ Commence par : « flute » _(si quête « Le chant d’Anselme » en cours)_ _(s
 
 ### accueil
 
-> Entre, entre. Tu as croisé mon petit-fils, je parie ? Malo court partout comme un écureuil. Moi, je ne vais plus bien loin : jusqu’au Bosquet des Échos, chaque soir, pour parler à mon Anselme.
+> Entre, entre. Tu as croisé mon petit-fils, je parie ? Malo court partout ; ses pieds ne touchent jamais les planches. Moi, je ne vais plus bien loin : jusqu’au Bosquet des Échos, chaque soir, pour parler à mon Anselme.
 
 - « Parler à un arbre ? » → arbre
 - « Au revoir, Aïlis. » → **fin**
@@ -102,20 +102,20 @@ _Effet : retient « anselme-connu »._
 
 ### voix
 
-> Tu reviens du Bosquet ? Tes yeux brillent…
+> Tu reviens du Bosquet ? Tes yeux brillent.
 
 - « J’ai touché le nom d’Anselme, au Bosquet. J’ai entendu quelqu’un fredonner. » → reconfort _(retient « ailis-reconfortee », +15 XP)_
 - « Ce n’est rien. » → accueil
 
 ### reconfort
 
-> Aïlis pose sa main sur la tienne. — La chanson des cerfs-lucioles… C’est elle que je fredonnais en gravant son nom. Alors le Bosquet la garde. Merci : tu viens de me rendre un petit morceau de lui.
+> Aïlis pose sa main sur la tienne. — La chanson des cerfs-lucioles. C’est elle que je fredonnais en gravant son nom. Alors le Bosquet la garde. Merci : tu viens de me rendre un petit morceau de lui.
 
 - « Il veille sur vous deux. » → **fin**
 
 ### flute
 
-> Qu’est-ce que tu tiens là, mon enfant ? Une flûte… elle sent le bois d’en bas, le bois de la mousse.
+> Qu’est-ce que tu tiens là, mon enfant ? Une flûte ? Elle sent le bois d’en bas, le bois de la mousse.
 
 - _(si repère « flute-fidele »)_ « Elouan l’a taillée dans une branche de l’arbre d’Anselme. Pour vous. » → chant-fidele _(reprend 1 × « Flûte d’Anselme », termine la quête « Le chant d’Anselme », retient le Récit « Le chant d’Anselme », +40 XP)_
 - _(sans repère « flute-fidele »)_ « Elouan l’a taillée dans une branche de l’arbre d’Anselme. Pour vous. » → chant-carnet _(reprend 1 × « Flûte d’Anselme », termine la quête « Le chant d’Anselme », retient le Récit « Le chant d’Anselme », +30 XP)_
@@ -129,7 +129,7 @@ _Effet : retient « anselme-connu »._
 
 ### chant-carnet
 
-> 🌙 Aïlis joue la chanson du carnet, puis s’arrête et sourit. — Ce n’est pas tout à fait la mienne. Ilyane a toujours eu sa façon… Elle reprend, change une note, puis deux. Cette fois, c’est la sienne : elle vient de s’en souvenir.
+> 🌙 Aïlis joue la chanson du carnet, puis s’arrête et sourit. — Ce n’est pas tout à fait la mienne. Ilyane a toujours eu sa façon. Elle reprend, change une note, puis deux. Cette fois, c’est la sienne : elle vient de s’en souvenir.
 
 - « Elle était là, tout près. » → merci
 
@@ -148,7 +148,7 @@ _Effet : retient « anselme-connu »._
 
 ### inquiete
 
-> Je suis allée au Bosquet hier soir. J’ai posé la main sur le nom d’Anselme et… rien. Le bois était froid. Comme s’il était parti une seconde fois.
+> Je suis allée au Bosquet hier soir. J’ai posé la main sur le nom d’Anselme. Rien. Le bois était froid. Comme s’il était parti une seconde fois.
 
 - _(si quête « Le chant d’Anselme » terminée)_ « Vous avez encore sa chanson. » → chanson-reste
 - « Parlez-moi de l’arbre où il repose. » → arbre
@@ -156,7 +156,7 @@ _Effet : retient « anselme-connu »._
 
 ### chanson-reste
 
-> Aïlis serre la flûte contre elle. — Oui… Oui, c’est vrai. Le bois du Bosquet a oublié, mais la flûte, elle, n’a rien oublié. Va, mon enfant. Trouve ce qui lui fait mal, à notre forêt.
+> Aïlis serre la flûte contre elle. — Oui. Oui, c’est vrai. Le bois du Bosquet a oublié, mais la flûte, elle, n’a rien oublié. Va, mon enfant. Trouve ce qui lui fait mal, à notre forêt.
 
 - « Je trouverai. » → **fin**
 
@@ -188,7 +188,7 @@ Commence par : « denonce » _(si quête « Les Mémoires du Monde Perdu » en c
 
 ### registre
 
-> Il ouvre un livre épais comme une porte. — Vous cherchez une chaîne ? Dites-moi l’objet, je vous lis les mains.
+> Il ouvre un registre de la taille d’une porte. — Vous cherchez une chaîne ? Dites-moi l’objet, je vous lis les mains.
 
 _Si Boulon voyage avec toi :_ Boulon lit par-dessus ton épaule, sans bouger les lèvres. — Tout s’écrit, ici. Même ce qui n’est pas arrivé.
 
@@ -198,7 +198,7 @@ _Si Boulon voyage avec toi :_ Boulon lit par-dessus ton épaule, sans bouger les
 
 ### chaine
 
-> Il tourne les pages sans hâte. — Le carnet : jamais entré. Mais l’an dernier, une page recopiée, « la ligne que Ferros a grattée », vendue quarante Nexus. Sa chaîne passe par une maison qu’a touchée Nakh-Rim : elle dort au Fonds Muet. On ne la cite pas.
+> Il tourne les pages sans hâte. — Le carnet : jamais entré. Mais l’an dernier, une page recopiée, « la ligne que Ferros a grattée », vendue quarante Fers. Sa chaîne passe par une maison qu’a touchée Nakh-Rim : elle dort au Fonds Muet. On ne la cite pas.
 
 - « Et personne d’autre ne l’a demandée ? » → edda-demande
 
@@ -213,7 +213,7 @@ _Effet : retient « registre-lu »._
 
 ### demande
 
-> — Le Fonds Muet ne se cite pas. Il ne se cache pas non plus : ici, on ne cache rien. Convainquez-moi qu’un lecteur n’est pas un citeur.
+> — Le Fonds Muet ne se cite pas. Il ne se cache pas non plus : rien ne se cache à Sept-Portes. Convainquez-moi qu’un lecteur n’est pas un citeur.
 
 - _(si Récit « Kael, le Premier Chroniqueur » connu)_ « Kael a bâti cette bibliothèque sur une seule règle. Il a lu, lui, avant de la poser. » → convaincu
 - **[Diplomatie 4]** « « On ne cache rien », dites-vous. Alors ne me cachez pas cette page. » → convaincu
@@ -270,7 +270,7 @@ _Effet : retient « fonds-muet-ouvert », retient « fonds-muet-parole », +10 X
 
 ### chaine-vendue
 
-> Il tourne les pages. — La clé : entrée il y a trois jours, d’une main gantée, qui l’a achetée aux Marches des Cendres. Le carnet : une page recopiée, vendue quarante Nexus l’an dernier. Sa chaîne dort au Fonds Muet. On ne la cite pas.
+> Il tourne les pages. — La clé : entrée il y a trois jours, d’une main gantée, qui l’a achetée aux Marches des Cendres. Le carnet : une page recopiée, vendue quarante Fers l’an dernier. Sa chaîne dort au Fonds Muet. On ne la cite pas.
 
 - « Et personne d’autre ne l’a demandée ? » → edda-demande
 
@@ -299,7 +299,7 @@ Commence par : « silence » _(si quête « L’audience » en cours)_ _(si rep�
 
 > Des noms, des légendes, de petits dessins de feuilles. Là où le bois a fendu un signe, la fente fait désormais partie du souvenir.
 
-_Si Liane voyage avec toi :_ Liane pose la main près de la tienne, sur les noms. — Ici, on les garde dans le bois. Chez nous, on les enterre et on se tait.
+_Si Liane voyage avec toi :_ Liane pose la main près de la tienne, sur les noms. — Eux, ils gardent leurs morts dans le bois. Chez nous, on les enterre et on se tait.
 
 - « Partir. » → **fin**
 
@@ -314,13 +314,13 @@ _Si Liane voyage avec toi :_ Liane pose la main près de la tienne, sur les noms
 
 ### pente
 
-> Tout au fond du silence, une sensation : comme une racine qu’on tire, vers le bas, très loin sous la ville. Ce qui fait taire le Bosquet est en bas, sur le Sol des Racines.
+> Tout au fond du silence, une sensation : une racine qu’on tire, vers le bas, très loin sous la ville. Ce qui fait taire le Bosquet est en bas, sur le Sol des Racines.
 
 - « Retirer la main. » → **fin**
 
 ### seve
 
-> Au pied de l’arbre, une sève claire suinte entre les planches, comme d’une blessure. Les racines du Bosquet descendent jusqu’au sol… et, en bas, quelque chose les a tranchées.
+> Au pied de l’arbre, une sève claire suinte entre les planches, comme d’une blessure. Les racines du Bosquet descendent jusqu’au sol, et, en bas, quelque chose les a tranchées.
 
 - « Partir. » → **fin**
 
@@ -387,7 +387,7 @@ Commence par : « arbre-quete » _(si quête « Le chant d’Anselme » en cours
 
 ### chantante
 
-> Tu toques sur les branches, une à une. La plupart sonnent mat. Une seule répond, claire comme une goutte d’eau : celle-là chante déjà. Tu la glisses dans ta besace en murmurant un merci.
+> Tu toques sur les branches, une à une. La plupart sonnent mat. Une seule répond, claire, presque une note : celle-là chante déjà. Tu la glisses dans ta besace en murmurant un merci.
 
 - « Remonter vers la nacelle. » → **fin**
 
@@ -453,7 +453,7 @@ Commence par : « libre » _(si quête « Le contrat de Boulon » en cours)_ _(s
 
 _Effet : lance la quête « La Clé de Rouille Bleue », retient « boulon-accueilli »._
 
-> Un Ferrôme lourd comme une locomotive soulève trois malles d’une seule main. — Bienvenue à Ironheart. Je m’appelle Boulon. Un sceau d’émeraude à ta ceinture ? Les Verts ne viennent pas souvent. Tu cherches quelque chose, ou quelqu’un ?
+> Un Ferrôme de deux mètres, tout en rivets, soulève trois malles d’une seule main. — Bienvenue à Ironheart. Je m’appelle Boulon. Un sceau d’émeraude à ta ceinture ? Les Verts ne viennent pas souvent. Tu cherches quelque chose, ou quelqu’un ?
 
 - « Un certain Kaelis, des Marches des Cendres. » → kaelis
 - « Parlons un peu. » → parler
@@ -514,7 +514,7 @@ _Effet : retient « marche-cendres-indice »._
 
 ### contrat
 
-> — Il faudrait qu’on me raye du matériel. L’archiviste Noam tient le registre des Ferrômes. Il classe tout. Moi, je suis une ligne. … Je ne sais pas ce que vaut une ligne.
+> — Il faudrait qu’on me raye du matériel. L’archiviste Noam tient le registre des Ferrômes. Il classe tout. Moi, je suis une ligne. Je ne sais pas ce que vaut une ligne.
 
 - « J’irai voir Noam. » → **fin**
 
@@ -522,7 +522,7 @@ _Effet : retient « marche-cendres-indice »._
 
 _Effet : termine la quête « Le contrat de Boulon », +40 XP._
 
-> Boulon lit le papier trois fois, puis le plie en quatre, très lentement. — Je ne suis plus du matériel. … Alors je viens. Je porterai ce qu’il faut, et je me souviendrai de chaque endroit. Ce seront les miens.
+> Boulon lit le papier trois fois, puis le plie en quatre, très lentement. — Je ne suis plus du matériel. Alors je viens. Je porterai ce qu’il faut, et je me souviendrai de chaque endroit. Ce seront les miens.
 
 - « En route, Boulon. » → **fin** _(Boulon se joint au héros)_
 - « Attends-moi ici un peu. » → **fin**
@@ -543,14 +543,14 @@ Commence par : « apres » _(si quête « La caisse égarée » terminée)_, sin
 
 ### demande
 
-> Ah ! Pardon, je range. Enfin, j’essaie. J’ai perdu une caisse d’outils en tombant du chariot, sur la route de l’est. Si maître Cendrefer l’apprend… Et deux Rôdeurs-Épine tournent autour : je n’ose pas y retourner.
+> Ah ! Pardon, je range. Enfin, j’essaie. J’ai perdu une caisse d’outils en tombant du chariot, sur la route de l’est. Si maître Cendrefer l’apprend, je suis mort. Et deux Rôdeurs-Épine tournent autour : je n’ose pas y retourner.
 
 - « Je vais la chercher. » → merci _(lance la quête « La caisse égarée »)_
 - « Bon courage, Brann. » → **fin**
 
 ### merci
 
-> Vraiment ? Elle est au sud de la route, après le pont. Les Rôdeurs n’aiment pas la fumée, à ce qu’on dit… ou alors on passe en douce. Moi, je cours vite, mais dans le mauvais sens.
+> Vraiment ? Elle est au sud de la route, après le pont. Les Rôdeurs n’aiment pas la fumée, à ce qu’on dit, ou alors on passe en douce. Moi, je cours vite, mais dans le mauvais sens.
 
 - « J’y vais. » → **fin**
 
@@ -562,7 +562,7 @@ Commence par : « apres » _(si quête « La caisse égarée » terminée)_, sin
 
 ### rendu
 
-> Ma caisse ! Tous les outils sont là ! Tiens, c’est tout ce que j’ai… Et je dirai à maître Cendrefer de te faire un prix, promis.
+> Ma caisse ! Tous les outils sont là ! Tiens, c’est tout ce que j’ai. Et je dirai à maître Cendrefer de te faire un prix, promis.
 
 - « Merci, Brann. » → **fin** _(termine la quête « La caisse égarée », +25 Fers, retient « remise-cendrefer », +25 XP)_
 
@@ -580,7 +580,7 @@ Commence par : « vide » _(si repère « rencontre-cache-ouverte »)_, sinon «
 
 ### boite
 
-> Sous une dalle fendue, une boîte de fer rouillée. Quelqu’un l’a cachée là… il y a longtemps, ou hier.
+> Sous une dalle fendue, une boîte de fer rouillée. Quelqu’un l’a cachée là, il y a longtemps, ou hier.
 
 - « L’ouvrir. » → ouverte _(retient « rencontre-cache-ouverte », +8 Fers, donne 1 × « Bandage »)_
 - « La laisser. » → **fin**
@@ -719,7 +719,7 @@ Commence par : « champi »
 
 ### champi
 
-> Entre deux souches, près du chantier, un Champignon-Mémoire large comme une main, pâle, qui luit faiblement. On dit qu’il mange les souvenirs récents de ceux qui marchent près de lui.
+> Entre deux souches, près du chantier, un Champignon-Mémoire large d’une main, pâle, qui luit faiblement. On dit qu’il mange les souvenirs récents de ceux qui marchent près de lui.
 
 - « Le cueillir pour Liane. » → cueilli _(donne 1 × « Vieux Champignon-Mémoire », retient « champignon-cueilli »)_
 - « Le laisser. » → **fin**
@@ -765,7 +765,7 @@ Commence par : « accueil »
 
 ### accueil
 
-> Bonne route à toi ! Je vais de village en village avec ma carriole. Bandages, cordes, baumes… Un petit quelque chose pour le voyage ?
+> Bonne route à toi ! Je vais de village en village avec ma carriole. Bandages, cordes, baumes. Un petit quelque chose pour le voyage ?
 
 - « Voyons ta marchandise. » → **fin** _(ouvre le Troc)_
 - « Quelles nouvelles des routes ? » → nouvelles
@@ -785,7 +785,7 @@ Commence par : « presse » _(si quête « La caravane de midi » pas commencée
 
 ### presse
 
-> Pas le temps, pas le temps ! Enfin… si, maintenant : j’ai raté la caravane de midi. Et cette sacoche devait partir avec elle, pour Canopéa, avant ce soir ! Mon patron va me suspendre par les bretelles à un Arbre-Titan.
+> Pas le temps, pas le temps ! Enfin, si, maintenant : j’ai raté la caravane de midi. Et cette sacoche devait partir avec elle, pour Canopéa, avant ce soir ! Mon patron va me suspendre par les bretelles à un Arbre-Titan.
 
 - « Je peux la porter à Canopéa. » → merci _(donne 1 × « Sacoche de la Compagnie », lance la quête « La caravane de midi »)_
 - « Qu’y a-t-il dedans ? » → dedans
@@ -793,7 +793,7 @@ Commence par : « presse » _(si quête « La caravane de midi » pas commencée
 
 ### dedans
 
-> Des lettres de change, des échantillons, et la viande séchée du chef de caravane. Il y tient plus qu’aux lettres, entre nous. Rien de dangereux… sauf pour les Loups de Rouille, qui ont du flair.
+> Des lettres de change, des échantillons, et la viande séchée du chef de caravane. Il y tient plus qu’aux lettres, entre nous. Rien de dangereux, sauf pour les Loups de Rouille, qui ont du flair.
 
 - « Je peux la porter à Canopéa. » → merci _(donne 1 × « Sacoche de la Compagnie », lance la quête « La caravane de midi »)_
 - « Bon courage. » → **fin**
@@ -956,7 +956,7 @@ _Effet : lance la quête « Ce que Liane veut oublier », retient « oubli-aveu 
 
 ### ronge
 
-> — Hier, j’ai oublié le nom de la sauge-lumière. Moi ! … Je sais. Mais entre oublier un peu de tout et le revoir mourir chaque nuit, j’ai choisi.
+> — Hier, j’ai oublié le nom de la sauge-lumière. Moi ! Je sais. Mais entre oublier un peu de tout et le revoir mourir chaque nuit, j’ai choisi.
 
 - « Il y a peut-être un autre chemin. » → choix
 - « Dors, Liane. » → **fin**
@@ -971,20 +971,20 @@ _Effet : lance la quête « Ce que Liane veut oublier », retient « oubli-aveu 
 
 ### oublier-ok
 
-> — Là où il est mort, évidemment. Ça pousse sur ce qui pourrit. … Merci de ne pas me faire la morale.
+> — Là où il est mort, évidemment. Ça pousse sur ce qui pourrit. Merci de ne pas me faire la morale.
 
 - « En route. » → **fin**
 
 ### graver-ok
 
-> — Il faudra que je le touche, ce bois, après. … Je ne sais pas si je pourrai.
+> — Il faudra que je le touche, ce bois, après. Je ne sais pas si je pourrai.
 
 - « Je serai là. » → **fin** _(avis de Liane +1)_
 - « En route. » → **fin**
 
 ### manger
 
-> Liane prend le champignon à deux mains. Il luit faiblement, pâle comme une lune. — Après, je ne saurai même plus pourquoi je l’ai mangé. Tu ne me le diras pas, hein ?
+> Liane prend le champignon à deux mains. Il luit faiblement, d’un blanc de lune. — Après, je ne saurai même plus pourquoi je l’ai mangé. Tu ne me le diras pas, hein ?
 
 - « Je ne te dirai rien. » → oublie _(reprend 1 × « Vieux Champignon-Mémoire », retient « liane-a-oublie », termine la quête « Ce que Liane veut oublier », +40 XP, avis de Liane +2)_
 - _(sans repère « oubli-choix-graver »)_ « Non : allons plutôt graver son nom. » → graver-ok _(reprend 1 × « Vieux Champignon-Mémoire », retient « oubli-choix-graver »)_
@@ -1015,7 +1015,7 @@ _Effet : retient « liane-a-vu-marques »._
 
 ### droit
 
-> Liane te regarde, prise de court. — Ilyane dit qu’oublier, c’est trahir. Les Gardiens disent tous ça. … Toi aussi, tu en es un. Elle détourne les yeux. — Merci quand même.
+> Liane te regarde, prise de court. — Ilyane dit qu’oublier, c’est trahir. Les Gardiens disent tous ça. Toi aussi, tu en es un. Elle détourne les yeux. — Merci quand même.
 
 - « Que veux-tu faire ? » → choix
 - « Dors, Liane. » → **fin**
@@ -1415,7 +1415,7 @@ Commence par : « offre » _(si quête « Les Mémoires du Monde Perdu » en cou
 
 > Une femme en manteau gris de Ferros, gants fins, ne lève pas les yeux de son thé. — Vous aussi, vous venez pour la Bibliothèque ? On y vend tout. Sauf des réponses.
 
-_Si Boulon voyage avec toi :_ Boulon s’arrête net. — Je l’ai portée. Gare de l’Ouest, il y a une lune : deux malles très lourdes, pas un mot, un pourboire en Nexus neufs. Elle allait vers les Portes.
+_Si Boulon voyage avec toi :_ Boulon s’arrête net. — Je l’ai portée. Gare de l’Ouest, il y a une lune : deux malles très lourdes, pas un mot, un pourboire en Fers neufs. Elle allait vers les Portes.
 
 - « Qui êtes-vous ? » → qui
 - « Au revoir. » → **fin**
@@ -1464,7 +1464,7 @@ Commence par : « apres » _(si quête « Le chant d’Anselme » terminée)_, s
 
 ### accueil
 
-> Chut… écoute. Ce bois-là chante quand le vent passe dedans. Je suis Elouan, luthier. Je ne taille que les branches tombées : à Canopéa, on ne coupe pas un arbre qui vit.
+> Chut, écoute. Ce bois-là chante quand le vent passe dedans. Je suis Elouan, luthier. Je ne taille que les branches tombées : à Canopéa, on ne coupe pas un arbre qui vit.
 
 - « Tu peux jouer quelque chose ? » → musique
 - « Pourquoi ne pas couper les arbres ? » → arbres
@@ -1533,7 +1533,7 @@ Commence par : « apres » _(si quête « Le chant d’Anselme » terminée)_, s
 
 ### taille-carnet
 
-> 🌙 Elouan déchiffre la notation d’Ilyane en fronçant les sourcils, puis il taille, perce, souffle. Le soir tombe. La chanson des cerfs-lucioles sort enfin de la flûte. — C’est celle du carnet. Pas tout à fait celle d’Aïlis, peut-être… Porte-la-lui.
+> 🌙 Elouan déchiffre la notation d’Ilyane en fronçant les sourcils, puis il taille, perce, souffle. Le soir tombe. La chanson des cerfs-lucioles sort enfin de la flûte. — C’est celle du carnet. Pas tout à fait celle d’Aïlis, peut-être. Porte-la-lui.
 
 - « J’y vais. » → **fin**
 
@@ -1558,7 +1558,7 @@ Commence par : « apres-rendu » _(si quête « Les graines qui manquent » term
 
 ### accueil
 
-> Elvan Morelle, de la Compagnie des Lisières : tissus de Gardebois, cordes de Ferros. Je repars bientôt, alors si tu veux quelque chose, c’est maintenant… mais tout est déjà promis, j’en ai peur.
+> Elvan Morelle, de la Compagnie des Lisières : tissus de Gardebois, cordes de Ferros. Je repars bientôt, alors si tu veux quelque chose, c’est maintenant, mais tout est déjà promis, j’en ai peur.
 
 - « Que transportes-tu ? » → ballots
 - « Au revoir. » → **fin**
@@ -1588,7 +1588,7 @@ Commence par : « apres-rendu » _(si quête « Les graines qui manquent » term
 
 _Effet : retient « graines-elvan-avoue »._
 
-> Elvan s’assoit d’un coup. — Les Marches des Cendres paient trois fois le prix, à Ironheart. Trois fois ! Je me disais : quelques sacs, le Conseil ne verra rien… Il en reste six, là, dans le ballot.
+> Elvan s’assoit d’un coup. — Les Marches des Cendres paient trois fois le prix, à Ironheart. Trois fois ! Je me disais : quelques sacs, le Conseil ne verra rien. Il en reste six, là, dans le ballot.
 
 - « Je vais le dire au Conseil. » → denonce _(retient « graines-denonce », termine la quête « Les graines qui manquent », +30 XP, avis de Liane +1)_
 - **[Diplomatie 3]** « Rapporte-les toi-même au grenier, et la Compagnie gardera son honneur. » → rend _(retient « graines-rendues », termine la quête « Les graines qui manquent », +40 XP, avis de Liane +2, avis de Boulon +1)_
@@ -1603,7 +1603,7 @@ _Effet : retient « graines-elvan-avoue »._
 
 ### rend
 
-> Il hésite longtemps, puis charge le ballot sur son épaule. — Je les rapporte ce soir, par la nacelle de Véline. Je dirai que je les ai retrouvées. Merci… de m’avoir laissé ça.
+> Il hésite longtemps, puis charge le ballot sur son épaule. — Je les rapporte ce soir, par la nacelle de Véline. Je dirai que je les ai retrouvées. Merci de m’avoir laissé ça.
 
 - « Que la sève coule, Elvan. » → **fin**
 
@@ -1615,7 +1615,7 @@ _Effet : retient « graines-elvan-avoue »._
 
 ### apres-rendu
 
-> Elvan te salue d’un signe de tête. — Je n’ai jamais si bien dormi. La Compagnie m’a gardé, tu sais. Elle ne sait pas tout… mais moi, je sais.
+> Elvan te salue d’un signe de tête. — Je n’ai jamais si bien dormi. La Compagnie m’a gardé, tu sais. Elle ne sait pas tout, mais moi, je sais.
 
 - « Au revoir, Elvan. » → **fin**
 
@@ -1766,7 +1766,7 @@ _Effet : retient « surpris-de-nuit », −2 PV._
 
 ### explosee-pell
 
-> La foreuse n’est plus qu’une carcasse noire, ouverte comme une fleur de fer. Sous la tente de Brisefer, quelqu’un gémit dans son sommeil, les mains bandées jusqu’aux coudes.
+> La foreuse n’est plus qu’une carcasse noire, éventrée. Sous la tente de Brisefer, quelqu’un gémit dans son sommeil, les mains bandées jusqu’aux coudes.
 
 - « S’éloigner. » → **fin**
 
@@ -1787,7 +1787,7 @@ Commence par : « scellee » _(si repère « echos-dissipes »)_, sinon « apres
 
 _Effet : retient « trappe-vue », lance la quête « Les Échos sous la Forge »._
 
-> À la nuit, la forge s’embrase sans feu : une lueur rouge, sans chaleur ni fumée, comme un souffle. Au fond du foyer, la lueur dessine une trappe de fer. Des voix montent d’en bas, très loin.
+> À la nuit, la forge s’embrase sans feu : une lueur rouge, sans chaleur ni fumée. Elle respire. Au fond du foyer, la lueur dessine une trappe de fer. Des voix montent d’en bas, très loin.
 
 - « Ouvrir la trappe et descendre. » → **fin** _(mène à « Ironheart — Sous la forge froide »)_
 - « Pas cette nuit. » → **fin**
@@ -1831,7 +1831,7 @@ _Si Liane voyage avec toi :_ Liane, tout bas : — Il a les mains d’un homme q
 
 ### defensif
 
-> — Les racines ? Je creuse le long d’une voie, moi, pas dans les racines ! Bon… il y en avait sur le chemin. Écoute, je suis payé à la pelletée, pas aux questions.
+> — Les racines ? Je creuse le long d’une voie, moi, pas dans les racines ! Bon, il y en avait sur le chemin. Écoute, je suis payé à la pelletée, pas aux questions.
 
 - **[Diplomatie 3]** « Là-haut, des gens ne peuvent plus parler à leurs morts. À cause de ce trou. » → convaincu
 - « Alors je vais te faire partir. » → **fin** _(lance le combat « fouilleur-sol »)_
@@ -1845,13 +1845,13 @@ _Si Liane voyage avec toi :_ Liane, tout bas : — Il a les mains d’un homme q
 
 ### convaincu
 
-> Il baisse la pioche, longtemps. — Ma mère repose sous un chêne, chez nous, à la frontière. Je n’avais pas pensé… Bon. Je vais te dire ce que je sais.
+> Il baisse la pioche, longtemps. — Ma mère repose sous un chêne, chez nous, à la frontière. Je n’y avais pas pensé. Bon. Je vais te dire ce que je sais.
 
 - « Je t’écoute. » → aveu
 
 ### complice
 
-> — Kaelis ? Il pourrait payer plus vite, alors ! Dis-lui que je longe la voie depuis dix jours, et toujours pas de clé. Juste des racines, des racines, des racines… Il faut bien les couper pour passer.
+> — Kaelis ? Il pourrait payer plus vite, alors ! Dis-lui que je longe la voie depuis dix jours, et toujours pas de clé. Juste des racines, des racines, des racines. Il faut bien les couper pour passer.
 
 - « Rappelle-moi ce qu’il cherche, exactement. » → aveu
 
@@ -1882,7 +1882,7 @@ _Effet : retient « cle-mentionnee », retient « fouille-marches »._
 
 _Effet : retient « gris-garrik »._
 
-> — Kaelis ? Il ne paie jamais de sa poche. Une fois, au Marché des Cendres, j’ai vu une dame en gris lui compter des Nexus neufs sans retirer ses gants. Elle a demandé si on avait trouvé la clé. Pas comment j’allais, moi.
+> — Kaelis ? Il ne paie jamais de sa poche. Une fois, au Marché des Cendres, j’ai vu une dame en gris lui compter des Fers neufs sans retirer ses gants. Elle a demandé si on avait trouvé la clé. Pas comment j’allais, moi.
 
 - « Pars, et ne reviens jamais sur le sol sacré. » → depart
 
@@ -1903,7 +1903,7 @@ Commence par : « vide » _(si repère « vol-grenier »)_, sinon « sacs »
 
 ### pris
 
-> Tu glisses un sac dans ta besace. Il est léger… bien plus léger que ta conscience.
+> Tu glisses un sac dans ta besace. Il est léger, bien plus léger que ta conscience.
 
 - « Partir. » → **fin**
 
@@ -2037,7 +2037,7 @@ Commence par : « masques » _(si l’on porte « Plans du masque de Tam »)_ _(
 
 ### accueil-remise
 
-> — Atelier Cendrefer ! Attends… Tobias m’a écrit : c’est toi qui as rendu sa caisse au petit Brann. Chez les Cendrefer, une dette se paie en prix : tu auras le même que chez lui.
+> — Atelier Cendrefer ! Attends. Tobias m’a écrit : c’est toi qui as rendu sa caisse au petit Brann. Chez les Cendrefer, une dette se paie en prix : tu auras le même que chez lui.
 
 - « Voyons tes lames. » → **fin** _(ouvre le Troc)_
 - « Qu’as-tu de plus que ton frère ? » → forge
@@ -2064,7 +2064,7 @@ _Effet : reprend 1 × « Lettre pour Ilyane », retient « echos-confies », ter
 
 _Effet : reprend 1 × « Plans du masque de Tam », retient « masques-forges », termine la quête « Le registre du Puits Trois », +50 XP._
 
-> Hedda déplie le papier, le lit deux fois. — Du feutre, du charbon, trois lanières. Bête comme tout, et personne n’y avait pensé. Une Innovation non déclarée… Elle sourit de travers. — L’atelier est à la Compagnie des Lisières, pas à Ferros. J’en coudrai cent.
+> Hedda déplie le papier, le lit deux fois. — Du feutre, du charbon, trois lanières. Bête comme tout, et personne n’y avait pensé. Une Innovation non déclarée. Elle sourit de travers. — L’atelier est à la Compagnie des Lisières, pas à Ferros. J’en coudrai cent.
 
 - « Merci, Hedda. » → **fin**
 
@@ -2129,7 +2129,7 @@ Commence par : « fin-vendue » _(si quête « Les Mémoires du Monde Perdu » e
 
 _Effet : retient « hesper-vue »._
 
-> Une vieille femme en cape couleur parchemin pose sa lanterne. — Te voilà. Ilyane m’a écrit que tu écoutais bien. Ici, on n’écoute pas : on lit les mains. Tout ce qui passe par Sept-Portes laisse une ligne au Registre : de qui, quand, contre combien.
+> Une vieille femme en cape couleur parchemin pose sa lanterne. — Te voilà. Ilyane m’a écrit que tu écoutais bien. À Sept-Portes, écouter ne suffit pas : il faut lire les mains. Tout ce qui passe par les Portes laisse une ligne au Registre : de qui, quand, contre combien.
 
 _Si Liane voyage avec toi :_ Liane chuchote : — Elle a les yeux d’Ilyane, quand Ilyane cherche un mot qu’elle avait hier.
 
@@ -2159,7 +2159,7 @@ _Si Boulon voyage avec toi :_ Boulon s’incline, et le plancher grince. — On 
 
 _Effet : termine la quête « Les Mémoires du Monde Perdu », +60 XP, retient « piste-zephyria », avis de Liane −1._
 
-> Hesper écoute, et sa lanterne baisse. — Tu as vendu une ligne. Ici, c’est un métier honnête. Chez les Gardiens, on transmet ; on ne vend pas. Altavent, sous les Hauts de Zephyria… Ils y seront avant toi. Alors cours.
+> Hesper écoute, et sa lanterne baisse. — Tu as vendu une ligne. Ici, c’est un métier honnête. Chez les Gardiens, on transmet ; on ne vend pas. Altavent, sous les Hauts de Zephyria. Ils y seront avant toi. Alors cours.
 
 - « Je pars pour Zephyria. » → **fin**
 
@@ -2193,7 +2193,7 @@ Commence par : « apres » _(si quête « L’audience » terminée)_, sinon « 
 
 ### accueil
 
-> Silence, s’il te plaît : là-haut, dans le grand amphithéâtre, le Conseil des Racines Profondes délibère. Les audiences se demandent par écrit, et la liste est longue… très longue.
+> Silence, s’il te plaît : là-haut, dans le grand amphithéâtre, le Conseil des Racines Profondes délibère. Les audiences se demandent par écrit, et la liste est longue, très longue.
 
 - « De quoi parle le Conseil ? » → sujet
 - **[réputation à canopee ≥ 10]** « Le Conseil accepterait-il de m’entendre ? » → estime
@@ -2201,7 +2201,7 @@ Commence par : « apres » _(si quête « L’audience » terminée)_, sinon « 
 
 ### sujet
 
-> De la frontière de l’Est, de ce que Ferros creuse sous nos racines, et de ce mal qui fait oublier. Je n’en dirai pas plus : je suis huissier, pas bavard.
+> De la frontière de l’Est, de ce que Ferros creuse sous nos racines, et de ce mal qui fait oublier. Je n’en dirai pas plus : un huissier qui parle ne reste pas huissier.
 
 - « Merci quand même. » → **fin**
 
@@ -2213,14 +2213,14 @@ Commence par : « apres » _(si quête « L’audience » terminée)_, sinon « 
 
 ### lettre
 
-> Une lettre au sceau des Gardiens de Mémoire de Gardebois ? L’huissier la tourne et la retourne, puis s’efface. — Le Conseil a fini de délibérer. Le Triumvirat Vert te recevra. Monte, et parle franchement : ici, on n’aime pas les détours.
+> Une lettre au sceau des Gardiens de Mémoire de Gardebois ? L’huissier la tourne et la retourne, puis s’efface. — Le Conseil a fini de délibérer. Le Triumvirat Vert te recevra. Monte, et parle franchement : le Conseil déteste les détours.
 
 - « Entrer dans l’amphithéâtre. » → **fin** _(mène à « Canopéa — Amphithéâtre du Conseil »)_
 - « Un instant. » → **fin**
 
 ### nouvelles
 
-> Silence, s’il te plaît : là-haut, le Conseil des Racines Profondes délibère. Les audiences se demandent par écrit, et la liste est longue… très longue.
+> Silence, s’il te plaît : là-haut, le Conseil des Racines Profondes délibère. Les audiences se demandent par écrit, et la liste est longue, très longue.
 
 - **[réputation à canopee ≥ 10]** « Je viens de Gardebois. J’ai vu ce que la foreuse a fait à la Gare Engloutie. » → admis _(lance la quête « L’audience »)_
 - **[Diplomatie 3]** « Le Conseil parle de ce mal qui fait oublier. Je l’ai vu de près, et je sais d’où il vient. » → admis _(lance la quête « L’audience »)_
@@ -2229,7 +2229,7 @@ Commence par : « apres » _(si quête « L’audience » terminée)_, sinon « 
 
 ### admis
 
-> L’huissier te regarde longuement, puis s’efface. — Le Conseil a fini de délibérer. Le Triumvirat Vert te recevra. Monte, et parle franchement : ici, on n’aime pas les détours.
+> L’huissier te regarde longuement, puis s’efface. — Le Conseil a fini de délibérer. Le Triumvirat Vert te recevra. Monte, et parle franchement : le Conseil déteste les détours.
 
 - « Entrer dans l’amphithéâtre. » → **fin** _(mène à « Canopéa — Amphithéâtre du Conseil »)_
 - « Un instant. » → **fin**
@@ -2259,7 +2259,7 @@ _Effet : retient « mensonge-huissier »._
 
 ### sujet-apres
 
-> Des Gardes Verts au Sol des Racines, des Voix des Arbres qui soignent le Bosquet, et d’Ironheart. Toujours Ironheart. Je n’en dirai pas plus : je suis huissier, pas bavard.
+> Des Gardes Verts au Sol des Racines, des Voix des Arbres qui soignent le Bosquet, et d’Ironheart. Toujours Ironheart. Je n’en dirai pas plus : un huissier qui parle ne reste pas huissier.
 
 - « Merci quand même. » → **fin**
 
@@ -2280,7 +2280,7 @@ _Si Liane voyage avec toi :_ Liane, à mi-voix : — Les Réveilleurs. On dit ç
 
 ### accueil
 
-> Te voilà. Les Gardiens de Mémoire m’ont annoncé ta venue. Bienvenue au Marché des Lisières… même si le moment est mal choisi pour un apprentissage tranquille.
+> Te voilà. Les Gardiens de Mémoire m’ont annoncé ta venue. Bienvenue au Marché des Lisières, même si le moment est mal choisi pour un apprentissage tranquille.
 
 - « Que se passe-t-il ? » → trouble
 - « Je reviendrai plus tard. » → **fin**
@@ -2295,7 +2295,7 @@ _Si Liane voyage avec toi :_ Liane, à mi-voix : — Les Réveilleurs. On dit ç
 
 ### atteinte
 
-> … Tu as de bons yeux. Ce matin, j’étais sur le quai d’une gare. J’ai vu partir un train plein d’enfants qui agitaient la main. Je n’ai jamais vu de train de l’Ancien Monde. Ce souvenir n’est pas le mien.
+> Tu as de bons yeux. Ce matin, j’étais sur le quai d’une gare. J’ai vu partir un train plein d’enfants qui agitaient la main. Je n’ai jamais vu de train de l’Ancien Monde. Ce souvenir n’est pas le mien.
 
 - « Que puis-je faire ? » → cause
 
@@ -2336,19 +2336,19 @@ _Effet : lance la quête « Le Dernier Train »._
 
 ### sante
 
-> Les visions passent comme des nuages. Je tiendrai. Le marché a besoin de quelqu’un qui garde la tête froide… et toi, tu as une gare à écouter.
+> Les visions passent comme des nuages. Je tiendrai. Le marché a besoin de quelqu’un qui garde la tête froide, et toi, tu as une gare à écouter.
 
 - « Je reviens vite. » → **fin**
 
 ### lettre
 
-> Ilyane écrit longtemps, puis scelle la lettre d’une goutte de cire verte. — Porte-la au Conseil des Racines Profondes, à Canopéa. Là-haut, on ne m’écoute plus beaucoup… On m’écoutera peut-être à travers toi.
+> Ilyane écrit longtemps, puis scelle la lettre d’une goutte de cire verte. — Porte-la au Conseil des Racines Profondes, à Canopéa. Là-haut, on ne m’écoute plus beaucoup. On m’écoutera peut-être à travers toi.
 
 - « J’irai à Canopéa. » → **fin**
 
 ### nouvelles-canopee
 
-> Mirelle m’a écrit par le courrier des Nacelliers : tu as parlé devant le Triumvirat Vert ! Et maintenant, Ironheart, et les Marches des Cendres… Prends garde à toi. Là-bas, on vend tout, même les souvenirs.
+> Mirelle m’a écrit par le courrier des Nacelliers : tu as parlé devant le Triumvirat Vert ! Et maintenant, Ironheart, et les Marches des Cendres. Prends garde à toi. Là-bas, on vend tout, même les souvenirs.
 
 - « Je reviendrai te raconter. » → **fin**
 
@@ -2514,19 +2514,19 @@ _Si Liane voyage avec toi :_ Liane, entre ses dents : — Une rumeur de marché.
 
 ### convaincue
 
-> … Bon. J’arrête la foreuse, pour l’instant. Mais dites bien à vos Gardiens que Ferros reviendra, avec ou sans moi.
+> Bon. J’arrête la foreuse, pour l’instant. Mais dites bien à vos Gardiens que Ferros reviendra, avec ou sans moi.
 
 - « Merci. » → **fin**
 
 ### convaincue-recit
 
-> Corvan ? Je connais l’histoire, oui… et vous avez raison : il a réussi, et ça ne l’a pas sauvé. J’arrête la foreuse. On ne commet pas deux fois la même faute.
+> Corvan ? Je connais l’histoire, oui, et vous avez raison : il a réussi, et ça ne l’a pas sauvé. J’arrête la foreuse. On ne commet pas deux fois la même faute.
 
 - « Merci. » → **fin**
 
 ### apres-sabotage
 
-> Quelqu’un a faussé ma foreuse, cette nuit. Ferros m’enverra des pièces… dans des semaines. D’ici là, je ne creuse plus. Et personne n’a plus revu de train, à Gardebois, paraît-il.
+> Quelqu’un a faussé ma foreuse, cette nuit. Ferros m’enverra des pièces, dans des semaines. D’ici là, je ne creuse plus. Et personne n’a plus revu de train, à Gardebois, paraît-il.
 
 - « Tant mieux. » → **fin**
 
@@ -2553,7 +2553,7 @@ _Si Liane voyage avec toi :_ Liane, entre ses dents : — Une rumeur de marché.
 
 > Ingrid a les mains bandées et les yeux secs. — Pell. Vingt-deux ans. Il gardait la lanterne parce qu’il avait peur du noir. On l’a enterré ce matin, au bord du quai. La foreuse ne creusera plus. Si j’apprends qui a fait ça…
 
-_Si Liane voyage avec toi :_ Liane regarde Ingrid longtemps, sans haine. — Maintenant, tu sais ce que c’est. … Ça ne me console pas. Je croyais que ça me consolerait.
+_Si Liane voyage avec toi :_ Liane regarde Ingrid longtemps, sans haine. — Maintenant, tu sais ce que c’est. Ça ne me console pas. Je croyais que ça me consolerait.
 
 - « Je suis désolé·e. » → **fin**
 - « Il ne fallait pas creuser ici. » → explosion-dur
@@ -2599,7 +2599,7 @@ _Effet : avis de Liane +1._
 
 _Effet : retient « gris-ingrid »._
 
-> Ingrid tapote une liasse sous son bras. — Ferros signe. Mais c’est une courtière qui paie, d’avance, en Nexus tout neufs : une dame en gris, gants fins. Elle ne laisse pas de nom. Elle laisse toujours un peu plus que ce qu’on demande.
+> Ingrid tapote une liasse sous son bras. — Ferros signe. Mais c’est une courtière qui paie, d’avance, en Fers tout neufs : une dame en gris, gants fins. Elle ne laisse pas de nom. Elle laisse toujours un peu plus que ce qu’on demande.
 
 _Si Liane voyage avec toi :_ Liane, tout bas : — Quelqu’un qui paie plus qu’on ne demande achète autre chose que ce qu’elle dit.
 
@@ -2642,14 +2642,14 @@ _Effet : retient « joss-avoue », +15 XP._
 
 _Si Boulon voyage avec toi :_ Boulon pose une main sur l’épaule de Joss, très doucement pour une main de fer. — Une dette, ça se porte. Pas tout seul.
 
-_Si Liane voyage avec toi :_ Liane s’accroupit près de Joss. — Tu ne dors plus depuis quand ? … Ça se voit. Ça se soigne, aussi.
+_Si Liane voyage avec toi :_ Liane s’accroupit près de Joss. — Tu ne dors plus depuis quand ? Ça se voit. Ça se soigne, aussi.
 
 - « Personne n’est blessé ? » → personne
 - « Merci, Joss. » → **fin**
 
 ### personne
 
-> — Personne. Seulement le minerai, et la confiance. Varka me regarde comme un frère. Je ne dors plus.
+> — Personne. Seulement le minerai, et la confiance. Varka m’appelle son frère. Je ne dors plus.
 
 - **[Médecine 3]** _(sans repère « joss-sommeil »)_ « Je peux te donner de quoi dormir. » → sommeil
 - « Merci, Joss. » → **fin**
@@ -2683,7 +2683,7 @@ _Si Liane voyage avec toi :_ Liane s’accroupit près de Joss. — Tu ne dors p
 
 _Effet : retient « joss-sommeil », +10 XP._
 
-> Tu lui dis quelles herbes, combien, à quelle heure. Il écoute comme un enfant. — Dormir… Si je dors, je rêve du levier. Mais merci.
+> Tu lui dis quelles herbes, combien, à quelle heure. Il écoute sans t’interrompre, les yeux baissés. — Dormir. Si je dors, je rêve du levier. Mais merci.
 
 - « Bonne nuit, Joss. » → **fin**
 
@@ -2722,13 +2722,13 @@ Commence par : « accueil-2 » _(un jour sur 3, le 2e)_, sinon « accueil-3 » _
 
 ### nouvelles
 
-> — Une dame en gris, de Ferros, loue la chambre du fond depuis trois jours. Elle boit du thé, ne parle à personne, et paie en Nexus tout neufs.
+> — Une dame en gris, de Ferros, loue la chambre du fond depuis trois jours. Elle boit du thé, ne parle à personne, et paie en Fers tout neufs, frappés de l’année.
 
 - « Merci. » → accueil
 
 ### servir
 
-> — Une soupe des six pays, ou une chambre ? Ici, on paie en Nexus ; pour toi, des Fers, au cours du jour.
+> — Une soupe des six pays, ou une chambre ? Je prends les Fers, les Feuilles et les sourires. Les sourires, à moitié prix.
 
 - **[8 Fers]** « Une soupe des six pays. » → repas _(−8 Fers, +15 PV)_
 - **[12 Fers]** « Une chambre jusqu’au matin. » → dodo _(−12 Fers, dort jusqu’au matin)_
@@ -2794,13 +2794,13 @@ _Si Liane voyage avec toi :_ Liane, au fond des gradins, serre sa besace contre 
 
 ### mission
 
-> Kael hoche la tête. — Alors cherche. Le Triumvirat t’ouvre le Bosquet et, s’il le faut, le Sol des Racines : Véline te descendra. Reviens avec des faits, pas des rumeurs. Ici, on ne ment pas au Conseil.
+> Kael hoche la tête. — Alors cherche. Le Triumvirat t’ouvre le Bosquet et, s’il le faut, le Sol des Racines : Véline te descendra. Rapporte des faits. Le dernier qui a menti à ce Conseil plante encore des glands à la frontière.
 
 - « J’y vais. » → **fin**
 
 ### attente
 
-> Kael lève les yeux de ses cartes. — Alors ? Ce qui fait taire les noms du Bosquet. Des faits, pas des rumeurs.
+> Kael lève les yeux de ses cartes. — Alors ? Ce qui fait taire les noms du Bosquet. Des faits. Les rumeurs, j’en ai plein les Ramures.
 
 - « Rappelez-moi ce que je cherche. » → mission
 - « Je reviendrai. » → **fin**
@@ -2820,7 +2820,7 @@ _Si Liane voyage avec toi :_ Liane, au fond des gradins, serre sa besace contre 
 
 ### cle
 
-> Lyra pâlit. — Une clé de l’Ancien Monde… Les Archives de Ferros en parlent à mi-voix depuis des années. Si les Marches la cherchent jusque sous nos racines, c’est qu’elle compte plus que tout le reste.
+> Lyra pâlit. — Une clé de l’Ancien Monde. Les Archives de Ferros en parlent à mi-voix depuis des années. Si les Marches la cherchent jusque sous nos racines, c’est qu’elle compte plus que tout le reste.
 
 - « Que va faire le Conseil ? » → choix
 
@@ -2872,7 +2872,7 @@ Commence par : « plaque » _(si quête « Ce qui se souvient » en cours)_ _(si
 
 ### accueil
 
-> Un homme maigre polit une mâchoire de Golem sous une lampe à huile. Autour de lui, des os de bêtes polis, des dents de loup en colliers. — Tout se vend, ici. Même ce qui se souvient. Pose ta question… si c’est la bonne.
+> Un homme maigre polit une mâchoire de Golem sous une lampe à huile. Autour de lui, des os de bêtes polis, des dents de loup en colliers. — Tout se vend, ici. Même ce qui se souvient. Pose ta question, si c’est la bonne.
 
 _Si Boulon voyage avec toi :_ Boulon regarde les os polis, les dents en colliers. — Il vend ce qui portait. Comme on m’aurait vendu, moi.
 
@@ -2955,7 +2955,7 @@ _Si Boulon voyage avec toi :_ Boulon se place entre toi et le comptoir. — Une 
 
 ### apres
 
-> — Tu as choisi de ne pas me la vendre, à ce qu’on dit. Dommage. Les Marches n’oublient pas… mais elles ne se fâchent pas longtemps.
+> — Tu as choisi de ne pas me la vendre, à ce qu’on dit. Dommage. Les Marches n’oublient pas, mais elles ne se fâchent pas longtemps.
 
 - _(si quête « Ce qui se souvient » pas commencée)_ _(sans repère « membre-archives-ferros »)_ _(sans repère « membre-travailleurs-rail »)_ « Les Marches prennent-elles des fournisseurs ? » → fournisseur
 - « Au revoir. » → **fin**
@@ -2978,7 +2978,7 @@ _Effet : retient « kaelis-parle »._
 
 ### accueil-garrik
 
-> Kaelis polit une mâchoire de Golem et lève à peine les yeux. — Ah. C’est toi qui as renvoyé Garrik de sous les arbres. Je ne suis pas rancunier : une fouille perdue, c’est un prix comme un autre. Pose ta question… si c’est la bonne.
+> Kaelis polit une mâchoire de Golem et lève à peine les yeux. — Ah. C’est toi qui as renvoyé Garrik de sous les arbres. Je ne suis pas rancunier : une fouille perdue, ça se paie aussi. Pose ta question, si c’est la bonne.
 
 - « Je cherche la clé de rouille bleue. » → mauvaise
 - **[Mémoire 3]** « Pourquoi certaines reliques se souviennent-elles des morts ? » → bonne
@@ -3006,7 +3006,7 @@ _Effet : retient « gris-kaelis »._
 
 > Kaelis sourit sans montrer les dents. — Une dame en gris m’en offre le double de ce que je t’offre. Elle ne marchande jamais. Les gens qui ne marchandent pas ont perdu quelque chose, et ils le cherchent partout.
 
-_Si Boulon voyage avec toi :_ Boulon, très bas : — Gants fins, Nexus neufs. Je la connais. Je l’ai portée.
+_Si Boulon voyage avec toi :_ Boulon, très bas : — Gants fins, Fers neufs. Je la connais. Je l’ai portée.
 
 - « Qu’ouvre-t-elle ? » → ouvre
 - « J’y réfléchirai. » → **fin**
@@ -3114,7 +3114,7 @@ Commence par : « apres » _(si quête « Les herbes de lisière » terminée)_,
 
 ### demande
 
-> Tu marches sur ma menthe. … Bon. L’apprenti·e d’Ilyane, c’est ça ? Alors rends-toi utile : il me faut de la sauge-lumière pour les malades, et ils ne me laissent pas une minute.
+> Tu marches sur ma menthe. Bon. L’apprenti·e d’Ilyane, c’est ça ? Alors rends-toi utile : il me faut de la sauge-lumière pour les malades, et ils ne me laissent pas une minute.
 
 - « Où en trouver ? » → ou _(lance la quête « Les herbes de lisière »)_
 - « Une autre fois. » → **fin**
@@ -3127,14 +3127,14 @@ Commence par : « apres » _(si quête « Les herbes de lisière » terminée)_,
 
 ### attente
 
-> Alors, cette sauge ? Trois touffes, pas deux.
+> Alors, cette sauge ? Trois touffes. Je sais compter, moi.
 
 - **[Médecine 2]** _(sans repère « liane-malades-vus »)_ « Laisse-moi voir tes malades. » → malades
 - « J’y retourne. » → **fin**
 
 ### rendu
 
-> Trois belles touffes… Tu as la main douce, pour un·e apprenti·e. Tiens : de quoi te rafistoler, et une fiole de ma sève. Ne la gaspille pas.
+> Trois belles touffes. Tu as la main douce, pour un·e apprenti·e. Tiens : de quoi te rafistoler, et une fiole de ma sève. Ne la gaspille pas.
 
 - « Merci, Liane. » → **fin** _(termine la quête « Les herbes de lisière », donne 2 × « Bandage », donne 1 × « Fiole de sève », +20 XP)_
 
@@ -3148,7 +3148,7 @@ Commence par : « apres » _(si quête « Les herbes de lisière » terminée)_,
 
 ### recrue
 
-> Liane te dévisage longtemps. — Mes malades… Sylvan les nourrira, et la sauge repousse sans moi. Mais je ne me bats pas pour les causes perdues, et je ne vole rien à personne. Compris ?
+> Liane te dévisage longtemps. — Mes malades. Sylvan les nourrira, et la sauge repousse sans moi. Mais je ne me bats pas pour les causes perdues, et je ne vole rien à personne. Compris ?
 
 - « Compris. » → **fin** _(Liane se joint au héros)_
 - « Je reviendrai. » → **fin**
@@ -3196,7 +3196,7 @@ Commence par : « vote » _(si quête « L’audience » terminée)_ _(si repèr
 
 ### accueil
 
-> Bienvenue au Nid ! Ici, on dort en hamac et on mange des soupes de fleurs. Pas de feu chez nous : les braises et les branches ne font pas bon ménage. Ce sont nos cristaux qui chauffent les bols.
+> Bienvenue au Nid ! On dort en hamac, on mange des soupes de fleurs, et on ne fait jamais de feu : une braise, et tout le quartier y passe. Ce sont nos cristaux qui chauffent les bols.
 
 - « Manger ou dormir ? » → servir
 - « Quelles nouvelles ? » → nouvelles
@@ -3211,7 +3211,7 @@ Commence par : « vote » _(si quête « L’audience » terminée)_ _(si repèr
 
 ### nouvelles
 
-> Le Conseil des Racines Profondes se réunit beaucoup, ces temps-ci : on parle de la frontière, de Ferros, de ces forages… Et le petit Malo a encore traversé la passerelle du Bois en courant. Un jour, il s’envolera.
+> Le Conseil des Racines Profondes se réunit beaucoup, ces temps-ci : on parle de la frontière, de Ferros, de ces forages. Et le petit Malo a encore traversé la passerelle du Bois en courant. Un jour, il s’envolera.
 
 - _(si quête « Les graines qui manquent » en cours)_ _(sans repère « indice-elvan »)_ « Il manque des graines au grenier. As-tu vu passer quelque chose ? » → graines _(retient « indice-elvan »)_
 - « Merci. » → accueil
@@ -3220,7 +3220,7 @@ Commence par : « vote » _(si quête « L’audience » terminée)_ _(si repèr
 
 _Effet : retient « lisandre-vol-dit »._
 
-> Tu as entendu ? Quelqu’un a forcé le grenier des semences, dans les Hautes Ramures. Voler des graines à Canopéa… c’est comme voler l’avenir. Le Conseil est furieux.
+> Tu as entendu ? Quelqu’un a forcé le grenier des semences, dans les Hautes Ramures. Voler des graines à Canopéa, c’est comme voler l’avenir. Le Conseil est furieux.
 
 - _(si quête « Les graines qui manquent » en cours)_ _(sans repère « indice-elvan »)_ « Il manque des graines au grenier. As-tu vu passer quelque chose ? » → graines _(retient « indice-elvan »)_
 - « Merci. » → accueil
@@ -3251,7 +3251,7 @@ _Effet : retient « lisandre-vote-commerce-dit »._
 
 _Effet : retient « lisandre-vote-accord-dit »._
 
-> Tu sais la nouvelle ? Le sol sacré est fermé, les routes restent ouvertes : tout le monde est content, pour une fois ! On dit que c’est une idée venue d’en bas… de quelqu’un qui y est descendu.
+> Tu sais la nouvelle ? Le sol sacré est fermé, les routes restent ouvertes : tout le monde est content, pour une fois ! On dit que c’est une idée venue d’en bas, de quelqu’un qui y est descendu.
 
 - « Merci pour la nouvelle. » → accueil
 
@@ -3333,7 +3333,7 @@ Commence par : « apres » _(si quête « L’audience » terminée)_, sinon « 
 
 ### enquete
 
-> — Le Gardien veut des faits ; moi aussi. Si ce sont des gens de Ferros, apporte-moi des noms, pas des colères.
+> — Le Gardien veut des faits ; moi aussi. Si ce sont des gens de Ferros, apporte-moi des noms. Des colères, j’en ai assez.
 
 - « Je trouverai des noms. » → **fin**
 - « Le commerce avec Ferros vous inquiète ? » → commerce
@@ -3359,7 +3359,7 @@ Commence par : « apres » _(si quête « La berceuse oubliée » terminée)_, s
 
 ### piste
 
-> Ilyane dit que les souvenirs perdus laissent parfois un Écho. Hier soir, au pied de l’Arbre-Titan, j’ai cru entendre ma propre voix… Si tu pouvais rapporter la berceuse à Nell…
+> Ilyane dit que les souvenirs perdus laissent parfois un Écho. Hier soir, au pied de l’Arbre-Titan, j’ai cru entendre ma propre voix. Si seulement quelqu’un pouvait rapporter la berceuse à Nell.
 
 - « J’y vais. » → **fin**
 
@@ -3404,19 +3404,19 @@ Commence par : « retour » _(si quête « Les lettres de Malo » en cours)_ _(s
 
 ### arbres
 
-> Quand quelqu’un meurt, on le met en terre au pied d’un arbre, tout en bas. Mon grand-père Anselme repose là. Mamie Aïlis a gravé son nom au Bosquet et va lui parler chaque soir. Moi, je n’entends rien… mais je crois qu’il m’écoute quand même.
+> Quand quelqu’un meurt, on le met en terre au pied d’un arbre, tout en bas. Mon grand-père Anselme repose là. Mamie Aïlis a gravé son nom au Bosquet et va lui parler chaque soir. Moi, je n’entends rien, mais je crois qu’il m’écoute quand même.
 
 - « Il t’écoute, c’est certain. » → accueil
 
 ### peur
 
-> Tomber ? Jamais ! Bon… une fois. Mais un filet de lianes m’a rattrapé. Mamie dit que la forêt n’aime pas qu’on lui jette des enfants.
+> Tomber ? Jamais ! Bon, une fois. Mais un filet de lianes m’a rattrapé. Mamie dit que la forêt n’aime pas qu’on lui jette des enfants.
 
 - « Elle a bien raison. » → accueil
 
 ### souci
 
-> Salut… Je suis Malo, coursier des passerelles. Enfin, coursier… Je viens de laisser tomber la sacoche des Nacelliers. Toutes les lettres de la semaine, dans le feuillage ! Si Véline l’apprend…
+> Salut. Je suis Malo, coursier des passerelles. Enfin, coursier. Je viens de laisser tomber la sacoche des Nacelliers. Toutes les lettres de la semaine, dans le feuillage ! Si Véline l’apprend, je balaie les passerelles jusqu’à l’hiver.
 
 - « Je peux t’aider à la retrouver. » → aide _(lance la quête « Les lettres de Malo »)_
 - « Montre-moi plutôt la ville. » → ville
@@ -3424,7 +3424,7 @@ Commence par : « retour » _(si quête « Les lettres de Malo » en cours)_ _(s
 
 ### aide
 
-> C’est vrai ? Elle est tombée tout en bas, sur le Sol des Racines. Mais le sol est sacré : personne n’y descend sans l’accord des Nacelliers. Demande à Véline, à la Grande Nacelle. Si elle dit oui… elle te descendra.
+> C’est vrai ? Elle est tombée tout en bas, sur le Sol des Racines. Mais le sol est sacré : personne n’y descend sans l’accord des Nacelliers. Demande à Véline, à la Grande Nacelle. Si elle dit oui, elle te descendra.
 
 - « J’y vais. » → **fin**
 
@@ -3438,7 +3438,7 @@ Commence par : « retour » _(si quête « Les lettres de Malo » en cours)_ _(s
 
 ### retour
 
-> La sacoche ! Tu l’as retrouvée ! Toutes les lettres sont là… presque toutes. Merci, merci ! Tiens, ce n’est pas grand-chose, mais c’est de bon cœur.
+> La sacoche ! Tu l’as retrouvée ! Toutes les lettres sont là, presque toutes. Merci, merci ! Tiens, ce n’est pas grand-chose, mais c’est de bon cœur.
 
 - « La voici, Malo. » → remerciements _(termine la quête « Les lettres de Malo », +30 XP, +10 Fers, retient « nacelliers-amis »)_
 
@@ -3460,7 +3460,7 @@ Commence par : « retour » _(si quête « Les lettres de Malo » en cours)_ _(s
 
 _Effet : retient « malo-flute-dit »._
 
-> Mamie joue de la flûte ! Tous les soirs, au Bosquet. Elle dit que c’est grâce à toi… et à Papi. Elle va m’apprendre. Je serai coursier ET musicien.
+> Mamie joue de la flûte ! Tous les soirs, au Bosquet. Elle dit que c’est grâce à toi, et à Papi. Elle va m’apprendre. Je serai coursier ET musicien.
 
 - _(si quête « Les lettres de Malo » pas commencée)_ « Merci pour la nouvelle. » → souci
 - _(si quête « Les lettres de Malo » terminée)_ « Merci pour la nouvelle, Malo. » → ami
@@ -3474,7 +3474,7 @@ Commence par : « accueil »
 
 ### accueil
 
-> — Des baumes de Verdantis, des carreaux de Ferros, des cristaux de partout ! Ici, on paie en Nexus ; pour toi, des Fers, au cours du jour.
+> — Des baumes de Verdantis, des carreaux de Ferros, des cristaux de partout ! Fers, Feuilles, coquillages : je change tout, au cours du jour, et toujours à mon avantage.
 
 - « Voyons ça. » → **fin** _(ouvre le Troc)_
 - « Au revoir. » → **fin**
@@ -3508,13 +3508,13 @@ Commence par : « chanson » _(si quête « Le chant d’Anselme » en cours)_ _
 
 ### repos
 
-> Les hamacs du relais sont à tous les Gardiens. Dors un peu : la mémoire travaille mieux quand le corps se repose. … Au réveil, tes forces sont revenues.
+> Les hamacs du relais sont à tous les Gardiens. Dors un peu : la mémoire travaille mieux quand le corps se repose. Au réveil, tes forces sont revenues.
 
 - « Merci, Mirelle. » → accueil
 
 ### ilyane
 
-> Nous avons fait notre apprentissage ensemble, il y a bien longtemps. Elle voulait tout entendre ; moi, tout écrire. Dis-lui que je garde encore son carnet de chansons… et qu’elle chante toujours aussi faux, j’en suis sûre.
+> Nous avons fait notre apprentissage ensemble, il y a bien longtemps. Elle voulait tout entendre ; moi, tout écrire. Dis-lui que je garde encore son carnet de chansons, et qu’elle chante toujours aussi faux, j’en suis sûre.
 
 - _(si quête « Le carnet de chansons » pas commencée)_ « Je peux le lui rapporter, si tu veux. » → carnet-confie _(donne 1 × « Carnet de chansons d’Ilyane », lance la quête « Le carnet de chansons »)_
 - _(si quête « Le carnet de chansons » terminée)_ « Je le lui ai rendu. » → carnet-rendu
@@ -3536,7 +3536,7 @@ Commence par : « chanson » _(si quête « Le chant d’Anselme » en cours)_ _
 
 ### chanson
 
-> Bienvenue au relais. Tu as l’air de chercher quelque chose… une histoire, une chanson ?
+> Bienvenue au relais. Tu as l’air de chercher quelque chose. Une histoire ? Une chanson ?
 
 - « Connais-tu la chanson des cerfs-lucioles ? » → carnet
 - « Rien de particulier. » → accueil
@@ -3738,7 +3738,7 @@ _Effet : reprend 1 × « Relevé d’un Écho », retient « echos-archives », 
 
 ### arrache
 
-> Une page de moins dans un registre de mille. Personne ne la cherchera… sauf Noam, un jour, qui cherche toujours tout.
+> Une page de moins dans un registre de mille. Personne ne la cherchera, sauf Noam, un jour, qui cherche toujours tout.
 
 - « Partir vite. » → **fin**
 
@@ -4121,7 +4121,7 @@ _Effet : retient « grenier-deverrouille »._
 
 _Effet : retient « grenier-deverrouille »._
 
-> Sous la paille du nichoir, tes doigts trouvent une petite clé de cuivre, tiède comme un œuf. La serrure tourne sans un bruit.
+> Sous la paille du nichoir, tes doigts trouvent une petite clé de cuivre, encore tiède. La serrure tourne sans un bruit.
 
 - « Entrer. » → **fin** _(mène à « Canopéa — Grenier des semences »)_
 - « Remettre la clé, et partir. » → **fin**
@@ -4175,7 +4175,7 @@ Commence par : « registre »
 
 _Effet : retient « fonds-muet-ouvert », retient « faux-registre »._
 
-> Tu signes d’une main qui n’est pas la tienne. Personne ne regarde : ici, on enregistre. Une heure plus tard, la demande est accordée, sans motif, comme les refus.
+> Tu signes d’une main qui n’est pas la tienne. Personne ne regarde : le Registre enregistre, il ne vérifie pas. Une heure plus tard, la demande est accordée, sans motif, comme les refus.
 
 - « … » → **fin**
 
@@ -4243,7 +4243,7 @@ Commence par : « mur »
 
 ### mur
 
-> Entre deux fonderies éteintes, un renfoncement sans enseigne. Un mur noirci de suie, et rien d’autre… en apparence.
+> Entre deux fonderies éteintes, un renfoncement sans enseigne. Un mur noirci de suie, et rien d’autre, en apparence.
 
 - _(si repère « marche-cendres-indice »)_ « Chercher le passage, comme on te l’a dit. » → trouve
 - **[Investigation 3]** « Examiner le mur. » → trouve
@@ -4267,7 +4267,7 @@ Commence par : « accueil »
 
 ### accueil
 
-> Une chaudronnière aux bras couverts de suie lève les yeux. — Gardebois ? Tu connais mon Brann ? Il travaille chez Tobias Cendrefer… Il mange bien ? Il ne fait pas trop de bêtises ?
+> Une chaudronnière aux bras couverts de suie lève les yeux. — Gardebois ? Tu connais mon Brann ? Il travaille chez Tobias Cendrefer. Il mange bien ? Il ne fait pas trop de bêtises ?
 
 - « Brann va bien. Il est honnête et travailleur. » → brann
 - _(si quête « La caisse égarée » terminée)_ _(sans repère « rika-merci »)_ « J’ai rapporté sa caisse d’outils, sur la route de l’est. » → caisse
@@ -4312,7 +4312,7 @@ Commence par : « vide » _(si repère « sauge-3-cueillie »)_, sinon « cherch
 
 ### chercher
 
-> Un gros rocher couvert de mousse. Liane parlait d’une lueur sous une pierre…
+> Un gros rocher couvert de mousse. Liane parlait d’une lueur sous une pierre.
 
 - **[Perception 4]** « Repérer la lueur sous la mousse. » → trouve
 - **🎲 Survie 11** « Suivre l’odeur poivrée de la sauge. » → trouve, ✗ → rien
@@ -4329,7 +4329,7 @@ _Effet : retient « sauge-3-cueillie »._
 
 ### rien
 
-> Tu tournes autour du rocher sans rien trouver. Peut-être en revenant plus tard…
+> Tu tournes autour du rocher sans rien trouver. Peut-être en revenant plus tard.
 
 - « … » → **fin**
 
@@ -4443,7 +4443,7 @@ Commence par : « accueil »
 
 ### accueil
 
-> Le Comptoir de la Sève, bonjour ! Herbes de la canopée, baumes de mousse, bandages… Tout ce qui soigne pousse ici, ou presque.
+> Le Comptoir de la Sève, bonjour ! Herbes de la canopée, baumes de mousse, bandages. Tout ce qui soigne pousse ici, ou presque.
 
 - « Voyons ce que tu vends. » → **fin** _(ouvre le Troc)_
 - « D’où viennent tes herbes ? » → herbes
@@ -4467,7 +4467,7 @@ Commence par : « accueil »
 
 ### aieux
 
-> Sévane pâlit, et regarde la porte. — Qui t’a dit ça ? … Trente Fers la fiole. Une gorgée à la fois, et jamais deux soirs de suite : on finit par ne plus vouloir que leurs voix.
+> Sévane pâlit, et regarde la porte. — Qui t’a dit ça ? Trente Fers la fiole. Une gorgée à la fois, et jamais deux soirs de suite : on finit par ne plus vouloir que leurs voix.
 
 - **[30 Fers]** « Payer trente Fers. » → aieux-achetee _(−30 Fers, donne 1 × « Sève des aïeux »)_
 - « Laisser ça. » → accueil
@@ -4528,7 +4528,7 @@ Commence par : « ilyane-chante » _(si quête « Le carnet de chansons » termi
 
 ### accueil
 
-> Bienvenue à la Racine ! Ici, on mange chaud et on parle fort. Assieds-toi : chez Sylvan, les Gardiens de Mémoire sont toujours bien reçus.
+> Bienvenue à la Racine ! On mange chaud, on parle fort, et on ne demande à personne ce qu’il a vu la nuit dernière. Chez Sylvan, les Gardiens de Mémoire sont toujours bien reçus.
 
 - « Manger ou dormir ? » → servir
 - « Quelles nouvelles ? » → rumeurs
@@ -4543,7 +4543,7 @@ Commence par : « ilyane-chante » _(si quête « Le carnet de chansons » termi
 
 ### rumeurs
 
-> On dit que la maladie des souvenirs vient de la Gare, depuis que Ferros y creuse. La petite Nell, chez les Lunelierre, ne reconnaît plus sa propre berceuse… Et Brann, l’apprenti de Tobias, a perdu une caisse sur la route de l’est.
+> On dit que la maladie des souvenirs vient de la Gare, depuis que Ferros y creuse. La petite Nell, chez les Lunelierre, ne reconnaît plus sa propre berceuse. Et Brann, l’apprenti de Tobias, a perdu une caisse sur la route de l’est.
 
 - « Et l’herboriste, Liane ? » → liane
 - « Merci. » → accueil
@@ -4558,7 +4558,7 @@ Commence par : « ilyane-chante » _(si quête « Le carnet de chansons » termi
 
 _Effet : retient « sylvan-ilyane-chante-dit »._
 
-> Ilyane a chanté au cercle des lanternes, hier soir ! Avec un vieux carnet revenu de Canopéa. Elle chante faux comme une casserole, mais j’ai pleuré dans ma tarte.
+> Ilyane a chanté au cercle des lanternes, hier soir ! Avec un vieux carnet revenu de Canopéa. Elle chante faux à faire fuir les cerfs, et j’ai pleuré dans ma tarte.
 
 - « Merci pour la nouvelle. » → accueil
 
@@ -4629,7 +4629,7 @@ Commence par : « accueil »
 
 ### eclats
 
-> Elle fait rouler les éclats dans sa paume noire. — Un cristal forcé jusqu’à la fente. Celui qui le portait a les veines qui brillent, je parie. Ici, on ne pose pas de questions : vingt Fers, et je les retaille en perles pour les riches.
+> Elle fait rouler les éclats dans sa paume noire. — Un cristal forcé jusqu’à la fente. Celui qui le portait a les veines qui brillent, je parie. Moi, je ne pose pas de questions : vingt Fers, et je les retaille en perles pour les riches.
 
 - « Vendus. » → **fin** _(reprend 1 × « Éclats de cristal », +20 Fers)_
 - « Je les garde. » → **fin**
@@ -4790,7 +4790,7 @@ Commence par : « gueri » _(si repère « tiven-soigne »)_, sinon « quete » 
 
 ### blesse
 
-> Un jeune Nacellier souffle sur ses paumes rougies. — Une corde a filé entre mes mains. Ça brûle… Demain, je dois monter la nacelle, et je ne peux même pas fermer le poing.
+> Un jeune Nacellier souffle sur ses paumes rougies. — Une corde a filé entre mes mains. Ça brûle. Demain, je dois monter la nacelle, et je ne peux même pas fermer le poing.
 
 - _(si l’on porte « Bandage »)_ _(sans repère « tiven-panse »)_ « Panser ses mains avec un bandage. » → panse _(reprend 1 × « Bandage », retient « tiven-panse », +5 XP)_
 - **[Médecine 3]** _(sans repère « tiven-panse »)_ « Soigner la brûlure : de l’eau froide, de la graisse propre, un linge serré. » → panse-medecine _(retient « tiven-panse », +10 XP, avis de Liane +1)_
@@ -4807,7 +4807,7 @@ Commence par : « gueri » _(si repère « tiven-soigne »)_, sinon « quete » 
 
 ### soin
 
-> Le cristal tiédit sous tes doigts, puis verdit comme une feuille au soleil. Une chaleur passe de tes mains aux siennes. Tiven ferme le poing, l’ouvre, le referme. — Ça ne brûle plus ! Va le dire à Vanel.
+> Le cristal tiédit sous tes doigts, puis verdit, d’un vert de jeune feuille. Une chaleur passe de tes mains aux siennes. Tiven ferme le poing, l’ouvre, le referme. — Ça ne brûle plus ! Va le dire à Vanel.
 
 - « Prends soin de tes mains. » → **fin**
 
@@ -4837,7 +4837,7 @@ Commence par : « accueil »
 
 ### accueil
 
-> Bienvenue à l’étal Cendrefer ! Outils de Ferros, cordes, lampes à cristal… et les meilleures rumeurs du marché, pour qui sait les écouter.
+> Bienvenue à l’étal Cendrefer ! Outils de Ferros, cordes, lampes à cristal, et les meilleures rumeurs du marché, pour qui sait les écouter.
 
 - _(si quête « Le Dernier Train » en cours)_ _(sans repère « laissez-passer »)_ « Je dois entrer sur le chantier de la Gare Engloutie. » → chantier
 - _(si repère « laissez-passer »)_ « Merci encore pour le laissez-passer. » → merci
@@ -4846,7 +4846,7 @@ Commence par : « accueil »
 
 ### rumeurs
 
-> Que des gens voient des trains et des flammes. Les Verdantins disent que c’est la faute de Ferros, forcément. Moi, je dis que la peur fait vendre les rumeurs… et pas les lampes.
+> Que des gens voient des trains et des flammes. Les Verdantins disent que c’est la faute de Ferros, forcément. Moi, je dis que la peur fait vendre les rumeurs, et pas les lampes.
 
 - « Voir l’étal. » → **fin** _(ouvre le Troc)_
 - « Parlons d’autre chose. » → accueil
@@ -4855,7 +4855,7 @@ Commence par : « accueil »
 
 ### chantier
 
-> Le chantier ? C’est l’ingénieure Ingrid Brisefer qui le dirige. Personne n’y entre sans laissez-passer. Il se trouve que j’en ai un… qui m’a coûté cher.
+> Le chantier ? C’est l’ingénieure Ingrid Brisefer qui le dirige. Personne n’y entre sans laissez-passer. Il se trouve que j’en ai un, qui m’a coûté cher.
 
 - **[Diplomatie 2]** « Si ce chantier rend le marché malade, tes clients partiront. M’aider, c’est aider tes affaires. » → convaincu _(retient « laissez-passer », +25 XP)_
 - « Combien en veux-tu ? » → prix
@@ -4871,7 +4871,7 @@ Commence par : « accueil »
 
 ### convaincu
 
-> … Tu parles comme un marchand de Ferros, toi. Tiens, prends-le. Et si Brisefer te pose la question, tu ne l’as pas eu de moi.
+> Tu marchandes en Ferrien, toi. Tiens, prends-le. Et si Brisefer te pose la question, tu ne l’as pas eu de moi.
 
 - « Promis. » → **fin**
 
@@ -5040,7 +5040,7 @@ _Effet : termine la quête « Un prêt de la Terre », +40 XP, apprend un rang d
 
 ### lueur
 
-> — La Lueur. Tous les cristaux savent briller : pense à une lanterne, et le tien s’allume de sa couleur. Dans le noir, il montre ce que l’ombre cache. Pour le feu, il faut un cristal de forge… et ce n’est pas un druide qui te l’apprendra.
+> — La Lueur. Tous les cristaux savent briller : pense à une lanterne, et le tien s’allume de sa couleur. Dans le noir, il montre ce que l’ombre cache. Pour le feu, il faut un cristal de forge, et ce n’est pas un druide qui te l’apprendra.
 
 - « Et à Ferros ? » → ferros
 - « Merci, Vanel. » → **fin**
@@ -5072,7 +5072,7 @@ _Effet : retient « vanel-a-vu-marques »._
 
 ### effacees
 
-> Il pose une main sur le cristal, l’autre sur ta poitrine. Une chaleur, puis un froid, comme une sève qui redescend. — Voilà. Tu en sais un peu moins ; tu vivras un peu plus longtemps. Que la sève coule.
+> Il pose une main sur le cristal, l’autre sur ta poitrine. Une chaleur, puis un froid : la sève qui redescend. — Voilà. Tu en sais un peu moins ; tu vivras un peu plus longtemps. Que la sève coule.
 
 - « Merci, Vanel. » → **fin**
 
@@ -5141,7 +5141,7 @@ _Effet : lance la quête « Le Rail des Cendres »._
 
 ### verdict
 
-> Varka écoute jusqu’au bout. — Une machine sans homme, des pilleurs des Marches, et l’un des nôtres qui ouvre le levier… Que fait-on ?
+> Varka écoute jusqu’au bout. — Une machine sans homme, des pilleurs des Marches, et l’un des nôtres qui ouvre le levier. Que fait-on ?
 
 - « Les cheminots reprennent leurs convois : réglez ça entre vous. » → fin-rail _(retient « rail-travailleurs », termine la quête « Le Rail des Cendres », +40 XP)_
 - _(si repère « joss-avoue »)_ **[30 Fers]** « Et je rachète la dette de Joss : trente Fers. » → fin-dette _(−30 Fers, retient « dette-joss-payee », retient « rail-travailleurs », termine la quête « Le Rail des Cendres », +50 XP)_
@@ -5223,7 +5223,7 @@ Commence par : « avec-cle » _(si l’on porte « Clé de rouille bleue »)_ _(
 
 ### qui
 
-> — Ici, on m’appelle la Veilleuse. Je garde la vieille ligne et sa machine, pour les Travailleurs du Rail. Tout le monde la dit maudite. Moi, je dis qu’elle attend.
+> — On m’appelle la Veilleuse. Je garde la vieille ligne et sa machine, pour les Travailleurs du Rail. Tout le monde la dit maudite. Moi, je dis qu’elle attend.
 
 - « Elle attend quoi ? » → trains
 - « Au revoir. » → **fin**
@@ -5300,7 +5300,7 @@ _Effet : retient « cle-etudiee », +10 XP._
 
 ### apres
 
-> — Tu as fait ton choix, avec la clé. Je l’entends parfois, loin d’ici… Elle chante encore. Prends soin de toi.
+> — Tu as fait ton choix, avec la clé. Je l’entends parfois, loin d’ici. Elle chante encore. Prends soin de toi.
 
 - _(si quête « Le Rail des Cendres » en cours)_ _(sans repère « indice-veilleuse »)_ « Les convois du triage, qui partent seuls la nuit ? » → convois-triage
 - « Au revoir. » → **fin**
@@ -5386,13 +5386,13 @@ Commence par : « vol » _(si repère « vol-grenier »)_ _(sans repère « veli
 
 ### vol
 
-> Tu sais la nouvelle ? Quelqu’un a forcé le grenier des semences, là-haut. Voler des graines à Canopéa… c’est voler les arbres de demain. Si tu vois quelque chose, préviens le Conseil.
+> Tu sais la nouvelle ? Quelqu’un a forcé le grenier des semences, là-haut. Voler des graines à Canopéa, c’est voler les arbres de demain. Si tu vois quelque chose, préviens le Conseil.
 
 - « Je garderai les yeux ouverts. » → **fin** _(retient « veline-vol-dit »)_
 
 ### descente
 
-> Malo t’a parlé de la sacoche, n’est-ce pas ? Je l’ai vue tomber… Descendre sur le Sol des Racines, ce n’est pas rien : le sol est sacré.
+> Malo t’a parlé de la sacoche, n’est-ce pas ? Je l’ai vue tomber. Descendre sur le Sol des Racines, ce n’est pas rien : le sol est sacré.
 
 - _(sans repère « descente-autorisee »)_ « Je peux la chercher, si tu me descends. » → permission
 - _(si repère « descente-autorisee »)_ « Redescends-moi, s’il te plaît. » → **fin** _(mène à « Canopéa — Le Sol des Racines »)_
@@ -5409,14 +5409,14 @@ _Effet : retient « descente-autorisee »._
 
 ### descente-anselme
 
-> Une branche de l’arbre d’Anselme, pour une flûte ? Aïlis sera heureuse… Le sol est sacré, mais une branche tombée, la forêt la donne. Je te descends. Ne prends que celle-là.
+> Une branche de l’arbre d’Anselme, pour une flûte ? Aïlis sera heureuse. Le sol est sacré, mais une branche tombée, la forêt la donne. Je te descends. Ne prends que celle-là.
 
 - « Allons-y. » → **fin** _(mène à « Canopéa — Le Sol des Racines »)_
 - « Pas maintenant. » → **fin**
 
 ### descente-conseil
 
-> Le Gardien de la Canopée m’a fait porter un mot : tu peux descendre autant qu’il le faudra. Je n’aime pas ça… Le sol sacré qui fait taire le Bosquet, ça ne s’est jamais vu.
+> Le Gardien de la Canopée m’a fait porter un mot : tu peux descendre autant qu’il le faudra. Je n’aime pas ça. Le sol sacré qui fait taire le Bosquet, ça ne s’est jamais vu.
 
 - « Descends-moi. » → **fin** _(mène à « Canopéa — Le Sol des Racines »)_
 - _(si quête « Les graines qui manquent » pas commencée)_ _(sans repère « vol-grenier »)_ « Quoi de neuf, à la nacelle ? » → graines-souci _(lance la quête « Les graines qui manquent »)_
@@ -5424,14 +5424,14 @@ _Effet : retient « descente-autorisee »._
 
 ### graines-souci
 
-> Rien de bon. Il manque une dizaine de sacs au grenier des semences, depuis une lune. Et je crois qu’ils sont passés par ma nacelle, sous les bâches d’un marchand. Je n’ai rien vu… ou pas assez. Trouve qui, s’il te plaît.
+> Rien de bon. Il manque une dizaine de sacs au grenier des semences, depuis une lune. Et je crois qu’ils sont passés par ma nacelle, sous les bâches d’un marchand. Je n’ai rien vu, ou pas assez. Trouve qui, s’il te plaît.
 
 - « Je vais chercher. » → **fin**
 - « Qui pourrait savoir ? » → graines-piste
 
 ### graines-piste
 
-> Lisandre, au Nid : tous les marchands y dorment, et elle entend tout. Et le grenier lui-même, aux Hautes Ramures… s’il te laisse entrer.
+> Lisandre, au Nid : tous les marchands y dorment, et elle entend tout. Et le grenier lui-même, aux Hautes Ramures, s’il te laisse entrer.
 
 - « Merci, Véline. » → **fin**
 
@@ -5472,7 +5472,7 @@ _Effet : retient « descente-autorisee »._
 
 ### graines-tant-pis
 
-> Les sacs ne sont jamais revenus. Tant pis… Merci d’avoir cherché. On dit au Nid qu’un marchand a payé une tournée à tout le monde, l’autre soir. Drôle de hasard.
+> Les sacs ne sont jamais revenus. Tant pis. Merci d’avoir cherché. On dit au Nid qu’un marchand a payé une tournée à tout le monde, l’autre soir. Drôle de hasard.
 
 - « Drôle de hasard. » → **fin** _(retient « veline-graines-dit »)_
 
@@ -5496,7 +5496,7 @@ Commence par : « machine »
 
 ### machine
 
-> Une locomotive de l’Ancien Monde, rouge de rouille, et pourtant astiquée comme un jour de fête. Sur la cabine, quelqu’un a peint neuf petits wagons.
+> Une locomotive de l’Ancien Monde, rouge de rouille, et pourtant astiquée pour une fête qui ne vient pas. Sur la cabine, quelqu’un a peint neuf petits wagons.
 
 - **[Mémoire 4]** « Poser la main sur le métal. » → souvenir
 - **[Artisanat 3]** _(sans repère « capot-vu »)_ « Ouvrir le capot. » → capot _(retient « capot-vu », +10 XP)_
@@ -5522,7 +5522,7 @@ Commence par : « merci » _(si repère « rencontre-voyageur-aide »)_, sinon �
 
 ### accueil
 
-> Ah, enfin quelqu’un ! Je cherche Gardebois depuis deux jours. Cette carte dit que c’est par là… ou par là ?
+> Ah, enfin quelqu’un ! Je cherche Gardebois depuis deux jours. Cette carte dit que c’est par là, ou par là ?
 
 - « Ta carte est à l’envers. » → aide _(retient « rencontre-voyageur-aide », +5 Fers, +10 XP)_
 - « Je ne peux pas t’aider. » → **fin**

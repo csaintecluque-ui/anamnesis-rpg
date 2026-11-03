@@ -135,7 +135,7 @@
       ]
     },
     "mission": {
-      "text": "Kael hoche la tête. — Alors cherche. Le Triumvirat t’ouvre le Bosquet et, s’il le faut, le Sol des Racines : Véline te descendra. Reviens avec des faits, pas des rumeurs. Ici, on ne ment pas au Conseil.",
+      "text": "Kael hoche la tête. — Alors cherche. Le Triumvirat t’ouvre le Bosquet et, s’il le faut, le Sol des Racines : Véline te descendra. Rapporte des faits. Le dernier qui a menti à ce Conseil plante encore des glands à la frontière.",
       "options": [
         {
           "text": "J’y vais.",
@@ -144,7 +144,7 @@
       ]
     },
     "attente": {
-      "text": "Kael lève les yeux de ses cartes. — Alors ? Ce qui fait taire les noms du Bosquet. Des faits, pas des rumeurs.",
+      "text": "Kael lève les yeux de ses cartes. — Alors ? Ce qui fait taire les noms du Bosquet. Des faits. Les rumeurs, j’en ai plein les Ramures.",
       "options": [
         {
           "text": "Rappelez-moi ce que je cherche.",
@@ -184,7 +184,7 @@
       ]
     },
     "cle": {
-      "text": "Lyra pâlit. — Une clé de l’Ancien Monde… Les Archives de Ferros en parlent à mi-voix depuis des années. Si les Marches la cherchent jusque sous nos racines, c’est qu’elle compte plus que tout le reste.",
+      "text": "Lyra pâlit. — Une clé de l’Ancien Monde. Les Archives de Ferros en parlent à mi-voix depuis des années. Si les Marches la cherchent jusque sous nos racines, c’est qu’elle compte plus que tout le reste.",
       "options": [
         {
           "text": "Que va faire le Conseil ?",

@@ -38,7 +38,7 @@
   ],
   "nodes": {
     "demande": {
-      "text": "Ah ! Pardon, je range. Enfin, j’essaie. J’ai perdu une caisse d’outils en tombant du chariot, sur la route de l’est. Si maître Cendrefer l’apprend… Et deux Rôdeurs-Épine tournent autour : je n’ose pas y retourner.",
+      "text": "Ah ! Pardon, je range. Enfin, j’essaie. J’ai perdu une caisse d’outils en tombant du chariot, sur la route de l’est. Si maître Cendrefer l’apprend, je suis mort. Et deux Rôdeurs-Épine tournent autour : je n’ose pas y retourner.",
       "options": [
         {
           "text": "Je vais la chercher.",
@@ -56,7 +56,7 @@
       ]
     },
     "merci": {
-      "text": "Vraiment ? Elle est au sud de la route, après le pont. Les Rôdeurs n’aiment pas la fumée, à ce qu’on dit… ou alors on passe en douce. Moi, je cours vite, mais dans le mauvais sens.",
+      "text": "Vraiment ? Elle est au sud de la route, après le pont. Les Rôdeurs n’aiment pas la fumée, à ce qu’on dit, ou alors on passe en douce. Moi, je cours vite, mais dans le mauvais sens.",
       "options": [
         {
           "text": "J’y vais.",
@@ -74,7 +74,7 @@
       ]
     },
     "rendu": {
-      "text": "Ma caisse ! Tous les outils sont là ! Tiens, c’est tout ce que j’ai… Et je dirai à maître Cendrefer de te faire un prix, promis.",
+      "text": "Ma caisse ! Tous les outils sont là ! Tiens, c’est tout ce que j’ai. Et je dirai à maître Cendrefer de te faire un prix, promis.",
       "options": [
         {
           "text": "Merci, Brann.",

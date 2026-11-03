@@ -101,7 +101,7 @@
       ]
     },
     "appel": {
-      "text": "Une vieille femme en cape couleur parchemin pose sa lanterne. — Te voilà. Ilyane m’a écrit que tu écoutais bien. Ici, on n’écoute pas : on lit les mains. Tout ce qui passe par Sept-Portes laisse une ligne au Registre : de qui, quand, contre combien.",
+      "text": "Une vieille femme en cape couleur parchemin pose sa lanterne. — Te voilà. Ilyane m’a écrit que tu écoutais bien. À Sept-Portes, écouter ne suffit pas : il faut lire les mains. Tout ce qui passe par les Portes laisse une ligne au Registre : de qui, quand, contre combien.",
       "effects": [
         {
           "setFlag": "hesper-vue"
@@ -146,7 +146,7 @@
       ]
     },
     "fin-vendue": {
-      "text": "Hesper écoute, et sa lanterne baisse. — Tu as vendu une ligne. Ici, c’est un métier honnête. Chez les Gardiens, on transmet ; on ne vend pas. Altavent, sous les Hauts de Zephyria… Ils y seront avant toi. Alors cours.",
+      "text": "Hesper écoute, et sa lanterne baisse. — Tu as vendu une ligne. Ici, c’est un métier honnête. Chez les Gardiens, on transmet ; on ne vend pas. Altavent, sous les Hauts de Zephyria. Ils y seront avant toi. Alors cours.",
       "effects": [
         {
           "completeQuest": "memoires-monde-perdu"

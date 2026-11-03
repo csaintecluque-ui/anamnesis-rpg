@@ -74,7 +74,7 @@
       ]
     },
     "repos": {
-      "text": "Les hamacs du relais sont à tous les Gardiens. Dors un peu : la mémoire travaille mieux quand le corps se repose. … Au réveil, tes forces sont revenues.",
+      "text": "Les hamacs du relais sont à tous les Gardiens. Dors un peu : la mémoire travaille mieux quand le corps se repose. Au réveil, tes forces sont revenues.",
       "options": [
         {
           "text": "Merci, Mirelle.",
@@ -83,7 +83,7 @@
       ]
     },
     "ilyane": {
-      "text": "Nous avons fait notre apprentissage ensemble, il y a bien longtemps. Elle voulait tout entendre ; moi, tout écrire. Dis-lui que je garde encore son carnet de chansons… et qu’elle chante toujours aussi faux, j’en suis sûre.",
+      "text": "Nous avons fait notre apprentissage ensemble, il y a bien longtemps. Elle voulait tout entendre ; moi, tout écrire. Dis-lui que je garde encore son carnet de chansons, et qu’elle chante toujours aussi faux, j’en suis sûre.",
       "options": [
         {
           "text": "Je peux le lui rapporter, si tu veux.",
@@ -167,7 +167,7 @@
       ]
     },
     "chanson": {
-      "text": "Bienvenue au relais. Tu as l’air de chercher quelque chose… une histoire, une chanson ?",
+      "text": "Bienvenue au relais. Tu as l’air de chercher quelque chose. Une histoire ? Une chanson ?",
       "options": [
         {
           "text": "Connais-tu la chanson des cerfs-lucioles ?",

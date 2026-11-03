@@ -51,7 +51,7 @@
       ]
     },
     "nuit": {
-      "text": "À la nuit, la forge s’embrase sans feu : une lueur rouge, sans chaleur ni fumée, comme un souffle. Au fond du foyer, la lueur dessine une trappe de fer. Des voix montent d’en bas, très loin.",
+      "text": "À la nuit, la forge s’embrase sans feu : une lueur rouge, sans chaleur ni fumée. Elle respire. Au fond du foyer, la lueur dessine une trappe de fer. Des voix montent d’en bas, très loin.",
       "effects": [
         {
           "setFlag": "trappe-vue"

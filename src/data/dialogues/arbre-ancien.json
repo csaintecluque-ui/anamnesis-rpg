@@ -84,7 +84,7 @@
     "noms": {
       "text": "Des noms, des légendes, de petits dessins de feuilles. Là où le bois a fendu un signe, la fente fait désormais partie du souvenir.",
       "apartes": {
-        "liane": "Liane pose la main près de la tienne, sur les noms. — Ici, on les garde dans le bois. Chez nous, on les enterre et on se tait."
+        "liane": "Liane pose la main près de la tienne, sur les noms. — Eux, ils gardent leurs morts dans le bois. Chez nous, on les enterre et on se tait."
       },
       "options": [
         {
@@ -158,7 +158,7 @@
       ]
     },
     "pente": {
-      "text": "Tout au fond du silence, une sensation : comme une racine qu’on tire, vers le bas, très loin sous la ville. Ce qui fait taire le Bosquet est en bas, sur le Sol des Racines.",
+      "text": "Tout au fond du silence, une sensation : une racine qu’on tire, vers le bas, très loin sous la ville. Ce qui fait taire le Bosquet est en bas, sur le Sol des Racines.",
       "options": [
         {
           "text": "Retirer la main.",
@@ -167,7 +167,7 @@
       ]
     },
     "seve": {
-      "text": "Au pied de l’arbre, une sève claire suinte entre les planches, comme d’une blessure. Les racines du Bosquet descendent jusqu’au sol… et, en bas, quelque chose les a tranchées.",
+      "text": "Au pied de l’arbre, une sève claire suinte entre les planches, comme d’une blessure. Les racines du Bosquet descendent jusqu’au sol, et, en bas, quelque chose les a tranchées.",
       "options": [
         {
           "text": "Partir.",

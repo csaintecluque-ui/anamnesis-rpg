@@ -80,7 +80,7 @@
       ]
     },
     "arbres": {
-      "text": "Quand quelqu’un meurt, on le met en terre au pied d’un arbre, tout en bas. Mon grand-père Anselme repose là. Mamie Aïlis a gravé son nom au Bosquet et va lui parler chaque soir. Moi, je n’entends rien… mais je crois qu’il m’écoute quand même.",
+      "text": "Quand quelqu’un meurt, on le met en terre au pied d’un arbre, tout en bas. Mon grand-père Anselme repose là. Mamie Aïlis a gravé son nom au Bosquet et va lui parler chaque soir. Moi, je n’entends rien, mais je crois qu’il m’écoute quand même.",
       "options": [
         {
           "text": "Il t’écoute, c’est certain.",
@@ -89,7 +89,7 @@
       ]
     },
     "peur": {
-      "text": "Tomber ? Jamais ! Bon… une fois. Mais un filet de lianes m’a rattrapé. Mamie dit que la forêt n’aime pas qu’on lui jette des enfants.",
+      "text": "Tomber ? Jamais ! Bon, une fois. Mais un filet de lianes m’a rattrapé. Mamie dit que la forêt n’aime pas qu’on lui jette des enfants.",
       "options": [
         {
           "text": "Elle a bien raison.",
@@ -98,7 +98,7 @@
       ]
     },
     "souci": {
-      "text": "Salut… Je suis Malo, coursier des passerelles. Enfin, coursier… Je viens de laisser tomber la sacoche des Nacelliers. Toutes les lettres de la semaine, dans le feuillage ! Si Véline l’apprend…",
+      "text": "Salut. Je suis Malo, coursier des passerelles. Enfin, coursier. Je viens de laisser tomber la sacoche des Nacelliers. Toutes les lettres de la semaine, dans le feuillage ! Si Véline l’apprend, je balaie les passerelles jusqu’à l’hiver.",
       "options": [
         {
           "text": "Je peux t’aider à la retrouver.",
@@ -120,7 +120,7 @@
       ]
     },
     "aide": {
-      "text": "C’est vrai ? Elle est tombée tout en bas, sur le Sol des Racines. Mais le sol est sacré : personne n’y descend sans l’accord des Nacelliers. Demande à Véline, à la Grande Nacelle. Si elle dit oui… elle te descendra.",
+      "text": "C’est vrai ? Elle est tombée tout en bas, sur le Sol des Racines. Mais le sol est sacré : personne n’y descend sans l’accord des Nacelliers. Demande à Véline, à la Grande Nacelle. Si elle dit oui, elle te descendra.",
       "options": [
         {
           "text": "J’y vais.",
@@ -146,7 +146,7 @@
       ]
     },
     "retour": {
-      "text": "La sacoche ! Tu l’as retrouvée ! Toutes les lettres sont là… presque toutes. Merci, merci ! Tiens, ce n’est pas grand-chose, mais c’est de bon cœur.",
+      "text": "La sacoche ! Tu l’as retrouvée ! Toutes les lettres sont là, presque toutes. Merci, merci ! Tiens, ce n’est pas grand-chose, mais c’est de bon cœur.",
       "options": [
         {
           "text": "La voici, Malo.",
@@ -195,7 +195,7 @@
       ]
     },
     "flute": {
-      "text": "Mamie joue de la flûte ! Tous les soirs, au Bosquet. Elle dit que c’est grâce à toi… et à Papi. Elle va m’apprendre. Je serai coursier ET musicien.",
+      "text": "Mamie joue de la flûte ! Tous les soirs, au Bosquet. Elle dit que c’est grâce à toi, et à Papi. Elle va m’apprendre. Je serai coursier ET musicien.",
       "effects": [
         {
           "setFlag": "malo-flute-dit"

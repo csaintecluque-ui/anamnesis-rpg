@@ -41,7 +41,7 @@
   ],
   "nodes": {
     "accueil-quete": {
-      "text": "Un Ferrôme lourd comme une locomotive soulève trois malles d’une seule main. — Bienvenue à Ironheart. Je m’appelle Boulon. Un sceau d’émeraude à ta ceinture ? Les Verts ne viennent pas souvent. Tu cherches quelque chose, ou quelqu’un ?",
+      "text": "Un Ferrôme de deux mètres, tout en rivets, soulève trois malles d’une seule main. — Bienvenue à Ironheart. Je m’appelle Boulon. Un sceau d’émeraude à ta ceinture ? Les Verts ne viennent pas souvent. Tu cherches quelque chose, ou quelqu’un ?",
       "effects": [
         {
           "startQuest": "cle-rouille-bleue"
@@ -220,7 +220,7 @@
       ]
     },
     "contrat": {
-      "text": "— Il faudrait qu’on me raye du matériel. L’archiviste Noam tient le registre des Ferrômes. Il classe tout. Moi, je suis une ligne. … Je ne sais pas ce que vaut une ligne.",
+      "text": "— Il faudrait qu’on me raye du matériel. L’archiviste Noam tient le registre des Ferrômes. Il classe tout. Moi, je suis une ligne. Je ne sais pas ce que vaut une ligne.",
       "options": [
         {
           "text": "J’irai voir Noam.",
@@ -229,7 +229,7 @@
       ]
     },
     "libre": {
-      "text": "Boulon lit le papier trois fois, puis le plie en quatre, très lentement. — Je ne suis plus du matériel. … Alors je viens. Je porterai ce qu’il faut, et je me souviendrai de chaque endroit. Ce seront les miens.",
+      "text": "Boulon lit le papier trois fois, puis le plie en quatre, très lentement. — Je ne suis plus du matériel. Alors je viens. Je porterai ce qu’il faut, et je me souviendrai de chaque endroit. Ce seront les miens.",
       "effects": [
         {
           "completeQuest": "contrat-boulon"

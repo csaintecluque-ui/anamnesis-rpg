@@ -222,7 +222,7 @@
       ]
     },
     "accueil": {
-      "text": "Te voilà. Les Gardiens de Mémoire m’ont annoncé ta venue. Bienvenue au Marché des Lisières… même si le moment est mal choisi pour un apprentissage tranquille.",
+      "text": "Te voilà. Les Gardiens de Mémoire m’ont annoncé ta venue. Bienvenue au Marché des Lisières, même si le moment est mal choisi pour un apprentissage tranquille.",
       "options": [
         {
           "text": "Que se passe-t-il ?",
@@ -266,7 +266,7 @@
       ]
     },
     "atteinte": {
-      "text": "… Tu as de bons yeux. Ce matin, j’étais sur le quai d’une gare. J’ai vu partir un train plein d’enfants qui agitaient la main. Je n’ai jamais vu de train de l’Ancien Monde. Ce souvenir n’est pas le mien.",
+      "text": "Tu as de bons yeux. Ce matin, j’étais sur le quai d’une gare. J’ai vu partir un train plein d’enfants qui agitaient la main. Je n’ai jamais vu de train de l’Ancien Monde. Ce souvenir n’est pas le mien.",
       "options": [
         {
           "text": "Que puis-je faire ?",
@@ -353,7 +353,7 @@
       ]
     },
     "sante": {
-      "text": "Les visions passent comme des nuages. Je tiendrai. Le marché a besoin de quelqu’un qui garde la tête froide… et toi, tu as une gare à écouter.",
+      "text": "Les visions passent comme des nuages. Je tiendrai. Le marché a besoin de quelqu’un qui garde la tête froide, et toi, tu as une gare à écouter.",
       "options": [
         {
           "text": "Je reviens vite.",
@@ -362,7 +362,7 @@
       ]
     },
     "lettre": {
-      "text": "Ilyane écrit longtemps, puis scelle la lettre d’une goutte de cire verte. — Porte-la au Conseil des Racines Profondes, à Canopéa. Là-haut, on ne m’écoute plus beaucoup… On m’écoutera peut-être à travers toi.",
+      "text": "Ilyane écrit longtemps, puis scelle la lettre d’une goutte de cire verte. — Porte-la au Conseil des Racines Profondes, à Canopéa. Là-haut, on ne m’écoute plus beaucoup. On m’écoutera peut-être à travers toi.",
       "options": [
         {
           "text": "J’irai à Canopéa.",
@@ -371,7 +371,7 @@
       ]
     },
     "nouvelles-canopee": {
-      "text": "Mirelle m’a écrit par le courrier des Nacelliers : tu as parlé devant le Triumvirat Vert ! Et maintenant, Ironheart, et les Marches des Cendres… Prends garde à toi. Là-bas, on vend tout, même les souvenirs.",
+      "text": "Mirelle m’a écrit par le courrier des Nacelliers : tu as parlé devant le Triumvirat Vert ! Et maintenant, Ironheart, et les Marches des Cendres. Prends garde à toi. Là-bas, on vend tout, même les souvenirs.",
       "options": [
         {
           "text": "Je reviendrai te raconter.",

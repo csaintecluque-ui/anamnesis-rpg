@@ -44,7 +44,7 @@
   ],
   "nodes": {
     "demande": {
-      "text": "Tu marches sur ma menthe. … Bon. L’apprenti·e d’Ilyane, c’est ça ? Alors rends-toi utile : il me faut de la sauge-lumière pour les malades, et ils ne me laissent pas une minute.",
+      "text": "Tu marches sur ma menthe. Bon. L’apprenti·e d’Ilyane, c’est ça ? Alors rends-toi utile : il me faut de la sauge-lumière pour les malades, et ils ne me laissent pas une minute.",
       "options": [
         {
           "text": "Où en trouver ?",
@@ -71,7 +71,7 @@
       ]
     },
     "attente": {
-      "text": "Alors, cette sauge ? Trois touffes, pas deux.",
+      "text": "Alors, cette sauge ? Trois touffes. Je sais compter, moi.",
       "options": [
         {
           "text": "Laisse-moi voir tes malades.",
@@ -93,7 +93,7 @@
       ]
     },
     "rendu": {
-      "text": "Trois belles touffes… Tu as la main douce, pour un·e apprenti·e. Tiens : de quoi te rafistoler, et une fiole de ma sève. Ne la gaspille pas.",
+      "text": "Trois belles touffes. Tu as la main douce, pour un·e apprenti·e. Tiens : de quoi te rafistoler, et une fiole de ma sève. Ne la gaspille pas.",
       "options": [
         {
           "text": "Merci, Liane.",
@@ -149,7 +149,7 @@
       ]
     },
     "recrue": {
-      "text": "Liane te dévisage longtemps. — Mes malades… Sylvan les nourrira, et la sauge repousse sans moi. Mais je ne me bats pas pour les causes perdues, et je ne vole rien à personne. Compris ?",
+      "text": "Liane te dévisage longtemps. — Mes malades. Sylvan les nourrira, et la sauge repousse sans moi. Mais je ne me bats pas pour les causes perdues, et je ne vole rien à personne. Compris ?",
       "options": [
         {
           "text": "Compris.",

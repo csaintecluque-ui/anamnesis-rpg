@@ -91,7 +91,7 @@
       ]
     },
     "registre": {
-      "text": "Il ouvre un livre épais comme une porte. — Vous cherchez une chaîne ? Dites-moi l’objet, je vous lis les mains.",
+      "text": "Il ouvre un registre de la taille d’une porte. — Vous cherchez une chaîne ? Dites-moi l’objet, je vous lis les mains.",
       "apartes": {
         "boulon": "Boulon lit par-dessus ton épaule, sans bouger les lèvres. — Tout s’écrit, ici. Même ce qui n’est pas arrivé."
       },
@@ -121,7 +121,7 @@
       ]
     },
     "chaine": {
-      "text": "Il tourne les pages sans hâte. — Le carnet : jamais entré. Mais l’an dernier, une page recopiée, « la ligne que Ferros a grattée », vendue quarante Nexus. Sa chaîne passe par une maison qu’a touchée Nakh-Rim : elle dort au Fonds Muet. On ne la cite pas.",
+      "text": "Il tourne les pages sans hâte. — Le carnet : jamais entré. Mais l’an dernier, une page recopiée, « la ligne que Ferros a grattée », vendue quarante Fers. Sa chaîne passe par une maison qu’a touchée Nakh-Rim : elle dort au Fonds Muet. On ne la cite pas.",
       "options": [
         {
           "text": "Et personne d’autre ne l’a demandée ?",
@@ -152,7 +152,7 @@
       ]
     },
     "demande": {
-      "text": "— Le Fonds Muet ne se cite pas. Il ne se cache pas non plus : ici, on ne cache rien. Convainquez-moi qu’un lecteur n’est pas un citeur.",
+      "text": "— Le Fonds Muet ne se cite pas. Il ne se cache pas non plus : rien ne se cache à Sept-Portes. Convainquez-moi qu’un lecteur n’est pas un citeur.",
       "options": [
         {
           "text": "Kael a bâti cette bibliothèque sur une seule règle. Il a lu, lui, avant de la poser.",
@@ -320,7 +320,7 @@
       ]
     },
     "chaine-vendue": {
-      "text": "Il tourne les pages. — La clé : entrée il y a trois jours, d’une main gantée, qui l’a achetée aux Marches des Cendres. Le carnet : une page recopiée, vendue quarante Nexus l’an dernier. Sa chaîne dort au Fonds Muet. On ne la cite pas.",
+      "text": "Il tourne les pages. — La clé : entrée il y a trois jours, d’une main gantée, qui l’a achetée aux Marches des Cendres. Le carnet : une page recopiée, vendue quarante Fers l’an dernier. Sa chaîne dort au Fonds Muet. On ne la cite pas.",
       "effects": [],
       "options": [
         {

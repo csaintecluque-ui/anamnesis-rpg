@@ -50,7 +50,7 @@
   ],
   "nodes": {
     "accueil": {
-      "text": "Bienvenue à la Racine ! Ici, on mange chaud et on parle fort. Assieds-toi : chez Sylvan, les Gardiens de Mémoire sont toujours bien reçus.",
+      "text": "Bienvenue à la Racine ! On mange chaud, on parle fort, et on ne demande à personne ce qu’il a vu la nuit dernière. Chez Sylvan, les Gardiens de Mémoire sont toujours bien reçus.",
       "options": [
         {
           "text": "Manger ou dormir ?",
@@ -85,7 +85,7 @@
       ]
     },
     "rumeurs": {
-      "text": "On dit que la maladie des souvenirs vient de la Gare, depuis que Ferros y creuse. La petite Nell, chez les Lunelierre, ne reconnaît plus sa propre berceuse… Et Brann, l’apprenti de Tobias, a perdu une caisse sur la route de l’est.",
+      "text": "On dit que la maladie des souvenirs vient de la Gare, depuis que Ferros y creuse. La petite Nell, chez les Lunelierre, ne reconnaît plus sa propre berceuse. Et Brann, l’apprenti de Tobias, a perdu une caisse sur la route de l’est.",
       "options": [
         {
           "text": "Et l’herboriste, Liane ?",
@@ -107,7 +107,7 @@
       ]
     },
     "ilyane-chante": {
-      "text": "Ilyane a chanté au cercle des lanternes, hier soir ! Avec un vieux carnet revenu de Canopéa. Elle chante faux comme une casserole, mais j’ai pleuré dans ma tarte.",
+      "text": "Ilyane a chanté au cercle des lanternes, hier soir ! Avec un vieux carnet revenu de Canopéa. Elle chante faux à faire fuir les cerfs, et j’ai pleuré dans ma tarte.",
       "effects": [
         {
           "setFlag": "sylvan-ilyane-chante-dit"

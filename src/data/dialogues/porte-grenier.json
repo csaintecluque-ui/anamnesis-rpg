@@ -80,7 +80,7 @@
       ]
     },
     "nichoir": {
-      "text": "Sous la paille du nichoir, tes doigts trouvent une petite clé de cuivre, tiède comme un œuf. La serrure tourne sans un bruit.",
+      "text": "Sous la paille du nichoir, tes doigts trouvent une petite clé de cuivre, encore tiède. La serrure tourne sans un bruit.",
       "effects": [
         {
           "setFlag": "grenier-deverrouille"

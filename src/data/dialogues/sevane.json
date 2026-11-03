@@ -8,7 +8,7 @@
   ],
   "nodes": {
     "accueil": {
-      "text": "Le Comptoir de la Sève, bonjour ! Herbes de la canopée, baumes de mousse, bandages… Tout ce qui soigne pousse ici, ou presque.",
+      "text": "Le Comptoir de la Sève, bonjour ! Herbes de la canopée, baumes de mousse, bandages. Tout ce qui soigne pousse ici, ou presque.",
       "options": [
         {
           "text": "Voyons ce que tu vends.",
@@ -79,7 +79,7 @@
       ]
     },
     "aieux": {
-      "text": "Sévane pâlit, et regarde la porte. — Qui t’a dit ça ? … Trente Fers la fiole. Une gorgée à la fois, et jamais deux soirs de suite : on finit par ne plus vouloir que leurs voix.",
+      "text": "Sévane pâlit, et regarde la porte. — Qui t’a dit ça ? Trente Fers la fiole. Une gorgée à la fois, et jamais deux soirs de suite : on finit par ne plus vouloir que leurs voix.",
       "options": [
         {
           "text": "Payer trente Fers.",

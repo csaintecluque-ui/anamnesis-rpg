@@ -29,7 +29,7 @@
   ],
   "nodes": {
     "presse": {
-      "text": "Pas le temps, pas le temps ! Enfin… si, maintenant : j’ai raté la caravane de midi. Et cette sacoche devait partir avec elle, pour Canopéa, avant ce soir ! Mon patron va me suspendre par les bretelles à un Arbre-Titan.",
+      "text": "Pas le temps, pas le temps ! Enfin, si, maintenant : j’ai raté la caravane de midi. Et cette sacoche devait partir avec elle, pour Canopéa, avant ce soir ! Mon patron va me suspendre par les bretelles à un Arbre-Titan.",
       "options": [
         {
           "text": "Je peux la porter à Canopéa.",
@@ -54,7 +54,7 @@
       ]
     },
     "dedans": {
-      "text": "Des lettres de change, des échantillons, et la viande séchée du chef de caravane. Il y tient plus qu’aux lettres, entre nous. Rien de dangereux… sauf pour les Loups de Rouille, qui ont du flair.",
+      "text": "Des lettres de change, des échantillons, et la viande séchée du chef de caravane. Il y tient plus qu’aux lettres, entre nous. Rien de dangereux, sauf pour les Loups de Rouille, qui ont du flair.",
       "options": [
         {
           "text": "Je peux la porter à Canopéa.",

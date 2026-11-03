@@ -209,7 +209,7 @@
       ]
     },
     "convaincue": {
-      "text": "… Bon. J’arrête la foreuse, pour l’instant. Mais dites bien à vos Gardiens que Ferros reviendra, avec ou sans moi.",
+      "text": "Bon. J’arrête la foreuse, pour l’instant. Mais dites bien à vos Gardiens que Ferros reviendra, avec ou sans moi.",
       "options": [
         {
           "text": "Merci.",
@@ -218,7 +218,7 @@
       ]
     },
     "convaincue-recit": {
-      "text": "Corvan ? Je connais l’histoire, oui… et vous avez raison : il a réussi, et ça ne l’a pas sauvé. J’arrête la foreuse. On ne commet pas deux fois la même faute.",
+      "text": "Corvan ? Je connais l’histoire, oui, et vous avez raison : il a réussi, et ça ne l’a pas sauvé. J’arrête la foreuse. On ne commet pas deux fois la même faute.",
       "options": [
         {
           "text": "Merci.",
@@ -227,7 +227,7 @@
       ]
     },
     "apres-sabotage": {
-      "text": "Quelqu’un a faussé ma foreuse, cette nuit. Ferros m’enverra des pièces… dans des semaines. D’ici là, je ne creuse plus. Et personne n’a plus revu de train, à Gardebois, paraît-il.",
+      "text": "Quelqu’un a faussé ma foreuse, cette nuit. Ferros m’enverra des pièces, dans des semaines. D’ici là, je ne creuse plus. Et personne n’a plus revu de train, à Gardebois, paraît-il.",
       "options": [
         {
           "text": "Tant mieux.",
@@ -269,7 +269,7 @@
     "apres-explosion": {
       "text": "Ingrid a les mains bandées et les yeux secs. — Pell. Vingt-deux ans. Il gardait la lanterne parce qu’il avait peur du noir. On l’a enterré ce matin, au bord du quai. La foreuse ne creusera plus. Si j’apprends qui a fait ça…",
       "apartes": {
-        "liane": "Liane regarde Ingrid longtemps, sans haine. — Maintenant, tu sais ce que c’est. … Ça ne me console pas. Je croyais que ça me consolerait."
+        "liane": "Liane regarde Ingrid longtemps, sans haine. — Maintenant, tu sais ce que c’est. Ça ne me console pas. Je croyais que ça me consolerait."
       },
       "options": [
         {
@@ -351,7 +351,7 @@
       ]
     },
     "papiers": {
-      "text": "Ingrid tapote une liasse sous son bras. — Ferros signe. Mais c’est une courtière qui paie, d’avance, en Nexus tout neufs : une dame en gris, gants fins. Elle ne laisse pas de nom. Elle laisse toujours un peu plus que ce qu’on demande.",
+      "text": "Ingrid tapote une liasse sous son bras. — Ferros signe. Mais c’est une courtière qui paie, d’avance, en Fers tout neufs : une dame en gris, gants fins. Elle ne laisse pas de nom. Elle laisse toujours un peu plus que ce qu’on demande.",
       "effects": [
         {
           "setFlag": "gris-ingrid"

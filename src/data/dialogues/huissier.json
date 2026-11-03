@@ -63,7 +63,7 @@
   ],
   "nodes": {
     "accueil": {
-      "text": "Silence, s’il te plaît : là-haut, dans le grand amphithéâtre, le Conseil des Racines Profondes délibère. Les audiences se demandent par écrit, et la liste est longue… très longue.",
+      "text": "Silence, s’il te plaît : là-haut, dans le grand amphithéâtre, le Conseil des Racines Profondes délibère. Les audiences se demandent par écrit, et la liste est longue, très longue.",
       "options": [
         {
           "text": "De quoi parle le Conseil ?",
@@ -86,7 +86,7 @@
       ]
     },
     "sujet": {
-      "text": "De la frontière de l’Est, de ce que Ferros creuse sous nos racines, et de ce mal qui fait oublier. Je n’en dirai pas plus : je suis huissier, pas bavard.",
+      "text": "De la frontière de l’Est, de ce que Ferros creuse sous nos racines, et de ce mal qui fait oublier. Je n’en dirai pas plus : un huissier qui parle ne reste pas huissier.",
       "options": [
         {
           "text": "Merci quand même.",
@@ -104,7 +104,7 @@
       ]
     },
     "lettre": {
-      "text": "Une lettre au sceau des Gardiens de Mémoire de Gardebois ? L’huissier la tourne et la retourne, puis s’efface. — Le Conseil a fini de délibérer. Le Triumvirat Vert te recevra. Monte, et parle franchement : ici, on n’aime pas les détours.",
+      "text": "Une lettre au sceau des Gardiens de Mémoire de Gardebois ? L’huissier la tourne et la retourne, puis s’efface. — Le Conseil a fini de délibérer. Le Triumvirat Vert te recevra. Monte, et parle franchement : le Conseil déteste les détours.",
       "options": [
         {
           "text": "Entrer dans l’amphithéâtre.",
@@ -123,7 +123,7 @@
       ]
     },
     "nouvelles": {
-      "text": "Silence, s’il te plaît : là-haut, le Conseil des Racines Profondes délibère. Les audiences se demandent par écrit, et la liste est longue… très longue.",
+      "text": "Silence, s’il te plaît : là-haut, le Conseil des Racines Profondes délibère. Les audiences se demandent par écrit, et la liste est longue, très longue.",
       "options": [
         {
           "text": "Je viens de Gardebois. J’ai vu ce que la foreuse a fait à la Gare Engloutie.",
@@ -176,7 +176,7 @@
       ]
     },
     "admis": {
-      "text": "L’huissier te regarde longuement, puis s’efface. — Le Conseil a fini de délibérer. Le Triumvirat Vert te recevra. Monte, et parle franchement : ici, on n’aime pas les détours.",
+      "text": "L’huissier te regarde longuement, puis s’efface. — Le Conseil a fini de délibérer. Le Triumvirat Vert te recevra. Monte, et parle franchement : le Conseil déteste les détours.",
       "options": [
         {
           "text": "Entrer dans l’amphithéâtre.",
@@ -251,7 +251,7 @@
       ]
     },
     "sujet-apres": {
-      "text": "Des Gardes Verts au Sol des Racines, des Voix des Arbres qui soignent le Bosquet, et d’Ironheart. Toujours Ironheart. Je n’en dirai pas plus : je suis huissier, pas bavard.",
+      "text": "Des Gardes Verts au Sol des Racines, des Voix des Arbres qui soignent le Bosquet, et d’Ironheart. Toujours Ironheart. Je n’en dirai pas plus : un huissier qui parle ne reste pas huissier.",
       "options": [
         {
           "text": "Merci quand même.",

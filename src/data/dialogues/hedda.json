@@ -75,7 +75,7 @@
       ]
     },
     "accueil-remise": {
-      "text": "— Atelier Cendrefer ! Attends… Tobias m’a écrit : c’est toi qui as rendu sa caisse au petit Brann. Chez les Cendrefer, une dette se paie en prix : tu auras le même que chez lui.",
+      "text": "— Atelier Cendrefer ! Attends. Tobias m’a écrit : c’est toi qui as rendu sa caisse au petit Brann. Chez les Cendrefer, une dette se paie en prix : tu auras le même que chez lui.",
       "options": [
         {
           "text": "Voyons tes lames.",
@@ -151,7 +151,7 @@
       ]
     },
     "masques": {
-      "text": "Hedda déplie le papier, le lit deux fois. — Du feutre, du charbon, trois lanières. Bête comme tout, et personne n’y avait pensé. Une Innovation non déclarée… Elle sourit de travers. — L’atelier est à la Compagnie des Lisières, pas à Ferros. J’en coudrai cent.",
+      "text": "Hedda déplie le papier, le lit deux fois. — Du feutre, du charbon, trois lanières. Bête comme tout, et personne n’y avait pensé. Une Innovation non déclarée. Elle sourit de travers. — L’atelier est à la Compagnie des Lisières, pas à Ferros. J’en coudrai cent.",
       "effects": [
         {
           "takeItem": "plans-masque"

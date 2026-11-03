@@ -227,7 +227,7 @@
       ]
     },
     "ronge": {
-      "text": "— Hier, j’ai oublié le nom de la sauge-lumière. Moi ! … Je sais. Mais entre oublier un peu de tout et le revoir mourir chaque nuit, j’ai choisi.",
+      "text": "— Hier, j’ai oublié le nom de la sauge-lumière. Moi ! Je sais. Mais entre oublier un peu de tout et le revoir mourir chaque nuit, j’ai choisi.",
       "options": [
         {
           "text": "Il y a peut-être un autre chemin.",
@@ -267,7 +267,7 @@
       ]
     },
     "oublier-ok": {
-      "text": "— Là où il est mort, évidemment. Ça pousse sur ce qui pourrit. … Merci de ne pas me faire la morale.",
+      "text": "— Là où il est mort, évidemment. Ça pousse sur ce qui pourrit. Merci de ne pas me faire la morale.",
       "options": [
         {
           "text": "En route.",
@@ -276,7 +276,7 @@
       ]
     },
     "graver-ok": {
-      "text": "— Il faudra que je le touche, ce bois, après. … Je ne sais pas si je pourrai.",
+      "text": "— Il faudra que je le touche, ce bois, après. Je ne sais pas si je pourrai.",
       "options": [
         {
           "text": "Je serai là.",
@@ -295,7 +295,7 @@
       ]
     },
     "manger": {
-      "text": "Liane prend le champignon à deux mains. Il luit faiblement, pâle comme une lune. — Après, je ne saurai même plus pourquoi je l’ai mangé. Tu ne me le diras pas, hein ?",
+      "text": "Liane prend le champignon à deux mains. Il luit faiblement, d’un blanc de lune. — Après, je ne saurai même plus pourquoi je l’ai mangé. Tu ne me le diras pas, hein ?",
       "options": [
         {
           "text": "Je ne te dirai rien.",
@@ -390,7 +390,7 @@
       ]
     },
     "droit": {
-      "text": "Liane te regarde, prise de court. — Ilyane dit qu’oublier, c’est trahir. Les Gardiens disent tous ça. … Toi aussi, tu en es un. Elle détourne les yeux. — Merci quand même.",
+      "text": "Liane te regarde, prise de court. — Ilyane dit qu’oublier, c’est trahir. Les Gardiens disent tous ça. Toi aussi, tu en es un. Elle détourne les yeux. — Merci quand même.",
       "options": [
         {
           "text": "Que veux-tu faire ?",

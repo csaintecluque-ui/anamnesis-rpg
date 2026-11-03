@@ -135,7 +135,7 @@
       ],
       "apartes": {
         "boulon": "Boulon pose une main sur l’épaule de Joss, très doucement pour une main de fer. — Une dette, ça se porte. Pas tout seul.",
-        "liane": "Liane s’accroupit près de Joss. — Tu ne dors plus depuis quand ? … Ça se voit. Ça se soigne, aussi."
+        "liane": "Liane s’accroupit près de Joss. — Tu ne dors plus depuis quand ? Ça se voit. Ça se soigne, aussi."
       },
       "options": [
         {
@@ -149,7 +149,7 @@
       ]
     },
     "personne": {
-      "text": "— Personne. Seulement le minerai, et la confiance. Varka me regarde comme un frère. Je ne dors plus.",
+      "text": "— Personne. Seulement le minerai, et la confiance. Varka m’appelle son frère. Je ne dors plus.",
       "options": [
         {
           "text": "Je peux te donner de quoi dormir.",
@@ -211,7 +211,7 @@
       ]
     },
     "sommeil": {
-      "text": "Tu lui dis quelles herbes, combien, à quelle heure. Il écoute comme un enfant. — Dormir… Si je dors, je rêve du levier. Mais merci.",
+      "text": "Tu lui dis quelles herbes, combien, à quelle heure. Il écoute sans t’interrompre, les yeux baissés. — Dormir. Si je dors, je rêve du levier. Mais merci.",
       "effects": [
         {
           "setFlag": "joss-sommeil"

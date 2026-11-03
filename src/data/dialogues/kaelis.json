@@ -61,7 +61,7 @@
   ],
   "nodes": {
     "accueil": {
-      "text": "Un homme maigre polit une mâchoire de Golem sous une lampe à huile. Autour de lui, des os de bêtes polis, des dents de loup en colliers. — Tout se vend, ici. Même ce qui se souvient. Pose ta question… si c’est la bonne.",
+      "text": "Un homme maigre polit une mâchoire de Golem sous une lampe à huile. Autour de lui, des os de bêtes polis, des dents de loup en colliers. — Tout se vend, ici. Même ce qui se souvient. Pose ta question, si c’est la bonne.",
       "apartes": {
         "boulon": "Boulon regarde les os polis, les dents en colliers. — Il vend ce qui portait. Comme on m’aurait vendu, moi."
       },
@@ -303,7 +303,7 @@
       ]
     },
     "apres": {
-      "text": "— Tu as choisi de ne pas me la vendre, à ce qu’on dit. Dommage. Les Marches n’oublient pas… mais elles ne se fâchent pas longtemps.",
+      "text": "— Tu as choisi de ne pas me la vendre, à ce qu’on dit. Dommage. Les Marches n’oublient pas, mais elles ne se fâchent pas longtemps.",
       "options": [
         {
           "text": "Les Marches prennent-elles des fournisseurs ?",
@@ -369,7 +369,7 @@
       ]
     },
     "accueil-garrik": {
-      "text": "Kaelis polit une mâchoire de Golem et lève à peine les yeux. — Ah. C’est toi qui as renvoyé Garrik de sous les arbres. Je ne suis pas rancunier : une fouille perdue, c’est un prix comme un autre. Pose ta question… si c’est la bonne.",
+      "text": "Kaelis polit une mâchoire de Golem et lève à peine les yeux. — Ah. C’est toi qui as renvoyé Garrik de sous les arbres. Je ne suis pas rancunier : une fouille perdue, ça se paie aussi. Pose ta question, si c’est la bonne.",
       "options": [
         {
           "text": "Je cherche la clé de rouille bleue.",
@@ -455,7 +455,7 @@
         }
       ],
       "apartes": {
-        "boulon": "Boulon, très bas : — Gants fins, Nexus neufs. Je la connais. Je l’ai portée."
+        "boulon": "Boulon, très bas : — Gants fins, Fers neufs. Je la connais. Je l’ai portée."
       },
       "options": [
         {

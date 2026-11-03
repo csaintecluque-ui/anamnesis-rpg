@@ -144,7 +144,7 @@
       ]
     ],
     "lines": [
-      "Je tisse des voiles de feuilles pour les fenêtres. Elles laissent passer la lumière, pas la pluie.",
+      "Je tisse des voiles de feuilles pour les fenêtres. La lumière passe ; la pluie, jamais.",
       "Ceux de Ferros me demandent si c’est de la toile. Je réponds : c’est de la patience. Eux comptent en heures ; nous, en saisons."
     ],
     "reactions": [
@@ -181,7 +181,7 @@
       ]
     ],
     "lines": [
-      "Pardon, pardon ! Message urgent pour le Conseil… comme tous les messages.",
+      "Pardon, pardon ! Message urgent pour le Conseil. Ils le sont tous.",
       "Une audience ? Apporte de la patience. Et un coussin."
     ],
     "reactions": [
@@ -241,8 +241,8 @@
       ]
     ],
     "lines": [
-      "Chut… Je parle à ma mère. Elle a choisi de partir, au printemps : ici, c’est permis, quand le corps lâche. J’ai gravé son nom.",
-      "Ici, on ne pleure pas fort. On raconte."
+      "Chut. Je parle à ma mère. Elle a choisi de partir, au printemps : ici, c’est permis, quand le corps lâche. J’ai gravé son nom.",
+      "Chez nous, on ne pleure pas fort. On raconte."
     ],
     "reactions": [
       {
@@ -250,7 +250,7 @@
         "status": "active",
         "flag": "audience-tenue",
         "lines": [
-          "Ma mère ne me répond plus. Le bois est froid sous ma main… Toi aussi, tu le sens ?"
+          "Ma mère ne me répond plus. Le bois est froid sous ma main. Toi aussi, tu le sens ?"
         ]
       },
       {
@@ -342,7 +342,7 @@
         "quest": "caravane-midi",
         "flag": "loups-caravane",
         "lines": [
-          "Le chef de caravane m’a pardonné, grâce à toi ! Il m’a même laissé la viande séchée… enfin, ce que les loups n’ont pas eu."
+          "Le chef de caravane m’a pardonné, grâce à toi ! Il m’a même laissé la viande séchée. Enfin, ce que les loups n’ont pas eu."
         ]
       }
     ]
@@ -475,7 +475,7 @@
       ]
     ],
     "lines": [
-      "Trois jours de marche depuis le sud… Ce hamac est la plus belle chose du monde.",
+      "Trois jours de marche depuis le sud. Ce hamac est la plus belle chose du monde.",
       "On m’avait dit qu’on dormait mal, ici, à cause du vent. On m’avait menti."
     ]
   },
@@ -492,7 +492,7 @@
     ],
     "lines": [
       "Cinquante Druides Verts siègent au Conseil, à vie. Moi, j’y suis depuis quarante ans. Les arbres trouvent que c’est peu.",
-      "Ici, on ne coupe pas la parole. On attend qu’elle tombe, comme une feuille."
+      "Au Conseil, personne ne coupe la parole. On attend qu’elle tombe d’elle-même, avec les feuilles."
     ],
     "reactions": [
       {
@@ -500,7 +500,7 @@
         "status": "active",
         "flag": "audience-tenue",
         "lines": [
-          "Le Bosquet qui se tait… Même les plus vieux d’entre nous n’ont jamais vu ça. Cherche bien : le Bosquet compte sur toi."
+          "Le Bosquet qui se tait. Même les plus vieux d’entre nous n’ont jamais vu ça. Cherche bien : le Bosquet compte sur toi."
         ]
       },
       {
@@ -524,7 +524,7 @@
     ],
     "lines": [
       "Deux cents élus, cinquante druides, cinquante Voix des Arbres : trois cents sièges, et autant d’avis.",
-      "Je représente les Lisières Cultivées. Là-bas, on veut du métal de Ferros… et pas de Ferros sous nos champs."
+      "Je représente les Lisières Cultivées. Là-bas, on veut du métal de Ferros, et surtout pas de Ferros sous nos champs."
     ]
   },
   {
@@ -689,7 +689,7 @@
       ]
     ],
     "lines": [
-      "Cristaux de toutes tailles ! Pas de facture, pas de question.",
+      "Cristaux de toutes tailles ! Sans facture, et sans question.",
       "Pas de garantie : un cristal qu’on force trop souvent se fend dans la main. Et la main, après, n’est plus tout à fait une main."
     ]
   },
@@ -869,7 +869,7 @@
       ]
     ],
     "lines": [
-      "Un, deux… Son poing s’arrête à un doigt de la joue de son binôme. « Sept heures dix : la main s’arrête. Noté. »",
+      "Un, deux. Son poing s’arrête à un doigt de la joue de son binôme. « Sept heures dix : la main s’arrête. Noté. »",
       "Quatre-vingts Éprouveurs, par paires. On essaie de frapper, pour savoir ce que l’Anneau refuse."
     ]
   },
@@ -914,7 +914,7 @@
     ],
     "lines": [
       "Trois jours que j’attends un tampon pour rentrer chez moi. Ici, même le vent a besoin d’un sauf-conduit.",
-      "Six langues sur une seule place, et tout le monde finit par compter en Nexus."
+      "Six langues sur une seule place, et tout le monde finit par compter en Fers."
     ],
     "reactions": [
       {
@@ -950,7 +950,7 @@
     ],
     "lines": [
       "La Porte laisse passer les marins, pas leurs tonneaux. Alors on vend ici ce qu’on a dans les poches.",
-      "Un coquillage pour un Nexus ? Non ? Un demi ? À Sept-Portes, tout a un prix, même le sel."
+      "Un coquillage pour un Fer ? Non ? Un demi ? À Sept-Portes, tout a un prix, même le sel."
     ]
   },
   {

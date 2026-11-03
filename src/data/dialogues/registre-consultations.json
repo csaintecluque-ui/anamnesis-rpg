@@ -81,7 +81,7 @@
       ]
     },
     "faux-ok": {
-      "text": "Tu signes d’une main qui n’est pas la tienne. Personne ne regarde : ici, on enregistre. Une heure plus tard, la demande est accordée, sans motif, comme les refus.",
+      "text": "Tu signes d’une main qui n’est pas la tienne. Personne ne regarde : le Registre enregistre, il ne vérifie pas. Une heure plus tard, la demande est accordée, sans motif, comme les refus.",
       "effects": [
         {
           "setFlag": "fonds-muet-ouvert"

@@ -216,7 +216,7 @@
       ]
     },
     "vol": {
-      "text": "Tu sais la nouvelle ? Quelqu’un a forcé le grenier des semences, là-haut. Voler des graines à Canopéa… c’est voler les arbres de demain. Si tu vois quelque chose, préviens le Conseil.",
+      "text": "Tu sais la nouvelle ? Quelqu’un a forcé le grenier des semences, là-haut. Voler des graines à Canopéa, c’est voler les arbres de demain. Si tu vois quelque chose, préviens le Conseil.",
       "options": [
         {
           "text": "Je garderai les yeux ouverts.",
@@ -230,7 +230,7 @@
       ]
     },
     "descente": {
-      "text": "Malo t’a parlé de la sacoche, n’est-ce pas ? Je l’ai vue tomber… Descendre sur le Sol des Racines, ce n’est pas rien : le sol est sacré.",
+      "text": "Malo t’a parlé de la sacoche, n’est-ce pas ? Je l’ai vue tomber. Descendre sur le Sol des Racines, ce n’est pas rien : le sol est sacré.",
       "options": [
         {
           "text": "Je peux la chercher, si tu me descends.",
@@ -287,7 +287,7 @@
       ]
     },
     "descente-anselme": {
-      "text": "Une branche de l’arbre d’Anselme, pour une flûte ? Aïlis sera heureuse… Le sol est sacré, mais une branche tombée, la forêt la donne. Je te descends. Ne prends que celle-là.",
+      "text": "Une branche de l’arbre d’Anselme, pour une flûte ? Aïlis sera heureuse. Le sol est sacré, mais une branche tombée, la forêt la donne. Je te descends. Ne prends que celle-là.",
       "options": [
         {
           "text": "Allons-y.",
@@ -306,7 +306,7 @@
       ]
     },
     "descente-conseil": {
-      "text": "Le Gardien de la Canopée m’a fait porter un mot : tu peux descendre autant qu’il le faudra. Je n’aime pas ça… Le sol sacré qui fait taire le Bosquet, ça ne s’est jamais vu.",
+      "text": "Le Gardien de la Canopée m’a fait porter un mot : tu peux descendre autant qu’il le faudra. Je n’aime pas ça. Le sol sacré qui fait taire le Bosquet, ça ne s’est jamais vu.",
       "options": [
         {
           "text": "Descends-moi.",
@@ -343,7 +343,7 @@
       ]
     },
     "graines-souci": {
-      "text": "Rien de bon. Il manque une dizaine de sacs au grenier des semences, depuis une lune. Et je crois qu’ils sont passés par ma nacelle, sous les bâches d’un marchand. Je n’ai rien vu… ou pas assez. Trouve qui, s’il te plaît.",
+      "text": "Rien de bon. Il manque une dizaine de sacs au grenier des semences, depuis une lune. Et je crois qu’ils sont passés par ma nacelle, sous les bâches d’un marchand. Je n’ai rien vu, ou pas assez. Trouve qui, s’il te plaît.",
       "options": [
         {
           "text": "Je vais chercher.",
@@ -356,7 +356,7 @@
       ]
     },
     "graines-piste": {
-      "text": "Lisandre, au Nid : tous les marchands y dorment, et elle entend tout. Et le grenier lui-même, aux Hautes Ramures… s’il te laisse entrer.",
+      "text": "Lisandre, au Nid : tous les marchands y dorment, et elle entend tout. Et le grenier lui-même, aux Hautes Ramures, s’il te laisse entrer.",
       "options": [
         {
           "text": "Merci, Véline.",
@@ -467,7 +467,7 @@
       ]
     },
     "graines-tant-pis": {
-      "text": "Les sacs ne sont jamais revenus. Tant pis… Merci d’avoir cherché. On dit au Nid qu’un marchand a payé une tournée à tout le monde, l’autre soir. Drôle de hasard.",
+      "text": "Les sacs ne sont jamais revenus. Tant pis. Merci d’avoir cherché. On dit au Nid qu’un marchand a payé une tournée à tout le monde, l’autre soir. Drôle de hasard.",
       "options": [
         {
           "text": "Drôle de hasard.",

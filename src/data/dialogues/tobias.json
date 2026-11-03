@@ -8,7 +8,7 @@
   ],
   "nodes": {
     "accueil": {
-      "text": "Bienvenue à l’étal Cendrefer ! Outils de Ferros, cordes, lampes à cristal… et les meilleures rumeurs du marché, pour qui sait les écouter.",
+      "text": "Bienvenue à l’étal Cendrefer ! Outils de Ferros, cordes, lampes à cristal, et les meilleures rumeurs du marché, pour qui sait les écouter.",
       "options": [
         {
           "text": "Je dois entrer sur le chantier de la Gare Engloutie.",
@@ -43,7 +43,7 @@
       ]
     },
     "rumeurs": {
-      "text": "Que des gens voient des trains et des flammes. Les Verdantins disent que c’est la faute de Ferros, forcément. Moi, je dis que la peur fait vendre les rumeurs… et pas les lampes.",
+      "text": "Que des gens voient des trains et des flammes. Les Verdantins disent que c’est la faute de Ferros, forcément. Moi, je dis que la peur fait vendre les rumeurs, et pas les lampes.",
       "options": [
         {
           "text": "Voir l’étal.",
@@ -77,7 +77,7 @@
       ]
     },
     "chantier": {
-      "text": "Le chantier ? C’est l’ingénieure Ingrid Brisefer qui le dirige. Personne n’y entre sans laissez-passer. Il se trouve que j’en ai un… qui m’a coûté cher.",
+      "text": "Le chantier ? C’est l’ingénieure Ingrid Brisefer qui le dirige. Personne n’y entre sans laissez-passer. Il se trouve que j’en ai un, qui m’a coûté cher.",
       "options": [
         {
           "text": "Si ce chantier rend le marché malade, tes clients partiront. M’aider, c’est aider tes affaires.",
@@ -138,7 +138,7 @@
       ]
     },
     "convaincu": {
-      "text": "… Tu parles comme un marchand de Ferros, toi. Tiens, prends-le. Et si Brisefer te pose la question, tu ne l’as pas eu de moi.",
+      "text": "Tu marchandes en Ferrien, toi. Tiens, prends-le. Et si Brisefer te pose la question, tu ne l’as pas eu de moi.",
       "options": [
         {
           "text": "Promis.",

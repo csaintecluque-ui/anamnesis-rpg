@@ -46,7 +46,7 @@
       ]
     },
     "chercher": {
-      "text": "Un gros rocher couvert de mousse. Liane parlait d’une lueur sous une pierre…",
+      "text": "Un gros rocher couvert de mousse. Liane parlait d’une lueur sous une pierre.",
       "options": [
         {
           "text": "Repérer la lueur sous la mousse.",
@@ -100,7 +100,7 @@
       ]
     },
     "rien": {
-      "text": "Tu tournes autour du rocher sans rien trouver. Peut-être en revenant plus tard…",
+      "text": "Tu tournes autour du rocher sans rien trouver. Peut-être en revenant plus tard.",
       "options": [
         {
           "text": "…",

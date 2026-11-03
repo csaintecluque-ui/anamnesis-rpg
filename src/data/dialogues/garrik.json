@@ -43,7 +43,7 @@
       ]
     },
     "defensif": {
-      "text": "— Les racines ? Je creuse le long d’une voie, moi, pas dans les racines ! Bon… il y en avait sur le chemin. Écoute, je suis payé à la pelletée, pas aux questions.",
+      "text": "— Les racines ? Je creuse le long d’une voie, moi, pas dans les racines ! Bon, il y en avait sur le chemin. Écoute, je suis payé à la pelletée, pas aux questions.",
       "options": [
         {
           "text": "Là-haut, des gens ne peuvent plus parler à leurs morts. À cause de ce trou.",
@@ -80,7 +80,7 @@
       ]
     },
     "convaincu": {
-      "text": "Il baisse la pioche, longtemps. — Ma mère repose sous un chêne, chez nous, à la frontière. Je n’avais pas pensé… Bon. Je vais te dire ce que je sais.",
+      "text": "Il baisse la pioche, longtemps. — Ma mère repose sous un chêne, chez nous, à la frontière. Je n’y avais pas pensé. Bon. Je vais te dire ce que je sais.",
       "options": [
         {
           "text": "Je t’écoute.",
@@ -89,7 +89,7 @@
       ]
     },
     "complice": {
-      "text": "— Kaelis ? Il pourrait payer plus vite, alors ! Dis-lui que je longe la voie depuis dix jours, et toujours pas de clé. Juste des racines, des racines, des racines… Il faut bien les couper pour passer.",
+      "text": "— Kaelis ? Il pourrait payer plus vite, alors ! Dis-lui que je longe la voie depuis dix jours, et toujours pas de clé. Juste des racines, des racines, des racines. Il faut bien les couper pour passer.",
       "options": [
         {
           "text": "Rappelle-moi ce qu’il cherche, exactement.",
@@ -169,7 +169,7 @@
       ]
     },
     "gris": {
-      "text": "— Kaelis ? Il ne paie jamais de sa poche. Une fois, au Marché des Cendres, j’ai vu une dame en gris lui compter des Nexus neufs sans retirer ses gants. Elle a demandé si on avait trouvé la clé. Pas comment j’allais, moi.",
+      "text": "— Kaelis ? Il ne paie jamais de sa poche. Une fois, au Marché des Cendres, j’ai vu une dame en gris lui compter des Fers neufs sans retirer ses gants. Elle a demandé si on avait trouvé la clé. Pas comment j’allais, moi.",
       "effects": [
         {
           "setFlag": "gris-garrik"

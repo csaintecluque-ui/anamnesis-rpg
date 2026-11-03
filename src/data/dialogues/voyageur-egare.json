@@ -16,7 +16,7 @@
   ],
   "nodes": {
     "accueil": {
-      "text": "Ah, enfin quelqu’un ! Je cherche Gardebois depuis deux jours. Cette carte dit que c’est par là… ou par là ?",
+      "text": "Ah, enfin quelqu’un ! Je cherche Gardebois depuis deux jours. Cette carte dit que c’est par là, ou par là ?",
       "options": [
         {
           "text": "Ta carte est à l’envers.",

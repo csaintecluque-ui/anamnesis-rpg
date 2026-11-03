@@ -55,7 +55,7 @@
   ],
   "nodes": {
     "accueil": {
-      "text": "Entre, entre. Tu as croisé mon petit-fils, je parie ? Malo court partout comme un écureuil. Moi, je ne vais plus bien loin : jusqu’au Bosquet des Échos, chaque soir, pour parler à mon Anselme.",
+      "text": "Entre, entre. Tu as croisé mon petit-fils, je parie ? Malo court partout ; ses pieds ne touchent jamais les planches. Moi, je ne vais plus bien loin : jusqu’au Bosquet des Échos, chaque soir, pour parler à mon Anselme.",
       "options": [
         {
           "text": "Parler à un arbre ?",
@@ -82,7 +82,7 @@
       ]
     },
     "voix": {
-      "text": "Tu reviens du Bosquet ? Tes yeux brillent…",
+      "text": "Tu reviens du Bosquet ? Tes yeux brillent.",
       "options": [
         {
           "text": "J’ai touché le nom d’Anselme, au Bosquet. J’ai entendu quelqu’un fredonner.",
@@ -103,7 +103,7 @@
       ]
     },
     "reconfort": {
-      "text": "Aïlis pose sa main sur la tienne. — La chanson des cerfs-lucioles… C’est elle que je fredonnais en gravant son nom. Alors le Bosquet la garde. Merci : tu viens de me rendre un petit morceau de lui.",
+      "text": "Aïlis pose sa main sur la tienne. — La chanson des cerfs-lucioles. C’est elle que je fredonnais en gravant son nom. Alors le Bosquet la garde. Merci : tu viens de me rendre un petit morceau de lui.",
       "options": [
         {
           "text": "Il veille sur vous deux.",
@@ -112,7 +112,7 @@
       ]
     },
     "flute": {
-      "text": "Qu’est-ce que tu tiens là, mon enfant ? Une flûte… elle sent le bois d’en bas, le bois de la mousse.",
+      "text": "Qu’est-ce que tu tiens là, mon enfant ? Une flûte ? Elle sent le bois d’en bas, le bois de la mousse.",
       "options": [
         {
           "text": "Elouan l’a taillée dans une branche de l’arbre d’Anselme. Pour vous.",
@@ -178,7 +178,7 @@
     },
     "chant-carnet": {
       "night": true,
-      "text": "Aïlis joue la chanson du carnet, puis s’arrête et sourit. — Ce n’est pas tout à fait la mienne. Ilyane a toujours eu sa façon… Elle reprend, change une note, puis deux. Cette fois, c’est la sienne : elle vient de s’en souvenir.",
+      "text": "Aïlis joue la chanson du carnet, puis s’arrête et sourit. — Ce n’est pas tout à fait la mienne. Ilyane a toujours eu sa façon. Elle reprend, change une note, puis deux. Cette fois, c’est la sienne : elle vient de s’en souvenir.",
       "options": [
         {
           "text": "Elle était là, tout près.",
@@ -209,7 +209,7 @@
       ]
     },
     "inquiete": {
-      "text": "Je suis allée au Bosquet hier soir. J’ai posé la main sur le nom d’Anselme et… rien. Le bois était froid. Comme s’il était parti une seconde fois.",
+      "text": "Je suis allée au Bosquet hier soir. J’ai posé la main sur le nom d’Anselme. Rien. Le bois était froid. Comme s’il était parti une seconde fois.",
       "options": [
         {
           "text": "Vous avez encore sa chanson.",
@@ -232,7 +232,7 @@
       ]
     },
     "chanson-reste": {
-      "text": "Aïlis serre la flûte contre elle. — Oui… Oui, c’est vrai. Le bois du Bosquet a oublié, mais la flûte, elle, n’a rien oublié. Va, mon enfant. Trouve ce qui lui fait mal, à notre forêt.",
+      "text": "Aïlis serre la flûte contre elle. — Oui. Oui, c’est vrai. Le bois du Bosquet a oublié, mais la flûte, elle, n’a rien oublié. Va, mon enfant. Trouve ce qui lui fait mal, à notre forêt.",
       "options": [
         {
           "text": "Je trouverai.",

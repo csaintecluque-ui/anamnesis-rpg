@@ -74,7 +74,7 @@
   ],
   "nodes": {
     "accueil": {
-      "text": "Chut… écoute. Ce bois-là chante quand le vent passe dedans. Je suis Elouan, luthier. Je ne taille que les branches tombées : à Canopéa, on ne coupe pas un arbre qui vit.",
+      "text": "Chut, écoute. Ce bois-là chante quand le vent passe dedans. Je suis Elouan, luthier. Je ne taille que les branches tombées : à Canopéa, on ne coupe pas un arbre qui vit.",
       "options": [
         {
           "text": "Tu peux jouer quelque chose ?",
@@ -256,7 +256,7 @@
     },
     "taille-carnet": {
       "night": true,
-      "text": "Elouan déchiffre la notation d’Ilyane en fronçant les sourcils, puis il taille, perce, souffle. Le soir tombe. La chanson des cerfs-lucioles sort enfin de la flûte. — C’est celle du carnet. Pas tout à fait celle d’Aïlis, peut-être… Porte-la-lui.",
+      "text": "Elouan déchiffre la notation d’Ilyane en fronçant les sourcils, puis il taille, perce, souffle. Le soir tombe. La chanson des cerfs-lucioles sort enfin de la flûte. — C’est celle du carnet. Pas tout à fait celle d’Aïlis, peut-être. Porte-la-lui.",
       "options": [
         {
           "text": "J’y vais.",

@@ -78,7 +78,7 @@
       ]
     },
     "qui": {
-      "text": "— Ici, on m’appelle la Veilleuse. Je garde la vieille ligne et sa machine, pour les Travailleurs du Rail. Tout le monde la dit maudite. Moi, je dis qu’elle attend.",
+      "text": "— On m’appelle la Veilleuse. Je garde la vieille ligne et sa machine, pour les Travailleurs du Rail. Tout le monde la dit maudite. Moi, je dis qu’elle attend.",
       "options": [
         {
           "text": "Elle attend quoi ?",
@@ -315,7 +315,7 @@
       ]
     },
     "apres": {
-      "text": "— Tu as fait ton choix, avec la clé. Je l’entends parfois, loin d’ici… Elle chante encore. Prends soin de toi.",
+      "text": "— Tu as fait ton choix, avec la clé. Je l’entends parfois, loin d’ici. Elle chante encore. Prends soin de toi.",
       "options": [
         {
           "text": "Les convois du triage, qui partent seuls la nuit ?",

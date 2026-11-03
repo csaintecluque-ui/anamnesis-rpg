@@ -15,7 +15,7 @@ directrice validée, `docs/gdd/jeu-complet.md`) ; la Gare Engloutie [E2] ; « Fe
 | **Les tableaux des contrats** | dans les relais des Gardiens (Gardebois chez Ilyane, Canopéa chez Mirelle) ; à Ironheart, faute de relais, **le mur de la Bielle**, où Dorna laisse les Gardiens épingler leurs demandes | `villes.md` (un relais dans chaque ville) | validé |
 | **Les objets des contrats** | une lanterne de chef de gare (verre rouge, verre vert), une plaque émaillée au nom d'une gare que personne ne sait plus lire à voix haute, un registre de quai dont le dernier départ n'a pas d'heure d'arrivée | — | validé |
 
-## Les Échos du fond des voies (proposition du 2026-11-03, **à valider**)
+## Les Échos du fond des voies (proposition du 2026-11-03, **validée par Cyril** le 2026-11-03 : « top », avec la variante du héros)
 
 Demande de Cyril (2026-11-03, étude complète, « un jeu plus long », point 2) : un Écho de l'histoire principale au
 fond de chaque voie, pour que le joueur y descende parce que l'histoire y est. Rien ici n'est du canon ; garde-fous
@@ -44,5 +44,5 @@ Comment ils se jouent (proposition ; aucun nouveau système) :
   lui appartient (l'odeur de vapeur dans la Combe, une main contre la vitre à la halte, une voix qui compte jusqu'à
   sept au Dépôt). À trancher avec « la vérité derrière l'enfant », que Cyril n'a pas encore écrite.
 
-Questions à Cyril : les trois textes te vont-ils (ou à corriger) ? Les trois réponses qu'ils ouvrent ? La variante
-liée au héros, oui ou non ?
+Réponse de Cyril (2026-11-03) : les trois textes validés ; la variante liée au héros, oui (sa vérité :
+`docs/univers/personnages/heros.md`).

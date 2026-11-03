@@ -36,3 +36,25 @@ appartient à Cyril** : le jeu ne la tranche pas sans lui.
    (« un héros qui a oublié quelque chose, dès Ilyane ») : `docs/gdd/etude-2026-11-03.md`, vague 2.
 2. **La vérité derrière** (qui est l'enfant, pourquoi le héros l'entend) : Cyril l'écrit, ou Claude lui propose trois
    versions ; elle reste secrète et ne se dévoile qu'à la fin.
+
+## La vérité derrière l'enfant (écrite par Cyril, 2026-11-03 : **validée**, secrète jusqu'à la fin du jeu)
+
+> Deux enfants sur le quai, la nuit du dernier passage : le héros et un autre, ni frère ni sœur, un enfant trouvé comme
+> lui. L'autre est monté. Le héros a lâché sa main — par peur, ou parce qu'on l'a tiré en arrière, il ne le saura
+> jamais. Il est resté sur le quai ; les Gardiens l'ont recueilli le matin ; il a tout effacé lui-même, comme Liane veut
+> effacer Saule. L'enfant à la fenêtre, c'est celui qu'il a laissé partir ; « Tu es venu·e. Les autres n'ont pas
+> entendu » = tu es le seul à qui on ait encore quelque chose à dire. Les fragments reviennent dans l'ordre inverse de
+> l'oubli (la vapeur, la main, la voix qui compte, le quai). À Altavent, le train s'arrête pour lui une dernière fois :
+> il peut rendre la main — monter — ou rester et porter ce qu'il sait.
+
+Pourquoi elle (Cyril) : une faute humaine, pas un mystère cosmique ; elle fait écho à Liane (l'oubli choisi), à Ingrid
+(ce qu'on n'a pas vérifié) et à Edda (qui court aussi après quelqu'un monté dans ce train).
+
+Ce que Claude en tire pour le jeu (à construire, vague 2, F1) :
+
+- **Rien ne se dit avant la fin** : le jeu ne montre que des fragments, jamais l'explication ; aucun PNJ ne la connaît.
+- **L'ordre des fragments** est l'ordre inverse de l'oubli : la vapeur (ch. 2), la main (ch. 3), la voix qui compte
+  (ch. 4), le quai (ch. 5, Altavent). Chaque fragment se lit au journal, dans une page « Ce qui n'est pas à moi ».
+- **Les Échos du fond des voies** (validés, avec le détail du héros) portent ces fragments : l'odeur de vapeur dans la
+  Combe, une main contre la vitre à la halte des Fougères, une voix qui compte jusqu'à sept au Dépôt Sept.
+- **Le choix d'Altavent** (fin du jeu) : monter, ou rester et porter ce qu'on sait ; à écrire avec le chapitre 5.

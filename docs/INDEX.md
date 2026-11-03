@@ -46,6 +46,7 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `decisions.md` : état du GDD, principe d'adaptation du JDR, décisions validées.
 - `cahier-des-charges.md` : brief initial de Cyril (systèmes attendus, 8 points du jalon 1).
 - `attributs.md` : 7 attributs, valeurs dérivées (PV, Défense, PA, Charge, Récits).
+- `economie.md` : le chantier 6 : usure et réparations, cristal à réaccorder, laissez-passer d'une semaine, voies qui s'épuisent, réputation au-delà de 25, dons et traits, bilan des Fers.
 - `ecriture.md` : les règles d'écriture du chantier 5 : tics comptés, monnaie, voix des marchands et du héros, scènes reprises.
 - `competences.md` : 12 compétences et la Résonance, résolution des tests (d20, seuils de dialogue), la courbe des tests par chapitre et le rôle de chaque compétence (chantier 2).
 - `creation.md` : origine, dons, règles de l'écran de création.

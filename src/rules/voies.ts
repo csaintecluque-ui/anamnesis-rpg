@@ -266,12 +266,13 @@ export function voieLevel(state: Pick<GameState, 'voie' | 'contrats' | 'characte
 function crateDialogue(id: string, k: number, tier: number, chief: boolean, rng: Rng, yieldShare = 1): Dialogue {
   const fers = Math.max(1, Math.round(between(rng, 4 + 4 * tier, 10 + 6 * tier) * (chief ? 2 : 1) * yieldShare));
   const loot: Effect[] = [{ setFlag: chestFlag(k) }, { giveFers: fers }];
-  if (chief || rng() < 0.6) {
+  // The things a crate holds dwindle too, as the line gets picked over (chantier 6).
+  if (chief || rng() < 0.6 * yieldShare) {
     const item = pick(rng, DATA.butin[String(Math.min(MAX_TIER, tier + (chief ? 1 : 0)))]);
     // Arrows and bolts come by the handful (docs/gdd/combat.md, « Munitions »).
     loot.push({ giveItem: item, count: item === 'carreaux' || item === 'fleches' ? 8 : 1 });
   }
-  if (chief && rng() < 0.15) loot.push({ giveItem: pick(rng, DATA.tresor) });
+  if (chief && rng() < 0.15 * yieldShare) loot.push({ giveItem: pick(rng, DATA.tresor) });
   const locked = chief || rng() < 0.35;
   // L'Athlétisme (feuille de route, chantier 2) : a strong arm opens it clean; missed, it opens all the same, and hurts.
   const force: DialogueOption = { text: 'Forcer le couvercle, à mains nues.', roll: { skill: 'athletics', difficulty: 9 + tier }, next: 'ouverte', failNext: 'arrachee' };

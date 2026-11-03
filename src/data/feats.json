@@ -84,7 +84,7 @@
   {
     "id": "sang-froid",
     "name": "Sang-froid",
-    "description": "+2 à tes jets de résistance contre l’étourdissement, le désarmement et le ralentissement.",
+    "description": "+2 à tes jets de résistance : moins souvent étourdi·e, désarmé·e ou ralenti·e.",
     "niveau": true,
     "effects": {
       "resistanceBonus": 2

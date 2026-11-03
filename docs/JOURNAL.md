@@ -3,7 +3,7 @@
 ## État (2026-11-03)
 
 - Jalons 1, 2 et 3 faits et en ligne ; jalon 4, chapitre 4 (Sept-Portes) en ligne et validé ; page Notion à jour.
-- 679 tests (dont le parcours complet d'affilée, `src/rules/parcours.test.ts`), typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
+- 693 tests (dont le parcours complet d'affilée, `src/rules/parcours.test.ts`), typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
 - **Décisions de Cyril (2026-11-03)** : le jeu se joue **sur PC** (le téléphone n'est qu'une cible d'essai) ; le
   ressenti est déjà testé : on corrige avant tout nouvel essai.
 
@@ -20,7 +20,7 @@ Cyril sur PC et sa validation. Aucun nouveau système d'ici là.
 | 3 | Refaire le combat : PA et coût par arme, visée +1 PA et résistance, 2 capacités par ennemi, IA, force par chapitre, voie pacifiste ; simulation (écart ≤ 14 points) | **en ligne** (2026-11-03) ; partie de Cyril à faire |
 | 4 | Compagnons présents, ennemi incarné : apartés (21 Liane, 14 Boulon), Liane face à Ingrid, Liane et Boulon, quête de Liane rééquilibrée, la dame en gris dès le ch. 1, le ch. 4 selon la clé, Ilyane oublie ; inventions validées | **en ligne** (2026-11-03) ; partie de Cyril à faire |
 | 5 | Passe d'écriture : tics 21 % → 3 % (testés), Nexus → Fers, voix des marchands, héros dur, Ingrid qui résiste, Golem et foreuse, récompenses par issue, Corvan, Gardebois et Canopéa plus sombres ; Hedda → Ragna, Josse → Olmo | **en ligne** (2026-11-03) ; partie de Cyril à faire |
-| 6 | Économie et progression | en cours ; puis une analyse complète (demande de Cyril) |
+| 6 | Économie et progression : usure et réparations, cristal à réaccorder, laissez-passer d'une semaine, voies qui s'épuisent, réputation à 40 et 55, un don tous les 3 niveaux, traits à la création, bilan des Fers **faits (branche)** ; puis une analyse complète (demande de Cyril) | en cours |
 
 `docs/gdd/histoire-prenante.md` (proposition du même jour) nourrit les chantiers 1 et 4. Cyril n'a pas son PC tout de
 suite : on enchaîne les chantiers, et ce qu'il aura à essayer s'ajoute à `docs/a-essayer.md`.

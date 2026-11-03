@@ -21,3 +21,7 @@ Règles : `src/rules/leveling.ts` ; écran : `LevelUpScene`.
   Veilleuse 60 XP, la confier à Noam 70, la vendre à Kaelis 60.
 - Repères : quêtes principales seules, environ niveau 2 à Canopéa et 3 à Ironheart ; tout fait, niveau 4 à la fin du
   « Rail des Cendres ». L'Écho du dernier train ne rapporte plus d'XP qu'une fois.
+
+## Chantier 6 (2026-11-03)
+
+Un don tous les trois niveaux (3, 6, 9), et un trait facultatif à la création : `docs/gdd/economie.md`.

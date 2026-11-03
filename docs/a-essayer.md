@@ -124,6 +124,21 @@ Lien du jeu : https://csaintecluque-ui.github.io/anamnesis-rpg/ (la version s'af
 - [ ] **Gardebois et Canopéa** te paraissent-elles assez sombres maintenant ?
 - Remarques :
 
+## Chantier 6 — Économie et progression (sur la branche)
+
+- [ ] **Création** : un trait facultatif, sous les dons (Mémoire trouée, Main lourde, Sang de Ferros, Rêveur·se).
+      Tentant ? Le prix est-il juste ?
+- [ ] **Niveau 3** : un don à choisir après les points de compétence (Langue d'argent, Peau de cuir, Sang-froid, ou un
+      don de création).
+- [ ] **L'usure** : après six combats, ton arme s'émousse (le message le dit) ; « Réparer » chez un marchand. Ton
+      cristal se fatigue après six lancers : la tailleuse (20 Fers) ou Vanel (une nuit au Bosquet).
+- [ ] **Ironheart** : le laissez-passer du funiculaire dure une semaine.
+- [ ] **Les voies** : redescends deux fois dans la même ; les caisses sont-elles assez maigres, la troisième fois ?
+- [ ] **La réputation** : à Gardebois (40) et Canopéa (55), les nouveaux paliers (revente plus chère, chapeau double).
+- [ ] **L'argent** : à la fin du chapitre 4, en ayant tout fait, as-tu encore envie de quelque chose que tu ne peux
+      pas t'offrir ?
+- Remarques :
+
 ## Déjà en ligne, pas encore essayé sur PC
 
 - [ ] **Chapitre 4, Sept-Portes** sans le mode surpuissant : l'arrivée par la Porte du sud, le Registre, l'une des trois

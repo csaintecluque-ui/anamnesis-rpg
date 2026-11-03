@@ -1051,3 +1051,7 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
 - Cyril : « 1 oui très bien pour les noms, 2 oui on va garder, 3 mets en ligne. Après le 6, on fera une analyse
   complète » : Hedda devient Ragna Cendrefer, Josse devient Olmo Sept-Routes ; inventions du chantier 5 gardées ;
   chantier 5 en ligne. Chantier 6 commencé.
+- Chantier 6 sur la branche (`docs/gdd/economie.md`) : l'usure des armes et de l'armure (réparer chez un marchand), le
+  cristal qui s'use (la tailleuse ou Vanel), le laissez-passer d'une semaine, les voies qui rapportent un cinquième de
+  moins à chaque descente, la réputation à 40 (revente +20 %) et 55 (chapeau double), un don tous les trois niveaux,
+  quatre traits à double tranchant à la création ; un test de l'économie des voies. 693 tests.

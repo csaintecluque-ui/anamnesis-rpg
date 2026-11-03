@@ -61,7 +61,8 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `jalon-2.md` : le jalon 2 (phase 2, animation, avatars, contenu) ; fait et en ligne.
 - `jeu-complet.md` : le jeu complet (ligne directrice, factions, ennemis, quêtes, activités, feuille de route) ; validé.
 - `jalon-3.md` : le jalon 3, le cœur du jeu complet (combat, compagnons, Échos, veillées, ruines, contrats…) et son bilan ; fait et en ligne.
-- `jalon-4.md` : le jalon 4, l'histoire principale continue ; chapitre 4 (Sept-Portes) construit, à valider.
+- `jalon-4.md` : le jalon 4, l'histoire principale continue ; chapitre 4 (Sept-Portes) en ligne.
+- `histoire-prenante.md` : rendre l'histoire prenante (diagnostic, sept leviers, questions à Cyril) ; à valider.
 - `compagnons.md` : les compagnons (suivi, avis, départ), Liane et Boulon, leurs quêtes ; validé.
 - `veillees.md` : les veillées du conteur (publics, goûts, jet, chapeau, renommée, rumeurs et secrets) ; validé.
 - `voies.md` : les voies endormies à explorer (plans, niveaux, bêtes, caisses, pièges) et les contrats des Gardiens ; validé.

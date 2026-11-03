@@ -16,7 +16,7 @@
 
 ## Prochaine étape
 
-1. L'essai de Cyril (en cours) et ses remarques sur le dosage ; ses réponses sur le chapitre 4 (noms, Altavent, la
+1. **Rendre l'histoire prenante** (`docs/gdd/histoire-prenante.md`, à valider) avant le chapitre 5. L'essai de Cyril (en cours) et ses remarques sur le dosage ; ses réponses sur le chapitre 4 (noms, Altavent, la
    septième Porte, chiffres). Correctifs de son premier essai iPhone en ligne ; inventaire en onglets en ligne ; munitions et lampe en ligne.
 2. Page Notion « Anamnesis — le jeu » complétée le 2026-11-03 (sous-page Sept-Portes, chapitre 4, inventaire,
    munitions, lampe).

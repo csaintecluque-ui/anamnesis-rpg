@@ -997,3 +997,5 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   lore compris : Edda Varn, Altavent, Lior, la septième Porte). Page « Anamnesis — le jeu » complétée : nouvelle
   sous-page « Sept-Portes », chapitre 4 dans « Histoire et quêtes », inventaire, munitions et lampe sur l'accueil.
   Les zones floues 33 à 37 n'y sont pas : elles restent à trancher par Cyril dans son Notion.
+- Cyril : « L'histoire doit être prenante : pas envie d'arrêter pour voir ce qu'il y a après. Il faut vraiment qu'on y
+  arrive. » Diagnostic et plan proposés : `docs/gdd/histoire-prenante.md` (à valider).

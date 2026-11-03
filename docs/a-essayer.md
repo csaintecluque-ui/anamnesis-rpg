@@ -11,7 +11,7 @@ Lien du jeu : https://csaintecluque-ui.github.io/anamnesis-rpg/ (la version s'af
       lâchée »** (recommandée : aucun souvenir avant huit ans ; dans l'Écho du dernier train, un enfant se retourne,
       « Tu es venu·e. Les autres n'ont pas entendu. » ; un fragment par chapitre), ou piste **B, « Le nom gratté »**
       (un nom qu'il a fait effacer lui-même), ou une autre ?
-- [ ] **La vérité derrière l'enfant** : tu l'écris (recommandé, même en quelques lignes ; elle reste secrète jusqu'à la
+- [x] **La vérité derrière l'enfant** Cyril l'a écrite (2026-11-03) : `docs/univers/personnages/heros.md`. (recommandé, même en quelques lignes ; elle reste secrète jusqu'à la
       fin), ou Claude te propose trois versions ?
 - [x] **Pour le chantier 4** : Ilyane perd la mémoire d'un chapitre à l'autre ; Edda Varn court après le dernier train
       parce que quelqu'un à elle y était (réponse de Cyril, 2026-11-03 : « oui »). Restent à proposer : jusqu'où va la
@@ -41,7 +41,7 @@ Lien du jeu : https://csaintecluque-ui.github.io/anamnesis-rpg/ (la version s'af
       combat obligatoire d'abord, puis la fiche du dé.
 - [x] **Étude, un Écho de l'histoire au fond de chaque voie** Cyril : oui, Claude propose les textes, à valider avant
       d'entrer dans le jeu.
-- [ ] **Les trois Échos du fond des voies** (`docs/univers/lieux/voies-endormies.md`, fin) : « Passé sans arrêt »
+- [x] **Les trois Échos du fond des voies** Cyril : « top », et oui au détail du héros. (`docs/univers/lieux/voies-endormies.md`, fin) : « Passé sans arrêt »
       (la halte des Fougères, un fourgon plombé derrière les enfants), « Le train qui n'était pas prévu » (la Combe,
       des rails qui chantent sans train), « Le tableau des départs » (le Dépôt Sept, *Voie 7 — ALTA*). Les textes te
       vont ? Chacun ouvre une réponse de plus dans une scène clé (Ambroise, la Veilleuse) ; et la variante où le héros
@@ -169,7 +169,7 @@ Critère de l'étude : le chapitre 1 sans frustration de navigation, la caisse g
 - [ ] **Un don tous les deux niveaux** (ta décision) : au niveau 2, l'écran du don après les points de compétence.
 - Remarques :
 
-## Étude du 3 novembre, vague 2 « tendu » (sur la branche, pas encore en ligne)
+## Étude du 3 novembre, vague 2 « tendu » (début en ligne le 2026-11-03)
 
 Critère de l'étude : au moins un jet raté par chapitre qui t'a coûté quelque chose.
 

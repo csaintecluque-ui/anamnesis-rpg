@@ -1076,3 +1076,6 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   compétence modifie le dé** : les 45 seuils de compétence deviennent des jets, chaque échec écrit (une parole ratée ne
   se répète pas, un examen raté se retente le lendemain), difficulté selon la courbe du chantier 2. Trois Échos du fond
   des voies proposés (à valider). 717 tests ; vérifié dans Chromium (Golem, embuscade, fiche, HUD, dialogue à jet).
+- Cyril : « Mets en ligne, les trois textes sont top, pour les Échos oui » et il écrit la vérité derrière l'enfant
+  (deux enfants trouvés sur le quai, la main lâchée, l'oubli choisi, le retour à Altavent) : vague 2 (Golem, premier
+  combat, fiche et HUD, le dé) mise en ligne ; F1 et les Échos des voies à construire.

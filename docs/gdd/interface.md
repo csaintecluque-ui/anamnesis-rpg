@@ -176,3 +176,19 @@ L'écran logique reste 1280 × 720, dessiné 1,5 fois plus grand sur un écran 1
 - **Barre d'actions** du combat : chaque bouton porte sa touche (« 1 · Déplacer », « 3 · Arc · 12 », « Espace · Fin du
   tour »).
 - **Texte** : les étiquettes de la carte du monde passent à 17 px ; le reste se lit déjà à 1080p.
+
+## Étude du 3 novembre : la navigation (A1, A2, A3, A5)
+
+Constat de l'étude (`docs/gdd/etude-2026-11-03.md`) : la caméra collée au héros cachait les sorties, un clic sur un mur
+ne disait rien, traverser Gardebois prenait 8 s.
+
+- **Caméra libre** (A1) : glisser à la souris (ou au doigt) déplace la vue ; la **molette** zoome entre 1,0 et 1,5
+  (gardé d'un lieu à l'autre, pas dans la sauvegarde) ; **C** ou **Origine**, le bouton « Recentrer (C) » qui paraît
+  sous le menu, ou le premier pas du héros ramènent la vue sur lui. Un appui qui bouge de plus de 10 px est un glisser,
+  pas un clic.
+- **Case interdite** (A2) : un losange rouge barré qui s'efface, et « On ne passe pas par là. » sous la souris
+  (« Rien par là. » hors de la carte) ; au clavier, le losange seul.
+- **Courir** (A3) : **Maj** tenue en cliquant ou en marchant aux flèches, ou un **double clic** : un pas en 80 ms au
+  lieu de 160, l'animation deux fois plus vite.
+- **Zone de clic** (A5) : le nom d'un PNJ au-dessus de sa tête se clique aussi ; sur écran tactile, le corps compte
+  une fois et demie plus large.

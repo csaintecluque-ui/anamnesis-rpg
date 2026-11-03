@@ -3,6 +3,8 @@ export const COLORS = {
   ink: 0x1b1512,
   copper: 0xc9804f,
   parchment: 0xead9b8,
+  /** Where one cannot go (a click on a wall, an enemy's reach). */
+  blocked: 0xd0583a,
 } as const;
 
 export const CSS = {

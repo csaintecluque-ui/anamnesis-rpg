@@ -51,6 +51,16 @@ const INTERACTIVE_OBSTACLES = new Set(['panneau', 'echo', 'golem', 'coffre', 'fo
 const TOP_MARGIN = 80;
 
 const STEP_MS = 160;
+/** Running (Maj held, or a double click): twice as fast (étude du 2026-11-03, A3). */
+const RUN_STEP_MS = 80;
+/** Two clicks this close make a double click: the hero runs there. */
+const DOUBLE_CLICK_MS = 350;
+/** The free camera (étude, A1): the wheel zooms between these (× the map's base zoom), a drag moves the view. */
+const ZOOM_MIN = 1;
+const ZOOM_MAX = MAP_ZOOM;
+const ZOOM_STEP = 0.1;
+/** A press that moves farther than this (logical px) is a drag, not a click. */
+const DRAG_THRESHOLD = 10;
 /** Walk sheets: 64 px wide frames; a full cycle covers about two tiles. */
 const WALK_FRAME_WIDTH = 64;
 const WALK_FPS = 14;
@@ -110,6 +120,16 @@ export class MapScene extends Phaser.Scene {
   private trapMarks!: Phaser.GameObjects.Graphics;
   /** Arrows, ZQSD (AZERTY) or WASD (QWERTY): one cell at a time, as long as the key is held (« PC d'abord »). */
   private moveKeys: Phaser.Input.Keyboard.Key[][] = [];
+  private shiftKey?: Phaser.Input.Keyboard.Key;
+  /** The hero runs to the current goal (Maj, or a double click). */
+  private running = false;
+  private lastTap = { at: 0, col: -1, row: -1 };
+  /** The free camera (étude, A1): its zoom (× RENDER_SCALE), the press being dragged, and whether it follows the hero. */
+  private zoom = MAP_ZOOM;
+  private drag: { x: number; y: number; scrollX: number; scrollY: number; moved: boolean } | null = null;
+  private following = true;
+  /** A red diamond where a click cannot lead (étude, A2). */
+  private blockedMarker!: Phaser.GameObjects.Graphics;
 
   constructor() {
     super('Map');
@@ -177,6 +197,8 @@ export class MapScene extends Phaser.Scene {
     this.figurants.spawn(location.id);
     for (const tile of this.figurants.standingTiles()) this.occupied.add(tileKey(tile));
     this.marker = this.add.graphics().setDepth(1);
+    // Above the trees and walls (a click on one), under the veil of the moment and the names.
+    this.blockedMarker = this.add.graphics().setDepth(MOMENT_VEIL_DEPTH - 1).setAlpha(0);
     this.trapMarks = this.add.graphics().setDepth(2);
 
     this.heroTile = this.startTile(location.entrance);
@@ -197,28 +219,37 @@ export class MapScene extends Phaser.Scene {
 
     const worldWidth = (this.map.width + this.map.height) * (TILE_WIDTH / 2);
     const worldHeight = (this.map.width + this.map.height) * (TILE_HEIGHT / 2) + TOP_MARGIN;
-    // A room smaller than the view is centred in it: the bounds grow around it (Phaser pins small worlds top-left).
-    const viewWidth = GAME_WIDTH / MAP_ZOOM;
-    const viewHeight = GAME_HEIGHT / MAP_ZOOM;
-    const boundsWidth = Math.max(worldWidth, viewWidth);
-    const boundsHeight = Math.max(worldHeight, viewHeight);
-    this.cameras.main
-      .setBounds((worldWidth - boundsWidth) / 2, (worldHeight - boundsHeight) / 2, boundsWidth, boundsHeight)
-      .setZoom(MAP_ZOOM * RENDER_SCALE)
-      .setBackgroundColor(COLORS.ink);
+    this.zoom = Phaser.Math.Clamp(this.registry.get('mapZoom') ?? MAP_ZOOM, ZOOM_MIN, ZOOM_MAX);
+    this.drag = null;
+    this.running = false;
+    this.cameras.main.setBackgroundColor(COLORS.ink);
+    this.fitCamera();
+    this.following = true;
     this.cameras.main.startFollow(this.hero, true, 0.15, 0.15);
     // The moment of the day (docs/gdd/temps.md): a veil over the map, under the names of the people.
     this.momentVeil = this.add
-      .rectangle(worldWidth / 2, worldHeight / 2, boundsWidth * 3, boundsHeight * 3, 0x000000, 0)
+      .rectangle(worldWidth / 2, worldHeight / 2, (worldWidth + GAME_WIDTH) * 3, (worldHeight + GAME_HEIGHT) * 3, 0x000000, 0)
       .setDepth(MOMENT_VEIL_DEPTH);
     this.showMoment();
     this.cameras.main.centerOn(start.x, start.y);
 
-    this.input.on('pointerup', (pointer: Phaser.Input.Pointer) => this.onTap(pointer));
-    // With a mouse, what a click would do on what lies under it (docs/gdd/interface.md, « PC d'abord »).
-    if (HAS_MOUSE) this.input.on('pointermove', (pointer: Phaser.Input.Pointer) => this.onHover(pointer));
+    // A press then a release is a click; a press that moves drags the view (the free camera, étude A1).
+    this.input.on('pointerdown', (pointer: Phaser.Input.Pointer) => this.startDrag(pointer));
+    this.input.on('pointerup', (pointer: Phaser.Input.Pointer) => {
+      const dragged = this.drag?.moved;
+      this.drag = null;
+      if (dragged) this.input.setDefaultCursor('default');
+      else this.onTap(pointer);
+    });
+    this.input.on('pointermove', (pointer: Phaser.Input.Pointer) => {
+      if (this.dragView(pointer)) return;
+      // With a mouse, what a click would do on what lies under it (docs/gdd/interface.md, « PC d'abord »).
+      if (HAS_MOUSE) this.onHover(pointer);
+    });
+    this.input.on('wheel', (_p: Phaser.Input.Pointer, _o: unknown, _dx: number, dy: number) => this.zoomBy(dy > 0 ? -ZOOM_STEP : ZOOM_STEP));
     this.setUpMoveKeys();
     onKeys(this, ['E', 'SPACE', 'ENTER'], () => this.interactNearest());
+    onKeys(this, ['C', 'HOME'], () => this.recenter());
     // Only while the map runs: overlays pause it, so these keys cannot reopen anything over them.
     onKeys(this, ['ESC'], () => this.hud().openOverlay('Pause'));
     onKeys(this, ['I'], () => this.hud().openOverlay('Trade', {}));
@@ -266,6 +297,7 @@ export class MapScene extends Phaser.Scene {
     if (!keyboard) return;
     const keys = (names: string[]) => names.map((n) => keyboard.addKey(n));
     this.moveKeys = [keys(['UP', 'Z', 'W']), keys(['DOWN', 'S']), keys(['LEFT', 'Q', 'A']), keys(['RIGHT', 'D'])];
+    this.shiftKey = keyboard.addKey('SHIFT');
     // A key released while a dialogue was open must not keep the hero walking.
     const onResume = () => keyboard.resetKeys();
     // An overlay opens (a dialogue, the inventory, a fight): no tooltip nor hand cursor left behind.
@@ -292,7 +324,9 @@ export class MapScene extends Phaser.Scene {
     const dr = Math.sign(y - x);
     const next = { col: this.heroTile.col + dc, row: this.heroTile.row + dr };
     this.hud().tip(null);
+    this.running = !!this.shiftKey?.isDown;
     if (this.walkable(next)) this.goTo(next, () => this.checkExit());
+    else this.showBlocked(next);
   }
 
   /** E, Space or Enter: the nearest person or thing within reach (a few steps at most), as a click would. */
@@ -315,7 +349,7 @@ export class MapScene extends Phaser.Scene {
     else {
       const tile = screenToTile({ x: pointer.worldX - this.originX, y: pointer.worldY - this.originY });
       const hit = this.interactables
-        .filter(({ object, image }) => image.visible && ((object.col === tile.col && object.row === tile.row) || hitsBody(image, pointer.worldX, pointer.worldY)))
+        .filter(({ object, image, label }) => image.visible && ((object.col === tile.col && object.row === tile.row) || hitsBody(image, pointer.worldX, pointer.worldY, label)))
         .sort((a, b) => b.image.depth - a.image.depth)[0];
       const exit = this.map.objects.find((o) => o.type === 'sortie' && o.col === tile.col && o.row === tile.row);
       const target = hit?.object ?? exit;
@@ -682,6 +716,11 @@ export class MapScene extends Phaser.Scene {
 
   private onTap(pointer: Phaser.Input.Pointer): void {
     const tile = screenToTile({ x: pointer.worldX - this.originX, y: pointer.worldY - this.originY });
+    // Maj held, or a second click on the same cell: the hero runs (étude, A3).
+    const now = this.time.now;
+    const double = now - this.lastTap.at < DOUBLE_CLICK_MS && this.lastTap.col === tile.col && this.lastTap.row === tile.row;
+    this.lastTap = { at: now, col: tile.col, row: tile.row };
+    this.running = double || !!(pointer.event as MouseEvent | undefined)?.shiftKey;
     const companion = this.party.hit(pointer.worldX, pointer.worldY);
     if (companion && DIALOGUES[`compagnon-${companion}`]) {
       this.scene.pause();
@@ -701,14 +740,17 @@ export class MapScene extends Phaser.Scene {
       return;
     }
     const hit = this.interactables
-      .filter(({ object, image }) => (object.col === tile.col && object.row === tile.row) || hitsBody(image, pointer.worldX, pointer.worldY))
+      .filter(({ object, image, label }) => (object.col === tile.col && object.row === tile.row) || hitsBody(image, pointer.worldX, pointer.worldY, label))
       .sort((a, b) => b.image.depth - a.image.depth)[0];
     if (hit) {
       const target = hit.object;
       this.walkNextTo(target, () => this.interact(target));
       return;
     }
-    if (!this.walkable(tile)) return;
+    if (!this.walkable(tile)) {
+      this.showBlocked(tile, pointer);
+      return;
+    }
     this.goTo(tile, () => this.checkExit());
   }
 
@@ -755,6 +797,7 @@ export class MapScene extends Phaser.Scene {
     const next = this.path.shift();
     if (!next) {
       this.moving = false;
+      this.running = false;
       this.standStill();
       this.marker.clear();
       const done = this.arrival;
@@ -763,6 +806,8 @@ export class MapScene extends Phaser.Scene {
       return;
     }
     this.moving = true;
+    // The camera comes back to the hero as soon as he walks (étude, A1).
+    if (!this.following) this.recenter();
     this.walk(facingOf(this.heroTile, next));
     const diagonal = next.col !== this.heroTile.col && next.row !== this.heroTile.row;
     const target = this.feet(next);
@@ -771,10 +816,10 @@ export class MapScene extends Phaser.Scene {
       targets: this.hero,
       x: target.x,
       y: target.y,
-      duration: diagonal ? STEP_MS * 1.4 : STEP_MS,
+      duration: diagonal ? this.stepMs() * 1.4 : this.stepMs(),
       onUpdate: () => this.hero.setDepth(this.hero.y),
       onComplete: () => {
-        this.party.heroStepped(this.heroTile, STEP_MS);
+        this.party.heroStepped(this.heroTile, this.stepMs());
         this.heroTile = next;
         this.state.position = { ...next };
         if (this.voieStep()) return;
@@ -804,12 +849,113 @@ export class MapScene extends Phaser.Scene {
     if (!this.walkSheet) return;
     this.facing = facing;
     this.hero.play(`${this.walkSheet}-${facing}`, true);
+    this.hero.anims.timeScale = this.running ? STEP_MS / RUN_STEP_MS : 1;
   }
 
   private standStill(): void {
     if (!this.walkSheet) return;
     const anim = this.anims.get(`${this.walkSheet}-${this.facing}`);
     this.hero.stop().setTexture(this.walkSheet, anim.frames[0].frame.name);
+  }
+
+  private stepMs(): number {
+    return this.running ? RUN_STEP_MS : STEP_MS;
+  }
+
+  // --- La caméra libre (étude du 2026-11-03, A1) ------------------------------------------------
+
+  /** Bounds for the current zoom: a room smaller than the view is centred in it (Phaser pins small worlds top-left). */
+  private fitCamera(): void {
+    const worldWidth = (this.map.width + this.map.height) * (TILE_WIDTH / 2);
+    const worldHeight = (this.map.width + this.map.height) * (TILE_HEIGHT / 2) + TOP_MARGIN;
+    const boundsWidth = Math.max(worldWidth, GAME_WIDTH / this.zoom);
+    const boundsHeight = Math.max(worldHeight, GAME_HEIGHT / this.zoom);
+    this.cameras.main
+      .setBounds((worldWidth - boundsWidth) / 2, (worldHeight - boundsHeight) / 2, boundsWidth, boundsHeight)
+      .setZoom(this.zoom * RENDER_SCALE);
+  }
+
+  /** The wheel: closer or farther, kept for the next places (registry, not the save). */
+  private zoomBy(step: number): void {
+    const zoom = Phaser.Math.Clamp(Math.round((this.zoom + step) * 10) / 10, ZOOM_MIN, ZOOM_MAX);
+    if (zoom === this.zoom) return;
+    const camera = this.cameras.main;
+    const center = { x: camera.midPoint.x, y: camera.midPoint.y };
+    this.zoom = zoom;
+    this.registry.set('mapZoom', zoom);
+    this.fitCamera();
+    if (!this.following) camera.centerOn(center.x, center.y);
+  }
+
+  private startDrag(pointer: Phaser.Input.Pointer): void {
+    const camera = this.cameras.main;
+    this.drag = { x: pointer.x, y: pointer.y, scrollX: camera.scrollX, scrollY: camera.scrollY, moved: false };
+  }
+
+  /** While pressed, the view follows the mouse or the finger; true while dragging. */
+  private dragView(pointer: Phaser.Input.Pointer): boolean {
+    const drag = this.drag;
+    if (!drag || !pointer.isDown) return false;
+    const dx = pointer.x - drag.x;
+    const dy = pointer.y - drag.y;
+    if (!drag.moved && Math.hypot(dx, dy) < DRAG_THRESHOLD * RENDER_SCALE) return false;
+    if (!drag.moved) {
+      drag.moved = true;
+      // The scroll the follow had reached, so the view does not jump.
+      const camera = this.cameras.main;
+      camera.stopFollow();
+      drag.scrollX = camera.scrollX;
+      drag.scrollY = camera.scrollY;
+      drag.x = pointer.x;
+      drag.y = pointer.y;
+      this.following = false;
+      this.input.setDefaultCursor('grabbing');
+      if (this.scene.isActive('Hud')) {
+        this.hud().tip(null);
+        this.hud().showRecenter(() => this.recenter());
+      }
+      return true;
+    }
+    const camera = this.cameras.main;
+    camera.setScroll(drag.scrollX - dx / camera.zoom, drag.scrollY - dy / camera.zoom);
+    return true;
+  }
+
+  /** C, Origine, the button, or the hero's first step: the view follows the hero again. */
+  private recenter(): void {
+    this.following = true;
+    this.cameras.main.startFollow(this.hero, true, 0.15, 0.15);
+    this.input.setDefaultCursor('default');
+    if (this.scene.isActive('Hud')) this.hud().showRecenter(null);
+  }
+
+  /** A click where one cannot go: a red diamond that fades, and why (étude, A2). */
+  private showBlocked(tile: Tile, pointer?: Phaser.Input.Pointer): void {
+    const inside = tile.col >= 0 && tile.row >= 0 && tile.col < this.map.width && tile.row < this.map.height;
+    if (inside) {
+      const c = this.center(tile);
+      this.blockedMarker.clear().lineStyle(2, COLORS.blocked, 1);
+      this.blockedMarker.strokePoints(
+        [
+          new Phaser.Math.Vector2(c.x, c.y - TILE_HEIGHT / 2),
+          new Phaser.Math.Vector2(c.x + TILE_WIDTH / 2, c.y),
+          new Phaser.Math.Vector2(c.x, c.y + TILE_HEIGHT / 2),
+          new Phaser.Math.Vector2(c.x - TILE_WIDTH / 2, c.y),
+        ],
+        true,
+      );
+      this.blockedMarker.lineBetween(c.x - 8, c.y - 4, c.x + 8, c.y + 4).lineBetween(c.x - 8, c.y + 4, c.x + 8, c.y - 4);
+      this.tweens.killTweensOf(this.blockedMarker);
+      this.blockedMarker.setAlpha(1);
+      this.tweens.add({ targets: this.blockedMarker, alpha: 0, delay: 350, duration: 450 });
+    }
+    if (pointer && this.scene.isActive('Hud')) {
+      const hud = this.hud();
+      hud.tip(inside ? 'On ne passe pas par là.' : 'Rien par là.', pointer.x / RENDER_SCALE, pointer.y / RENDER_SCALE);
+      this.time.delayedCall(1200, () => {
+        if (this.scene.isActive('Hud')) hud.tip(null);
+      });
+    }
   }
 
   private showMarker(tile: Tile): void {
@@ -954,14 +1100,18 @@ export class MapScene extends Phaser.Scene {
   }
 }
 
-/** Frames are 64 × 96 with transparent margins; only the central part counts as the body. */
-
-function hitsBody(image: Phaser.GameObjects.Image, x: number, y: number): boolean {
-  const left = image.x - 18;
-  const right = image.x + 18;
-  const top = image.y - 68;
+/**
+ * Frames are 64 × 96 with transparent margins; only the central part counts as the body, half as wide again under a
+ * finger. A person's name above the head counts too (étude du 2026-11-03, A5 : « taper sur Ingrid Brisefer ne fait rien »).
+ */
+function hitsBody(image: Phaser.GameObjects.Image, x: number, y: number, label?: Phaser.GameObjects.Text): boolean {
+  const half = HAS_MOUSE ? 18 : 27;
+  const left = image.x - half;
+  const right = image.x + half;
+  const top = image.y - (HAS_MOUSE ? 68 : 78);
   const bottom = image.y - 4;
-  return x >= left && x <= right && y >= top && y <= bottom;
+  if (x >= left && x <= right && y >= top && y <= bottom) return true;
+  return !!label?.visible && label.getBounds().contains(x, y);
 }
 
 function npcName(o: MapObject): string {

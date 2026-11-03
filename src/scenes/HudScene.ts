@@ -34,6 +34,9 @@ export class HudScene extends Phaser.Scene {
   private state!: GameState;
   /** What a click would do on what the mouse is over, on the map (docs/gdd/interface.md, « PC d'abord »). */
   private tooltip!: Tooltip;
+  /** « Recentrer », while the view has been dragged away from the hero (étude du 2026-11-03, A1). */
+  private recenterButton?: Phaser.GameObjects.Container;
+  private onRecenter: (() => void) | null = null;
 
   constructor() {
     super('Hud');
@@ -100,6 +103,17 @@ export class HudScene extends Phaser.Scene {
       .setOrigin(0.5)
       .setVisible(false);
     this.tooltip = new Tooltip(this);
+    this.onRecenter = null;
+    this.recenterButton = addTextButton(this, L.margin + 110, L.barHeight + 12 + L.buttonHeight / 2, withKeyHint('Recentrer', 'C'), () => this.onRecenter?.(), {
+      ...button,
+      width: 220,
+    }).container.setVisible(false);
+  }
+
+  /** Shows « Recentrer » with what it does, or hides it (null). */
+  showRecenter(action: (() => void) | null): void {
+    this.onRecenter = action;
+    this.recenterButton?.setVisible(!!action);
   }
 
   /** The map's tooltip, at (x, y) in logical screen coordinates; null hides it. */

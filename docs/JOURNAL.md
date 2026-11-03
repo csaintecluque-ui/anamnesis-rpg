@@ -23,7 +23,8 @@ Cyril sur PC et sa validation. Aucun nouveau système d'ici là.
 | 5 | Passe d'écriture | à faire |
 | 6 | Économie et progression | à faire |
 
-`docs/gdd/histoire-prenante.md` (proposition du même jour) nourrit les chantiers 1 et 4.
+`docs/gdd/histoire-prenante.md` (proposition du même jour) nourrit les chantiers 1 et 4. Cyril n'a pas son PC tout de
+suite : on enchaîne les chantiers, et ce qu'il aura à essayer s'ajoute à `docs/a-essayer.md`.
 
 ## Points ouverts
 

@@ -8,11 +8,27 @@
     "slot": "main"
   },
   {
+    "id": "dague-dentelee",
+    "name": "Dague dentelée",
+    "description": "Une dague dont Hedda a denté le fil avec des dards de Guêpe-Rouille. Elle ne coupe pas : elle déchire.",
+    "weightKg": 1,
+    "price": 30,
+    "slot": "main"
+  },
+  {
     "id": "epee-longue",
     "name": "Épée longue",
     "description": "L’arme de corps à corps de l’atelier Cendrefer.",
     "weightKg": 3,
     "price": 35,
+    "slot": "main"
+  },
+  {
+    "id": "epee-trempee",
+    "name": "Épée trempée",
+    "description": "L’épée longue reprise à la forge d’Hedda : le fil trempé dans l’huile, des crocs de Loup de Rouille fondus dans la garde.",
+    "weightKg": 3,
+    "price": 70,
     "slot": "main"
   },
   {
@@ -31,6 +47,15 @@
     "price": 40,
     "slot": "armure",
     "armorBonus": 1
+  },
+  {
+    "id": "armure-cuir-cloutee",
+    "name": "Armure de cuir clouté",
+    "description": "Le cuir doublé de fourrure d’Ours-Mousse, clouté de crocs de Loup de Rouille. Toujours léger.",
+    "weightKg": 9,
+    "price": 80,
+    "slot": "armure",
+    "armorBonus": 2
   },
   {
     "id": "armure-ferraille",
@@ -65,6 +90,24 @@
     "price": 120,
     "slot": "armure",
     "armorBonus": 3
+  },
+  {
+    "id": "cuirasse-coeur",
+    "name": "Cuirasse au cœur de ferraille",
+    "description": "La cuirasse rivetée, renforcée d’une plaque taillée dans un cœur de Golem. Elle tiède contre la poitrine, comme si quelque chose y battait encore.",
+    "weightKg": 19,
+    "price": 200,
+    "slot": "armure",
+    "armorBonus": 4
+  },
+  {
+    "id": "manteau-convoyeur",
+    "name": "Manteau de convoyeur",
+    "description": "Le manteau de cuir huilé des convoyeurs de la Compagnie des Lisières, doublé de toile. Il protège de la pluie, des épines, et parfois des lames.",
+    "weightKg": 4,
+    "price": 90,
+    "slot": "armure",
+    "armorBonus": 2
   },
   {
     "id": "lampe-cristal",
@@ -103,6 +146,14 @@
     "weightKg": 0.3,
     "price": 12,
     "healHp": 12
+  },
+  {
+    "id": "seve-resonance",
+    "name": "Sève de Résonance",
+    "description": "Une sève claire, préparée par Sévane avec des griffes de Griffe-Sylve. Bue d’un trait, elle rend trois Points de Résonance au cristal porté.",
+    "weightKg": 0.3,
+    "price": 40,
+    "resonance": 3
   },
   {
     "id": "seve-aieux",

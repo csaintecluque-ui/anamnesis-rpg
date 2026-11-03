@@ -1,0 +1,27 @@
+{
+  "seuils": [
+    20,
+    40
+  ],
+  "prix": [
+    -0.15,
+    -0.2,
+    -0.25
+  ],
+  "gardiens": {
+    "rangs": [
+      "Lanterne",
+      "Carnet",
+      "Plume"
+    ],
+    "carnet": {
+      "recits": 5,
+      "contrats": 3
+    },
+    "plume": {
+      "echos": 8,
+      "contrats": 8,
+      "quete": "cle-rouille-bleue"
+    }
+  }
+}

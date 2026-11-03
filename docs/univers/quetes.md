@@ -293,3 +293,13 @@ Détails, ancrages du canon et chiffres : `docs/gdd/passe-sombre.md`.
   dire au Bureau le livre au tribunal (« sabotage d'un secteur stratégique » ; la trahison, c'est la mort [NOTION]).
 - **Les graines qui manquent** : Elvan dénoncé est **banni** (« on retire les racines ») ; si le héros a volé et nie,
   c'est la gardienne du grenier, une Jeune-Pousse, qu'on soupçonne.
+
+## Les quêtes d'adhésion de Ferros (jalon 3, étape 7 ; propositions du 2026-11-03, **à valider**)
+
+Détail : `docs/gdd/factions.md`.
+
+- **« La lanterne du triage »** (Varka, Travailleurs du Rail) : après « Le Rail des Cendres » gagné pour les cheminots,
+  rapporter la lanterne d'un chef de gare du Dépôt Sept (deuxième niveau) ; elle brillera au poste d'aiguillage.
+- **« Le fonds des Échos »** (Noam, Archives de Ferros) : faire classer cinq Échos recueillis ; on devient correspondant.
+- **« Ce qui se souvient »** (Kaelis, Marches des Cendres) : lui rapporter une plaque émaillée du tunnel de la Combe
+  (deuxième niveau) ; quarante Fers et un nom chez les Marches.

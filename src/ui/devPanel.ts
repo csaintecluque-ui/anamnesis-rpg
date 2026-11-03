@@ -3,6 +3,7 @@ import { MARQUES_MAX, marquesOf } from '../rules/marques';
 import { CREATION, characterStats } from '../rules/character';
 import { QUESTS } from '../rules/dialogue';
 import { ITEMS, addItem, ownedCount, removeItem } from '../rules/inventory';
+import { FACTIONS } from '../rules/reputation';
 import { RECITS } from '../rules/recits';
 import { allFlags, cycleQuest, makeOverpowered, restoreFullHp, restoreFullResonance, toggleFlag, type QuestState } from '../rules/testTools';
 import { resonanceMax } from '../rules/magic';
@@ -146,6 +147,12 @@ export function openDevPanel(state: GameState, onClose: (result: DevPanelResult)
         button('Emprise 0', () => ((state.emprise = 0), render()), 'small'),
         button('+1', () => ((state.emprise += 1), render()), 'small'),
       ]),
+    );
+    // L'artisanat et les factions (docs/gdd/artisanat.md, docs/gdd/factions.md).
+    const matieres = ['epines-rodeur', 'crocs-rouille', 'fourrure-mousse', 'coeur-ferraille', 'griffes-sylve', 'dards-rouille', 'glande-soudeur'];
+    main.append(row('Matières du butin', [button('3 de chaque', () => (state.character && matieres.forEach((m) => addItem(state.character!, m, 3)), render()))]));
+    main.append(
+      row('Factions : adhérer', FACTIONS.map((f) => button(f.name.replace(/^(la |les |l’)/, ''), () => ((state.flags[f.membre] = true), render()), state.flags[f.membre] ? 'on' : ''))),
     );
     const rumeurs = PUBLICS.flatMap((p) => p.rumeurs);
     main.append(

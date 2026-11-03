@@ -243,5 +243,32 @@
         "texte": "Boulon n’est plus du matériel : le lui dire, à la gare de l’Ouest."
       }
     ]
+  },
+  {
+    "id": "lanterne-triage",
+    "name": "La lanterne du triage",
+    "summary": "Varka prendra le héros chez les Travailleurs du Rail s’il rapporte au triage une lanterne de chef de gare : on en trouve au deuxième niveau du Dépôt Sept.",
+    "etapes": [
+      {
+        "si": "lanterne-triage-trouvee",
+        "texte": "La lanterne est dans ton sac : rapporte-la à Varka, au triage des Cendres."
+      }
+    ]
+  },
+  {
+    "id": "fonds-echos",
+    "name": "Le fonds des Échos",
+    "summary": "Noam prendra le héros comme correspondant des Archives de Ferros quand il aura recueilli cinq Échos dans son Livre des Échos, pour les classer (voir : fonds des Échos)."
+  },
+  {
+    "id": "ce-qui-se-souvient",
+    "name": "Ce qui se souvient",
+    "summary": "Kaelis prendra le héros comme fournisseur des Marches des Cendres s’il lui rapporte une plaque émaillée de l’Ancien Monde, au deuxième niveau du tunnel de la Combe.",
+    "etapes": [
+      {
+        "si": "plaque-kaelis-trouvee",
+        "texte": "La plaque est dans ton sac : rapporte-la à Kaelis, au Marché des Cendres."
+      }
+    ]
   }
 ]

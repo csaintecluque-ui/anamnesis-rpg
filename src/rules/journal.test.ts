@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import voieData from '../data/voies.json';
 import { createNewGame } from '../state/gameState';
 import { QUESTS } from './dialogue';
 import { journalQuests, journalRecits, journalReputation } from './journal';
@@ -25,6 +26,7 @@ describe('journal', () => {
     const { DIALOGUES } = await import('../data/dialogues');
     const set = new Set<string>(JSON.stringify(DIALOGUES).match(/"setFlag":"[^"]+"/g)!.map((m) => m.slice(11, -1)));
     for (const flag of ['loups-caravane']) set.add(flag); // set by the world map when the wolves are met
+    for (const q of voieData.quetes) set.add(q.flag); // set when the thing is found in a sleeping line (src/rules/voies.ts)
     const { ENCOUNTERS } = await import('./combat');
     for (const e of ENCOUNTERS) set.add(e.victoryFlag); // set when a fight started from a dialogue is won
     for (const q of QUESTS) for (const e of q.etapes ?? []) expect(set.has(e.si), `${q.id}: ${e.si}`).toBe(true);

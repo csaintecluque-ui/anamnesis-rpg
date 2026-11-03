@@ -46,6 +46,15 @@
           "next": "aieux"
         },
         {
+          "text": "Préparer des remèdes, avec ce que j’ai récolté.",
+          "effects": [
+            {
+              "atelier": "herbes"
+            }
+          ],
+          "next": "fin"
+        },
+        {
           "text": "Une belle règle.",
           "next": "accueil"
         }

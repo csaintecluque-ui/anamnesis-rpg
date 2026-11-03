@@ -5,6 +5,18 @@
     {
       "requires": [
         {
+          "quest": "ce-qui-se-souvient",
+          "status": "active"
+        },
+        {
+          "item": "plaque-emaillee"
+        }
+      ],
+      "node": "plaque"
+    },
+    {
+      "requires": [
+        {
           "item": "cle-rouille-bleue"
         }
       ],
@@ -92,6 +104,22 @@
           "next": "prix"
         },
         {
+          "text": "Les Marches prennent-elles des fournisseurs ?",
+          "requires": [
+            {
+              "quest": "ce-qui-se-souvient",
+              "status": "none"
+            },
+            {
+              "notFlag": "membre-archives-ferros"
+            },
+            {
+              "notFlag": "membre-travailleurs-rail"
+            }
+          ],
+          "next": "fournisseur"
+        },
+        {
           "text": "Je reviendrai.",
           "next": "fin"
         }
@@ -161,6 +189,22 @@
           "next": "ouvre"
         },
         {
+          "text": "Les Marches prennent-elles des fournisseurs ?",
+          "requires": [
+            {
+              "quest": "ce-qui-se-souvient",
+              "status": "none"
+            },
+            {
+              "notFlag": "membre-archives-ferros"
+            },
+            {
+              "notFlag": "membre-travailleurs-rail"
+            }
+          ],
+          "next": "fournisseur"
+        },
+        {
           "text": "À plus tard.",
           "next": "fin"
         }
@@ -221,6 +265,22 @@
       "text": "— Les acheteurs sont contents. Toi aussi, j’espère.",
       "options": [
         {
+          "text": "Les Marches prennent-elles des fournisseurs ?",
+          "requires": [
+            {
+              "quest": "ce-qui-se-souvient",
+              "status": "none"
+            },
+            {
+              "notFlag": "membre-archives-ferros"
+            },
+            {
+              "notFlag": "membre-travailleurs-rail"
+            }
+          ],
+          "next": "fournisseur"
+        },
+        {
           "text": "Au revoir.",
           "next": "fin"
         }
@@ -229,6 +289,22 @@
     "apres": {
       "text": "— Tu as choisi de ne pas me la vendre, à ce qu’on dit. Dommage. Les Marches n’oublient pas… mais elles ne se fâchent pas longtemps.",
       "options": [
+        {
+          "text": "Les Marches prennent-elles des fournisseurs ?",
+          "requires": [
+            {
+              "quest": "ce-qui-se-souvient",
+              "status": "none"
+            },
+            {
+              "notFlag": "membre-archives-ferros"
+            },
+            {
+              "notFlag": "membre-travailleurs-rail"
+            }
+          ],
+          "next": "fournisseur"
+        },
         {
           "text": "Au revoir.",
           "next": "fin"
@@ -305,6 +381,53 @@
         {
           "text": "Et toi, de quoi te souviens-tu ?",
           "next": "refus"
+        }
+      ]
+    },
+    "fournisseur": {
+      "text": "Kaelis pose sa mâchoire de Golem. — Toute relique a un prix. Le tien : une plaque émaillée, un nom de gare de l’Ancien Monde. Il en dort une au tunnel de la Combe, au deuxième niveau. Rapporte-la, et les Marches te connaîtront.",
+      "options": [
+        {
+          "text": "Marché conclu.",
+          "effects": [
+            {
+              "startQuest": "ce-qui-se-souvient"
+            },
+            {
+              "setFlag": "connait-tunnel-combe"
+            }
+          ],
+          "next": "fin"
+        },
+        {
+          "text": "Non.",
+          "next": "fin"
+        }
+      ]
+    },
+    "plaque": {
+      "text": "Kaelis passe le doigt sur les lettres blanches, sans les lire. — Elle se souvient d’un quai, de dix mille départs, et d’un seul qui n’est pas arrivé. Quarante Fers, et ton nom chez les Marches.",
+      "effects": [
+        {
+          "takeItem": "plaque-emaillee"
+        },
+        {
+          "giveFers": 40
+        },
+        {
+          "completeQuest": "ce-qui-se-souvient"
+        },
+        {
+          "setFlag": "membre-marches-cendres"
+        },
+        {
+          "giveXp": 40
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Kaelis.",
+          "next": "fin"
         }
       ]
     }

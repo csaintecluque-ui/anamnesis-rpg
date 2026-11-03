@@ -3,6 +3,7 @@ import { bestiaryEntries } from '../rules/bestiary';
 import { ECHOS, TYPE_LABELS, collectedEchos, empriseLabel } from '../rules/echos';
 import { findLocation } from '../state/gameState';
 import { journalQuests, journalRecits, journalReputation } from '../rules/journal';
+import { gardienRank, gardienRankName, nextGardienRank } from '../rules/factions';
 import { heardRumeurs } from '../rules/veillees';
 import { fontPx } from '../settings';
 import type { GameState } from '../state/gameState';
@@ -200,20 +201,26 @@ export class JournalScene extends Phaser.Scene {
   private drawReputation(): void {
     const L = LAYOUT;
     const rows = journalReputation(this.state);
-    let y = L.listTop + 10;
+    let y = L.listTop + 4;
+    // The hero's own order (docs/gdd/factions.md): Lanterne, Carnet, Plume.
+    this.text(LIST_X + 40, y, 'Gardiens de Mémoire', 24, CSS.parchment);
+    this.text(560, y, gardienRankName(gardienRank(this.state)), 24, CSS.copper);
+    const next = nextGardienRank(this.state);
+    if (next) y = this.text(LIST_X + 80, y + 32, `Prochain rang, ${next}`, 17, CSS.muted, GAME_WIDTH - LIST_X - 120).getBounds().bottom - 32;
+    y += 46;
     for (const kind of ['ville', 'guilde'] as const) {
       const group = rows.filter((r) => r.kind === kind);
       if (group.length === 0) continue;
-      this.text(LIST_X + 40, y, kind === 'ville' ? 'Villes' : 'Guildes', 22, CSS.muted);
-      y += 40;
+      this.text(LIST_X + 40, y, kind === 'ville' ? 'Villes' : 'Guildes', 20, CSS.muted);
+      y += 32;
       for (const row of group) {
-        this.text(LIST_X + 80, y, row.name, 26, CSS.parchment);
-        this.text(560, y, row.member ? `${row.label} · membre` : row.label, 26, CSS.copper);
-        y += 44;
+        this.text(LIST_X + 80, y, row.name, 23, CSS.parchment);
+        this.text(560, y, row.rank ? `${row.label} · ${row.rank}` : row.label, 23, CSS.copper);
+        y += 36;
       }
-      y += 16;
+      y += 10;
     }
-    this.text(LIST_X + 40, Math.max(y, L.listTop + 300), 'La réputation change les prix des marchands et l’accueil des gens. Elle suit ce que tu fais.', 18, CSS.muted, 820);
+    if (y < GAME_HEIGHT - 110) this.text(LIST_X + 40, y + 6, 'La réputation change les prix des marchands et l’accueil des gens ; dans une guilde, elle fait monter en rang.', 17, CSS.muted, 1100);
   }
 
   /** Every kind of enemy met (docs/gdd/combat.md, « Bestiaire ») : what the canon says of it, and how it fights. */

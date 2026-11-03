@@ -37,6 +37,7 @@ function condition(c) {
     return `_(avis de ${companionName(c.avis)} ${range})_`;
   }
   if ('lieu' in c) return `_(à « ${nameOf(locations, c.lieu)} »)_`;
+  if ('echos' in c) return `_(${c.echos} Échos recueillis ou plus)_`;
   if ('marques' in c) return `_(${c.marques} marque${c.marques > 1 ? 's' : ''} du cristal ou plus${c.max !== undefined ? `, ${c.max} au plus` : ''})_`;
   if ('quest' in c) {
     const status = { none: 'pas commencée', active: 'en cours', done: 'terminée' }[c.status];
@@ -58,6 +59,8 @@ function effect(e) {
   if ('startCombat' in e) return `lance le combat « ${e.startCombat} »`;
   if ('goTo' in e) return `mène à « ${nameOf(locations, e.goTo)} »`;
   if ('veillee' in e) return `ouvre la veillée « ${e.veillee} »`;
+  if ('atelier' in e) return `ouvre l’atelier « ${e.atelier} »`;
+  if ('contrat' in e) return 'remplit le contrat en cours';
   if ('attendre' in e) return `attend ${MOMENTS[e.attendre] ?? e.attendre}`;
   if ('avancer' in e) return `fait passer ${e.avancer} moment${e.avancer > 1 ? 's' : ''}`;
   if ('dormir' in e) return `dort jusqu’${e.dormir === 'matin' ? 'au matin' : `à ${MOMENTS[e.dormir] ?? e.dormir}`}`;

@@ -34,5 +34,9 @@
     { "id": "dalle", "repere": "Une dalle sonne creux sous ta botte : tu passes à côté.", "touche": "Une dalle cède : tu tombes jusqu’à la taille dans une fosse hérissée de ferraille." },
     { "id": "fil", "repere": "Un fil tendu au ras du sol, relié à une caisse de boulons : tu l’enjambes.", "touche": "Un fil tendu, une caisse qui bascule : une pluie de boulons rouillés." },
     { "id": "vapeur", "repere": "Une conduite siffle doucement : tu attends qu’elle se taise pour passer.", "touche": "Une conduite crevée te crache un jet de vapeur brûlante au visage." }
+  ],
+  "quetes": [
+    { "quest": "lanterne-triage", "item": "lanterne-chef-gare", "flag": "lanterne-triage-trouvee", "site": "depot-sept", "depth": 2 },
+    { "quest": "ce-qui-se-souvient", "item": "plaque-emaillee", "flag": "plaque-kaelis-trouvee", "site": "tunnel-combe", "depth": 2 }
   ]
 }

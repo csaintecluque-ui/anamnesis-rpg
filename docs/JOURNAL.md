@@ -1,9 +1,9 @@
 # Journal — état actuel (30 lignes max ; récit des sessions : `docs/archive/journal-AAAA-MM.md`)
 
-## État (2026-11-02)
+## État (2026-11-03)
 
 - Jalons 1 et 2 faits et en ligne (`docs/gdd/jalon-2.md`). 11,5 crédits Higgsfield restants.
-- 566 tests (dont le parcours complet d'affilée, `src/rules/parcours.test.ts`), typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
+- 584 tests (dont le parcours complet d'affilée, `src/rules/parcours.test.ts`), typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
 - Mode test caché : 5 touches sur la version (écran titre) → menu pause : +50 Fers, PV au max, **Outils de dev**
   (perso surpuissant, groupe, lieux, quêtes, repères, objets, Récits ; `docs/gdd/interface.md`).
 
@@ -19,7 +19,8 @@
 
 1. **Jalon 3** (`docs/gdd/jalon-3.md`) : étapes 1 à 6 **validées et en ligne** (veillées `gdd/veillees.md`, passe
    sombre `gdd/passe-sombre.md`, voies et contrats `gdd/voies.md` ; scènes inventées des Échos à valider) ;
-   **vérification qualité** faite et en ligne (`docs/qualite.md`). Ensuite : étape 7, sur le feu vert de Cyril.
+   **vérification qualité** faite et en ligne (`docs/qualite.md`) ; étape 7 (rangs, adhésions de Ferros, artisanat :
+   `gdd/factions.md`, `gdd/artisanat.md`) sur la branche, à valider. Ensuite : fin du jalon 3, bilan avec Cyril.
 2. Codex : Sept-Portes (`AGENTS.md`). Notion : page « Anamnesis — le jeu », à tenir à jour à chaque mise en ligne.
 
 ## Points ouverts

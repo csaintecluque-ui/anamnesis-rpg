@@ -941,3 +941,17 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   À trancher : Corvan dans l'Écho du dernier train (zone floue 32).
 - Cyril : « Oui pour tout, mets en ligne ; étape 6 déjà ok » : corrections de la vérification mises en ligne ;
   Corvan retiré de l'Écho du dernier train (zone floue 32) ; fusion de `main` (étape 6, faite dans une autre session).
+
+## 2026-11-03 : jalon 3, étape 7, les factions et l'artisanat
+
+- Cyril : « Ok on va pour l'étape 7. » `main` avancé (vérification qualité fusionnée, cartes régénérées).
+- Construit (`docs/gdd/factions.md`, `docs/gdd/artisanat.md`) : trois rangs par guilde (membre, deuxième rang à 20 de
+  réputation, sommet à 40 avec son cadeau, fermé si une rivale y est) ; prix par rang chez les marchands des guildes ;
+  rivalités Marches ↔ Archives et Marches ↔ Rail ; trois quêtes d'adhésion (Varka : la lanterne du triage au Dépôt
+  Sept ; Noam : cinq Échos à classer ; Kaelis : une plaque émaillée du tunnel de la Combe), leurs objets placés dans les
+  voies endormies ; rangs des Gardiens (Lanterne, Carnet, Plume : un Récit de plus par rang). Artisanat : la forge
+  d'Hedda (épée trempée, dague dentelée, armure de cuir clouté, cuirasse au cœur de ferraille, carreaux) et les herbes
+  de Sévane (baumes, fioles, Sève de Résonance, bandages), avec les matières du butin. Corrigé grâce au parcours :
+  l'offre de Noam restait cachée à qui lui avait confié la clé. Pas de nouvelle sauvegarde. 584 tests ; vérifié sur PC
+  et téléphone.
+

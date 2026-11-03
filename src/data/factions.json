@@ -1,7 +1,7 @@
 [
-  { "id": "compagnie-lisieres", "name": "la Compagnie des Lisières", "membre": "membre-compagnie-lisieres" },
-  { "id": "nacelliers", "name": "les Nacelliers", "membre": "nacelliers-amis" },
-  { "id": "travailleurs-rail", "name": "les Travailleurs du Rail", "membre": "membre-travailleurs-rail" },
-  { "id": "marches-cendres", "name": "les Marches des Cendres", "membre": "membre-marches-cendres" },
-  { "id": "archives-ferros", "name": "les Archives de Ferros", "membre": "membre-archives-ferros" }
+  {"id": "compagnie-lisieres", "name": "la Compagnie des Lisières", "membre": "membre-compagnie-lisieres", "chef": "Tobias", "rangs": ["Porteur", "Convoyeur", "Associé"], "rivales": [], "don": {"item": "manteau-convoyeur"}, "avantages": ["prix de membre chez Tobias et Hedda (−15 %) ; la caravane gratuite", "prix de convoyeur (−20 %)", "prix d’associé (−25 %) ; le manteau de convoyeur"]},
+  {"id": "nacelliers", "name": "les Nacelliers", "membre": "nacelliers-amis", "chef": "Véline", "rangs": ["Ami des nacelles", "Coursier", "Passeur des cimes"], "rivales": [], "don": {"item": "cristal-vie"}, "avantages": ["les nacelles te prennent sans rien demander", "les nouvelles des cimes avant tout le monde", "un cristal de Vie, monté sur une cordelette de nacelle"]},
+  {"id": "travailleurs-rail", "name": "les Travailleurs du Rail", "membre": "membre-travailleurs-rail", "chef": "Varka", "rangs": ["Graisseur", "Aiguilleur", "Chef de ligne"], "rivales": ["marches-cendres"], "don": {"item": "marteau-forge"}, "avantages": ["les cheminots te saluent au triage", "ta parole vaut celle d’un cheminot", "le marteau de la ligne"]},
+  {"id": "marches-cendres", "name": "les Marches des Cendres", "membre": "membre-marches-cendres", "chef": "Kaelis", "rangs": ["Fournisseur", "Courtier", "Associé des Cendres"], "rivales": ["archives-ferros", "travailleurs-rail"], "don": {"item": "cristal-forge"}, "avantages": ["prix de fournisseur chez la tailleuse (−15 %)", "prix de courtier (−20 %)", "prix d’associé (−25 %) ; un cristal de forge"]},
+  {"id": "archives-ferros", "name": "les Archives de Ferros", "membre": "membre-archives-ferros", "chef": "Noam", "rangs": ["Correspondant", "Classeur", "Archiviste honoraire"], "rivales": ["marches-cendres"], "don": {"fers": 100, "xp": 50}, "avantages": ["une fiche à ton nom, classée « correspondant »", "tes relevés entrent au fonds ordinaire", "une rente de classement : 100 Fers"]}
 ]

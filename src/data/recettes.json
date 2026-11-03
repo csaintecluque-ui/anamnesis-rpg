@@ -1,0 +1,164 @@
+[
+  {
+    "id": "epee-trempee",
+    "atelier": "forge",
+    "produit": {
+      "item": "epee-trempee"
+    },
+    "ingredients": [
+      {
+        "item": "epee-longue",
+        "count": 1
+      },
+      {
+        "item": "crocs-rouille",
+        "count": 2
+      }
+    ],
+    "fers": 30,
+    "texte": "1d10 au lieu de 1d8."
+  },
+  {
+    "id": "dague-dentelee",
+    "atelier": "forge",
+    "produit": {
+      "item": "dague-dentelee"
+    },
+    "ingredients": [
+      {
+        "item": "dague",
+        "count": 1
+      },
+      {
+        "item": "dards-rouille",
+        "count": 3
+      }
+    ],
+    "fers": 15,
+    "texte": "1d6 au lieu de 1d4."
+  },
+  {
+    "id": "armure-cuir-cloutee",
+    "atelier": "forge",
+    "produit": {
+      "item": "armure-cuir-cloutee"
+    },
+    "ingredients": [
+      {
+        "item": "armure-cuir",
+        "count": 1
+      },
+      {
+        "item": "crocs-rouille",
+        "count": 2
+      },
+      {
+        "item": "fourrure-mousse",
+        "count": 1
+      }
+    ],
+    "fers": 25,
+    "texte": "Armure +2 au lieu de +1."
+  },
+  {
+    "id": "cuirasse-coeur",
+    "atelier": "forge",
+    "produit": {
+      "item": "cuirasse-coeur"
+    },
+    "ingredients": [
+      {
+        "item": "cuirasse-rivetee",
+        "count": 1
+      },
+      {
+        "item": "coeur-ferraille",
+        "count": 1
+      }
+    ],
+    "fers": 50,
+    "texte": "Armure +4 au lieu de +3."
+  },
+  {
+    "id": "carreaux",
+    "atelier": "forge",
+    "produit": {
+      "item": "carreaux",
+      "count": 10
+    },
+    "ingredients": [
+      {
+        "item": "dards-rouille",
+        "count": 2
+      }
+    ],
+    "fers": 5,
+    "texte": "Dix carreaux d’arbalète."
+  },
+  {
+    "id": "baume-mousse",
+    "atelier": "herbes",
+    "produit": {
+      "item": "baume-mousse",
+      "count": 2
+    },
+    "ingredients": [
+      {
+        "item": "fourrure-mousse",
+        "count": 1
+      }
+    ],
+    "fers": 4,
+    "texte": "Deux baumes : 12 PV chacun."
+  },
+  {
+    "id": "fiole-seve",
+    "atelier": "herbes",
+    "produit": {
+      "item": "fiole-seve"
+    },
+    "ingredients": [
+      {
+        "item": "epines-rodeur",
+        "count": 2
+      }
+    ],
+    "fers": 6,
+    "texte": "Une fiole : 20 PV."
+  },
+  {
+    "id": "seve-resonance",
+    "atelier": "herbes",
+    "produit": {
+      "item": "seve-resonance"
+    },
+    "ingredients": [
+      {
+        "item": "griffes-sylve",
+        "count": 1
+      },
+      {
+        "item": "epines-rodeur",
+        "count": 1
+      }
+    ],
+    "fers": 12,
+    "texte": "Rend 3 Points de Résonance."
+  },
+  {
+    "id": "bandages",
+    "atelier": "herbes",
+    "produit": {
+      "item": "bandage",
+      "count": 3
+    },
+    "ingredients": [
+      {
+        "item": "glande-soudeur",
+        "count": 1
+      }
+    ],
+    "fers": 3,
+    "texte": "Trois bandages, cautérisés à la glande de Gecko-Soudeur : 8 PV chacun."
+  }
+]

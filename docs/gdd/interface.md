@@ -128,3 +128,12 @@ tactiles reçoivent donc des tailles à eux (détection « pas de souris », `HA
 - **Le tableau des contrats** (`ContratsScene`, touché dans un relais) : le contrat en cours (Rendre, Abandonner),
   puis les offres (Prendre ; touches 1 à 3). Le contrat en cours s'affiche en tête du journal, onglet « Quêtes ».
 - **Outils de dev**, onglet « Lieux » : descendre dans chaque voie au niveau voulu ; révéler les trois voies.
+
+## Jalon 3, étape 7 (2026-11-03) : les factions et l'artisanat
+
+- **L'atelier** (`AtelierScene`, ouvert par Hedda ou Sévane) : une ligne par recette (ce qu'elle donne, ce qu'il faut
+  sur ce qu'on a, les Fers), « Forger » ou « Préparer » (touches 1 à 9), pages sur téléphone.
+- **Inventaire** : « Boire » pour la Sève de Résonance (avec un cristal au cou).
+- **Journal**, onglet Réputation : le rang chez les Gardiens de Mémoire en tête, avec ce qu'il faut pour le suivant ;
+  le rang dans chaque guilde à côté de l'opinion. **Tableaux des contrats** : « Ton rang : Lanterne ».
+- **Outils de dev**, onglet « Groupe » : « Matières du butin : 3 de chaque » ; « Factions : adhérer ».

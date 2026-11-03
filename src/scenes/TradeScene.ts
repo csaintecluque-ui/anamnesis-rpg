@@ -4,7 +4,7 @@ import { combinedDiscount, merchantPlace, reputationLevel, reputationPrices } fr
 import { findPlace } from '../rules/world';
 import { characterStats, type Character, type Slot } from '../rules/character';
 import { armorBonus, buy, buyPrice, carriedWeightKg, equip, merchantCatalogue, merchantDiscount, ownedCount, sell, SELL_RATIO, tradeItems, unequip, useConsumable, type ItemDef } from '../rules/inventory';
-import { castOutsideCombat, combatPower, resonanceMax, wornCrystal } from '../rules/magic';
+import { castOutsideCombat, combatPower, resonanceMax, useResonanceSap, wornCrystal } from '../rules/magic';
 import { marquesBorne } from '../rules/marques';
 import type { GameState } from '../state/gameState';
 import { addTextButton } from '../ui/button';
@@ -193,6 +193,14 @@ export class TradeScene extends Phaser.Scene {
       });
     }
     if (item.healHp && owned > 0) addButton('Utiliser', () => this.act(() => useConsumable(this.character(), item.id, characterStats(this.character()).maxHp), `Tu utilises : ${item.name}.`));
+    // A sap that gives Points de Résonance back to the worn crystal (docs/gdd/artisanat.md).
+    if (item.resonance && owned > 0) {
+      addButton('Boire', () => {
+        const given = useResonanceSap(this.character(), item.id);
+        this.message = given ? `Tu bois : ${item.name}. +${given} PR.` : wornCrystal(this.character()) ? 'Ton cristal est déjà plein.' : 'Il te faut porter un cristal.';
+        this.redraw();
+      });
+    }
     if (item.slot) {
       if (equippedIn) {
         addButton('Retirer', () =>

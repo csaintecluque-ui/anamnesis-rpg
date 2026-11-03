@@ -2,7 +2,7 @@ import powerData from '../data/powers.json';
 import { attributeModifier, SKILL_RANK_MAX } from './attributes';
 import { RESONANCE_BASE, characterStats, type Character } from './character';
 import { ATTACK_AP_COST, type AttackProfile, type Dice } from './combat';
-import { findItem, type ItemDef } from './inventory';
+import { findItem, ownedCount, removeItem, type ItemDef } from './inventory';
 import { marqueResonancePenalty, payThePrice } from './marques';
 import type { Rng } from './checks';
 
@@ -136,6 +136,17 @@ export function powerAttack(c: Character, power: PowerDef): AttackProfile {
 }
 
 /** A night's sleep gives every Point de Résonance back (canon : « 8 à 12 h de sommeil »). */
+/** Drinks a sap that gives Points de Résonance back (Sève de Résonance): what it gave, or null if of no use now. */
+export function useResonanceSap(c: Character, itemId: string): number | null {
+  const item = findItem(itemId);
+  const room = resonanceMax(c) - c.resonance;
+  if (!item?.resonance || !wornCrystal(c) || ownedCount(c, itemId) === 0 || room <= 0) return null;
+  const given = Math.min(item.resonance, room);
+  c.resonance += given;
+  removeItem(c, itemId, 1);
+  return given;
+}
+
 export function restoreResonance(c: Character): void {
   c.resonance = Math.max(c.resonance, resonanceMax(c));
 }

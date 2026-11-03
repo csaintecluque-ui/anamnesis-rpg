@@ -1,5 +1,6 @@
 import factionData from '../data/factions.json';
 import npcData from '../data/npcs.json';
+import rangData from '../data/rangs.json';
 import reputationData from '../data/reputation.json';
 import { findPlace } from './world';
 
@@ -33,7 +34,7 @@ export function findFaction(id: string): FactionDef | undefined {
   return FACTIONS.find((f) => f.id === id);
 }
 
-/** Member's prices at the guild's own stalls (the better of town and guild, never both). */
+/** Member's prices at the guild's own stalls (the better of town and guild, never both); better with each rank. */
 export const MEMBER_PRICES = -0.15;
 
 /** « à Canopéa », « auprès de la Compagnie des Lisières ». */
@@ -101,15 +102,31 @@ export function merchantFaction(npcId?: string): FactionDef | undefined {
   return id ? findFaction(id) : undefined;
 }
 
+/** Reputation for a faction's second rank and for its top (src/data/rangs.json, docs/gdd/factions.md). */
+export const RANK_THRESHOLDS = rangData.seuils as [number, number];
+/** Price change at a faction's own stalls, by rank: member, second rank, top. */
+export const RANK_PRICES = rangData.prix as [number, number, number];
+/** Set once the top of a faction is reached: it closes its rivals' top for good. */
+export const sommetFlag = (id: string): string => `sommet-${id}`;
+
+/** 0: not a member; 1, 2, 3: the faction's ranks (src/rules/factions.ts). */
+export function factionRank(state: StoryState, id: string): number {
+  const f = findFaction(id);
+  if (!f || !state.flags[f.membre]) return 0;
+  if (state.flags[sommetFlag(id)]) return 3;
+  return reputationScore(state, id) >= RANK_THRESHOLDS[0] ? 2 : 1;
+}
+
 /**
  * Price change at a merchant's stall from the town's opinion of the hero (0 for a wanderer); a member of the
- * merchant's guild pays member's prices when they are better.
+ * merchant's guild pays its prices when they are better, better with each rank (docs/gdd/factions.md).
  */
 export function reputationPrices(state: StoryState, npcId?: string): number {
   const place = merchantPlace(npcId);
   const town = place ? reputationLevel(state, place).prices : 0;
   const faction = merchantFaction(npcId);
-  return faction && state.flags[faction.membre] ? Math.min(town, MEMBER_PRICES) : town;
+  const rank = faction ? factionRank(state, faction.id) : 0;
+  return rank > 0 ? Math.min(town, RANK_PRICES[rank - 1]) : town;
 }
 
 /** A trader's own discount combined with the town's opinion: one share off (negative: a surcharge). */

@@ -193,6 +193,14 @@
     {
       "flag": "rail-marches",
       "points": -20
+    },
+    {
+      "quest": "lanterne-triage",
+      "points": 10
+    },
+    {
+      "quest": "ce-qui-se-souvient",
+      "points": -5
     }
   ],
   "marches-cendres": [
@@ -219,6 +227,18 @@
     {
       "flag": "rail-bureau",
       "points": -10
+    },
+    {
+      "quest": "lanterne-triage",
+      "points": -5
+    },
+    {
+      "quest": "fonds-echos",
+      "points": -5
+    },
+    {
+      "quest": "ce-qui-se-souvient",
+      "points": 10
     }
   ],
   "archives-ferros": [
@@ -241,6 +261,14 @@
     {
       "flag": "registre-surpris",
       "points": -10
+    },
+    {
+      "quest": "fonds-echos",
+      "points": 10
+    },
+    {
+      "quest": "ce-qui-se-souvient",
+      "points": -5
     }
   ]
 }

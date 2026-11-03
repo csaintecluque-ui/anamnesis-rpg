@@ -74,3 +74,18 @@ Maître des Guildes » à Glacialis). Pour combler, sans doublon avec les factio
 
 La « Compagnie du Rail Cristallin » proposée plus tôt est **retirée** : les Travailleurs du Rail et les Marches des
 Cendres tiennent ce rôle.
+
+## Rangs et adhésions (propositions du 2026-11-03, **à valider**)
+
+Règles : `docs/gdd/factions.md`. Les rangs de l'ordre du héros (Lanterne, Carnet, Plume) étaient déjà proposés.
+
+| Faction | Rangs proposés | Ce qui est inventé |
+|---|---|---|
+| Compagnie des Lisières | Porteur, Convoyeur, Associé | le manteau de convoyeur (cuir huilé doublé de toile), cadeau du sommet |
+| Nacelliers | Ami des nacelles, Coursier, Passeur des cimes | un cristal de Vie monté sur une cordelette de nacelle |
+| Travailleurs du Rail | Graisseur, Aiguilleur, Chef de ligne | **la lanterne du triage** : le triage l'a perdue « le jour où le dernier chef de ligne est mort sous un convoi » ; on entre chez les cheminots en la rapportant (« chez nous, on n'entre pas avec des mots ») ; le marteau de la ligne |
+| Marches des Cendres | Fournisseur, Courtier, Associé des Cendres | Kaelis prend pour fournisseur qui lui rapporte une plaque émaillée de l'Ancien Monde (« elle se souvient d'un quai, de dix mille départs, et d'un seul qui n'est pas arrivé ») |
+| Archives de Ferros | Correspondant, Classeur, Archiviste honoraire | **les correspondants des Archives** (« voir : règlement, article dix-neuf ») : quiconque fait classer cinq Échos recueillis de sa main ; une rente de classement |
+
+Rivalités retenues (d'après les conflits du Notion) : les Marches des Cendres contre les Archives (« Ils veulent la clé
+de rouille bleue ») et contre les Travailleurs du Rail (« Ils exploitent les ruines et les dettes de Ferros »).

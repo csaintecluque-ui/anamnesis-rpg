@@ -556,5 +556,10 @@
     "id": "voie-contrat",
     "name": "Sous les gravats",
     "role": "Ce qu’un contrat t’a envoyé chercher"
+  },
+  {
+    "id": "voie-quete",
+    "name": "Sous les gravats",
+    "role": "Ce qu’une quête t’a envoyé chercher"
   }
 ]

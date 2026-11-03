@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import { DIALOGUES } from '../data/dialogues';
 import npcData from '../data/npcs.json';
-import { END, applyEffects, goesTo, opensTrade, opensVeillee, performRoll, startNode, startsCombat, visibleOptions, type Dialogue, type OptionView } from '../rules/dialogue';
+import { END, applyEffects, goesTo, opensAtelier, opensTrade, opensVeillee, performRoll, startNode, startsCombat, visibleOptions, type Dialogue, type OptionView } from '../rules/dialogue';
 import { fontPx, textScale } from '../settings';
 import type { GameState } from '../state/gameState';
 import type { MapScene } from './MapScene';
@@ -192,6 +192,13 @@ export class DialogueScene extends Phaser.Scene {
       if (veillee) {
         this.scene.stop();
         this.scene.launch('Veillee', { publicId: veillee });
+        return;
+      }
+      // A workshop (docs/gdd/artisanat.md): Hedda's forge, Sévane's herbs.
+      const atelier = opensAtelier(view.option.effects);
+      if (atelier) {
+        this.scene.stop();
+        this.scene.launch('Atelier', { atelier });
         return;
       }
       const fight = startsCombat(view.option.effects);

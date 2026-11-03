@@ -12,7 +12,7 @@ quand Cyril le dit. Tout s'essaie à Gardebois, Canopéa et Ironheart, qu'on enr
 | 4. Les veillées du conteur | le soir, à l'auberge, raconter un Récit à un public qui a ses goûts : Fers, réputation, rumeurs qui ouvrent des secrets | **fait et en ligne** (`docs/gdd/veillees.md`) |
 | 5. La passe sombre | réécrire Gardebois, Canopéa et Ironheart dans le ton adulte : morts possibles, conséquences, castes du Puits Trois, prix de la magie | **fait et en ligne**, validé par Cyril (`docs/gdd/passe-sombre.md`) |
 | 6. Les ruines et les contrats | des voies endormies à explorer sur la carte du monde, tirées d'une réserve de plans ; un tableau de contrats dans chaque relais des Gardiens | **fait et en ligne**, validé par Cyril (`docs/gdd/voies.md`) |
-| 7. Les factions et l'artisanat | rangs et quêtes d'adhésion des six factions existantes ; la forge d'Ironheart et les herbes de Canopéa | à faire |
+| 7. Les factions et l'artisanat | rangs et quêtes d'adhésion des six factions existantes ; la forge d'Ironheart et les herbes de Canopéa | **fait** (`docs/gdd/factions.md`, `docs/gdd/artisanat.md`), à valider, mise en ligne en attente |
 
 ## Réponses de Cyril (2026-11-02)
 

@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import { abandon, accept, canTurnIn, contractStep, daysToRenewal, findTableau, offers, turnIn, type Tableau } from '../rules/contrats';
 import { fontPx } from '../settings';
+import { gardienRank, gardienRankName } from '../rules/factions';
 import type { Contrat, GameState } from '../state/gameState';
 import { addTextButton } from '../ui/button';
 import { DIGIT_KEYS, onKeys, withKeyHint } from '../ui/keys';
@@ -78,7 +79,7 @@ export class ContratsScene extends Phaser.Scene {
     const days = daysToRenewal(this.state);
     const done = this.state.contrats.faits;
     let y = LAYOUT.titleY + LAYOUT.closeHeight / 2 + 14;
-    const intro = `Les Gardiens y épinglent ce qu’on leur demande. Un contrat à la fois. Le tableau change ${days === 1 ? 'demain' : `dans ${days} jours`}. Contrats remplis : ${done}.`;
+    const intro = `Les Gardiens y épinglent ce qu’on leur demande. Un contrat à la fois. Le tableau change ${days === 1 ? 'demain' : `dans ${days} jours`}. Contrats remplis : ${done}. Ton rang : ${gardienRankName(gardienRank(this.state))}.`;
     y = this.paragraph(y, intro, 19, CSS.muted, true);
     if (this.message) y = this.paragraph(y + 8, this.message, 19, CSS.copper);
 

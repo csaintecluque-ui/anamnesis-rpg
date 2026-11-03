@@ -1,8 +1,8 @@
 import type { GameState } from '../state/gameState';
-import { characterStats } from './character';
 import { QUESTS, type QuestDef } from './dialogue';
 import { findRecit, type RecitDef } from './recits';
 import { contractStep } from './contrats';
+import { factionRank, rankName, talesCap } from './factions';
 import { FACTIONS, REPUTATION, findFaction, levelLabel, reputationLevel, reputationScore } from './reputation';
 import { findPlace, knownPlaces } from './world';
 
@@ -35,7 +35,7 @@ export function journalQuests(state: GameState): JournalQuest[] {
 export function journalRecits(state: GameState): { recits: RecitDef[]; cap: number } {
   const c = state.character;
   if (!c) return { recits: [], cap: 0 };
-  return { recits: c.recits.flatMap((id) => findRecit(id) ?? []), cap: characterStats(c).tales };
+  return { recits: c.recits.flatMap((id) => findRecit(id) ?? []), cap: talesCap(state) };
 }
 
 export interface JournalStanding {
@@ -45,6 +45,8 @@ export interface JournalStanding {
   kind: 'ville' | 'guilde';
   label: string;
   member: boolean;
+  /** The rank in the guild, for a member (src/rules/factions.ts). */
+  rank?: string;
 }
 
 /** Every known town, then the guilds the hero has dealt with (a score, or membership). */
@@ -59,6 +61,7 @@ export function journalReputation(state: GameState): JournalStanding[] {
       kind: 'guilde',
       label: levelLabel(f.id, reputationLevel(state, f.id)),
       member: !!state.flags[f.membre],
+      rank: rankName(f.id, factionRank(state, f.id)) ?? undefined,
     }),
   );
   return [...towns, ...guilds];

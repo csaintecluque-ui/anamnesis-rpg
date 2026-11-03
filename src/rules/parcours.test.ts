@@ -134,7 +134,12 @@ function gained(state: GameState, run: () => void): { xp: number; fers: number }
 const journalStep = (state: GameState, quest: string) => journalQuests(state).find((q) => q.id === quest);
 const QUEST_ITEMS = (itemData as { id: string; quest?: boolean }[]).filter((i) => i.quest).map((i) => i.id);
 const questItems = (state: GameState) => QUEST_ITEMS.filter((id) => ownedCount(state.character!, id) > 0).sort();
-const unfinished = (state: GameState) => QUESTS.filter((q) => state.quests[q.id] !== 'done').map((q) => q.id);
+/**
+ * Quests left undone. The adhesion quests of the factions of Ferros exclude one another (rivals, docs/gdd/factions.md)
+ * and ask for a descent into a sleeping line: they have their own tests (factions.test.ts).
+ */
+const ADHESIONS = ['lanterne-triage', 'fonds-echos', 'ce-qui-se-souvient'];
+const unfinished = (state: GameState) => QUESTS.filter((q) => !ADHESIONS.includes(q.id) && state.quests[q.id] !== 'done').map((q) => q.id);
 
 // --- Balayages : gains répétables, entrées de dialogue qui en cachent une autre -------------------------------------
 

@@ -41,6 +41,18 @@
     {
       "requires": [
         {
+          "quest": "fonds-echos",
+          "status": "active"
+        },
+        {
+          "echos": 5
+        }
+      ],
+      "node": "fonds"
+    },
+    {
+      "requires": [
+        {
           "flag": "cle-archives"
         }
       ],
@@ -92,6 +104,19 @@
             }
           ],
           "next": "fiche"
+        },
+        {
+          "text": "Les Archives prennent-elles des correspondants ?",
+          "requires": [
+            {
+              "quest": "fonds-echos",
+              "status": "none"
+            },
+            {
+              "notFlag": "membre-marches-cendres"
+            }
+          ],
+          "next": "correspondant"
         },
         {
           "text": "Je vois.",
@@ -187,6 +212,19 @@
     "apres-archives": {
       "text": "— Le Fonds Zéro est classé, enfin (voir : vous). Pour le reste, revenez quand vous aurez le Niveau Trois. Ou une très bonne raison.",
       "options": [
+        {
+          "text": "Les Archives prennent-elles des correspondants ?",
+          "requires": [
+            {
+              "quest": "fonds-echos",
+              "status": "none"
+            },
+            {
+              "notFlag": "membre-marches-cendres"
+            }
+          ],
+          "next": "correspondant"
+        },
         {
           "text": "Au revoir.",
           "next": "fin"
@@ -420,6 +458,44 @@
       "options": [
         {
           "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "correspondant": {
+      "text": "— Correspondant (voir : règlement, article dix-neuf) : quiconque fait classer ici cinq Échos recueillis de sa main. Vous tenez un Livre des Échos ? Remplissez-le. Le reste, je le classe.",
+      "options": [
+        {
+          "text": "Je reviendrai avec cinq Échos.",
+          "effects": [
+            {
+              "startQuest": "fonds-echos"
+            }
+          ],
+          "next": "fin"
+        },
+        {
+          "text": "Une autre fois.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "fonds": {
+      "text": "Noam lit ton Livre des Échos page à page et recopie chaque Écho sur une fiche grise. — Classé (voir : fonds des Échos, cinq entrées ; correspondant : vous). Les Archives de Ferros vous comptent parmi les leurs.",
+      "effects": [
+        {
+          "completeQuest": "fonds-echos"
+        },
+        {
+          "setFlag": "membre-archives-ferros"
+        },
+        {
+          "giveXp": 40
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Noam.",
           "next": "fin"
         }
       ]

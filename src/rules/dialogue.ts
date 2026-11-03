@@ -6,7 +6,9 @@ import { resolveCheck, rollD20, successChance, type Rng } from './checks';
 import { characterStats } from './character';
 import { ENCOUNTERS } from './combat';
 import { addItem, findItem, ownedCount, removeItem } from './inventory';
-import { easeEmprise, empriseMalus, ECHOS, relive } from './echos';
+import { collectedEchos, easeEmprise, empriseMalus, ECHOS, relive } from './echos';
+import { gardienNotices, gardienRank, gardienTalesBonus, rankNotices } from './factions';
+import recetteData from '../data/recettes.json';
 import { avisOf, changeAvis, findCompanion, inParty, joinParty, leaveParty, restParty } from './companions';
 import { castCost, castOutsideCombat, findPower, hasPower, POWERS, restoreResonance, teachSkillRank, wornCrystal, type PowerId } from './magic';
 import { RECITS, findRecit, knowsRecit, learnRecit } from './recits';
@@ -47,7 +49,9 @@ export type Condition =
    * The hero bears at least `marques` marks of the crystal (src/rules/marques.ts), and at most `max`: what the
    * town sees on the skin. A story condition.
    */
-  | { marques: number; max?: number };
+  | { marques: number; max?: number }
+  /** At least this many Échos gathered in the Livre des Échos (docs/gdd/echos.md): a test, shown greyed when unmet. */
+  | { echos: number };
 
 export type Effect =
   | { setFlag: string }
@@ -96,7 +100,9 @@ export type Effect =
   /** The contract under way is fulfilled (a hunt's beasts beaten, docs/gdd/voies.md): back to its board. */
   | { contrat: 'fait' }
   /** A Druide Vert takes back the marks of the crystal, and a rank of Résonance with them (src/rules/marques.ts). */
-  | { effacerMarques: true };
+  | { effacerMarques: true }
+  /** No state change: tells DialogueScene to open this workshop (docs/gdd/artisanat.md): « forge » or « herbes ». */
+  | { atelier: string };
 
 /** An action rolled with the d20 (docs/gdd/competences.md): the chance is shown, then `next` or `failNext` follows. */
 export interface Roll {
@@ -149,8 +155,8 @@ export const MAX_OPTIONS = 4;
 
 const isTest = (
   c: Condition,
-): c is { attribute: AttributeId; min: number } | { skill: SkillId; min: number } | { fers: number } | { reputation: string; min: number } =>
-  'attribute' in c || 'skill' in c || 'fers' in c || 'reputation' in c;
+): c is { attribute: AttributeId; min: number } | { skill: SkillId; min: number } | { fers: number } | { reputation: string; min: number } | { echos: number } =>
+  'attribute' in c || 'skill' in c || 'fers' in c || 'reputation' in c || 'echos' in c;
 
 export function conditionMet(state: GameState, c: Condition): boolean {
   if ('attribute' in c) return (state.character?.attributes[c.attribute] ?? 0) >= c.min;
@@ -168,6 +174,7 @@ export function conditionMet(state: GameState, c: Condition): boolean {
   if ('avis' in c) return avisOf(state, c.avis) >= (c.min ?? -Infinity) && avisOf(state, c.avis) <= (c.max ?? Infinity);
   if ('lieu' in c) return state.location === c.lieu;
   if ('marques' in c) return marquesOf(state.character) >= c.marques && marquesOf(state.character) <= (c.max ?? Infinity);
+  if ('echos' in c) return collectedEchos(state).length >= c.echos;
   return (state.quests[c.quest] ?? 'none') === c.status;
 }
 
@@ -177,6 +184,7 @@ export function testLabel(c: Condition): string | null {
   if ('skill' in c) return `${SKILLS.find((s) => s.id === c.skill)?.name ?? c.skill} ${c.min}`;
   if ('fers' in c) return `${c.fers} Fers`;
   if ('reputation' in c) return reputationTag(c.reputation, c.min);
+  if ('echos' in c) return `${c.echos} Échos recueillis`;
   return null;
 }
 
@@ -282,6 +290,7 @@ export function hasStoryEntry(dialogue: Dialogue, state: GameState): boolean {
 export function applyEffects(state: GameState, effects: Effect[] = []): string[] {
   const notices: string[] = [];
   const before = { flags: { ...state.flags }, quests: { ...state.quests } };
+  const gardienBefore = gardienRank(state);
   for (const effect of effects) {
     if ('setFlag' in effect) {
       state.flags[effect.setFlag] = true;
@@ -297,10 +306,10 @@ export function applyEffects(state: GameState, effects: Effect[] = []): string[]
       }
     } else if ('learnRecit' in effect) {
       if (state.character && !knowsRecit(state.character, effect.learnRecit)) {
-        learnRecit(state.character, effect.learnRecit);
+        learnRecit(state.character, effect.learnRecit, gardienTalesBonus(state));
         notices.push(`Récit retenu : ${findRecit(effect.learnRecit)?.titre ?? effect.learnRecit}`);
       }
-    } else if ('openTrade' in effect || 'veillee' in effect || 'startCombat' in effect || 'goTo' in effect) {
+    } else if ('openTrade' in effect || 'veillee' in effect || 'atelier' in effect || 'startCombat' in effect || 'goTo' in effect) {
       // Handled by DialogueScene (Troc, veillée, a fight on the map, another place); no state change here.
     } else if ('giveItem' in effect) {
       if (state.character) {
@@ -381,7 +390,15 @@ export function applyEffects(state: GameState, effects: Effect[] = []): string[]
     }
   }
   notices.push(...reputationNotices(before, state));
+  // Ranks won in the factions and in the order of the Gardiens (docs/gdd/factions.md).
+  notices.push(...rankNotices(before, state), ...gardienNotices(gardienBefore, state));
   return notices;
+}
+
+/** The workshop an option opens, if any (src/data/recettes.json): « forge », « herbes ». */
+export function opensAtelier(effects?: Effect[]): string | null {
+  const effect = effects?.find((e) => 'atelier' in e);
+  return effect && 'atelier' in effect ? effect.atelier : null;
 }
 
 export function opensTrade(effects?: Effect[]): boolean {
@@ -445,6 +462,7 @@ export function dialogueProblems(d: Dialogue): string[] {
       if ('apprendre' in e && !knownSkills.has(e.apprendre)) problems.push(`${where} : compétence inconnue ${e.apprendre}`);
       if ('revivre' in e && !ECHOS.some((x) => x.id === e.revivre)) problems.push(`${where} : Écho inconnu ${e.revivre}`);
       if ('veillee' in e && !(veilleeData as { id: string }[]).some((v) => v.id === e.veillee)) problems.push(`${where} : veillée inconnue ${e.veillee}`);
+      if ('atelier' in e && !(recetteData as { atelier: string }[]).some((r) => r.atelier === e.atelier)) problems.push(`${where} : atelier inconnu ${e.atelier}`);
       const companion = 'rejoindre' in e ? e.rejoindre : 'quitter' in e ? e.quitter : 'avis' in e ? e.avis : null;
       if (companion && !findCompanion(companion)) problems.push(`${where} : compagnon inconnu ${companion}`);
     }

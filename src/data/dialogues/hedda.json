@@ -113,6 +113,15 @@
           ]
         },
         {
+          "text": "Améliorer une arme ou une armure, avec ce que j’ai récolté.",
+          "effects": [
+            {
+              "atelier": "forge"
+            }
+          ],
+          "next": "fin"
+        },
+        {
           "text": "Merci, Hedda.",
           "next": "fin"
         }

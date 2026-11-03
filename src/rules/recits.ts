@@ -28,9 +28,10 @@ const isPrincipal = (id: string): boolean => findRecit(id)?.principal === true;
  * Learns a récit, forgetting the oldest one first once at the cap (Mémoire + 1, docs/gdd/memoire.md). The Récits of the
  * main story are never forgotten and do not count against the cap (decision of Cyril, 2026-11-02).
  */
-export function learnRecit(character: Character, id: string): void {
+export function learnRecit(character: Character, id: string, bonus = 0): void {
   if (character.recits.includes(id)) return;
-  const cap = characterStats(character).tales;
+  // `bonus`: the rank in the order of the Gardiens (src/rules/factions.ts), one Récit more by rank.
+  const cap = characterStats(character).tales + bonus;
   character.recits.push(id);
   const ordinary = () => character.recits.filter((r) => !isPrincipal(r));
   while (ordinary().length > cap) character.recits.splice(character.recits.indexOf(ordinary()[0]), 1);

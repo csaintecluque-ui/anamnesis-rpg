@@ -217,7 +217,7 @@ describe('the rumours open secrets', () => {
   it('la sève des aïeux, under Sévane’s counter', () => {
     const state = evening([]);
     state.character!.fers = 40;
-    expect(optionTexts(state, 'sevane', 'herbes')).toEqual(['Une belle règle.']);
+    expect(optionTexts(state, 'sevane', 'herbes')).toEqual(['Préparer des remèdes, avec ce que j’ai récolté.', 'Une belle règle.']);
     state.flags[rumeurFlag('seve-aieux')] = true;
     choose(state, 'sevane', 'herbes', 'Et la sève');
     choose(state, 'sevane', 'aieux', 'Payer trente Fers');
@@ -240,6 +240,6 @@ describe('the rumours open secrets', () => {
     choose(state, 'noam', 'tout', 'Et ma fiche');
     expect(state.flags['fiche-lue']).toBe(true);
     expect(state.character!.xp).toBe(20);
-    expect(visibleOptions(DIALOGUES.noam.nodes.tout, state).map((v) => v.option.text)).toEqual(['Je vois.']);
+    expect(visibleOptions(DIALOGUES.noam.nodes.tout, state).map((v) => v.option.text)).toEqual(['Les Archives prennent-elles des correspondants ?', 'Je vois.']);
   });
 });

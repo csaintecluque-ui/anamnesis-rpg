@@ -5,6 +5,18 @@
     {
       "requires": [
         {
+          "quest": "lanterne-triage",
+          "status": "active"
+        },
+        {
+          "item": "lanterne-chef-gare"
+        }
+      ],
+      "node": "lanterne"
+    },
+    {
+      "requires": [
+        {
           "flag": "rail-travailleurs"
         }
       ],
@@ -214,6 +226,19 @@
       "text": "— Les convois partent à l’heure, et ils arrivent. La Veilleuse a remisé la machine sans homme dans son dépôt. Elle dit qu’elle dort.",
       "options": [
         {
+          "text": "Je voudrais être des vôtres.",
+          "requires": [
+            {
+              "quest": "lanterne-triage",
+              "status": "none"
+            },
+            {
+              "notFlag": "membre-marches-cendres"
+            }
+          ],
+          "next": "serment"
+        },
+        {
           "text": "Au revoir.",
           "next": "fin"
         }
@@ -243,6 +268,50 @@
         {
           "text": "Entendu.",
           "next": "enquete"
+        }
+      ]
+    },
+    "serment": {
+      "text": "Varka te regarde longtemps. — Chez nous, on n’entre pas avec des mots. Le triage a perdu sa lanterne de chef de ligne le jour où le dernier est mort sous un convoi. Il en dort une au Dépôt Sept, au deuxième niveau. Rapporte-la : elle brillera au poste.",
+      "options": [
+        {
+          "text": "J’irai la chercher.",
+          "effects": [
+            {
+              "startQuest": "lanterne-triage"
+            },
+            {
+              "setFlag": "connait-depot-sept"
+            }
+          ],
+          "next": "fin"
+        },
+        {
+          "text": "Pas maintenant.",
+          "next": "fin"
+        }
+      ]
+    },
+    "lanterne": {
+      "text": "Varka prend la lanterne à deux mains, comme on porte un enfant, et l’accroche au poste d’aiguillage. — Le rail est une promesse collective. Te voilà Graisseur, comme tout le monde au début.",
+      "effects": [
+        {
+          "takeItem": "lanterne-chef-gare"
+        },
+        {
+          "completeQuest": "lanterne-triage"
+        },
+        {
+          "setFlag": "membre-travailleurs-rail"
+        },
+        {
+          "giveXp": 40
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Varka.",
+          "next": "fin"
         }
       ]
     }

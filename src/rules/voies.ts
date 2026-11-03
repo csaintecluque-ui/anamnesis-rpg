@@ -23,6 +23,8 @@ interface VoieData {
   tresor: string[];
   echos: { id: string; texte: string }[];
   pieges: { id: string; repere: string; touche: string }[];
+  /** Things a quest sends the hero to fetch on a given level (the adhesion quests, docs/gdd/factions.md). */
+  quetes: { quest: string; item: string; flag: string; site: string; depth: number }[];
 }
 
 const DATA = voieData as VoieData;
@@ -40,6 +42,7 @@ const chestFlag = (k: number): string => `voie-coffre-${k}-ouvert`;
 const trapFlag = (k: number): string => `voie-piege-${k}`;
 const ECHO_FLAG = 'voie-echo-ecoute';
 const CONTRACT_FLAG = 'voie-contrat-pris';
+const QUEST_FLAG = 'voie-quete-pris';
 
 /** Same generator as scripts/build-maps.mjs: a seed gives always the same draw. */
 export function seededRng(seed: number): Rng {
@@ -160,7 +163,7 @@ function groupCells(map: GameMap, spot: { col: number; row: number }, count: num
 }
 
 /** The level the hero stands in: its plan, and what this visit's draw put on it. */
-export function voieLevel(state: Pick<GameState, 'voie' | 'contrats' | 'character'>, map: GameMap): VoieLevel {
+export function voieLevel(state: Pick<GameState, 'voie' | 'contrats' | 'character' | 'quests'>, map: GameMap): VoieLevel {
   const voie = state.voie!;
   const rng = seededRng(voie.seed * 97 + voie.depth * 13 + 7);
   const tier = tierOf(voie);
@@ -206,8 +209,17 @@ export function voieLevel(state: Pick<GameState, 'voie' | 'contrats' | 'characte
     objects.push({ name: `voie-piege-${i + 1}`, type: 'piege', ...at.get(spot)!, properties: { piege: pick(rng, DATA.pieges).id, disparaitSi: trapFlag(i + 1) } }),
   );
 
+  // The thing an adhesion quest sends the hero to fetch, on its level, where the Écho would stand.
+  const owns = (item: string) => !!state.character?.inventory.some((s) => s.itemId === item);
+  const wanted = DATA.quetes.find((q) => state.quests[q.quest] === 'active' && q.site === site && q.depth === voie.depth && !owns(q.item));
+  if (wanted) {
+    objects.push({ name: 'voie-quete', type: 'objet', ...at.get('echo-1')!, properties: { tuile: 'caisses', lueur: 'oui', disparaitSi: QUEST_FLAG } });
+    dialogues['voie-quete'] = questDialogue(wanted.item, wanted.flag);
+  }
+
   // An Écho of the Ancien Monde, one level in two.
-  if (rng() < 0.5) {
+  const echoRoll = rng();
+  if (!wanted && echoRoll < 0.5) {
     const echo = pick(rng, DATA.echos);
     objects.push({ name: 'voie-echo', type: 'objet', ...at.get('echo-1')!, properties: { tuile: 'echo', echo: echo.id, disparaitSi: ECHO_FLAG } });
     dialogues['voie-echo'] = echoDialogue(echo.texte);
@@ -295,6 +307,25 @@ function contractDialogue(item: string): Dialogue {
         ],
       },
       pris: { text: 'Ce que les voies endormies gardent, elles le gardent bien. Pas cette fois.', options: [{ text: 'Partir.', next: 'fin' }] },
+    },
+  };
+}
+
+function questDialogue(item: string, flag: string): Dialogue {
+  const name = findItem(item)?.name ?? item;
+  return {
+    id: 'voie-quete',
+    speaker: 'voie-quete',
+    entries: [{ node: 'trouve' }],
+    nodes: {
+      trouve: {
+        text: `Sous les gravats, intacte malgré trois mille ans : ${name.charAt(0).toLowerCase()}${name.slice(1)}. Ce qu’on t’a envoyé chercher.`,
+        options: [
+          { text: 'La prendre.', effects: [{ giveItem: item }, { setFlag: QUEST_FLAG }, { setFlag: flag }], next: 'pris' },
+          { text: 'Partir.', next: 'fin' },
+        ],
+      },
+      pris: { text: 'Il faut maintenant remonter avec. Les voies endormies n’aiment pas qu’on leur prenne quelque chose.', options: [{ text: 'Partir.', next: 'fin' }] },
     },
   };
 }

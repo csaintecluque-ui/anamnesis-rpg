@@ -4,6 +4,7 @@ import type { Contrat, ContratKind, GameState } from '../state/gameState';
 import { applyEffects, type Effect } from './dialogue';
 import { findItem, ownedCount } from './inventory';
 import { deLieu, seededRng, VOIE_DEPTH } from './voies';
+import { gardienNotices, gardienRank } from './factions';
 import { distanceBetween, findPlace, knownPlaces, type WorldPlace } from './world';
 
 /**
@@ -188,9 +189,12 @@ export function turnIn(state: GameState, boardId: string): string[] {
   if (c.kind === 'pli') effects.push({ takeItem: PLI });
   if (c.kind === 'recherche') effects.push({ takeItem: c.item! });
   effects.push({ giveFers: c.fers }, { giveXp: c.xp });
+  const rank = gardienRank(state);
   state.contrats.actif = null;
+  const notices = applyEffects(state, effects);
   state.contrats.faits++;
-  return [`Contrat rempli : ${c.titre}`, ...applyEffects(state, effects)];
+  // A contract more may raise the hero in the order of the Gardiens (docs/gdd/factions.md).
+  return [`Contrat rempli : ${c.titre}`, ...notices, ...gardienNotices(rank, state)];
 }
 
 /** Gives the contract up: the letter goes back to the board. */

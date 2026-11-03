@@ -17,6 +17,8 @@ export interface ItemDef {
   armorBonus?: number;
   /** PV restored, then the item is consumed. */
   healHp?: number;
+  /** Points de Résonance given back to the worn crystal, then the item is consumed (docs/gdd/artisanat.md). */
+  resonance?: number;
   /** Quest item: carried for someone, it cannot be sold. */
   quest?: boolean;
 }

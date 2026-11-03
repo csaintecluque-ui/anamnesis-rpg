@@ -1715,6 +1715,7 @@ Commence par : « masques » _(si l’on porte « Plans du masque de Tam »)_ _(
 > — Tobias vend ce qui voyage bien. Moi, je forge ce qui pèse : un marteau des Forges-Basses, une arbalète réglée ici même, une cuirasse rivetée. Ça se paie, mais ça dure.
 
 - « Voyons ça. » → **fin** _(ouvre le Troc)_
+- « Améliorer une arme ou une armure, avec ce que j’ai récolté. » → **fin** _(ouvre l’atelier « forge »)_
 - « Merci, Hedda. » → **fin**
 
 ### lettre
@@ -2237,7 +2238,7 @@ _Effet : donne 1 × « Sauf-conduit du Triumvirat », termine la quête « L’a
 
 _Marchand d’ossements, Marches des Cendres_
 
-Commence par : « offre » _(si l’on porte « Clé de rouille bleue »)_, sinon « apres-vente » _(si repère « cle-vendue »)_, sinon « apres » _(si quête « La Clé de Rouille Bleue » terminée)_, sinon « retour » _(si repère « kaelis-parle »)_, sinon « accueil-garrik » _(si repère « fouille-elucidee »)_, sinon « accueil »
+Commence par : « plaque » _(si quête « Ce qui se souvient » en cours)_ _(si l’on porte « Plaque émaillée »)_, sinon « offre » _(si l’on porte « Clé de rouille bleue »)_, sinon « apres-vente » _(si repère « cle-vendue »)_, sinon « apres » _(si quête « La Clé de Rouille Bleue » terminée)_, sinon « retour » _(si repère « kaelis-parle »)_, sinon « accueil-garrik » _(si repère « fouille-elucidee »)_, sinon « accueil »
 
 ### accueil
 
@@ -2254,6 +2255,7 @@ Commence par : « offre » _(si l’on porte « Clé de rouille bleue »)_, sino
 
 - « Essayer autre chose. » → accueil
 - « Tout se vend, as-tu dit. Combien, la réponse ? » → prix
+- _(si quête « Ce qui se souvient » pas commencée)_ _(sans repère « membre-archives-ferros »)_ _(sans repère « membre-travailleurs-rail »)_ « Les Marches prennent-elles des fournisseurs ? » → fournisseur
 - « Je reviendrai. » → **fin**
 
 ### refus
@@ -2290,6 +2292,7 @@ _Effet : retient « kaelis-parle », +15 XP._
 > — Alors, cette Veilleuse ? Cent Fers, toujours. Je ne change jamais un prix.
 
 - « Qu’ouvre-t-elle, déjà ? » → ouvre
+- _(si quête « Ce qui se souvient » pas commencée)_ _(sans repère « membre-archives-ferros »)_ _(sans repère « membre-travailleurs-rail »)_ « Les Marches prennent-elles des fournisseurs ? » → fournisseur
 - « À plus tard. » → **fin**
 
 ### offre
@@ -2310,12 +2313,14 @@ _Effet : retient « kaelis-parle », +15 XP._
 
 > — Les acheteurs sont contents. Toi aussi, j’espère.
 
+- _(si quête « Ce qui se souvient » pas commencée)_ _(sans repère « membre-archives-ferros »)_ _(sans repère « membre-travailleurs-rail »)_ « Les Marches prennent-elles des fournisseurs ? » → fournisseur
 - « Au revoir. » → **fin**
 
 ### apres
 
 > — Tu as choisi de ne pas me la vendre, à ce qu’on dit. Dommage. Les Marches n’oublient pas… mais elles ne se fâchent pas longtemps.
 
+- _(si quête « Ce qui se souvient » pas commencée)_ _(sans repère « membre-archives-ferros »)_ _(sans repère « membre-travailleurs-rail »)_ « Les Marches prennent-elles des fournisseurs ? » → fournisseur
 - « Au revoir. » → **fin**
 
 ### prix
@@ -2342,6 +2347,21 @@ _Effet : retient « kaelis-parle »._
 - **[Mémoire 3]** « Pourquoi certaines reliques se souviennent-elles des morts ? » → bonne
 - _(si Récit « Les voix du Bosquet » connu)_ « Au Bosquet des Échos, le bois garde la main de qui a gravé. Et tes os ? » → bonne
 - « Et toi, de quoi te souviens-tu ? » → refus
+
+### fournisseur
+
+> Kaelis pose sa mâchoire de Golem. — Toute relique a un prix. Le tien : une plaque émaillée, un nom de gare de l’Ancien Monde. Il en dort une au tunnel de la Combe, au deuxième niveau. Rapporte-la, et les Marches te connaîtront.
+
+- « Marché conclu. » → **fin** _(lance la quête « Ce qui se souvient », retient « connait-tunnel-combe »)_
+- « Non. » → **fin**
+
+### plaque
+
+_Effet : reprend 1 × « Plaque émaillée », +40 Fers, termine la quête « Ce qui se souvient », retient « membre-marches-cendres », +40 XP._
+
+> Kaelis passe le doigt sur les lettres blanches, sans les lire. — Elle se souvient d’un quai, de dix mille départs, et d’un seul qui n’est pas arrivé. Quarante Fers, et ton nom chez les Marches.
+
+- « Merci, Kaelis. » → **fin**
 
 ## Kerta Orvel
 
@@ -2882,7 +2902,7 @@ Commence par : « apres » _(si quête « La berceuse oubliée » terminée)_, s
 
 _Archives Centrales de Ferros_
 
-Commence par : « releve » _(si l’on porte « Relevé d’un Écho »)_ _(si quête « Les Échos sous la Forge » en cours)_, sinon « cle » _(si l’on porte « Clé de rouille bleue »)_ _(si quête « La Clé de Rouille Bleue » en cours)_, sinon « registre » _(si quête « Le contrat de Boulon » en cours)_ _(sans repère « boulon-libre »)_, sinon « apres-archives » _(si repère « cle-archives »)_, sinon « accueil »
+Commence par : « releve » _(si l’on porte « Relevé d’un Écho »)_ _(si quête « Les Échos sous la Forge » en cours)_, sinon « cle » _(si l’on porte « Clé de rouille bleue »)_ _(si quête « La Clé de Rouille Bleue » en cours)_, sinon « registre » _(si quête « Le contrat de Boulon » en cours)_ _(sans repère « boulon-libre »)_, sinon « fonds » _(si quête « Le fonds des Échos » en cours)_ _(5 Échos recueillis ou plus)_, sinon « apres-archives » _(si repère « cle-archives »)_, sinon « accueil »
 
 ### accueil
 
@@ -2898,6 +2918,7 @@ Commence par : « releve » _(si l’on porte « Relevé d’un Écho »)_ _(si 
 > — Ferros ne brûle rien : Ferros classe (voir : devise officieuse). Ce qui n’est pas classé n’existe pas encore.
 
 - _(si repère « rumeur-fiche-archives »)_ _(sans repère « fiche-lue »)_ « Et ma fiche ? L’article onze vous oblige à la montrer. » → fiche
+- _(si quête « Le fonds des Échos » pas commencée)_ _(sans repère « membre-marches-cendres »)_ « Les Archives prennent-elles des correspondants ? » → correspondant
 - « Je vois. » → accueil
 
 ### train
@@ -2939,6 +2960,7 @@ _Effet : retient « fonds-zero-connu »._
 
 > — Le Fonds Zéro est classé, enfin (voir : vous). Pour le reste, revenez quand vous aurez le Niveau Trois. Ou une très bonne raison.
 
+- _(si quête « Le fonds des Échos » pas commencée)_ _(sans repère « membre-marches-cendres »)_ « Les Archives prennent-elles des correspondants ? » → correspondant
 - « Au revoir. » → **fin**
 
 ### verdantis
@@ -3032,6 +3054,21 @@ _Effet : retient « fiche-lue », +20 XP._
 > — Rayé (voir : article douze). Il range le carton. Pour la première fois, il a l’air de s’excuser.
 
 - « Au revoir. » → **fin**
+
+### correspondant
+
+> — Correspondant (voir : règlement, article dix-neuf) : quiconque fait classer ici cinq Échos recueillis de sa main. Vous tenez un Livre des Échos ? Remplissez-le. Le reste, je le classe.
+
+- « Je reviendrai avec cinq Échos. » → **fin** _(lance la quête « Le fonds des Échos »)_
+- « Une autre fois. » → accueil
+
+### fonds
+
+_Effet : termine la quête « Le fonds des Échos », retient « membre-archives-ferros », +40 XP._
+
+> Noam lit ton Livre des Échos page à page et recopie chaque Écho sur une fiche grise. — Classé (voir : fonds des Échos, cinq entrées ; correspondant : vous). Les Archives de Ferros vous comptent parmi les leurs.
+
+- « Merci, Noam. » → **fin**
 
 ## Le contrôleur Ostrik
 
@@ -3522,6 +3559,7 @@ Commence par : « accueil »
 > Des branches hautes, là où le soleil touche en premier. On ne cueille jamais tout : une feuille sur trois reste à l’arbre. C’est la règle de la Sève.
 
 - _(si repère « rumeur-seve-aieux »)_ « Et la sève qu’on tire au pied des arbres des morts ? » → aieux
+- « Préparer des remèdes, avec ce que j’ai récolté. » → **fin** _(ouvre l’atelier « herbes »)_
 - « Une belle règle. » → accueil
 
 ### cristaux
@@ -4129,7 +4167,7 @@ _Effet : retient « vanel-eclats-vus »._
 
 _Cheffe d’équipe, Travailleurs du Rail_
 
-Commence par : « apres-rail » _(si repère « rail-travailleurs »)_, sinon « apres-bureau » _(si repère « rail-bureau »)_, sinon « apres-marches » _(si repère « rail-marches »)_, sinon « verdict » _(si quête « Le Rail des Cendres » en cours)_ _(si repère « verite-rail »)_, sinon « enquete » _(si quête « Le Rail des Cendres » en cours)_, sinon « accueil »
+Commence par : « lanterne » _(si quête « La lanterne du triage » en cours)_ _(si l’on porte « Lanterne de chef de gare »)_, sinon « apres-rail » _(si repère « rail-travailleurs »)_, sinon « apres-bureau » _(si repère « rail-bureau »)_, sinon « apres-marches » _(si repère « rail-marches »)_, sinon « verdict » _(si quête « Le Rail des Cendres » en cours)_ _(si repère « verite-rail »)_, sinon « enquete » _(si quête « Le Rail des Cendres » en cours)_, sinon « accueil »
 
 ### accueil
 
@@ -4198,6 +4236,7 @@ _Effet : lance la quête « Le Rail des Cendres »._
 
 > — Les convois partent à l’heure, et ils arrivent. La Veilleuse a remisé la machine sans homme dans son dépôt. Elle dit qu’elle dort.
 
+- _(si quête « La lanterne du triage » pas commencée)_ _(sans repère « membre-marches-cendres »)_ « Je voudrais être des vôtres. » → serment
 - « Au revoir. » → **fin**
 
 ### apres-bureau
@@ -4217,6 +4256,21 @@ _Effet : lance la quête « Le Rail des Cendres »._
 > — Cache-toi près du levier de l’embranchement, à la nuit tombée. Mes gars resteront au dépôt : s’il y a du grabuge, crie fort. Et pas d’imprudence.
 
 - « Entendu. » → enquete
+
+### serment
+
+> Varka te regarde longtemps. — Chez nous, on n’entre pas avec des mots. Le triage a perdu sa lanterne de chef de ligne le jour où le dernier est mort sous un convoi. Il en dort une au Dépôt Sept, au deuxième niveau. Rapporte-la : elle brillera au poste.
+
+- « J’irai la chercher. » → **fin** _(lance la quête « La lanterne du triage », retient « connait-depot-sept »)_
+- « Pas maintenant. » → **fin**
+
+### lanterne
+
+_Effet : reprend 1 × « Lanterne de chef de gare », termine la quête « La lanterne du triage », retient « membre-travailleurs-rail », +40 XP._
+
+> Varka prend la lanterne à deux mains, comme on porte un enfant, et l’accroche au poste d’aiguillage. — Le rail est une promesse collective. Te voilà Graisseur, comme tout le monde au début.
+
+- « Merci, Varka. » → **fin**
 
 ## La Veilleuse du Rail
 

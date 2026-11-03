@@ -15,8 +15,8 @@
   },
   "butin": {
     "1": ["bandage", "corde", "carreaux", "fleches"],
-    "2": ["baume-mousse", "bandage", "lampe-cristal", "carreaux", "fleches"],
-    "3": ["fiole-seve", "baume-mousse", "lampe-cristal", "fleches"],
+    "2": ["baume-mousse", "bandage", "lampe-cristal", "carreaux", "fleches", "champignon-memoire-frais"],
+    "3": ["fiole-seve", "baume-mousse", "lampe-cristal", "fleches", "champignon-memoire-frais"],
     "4": ["fiole-seve", "fiole-seve", "carreaux"],
     "5": ["fiole-seve", "fiole-seve", "baume-mousse"]
   },

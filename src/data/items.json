@@ -378,6 +378,15 @@
     "quest": true
   },
   {
+    "id": "champignon-memoire-frais",
+    "name": "Champignon-Mémoire",
+    "description": "Pâle, large comme une main, il luit à peine. Mâché, il emporte un souvenir, et avec lui ce qui pesait.",
+    "weightKg": 0.2,
+    "price": 20,
+    "categorie": "remedes",
+    "usage": "Le manger : tu choisis un Récit à oublier ; en échange, l’emprise des Échos retombe à zéro."
+  },
+  {
     "id": "pli-scelle",
     "name": "Pli scellé des Gardiens",
     "description": "Une lettre pliée, cachetée de cire. On ne l’ouvre pas : on la porte.",

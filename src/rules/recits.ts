@@ -25,14 +25,33 @@ export function knowsRecit(character: Character | null | undefined, id: string):
 const isPrincipal = (id: string): boolean => findRecit(id)?.principal === true;
 
 /**
- * Learns a récit, forgetting the oldest one first once at the cap (Mémoire + 1, docs/gdd/memoire.md). The Récits of the
- * main story are never forgotten and do not count against the cap (decision of Cyril, 2026-11-02).
+ * Learns a récit. Past the cap (Mémoire + 1, docs/gdd/memoire.md), nothing is forgotten by itself any more: the hero
+ * chooses which story to let go (`recitOverflow`, OubliScene ; feuille de route, chantier 1). The Récits of the main
+ * story are never forgotten and do not count against the cap (decision of Cyril, 2026-11-02).
  */
-export function learnRecit(character: Character, id: string, bonus = 0): void {
+export function learnRecit(character: Character, id: string): void {
   if (character.recits.includes(id)) return;
-  // `bonus`: the rank in the order of the Gardiens (src/rules/factions.ts), one Récit more by rank.
-  const cap = characterStats(character).tales + bonus;
   character.recits.push(id);
-  const ordinary = () => character.recits.filter((r) => !isPrincipal(r));
-  while (ordinary().length > cap) character.recits.splice(character.recits.indexOf(ordinary()[0]), 1);
+}
+
+/** The Récits that count against the cap: all but those of the main story. */
+export function ordinaryRecits(character: Character): string[] {
+  return character.recits.filter((r) => !isPrincipal(r));
+}
+
+/** How many ordinary Récits the hero keeps at most; `bonus`: the rank in the order of the Gardiens, one more by rank. */
+export function recitCap(character: Character, bonus = 0): number {
+  return characterStats(character).tales + bonus;
+}
+
+/** How many Récits too many the hero carries: as many to choose and let go. */
+export function recitOverflow(character: Character, bonus = 0): number {
+  return Math.max(0, ordinaryRecits(character).length - recitCap(character, bonus));
+}
+
+/** Lets an ordinary Récit go; a Récit of the main story stays. */
+export function forgetRecit(character: Character, id: string): boolean {
+  if (isPrincipal(id) || !character.recits.includes(id)) return false;
+  character.recits.splice(character.recits.indexOf(id), 1);
+  return true;
 }

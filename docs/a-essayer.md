@@ -22,6 +22,18 @@ Lien du jeu : https://csaintecluque-ui.github.io/anamnesis-rpg/ (la version s'af
 - [ ] **Lisibilité** à 1920 × 1080 : un texte trop petit, ou trop grand ?
 - Remarques :
 
+## Chantier 1 — Une mémoire pour le héros (en cours, sur la branche)
+
+- [ ] **Oublier un Récit** : apprendre un Récit de trop ; l'écran « Ta mémoire est pleine » ; choisir, en voyant à quoi
+      sert chacun (veillées, réponses qu'il ouvre).
+- [ ] **Le Champignon-Mémoire** (20 Fers chez Sévane) : le manger depuis l'inventaire, choisir le Récit, voir l'emprise
+      retomber à zéro.
+- [ ] **Revivre un Écho** recueilli : le souvenir vif (+3 dans sa compétence jusqu'au sommeil), l'emprise qui monte de 2 ;
+      est-ce tentant ? est-ce que ça coûte assez ?
+- [ ] **Les Échos cachés** : avec Mémoire 4 ou 5, de nouveaux Échos (la ligne effacée aux Manufactures, le marché
+      d'avant, la première graveuse ; le train qui ne s'arrête pas, le vote sous la pluie).
+- Remarques :
+
 ## Déjà en ligne, pas encore essayé sur PC
 
 - [ ] **Chapitre 4, Sept-Portes** sans le mode surpuissant : l'arrivée par la Porte du sud, le Registre, l'une des trois

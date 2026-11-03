@@ -7,6 +7,8 @@ import { armorBonus, buy, buyPrice, carriedWeightKg, equip, merchantCatalogue, m
 import { castOutsideCombat, combatPower, resonanceMax, useResonanceSap, wornCrystal } from '../rules/magic';
 import { marquesBorne } from '../rules/marques';
 import { CATEGORIES, categoryOf, itemUses, itemValue, itemsOf, type ItemCategory } from '../rules/objets';
+import { forgettable } from '../rules/oubli';
+import { MUSHROOM } from './OubliScene';
 import type { GameState } from '../state/gameState';
 import { addTextButton } from '../ui/button';
 import { DIGIT_KEYS, onKeys, withKeyHint } from '../ui/keys';
@@ -120,6 +122,17 @@ export class TradeScene extends Phaser.Scene {
 
     this.layer = this.add.container(0, 0);
     this.redraw();
+    // Back from the Champignon-Mémoire (OubliScene): what was forgotten, and the bag as it is now.
+    const onResume = () => {
+      const said = this.registry.get('oubli-notices') as string[] | undefined;
+      if (said?.length) {
+        this.registry.remove('oubli-notices');
+        this.message = said.join(' · ');
+      }
+      this.redraw();
+    };
+    this.events.on(Phaser.Scenes.Events.RESUME, onResume);
+    this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => this.events.off(Phaser.Scenes.Events.RESUME, onResume));
   }
 
   /** « Marques du cristal : les veines, le manque — −1 aux jets sans cristal », between the title and the Fermer button. */
@@ -353,6 +366,17 @@ export class TradeScene extends Phaser.Scene {
         if (notices) this.message = notices.join(' · ');
         else this.message = c.hp >= characterStats(c).maxHp ? 'Tu n’as aucune blessure à soigner.' : 'Tu n’as plus assez de forces : dors d’abord.';
         this.redraw();
+      }]);
+    }
+    // The Champignon-Mémoire: forget a Récit on purpose, and the Échos' hold with it (docs/gdd/memoire.md).
+    if (item.id === MUSHROOM && owned > 0) {
+      actions.push(['Manger', () => {
+        if (!forgettable(this.state).length) {
+          this.message = 'Tu n’as aucun Récit à oublier.';
+          return this.redraw();
+        }
+        this.scene.pause();
+        this.scene.launch('Oubli', { mode: 'champignon', from: 'Trade' });
       }]);
     }
     if (item.healHp && owned > 0) actions.push(['Utiliser', () => this.act(() => useConsumable(this.character(), item.id, characterStats(this.character()).maxHp), `Tu utilises : ${item.name}.`)]);

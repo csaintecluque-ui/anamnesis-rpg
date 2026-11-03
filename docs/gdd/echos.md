@@ -11,9 +11,19 @@ Plan : `docs/gdd/jalon-3.md`. Code : `src/rules/echos.ts` ; données : `src/data
   (onglet « Échos » du journal : le texte, le lieu, le moment, le type), et parfois un **Récit**.
 - **Les quatre types du canon** [E2] : silencieux, complet, interactif, maudit. **Un Écho maudit piège les vivants** :
   pour l'écouter jusqu'au bout, un jet d'Érudition (12) ; raté, sa main ne lâche pas : −8 PV, puis on s'arrache.
-- **L'emprise** (canon : le danger, c'est « l'addiction à revivre le passé ») : un Écho recueilli peut être **revécu**
-  — un instant de paix (+5 PV), mais un quart de journée perdu, et l'emprise grandit. **À 3, −1 à tous les jets de
-  dé ; à 5, −2.** Une nuit de sommeil la desserre d'un cran. Liane, qui sait ce qu'oublier coûte, désapprouve.
+- **L'emprise** (canon : le danger, c'est « l'addiction à revivre le passé ») : un Écho recueilli peut être **revécu**.
+  Depuis le chantier 1 de la feuille de route (2026-11-03), c'est une vraie tentation : un **souvenir vif**, **+3 aux
+  jets de la compétence de l'Écho** jusqu'au prochain sommeil (un seul à la fois, le dernier revécu) ; mais un quart de
+  journée perdu, et **l'emprise monte de 2**, quand une nuit ne la desserre que d'un cran. **À 3, −1 à tous les jets de
+  dé ; à 5, −2.** Revivre une fois par jour, c'est gagner aujourd'hui et payer dans trois jours. Le Champignon-Mémoire
+  la remet à zéro (`docs/gdd/memoire.md`). Liane, qui sait ce qu'oublier coûte, désapprouve.
+- **Chaque Écho, sa compétence** (`don` dans `echos.json`, une par Écho, les treize compétences) : le jeudi ordinaire,
+  Investigation ; la lumière, Résonance ; le voyageur, Survie ; la graveuse, Artisanat ; les premiers Nacelliers,
+  Athlétisme ; le vote sous la pluie, Diplomatie ; le Puits Trois, Médecine ; le marché d'avant, Subterfuge ; la ligne
+  effacée, Érudition ; les soixante-douze heures, Discrétion ; la Cendrière, Mêlée ; le train qui ne s'arrête pas, Tir ;
+  les Trois Cents, Commandement.
+- **Des Échos qu'on ne voit qu'avec une bonne mémoire** (`memoire`) : Mémoire 4 pour la ligne effacée, le marché
+  d'avant et la première graveuse ; Mémoire 5 pour le train qui ne s'arrête pas et le vote sous la pluie.
 - **Le pourquoi des Surgeons reste un mystère** : les Échos montrent le jeudi ordinaire, la lumière, les soixante-douze
   heures (« Ils ont répondu »), jamais la cause.
 

@@ -6,8 +6,8 @@ import { resolveCheck, rollD20, successChance, type Rng } from './checks';
 import { characterStats } from './character';
 import { ENCOUNTERS } from './combat';
 import { addItem, findItem, ownedCount, removeItem } from './inventory';
-import { collectedEchos, easeEmprise, empriseMalus, ECHOS, relive } from './echos';
-import { gardienNotices, gardienRank, gardienTalesBonus, rankNotices } from './factions';
+import { collectedEchos, easeEmprise, empriseMalus, ECHOS, fadeSouvenirs, relive, souvenirBonus } from './echos';
+import { gardienNotices, gardienRank, rankNotices } from './factions';
 import recetteData from '../data/recettes.json';
 import { avisOf, changeAvis, findCompanion, inParty, joinParty, leaveParty, restParty } from './companions';
 import { castCost, castOutsideCombat, findPower, hasPower, POWERS, restoreResonance, teachSkillRank, wornCrystal, type PowerId } from './magic';
@@ -238,7 +238,7 @@ function castView(state: GameState, option: DialogueOption): { tag: string; miss
 export function rollBonus(state: GameState, skill: SkillId): number {
   const c = state.character;
   const attribute = SKILLS.find((s) => s.id === skill)!.attribute;
-  return attributeModifier(c?.attributes[attribute] ?? 3) + (c?.skills[skill] ?? 0) - empriseMalus(state) - manqueMalus(c);
+  return attributeModifier(c?.attributes[attribute] ?? 3) + (c?.skills[skill] ?? 0) + souvenirBonus(state, skill) - empriseMalus(state) - manqueMalus(c);
 }
 
 /** Probability (0–1) that the roll succeeds, shown on the option before choosing it. */
@@ -306,7 +306,7 @@ export function applyEffects(state: GameState, effects: Effect[] = []): string[]
       }
     } else if ('learnRecit' in effect) {
       if (state.character && !knowsRecit(state.character, effect.learnRecit)) {
-        learnRecit(state.character, effect.learnRecit, gardienTalesBonus(state));
+        learnRecit(state.character, effect.learnRecit);
         notices.push(`Récit retenu : ${findRecit(effect.learnRecit)?.titre ?? effect.learnRecit}`);
       }
     } else if ('openTrade' in effect || 'veillee' in effect || 'atelier' in effect || 'startCombat' in effect || 'goTo' in effect) {
@@ -337,6 +337,7 @@ export function applyEffects(state: GameState, effects: Effect[] = []): string[]
       }
       restParty(state);
       easeEmprise(state);
+      fadeSouvenirs(state.flags);
       notices.push(`Tes forces sont revenues. ${ITS_MOMENT[momentOf(state.time)]} Nous sommes ${formatDate(state.time)}.`);
     } else if ('lancer' in effect) {
       if (state.character) notices.push(...(castOutsideCombat(state.character, effect.lancer) ?? []));

@@ -9,7 +9,8 @@
     "type": "complet",
     "recit": "jeudi-ordinaire",
     "xp": 15,
-    "texte": "Un quai propre, d’un autre âge. Des gens pressés, un gobelet fumant à la main, regardent un panneau lumineux : « retard ». Un enfant traîne un cartable trop lourd. Une voix annonce un train. Il ne se passe rien. C’était un jeudi ordinaire."
+    "texte": "Un quai propre, d’un autre âge. Des gens pressés, un gobelet fumant à la main, regardent un panneau lumineux : « retard ». Un enfant traîne un cartable trop lourd. Une voix annonce un train. Il ne se passe rien. C’était un jeudi ordinaire.",
+    "don": "investigation"
   },
   {
     "id": "lumiere",
@@ -20,7 +21,8 @@
     "moment": "nuit",
     "type": "silencieux",
     "xp": 15,
-    "texte": "Sur le même quai, de nuit, tout le monde lève la tête en même temps. Au-dessus des voies, le ciel s’ouvre comme une paupière, sans un bruit. Personne ne crie encore. L’Écho s’arrête là, toujours au même instant, avant que quelqu’un comprenne."
+    "texte": "Sur le même quai, de nuit, tout le monde lève la tête en même temps. Au-dessus des voies, le ciel s’ouvre comme une paupière, sans un bruit. Personne ne crie encore. L’Écho s’arrête là, toujours au même instant, avant que quelqu’un comprenne.",
+    "don": "resonance"
   },
   {
     "id": "voyageur",
@@ -31,7 +33,8 @@
     "moment": "nuit",
     "type": "interactif",
     "xp": 10,
-    "texte": "Sur le chemin, une silhouette floue marche, s’arrête et te demande la route d’une ville dont tu n’as jamais entendu le nom. Elle repart dans la mauvaise direction. Demain, elle reposera la même question, au même endroit."
+    "texte": "Sur le chemin, une silhouette floue marche, s’arrête et te demande la route d’une ville dont tu n’as jamais entendu le nom. Elle repart dans la mauvaise direction. Demain, elle reposera la même question, au même endroit.",
+    "don": "survival"
   },
   {
     "id": "graveur",
@@ -42,7 +45,9 @@
     "moment": "jour",
     "type": "complet",
     "xp": 15,
-    "texte": "Une femme aux mains écorchées grave un nom dans l’écorce, lentement, la langue entre les dents. Autour d’elle, pas encore de bosquet : un seul arbre, le premier. Elle pose la main sur le nom, et le bois lui répond."
+    "texte": "Une femme aux mains écorchées grave un nom dans l’écorce, lentement, la langue entre les dents. Autour d’elle, pas encore de bosquet : un seul arbre, le premier. Elle pose la main sur le nom, et le bois lui répond.",
+    "don": "crafting",
+    "memoire": 4
   },
   {
     "id": "nacelle",
@@ -53,7 +58,8 @@
     "moment": "jour",
     "type": "complet",
     "xp": 10,
-    "texte": "Des hommes et des femmes hissent une plate-forme de planches à la force des bras, en chantant pour tenir le rythme. Une corde casse. Quelqu’un tombe sans un cri. Le chant reprend, plus bas : « Ce qui tombe d’ici, la forêt le garde. »"
+    "texte": "Des hommes et des femmes hissent une plate-forme de planches à la force des bras, en chantant pour tenir le rythme. Une corde casse. Quelqu’un tombe sans un cri. Le chant reprend, plus bas : « Ce qui tombe d’ici, la forêt le garde. »",
+    "don": "athletics"
   },
   {
     "id": "conseil",
@@ -64,7 +70,9 @@
     "moment": "nuit",
     "type": "complet",
     "xp": 10,
-    "texte": "Sous une pluie battante, des gens en manteaux de feuilles lèvent la main un à un. Une voix compte : « Rien ne touchera plus le sol. » Au fond, une vieille femme garde la main baissée ; elle regarde ses pieds, encore couverts de terre."
+    "texte": "Sous une pluie battante, des gens en manteaux de feuilles lèvent la main un à un. Une voix compte : « Rien ne touchera plus le sol. » Au fond, une vieille femme garde la main baissée ; elle regarde ses pieds, encore couverts de terre.",
+    "don": "diplomacy",
+    "memoire": 5
   },
   {
     "id": "puits",
@@ -76,7 +84,8 @@
     "type": "complet",
     "recit": "puits-trois",
     "xp": 15,
-    "texte": "Une file devant le puits. Les seaux de cuivre passent devant, ceux de fer derrière. Une petite fille au seau cabossé attend jusqu’au soir ; quand vient son tour, le gardien referme la grille. L’Écho la laisse là, seau vide, chaque jour."
+    "texte": "Une file devant le puits. Les seaux de cuivre passent devant, ceux de fer derrière. Une petite fille au seau cabossé attend jusqu’au soir ; quand vient son tour, le gardien referme la grille. L’Écho la laisse là, seau vide, chaque jour.",
+    "don": "medicine"
   },
   {
     "id": "marche-avant",
@@ -87,7 +96,9 @@
     "moment": "nuit",
     "type": "complet",
     "xp": 10,
-    "texte": "Sous les tentes du Marché des Cendres, un autre marché se superpose : des vitrines éclairées, une musique sans musiciens, des gens chargés de sacs pleins d’objets inutiles et beaux. Ils rient. Les marchands d’os ne les voient pas."
+    "texte": "Sous les tentes du Marché des Cendres, un autre marché se superpose : des vitrines éclairées, une musique sans musiciens, des gens chargés de sacs pleins d’objets inutiles et beaux. Ils rient. Les marchands d’os ne les voient pas.",
+    "don": "subterfuge",
+    "memoire": 4
   },
   {
     "id": "registre",
@@ -98,7 +109,9 @@
     "moment": "nuit",
     "type": "silencieux",
     "xp": 15,
-    "texte": "Un employé en manchettes, seul la nuit, gratte une ligne dans un registre épais, puis souffle sur la page. Il regarde par-dessus son épaule. Le nom effacé était long ; tu n’as pas eu le temps de le lire."
+    "texte": "Un employé en manchettes, seul la nuit, gratte une ligne dans un registre épais, puis souffle sur la page. Il regarde par-dessus son épaule. Le nom effacé était long ; tu n’as pas eu le temps de le lire.",
+    "don": "lore",
+    "memoire": 4
   },
   {
     "id": "soixante-douze",
@@ -110,7 +123,8 @@
     "type": "complet",
     "recit": "soixante-douze-heures",
     "xp": 15,
-    "texte": "Sirènes. Un chef de gare hurle des horaires que personne n’écoute. Les trains partent pleins, d’autres arrivent vides. Au loin, l’horizon s’allume, une fois, deux fois. Quelqu’un dit : « Ils ont répondu. » L’Écho recommence avant la troisième."
+    "texte": "Sirènes. Un chef de gare hurle des horaires que personne n’écoute. Les trains partent pleins, d’autres arrivent vides. Au loin, l’horizon s’allume, une fois, deux fois. Quelqu’un dit : « Ils ont répondu. » L’Écho recommence avant la troisième.",
+    "don": "stealth"
   },
   {
     "id": "cendriere",
@@ -120,7 +134,8 @@
     "row": 8,
     "type": "maudit",
     "xp": 20,
-    "texte": "Des mineurs chantent pour se donner du courage, de plus en plus fort, tandis que le plafond craque. L’Écho ne finit jamais la chanson. Une main froide prend la tienne et te tire vers eux, sous la voûte qui va tomber."
+    "texte": "Des mineurs chantent pour se donner du courage, de plus en plus fort, tandis que le plafond craque. L’Écho ne finit jamais la chanson. Une main froide prend la tienne et te tire vers eux, sous la voûte qui va tomber.",
+    "don": "melee"
   },
   {
     "id": "train-passant",
@@ -131,7 +146,9 @@
     "moment": "nuit",
     "type": "complet",
     "xp": 10,
-    "texte": "Un train de l’Ancien Monde passe sur la vieille ligne, sans s’arrêter, si près que tu sens le vent. Aux fenêtres, des visages tournés vers toi ; une main se lève, peut-être pour toi. Puis plus rien que les rails rouillés."
+    "texte": "Un train de l’Ancien Monde passe sur la vieille ligne, sans s’arrêter, si près que tu sens le vent. Aux fenêtres, des visages tournés vers toi ; une main se lève, peut-être pour toi. Puis plus rien que les rails rouillés.",
+    "don": "ranged",
+    "memoire": 5
   },
   {
     "id": "trois-cents",
@@ -142,6 +159,7 @@
     "moment": "jour",
     "type": "complet",
     "xp": 20,
-    "texte": "Le quatre-vingt-unième jour. Trois cents personnes passent la ligne de l’Anneau, en rangs serrés : des Éprouveurs au brassard blanc, des volontaires, un rameur de dix-sept ans. Derrière elles, la main peut de nouveau se lever. Elles le savent. Elles avancent."
+    "texte": "Le quatre-vingt-unième jour. Trois cents personnes passent la ligne de l’Anneau, en rangs serrés : des Éprouveurs au brassard blanc, des volontaires, un rameur de dix-sept ans. Derrière elles, la main peut de nouveau se lever. Elles le savent. Elles avancent.",
+    "don": "command"
   }
 ]

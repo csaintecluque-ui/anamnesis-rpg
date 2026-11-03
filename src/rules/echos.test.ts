@@ -6,7 +6,7 @@ import { createSave, parseSave, serializeSave } from '../save/codec';
 import { createNewGame, findLocation } from '../state/gameState';
 import { joinParty } from './companions';
 import { applyEffects, rollChance, startNode } from './dialogue';
-import { ECHOS, collectedEchos, echoFlag, echoObjects, echoShows, empriseMalus } from './echos';
+import { ECHOS, collectedEchos, echoFlag, echoObjects, echoShows, empriseMalus, souvenirBonus, SOUVENIR_BONUS } from './echos';
 import { FIGURANTS } from './figurants';
 import { findRecit, knowsRecit } from './recits';
 import { choose, testCharacter } from './questTestKit';
@@ -60,20 +60,37 @@ describe('the Échos', () => {
 });
 
 describe('the emprise', () => {
-  it('grows each time an Écho is relived: a moment of peace, time lost, and the dice weigh more', () => {
+  it('reliving gives a « souvenir vif » (+3 to its skill until sleep), but the emprise grows by 2 and weighs on every roll', () => {
     const state = game();
     joinParty(state, 'liane');
     state.flags[echoFlag('puits')] = true;
-    state.character!.hp = 10;
-    const roll = { skill: 'stealth' as const, difficulty: 10 };
-    const before = rollChance(state, roll);
-    for (let i = 0; i < 3; i++) choose(state, 'echo-puits', 'revivre', 'Revivre encore');
-    expect([state.emprise, state.character!.hp, state.time]).toEqual([3, 25, { day: 1, phase: 3 }]);
-    expect(empriseMalus(state)).toBe(1);
-    expect(rollChance(state, roll)).toBeCloseTo(before - 0.05);
+    state.flags[echoFlag('registre')] = true;
+    const stealth = { skill: 'stealth' as const, difficulty: 10 };
+    const medicine = { skill: 'medicine' as const, difficulty: 12 };
+    const [stealthBefore, medicineBefore] = [rollChance(state, stealth), rollChance(state, medicine)];
+    // Once: Médecine +3, no weight yet.
+    choose(state, 'echo-puits', 'revivre', 'Revivre encore');
+    expect([state.emprise, empriseMalus(state)]).toEqual([2, 0]);
+    expect(rollChance(state, medicine)).toBeCloseTo(medicineBefore + 0.15);
+    // Twice more: the emprise is at 6, every roll weighs 2 more; one souvenir at a time (the last one).
+    choose(state, 'echo-puits', 'revivre', 'Revivre encore');
+    choose(state, 'echo-registre', 'revivre', 'Revivre encore');
+    expect([state.emprise, empriseMalus(state), state.time]).toEqual([6, 2, { day: 1, phase: 3 }]);
+    expect([souvenirBonus(state, 'medicine'), souvenirBonus(state, 'lore')]).toEqual([0, SOUVENIR_BONUS]);
+    expect(rollChance(state, stealth)).toBeCloseTo(stealthBefore - 0.1);
     expect(state.avis.liane).toBe(-3);
-    state.emprise = 5;
-    expect(empriseMalus(state)).toBe(2);
+    // A night: the souvenir fades, the emprise eases by one only.
+    applyEffects(state, [{ dormir: 'matin' }]);
+    expect([state.emprise, souvenirBonus(state, 'lore')]).toEqual([5, 0]);
+  });
+
+  it('some Échos only show to a hero who remembers well (Mémoire 4 or 5)', () => {
+    expect(echoObjects('ironheart-manufactures', 3)).toEqual([]);
+    expect(echoObjects('ironheart-manufactures', 4).map((o) => o.name)).toEqual(['echo-registre']);
+    expect(echoObjects('canopee-ramures', 4)).toEqual([]);
+    expect(echoObjects('canopee-ramures', 5).map((o) => o.name)).toEqual(['echo-conseil']);
+    expect(ECHOS.filter((e) => e.memoire).length).toBe(5);
+    expect(new Set(ECHOS.map((e) => e.don)).size).toBe(ECHOS.length);
   });
 
   it('loosens with a night’s sleep', () => {

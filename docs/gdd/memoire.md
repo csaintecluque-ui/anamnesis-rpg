@@ -33,7 +33,15 @@ Les trois pistes reposent sur des lois et des phénomènes du monde, pas sur la 
 
 ## Précisions d'implémentation (La Gare Engloutie)
 
-- **Récits retenus** : `character.recits`, une liste d'identifiants. Le plafond (Mémoire + 1, dons compris) est déjà calculé par `talesRetained`. Au-delà du plafond, le Récit le plus ancien est oublié pour faire place au nouveau — une version simple du Champignon-Mémoire, en attendant qu'il existe vraiment. Code : `src/rules/recits.ts`.
+- **Récits retenus** : `character.recits`, une liste d'identifiants. Le plafond (Mémoire + 1, dons compris, plus un par
+  rang chez les Gardiens) est calculé par `recitCap`. Code : `src/rules/recits.ts`, `src/rules/oubli.ts`.
+- **L'oubli choisi** (feuille de route, chantier 1, 2026-11-03) : au-delà du plafond, plus rien ne s'oublie tout seul.
+  De retour sur la carte, l'écran « Ta mémoire est pleine » (`OubliScene`) fait choisir l'histoire à laisser partir ;
+  chaque Récit y dit à quoi il sert : ses thèmes, les veillées qu'il ravit, divise ou fâche, et les gens chez qui il
+  ouvre une réponse. On ne peut pas reculer. Les Récits de l'histoire principale ne s'oublient jamais.
+- **Le Champignon-Mémoire** [E8] devient un oubli volontaire : 20 Fers chez Sévane, parfois dans une voie endormie ;
+  dans l'inventaire, « Manger » : on choisit le Récit à oublier, et **l'emprise des Échos retombe à zéro**
+  (`docs/gdd/echos.md`). On peut remettre à plus tard. Le vieux champignon de Liane reste celui de sa quête.
 - **Raconter un Récit** en dialogue : une condition `{ recit: id }`, masquée tant qu'on ne le connaît pas (comme un repère d'histoire).
 - **Obtenir un Récit** : l'effet `{ learnRecit: id }`, posé sur un nœud d'Écho (voir `docs/univers/lieux/gare-engloutie.md`).
 - **Récits de l'histoire principale** (décision de Cyril, 2026-11-02) : marqués `principal` dans `src/data/recits.json`

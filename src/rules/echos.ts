@@ -1,9 +1,9 @@
 import echoData from '../data/echos.json';
 import type { MapObject } from '../engine/tiledMap';
 import type { GameState } from '../state/gameState';
-import { characterStats } from './character';
 import type { Dialogue, DialogueOption, Effect } from './dialogue';
 import { advance, isNight, momentOf, type Moment } from './time';
+import { SKILLS, type SkillId } from './attributes';
 
 /**
  * Le Livre des Échos (docs/gdd/echos.md, jalon 3, étape 3) : des Échos cachés dans les lieux, certains la nuit
@@ -26,6 +26,26 @@ export interface EchoDef {
   /** A Récit learned when the Écho is gathered. */
   recit?: string;
   xp: number;
+  /** The skill a reliving sharpens until the next sleep (« souvenir vif », feuille de route, chantier 1). */
+  don: SkillId;
+  /** Hidden to a hero whose Mémoire is lower (4 or 5). */
+  memoire?: number;
+}
+
+/** What a reliving gives to the Écho's skill, until the next sleep; and what it costs in emprise. */
+export const SOUVENIR_BONUS = 3;
+export const EMPRISE_PAR_REVIE = 2;
+const SOUVENIR_PREFIX = 'souvenir-';
+export const souvenirFlag = (skill: SkillId): string => `${SOUVENIR_PREFIX}${skill}`;
+
+/** The bonus of a « souvenir vif » to rolls of this skill, if one is fresh. */
+export function souvenirBonus(state: Pick<GameState, 'flags'>, skill: SkillId): number {
+  return state.flags[souvenirFlag(skill)] ? SOUVENIR_BONUS : 0;
+}
+
+/** A night's sleep: the « souvenir vif » fades. */
+export function fadeSouvenirs(flags: Record<string, true>): void {
+  for (const key of Object.keys(flags)) if (key.startsWith(SOUVENIR_PREFIX)) delete flags[key];
 }
 
 export const ECHOS = echoData as EchoDef[];
@@ -49,8 +69,9 @@ export function echoShows(moment: string | undefined, state: Pick<GameState, 'ti
 }
 
 /** The Échos of a place, as map objects drawn with the Écho's tile (MapScene adds them to the map). */
-export function echoObjects(location: string): MapObject[] {
-  return ECHOS.filter((e) => e.lieu === location).map((e) => ({
+export function echoObjects(location: string, memoire = Infinity): MapObject[] {
+  // Some Échos only show to a hero who remembers well (Mémoire 4 or 5, feuille de route, chantier 1).
+  return ECHOS.filter((e) => e.lieu === location && memoire >= (e.memoire ?? 0)).map((e) => ({
     name: echoDialogueId(e.id),
     type: 'objet',
     col: e.col,
@@ -68,22 +89,21 @@ export function empriseMalus(state: Pick<GameState, 'emprise'>): number {
   return state.emprise >= 5 ? 2 : state.emprise >= 3 ? 1 : 0;
 }
 
-/** Reliving a gathered Écho: a moment of peace (5 PV), a quarter of a day lost, and the emprise grows. */
+/**
+ * Reliving a gathered Écho (feuille de route, chantier 1): a « souvenir vif », +3 to the rolls of its skill until the
+ * next sleep (one at a time) ; but a quarter of a day lost, and the emprise grows by 2, when a night eases it by 1.
+ */
 export function relive(state: GameState, id: string): string[] {
   const echo = ECHOS.find((e) => e.id === id);
   if (!echo || !state.flags[echoFlag(id)]) return [];
-  state.emprise = Math.min(EMPRISE_MAX, state.emprise + 1);
+  state.emprise = Math.min(EMPRISE_MAX, state.emprise + EMPRISE_PAR_REVIE);
   advance(state.time, 1);
-  const notices: string[] = [];
-  const c = state.character;
-  if (c) {
-    const before = c.hp;
-    c.hp = Math.min(characterStats(c).maxHp, c.hp + 5);
-    if (c.hp > before) notices.push(`+${c.hp - before} PV`);
-  }
-  notices.push(`Emprise des Échos : ${state.emprise}`);
-  return notices;
+  fadeSouvenirs(state.flags);
+  state.flags[souvenirFlag(echo.don)] = true;
+  return [`Souvenir vif : +${SOUVENIR_BONUS} en ${skillLabel(echo.don)} jusqu’au prochain sommeil`, `Emprise des Échos : ${state.emprise}`];
 }
+
+const skillLabel = (skill: SkillId): string => SKILLS.find((s) => s.id === skill)?.name ?? skill;
 
 /** A night's sleep loosens the emprise a little. */
 export function easeEmprise(state: GameState): void {
@@ -130,7 +150,11 @@ export function echoDialogues(): Record<string, Dialogue> {
           text: `L’Écho « ${e.titre} » rejoue, pour toi seul·e. Il serait si facile de rester.`,
           night: e.moment === 'nuit',
           options: [
-            { text: 'Revivre encore.', effects: [{ revivre: e.id }, { avis: 'liane', delta: -1 }], next: 'revecu' },
+            {
+              text: `Revivre encore (+${SOUVENIR_BONUS} en ${skillLabel(e.don)} jusqu’au sommeil ; emprise +${EMPRISE_PAR_REVIE}).`,
+              effects: [{ revivre: e.id }, { avis: 'liane', delta: -1 }],
+              next: 'revecu',
+            },
             { text: 'Partir.', next: 'fin' },
           ],
         },

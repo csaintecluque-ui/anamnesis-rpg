@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { changeAttribute, changeSkill, createDraft, finalizeCharacter, toggleOriginBonus, type Character, type CharacterDraft } from './character';
-import { findRecit, knowsRecit, learnRecit, RECITS } from './recits';
+import { findRecit, forgetRecit, knowsRecit, learnRecit, recitOverflow, RECITS } from './recits';
 
 function heroWithMemory(memory: number): Character {
   let draft: CharacterDraft = { ...createDraft(), name: 'Aube', feat: 'tough' };
@@ -31,23 +31,26 @@ describe('recits', () => {
     expect(knowsRecit(c, 'savant-corvan')).toBe(true);
   });
 
-  it('forgets the oldest récit once past the cap (Mémoire + 1)', () => {
+  it('past the cap (Mémoire + 1), lets the hero choose which récit to forget (feuille de route, chantier 1)', () => {
     const c = heroWithMemory(3); // cap = talesRetained(3) = 4
     for (let i = 0; i < 4; i++) learnRecit(c, `recit-${i}`);
-    expect(c.recits).toEqual(['recit-0', 'recit-1', 'recit-2', 'recit-3']);
+    expect(recitOverflow(c)).toBe(0);
     learnRecit(c, 'recit-4');
-    expect(c.recits).toEqual(['recit-1', 'recit-2', 'recit-3', 'recit-4']);
+    // Nothing forgotten by itself: one too many, to choose.
+    expect(c.recits).toEqual(['recit-0', 'recit-1', 'recit-2', 'recit-3', 'recit-4']);
+    expect([recitOverflow(c), recitOverflow(c, 1)]).toEqual([1, 0]);
+    expect(forgetRecit(c, 'recit-2')).toBe(true);
+    expect([c.recits, recitOverflow(c)]).toEqual([['recit-0', 'recit-1', 'recit-3', 'recit-4'], 0]);
   });
 
   it('never forgets a Récit of the main story, and does not count it against the cap (decision of Cyril, 2026-11-02)', () => {
     const c = heroWithMemory(3); // cap = 4
     learnRecit(c, 'savant-corvan');
-    for (let i = 0; i < 6; i++) learnRecit(c, `recit-${i}`);
+    for (let i = 0; i < 4; i++) learnRecit(c, `recit-${i}`);
     learnRecit(c, 'triumvirat-vert');
+    expect(recitOverflow(c)).toBe(0);
+    expect(forgetRecit(c, 'savant-corvan')).toBe(false);
     expect(c.recits).toContain('savant-corvan');
-    expect(c.recits).toContain('triumvirat-vert');
-    expect(c.recits.filter((r) => !r.startsWith('recit-')).length).toBe(2);
-    expect(c.recits.filter((r) => r.startsWith('recit-'))).toEqual(['recit-2', 'recit-3', 'recit-4', 'recit-5']);
   });
 
   it('ships with the Récit du savant Corvan, used to resolve Le Dernier Train (docs/gdd/memoire.md, tranche-verticale.md)', () => {

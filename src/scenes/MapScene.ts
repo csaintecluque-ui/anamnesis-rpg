@@ -26,6 +26,7 @@ import { onKeys } from '../ui/keys';
 import { COLORS, CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
 import { HAS_MOUSE, MAP_ZOOM, RENDER_SCALE } from '../ui/viewport';
 import { mapObjectHint } from '../rules/hints';
+import { recitsToForget } from '../rules/oubli';
 import { findCompanion } from '../rules/companions';
 import type { CombatStartData } from './CombatScene';
 import { FigurantLayer } from './Figurants';
@@ -141,7 +142,7 @@ export class MapScene extends Phaser.Scene {
     const rencontre = location.encounter && state.encounter ? findRencontre(state.encounter.id) : undefined;
     if (rencontre) this.map.objects.push(...encounterObjects(rencontre, this.map.objects.filter((o) => o.type === 'apparition')));
     // The Échos of this place (docs/gdd/echos.md, src/data/echos.json).
-    this.map.objects.push(...echoObjects(location.id));
+    this.map.objects.push(...echoObjects(location.id, state.character.attributes.memory));
     this.builtAt = momentOf(state.time);
     this.registry.set('tileFrames', this.map.frames);
     this.originX = this.map.height * (TILE_WIDTH / 2);
@@ -232,6 +233,7 @@ export class MapScene extends Phaser.Scene {
       this.time.delayedCall(50, () => this.hud().toast('Ici, aucune main ne se lèvera sur personne. Tu le sens dans tes poings : ils ne serreront plus.'));
     }
     if (rencontre) this.announceEncounter(rencontre);
+    this.time.delayedCall(120, () => this.checkOubli());
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => this.scene.stop('Hud'));
     // A dialogue or a fight may have picked a herb or sent enemies away. Scene events outlive a restart: unhook.
     const onResume = () => {
@@ -243,6 +245,7 @@ export class MapScene extends Phaser.Scene {
       }
       this.refreshGone();
       this.showMoment();
+      this.checkOubli();
     };
     this.events.on(Phaser.Scenes.Events.RESUME, onResume);
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => this.events.off(Phaser.Scenes.Events.RESUME, onResume));
@@ -398,6 +401,21 @@ export class MapScene extends Phaser.Scene {
   private showMoment(): void {
     const veil = this.state.voie ? (carriesLamp(this.state) ? MOMENT_VEILS.midi : VOIE_DARK) : MOMENT_VEILS[momentOf(this.state.time)];
     this.momentVeil.setFillStyle(veil.color, veil.alpha);
+  }
+
+  /**
+   * L'oubli choisi (feuille de route, chantier 1) : a Récit too many (a dialogue, an Écho, a rank lost), and the hero must
+   * choose which one to let go before walking on. What was forgotten is said on coming back.
+   */
+  private checkOubli(): void {
+    const said = this.registry.get('oubli-notices') as string[] | undefined;
+    if (said?.length && this.scene.isActive('Hud')) {
+      this.registry.remove('oubli-notices');
+      this.hud().toast(said.join('   ·   '));
+    }
+    if (recitsToForget(this.state) <= 0 || this.scene.isActive('Oubli') || this.scene.isPaused()) return;
+    this.scene.pause();
+    this.scene.launch('Oubli', { mode: 'plein', from: 'Map' });
   }
 
   /** The lamp shows the traps two steps away; seen, they are marked, and the walk goes round them when it can. */

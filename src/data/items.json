@@ -11,7 +11,7 @@
   {
     "id": "dague-dentelee",
     "name": "Dague dentelée",
-    "description": "Une dague dont Hedda a denté le fil avec des dards de Guêpe-Rouille. Elle ne coupe pas : elle déchire.",
+    "description": "Une dague dont Ragna a denté le fil avec des dards de Guêpe-Rouille. Elle ne coupe pas : elle déchire.",
     "weightKg": 1,
     "price": 30,
     "slot": "main"
@@ -27,7 +27,7 @@
   {
     "id": "epee-trempee",
     "name": "Épée trempée",
-    "description": "L’épée longue reprise à la forge d’Hedda : le fil trempé dans l’huile, des crocs de Loup de Rouille fondus dans la garde.",
+    "description": "L’épée longue reprise à la forge de Ragna : le fil trempé dans l’huile, des crocs de Loup de Rouille fondus dans la garde.",
     "weightKg": 3,
     "price": 70,
     "slot": "main"
@@ -70,7 +70,7 @@
   {
     "id": "marteau-forge",
     "name": "Marteau de forge",
-    "description": "Le marteau des Forges-Basses : « le travail est prière », dit-on chez Hedda. Lourd, et il ne pardonne pas.",
+    "description": "Le marteau des Forges-Basses : « le travail est prière », dit-on chez Ragna. Lourd, et il ne pardonne pas.",
     "weightKg": 5,
     "price": 70,
     "slot": "main"

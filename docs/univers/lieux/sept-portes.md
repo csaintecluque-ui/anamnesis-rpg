@@ -42,7 +42,7 @@ Muet »), « Histoire et lore » [NOTION].
 | **Trois quartiers** | **la place des Sept Portes** (les sept arches, le marché des nations, l'Auberge des Sept Routes, l'échoppe du cartographe, la maison des jumeaux) ; **le parvis de la Grande Bibliothèque** (la Bibliothèque, la maison mère des Gardiens, la Salle du Conseil Œcuménique) ; **les Halles Basses** (le marché aux fruits dans le cratère, la statue d'Aldara, le monument des Trois Cents) | `villes.md` (validé) ; les Halles Basses remplacent le Belvédère, d'après le canon |
 | **Ambroise Encrelune** | **Conservateur** de la Grande Bibliothèque (le titre du canon), au guichet du Registre des Mains | `villes.md` (le nom, validé) ; NOTION (le Conservateur) |
 | **Hesper Mille-Récits** | doyenne des Gardiens de Mémoire, à la maison mère ; elle a écrit à Ilyane | `villes.md` (validé) |
-| **Josse Sept-Routes** | aubergiste des Sept Routes, a fait trois fois le tour du monde | `villes.md` (validé) |
+| **Olmo Sept-Routes** | aubergiste des Sept Routes, a fait trois fois le tour du monde | `villes.md` (validé) |
 | **Lior Rose-des-Vents** | cartographe (le plan disait « Pell », pris depuis par le garçon de la Gare, dans la passe sombre) | `villes.md` |
 | **Arlo et Mina** | jumeaux de neuf ans : ils viennent d'apprendre la doctrine du raccompagnement, à l'école | `villes.md` (validé) ; NOTION (la doctrine à neuf ans) |
 | **La greffière du Conseil** | tient la liste des raccompagnés | NOTION (le greffe) |

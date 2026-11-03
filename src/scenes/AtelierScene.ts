@@ -20,7 +20,7 @@ const LAYOUT = HAS_MOUSE
   : { panelTop: 100, titleY: 142, closeWidth: 220, closeHeight: 64, closeFont: 24, rowHeight: 98, button: { width: 190, height: 60, fontSize: 22 } };
 
 /**
- * Un atelier (docs/gdd/artisanat.md) : la forge d'Hedda ou les herbes de Sévane. Une ligne par recette : ce qu'elle
+ * Un atelier (docs/gdd/artisanat.md) : la forge de Ragna ou les herbes de Sévane. Une ligne par recette : ce qu'elle
  * donne, ce qu'il faut (ce qu'on a), et le bouton pour la faire. Opened from the keeper's dialogue; the map is paused.
  */
 export class AtelierScene extends Phaser.Scene {

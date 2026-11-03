@@ -50,7 +50,7 @@ Le premier problème est le héros : il n'a aucun enjeu personnel dans un jeu do
    - Vendre la clé à Kaelis ne change rien au chapitre 4.
 8. **Le lore a des incohérences.**
    - Le Récit de Corvan, un savant d'après la Chute, est donné par un Écho d'avant la Chute.
-   - Des noms se ressemblent trop : Kael, Kaelis et Kael Marchevent ; Hedda et Edda ; Joss et Josse.
+   - Des noms se ressemblent trop : Kael, Kaelis et Kael Marchevent ; Hedda et Edda ; Joss et Josse (depuis renommés Ragna et Olmo, décision de Cyril du 2026-11-03).
    - La monnaie « Nexus » apparaît encore 4 fois, alors que le Fer a été retenu.
 
 **Ce que change le PC.** Les répliques ont été limitées à environ 30 mots pour l'écran du téléphone. Sur PC, les scènes clés peuvent être plus longues, avec plus d'échanges et de vraies joutes verbales, comme dans *Fallout 2* ou *Planescape*. Les répliques ordinaires restent courtes.

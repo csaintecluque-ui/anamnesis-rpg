@@ -156,11 +156,11 @@
     "etapes": [
       {
         "si": "tam-ecoute",
-        "texte": "Tam ne veut pas monter : déclaré, son masque appartiendrait aux Manufactures. Il voudrait le donner à ceux d’en bas, et Hedda Cendrefer pourrait le coudre."
+        "texte": "Tam ne veut pas monter : déclaré, son masque appartiendrait aux Manufactures. Il voudrait le donner à ceux d’en bas, et Ragna Cendrefer pourrait le coudre."
       },
       {
         "si": "plans-confies",
-        "texte": "Tam m’a confié les plans du masque. Hedda Cendrefer, à l’atelier, pourrait les coudre sans rien déclarer."
+        "texte": "Tam m’a confié les plans du masque. Ragna Cendrefer, à l’atelier, pourrait les coudre sans rien déclarer."
       },
       {
         "si": "dask-parrain",
@@ -187,7 +187,7 @@
       },
       {
         "si": "echo-lettre",
-        "texte": "Confier la lettre pour Ilyane à Hedda, à l’atelier Cendrefer : elle l’enverra à Gardebois."
+        "texte": "Confier la lettre pour Ilyane à Ragna, à l’atelier Cendrefer : elle l’enverra à Gardebois."
       }
     ]
   },

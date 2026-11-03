@@ -19,8 +19,8 @@ Cyril sur PC et sa validation. Aucun nouveau système d'ici là.
 | 2 | Recalibrer tests et compétences : seuils rang + attribut, courbe par chapitre, Athlétisme et Médecine ×5, atelier par compétence, rang ≤ niveau + 2 ; Pell sauvable (validé) | **en ligne** (2026-11-03) ; partie de Cyril à faire |
 | 3 | Refaire le combat : PA et coût par arme, visée +1 PA et résistance, 2 capacités par ennemi, IA, force par chapitre, voie pacifiste ; simulation (écart ≤ 14 points) | **en ligne** (2026-11-03) ; partie de Cyril à faire |
 | 4 | Compagnons présents, ennemi incarné : apartés (21 Liane, 14 Boulon), Liane face à Ingrid, Liane et Boulon, quête de Liane rééquilibrée, la dame en gris dès le ch. 1, le ch. 4 selon la clé, Ilyane oublie ; inventions validées | **en ligne** (2026-11-03) ; partie de Cyril à faire |
-| 5 | Passe d'écriture : tics 21 % → 3 % (testés), Nexus → Fers, voix des marchands, héros dur, Ingrid qui résiste, Golem et foreuse, récompenses par issue, Corvan, Gardebois et Canopéa plus sombres **faits (branche)** ; renommages proposés | en cours |
-| 6 | Économie et progression | à faire |
+| 5 | Passe d'écriture : tics 21 % → 3 % (testés), Nexus → Fers, voix des marchands, héros dur, Ingrid qui résiste, Golem et foreuse, récompenses par issue, Corvan, Gardebois et Canopéa plus sombres ; Hedda → Ragna, Josse → Olmo | **en ligne** (2026-11-03) ; partie de Cyril à faire |
+| 6 | Économie et progression | en cours ; puis une analyse complète (demande de Cyril) |
 
 `docs/gdd/histoire-prenante.md` (proposition du même jour) nourrit les chantiers 1 et 4. Cyril n'a pas son PC tout de
 suite : on enchaîne les chantiers, et ce qu'il aura à essayer s'ajoute à `docs/a-essayer.md`.

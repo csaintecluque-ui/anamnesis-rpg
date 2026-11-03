@@ -60,7 +60,7 @@ Quête **proposée** :
   si le masque est **déclaré à son nom** (« le masque Dask »), ou l'on appose son sceau en douce (**Subterfuge 14**).
 - **Trois fins** :
   - **Tam monte** (50 XP ; Ironheart +5) : Kerta seule dans la file ; « c'est le prix » ;
-  - **le masque reste en bas** (les plans portés à **Hedda Cendrefer**, dont l'atelier est à la Compagnie des
+  - **le masque reste en bas** (les plans portés à **Ragna Cendrefer**, dont l'atelier est à la Compagnie des
     Lisières, pas à Ferros : 50 XP ; Ironheart +10) : la moitié des Forges porte un masque, Tam tousse toujours, Kerta
     ne pardonne pas ; impossible si le masque est déjà à Dask ;
   - **le sceau a bavé** (Subterfuge raté, sans qu'on le dise) : Tam est pris à l'inspection, « faux d'Innovateur » ;

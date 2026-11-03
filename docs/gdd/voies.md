@@ -37,7 +37,7 @@ d'Ironheart), chiffres validés ; l'escorte reste pour plus tard.
 
 ## La lampe (demande de Cyril, 2026-11-03 ; validé : « Oui mets en ligne »)
 
-La **lampe à cristal** (15 Fers chez Tobias, Hedda, la colporteuse et la marchande des nations ; parfois dans une
+La **lampe à cristal** (15 Fers chez Tobias, Ragna, la colporteuse et la marchande des nations ; parfois dans une
 caisse) sert enfin sous terre. Règles : `carriesLamp`, `lightTraps` dans `src/rules/voies.ts`.
 
 - **Sans lampe**, une voie endormie est sombre (le moment du jour n'y compte plus) ; en arrivant : « Il fait sombre :

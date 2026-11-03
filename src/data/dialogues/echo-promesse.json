@@ -219,7 +219,7 @@
       ]
     },
     "confier": {
-      "text": "Tu recopies l’Écho dans une lettre pour Ilyane. À Gardebois, elle est loin ; mais Hedda, à l’atelier Cendrefer, fait partir des caisses vers son frère Tobias, au Marché des Lisières.",
+      "text": "Tu recopies l’Écho dans une lettre pour Ilyane. À Gardebois, elle est loin ; mais Ragna, à l’atelier Cendrefer, fait partir des caisses vers son frère Tobias, au Marché des Lisières.",
       "options": [
         {
           "text": "Remonter.",
@@ -275,7 +275,7 @@
       ]
     },
     "ecrit-lettre": {
-      "text": "L’Écho rejoue sa promesse. Ta lettre pour Ilyane est dans ta besace : Hedda, à l’atelier Cendrefer, la fera partir.",
+      "text": "L’Écho rejoue sa promesse. Ta lettre pour Ilyane est dans ta besace : Ragna, à l’atelier Cendrefer, la fera partir.",
       "options": [
         {
           "text": "Partir.",

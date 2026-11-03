@@ -101,7 +101,7 @@ Cloudrest, Mistral (Zephyria) [E3, N1, N3]. Crystallis est écartée : son nom e
   Galerie du Parlement (séances publiques) · ★ Archives scellées du Bureau.
 - **Personnages** :
   - **Otto Rivetaine**, greffier du Bureau des Permis : il tamponne tout et ne lit rien ;
-  - **Hedda Cendrefer**, sœur aînée de Tobias, tient l'atelier familial ;
+  - **Ragna Cendrefer**, sœur aînée de Tobias, tient l'atelier familial ;
   - **Rika Martelroux**, chaudronnière, mère de Brann ; elle attend des nouvelles de son fils ;
   - **Tess Éclairfer**, Chasseuse d'Orage à la peau luminescente, télégraphiste ;
   - **Boulon**, un Ferrôme (automate conscient, lourd, au statut juridique ambigu [NOTION]) porteur de bagages à
@@ -162,7 +162,7 @@ Cloudrest, Mistral (Zephyria) [E3, N1, N3]. Crystallis est écartée : son nom e
 - **Personnages** :
   - **Ambroise Encrelune**, doyen des Chroniqueurs de la Grande Bibliothèque ;
   - **Hesper Mille-Récits**, doyenne des Gardiens de Mémoire, qui suit de loin le travail d'Ilyane ;
-  - **Josse Sept-Routes**, aubergiste, a fait trois fois le tour du monde ;
+  - **Olmo Sept-Routes**, aubergiste, a fait trois fois le tour du monde ;
   - **Pell Rose-des-Vents**, cartographe, admirateur d'Amira la Voyageuse des Vents [E4] ;
   - **Arlo et Mina**, jumeaux de 9 ans, nés d'une mère de Marisol et d'un père de Glacialis ;
   - deux ambassadeurs, aux sonorités de leur pays.

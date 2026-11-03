@@ -240,7 +240,7 @@ export class DialogueScene extends Phaser.Scene {
         this.scene.launch('Veillee', { publicId: veillee });
         return;
       }
-      // A workshop (docs/gdd/artisanat.md): Hedda's forge, Sévane's herbs.
+      // A workshop (docs/gdd/artisanat.md): Ragna's forge, Sévane's herbs.
       const atelier = opensAtelier(view.option.effects);
       if (atelier) {
         this.scene.stop();

@@ -69,7 +69,7 @@
       "text": "— Garde ton laissez-passer, ne traîne pas après le premier pont peint en rouge, et si tu entends sept coups de marteau, c’est l’heure des Litanies : on se tait. Ici, le travail est prière.",
       "options": [
         {
-          "text": "Merci, Hedda.",
+          "text": "Merci, Ragna.",
           "next": "accueil"
         }
       ]
@@ -122,13 +122,13 @@
           "next": "fin"
         },
         {
-          "text": "Merci, Hedda.",
+          "text": "Merci, Ragna.",
           "next": "fin"
         }
       ]
     },
     "lettre": {
-      "text": "— Pour Ilyane, à Gardebois ? Tobias la lui portera, avec la prochaine caisse. Hedda soupèse la lettre. — Elle est lourde, pour une seule feuille.",
+      "text": "— Pour Ilyane, à Gardebois ? Tobias la lui portera, avec la prochaine caisse. Ragna soupèse la lettre. — Elle est lourde, pour une seule feuille.",
       "effects": [
         {
           "takeItem": "lettre-echo"
@@ -145,13 +145,13 @@
       ],
       "options": [
         {
-          "text": "Merci, Hedda.",
+          "text": "Merci, Ragna.",
           "next": "fin"
         }
       ]
     },
     "masques": {
-      "text": "Hedda déplie le papier, le lit deux fois. — Du feutre, du charbon, trois lanières. Bête comme tout, et personne n’y avait pensé. Une Innovation non déclarée. Elle sourit de travers. — L’atelier est à la Compagnie des Lisières, pas à Ferros. J’en coudrai cent.",
+      "text": "Ragna déplie le papier, le lit deux fois. — Du feutre, du charbon, trois lanières. Bête comme tout, et personne n’y avait pensé. Une Innovation non déclarée. Elle sourit de travers. — L’atelier est à la Compagnie des Lisières, pas à Ferros. J’en coudrai cent.",
       "effects": [
         {
           "takeItem": "plans-masque"
@@ -168,7 +168,7 @@
       ],
       "options": [
         {
-          "text": "Merci, Hedda.",
+          "text": "Merci, Ragna.",
           "next": "fin"
         }
       ]

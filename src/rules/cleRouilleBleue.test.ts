@@ -176,7 +176,7 @@ describe('what Gardebois and Canopéa leave to Ironheart (AGENTS.md)', () => {
     choose(state, 'noam', 'verdantis', 'Le lire');
   });
 
-  it('the Cendrefer family pays its debt: Hedda gives Tobias’s discount, Rika thanks the one who found Brann’s box', () => {
+  it('the Cendrefer family pays its debt: Ragna gives Tobias’s discount, Rika thanks the one who found Brann’s box', () => {
     const state = atIronheart();
     expect(merchantDiscount(state.flags, 'hedda')).toBe(0);
     state.flags['remise-cendrefer'] = true;
@@ -187,7 +187,7 @@ describe('what Gardebois and Canopéa leave to Ironheart (AGENTS.md)', () => {
     expect(optionTexts(state, 'rika', 'accueil')).not.toContain('J’ai rapporté sa caisse d’outils, sur la route de l’est.');
   });
 
-  it('Hedda gives the member price of the Compagnie des Lisières', () => {
+  it('Ragna gives the member price of the Compagnie des Lisières', () => {
     const state = atIronheart();
     const before = reputationPrices(state, 'hedda');
     state.flags['membre-compagnie-lisieres'] = true;
@@ -195,7 +195,7 @@ describe('what Gardebois and Canopéa leave to Ironheart (AGENTS.md)', () => {
   });
 });
 
-describe('Hedda’s own wares (quality pass, 2026-11-02)', () => {
+describe('Ragna’s own wares (quality pass, 2026-11-02)', () => {
   it('sells Ferros gear worth the Fers earned at Ironheart', async () => {
     const npcs = (await import('../data/npcs.json')).default as { id: string; sells?: string[] }[];
     const items = (await import('../data/items.json')).default as { id: string; price: number }[];

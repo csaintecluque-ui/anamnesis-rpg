@@ -66,8 +66,8 @@ un jet sur quatre à 16 : au chapitre 5, les épreuves de sa spécialité seront
 |---|---|
 | **Athlétisme** (escalade, fuite) | la palissade de la Gare (1, jet 11) ; la lucarne du grenier des semences (2, jet 12) ; sauter sur le dernier wagon du convoi (3, jet 13) ; bousculer le guetteur du tunnel (3, jet 13) ; la verrière du Fonds Muet (4, jet 14) ; contourner les Geckos-Soudeurs (route, jet 11) ; forcer une caisse des voies endormies (raté : 3 PV) |
 | **Médecine** (soins, poisons) | les malades de Liane (1, seuil 2) ; **Pell**, tiré du feu de la chaudière (1, seuil 3 : il vit, sans ses mains ; sans Médecine, il meurt dans tes bras) ; les brûlures de Tiven (2, seuil 3) ; les poumons de Tam (3, seuil 3) ; de quoi dormir pour Joss (3, seuil 3) ; **+2 PV par point** à chaque remède (bandage, baume, fiole) ; les recettes des herbes de Sévane |
-| **Artisanat** | le sabotage de la foreuse, le grenier, l'aiguillage, l'arbre d'Anselme, le capot de la vieille locomotive (3, seuil 3) ; les cadenas des voies ; **les recettes de la forge d'Hedda** |
+| **Artisanat** | le sabotage de la foreuse, le grenier, l'aiguillage, l'arbre d'Anselme, le capot de la vieille locomotive (3, seuil 3) ; les cadenas des voies ; **les recettes de la forge de Ragna** |
 | **Commandement** | Elvan, Garrik, Ingrid, Joss, et le patrouilleur du funiculaire qui découvre la rouille de l'âme (3, seuil 4) |
 
 L'artisanat (`docs/gdd/artisanat.md`) demande la compétence : Artisanat 1 à 4 à la forge, Médecine 1 à 3 aux herbes.
-Sans elle, Hedda ou Sévane font le travail, pour le double des Fers (bouton « Faire forger », « Faire préparer »).
+Sans elle, Ragna ou Sévane font le travail, pour le double des Fers (bouton « Faire forger », « Faire préparer »).

@@ -5,7 +5,7 @@ de Canopéa »). Code : `src/rules/artisanat.ts`, écran `src/scenes/AtelierScen
 
 ## Le principe
 
-- **Deux ateliers** : **la forge de l'atelier Cendrefer**, à Ironheart (Hedda : « Qu'as-tu de plus que ton frère ? »,
+- **Deux ateliers** : **la forge de l'atelier Cendrefer**, à Ironheart (Ragna : « Qu'as-tu de plus que ton frère ? »,
   puis « Améliorer une arme ou une armure ») ; **les herbes du Comptoir de la Sève**, à Canopéa (Sévane : « D'où viennent
   tes herbes ? », puis « Préparer des remèdes »).
 - **Les matières viennent du butin des bêtes** (`docs/gdd/combat.md`) : jusqu'ici elles ne servaient qu'à être vendues.
@@ -19,7 +19,7 @@ de Canopéa »). Code : `src/rules/artisanat.ts`, écran `src/scenes/AtelierScen
 Chaque recette demande une compétence (`competence` dans `recettes.json`) : **Artisanat** à la forge, **Médecine** aux
 herbes, d'un seuil de 1 à 4 (rang + modificateur d'Intellect). Sans elle, l'hôte fait le travail : **le double des
 Fers**, et le bouton devient « Faire forger » ou « Faire préparer ». La ligne de la recette le dit : « Artisanat 3 : tu
-as 2, Hedda le fait ».
+as 2, Ragna le fait ».
 
 | Recette | Seuil |
 |---|---|

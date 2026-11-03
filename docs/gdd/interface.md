@@ -131,7 +131,7 @@ tactiles reçoivent donc des tailles à eux (détection « pas de souris », `HA
 
 ## Jalon 3, étape 7 (2026-11-03) : les factions et l'artisanat
 
-- **L'atelier** (`AtelierScene`, ouvert par Hedda ou Sévane) : une ligne par recette (ce qu'elle donne, ce qu'il faut
+- **L'atelier** (`AtelierScene`, ouvert par Ragna ou Sévane) : une ligne par recette (ce qu'elle donne, ce qu'il faut
   sur ce qu'on a, les Fers), « Forger » ou « Préparer » (touches 1 à 9), pages sur téléphone.
 - **Inventaire** : « Boire » pour la Sève de Résonance (avec un cristal au cou).
 - **Journal**, onglet Réputation : le rang chez les Gardiens de Mémoire en tête, avec ce qu'il faut pour le suivant ;

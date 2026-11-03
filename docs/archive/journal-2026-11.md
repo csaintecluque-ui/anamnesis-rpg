@@ -1048,3 +1048,6 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   Ingrid qui résiste sur trois échanges, le cœur du Golem dans la foreuse, une récompense par issue du « Dernier
   Train », le Récit du quai séparé de celui de Corvan, Gardebois et Canopéa plus sombres. Renommages proposés (Hedda,
   Josse). 679 tests.
+- Cyril : « 1 oui très bien pour les noms, 2 oui on va garder, 3 mets en ligne. Après le 6, on fera une analyse
+  complète » : Hedda devient Ragna Cendrefer, Josse devient Olmo Sept-Routes ; inventions du chantier 5 gardées ;
+  chantier 5 en ligne. Chantier 6 commencé.

@@ -100,8 +100,8 @@
     "aime": ["ancien-monde", "mysteres"],
     "deteste": ["chansons"],
     "reactions": {
-      "triomphe": "Dans six langues, on se tait. Le Glacien pose sa chope. Quand tu as fini, la pilote de Zephyria lance une pièce, puis toute la salle : des Fers, des Feuilles de Verdantis, un coquillage. Josse traduit tout en Fers.",
-      "succes": "On t’écoute, et l’on se dispute ensuite sur ce que tu as voulu dire : c’est bon signe, à Sept-Portes. Le bol de Josse fait le tour.",
+      "triomphe": "Dans six langues, on se tait. Le Glacien pose sa chope. Quand tu as fini, la pilote de Zephyria lance une pièce, puis toute la salle : des Fers, des Feuilles de Verdantis, un coquillage. Olmo traduit tout en Fers.",
+      "succes": "On t’écoute, et l’on se dispute ensuite sur ce que tu as voulu dire : c’est bon signe, à Sept-Portes. Le bol d’Olmo fait le tour.",
       "redite": "« On l’a achetée la semaine dernière, celle-là. » Quelques pièces, par politesse.",
       "echec": "Au milieu, quelqu’un demande d’où tu tiens ton histoire. Tu ne sais pas répondre. Ici, c’est la seule question qui compte.",
       "deteste": "Au premier couplet, la salle éclate de rire. « Une chanson ! » La nomade des Sables te tend une pièce, pour que tu t’arrêtes."
@@ -115,7 +115,7 @@
       {
         "id": "main-grise",
         "titre": "La main de la dame en gris",
-        "texte": "Josse, en essuyant une chope : « La dame en gris, au fond, signe Edda Varn. Une Edda Varn de Ferros est morte il y a trente ans : sa main est close au Registre, tout le monde peut le lire. Personne ne lit. »"
+        "texte": "Olmo, en essuyant une chope : « La dame en gris, au fond, signe Edda Varn. Une Edda Varn de Ferros est morte il y a trente ans : sa main est close au Registre, tout le monde peut le lire. Personne ne lit. »"
       }
     ]
   }

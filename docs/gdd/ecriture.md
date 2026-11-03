@@ -25,7 +25,7 @@ Tout se paie en **Fers** ; le Nexus n'est plus que le nom du jour où les Surgeo
 
 ## Les voix
 
-- **Les marchands** ont chacun leur voix : Tobias, le bonimenteur (« le prix juste, c'est le mien ») ; Hedda, sèche
+- **Les marchands** ont chacun leur voix : Tobias, le bonimenteur (« le prix juste, c'est le mien ») ; Ragna, sèche
   et fière de ce qui pèse ; Sévane, qui chuchote (« ce qui guérit trop, je le garde sous le comptoir ») ; la
   colporteuse et sa ficelle rouge contre les loups ; la tailleuse, sous terre, sans listes ; la marchande des nations,
   qui change tout « et toujours à mon avantage » ; Kaelis, les os qui « ne marchandent jamais ». Plus de « Tout se

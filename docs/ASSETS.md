@@ -353,7 +353,7 @@ on compte 10 % de marge pour les reprises. Solde : 11,5 crédits (formule Plus).
 
 | Poste | Nombre | Crédits |
 |---|---|---|
-| PNJ nommés en pied (Véline, Malo, Hedda, Kaelis, Vanel…) | 34 | 17 |
+| PNJ nommés en pied (Véline, Malo, Ragna, Kaelis, Vanel…) | 34 | 17 |
 | Leurs portraits de dialogue | 34 | 51 |
 | Passants (tuiles) | 19 | 9,5 |
 | Planches de marche des passants qui marchent | 8 | 20 |

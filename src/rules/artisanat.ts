@@ -7,7 +7,7 @@ import { applyEffects, skillScore, type Effect } from './dialogue';
 import { equip, findItem, ownedCount } from './inventory';
 
 /**
- * L'artisanat (docs/gdd/artisanat.md, jalon 3, étape 7) : la forge de l'atelier Cendrefer à Ironheart (Hedda) améliore
+ * L'artisanat (docs/gdd/artisanat.md, jalon 3, étape 7) : la forge de l'atelier Cendrefer à Ironheart (Ragna) améliore
  * les armes et les armures ; les herbes du Comptoir de la Sève à Canopéa (Sévane) font des remèdes. Les matières viennent
  * du butin des bêtes ; chaque recette coûte aussi quelques Fers.
  */
@@ -31,7 +31,7 @@ export const RECETTES = recetteData as Recette[];
 
 /** The two workshops, who keeps them, and the button: to make it oneself, or to have the keeper make it. */
 export const ATELIERS: Record<string, { nom: string; hote: string; hoteNom: string; verbe: string; faireFaire: string }> = {
-  forge: { nom: 'La forge de l’atelier Cendrefer', hote: 'hedda', hoteNom: 'Hedda', verbe: 'Forger', faireFaire: 'Faire forger' },
+  forge: { nom: 'La forge de l’atelier Cendrefer', hote: 'hedda', hoteNom: 'Ragna', verbe: 'Forger', faireFaire: 'Faire forger' },
   herbes: { nom: 'Les herbes du Comptoir de la Sève', hote: 'sevane', hoteNom: 'Sévane', verbe: 'Préparer', faireFaire: 'Faire préparer' },
 };
 

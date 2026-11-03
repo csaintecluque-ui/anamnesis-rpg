@@ -29,7 +29,7 @@ const POWERS = powerData as { id: string; name: string }[];
 
 /** Where each workshop is, in a sentence (src/rules/artisanat.ts). */
 const ATELIER_WHERE: Record<string, string> = {
-  forge: 'la forge d’Hedda, à Ironheart',
+  forge: 'la forge de Ragna, à Ironheart',
   herbes: 'les herbes de Sévane, à Canopéa',
 };
 

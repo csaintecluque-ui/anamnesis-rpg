@@ -7,7 +7,7 @@ import { armorBonus, equip, findItem, ownedCount } from './inventory';
 import { resonanceMax, useResonanceSap } from './magic';
 import { testCharacter } from './questTestKit';
 
-/** L'artisanat : la forge d'Hedda, les herbes de Sévane (docs/gdd/artisanat.md, jalon 3, étape 7). */
+/** L'artisanat : la forge de Ragna, les herbes de Sévane (docs/gdd/artisanat.md, jalon 3, étape 7). */
 const game = (): GameState => createNewGame(testCharacter());
 const give = (state: GameState, item: string, count = 1) => applyEffects(state, [{ giveItem: item, count }]);
 const recette = (id: string) => RECETTES.find((r) => r.id === id)!;

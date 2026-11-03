@@ -27,7 +27,7 @@ mécanisme : `docs/gdd/reputation.md`.
   dans `src/data/reputation.json`, à côté des villes, avec les mêmes paliers ; condition `reputation` et messages
   « Réputation auprès de la Compagnie des Lisières : … » (« on te fait confiance » au lieu de « la ville »).
 - Adhésion : `membre-compagnie-lisieres` (« La caravane de midi ») ; `nacelliers-amis` (« Les lettres de Malo »).
-- Prix de membre : un marchand porte `faction` (Tobias et Hedda : Compagnie des Lisières) ; un membre y paie −15 %, ou le prix
+- Prix de membre : un marchand porte `faction` (Tobias et Ragna : Compagnie des Lisières) ; un membre y paie −15 %, ou le prix
   de la ville s'il est meilleur, sans cumul.
 - **Construit depuis** : l'onglet Réputation du journal ; la caravane (« Voyager autrement ») ; la réputation des trois
   factions de Ferros (Ironheart).
@@ -46,7 +46,7 @@ Toujours rien de plus à sauvegarder : les rangs se déduisent des repères, des
   pour de bon (repère `sommet-<faction>`) et vient avec un **cadeau**, une fois.
 - **Rivales** : les Marches des Cendres d'un côté, les Archives de Ferros et les Travailleurs du Rail de l'autre. On ne
   peut pas adhérer chez une rivale de ses guildes (l'offre ne vient pas).
-- **Prix** chez les marchands de la guilde (Tobias et Hedda pour la Compagnie, la tailleuse pour les Marches) : −15 %
+- **Prix** chez les marchands de la guilde (Tobias et Ragna pour la Compagnie, la tailleuse pour les Marches) : −15 %
   membre, −20 % au deuxième rang, −25 % au sommet (le meilleur des deux, ville ou guilde, sans cumul).
 - Un message à chaque rang gagné ; le rang s'affiche au journal (onglet Réputation : « on t'apprécie · Aiguilleur »).
 

@@ -48,7 +48,7 @@ Après son premier essai : « il faudrait des onglets, et des descriptions perme
 certains objets un bout de lore ; là, tous les objets se suivent ». Règles : `src/rules/objets.ts` ; écran : `TradeScene`.
 
 - **Cinq onglets**, avec leur compte (un onglet vide est grisé) : **Équipement** (armes, armures, cristaux, même prêtés),
-  **Remèdes** (soins, sèves), **Matières** (ce qui entre dans une recette de la forge d'Hedda ou des herbes de Sévane,
+  **Remèdes** (soins, sèves), **Matières** (ce qui entre dans une recette de la forge de Ragna ou des herbes de Sévane,
   et les éclats de cristal), **Quête** (ce qu'on porte pour quelqu'un), **Divers** (le reste : corde, lampe, carreaux,
   graines). Le rangement se déduit des règles ; `categorie` dans `items.json` le force si besoin.
 - **La liste à gauche** (◆ : porté), **la fiche à droite** : le nom ; l'onglet, combien on en a, où il est porté ; **à quoi
@@ -62,10 +62,10 @@ certains objets un bout de lore ; là, tous les objets se suivent ». Règles : 
   (`docs/gdd/combat.md`, « Munitions ») ; la lampe éclaire les voies endormies (`docs/gdd/voies.md`, « La lampe ») ;
   `usage` dans `items.json` dit ce que les règles ne peuvent pas déduire. La corde ne sert encore à rien.
 
-## Les pièces de Hedda (Ironheart, accord de Cyril le 2026-11-02)
+## Les pièces de Ragna (Ironheart, accord de Cyril le 2026-11-02)
 
 À Ironheart, on gagne beaucoup (Kaelis paie 100 Fers, Sorn 80, Ostrik 60) et l'étal de Tobias ne suffisait plus.
-Hedda Cendrefer vend aussi ses propres pièces, entre 70 et 120 Fers :
+Ragna Cendrefer vend aussi ses propres pièces, entre 70 et 120 Fers :
 
 | Objet | Prix | Effet |
 |---|---|---|

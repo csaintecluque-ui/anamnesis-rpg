@@ -105,7 +105,7 @@
       "text": "— Si je reste, je donne les plans à qui saura les coudre, et toute la file respire mieux. Moi, peut-être pas assez longtemps. Mon père disait : « Un rivet tient parce qu’il est tout en bas. » Je ne veux pas devenir un de ceux qui regardent d’en haut.",
       "options": [
         {
-          "text": "Hedda Cendrefer pourrait les coudre.",
+          "text": "Ragna Cendrefer pourrait les coudre.",
           "next": "hedda",
           "requires": [
             {
@@ -164,7 +164,7 @@
       "text": "Il sort de sa veste un papier plié en quatre, gris de suie. — Les plans. Si on te les trouve, dis que tu les as volés. Ça vaudra mieux pour ma mère.",
       "options": [
         {
-          "text": "Je les porte à Hedda.",
+          "text": "Je les porte à Ragna.",
           "next": "fin"
         }
       ]

@@ -182,7 +182,7 @@ describe('the adhesion quests of Ferros', () => {
     expect(optionTexts(rail, 'noam', 'tout')).toEqual(['Je vois.']);
   });
 
-  it('the workshops open from Hedda’s forge and Sévane’s herbs', () => {
+  it('the workshops open from Ragna’s forge and Sévane’s herbs', () => {
     const forge = DIALOGUES.hedda.nodes.forge.options.find((o) => opensAtelier(o.effects));
     const herbes = DIALOGUES.sevane.nodes.herbes.options.find((o) => opensAtelier(o.effects));
     expect([opensAtelier(forge?.effects), opensAtelier(herbes?.effects)]).toEqual(['forge', 'herbes']);

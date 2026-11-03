@@ -160,7 +160,7 @@ Lieux et personnages : `docs/univers/lieux/ironheart.md`. Les détails nouveaux 
     vers Sept-Portes et le Registre des Mains) ;
   - **la rendre à la Veilleuse** : « sa place est sur la ligne » ; on peut d'abord l'étudier avec elle (Érudition 3).
 - **Ce que le héros a fait avant compte** : Kaelis sait qui a renvoyé Garrik du sol sacré ; Noam a classé le
-  télégramme du conseil donné au Triumvirat (frontière, commerce ou accord) ; Hedda accorde la remise promise par Brann
+  télégramme du conseil donné au Triumvirat (frontière, commerce ou accord) ; Ragna accorde la remise promise par Brann
   et le prix de membre de la Compagnie des Lisières ; Rika remercie qui a rapporté la caisse de son fils.
 - **Réputation** : Ironheart +10 à la fin ; Travailleurs du Rail, Marches des Cendres et Archives de Ferros selon la
   fin (`src/data/reputation.json`).
@@ -225,7 +225,7 @@ Décisions de Cyril (2026-11-02) : **option A**, des Échos familiaux anonymes e
   qui promet : « **On se retrouvera.** » (Récit « On se retrouvera »).
 - **Cinq choix** (canon) : **ignorer** (10 XP) ; **suivre** (Mémoire 3 : une niche secrète, un petit oiseau de fer plié
   à la main, 50 XP) ; **archiver** (un relevé pour Noam : « Période : impossible. Je le classe quand même », 40 XP,
-  Archives +10) ; **confier à un proche** (une lettre pour Ilyane, que Hedda envoie par son frère Tobias ; 40 XP ; à
+  Archives +10) ; **confier à un proche** (une lettre pour Ilyane, que Ragna envoie par son frère Tobias ; 40 XP ; à
   Gardebois, Ilyane : « je reconnais des gens qui s'aiment, même à travers les siècles ») ; **détruire** (Hesk prévient ;
   l'Écho frappé se multiplie : combat contre deux Échos furieux, 20 XP ; ils « reviendront » ; la trappe se scelle, et
   l'on entend plus de voix sous les pavés).
@@ -282,7 +282,7 @@ Détails, ancrages du canon et chiffres : `docs/gdd/passe-sombre.md`.
   Innovation, un inspecteur de zone, un parrain de Classe Technique, le registre, le convoi [NOTION, roman]).
 - **Le technicien Dask** parraine : 60 Fers, Diplomatie 3, le masque à son nom, ou son sceau apposé en douce
   (Subterfuge 14).
-- **Fins** : Tam monte (Kerta seule dans la file) ; le masque reste en bas, cousu par Hedda Cendrefer (la moitié des
+- **Fins** : Tam monte (Kerta seule dans la file) ; le masque reste en bas, cousu par Ragna Cendrefer (la moitié des
   Forges le porte, Tam tousse toujours) ; le sceau a bavé : Tam est pris à l'inspection, et personne ne dit où.
 
 ### Ce qui change dans les quêtes déjà construites — **validé le 2026-11-02**

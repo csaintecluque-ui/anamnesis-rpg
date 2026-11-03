@@ -30,10 +30,9 @@ Lien du jeu : https://csaintecluque-ui.github.io/anamnesis-rpg/ (la version s'af
 - [x] **Les inventions du chantier 4** Cyril : on garde. (`docs/univers/propositions.md`) : la mort de Saule (le premier sondage), la dame
       en gris dès le chapitre 1, Boulon qui l'a portée, les étapes de l'oubli d'Ilyane, les trois lettres de Hesper.
       On garde ?
-- [ ] **Les noms qui se ressemblent** (chantier 5) : Kael, Kaelis et Kael Marchevent viennent tous de ton Notion, je
-      n'y touche pas (à toi de voir là-bas). Pour le jeu, je propose **Hedda → Ragna Cendrefer** et **Josse → Olmo
-      Sept-Routes**. D'accord ?
-- [ ] **Les inventions du chantier 5** (`docs/univers/propositions.md`) : les petits faits sombres de Gardebois et
+- [x] **Les noms qui se ressemblent** : Hedda devient **Ragna** Cendrefer, Josse devient **Olmo** Sept-Routes (Cyril,
+      2026-11-03 : « oui très bien »). Kael, Kaelis et Kael Marchevent restent : ils viennent de ton Notion.
+- [x] **Les inventions du chantier 5** (Cyril : on garde) (`docs/univers/propositions.md`) : les petits faits sombres de Gardebois et
       Canopéa, Ingrid qui paie la garde, le cœur du Golem dans la foreuse. On garde ?
 - [ ] Dans ton Notion, quand tu veux : les contradictions du canon sur Terminus (`docs/univers/zones-floues.md`,
       points 33 à 37).
@@ -80,7 +79,7 @@ Lien du jeu : https://csaintecluque-ui.github.io/anamnesis-rpg/ (la version s'af
       verrière du Fonds Muet (Sept-Portes, la nuit) ; contourner les Geckos-Soudeurs sur la route ; forcer une caisse.
 - [ ] **Un héros médecin** : les malades de Liane, **Pell dans le feu** (ouvrir la chaudière de la foreuse), les mains de
       Tiven, la toux de Tam, l'insomnie de Joss ; un bandage soigne 2 PV de plus par point de Médecine.
-- [ ] **L'atelier** (Hedda, Sévane) : sans Artisanat ou Médecine, « Faire forger » coûte le double ; avec, « Forger ».
+- [ ] **L'atelier** (Ragna, Sévane) : sans Artisanat ou Médecine, « Faire forger » coûte le double ; avec, « Forger ».
       Le prix te paraît-il juste ?
 - [ ] **Montée de niveau** : le rang maximum (niveau + 2) s'affiche ; est-ce gênant ?
 - Remarques :
@@ -114,7 +113,7 @@ Lien du jeu : https://csaintecluque-ui.github.io/anamnesis-rpg/ (la version s'af
 - [ ] **Le début du chapitre 4** change selon ce que tu as fait de la clé (la lettre de Hesper, le Registre d'Ambroise).
 - Remarques :
 
-## Chantier 5 — Passe d'écriture (sur la branche)
+## Chantier 5 — Passe d'écriture (en ligne le 2026-11-03)
 
 - [ ] **Le ton général** : moins de « … », de « Ici, on… », de « comme un… ». Ça se lit mieux ?
 - [ ] **Les marchands** : Tobias, Sévane, la colporteuse, Kaelis ont-ils chacun leur voix ?

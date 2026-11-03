@@ -47,7 +47,7 @@ Bleue », validée dans ses grandes lignes par Cyril le 2026-11-02). Canon : le 
 | **Le triage des Cendres** (à l'est des Forges ; « Le Rail des Cendres ») | les voies des Travailleurs du Rail, le brasero de Varka, le registre des départs, le poste d'aiguillage et le levier de l'embranchement, le tunnel gardé par les Marches |
 | **Sous la forge froide** (« Les Échos sous la Forge », validé par Cyril le 2026-11-02) | la galerie du Peuple des Cendres Noires : Hesk, une berceuse, une enclume aux cinq mains, une promesse |
 | **La Cendrière** (au bout de l'embranchement) | terrils et wagons vidés, Sorn des Marches des Cendres, la machine sans homme |
-| **Maisons** | la Pension de la Bielle (Dorna Vissard : soupe et lit, 8 Fers), l'atelier Cendrefer (Hedda : l'étal de Tobias, plus ses propres pièces : marteau de forge, arbalète de Ferros, cuirasse rivetée ; accord de Cyril le 2026-11-02), la maison Martelroux (Rika), les Archives Centrales (Noam) |
+| **Maisons** | la Pension de la Bielle (Dorna Vissard : soupe et lit, 8 Fers), l'atelier Cendrefer (Ragna : l'étal de Tobias, plus ses propres pièces : marteau de forge, arbalète de Ferros, cuirasse rivetée ; accord de Cyril le 2026-11-02), la maison Martelroux (Rika), les Archives Centrales (Noam) |
 
 ### Personnages (validés par Cyril le 2026-11-02 ; [NOTION] : repris du canon)
 
@@ -59,7 +59,7 @@ Bleue », validée dans ses grandes lignes par Cyril le 2026-11-02). Canon : le 
 - **La Veilleuse du Rail** [NOTION, Studio] : ses parents ont pris un train de la vieille ligne et ne sont jamais revenus ; elle compte les wagons
   du convoi sans conducteur dans son sommeil. Près d'elle, **une vieille machine** qui se souvient (Mémoire 4).
 - **L'archiviste Noam** [NOTION, Studio] : il vouvoie et parle en fiches (« voir : … ») ; il garde le **Fonds Zéro**.
-- **Hedda Cendrefer** (sœur de Tobias ; l'atelier est de la Compagnie des Lisières et honore la remise de Tobias),
+- **Ragna Cendrefer** (sœur de Tobias ; l'atelier est de la Compagnie des Lisières et honore la remise de Tobias),
   **Rika Martelroux** (mère de Brann), **Dorna Vissard** (la Pension).
 - **Passants** : ouvriers en gris, un Veilleur de Rouille, un Ferrôme reconditionné et une marchande de cristaux au
   Marché, un employé en gris clair et un horloger aux Manufactures.

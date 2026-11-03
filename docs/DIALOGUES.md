@@ -1415,7 +1415,7 @@ _Effet : retient le Récit « On se retrouvera »._
 
 ### confier
 
-> Tu recopies l’Écho dans une lettre pour Ilyane. À Gardebois, elle est loin ; mais Hedda, à l’atelier Cendrefer, fait partir des caisses vers son frère Tobias, au Marché des Lisières.
+> Tu recopies l’Écho dans une lettre pour Ilyane. À Gardebois, elle est loin ; mais Ragna, à l’atelier Cendrefer, fait partir des caisses vers son frère Tobias, au Marché des Lisières.
 
 - « Remonter. » → **fin**
 
@@ -1440,7 +1440,7 @@ _Effet : retient le Récit « On se retrouvera »._
 
 ### ecrit-lettre
 
-> L’Écho rejoue sa promesse. Ta lettre pour Ilyane est dans ta besace : Hedda, à l’atelier Cendrefer, la fera partir.
+> L’Écho rejoue sa promesse. Ta lettre pour Ilyane est dans ta besace : Ragna, à l’atelier Cendrefer, la fera partir.
 
 - « Partir. » → **fin**
 
@@ -2066,7 +2066,7 @@ Commence par : « halte »
 
 - « Descendre sur le quai. » → **fin** _(fait passer 2 moments, mène à « Ironheart — Les Forges-Basses »)_
 
-## Hedda Cendrefer
+## Ragna Cendrefer
 
 _Atelier Cendrefer_
 
@@ -2085,7 +2085,7 @@ Commence par : « masques » _(si l’on porte « Plans du masque de Tam »)_ _(
 
 > — Garde ton laissez-passer, ne traîne pas après le premier pont peint en rouge, et si tu entends sept coups de marteau, c’est l’heure des Litanies : on se tait. Ici, le travail est prière.
 
-- « Merci, Hedda. » → accueil
+- « Merci, Ragna. » → accueil
 
 ### accueil-remise
 
@@ -2102,23 +2102,23 @@ Commence par : « masques » _(si l’on porte « Plans du masque de Tam »)_ _(
 
 - « Voyons ça. » → **fin** _(ouvre le Troc)_
 - « Améliorer une arme ou une armure, avec ce que j’ai récolté. » → **fin** _(ouvre l’atelier « forge »)_
-- « Merci, Hedda. » → **fin**
+- « Merci, Ragna. » → **fin**
 
 ### lettre
 
 _Effet : reprend 1 × « Lettre pour Ilyane », retient « echos-confies », termine la quête « Les Échos sous la Forge », +40 XP._
 
-> — Pour Ilyane, à Gardebois ? Tobias la lui portera, avec la prochaine caisse. Hedda soupèse la lettre. — Elle est lourde, pour une seule feuille.
+> — Pour Ilyane, à Gardebois ? Tobias la lui portera, avec la prochaine caisse. Ragna soupèse la lettre. — Elle est lourde, pour une seule feuille.
 
-- « Merci, Hedda. » → **fin**
+- « Merci, Ragna. » → **fin**
 
 ### masques
 
 _Effet : reprend 1 × « Plans du masque de Tam », retient « masques-forges », termine la quête « Le registre du Puits Trois », +50 XP._
 
-> Hedda déplie le papier, le lit deux fois. — Du feutre, du charbon, trois lanières. Bête comme tout, et personne n’y avait pensé. Une Innovation non déclarée. Elle sourit de travers. — L’atelier est à la Compagnie des Lisières, pas à Ferros. J’en coudrai cent.
+> Ragna déplie le papier, le lit deux fois. — Du feutre, du charbon, trois lanières. Bête comme tout, et personne n’y avait pensé. Une Innovation non déclarée. Elle sourit de travers. — L’atelier est à la Compagnie des Lisières, pas à Ferros. J’en coudrai cent.
 
-- « Merci, Hedda. » → **fin**
+- « Merci, Ragna. » → **fin**
 
 ## Hesk
 
@@ -2830,7 +2830,7 @@ _Effet : retient « joss-sommeil », +10 XP._
 
 - « … » → **fin**
 
-## Josse Sept-Routes
+## Olmo Sept-Routes
 
 _Aubergiste des Sept Routes_
 
@@ -2882,7 +2882,7 @@ Commence par : « accueil-2 » _(un jour sur 3, le 2e)_, sinon « accueil-3 » _
 
 > Une soupe où flottent des herbes de Verdantis, du poivre de la Communion et un poisson de Marisol. Ça ne devrait pas aller ensemble. Ça va.
 
-- « Merci, Josse. » → accueil
+- « Merci, Olmo. » → accueil
 
 ### dodo
 
@@ -4858,7 +4858,7 @@ _Effet : retient « tam-ecoute »._
 
 > — Si je reste, je donne les plans à qui saura les coudre, et toute la file respire mieux. Moi, peut-être pas assez longtemps. Mon père disait : « Un rivet tient parce qu’il est tout en bas. » Je ne veux pas devenir un de ceux qui regardent d’en haut.
 
-- _(sans repère « plans-confies »)_ _(sans repère « dask-nom »)_ « Hedda Cendrefer pourrait les coudre. » → hedda
+- _(sans repère « plans-confies »)_ _(sans repère « dask-nom »)_ « Ragna Cendrefer pourrait les coudre. » → hedda
 - « Je comprends. » → **fin**
 
 ### vivre
@@ -4879,7 +4879,7 @@ _Effet : retient « tam-ecoute »._
 
 > Il sort de sa veste un papier plié en quatre, gris de suie. — Les plans. Si on te les trouve, dis que tu les as volés. Ça vaudra mieux pour ma mère.
 
-- « Je les porte à Hedda. » → **fin**
+- « Je les porte à Ragna. » → **fin**
 
 ### decision
 

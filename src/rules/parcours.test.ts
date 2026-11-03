@@ -767,7 +767,7 @@ describe('Parcours complet, d’une traite', () => {
     walk(s, 'ironheart-forges');
   });
 
-  it('« Les Échos sous la Forge » : la trappe, Hesk, l’Écho confié à Hedda pour Ilyane', () => {
+  it('« Les Échos sous la Forge » : la trappe, Hesk, l’Écho confié à Ragna pour Ilyane', () => {
     expect(talk(s, 'forge-eteinte')).toBe('jour');
     say(s, 'forge-eteinte', 'jour', 'Revenir à la nuit');
     expect(s.quests['echos-forge']).toBe('active');
@@ -787,7 +787,7 @@ describe('Parcours complet, d’une traite', () => {
     say(s, 'echo-promesse', 'choix', 'Le garder par écrit');
     say(s, 'echo-promesse', 'garder', 'Pour Ilyane');
     expect(questItems(s)).toEqual(['cristal-vanel', 'lettre-echo', 'sauf-conduit']);
-    expect(journalStep(s, 'echos-forge')?.step).toMatch(/Hedda/);
+    expect(journalStep(s, 'echos-forge')?.step).toMatch(/Ragna/);
     walk(s, 'ironheart-forges');
     walk(s, 'ironheart-atelier');
     expect(gained(s, () => expect(talk(s, 'hedda')).toBe('lettre'))).toEqual({ xp: 40, fers: 0 });
@@ -801,7 +801,7 @@ describe('Parcours complet, d’une traite', () => {
     walk(s, 'ironheart-forges');
   });
 
-  it('« Le registre du Puits Trois » : Kerta dans la file, Tam, les plans du masque cousus par Hedda', () => {
+  it('« Le registre du Puits Trois » : Kerta dans la file, Tam, les plans du masque cousus par Ragna', () => {
     expect(talk(s, 'tam')).toBe('accueil');
     expect(talk(s, 'kerta')).toBe('accueil');
     say(s, 'kerta', 'accueil', 'Pourquoi la file');
@@ -810,9 +810,9 @@ describe('Parcours complet, d’une traite', () => {
     expect(s.quests['registre-puits']).toBe('active');
     expect(talk(s, 'kerta')).toBe('attente');
     expect(talk(s, 'tam')).toBe('parle');
-    expect(journalStep(s, 'registre-puits')?.step).toMatch(/Hedda/);
+    expect(journalStep(s, 'registre-puits')?.step).toMatch(/Ragna/);
     say(s, 'tam', 'parle', 'Et si tu restes');
-    say(s, 'tam', 'reste', 'Hedda Cendrefer');
+    say(s, 'tam', 'reste', 'Ragna Cendrefer');
     say(s, 'tam', 'hedda', 'Donne-les-moi');
     expect(questItems(s)).toContain('plans-masque');
     walk(s, 'ironheart-atelier');

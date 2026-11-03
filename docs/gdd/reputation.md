@@ -18,7 +18,7 @@ Code : `src/rules/reputation.ts` ; données : `src/data/reputation.json`. Plan d
 | Amitié | 25 et plus | « la ville te fait confiance » | −15 % |
 
 - **Effets** :
-  - prix des marchands **de la ville** (`place` dans `npcs.json` : Tobias à Gardebois, Sévane à Canopéa, Hedda à Ironheart), cumulés avec
+  - prix des marchands **de la ville** (`place` dans `npcs.json` : Tobias à Gardebois, Sévane à Canopéa, Ragna à Ironheart), cumulés avec
     une remise propre (Tobias après « La caisse égarée ») ; la colporteuse, qui voyage, n'en tient pas compte ;
     l'étal affiche le palier et le pourcentage, chaque prix « prix d'ami » ou « prix fort » ;
   - une **condition de dialogue** `{ "reputation": "<ville>", "min": <score> }`, affichée comme un test (option grisée

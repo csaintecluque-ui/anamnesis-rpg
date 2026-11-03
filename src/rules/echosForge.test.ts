@@ -91,7 +91,7 @@ describe('Les Échos sous la Forge: a hidden quest with five choices', () => {
     expect(reputationScore(state, 'archives-ferros')).toBe(10);
   });
 
-  it('entrust to someone close: Hedda sends the letter, Ilyane answers at Gardebois', () => {
+  it('entrust to someone close: Ragna sends the letter, Ilyane answers at Gardebois', () => {
     const state = underTheForge();
     hearThePromise(state);
     choose(state, 'echo-promesse', 'choix', 'Le garder par écrit');

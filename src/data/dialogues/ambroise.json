@@ -119,6 +119,14 @@
         {
           "text": "Et si c’est moi qui la demande ?",
           "next": "demande"
+        },
+        {
+          "text": "Une main contre une main : déposer une de mes histoires au Registre.",
+          "next": "edda-demande",
+          "raconter": {
+            "donne": true,
+            "neutre": "depot"
+          }
         }
       ]
     },
@@ -266,6 +274,26 @@
               "arrivee": "depuis-porte-sud"
             }
           ],
+          "next": "fin"
+        }
+      ]
+    },
+    "depot": {
+      "text": "Ambroise ouvre un registre neuf, t’écoute sans rien noter, puis écrit tout, d’une main égale. — De qui : de vous. Contre quoi : la porte basse. Ce que vous affirmiez : vous le saurez moins bien demain. Au fond, la porte basse. Ne citez rien.",
+      "effects": [
+        {
+          "setFlag": "fonds-muet-ouvert"
+        },
+        {
+          "setFlag": "fonds-muet-parole"
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci.",
           "next": "fin"
         }
       ]

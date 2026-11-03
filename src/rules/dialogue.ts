@@ -11,7 +11,7 @@ import { gardienNotices, gardienRank, rankNotices } from './factions';
 import recetteData from '../data/recettes.json';
 import { avisOf, changeAvis, findCompanion, inParty, joinParty, leaveParty, restParty } from './companions';
 import { castCost, castOutsideCombat, findPower, hasPower, POWERS, restoreResonance, teachSkillRank, wornCrystal, type PowerId } from './magic';
-import { RECITS, findRecit, knowsRecit, learnRecit } from './recits';
+import { RECITS, findRecit, forgetRecit, knowsRecit, learnRecit } from './recits';
 import { effacerMarques, manqueMalus, marquesOf } from './marques';
 import { REPUTATION, reputationNotices, reputationScore, reputationTag } from './reputation';
 import { MOMENTS, advance, formatDate, isNight, momentOf, sleepUntil, waitUntil, type Moment } from './time';
@@ -95,6 +95,8 @@ export type Effect =
   | { avis: string; delta: number }
   /** Relives a gathered Écho (docs/gdd/echos.md): a moment of peace, time lost, the emprise grows. */
   | { revivre: string }
+  /** A Récit given away (raconter, `donne`): forgotten, the listener keeps it (feuille de route, chantier 1). */
+  | { donnerRecit: string }
   /** Loses PV (a cursed Écho holding on); never below 1. */
   | { blesser: number }
   /** The contract under way is fulfilled (a hunt's beasts beaten, docs/gdd/voies.md): back to its board. */
@@ -119,6 +121,52 @@ export interface DialogueOption {
   roll?: Roll;
   /** Where a failed roll leads. */
   failNext?: string;
+  /** The hero tells (or gives away) a Récit of their choice; `next` is where « Aucun, finalement » goes back. */
+  raconter?: RaconterDef;
+}
+
+/**
+ * Raconter un Récit en dialogue (feuille de route, chantier 1 ; docs/gdd/memoire.md) : the hero picks one of their
+ * Récits ; the listener reacts to that very Récit (`recits`), to what it speaks of (`aime`: themes of the veillées),
+ * or not at all. A Récit given away (`donne`) is forgotten once accepted: the listener keeps it.
+ */
+export interface RaconterDef {
+  aime?: string[];
+  donne?: boolean;
+  /** A node for a particular Récit (« J'ai vu le dernier train, moi aussi »). */
+  recits?: Record<string, string>;
+  /** A Récit that speaks of what the listener likes. */
+  touche?: string;
+  /** Any other Récit, when only what the listener likes is accepted (nothing is given then). */
+  refus?: string;
+  /** Any other Récit, accepted. */
+  neutre: string;
+}
+
+/** The Récits the hero may tell here: all they know, or, to give one away, all but those of the main story. */
+export function raconterChoices(state: GameState, def: RaconterDef): string[] {
+  const known = state.character?.recits ?? [];
+  return def.donne ? known.filter((id) => !findRecit(id)?.principal) : [...known];
+}
+
+/** Where telling this Récit leads, and whether the listener takes it. */
+export function raconterTarget(def: RaconterDef, recitId: string): { node: string; accepted: boolean } {
+  const special = def.recits?.[recitId];
+  if (special) return { node: special, accepted: true };
+  const themes = findRecit(recitId)?.themes ?? [];
+  if (def.aime?.some((t) => themes.includes(t))) return { node: def.touche ?? def.neutre, accepted: true };
+  if (def.refus) return { node: def.refus, accepted: false };
+  return { node: def.neutre, accepted: true };
+}
+
+/** The choice of one Récit, as a dialogue option: where it leads, and (given away) its forgetting. */
+export function raconterOption(def: RaconterDef, recitId: string): DialogueOption {
+  const { node, accepted } = raconterTarget(def, recitId);
+  return {
+    text: `« ${findRecit(recitId)?.titre ?? recitId} »`,
+    next: node,
+    ...(def.donne && accepted ? { effects: [{ donnerRecit: recitId }] } : {}),
+  };
 }
 
 export interface DialogueNode {
@@ -203,6 +251,8 @@ export function visibleOptions(node: DialogueNode, state: GameState): OptionView
   for (const option of node.options) {
     const conditions = option.requires ?? [];
     if (!conditions.filter((c) => !isTest(c)).every((c) => conditionMet(state, c))) continue;
+    // Nothing to tell (or to give away): the option is not there.
+    if (option.raconter && raconterChoices(state, option.raconter).length === 0) continue;
     const tests = conditions.filter(isTest);
     const failed = tests.filter((c) => !conditionMet(state, c));
     const tags = tests.map((c) => testLabel(c)!);
@@ -353,6 +403,8 @@ export function applyEffects(state: GameState, effects: Effect[] = []): string[]
       }
     } else if ('revivre' in effect) {
       notices.push(...relive(state, effect.revivre));
+    } else if ('donnerRecit' in effect) {
+      if (state.character && forgetRecit(state.character, effect.donnerRecit)) notices.push(`Récit donné : ${findRecit(effect.donnerRecit)?.titre ?? effect.donnerRecit}`);
     } else if ('contrat' in effect) {
       if (state.contrats.actif && !state.contrats.actif.fait) {
         state.contrats.actif.fait = true;
@@ -496,6 +548,13 @@ export function dialogueProblems(d: Dialogue): string[] {
       }
       checkConditions(`${id} → ${option.next}`, option.requires);
       checkEffects(`${id} → ${option.next}`, option.effects);
+      if (option.raconter) {
+        const r = option.raconter;
+        for (const target of [r.neutre, r.touche, r.refus, ...Object.values(r.recits ?? {})]) {
+          if (target && target !== END && !ids.has(target)) problems.push(`${id} : raconter vers un nœud inconnu ${target}`);
+        }
+        for (const recit of Object.keys(r.recits ?? {})) if (!knownRecits.has(recit)) problems.push(`${id} : raconter, récit inconnu ${recit}`);
+      }
     }
   }
 
@@ -506,7 +565,10 @@ export function dialogueProblems(d: Dialogue): string[] {
     const id = queue.shift()!;
     if (seen.has(id) || !d.nodes[id]) continue;
     seen.add(id);
-    for (const o of d.nodes[id].options) for (const next of [o.next, o.failNext]) if (next && next !== END) queue.push(next);
+    for (const o of d.nodes[id].options) {
+      const told = o.raconter ? [o.raconter.neutre, o.raconter.touche, o.raconter.refus, ...Object.values(o.raconter.recits ?? {})] : [];
+      for (const next of [o.next, o.failNext, ...told]) if (next && next !== END) queue.push(next);
+    }
   }
   for (const id of ids) if (!seen.has(id)) problems.push(`${id} : nœud inaccessible`);
   return problems;

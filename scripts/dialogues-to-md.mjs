@@ -113,7 +113,16 @@ for (const file of readdirSync(new URL('src/data/dialogues/', root)).filter((f) 
       const roll = o.roll ? `**🎲 ${nameOf(skills, o.roll.skill)} ${o.roll.difficulty}** ` : '';
       const fx = o.effects?.length ? ` _(${o.effects.map(effect).join(', ')})_` : '';
       const fail = o.failNext ? `, ✗ → ${target(o.failNext)}` : '';
-      lines.push(`- ${req}${roll}« ${o.text} » → ${target(o.next)}${fail}${fx}`);
+      // Raconter un Récit (feuille de route, chantier 1): where each kind of Récit leads.
+      const r = o.raconter;
+      const tell = r
+        ? ` 📖 ${r.donne ? 'donner' : 'raconter'} un Récit : ${[
+            ...Object.entries(r.recits ?? {}).map(([id, n]) => `${id} → ${target(n)}`),
+            r.aime?.length ? `${r.aime.join(', ')} → ${target(r.touche ?? r.neutre)}` : '',
+            r.refus ? `autres → ${target(r.refus)} (refusé)` : `autres → ${target(r.neutre)}`,
+          ].filter(Boolean).join(' ; ')}`
+        : '';
+      lines.push(`- ${req}${roll}« ${o.text} » → ${target(o.next)}${fail}${fx}${tell}`);
     }
     lines.push('');
   }

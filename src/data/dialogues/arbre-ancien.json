@@ -136,6 +136,19 @@
           ]
         },
         {
+          "text": "Confier une de tes histoires au vieil arbre.",
+          "next": "silence",
+          "requires": [
+            {
+              "notFlag": "piste-racines"
+            }
+          ],
+          "raconter": {
+            "donne": true,
+            "neutre": "confie"
+          }
+        },
+        {
           "text": "Partir.",
           "next": "fin"
         }
@@ -155,6 +168,23 @@
       "options": [
         {
           "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "confie": {
+      "text": "Tu poses la main sur l’écorce froide et tu racontes. Le bois boit ton histoire jusqu’au dernier mot. Un nom se réchauffe sous tes doigts, puis quelque chose tire, vers le bas, très loin sous la ville. L’histoire ne te revient pas.",
+      "effects": [
+        {
+          "setFlag": "piste-racines"
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "Retirer la main.",
           "next": "fin"
         }
       ]

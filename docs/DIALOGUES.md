@@ -188,6 +188,7 @@ _Effet : retient « registre-lu »._
 > — Il y a trois jours. Une demande de consultation, au nom d’Edda Varn. Refusée. Nous ne motivons pas les refus.
 
 - « Et si c’est moi qui la demande ? » → demande
+- « Une main contre une main : déposer une de mes histoires au Registre. » → edda-demande 📖 donner un Récit : autres → depot
 
 ### demande
 
@@ -238,6 +239,14 @@ _Effet : retient « raccompagne »._
 
 - « Revenir à Sept-Portes, à pied. » → **fin** _(fait passer 8 moments, mène à « Sept-Portes — la place des Sept Portes »)_
 
+### depot
+
+_Effet : retient « fonds-muet-ouvert », retient « fonds-muet-parole », +10 XP._
+
+> Ambroise ouvre un registre neuf, t’écoute sans rien noter, puis écrit tout, d’une main égale. — De qui : de vous. Contre quoi : la porte basse. Ce que vous affirmiez : vous le saurez moins bien demain. Au fond, la porte basse. Ne citez rien.
+
+- « Merci. » → **fin**
+
 ## Un très vieil arbre gravé
 
 _Bosquet des Échos_
@@ -271,6 +280,7 @@ Commence par : « silence » _(si quête « L’audience » en cours)_ _(si rep�
 
 - **[Mémoire 3]** _(sans repère « piste-racines »)_ « Écouter plus profond. » → pente _(retient « piste-racines », +10 XP)_
 - **[Investigation 2]** _(sans repère « piste-racines »)_ « Examiner le pied de l’arbre. » → seve _(retient « piste-racines », +10 XP)_
+- _(sans repère « piste-racines »)_ « Confier une de tes histoires au vieil arbre. » → silence 📖 donner un Récit : autres → confie
 - « Partir. » → **fin**
 
 ### pente
@@ -284,6 +294,14 @@ Commence par : « silence » _(si quête « L’audience » en cours)_ _(si rep�
 > Au pied de l’arbre, une sève claire suinte entre les planches, comme d’une blessure. Les racines du Bosquet descendent jusqu’au sol… et, en bas, quelque chose les a tranchées.
 
 - « Partir. » → **fin**
+
+### confie
+
+_Effet : retient « piste-racines », +10 XP._
+
+> Tu poses la main sur l’écorce froide et tu racontes. Le bois boit ton histoire jusqu’au dernier mot. Un nom se réchauffe sous tes doigts, puis quelque chose tire, vers le bas, très loin sous la ville. L’histoire ne te revient pas.
+
+- « Retirer la main. » → **fin**
 
 ## Le nom d’Anselme
 
@@ -1199,6 +1217,7 @@ Commence par : « apaise » _(si repère « echo-dernier-train-vu »)_, sinon «
 
 - **[Mémoire 4]** « Entrer dans l’Écho. » → interieur _(retient « echo-dernier-train-vu », +15 XP)_
 - « Observer sans s’approcher. » → observe _(retient « echo-dernier-train-vu », +10 XP)_
+- « Lui donner une de tes histoires, pour qu’il te laisse entrer. » → approche 📖 donner un Récit : autres → don-entree
 - « S’éloigner. » → **fin**
 
 ### interieur
@@ -1220,7 +1239,16 @@ _Effet : retient le Récit « Le Savant Corvan »._
 > L’Écho s’est apaisé, pour un temps. Sur le quai, les silhouettes ne sont plus qu’un frisson de lumière, et le sifflet un souffle lointain.
 
 - **[Mémoire 4]** « Entrer dans l’Écho. » → interieur
+- « Lui donner une de tes histoires, pour qu’il te laisse entrer. » → apaise 📖 donner un Récit : autres → don-entree
 - « S’éloigner. » → **fin**
+
+### don-entree
+
+_Effet : retient « echo-dernier-train-vu », +15 XP._
+
+> Tu racontes, à voix basse, sur le quai qui tremble. Les silhouettes s’arrêtent pour écouter ; à une fenêtre, une main d’enfant s’agite. Quand tu as fini, l’histoire n’est plus à toi : le train l’a prise, et l’Écho s’ouvre.
+
+- « Entrer dans l’Écho. » → interieur
 
 ## Un Écho
 
@@ -4821,7 +4849,7 @@ _Effet : retient le Récit « Le convoi sans conducteur »._
 - _(si Récit « Le Savant Corvan » connu)_ « J’ai vu le dernier train, moi aussi, dans l’Écho de la Gare Engloutie. » → don
 - **[Mémoire 3]** « Laisse-moi écouter le convoi avec toi. » → ecoute
 - « Lui parler de ce que la clé ouvre. » → ouvre
-- « Je reviendrai. » → **fin**
+- « Et si je te laissais une histoire, contre la clé ? » → echange
 
 ### don
 
@@ -4885,6 +4913,26 @@ _Effet : retient « indice-veilleuse », +5 XP._
 > — Ce ne sont pas mes trains. Mes trains chantent. Ceux-là ne respirent pas : pas de vapeur, juste un cliquetis de cristal. Une machine sans homme, comme on en envoyait vers l’ouest, au temps de la Guerre du Rail.
 
 - « Merci. » → **fin**
+
+### echange
+
+> — Une histoire contre ma clé ? Ça dépend de l’histoire. Il faut qu’il y passe un train.
+
+- « Lui laisser une de tes histoires. » → echange 📖 donner un Récit : trains → don-histoire ; autres → pas-trains (refusé)
+- « Je reviendrai. » → **fin**
+
+### don-histoire
+
+> La Veilleuse écoute les yeux fermés, en comptant tout bas. À la fin, elle répète la dernière phrase, deux fois, pour la garder. — Celle-là, je la raconterai au convoi. Elle ouvre la main : la clé est là.
+
+- « Prendre la clé. » → don
+
+### pas-trains
+
+> — Elle est belle. Mais il n’y passe aucun train, et c’est un train que j’attends.
+
+- « Une autre, alors. » → echange
+- « Je reviendrai. » → **fin**
 
 ## Véline Nacelière
 

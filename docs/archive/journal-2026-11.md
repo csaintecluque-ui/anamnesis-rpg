@@ -1011,3 +1011,9 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   en combat ou choisir un lieu, touches sur la barre d'actions, journal et écrans titre et mort au clavier. 633 tests ;
   vérifié en 1920 × 1080 (captures et déplacement au clavier). Reste : la partie de Cyril sur PC.
 - Cyril : « Mets en ligne » : chantier 0 en ligne ; sa partie sur PC clôturera le chantier.
+- Cyril n'a pas son PC : « passe aux autres chantiers, garde-moi une To do de ce que j'aurai à essayer » →
+  `docs/a-essayer.md`. Chantier 1 sur la branche : l'oubli choisi (écran « Ta mémoire est pleine »), le
+  Champignon-Mémoire (oubli volontaire, l'emprise à zéro), le souvenir vif des Échos revécus (+3 dans une compétence,
+  emprise +2), cinq Échos cachés (Mémoire 4 ou 5), et un don de Récit par chapitre (l'Écho du dernier train, le vieil
+  arbre du Bosquet, la Veilleuse, Ambroise). Proposition d'Écho personnel du héros : `univers/personnages/heros.md`.
+  643 tests ; vérifié en 1080p (écran d'oubli, don à la Veilleuse).

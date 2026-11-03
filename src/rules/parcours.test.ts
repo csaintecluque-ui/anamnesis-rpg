@@ -687,7 +687,7 @@ describe('Parcours complet, d’une traite', () => {
       'J’ai vu le dernier train, moi aussi, dans l’Écho de la Gare Engloutie.',
       'Laisse-moi écouter le convoi avec toi.',
       'Lui parler de ce que la clé ouvre.',
-      'Je reviendrai.',
+      'Et si je te laissais une histoire, contre la clé ?',
     ]);
     say(s, 'veilleuse', 'question-cle', 'Lui parler de ce que la clé ouvre');
     expect(gained(s, () => say(s, 'veilleuse', 'ouvre', 'Aux Archives'))).toEqual({ xp: 25, fers: 0 });

@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import { DIALOGUES } from '../data/dialogues';
 import npcData from '../data/npcs.json';
-import { END, applyEffects, goesTo, opensAtelier, opensTrade, opensVeillee, performRoll, startNode, startsCombat, visibleOptions, type Dialogue, type OptionView } from '../rules/dialogue';
+import { END, applyEffects, goesTo, opensAtelier, opensTrade, opensVeillee, performRoll, raconterChoices, raconterOption, startNode, startsCombat, visibleOptions, type Dialogue, type DialogueOption, type OptionView } from '../rules/dialogue';
 import { fontPx, textScale } from '../settings';
 import type { GameState } from '../state/gameState';
 import type { MapScene } from './MapScene';
@@ -22,6 +22,10 @@ const OPTION_GAP = 8;
 const OPTIONS_BOTTOM = GAME_HEIGHT - 30;
 /** Backdrop over the map for night scenes (nodes with `night`). */
 const NIGHT = 0x0a0f1e;
+/** Récits shown at once when the hero picks one to tell; « Autres histoires… » turns the page. */
+const RACONTER_PAGE = 5;
+const RACONTER_MORE = '\u0000autres-recits';
+
 /** Panel opacity: lighter over an illustration so it shows through. */
 const PANEL_ALPHA = 0.94;
 const PANEL_ALPHA_OVER_ILLUSTRATION = 0.78;
@@ -48,6 +52,8 @@ export class DialogueScene extends Phaser.Scene {
   private choices: ((() => void) | undefined)[] = [];
   /** With a mouse: what a roll or a test of the option under it asks, and the chances. */
   private tooltip!: Tooltip;
+  /** The Récit being chosen (raconter): the option that asked, and the page of Récits shown. */
+  private raconter: { option: DialogueOption; page: number } | null = null;
 
   constructor() {
     super('Dialogue');
@@ -99,6 +105,8 @@ export class DialogueScene extends Phaser.Scene {
   private show(nodeId: string): void {
     if (nodeId === END) return this.close();
     this.tooltip.hide();
+    if (nodeId === RACONTER_MORE && this.raconter) return this.showRaconter(this.raconter.option, this.raconter.page + 1);
+    this.raconter = null;
     const node = this.dialogue.nodes[nodeId];
     this.notices.push(...applyEffects(this.state, node.effects));
     this.layer.removeAll(true);
@@ -189,6 +197,8 @@ export class DialogueScene extends Phaser.Scene {
     frame.on('pointerover', () => text.setColor(CSS.copper));
     frame.on('pointerout', () => text.setColor(CSS.parchment));
     const choose = () => {
+      // Tell a Récit (feuille de route, chantier 1): first, which one.
+      if (view.option.raconter) return this.showRaconter(view.option, 0);
       // An option with a roll only has its effects when the roll succeeds (a failed lie starts nothing).
       const roll = view.option.roll;
       if (roll) {
@@ -244,6 +254,37 @@ export class DialogueScene extends Phaser.Scene {
     frame.on('pointerup', choose);
     this.choices[index - 1] = choose;
     return bottom - height;
+  }
+
+  /**
+   * Which Récit to tell, or to give away: one option per Récit (the listener's reaction follows), a page at a time,
+   * and « Aucun, finalement » back to where the hero was.
+   */
+  private showRaconter(option: DialogueOption, page: number): void {
+    const def = option.raconter!;
+    const ids = raconterChoices(this.state, def);
+    const pages = Math.max(1, Math.ceil(ids.length / RACONTER_PAGE));
+    const at = page % pages;
+    this.raconter = { option, page: at };
+    this.layer.removeAll(true);
+    this.tooltip.hide();
+    const prompt = def.donne ? 'Quel Récit lui laisses-tu ? Celui-là, tu ne l’auras plus.' : 'Quel Récit lui racontes-tu ?';
+    this.layer.add(
+      this.add.text(this.textLeft, this.panelTop + 74 * textScale(), prompt, {
+        fontFamily: FONT_SERIF,
+        fontSize: fontPx(26),
+        color: CSS.parchment,
+        fontStyle: 'italic',
+        wordWrap: { width: GAME_WIDTH - MARGIN - this.textLeft },
+      }),
+    );
+    const options: DialogueOption[] = ids.slice(at * RACONTER_PAGE, (at + 1) * RACONTER_PAGE).map((id) => raconterOption(def, id));
+    if (pages > 1) options.push({ text: 'Autres histoires…', next: RACONTER_MORE });
+    options.push({ text: 'Aucun, finalement.', next: option.next });
+    const views: OptionView[] = options.map((o) => ({ option: o, enabled: true, tags: [] }));
+    this.choices = [];
+    let bottom = OPTIONS_BOTTOM;
+    for (let i = views.length - 1; i >= 0; i--) bottom = this.addOption(views[i], i + 1, bottom) - OPTION_GAP;
   }
 
   private close(): void {

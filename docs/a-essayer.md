@@ -32,6 +32,9 @@ Lien du jeu : https://csaintecluque-ui.github.io/anamnesis-rpg/ (la version s'af
       est-ce tentant ? est-ce que ça coûte assez ?
 - [ ] **Les Échos cachés** : avec Mémoire 4 ou 5, de nouveaux Échos (la ligne effacée aux Manufactures, le marché
       d'avant, la première graveuse ; le train qui ne s'arrête pas, le vote sous la pluie).
+- [ ] **Donner un Récit** (on l'oublie) : à l'Écho du dernier train (entrer sans Mémoire 4), au vieil arbre du Bosquet
+      muet, à la Veilleuse (la clé contre une histoire de trains ; elle refuse les autres), à Ambroise (« une main
+      contre une main », le Fonds Muet). Le choix est-il dur ? le prix juste ?
 - Remarques :
 
 ## Déjà en ligne, pas encore essayé sur PC

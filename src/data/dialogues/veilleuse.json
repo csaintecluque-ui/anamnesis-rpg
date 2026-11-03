@@ -163,8 +163,8 @@
           "next": "ouvre"
         },
         {
-          "text": "Je reviendrai.",
-          "next": "fin"
+          "text": "Et si je te laissais une histoire, contre la clé ?",
+          "next": "echange"
         }
       ]
     },
@@ -383,6 +383,50 @@
       "options": [
         {
           "text": "Merci.",
+          "next": "fin"
+        }
+      ]
+    },
+    "echange": {
+      "text": "— Une histoire contre ma clé ? Ça dépend de l’histoire. Il faut qu’il y passe un train.",
+      "options": [
+        {
+          "text": "Lui laisser une de tes histoires.",
+          "next": "echange",
+          "raconter": {
+            "donne": true,
+            "aime": [
+              "trains"
+            ],
+            "touche": "don-histoire",
+            "refus": "pas-trains",
+            "neutre": "pas-trains"
+          }
+        },
+        {
+          "text": "Je reviendrai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "don-histoire": {
+      "text": "La Veilleuse écoute les yeux fermés, en comptant tout bas. À la fin, elle répète la dernière phrase, deux fois, pour la garder. — Celle-là, je la raconterai au convoi. Elle ouvre la main : la clé est là.",
+      "options": [
+        {
+          "text": "Prendre la clé.",
+          "next": "don"
+        }
+      ]
+    },
+    "pas-trains": {
+      "text": "— Elle est belle. Mais il n’y passe aucun train, et c’est un train que j’attends.",
+      "options": [
+        {
+          "text": "Une autre, alors.",
+          "next": "echange"
+        },
+        {
+          "text": "Je reviendrai.",
           "next": "fin"
         }
       ]

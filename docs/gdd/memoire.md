@@ -52,3 +52,18 @@ Les trois pistes reposent sur des lois et des phénomènes du monde, pas sur la 
 La piste B a sa scène à elle : le soir, à l'auberge, on raconte un Récit à un public qui a ses goûts (Fers,
 renommée, rumeurs qui ouvrent des secrets). Chaque Récit porte ses thèmes (`themes` dans `recits.json`) :
 `docs/gdd/veillees.md`.
+
+## Raconter et donner un Récit en dialogue (feuille de route, chantier 1, 2026-11-03)
+
+- **La mécanique** (`raconter` sur une option, `src/rules/dialogue.ts`) : le héros choisit lequel de ses Récits il
+  raconte ; l'interlocuteur réagit à ce Récit-là (`recits`), à ce dont il parle (`aime`, les thèmes des veillées), ou
+  l'écoute sans plus (`neutre`) ; certains n'acceptent que ce qu'ils aiment (`refus`). L'option n'apparaît que si le
+  héros a un Récit à dire.
+- **Donner un Récit** (`donne`) : accepté, il est **oublié** ; l'interlocuteur le garde. Les Récits de l'histoire
+  principale ne se donnent jamais. C'est le choix de mémoire qui coûte, un par chapitre :
+  - **ch. 1**, l'Écho du dernier train : une histoire contre l'entrée (le Récit du savant Corvan sans Mémoire 4) ;
+  - **ch. 2**, le vieil arbre du Bosquet muet : il boit l'histoire et montre la piste des racines ;
+  - **ch. 3**, la Veilleuse : la clé contre une histoire où passe un train ; les autres, elle les rend ;
+  - **ch. 4**, Ambroise : « une main contre une main », un Récit déposé au Registre ouvre le Fonds Muet.
+- **Reste à faire** (chantier 1, puis la passe d'écriture du chantier 5) : une option « raconter » dans chaque quête,
+  avec des réactions propres au Récit choisi.

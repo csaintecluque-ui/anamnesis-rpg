@@ -49,6 +49,14 @@
           ]
         },
         {
+          "text": "Lui donner une de tes histoires, pour qu’il te laisse entrer.",
+          "next": "approche",
+          "raconter": {
+            "donne": true,
+            "neutre": "don-entree"
+          }
+        },
+        {
           "text": "S’éloigner.",
           "next": "fin"
         }
@@ -92,8 +100,33 @@
           ]
         },
         {
+          "text": "Lui donner une de tes histoires, pour qu’il te laisse entrer.",
+          "next": "apaise",
+          "raconter": {
+            "donne": true,
+            "neutre": "don-entree"
+          }
+        },
+        {
           "text": "S’éloigner.",
           "next": "fin"
+        }
+      ]
+    },
+    "don-entree": {
+      "text": "Tu racontes, à voix basse, sur le quai qui tremble. Les silhouettes s’arrêtent pour écouter ; à une fenêtre, une main d’enfant s’agite. Quand tu as fini, l’histoire n’est plus à toi : le train l’a prise, et l’Écho s’ouvre.",
+      "effects": [
+        {
+          "setFlag": "echo-dernier-train-vu"
+        },
+        {
+          "giveXp": 15
+        }
+      ],
+      "options": [
+        {
+          "text": "Entrer dans l’Écho.",
+          "next": "interieur"
         }
       ]
     }

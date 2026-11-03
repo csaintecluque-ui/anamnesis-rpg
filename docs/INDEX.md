@@ -35,6 +35,7 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `personnages/historiques.md` : figures historiques, entités légendaires, prophéties.
 - `personnages/contemporains.md` : dirigeants et figures de l'AN 3000.
 - `personnages/pnj.md` : héros, Ilyane, Tobias, Ingrid, ennemis (validés).
+- `personnages/heros.md` : la mémoire du héros, son Écho personnel (deux pistes) ; à valider.
 - `chronologie.md` : dates de référence.
 - `ton.md` : ton du corpus, ton du jeu (dark fantasy pour adultes, charte), sonorités des noms par nation.
 - `zones-floues.md` : 37 contradictions du canon, décisions de Cyril.

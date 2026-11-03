@@ -1792,7 +1792,13 @@
      "point": true,
      "rotation": 0,
      "visible": true,
-     "properties": []
+     "properties": [
+      {
+       "name": "apparaitSi",
+       "type": "string",
+       "value": "cle-obtenue"
+      }
+     ]
     },
     {
      "id": 17,

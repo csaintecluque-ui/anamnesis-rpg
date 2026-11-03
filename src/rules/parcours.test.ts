@@ -693,6 +693,14 @@ describe('Parcours complet, d’une traite', () => {
     expect(optionTexts(s, 'noam', 'train')).toContain('Et si je trouvais cette clé ?');
     walk(s, 'ironheart-manufactures');
     walk(s, 'ironheart-forges');
+    expect(present(s, 'ironheart-forges', 'veilleuse')).toBe(false);
+    expect(talk(s, 'vieille-machine')).toBe('absente');
+    // The Veilleuse has followed her convoy to the Cendrière (étude du 2026-11-03, un obstacle par chapitre).
+    walk(s, 'ironheart-triage');
+    expect(talk(s, 'tunnel-cendriere')).toBe('guetteur');
+    say(s, 'tunnel-cendriere', 'guetteur', 'Se glisser dans l’ombre des wagons');
+    say(s, 'tunnel-cendriere', 'passe', 'Entrer');
+    expect(s.location).toBe('ironheart-cendriere');
 
     expect(talk(s, 'veilleuse')).toBe('question-cle');
     // The Récit of Corvan is kept (a Récit of the main story): the Veilleuse can be told of the last train.
@@ -706,6 +714,10 @@ describe('Parcours complet, d’une traite', () => {
     expect(gained(s, () => say(s, 'veilleuse', 'ouvre', 'Aux Archives'))).toEqual({ xp: 25, fers: 0 });
     expect(questItems(s)).toEqual(['cle-rouille-bleue', 'cristal-vanel', 'sauf-conduit']);
     expect(journalStep(s, 'cle-rouille-bleue')?.step).toMatch(/J’ai la clé/);
+    // The key given, she goes back to her dépôt.
+    expect(present(s, 'ironheart-cendriere', 'veilleuse')).toBe(false);
+    walk(s, 'ironheart-triage');
+    walk(s, 'ironheart-forges');
     expect(talk(s, 'veilleuse')).toBe('avec-cle');
     walk(s, 'ironheart-manufactures');
     walk(s, 'ironheart-archives');
@@ -746,10 +758,8 @@ describe('Parcours complet, d’une traite', () => {
     say(s, 'joss', 'soupcon', 'La goupille limée');
     expect(talk(s, 'joss')).toBe('avoue');
     say(s, 'joss', 'avoue', 'Comment entrer');
-    expect(talk(s, 'tunnel-cendriere')).toBe('guetteur');
-    say(s, 'tunnel-cendriere', 'guetteur', '« Levier ouvert. »');
-    say(s, 'tunnel-cendriere', 'passe', 'Entrer');
-    expect(s.location).toBe('ironheart-cendriere');
+    // The tunnel stays open since the hero went down for the key.
+    walk(s, 'ironheart-cendriere');
     expect(talk(s, 'sorn')).toBe('accueil');
     expect(journalStep(s, 'rail-cendres')?.step).toMatch(/Cendrière/);
     expect(talk(s, 'pilote')).toBe('machine');
@@ -1109,9 +1119,17 @@ describe('Variante : Ironheart avant les quêtes annexes (parole, combats, autre
     expect(talk(s, 'kaelis')).toBe('accueil-garrik');
     say(s, 'kaelis', 'accueil-garrik', 'Pourquoi certaines reliques');
     walk(s, 'ironheart-forges');
+    // The Veilleuse has followed her convoy to the Cendrière (étude du 2026-11-03, un obstacle par chapitre).
+    walk(s, 'ironheart-triage');
+    expect(talk(s, 'tunnel-cendriere')).toBe('guetteur');
+    say(s, 'tunnel-cendriere', 'guetteur', 'Se glisser dans l’ombre des wagons');
+    say(s, 'tunnel-cendriere', 'passe', 'Entrer');
+    expect(s.location).toBe('ironheart-cendriere');
     expect(talk(s, 'veilleuse')).toBe('question-cle');
     say(s, 'veilleuse', 'question-cle', 'Laisse-moi écouter');
     say(s, 'veilleuse', 'ecoute', 'Et la clé');
+    walk(s, 'ironheart-triage');
+    walk(s, 'ironheart-forges');
     walk(s, 'ironheart-marche');
     expect(talk(s, 'kaelis')).toBe('offre');
     expect(gained(s, () => say(s, 'kaelis', 'offre', 'La lui vendre'))).toEqual({ xp: 60, fers: 100 });
@@ -1136,9 +1154,7 @@ describe('Variante : Ironheart avant les quêtes annexes (parole, combats, autre
     win(s, 'aiguillage-cendres');
     expect(present(s, 'ironheart-triage', 'pilleur-1')).toBe(false);
     expect(journalStep(s, 'rail-cendres')?.step).toMatch(/pilleurs/);
-    expect(talk(s, 'tunnel-cendriere')).toBe('guetteur');
-    say(s, 'tunnel-cendriere', 'guetteur', '« Tes deux amis');
-    say(s, 'tunnel-cendriere', 'passe', 'Entrer');
+    walk(s, 'ironheart-cendriere');
     expect(talk(s, 'sorn')).toBe('accueil');
     walk(s, 'ironheart-triage');
     expect(talk(s, 'ostrik')).toBe('rapport');
@@ -1527,9 +1543,14 @@ describe('Variante : « Le Rail des Cendres » avant « La Clé de Rouille Bleue
     expect(talk(s, 'varka')).toBe('accueil');
     say(s, 'varka', 'accueil', 'Peur de quoi');
     say(s, 'varka', 'convois', 'Je vais trouver');
-    walk(s, 'ironheart-forges');
+    // During the key's quest the Veilleuse listens at the Cendrière: the tunnel, past the lookout.
+    expect(talk(s, 'tunnel-cendriere')).toBe('guetteur');
+    say(s, 'tunnel-cendriere', 'guetteur', 'Se glisser dans l’ombre des wagons');
+    say(s, 'tunnel-cendriere', 'passe', 'Entrer');
     expect(talk(s, 'veilleuse')).toBe('accueil');
     expect(optionTexts(s, 'veilleuse', 'accueil')).toContain('Les convois du triage, qui partent seuls la nuit ?');
+    walk(s, 'ironheart-triage');
+    walk(s, 'ironheart-forges');
     expect(talk(s, 'boulon')).toBe('accueil-quete');
     say(s, 'boulon', 'accueil-quete', 'Un certain Kaelis');
     expect(talk(s, 'renfoncement')).toBe('mur');
@@ -1538,6 +1559,8 @@ describe('Variante : « Le Rail des Cendres » avant « La Clé de Rouille Bleue
     expect(talk(s, 'kaelis')).toBe('accueil-garrik');
     say(s, 'kaelis', 'accueil-garrik', 'Pourquoi certaines reliques');
     walk(s, 'ironheart-forges');
+    walk(s, 'ironheart-triage');
+    walk(s, 'ironheart-cendriere');
     expect(talk(s, 'veilleuse')).toBe('question-cle');
     // « question-cle » is full (four options): the Rail's clue is one step further, in « ouvre ».
     expect(maskedEntries(s).filter((m) => m.startsWith('veilleuse'))).toEqual([]);
@@ -1562,9 +1585,7 @@ describe('Variante : « Le Rail des Cendres » avant « La Clé de Rouille Bleue
     say(s, 'joss', 'soupcon', 'Je ne suis pas du Bureau');
     expect(talk(s, 'joss')).toBe('avoue');
     say(s, 'joss', 'avoue', 'Comment entrer');
-    expect(talk(s, 'tunnel-cendriere')).toBe('guetteur');
-    say(s, 'tunnel-cendriere', 'guetteur', '« Levier ouvert. »');
-    say(s, 'tunnel-cendriere', 'passe', 'Entrer');
+    walk(s, 'ironheart-cendriere');
     expect(talk(s, 'sorn')).toBe('accueil');
     say(s, 'sorn', 'accueil', 'Combien');
     expect(gained(s, () => say(s, 'sorn', 'marche', 'Marché conclu'))).toEqual({ xp: 30, fers: 80 });
@@ -1582,8 +1603,12 @@ describe('Variante : « Le Rail des Cendres » avant « La Clé de Rouille Bleue
   });
 
   it('La Clé ensuite : le Récit de Corvan ouvre la main de la Veilleuse, qui garde la clé', () => {
+    walk(s, 'ironheart-triage');
+    walk(s, 'ironheart-cendriere');
     expect(talk(s, 'veilleuse')).toBe('question-cle');
     say(s, 'veilleuse', 'question-cle', 'J’ai vu le dernier train');
+    walk(s, 'ironheart-triage');
+    walk(s, 'ironheart-forges');
     expect(talk(s, 'veilleuse')).toBe('avec-cle');
     say(s, 'veilleuse', 'avec-cle', 'L’étudier d’abord');
     expect(gained(s, () => say(s, 'veilleuse', 'etude', 'Te la rendre'))).toEqual({ xp: 60, fers: 0 });

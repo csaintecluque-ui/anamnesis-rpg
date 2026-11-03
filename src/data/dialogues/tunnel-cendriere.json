@@ -12,6 +12,18 @@
       "node": "guetteur"
     },
     {
+      "requires": [
+        {
+          "quest": "cle-rouille-bleue",
+          "status": "active"
+        },
+        {
+          "notFlag": "cle-obtenue"
+        }
+      ],
+      "node": "guetteur"
+    },
+    {
       "node": "ferme"
     }
   ],

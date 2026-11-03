@@ -726,7 +726,9 @@ function ironheartForges() {
   m.setObstacle(26, 20, 'wagon');
   m.setObstacle(27, 20, 'wagon');
   m.setObstacle(28, 20, 'butoir');
-  m.object('veilleuse', 'pnj', 23, 19);
+  // Pendant la quête de la clé, la Veilleuse a suivi son convoi jusqu'à l'embranchement de la Cendrière (étude du
+  // 2026-11-03, un obstacle par chapitre) : elle revient à son dépôt une fois la clé donnée.
+  m.object('veilleuse', 'pnj', 23, 19, { apparaitSi: 'cle-obtenue' });
   m.object('vieille-machine', 'objet', 26, 20);
   // La forge froide qui s'embrase sans feu, la nuit (« Les Échos sous la Forge », quête cachée).
   m.setObstacle(4, 4, 'forge-eteinte');
@@ -890,6 +892,8 @@ function ironheartCendriere() {
   m.setObstacle(14, 7, 'pilote');
   m.object('pilote', 'objet', 14, 7, { disparaitSi: 'rail-bureau,rail-travailleurs' });
   m.object('sorn', 'pnj', 11, 10, { disparaitSi: 'rail-bureau,rail-travailleurs' });
+  // La Veilleuse, venue écouter son convoi sur l'embranchement, jusqu'à ce qu'elle donne la clé.
+  m.object('veilleuse', 'pnj', 12, 5, { disparaitSi: 'cle-obtenue' });
   for (const [c, r] of [[9, 4], [10, 4], [12, 11], [13, 11], [5, 11]]) m.setObstacle(c, r, 'caisses');
   for (const [c, r] of [[4, 4], [15, 4], [8, 10], [16, 10]]) m.setObstacle(c, r, 'reverbere');
   for (const [c, r] of [[4, 9], [17, 3], [3, 3]]) m.setObstacle(c, r, 'tas-cendres');

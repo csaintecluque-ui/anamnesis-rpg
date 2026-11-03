@@ -5557,7 +5557,7 @@ _Effet : retient « fouille-vue », retient « fouille-marches »._
 
 _Marches des Cendres_
 
-Commence par : « guetteur » _(si quête « Le Rail des Cendres » en cours)_, sinon « ferme »
+Commence par : « guetteur » _(si quête « Le Rail des Cendres » en cours)_, sinon « guetteur » _(si quête « La Clé de Rouille Bleue » en cours)_ _(sans repère « cle-obtenue »)_, sinon « ferme »
 
 ### ferme
 
@@ -6152,7 +6152,7 @@ _Effet : retient « descente-autorisee »._
 
 _Ligne qu’on dit maudite_
 
-Commence par : « machine »
+Commence par : « absente » _(si quête « La Clé de Rouille Bleue » en cours)_ _(sans repère « cle-obtenue »)_, sinon « machine »
 
 ### machine
 
@@ -6182,6 +6182,12 @@ _Effet : retient « capot-rate » pour 1 jours._
 > Des joints neufs, de l’huile du jour, des boulons serrés à la main. Quelqu’un l’entretient en secret, comme on soigne un cheval qu’on n’a plus le droit de monter.
 
 - « Refermer le capot. » → **fin**
+
+### absente
+
+> La locomotive est astiquée de frais ; la lampe de la Veilleuse attend, éteinte, sur le marchepied. À la craie, sur la cabine : « Partie écouter l’embranchement. Le convoi passe par la Cendrière, ces nuits-ci. »
+
+- « La Cendrière : le tunnel du triage. » → **fin**
 
 ## Un voyageur égaré
 

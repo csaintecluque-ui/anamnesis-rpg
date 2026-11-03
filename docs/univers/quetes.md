@@ -150,6 +150,10 @@ Lieux et personnages : `docs/univers/lieux/ironheart.md`. Les détails nouveaux 
   l'Écho de la Gare Engloutie, à qui écoute le convoi avec elle (Mémoire 3), à qui la convainc (Diplomatie 3), ou à
   qui lui apprend qu'un coffre l'attend aux Archives : le **Fonds Zéro**, « arrivé avec les premiers habitants de la
   vallée » (appris de Noam).
+- **La Veilleuse à la Cendrière** (étude du 2026-11-03, « un obstacle par chapitre », accord de Cyril) : tant que la
+  clé n'est pas donnée, elle a suivi son convoi jusqu'à l'embranchement de la Cendrière ; à son dépôt, un mot à la
+  craie sur la locomotive (« Partie écouter l'embranchement ») ; on passe le tunnel du triage par le mot de passe de
+  Joss, les pilleurs vaincus, la Discrétion, ou en bousculant le guetteur. La clé donnée, elle rentre à son dépôt.
 - **Monter aux Manufactures-Moyennes** : le funiculaire et son poste de contrôle [NOTION, roman] ; on passe avec le
   sauf-conduit du Triumvirat, un laissez-passer de visiteur (10 Fers) ou un bluff (Subterfuge 13). Le funiculaire des
   Manufactures-Hautes reste fermé.

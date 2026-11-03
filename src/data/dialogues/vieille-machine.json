@@ -3,6 +3,18 @@
   "speaker": "vieille-machine",
   "entries": [
     {
+      "requires": [
+        {
+          "quest": "cle-rouille-bleue",
+          "status": "active"
+        },
+        {
+          "notFlag": "cle-obtenue"
+        }
+      ],
+      "node": "absente"
+    },
+    {
       "node": "machine"
     }
   ],
@@ -84,6 +96,15 @@
       "options": [
         {
           "text": "Refermer le capot.",
+          "next": "fin"
+        }
+      ]
+    },
+    "absente": {
+      "text": "La locomotive est astiquée de frais ; la lampe de la Veilleuse attend, éteinte, sur le marchepied. À la craie, sur la cabine : « Partie écouter l’embranchement. Le convoi passe par la Cendrière, ces nuits-ci. »",
+      "options": [
+        {
+          "text": "La Cendrière : le tunnel du triage.",
           "next": "fin"
         }
       ]

@@ -11,7 +11,7 @@
  "tilewidth": 64,
  "tileheight": 32,
  "nextlayerid": 4,
- "nextobjectid": 5,
+ "nextobjectid": 6,
  "layers": [
   {
    "id": 1,
@@ -686,6 +686,25 @@
        "name": "disparaitSi",
        "type": "string",
        "value": "rail-bureau,rail-travailleurs"
+      }
+     ]
+    },
+    {
+     "id": 5,
+     "name": "veilleuse",
+     "type": "pnj",
+     "x": 400,
+     "y": 176,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": [
+      {
+       "name": "disparaitSi",
+       "type": "string",
+       "value": "cle-obtenue"
       }
      ]
     }

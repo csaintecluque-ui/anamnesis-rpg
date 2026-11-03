@@ -981,3 +981,4 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   seulement sur la carte (mode test). Corrigé sur la branche (`docs/gdd/interface.md`, « Essai de Cyril ») : murs
   translucides, panneau de la carte qui s'ouvre du côté opposé au lieu, gains sous le nom, « auprès des », bouton
   « Toute la carte » dans les outils de dev. 617 tests ; vérifié en émulation iPhone.
+- Cyril : « Ok mets en ligne » : correctifs de l'essai iPhone mis en ligne.

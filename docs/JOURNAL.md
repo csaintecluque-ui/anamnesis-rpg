@@ -3,7 +3,7 @@
 ## État (2026-11-03)
 
 - Jalons 1, 2 et 3 faits et en ligne ; jalon 4, chapitre 4 (Sept-Portes) en ligne et validé ; page Notion à jour.
-- En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/ (les sept chantiers de la feuille de route).
+- En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/ (les sept chantiers, la vague 1 de l'étude).
 - **Décisions de Cyril (2026-11-03)** : le jeu se joue **sur PC** ; dé sur les compétences (seuils pour les attributs),
   Golem attaquable, deux boutons à la mort, compagnons joués par l'IA, jeu plus long avant tout nouveau chapitre.
 
@@ -14,8 +14,8 @@ vérifiée contre le code (§ 1 : ce qui est exact, faux, non reproduit, en conf
 
 | Vague | Contenu | État |
 |---|---|---|
-| 1 · jouable | Caméra libre, case interdite, course, noms cliquables, combattants visibles, compagnons par l'IA, E1 + E2 (+ garde-fou en simulation), étal de Tobias, repos gratuit, mort à deux boutons | **faite** sur `claude/eloquent-newton-qvomzy` (704 tests, vérifiée dans Chromium) ; pas en ligne ; partie de Cyril à faire |
-| 2 · tendu | Golem attaquable, premier combat, fiche et HUD, la fiche du dé, le héros qui a oublié, objet convoité, voies, jeu plus long | à lancer après la partie et les réponses de Cyril (§ 3 et 4) |
+| 1 · jouable | Caméra libre, case interdite, course, noms cliquables, combattants visibles, compagnons par l'IA, E1 + E2 (+ garde-fou en simulation), étal de Tobias, repos gratuit, mort à deux boutons | **en ligne** (2026-11-03), avec un don tous les deux niveaux ; partie de Cyril à faire |
+| 2 · tendu | Golem attaquable, premier combat, fiche et HUD, la fiche du dé, le héros qui a oublié, objet convoité, voies, jeu plus long | **en cours**, dans l'ordre du § 3 (accepté par Cyril) |
 | 3 · vivant | Son, dialogues à une option, apartés seuls, mini-carte, carte des voies | plus tard |
 
 Les chantiers 0 à 6 (`docs/gdd/feuille-de-route.md`) restent en ligne, leur partie sur PC à faire : la liste unique
@@ -23,6 +23,6 @@ est `docs/a-essayer.md` (une section par chantier, et la vague 1).
 
 ## Points ouverts
 
-- Questions à Cyril (`docs/gdd/etude-2026-11-03.md`, § 4) : dons tous les 2 ou 3 niveaux ; piste du héros qui a
-  oublié (A recommandée) ; ordre de la vague 2 ; Échos au fond des voies proposés par Claude.
+- Réponses de Cyril (§ 4) : vague 1 en ligne, un don tous les deux niveaux, piste A pour le héros, ordre de la vague 2
+  accepté, Claude propose les Échos au fond des voies. Reste ouverte : la vérité derrière l'enfant (`heros.md`).
 - Zones floues du canon : 6 à 13 (chronologie) et 33 à 37 (Terminus) à trancher par Cyril. `npm audit` : à revoir (workbox).

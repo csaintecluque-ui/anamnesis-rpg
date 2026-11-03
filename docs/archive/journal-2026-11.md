@@ -1066,3 +1066,6 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   « héros de parole » en simulation, étal de Tobias à l'accueil, repos gratuit jusqu'au matin, mort à deux boutons
   (réveil à l'auberge contre un Récit). `npm run dialogues` réparé. 704 tests ; vérifié dans Chromium (caméra, course,
   case interdite, combat de la caisse avec Liane, repos, mort et réveil).
+- Cyril : « 1 oui, 2 on passe à deux, 3 piste A, 4 oui, 5 oui » : un don tous les deux niveaux (`DON_EVERY = 2`) ;
+  piste A « La main lâchée » validée pour le héros ; vague 1 mise en ligne ; vague 2 lancée dans l'ordre proposé ;
+  Claude proposera les Échos au fond des voies.

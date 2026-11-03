@@ -94,7 +94,7 @@
   {
     "id": "cuirasse-coeur",
     "name": "Cuirasse au cœur de ferraille",
-    "description": "La cuirasse rivetée, renforcée d’une plaque taillée dans un cœur de Golem. Elle tiède contre la poitrine, comme si quelque chose y battait encore.",
+    "description": "La cuirasse rivetée, renforcée d’une plaque taillée dans un cœur de Golem. Elle tiédit contre la poitrine, comme si quelque chose y battait encore.",
     "weightKg": 19,
     "price": 200,
     "slot": "armure",

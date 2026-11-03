@@ -3,28 +3,26 @@
 ## État (2026-11-03)
 
 - Jalons 1, 2 et 3 faits et en ligne ; jalon 4, chapitre 4 (Sept-Portes) en ligne et validé ; page Notion à jour.
-- 693 tests (dont le parcours complet d'affilée, `src/rules/parcours.test.ts`), typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
-- **Décisions de Cyril (2026-11-03)** : le jeu se joue **sur PC** (le téléphone n'est qu'une cible d'essai) ; le
-  ressenti est déjà testé : on corrige avant tout nouvel essai.
+- En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/ (les sept chantiers de la feuille de route).
+- **Décisions de Cyril (2026-11-03)** : le jeu se joue **sur PC** ; dé sur les compétences (seuils pour les attributs),
+  Golem attaquable, deux boutons à la mort, compagnons joués par l'IA, jeu plus long avant tout nouveau chapitre.
 
-## En cours : la feuille de route (`docs/gdd/feuille-de-route.md`)
+## En cours : l'étude complète du 3 novembre (`docs/gdd/etude-2026-11-03.md`)
 
-Sept chantiers, dans l'ordre, **avant tout nouveau chapitre** (Aetherhaven compris) ; chacun finit par une partie de
-Cyril sur PC et sa validation. Aucun nouveau système d'ici là.
+L'analyse demandée après le chantier 6 : 87 améliorations en trois vagues (jouable, tendu, vivant). Claude l'a
+vérifiée contre le code (§ 1 : ce qui est exact, faux, non reproduit, en conflit avec une décision).
 
-| Chantier | Contenu | État |
+| Vague | Contenu | État |
 |---|---|---|
-| 0 | PC d'abord : `CLAUDE.md`, infobulles, raccourcis, barre d'actions, taille du texte | **en ligne** (2026-11-03) ; partie de Cyril sur PC à faire |
-| 1 | Une mémoire pour le héros : oubli choisi, champignon, Échos tentants et cachés, dons de Récit ; Écho du héros à valider (`univers/personnages/heros.md`) | **en ligne** (2026-11-03) ; partie de Cyril à faire |
-| 2 | Recalibrer tests et compétences : seuils rang + attribut, courbe par chapitre, Athlétisme et Médecine ×5, atelier par compétence, rang ≤ niveau + 2 ; Pell sauvable (validé) | **en ligne** (2026-11-03) ; partie de Cyril à faire |
-| 3 | Refaire le combat : PA et coût par arme, visée +1 PA et résistance, 2 capacités par ennemi, IA, force par chapitre, voie pacifiste ; simulation (écart ≤ 14 points) | **en ligne** (2026-11-03) ; partie de Cyril à faire |
-| 4 | Compagnons présents, ennemi incarné : apartés (21 Liane, 14 Boulon), Liane face à Ingrid, Liane et Boulon, quête de Liane rééquilibrée, la dame en gris dès le ch. 1, le ch. 4 selon la clé, Ilyane oublie ; inventions validées | **en ligne** (2026-11-03) ; partie de Cyril à faire |
-| 5 | Passe d'écriture : tics 21 % → 3 % (testés), Nexus → Fers, voix des marchands, héros dur, Ingrid qui résiste, Golem et foreuse, récompenses par issue, Corvan, Gardebois et Canopéa plus sombres ; Hedda → Ragna, Josse → Olmo | **en ligne** (2026-11-03) ; partie de Cyril à faire |
-| 6 | Économie et progression : usure et réparations, cristal à réaccorder, laissez-passer d'une semaine, voies qui s'épuisent, réputation à 40 et 55, un don tous les 3 niveaux, traits à la création, bilan des Fers | **en ligne** (2026-11-03) ; partie de Cyril à faire ; puis une analyse complète (demande de Cyril) |
+| 1 · jouable | Caméra libre, case interdite, course, noms cliquables, combattants visibles, compagnons par l'IA, E1 + E2 (+ garde-fou en simulation), étal de Tobias, repos gratuit, mort à deux boutons | **faite** sur `claude/eloquent-newton-qvomzy` (704 tests, vérifiée dans Chromium) ; pas en ligne ; partie de Cyril à faire |
+| 2 · tendu | Golem attaquable, premier combat, fiche et HUD, la fiche du dé, le héros qui a oublié, objet convoité, voies, jeu plus long | à lancer après la partie et les réponses de Cyril (§ 3 et 4) |
+| 3 · vivant | Son, dialogues à une option, apartés seuls, mini-carte, carte des voies | plus tard |
 
-`docs/gdd/histoire-prenante.md` (proposition du même jour) nourrit les chantiers 1 et 4. Cyril n'a pas son PC tout de
-suite : on enchaîne les chantiers, et ce qu'il aura à essayer s'ajoute à `docs/a-essayer.md`.
+Les chantiers 0 à 6 (`docs/gdd/feuille-de-route.md`) restent en ligne, leur partie sur PC à faire : la liste unique
+est `docs/a-essayer.md` (une section par chantier, et la vague 1).
 
 ## Points ouverts
 
+- Questions à Cyril (`docs/gdd/etude-2026-11-03.md`, § 4) : dons tous les 2 ou 3 niveaux ; piste du héros qui a
+  oublié (A recommandée) ; ordre de la vague 2 ; Échos au fond des voies proposés par Claude.
 - Zones floues du canon : 6 à 13 (chronologie) et 33 à 37 (Terminus) à trancher par Cyril. `npm audit` : à revoir (workbox).

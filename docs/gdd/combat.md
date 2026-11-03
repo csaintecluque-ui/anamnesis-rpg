@@ -255,8 +255,9 @@ Avec les compagnons (avant : Liane ne faisait que tirer dans la simulation ; apr
 | Parleur niv. 3 + Liane + Boulon · 3 Loups, ch. 2 | 53 | 83 |
 
 Lecture : le parleur se défend seul contre ce qui garde une caisse ; contre une meute ou un boss, il lui faut Liane, la
-fuite, le détour ou la parole. Liane qui soigne deux fois par tour pèse lourd (le Golem passe de 25 à 88 %) : c'est ce
-qu'un joueur attentif faisait déjà à la main ; à surveiller dans la partie de Cyril. Le garde-fou
+fuite, le détour ou la parole. Liane qui soigne pèse lourd (le Golem passe de 25 à 88 %) : c'est ce qu'un joueur
+attentif faisait déjà à la main. La limiter à un soin par tour n'y change presque rien (86 %) : si c'est trop facile
+dans la partie de Cyril, le levier est ce qu'elle rend (2d4) ou le seuil où elle soigne (60 % des PV). Le garde-fou
 (`combatChantier3.test.ts`, « a hero of words ») vérifie à chaque test : parleur niv. 2 seul contre 2 Rôdeurs ≥ 60 %,
 niv. 3 avec Liane contre 2 Loups du ch. 2 ≥ 60 %, et toujours < 30 % seul contre le Golem. L'écart entre tactiques
 reste sous 15 points.

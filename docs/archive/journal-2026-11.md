@@ -1057,3 +1057,12 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   quatre traits à double tranchant à la création ; un test de l'économie des voies. 693 tests.
 - Cyril : « mets en ligne » : chantier 6 en ligne. Les sept chantiers de la feuille de route sont en ligne ; reste la
   partie de Cyril sur PC (`docs/a-essayer.md`), puis l'analyse complète qu'il a annoncée.
+- L'analyse complète arrive : « Anamnesis RPG — étude complète et plan d'amélioration » (5,5/10, 87 améliorations en
+  trois vagues, décisions de Cyril du 3 au soir : dé sur les compétences, Golem attaquable, deux boutons à la mort,
+  compagnons par l'IA, jeu plus long). Claude la vérifie contre le code (`docs/gdd/etude-2026-11-03.md`) : simulations
+  du parleur exactes, celles du guerrier non reproduites, A4 faux (le clavier existe), bug 8 non reproduit. Vague 1
+  faite sur la branche : caméra libre, case interdite signalée, course, noms cliquables, combattants au-dessus du décor,
+  compagnons joués par l'IA, +2 au toucher et dégâts + rang ÷ 2 (parleur niv. 1 contre la caisse : 32 → 81 %), garde-fou
+  « héros de parole » en simulation, étal de Tobias à l'accueil, repos gratuit jusqu'au matin, mort à deux boutons
+  (réveil à l'auberge contre un Récit). `npm run dialogues` réparé. 704 tests ; vérifié dans Chromium (caméra, course,
+  case interdite, combat de la caisse avec Liane, repos, mort et réveil).

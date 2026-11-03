@@ -57,17 +57,18 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `dialogues.md` : format JSON, conditions, effets, contrôles.
 - `inventaire.md` : objets, Fers, équipement, troc ; le sac en onglets et la fiche de chaque objet.
 - `progression.md` : seuils d'XP, montée de niveau.
-- `sauvegarde.md` : emplacements, format, export/import, sauvegarde à chaque lieu, versions v1 à v14.
+- `sauvegarde.md` : emplacements, format, export/import, sauvegarde à chaque lieu, versions v1 à v16, la mort à deux boutons.
 - `interface.md` : HUD, menu pause, options, PC (netteté, raccourcis, plein écran).
 - `animation.md` : marche animée des personnages, méthodes 2D et 3D, comparaison du pilote.
-- `temps.md` : le temps (calendrier du canon, matin/midi/soir/nuit), la nuit, les auberges ; validé.
+- `temps.md` : le temps (calendrier du canon, matin/midi/soir/nuit), la nuit, les auberges, le repos gratuit ; validé.
 - `magie.md` : la magie (cristaux au cou, compétence Résonance, PR, trois pouvoirs, « Un prêt de la Terre ») ; validée.
 - `jalon-2.md` : le jalon 2 (phase 2, animation, avatars, contenu) ; fait et en ligne.
 - `jeu-complet.md` : le jeu complet (ligne directrice, factions, ennemis, quêtes, activités, feuille de route) ; validé.
 - `jalon-3.md` : le jalon 3, le cœur du jeu complet (combat, compagnons, Échos, veillées, ruines, contrats…) et son bilan ; fait et en ligne.
 - `jalon-4.md` : le jalon 4, l'histoire principale continue ; chapitre 4 (Sept-Portes) en ligne.
 - `histoire-prenante.md` : rendre l'histoire prenante (diagnostic, sept leviers, questions à Cyril) ; nourrit les chantiers 1 et 4.
-- `feuille-de-route.md` : analyse et feuille de route de Cyril (2026-11-03) : sept chantiers avant tout nouveau chapitre ; en cours.
+- `feuille-de-route.md` : analyse et feuille de route de Cyril (2026-11-03) : sept chantiers avant tout nouveau chapitre ; en ligne.
+- `etude-2026-11-03.md` : l'étude complète de Cyril (87 améliorations, trois vagues) vérifiée contre le code ; la vague 1 faite, l'ordre de la vague 2, les questions ; en cours.
 - `compagnons.md` : les compagnons (suivi, avis, départ), Liane et Boulon, leurs quêtes ; validé ; les apartés et les échanges du chantier 4.
 - `veillees.md` : les veillées du conteur (publics, goûts, jet, chapeau, renommée, rumeurs et secrets) ; validé.
 - `voies.md` : les voies endormies à explorer (plans, niveaux, bêtes, caisses, pièges) et les contrats des Gardiens ; validé ; la voie pacifiste (chantier 3).

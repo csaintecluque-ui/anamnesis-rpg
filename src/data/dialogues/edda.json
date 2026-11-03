@@ -119,6 +119,10 @@
       "text": "Elle sourit pour la première fois. — Et alors ? Ici, personne ne peut me toucher. Allez donc le dire au Conservateur. Il enregistrera.",
       "options": [
         {
+          "text": "Vous signez avec la main d’une morte. Elle ne réclame pas ses doigts ?",
+          "next": "morte-main"
+        },
+        {
           "text": "…",
           "next": "fin"
         }
@@ -126,6 +130,15 @@
     },
     "refus": {
       "text": "— Comme vous voudrez. Elle repose sa tasse, laisse une pièce et se lève. — Les routes sont longues. On se reverra, quelque part entre ici et Altavent.",
+      "options": [
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ]
+    },
+    "morte-main": {
+      "text": "Le sourire de la dame en gris ne bouge pas. — Elle me l’a prêtée. Là où elle est montée, elle n’en avait plus l’usage.",
       "options": [
         {
           "text": "…",

@@ -252,6 +252,10 @@
           "next": "barriere-ou"
         },
         {
+          "text": "Pousse-toi, ou je passe à travers toi.",
+          "next": "barriere-dur"
+        },
+        {
           "text": "Partir.",
           "next": "fin"
         }
@@ -365,6 +369,15 @@
           "text": "Ce chantier rend les gens malades, à Gardebois.",
           "next": "cause"
         },
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "barriere-dur": {
+      "text": "Le contremaître ne bouge pas d’un pouce. Derrière lui, deux ouvriers posent leurs pelles pour mieux te regarder. — Essaie. Le chantier manque de remblai.",
+      "options": [
         {
           "text": "Partir.",
           "next": "fin"

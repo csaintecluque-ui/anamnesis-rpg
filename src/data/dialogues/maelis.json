@@ -50,6 +50,16 @@
           ]
         },
         {
+          "text": "Une berceuse. Ailleurs, des enfants meurent.",
+          "effects": [
+            {
+              "avis": "liane",
+              "delta": -1
+            }
+          ],
+          "next": "cruel"
+        },
+        {
           "text": "Je suis désolé·e. Je dois partir.",
           "next": "fin"
         }
@@ -87,6 +97,15 @@
       "options": [
         {
           "text": "Prends soin d’elle.",
+          "next": "fin"
+        }
+      ]
+    },
+    "cruel": {
+      "text": "Maëlis recule d’un pas, puis se redresse. — Ailleurs, oui. Ici, c’est ma fille. Va-t’en.",
+      "options": [
+        {
+          "text": "Partir.",
           "next": "fin"
         }
       ]

@@ -115,6 +115,10 @@
         {
           "text": "Et la clé de rouille bleue ?",
           "next": "cle"
+        },
+        {
+          "text": "Encore une vieille qui parle par énigmes.",
+          "next": "appel-rude"
         }
       ]
     },
@@ -215,6 +219,15 @@
         {
           "text": "Je pars pour Zephyria.",
           "next": "fin"
+        }
+      ]
+    },
+    "appel-rude": {
+      "text": "Hesper rit, sans se vexer. — Les vieilles parlent par énigmes parce que les jeunes n’écoutent que ça. Je recommence, plus simple : au Registre, quelqu’un ment. Trouve qui.",
+      "options": [
+        {
+          "text": "Et la clé de rouille bleue ?",
+          "next": "cle"
         }
       ]
     }

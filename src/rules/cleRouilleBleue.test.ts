@@ -94,7 +94,7 @@ describe('La Clé de Rouille Bleue', () => {
     expect(optionTexts(state, 'kaelis', 'accueil')).not.toContain('Au Bosquet des Échos, le bois garde la main de qui a gravé. Et tes os ?');
     choose(state, 'kaelis', 'accueil', 'Je cherche la clé');
     expect(state.flags['kaelis-parle']).toBeUndefined();
-    choose(state, 'kaelis', 'mauvaise', 'Tout se vend');
+    choose(state, 'kaelis', 'mauvaise', 'Les os ne marchandent pas');
     state.character!.fers = 30;
     choose(state, 'kaelis', 'prix', 'Payer vingt-cinq Fers');
     expect(state.character!.fers).toBe(5);
@@ -106,7 +106,7 @@ describe('La Clé de Rouille Bleue', () => {
     state.character!.fers = 30;
     meetBoulon(state);
     choose(state, 'kaelis', 'accueil', 'Je cherche la clé');
-    choose(state, 'kaelis', 'mauvaise', 'Tout se vend');
+    choose(state, 'kaelis', 'mauvaise', 'Les os ne marchandent pas');
     choose(state, 'kaelis', 'prix', 'Payer');
     choose(state, 'veilleuse', 'question-cle', 'Lui parler de ce que la clé ouvre');
     expect(optionTexts(state, 'veilleuse', 'ouvre').some((t) => t.startsWith('Aux Archives'))).toBe(false);

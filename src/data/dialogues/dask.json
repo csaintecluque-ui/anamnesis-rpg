@@ -106,6 +106,10 @@
           ]
         },
         {
+          "text": "Le progrès monte avec ceux qui savent le porter. Et toi, tu portes quoi, Dask ? Des gants ?",
+          "next": "nom-ironie"
+        },
+        {
           "text": "Non.",
           "next": "dossier"
         }
@@ -175,6 +179,15 @@
         {
           "text": "…",
           "next": "fin"
+        }
+      ]
+    },
+    "nom-ironie": {
+      "text": "Dask sourit sans chaleur. — Des responsabilités. Elles ne salissent pas les mains. Alors ?",
+      "options": [
+        {
+          "text": "Reprendre.",
+          "next": "nom"
         }
       ]
     }

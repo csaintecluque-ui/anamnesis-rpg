@@ -620,6 +620,16 @@
           "next": "oubli-3-temps"
         },
         {
+          "text": "Bientôt, tu oublieras pourquoi tu m’as envoyé·e là-bas.",
+          "effects": [
+            {
+              "avis": "liane",
+              "delta": -1
+            }
+          ],
+          "next": "oubli-3-cruel"
+        },
+        {
           "text": "Je suis là.",
           "next": "fin"
         }
@@ -630,6 +640,15 @@
       "options": [
         {
           "text": "Toujours.",
+          "next": "fin"
+        }
+      ]
+    },
+    "oubli-3-cruel": {
+      "text": "Ilyane te regarde longtemps. — Peut-être. Alors tu me le rappelleras. Ou tu ne le feras pas, et ce jour-là, ce sera ton choix, plus ma maladie.",
+      "options": [
+        {
+          "text": "…",
           "next": "fin"
         }
       ]

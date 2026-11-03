@@ -61,7 +61,7 @@
   ],
   "nodes": {
     "accueil": {
-      "text": "Un homme maigre polit une mâchoire de Golem sous une lampe à huile. Autour de lui, des os de bêtes polis, des dents de loup en colliers. — Tout se vend, ici. Même ce qui se souvient. Pose ta question, si c’est la bonne.",
+      "text": "Un homme maigre polit une mâchoire de Golem sous une lampe à huile. Autour de lui, des os de bêtes polis, des dents de loup en colliers. — Les os se souviennent mieux que les vivants, et ils ne marchandent jamais. Pose ta question, si c’est la bonne.",
       "apartes": {
         "boulon": "Boulon regarde les os polis, les dents en colliers. — Il vend ce qui portait. Comme on m’aurait vendu, moi."
       },
@@ -103,7 +103,7 @@
           "next": "accueil"
         },
         {
-          "text": "Tout se vend, as-tu dit. Combien, la réponse ?",
+          "text": "Les os ne marchandent pas, as-tu dit. Toi, combien, la réponse ?",
           "next": "prix"
         },
         {
@@ -261,6 +261,10 @@
         {
           "text": "Qu’ouvre-t-elle ?",
           "next": "ouvre"
+        },
+        {
+          "text": "Cent Fers. Tu paies les souvenirs au prix des os.",
+          "next": "offre-ironie"
         },
         {
           "text": "Non, pas à toi.",
@@ -464,6 +468,19 @@
         },
         {
           "text": "J’y réfléchirai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "offre-ironie": {
+      "text": "Kaelis ne lève pas les yeux. — Les os ne protestent pas. Toi, si. C’est déjà quelque chose. Cent Fers, toujours.",
+      "options": [
+        {
+          "text": "Qu’ouvre-t-elle ?",
+          "next": "ouvre"
+        },
+        {
+          "text": "Non, pas à toi.",
           "next": "fin"
         }
       ]

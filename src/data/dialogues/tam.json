@@ -126,6 +126,10 @@
       "text": "— Ma mère veut que je respire. Moi aussi, figure-toi. Mais je ne vois pas la différence entre monter et partir. Elle non plus, et elle le sait. Va voir Dask, si tu veux. Je déciderai quand il y aura quelque chose à décider.",
       "options": [
         {
+          "text": "Monte ou pars : là-haut, au moins, tu cracheras moins noir.",
+          "next": "vivre-dur"
+        },
+        {
           "text": "Bien.",
           "next": "fin"
         }
@@ -295,6 +299,15 @@
       "options": [
         {
           "text": "Bonne journée.",
+          "next": "fin"
+        }
+      ]
+    },
+    "vivre-dur": {
+      "text": "Tam rit, et tousse. — C’est le meilleur argument qu’on m’ait fait. Et le plus laid.",
+      "options": [
+        {
+          "text": "Bien.",
           "next": "fin"
         }
       ]

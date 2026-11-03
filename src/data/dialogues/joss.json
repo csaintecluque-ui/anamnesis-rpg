@@ -143,6 +143,20 @@
           "next": "personne"
         },
         {
+          "text": "Tu as vendu les tiens pour une dette. Dors mal, Joss.",
+          "effects": [
+            {
+              "avis": "liane",
+              "delta": -1
+            },
+            {
+              "avis": "boulon",
+              "delta": -1
+            }
+          ],
+          "next": "aveu-cruel"
+        },
+        {
           "text": "Merci, Joss.",
           "next": "fin"
         }
@@ -223,6 +237,15 @@
       "options": [
         {
           "text": "Bonne nuit, Joss.",
+          "next": "fin"
+        }
+      ]
+    },
+    "aveu-cruel": {
+      "text": "Joss ne répond pas. Il serre sa lanterne jusqu’à ce que ses jointures blanchissent. — Je dors mal. Tu peux partir tranquille.",
+      "options": [
+        {
+          "text": "…",
           "next": "fin"
         }
       ]

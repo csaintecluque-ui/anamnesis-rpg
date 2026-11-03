@@ -8,7 +8,7 @@
   ],
   "nodes": {
     "accueil": {
-      "text": "Bonne route à toi ! Je vais de village en village avec ma carriole. Bandages, cordes, baumes. Un petit quelque chose pour le voyage ?",
+      "text": "Bonne route à toi ! Bandages, cordes, baumes, et une ficelle rouge contre les loups. Elle ne marche pas, mais elle rassure. Un petit quelque chose pour le voyage ?",
       "options": [
         {
           "text": "Voyons ta marchandise.",
@@ -24,6 +24,10 @@
           "next": "nouvelles"
         },
         {
+          "text": "Ta ficelle rouge, elle marche contre les colporteuses ?",
+          "next": "ironie"
+        },
+        {
           "text": "Bonne route.",
           "next": "fin"
         }
@@ -35,6 +39,24 @@
         {
           "text": "Merci.",
           "next": "accueil"
+        }
+      ]
+    },
+    "ironie": {
+      "text": "— Contre les colporteuses, non. Contre les gens qui n’achètent rien, j’y travaille.",
+      "options": [
+        {
+          "text": "Voyons ta marchandise.",
+          "next": "fin",
+          "effects": [
+            {
+              "openTrade": true
+            }
+          ]
+        },
+        {
+          "text": "Bonne route.",
+          "next": "fin"
         }
       ]
     }

@@ -39,6 +39,10 @@
           "next": "role"
         },
         {
+          "text": "Un arbre qui arbitre. Et quand vous n’êtes pas d’accord avec vous-même ?",
+          "next": "ironie"
+        },
+        {
           "text": "Que la sève coule.",
           "next": "fin"
         }
@@ -65,6 +69,19 @@
     "apres": {
       "text": "— Les Voix des Arbres soignent les racines du Bosquet. Déjà, les plus jeunes noms se réchauffent. Les plus vieux prendront plus de temps : ils ont toujours pris leur temps.",
       "options": [
+        {
+          "text": "Que la sève coule.",
+          "next": "fin"
+        }
+      ]
+    },
+    "ironie": {
+      "text": "La dryade rit, et ses feuilles bruissent. — Alors je pousse de travers, pendant cent ans. Le Bosquet est plein de mes hésitations.",
+      "options": [
+        {
+          "text": "Qu’est-ce que la Voix de Gaïa ?",
+          "next": "role"
+        },
         {
           "text": "Que la sève coule.",
           "next": "fin"

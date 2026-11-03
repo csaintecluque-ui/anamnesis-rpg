@@ -30,6 +30,10 @@
           "next": "portes"
         },
         {
+          "text": "Un cartographe qui ne sait pas où mène la septième Porte. Rassurant.",
+          "next": "ironie"
+        },
+        {
           "text": "Au revoir.",
           "next": "fin"
         }
@@ -57,6 +61,19 @@
       "options": [
         {
           "text": "Merci, Lior.",
+          "next": "fin"
+        }
+      ]
+    },
+    "ironie": {
+      "text": "— Rassurant, oui. Les cartes qui savent tout mentent. La mienne a un blanc au milieu : c’est la seule chose vraie qu’elle dise.",
+      "options": [
+        {
+          "text": "Où mènent-elles ?",
+          "next": "portes"
+        },
+        {
+          "text": "Au revoir.",
           "next": "fin"
         }
       ]

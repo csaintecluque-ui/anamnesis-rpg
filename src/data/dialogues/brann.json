@@ -50,6 +50,10 @@
           ]
         },
         {
+          "text": "Tomber d’un chariot à l’arrêt, c’est un talent.",
+          "next": "ironie"
+        },
+        {
           "text": "Bon courage, Brann.",
           "next": "fin"
         }
@@ -101,6 +105,24 @@
       "options": [
         {
           "text": "…",
+          "next": "fin"
+        }
+      ]
+    },
+    "ironie": {
+      "text": "Brann rougit jusqu’aux oreilles. — Il roulait ! Un peu. Bon. Tu m’aides, ou tu te moques ?",
+      "options": [
+        {
+          "text": "Je vais la chercher.",
+          "next": "merci",
+          "effects": [
+            {
+              "startQuest": "caisse-egaree"
+            }
+          ]
+        },
+        {
+          "text": "Je me moque.",
           "next": "fin"
         }
       ]

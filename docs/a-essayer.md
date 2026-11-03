@@ -169,6 +169,20 @@ Critère de l'étude : le chapitre 1 sans frustration de navigation, la caisse g
 - [ ] **Un don tous les deux niveaux** (ta décision) : au niveau 2, l'écran du don après les points de compétence.
 - Remarques :
 
+## Étude du 3 novembre, vague 2 « tendu » (sur la branche, pas encore en ligne)
+
+Critère de l'étude : au moins un jet raté par chapitre qui t'a coûté quelque chose.
+
+- [ ] **Le dé** : plus aucun « il te faut Diplomatie 3 » ; chaque test de compétence est un jet affiché
+      (« [Diplomatie 55 %] », le détail au survol). Raté, il mène ailleurs : Tobias fait le laissez-passer à 35 Fers,
+      Ingrid se braque, Garrik lève sa pioche, l'ours se réveille, Pell meurt malgré tes soins. Une parole ratée ne se
+      répète pas ; un examen raté (traces, outils, mur) se retente le lendemain. Trop dur, trop doux ?
+- [ ] **Le premier combat** : un Rôdeur-Épine sur le sentier de la Gare, avec une ligne d'aide au premier tour.
+- [ ] **Le Golem**, une fois le chantier arrêté par la parole : il se laisse frapper, après l'avertissement d'Ingrid.
+- [ ] **La fiche** (journal, premier onglet) et les **barres** de PV, d'XP et des compagnons en haut à droite.
+- [ ] **La création** sans Mêlée ni Tir : l'avertissement en bas du résumé.
+- Remarques :
+
 ## Déjà en ligne, pas encore essayé sur PC
 
 - [ ] **Chapitre 4, Sept-Portes** sans le mode surpuissant : l'arrivée par la Porte du sud, le Registre, l'une des trois

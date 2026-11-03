@@ -1069,3 +1069,10 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
 - Cyril : « 1 oui, 2 on passe à deux, 3 piste A, 4 oui, 5 oui » : un don tous les deux niveaux (`DON_EVERY = 2`) ;
   piste A « La main lâchée » validée pour le héros ; vague 1 mise en ligne ; vague 2 lancée dans l'ordre proposé ;
   Claude proposera les Échos au fond des voies.
+- Vague 1 mise en ligne (déploiement réussi), page Notion « Anamnesis — le jeu » complétée (la vague 1 ; dons tous les
+  deux niveaux ; la mort à deux boutons). Vague 2 sur la branche : le Golem attaquable après la parole (avertissement
+  d'Ingrid, Liane désapprouve, Ingrid le reproche) ; un premier combat sur le sentier de la Gare (Rôdeur-Épine, ligne
+  d'aide) ; l'avertissement de création sans Mêlée ni Tir ; la fiche de personnage et les barres du HUD ; **la
+  compétence modifie le dé** : les 45 seuils de compétence deviennent des jets, chaque échec écrit (une parole ratée ne
+  se répète pas, un examen raté se retente le lendemain), difficulté selon la courbe du chantier 2. Trois Échos du fond
+  des voies proposés (à valider). 717 tests ; vérifié dans Chromium (Golem, embuscade, fiche, HUD, dialogue à jet).

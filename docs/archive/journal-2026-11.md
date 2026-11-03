@@ -992,3 +992,4 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   moitié ramassée après un combat gagné, 2 Fers pièce ; sauvegarde v16 : 20 offertes à qui a déjà l'arme ; 99 pour le
   perso surpuissant) et la lampe (voies endormies sombres sans elle ; avec, pièges vus à deux pas, contournés,
   enjambés sans jet). 630 tests ; vérifié en émulation iPhone (combat, voie avec et sans lampe).
+- Cyril : « Oui mets en ligne » : munitions et lampe validées et mises en ligne.

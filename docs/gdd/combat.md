@@ -108,7 +108,7 @@ Ton : `docs/univers/ton.md`. Code : `src/rules/combat.ts`, `companions.ts`, `bes
   ruines), trois déserteurs des Marches qui font « péage » (Subterfuge 13 pour passer). À l'aiguillage du triage, l'un
   des deux pilleurs est désormais un arbalétrier.
 
-## Munitions (demande de Cyril, 2026-11-03, à valider)
+## Munitions (demande de Cyril, 2026-11-03 ; validé : « Oui mets en ligne »)
 
 « Ce serait bien qu'il y ait un système de flèches ou carreaux. » Règles : `src/rules/combat.ts` (`ammoLeft`,
 `settleAmmo`) ; données : `munition` dans `src/data/weapons.json`.

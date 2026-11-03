@@ -35,7 +35,7 @@ d'Ironheart), chiffres validés ; l'escorte reste pour plus tard.
 | 4 | arbalétrier, pilleur et rebouteuse · 3 Échos furieux · 2 Griffes-Sylves |
 | 5 | un Golem de Ferraille et un Gecko · 2 arbalétriers, un pilleur et une rebouteuse |
 
-## La lampe (demande de Cyril, 2026-11-03, à valider)
+## La lampe (demande de Cyril, 2026-11-03 ; validé : « Oui mets en ligne »)
 
 La **lampe à cristal** (15 Fers chez Tobias, Hedda, la colporteuse et la marchande des nations ; parfois dans une
 caisse) sert enfin sous terre. Règles : `carriesLamp`, `lightTraps` dans `src/rules/voies.ts`.

@@ -5,11 +5,11 @@ Cyril (2026-11-03) : « L'histoire principale doit continuer. Va pour le chapitr
 
 | Étape | Contenu | État |
 |---|---|---|
-| 1. Chapitre 4, Sept-Portes | « Les Mémoires du Monde Perdu » : la ville de Kael, sans combat possible ; le Registre des Mains ; la page du dernier départ | en ligne (2026-11-03) ; noms et chiffres à valider ; Notion après l'essai |
+| 1. Chapitre 4, Sept-Portes | « Les Mémoires du Monde Perdu » : la ville de Kael, sans combat possible ; le Registre des Mains ; la page du dernier départ | en ligne et validé (2026-11-03) ; page Notion complétée |
 | 2. L'essai de Cyril | une partie sur téléphone ; ses remarques sur le dosage (difficulté, prix, rythme) | en cours |
 | 3. Chapitre 5, Aetherhaven | la suite, dans l'ordre validé des villes | à faire |
 
-## Chapitre 4 : « Les Mémoires du Monde Perdu » (construit le 2026-11-03, à valider)
+## Chapitre 4 : « Les Mémoires du Monde Perdu » (construit et validé le 2026-11-03)
 
 Lore et propositions : `docs/univers/lieux/sept-portes.md`. **Aucun combat possible** (l'Anneau) : tout se joue par
 la parole, la ruse ou la discrétion ; et ce qu'on y risque n'est pas un coup, c'est le **raccompagnement**.
@@ -50,7 +50,7 @@ la parole, la ruse ou la discrétion ; et ce qu'on y risque n'est pas un coup, c
   deux jours de marche pour revenir, ce chemin-là fermé, −10 de réputation à Sept-Portes. La parole reste toujours
   ouverte (Diplomatie ou Érudition 3, que l'on peut gagner en montant de niveau, ou le Récit de Kael, chez Mirelle).
 
-## Chiffres (à valider)
+## Chiffres (validés le 2026-11-03)
 
 | Quoi | Valeur |
 |---|---|

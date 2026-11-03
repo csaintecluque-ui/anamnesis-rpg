@@ -993,3 +993,7 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   perso surpuissant) et la lampe (voies endormies sombres sans elle ; avec, pièges vus à deux pas, contournés,
   enjambés sans jet). 630 tests ; vérifié en émulation iPhone (combat, voie avec et sans lampe).
 - Cyril : « Oui mets en ligne » : munitions et lampe validées et mises en ligne.
+- Cyril : « Ok complète la page Notion » : pris comme son accord sur le chapitre 4 tel qu'il est en ligne (noms et
+  lore compris : Edda Varn, Altavent, Lior, la septième Porte). Page « Anamnesis — le jeu » complétée : nouvelle
+  sous-page « Sept-Portes », chapitre 4 dans « Histoire et quêtes », inventaire, munitions et lampe sur l'accueil.
+  Les zones floues 33 à 37 n'y sont pas : elles restent à trancher par Cyril dans son Notion.

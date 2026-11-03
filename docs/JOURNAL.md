@@ -18,7 +18,8 @@
 
 1. L'essai de Cyril (en cours) et ses remarques sur le dosage ; ses réponses sur le chapitre 4 (noms, Altavent, la
    septième Porte, chiffres). Correctifs de son premier essai iPhone en ligne ; inventaire en onglets en ligne ; munitions et lampe en ligne.
-2. Après l'essai, à sa demande : compléter la page Notion « Anamnesis — le jeu » (chapitre 4, éléments validés).
+2. Page Notion « Anamnesis — le jeu » complétée le 2026-11-03 (sous-page Sept-Portes, chapitre 4, inventaire,
+   munitions, lampe).
 
 ## Points ouverts
 

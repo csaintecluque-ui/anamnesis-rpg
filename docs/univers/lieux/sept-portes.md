@@ -1,4 +1,4 @@
-# Sept-Portes, la cité de Kael (chapitre 4 ; propositions du 2026-11-03, **à valider**)
+# Sept-Portes, la cité de Kael (chapitre 4 ; propositions du 2026-11-03, **validées** : « Ok complète la page Notion »)
 
 Plan validé de la ville : `docs/univers/lieux/villes.md` (section 4). Chapitre : `docs/gdd/jalon-4.md`. Chantier
 repris de Codex par Claude (décision de Cyril, 2026-11-03 : « L'histoire principale doit continuer »).

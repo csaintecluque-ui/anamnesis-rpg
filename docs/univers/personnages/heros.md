@@ -58,3 +58,24 @@ Ce que Claude en tire pour le jeu (**construit** le 2026-11-03, sur la branche ;
 - **Les Échos du fond des voies** (validés, avec le détail du héros) portent ces fragments : l'odeur de vapeur dans la
   Combe, une main contre la vitre à la halte des Fougères, une voix qui compte jusqu'à sept au Dépôt Sept.
 - **Le choix d'Altavent** (fin du jeu) : monter, ou rester et porter ce qu'on sait ; à écrire avec le chapitre 5.
+
+## Ilyane remarque (proposition du 2026-11-03, **à valider**)
+
+Demande de Cyril (« oui » à l'étude, F1 : une réplique d'Ilyane qui change à chaque retour à Gardebois). Le miroir :
+**Ilyane perd ses souvenirs pendant que le héros retrouve les siens.** Une réplique par fragment revenu, la première
+fois qu'on la revoit ensuite (après ses étapes d'oubli, qui passent avant) ; elle ne sait rien de la vérité, elle
+remarque.
+
+| Après | Ilyane | Le héros peut répondre |
+|---|---|---|
+| L'enfant à la fenêtre | « Tu es pâle. Les Échos t'ont parlé ? À moi, ils ne parlent plus. » Puis, si l'on dit qu'un enfant l'a regardé : « Les Échos ne regardent personne : ils rejouent. Si l'un d'eux t'a regardé·e, c'est qu'il te connaissait. » | « Un enfant m'a regardé·e. » / « Rien. » |
+| La vapeur | Elle pose la bouilloire. « Tu la regardes comme si elle allait partir sans toi. » | « Je ne sais pas pourquoi. » / « Ce n'est rien. » |
+| La main | « Sylvan dit que tu serres le poing en dormant. Sur quoi ? » | « Sur une main. » / « Sur rien. » |
+| La voix qui compte | Elle compte les plis du relais, s'arrête à six, perd le fil. Le héros finit : « sept ». « Comment le savais-tu ? » | (aucune : elle ne demande pas la réponse) |
+| Plus tard, quand elle oublie le héros un instant (son étape 3) | « Toi, tu reprends ce que je perds. C'est peut-être juste. » | « Je te le rendrai. » / « Ne dis pas ça. » |
+
+**Variante B** (à trancher) : Ilyane était parmi les Gardiens qui ont recueilli l'enfant, ce matin-là, et c'est ce
+souvenir-là qu'elle perd : « Le matin où on t'a trouvé·e sur le quai, tu ne disais qu'un mot. Je ne me souviens plus
+lequel. Avant, je m'en souvenais. » Plus forte, mais elle ajoute au canon du héros (Ilyane présente ce jour-là).
+Recommandation de Claude : **A**, qui garde la vérité au seul héros ; B si tu veux qu'Ilyane porte un morceau du
+secret jusqu'à ce qu'elle l'oublie.

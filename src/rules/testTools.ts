@@ -12,7 +12,7 @@ import { xpForLevel } from './leveling';
 import { restoreResonance } from './magic';
 import { RECITS } from './recits';
 import { REPUTATION } from './reputation';
-import { RENCONTRES } from './world';
+import { RENCONTRES, WORLD } from './world';
 
 /**
  * Hidden testing tools (docs/gdd/interface.md, « Mode test » and « Mode développeur »): not part of the game's rules.
@@ -71,6 +71,11 @@ export function cycleQuest(state: GameState, id: string): QuestState {
   if (next === 'none') delete state.quests[id];
   else state.quests[id] = next;
   return next;
+}
+
+/** The whole world map known at once: every place's flag (src/data/world.json, `revealedBy`). */
+export function revealWorld(state: GameState): void {
+  for (const p of WORLD.places) if (p.revealedBy) state.flags[p.revealedBy] = true;
 }
 
 export function toggleFlag(state: GameState, flag: string): boolean {

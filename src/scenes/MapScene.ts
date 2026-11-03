@@ -5,6 +5,7 @@ import npcData from '../data/npcs.json';
 import { TILE_HEIGHT, TILE_WIDTH, screenToTile, tileToScreen, type Tile } from '../engine/iso';
 import { carveArena, farEdgeTiles, toArena } from '../engine/arena';
 import { FACINGS, facingOf, type Facing } from '../engine/facing';
+import { FADED_ALPHA, bodyBox, obstacleBox, overlaps, type Box } from '../engine/occlusion';
 import { findPath } from '../engine/pathfinding';
 import { bigBlock, findObject, isBigAnchor, isWalkable, parseTiledMap, tileKey, type GameMap, type MapObject } from '../engine/tiledMap';
 import { DEFAULT_AVATAR } from '../rules/character';
@@ -33,6 +34,9 @@ import { descend, groupFlag, groupNear, groupXp, leaveVoie, springTrap, voieLeve
 import type { HudScene } from './HudScene';
 import type { WorldMapStartData } from './WorldMapScene';
 import { momentOf, type Moment } from '../rules/time';
+
+/** Top of the drawn part of each obstacle frame (`texture:frame`), measured once for the whole game. */
+const DRAWN_TOPS = new Map<string, number>();
 
 /** Delay before the enemies of a random encounter attack, so the arrival is seen first. */
 const AMBUSH_DELAY_MS = 900;
@@ -92,6 +96,10 @@ export class MapScene extends Phaser.Scene {
    * they attack again only once the hero has been out of their sight. Touching them still starts the fight.
    */
   private fought = new Set<string>();
+  /** Obstacle images, faded while they hide the hero or something to touch (src/engine/occlusion.ts). */
+  private obstacleImages: Phaser.GameObjects.Image[] = [];
+  private fadedForThings = new Set<Phaser.GameObjects.Image>();
+  private fadedForHero = new Set<Phaser.GameObjects.Image>();
 
   constructor() {
     super('Map');
@@ -138,6 +146,9 @@ export class MapScene extends Phaser.Scene {
     this.arrival = null;
     this.interactables = [];
     this.fought = new Set();
+    this.obstacleImages = [];
+    this.fadedForThings = new Set();
+    this.fadedForHero = new Set();
 
     this.drawGround();
     this.drawObstacles();
@@ -163,6 +174,8 @@ export class MapScene extends Phaser.Scene {
     if (!saved.ok) console.warn('Sauvegarde auto impossible :', saved.error);
     const start = this.feet(this.heroTile);
     this.hero = this.add.sprite(start.x, start.y, 'tiles', this.map.frames.heros).setOrigin(0.5, 1).setDepth(start.y);
+    this.revealThings();
+    this.revealHero(this.heroTile);
     this.setUpWalk();
     this.party = new PartyLayer(this, { frames: this.map.frames, feet: (t) => this.feet(t), walkable: (t) => this.walkable(t) });
     this.partyIds = state.groupe.map((m) => m.id).join(',');
@@ -271,6 +284,7 @@ export class MapScene extends Phaser.Scene {
         const image = (big ? this.add.image(f.x, f.y, `decor-${big}`) : this.add.image(f.x, f.y, 'tiles', frame))
           .setOrigin(0.5, 1)
           .setDepth(f.y);
+        this.obstacleImages.push(image);
         const marker = this.map.objects.find(
           (o) => INTERACTIVE_OBSTACLES.has(o.type) && o.col === col && o.row === row,
         );
@@ -308,6 +322,60 @@ export class MapScene extends Phaser.Scene {
       this.occupied.delete(tileKey(object));
       return false;
     });
+    this.revealThings();
+  }
+
+  // --- Walls that hide (src/engine/occlusion.ts) ----------------------------------------------
+
+  /** Visible obstacles drawn over a box whose feet are at `depth`. */
+  private hiding(box: Box, depth: number, except?: Phaser.GameObjects.Image): Phaser.GameObjects.Image[] {
+    return this.obstacleImages.filter(
+      (o) => o !== except && o.visible && o.depth > depth && overlaps(obstacleBox(o.x, o.y, o.displayWidth, this.drawnHeight(o)), box),
+    );
+  }
+
+  /** How high an obstacle's picture rises above its feet: its transparent top skipped, measured once per frame. */
+  private drawnHeight(image: Phaser.GameObjects.Image): number {
+    const key = image.texture.key;
+    const frame = image.frame;
+    const id = `${key}:${frame.name}`;
+    let top = DRAWN_TOPS.get(id);
+    if (top === undefined) {
+      top = frame.height;
+      const middle = Math.floor(frame.width / 2);
+      scan: for (let y = 0; y < frame.height; y += 2) {
+        for (const x of [middle - 10, middle, middle + 10]) {
+          if ((this.textures.getPixelAlpha(x, y, key, frame.name) ?? 0) > 0) {
+            top = y;
+            break scan;
+          }
+        }
+      }
+      DRAWN_TOPS.set(id, top);
+    }
+    return (frame.height - top) * (image.displayHeight / frame.height);
+  }
+
+  private applyFades(): void {
+    for (const o of this.obstacleImages) o.setAlpha(this.fadedForThings.has(o) || this.fadedForHero.has(o) ? FADED_ALPHA : 1);
+  }
+
+  /** People and things to touch stay in sight: what stands in front of them is faded. */
+  private revealThings(): void {
+    this.fadedForThings = new Set();
+    for (const { object, image } of this.interactables) {
+      if (!image.visible) continue;
+      const kind = object.type === 'pnj' || object.type === 'ennemi' ? 'person' : 'thing';
+      for (const o of this.hiding(bodyBox(image.x, image.y, kind), image.depth, image)) this.fadedForThings.add(o);
+    }
+    this.applyFades();
+  }
+
+  /** The hero, on the cell they are stepping onto. */
+  private revealHero(tile: Tile): void {
+    const f = this.feet(tile);
+    this.fadedForHero = new Set(this.hiding(bodyBox(f.x, f.y, 'person'), f.y));
+    this.applyFades();
   }
 
   /** Enemies standing on the map until their fight is won or avoided (src/data/encounters.json). */
@@ -555,6 +623,7 @@ export class MapScene extends Phaser.Scene {
     this.walk(facingOf(this.heroTile, next));
     const diagonal = next.col !== this.heroTile.col && next.row !== this.heroTile.row;
     const target = this.feet(next);
+    this.revealHero(next);
     this.tweens.add({
       targets: this.hero,
       x: target.x,

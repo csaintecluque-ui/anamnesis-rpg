@@ -137,3 +137,16 @@ tactiles reçoivent donc des tailles à eux (détection « pas de souris », `HA
 - **Journal**, onglet Réputation : le rang chez les Gardiens de Mémoire en tête, avec ce qu'il faut pour le suivant ;
   le rang dans chaque guilde à côté de l'opinion. **Tableaux des contrats** : « Ton rang : Lanterne ».
 - **Outils de dev**, onglet « Groupe » : « Matières du butin : 3 de chaque » ; « Factions : adhérer ».
+
+## Essai de Cyril sur iPhone (2026-11-03) : correctifs
+
+- **Murs translucides** (`src/engine/occlusion.ts`) : en vue isométrique, ce qui est plus près de l'écran se dessine
+  par-dessus ce qui est derrière ; les murs du bord sud et est cachaient le héros et les caisses des voies endormies.
+  Un obstacle qui cache le milieu du corps du héros, d'un habitant, d'une bête ou d'un objet à toucher devient
+  translucide (35 %), comme dans les CRPG de référence. Un comptoir qui ne cache que les jambes reste opaque.
+- **Carte du monde** : le panneau d'un lieu s'ouvre **en haut quand le lieu est en bas** (les voies endormies,
+  Sept-Portes), et inversement ; il prend la hauteur de son texte ; le lieu touché est cerclé. En sortant d'une ville,
+  plus de panneau qui cache le bas de la carte : un petit bouton « Rentrer : Gardebois » dans la barre du haut.
+- **Dialogues** : les gains (réputation, rangs, objets) passent sous le nom quand ils ne tiennent pas sur sa ligne,
+  au lieu de déborder dessus. « Réputation auprès des Nacelliers » (et non « de les »).
+- **Outils de dev**, onglet « Lieux » : « Toute la carte » révèle tous les lieux de la carte du monde.

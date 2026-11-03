@@ -31,6 +31,16 @@ describe('mode test', () => {
 });
 
 describe('mode développeur', () => {
+  it('shows the whole world map at once', async () => {
+    const { createNewGame } = await import('../state/gameState');
+    const { WORLD, knownPlaces } = await import('./world');
+    const { revealWorld } = await import('./testTools');
+    const state = createNewGame(hero());
+    expect(knownPlaces(state.flags, state.quests).length).toBeLessThan(WORLD.places.length);
+    revealWorld(state);
+    expect(knownPlaces(state.flags, state.quests).map((p) => p.id)).toEqual(WORLD.places.map((p) => p.id));
+  });
+
   it('makes an overpowered character that passes every test and can still be saved', async () => {
     const { makeOverpowered, OVERPOWERED_LEVEL } = await import('./testTools');
     const { characterError } = await import('./character');

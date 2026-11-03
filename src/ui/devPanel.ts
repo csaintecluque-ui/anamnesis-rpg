@@ -5,7 +5,7 @@ import { QUESTS } from '../rules/dialogue';
 import { ITEMS, addItem, ownedCount, removeItem } from '../rules/inventory';
 import { FACTIONS } from '../rules/reputation';
 import { RECITS } from '../rules/recits';
-import { allFlags, cycleQuest, makeOverpowered, restoreFullHp, restoreFullResonance, toggleFlag, type QuestState } from '../rules/testTools';
+import { allFlags, cycleQuest, makeOverpowered, restoreFullHp, restoreFullResonance, revealWorld, toggleFlag, type QuestState } from '../rules/testTools';
 import { resonanceMax } from '../rules/magic';
 import { COMPANIONS, findCompanion, inParty, joinParty, leaveParty } from '../rules/companions';
 import { recordMet } from '../rules/bestiary';
@@ -164,6 +164,7 @@ export function openDevPanel(state: GameState, onClose: (result: DevPanelResult)
 
   function renderPlaces(): void {
     main.append(el('p', 'Toucher un lieu y emmène tout de suite, à son entrée.', 'note'));
+    main.append(row('Carte du monde', [button('Toute la carte', () => (revealWorld(state), render()))]));
     let lastPlace = '';
     for (const l of LOCATIONS.filter((x) => !x.encounter && !x.voie)) {
       const place = placeOfLocation(l.id)?.name ?? 'Ailleurs';

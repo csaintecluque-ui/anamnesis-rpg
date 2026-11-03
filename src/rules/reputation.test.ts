@@ -15,11 +15,19 @@ import {
   reputationNotices,
   reputationPrices,
   reputationScore,
+  reputationTarget,
 } from './reputation';
 import { findPlace } from './world';
 
 /** Réputation par ville (docs/gdd/reputation.md). */
 describe('reputation', () => {
+  it('speaks of towns and guilds in good French (« auprès des Nacelliers », never « de les »)', () => {
+    expect(reputationTarget('canopee')).toBe('à Canopéa');
+    expect(reputationTarget('nacelliers')).toBe('auprès des Nacelliers');
+    expect(reputationTarget('compagnie-lisieres')).toBe('auprès de la Compagnie des Lisières');
+    expect(reputationTarget('travailleurs-rail')).toBe('auprès des Travailleurs du Rail');
+  });
+
   it('only counts known towns, quests and story flags', () => {
     const quests = new Set(QUESTS.map((q) => q.id));
     for (const [place, sources] of Object.entries(REPUTATION)) {

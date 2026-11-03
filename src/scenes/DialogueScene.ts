@@ -40,6 +40,8 @@ export class DialogueScene extends Phaser.Scene {
   private panelTop = 200;
   /** Left edge of the name and text: after the portrait when the speaker has one. */
   private textLeft = MARGIN;
+  /** Right edge of the speaker's name: the notices of what was gained go after it when they fit. */
+  private nameRight = MARGIN;
   /** What pressing 1, 2, 3… does on the current node (undefined for a greyed option). */
   private choices: ((() => void) | undefined)[] = [];
 
@@ -73,11 +75,12 @@ export class DialogueScene extends Phaser.Scene {
         .setStrokeStyle(2, COLORS.copper, 0.7);
       this.textLeft = MARGIN + PORTRAIT + PORTRAIT_GAP;
     }
-    this.add.text(this.textLeft, this.panelTop + 24, npc?.name ?? this.dialogue.speaker, {
+    const name = this.add.text(this.textLeft, this.panelTop + 24, npc?.name ?? this.dialogue.speaker, {
       fontFamily: FONT_SERIF,
       fontSize: fontPx(28),
       color: CSS.copper,
     });
+    this.nameRight = name.x + name.width;
     this.layer = this.add.container(0, 0);
     DIGIT_KEYS.forEach((keys, i) => onKeys(this, keys, () => this.choices[i]?.()));
 
@@ -97,20 +100,23 @@ export class DialogueScene extends Phaser.Scene {
     this.illustration.setVisible(illustrated);
     this.panel.setFillStyle(COLORS.ink, illustrated ? PANEL_ALPHA_OVER_ILLUSTRATION : PANEL_ALPHA);
 
+    let textTop = this.panelTop + 74 * textScale();
+    // What was just gained: on the name's line when it fits there, else on lines of its own under the name.
     if (this.notices.length) {
-      this.layer.add(
-        this.add
-          .text(GAME_WIDTH - MARGIN, this.panelTop + 30, this.notices.join('   ·   '), {
-            fontFamily: FONT_SERIF,
-            fontSize: fontPx(22),
-            color: CSS.copper,
-          })
-          .setOrigin(1, 0),
-      );
+      const style = { fontFamily: FONT_SERIF, fontSize: fontPx(22), color: CSS.copper };
+      const line = this.add.text(GAME_WIDTH - MARGIN, this.panelTop + 30, this.notices.join('   ·   '), style).setOrigin(1, 0);
+      if (line.x - line.width < this.nameRight + 40) {
+        line
+          .setText(this.notices.join('  ·  '))
+          .setOrigin(0, 0)
+          .setPosition(this.textLeft, textTop)
+          .setWordWrapWidth(GAME_WIDTH - MARGIN - this.textLeft);
+        textTop += line.height + 10;
+      }
+      this.layer.add(line);
       this.notices = [];
     }
 
-    let textTop = this.panelTop + 74 * textScale();
     if (this.rollNotice) {
       const line = this.add.text(this.textLeft, textTop, this.rollNotice, {
         fontFamily: FONT_SERIF,

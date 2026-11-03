@@ -31,6 +31,7 @@
       "location": "ironheart-forges",
       "entrance": "entree",
       "revealedByQuest": "audience",
+      "revealedBy": "connait-ironheart",
       "description": "La capitale de Ferros : forges, funiculaires et archives, sous un ciel qui semble avoir rouillé."
     },
     {

@@ -3,7 +3,7 @@
 ## État (2026-11-03)
 
 - Jalons 1, 2 et 3 faits et en ligne (bilan du 3 : `docs/gdd/jalon-3.md`). 11,5 crédits Higgsfield restants.
-- 612 tests (dont le parcours complet d'affilée, `src/rules/parcours.test.ts`), typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
+- 617 tests (dont le parcours complet d'affilée, `src/rules/parcours.test.ts`), typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
 - Mode test caché : 5 touches sur la version (écran titre) → menu pause : +50 Fers, PV au max, **Outils de dev**
   (perso surpuissant, groupe, lieux, quêtes, repères, objets, Récits ; `docs/gdd/interface.md`).
 
@@ -17,7 +17,7 @@
 ## Prochaine étape
 
 1. L'essai de Cyril (en cours) et ses remarques sur le dosage ; ses réponses sur le chapitre 4 (noms, Altavent, la
-   septième Porte, chiffres).
+   septième Porte, chiffres). Correctifs de son premier essai iPhone faits sur la branche, à mettre en ligne.
 2. Après l'essai, à sa demande : compléter la page Notion « Anamnesis — le jeu » (chapitre 4, éléments validés).
 
 ## Points ouverts

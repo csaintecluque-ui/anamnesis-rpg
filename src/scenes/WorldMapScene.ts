@@ -47,8 +47,8 @@ const COPPER = COLORS.copper;
 
 /** Finger-sized on touch screens (docs/gdd/interface.md). */
 const LAYOUT = HAS_MOUSE
-  ? { panelHeight: 150, text: 20, button: { height: 48, fontSize: 20, width: 230 }, name: 20 }
-  : { panelHeight: 210, text: 24, button: { height: 76, fontSize: 24, width: 300 }, name: 24 };
+  ? { panelHeight: 150, text: 20, button: { height: 48, fontSize: 20, width: 230 }, name: 20, back: { width: 220, height: 44, fontSize: 18 } }
+  : { panelHeight: 210, text: 24, button: { height: 76, fontSize: 24, width: 300 }, name: 24, back: { width: 250, height: 60, fontSize: 21 } };
 
 /**
  * The world map (docs/gdd/carte-du-monde.md), like the travel maps of the reference CRPGs: touch a known place, the
@@ -89,7 +89,15 @@ export class WorldMapScene extends Phaser.Scene {
 
     const destination = data.destination ? findPlace(data.destination) : undefined;
     if (destination) this.offerTrip(destination, true);
-    else if (data.at) this.offerPlace(findPlace(data.at)!);
+    // Leaving a place: the whole map stays in sight; a small button in the top bar takes the hero back in.
+    const at = data.at ? findPlace(data.at) : undefined;
+    if (at && !destination) {
+      const { width, height, fontSize } = LAYOUT.back;
+      const back = addTextButton(this, GAME_WIDTH - 20 - width / 2, MAP_Y / 2, `Rentrer : ${at.name}`, () => {
+        if (!this.trip) this.arrive(at);
+      }, { width, height, fontSize });
+      back.container.setDepth(30);
+    }
   }
 
   update(_time: number, delta: number): void {
@@ -279,14 +287,15 @@ export class WorldMapScene extends Phaser.Scene {
     this.panel = [];
   }
 
-  /** A framed panel at the bottom: a text and up to three buttons. */
-  private showPanel(text: string, buttons: [string, () => void][]): void {
+  /**
+   * A framed panel: a text and up to three buttons, as tall as its text needs. It opens at the bottom, or at the top
+   * when what it speaks of (`about`: a place, the hero) is in the lower half: the place touched always stays in sight,
+   * ringed.
+   */
+  private showPanel(text: string, buttons: [string, () => void][], about: { x: number; y: number } = this.pos): void {
     this.clearPanel();
-    const h = LAYOUT.panelHeight;
-    const y = GAME_HEIGHT - h / 2 - 10;
-    const frame = this.add.rectangle(GAME_WIDTH / 2, y, GAME_WIDTH - 60, h, INK, 0.97).setStrokeStyle(2, COPPER, 0.9).setDepth(20).setInteractive();
     const label = this.add
-      .text(GAME_WIDTH / 2, y - h / 2 + 16, text, {
+      .text(GAME_WIDTH / 2, 0, text, {
         fontFamily: FONT_SERIF,
         fontSize: `${LAYOUT.text}px`,
         color: CSS.parchment,
@@ -295,7 +304,15 @@ export class WorldMapScene extends Phaser.Scene {
       })
       .setOrigin(0.5, 0)
       .setDepth(21);
-    this.panel.push(frame, label);
+    const h = 16 + label.height + 14 + LAYOUT.button.height + 12;
+    const spot = this.screen(about);
+    const atTop = spot.y > MAP_Y + (WORLD.height * SCALE) / 2;
+    const y = atTop ? MAP_Y + 4 + h / 2 : GAME_HEIGHT - h / 2 - 10;
+    label.setY(y - h / 2 + 16);
+    const frame = this.add.rectangle(GAME_WIDTH / 2, y, GAME_WIDTH - 60, h, INK, 0.97).setStrokeStyle(2, COPPER, 0.9).setDepth(20).setInteractive();
+    const ring = this.add.circle(spot.x, spot.y, 22, COPPER, 0).setStrokeStyle(3, COPPER, 1).setDepth(19);
+    this.tweens.add({ targets: ring, scale: 1.35, duration: 700, yoyo: true, repeat: -1 });
+    this.panel.push(frame, label, ring);
     const w = LAYOUT.button.width;
     const gap = 30;
     const total = buttons.length * w + (buttons.length - 1) * gap;
@@ -311,7 +328,7 @@ export class WorldMapScene extends Phaser.Scene {
       this.showPanel(`${place.name} — ${place.description}${dangerLabel(place)}`, [
         [place.voie ? 'Descendre' : 'Entrer', () => this.arrive(place)],
         ['Rester sur la carte', () => this.clearPanel()],
-      ]);
+      ], place);
       return;
     }
     this.offerTrip(place, false);
@@ -323,7 +340,7 @@ export class WorldMapScene extends Phaser.Scene {
     this.showPanel(`${lead}\n(${time})`, [
       ['Partir', () => this.depart(place)],
       ['Choisir un autre lieu', () => this.clearPanel()],
-    ]);
+    ], place);
   }
 
   private depart(place: WorldPlace): void {

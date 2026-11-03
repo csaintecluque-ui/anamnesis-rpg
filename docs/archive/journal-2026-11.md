@@ -976,3 +976,8 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   maisons, la Porte « de la Communion » renommée Porte de Solarix (le continent). Sur la branche, à valider.
 - Cyril : « Mets en ligne, je fais les essais, et on poussera sur Notion après » : chapitre 4 mis en ligne (`main`) ;
   noms, lore et chiffres pas encore validés ; page Notion « Anamnesis — le jeu » à compléter après son essai.
+- Premier essai de Cyril sur iPhone (25 min, en mode surpuissant : la difficulté reste à juger) : coffre invisible,
+  voies endormies cachées par le panneau de la carte du monde, gains superposés au nom dans les dialogues, deux villes
+  seulement sur la carte (mode test). Corrigé sur la branche (`docs/gdd/interface.md`, « Essai de Cyril ») : murs
+  translucides, panneau de la carte qui s'ouvre du côté opposé au lieu, gains sous le nom, « auprès des », bouton
+  « Toute la carte » dans les outils de dev. 617 tests ; vérifié en émulation iPhone.

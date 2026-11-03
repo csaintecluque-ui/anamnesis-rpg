@@ -37,10 +37,17 @@ export function findFaction(id: string): FactionDef | undefined {
 /** Member's prices at the guild's own stalls (the better of town and guild, never both); better with each rank. */
 export const MEMBER_PRICES = -0.15;
 
-/** « à Canopéa », « auprès de la Compagnie des Lisières ». */
+/** « à Canopéa », « auprès de la Compagnie des Lisières », « auprès des Nacelliers ». */
 export function reputationTarget(id: string): string {
   const faction = findFaction(id);
-  return faction ? `auprès de ${faction.name}` : `à ${findPlace(id)?.name ?? id}`;
+  return faction ? `auprès ${deName(faction.name)}` : `à ${findPlace(id)?.name ?? id}`;
+}
+
+/** « de » before a name, with the French contractions: « des Nacelliers », « du Rail », « de la Compagnie ». */
+export function deName(name: string): string {
+  if (name.startsWith('les ')) return `des ${name.slice(4)}`;
+  if (name.startsWith('le ')) return `du ${name.slice(3)}`;
+  return `de ${name}`;
 }
 
 /** How a town or a guild sees the hero: a guild is not « la ville ». */

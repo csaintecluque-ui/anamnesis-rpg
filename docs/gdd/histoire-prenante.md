@@ -1,5 +1,8 @@
 # Une histoire qu'on n'a pas envie d'arrêter (proposition du 2026-11-03, **à valider**)
 
+> Le même jour, Cyril a fixé la feuille de route (`feuille-de-route.md`) : ces leviers seront repris dans ses chantiers
+> 1 (une mémoire pour le héros) et 4 (compagnons, ennemi incarné), dans cet ordre-là.
+
 Cyril, le 2026-11-03 : « L'histoire doit être prenante : en jouant, avant d'avoir fait les modifications graphiques, je
 dois me dire "pas envie d'arrêter, je veux voir ce qu'il y a après". Il faut vraiment qu'on y arrive. »
 

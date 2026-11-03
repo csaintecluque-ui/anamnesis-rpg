@@ -33,15 +33,15 @@ Il valide le lore, les noms, l'histoire et le ressenti de jeu. Toi, tu proposes 
 ## 2. Plateforme et technique
 
 - Application web PWA, installable et jouable hors ligne.
-- Cibles : iPhone (Safari), tablette Android, navigateur desktop.
-  Tactile **et** souris/clavier. Interface lisible en mode paysage sur téléphone.
+- **Cible principale : le PC** (souris et clavier, écran 1920 × 1080 ; décision de Cyril, 2026-11-03). Le téléphone
+  (iPhone Safari, tablette Android) reste une cible d'essai : le jeu doit s'y lancer et s'y jouer, sans dicter la conception.
 - Stack : Phaser 3 + Vite, JavaScript moderne (ou TypeScript si tu le juges utile, en le justifiant une fois).
 - Tout le contenu est piloté par des données, jamais codé en dur :
   - cartes au format Tiled (JSON, orientation isométrique) dans `src/data/maps/` ;
   - dialogues, quêtes, objets, PNJ, ennemis en JSON dans `src/data/`.
 - Sauvegarde locale (IndexedDB ou localStorage), plusieurs emplacements, export/import d'un fichier de sauvegarde.
 - Build statique publié sur GitHub Pages (workflow GitHub Actions).
-- Performance : 60 i/s visés sur un iPhone récent ; pas de dépendance lourde inutile.
+- Performance : 60 i/s visés sur un PC courant ; pas de dépendance lourde inutile.
 
 ## 3. Systèmes de jeu
 
@@ -50,6 +50,7 @@ Cahier des charges initial : `docs/gdd/cahier-des-charges.md`. Conception valid�
 ## 4. Jalons
 
 Jalon 1 (tranche verticale, 8 points) : `docs/gdd/cahier-des-charges.md`. Jalon en cours : `docs/JOURNAL.md`.
+Feuille de route de Cyril (2026-11-03) : `docs/gdd/feuille-de-route.md`, sept chantiers dans l'ordre, avant tout nouveau chapitre.
 Ne passe pas au jalon suivant sans validation de Cyril.
 
 ## 5. Direction artistique

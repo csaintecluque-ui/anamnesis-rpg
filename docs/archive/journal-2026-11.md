@@ -999,3 +999,10 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   Les zones floues 33 à 37 n'y sont pas : elles restent à trancher par Cyril dans son Notion.
 - Cyril : « L'histoire doit être prenante : pas envie d'arrêter pour voir ce qu'il y a après. Il faut vraiment qu'on y
   arrive. » Diagnostic et plan proposés : `docs/gdd/histoire-prenante.md` (à valider).
+
+## 2026-11-03 (suite) : la feuille de route de Cyril
+
+- Cyril dépose « Anamnesis RPG — Analyse et feuille de route » (`docs/gdd/feuille-de-route.md`) : le jeu se joue sur
+  PC ; le ressenti est déjà testé ; sept chantiers dans l'ordre (0 : PC d'abord ; 1 : une mémoire pour le héros ;
+  2 : tests et compétences ; 3 : combat ; 4 : compagnons et ennemi ; 5 : écriture ; 6 : économie), avant tout nouveau
+  chapitre ; aucun nouveau système d'ici là. `CLAUDE.md` (section 2) passé en « PC d'abord » ; `AGENTS.md` y renvoie.

@@ -19,6 +19,11 @@ direction artistique, logo de Cyril, méthode de travail). Ce fichier-ci n'ajout
    attendues : `docs/univers/quetes.md` ; factions : `docs/univers/factions.md` ; plan des villes :
    `docs/univers/lieux/villes.md` ; gabarit d'une grande ville : `docs/gdd/villes.md`.
 
+## Feuille de route (Cyril, 2026-11-03)
+
+`docs/gdd/feuille-de-route.md` : sept chantiers, **dans l'ordre**, avant tout nouveau chapitre ; un chantier à la fois ;
+aucun nouveau système d'ici là. Le PC est la cible principale ; le téléphone reste une cible d'essai.
+
 ## Canon
 
 - Le Notion « ANAMNESIS » de Cyril fait foi (`CLAUDE.md`, section 1). **Si tu n'as pas d'accès au Notion, ne devine

@@ -6,8 +6,8 @@ Cyril (2026-11-03) : « L'histoire principale doit continuer. Va pour le chapitr
 | Étape | Contenu | État |
 |---|---|---|
 | 1. Chapitre 4, Sept-Portes | « Les Mémoires du Monde Perdu » : la ville de Kael, sans combat possible ; le Registre des Mains ; la page du dernier départ | en ligne et validé (2026-11-03) ; page Notion complétée |
-| 2. L'essai de Cyril | une partie sur téléphone ; ses remarques sur le dosage (difficulté, prix, rythme) | en cours |
-| 3. Chapitre 5, Aetherhaven | la suite, dans l'ordre validé des villes | à faire |
+| 2. L'essai de Cyril | ses remarques ; elles ont donné la feuille de route du 2026-11-03 (`feuille-de-route.md`) | fait |
+| 3. Chapitre 5, Aetherhaven | la suite, dans l'ordre validé des villes | après les sept chantiers de la feuille de route (`feuille-de-route.md`) |
 
 ## Chapitre 4 : « Les Mémoires du Monde Perdu » (construit et validé le 2026-11-03)
 

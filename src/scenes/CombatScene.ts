@@ -103,12 +103,15 @@ export interface CombatStartData {
   enemyTiles: Tile[];
   /** The story's chapter, for the beasts of the road and of the sleeping lines (strengthen); absent for a story fight. */
   menace?: number;
+  /** Shown at the hero's first turn: how to fight, for the first fight of the game (étude, C5). */
+  intro?: string;
 }
 
 /** Turn-based combat on a piece of the explored map, with cover from its obstacles (docs/gdd/combat.md). */
 export class CombatScene extends Phaser.Scene {
   private state!: GameState;
   private config!: CombatStartData;
+  private introShown = false;
   private combatants: Combatant[] = [];
   /** Tile name drawn for each combatant, by combatant id. */
   private tileNames = new Map<string, string>();
@@ -160,6 +163,7 @@ export class CombatScene extends Phaser.Scene {
   create(data: CombatStartData): void {
     this.state = this.registry.get('game') as GameState;
     this.config = data;
+    this.introShown = false;
     this.ended = false;
     this.mode = 'move';
     this.zone = 'corps';
@@ -217,9 +221,11 @@ export class CombatScene extends Phaser.Scene {
       .setOrigin(0.5);
     this.marker = this.add.graphics().setDepth(5000);
     this.overlay = this.add.graphics().setDepth(1);
+    // Above the arena's trees, like the turn order.
     this.hint = this.add
-      .text(GAME_WIDTH / 2, 62, '', { fontFamily: FONT_SERIF, fontSize: fs(18), color: CSS.muted })
-      .setOrigin(0.5);
+      .text(GAME_WIDTH / 2, 62, '', { fontFamily: FONT_SERIF, fontSize: fs(18), color: CSS.muted, stroke: CSS.ink, strokeThickness: 4 })
+      .setOrigin(0.5)
+      .setDepth(9000);
     this.costLabel = this.add
       .text(0, 0, '', { fontFamily: FONT_SERIF, fontSize: fs(18), color: CSS.parchment, stroke: CSS.ink, strokeThickness: 4 })
       .setOrigin(0.5, 1)
@@ -669,6 +675,10 @@ export class CombatScene extends Phaser.Scene {
       this.awaitingHero = true;
       this.updateActionBar();
       this.refreshBoard();
+      if (this.config.intro && !this.introShown) {
+        this.introShown = true;
+        this.appendLog(this.config.intro);
+      }
     } else {
       this.awaitingHero = false;
       this.updateActionBar();

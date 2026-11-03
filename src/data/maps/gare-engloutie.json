@@ -11,7 +11,7 @@
  "tilewidth": 64,
  "tileheight": 32,
  "nextlayerid": 4,
- "nextobjectid": 9,
+ "nextobjectid": 10,
  "layers": [
   {
    "id": 1,
@@ -973,6 +973,40 @@
     },
     {
      "id": 3,
+     "name": "rodeur-sentier",
+     "type": "ennemi",
+     "x": 144,
+     "y": 304,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": [
+      {
+       "name": "ennemi",
+       "type": "string",
+       "value": "rodeur-epine"
+      },
+      {
+       "name": "embuscade",
+       "type": "string",
+       "value": "embuscade-gare"
+      },
+      {
+       "name": "disparaitSi",
+       "type": "string",
+       "value": "rodeur-sentier-vaincu"
+      },
+      {
+       "name": "texte",
+       "type": "string",
+       "value": "Un Rôdeur-Épine jaillit des fougères et te barre le sentier de la Gare."
+      }
+     ]
+    },
+    {
+     "id": 4,
      "name": "ingrid",
      "type": "pnj",
      "x": 592,
@@ -985,7 +1019,7 @@
      "properties": []
     },
     {
-     "id": 4,
+     "id": 5,
      "name": "echo-dernier-train",
      "type": "echo",
      "x": 400,
@@ -998,7 +1032,7 @@
      "properties": []
     },
     {
-     "id": 5,
+     "id": 6,
      "name": "golem-gare",
      "type": "golem",
      "x": 688,
@@ -1011,7 +1045,7 @@
      "properties": []
     },
     {
-     "id": 6,
+     "id": 7,
      "name": "caisse-prospection",
      "type": "coffre",
      "x": 560,
@@ -1024,7 +1058,7 @@
      "properties": []
     },
     {
-     "id": 7,
+     "id": 8,
      "name": "foreuse",
      "type": "foreuse",
      "x": 624,
@@ -1037,7 +1071,7 @@
      "properties": []
     },
     {
-     "id": 8,
+     "id": 9,
      "name": "panneau-gare",
      "type": "panneau",
      "x": 80,

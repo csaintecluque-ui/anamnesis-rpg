@@ -230,6 +230,11 @@ Chaque point d'attribut comptait trois fois (toucher, dégâts, PV) ; un rang de
   (`golem-gare.json` : « Touchez-y, et je ne réponds plus de rien ») ; Liane désapprouve (−1) ; même combat (le Golem
   et deux Rôdeurs), 50 XP et le cœur de ferraille, sans Fers ni fin de quête ; Ingrid le reproche ensuite
   (`apres-golem-trahie`). Vaincu, il gît pour de bon.
+- **C5 Le premier combat** (vague 2) : un Rôdeur-Épine barre le sentier de la Gare Engloutie (`rodeur-sentier`,
+  propriété `embuscade` : il attaque qui arrive par l'entrée ; après une fuite, il attend sur le sentier et le toucher
+  relance le combat) ; rencontre `embuscade-gare`, 15 XP, et au premier tour du héros une ligne d'aide (`intro` :
+  cases bleues, touche 2, Espace, les épines). Avant, on pouvait finir le chapitre 1 sans voir l'écran de combat.
+- **C3** : à la fin de la création, sans rang de Mêlée ni de Tir, un avertissement honnête (`combatWarning`).
 - **F3** (+PV par niveau) et **E4** (renfort par chapitre plafonné) : non appliqués. F3 n'apporte que 1 à 3 points
   (simulation ci-dessous) ; E4 change l'équilibre des chapitres 3 et 4 (guerrier niveau 3 contre les pilleurs :
   34 % → 73 %) et attend la vague 2.

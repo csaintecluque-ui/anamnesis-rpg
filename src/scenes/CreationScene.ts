@@ -19,6 +19,7 @@ import {
   finalAttributes,
   finalSkills,
   finalizeCharacter,
+  combatWarning,
   findFeat,
   skillPointsLeft,
   toggleOriginBonus,
@@ -412,6 +413,14 @@ export class CreationScene extends Phaser.Scene {
       `Charge : ${stats.carryKg} kg`,
       `Récits retenus : ${stats.tales}`,
     ].forEach((line, i) => text(860, 238 + i * 40, line));
+
+    // C3: an honest warning for a hero who cannot hold a weapon (étude du 2026-11-03).
+    const warning = combatWarning(skills);
+    if (warning) {
+      this.add
+        .text(GAME_WIDTH / 2, FOCUS.y, warning, { fontFamily: FONT_SERIF, fontSize: '22px', color: CSS.copper, align: 'center', wordWrap: { width: 1100 } })
+        .setOrigin(0.5);
+    }
 
     if (feat) {
       this.add

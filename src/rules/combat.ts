@@ -152,6 +152,8 @@ export interface EncounterDef {
   enemies: { id: string; object: string }[];
   victoryFlag: string;
   victoryEffects: Effect[];
+  /** A word of guidance at the hero's first turn (the first fight of the game, étude du 2026-11-03, C5). */
+  intro?: string;
 }
 
 export const WEAPONS = weaponData as WeaponDef[];

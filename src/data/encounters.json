@@ -20,6 +20,23 @@
     ]
   },
   {
+    "id": "embuscade-gare",
+    "center": "rodeur-sentier",
+    "enemies": [
+      {
+        "id": "rodeur-epine",
+        "object": "rodeur-sentier"
+      }
+    ],
+    "victoryFlag": "rodeur-sentier-vaincu",
+    "victoryEffects": [
+      {
+        "giveXp": 15
+      }
+    ],
+    "intro": "Ton premier combat. Les cases bleues : où tu peux marcher (1 PA la case). 2 prend ta dague, puis clique le Rôdeur. Espace finit ton tour. Ses épines blessent qui le frappe de près."
+  },
+  {
     "id": "ours-sacoche",
     "center": "sacoche-lettres",
     "enemies": [

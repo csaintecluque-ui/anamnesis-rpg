@@ -202,6 +202,8 @@ export class MapScene extends Phaser.Scene {
     this.blockedMarker = this.add.graphics().setDepth(MOMENT_VEIL_DEPTH - 1).setAlpha(0);
     this.trapMarks = this.add.graphics().setDepth(2);
 
+    // Arriving through a way in (not a map rebuilt where the hero stands).
+    const arrived = !!this.state.entrance;
     this.heroTile = this.startTile(location.entrance);
     this.state.position = { ...this.heroTile };
     this.state.entrance = null;
@@ -269,6 +271,13 @@ export class MapScene extends Phaser.Scene {
       this.time.delayedCall(50, () => this.hud().toast('Ici, aucune main ne se lèvera sur personne. Tu le sens dans tes poings : ils ne serreront plus.'));
     }
     if (rencontre) this.announceEncounter(rencontre);
+    // An enemy that bars the way attacks whoever arrives (étude du 2026-11-03, C5: the first fight, on the way to the
+    // Gare). Only on arriving: after fleeing, it waits on the path, and touching it starts the fight again.
+    const ambush = arrived && !rencontre ? this.map.objects.find((o) => o.type === 'ennemi' && o.properties.embuscade && !this.gone(o)) : undefined;
+    if (ambush) {
+      this.time.delayedCall(50, () => this.hud().toast(ambush.properties.texte ?? ''));
+      this.time.delayedCall(AMBUSH_DELAY_MS * 2, () => this.startEncounter(ambush.properties.embuscade));
+    }
     // A word left by the screen that sent the hero here (a night's rest, waking up at the inn).
     const pending = this.registry.get(PENDING_NOTICE) as string | undefined;
     if (pending) {
@@ -595,11 +604,11 @@ export class MapScene extends Phaser.Scene {
     const center = encounter && findObject(this.map, encounter.center);
     if (!encounter || !center) return;
     const enemyObjects = encounter.enemies.map((e) => findObject(this.map, e.object)!);
-    this.launchFight(center, encounter.enemies.map((e) => e.id), enemyObjects, encounter.victoryFlag, encounter.victoryEffects);
+    this.launchFight(center, encounter.enemies.map((e) => e.id), enemyObjects, encounter.victoryFlag, encounter.victoryEffects, undefined, encounter.intro);
   }
 
   /** `menace`: the story's chapter, for the beasts of the road and of the sleeping lines (chantier 3, strengthen). */
-  private launchFight(center: Tile, enemyIds: string[], enemyObjects: Tile[], victoryFlag: string, victoryEffects: Effect[], menace?: number): void {
+  private launchFight(center: Tile, enemyIds: string[], enemyObjects: Tile[], victoryFlag: string, victoryEffects: Effect[], menace?: number, intro?: string): void {
     const arena = carveArena(this.map, center, ARENA_COLS, ARENA_ROWS, enemyObjects);
     this.registry.set('tileFrames', this.map.frames);
     this.scene.pause();
@@ -612,6 +621,7 @@ export class MapScene extends Phaser.Scene {
       heroTile: toArena(arena, this.heroTile),
       enemyTiles: enemyObjects.map((o) => toArena(arena, o)),
       menace,
+      intro,
     } satisfies CombatStartData);
   }
 
@@ -1016,6 +1026,11 @@ export class MapScene extends Phaser.Scene {
     }
     if (target.type === 'ennemi' && target.properties.rencontre) {
       this.fightEncounter();
+      return;
+    }
+    // An enemy that bars the way (étude, C5): touching it starts its fight.
+    if (target.type === 'ennemi' && target.properties.embuscade) {
+      this.startEncounter(target.properties.embuscade);
       return;
     }
     if (target.type === 'ennemi' && target.properties.voie) {

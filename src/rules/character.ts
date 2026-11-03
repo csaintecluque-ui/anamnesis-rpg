@@ -267,6 +267,15 @@ export function changeSkill(d: CharacterDraft, id: SkillId, delta: 1 | -1): Char
   return allowed ? { ...d, skillRanks: { ...d.skillRanks, [id]: d.skillRanks[id] + delta } } : d;
 }
 
+/**
+ * An honest word at the end of creation (étude du 2026-11-03, C3): a hero without a rank of Mêlée nor of Tir will
+ * avoid fights, and some cannot be avoided. Null when the hero can hold a weapon.
+ */
+export function combatWarning(skills: Pick<SkillRanks, 'melee' | 'ranged'>): string | null {
+  if (skills.melee > 0 || skills.ranged > 0) return null;
+  return 'Ce héros évitera les combats ; il y en a qu’on n’évite pas. Un rang de Mêlée ou de Tir, ou une compagne qui soigne, l’y aideront.';
+}
+
 export function finalSkills(d: CharacterDraft): SkillRanks {
   const feat = d.feat ? findFeat(d.feat) : undefined;
   const trait = findTrait(d.trait);

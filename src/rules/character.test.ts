@@ -9,6 +9,7 @@ import { CREATION_FEATS,
   changeSkill,
   characterError,
   characterStats,
+  combatWarning,
   createDraft,
   draftErrors,
   finalAttributes,
@@ -189,3 +190,11 @@ describe('avatars (docs/gdd/jalon-2.md, étape 3)', () => {
   });
 });
 
+
+describe('the warning at the end of creation (étude, C3)', () => {
+  it('speaks only when the hero has neither Mêlée nor Tir', () => {
+    expect(combatWarning({ melee: 0, ranged: 0 })).toMatch(/il y en a qu’on n’évite pas/);
+    expect(combatWarning({ melee: 1, ranged: 0 })).toBeNull();
+    expect(combatWarning({ melee: 0, ranged: 2 })).toBeNull();
+  });
+});

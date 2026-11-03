@@ -330,6 +330,13 @@ function gareEngloutie() {
   m.setObstacle(16, 13, null);
   m.object('champignon-ancien', 'objet', 16, 13, { tuile: 'champignons', apparaitSi: 'oubli-choix-oublier', disparaitSi: 'champignon-cueilli' });
   m.object('entree-gare', 'sortie', 0, 9, { cible: 'gardebois', arrivee: 'vers-gare', libelle: 'Vers Gardebois' });
+  // The first fight, on the way to the Gare (étude du 2026-11-03, C5): a Rôdeur-Épine bars the path on arrival.
+  m.object('rodeur-sentier', 'ennemi', 4, 9, {
+    ennemi: 'rodeur-epine',
+    embuscade: 'embuscade-gare',
+    disparaitSi: 'rodeur-sentier-vaincu',
+    texte: 'Un Rôdeur-Épine jaillit des fougères et te barre le sentier de la Gare.',
+  });
   m.object('ingrid', 'pnj', 18, 10);
   m.object('echo-dernier-train', 'echo', 12, 8);
   m.object('golem-gare', 'golem', 21, 13);

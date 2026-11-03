@@ -50,6 +50,13 @@ export interface HistoireDef {
 const DATA = voieData as VoieData;
 
 export const HISTOIRES = DATA.histoires;
+
+/**
+ * Enemies on a level, at most, for a hero alone; two more per companion (étude du 2026-11-03, E5 : seven beasts on the
+ * second level of the halte des Fougères were a wall). The first group always stands; the next ones only if they fit.
+ */
+export const VOIE_ENEMIES_SOLO = 5;
+export const VOIE_ENEMIES_PER_COMPANION = 2;
 export const HISTOIRE_ID = 'voie-histoire';
 
 /** How many levels a line goes down: the last one is the terminus. */
@@ -205,7 +212,7 @@ function groupCells(map: GameMap, spot: { col: number; row: number }, count: num
 }
 
 /** The level the hero stands in: its plan, and what this visit's draw put on it. */
-export function voieLevel(state: Pick<GameState, 'voie' | 'contrats' | 'character' | 'quests' | 'voiesFaites' | 'flags'>, map: GameMap): VoieLevel {
+export function voieLevel(state: Pick<GameState, 'voie' | 'contrats' | 'character' | 'quests' | 'voiesFaites' | 'flags'> & Partial<Pick<GameState, 'groupe'>>, map: GameMap): VoieLevel {
   const voie = state.voie!;
   const rng = seededRng(voie.seed * 97 + voie.depth * 13 + 7);
   const tier = tierOf(voie);
@@ -232,8 +239,12 @@ export function voieLevel(state: Pick<GameState, 'voie' | 'contrats' | 'characte
       }),
     );
   };
+  const cap = VOIE_ENEMIES_SOLO + VOIE_ENEMIES_PER_COMPANION * (state.groupe?.length ?? 0);
+  let count = hunt?.enemies?.length ?? 0;
   for (let g = 1; g <= groups; g++) {
     const enemies = pick(rng, DATA.groupes[String(tier)]);
+    if (g > 1 && count + enemies.length > cap) break;
+    count += enemies.length;
     placeGroup(String(g), enemies, `ennemi-${g}`);
     dialogues[groupDialogueId(String(g))] = groupDialogue(String(g), enemies, tier, voieYield(state));
   }

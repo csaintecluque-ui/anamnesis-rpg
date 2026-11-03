@@ -93,3 +93,15 @@ de se battre.
 - **Une réponse de plus** dans l'histoire : la Combe, chez la Veilleuse (« Dans la Combe, des hommes ont entendu ton
   train, avant la Chute » : elle donne la clé) ; la halte et le Dépôt Sept, chez Ambroise (« un fourgon plombé »,
   « Voie sept. Le nom commençait par Alta » : il ouvre le Fonds Muet). Jamais obligatoire.
+
+## Des niveaux à la taille du groupe (étude du 2026-11-03, E5)
+
+Un niveau ne garde pas plus de bêtes que le groupe ne peut en affronter : **5 au plus pour un héros seul, 2 de plus par
+compagnon** (`VOIE_ENEMIES_SOLO`, `VOIE_ENEMIES_PER_COMPANION`). Le premier groupe tiré reste toujours ; les suivants
+seulement s'ils tiennent sous ce plafond. Mesure sur 200 tirages par cas :
+
+| Niveaux 2 et 3 | Avant (moyenne, maximum) | Après, seul | Après, avec Liane |
+|---|---|---|---|
+| Halte des Fougères | 5,1 à 6,3 ; 9 | 4,2 ; 5 | 4,9 à 5,6 ; 7 |
+| Tunnel de la Combe | 6,3 à 6,7 ; 9 | 4,0 à 4,3 ; 5 | 5,6 à 5,7 ; 7 |
+| Dépôt Sept | 6,8 à 7,6 ; 12 | 3,5 à 3,9 ; 5 | 5,1 à 5,8 ; 7 |

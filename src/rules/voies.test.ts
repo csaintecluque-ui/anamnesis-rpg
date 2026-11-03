@@ -289,3 +289,23 @@ describe('the contracts in the sleeping lines', () => {
     expect(levelOf(state).objects.some((o) => o.properties.contrat)).toBe(false);
   });
 });
+
+describe('a level holds no more beasts than the party can face (étude du 2026-11-03, E5)', () => {
+  const enemiesOn = (site: string, depth: number, seed: number, companions: string[]) => {
+    const state = inVoie({ site, seed, depth });
+    state.groupe = companions.map((id) => ({ id, hp: 20 }));
+    return levelOf(state).objects.filter((o) => o.type === 'ennemi').length;
+  };
+
+  it('five at most for a hero alone, seven with one companion, nine with two', () => {
+    for (const site of SITES.map((s) => s.id)) {
+      for (let seed = 1; seed <= 60; seed++) {
+        for (let depth = 1; depth <= 3; depth++) {
+          expect(enemiesOn(site, depth, seed, [])).toBeLessThanOrEqual(5);
+          expect(enemiesOn(site, depth, seed, ['liane'])).toBeLessThanOrEqual(7);
+          expect(enemiesOn(site, depth, seed, ['liane', 'boulon'])).toBeLessThanOrEqual(9);
+        }
+      }
+    }
+  });
+});

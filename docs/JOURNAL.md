@@ -4,7 +4,6 @@
 
 - Jalons 1, 2 et 3 faits et en ligne ; jalon 4, chapitre 4 (Sept-Portes) en ligne et validé ; page Notion à jour.
 - 633 tests (dont le parcours complet d'affilée, `src/rules/parcours.test.ts`), typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
-- Mode test caché : 5 touches sur la version (écran titre) → menu pause : +50 Fers, PV au max, **Outils de dev**.
 - **Décisions de Cyril (2026-11-03)** : le jeu se joue **sur PC** (le téléphone n'est qu'une cible d'essai) ; le
   ressenti est déjà testé : on corrige avant tout nouvel essai.
 
@@ -28,5 +27,4 @@ suite : on enchaîne les chantiers, et ce qu'il aura à essayer s'ajoute à `doc
 
 ## Points ouverts
 
-- Chronologie du canon non arbitrée (`docs/univers/zones-floues.md`, points 6 à 13) ; 33 à 37 notés (Terminus).
-- `npm audit` : vulnérabilités modérées dans les outils de build de la PWA ; à revoir avec workbox.
+- Zones floues du canon : 6 à 13 (chronologie) et 33 à 37 (Terminus) à trancher par Cyril. `npm audit` : à revoir (workbox).

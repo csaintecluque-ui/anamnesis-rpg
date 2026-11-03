@@ -30,6 +30,11 @@ Lien du jeu : https://csaintecluque-ui.github.io/anamnesis-rpg/ (la version s'af
 - [x] **Les inventions du chantier 4** Cyril : on garde. (`docs/univers/propositions.md`) : la mort de Saule (le premier sondage), la dame
       en gris dès le chapitre 1, Boulon qui l'a portée, les étapes de l'oubli d'Ilyane, les trois lettres de Hesper.
       On garde ?
+- [ ] **Les noms qui se ressemblent** (chantier 5) : Kael, Kaelis et Kael Marchevent viennent tous de ton Notion, je
+      n'y touche pas (à toi de voir là-bas). Pour le jeu, je propose **Hedda → Ragna Cendrefer** et **Josse → Olmo
+      Sept-Routes**. D'accord ?
+- [ ] **Les inventions du chantier 5** (`docs/univers/propositions.md`) : les petits faits sombres de Gardebois et
+      Canopéa, Ingrid qui paie la garde, le cœur du Golem dans la foreuse. On garde ?
 - [ ] Dans ton Notion, quand tu veux : les contradictions du canon sur Terminus (`docs/univers/zones-floues.md`,
       points 33 à 37).
 
@@ -107,6 +112,17 @@ Lien du jeu : https://csaintecluque-ui.github.io/anamnesis-rpg/ (la version s'af
       le paie ? »), Kaelis (« Pour qui l'achètes-tu ? »).
 - [ ] **Ilyane oublie** : reviens la voir après chaque chapitre.
 - [ ] **Le début du chapitre 4** change selon ce que tu as fait de la clé (la lettre de Hesper, le Registre d'Ambroise).
+- Remarques :
+
+## Chantier 5 — Passe d'écriture (sur la branche)
+
+- [ ] **Le ton général** : moins de « … », de « Ici, on… », de « comme un… ». Ça se lit mieux ?
+- [ ] **Les marchands** : Tobias, Sévane, la colporteuse, Kaelis ont-ils chacun leur voix ?
+- [ ] **Être dur** : les nouvelles répliques du héros (Kaelis, Joss, Hesper, la dame en gris, Maëlis…). Liane et Boulon
+      n'aiment pas les cruelles.
+- [ ] **Ingrid** : par la parole, il faut maintenant une preuve, puis lui offrir une issue ; ou la menacer (elle paie) ;
+      ou lui raconter un Récit (celui du quai, ou Corvan, lu dans les carnets d'Ilyane).
+- [ ] **Gardebois et Canopéa** te paraissent-elles assez sombres maintenant ?
 - Remarques :
 
 ## Déjà en ligne, pas encore essayé sur PC

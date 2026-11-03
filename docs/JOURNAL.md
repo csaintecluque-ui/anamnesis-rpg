@@ -3,7 +3,7 @@
 ## État (2026-11-03)
 
 - Jalons 1, 2 et 3 faits et en ligne ; jalon 4, chapitre 4 (Sept-Portes) en ligne et validé ; page Notion à jour.
-- 676 tests (dont le parcours complet d'affilée, `src/rules/parcours.test.ts`), typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
+- 679 tests (dont le parcours complet d'affilée, `src/rules/parcours.test.ts`), typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
 - **Décisions de Cyril (2026-11-03)** : le jeu se joue **sur PC** (le téléphone n'est qu'une cible d'essai) ; le
   ressenti est déjà testé : on corrige avant tout nouvel essai.
 
@@ -19,7 +19,7 @@ Cyril sur PC et sa validation. Aucun nouveau système d'ici là.
 | 2 | Recalibrer tests et compétences : seuils rang + attribut, courbe par chapitre, Athlétisme et Médecine ×5, atelier par compétence, rang ≤ niveau + 2 ; Pell sauvable (validé) | **en ligne** (2026-11-03) ; partie de Cyril à faire |
 | 3 | Refaire le combat : PA et coût par arme, visée +1 PA et résistance, 2 capacités par ennemi, IA, force par chapitre, voie pacifiste ; simulation (écart ≤ 14 points) | **en ligne** (2026-11-03) ; partie de Cyril à faire |
 | 4 | Compagnons présents, ennemi incarné : apartés (21 Liane, 14 Boulon), Liane face à Ingrid, Liane et Boulon, quête de Liane rééquilibrée, la dame en gris dès le ch. 1, le ch. 4 selon la clé, Ilyane oublie ; inventions validées | **en ligne** (2026-11-03) ; partie de Cyril à faire |
-| 5 | Passe d'écriture | en cours |
+| 5 | Passe d'écriture : tics 21 % → 3 % (testés), Nexus → Fers, voix des marchands, héros dur, Ingrid qui résiste, Golem et foreuse, récompenses par issue, Corvan, Gardebois et Canopéa plus sombres **faits (branche)** ; renommages proposés | en cours |
 | 6 | Économie et progression | à faire |
 
 `docs/gdd/histoire-prenante.md` (proposition du même jour) nourrit les chantiers 1 et 4. Cyril n'a pas son PC tout de

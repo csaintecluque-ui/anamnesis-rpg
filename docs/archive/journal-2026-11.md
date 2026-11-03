@@ -1043,3 +1043,8 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
 - Cyril : « 1 non, 2 a, 3 b, 4 oui, 5 mets en ligne » : pas de Réveilleur à part (la dame en gris est le visage) ; la
   dame en gris cherche sa mère, la vraie Edda Varn, montée dans le train ; Ilyane peut être sauvée à un prix lourd, à
   la fin ; les inventions du chantier 4 sont gardées ; chantier 4 en ligne. Chantier 5 (passe d'écriture) commencé.
+- Chantier 5 sur la branche (`docs/gdd/ecriture.md`) : les tics d'écriture comptés par un test (21 % des répliques →
+  3 %), les Nexus remplacés par des Fers, une voix par marchand, douze répliques dures ou cruelles pour le héros,
+  Ingrid qui résiste sur trois échanges, le cœur du Golem dans la foreuse, une récompense par issue du « Dernier
+  Train », le Récit du quai séparé de celui de Corvan, Gardebois et Canopéa plus sombres. Renommages proposés (Hedda,
+  Josse). 679 tests.

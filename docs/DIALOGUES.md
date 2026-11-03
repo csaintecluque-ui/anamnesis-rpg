@@ -704,10 +704,11 @@ Commence par : « partis » _(si repère « rencontre-cerfs-vus »)_, sinon « c
 
 ### cerfs
 
-> Une dizaine de cerfs traversent la clairière sans bruit. Leurs bois s’allument et s’éteignent, comme des lanternes qui respireraient.
+> Une dizaine de cerfs traversent la clairière sans bruit. Leurs bois s’allument et s’éteignent, des lanternes qui respireraient. Le dernier boite : une flèche lui sort du flanc.
 
 - « Rester immobile et regarder. » → regard _(retient « rencontre-cerfs-vus », +10 XP)_
 - **[Survie 2]** « Les suivre sans un bruit. » → suivre _(retient « rencontre-cerfs-vus », +10 XP, +10 PV)_
+- **[Médecine 2]** « Retirer la flèche, doucement. » → fleche _(retient « rencontre-cerfs-vus », +15 XP)_
 - « Les laisser passer. » → **fin**
 
 ### regard
@@ -727,6 +728,12 @@ Commence par : « partis » _(si repère « rencontre-cerfs-vus »)_, sinon « c
 > La clairière est redevenue sombre et silencieuse.
 
 - « Partir. » → **fin**
+
+### fleche
+
+> Le cerf se laisse faire, tremblant de tout son corps. La flèche porte une marque de Ferros. Quand tu relèves la tête, le troupeau t’attend à l’orée, puis s’éteint d’un coup, comme on souffle une bougie.
+
+- « Garder la flèche, et repartir. » → **fin**
 
 ## Un vieux Champignon-Mémoire
 
@@ -2339,7 +2346,7 @@ _Si Liane voyage avec toi :_ Liane, à mi-voix : — Les Réveilleurs. On dit ç
 
 ### trouble
 
-> Depuis trois nuits, des gens du marché revivent la Grande Chute en plein jour. Ils voient des villes brûler, entendent des sirènes que personne n’a entendues depuis trois mille ans. Puis tout s’efface, et ils pleurent sans savoir pourquoi.
+> Depuis trois nuits, des gens du marché revivent la Grande Chute en plein jour : des villes qui brûlent, des sirènes éteintes depuis trois mille ans. Hier, on a repêché un vieux passeur au fond du lavoir, dans un pied d’eau. Il fuyait un feu.
 
 - **[Perception 4]** « Tes mains tremblent, Ilyane. Toi aussi, tu les vois. » → atteinte _(retient « ilyane-atteinte », +10 XP)_
 - « D’où vient ce mal ? » → cause
@@ -3363,7 +3370,7 @@ Commence par : « vote » _(si quête « L’audience » terminée)_ _(si repèr
 
 ### nouvelles
 
-> Le Conseil des Racines Profondes se réunit beaucoup, ces temps-ci : on parle de la frontière, de Ferros, de ces forages. Et le petit Malo a encore traversé la passerelle du Bois en courant. Un jour, il s’envolera.
+> Le Conseil des Racines Profondes se réunit beaucoup, ces temps-ci : on parle de la frontière, de Ferros, de ces forages. Et deux Jeunes-Pousses ont été bannis pour une branche cassée. Une branche. Le petit Malo, lui, court toujours sur la passerelle du Bois.
 
 - _(si quête « Les graines qui manquent » en cours)_ _(sans repère « indice-elvan »)_ « Il manque des graines au grenier. As-tu vu passer quelque chose ? » → graines _(retient « indice-elvan »)_
 - « Merci. » → accueil
@@ -3569,7 +3576,7 @@ Commence par : « retour » _(si quête « Les lettres de Malo » en cours)_ _(s
 
 ### peur
 
-> Tomber ? Jamais ! Bon, une fois. Mais un filet de lianes m’a rattrapé. Mamie dit que la forêt n’aime pas qu’on lui jette des enfants.
+> Tomber ? Jamais ! Bon, une fois. Mais un filet de lianes m’a rattrapé. Tilo, lui, est tombé à côté du filet. Mamie dit que la forêt n’aime pas qu’on lui jette des enfants. Sur Tilo, elle ne dit rien.
 
 - « Elle a bien raison. » → accueil
 
@@ -5020,7 +5027,7 @@ Commence par : « accueil »
 
 ### rumeurs
 
-> Que des gens voient des trains et des flammes. Les Verdantins disent que c’est la faute de Ferros, forcément. Moi, je dis que la peur fait vendre les rumeurs, et pas les lampes.
+> Que des gens voient des trains et des flammes. La veuve du meunier a mis le feu à sa grange pour éteindre celui qu’elle voyait. Les Verdantins accusent Ferros, forcément. Moi, je dis que la peur fait vendre les rumeurs, et pas les lampes.
 
 - « Voir l’étal. » → **fin** _(ouvre le Troc)_
 - « Parlons d’autre chose. » → accueil
@@ -5539,7 +5546,7 @@ Commence par : « vol » _(si repère « vol-grenier »)_ _(sans repère « veli
 
 ### voyageur
 
-> Alors bienvenue, simplement. Un conseil : regarde où tu mets les pieds, et ne laisse rien tomber. Ce qui tombe d’ici, la forêt le garde.
+> Alors bienvenue, simplement. Regarde où tu mets les pieds : ce qui tombe d’ici, la forêt le garde. L’an dernier, c’était un petit des Jeunes-Pousses. On a gravé son nom, puis réparé un garde-corps : celui des Citoyens-Arbres.
 
 - « Je ferai attention. » → **fin**
 - « Et ta nacelle ? » → nacelle

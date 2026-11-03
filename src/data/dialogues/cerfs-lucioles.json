@@ -16,7 +16,7 @@
   ],
   "nodes": {
     "cerfs": {
-      "text": "Une dizaine de cerfs traversent la clairière sans bruit. Leurs bois s’allument et s’éteignent, comme des lanternes qui respireraient.",
+      "text": "Une dizaine de cerfs traversent la clairière sans bruit. Leurs bois s’allument et s’éteignent, des lanternes qui respireraient. Le dernier boite : une flèche lui sort du flanc.",
       "options": [
         {
           "text": "Rester immobile et regarder.",
@@ -52,6 +52,24 @@
           ]
         },
         {
+          "text": "Retirer la flèche, doucement.",
+          "requires": [
+            {
+              "skill": "medicine",
+              "min": 2
+            }
+          ],
+          "next": "fleche",
+          "effects": [
+            {
+              "setFlag": "rencontre-cerfs-vus"
+            },
+            {
+              "giveXp": 15
+            }
+          ]
+        },
+        {
           "text": "Les laisser passer.",
           "next": "fin"
         }
@@ -80,6 +98,15 @@
       "options": [
         {
           "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "fleche": {
+      "text": "Le cerf se laisse faire, tremblant de tout son corps. La flèche porte une marque de Ferros. Quand tu relèves la tête, le troupeau t’attend à l’orée, puis s’éteint d’un coup, comme on souffle une bougie.",
+      "options": [
+        {
+          "text": "Garder la flèche, et repartir.",
           "next": "fin"
         }
       ]

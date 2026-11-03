@@ -23,8 +23,8 @@ est `docs/a-essayer.md` (une section par chantier, et la vague 1).
 
 ## Points ouverts
 
-- Sur la branche : Ilyane remarque (A) ; obstacle du chapitre 3 (la Veilleuse à la Cendrière). Chapitre 4 laissé tel
-  quel (le dé suffit) ; chapitre 2 : forme à choisir par Cyril (étude, § 5).
+- En ligne : Ilyane remarque (A) ; obstacle du chapitre 3 (la Veilleuse à la Cendrière). Chapitre 4 laissé tel quel
+  (accord de Cyril). Chapitre 2, forme A (les racines autour de la fouille, l'ours à l'entrée) : en cours.
 - Cyril (2026-11-03) : vague 2 en ligne ; les trois Échos des voies validés, avec le détail du héros ; la vérité
   derrière l'enfant écrite par Cyril (`univers/personnages/heros.md`) : F1 peut se construire.
 - Zones floues du canon : 6 à 13 (chronologie) et 33 à 37 (Terminus) à trancher par Cyril. `npm audit` : à revoir (workbox).

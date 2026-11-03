@@ -1092,3 +1092,5 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
 - Sur la branche : Ilyane remarque les fragments (variante A) ; au chapitre 3, la Veilleuse a suivi son convoi à la
   Cendrière pendant la quête de la clé (le tunnel devient le passage). Chapitre 4 laissé : le dé y fait déjà
   l'obstacle. Chapitre 2 : deux formes proposées à Cyril. 728 tests.
+- Cyril : « 1 oui, 2 A, 3 oui » : Ilyane et le chapitre 3 mis en ligne ; chapitre 4 laissé tel quel ; chapitre 2,
+  forme A, à construire.

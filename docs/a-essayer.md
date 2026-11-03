@@ -1,8 +1,24 @@
-# À essayer sur PC (la liste de Cyril)
+# À essayer sur PC, et à décider (la liste de Cyril)
 
 Tenue par Claude : chaque chantier de la feuille de route (`docs/gdd/feuille-de-route.md`) y ajoute ce qu'il faut
-essayer. Cyril coche, et note ce qui gêne ou manque ; Claude reprend ses remarques avant de clore le chantier.
+essayer, et les décisions qui attendent Cyril. Cyril coche, et note ce qui gêne ou manque ; Claude reprend ses
+remarques avant de clore le chantier.
 Lien du jeu : https://csaintecluque-ui.github.io/anamnesis-rpg/ (la version s'affiche en bas à gauche de l'écran titre).
+
+## À décider (les questions qui attendent ta réponse)
+
+- [ ] **L'Écho personnel du héros** (chantier 1, `docs/univers/personnages/heros.md`) : piste **A, « La main
+      lâchée »** (recommandée : aucun souvenir avant huit ans ; dans l'Écho du dernier train, un enfant se retourne,
+      « Tu es venu·e. Les autres n'ont pas entendu. » ; un fragment par chapitre), ou piste **B, « Le nom gratté »**
+      (un nom qu'il a fait effacer lui-même), ou une autre ?
+- [ ] **La vérité derrière l'enfant** : tu l'écris (recommandé, même en quelques lignes ; elle reste secrète jusqu'à la
+      fin), ou Claude te propose trois versions ?
+- [ ] **Pour le chantier 4** (`docs/gdd/histoire-prenante.md`) : Ilyane qui perd la mémoire d'un chapitre à l'autre,
+      oui ? peut-on la sauver, et à quel prix ? Et pourquoi Edda Varn court après le dernier train : l'argent des
+      Réveilleurs, ou quelqu'un à elle dans ce train (recommandé) ?
+- [ ] **Mettre en ligne le chantier 1**, pour pouvoir l'essayer (il est sur la branche) : dis « mets en ligne ».
+- [ ] Dans ton Notion, quand tu veux : les contradictions du canon sur Terminus (`docs/univers/zones-floues.md`,
+      points 33 à 37).
 
 ## Chantier 0 — PC d'abord (en ligne le 2026-11-03, version `043c702`)
 

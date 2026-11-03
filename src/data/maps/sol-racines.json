@@ -11,7 +11,7 @@
  "tilewidth": 64,
  "tileheight": 32,
  "nextlayerid": 4,
- "nextobjectid": 9,
+ "nextobjectid": 10,
  "layers": [
   {
    "id": 1,
@@ -786,7 +786,7 @@
     0,
     0,
     0,
-    96,
+    0,
     35,
     0,
     0,
@@ -903,17 +903,17 @@
     0,
     0,
     0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
     8,
     8,
-    0,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
     0,
     0,
     0,
@@ -939,7 +939,7 @@
     0,
     0,
     0,
-    0,
+    8,
     0,
     0,
     0,
@@ -954,6 +954,7 @@
     0,
     0,
     0,
+    0,
     8,
     0,
     0,
@@ -964,8 +965,7 @@
     0,
     0,
     0,
-    0,
-    0,
+    8,
     0,
     8,
     0,
@@ -979,10 +979,10 @@
     0,
     0,
     0,
-    8,
     0,
     0,
-    33,
+    0,
+    0,
     0,
     0,
     0,
@@ -991,7 +991,7 @@
     0,
     0,
     0,
-    0,
+    8,
     0,
     0,
     0,
@@ -1006,8 +1006,8 @@
     0,
     33,
     0,
-    0,
-    0,
+    96,
+    8,
     0,
     0,
     0,
@@ -1017,7 +1017,7 @@
     0,
     34,
     0,
-    0,
+    8,
     0,
     35,
     0,
@@ -1033,7 +1033,7 @@
     0,
     0,
     0,
-    0,
+    8,
     33,
     0,
     0,
@@ -1043,7 +1043,7 @@
     0,
     0,
     0,
-    0,
+    8,
     9,
     9,
     0,
@@ -1059,17 +1059,17 @@
     9,
     9,
     0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
     8,
-    0,
-    0,
-    0,
-    0,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
     9,
     9,
     0,
@@ -1269,54 +1269,6 @@
     },
     {
      "id": 5,
-     "name": "sacoche-lettres",
-     "type": "coffre",
-     "x": 688,
-     "y": 208,
-     "width": 0,
-     "height": 0,
-     "point": true,
-     "rotation": 0,
-     "visible": true,
-     "properties": [
-      {
-       "name": "disparaitSi",
-       "type": "string",
-       "value": "sacoche-retrouvee"
-      }
-     ]
-    },
-    {
-     "id": 6,
-     "name": "ours-sol",
-     "type": "ennemi",
-     "x": 656,
-     "y": 240,
-     "width": 0,
-     "height": 0,
-     "point": true,
-     "rotation": 0,
-     "visible": true,
-     "properties": [
-      {
-       "name": "ennemi",
-       "type": "string",
-       "value": "ours-mousse"
-      },
-      {
-       "name": "disparaitSi",
-       "type": "string",
-       "value": "ours-sol-vaincu,ours-sol-eloigne"
-      },
-      {
-       "name": "texte",
-       "type": "string",
-       "value": "Un Ours-Mousse dort, roulé dans la mousse. Mieux vaut ne pas le réveiller sans plan."
-      }
-     ]
-    },
-    {
-     "id": 7,
      "name": "arbre-retour-anselme",
      "type": "objet",
      "x": 368,
@@ -1329,7 +1281,7 @@
      "properties": []
     },
     {
-     "id": 8,
+     "id": 6,
      "name": "garrik",
      "type": "pnj",
      "x": 368,
@@ -1349,6 +1301,93 @@
        "name": "disparaitSi",
        "type": "string",
        "value": "fouille-elucidee"
+      }
+     ]
+    },
+    {
+     "id": 7,
+     "name": "sacoche-lettres",
+     "type": "coffre",
+     "x": 240,
+     "y": 496,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": [
+      {
+       "name": "disparaitSi",
+       "type": "string",
+       "value": "sacoche-retrouvee"
+      }
+     ]
+    },
+    {
+     "id": 8,
+     "name": "ours-sol",
+     "type": "ennemi",
+     "x": 272,
+     "y": 464,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": [
+      {
+       "name": "ennemi",
+       "type": "string",
+       "value": "ours-mousse"
+      },
+      {
+       "name": "dialogue",
+       "type": "string",
+       "value": "sacoche-lettres"
+      },
+      {
+       "name": "disparaitSi",
+       "type": "string",
+       "value": "ours-sol-vaincu,ours-sol-eloigne,ours-sol-roule"
+      },
+      {
+       "name": "texte",
+       "type": "string",
+       "value": "Un Ours-Mousse dort en travers de l’entrée de la fouille, une patte sur une sacoche. Mieux vaut ne pas le réveiller sans plan."
+      }
+     ]
+    },
+    {
+     "id": 9,
+     "name": "ours-sol-dort",
+     "type": "ennemi",
+     "x": 240,
+     "y": 528,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": [
+      {
+       "name": "ennemi",
+       "type": "string",
+       "value": "ours-mousse"
+      },
+      {
+       "name": "apparaitSi",
+       "type": "string",
+       "value": "ours-sol-roule"
+      },
+      {
+       "name": "disparaitSi",
+       "type": "string",
+       "value": "ours-sol-vaincu,ours-sol-eloigne"
+      },
+      {
+       "name": "texte",
+       "type": "string",
+       "value": "L’Ours-Mousse dort toujours, roulé sur le flanc. Laisse-le rêver."
       }
      ]
     }

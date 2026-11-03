@@ -9,6 +9,9 @@
         },
         {
           "notFlag": "ours-sol-eloigne"
+        },
+        {
+          "notFlag": "ours-sol-roule"
         }
       ],
       "node": "ours"
@@ -19,16 +22,21 @@
   ],
   "nodes": {
     "ours": {
-      "text": "La sacoche est là, sous la patte d’un Ours-Mousse endormi, roulé dans la mousse comme dans un édredon.",
+      "text": "La sacoche est là, sous la patte d’un Ours-Mousse endormi en travers de l’entrée de la fouille, roulé dans la mousse comme dans un édredon.",
       "options": [
         {
           "text": "Glisser la main sous sa patte, tout doucement.",
-          "next": "prise",
+          "next": "prise-roule",
           "roll": {
             "skill": "stealth",
             "difficulty": 11
           },
-          "failNext": "reveil"
+          "failNext": "reveil",
+          "effects": [
+            {
+              "setFlag": "ours-sol-roule"
+            }
+          ]
         },
         {
           "text": "L’attirer plus loin avec une poignée de baies.",
@@ -55,6 +63,20 @@
         },
         {
           "text": "Reculer sans bruit.",
+          "next": "fin"
+        }
+      ]
+    },
+    "prise-roule": {
+      "text": "Tes doigts trouvent le cuir. L’ours grogne dans son sommeil, roule sur le flanc et libère l’entrée de la fouille, sans se réveiller. La sacoche est à toi.",
+      "effects": [
+        {
+          "setFlag": "sacoche-retrouvee"
+        }
+      ],
+      "options": [
+        {
+          "text": "Partir sans bruit.",
           "next": "fin"
         }
       ]

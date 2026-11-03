@@ -74,6 +74,11 @@ carte à créer.
     Arbres qui les soignent ; le sauf-conduit scellé d'une feuille d'émeraude ; les trois choix du Conseil (repères
     `conseil-frontiere`, `conseil-commerce`, `conseil-accord`, pour Ironheart) ; Thalorin sans genre (zone floue 22).
 
+- **Un fourré ferme la fouille** (étude du 2026-11-03, « un obstacle par chapitre », forme A choisie par Cyril) : au
+  Sol des Racines, une haie serrée entoure le trou de Garrik, avec une seule entrée où l'Ours-Mousse dort sur la
+  sacoche de Malo. La Discrétion le fait rouler sur le flanc (et donne la sacoche), les baies l'éloignent, ou l'on se
+  bat ; sans cela, pas de Garrik. Les lettres de Malo deviennent le chemin de l'enquête.
+
 ### 2. Les lettres de Malo (Nacelliers) — **construite le 2026-11-02**
 
 - Malo a laissé tomber la sacoche de lettres des Nacelliers. Véline obtient qu'on descende le héros, une seule fois.

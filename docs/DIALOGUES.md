@@ -3559,7 +3559,7 @@ Commence par : « lettres »
 
 ### lettres
 
-> Quelques lettres, éparpillées entre les racines, encore sèches. Des traces dans la mousse partent vers le nord-est, comme si quelque chose avait traîné la sacoche.
+> Quelques lettres, éparpillées entre les racines, encore sèches. Des traces dans la mousse partent vers la vieille voie, à l’est, comme si quelque chose avait traîné la sacoche.
 
 - « Ramasser les lettres. » → ramassees
 - _(sans repère « traces-lettres-perdues »)_ **🎲 Survie 11** « Lire les traces. » → traces, ✗ → traces-perdues
@@ -3584,7 +3584,7 @@ _Effet : retient « lettres-ramassees »._
 
 ### traces
 
-> De larges empreintes rondes, et des touffes de mousse arrachées : un Ours-Mousse. Il a dû la traîner jusqu’à sa tanière.
+> De larges empreintes rondes, et des touffes de mousse arrachées : un Ours-Mousse. Il a dû la traîner jusqu’à l’entrée de la fouille, entre les racines, et s’y coucher.
 
 - « Ramasser les lettres. » → ramassees
 - « Partir. » → **fin**
@@ -4898,16 +4898,24 @@ _Effet : retient « sauge-3-cueillie »._
 
 _Objet_
 
-Commence par : « ours » _(sans repère « ours-sol-vaincu »)_ _(sans repère « ours-sol-eloigne »)_, sinon « libre »
+Commence par : « ours » _(sans repère « ours-sol-vaincu »)_ _(sans repère « ours-sol-eloigne »)_ _(sans repère « ours-sol-roule »)_, sinon « libre »
 
 ### ours
 
-> La sacoche est là, sous la patte d’un Ours-Mousse endormi, roulé dans la mousse comme dans un édredon.
+> La sacoche est là, sous la patte d’un Ours-Mousse endormi en travers de l’entrée de la fouille, roulé dans la mousse comme dans un édredon.
 
-- **🎲 Discrétion 11** « Glisser la main sous sa patte, tout doucement. » → prise, ✗ → reveil
+- **🎲 Discrétion 11** « Glisser la main sous sa patte, tout doucement. » → prise-roule, ✗ → reveil _(retient « ours-sol-roule »)_
 - _(sans repère « ours-baies-rate »)_ **🎲 Survie 11** « L’attirer plus loin avec une poignée de baies. » → eloigne, ✗ → baies-rate
 - « Le réveiller et l’affronter. » → **fin** _(lance le combat « ours-sacoche »)_
 - « Reculer sans bruit. » → **fin**
+
+### prise-roule
+
+_Effet : retient « sacoche-retrouvee »._
+
+> Tes doigts trouvent le cuir. L’ours grogne dans son sommeil, roule sur le flanc et libère l’entrée de la fouille, sans se réveiller. La sacoche est à toi.
+
+- « Partir sans bruit. » → **fin**
 
 ### baies-rate
 

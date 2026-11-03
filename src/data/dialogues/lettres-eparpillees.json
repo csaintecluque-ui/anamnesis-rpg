@@ -8,7 +8,7 @@
   ],
   "nodes": {
     "lettres": {
-      "text": "Quelques lettres, éparpillées entre les racines, encore sèches. Des traces dans la mousse partent vers le nord-est, comme si quelque chose avait traîné la sacoche.",
+      "text": "Quelques lettres, éparpillées entre les racines, encore sèches. Des traces dans la mousse partent vers la vieille voie, à l’est, comme si quelque chose avait traîné la sacoche.",
       "options": [
         {
           "text": "Ramasser les lettres.",
@@ -68,7 +68,7 @@
       ]
     },
     "traces": {
-      "text": "De larges empreintes rondes, et des touffes de mousse arrachées : un Ours-Mousse. Il a dû la traîner jusqu’à sa tanière.",
+      "text": "De larges empreintes rondes, et des touffes de mousse arrachées : un Ours-Mousse. Il a dû la traîner jusqu’à l’entrée de la fouille, entre les racines, et s’y coucher.",
       "options": [
         {
           "text": "Ramasser les lettres.",

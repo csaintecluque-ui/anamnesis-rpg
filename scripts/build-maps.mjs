@@ -595,17 +595,11 @@ function solRacines() {
   m.setObstacle(9, 10, 'lettres');
   m.object('lettres-eparpillees', 'objet', 9, 10, { disparaitSi: 'lettres-ramassees' });
   m.object('traces-fouille', 'objet', 13, 14);
-  // La tanière : la sacoche sous la patte d'un Ours-Mousse endormi (src/data/encounters.json).
-  m.setObstacle(21, 6, 'sacoche');
-  m.object('sacoche-lettres', 'coffre', 21, 6, { disparaitSi: 'sacoche-retrouvee' });
-  m.object('ours-sol', 'ennemi', 20, 7, {
-    ennemi: 'ours-mousse',
-    disparaitSi: 'ours-sol-vaincu,ours-sol-eloigne',
-    texte: 'Un Ours-Mousse dort, roulé dans la mousse. Mieux vaut ne pas le réveiller sans plan.',
-  });
+  // L'ours et la sacoche sont posés plus bas, à l'entrée de la fouille (le chapitre 2 a son obstacle ; étude du
+  // 2026-11-03, forme A choisie par Cyril).
 
   const keepClear = new Set(
-    [[4, 11], [3, 11], [5, 11], [4, 12], [5, 12], [6, 13], [5, 13], [3, 12], [20, 7], [9, 11], [10, 11], [10, 10], [8, 11], [12, 13], [12, 14], [13, 15], [19, 7], [20, 6], [20, 8], [21, 7], [22, 7], [21, 5], [19, 6], [19, 8]].map(
+    [[4, 11], [3, 11], [5, 11], [4, 12], [5, 12], [6, 13], [5, 13], [3, 12], [20, 7], [9, 11], [10, 11], [10, 10], [8, 11], [12, 13], [12, 14], [13, 15], [19, 7], [20, 6], [20, 8], [21, 7], [22, 7], [21, 5], [19, 6], [19, 8], [21, 6]].map(
       ([c, r]) => `${c},${r}`,
     ),
   );
@@ -631,6 +625,30 @@ function solRacines() {
   // « L'audience » : un fouilleur des Marches des Cendres, près de son trou, seulement pendant l'enquête du Triumvirat.
   clear([[11, 15], [12, 15], [12, 16], [11, 16], [10, 15], [10, 16], [11, 14], [12, 14]]);
   m.object('garrik', 'pnj', 11, 15, { apparaitSi: 'audience-tenue', disparaitSi: 'fouille-elucidee' });
+  // Un obstacle par chapitre (étude du 2026-11-03, forme A choisie par Cyril) : un fourré serré, au pied des Titans,
+  // ferme la fouille, avec une seule entrée, à l'ouest (des arbres : un tronc de Titan se dessine sur deux cases sur deux) ; l'Ours-Mousse y dort sur la sacoche de Malo (src/data/encounters.json). La
+  // Discrétion le fait rouler sur le flanc, les baies l'éloignent, ou l'on se bat.
+  const [left, right, top, bottom] = [8, 18, 11, 17];
+  const gate = [left, 14];
+  const hedge = (c, r) => m.obstacleAt(c, r) !== gid('tronc-titan') && m.setObstacle(c, r, 'arbre');
+  for (let col = left; col <= right; col++) for (const row of [top, bottom]) hedge(col, row);
+  for (let row = top + 1; row < bottom; row++) for (const col of [left, right]) if (col !== gate[0] || row !== gate[1]) hedge(col, row);
+  clear([gate, [9, 14], [10, 14], [9, 13], [9, 15], [7, 13], [7, 14], [6, 14], [6, 13], [6, 15], [7, 16], [6, 16]]);
+  m.setObstacle(7, 15, 'sacoche');
+  m.object('sacoche-lettres', 'coffre', 7, 15, { disparaitSi: 'sacoche-retrouvee' });
+  m.object('ours-sol', 'ennemi', gate[0], gate[1], {
+    ennemi: 'ours-mousse',
+    dialogue: 'sacoche-lettres',
+    disparaitSi: 'ours-sol-vaincu,ours-sol-eloigne,ours-sol-roule',
+    texte: 'Un Ours-Mousse dort en travers de l’entrée de la fouille, une patte sur une sacoche. Mieux vaut ne pas le réveiller sans plan.',
+  });
+  // Roulé sur le flanc après une main habile : il dort toujours, à côté de l'entrée.
+  m.object('ours-sol-dort', 'ennemi', 7, 16, {
+    ennemi: 'ours-mousse',
+    apparaitSi: 'ours-sol-roule',
+    disparaitSi: 'ours-sol-vaincu,ours-sol-eloigne',
+    texte: 'L’Ours-Mousse dort toujours, roulé sur le flanc. Laisse-le rêver.',
+  });
   return m.toTiled();
 }
 

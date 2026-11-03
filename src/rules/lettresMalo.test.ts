@@ -8,6 +8,7 @@ import { createNewGame, type GameState } from '../state/gameState';
 import { ENCOUNTERS } from './combat';
 import { applyEffects, goesTo, startNode, startsCombat, visibleOptions, type DialogueOption } from './dialogue';
 import { reputationScore } from './reputation';
+import { testCharacter } from './questTestKit';
 
 /** « Les lettres de Malo » et le Sol des Racines (docs/univers/quetes.md). */
 const sol = parseTiledMap(MAPS['sol-racines']);
@@ -28,10 +29,33 @@ describe('le Sol des Racines', () => {
   const reach = (o: MapObject) =>
     [-1, 0, 1].flatMap((dc) => [-1, 0, 1].map((dr) => ({ col: o.col + dc, row: o.row + dr }))).some((t) => walk(t) && findPath(start, t, walk) !== null);
 
-  it('lets one reach the nacelle, the letters, the dig and the satchel from the arrival', () => {
-    for (const name of ['nacelle-remontee', 'lettres-eparpillees', 'traces-fouille', 'sacoche-lettres', 'ours-sol']) {
+  it('lets one reach the nacelle, the letters, the satchel and the bear from the arrival', () => {
+    for (const name of ['nacelle-remontee', 'lettres-eparpillees', 'sacoche-lettres', 'ours-sol', 'arbre-retour-anselme']) {
       expect(reach(findObject(sol, name)!), name).toBe(true);
     }
+  });
+
+  it('closes the dig behind Titan roots: the only way in is where the bear sleeps (étude, un obstacle par chapitre)', () => {
+    expect(reach(findObject(sol, 'traces-fouille')!)).toBe(false);
+    expect(reach(findObject(sol, 'garrik')!)).toBe(false);
+    // The bear gone (rolled over, lured away, beaten), the way is open.
+    const open = (t: Tile) => isWalkable(sol, t, new Set());
+    const reachOpen = (o: MapObject) =>
+      [-1, 0, 1].flatMap((dc) => [-1, 0, 1].map((dr) => ({ col: o.col + dc, row: o.row + dr }))).some((t) => open(t) && findPath(start, t, open) !== null);
+    expect(reachOpen(findObject(sol, 'traces-fouille')!)).toBe(true);
+    expect(reachOpen(findObject(sol, 'garrik')!)).toBe(true);
+    expect(findObject(sol, 'ours-sol')!.properties.disparaitSi.split(',')).toEqual(['ours-sol-vaincu', 'ours-sol-eloigne', 'ours-sol-roule']);
+  });
+
+  it('a hand that does not wake him: the bear rolls over and frees the way, the satchel taken', () => {
+    const state = createNewGame(testCharacter());
+    const stealth = DIALOGUES['sacoche-lettres'].nodes.ours.options[0];
+    expect(stealth.roll?.skill).toBe('stealth');
+    expect(stealth.effects).toEqual([{ setFlag: 'ours-sol-roule' }]);
+    applyEffects(state, stealth.effects);
+    applyEffects(state, DIALOGUES['sacoche-lettres'].nodes[stealth.next].effects);
+    expect([state.flags['ours-sol-roule'], state.flags['sacoche-retrouvee']]).toEqual([true, true]);
+    expect(startNode(DIALOGUES['sacoche-lettres'], state)).toBe('libre');
   });
 
   it('is closed: one goes back up by the nacelle only', () => {

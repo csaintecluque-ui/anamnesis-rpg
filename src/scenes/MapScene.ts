@@ -1028,6 +1028,12 @@ export class MapScene extends Phaser.Scene {
       this.fightEncounter();
       return;
     }
+    // An enemy with its own scene (the Ours-Mousse asleep on Malo's satchel): its choices, not a mere warning.
+    if (target.type === 'ennemi' && target.properties.dialogue && DIALOGUES[target.properties.dialogue]) {
+      this.scene.pause();
+      this.scene.launch('Dialogue', { id: target.properties.dialogue });
+      return;
+    }
     // An enemy that bars the way (étude, C5): touching it starts its fight.
     if (target.type === 'ennemi' && target.properties.embuscade) {
       this.startEncounter(target.properties.embuscade);

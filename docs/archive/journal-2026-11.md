@@ -1094,3 +1094,5 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   l'obstacle. Chapitre 2 : deux formes proposées à Cyril. 728 tests.
 - Cyril : « 1 oui, 2 A, 3 oui » : Ilyane et le chapitre 3 mis en ligne ; chapitre 4 laissé tel quel ; chapitre 2,
   forme A, à construire.
+- Sur la branche : au chapitre 2, un fourré ferme la fouille de Garrik, l'Ours-Mousse dort à la seule entrée sur la
+  sacoche de Malo (Discrétion, baies, combat). Vérifié à l'écran. 730 tests.

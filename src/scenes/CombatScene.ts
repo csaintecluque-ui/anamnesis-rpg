@@ -182,7 +182,7 @@ export class CombatScene extends Phaser.Scene {
     // The companions start next to the hero (docs/gdd/jalon-3.md).
     const party = this.state.groupe.map((m) => ({ m, def: findCompanion(m.id) })).filter((x) => !!x.def);
     const allyTiles = this.freeTilesNear(data.heroTile, [data.heroTile, ...data.enemyTiles], party.length);
-    const allies = party.slice(0, allyTiles.length).map((x, i) => makeCompanionCombatant(x.def!, x.m.hp, allyTiles[i]));
+    const allies = party.slice(0, allyTiles.length).map((x, i) => makeCompanionCombatant(x.def!, x.m.hp, allyTiles[i], this.state.flags));
     this.combatants = [hero, ...allies, ...enemies];
     this.tileNames = new Map([
       [hero.id, 'heros'],

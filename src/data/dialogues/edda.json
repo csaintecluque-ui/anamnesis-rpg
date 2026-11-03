@@ -24,6 +24,9 @@
   "nodes": {
     "accueil": {
       "text": "Une femme en manteau gris de Ferros, gants fins, ne lève pas les yeux de son thé. — Vous aussi, vous venez pour la Bibliothèque ? On y vend tout. Sauf des réponses.",
+      "apartes": {
+        "boulon": "Boulon s’arrête net. — Je l’ai portée. Gare de l’Ouest, il y a une lune : deux malles très lourdes, pas un mot, un pourboire en Nexus neufs. Elle allait vers les Portes."
+      },
       "options": [
         {
           "text": "Qui êtes-vous ?",
@@ -46,6 +49,10 @@
     },
     "offre": {
       "text": "La dame en gris lève enfin les yeux. — Vous l’avez lue. Ça se voit à vos mains. Deux cents Fers pour ce que dit la ligne, et vous n’entendrez plus parler de moi.",
+      "apartes": {
+        "liane": "Liane, à mi-voix : — Elle ne veut pas cette ligne pour l’argent. Regarde ses mains : elle cherche quelqu’un.",
+        "boulon": "Boulon : — Elle tient sa tasse comme on tient une poignée de malle. Pour ne pas la perdre."
+      },
       "options": [
         {
           "text": "La lui vendre, pour deux cents Fers.",

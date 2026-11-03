@@ -107,6 +107,10 @@
           "setFlag": "hesper-vue"
         }
       ],
+      "apartes": {
+        "liane": "Liane chuchote : — Elle a les yeux d’Ilyane, quand Ilyane cherche un mot qu’elle avait hier.",
+        "boulon": "Boulon s’incline, et le plancher grince. — On lit les mains, ici. Les miennes ne disent rien : on ne m’a jamais laissé signer."
+      },
       "options": [
         {
           "text": "Et la clé de rouille bleue ?",

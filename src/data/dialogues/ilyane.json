@@ -34,9 +34,83 @@
         {
           "quest": "memoires-monde-perdu",
           "status": "none"
+        },
+        {
+          "flag": "cle-veilleuse"
+        }
+      ],
+      "node": "appel-veilleuse"
+    },
+    {
+      "requires": [
+        {
+          "quest": "cle-rouille-bleue",
+          "status": "done"
+        },
+        {
+          "quest": "memoires-monde-perdu",
+          "status": "none"
+        },
+        {
+          "flag": "cle-archives"
+        }
+      ],
+      "node": "appel-archives"
+    },
+    {
+      "requires": [
+        {
+          "quest": "cle-rouille-bleue",
+          "status": "done"
+        },
+        {
+          "quest": "memoires-monde-perdu",
+          "status": "none"
+        },
+        {
+          "flag": "cle-vendue"
+        }
+      ],
+      "node": "appel-vendue"
+    },
+    {
+      "requires": [
+        {
+          "quest": "cle-rouille-bleue",
+          "status": "done"
+        },
+        {
+          "quest": "memoires-monde-perdu",
+          "status": "none"
         }
       ],
       "node": "appel-sept-portes"
+    },
+    {
+      "requires": [
+        {
+          "flag": "porte-sud-connue"
+        },
+        {
+          "notFlag": "ilyane-oubli-3"
+        }
+      ],
+      "node": "oubli-3"
+    },
+    {
+      "requires": [
+        {
+          "quest": "audience",
+          "status": "done"
+        },
+        {
+          "notFlag": "ilyane-oubli-2"
+        },
+        {
+          "notFlag": "ilyane-oubli-3"
+        }
+      ],
+      "node": "oubli-2"
     },
     {
       "requires": [
@@ -75,6 +149,24 @@
     {
       "requires": [
         {
+          "quest": "audience",
+          "status": "active"
+        },
+        {
+          "notFlag": "ilyane-oubli-1"
+        },
+        {
+          "notFlag": "ilyane-oubli-2"
+        },
+        {
+          "notFlag": "ilyane-oubli-3"
+        }
+      ],
+      "node": "oubli-1"
+    },
+    {
+      "requires": [
+        {
           "quest": "dernier-train",
           "status": "done"
         }
@@ -97,6 +189,9 @@
   "nodes": {
     "resolu": {
       "text": "Depuis que la foreuse s’est tue, plus personne ne revit la Grande Chute. Tu as bien fait. Mais dis-moi : qui a payé cette prospection, à ton avis ? Les Réveilleurs, peut-être. Reste sur tes gardes.",
+      "apartes": {
+        "liane": "Liane, à mi-voix : — Les Réveilleurs. On dit ça comme on dit l’orage. Personne ne leur a jamais vu la figure."
+      },
       "options": [
         {
           "text": "Et maintenant ?",
@@ -341,6 +436,9 @@
           "setFlag": "ilyane-sait-pell"
         }
       ],
+      "apartes": {
+        "liane": "Liane baisse les yeux. Ses doigts cherchent quelque chose dans sa poche, le trouvent, puis le lâchent."
+      },
       "options": [
         {
           "text": "Je m’en souviendrai.",
@@ -385,6 +483,154 @@
         {
           "text": "Je m’en souviendrai.",
           "next": "resolu"
+        }
+      ]
+    },
+    "appel-vendue": {
+      "text": "Ilyane te tend une lettre cachetée de cire grise, d’une main qui tremble. — Hesper, de Sept-Portes : « La clé est passée par le Marché des Cendres, puis entre des gants fins. Sa main est au Registre depuis trois jours. Envoie-moi ton Gardien, vite. »",
+      "options": [
+        {
+          "text": "J’irai à Sept-Portes.",
+          "effects": [
+            {
+              "startQuest": "memoires-monde-perdu"
+            },
+            {
+              "setFlag": "porte-sud-connue"
+            }
+          ],
+          "next": "porte-sud"
+        }
+      ]
+    },
+    "appel-archives": {
+      "text": "Ilyane te tend une lettre cachetée de cire grise. — Hesper, de Sept-Portes : « Ferros a classé la clé au Fonds Zéro. Mais ce qu’on classe, on le recopie : une copie de sa chaîne est arrivée au Registre, et quelqu’un l’a déjà lue. Envoie-moi ton Gardien. »",
+      "options": [
+        {
+          "text": "J’irai à Sept-Portes.",
+          "effects": [
+            {
+              "startQuest": "memoires-monde-perdu"
+            },
+            {
+              "setFlag": "porte-sud-connue"
+            }
+          ],
+          "next": "porte-sud"
+        }
+      ]
+    },
+    "appel-veilleuse": {
+      "text": "Ilyane te tend une lettre cachetée de cire grise. — Hesper, de Sept-Portes : « La clé chante encore sur la ligne de la Veilleuse, tant mieux. Mais une dame en gris a demandé sa chaîne au Registre. Elle viendra la chercher. Envoie-moi ton Gardien. »",
+      "options": [
+        {
+          "text": "J’irai à Sept-Portes.",
+          "effects": [
+            {
+              "startQuest": "memoires-monde-perdu"
+            },
+            {
+              "setFlag": "porte-sud-connue"
+            }
+          ],
+          "next": "porte-sud"
+        }
+      ]
+    },
+    "oubli-1": {
+      "text": "Ilyane feuillette son carnet et s’arrête sur une page. — Cette chanson-là, c’est ma main. Je ne sais plus l’air. … Depuis le quai, de petites choses s’en vont. Ce n’est rien.",
+      "effects": [
+        {
+          "setFlag": "ilyane-oubli-1"
+        }
+      ],
+      "apartes": {
+        "liane": "Liane, tout bas : — Ça commence comme ça, chez mes malades. Par les chansons."
+      },
+      "options": [
+        {
+          "text": "La maladie des souvenirs, Ilyane ?",
+          "next": "oubli-1-suite"
+        },
+        {
+          "text": "Je reviendrai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "oubli-1-suite": {
+      "text": "— Peut-être. J’ai regardé ce train plus longtemps que les autres, sur le quai. Ne le dis pas aux Gardiens de Canopéa : ils m’enverraient me reposer, et je n’ai pas le temps.",
+      "options": [
+        {
+          "text": "Je ne dirai rien.",
+          "next": "fin"
+        }
+      ]
+    },
+    "oubli-2": {
+      "text": "Ilyane cherche un nom, les doigts posés sur la table. — Celle qui tient le relais de Canopéa… mon ancienne apprentie, des mains de graveuse. Elle t’a reçu·e. Comment s’appelle-t-elle, déjà ?",
+      "effects": [
+        {
+          "setFlag": "ilyane-oubli-2"
+        }
+      ],
+      "options": [
+        {
+          "text": "Mirelle.",
+          "next": "oubli-2-nom"
+        },
+        {
+          "text": "Ça te reviendra.",
+          "next": "oubli-2-attente"
+        }
+      ]
+    },
+    "oubli-2-nom": {
+      "text": "— Mirelle. Bien sûr. Mirelle. Elle l’écrit dans la marge de son carnet, deux fois, et souligne. — Merci. Ne le répète à personne.",
+      "options": [
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ]
+    },
+    "oubli-2-attente": {
+      "text": "— Non. Ça ne revient pas. Ça, au moins, je l’ai appris. Elle referme le carnet, doucement, comme on ferme une porte sur quelqu’un qui dort.",
+      "options": [
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ]
+    },
+    "oubli-3": {
+      "text": "Ilyane lève les yeux et te sourit, du sourire poli qu’on fait aux voyageurs. — Bienvenue au relais. Vous venez de loin ? … Puis son visage se défait. — Toi. Pardon. Une seconde, j’ai… Assieds-toi.",
+      "effects": [
+        {
+          "setFlag": "ilyane-oubli-3"
+        }
+      ],
+      "apartes": {
+        "liane": "Liane détourne les yeux, la mâchoire serrée.",
+        "boulon": "Boulon, très bas : — Je peux retenir pour elle. Je retiens bien. Il suffit qu’elle me demande."
+      },
+      "options": [
+        {
+          "text": "Combien de temps, Ilyane ?",
+          "next": "oubli-3-temps"
+        },
+        {
+          "text": "Je suis là.",
+          "next": "fin"
+        }
+      ]
+    },
+    "oubli-3-temps": {
+      "text": "— Je ne sais pas. Moins que je voudrais. Écris-moi, depuis Sept-Portes. Et écris ton nom en haut de chaque lettre. Toujours.",
+      "options": [
+        {
+          "text": "Toujours.",
+          "next": "fin"
         }
       ]
     }

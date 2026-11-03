@@ -50,7 +50,13 @@ export function restParty(state: GameState): void {
   for (const m of state.groupe) m.hp = findCompanion(m.id)?.hp ?? m.hp;
 }
 
-export function makeCompanionCombatant(def: CompanionDef, hp: number, tile: Tile): Combatant {
+/**
+ * Liane sleeps again once she has forgotten Saule (« Ce que Liane veut oublier », feuille de route, chantier 4): her
+ * hands are steadier, her care surer. The other ending keeps Saule's Récit.
+ */
+export const LIANE_RESTED_CARE: Dice = { count: 3, sides: 4 };
+
+export function makeCompanionCombatant(def: CompanionDef, hp: number, tile: Tile, flags: Record<string, boolean> = {}): Combatant {
   const attacks: AttackProfile[] = def.attacks.map((a, i) => ({
     weaponId: `${def.id}-${i}`,
     label: a.label,
@@ -78,7 +84,7 @@ export function makeCompanionCombatant(def: CompanionDef, hp: number, tile: Tile
     defeated: false,
     defeatText: `${def.name} s’effondre.`,
     kind: def.id,
-    heal: def.soin,
+    heal: def.id === 'liane' && def.soin && flags['liane-a-oublie'] ? { ...def.soin, amount: LIANE_RESTED_CARE } : def.soin,
     phase: 0,
   };
 }

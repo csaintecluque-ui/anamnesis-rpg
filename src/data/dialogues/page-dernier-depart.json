@@ -28,6 +28,10 @@
           "giveXp": 50
         }
       ],
+      "apartes": {
+        "liane": "Liane relit la ligne en silence. — « Reçu : personne. » Ilyane a vu des enfants sur ce quai. Qui les attendait, à Altavent ?",
+        "boulon": "Boulon pose une main sur le lutrin. — Sept caisses plombées, reçues par personne. Quand une malle n’est reçue par personne, c’est que quelqu’un l’attend encore."
+      },
       "options": [
         {
           "text": "Refermer le Fonds.",

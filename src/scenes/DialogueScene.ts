@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import { DIALOGUES } from '../data/dialogues';
 import npcData from '../data/npcs.json';
-import { END, applyEffects, goesTo, opensAtelier, opensTrade, opensVeillee, performRoll, raconterChoices, raconterOption, startNode, startsCombat, visibleOptions, type Dialogue, type DialogueOption, type OptionView } from '../rules/dialogue';
+import { END, applyEffects, goesTo, nodeApartes, opensAtelier, opensTrade, opensVeillee, performRoll, raconterChoices, raconterOption, startNode, startsCombat, visibleOptions, type Dialogue, type DialogueOption, type OptionView } from '../rules/dialogue';
 import { fontPx, textScale } from '../settings';
 import type { GameState } from '../state/gameState';
 import type { MapScene } from './MapScene';
@@ -147,15 +147,28 @@ export class DialogueScene extends Phaser.Scene {
       this.rollNotice = null;
     }
 
-    this.layer.add(
-      this.add.text(this.textLeft, textTop, node.text, {
+    const body = this.add.text(this.textLeft, textTop, node.text, {
+      fontFamily: FONT_SERIF,
+      fontSize: fontPx(26),
+      color: CSS.parchment,
+      lineSpacing: 6,
+      wordWrap: { width: GAME_WIDTH - MARGIN - this.textLeft },
+    });
+    this.layer.add(body);
+    // What the companions say here (feuille de route, chantier 4), under the text, in copper.
+    let asideTop = body.y + body.height + 14;
+    for (const aside of nodeApartes(node, this.state)) {
+      const line = this.add.text(this.textLeft, asideTop, aside, {
         fontFamily: FONT_SERIF,
-        fontSize: fontPx(26),
-        color: CSS.parchment,
-        lineSpacing: 6,
+        fontSize: fontPx(23),
+        fontStyle: 'italic',
+        color: CSS.copper,
+        lineSpacing: 4,
         wordWrap: { width: GAME_WIDTH - MARGIN - this.textLeft },
-      }),
-    );
+      });
+      this.layer.add(line);
+      asideTop += line.height + 8;
+    }
 
     // Options are stacked from the bottom, each as tall as its (possibly wrapped) text needs.
     const views = visibleOptions(node, this.state);

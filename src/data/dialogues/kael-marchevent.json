@@ -98,6 +98,9 @@
     },
     "recit-gare": {
       "text": "Tu racontes la Gare Engloutie, la foreuse, l’Écho du dernier train, les visions de la Grande Chute. Dans les gradins, des murmures. Kael serre les poings. — Des papiers de Ferros, sous nos frontières. Encore.",
+      "apartes": {
+        "liane": "Liane, au fond des gradins, serre sa besace contre elle. Elle n’a pas dit le nom de son frère. Personne ne l’a demandé."
+      },
       "options": [
         {
           "text": "Les papiers venaient de Ferros. Mais qui payait ?",

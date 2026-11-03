@@ -83,6 +83,9 @@
     },
     "noms": {
       "text": "Des noms, des légendes, de petits dessins de feuilles. Là où le bois a fendu un signe, la fente fait désormais partie du souvenir.",
+      "apartes": {
+        "liane": "Liane pose la main près de la tienne, sur les noms. — Ici, on les garde dans le bois. Chez nous, on les enterre et on se tait."
+      },
       "options": [
         {
           "text": "Partir.",

@@ -107,6 +107,7 @@ for (const file of readdirSync(new URL('src/data/dialogues/', root)).filter((f) 
     lines.push(`### ${id}`, '');
     if (node.effects?.length) lines.push(`_Effet : ${node.effects.map(effect).join(', ')}._`, '');
     lines.push(`> ${node.night ? '🌙 ' : ''}${node.text}`, '');
+    for (const [who, aside] of Object.entries(node.apartes ?? {})) lines.push(`_Si ${who === 'liane' ? 'Liane' : who === 'boulon' ? 'Boulon' : who} voyage avec toi :_ ${aside}`, '');
     const target = (next) => (next === 'fin' ? '**fin**' : next);
     for (const o of node.options) {
       const req = o.requires?.length ? o.requires.map(condition).join(' ') + ' ' : '';

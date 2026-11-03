@@ -52,6 +52,9 @@
   "nodes": {
     "jour": {
       "text": "La foreuse de Brisefer mord la roche de la Faille dans un fracas de fer. Les ouvriers ne la quittent pas des yeux.",
+      "apartes": {
+        "liane": "Liane s’est arrêtée au bord du quai. — Chaque coup de cette machine, mes malades le sentent dans les dents. Et Saule… Non. Plus tard."
+      },
       "options": [
         {
           "text": "Attendre la nuit dans les ruines du quai.",
@@ -169,6 +172,9 @@
           "giveFers": 30
         }
       ],
+      "apartes": {
+        "liane": "Liane souffle enfin, dans le noir. — Sans un mort. Je ne pensais pas que ça se pouvait, ici."
+      },
       "options": [
         {
           "text": "Attendre le jour.",
@@ -236,6 +242,9 @@
     "chaudiere": {
       "text": "Tu ouvres la vanne en grand et tu cours. Derrière toi, la chaudière hurle, puis éclate. Le feu éclaire tout le quai. Sous la lanterne renversée, quelqu’un crie : le garçon qui veillait.",
       "night": true,
+      "apartes": {
+        "liane": "Liane court déjà vers le feu, la besace battant contre sa hanche. — Il y a quelqu’un ! Aide-moi, bon sang !"
+      },
       "options": [
         {
           "text": "Revenir dans le feu : le tirer de là, serrer ses brûlures.",

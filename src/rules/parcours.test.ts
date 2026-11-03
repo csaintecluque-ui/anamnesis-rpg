@@ -327,6 +327,9 @@ describe('Parcours complet, d’une traite', () => {
     say(s, 'ilyane', 'resolu', 'Et maintenant');
     expect(s.quests.audience).toBe('active');
     expect(questItems(s)).toEqual(['lettre-ilyane']);
+    // Ilyane oublie (feuille de route, chantier 4) : une chanson de son carnet.
+    expect(talk(s, 'ilyane')).toBe('oubli-1');
+    say(s, 'ilyane', 'oubli-1', 'Je reviendrai');
     expect(talk(s, 'ilyane')).toBe('resolu');
     expect(optionTexts(s, 'ilyane', 'resolu')).toEqual(['Je resterai sur mes gardes.']);
   });
@@ -823,11 +826,15 @@ describe('Parcours complet, d’une traite', () => {
     expect(s.location).toBe('gardebois');
     expect(gained(s, () => expect(talk(s, 'ilyane')).toBe('echo-lettre'))).toEqual({ xp: 10, fers: 0 });
     // La Clé finie, Ilyane a une lettre de Hesper : le chapitre 4 s'ouvre, la Porte du sud paraît sur la carte.
-    expect(talk(s, 'ilyane')).toBe('appel-sept-portes');
+    // La clé classée aux Archives : la lettre de Hesper le dit (feuille de route, chantier 4).
+    expect(talk(s, 'ilyane')).toBe('appel-archives');
     expect(knownPlaces(s.flags, s.quests).map((p) => p.id)).not.toContain('sept-portes');
-    say(s, 'ilyane', 'appel-sept-portes', 'J’irai à Sept-Portes');
+    say(s, 'ilyane', 'appel-archives', 'J’irai à Sept-Portes');
     expect(s.quests['memoires-monde-perdu']).toBe('active');
     expect(knownPlaces(s.flags, s.quests).map((p) => p.id)).toContain('sept-portes');
+    // Ilyane oublie : un instant, elle ne reconnaît plus le héros.
+    expect(talk(s, 'ilyane')).toBe('oubli-3');
+    say(s, 'ilyane', 'oubli-3', 'Je suis là');
     expect(talk(s, 'ilyane')).toBe('nouvelles-canopee');
     walk(s, 'auberge-racine');
     expect(talk(s, 'sylvan')).toBe('triumvirat');
@@ -1317,7 +1324,7 @@ describe('Variante : Ironheart avant les quêtes annexes (parole, combats, autre
     walk(s, 'canopee-aieux');
     expect(talk(s, 'arbre-vierge')).toBe('lisse');
     expect(gained(s, () => say(s, 'arbre-vierge', 'lisse', 'Laisser Liane graver'))).toEqual({ xp: 40, fers: 0 });
-    expect([s.quests['oubli-liane'], knowsRecit(s.character!, 'saule'), s.avis.liane]).toEqual(['done', true, 4]);
+    expect([s.quests['oubli-liane'], knowsRecit(s.character!, 'saule'), s.avis.liane]).toEqual(['done', true, 3]);
     expect(companion(s, 'liane')).toBe('route-bon');
     expect(talk(s, 'arbre-vierge')).toBe('grave');
     walk(s, 'canopee-nacelle');
@@ -1367,8 +1374,10 @@ describe('Variante : Ironheart avant les quêtes annexes (parole, combats, autre
 
   it('« Les Mémoires du Monde Perdu » de nuit : le portier passé, la ligne vendue à la dame en gris', () => {
     expect(travel(s, 'gardebois')).toBeNull();
-    expect(talk(s, 'ilyane')).toBe('appel-sept-portes');
-    say(s, 'ilyane', 'appel-sept-portes', 'J’irai à Sept-Portes');
+    const appel = talk(s, 'ilyane');
+    // La clé vendue aux Marches : elle est déjà entre des gants fins (feuille de route, chantier 4).
+    expect(appel).toBe('appel-vendue');
+    say(s, 'ilyane', appel, 'J’irai à Sept-Portes');
     travel(s, 'sept-portes');
     walk(s, 'sept-portes-parvis');
     walk(s, 'sept-portes-gardiens');
@@ -1728,6 +1737,8 @@ describe('Cas limites', () => {
     say(s, 'ilyane', 'pell', 'Je m’en souviendrai');
     say(s, 'ilyane', 'resolu', 'Et maintenant');
     expect(s.quests.audience).toBe('active');
+    expect(talk(s, 'ilyane')).toBe('oubli-1');
+    say(s, 'ilyane', 'oubli-1', 'Je reviendrai');
     expect(talk(s, 'ilyane')).toBe('resolu');
   });
 

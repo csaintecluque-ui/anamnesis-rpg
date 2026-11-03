@@ -3,7 +3,7 @@
 ## État (2026-11-03)
 
 - Jalons 1, 2 et 3 faits et en ligne ; jalon 4, chapitre 4 (Sept-Portes) en ligne et validé ; page Notion à jour.
-- 667 tests (dont le parcours complet d'affilée, `src/rules/parcours.test.ts`), typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
+- 676 tests (dont le parcours complet d'affilée, `src/rules/parcours.test.ts`), typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
 - **Décisions de Cyril (2026-11-03)** : le jeu se joue **sur PC** (le téléphone n'est qu'une cible d'essai) ; le
   ressenti est déjà testé : on corrige avant tout nouvel essai.
 
@@ -18,7 +18,7 @@ Cyril sur PC et sa validation. Aucun nouveau système d'ici là.
 | 1 | Une mémoire pour le héros : oubli choisi, champignon, Échos tentants et cachés, dons de Récit ; Écho du héros à valider (`univers/personnages/heros.md`) | **en ligne** (2026-11-03) ; partie de Cyril à faire |
 | 2 | Recalibrer tests et compétences : seuils rang + attribut, courbe par chapitre, Athlétisme et Médecine ×5, atelier par compétence, rang ≤ niveau + 2 ; Pell sauvable (validé) | **en ligne** (2026-11-03) ; partie de Cyril à faire |
 | 3 | Refaire le combat : PA et coût par arme, visée +1 PA et résistance, 2 capacités par ennemi, IA, force par chapitre, voie pacifiste ; simulation (écart ≤ 14 points) | **en ligne** (2026-11-03) ; partie de Cyril à faire |
-| 4 | Compagnons présents, ennemi incarné (Ilyane oublie, Edda a perdu quelqu'un dans le train : validés) | en cours |
+| 4 | Compagnons présents, ennemi incarné : apartés (21 pour Liane, 14 pour Boulon), Liane face à Ingrid, Liane et Boulon, quête de Liane rééquilibrée, la dame en gris dès le ch. 1, le ch. 4 selon la clé, Ilyane oublie **faits (branche)** ; inventions à valider | en cours |
 | 5 | Passe d'écriture | à faire |
 | 6 | Économie et progression | à faire |
 

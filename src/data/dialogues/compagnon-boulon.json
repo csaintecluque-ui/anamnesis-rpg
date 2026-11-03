@@ -13,6 +13,62 @@
     {
       "requires": [
         {
+          "compagnon": "liane"
+        },
+        {
+          "notFlag": "duo-1"
+        }
+      ],
+      "node": "duo-1"
+    },
+    {
+      "requires": [
+        {
+          "compagnon": "liane"
+        },
+        {
+          "flag": "duo-1"
+        },
+        {
+          "notFlag": "duo-2"
+        }
+      ],
+      "node": "duo-2"
+    },
+    {
+      "requires": [
+        {
+          "compagnon": "liane"
+        },
+        {
+          "flag": "duo-2"
+        },
+        {
+          "notFlag": "duo-3"
+        },
+        {
+          "flag": "liane-a-oublie"
+        }
+      ],
+      "node": "duo-3-oublie"
+    },
+    {
+      "requires": [
+        {
+          "compagnon": "liane"
+        },
+        {
+          "flag": "duo-2"
+        },
+        {
+          "notFlag": "duo-3"
+        }
+      ],
+      "node": "duo-3"
+    },
+    {
+      "requires": [
+        {
           "avis": "boulon",
           "min": 3
         }
@@ -142,6 +198,62 @@
       "options": [
         {
           "text": "À bientôt, Boulon.",
+          "next": "fin"
+        }
+      ]
+    },
+    "duo-1": {
+      "text": "Boulon se tourne vers Liane. — Tu mâches quelque chose, la nuit. Ça sent la cave. — Ça ne te regarde pas, Boulon. — Non, dit-il. Je le retiens quand même.",
+      "effects": [
+        {
+          "setFlag": "duo-1"
+        }
+      ],
+      "options": [
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ]
+    },
+    "duo-2": {
+      "text": "— Tu retiens tout ? demande Liane. Même ce qui fait mal ? — Surtout ce qui fait mal. Le reste glisse. — Alors on est l’inverse, toi et moi. Elle rit, presque. Boulon range ce rire à part, avec soin.",
+      "effects": [
+        {
+          "setFlag": "duo-2"
+        }
+      ],
+      "options": [
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ]
+    },
+    "duo-3": {
+      "text": "Liane marche un moment près de Boulon, sans rien dire. Puis : — Si un jour j’oublie mon frère pour de bon… tu me diras son nom ? — Saule, dit Boulon. Je te le dirai aussi souvent qu’il faudra.",
+      "effects": [
+        {
+          "setFlag": "duo-3"
+        }
+      ],
+      "options": [
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ]
+    },
+    "duo-3-oublie": {
+      "text": "Liane marche un moment près de Boulon. — Boulon. Tu retiens tout. J’avais quelqu’un, avant ? Un frère, une sœur ? Boulon se tait longtemps. — Oui. Je te le dirai le jour où tu voudras vraiment le savoir.",
+      "effects": [
+        {
+          "setFlag": "duo-3"
+        }
+      ],
+      "options": [
+        {
+          "text": "…",
           "next": "fin"
         }
       ]

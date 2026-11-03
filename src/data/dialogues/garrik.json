@@ -9,6 +9,9 @@
   "nodes": {
     "rencontre": {
       "text": "Un homme trapu, pioche à l’épaule, sursaute. Une lanterne de Ferros pend à sa ceinture. — Qui va là ? Il n’y a rien à voir, ici. Passe ton chemin.",
+      "apartes": {
+        "liane": "Liane, tout bas : — Il a les mains d’un homme qu’on paie pour ne pas réfléchir. Mon père avait les mêmes."
+      },
       "options": [
         {
           "text": "Ce sol est sacré, et tu coupes les racines du Bosquet.",
@@ -126,6 +129,15 @@
       "text": "— On est payés par les Marches des Cendres, au Marché des Cendres, à Ironheart : un certain Kaelis, qui achète les vieilles choses. Ils cherchent une clé de rouille bleue, le long des anciennes voies. Celle-ci passe sous vos arbres.",
       "options": [
         {
+          "text": "Et Kaelis, qui le paie ?",
+          "requires": [
+            {
+              "notFlag": "gris-garrik"
+            }
+          ],
+          "next": "gris"
+        },
+        {
           "text": "Pars, et ne reviens jamais sur le sol sacré.",
           "next": "depart",
           "effects": [
@@ -153,6 +165,20 @@
         {
           "text": "Remonter faire mon rapport.",
           "next": "fin"
+        }
+      ]
+    },
+    "gris": {
+      "text": "— Kaelis ? Il ne paie jamais de sa poche. Une fois, au Marché des Cendres, j’ai vu une dame en gris lui compter des Nexus neufs sans retirer ses gants. Elle a demandé si on avait trouvé la clé. Pas comment j’allais, moi.",
+      "effects": [
+        {
+          "setFlag": "gris-garrik"
+        }
+      ],
+      "options": [
+        {
+          "text": "Pars, et ne reviens jamais sur le sol sacré.",
+          "next": "depart"
         }
       ]
     }

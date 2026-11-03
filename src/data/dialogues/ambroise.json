@@ -92,10 +92,31 @@
     },
     "registre": {
       "text": "Il ouvre un livre épais comme une porte. — Vous cherchez une chaîne ? Dites-moi l’objet, je vous lis les mains.",
+      "apartes": {
+        "boulon": "Boulon lit par-dessus ton épaule, sans bouger les lèvres. — Tout s’écrit, ici. Même ce qui n’est pas arrivé."
+      },
       "options": [
         {
           "text": "Une clé de rouille bleue, et le carnet du dernier train.",
-          "next": "chaine"
+          "next": "chaine",
+          "requires": [
+            {
+              "notFlag": "cle-vendue"
+            }
+          ]
+        },
+        {
+          "text": "Une clé de rouille bleue, que j’ai vendue aux Marches, et le carnet du dernier train.",
+          "requires": [
+            {
+              "flag": "cle-vendue"
+            }
+          ],
+          "next": "chaine-vendue"
+        },
+        {
+          "text": "Je reviendrai.",
+          "next": "fin"
         }
       ]
     },
@@ -295,6 +316,16 @@
         {
           "text": "Merci.",
           "next": "fin"
+        }
+      ]
+    },
+    "chaine-vendue": {
+      "text": "Il tourne les pages. — La clé : entrée il y a trois jours, d’une main gantée, qui l’a achetée aux Marches des Cendres. Le carnet : une page recopiée, vendue quarante Nexus l’an dernier. Sa chaîne dort au Fonds Muet. On ne la cite pas.",
+      "effects": [],
+      "options": [
+        {
+          "text": "Et personne d’autre ne l’a demandée ?",
+          "next": "edda-demande"
         }
       ]
     }

@@ -190,7 +190,11 @@ Commence par : « denonce » _(si quête « Les Mémoires du Monde Perdu » en c
 
 > Il ouvre un livre épais comme une porte. — Vous cherchez une chaîne ? Dites-moi l’objet, je vous lis les mains.
 
-- « Une clé de rouille bleue, et le carnet du dernier train. » → chaine
+_Si Boulon voyage avec toi :_ Boulon lit par-dessus ton épaule, sans bouger les lèvres. — Tout s’écrit, ici. Même ce qui n’est pas arrivé.
+
+- _(sans repère « cle-vendue »)_ « Une clé de rouille bleue, et le carnet du dernier train. » → chaine
+- _(si repère « cle-vendue »)_ « Une clé de rouille bleue, que j’ai vendue aux Marches, et le carnet du dernier train. » → chaine-vendue
+- « Je reviendrai. » → **fin**
 
 ### chaine
 
@@ -264,6 +268,12 @@ _Effet : retient « fonds-muet-ouvert », retient « fonds-muet-parole », +10 X
 
 - « Merci. » → **fin**
 
+### chaine-vendue
+
+> Il tourne les pages. — La clé : entrée il y a trois jours, d’une main gantée, qui l’a achetée aux Marches des Cendres. Le carnet : une page recopiée, vendue quarante Nexus l’an dernier. Sa chaîne dort au Fonds Muet. On ne la cite pas.
+
+- « Et personne d’autre ne l’a demandée ? » → edda-demande
+
 ## Un très vieil arbre gravé
 
 _Bosquet des Échos_
@@ -288,6 +298,8 @@ Commence par : « silence » _(si quête « L’audience » en cours)_ _(si rep�
 ### noms
 
 > Des noms, des légendes, de petits dessins de feuilles. Là où le bois a fendu un signe, la fente fait désormais partie du souvenir.
+
+_Si Liane voyage avec toi :_ Liane pose la main près de la tienne, sur les noms. — Ici, on les garde dans le bois. Chez nous, on les enterre et on se tait.
 
 - « Partir. » → **fin**
 
@@ -400,7 +412,7 @@ Commence par : « grave » _(si repère « saule-grave »)_, sinon « lisse »
 
 ### graver
 
-_Effet : retient « saule-grave », termine la quête « Ce que Liane veut oublier », retient le Récit « Saule, le frère de Liane », +40 XP, avis de Liane +3._
+_Effet : retient « saule-grave », termine la quête « Ce que Liane veut oublier », retient le Récit « Saule, le frère de Liane », +40 XP, avis de Liane +2._
 
 > Liane grave lentement, en verdani, comme on le lui a appris. Quand elle pose la main sur l’écorce, elle pleure enfin, longtemps. Puis elle sourit. — Il riait trop fort. Le bois s’en souviendra. Moi aussi, maintenant, mais autrement.
 
@@ -808,7 +820,7 @@ Commence par : « presse » _(si quête « La caravane de midi » pas commencée
 
 _Ferrôme, porteur à la gare de l’Ouest_
 
-Commence par : « gare » _(à « Ironheart — Les Forges-Basses »)_, sinon « route-bon » _(avis de Boulon ≥ 3)_, sinon « route-froid » _(avis de Boulon ≤ -2)_, sinon « route »
+Commence par : « gare » _(à « Ironheart — Les Forges-Basses »)_, sinon « duo-1 » _(si Liane suit le héros)_ _(sans repère « duo-1 »)_, sinon « duo-2 » _(si Liane suit le héros)_ _(si repère « duo-1 »)_ _(sans repère « duo-2 »)_, sinon « duo-3-oublie » _(si Liane suit le héros)_ _(si repère « duo-2 »)_ _(sans repère « duo-3 »)_ _(si repère « liane-a-oublie »)_, sinon « duo-3 » _(si Liane suit le héros)_ _(si repère « duo-2 »)_ _(sans repère « duo-3 »)_, sinon « route-bon » _(avis de Boulon ≥ 3)_, sinon « route-froid » _(avis de Boulon ≤ -2)_, sinon « route »
 
 ### route
 
@@ -853,6 +865,38 @@ _Effet : Boulon rentre chez soi._
 > — Je retourne au quai. Les malles ne se porteront pas toutes seules, même libres. Tu sais où me trouver.
 
 - « À bientôt, Boulon. » → **fin**
+
+### duo-1
+
+_Effet : retient « duo-1 »._
+
+> Boulon se tourne vers Liane. — Tu mâches quelque chose, la nuit. Ça sent la cave. — Ça ne te regarde pas, Boulon. — Non, dit-il. Je le retiens quand même.
+
+- « … » → **fin**
+
+### duo-2
+
+_Effet : retient « duo-2 »._
+
+> — Tu retiens tout ? demande Liane. Même ce qui fait mal ? — Surtout ce qui fait mal. Le reste glisse. — Alors on est l’inverse, toi et moi. Elle rit, presque. Boulon range ce rire à part, avec soin.
+
+- « … » → **fin**
+
+### duo-3
+
+_Effet : retient « duo-3 »._
+
+> Liane marche un moment près de Boulon, sans rien dire. Puis : — Si un jour j’oublie mon frère pour de bon… tu me diras son nom ? — Saule, dit Boulon. Je te le dirai aussi souvent qu’il faudra.
+
+- « … » → **fin**
+
+### duo-3-oublie
+
+_Effet : retient « duo-3 »._
+
+> Liane marche un moment près de Boulon. — Boulon. Tu retiens tout. J’avais quelqu’un, avant ? Un frère, une sœur ? Boulon se tait longtemps. — Oui. Je te le dirai le jour où tu voudras vraiment le savoir.
+
+- « … » → **fin**
 
 ## Liane Sève-Claire
 
@@ -906,6 +950,7 @@ _Effet : lance la quête « Ce que Liane veut oublier », retient « oubli-aveu 
 > — Du Champignon-Mémoire. Il mange les souvenirs récents. Les miens, c’est toujours le même : Saule, mon petit frère, sous les déblais du chantier de Brisefer. La maladie me le remontre chaque nuit. Ça, au moins, me laisse dormir.
 
 - « Ça te ronge. Tu oublies d’autres choses. » → ronge
+- « Tu as le droit de ne plus le revoir mourir. » → droit
 - « Que veux-tu faire ? » → choix
 - « Dors, Liane. » → **fin**
 
@@ -941,7 +986,7 @@ _Effet : lance la quête « Ce que Liane veut oublier », retient « oubli-aveu 
 
 > Liane prend le champignon à deux mains. Il luit faiblement, pâle comme une lune. — Après, je ne saurai même plus pourquoi je l’ai mangé. Tu ne me le diras pas, hein ?
 
-- « Je ne te dirai rien. » → oublie _(reprend 1 × « Vieux Champignon-Mémoire », retient « liane-a-oublie », termine la quête « Ce que Liane veut oublier », +40 XP, avis de Liane +1)_
+- « Je ne te dirai rien. » → oublie _(reprend 1 × « Vieux Champignon-Mémoire », retient « liane-a-oublie », termine la quête « Ce que Liane veut oublier », +40 XP, avis de Liane +2)_
 - _(sans repère « oubli-choix-graver »)_ « Non : allons plutôt graver son nom. » → graver-ok _(reprend 1 × « Vieux Champignon-Mémoire », retient « oubli-choix-graver »)_
 - « Attends. Garde-le encore. » → **fin**
 
@@ -967,6 +1012,13 @@ _Effet : retient « liane-a-vu-marques »._
 
 - « Je ferai attention. » → **fin**
 - « Je sais ce que je fais. » → **fin** _(avis de Liane −1)_
+
+### droit
+
+> Liane te regarde, prise de court. — Ilyane dit qu’oublier, c’est trahir. Les Gardiens disent tous ça. … Toi aussi, tu en es un. Elle détourne les yeux. — Merci quand même.
+
+- « Que veux-tu faire ? » → choix
+- « Dors, Liane. » → **fin**
 
 ## La convoyeuse
 
@@ -1038,6 +1090,8 @@ Commence par : « apres » _(si repère « dask-parrain »)_, sinon « dossier �
 ### dossier
 
 > Il lève enfin les yeux. — Orvel ? Le masque à filtre, je sais : l’inspecteur de zone m’en a parlé. Un Ouvrier transfère sous la responsabilité de son parrain. S’il déçoit, c’est mon nom qui rouille. Il me faut une raison.
+
+_Si Boulon voyage avec toi :_ Boulon, d’une voix égale : — Matériel de quai. Riveteur. Assistant. Ils ont toujours un mot pour vous ranger.
 
 - **[60 Fers]** « Soixante Fers, pour les mains à graisser. » → paye _(−60 Fers, retient « dask-parrain »)_
 - **[Diplomatie 3]** « Un Innovateur qui vous doit tout vous sera fidèle. » → convaincu _(retient « dask-parrain »)_
@@ -1361,6 +1415,8 @@ Commence par : « offre » _(si quête « Les Mémoires du Monde Perdu » en cou
 
 > Une femme en manteau gris de Ferros, gants fins, ne lève pas les yeux de son thé. — Vous aussi, vous venez pour la Bibliothèque ? On y vend tout. Sauf des réponses.
 
+_Si Boulon voyage avec toi :_ Boulon s’arrête net. — Je l’ai portée. Gare de l’Ouest, il y a une lune : deux malles très lourdes, pas un mot, un pourboire en Nexus neufs. Elle allait vers les Portes.
+
 - « Qui êtes-vous ? » → qui
 - « Au revoir. » → **fin**
 
@@ -1373,6 +1429,10 @@ Commence par : « offre » _(si quête « Les Mémoires du Monde Perdu » en cou
 ### offre
 
 > La dame en gris lève enfin les yeux. — Vous l’avez lue. Ça se voit à vos mains. Deux cents Fers pour ce que dit la ligne, et vous n’entendrez plus parler de moi.
+
+_Si Liane voyage avec toi :_ Liane, à mi-voix : — Elle ne veut pas cette ligne pour l’argent. Regarde ses mains : elle cherche quelqu’un.
+
+_Si Boulon voyage avec toi :_ Boulon : — Elle tient sa tasse comme on tient une poignée de malle. Pour ne pas la perdre.
 
 - « La lui vendre, pour deux cents Fers. » → vendue _(+200 Fers, retient « ligne-vendue », retient « edda-reglee », retient « edda-partie », avis de Liane −2, avis de Boulon −1)_
 - _(si repère « main-edda-fausse »)_ « Je sais qui vous êtes : Edda Varn est morte il y a trente ans. » → morte
@@ -1597,6 +1657,8 @@ Commence par : « explosee-pell » _(si repère « foreuse-explosee »)_ _(si re
 
 > La foreuse de Brisefer mord la roche de la Faille dans un fracas de fer. Les ouvriers ne la quittent pas des yeux.
 
+_Si Liane voyage avec toi :_ Liane s’est arrêtée au bord du quai. — Chaque coup de cette machine, mes malades le sentent dans les dents. Et Saule… Non. Plus tard.
+
 - _(si quête « Le Dernier Train » en cours)_ « Attendre la nuit dans les ruines du quai. » → nuit _(attend la nuit)_
 - « S’éloigner. » → **fin**
 
@@ -1621,6 +1683,8 @@ Commence par : « explosee-pell » _(si repère « foreuse-explosee »)_ _(si re
 _Effet : retient « foreuse-sabotee », retient « chantier-arrete », termine la quête « Le Dernier Train », +70 XP, +30 Fers._
 
 > 🌙 Une goupille retirée, un engrenage faussé : la foreuse ne repartira pas avant longtemps. Tu regagnes l’ombre sans un bruit.
+
+_Si Liane voyage avec toi :_ Liane souffle enfin, dans le noir. — Sans un mort. Je ne pensais pas que ça se pouvait, ici.
 
 - « Attendre le jour. » → **fin**
 
@@ -1661,6 +1725,8 @@ _Effet : retient « surpris-de-nuit »._
 ### chaudiere
 
 > 🌙 Tu ouvres la vanne en grand et tu cours. Derrière toi, la chaudière hurle, puis éclate. Le feu éclaire tout le quai. Sous la lanterne renversée, quelqu’un crie : le garçon qui veillait.
+
+_Si Liane voyage avec toi :_ Liane court déjà vers le feu, la besace battant contre sa hanche. — Il y a quelqu’un ! Aide-moi, bon sang !
 
 - **[Médecine 3]** « Revenir dans le feu : le tirer de là, serrer ses brûlures. » → pell-sauve _(retient « pell-sauve », avis de Liane +1, +20 XP)_
 - « Revenir dans le feu. » → pell-perdu
@@ -1756,6 +1822,8 @@ Commence par : « rencontre »
 
 > Un homme trapu, pioche à l’épaule, sursaute. Une lanterne de Ferros pend à sa ceinture. — Qui va là ? Il n’y a rien à voir, ici. Passe ton chemin.
 
+_Si Liane voyage avec toi :_ Liane, tout bas : — Il a les mains d’un homme qu’on paie pour ne pas réfléchir. Mon père avait les mêmes.
+
 - « Ce sol est sacré, et tu coupes les racines du Bosquet. » → defensif
 - **[Commandement 2]** « Pose cette pioche. Tout de suite. » → intimide
 - **🎲 Subterfuge 12** « Kaelis m’envoie voir où tu en es. » → complice, ✗ → demasque
@@ -1801,6 +1869,7 @@ _Effet : retient « cle-mentionnee », retient « fouille-marches »._
 
 > — On est payés par les Marches des Cendres, au Marché des Cendres, à Ironheart : un certain Kaelis, qui achète les vieilles choses. Ils cherchent une clé de rouille bleue, le long des anciennes voies. Celle-ci passe sous vos arbres.
 
+- _(sans repère « gris-garrik »)_ « Et Kaelis, qui le paie ? » → gris
 - « Pars, et ne reviens jamais sur le sol sacré. » → depart _(retient « fouille-elucidee », +30 XP)_
 
 ### depart
@@ -1808,6 +1877,14 @@ _Effet : retient « cle-mentionnee », retient « fouille-marches »._
 > Il ramasse ses outils sans un mot de plus et s’éloigne entre les racines, vers l’est. Au bord du trou, la terre fraîche et les racines tranchées racontent le reste. Le Triumvirat voudra le savoir.
 
 - « Remonter faire mon rapport. » → **fin**
+
+### gris
+
+_Effet : retient « gris-garrik »._
+
+> — Kaelis ? Il ne paie jamais de sa poche. Une fois, au Marché des Cendres, j’ai vu une dame en gris lui compter des Nexus neufs sans retirer ses gants. Elle a demandé si on avait trouvé la clé. Pas comment j’allais, moi.
+
+- « Pars, et ne reviens jamais sur le sol sacré. » → depart
 
 ## Sacs de graines-lumière
 
@@ -2054,6 +2131,10 @@ _Effet : retient « hesper-vue »._
 
 > Une vieille femme en cape couleur parchemin pose sa lanterne. — Te voilà. Ilyane m’a écrit que tu écoutais bien. Ici, on n’écoute pas : on lit les mains. Tout ce qui passe par Sept-Portes laisse une ligne au Registre : de qui, quand, contre combien.
 
+_Si Liane voyage avec toi :_ Liane chuchote : — Elle a les yeux d’Ilyane, quand Ilyane cherche un mot qu’elle avait hier.
+
+_Si Boulon voyage avec toi :_ Boulon s’incline, et le plancher grince. — On lit les mains, ici. Les miennes ne disent rien : on ne m’a jamais laissé signer.
+
 - « Et la clé de rouille bleue ? » → cle
 
 ### cle
@@ -2186,11 +2267,13 @@ _Effet : retient « mensonge-huissier »._
 
 _Gardienne de Mémoire de Gardebois_
 
-Commence par : « echo-lettre » _(si repère « echos-confies »)_ _(sans repère « ilyane-echo-lu »)_, sinon « carnet » _(si quête « Le carnet de chansons » en cours)_ _(si l’on porte « Carnet de chansons d’Ilyane »)_, sinon « appel-sept-portes » _(si quête « La Clé de Rouille Bleue » terminée)_ _(si quête « Les Mémoires du Monde Perdu » pas commencée)_, sinon « nouvelles-canopee » _(si quête « L’audience » terminée)_, sinon « pell-vivant » _(si repère « foreuse-explosee »)_ _(si repère « pell-sauve »)_ _(sans repère « ilyane-sait-pell »)_, sinon « pell » _(si repère « foreuse-explosee »)_ _(sans repère « ilyane-sait-pell »)_, sinon « resolu » _(si quête « Le Dernier Train » terminée)_, sinon « en-cours » _(si quête « Le Dernier Train » en cours)_, sinon « accueil »
+Commence par : « echo-lettre » _(si repère « echos-confies »)_ _(sans repère « ilyane-echo-lu »)_, sinon « carnet » _(si quête « Le carnet de chansons » en cours)_ _(si l’on porte « Carnet de chansons d’Ilyane »)_, sinon « appel-veilleuse » _(si quête « La Clé de Rouille Bleue » terminée)_ _(si quête « Les Mémoires du Monde Perdu » pas commencée)_ _(si repère « cle-veilleuse »)_, sinon « appel-archives » _(si quête « La Clé de Rouille Bleue » terminée)_ _(si quête « Les Mémoires du Monde Perdu » pas commencée)_ _(si repère « cle-archives »)_, sinon « appel-vendue » _(si quête « La Clé de Rouille Bleue » terminée)_ _(si quête « Les Mémoires du Monde Perdu » pas commencée)_ _(si repère « cle-vendue »)_, sinon « appel-sept-portes » _(si quête « La Clé de Rouille Bleue » terminée)_ _(si quête « Les Mémoires du Monde Perdu » pas commencée)_, sinon « oubli-3 » _(si repère « porte-sud-connue »)_ _(sans repère « ilyane-oubli-3 »)_, sinon « oubli-2 » _(si quête « L’audience » terminée)_ _(sans repère « ilyane-oubli-2 »)_ _(sans repère « ilyane-oubli-3 »)_, sinon « nouvelles-canopee » _(si quête « L’audience » terminée)_, sinon « pell-vivant » _(si repère « foreuse-explosee »)_ _(si repère « pell-sauve »)_ _(sans repère « ilyane-sait-pell »)_, sinon « pell » _(si repère « foreuse-explosee »)_ _(sans repère « ilyane-sait-pell »)_, sinon « oubli-1 » _(si quête « L’audience » en cours)_ _(sans repère « ilyane-oubli-1 »)_ _(sans repère « ilyane-oubli-2 »)_ _(sans repère « ilyane-oubli-3 »)_, sinon « resolu » _(si quête « Le Dernier Train » terminée)_, sinon « en-cours » _(si quête « Le Dernier Train » en cours)_, sinon « accueil »
 
 ### resolu
 
 > Depuis que la foreuse s’est tue, plus personne ne revit la Grande Chute. Tu as bien fait. Mais dis-moi : qui a payé cette prospection, à ton avis ? Les Réveilleurs, peut-être. Reste sur tes gardes.
+
+_Si Liane voyage avec toi :_ Liane, à mi-voix : — Les Réveilleurs. On dit ça comme on dit l’orage. Personne ne leur a jamais vu la figure.
 
 - _(si quête « L’audience » pas commencée)_ _(si quête « Le Dernier Train » terminée)_ « Et maintenant ? » → lettre _(donne 1 × « Lettre d’Ilyane », lance la quête « L’audience »)_
 - « Je resterai sur mes gardes. » → **fin**
@@ -2295,6 +2378,8 @@ _Effet : retient « ilyane-sait-pell »._
 
 > Ilyane ne te regarde pas tout de suite. — Le vent a porté la fumée jusqu’ici. Un garçon de Ferros est mort, à la Gare. La maladie recule ; personne ne revit plus la Chute. Mais lui, personne ne le revivra. Un Gardien se souvient aussi de ce qu’il a coûté.
 
+_Si Liane voyage avec toi :_ Liane baisse les yeux. Ses doigts cherchent quelque chose dans sa poche, le trouvent, puis le lâchent.
+
 - « Je m’en souviendrai. » → resolu
 
 ### appel-sept-portes
@@ -2317,6 +2402,81 @@ _Effet : retient « ilyane-sait-pell »._
 
 - « Je m’en souviendrai. » → resolu
 
+### appel-vendue
+
+> Ilyane te tend une lettre cachetée de cire grise, d’une main qui tremble. — Hesper, de Sept-Portes : « La clé est passée par le Marché des Cendres, puis entre des gants fins. Sa main est au Registre depuis trois jours. Envoie-moi ton Gardien, vite. »
+
+- « J’irai à Sept-Portes. » → porte-sud _(lance la quête « Les Mémoires du Monde Perdu », retient « porte-sud-connue »)_
+
+### appel-archives
+
+> Ilyane te tend une lettre cachetée de cire grise. — Hesper, de Sept-Portes : « Ferros a classé la clé au Fonds Zéro. Mais ce qu’on classe, on le recopie : une copie de sa chaîne est arrivée au Registre, et quelqu’un l’a déjà lue. Envoie-moi ton Gardien. »
+
+- « J’irai à Sept-Portes. » → porte-sud _(lance la quête « Les Mémoires du Monde Perdu », retient « porte-sud-connue »)_
+
+### appel-veilleuse
+
+> Ilyane te tend une lettre cachetée de cire grise. — Hesper, de Sept-Portes : « La clé chante encore sur la ligne de la Veilleuse, tant mieux. Mais une dame en gris a demandé sa chaîne au Registre. Elle viendra la chercher. Envoie-moi ton Gardien. »
+
+- « J’irai à Sept-Portes. » → porte-sud _(lance la quête « Les Mémoires du Monde Perdu », retient « porte-sud-connue »)_
+
+### oubli-1
+
+_Effet : retient « ilyane-oubli-1 »._
+
+> Ilyane feuillette son carnet et s’arrête sur une page. — Cette chanson-là, c’est ma main. Je ne sais plus l’air. … Depuis le quai, de petites choses s’en vont. Ce n’est rien.
+
+_Si Liane voyage avec toi :_ Liane, tout bas : — Ça commence comme ça, chez mes malades. Par les chansons.
+
+- « La maladie des souvenirs, Ilyane ? » → oubli-1-suite
+- « Je reviendrai. » → **fin**
+
+### oubli-1-suite
+
+> — Peut-être. J’ai regardé ce train plus longtemps que les autres, sur le quai. Ne le dis pas aux Gardiens de Canopéa : ils m’enverraient me reposer, et je n’ai pas le temps.
+
+- « Je ne dirai rien. » → **fin**
+
+### oubli-2
+
+_Effet : retient « ilyane-oubli-2 »._
+
+> Ilyane cherche un nom, les doigts posés sur la table. — Celle qui tient le relais de Canopéa… mon ancienne apprentie, des mains de graveuse. Elle t’a reçu·e. Comment s’appelle-t-elle, déjà ?
+
+- « Mirelle. » → oubli-2-nom
+- « Ça te reviendra. » → oubli-2-attente
+
+### oubli-2-nom
+
+> — Mirelle. Bien sûr. Mirelle. Elle l’écrit dans la marge de son carnet, deux fois, et souligne. — Merci. Ne le répète à personne.
+
+- « … » → **fin**
+
+### oubli-2-attente
+
+> — Non. Ça ne revient pas. Ça, au moins, je l’ai appris. Elle referme le carnet, doucement, comme on ferme une porte sur quelqu’un qui dort.
+
+- « … » → **fin**
+
+### oubli-3
+
+_Effet : retient « ilyane-oubli-3 »._
+
+> Ilyane lève les yeux et te sourit, du sourire poli qu’on fait aux voyageurs. — Bienvenue au relais. Vous venez de loin ? … Puis son visage se défait. — Toi. Pardon. Une seconde, j’ai… Assieds-toi.
+
+_Si Liane voyage avec toi :_ Liane détourne les yeux, la mâchoire serrée.
+
+_Si Boulon voyage avec toi :_ Boulon, très bas : — Je peux retenir pour elle. Je retiens bien. Il suffit qu’elle me demande.
+
+- « Combien de temps, Ilyane ? » → oubli-3-temps
+- « Je suis là. » → **fin**
+
+### oubli-3-temps
+
+> — Je ne sais pas. Moins que je voudrais. Écris-moi, depuis Sept-Portes. Et écris ton nom en haut de chaque lettre. Toujours.
+
+- « Toujours. » → **fin**
+
 ## Ingrid Brisefer
 
 _Ingénieure, prospection de Ferros_
@@ -2327,7 +2487,11 @@ Commence par : « apres-explosion-pell » _(si repère « foreuse-explosee »)_ 
 
 > Chantier privé, prospection pour le compte de Ferros. Qu’est-ce que les Gardiens de Mémoire viennent encore nous reprocher ?
 
+_Si Liane voyage avec toi :_ Liane ne regarde pas l’ingénieure : elle regarde les déblais, derrière la tente. — C’est là. Ne lui dis pas qui je suis. Pas encore.
+
 - « Ce chantier rend les gens malades, à Gardebois. » → cause
+- _(si Liane suit le héros)_ _(sans repère « ingrid-sait-saule »)_ « Laisser parler Liane. » → saule
+- _(sans repère « gris-ingrid »)_ « Qui paie vos papiers ? » → papiers
 - « Je viens juste regarder. » → **fin**
 
 ### soupcon
@@ -2340,6 +2504,8 @@ Commence par : « apres-explosion-pell » _(si repère « foreuse-explosee »)_ 
 ### cause
 
 > La maladie mémorielle ? On en a entendu parler. Mais la Faille vaut de l’or en cristaux, et j’ai des papiers signés. Je ne m’arrête pas pour une rumeur de marché.
+
+_Si Liane voyage avec toi :_ Liane, entre ses dents : — Une rumeur de marché. Mes malades tremblent toute la nuit, Brisefer. Et sous vos déblais, il y a un enfant que personne n’a compté.
 
 - **[Diplomatie 3]** _(si quête « Le Dernier Train » en cours)_ « Arrêtez le forage : à chaque coup, l’Écho se multiplie, et le mal avec lui. » → convaincue _(retient « chantier-arrete », termine la quête « Le Dernier Train », +70 XP, +30 Fers)_
 - **[Commandement 3]** _(si quête « Le Dernier Train » en cours)_ « Je parle au nom des Gardiens de Mémoire : cessez, maintenant. » → convaincue _(retient « chantier-arrete », termine la quête « Le Dernier Train », +70 XP, +30 Fers)_
@@ -2387,6 +2553,8 @@ Commence par : « apres-explosion-pell » _(si repère « foreuse-explosee »)_ 
 
 > Ingrid a les mains bandées et les yeux secs. — Pell. Vingt-deux ans. Il gardait la lanterne parce qu’il avait peur du noir. On l’a enterré ce matin, au bord du quai. La foreuse ne creusera plus. Si j’apprends qui a fait ça…
 
+_Si Liane voyage avec toi :_ Liane regarde Ingrid longtemps, sans haine. — Maintenant, tu sais ce que c’est. … Ça ne me console pas. Je croyais que ça me consolerait.
+
 - « Je suis désolé·e. » → **fin**
 - « Il ne fallait pas creuser ici. » → explosion-dur
 
@@ -2401,6 +2569,42 @@ Commence par : « apres-explosion-pell » _(si repère « foreuse-explosee »)_ 
 > Ingrid a les mains bandées et les yeux secs. — Pell vit. Vingt-deux ans, et plus de mains pour tenir une lanterne. On dit qu’une ombre est revenue le chercher dans le feu. La même qui l’y avait mis, je suppose.
 
 - « … » → **fin**
+
+### saule
+
+_Effet : retient « ingrid-sait-saule »._
+
+> Liane s’avance. — Saule Sève-Claire. Il jouait sur les déblais de votre premier sondage, au printemps. Le talus a cédé. Vous ne savez même pas son nom. Ingrid ne baisse pas les yeux. — On m’a dit qu’un enfant jouait là où il ne fallait pas.
+
+- « Et vous l’avez cru. » → saule-dur
+- « Laisser le silence parler. » → saule-silence
+
+### saule-dur
+
+> — On m’a dit beaucoup de choses, ce printemps-là. Je n’ai rien vérifié : le sondage était en retard. Elle se tourne vers Liane. — Je ne vous demanderai pas pardon. Ça ne servirait qu’à moi.
+
+- « Et la maladie, à Gardebois ? » → cause
+- « Partir. » → **fin**
+
+### saule-silence
+
+_Effet : avis de Liane +1._
+
+> Le silence dure. Le vent fait claquer la toile de la tente. Enfin, Ingrid enlève son gant, et le remet. — Saule, répète-t-elle. Je l’écrirai dans le cahier de chantier. C’est tout ce que je sais faire.
+
+- « Et la maladie, à Gardebois ? » → cause
+- « Partir. » → **fin**
+
+### papiers
+
+_Effet : retient « gris-ingrid »._
+
+> Ingrid tapote une liasse sous son bras. — Ferros signe. Mais c’est une courtière qui paie, d’avance, en Nexus tout neufs : une dame en gris, gants fins. Elle ne laisse pas de nom. Elle laisse toujours un peu plus que ce qu’on demande.
+
+_Si Liane voyage avec toi :_ Liane, tout bas : — Quelqu’un qui paie plus qu’on ne demande achète autre chose que ce qu’elle dit.
+
+- « Ce chantier rend les gens malades, à Gardebois. » → cause
+- « Partir. » → **fin**
 
 ## Joss Brakel
 
@@ -2435,6 +2639,10 @@ Commence par : « merci » _(si repère « dette-joss-payee »)_, sinon « apres
 _Effet : retient « joss-avoue », +15 XP._
 
 > Il s’assoit sur un rail. — Ma dette. Les Marches l’ont rachetée au prêteur. « Laisse le levier ouvert les nuits de minerai, et ta dette fond. » Une machine vient seule, attelle les wagons, et part par l’embranchement, vers la vieille Cendrière.
+
+_Si Boulon voyage avec toi :_ Boulon pose une main sur l’épaule de Joss, très doucement pour une main de fer. — Une dette, ça se porte. Pas tout seul.
+
+_Si Liane voyage avec toi :_ Liane s’accroupit près de Joss. — Tu ne dors plus depuis quand ? … Ça se voit. Ça se soigne, aussi.
 
 - « Personne n’est blessé ? » → personne
 - « Merci, Joss. » → **fin**
@@ -2568,6 +2776,8 @@ Commence par : « apres » _(si quête « L’audience » terminée)_, sinon « 
 
 > Tu racontes la Gare Engloutie, la foreuse, l’Écho du dernier train, les visions de la Grande Chute. Dans les gradins, des murmures. Kael serre les poings. — Des papiers de Ferros, sous nos frontières. Encore.
 
+_Si Liane voyage avec toi :_ Liane, au fond des gradins, serre sa besace contre elle. Elle n’a pas dit le nom de son frère. Personne ne l’a demandé.
+
 - « Les papiers venaient de Ferros. Mais qui payait ? » → lyra
 
 ### lyra
@@ -2664,6 +2874,8 @@ Commence par : « plaque » _(si quête « Ce qui se souvient » en cours)_ _(si
 
 > Un homme maigre polit une mâchoire de Golem sous une lampe à huile. Autour de lui, des os de bêtes polis, des dents de loup en colliers. — Tout se vend, ici. Même ce qui se souvient. Pose ta question… si c’est la bonne.
 
+_Si Boulon voyage avec toi :_ Boulon regarde les os polis, les dents en colliers. — Il vend ce qui portait. Comme on m’aurait vendu, moi.
+
 - « Je cherche la clé de rouille bleue. » → mauvaise
 - **[Mémoire 3]** « Pourquoi certaines reliques se souviennent-elles des morts ? » → bonne
 - _(si Récit « Les voix du Bosquet » connu)_ « Au Bosquet des Échos, le bois garde la main de qui a gravé. Et tes os ? » → bonne
@@ -2699,6 +2911,7 @@ _Effet : retient « kaelis-parle », +15 XP._
 > — On ne prend rien à la Veilleuse : les cheminots veillent sur elle. Rapporte-moi la clé, et je te la paie cent Fers. Les Marches paient toujours leurs dettes.
 
 - « Qu’ouvre-t-elle ? » → ouvre
+- _(sans repère « gris-kaelis »)_ « Pour qui l’achètes-tu ? » → acheteuse
 - « J’y réfléchirai. » → **fin**
 
 ### ouvre
@@ -2718,6 +2931,10 @@ _Effet : retient « kaelis-parle », +15 XP._
 ### offre
 
 > — Elle est là, dans ta poche. Je l’entends rouiller d’ici. Cent Fers, et l’on n’en parle plus.
+
+_Si Liane voyage avec toi :_ Liane recule d’un pas. — Si tu la lui vends, je rentre à Gardebois. Je te le dis avant, pour que tu saches.
+
+_Si Boulon voyage avec toi :_ Boulon se place entre toi et le comptoir. — Une archive vivante ne se vend pas. C’est toi qui l’as dit, chez Noam. Je l’ai retenu.
 
 - « La lui vendre, pour cent Fers. » → vendue _(reprend 1 × « Clé de rouille bleue », +100 Fers, retient « cle-vendue », termine la quête « La Clé de Rouille Bleue », +60 XP, avis de Boulon −2, avis de Liane −1)_
 - « Qu’ouvre-t-elle ? » → ouvre
@@ -2782,6 +2999,17 @@ _Effet : reprend 1 × « Plaque émaillée », +40 Fers, termine la quête « Ce
 > Kaelis passe le doigt sur les lettres blanches, sans les lire. — Elle se souvient d’un quai, de dix mille départs, et d’un seul qui n’est pas arrivé. Quarante Fers, et ton nom chez les Marches.
 
 - « Merci, Kaelis. » → **fin**
+
+### acheteuse
+
+_Effet : retient « gris-kaelis »._
+
+> Kaelis sourit sans montrer les dents. — Une dame en gris m’en offre le double de ce que je t’offre. Elle ne marchande jamais. Les gens qui ne marchandent pas ont perdu quelque chose, et ils le cherchent partout.
+
+_Si Boulon voyage avec toi :_ Boulon, très bas : — Gants fins, Nexus neufs. Je la connais. Je l’ai portée.
+
+- « Qu’ouvre-t-elle ? » → ouvre
+- « J’y réfléchirai. » → **fin**
 
 ## Kerta Orvel
 
@@ -3601,6 +3829,10 @@ Commence par : « relue » _(si repère « page-lue »)_, sinon « page »
 _Effet : retient le Récit « La page du dernier départ », retient « page-lue », +50 XP._
 
 > Sur le lutrin, une feuille recopiée d’une main patiente. Une seule ligne, celle que Ferros a grattée : « Dernier départ, voie sept. Terminus : Altavent, sous les Hauts de Zephyria. Déchargé : sept caisses plombées. Reçu : personne. »
+
+_Si Liane voyage avec toi :_ Liane relit la ligne en silence. — « Reçu : personne. » Ilyane a vu des enfants sur ce quai. Qui les attendait, à Altavent ?
+
+_Si Boulon voyage avec toi :_ Boulon pose une main sur le lutrin. — Sept caisses plombées, reçues par personne. Quand une malle n’est reçue par personne, c’est que quelqu’un l’attend encore.
 
 - « Refermer le Fonds. » → **fin**
 
@@ -4439,6 +4671,10 @@ Commence par : « apres-masques » _(si quête « Le registre du Puits Trois » 
 
 > — Parce qu’il y a du noir dedans. Tout le monde en a, ici, au bout de quelques années. Moi, j’ai trouvé comment en avoir moins. Personne n’a rien demandé.
 
+_Si Liane voyage avec toi :_ Liane écoute la toux, le front plissé. — Du noir dans les poumons. Mes herbes n’y peuvent rien ; l’air d’en haut, peut-être.
+
+_Si Boulon voyage avec toi :_ Boulon : — Je porte des malles depuis la gare jusqu’aux Manufactures. Là-haut, personne ne tousse. Je l’avais remarqué. Je ne savais pas que c’était une injustice.
+
 - **[Médecine 3]** _(sans repère « tam-ausculte »)_ « Montre-moi. Et respire. » → ausculte
 - « Bonne journée. » → **fin**
 
@@ -4996,6 +5232,8 @@ Commence par : « avec-cle » _(si l’on porte « Clé de rouille bleue »)_ _(
 
 > — Toujours le même convoi, sans conducteur. Je l’entends avant qu’il passe. Mes parents l’ont pris, un soir, quand j’étais petite, et ne sont jamais revenus. Je garde la machine. Au cas où il les ramènerait.
 
+_Si Boulon voyage avec toi :_ Boulon, très bas : — Moi aussi, je compte. Les voyageurs. Chacun a un poids différent, même ceux qui ne reviennent pas.
+
 - **[Mémoire 3]** « Laisse-moi écouter avec toi. » → ecoute
 - « Merci de me l’avoir dit. » → **fin**
 
@@ -5011,6 +5249,10 @@ _Effet : retient le Récit « Le convoi sans conducteur »._
 ### question-cle
 
 > La Veilleuse compte ses wagons à mi-voix. Au creux de sa main, une clé couverte d’une rouille bleue, douce comme de la mousse. — Elle chante quand le convoi approche. Kaelis t’envoie ? Il n’aura pas ma clé.
+
+_Si Liane voyage avec toi :_ Liane, doucement : — Elle attend ce train depuis qu’elle est petite. Ne lui prends pas ça pour cent Fers.
+
+_Si Boulon voyage avec toi :_ Boulon se penche vers la clé ; ses yeux de verre clignent, lentement. — Une clé de malle. J’en ai porté dix mille. Celle-là, on l’a tenue longtemps, et on a eu peur de la lâcher.
 
 - _(si Récit « Le Savant Corvan » connu)_ « J’ai vu le dernier train, moi aussi, dans l’Écho de la Gare Engloutie. » → don
 - **[Mémoire 3]** « Laisse-moi écouter le convoi avec toi. » → ecoute

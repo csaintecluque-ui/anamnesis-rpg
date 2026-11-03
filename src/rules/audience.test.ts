@@ -140,6 +140,9 @@ describe('L’audience', () => {
     expect(knowsRecit(state.character!, 'triumvirat-vert')).toBe(true);
     expect(reputationScore(state, 'canopee')).toBe(before + 15);
     for (const npc of ['kael-marchevent', 'lyra', 'thalorin', 'huissier']) expect(startNode(DIALOGUES[npc], state)).toBe('apres');
+    // Ilyane oublie (feuille de route, chantier 4) : d'abord le nom de Mirelle, puis les nouvelles.
+    expect(startNode(DIALOGUES.ilyane, state)).toBe('oubli-2');
+    state.flags['ilyane-oubli-2'] = true;
     expect(startNode(DIALOGUES.ilyane, state)).toBe('nouvelles-canopee');
   });
 

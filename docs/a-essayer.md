@@ -19,6 +19,17 @@ Lien du jeu : https://csaintecluque-ui.github.io/anamnesis-rpg/ (la version s'af
 - [x] **Pell peut être sauvé** (chantier 2, ta feuille de route le proposait) : avec Médecine 3, on le tire du feu de
       la chaudière ; il vit, sans ses mains, et Ingrid, Ilyane et la lavandière le disent. Sans Médecine, il meurt dans
       tes bras. On garde (recommandé), ou Pell meurt toujours ? **Cyril, 2026-11-03 : on garde.**
+- [ ] **Un Réveilleur nommé dès le chapitre 2 ?** (ta feuille de route, chantier 4) Je recommande de **ne pas** ajouter
+      de personnage : la dame en gris est le visage de l'adversaire, semée dès le chapitre 1 (elle paie les papiers
+      d'Ingrid, puis Kaelis), et les Réveilleurs restent derrière elle. Ou bien tu veux un Réveilleur à part ?
+- [ ] **Qui Edda a perdu dans le train** : (a) **sa mère, la vraie Edda Varn**, déclarée morte il y a trente ans parce
+      qu'elle est montée dans le train ; la dame en gris signe de sa main pour la retrouver (recommandé : tout ce qui
+      est déjà en jeu s'explique) ; (b) son enfant ; (c) autre ?
+- [ ] **Ilyane** : jusqu'où va sa perte, et peut-on la sauver ? (a) on ne la sauve pas, on retient pour elle (Boulon,
+      tes lettres) ; (b) on peut, à un prix lourd, à la fin (recommandé : un vrai dilemme de fin de jeu) ; (c) autre ?
+- [ ] **Les inventions du chantier 4** (`docs/univers/propositions.md`) : la mort de Saule (le premier sondage), la dame
+      en gris dès le chapitre 1, Boulon qui l'a portée, les étapes de l'oubli d'Ilyane, les trois lettres de Hesper.
+      On garde ?
 - [ ] Dans ton Notion, quand tu veux : les contradictions du canon sur Terminus (`docs/univers/zones-floues.md`,
       points 33 à 37).
 
@@ -83,6 +94,19 @@ Lien du jeu : https://csaintecluque-ui.github.io/anamnesis-rpg/ (la version s'af
       chapitre. La difficulté te paraît-elle la même du chapitre 1 au 4 ?
 - [ ] **Voie pacifiste** : dans une voie endormie, approche un groupe : passer dans son ombre (Discrétion), reculer, fuir
       en courant si on te repère (Athlétisme) ; à des Échos furieux, raconter un Récit.
+- Remarques :
+
+## Chantier 4 — Compagnons présents, ennemi incarné (sur la branche)
+
+- [ ] **Voyage avec Liane, puis avec Boulon** : leurs répliques s'affichent sous le texte dans les scènes clés (Ingrid,
+      la foreuse, le Conseil, la Veilleuse, Kaelis, Hesper, la page du dernier départ, la dame en gris…).
+- [ ] **Liane face à Ingrid**, à la Gare : « Laisser parler Liane ».
+- [ ] **Liane et Boulon ensemble** : parle à Boulon plusieurs fois.
+- [ ] **La quête de Liane** : les deux fins te paraissent-elles maintenant aussi tentantes l'une que l'autre ?
+- [ ] **La dame en gris avant Sept-Portes** : les papiers d'Ingrid (« Qui paie vos papiers ? »), Garrik (« Et Kaelis, qui
+      le paie ? »), Kaelis (« Pour qui l'achètes-tu ? »).
+- [ ] **Ilyane oublie** : reviens la voir après chaque chapitre.
+- [ ] **Le début du chapitre 4** change selon ce que tu as fait de la clé (la lettre de Hesper, le Registre d'Ambroise).
 - Remarques :
 
 ## Déjà en ligne, pas encore essayé sur PC

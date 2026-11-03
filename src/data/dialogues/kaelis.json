@@ -62,6 +62,9 @@
   "nodes": {
     "accueil": {
       "text": "Un homme maigre polit une mâchoire de Golem sous une lampe à huile. Autour de lui, des os de bêtes polis, des dents de loup en colliers. — Tout se vend, ici. Même ce qui se souvient. Pose ta question… si c’est la bonne.",
+      "apartes": {
+        "boulon": "Boulon regarde les os polis, les dents en colliers. — Il vend ce qui portait. Comme on m’aurait vendu, moi."
+      },
       "options": [
         {
           "text": "Je cherche la clé de rouille bleue.",
@@ -167,6 +170,15 @@
           "next": "ouvre"
         },
         {
+          "text": "Pour qui l’achètes-tu ?",
+          "requires": [
+            {
+              "notFlag": "gris-kaelis"
+            }
+          ],
+          "next": "acheteuse"
+        },
+        {
           "text": "J’y réfléchirai.",
           "next": "fin"
         }
@@ -212,6 +224,10 @@
     },
     "offre": {
       "text": "— Elle est là, dans ta poche. Je l’entends rouiller d’ici. Cent Fers, et l’on n’en parle plus.",
+      "apartes": {
+        "liane": "Liane recule d’un pas. — Si tu la lui vends, je rentre à Gardebois. Je te le dis avant, pour que tu saches.",
+        "boulon": "Boulon se place entre toi et le comptoir. — Une archive vivante ne se vend pas. C’est toi qui l’as dit, chez Noam. Je l’ai retenu."
+      },
       "options": [
         {
           "text": "La lui vendre, pour cent Fers.",
@@ -427,6 +443,27 @@
       "options": [
         {
           "text": "Merci, Kaelis.",
+          "next": "fin"
+        }
+      ]
+    },
+    "acheteuse": {
+      "text": "Kaelis sourit sans montrer les dents. — Une dame en gris m’en offre le double de ce que je t’offre. Elle ne marchande jamais. Les gens qui ne marchandent pas ont perdu quelque chose, et ils le cherchent partout.",
+      "effects": [
+        {
+          "setFlag": "gris-kaelis"
+        }
+      ],
+      "apartes": {
+        "boulon": "Boulon, très bas : — Gants fins, Nexus neufs. Je la connais. Je l’ai portée."
+      },
+      "options": [
+        {
+          "text": "Qu’ouvre-t-elle ?",
+          "next": "ouvre"
+        },
+        {
+          "text": "J’y réfléchirai.",
           "next": "fin"
         }
       ]

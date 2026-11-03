@@ -55,6 +55,10 @@
     },
     "toux": {
       "text": "— Parce qu’il y a du noir dedans. Tout le monde en a, ici, au bout de quelques années. Moi, j’ai trouvé comment en avoir moins. Personne n’a rien demandé.",
+      "apartes": {
+        "liane": "Liane écoute la toux, le front plissé. — Du noir dans les poumons. Mes herbes n’y peuvent rien ; l’air d’en haut, peut-être.",
+        "boulon": "Boulon : — Je porte des malles depuis la gare jusqu’aux Manufactures. Là-haut, personne ne tousse. Je l’avais remarqué. Je ne savais pas que c’était une injustice."
+      },
       "options": [
         {
           "text": "Montre-moi. Et respire.",

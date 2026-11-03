@@ -35,6 +35,9 @@
     },
     "dossier": {
       "text": "Il lève enfin les yeux. — Orvel ? Le masque à filtre, je sais : l’inspecteur de zone m’en a parlé. Un Ouvrier transfère sous la responsabilité de son parrain. S’il déçoit, c’est mon nom qui rouille. Il me faut une raison.",
+      "apartes": {
+        "boulon": "Boulon, d’une voix égale : — Matériel de quai. Riveteur. Assistant. Ils ont toujours un mot pour vous ranger."
+      },
       "options": [
         {
           "text": "Soixante Fers, pour les mains à graisser.",

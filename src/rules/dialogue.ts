@@ -177,7 +177,21 @@ export interface DialogueNode {
   illustration?: string;
   /** Applied each time the node is shown. */
   effects?: Effect[];
+  /**
+   * What a companion travelling with the hero says here, under the text (feuille de route, chantier 4 : the companions
+   * live in the key scenes). By companion id; written whole (« Liane serre les poings. — … »).
+   */
+  apartes?: Record<string, string>;
   options: DialogueOption[];
+}
+
+/** The longest aside, in characters. */
+export const MAX_APARTE = 240;
+
+/** The asides of the companions who travel with the hero, in the order of the party. */
+export function nodeApartes(node: DialogueNode, state: Pick<GameState, 'groupe'>): string[] {
+  if (!node.apartes) return [];
+  return state.groupe.map((m) => node.apartes![m.id]).filter((line): line is string => !!line);
 }
 
 export interface Dialogue {
@@ -542,6 +556,10 @@ export function dialogueProblems(d: Dialogue): string[] {
 
   for (const [id, node] of Object.entries(d.nodes)) {
     if (node.text.length > MAX_NODE_TEXT) problems.push(`${id} : texte trop long (${node.text.length} > ${MAX_NODE_TEXT})`);
+    for (const [who, aside] of Object.entries(node.apartes ?? {})) {
+      if (!findCompanion(who)) problems.push(`${id} : aparté d’un compagnon inconnu ${who}`);
+      if (aside.length > MAX_APARTE) problems.push(`${id} : aparté de ${who} trop long (${aside.length})`);
+    }
     if (node.options.length === 0) problems.push(`${id} : aucune option (impasse)`);
     if (node.options.length > MAX_OPTIONS) problems.push(`${id} : plus de ${MAX_OPTIONS} options`);
     if (!node.options.some((o) => !o.requires?.length)) problems.push(`${id} : il faut au moins une option toujours disponible`);

@@ -48,3 +48,27 @@ Plan : `docs/gdd/jalon-3.md`. Code : `src/rules/companions.ts`, `src/scenes/Part
 
 Les deux quêtes et leurs textes ; Saule, le frère de Liane, et sa mort au chantier de Brisefer ; le registre des
 Ferrômes aux Archives et le prix du rachat.
+
+## Chantier 4 : les compagnons présents (feuille de route de Cyril, 2026-11-03)
+
+- **Les apartés** : un nœud de dialogue peut porter, par compagnon, une réplique qui s'affiche sous le texte (en cuivre,
+  en italique) quand ce compagnon voyage avec le héros (`apartes`, `nodeApartes`, `src/rules/dialogue.ts` ; 240 signes
+  au plus). Pas d'option en plus, pas d'effet : ils parlent, c'est tout.
+- **Liane** (21 apartés) : face à Ingrid (« Sous vos déblais, il y a un enfant que personne n'a compté »), à la
+  foreuse, quand la chaudière brûle (« Il y a quelqu'un ! Aide-moi »), chez Ilyane, devant Garrik et les noms du
+  Bosquet, au Conseil, devant la clé de la Veilleuse et l'offre de Kaelis, chez Tam et Joss, chez Hesper, devant la
+  page du dernier départ et la dame en gris (« Elle ne veut pas cette ligne pour l'argent : elle cherche quelqu'un »).
+- **Boulon** (14 apartés) : devant la clé (« Une clé de malle. J'en ai porté dix mille »), les trains de la
+  Veilleuse, les os de Kaelis et son offre, Tam, Dask, Joss, Hesper, le Registre, la page (« Quand une malle n'est
+  reçue par personne, c'est que quelqu'un l'attend encore »), et la dame en gris, qu'il a portée à la gare de l'Ouest.
+- **Liane face à Ingrid** : avec Liane, « Laisser parler Liane » : elle nomme Saule ; Ingrid n'a rien vérifié. Se taire
+  et laisser le silence parler : Ingrid écrira le nom dans le cahier de chantier (Liane +1).
+- **Entre eux** : avec les deux dans le groupe, parler à Boulon ouvre, une fois chacun, trois échanges ; le dernier
+  dépend de la fin de la quête de Liane (« Si un jour j'oublie mon frère… tu me diras son nom ? — Saule », ou, si elle
+  l'a oublié : « J'avais quelqu'un, avant ? »).
+- **La quête de Liane, deux vrais choix** : la même estime à la fin (+2 l'une et l'autre ; avant : +1 pour oublier,
+  +3 pour graver) ; oublier rend ses soins plus sûrs au combat (elle dort enfin : 3d4 au lieu de 2d4) ; graver garde le
+  Récit « Saule ». Une voix pour l'oubli, aussi : « Tu as le droit de ne plus le revoir mourir. »
+
+Tests : `src/rules/compagnonsChantier4.test.ts` (chaque compagnon réagit dans chaque quête principale où il peut être,
+dix apartés au moins chacun).

@@ -92,6 +92,9 @@
     },
     "trains": {
       "text": "— Toujours le même convoi, sans conducteur. Je l’entends avant qu’il passe. Mes parents l’ont pris, un soir, quand j’étais petite, et ne sont jamais revenus. Je garde la machine. Au cas où il les ramènerait.",
+      "apartes": {
+        "boulon": "Boulon, très bas : — Moi aussi, je compte. Les voyageurs. Chacun a un poids différent, même ceux qui ne reviennent pas."
+      },
       "options": [
         {
           "text": "Laisse-moi écouter avec toi.",
@@ -138,6 +141,10 @@
     },
     "question-cle": {
       "text": "La Veilleuse compte ses wagons à mi-voix. Au creux de sa main, une clé couverte d’une rouille bleue, douce comme de la mousse. — Elle chante quand le convoi approche. Kaelis t’envoie ? Il n’aura pas ma clé.",
+      "apartes": {
+        "liane": "Liane, doucement : — Elle attend ce train depuis qu’elle est petite. Ne lui prends pas ça pour cent Fers.",
+        "boulon": "Boulon se penche vers la clé ; ses yeux de verre clignent, lentement. — Une clé de malle. J’en ai porté dix mille. Celle-là, on l’a tenue longtemps, et on a eu peur de la lâcher."
+      },
       "options": [
         {
           "text": "J’ai vu le dernier train, moi aussi, dans l’Écho de la Gare Engloutie.",

@@ -1035,3 +1035,8 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
 - Cyril : « 1 mets en ligne, 2 oui, 3 oui pour moi » : chantier 3 en ligne ; Ilyane oublie d'un chapitre à l'autre,
   Edda Varn court après le train parce que quelqu'un à elle y était (validés : le principe) ; Pell sauvable avec la
   Médecine, gardé. Chantier 4 commencé.
+- Chantier 4 sur la branche (`docs/gdd/compagnons.md`, « Chantier 4 ») : les apartés des compagnons (21 pour Liane, 14
+  pour Boulon, dans chaque quête principale où ils peuvent être), Liane face à Ingrid (Saule), trois échanges entre
+  Liane et Boulon, la quête de Liane rééquilibrée (même estime, soins plus sûrs ou le Récit), la dame en gris semée aux
+  chapitres 1 à 3, la lettre de Hesper selon le sort de la clé, Ilyane qui oublie (une chanson, Mirelle, le héros).
+  Inventions à valider : `docs/univers/propositions.md`. 676 tests ; vérifié en 1080p (apartés).

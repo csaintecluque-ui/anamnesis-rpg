@@ -133,6 +133,10 @@
           "giveXp": 15
         }
       ],
+      "apartes": {
+        "boulon": "Boulon pose une main sur l’épaule de Joss, très doucement pour une main de fer. — Une dette, ça se porte. Pas tout seul.",
+        "liane": "Liane s’accroupit près de Joss. — Tu ne dors plus depuis quand ? … Ça se voit. Ça se soigne, aussi."
+      },
       "options": [
         {
           "text": "Personne n’est blessé ?",

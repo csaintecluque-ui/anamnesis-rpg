@@ -65,10 +65,34 @@
   "nodes": {
     "accueil": {
       "text": "Chantier privé, prospection pour le compte de Ferros. Qu’est-ce que les Gardiens de Mémoire viennent encore nous reprocher ?",
+      "apartes": {
+        "liane": "Liane ne regarde pas l’ingénieure : elle regarde les déblais, derrière la tente. — C’est là. Ne lui dis pas qui je suis. Pas encore."
+      },
       "options": [
         {
           "text": "Ce chantier rend les gens malades, à Gardebois.",
           "next": "cause"
+        },
+        {
+          "text": "Laisser parler Liane.",
+          "requires": [
+            {
+              "compagnon": "liane"
+            },
+            {
+              "notFlag": "ingrid-sait-saule"
+            }
+          ],
+          "next": "saule"
+        },
+        {
+          "text": "Qui paie vos papiers ?",
+          "requires": [
+            {
+              "notFlag": "gris-ingrid"
+            }
+          ],
+          "next": "papiers"
         },
         {
           "text": "Je viens juste regarder.",
@@ -91,6 +115,9 @@
     },
     "cause": {
       "text": "La maladie mémorielle ? On en a entendu parler. Mais la Faille vaut de l’or en cristaux, et j’ai des papiers signés. Je ne m’arrête pas pour une rumeur de marché.",
+      "apartes": {
+        "liane": "Liane, entre ses dents : — Une rumeur de marché. Mes malades tremblent toute la nuit, Brisefer. Et sous vos déblais, il y a un enfant que personne n’a compté."
+      },
       "options": [
         {
           "text": "Arrêtez le forage : à chaque coup, l’Écho se multiplie, et le mal avec lui.",
@@ -241,6 +268,9 @@
     },
     "apres-explosion": {
       "text": "Ingrid a les mains bandées et les yeux secs. — Pell. Vingt-deux ans. Il gardait la lanterne parce qu’il avait peur du noir. On l’a enterré ce matin, au bord du quai. La foreuse ne creusera plus. Si j’apprends qui a fait ça…",
+      "apartes": {
+        "liane": "Liane regarde Ingrid longtemps, sans haine. — Maintenant, tu sais ce que c’est. … Ça ne me console pas. Je croyais que ça me consolerait."
+      },
       "options": [
         {
           "text": "Je suis désolé·e.",
@@ -266,6 +296,77 @@
       "options": [
         {
           "text": "…",
+          "next": "fin"
+        }
+      ]
+    },
+    "saule": {
+      "text": "Liane s’avance. — Saule Sève-Claire. Il jouait sur les déblais de votre premier sondage, au printemps. Le talus a cédé. Vous ne savez même pas son nom. Ingrid ne baisse pas les yeux. — On m’a dit qu’un enfant jouait là où il ne fallait pas.",
+      "effects": [
+        {
+          "setFlag": "ingrid-sait-saule"
+        }
+      ],
+      "options": [
+        {
+          "text": "Et vous l’avez cru.",
+          "next": "saule-dur"
+        },
+        {
+          "text": "Laisser le silence parler.",
+          "next": "saule-silence"
+        }
+      ]
+    },
+    "saule-dur": {
+      "text": "— On m’a dit beaucoup de choses, ce printemps-là. Je n’ai rien vérifié : le sondage était en retard. Elle se tourne vers Liane. — Je ne vous demanderai pas pardon. Ça ne servirait qu’à moi.",
+      "options": [
+        {
+          "text": "Et la maladie, à Gardebois ?",
+          "next": "cause"
+        },
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "saule-silence": {
+      "text": "Le silence dure. Le vent fait claquer la toile de la tente. Enfin, Ingrid enlève son gant, et le remet. — Saule, répète-t-elle. Je l’écrirai dans le cahier de chantier. C’est tout ce que je sais faire.",
+      "effects": [
+        {
+          "avis": "liane",
+          "delta": 1
+        }
+      ],
+      "options": [
+        {
+          "text": "Et la maladie, à Gardebois ?",
+          "next": "cause"
+        },
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "papiers": {
+      "text": "Ingrid tapote une liasse sous son bras. — Ferros signe. Mais c’est une courtière qui paie, d’avance, en Nexus tout neufs : une dame en gris, gants fins. Elle ne laisse pas de nom. Elle laisse toujours un peu plus que ce qu’on demande.",
+      "effects": [
+        {
+          "setFlag": "gris-ingrid"
+        }
+      ],
+      "apartes": {
+        "liane": "Liane, tout bas : — Quelqu’un qui paie plus qu’on ne demande achète autre chose que ce qu’elle dit."
+      },
+      "options": [
+        {
+          "text": "Ce chantier rend les gens malades, à Gardebois.",
+          "next": "cause"
+        },
+        {
+          "text": "Partir.",
           "next": "fin"
         }
       ]

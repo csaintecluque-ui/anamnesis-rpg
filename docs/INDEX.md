@@ -66,7 +66,7 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `jalon-4.md` : le jalon 4, l'histoire principale continue ; chapitre 4 (Sept-Portes) en ligne.
 - `histoire-prenante.md` : rendre l'histoire prenante (diagnostic, sept leviers, questions à Cyril) ; nourrit les chantiers 1 et 4.
 - `feuille-de-route.md` : analyse et feuille de route de Cyril (2026-11-03) : sept chantiers avant tout nouveau chapitre ; en cours.
-- `compagnons.md` : les compagnons (suivi, avis, départ), Liane et Boulon, leurs quêtes ; validé.
+- `compagnons.md` : les compagnons (suivi, avis, départ), Liane et Boulon, leurs quêtes ; validé ; les apartés et les échanges du chantier 4.
 - `veillees.md` : les veillées du conteur (publics, goûts, jet, chapeau, renommée, rumeurs et secrets) ; validé.
 - `voies.md` : les voies endormies à explorer (plans, niveaux, bêtes, caisses, pièges) et les contrats des Gardiens ; validé ; la voie pacifiste (chantier 3).
 - `echos.md` : le Livre des Échos (douze Échos cachés, types, emprise) ; textes à valider.

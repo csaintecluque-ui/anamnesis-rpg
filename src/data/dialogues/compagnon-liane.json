@@ -213,6 +213,10 @@
           "next": "ronge"
         },
         {
+          "text": "Tu as le droit de ne plus le revoir mourir.",
+          "next": "droit"
+        },
+        {
           "text": "Que veux-tu faire ?",
           "next": "choix"
         },
@@ -310,7 +314,7 @@
             },
             {
               "avis": "liane",
-              "delta": 1
+              "delta": 2
             }
           ],
           "next": "oublie"
@@ -382,6 +386,19 @@
               "delta": -1
             }
           ]
+        }
+      ]
+    },
+    "droit": {
+      "text": "Liane te regarde, prise de court. — Ilyane dit qu’oublier, c’est trahir. Les Gardiens disent tous ça. … Toi aussi, tu en es un. Elle détourne les yeux. — Merci quand même.",
+      "options": [
+        {
+          "text": "Que veux-tu faire ?",
+          "next": "choix"
+        },
+        {
+          "text": "Dors, Liane.",
+          "next": "fin"
         }
       ]
     }

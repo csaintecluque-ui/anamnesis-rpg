@@ -10,7 +10,7 @@ import { findPath } from '../engine/pathfinding';
 import { bigBlock, findObject, isBigAnchor, isWalkable, parseTiledMap, tileKey, type GameMap, type MapObject } from '../engine/tiledMap';
 import { DEFAULT_AVATAR } from '../rules/character';
 import { ENCOUNTERS, VOIE_FIGHT, findEnemy, storyChapter } from '../rules/combat';
-import { hasStoryEntry, type Effect } from '../rules/dialogue';
+import { expireFlags, hasStoryEntry, type Effect } from '../rules/dialogue';
 import {
   ENCOUNTER_VICTORY_FLAG,
   WORLD_MAP_TARGET,
@@ -33,7 +33,7 @@ import { FigurantLayer } from './Figurants';
 import { PartyLayer } from './Party';
 import { echoObjects, echoShows } from '../rules/echos';
 import { boardObjects } from '../rules/contrats';
-import { carriesLamp, descend, groupDialogueId, groupFlag, groupNear, groupXp, leaveVoie, lightTraps, sneakFlag, springTrap, trapSeenFlag, voieLevel, voiePlan } from '../rules/voies';
+import { carriesLamp, descend, groupDialogueId, groupFlag, groupNear, leaveVoie, lightTraps, sneakFlag, springTrap, trapSeenFlag, voieGroupXp, voieLevel, voiePlan } from '../rules/voies';
 import type { HudScene } from './HudScene';
 import type { WorldMapStartData } from './WorldMapScene';
 import { momentOf, type Moment } from '../rules/time';
@@ -123,6 +123,8 @@ export class MapScene extends Phaser.Scene {
       return;
     }
     this.state = state;
+    // A visitor's pass that has had its week (chantier 6): the lock closes again.
+    expireFlags(state);
     // A sleeping line (docs/gdd/voies.md): the plan of this level, then what this visit's draw put on it.
     if (location.voie && !state.voie) {
       this.state.location = 'gardebois';
@@ -648,7 +650,7 @@ export class MapScene extends Phaser.Scene {
     };
     this.fought.add(group);
     const ids = enemies.map((o) => o.properties.ennemi);
-    const effects: Effect[] = [{ giveXp: groupXp(ids) }, ...(enemies[0].properties.contrat ? [{ contrat: 'fait' as const }] : [])];
+    const effects: Effect[] = [{ giveXp: voieGroupXp(this.state, ids) }, ...(enemies[0].properties.contrat ? [{ contrat: 'fait' as const }] : [])];
     this.launchFight(center, ids, enemies, groupFlag(group), effects, storyChapter(this.state.quests));
   }
 

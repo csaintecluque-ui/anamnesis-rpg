@@ -54,10 +54,16 @@ describe('reputation', () => {
   });
 
   it('has ordered levels from mistrust to trust', () => {
-    expect(LEVELS.map((l) => l.id)).toEqual(['mefiance', 'neutre', 'estime', 'amitie']);
+    expect(LEVELS.map((l) => l.id)).toEqual(['mefiance', 'neutre', 'estime', 'amitie', 'honneur', 'legende']);
     expect(levelOf(-1).id).toBe('mefiance');
     expect(levelOf(9).id).toBe('neutre');
     expect(levelOf(10).id).toBe('estime');
+  });
+
+  it('gives something beyond 25 (feuille de route, chantier 6): a better sale at 40, a double chapeau at 55', () => {
+    expect([levelOf(39).id, levelOf(40).id, levelOf(55).id]).toEqual(['amitie', 'honneur', 'legende']);
+    expect([levelOf(40).sells, levelOf(55).chapeau]).toEqual([0.2, 2]);
+    expect(levelOf(40).prices).toBeLessThan(levelOf(25).prices);
   });
 
   it('changes the prices of the town’s merchants, not the wanderers’', () => {

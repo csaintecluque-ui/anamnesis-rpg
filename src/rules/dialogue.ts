@@ -55,6 +55,8 @@ export type Condition =
 
 export type Effect =
   | { setFlag: string }
+  /** A flag that holds `days` days, today included (a visitor's pass ; chantier 6). */
+  | { setFlagFor: string; days: number }
   | { startQuest: string }
   | { completeQuest: string }
   | { giveXp: number }
@@ -359,6 +361,16 @@ export function hasStoryEntry(dialogue: Dialogue, state: GameState): boolean {
   return index >= 0 && index < dialogue.entries.length - 1;
 }
 
+/** Takes off the flags whose time is over (a visitor's pass, after its week ; chantier 6). Returns those taken off. */
+export function expireFlags(state: Pick<GameState, 'flags' | 'time' | 'expirations'>): string[] {
+  const gone = Object.entries(state.expirations ?? {}).filter(([, last]) => state.time.day > last).map(([flag]) => flag);
+  for (const flag of gone) {
+    delete state.flags[flag];
+    delete state.expirations![flag];
+  }
+  return gone;
+}
+
 /** Applies effects to the live state; returns player-facing notices (new quest, experience…). */
 export function applyEffects(state: GameState, effects: Effect[] = []): string[] {
   const notices: string[] = [];
@@ -367,6 +379,9 @@ export function applyEffects(state: GameState, effects: Effect[] = []): string[]
   for (const effect of effects) {
     if ('setFlag' in effect) {
       state.flags[effect.setFlag] = true;
+    } else if ('setFlagFor' in effect) {
+      state.flags[effect.setFlagFor] = true;
+      state.expirations = { ...state.expirations, [effect.setFlagFor]: state.time.day + effect.days - 1 };
     } else if ('startQuest' in effect) {
       if (!state.quests[effect.startQuest]) {
         state.quests[effect.startQuest] = 'active';

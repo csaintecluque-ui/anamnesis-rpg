@@ -75,6 +75,20 @@ export function voieSite(voie: VoieState): WorldPlace | undefined {
   return findPlace(voie.site);
 }
 
+/**
+ * What a line still gives, by the times it was gone down into (feuille de route, chantier 6) : all of it the first
+ * time, a fifth less each time after, never under two fifths. The crates' Fers and the beasts' XP.
+ */
+export function voieYield(state: Pick<GameState, 'voie' | 'voiesFaites'>): number {
+  const visits = state.voie ? (state.voiesFaites?.[state.voie.site] ?? 1) : 1;
+  return Math.max(0.4, 1 - 0.2 * (visits - 1));
+}
+
+/** The XP of a group of a sleeping line, by what the line still gives. */
+export function voieGroupXp(state: Pick<GameState, 'voie' | 'voiesFaites'>, enemies: string[]): number {
+  return Math.round(groupXp(enemies) * voieYield(state));
+}
+
 /** Danger of a level: the site's own, deeper and deeper (1 to 5). */
 export function tierOf(voie: VoieState): number {
   return Math.min(MAX_TIER, (voieSite(voie)?.voie?.danger ?? 1) + voie.depth - 1);
@@ -111,6 +125,7 @@ export function clearVoieFlags(flags: Record<string, true>): void {
 /** Going down into a sleeping line from the world map: a new draw, the first level. */
 export function startVoie(state: GameState, site: string, rng: Rng = Math.random): void {
   state.voie = { site, seed: Math.floor(rng() * 2 ** 31), depth: 1 };
+  state.voiesFaites = { ...state.voiesFaites, [site]: (state.voiesFaites?.[site] ?? 0) + 1 };
   clearVoieFlags(state.flags);
   state.encounter = null;
   state.location = VOIE_LOCATION;
@@ -167,7 +182,7 @@ function groupCells(map: GameMap, spot: { col: number; row: number }, count: num
 }
 
 /** The level the hero stands in: its plan, and what this visit's draw put on it. */
-export function voieLevel(state: Pick<GameState, 'voie' | 'contrats' | 'character' | 'quests'>, map: GameMap): VoieLevel {
+export function voieLevel(state: Pick<GameState, 'voie' | 'contrats' | 'character' | 'quests' | 'voiesFaites'>, map: GameMap): VoieLevel {
   const voie = state.voie!;
   const rng = seededRng(voie.seed * 97 + voie.depth * 13 + 7);
   const tier = tierOf(voie);
@@ -197,11 +212,11 @@ export function voieLevel(state: Pick<GameState, 'voie' | 'contrats' | 'characte
   for (let g = 1; g <= groups; g++) {
     const enemies = pick(rng, DATA.groupes[String(tier)]);
     placeGroup(String(g), enemies, `ennemi-${g}`);
-    dialogues[groupDialogueId(String(g))] = groupDialogue(String(g), enemies, tier);
+    dialogues[groupDialogueId(String(g))] = groupDialogue(String(g), enemies, tier, voieYield(state));
   }
   if (hunt) {
     placeGroup('contrat', hunt.enemies ?? [], 'ennemi-3', { contrat: 'oui' });
-    dialogues[groupDialogueId('contrat')] = groupDialogue('contrat', hunt.enemies ?? [], tier);
+    dialogues[groupDialogueId('contrat')] = groupDialogue('contrat', hunt.enemies ?? [], tier, voieYield(state));
   }
 
   // Crates: one or two, and the station master's chest at the terminus.
@@ -210,7 +225,7 @@ export function voieLevel(state: Pick<GameState, 'voie' | 'contrats' | 'characte
     const chief = terminus && k === crates;
     const id = `voie-coffre-${k}`;
     objects.push({ name: id, type: 'objet', ...at.get(`coffre-${chief ? 3 : k}`)!, properties: { tuile: 'caisses', lueur: 'oui', disparaitSi: chestFlag(k) } });
-    dialogues[id] = crateDialogue(id, k, tier, chief, rng);
+    dialogues[id] = crateDialogue(id, k, tier, chief, rng, voieYield(state));
   }
 
   // Traps, hidden on the passages: more of them deeper down.
@@ -248,8 +263,8 @@ export function voieLevel(state: Pick<GameState, 'voie' | 'contrats' | 'characte
   return { plan: voiePlan(voie), title: voieTitle(voie), tier, terminus, objects, dialogues };
 }
 
-function crateDialogue(id: string, k: number, tier: number, chief: boolean, rng: Rng): Dialogue {
-  const fers = between(rng, 4 + 4 * tier, 10 + 6 * tier) * (chief ? 2 : 1);
+function crateDialogue(id: string, k: number, tier: number, chief: boolean, rng: Rng, yieldShare = 1): Dialogue {
+  const fers = Math.max(1, Math.round(between(rng, 4 + 4 * tier, 10 + 6 * tier) * (chief ? 2 : 1) * yieldShare));
   const loot: Effect[] = [{ setFlag: chestFlag(k) }, { giveFers: fers }];
   if (chief || rng() < 0.6) {
     const item = pick(rng, DATA.butin[String(Math.min(MAX_TIER, tier + (chief ? 1 : 0)))]);
@@ -310,10 +325,10 @@ function groupNames(enemies: string[]): string {
  * The voie pacifiste (feuille de route, chantier 3) : a group about to see the hero can be slipped past (Discrétion),
  * fled from once seen (Athlétisme), and Échos furieux soothed by a Récit told; or fought.
  */
-function groupDialogue(group: string, enemies: string[], tier: number): Dialogue {
+function groupDialogue(group: string, enemies: string[], tier: number, yieldShare = 1): Dialogue {
   const fight: DialogueOption = { text: 'Attaquer.', effects: [{ startCombat: `${VOIE_FIGHT}${group}` }], next: 'fin' };
   const echoes = enemies.length > 0 && enemies.every((id) => id === 'echo-furieux');
-  const xp = Math.round(groupXp(enemies) / 2);
+  const xp = Math.round((groupXp(enemies) * yieldShare) / 2);
   const options: DialogueOption[] = [{ text: 'Passer dans leur ombre, sans un bruit.', roll: { skill: 'stealth', difficulty: 9 + tier }, next: 'passe', failNext: 'repere' }];
   if (echoes) options.push({ text: 'Leur raconter une histoire, pour qu’ils se souviennent d’autre chose.', next: 'apaise', raconter: { neutre: 'apaise' } });
   options.push(fight, { text: 'Reculer.', next: 'fin' });

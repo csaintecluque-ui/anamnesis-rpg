@@ -48,6 +48,13 @@ export interface GameState {
   voie: VoieState | null;
   /** The contracts of the Gardiens' boards (src/rules/contrats.ts). */
   contrats: ContratsState;
+  /**
+   * Flags that only last a while (a visitor's pass for a week ; chantier 6) : the last day each one holds. Absent in
+   * older saves.
+   */
+  expirations?: Record<string, number>;
+  /** How many times each sleeping line was gone down into (its crates give less each time ; chantier 6). */
+  voiesFaites?: Record<string, number>;
 }
 
 /** A sleeping line under way: its site on the world map, the draw of its levels, and how deep the hero is. */

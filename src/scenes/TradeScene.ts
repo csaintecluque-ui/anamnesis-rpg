@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import npcData from '../data/npcs.json';
-import { combinedDiscount, deName, merchantPlace, reputationLevel, reputationPrices } from '../rules/reputation';
+import { combinedDiscount, deName, merchantPlace, reputationLevel, reputationPrices, reputationSells } from '../rules/reputation';
 import { findPlace } from '../rules/world';
 import { characterStats, type Character, type Slot } from '../rules/character';
 import { armorBonus, buy, buyPrice, carriedWeightKg, equip, merchantCatalogue, merchantDiscount, ownedCount, sell, SELL_RATIO, tradeItems, unequip, useConsumable, type ItemDef } from '../rules/inventory';
@@ -355,7 +355,9 @@ export class TradeScene extends Phaser.Scene {
     const actions: Action[] = [];
     const owned = ownedCount(this.character(), item.id);
     const equippedIn = this.equippedSlot(item.id);
-    const sellPrice = Math.floor(item.price * SELL_RATIO);
+    // A town that honours the hero buys at a better price (chantier 6).
+    const ratio = SELL_RATIO + (this.npcId ? reputationSells(this.state, this.npcId) : 0);
+    const sellPrice = Math.floor(item.price * ratio);
 
     // The worn crystal of Vie heals here too: Guérison naturelle on oneself, outside a fight.
     const power = equippedIn === 'cristal' ? combatPower(this.character()) : undefined;
@@ -398,7 +400,7 @@ export class TradeScene extends Phaser.Scene {
       else if (owned > 0) actions.push(['Équiper', () => this.act(() => this.equipBestSlot(item), `Tu équipes : ${item.name}.`)]);
     }
     if (owned > 0 && !item.quest) {
-      actions.push([`Vendre (${sellPrice})`, () => this.act(() => (sell(this.character(), item.id, 1) ? null : true), `Tu vends : ${item.name}.`)]);
+      actions.push([`Vendre (${sellPrice})`, () => this.act(() => (sell(this.character(), item.id, 1, ratio) ? null : true), `Tu vends : ${item.name}.`)]);
     }
     if (this.npcId && merchantCatalogue(this.npcId).some((i) => i.id === item.id)) {
       actions.push([`Acheter (${buyPrice(item, this.discount())})`, () => this.act(() => {

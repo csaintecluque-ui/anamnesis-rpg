@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import { DIALOGUES } from '../data/dialogues';
 import npcData from '../data/npcs.json';
-import { END, applyEffects, goesTo, nodeApartes, opensAtelier, opensTrade, opensVeillee, performRoll, raconterChoices, raconterOption, startNode, startsCombat, visibleOptions, type Dialogue, type DialogueOption, type OptionView } from '../rules/dialogue';
+import { END, applyEffects, expireFlags, goesTo, nodeApartes, opensAtelier, opensTrade, opensVeillee, performRoll, raconterChoices, raconterOption, startNode, startsCombat, visibleOptions, type Dialogue, type DialogueOption, type OptionView } from '../rules/dialogue';
 import { fontPx, textScale } from '../settings';
 import type { GameState } from '../state/gameState';
 import type { MapScene } from './MapScene';
@@ -62,6 +62,7 @@ export class DialogueScene extends Phaser.Scene {
   create(data: { id: string }): void {
     this.dialogue = DIALOGUES[data.id];
     this.state = this.registry.get('game') as GameState;
+    expireFlags(this.state);
     this.notices = [];
     this.rollNotice = null;
     this.panelTop = textScale() > 1 ? 112 : 200;

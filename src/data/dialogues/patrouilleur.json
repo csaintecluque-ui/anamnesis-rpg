@@ -103,10 +103,11 @@
       ]
     },
     "achat": {
-      "text": "— Dix Fers. Visite d’une semaine, Manufactures-Moyennes seulement. Il tamponne un carton gris et te le tend.",
+      "text": "— Dix Fers. Visite d’une semaine, Manufactures-Moyennes seulement. Il tamponne un carton gris et te le tend. — Sept jours. Après, tu repasses à la caisse, comme tout le monde.",
       "effects": [
         {
-          "setFlag": "laissez-passer-ironheart"
+          "setFlagFor": "laissez-passer-ironheart",
+          "days": 7
         }
       ],
       "options": [
@@ -127,10 +128,11 @@
       ]
     },
     "bluff-ok": {
-      "text": "— Cendrefer ? Bon. Dépêche-toi, et pas de détours.",
+      "text": "— Cendrefer ? Bon. Pour aujourd’hui. Dépêche-toi, et pas de détours.",
       "effects": [
         {
-          "setFlag": "laissez-passer-ironheart"
+          "setFlagFor": "laissez-passer-ironheart",
+          "days": 1
         }
       ],
       "options": [

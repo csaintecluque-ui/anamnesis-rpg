@@ -52,17 +52,27 @@ export function deName(name: string): string {
 
 /** How a town or a guild sees the hero: a guild is not « la ville ». */
 export function levelLabel(id: string, level: ReputationLevel): string {
-  return findFaction(id) && level.id === 'amitie' ? 'on te fait confiance' : level.label;
+  return findFaction(id) && level.min >= 25 ? 'on te fait confiance' : level.label;
+}
+
+/** What a merchant pays more for what the hero sells, by the town's opinion (chantier 6). */
+export function reputationSells(state: StoryState, npcId?: string): number {
+  const place = merchantPlace(npcId);
+  return place ? (reputationLevel(state, place).sells ?? 0) : 0;
 }
 
 export interface ReputationLevel {
-  id: 'mefiance' | 'neutre' | 'estime' | 'amitie';
+  id: 'mefiance' | 'neutre' | 'estime' | 'amitie' | 'honneur' | 'legende';
   /** Lowest score of the level. */
   min: number;
   /** How the town sees the hero, for the player. */
   label: string;
   /** Change of its merchants' prices (−0.1: 10 % cheaper). */
   prices: number;
+  /** What its merchants pay more when they buy from the hero (+0.2: a fifth more ; chantier 6). */
+  sells?: number;
+  /** What its veillées pay more (×2 : the chapeau goes round twice ; chantier 6). */
+  chapeau?: number;
 }
 
 /** From the lowest to the highest. */
@@ -71,6 +81,9 @@ export const LEVELS: ReputationLevel[] = [
   { id: 'neutre', min: 0, label: 'on ne te connaît pas encore', prices: 0 },
   { id: 'estime', min: 10, label: 'on t’apprécie', prices: -0.1 },
   { id: 'amitie', min: 25, label: 'la ville te fait confiance', prices: -0.15 },
+  // Au-delà de 25 (feuille de route, chantier 6) : on rachète au prix fort, puis on paie double à la veillée.
+  { id: 'honneur', min: 40, label: 'la ville t’honore', prices: -0.2, sells: 0.2 },
+  { id: 'legende', min: 55, label: 'ton nom court aux veillées', prices: -0.25, sells: 0.2, chapeau: 2 },
 ];
 
 interface StoryState {

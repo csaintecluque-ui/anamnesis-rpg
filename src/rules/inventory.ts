@@ -117,13 +117,13 @@ export function buy(character: Character, itemId: string, count = 1, discount = 
   return null;
 }
 
-export function sell(character: Character, itemId: string, count = 1): TradeError | null {
+export function sell(character: Character, itemId: string, count = 1, ratio = SELL_RATIO): TradeError | null {
   const item = findItem(itemId);
   if (!item) return 'inconnu';
   if (ownedCount(character, itemId) < count) return 'pas-en-stock';
   if (item.quest) return 'objet-de-quete';
   removeItem(character, itemId, count);
-  character.fers += Math.floor(item.price * SELL_RATIO) * count;
+  character.fers += Math.floor(item.price * ratio) * count;
   return null;
 }
 

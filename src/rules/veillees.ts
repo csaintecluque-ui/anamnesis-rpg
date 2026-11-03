@@ -4,6 +4,7 @@ import { SKILLS, type SkillId } from './attributes';
 import { resolveCheck, rollD20, successChance, type Rng } from './checks';
 import { applyEffects, rollBonus, type Effect } from './dialogue';
 import { findRecit, type RecitDef } from './recits';
+import { reputationLevel } from './reputation';
 
 /**
  * Les veillées du conteur (docs/gdd/veillees.md, jalon 3, étape 4) : le soir, à l'auberge, le héros raconte un de ses
@@ -163,7 +164,9 @@ export function tell(state: GameState, publicId: string, recitId: string, rng: R
   const effects: Effect[] = [];
   let rumeur: Rumeur | undefined;
   if (outcome === 'triomphe' || outcome === 'succes' || outcome === 'redite') {
-    effects.push({ giveFers: VEILLEE.fers[outcome] * (check.critical ? 2 : 1) });
+    // A legend of the town fills the chapeau twice (feuille de route, chantier 6).
+    const chapeau = reputationLevel(state, pub.ville).chapeau ?? 1;
+    effects.push({ giveFers: VEILLEE.fers[outcome] * (check.critical ? 2 : 1) * chapeau });
   }
   if (outcome === 'triomphe' || outcome === 'succes') {
     effects.push({ giveXp: VEILLEE.xp[outcome] });

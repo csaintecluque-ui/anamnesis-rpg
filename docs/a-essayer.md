@@ -41,6 +41,11 @@ Lien du jeu : https://csaintecluque-ui.github.io/anamnesis-rpg/ (la version s'af
       combat obligatoire d'abord, puis la fiche du dé.
 - [x] **Étude, un Écho de l'histoire au fond de chaque voie** Cyril : oui, Claude propose les textes, à valider avant
       d'entrer dans le jeu.
+- [ ] **Les trois Échos du fond des voies** (`docs/univers/lieux/voies-endormies.md`, fin) : « Passé sans arrêt »
+      (la halte des Fougères, un fourgon plombé derrière les enfants), « Le train qui n'était pas prévu » (la Combe,
+      des rails qui chantent sans train), « Le tableau des départs » (le Dépôt Sept, *Voie 7 — ALTA*). Les textes te
+      vont ? Chacun ouvre une réponse de plus dans une scène clé (Ambroise, la Veilleuse) ; et la variante où le héros
+      y reconnaît un détail à lui (piste A), oui ou non ?
 
 ## Chantier 0 — PC d'abord (en ligne le 2026-11-03, version `043c702`)
 

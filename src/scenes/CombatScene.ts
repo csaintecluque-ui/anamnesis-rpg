@@ -82,6 +82,12 @@ const WALK_FPS = 14;
  */
 type Mode = 'move' | number | 'pouvoir' | 'soin';
 const HEAL_COLOR = 0x7fe08a;
+/**
+ * The fighters stand above the arena's trees and walls, sorted among themselves (étude du 2026-11-03, B6 : a Rôdeur
+ * lost under the canopy, seen only by its life bar). The trees in front of them still fade; under the marker (5000).
+ */
+const TOKEN_DEPTH = 3000;
+const tokenDepth = (y: number): number => TOKEN_DEPTH + y + 1;
 
 export interface CombatStartData {
   /** Enemy ids from enemies.json, one combatant per entry. */
@@ -471,7 +477,7 @@ export class CombatScene extends Phaser.Scene {
           x: f.x,
           y: f.y,
           duration: STEP_ANIM_MS,
-          onUpdate: () => sprite.setDepth(sprite.y + 1),
+          onUpdate: () => sprite.setDepth(tokenDepth(sprite.y)),
           onComplete: () => {
             previous = next;
             step(i + 1);
@@ -494,7 +500,7 @@ export class CombatScene extends Phaser.Scene {
 
   private addToken(c: Combatant): void {
     const f = this.feet(c.tile);
-    const image = this.tokenImage(c, f).setOrigin(0.5, 1).setScale(LAYOUT.arenaScale).setDepth(f.y + 1);
+    const image = this.tokenImage(c, f).setOrigin(0.5, 1).setScale(LAYOUT.arenaScale).setDepth(tokenDepth(f.y));
     const hpBar = this.add.graphics().setDepth(6000);
     const name = this.add
       .text(f.x, f.y - 80 * LAYOUT.arenaScale, c.name, { fontFamily: FONT_SERIF, fontSize: fs(16), color: CSS.parchment, stroke: CSS.ink, strokeThickness: 3 })
@@ -564,7 +570,7 @@ export class CombatScene extends Phaser.Scene {
     const token = this.tokens.get(c.id);
     if (!token) return;
     const f = this.feet(c.tile);
-    token.image.setPosition(f.x, f.y).setDepth(f.y + 1).setAlpha(c.defeated ? 0.25 : 1).setVisible(!c.fled);
+    token.image.setPosition(f.x, f.y).setDepth(tokenDepth(f.y)).setAlpha(c.defeated ? 0.25 : 1).setVisible(!c.fled);
 
     const x = f.x - HP_BAR_WIDTH / 2;
     const y = f.y - 74 * LAYOUT.arenaScale;
@@ -920,18 +926,16 @@ export class CombatScene extends Phaser.Scene {
       addTextButton(this, attackX + i * attackStep, y, '', () => i < this.actor().attacks.length && this.setMode(i), size(attackWidth, L.labelFont)),
     );
     this.zoneButton = addTextButton(this, L.zone[0], y, '', () => this.cycleZone(), size(L.zone[1]));
-    // Top right, where the arena leaves room: the crystal's power for the hero (docs/gdd/magie.md), the care of a
-    // companion who heals (docs/gdd/jalon-3.md).
+    // Top right, where the arena leaves room: the crystal's power for the hero (docs/gdd/magie.md). The companions
+    // play themselves now (étude, E12): Liane's care is hers to give.
     const power = this.power;
-    const healers = this.combatants.some((c) => c.side === 'heroes' && !!c.heal);
-    if (power || healers) {
+    if (power) {
       const width = HAS_MOUSE ? 270 : 330;
       const px = GAME_WIDTH - 24 - width / 2;
       const py = HAS_MOUSE ? 112 : 128;
       const act = () => {
         const actor = this.actor();
-        if (actor === this.hero() && power) return power.combat === 'soin' ? this.castHeal() : this.setMode('pouvoir');
-        if (actor.heal) this.setMode('soin');
+        if (actor === this.hero()) return power.combat === 'soin' ? this.castHeal() : this.setMode('pouvoir');
       };
       this.powerButton = addTextButton(this, px, py, '', act, size(width, L.labelFont));
       this.powerPoints = this.add
@@ -956,7 +960,7 @@ export class CombatScene extends Phaser.Scene {
     onKeys(this, ['SPACE'], () => this.endHeroTurn());
     if (SHOW_KEY_HINTS) {
       this.add
-        .text(GAME_WIDTH / 2, GAME_HEIGHT - 16, `Clavier : 1 Déplacer (flèches pour avancer) · 2 et 3 attaques${power || healers ? ' · 4 pouvoir ou soin' : ''} · Tab viser, Entrée frapper · Z zone visée · Espace fin du tour`, {
+        .text(GAME_WIDTH / 2, GAME_HEIGHT - 16, `Clavier : 1 Déplacer (flèches pour avancer) · 2 et 3 attaques${power ? ' · 4 pouvoir' : ''} · Tab viser, Entrée frapper · Z zone visée · Espace fin du tour`, {
           fontFamily: FONT_SERIF,
           fontSize: '16px',
           color: CSS.muted,
@@ -1024,7 +1028,6 @@ export class CombatScene extends Phaser.Scene {
     if (this.powerButton) {
       let label = '';
       if (isHero && this.power) label = `${this.mode === 'pouvoir' ? '▶ ' : ''}${key('4', `${this.power.name} · ${this.power.cost} PR`)}`;
-      else if (actor.heal) label = `${this.mode === 'soin' ? '▶ ' : ''}${key('4', 'Soigner · 3 PA')}`;
       this.powerButton.container.setVisible(!!label);
       if (label) this.powerButton.setLabel(label);
       this.powerPoints?.setVisible(isHero && !!this.power).setText(`Résonance ${c.resonance} / ${resonanceMax(c)} PR`);

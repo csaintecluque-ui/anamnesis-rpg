@@ -75,7 +75,7 @@ Maître des Guildes » à Glacialis). Pour combler, sans doublon avec les factio
 La « Compagnie du Rail Cristallin » proposée plus tôt est **retirée** : les Travailleurs du Rail et les Marches des
 Cendres tiennent ce rôle.
 
-## Rangs et adhésions (propositions du 2026-11-03, **à valider**)
+## Rangs et adhésions (propositions du 2026-11-03, **validées par Cyril** le 2026-11-03)
 
 Règles : `docs/gdd/factions.md`. Les rangs de l'ordre du héros (Lanterne, Carnet, Plume) étaient déjà proposés.
 

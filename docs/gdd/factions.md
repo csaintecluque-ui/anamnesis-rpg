@@ -33,7 +33,7 @@ mécanisme : `docs/gdd/reputation.md`.
   factions de Ferros (Ironheart).
 - **Reste** : le courrier entre villes ; les trois ou quatre quêtes de chaque faction (plus tard).
 
-## Rangs et adhésions (jalon 3, étape 7 ; construit le 2026-11-03, noms, chiffres et quêtes à valider)
+## Rangs et adhésions (jalon 3, étape 7 ; construit le 2026-11-03, validé et mis en ligne par Cyril le 2026-11-03)
 
 Code : `src/rules/factions.ts` (et `factionRank`, les prix par rang dans `src/rules/reputation.ts`) ; données :
 `src/data/factions.json` (rangs, rivales, chef, cadeau, avantages), `src/data/rangs.json` (seuils, prix, Gardiens).

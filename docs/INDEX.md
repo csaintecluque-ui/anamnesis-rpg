@@ -68,5 +68,5 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `carte-du-monde.md` : carte du monde, voyages, rencontres aléatoires en route ; validé.
 - `figurants.md` : passants qui marchent et habitants à une ou deux répliques ; validé.
 - `reputation.md` : réputation par ville (paliers, prix, conditions de dialogue) ; paliers validés.
-- `factions.md` : réputation de faction, adhésion aux guildes ; rangs, sommets, rivalités, quêtes d'adhésion de Ferros, rangs des Gardiens (étape 7, à valider).
-- `artisanat.md` : la forge d'Hedda et les herbes de Sévane, les recettes ; à valider.
+- `factions.md` : réputation de faction, adhésion aux guildes ; rangs, sommets, rivalités, quêtes d'adhésion de Ferros, rangs des Gardiens (étape 7) ; validé.
+- `artisanat.md` : la forge d'Hedda et les herbes de Sévane, les recettes ; validé.

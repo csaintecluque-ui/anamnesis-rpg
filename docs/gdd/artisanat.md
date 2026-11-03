@@ -1,4 +1,4 @@
-# L'artisanat (jalon 3, étape 7 ; construit le 2026-11-03, recettes et chiffres à valider)
+# L'artisanat (jalon 3, étape 7 ; construit le 2026-11-03, validé et mis en ligne par Cyril le 2026-11-03)
 
 Plan : `docs/gdd/jalon-3.md` ; idée validée dans `docs/gdd/jeu-complet.md` (activité 8 : « la forge d'Ironheart, l'herboristerie
 de Canopéa »). Code : `src/rules/artisanat.ts`, écran `src/scenes/AtelierScene.ts` ; données : `src/data/recettes.json`.

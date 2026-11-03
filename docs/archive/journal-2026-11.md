@@ -954,4 +954,5 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   de Sévane (baumes, fioles, Sève de Résonance, bandages), avec les matières du butin. Corrigé grâce au parcours :
   l'offre de Noam restait cachée à qui lui avait confié la clé. Pas de nouvelle sauvegarde. 584 tests ; vérifié sur PC
   et téléphone.
-
+- Cyril : « Oui c'est bon, mets en ligne » : rangs, adhésions, recettes et chiffres validés ; étape 7 mise en ligne ;
+  le jalon 3 est fini.

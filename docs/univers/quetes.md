@@ -294,7 +294,7 @@ Détails, ancrages du canon et chiffres : `docs/gdd/passe-sombre.md`.
 - **Les graines qui manquent** : Elvan dénoncé est **banni** (« on retire les racines ») ; si le héros a volé et nie,
   c'est la gardienne du grenier, une Jeune-Pousse, qu'on soupçonne.
 
-## Les quêtes d'adhésion de Ferros (jalon 3, étape 7 ; propositions du 2026-11-03, **à valider**)
+## Les quêtes d'adhésion de Ferros (jalon 3, étape 7 ; propositions du 2026-11-03, **validées par Cyril** le 2026-11-03)
 
 Détail : `docs/gdd/factions.md`.
 

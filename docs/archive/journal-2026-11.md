@@ -1055,3 +1055,5 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   cristal qui s'use (la tailleuse ou Vanel), le laissez-passer d'une semaine, les voies qui rapportent un cinquième de
   moins à chaque descente, la réputation à 40 (revente +20 %) et 55 (chapeau double), un don tous les trois niveaux,
   quatre traits à double tranchant à la création ; un test de l'économie des voies. 693 tests.
+- Cyril : « mets en ligne » : chantier 6 en ligne. Les sept chantiers de la feuille de route sont en ligne ; reste la
+  partie de Cyril sur PC (`docs/a-essayer.md`), puis l'analyse complète qu'il a annoncée.

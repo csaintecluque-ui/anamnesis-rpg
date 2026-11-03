@@ -124,7 +124,7 @@ Lien du jeu : https://csaintecluque-ui.github.io/anamnesis-rpg/ (la version s'af
 - [ ] **Gardebois et Canopéa** te paraissent-elles assez sombres maintenant ?
 - Remarques :
 
-## Chantier 6 — Économie et progression (sur la branche)
+## Chantier 6 — Économie et progression (en ligne le 2026-11-03)
 
 - [ ] **Création** : un trait facultatif, sous les dons (Mémoire trouée, Main lourde, Sang de Ferros, Rêveur·se).
       Tentant ? Le prix est-il juste ?

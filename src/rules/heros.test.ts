@@ -110,3 +110,26 @@ describe('the Écho of the story at the end of each line', () => {
     expect(startNode(DIALOGUES.ambroise, createNewGame(testCharacter()))).toBe('accueil');
   });
 });
+
+describe('Ilyane notices (variante A, validée le 2026-11-03) : she knows nothing, she sees', () => {
+  it('one remark per fragment come back, once each, before her news of Canopéa', () => {
+    const state = createNewGame(testCharacter());
+    chapterDone(state, 2);
+    state.flags['ilyane-oubli-2'] = true;
+    expect(startNode(DIALOGUES.ilyane, state)).toBe('nouvelles-canopee');
+    state.flags['heros-fragment-vapeur'] = true;
+    expect(startNode(DIALOGUES.ilyane, state)).toBe('remarque-vapeur');
+    applyEffects(state, DIALOGUES.ilyane.nodes['remarque-vapeur'].effects);
+    expect(startNode(DIALOGUES.ilyane, state)).toBe('nouvelles-canopee');
+    expect(DIALOGUES.ilyane.nodes['remarque-vapeur'].text).toContain('partir sans toi');
+  });
+
+  it('when she forgets the hero for a moment, he may say that things come back to him', () => {
+    const state = createNewGame(testCharacter());
+    const mirror = () => visibleOptions(DIALOGUES.ilyane.nodes['oubli-3'], state).some((v) => v.option.next === 'oubli-3-miroir');
+    expect(mirror()).toBe(false);
+    state.flags['heros-enfant'] = true;
+    expect(mirror()).toBe(true);
+    expect(DIALOGUES.ilyane.nodes['oubli-3-miroir'].text).toContain('Toi, tu reprends ce que je perds');
+  });
+});

@@ -59,7 +59,7 @@ Ce que Claude en tire pour le jeu (**construit** le 2026-11-03, sur la branche ;
   Combe, une main contre la vitre à la halte des Fougères, une voix qui compte jusqu'à sept au Dépôt Sept.
 - **Le choix d'Altavent** (fin du jeu) : monter, ou rester et porter ce qu'on sait ; à écrire avec le chapitre 5.
 
-## Ilyane remarque (proposition du 2026-11-03, **à valider**)
+## Ilyane remarque (proposition du 2026-11-03 ; **variante A validée** par Cyril le 2026-11-03, construite)
 
 Demande de Cyril (« oui » à l'étude, F1 : une réplique d'Ilyane qui change à chaque retour à Gardebois). Le miroir :
 **Ilyane perd ses souvenirs pendant que le héros retrouve les siens.** Une réplique par fragment revenu, la première

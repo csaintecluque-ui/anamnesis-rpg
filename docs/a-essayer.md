@@ -34,7 +34,7 @@ Lien du jeu : https://csaintecluque-ui.github.io/anamnesis-rpg/ (la version s'af
       2026-11-03 : « oui très bien »). Kael, Kaelis et Kael Marchevent restent : ils viennent de ton Notion.
 - [x] **Les inventions du chantier 5** (Cyril : on garde) (`docs/univers/propositions.md`) : les petits faits sombres de Gardebois et
       Canopéa, Ingrid qui paie la garde, le cœur du Golem dans la foreuse. On garde ?
-- [ ] **Ilyane remarque** (`docs/univers/personnages/heros.md`, fin) : une réplique par fragment revenu (« Tu la
+- [x] **Ilyane remarque** Cyril : variante **A** ; construite. (`docs/univers/personnages/heros.md`, fin) : une réplique par fragment revenu (« Tu la
       regardes comme si elle allait partir sans toi », « Sylvan dit que tu serres le poing en dormant. Sur quoi ? »…),
       et « Toi, tu reprends ce que je perds ». Les répliques te vont ? Variante **A** (elle remarque sans rien savoir,
       recommandée) ou **B** (elle était là le matin où on a trouvé l'enfant, et c'est ce souvenir qu'elle perd) ?

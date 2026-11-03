@@ -2509,7 +2509,7 @@ _Effet : retient « mensonge-huissier »._
 
 _Gardienne de Mémoire de Gardebois_
 
-Commence par : « echo-lettre » _(si repère « echos-confies »)_ _(sans repère « ilyane-echo-lu »)_, sinon « carnet » _(si quête « Le carnet de chansons » en cours)_ _(si l’on porte « Carnet de chansons d’Ilyane »)_, sinon « appel-veilleuse » _(si quête « La Clé de Rouille Bleue » terminée)_ _(si quête « Les Mémoires du Monde Perdu » pas commencée)_ _(si repère « cle-veilleuse »)_, sinon « appel-archives » _(si quête « La Clé de Rouille Bleue » terminée)_ _(si quête « Les Mémoires du Monde Perdu » pas commencée)_ _(si repère « cle-archives »)_, sinon « appel-vendue » _(si quête « La Clé de Rouille Bleue » terminée)_ _(si quête « Les Mémoires du Monde Perdu » pas commencée)_ _(si repère « cle-vendue »)_, sinon « appel-sept-portes » _(si quête « La Clé de Rouille Bleue » terminée)_ _(si quête « Les Mémoires du Monde Perdu » pas commencée)_, sinon « oubli-3 » _(si repère « porte-sud-connue »)_ _(sans repère « ilyane-oubli-3 »)_, sinon « oubli-2 » _(si quête « L’audience » terminée)_ _(sans repère « ilyane-oubli-2 »)_ _(sans repère « ilyane-oubli-3 »)_, sinon « nouvelles-canopee » _(si quête « L’audience » terminée)_, sinon « pell-vivant » _(si repère « foreuse-explosee »)_ _(si repère « pell-sauve »)_ _(sans repère « ilyane-sait-pell »)_, sinon « pell » _(si repère « foreuse-explosee »)_ _(sans repère « ilyane-sait-pell »)_, sinon « oubli-1 » _(si quête « L’audience » en cours)_ _(sans repère « ilyane-oubli-1 »)_ _(sans repère « ilyane-oubli-2 »)_ _(sans repère « ilyane-oubli-3 »)_, sinon « resolu » _(si quête « Le Dernier Train » terminée)_, sinon « en-cours » _(si quête « Le Dernier Train » en cours)_, sinon « accueil »
+Commence par : « echo-lettre » _(si repère « echos-confies »)_ _(sans repère « ilyane-echo-lu »)_, sinon « carnet » _(si quête « Le carnet de chansons » en cours)_ _(si l’on porte « Carnet de chansons d’Ilyane »)_, sinon « appel-veilleuse » _(si quête « La Clé de Rouille Bleue » terminée)_ _(si quête « Les Mémoires du Monde Perdu » pas commencée)_ _(si repère « cle-veilleuse »)_, sinon « appel-archives » _(si quête « La Clé de Rouille Bleue » terminée)_ _(si quête « Les Mémoires du Monde Perdu » pas commencée)_ _(si repère « cle-archives »)_, sinon « appel-vendue » _(si quête « La Clé de Rouille Bleue » terminée)_ _(si quête « Les Mémoires du Monde Perdu » pas commencée)_ _(si repère « cle-vendue »)_, sinon « appel-sept-portes » _(si quête « La Clé de Rouille Bleue » terminée)_ _(si quête « Les Mémoires du Monde Perdu » pas commencée)_, sinon « oubli-3 » _(si repère « porte-sud-connue »)_ _(sans repère « ilyane-oubli-3 »)_, sinon « oubli-2 » _(si quête « L’audience » terminée)_ _(sans repère « ilyane-oubli-2 »)_ _(sans repère « ilyane-oubli-3 »)_, sinon « remarque-enfant » _(si repère « heros-enfant »)_ _(sans repère « ilyane-remarque-enfant »)_, sinon « remarque-vapeur » _(si repère « heros-fragment-vapeur »)_ _(sans repère « ilyane-remarque-vapeur »)_, sinon « remarque-main » _(si repère « heros-fragment-main »)_ _(sans repère « ilyane-remarque-main »)_, sinon « remarque-voix » _(si repère « heros-fragment-voix »)_ _(sans repère « ilyane-remarque-voix »)_, sinon « nouvelles-canopee » _(si quête « L’audience » terminée)_, sinon « pell-vivant » _(si repère « foreuse-explosee »)_ _(si repère « pell-sauve »)_ _(sans repère « ilyane-sait-pell »)_, sinon « pell » _(si repère « foreuse-explosee »)_ _(sans repère « ilyane-sait-pell »)_, sinon « oubli-1 » _(si quête « L’audience » en cours)_ _(sans repère « ilyane-oubli-1 »)_ _(sans repère « ilyane-oubli-2 »)_ _(sans repère « ilyane-oubli-3 »)_, sinon « resolu » _(si quête « Le Dernier Train » terminée)_, sinon « en-cours » _(si quête « Le Dernier Train » en cours)_, sinon « accueil »
 
 ### resolu
 
@@ -2721,6 +2721,7 @@ _Si Boulon voyage avec toi :_ Boulon, très bas : — Je peux retenir pour elle.
 
 - « Combien de temps, Ilyane ? » → oubli-3-temps
 - « Bientôt, tu oublieras pourquoi tu m’as envoyé·e là-bas. » → oubli-3-cruel _(avis de Liane −1)_
+- _(si repère « heros-enfant »)_ « Moi, des choses me reviennent, ces temps-ci. » → oubli-3-miroir
 - « Je suis là. » → **fin**
 
 ### oubli-3-temps
@@ -2734,6 +2735,54 @@ _Si Boulon voyage avec toi :_ Boulon, très bas : — Je peux retenir pour elle.
 > Ilyane te regarde longtemps. — Peut-être. Alors tu me le rappelleras. Ou tu ne le feras pas, et ce jour-là, ce sera ton choix, plus ma maladie.
 
 - « … » → **fin**
+
+### remarque-enfant
+
+_Effet : retient « ilyane-remarque-enfant »._
+
+> Ilyane lève les yeux de son carnet. — Tu es pâle. Les Échos t’ont parlé ? À moi, ils ne parlent plus.
+
+- « Un enfant m’a regardé·e. » → remarque-enfant-2
+- « Rien. » → **fin**
+
+### remarque-vapeur
+
+_Effet : retient « ilyane-remarque-vapeur »._
+
+> Ilyane pose la bouilloire sur le feu, puis s’arrête. — Tu la regardes comme si elle allait partir sans toi.
+
+- « Je ne sais pas pourquoi. » → **fin**
+- « Ce n’est rien. » → **fin**
+
+### remarque-main
+
+_Effet : retient « ilyane-remarque-main »._
+
+> — Sylvan dit que tu serres le poing en dormant. Ilyane regarde ta main. — Sur quoi ?
+
+- « Sur une main. » → **fin**
+- « Sur rien. » → **fin**
+
+### remarque-voix
+
+_Effet : retient « ilyane-remarque-voix »._
+
+> Ilyane compte les plis du relais à mi-voix, s’arrête à six, et perd le fil. — Sept, dis-tu sans y penser. Elle lève les yeux. — Comment le savais-tu ?
+
+- « Je ne sais pas. » → **fin**
+
+### remarque-enfant-2
+
+> — Les Échos ne regardent personne : ils rejouent. Si l’un d’eux t’a regardé·e, c’est qu’il te connaissait.
+
+- « Je ne le connais pas. » → **fin**
+
+### oubli-3-miroir
+
+> Ilyane te regarde longtemps, comme on relit une page. — Toi, tu reprends ce que je perds. C’est peut-être juste.
+
+- « Je te le rendrai. » → **fin**
+- « Ne dis pas ça. » → **fin**
 
 ## Ingrid Brisefer
 

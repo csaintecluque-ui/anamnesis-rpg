@@ -115,6 +115,50 @@
     {
       "requires": [
         {
+          "flag": "heros-enfant"
+        },
+        {
+          "notFlag": "ilyane-remarque-enfant"
+        }
+      ],
+      "node": "remarque-enfant"
+    },
+    {
+      "requires": [
+        {
+          "flag": "heros-fragment-vapeur"
+        },
+        {
+          "notFlag": "ilyane-remarque-vapeur"
+        }
+      ],
+      "node": "remarque-vapeur"
+    },
+    {
+      "requires": [
+        {
+          "flag": "heros-fragment-main"
+        },
+        {
+          "notFlag": "ilyane-remarque-main"
+        }
+      ],
+      "node": "remarque-main"
+    },
+    {
+      "requires": [
+        {
+          "flag": "heros-fragment-voix"
+        },
+        {
+          "notFlag": "ilyane-remarque-voix"
+        }
+      ],
+      "node": "remarque-voix"
+    },
+    {
+      "requires": [
+        {
           "quest": "audience",
           "status": "done"
         }
@@ -652,6 +696,15 @@
           "next": "oubli-3-cruel"
         },
         {
+          "text": "Moi, des choses me reviennent, ces temps-ci.",
+          "next": "oubli-3-miroir",
+          "requires": [
+            {
+              "flag": "heros-enfant"
+            }
+          ]
+        },
+        {
           "text": "Je suis là.",
           "next": "fin"
         }
@@ -671,6 +724,96 @@
       "options": [
         {
           "text": "…",
+          "next": "fin"
+        }
+      ]
+    },
+    "remarque-enfant": {
+      "text": "Ilyane lève les yeux de son carnet. — Tu es pâle. Les Échos t’ont parlé ? À moi, ils ne parlent plus.",
+      "options": [
+        {
+          "text": "Un enfant m’a regardé·e.",
+          "next": "remarque-enfant-2"
+        },
+        {
+          "text": "Rien.",
+          "next": "fin"
+        }
+      ],
+      "effects": [
+        {
+          "setFlag": "ilyane-remarque-enfant"
+        }
+      ]
+    },
+    "remarque-vapeur": {
+      "text": "Ilyane pose la bouilloire sur le feu, puis s’arrête. — Tu la regardes comme si elle allait partir sans toi.",
+      "options": [
+        {
+          "text": "Je ne sais pas pourquoi.",
+          "next": "fin"
+        },
+        {
+          "text": "Ce n’est rien.",
+          "next": "fin"
+        }
+      ],
+      "effects": [
+        {
+          "setFlag": "ilyane-remarque-vapeur"
+        }
+      ]
+    },
+    "remarque-main": {
+      "text": "— Sylvan dit que tu serres le poing en dormant. Ilyane regarde ta main. — Sur quoi ?",
+      "options": [
+        {
+          "text": "Sur une main.",
+          "next": "fin"
+        },
+        {
+          "text": "Sur rien.",
+          "next": "fin"
+        }
+      ],
+      "effects": [
+        {
+          "setFlag": "ilyane-remarque-main"
+        }
+      ]
+    },
+    "remarque-voix": {
+      "text": "Ilyane compte les plis du relais à mi-voix, s’arrête à six, et perd le fil. — Sept, dis-tu sans y penser. Elle lève les yeux. — Comment le savais-tu ?",
+      "options": [
+        {
+          "text": "Je ne sais pas.",
+          "next": "fin"
+        }
+      ],
+      "effects": [
+        {
+          "setFlag": "ilyane-remarque-voix"
+        }
+      ]
+    },
+    "remarque-enfant-2": {
+      "text": "— Les Échos ne regardent personne : ils rejouent. Si l’un d’eux t’a regardé·e, c’est qu’il te connaissait.",
+      "options": [
+        {
+          "text": "Je ne le connais pas.",
+          "next": "fin"
+        }
+      ]
+    },
+    "oubli-3-miroir": {
+      "text": "Ilyane te regarde longtemps, comme on relit une page. — Toi, tu reprends ce que je perds. C’est peut-être juste.",
+      "options": [
+        {
+          "text": "Je te le rendrai.",
+          "next": "fin"
+        },
+        {
+          "text": "Ne dis pas ça.",
           "next": "fin"
         }
       ]

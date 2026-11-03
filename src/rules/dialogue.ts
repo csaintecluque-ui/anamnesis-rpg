@@ -10,7 +10,7 @@ import { collectedEchos, easeEmprise, empriseMalus, ECHOS, fadeSouvenirs, relive
 import { gardienNotices, gardienRank, rankNotices } from './factions';
 import recetteData from '../data/recettes.json';
 import { avisOf, changeAvis, findCompanion, inParty, joinParty, leaveParty, restParty } from './companions';
-import { castCost, castOutsideCombat, findPower, hasPower, POWERS, restoreResonance, teachSkillRank, wornCrystal, type PowerId } from './magic';
+import { castCost, castOutsideCombat, findPower, hasPower, POWERS, resonanceMax, restoreResonance, teachSkillRank, wornCrystal, type PowerId } from './magic';
 import { RECITS, findRecit, forgetRecit, knowsRecit, learnRecit } from './recits';
 import { effacerMarques, manqueMalus, marquesOf } from './marques';
 import { REPUTATION, reputationNotices, reputationScore, reputationTag } from './reputation';
@@ -51,12 +51,16 @@ export type Condition =
    */
   | { marques: number; max?: number }
   /** At least this many Échos gathered in the Livre des Échos (docs/gdd/echos.md): a test, shown greyed when unmet. */
-  | { echos: number };
+  | { echos: number }
+  /** The worn crystal has been cast at least this many times since it was tuned (chantier 6). A story condition. */
+  | { usureCristal: number };
 
 export type Effect =
   | { setFlag: string }
   /** A flag that holds `days` days, today included (a visitor's pass ; chantier 6). */
   | { setFlagFor: string; days: number }
+  /** The worn crystal tuned again: its wear gone, its Points de Résonance back (src/rules/usure.ts ; chantier 6). */
+  | { reaccorder: true }
   | { startQuest: string }
   | { completeQuest: string }
   | { giveXp: number }
@@ -236,6 +240,7 @@ export function conditionMet(state: GameState, c: Condition): boolean {
   if ('tousLes' in c) return (state.time.day - 1) % c.tousLes === c.decalage;
   if ('cristal' in c) return !!state.character && !!wornCrystal(state.character) === c.cristal;
   if ('compagnon' in c) return inParty(state, c.compagnon);
+  if ('usureCristal' in c) return !!state.character?.equipment.cristal && (state.character.usureCristal ?? 0) >= c.usureCristal;
   if ('avis' in c) return avisOf(state, c.avis) >= (c.min ?? -Infinity) && avisOf(state, c.avis) <= (c.max ?? Infinity);
   if ('lieu' in c) return state.location === c.lieu;
   if ('marques' in c) return marquesOf(state.character) >= c.marques && marquesOf(state.character) <= (c.max ?? Infinity);
@@ -379,6 +384,12 @@ export function applyEffects(state: GameState, effects: Effect[] = []): string[]
   for (const effect of effects) {
     if ('setFlag' in effect) {
       state.flags[effect.setFlag] = true;
+    } else if ('reaccorder' in effect) {
+      if (state.character) {
+        state.character.usureCristal = 0;
+        state.character.resonance = resonanceMax(state.character);
+        notices.push('Ton cristal est réaccordé : il chante juste');
+      }
     } else if ('setFlagFor' in effect) {
       state.flags[effect.setFlagFor] = true;
       state.expirations = { ...state.expirations, [effect.setFlagFor]: state.time.day + effect.days - 1 };

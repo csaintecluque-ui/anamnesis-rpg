@@ -4,6 +4,7 @@ import { RESONANCE_BASE, characterStats, type Character } from './character';
 import { ATTACK_AP_COST, type AttackProfile, type Dice } from './combat';
 import { findItem, ownedCount, removeItem, type ItemDef } from './inventory';
 import { marqueResonancePenalty, payThePrice } from './marques';
+import { CAST_WEAR } from './usure';
 import type { Rng } from './checks';
 
 /**
@@ -42,8 +43,11 @@ export function findPower(id: string): PowerDef | undefined {
 }
 
 /** 3 + rank of Résonance, less the third mark (la peau de cristal). */
-export function resonanceMax(c: Pick<Character, 'skills' | 'marques'>): number {
-  return Math.max(0, RESONANCE_BASE + c.skills.resonance - marqueResonancePenalty(c));
+export function resonanceMax(c: Pick<Character, 'skills' | 'marques' | 'usureCristal'>): number {
+  // A tired crystal gives less (src/rules/usure.ts ; chantier 6), never under one point.
+  const tired = Math.floor((c.usureCristal ?? 0) / CAST_WEAR);
+  const full = RESONANCE_BASE + c.skills.resonance - marqueResonancePenalty(c);
+  return Math.max(0, tired > 0 ? Math.max(1, full - tired) : full);
 }
 
 /** The crystal worn at the neck, if any. */
@@ -87,6 +91,7 @@ export function canCast(c: Character, id: PowerId, hp = c.hp): boolean {
 export function payCast(c: Character, power: PowerDef, rng: Rng = Math.random): { resonance: number; hp: number; prix: string[] } {
   const cost = castCost(c, power);
   c.resonance -= cost.resonance;
+  c.usureCristal = (c.usureCristal ?? 0) + 1;
   const prix = payThePrice(c, power.cost - cost.resonance, rng);
   return { ...cost, prix };
 }

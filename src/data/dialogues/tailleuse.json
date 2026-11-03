@@ -3,6 +3,14 @@
   "speaker": "tailleuse",
   "entries": [
     {
+      "requires": [
+        {
+          "usureCristal": 6
+        }
+      ],
+      "node": "usure"
+    },
+    {
       "node": "accueil"
     }
   ],
@@ -147,6 +155,41 @@
     },
     "dorna-achete": {
       "text": "Elle enveloppe le cristal dans un chiffon noir. — Dis à Dorna que la tente est toujours là. Elle comprendra.",
+      "options": [
+        {
+          "text": "Merci.",
+          "next": "fin"
+        }
+      ]
+    },
+    "usure": {
+      "text": "Elle prend ton cristal entre deux doigts noirs et le fait sonner contre son ongle. — Il chante faux. Tu l’as trop fait travailler. Vingt Fers, et je te le réaccorde : une heure de burin.",
+      "options": [
+        {
+          "text": "Le faire réaccorder.",
+          "requires": [
+            {
+              "fers": 20
+            }
+          ],
+          "effects": [
+            {
+              "giveFers": -20
+            },
+            {
+              "reaccorder": true
+            }
+          ],
+          "next": "reaccorde"
+        },
+        {
+          "text": "Autre chose.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "reaccorde": {
+      "text": "Le burin tinte, longtemps. Quand elle te le rend, le cristal est tiède, et il chante juste. — Ménage-le. Les cristaux, c’est comme les gens d’en bas : ça s’use sans se plaindre, puis ça casse.",
       "options": [
         {
           "text": "Merci.",

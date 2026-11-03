@@ -3,7 +3,7 @@ import enemyData from '../data/enemies.json';
 import weaponData from '../data/weapons.json';
 import type { Tile } from '../engine/iso';
 import { attributeModifier, type AttributeId, type SkillId } from './attributes';
-import { characterStats, findFeat, type Character } from './character';
+import { characterStats, findFeat, wearPenalty, type Character } from './character';
 import type { Effect } from './dialogue';
 import { addItem, armorBonus, findItem, ownedCount, removeItem } from './inventory';
 
@@ -290,7 +290,8 @@ export function heroAttacks(character: Character): AttackProfile[] {
       weaponId: weapon.id,
       label: weapon.name,
       range: isRanged ? weapon.range * (feat.rangeMultiplier ?? 1) : weapon.range,
-      toHitBonus: mod + rank + hitBonus,
+      // A dulled weapon misses more (src/rules/usure.ts ; chantier 6).
+      toHitBonus: mod + rank + hitBonus - wearPenalty(character, weapon.id),
       damage: weapon.damage,
       damageBonus: mod + (isRanged ? (feat.rangedDamage ?? 0) : (feat.meleeDamage ?? 0)),
       apCost: weapon.apCost ?? ATTACK_AP_COST,

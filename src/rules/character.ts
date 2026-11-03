@@ -88,6 +88,20 @@ export interface Character {
    * from before the marks (v14) have none, and stay valid as they are.
    */
   marques?: number;
+  /** Fights each weapon or armour has been through since its last repair (src/rules/usure.ts ; chantier 6). */
+  usure?: Record<string, number>;
+  /** Casts since the worn crystal was last tuned (src/rules/usure.ts ; chantier 6). */
+  usureCristal?: number;
+}
+
+/** Fights after which a weapon or an armour is dulled (−1), then worn (−2) (feuille de route, chantier 6). */
+export const WEAR_DULL = 6;
+export const WEAR_WORN = 12;
+
+/** What a weapon (to hit) or an armour (Défense) loses to its wear: 0, 1 or 2. */
+export function wearPenalty(c: Pick<Character, 'usure'>, itemId: string | null): number {
+  const wear = itemId ? (c.usure?.[itemId] ?? 0) : 0;
+  return wear >= WEAR_WORN ? 2 : wear >= WEAR_DULL ? 1 : 0;
 }
 
 export interface CharacterStats {

@@ -41,6 +41,7 @@ import {
   type Zone,
 } from '../rules/combat';
 import { nextEnemyAction, type AiContext } from '../rules/combatAi';
+import { wearEquipment } from '../rules/usure';
 import { DEFAULT_AVATAR } from '../rules/character';
 import { canCast, combatPower, healAmount, payCast, powerAttack, resonanceMax, type PowerDef } from '../rules/magic';
 import { companionsAfterFight, findCompanion, makeCompanionCombatant } from '../rules/companions';
@@ -1035,8 +1036,11 @@ export class CombatScene extends Phaser.Scene {
   private keepWounds(): string[] {
     // The hero's PV as the fight leaves them: wounds stay, and so does a Guérison naturelle.
     this.state.character!.hp = Math.max(1, this.hero().hp);
-    // A companion who fell gets up hurt, with 1 PV.
-    return companionsAfterFight(this.state, this.combatants).map((name) => `${name} est blessé·e, mais en vie`);
+    // A companion who fell gets up hurt, with 1 PV; the weapons and the armour wear (chantier 6).
+    return [
+      ...companionsAfterFight(this.state, this.combatants).map((name) => `${name} est blessé·e, mais en vie`),
+      ...wearEquipment(this.state.character!),
+    ];
   }
 
   private onVictory(): void {

@@ -1,7 +1,7 @@
 import itemData from '../data/items.json';
 import npcData from '../data/npcs.json';
 import { skillScoreOf } from './attributes';
-import { SLOTS, type Character, type Equipment, type Slot } from './character';
+import { SLOTS, wearPenalty, type Character, type Equipment, type Slot } from './character';
 import { carryCapacityKg } from './derived';
 
 export interface ItemDef {
@@ -83,7 +83,10 @@ export function carryCapacityLeftKg(character: Character): number {
 /** Sum of armorBonus from every equipped item that has one. */
 export function armorBonus(character: Character): number {
   const equipped = [character.equipment.mainGauche, character.equipment.mainDroite, character.equipment.armure];
-  return equipped.reduce((sum, id) => sum + (id ? (findItem(id)?.armorBonus ?? 0) : 0), 0);
+  const bonus = equipped.reduce((sum, id) => sum + (id ? (findItem(id)?.armorBonus ?? 0) : 0), 0);
+  // A worn armour protects less (src/rules/usure.ts ; chantier 6).
+  const armure = character.equipment.armure;
+  return Math.max(0, bonus - (armure && findItem(armure)?.armorBonus ? wearPenalty(character, armure) : 0));
 }
 
 export function addItem(character: Character, itemId: string, count = 1): void {

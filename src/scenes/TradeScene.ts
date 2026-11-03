@@ -1,8 +1,9 @@
 import Phaser from 'phaser';
 import npcData from '../data/npcs.json';
+import { crystalWear, repair, repairCost, wearOf } from '../rules/usure';
 import { combinedDiscount, deName, merchantPlace, reputationLevel, reputationPrices, reputationSells } from '../rules/reputation';
 import { findPlace } from '../rules/world';
-import { characterStats, type Character, type Slot } from '../rules/character';
+import { characterStats, wearPenalty, type Character, type Slot } from '../rules/character';
 import { armorBonus, buy, buyPrice, carriedWeightKg, equip, merchantCatalogue, merchantDiscount, ownedCount, sell, SELL_RATIO, tradeItems, unequip, useConsumable, type ItemDef } from '../rules/inventory';
 import { castOutsideCombat, combatPower, resonanceMax, useResonanceSap, wornCrystal } from '../rules/magic';
 import { marquesBorne } from '../rules/marques';
@@ -319,6 +320,16 @@ export class TradeScene extends Phaser.Scene {
       .join(' · ');
     add(status, LAYOUT.textFont, CSS.muted, { fontStyle: 'italic' }, 12);
     for (const use of itemUses(item)) add(`• ${use}`, LAYOUT.textFont, CSS.parchment, {}, 4);
+    // Its wear (src/rules/usure.ts ; chantier 6).
+    const wear = wearOf(this.character(), item.id);
+    if (wear > 0) {
+      const penalty = wearPenalty(this.character(), item.id);
+      const state = penalty === 2 ? 'abîmé·e' : penalty === 1 ? 'émoussé·e' : 'un peu usé·e';
+      add(`Usure : ${wear} combat${wear > 1 ? 's' : ''}, ${state}${penalty ? ` (−${penalty})` : ''}. Réparer : ${repairCost(this.character(), item.id)} Fers, chez un marchand.`, LAYOUT.textFont, CSS.copper, {}, 4);
+    }
+    if (item.slot === 'cristal' && this.character().equipment.cristal === item.id && crystalWear(this.character()) > 0) {
+      add(`Cristal fatigué : −${crystalWear(this.character())} Point de Résonance. La tailleuse d’Ironheart le réaccorde, ou Vanel, au Bosquet.`, LAYOUT.textFont, CSS.copper, {}, 4);
+    }
     if (this.npcId && merchantCatalogue(this.npcId).some((i) => i.id === item.id)) {
       const price = buyPrice(item, this.discount());
       const deal = price < item.price ? ' (prix d’ami)' : price > item.price ? ' (prix fort)' : '';
@@ -398,6 +409,11 @@ export class TradeScene extends Phaser.Scene {
         }, `Tu retires : ${item.name}.`)]);
       } else if (owned > 0 && item.slot === 'cristal') actions.push(['Porter', () => this.act(() => this.equipBestSlot(item), `Tu portes au cou : ${item.name}.`)]);
       else if (owned > 0) actions.push(['Équiper', () => this.act(() => this.equipBestSlot(item), `Tu équipes : ${item.name}.`)]);
+    }
+    // A merchant sets a worn weapon or armour right (chantier 6).
+    if (this.npcId && owned > 0 && repairCost(this.character(), item.id) > 0) {
+      const cost = repairCost(this.character(), item.id);
+      actions.push([`Réparer (${cost})`, () => this.act(() => (repair(this.character(), item.id) ? true : this.fail('Pas assez de Fers.')), `Comme neuf : ${item.name}.`)]);
     }
     if (owned > 0 && !item.quest) {
       actions.push([`Vendre (${sellPrice})`, () => this.act(() => (sell(this.character(), item.id, 1, ratio) ? null : true), `Tu vends : ${item.name}.`)]);

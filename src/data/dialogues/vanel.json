@@ -39,6 +39,14 @@
     {
       "requires": [
         {
+          "usureCristal": 6
+        }
+      ],
+      "node": "usure"
+    },
+    {
+      "requires": [
+        {
           "quest": "pret-terre",
           "status": "done"
         }
@@ -315,6 +323,36 @@
       "options": [
         {
           "text": "Merci, Vanel.",
+          "next": "fin"
+        }
+      ]
+    },
+    "usure": {
+      "text": "Vanel pose l’oreille contre ton cristal, les yeux fermés. — Il est fatigué, pas cassé. La Terre ne vend pas ses soins. Reste la nuit au Bosquet, près des noms gravés : au matin, il chantera juste.",
+      "options": [
+        {
+          "text": "Rester la nuit au Bosquet.",
+          "effects": [
+            {
+              "attendre": "matin"
+            },
+            {
+              "reaccorder": true
+            }
+          ],
+          "next": "reaccorde"
+        },
+        {
+          "text": "Autre chose.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "reaccorde": {
+      "text": "Tu dors mal, entre les racines, avec des voix qui ne sont pas les tiennes. Au matin, ton cristal est tiède, et il chante juste. Vanel est déjà parti.",
+      "options": [
+        {
+          "text": "Repartir.",
           "next": "fin"
         }
       ]

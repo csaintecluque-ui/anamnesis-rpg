@@ -18,3 +18,32 @@ quand Cyril le dit. Tout s'essaie à Gardebois, Canopéa et Ironheart, qu'on enr
 
 « Sexualité possiblement montrée mais en effet pas de torture, je suis d'accord sur la mort » : charte dans
 `docs/univers/ton.md` ; la mort du héros est réelle (on recharge la dernière sauvegarde).
+
+## Bilan (2026-11-03, demandé par Cyril)
+
+**Fait et en ligne** : les sept étapes, et une vérification qualité de tout le jeu (`docs/qualite.md`). Le jeu compte
+aujourd'hui 3 villes (Gardebois, Canopéa, Ironheart) et leurs abords, 32 lieux, 20 quêtes dont les chapitres 1 à 3 de
+l'histoire principale, 84 dialogues, 15 Récits, 12 Échos, 12 sortes de créatures, 3 voies endormies, 5 guildes à
+rangs, 9 recettes ; 584 tests automatiques, dont le parcours complet d'affilée.
+
+**Encore à valider** : les scènes inventées des Échos (la première graveuse, les premiers Nacelliers, le vote sous la
+pluie, le voyageur sans visage, la dernière chanson de la Cendrière, le train qui ne s'arrête pas) et leurs trois
+Récits ; le dessin de la carte du monde (à caler sur la carte de Cyril) ; la chronologie du canon (zones floues 6 à 13).
+
+**Reporté** (noté « plus tard » dans chaque document) : les trois ou quatre quêtes de chaque faction, le courrier des
+Nacelliers, la Route des Carrioles (sans jeu pour l'instant) ; l'escorte des caravanes, un vrai relais à Ironheart ; la
+taille des cristaux, les plantes à cueillir ; les compagnons qui réagissent aux veillées ; la récompense d'un Livre des
+Échos complet ; les images peintes (11,5 crédits Higgsfield restants).
+
+**Points faibles** :
+- **L'histoire principale s'arrête au chapitre 3** : Sept-Portes (chapitre 4) est confié à Codex depuis le 2026-11-02,
+  et rien n'est arrivé sur le dépôt ; Aetherhaven et la suite en dépendent.
+- **Le ressenti n'est pas encore testé par un humain** : les tests vérifient que tout se finit, pas que c'est bien
+  dosé (difficulté des voies endormies, prix, expérience, rythme).
+- Sur téléphone, deux gênes connues : les noms de l'amphithéâtre se touchent, et un dialogue à quatre options
+  chevauche un peu le portrait.
+- Les visuels restent provisoires (la mise en beauté est prévue à la fin, ≈ 1 400 crédits).
+
+**Suite proposée** (jalon 4, à valider) : d'abord une partie de Cyril sur téléphone pour le ressenti ; puis le
+chapitre 4, Sept-Portes (repris par Claude si Codex n'avance pas) ; puis une ville à la fois dans l'ordre validé
+(Aetherhaven d'abord) ; la mise en beauté à la fin.

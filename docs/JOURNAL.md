@@ -20,8 +20,8 @@
 1. **Jalon 3** (`docs/gdd/jalon-3.md`) : étapes 1 à 7 **validées et en ligne** (veillées `gdd/veillees.md`, passe
    sombre `gdd/passe-sombre.md`, voies et contrats `gdd/voies.md` ; scènes inventées des Échos à valider) ;
    **vérification qualité** faite et en ligne (`docs/qualite.md`) ; étape 7 (rangs, adhésions de Ferros, artisanat :
-   `gdd/factions.md`, `gdd/artisanat.md`) **validée et en ligne**. **Jalon 3 fini** : bilan avec Cyril, puis la suite.
-2. Codex : Sept-Portes (`AGENTS.md`). Notion : page « Anamnesis — le jeu », à tenir à jour à chaque mise en ligne.
+   `gdd/factions.md`, `gdd/artisanat.md`) **validée et en ligne**. **Jalon 3 fini** ; bilan dans `gdd/jalon-3.md`.
+2. Jalon 4 proposé, à valider : partie test de Cyril, puis Sept-Portes (rien de Codex sur le dépôt, `AGENTS.md`). Notion : page « Anamnesis — le jeu », à tenir à jour à chaque mise en ligne.
 
 ## Points ouverts
 

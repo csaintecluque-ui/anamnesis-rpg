@@ -140,6 +140,11 @@ export interface EnemyDef {
  */
 /** A fight a dialogue starts against a group of a sleeping line: `startCombat: 'voie:1'` (src/rules/voies.ts). */
 export const VOIE_FIGHT = 'voie:';
+/**
+ * The Golem of the Gare, struck after the yard was stopped some other way (décision de Cyril, 2026-11-03 ; étude, E11):
+ * `startCombat: 'golem-gare'` from its warning (src/data/dialogues/golem-gare.json).
+ */
+export const GOLEM_FIGHT = 'golem-gare';
 
 export interface EncounterDef {
   id: string;

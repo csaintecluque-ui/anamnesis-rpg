@@ -51,6 +51,11 @@
     "role": "Objet"
   },
   {
+    "id": "golem-gare",
+    "name": "Le Golem de Ferraille",
+    "role": "Objet"
+  },
+  {
     "id": "sylvan",
     "name": "Sylvan Mousserelle",
     "role": "Aubergiste de la Racine",

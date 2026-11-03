@@ -1,0 +1,36 @@
+{
+  "id": "golem-gare",
+  "speaker": "golem-gare",
+  "entries": [
+    {
+      "node": "garde"
+    }
+  ],
+  "nodes": {
+    "garde": {
+      "text": "Le Golem de Ferraille ne bouge plus. Il garde la Faille, le cœur à demi éteint, et ses yeux te suivent. Derrière la palissade, Ingrid Brisefer a vu ta main sur ta lame : « Touchez-y, et je ne réponds plus de rien. »",
+      "options": [
+        {
+          "text": "Le frapper quand même.",
+          "next": "fin",
+          "effects": [
+            {
+              "setFlag": "golem-attaque-apres"
+            },
+            {
+              "avis": "liane",
+              "delta": -1
+            },
+            {
+              "startCombat": "golem-gare"
+            }
+          ]
+        },
+        {
+          "text": "Le laisser à sa garde.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

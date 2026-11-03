@@ -1938,6 +1938,19 @@ _Effet : retient « gris-garrik »._
 
 - « Pars, et ne reviens jamais sur le sol sacré. » → depart
 
+## Le Golem de Ferraille
+
+_Objet_
+
+Commence par : « garde »
+
+### garde
+
+> Le Golem de Ferraille ne bouge plus. Il garde la Faille, le cœur à demi éteint, et ses yeux te suivent. Derrière la palissade, Ingrid Brisefer a vu ta main sur ta lame : « Touchez-y, et je ne réponds plus de rien. »
+
+- « Le frapper quand même. » → **fin** _(retient « golem-attaque-apres », avis de Liane −1, lance le combat « golem-gare »)_
+- « Le laisser à sa garde. » → **fin**
+
 ## Sacs de graines-lumière
 
 _Objet_
@@ -2547,7 +2560,7 @@ _Si Boulon voyage avec toi :_ Boulon, très bas : — Je peux retenir pour elle.
 
 _Ingénieure, prospection de Ferros_
 
-Commence par : « apres-explosion-pell » _(si repère « foreuse-explosee »)_ _(si repère « pell-sauve »)_, sinon « apres-explosion » _(si repère « foreuse-explosee »)_, sinon « apres-sabotage » _(si repère « foreuse-sabotee »)_, sinon « apres-golem » _(si repère « golem-vaincu »)_, sinon « apres » _(si quête « Le Dernier Train » terminée)_, sinon « soupcon » _(si repère « surpris-de-nuit »)_, sinon « barriere » _(si quête « Le Dernier Train » en cours)_ _(sans repère « laissez-passer »)_, sinon « accueil »
+Commence par : « apres-explosion-pell » _(si repère « foreuse-explosee »)_ _(si repère « pell-sauve »)_, sinon « apres-explosion » _(si repère « foreuse-explosee »)_, sinon « apres-sabotage » _(si repère « foreuse-sabotee »)_, sinon « apres-golem-trahie » _(si repère « golem-vaincu »)_ _(si repère « golem-attaque-apres »)_, sinon « apres-golem » _(si repère « golem-vaincu »)_, sinon « apres » _(si quête « Le Dernier Train » terminée)_, sinon « soupcon » _(si repère « surpris-de-nuit »)_, sinon « barriere » _(si quête « Le Dernier Train » en cours)_ _(sans repère « laissez-passer »)_, sinon « accueil »
 
 ### accueil
 
@@ -2741,6 +2754,13 @@ _Effet : retient « chantier-arrete », termine la quête « Le Dernier Train »
 > — Vous avez abattu mon gardien. Ce Golem ne gardait pas seulement la Faille : son cœur de cristal tenait la foreuse sous tension. Sans lui, la machine est morte. Ferros m’enverra un autre cœur. Dans des mois.
 
 - « Tant mieux. » → **fin**
+
+### apres-golem-trahie
+
+> — Je vous avais prévenu·e. J’ai arrêté ce chantier sur votre parole, et vous m’avez pris le seul gardien de la Faille. Ferros ne m’enverra pas d’autre cœur pour un chantier mort. Si elle s’ouvre, ce sera sur vous.
+
+- « Il n’avait plus rien à garder. » → **fin**
+- « Je sais. » → **fin**
 
 ## Joss Brakel
 

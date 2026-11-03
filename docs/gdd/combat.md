@@ -225,6 +225,11 @@ Chaque point d'attribut comptait trois fois (toucher, dégâts, PV) ; un rang de
 - **B6** : les combattants se dessinent au-dessus des arbres et des murs de l'arène (`TOKEN_DEPTH`) ; les arbres devant
   eux s'estompent toujours. Avant, au combat de la caisse, un Rôdeur sous la canopée ne se voyait qu'à sa barre de vie.
   La barre d'actions ne propose plus « Soigner » pour Liane (elle soigne seule) ; la touche 4 reste le pouvoir du cristal.
+- **E11 Le Golem reste attaquable** (décision de Cyril, vague 2) : le chantier arrêté autrement (la parole, la foreuse
+  sabotée ou explosée), le Golem ne bouge plus mais se laisse frapper, après un avertissement
+  (`golem-gare.json` : « Touchez-y, et je ne réponds plus de rien ») ; Liane désapprouve (−1) ; même combat (le Golem
+  et deux Rôdeurs), 50 XP et le cœur de ferraille, sans Fers ni fin de quête ; Ingrid le reproche ensuite
+  (`apres-golem-trahie`). Vaincu, il gît pour de bon.
 - **F3** (+PV par niveau) et **E4** (renfort par chapitre plafonné) : non appliqués. F3 n'apporte que 1 à 3 points
   (simulation ci-dessous) ; E4 change l'équilibre des chapitres 3 et 4 (guerrier niveau 3 contre les pilleurs :
   34 % → 73 %) et attend la vague 2.

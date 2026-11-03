@@ -24,6 +24,7 @@ import echoDernierTrain from './echo-dernier-train.json';
 import elouan from './elouan.json';
 import elvan from './elvan.json';
 import foreuse from './foreuse.json';
+import golemGare from './golem-gare.json';
 import garrik from './garrik.json';
 import grainesConseil from './graines-conseil.json';
 import guichetCendres from './guichet-cendres.json';
@@ -126,6 +127,7 @@ export const DIALOGUES: Record<string, Dialogue> = {
   elouan: elouan as Dialogue,
   elvan: elvan as Dialogue,
   foreuse: foreuse as Dialogue,
+  'golem-gare': golemGare as Dialogue,
   garrik: garrik as Dialogue,
   'graines-conseil': grainesConseil as Dialogue,
   'guichet-cendres': guichetCendres as Dialogue,

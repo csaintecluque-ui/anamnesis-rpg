@@ -9,7 +9,7 @@ import { FADED_ALPHA, bodyBox, obstacleBox, overlaps, type Box } from '../engine
 import { findPath } from '../engine/pathfinding';
 import { bigBlock, findObject, isBigAnchor, isWalkable, parseTiledMap, tileKey, type GameMap, type MapObject } from '../engine/tiledMap';
 import { DEFAULT_AVATAR } from '../rules/character';
-import { ENCOUNTERS, VOIE_FIGHT, findEnemy, storyChapter } from '../rules/combat';
+import { ENCOUNTERS, GOLEM_FIGHT, VOIE_FIGHT, findEnemy, storyChapter } from '../rules/combat';
 import { expireFlags, hasStoryEntry, type Effect } from '../rules/dialogue';
 import {
   ENCOUNTER_VICTORY_FLAG,
@@ -585,6 +585,12 @@ export class MapScene extends Phaser.Scene {
   startEncounter(id: string): void {
     // A group of a sleeping line, attacked from its dialogue (chantier 3).
     if (id.startsWith(VOIE_FIGHT)) return this.fightVoieGroup(id.slice(VOIE_FIGHT.length));
+    // The Golem, struck after the yard was stopped (étude, E11).
+    if (id === GOLEM_FIGHT) {
+      const golem = this.map.objects.find((o) => o.type === 'golem');
+      if (golem) this.golemFight(golem, true);
+      return;
+    }
     const encounter = ENCOUNTERS.find((e) => e.id === id);
     const center = encounter && findObject(this.map, encounter.center);
     if (!encounter || !center) return;
@@ -1043,12 +1049,26 @@ export class MapScene extends Phaser.Scene {
       this.hud().toast('Le Golem de Ferraille gît immobile, silencieux.');
       return;
     }
-    if (this.state.flags['chantier-arrete'] || this.state.quests['dernier-train'] !== 'active') {
+    // The yard stopped by other means, the Golem still stands: one may strike it, warned (décision de Cyril,
+    // 2026-11-03 ; étude, E11). Its warning dialogue starts the fight (GOLEM_FIGHT).
+    if (this.state.flags['chantier-arrete'] || this.state.quests['dernier-train'] === 'done') {
+      this.scene.pause();
+      this.scene.launch('Dialogue', { id: GOLEM_FIGHT });
+      return;
+    }
+    if (this.state.quests['dernier-train'] !== 'active') {
       this.hud().toast('Le Golem de Ferraille ne bouge plus.');
       return;
     }
-    // The fight takes place right here, on the map around the golem; the two Rôdeurs-Épine come out of the
-    // undergrowth at the far edge (docs/gdd/combat.md).
+    this.golemFight(golem, false);
+  }
+
+  /**
+   * The fight takes place right here, on the map around the golem; the two Rôdeurs-Épine come out of the undergrowth
+   * at the far edge (docs/gdd/combat.md). In the story, it stops the yard and ends « Le Dernier Train » ; after, it
+   * only gives its heart and the experience.
+   */
+  private golemFight(golem: MapObject, after: boolean): void {
     const arena = carveArena(this.map, golem, ARENA_COLS, ARENA_ROWS, [golem]);
     const heroTile = toArena(arena, this.heroTile);
     const golemTile = toArena(arena, golem);
@@ -1058,7 +1078,7 @@ export class MapScene extends Phaser.Scene {
     this.scene.pause('Hud');
     this.scene.launch('Combat', {
       enemyIds: ['golem-ferraille', 'rodeur-epine', 'rodeur-epine'],
-      victoryEffects: [{ setFlag: 'chantier-arrete' }, { completeQuest: 'dernier-train' }, { giveXp: 70 }, { giveFers: 30 }],
+      victoryEffects: after ? [{ giveXp: 50 }] : [{ setFlag: 'chantier-arrete' }, { completeQuest: 'dernier-train' }, { giveXp: 70 }, { giveFers: 30 }],
       victoryFlag: 'golem-vaincu',
       arena,
       heroTile,

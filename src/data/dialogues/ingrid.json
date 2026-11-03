@@ -33,6 +33,17 @@
       "requires": [
         {
           "flag": "golem-vaincu"
+        },
+        {
+          "flag": "golem-attaque-apres"
+        }
+      ],
+      "node": "apres-golem-trahie"
+    },
+    {
+      "requires": [
+        {
+          "flag": "golem-vaincu"
         }
       ],
       "node": "apres-golem"
@@ -544,6 +555,19 @@
       "options": [
         {
           "text": "Tant mieux.",
+          "next": "fin"
+        }
+      ]
+    },
+    "apres-golem-trahie": {
+      "text": "— Je vous avais prévenu·e. J’ai arrêté ce chantier sur votre parole, et vous m’avez pris le seul gardien de la Faille. Ferros ne m’enverra pas d’autre cœur pour un chantier mort. Si elle s’ouvre, ce sera sur vous.",
+      "options": [
+        {
+          "text": "Il n’avait plus rien à garder.",
+          "next": "fin"
+        },
+        {
+          "text": "Je sais.",
           "next": "fin"
         }
       ]

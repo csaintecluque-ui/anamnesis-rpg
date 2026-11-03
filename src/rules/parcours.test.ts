@@ -5,7 +5,7 @@ import { MAPS } from '../data/maps';
 import { parseTiledMap, type GameMap, type MapObject } from '../engine/tiledMap';
 import { LOCATIONS, createNewGame, findLocation, type GameState } from '../state/gameState';
 import { ENCOUNTERS } from './combat';
-import { END, QUESTS, applyEffects, conditionMet, goesTo, hasStoryEntry, startNode, startsCombat, visibleOptions, type Dialogue, type Effect } from './dialogue';
+import { END, QUESTS, applyEffects, conditionMet, goesTo, hasStoryEntry, raconterOption, startNode, startsCombat, visibleOptions, type Dialogue, type Effect } from './dialogue';
 import { FIGURANTS, figurantLines, figurantsAt } from './figurants';
 import { equip, merchantDiscount, ownedCount } from './inventory';
 import { journalQuests } from './journal';
@@ -72,6 +72,15 @@ function companion(state: GameState, id: string): string {
 }
 
 /** Chooses an option (visible, enabled; a roll succeeds); a `goTo` moves the hero, as DialogueScene does. */
+/** Tells a Récit through a node's « raconter » option: its target node and that node's effects. */
+function tell(state: GameState, dialogue: string, node: string, recit: string): void {
+  const view = visibleOptions(DIALOGUES[dialogue].nodes[node], state).find((v) => v.option.raconter);
+  expect(view, `${dialogue}/${node} : pas d’option pour raconter`).toBeDefined();
+  const option = raconterOption(view!.option.raconter!, recit);
+  applyEffects(state, option.effects);
+  applyEffects(state, DIALOGUES[dialogue].nodes[option.next]?.effects);
+}
+
 function say(state: GameState, dialogue: string, node: string, text: string): void {
   const option = choose(state, dialogue, node, text);
   const place = goesTo(option.effects);
@@ -974,7 +983,7 @@ describe('Parcours complet, d’une traite', () => {
 // ---------------------------------------------------------------------------------------------------------------
 
 describe('Variante : Ironheart avant les quêtes annexes (parole, combats, autres fins)', () => {
-  const s = createNewGame(testCharacter({}, { diplomacy: 3, survival: 2 }));
+  const s = createNewGame(testCharacter({}, { diplomacy: 3, survival: 2, investigation: 2 }));
 
   it('« Le Dernier Train » par la parole : sans laissez-passer, le contremaître barre la route ; Tobias le donne', () => {
     expect(talk(s, 'ilyane')).toBe('accueil');
@@ -993,7 +1002,11 @@ describe('Variante : Ironheart avant les quêtes annexes (parole, combats, autre
     walk(s, 'gare-engloutie');
     expect(talk(s, 'ingrid')).toBe('accueil');
     say(s, 'ingrid', 'accueil', 'Ce chantier');
-    expect(gained(s, () => say(s, 'ingrid', 'cause', 'Arrêtez le forage'))).toEqual({ xp: 70, fers: 30 });
+    // Ingrid résiste (feuille de route, chantier 5) : une preuve, puis une issue pour elle.
+    say(s, 'ingrid', 'cause', 'Arrêtez le forage');
+    say(s, 'ingrid', 'resiste', 'Ils dorment, oui');
+    expect(gained(s, () => say(s, 'ingrid', 'resiste-2', 'Alors écrivez à Ferros'))).toEqual({ xp: 80, fers: 30 });
+    expect(s.flags['ingrid-rapport']).toBe(true);
     expect(s.quests['dernier-train']).toBe('done');
     expect(talk(s, 'foreuse')).toBe('arretee');
     expect(talk(s, 'ingrid')).toBe('apres');
@@ -1455,7 +1468,9 @@ function prelude(s: GameState): void {
   walk(s, 'gare-engloutie');
   expect(talk(s, 'ingrid')).toBe('accueil');
   say(s, 'ingrid', 'accueil', 'Ce chantier');
-  say(s, 'ingrid', 'cause', 'Je connais l’histoire du savant Corvan');
+  // Le Récit de l'Écho, raconté à Ingrid (feuille de route, chantiers 1 et 5).
+  tell(s, 'ingrid', 'cause', 'savant-corvan');
+  expect(s.quests['dernier-train']).toBe('done');
   walk(s, 'gardebois');
   expect(talk(s, 'ilyane')).toBe('resolu');
   say(s, 'ilyane', 'resolu', 'Et maintenant');
@@ -1690,8 +1705,9 @@ describe('Variante : Canopéa d’abord, puis Gardebois', () => {
     say(s, 'ilyane', 'cause', 'J’irai voir');
     walk(s, 'gare-engloutie');
     expect(gained(s, () => golem(s))).toEqual({ xp: 70, fers: 30 });
-    expect(talk(s, 'foreuse')).toBe('arretee');
-    expect(talk(s, 'ingrid')).toBe('apres');
+    // Le cœur du Golem tenait la foreuse sous tension (feuille de route, chantier 5).
+    expect(talk(s, 'foreuse')).toBe('arretee-golem');
+    expect(talk(s, 'ingrid')).toBe('apres-golem');
     walk(s, 'gardebois');
     expect(talk(s, 'ilyane')).toBe('resolu');
   });
@@ -1727,7 +1743,8 @@ describe('Cas limites', () => {
     say(s, 'foreuse', 'jour', 'Attendre la nuit');
     say(s, 'foreuse', 'nuit', 'Se glisser');
     expect(optionTexts(s, 'foreuse', 'au-pied')).toEqual(['Saboter le mécanisme.', 'Ouvrir la chaudière en grand, et courir.', 'Repartir sans rien toucher.']);
-    expect(gained(s, () => say(s, 'foreuse', 'au-pied', 'Ouvrir la chaudière'))).toEqual({ xp: 70, fers: 30 });
+    // Une mort n'est pas une solution : moins d'XP (feuille de route, chantier 5).
+    expect(gained(s, () => say(s, 'foreuse', 'au-pied', 'Ouvrir la chaudière'))).toEqual({ xp: 50, fers: 30 });
     expect(s.quests['dernier-train']).toBe('done');
     expect(talk(s, 'foreuse')).toBe('explosee');
     expect(talk(s, 'ingrid')).toBe('apres-explosion');

@@ -32,6 +32,14 @@
     {
       "requires": [
         {
+          "flag": "golem-vaincu"
+        }
+      ],
+      "node": "apres-golem"
+    },
+    {
+      "requires": [
+        {
           "quest": "dernier-train",
           "status": "done"
         }
@@ -121,7 +129,6 @@
       "options": [
         {
           "text": "Arrêtez le forage : à chaque coup, l’Écho se multiplie, et le mal avec lui.",
-          "next": "convaincue",
           "requires": [
             {
               "skill": "diplomacy",
@@ -132,24 +139,10 @@
               "status": "active"
             }
           ],
-          "effects": [
-            {
-              "setFlag": "chantier-arrete"
-            },
-            {
-              "completeQuest": "dernier-train"
-            },
-            {
-              "giveXp": 70
-            },
-            {
-              "giveFers": 30
-            }
-          ]
+          "next": "resiste"
         },
         {
           "text": "Je parle au nom des Gardiens de Mémoire : cessez, maintenant.",
-          "next": "convaincue",
           "requires": [
             {
               "skill": "command",
@@ -160,47 +153,24 @@
               "status": "active"
             }
           ],
-          "effects": [
-            {
-              "setFlag": "chantier-arrete"
-            },
-            {
-              "completeQuest": "dernier-train"
-            },
-            {
-              "giveXp": 70
-            },
-            {
-              "giveFers": 30
-            }
-          ]
+          "next": "resiste-ordre"
         },
         {
-          "text": "Je connais l’histoire du savant Corvan. Écoutez-la avant de creuser plus loin.",
-          "next": "convaincue-recit",
+          "text": "Lui raconter une histoire.",
           "requires": [
-            {
-              "recit": "savant-corvan"
-            },
             {
               "quest": "dernier-train",
               "status": "active"
             }
           ],
-          "effects": [
-            {
-              "setFlag": "chantier-arrete"
+          "next": "recit-refus",
+          "raconter": {
+            "recits": {
+              "savant-corvan": "convaincue-quai",
+              "corvan": "convaincue-recit"
             },
-            {
-              "completeQuest": "dernier-train"
-            },
-            {
-              "giveXp": 70
-            },
-            {
-              "giveFers": 30
-            }
-          ]
+            "neutre": "recit-refus"
+          }
         },
         {
           "text": "Je reviendrai.",
@@ -209,7 +179,24 @@
       ]
     },
     "convaincue": {
-      "text": "Bon. J’arrête la foreuse, pour l’instant. Mais dites bien à vos Gardiens que Ferros reviendra, avec ou sans moi.",
+      "text": "Ingrid se tait longtemps, puis plie ses papiers en quatre. — J’écrirai à Ferros que la Faille est instable. C’est peut-être même vrai. J’arrête la foreuse. Dites à vos Gardiens que Ferros reviendra, avec ou sans moi.",
+      "effects": [
+        {
+          "setFlag": "chantier-arrete"
+        },
+        {
+          "setFlag": "ingrid-rapport"
+        },
+        {
+          "completeQuest": "dernier-train"
+        },
+        {
+          "giveXp": 80
+        },
+        {
+          "giveFers": 30
+        }
+      ],
       "options": [
         {
           "text": "Merci.",
@@ -218,7 +205,21 @@
       ]
     },
     "convaincue-recit": {
-      "text": "Corvan ? Je connais l’histoire, oui, et vous avez raison : il a réussi, et ça ne l’a pas sauvé. J’arrête la foreuse. On ne commet pas deux fois la même faute.",
+      "text": "— Corvan ? Je connais l’histoire, oui, et vous avez raison : il a réussi, et ça ne l’a pas sauvé. J’arrête la foreuse. On ne commet pas deux fois la même faute.",
+      "effects": [
+        {
+          "setFlag": "chantier-arrete"
+        },
+        {
+          "completeQuest": "dernier-train"
+        },
+        {
+          "giveXp": 90
+        },
+        {
+          "giveFers": 30
+        }
+      ],
       "options": [
         {
           "text": "Merci.",
@@ -380,6 +381,169 @@
       "options": [
         {
           "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "resiste": {
+      "text": "— Un Écho qui se multiplie ? Prouvez-le. Mes ouvriers dorment à poings fermés, eux.",
+      "options": [
+        {
+          "text": "Ils dorment, oui. Ils ne rêvent plus. Demandez-leur ce qu’ils ont fait hier.",
+          "requires": [
+            {
+              "skill": "investigation",
+              "min": 2
+            }
+          ],
+          "next": "resiste-2"
+        },
+        {
+          "text": "Les malades de Liane, à Gardebois : venez les entendre une nuit.",
+          "requires": [
+            {
+              "flag": "liane-malades-vus"
+            }
+          ],
+          "next": "resiste-2"
+        },
+        {
+          "text": "Saule Sève-Claire, lui, ne rêve plus du tout.",
+          "requires": [
+            {
+              "flag": "ingrid-sait-saule"
+            }
+          ],
+          "next": "resiste-2"
+        },
+        {
+          "text": "Je n’ai pas de preuve. Pas encore.",
+          "next": "fin"
+        }
+      ]
+    },
+    "resiste-2": {
+      "text": "Ingrid regarde la foreuse un long moment. — Admettons. Et si j’arrête ? Ferros envoie un autre ingénieur dans un mois, sans mes scrupules, et il creusera deux fois plus vite.",
+      "options": [
+        {
+          "text": "Alors écrivez à Ferros que la Faille est instable. Vous, ils vous croiront.",
+          "requires": [
+            {
+              "skill": "diplomacy",
+              "min": 3
+            }
+          ],
+          "next": "convaincue"
+        },
+        {
+          "text": "Un mois de répit, c’est un mois de malades en moins.",
+          "next": "resiste-mois"
+        },
+        {
+          "text": "Je reviendrai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "resiste-mois": {
+      "text": "— Un mois de répit, et je perds ma place. Vos malades dormiront ; moi, je n’aurai plus de quoi manger. Trouvez mieux.",
+      "options": [
+        {
+          "text": "Je reviendrai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "resiste-ordre": {
+      "text": "— Au nom des Gardiens ? Les Gardiens n’ont ni garde, ni loi, ni foreuse. Moi, j’ai les trois.",
+      "options": [
+        {
+          "text": "Gardebois a une garde, et la frontière a des yeux. Je peux les tourner vers vous.",
+          "requires": [
+            {
+              "skill": "command",
+              "min": 3
+            }
+          ],
+          "next": "convaincue-peur"
+        },
+        {
+          "text": "Je reviendrai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "convaincue-peur": {
+      "text": "Ingrid te dévisage, et ses lèvres blanchissent. — Très bien. J’arrête. Elle te lance une bourse. — Pour votre garde. Qu’elle regarde ailleurs, le jour où Ferros reviendra.",
+      "effects": [
+        {
+          "setFlag": "chantier-arrete"
+        },
+        {
+          "setFlag": "ingrid-rancune"
+        },
+        {
+          "avis": "liane",
+          "delta": -1
+        },
+        {
+          "completeQuest": "dernier-train"
+        },
+        {
+          "giveXp": 60
+        },
+        {
+          "giveFers": 50
+        }
+      ],
+      "options": [
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ]
+    },
+    "convaincue-quai": {
+      "text": "Ingrid écoute, les yeux sur la foreuse. — « Même réussir peut tout détruire. » Il savait de quoi il parlait, celui-là. Bien. J’arrête. Pour lui ; pas pour vos Gardiens.",
+      "effects": [
+        {
+          "setFlag": "chantier-arrete"
+        },
+        {
+          "completeQuest": "dernier-train"
+        },
+        {
+          "giveXp": 90
+        },
+        {
+          "giveFers": 30
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci.",
+          "next": "fin"
+        }
+      ]
+    },
+    "recit-refus": {
+      "text": "— Une belle histoire. Elle ne me dit pas pourquoi j’arrêterais.",
+      "options": [
+        {
+          "text": "Revenir à la maladie.",
+          "next": "cause"
+        },
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "apres-golem": {
+      "text": "— Vous avez abattu mon gardien. Ce Golem ne gardait pas seulement la Faille : son cœur de cristal tenait la foreuse sous tension. Sans lui, la machine est morte. Ferros m’enverra un autre cœur. Dans des mois.",
+      "options": [
+        {
+          "text": "Tant mieux.",
           "next": "fin"
         }
       ]

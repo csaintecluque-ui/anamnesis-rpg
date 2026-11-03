@@ -133,7 +133,9 @@ Ces décisions valent **pour le jeu**. Le dossier `docs/Lore/` reste inchangé.
     train (jalon 1), un savant de la Grande Chute dit « Dis-leur, pour Corvan ». Or Corvan « a tenté de rebâtir un
     réacteur » de l'Ancien Monde [E2] : il aurait donc vécu **après** la Chute, et le savant du train ne pouvait pas le
     connaître. **Décision de Cyril (2026-11-02, « oui pour tout »)** : le nom est retiré de l'Écho (« Dis-leur que même
-    réussir peut tout détruire »), qui donne toujours le Récit du savant Corvan. Le roman parle
+    réussir peut tout détruire »), qui donne toujours le Récit du savant Corvan. **Chantier 5 (feuille de route de
+    Cyril, 2026-11-03)** : l'Écho donne désormais « Le savant du dernier quai » (d'avant la Chute) ; l'histoire de
+    Corvan (d'après la Chute) devient un Récit ordinaire, à lire dans les carnets d'Ilyane. Le roman parle
     aussi de « caste Technique » (V.1) et de « Classe Technique » (IV.6) : le jeu emploie les deux.
 
 Relevés à la lecture des pages de Terminus pour le chapitre 4 (2026-11-03). Sources : [F] la fiche « Terminus »,

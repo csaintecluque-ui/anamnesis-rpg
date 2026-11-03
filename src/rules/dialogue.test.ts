@@ -15,6 +15,7 @@ import {
   visibleOptions,
   type Dialogue,
   type DialogueNode,
+  type Effect,
 } from './dialogue';
 
 /** A complete level 1 character with the given Perception (3–5) and Diplomatie rank (0–3). */
@@ -197,15 +198,22 @@ describe('dialogue files', () => {
     expect(s.character!.fers).toBe(before + 30);
   });
 
-  it('every resolution of Le Dernier Train pays the same reward', () => {
-    const resolutions = [...Object.values(DIALOGUES.ingrid.nodes).flatMap((n) => n.options), ...Object.values(DIALOGUES.foreuse.nodes)]
-      .map((o) => o.effects ?? [])
-      .filter((effects) => effects.some((e) => 'completeQuest' in e));
-    expect(resolutions).toHaveLength(4);
-    for (const effects of resolutions) {
+  it('each resolution of Le Dernier Train pays its own reward (feuille de route, chantier 5)', () => {
+    const xpOf = (effects: Effect[] = []) => effects.find((e): e is { giveXp: number } => 'giveXp' in e)?.giveXp;
+    const ingrid = DIALOGUES.ingrid.nodes;
+    const foreuse = DIALOGUES.foreuse.nodes;
+    const explosion = foreuse['au-pied'].options.find((o) => o.effects?.some((e) => 'setFlag' in e && e.setFlag === 'foreuse-explosee'))!;
+    const rewards = {
+      parole: xpOf(ingrid.convaincue.effects),
+      menace: xpOf(ingrid['convaincue-peur'].effects),
+      recit: xpOf(ingrid['convaincue-quai'].effects),
+      sabotage: xpOf(foreuse.sabotee.effects),
+      explosion: xpOf(explosion.effects),
+    };
+    expect(rewards).toEqual({ parole: 80, menace: 60, recit: 90, sabotage: 70, explosion: 50 });
+    for (const effects of [ingrid.convaincue.effects, ingrid['convaincue-peur'].effects, ingrid['convaincue-quai'].effects, foreuse.sabotee.effects, explosion.effects]) {
       expect(effects).toContainEqual({ setFlag: 'chantier-arrete' });
-      expect(effects).toContainEqual({ giveXp: 70 });
-      expect(effects).toContainEqual({ giveFers: 30 });
+      expect(effects).toContainEqual({ completeQuest: 'dernier-train' });
     }
   });
 
@@ -271,24 +279,20 @@ describe('dialogue files', () => {
     applyEffects(highMemory, enter.option.effects);
     const notices = applyEffects(highMemory, DIALOGUES['echo-dernier-train'].nodes.interieur.effects);
     expect(highMemory.character?.recits).toContain('savant-corvan');
-    expect(notices).toEqual(['Récit retenu : Le Savant Corvan']);
+    expect(notices).toEqual(['Récit retenu : Le savant du dernier quai']);
   });
 
-  it('Ingrid stops the dig for a Diplomatie 3 or Commandement 3 test, or for the Récit du savant Corvan (docs/gdd/tranche-verticale.md)', () => {
+  it('Ingrid resists: Diplomatie 3 or Commandement 3 over several exchanges, or the Récit of the quai or of Corvan, told (feuille de route, chantier 5)', () => {
     const d = DIALOGUES.ingrid;
     const tests = Object.values(d.nodes).flatMap((n) => n.options.flatMap((o) => o.requires ?? []));
     expect(tests).toContainEqual({ skill: 'diplomacy', min: 3 });
     expect(tests).toContainEqual({ skill: 'command', min: 3 });
-    expect(tests).toContainEqual({ recit: 'savant-corvan' });
-
-    const withoutRecit = stateWith(3, 3);
-    withoutRecit.quests['dernier-train'] = 'active';
-    const recitOption = visibleOptions(d.nodes.cause, withoutRecit).find((v) => v.option.text.includes('savant Corvan'));
-    expect(recitOption).toBeUndefined();
-
-    const withRecit: GameState = { ...withoutRecit, character: { ...withoutRecit.character!, recits: ['savant-corvan'] } };
-    const recitOptionVisible = visibleOptions(d.nodes.cause, withRecit).find((v) => v.option.text.includes('savant Corvan'));
-    expect(recitOptionVisible).toMatchObject({ enabled: true });
+    const tell = d.nodes.cause.options.find((o) => o.raconter)!;
+    expect(tell.raconter?.recits).toEqual({ 'savant-corvan': 'convaincue-quai', corvan: 'convaincue-recit' });
+    // Three exchanges: the claim, a proof, then a way out for her.
+    expect(d.nodes.cause.options[0].next).toBe('resiste');
+    expect(d.nodes.resiste.options.map((o) => o.next)).toContain('resiste-2');
+    expect(d.nodes['resiste-2'].options.map((o) => o.next)).toContain('convaincue');
   });
 });
 

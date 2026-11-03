@@ -1,102 +1,160 @@
 [
   {
     "id": "savant-corvan",
+    "titre": "Le savant du dernier quai",
+    "texte": "Sur le quai du dernier train, on emmenait un savant loin du danger. Il s’est retourné vers la foule, une seule fois : « Dis-leur que même réussir peut tout détruire. » Personne ne sait ce qu’il avait réussi. On sait ce qui a suivi.",
+    "principal": true,
+    "themes": [
+      "ancien-monde",
+      "trains"
+    ]
+  },
+  {
+    "id": "corvan",
     "titre": "Le Savant Corvan",
     "texte": "Le savant Corvan reconstruisit un réacteur de l’Ancien Monde. Avant même de l’allumer, la foudre le frappa dans son laboratoire scellé, et une tempête de radiation dura six mois. On dit que ses descendants sont encore traqués par le malheur : réussir, parfois, détruit tout autant qu’échouer.",
-    "principal": true,
-    "themes": ["ancien-monde", "machines"]
+    "principal": false,
+    "themes": [
+      "ancien-monde",
+      "machines"
+    ]
   },
   {
     "id": "berceuse-de-maelis",
     "titre": "La berceuse de Maëlis",
     "texte": "« Dors sous la feuille, dors sous le vent, la lanterne veille et le bois t’entend. Si tu t’égares au bout du chemin, suis ma voix : je te tiens la main. » Une chanson de Gardebois, gardée par un Écho quand on l’avait oubliée.",
-    "themes": ["chansons", "familles"]
+    "themes": [
+      "chansons",
+      "familles"
+    ]
   },
   {
     "id": "voix-ecorce",
     "titre": "Les voix du Bosquet",
     "texte": "Au Bosquet des Échos de Canopéa, on grave dans le bois vivant et l’on vient parler à ses morts. Pose la main sur les signes : tu recevras un peu de celui qui les a gravés. Et l’arbre au pied duquel repose un défunt garde de lui une chaleur, un tour de main.",
-    "themes": ["arbres", "morts"]
+    "themes": [
+      "arbres",
+      "morts"
+    ]
   },
   {
     "id": "kael-chroniqueur",
     "titre": "Kael, le Premier Chroniqueur",
     "texte": "Après la Grande Chute, un homme nommé Kael écrivit tout ce dont il se souvenait du monde perdu : ce furent les Mémoires du Monde Perdu. Il fonda la première bibliothèque, à Sept-Portes. Depuis, d’un grand savant, on dit qu’il a « la mémoire de Kael ».",
-    "themes": ["ancien-monde"]
+    "themes": [
+      "ancien-monde"
+    ]
   },
   {
     "id": "chant-anselme",
     "titre": "Le chant d’Anselme",
     "texte": "À Canopéa, on ne taille les flûtes que dans le bois tombé. Celle d’Aïlis Feuillevent vient de l’arbre au pied duquel repose Anselme. Chaque soir, au Bosquet, elle joue la chanson des cerfs-lucioles, et le bois, dit-elle, est tiède sous ses doigts. Ce que l’arbre garde, la musique le rend.",
-    "themes": ["chansons", "arbres", "morts"]
+    "themes": [
+      "chansons",
+      "arbres",
+      "morts"
+    ]
   },
   {
     "id": "triumvirat-vert",
     "titre": "Le Triumvirat Vert",
     "texte": "Verdantis est gouvernée par trois co-dirigeants, élus par le Conseil des Racines Profondes pour sept ans, sans second mandat : la Première Racine veille sur le pays et son commerce, le Gardien de la Canopée sur ses frontières, la Voix de Gaïa sur la forêt et l’esprit. Quand les deux premiers ne s’entendent pas, la troisième arbitre.",
     "principal": true,
-    "themes": ["puissants", "arbres"]
+    "themes": [
+      "puissants",
+      "arbres"
+    ]
   },
   {
     "id": "deux-apprenties",
     "titre": "Les deux apprenties",
     "texte": "Deux apprenties Gardiennes de Mémoire se jurèrent un soir, à Gardebois : l’une écouterait tout, l’autre écrirait tout. L’une s’appelle Ilyane, l’autre Mirelle. Leur carnet de chansons a voyagé trente ans avant de revenir. On dit qu’une chanson écrite n’oublie jamais, même chantée faux.",
-    "themes": ["chansons"]
+    "themes": [
+      "chansons"
+    ]
   },
   {
     "id": "carnet-dernier-train",
     "titre": "Le carnet du dernier train",
     "texte": "Dans le Fonds Zéro des Archives de Ferros dormait le carnet de bord du dernier train : chaque gare où il s’arrêta, et ce qu’il y laissa. Une carte de toutes les voies endormies l’accompagne. Une ligne a été grattée, avec soin.",
     "principal": true,
-    "themes": ["trains", "mysteres"]
+    "themes": [
+      "trains",
+      "mysteres"
+    ]
   },
   {
     "id": "convoi-sans-conducteur",
     "titre": "Le convoi sans conducteur",
     "texte": "Sur la vieille ligne d’Ironheart passe parfois un convoi translucide, bleu pâle bordé d’or, sans personne aux commandes. Aux fenêtres, des visages tranquilles. La Veilleuse du Rail l’entend avant qu’il existe, et compte ses wagons dans son sommeil.",
-    "themes": ["trains", "mysteres"]
+    "themes": [
+      "trains",
+      "mysteres"
+    ]
   },
   {
     "id": "machine-vers-ouest",
     "titre": "La machine qui roulait vers l’ouest",
     "texte": "Sous les terrils d’Ironheart, une machine sans homme du Chantier Ouest obéit encore à son dernier ordre : rouler vers l’ouest, rejoindre le chantier. Le chantier n’existe plus depuis des siècles. Elle ne vole rien ; elle se souvient d’un ordre que tous les autres ont oublié.",
-    "themes": ["machines"]
+    "themes": [
+      "machines"
+    ]
   },
   {
     "id": "on-se-retrouvera",
     "titre": "On se retrouvera",
     "texte": "Sous une forge froide d’Ironheart, des Échos qui ne sont d’aucune époque connue : une berceuse dans une langue à venir, cinq mains gravées sur une enclume, et une promesse répétée sans fin : « On se retrouvera. » Personne ne sait à qui elles appartiennent. Elles se cherchent.",
-    "themes": ["mysteres", "chansons"]
+    "themes": [
+      "mysteres",
+      "chansons"
+    ]
   },
   {
     "id": "saule",
     "titre": "Saule, le frère de Liane",
     "texte": "Saule riait trop fort et grimpait trop haut. Il était parti gagner des Fers au chantier de Brisefer, à la Gare Engloutie, et les déblais l’ont pris un matin, sans un cri. Sa sœur a gravé son nom au Bosquet des Échos : le bois se souvient à sa place, et elle peut enfin dormir.",
-    "themes": ["familles", "morts"]
+    "themes": [
+      "familles",
+      "morts"
+    ]
   },
   {
     "id": "jeudi-ordinaire",
     "titre": "Un jeudi ordinaire",
     "texte": "Avant la Nuit, le dernier jour de l’Ancien Monde fut un jeudi comme les autres : des trains en retard, du café trop chaud, des enfants en retard pour l’école. Les Échos de la Gare Engloutie le rejouent sans fin, comme s’ils voulaient qu’on se souvienne que le monde, avant, était ordinaire.",
-    "themes": ["ancien-monde", "trains"]
+    "themes": [
+      "ancien-monde",
+      "trains"
+    ]
   },
   {
     "id": "soixante-douze-heures",
     "titre": "Les soixante-douze heures",
     "texte": "Quand les Surgeons se sont ouverts, les arsenaux de l’Ancien Monde ont cru à une attaque, et ils ont répondu. Il a fallu soixante-douze heures. Au triage d’Ironheart, un Écho le rejoue encore : les trains pleins, les trains vides, et l’horizon qui s’allume.",
-    "themes": ["ancien-monde", "morts", "trains"]
+    "themes": [
+      "ancien-monde",
+      "morts",
+      "trains"
+    ]
   },
   {
     "id": "puits-trois",
     "titre": "Le Puits Trois",
     "texte": "À Ironheart, l’eau a toujours eu un ordre : le cuivre d’abord, le fer ensuite, et la rouille quand il en reste. Un Écho du Puits Trois rejoue une petite fille qui attend jusqu’au soir et repart le seau vide. Les gens des Forges-Basses disent qu’elle attend encore.",
-    "themes": ["puissants", "familles"]
+    "themes": [
+      "puissants",
+      "familles"
+    ]
   },
   {
     "id": "dernier-depart",
     "titre": "La page du dernier départ",
     "texte": "Au Fonds Muet de Sept-Portes, une page recopiée rend la ligne grattée du carnet du dernier train : « Dernier départ, voie sept. Terminus : Altavent, sous les Hauts de Zephyria. Déchargé : sept caisses plombées. Reçu : personne. »",
     "principal": true,
-    "themes": ["trains", "mysteres", "ancien-monde"]
+    "themes": [
+      "trains",
+      "mysteres",
+      "ancien-monde"
+    ]
   }
 ]

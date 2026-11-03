@@ -13,7 +13,8 @@ function heroWithMemory(memory: number): Character {
 
 describe('recits', () => {
   it('finds a known récit and reports an unknown one as absent', () => {
-    expect(findRecit('savant-corvan')?.titre).toBe('Le Savant Corvan');
+    expect(findRecit('savant-corvan')?.titre).toBe('Le savant du dernier quai');
+    expect(findRecit('corvan')?.titre).toBe('Le Savant Corvan');
     expect(findRecit('inconnu')).toBeUndefined();
   });
 

@@ -546,6 +546,7 @@ Commence par : « apres » _(si quête « La caisse égarée » terminée)_, sin
 > Ah ! Pardon, je range. Enfin, j’essaie. J’ai perdu une caisse d’outils en tombant du chariot, sur la route de l’est. Si maître Cendrefer l’apprend, je suis mort. Et deux Rôdeurs-Épine tournent autour : je n’ose pas y retourner.
 
 - « Je vais la chercher. » → merci _(lance la quête « La caisse égarée »)_
+- « Tomber d’un chariot à l’arrêt, c’est un talent. » → ironie
 - « Bon courage, Brann. » → **fin**
 
 ### merci
@@ -571,6 +572,13 @@ Commence par : « apres » _(si quête « La caisse égarée » terminée)_, sin
 > Maître Cendrefer m’a laissé ranger tout seul, aujourd’hui. C’est une forme de confiance, je crois.
 
 - « … » → **fin**
+
+### ironie
+
+> Brann rougit jusqu’aux oreilles. — Il roulait ! Un peu. Bon. Tu m’aides, ou tu te moques ?
+
+- « Je vais la chercher. » → merci _(lance la quête « La caisse égarée »)_
+- « Je me moque. » → **fin**
 
 ## Une boîte de fer
 
@@ -677,6 +685,15 @@ Commence par : « carnets »
 
 > Des dizaines de carnets couverts de l’écriture serrée d’Ilyane : des récits recueillis dans tout Verdantis. Sur la page ouverte : « Ce qu’on oublie ne disparaît pas tout à fait. Il attend qu’on revienne. »
 
+- _(sans repère « carnet-corvan »)_ « Lire l’histoire du savant Corvan. » → corvan
+- « Refermer le carnet. » → **fin**
+
+### corvan
+
+_Effet : retient le Récit « Le Savant Corvan », retient « carnet-corvan »._
+
+> Une page d’une autre encre : un savant, après la Chute, qui rebâtit un réacteur de l’Ancien Monde, et la foudre qui l’attendait. Dans la marge, de la main d’Ilyane : « Après la Chute, on a cru que réussir suffisait. »
+
 - « Refermer le carnet. » → **fin**
 
 ## Cerfs-Lucioles
@@ -765,10 +782,11 @@ Commence par : « accueil »
 
 ### accueil
 
-> Bonne route à toi ! Je vais de village en village avec ma carriole. Bandages, cordes, baumes. Un petit quelque chose pour le voyage ?
+> Bonne route à toi ! Bandages, cordes, baumes, et une ficelle rouge contre les loups. Elle ne marche pas, mais elle rassure. Un petit quelque chose pour le voyage ?
 
 - « Voyons ta marchandise. » → **fin** _(ouvre le Troc)_
 - « Quelles nouvelles des routes ? » → nouvelles
+- « Ta ficelle rouge, elle marche contre les colporteuses ? » → ironie
 - « Bonne route. » → **fin**
 
 ### nouvelles
@@ -776,6 +794,13 @@ Commence par : « accueil »
 > On dit que les Loups de Rouille descendent plus au sud cette année, du côté de la frontière. Et à Canopéa, le Conseil ne dort plus : tout le monde parle des forages de Ferros.
 
 - « Merci. » → accueil
+
+### ironie
+
+> — Contre les colporteuses, non. Contre les gens qui n’achètent rien, j’y travaille.
+
+- « Voyons ta marchandise. » → **fin** _(ouvre le Troc)_
+- « Bonne route. » → **fin**
 
 ## Le commis de Ferros
 
@@ -1103,6 +1128,7 @@ _Si Boulon voyage avec toi :_ Boulon, d’une voix égale : — Matériel de qua
 > — Le masque. Déclaré à mon nom : le masque Dask. Le garçon montera comme mon assistant, bien payé. Les Manufactures vendront le masque aux fonderies qui paient. C’est ainsi que le progrès monte : avec ceux qui savent le porter.
 
 - « Marché conclu. » → nom-ok _(retient « dask-parrain », retient « dask-nom », avis de Boulon −1)_
+- « Le progrès monte avec ceux qui savent le porter. Et toi, tu portes quoi, Dask ? Des gants ? » → nom-ironie
 - « Non. » → dossier
 
 ### paye
@@ -1144,6 +1170,12 @@ _Effet : retient « dask-parrain », retient « faux-bancal »._
 > — Le dossier Orvel est parti. Le reste ne me regarde plus. Circulez.
 
 - « … » → **fin**
+
+### nom-ironie
+
+> Dask sourit sans chaleur. — Des responsabilités. Elles ne salissent pas les mains. Alors ?
+
+- « Reprendre. » → nom
 
 ## Dorna Vissard
 
@@ -1293,7 +1325,7 @@ Commence par : « apaise » _(si repère « echo-dernier-train-vu »)_, sinon «
 
 ### interieur
 
-_Effet : retient le Récit « Le Savant Corvan »._
+_Effet : retient le Récit « Le savant du dernier quai »._
 
 > Un instant, tu es sur ce quai disparu. Une voix te revient, celle d’un savant qu’on emmenait loin du danger : « Dis-leur que même réussir peut tout détruire. » Puis l’Écho se dissipe, apaisé pour un temps.
 
@@ -1448,11 +1480,18 @@ _Si Boulon voyage avec toi :_ Boulon : — Elle tient sa tasse comme on tient un
 
 > Elle sourit pour la première fois. — Et alors ? Ici, personne ne peut me toucher. Allez donc le dire au Conservateur. Il enregistrera.
 
+- « Vous signez avec la main d’une morte. Elle ne réclame pas ses doigts ? » → morte-main
 - « … » → **fin**
 
 ### refus
 
 > — Comme vous voudrez. Elle repose sa tasse, laisse une pièce et se lève. — Les routes sont longues. On se reverra, quelque part entre ici et Altavent.
+
+- « … » → **fin**
+
+### morte-main
+
+> Le sourire de la dame en gris ne bouge pas. — Elle me l’a prêtée. Là où elle est montée, elle n’en avait plus l’usage.
 
 - « … » → **fin**
 
@@ -1651,7 +1690,7 @@ _Effet : retient « enclume-vue »._
 
 _Objet_
 
-Commence par : « explosee-pell » _(si repère « foreuse-explosee »)_ _(si repère « pell-sauve »)_, sinon « explosee » _(si repère « foreuse-explosee »)_, sinon « faussee » _(si repère « foreuse-sabotee »)_, sinon « arretee » _(si repère « chantier-arrete »)_, sinon « gardee » _(si repère « surpris-de-nuit »)_, sinon « jour »
+Commence par : « explosee-pell » _(si repère « foreuse-explosee »)_ _(si repère « pell-sauve »)_, sinon « explosee » _(si repère « foreuse-explosee »)_, sinon « faussee » _(si repère « foreuse-sabotee »)_, sinon « arretee-golem » _(si repère « golem-vaincu »)_, sinon « arretee » _(si repère « chantier-arrete »)_, sinon « gardee » _(si repère « surpris-de-nuit »)_, sinon « jour »
 
 ### jour
 
@@ -1675,7 +1714,7 @@ _Si Liane voyage avec toi :_ Liane s’est arrêtée au bord du quai. — Chaque
 > 🌙 Te voilà au pied de la foreuse, dans l’odeur d’huile et de pierre chaude. Personne n’a rien vu.
 
 - **🎲 Artisanat 10** « Saboter le mécanisme. » → sabotee, ✗ → bruit
-- « Ouvrir la chaudière en grand, et courir. » → chaudiere _(retient « foreuse-sabotee », retient « foreuse-explosee », retient « chantier-arrete », termine la quête « Le Dernier Train », +70 XP, +30 Fers, avis de Liane −2)_
+- « Ouvrir la chaudière en grand, et courir. » → chaudiere _(retient « foreuse-sabotee », retient « foreuse-explosee », retient « chantier-arrete », termine la quête « Le Dernier Train », +50 XP, +30 Fers, avis de Liane −2)_
 - « Repartir sans rien toucher. » → **fin**
 
 ### sabotee
@@ -1767,6 +1806,12 @@ _Effet : retient « surpris-de-nuit », −2 PV._
 ### explosee-pell
 
 > La foreuse n’est plus qu’une carcasse noire, éventrée. Sous la tente de Brisefer, quelqu’un gémit dans son sommeil, les mains bandées jusqu’aux coudes.
+
+- « S’éloigner. » → **fin**
+
+### arretee-golem
+
+> La foreuse est muette. Son câble d’alimentation pend dans la poussière, arraché au cœur du Golem qui la faisait tourner.
 
 - « S’éloigner. » → **fin**
 
@@ -2136,6 +2181,7 @@ _Si Liane voyage avec toi :_ Liane chuchote : — Elle a les yeux d’Ilyane, qu
 _Si Boulon voyage avec toi :_ Boulon s’incline, et le plancher grince. — On lit les mains, ici. Les miennes ne disent rien : on ne m’a jamais laissé signer.
 
 - « Et la clé de rouille bleue ? » → cle
+- « Encore une vieille qui parle par énigmes. » → appel-rude
 
 ### cle
 
@@ -2184,6 +2230,12 @@ _Effet : termine la quête « Les Mémoires du Monde Perdu », +80 XP, retient �
 > — Tu t’es tue, et elle te suivra : les routes sont longues. Altavent, sous les Hauts de Zephyria. La Porte de Zephyria ne s’ouvre qu’avec un sauf-conduit de la Confédération : il faudra le trouver.
 
 - « Je pars pour Zephyria. » → **fin**
+
+### appel-rude
+
+> Hesper rit, sans se vexer. — Les vieilles parlent par énigmes parce que les jeunes n’écoutent que ça. Je recommence, plus simple : au Registre, quelqu’un ment. Trouve qui.
+
+- « Et la clé de rouille bleue ? » → cle
 
 ## L’huissier du Conseil
 
@@ -2469,6 +2521,7 @@ _Si Liane voyage avec toi :_ Liane détourne les yeux, la mâchoire serrée.
 _Si Boulon voyage avec toi :_ Boulon, très bas : — Je peux retenir pour elle. Je retiens bien. Il suffit qu’elle me demande.
 
 - « Combien de temps, Ilyane ? » → oubli-3-temps
+- « Bientôt, tu oublieras pourquoi tu m’as envoyé·e là-bas. » → oubli-3-cruel _(avis de Liane −1)_
 - « Je suis là. » → **fin**
 
 ### oubli-3-temps
@@ -2477,11 +2530,17 @@ _Si Boulon voyage avec toi :_ Boulon, très bas : — Je peux retenir pour elle.
 
 - « Toujours. » → **fin**
 
+### oubli-3-cruel
+
+> Ilyane te regarde longtemps. — Peut-être. Alors tu me le rappelleras. Ou tu ne le feras pas, et ce jour-là, ce sera ton choix, plus ma maladie.
+
+- « … » → **fin**
+
 ## Ingrid Brisefer
 
 _Ingénieure, prospection de Ferros_
 
-Commence par : « apres-explosion-pell » _(si repère « foreuse-explosee »)_ _(si repère « pell-sauve »)_, sinon « apres-explosion » _(si repère « foreuse-explosee »)_, sinon « apres-sabotage » _(si repère « foreuse-sabotee »)_, sinon « apres » _(si quête « Le Dernier Train » terminée)_, sinon « soupcon » _(si repère « surpris-de-nuit »)_, sinon « barriere » _(si quête « Le Dernier Train » en cours)_ _(sans repère « laissez-passer »)_, sinon « accueil »
+Commence par : « apres-explosion-pell » _(si repère « foreuse-explosee »)_ _(si repère « pell-sauve »)_, sinon « apres-explosion » _(si repère « foreuse-explosee »)_, sinon « apres-sabotage » _(si repère « foreuse-sabotee »)_, sinon « apres-golem » _(si repère « golem-vaincu »)_, sinon « apres » _(si quête « Le Dernier Train » terminée)_, sinon « soupcon » _(si repère « surpris-de-nuit »)_, sinon « barriere » _(si quête « Le Dernier Train » en cours)_ _(sans repère « laissez-passer »)_, sinon « accueil »
 
 ### accueil
 
@@ -2507,20 +2566,24 @@ _Si Liane voyage avec toi :_ Liane ne regarde pas l’ingénieure : elle regarde
 
 _Si Liane voyage avec toi :_ Liane, entre ses dents : — Une rumeur de marché. Mes malades tremblent toute la nuit, Brisefer. Et sous vos déblais, il y a un enfant que personne n’a compté.
 
-- **[Diplomatie 3]** _(si quête « Le Dernier Train » en cours)_ « Arrêtez le forage : à chaque coup, l’Écho se multiplie, et le mal avec lui. » → convaincue _(retient « chantier-arrete », termine la quête « Le Dernier Train », +70 XP, +30 Fers)_
-- **[Commandement 3]** _(si quête « Le Dernier Train » en cours)_ « Je parle au nom des Gardiens de Mémoire : cessez, maintenant. » → convaincue _(retient « chantier-arrete », termine la quête « Le Dernier Train », +70 XP, +30 Fers)_
-- _(si Récit « Le Savant Corvan » connu)_ _(si quête « Le Dernier Train » en cours)_ « Je connais l’histoire du savant Corvan. Écoutez-la avant de creuser plus loin. » → convaincue-recit _(retient « chantier-arrete », termine la quête « Le Dernier Train », +70 XP, +30 Fers)_
+- **[Diplomatie 3]** _(si quête « Le Dernier Train » en cours)_ « Arrêtez le forage : à chaque coup, l’Écho se multiplie, et le mal avec lui. » → resiste
+- **[Commandement 3]** _(si quête « Le Dernier Train » en cours)_ « Je parle au nom des Gardiens de Mémoire : cessez, maintenant. » → resiste-ordre
+- _(si quête « Le Dernier Train » en cours)_ « Lui raconter une histoire. » → recit-refus 📖 raconter un Récit : savant-corvan → convaincue-quai ; corvan → convaincue-recit ; autres → recit-refus
 - « Je reviendrai. » → **fin**
 
 ### convaincue
 
-> Bon. J’arrête la foreuse, pour l’instant. Mais dites bien à vos Gardiens que Ferros reviendra, avec ou sans moi.
+_Effet : retient « chantier-arrete », retient « ingrid-rapport », termine la quête « Le Dernier Train », +80 XP, +30 Fers._
+
+> Ingrid se tait longtemps, puis plie ses papiers en quatre. — J’écrirai à Ferros que la Faille est instable. C’est peut-être même vrai. J’arrête la foreuse. Dites à vos Gardiens que Ferros reviendra, avec ou sans moi.
 
 - « Merci. » → **fin**
 
 ### convaincue-recit
 
-> Corvan ? Je connais l’histoire, oui, et vous avez raison : il a réussi, et ça ne l’a pas sauvé. J’arrête la foreuse. On ne commet pas deux fois la même faute.
+_Effet : retient « chantier-arrete », termine la quête « Le Dernier Train », +90 XP, +30 Fers._
+
+> — Corvan ? Je connais l’histoire, oui, et vous avez raison : il a réussi, et ça ne l’a pas sauvé. J’arrête la foreuse. On ne commet pas deux fois la même faute.
 
 - « Merci. » → **fin**
 
@@ -2541,6 +2604,7 @@ _Si Liane voyage avec toi :_ Liane, entre ses dents : — Une rumeur de marché.
 > Un contremaître en gilet de cuir te barre la route avant la tente de l’ingénieure. — Chantier privé. Sans laissez-passer de la Compagnie des Lisières, on ne passe pas le jour. Reviens avec un papier.
 
 - « Où trouver un laissez-passer ? » → barriere-ou
+- « Pousse-toi, ou je passe à travers toi. » → barriere-dur
 - « Partir. » → **fin**
 
 ### barriere-ou
@@ -2606,6 +2670,71 @@ _Si Liane voyage avec toi :_ Liane, tout bas : — Quelqu’un qui paie plus qu�
 - « Ce chantier rend les gens malades, à Gardebois. » → cause
 - « Partir. » → **fin**
 
+### barriere-dur
+
+> Le contremaître ne bouge pas d’un pouce. Derrière lui, deux ouvriers posent leurs pelles pour mieux te regarder. — Essaie. Le chantier manque de remblai.
+
+- « Partir. » → **fin**
+
+### resiste
+
+> — Un Écho qui se multiplie ? Prouvez-le. Mes ouvriers dorment à poings fermés, eux.
+
+- **[Investigation 2]** « Ils dorment, oui. Ils ne rêvent plus. Demandez-leur ce qu’ils ont fait hier. » → resiste-2
+- _(si repère « liane-malades-vus »)_ « Les malades de Liane, à Gardebois : venez les entendre une nuit. » → resiste-2
+- _(si repère « ingrid-sait-saule »)_ « Saule Sève-Claire, lui, ne rêve plus du tout. » → resiste-2
+- « Je n’ai pas de preuve. Pas encore. » → **fin**
+
+### resiste-2
+
+> Ingrid regarde la foreuse un long moment. — Admettons. Et si j’arrête ? Ferros envoie un autre ingénieur dans un mois, sans mes scrupules, et il creusera deux fois plus vite.
+
+- **[Diplomatie 3]** « Alors écrivez à Ferros que la Faille est instable. Vous, ils vous croiront. » → convaincue
+- « Un mois de répit, c’est un mois de malades en moins. » → resiste-mois
+- « Je reviendrai. » → **fin**
+
+### resiste-mois
+
+> — Un mois de répit, et je perds ma place. Vos malades dormiront ; moi, je n’aurai plus de quoi manger. Trouvez mieux.
+
+- « Je reviendrai. » → **fin**
+
+### resiste-ordre
+
+> — Au nom des Gardiens ? Les Gardiens n’ont ni garde, ni loi, ni foreuse. Moi, j’ai les trois.
+
+- **[Commandement 3]** « Gardebois a une garde, et la frontière a des yeux. Je peux les tourner vers vous. » → convaincue-peur
+- « Je reviendrai. » → **fin**
+
+### convaincue-peur
+
+_Effet : retient « chantier-arrete », retient « ingrid-rancune », avis de Liane −1, termine la quête « Le Dernier Train », +60 XP, +50 Fers._
+
+> Ingrid te dévisage, et ses lèvres blanchissent. — Très bien. J’arrête. Elle te lance une bourse. — Pour votre garde. Qu’elle regarde ailleurs, le jour où Ferros reviendra.
+
+- « … » → **fin**
+
+### convaincue-quai
+
+_Effet : retient « chantier-arrete », termine la quête « Le Dernier Train », +90 XP, +30 Fers._
+
+> Ingrid écoute, les yeux sur la foreuse. — « Même réussir peut tout détruire. » Il savait de quoi il parlait, celui-là. Bien. J’arrête. Pour lui ; pas pour vos Gardiens.
+
+- « Merci. » → **fin**
+
+### recit-refus
+
+> — Une belle histoire. Elle ne me dit pas pourquoi j’arrêterais.
+
+- « Revenir à la maladie. » → cause
+- « Partir. » → **fin**
+
+### apres-golem
+
+> — Vous avez abattu mon gardien. Ce Golem ne gardait pas seulement la Faille : son cœur de cristal tenait la foreuse sous tension. Sans lui, la machine est morte. Ferros m’enverra un autre cœur. Dans des mois.
+
+- « Tant mieux. » → **fin**
+
 ## Joss Brakel
 
 _Aiguilleur de nuit_
@@ -2645,6 +2774,7 @@ _Si Boulon voyage avec toi :_ Boulon pose une main sur l’épaule de Joss, trè
 _Si Liane voyage avec toi :_ Liane s’accroupit près de Joss. — Tu ne dors plus depuis quand ? Ça se voit. Ça se soigne, aussi.
 
 - « Personne n’est blessé ? » → personne
+- « Tu as vendu les tiens pour une dette. Dors mal, Joss. » → aveu-cruel _(avis de Liane −1, avis de Boulon −1)_
 - « Merci, Joss. » → **fin**
 
 ### personne
@@ -2686,6 +2816,12 @@ _Effet : retient « joss-sommeil », +10 XP._
 > Tu lui dis quelles herbes, combien, à quelle heure. Il écoute sans t’interrompre, les yeux baissés. — Dormir. Si je dors, je rêve du levier. Mais merci.
 
 - « Bonne nuit, Joss. » → **fin**
+
+### aveu-cruel
+
+> Joss ne répond pas. Il serre sa lanterne jusqu’à ce que ses jointures blanchissent. — Je dors mal. Tu peux partir tranquille.
+
+- « … » → **fin**
 
 ## Josse Sept-Routes
 
@@ -2872,7 +3008,7 @@ Commence par : « plaque » _(si quête « Ce qui se souvient » en cours)_ _(si
 
 ### accueil
 
-> Un homme maigre polit une mâchoire de Golem sous une lampe à huile. Autour de lui, des os de bêtes polis, des dents de loup en colliers. — Tout se vend, ici. Même ce qui se souvient. Pose ta question, si c’est la bonne.
+> Un homme maigre polit une mâchoire de Golem sous une lampe à huile. Autour de lui, des os de bêtes polis, des dents de loup en colliers. — Les os se souviennent mieux que les vivants, et ils ne marchandent jamais. Pose ta question, si c’est la bonne.
 
 _Si Boulon voyage avec toi :_ Boulon regarde les os polis, les dents en colliers. — Il vend ce qui portait. Comme on m’aurait vendu, moi.
 
@@ -2886,7 +3022,7 @@ _Si Boulon voyage avec toi :_ Boulon regarde les os polis, les dents en colliers
 > Kaelis sourit sans montrer les dents. — Tout le monde la cherche. Ce n’est pas la bonne question.
 
 - « Essayer autre chose. » → accueil
-- « Tout se vend, as-tu dit. Combien, la réponse ? » → prix
+- « Les os ne marchandent pas, as-tu dit. Toi, combien, la réponse ? » → prix
 - _(si quête « Ce qui se souvient » pas commencée)_ _(sans repère « membre-archives-ferros »)_ _(sans repère « membre-travailleurs-rail »)_ « Les Marches prennent-elles des fournisseurs ? » → fournisseur
 - « Je reviendrai. » → **fin**
 
@@ -2938,6 +3074,7 @@ _Si Boulon voyage avec toi :_ Boulon se place entre toi et le comptoir. — Une 
 
 - « La lui vendre, pour cent Fers. » → vendue _(reprend 1 × « Clé de rouille bleue », +100 Fers, retient « cle-vendue », termine la quête « La Clé de Rouille Bleue », +60 XP, avis de Boulon −2, avis de Liane −1)_
 - « Qu’ouvre-t-elle ? » → ouvre
+- « Cent Fers. Tu paies les souvenirs au prix des os. » → offre-ironie
 - « Non, pas à toi. » → **fin**
 
 ### vendue
@@ -3010,6 +3147,13 @@ _Si Boulon voyage avec toi :_ Boulon, très bas : — Gants fins, Fers neufs. Je
 
 - « Qu’ouvre-t-elle ? » → ouvre
 - « J’y réfléchirai. » → **fin**
+
+### offre-ironie
+
+> Kaelis ne lève pas les yeux. — Les os ne protestent pas. Toi, si. C’est déjà quelque chose. Cent Fers, toujours.
+
+- « Qu’ouvre-t-elle ? » → ouvre
+- « Non, pas à toi. » → **fin**
 
 ## Kerta Orvel
 
@@ -3172,6 +3316,7 @@ Commence par : « altavent » _(si quête « Les Mémoires du Monde Perdu » en 
 > Un homme maigre, un rouleau sous le bras, une boussole au cou. — Lior Rose-des-Vents, cartographe. Les Sept Portes mènent partout, et aucune carte ne le dit bien. Je les dessine, moi.
 
 - « Où mènent-elles ? » → portes
+- « Un cartographe qui ne sait pas où mène la septième Porte. Rassurant. » → ironie
 - « Au revoir. » → **fin**
 
 ### portes
@@ -3187,6 +3332,13 @@ _Effet : retient « altavent-situe », +15 XP._
 > — Altavent ? Lior déroule trois cartes, puis une quatrième, très vieille. — Là. Une gare de l’Ancien Monde, sous les Hauts de Zephyria. Aujourd’hui, au-dessus, à trois mille mètres, flotte Aetherhaven.
 
 - « Merci, Lior. » → **fin**
+
+### ironie
+
+> — Rassurant, oui. Les cartes qui savent tout mentent. La mienne a un blanc au milieu : c’est la seule chose vraie qu’elle dise.
+
+- « Où mènent-elles ? » → portes
+- « Au revoir. » → **fin**
 
 ## Lisandre Ramelune
 
@@ -3355,6 +3507,7 @@ Commence par : « apres » _(si quête « La berceuse oubliée » terminée)_, s
 > Tu es l’apprenti·e d’Ilyane ? Ma fille, Nell… depuis trois nuits, elle ne reconnaît plus la berceuse que je lui chante. Ce matin, elle m’a appelée « madame ». Elle m’écoute comme on écoute une étrangère.
 
 - « Je vais t’aider. Que puis-je faire ? » → piste _(lance la quête « La berceuse oubliée »)_
+- « Une berceuse. Ailleurs, des enfants meurent. » → cruel _(avis de Liane −1)_
 - « Je suis désolé·e. Je dois partir. » → **fin**
 
 ### piste
@@ -3380,6 +3533,12 @@ Commence par : « apres » _(si quête « La berceuse oubliée » terminée)_, s
 > Elle s’est endormie en chantonnant. Merci. Gardebois n’oubliera pas ce que tu as fait pour nous.
 
 - « Prends soin d’elle. » → **fin**
+
+### cruel
+
+> Maëlis recule d’un pas, puis se redresse. — Ailleurs, oui. Ici, c’est ma fille. Va-t’en.
+
+- « Partir. » → **fin**
 
 ## Malo Feuillevent
 
@@ -4443,7 +4602,7 @@ Commence par : « accueil »
 
 ### accueil
 
-> Le Comptoir de la Sève, bonjour ! Herbes de la canopée, baumes de mousse, bandages. Tout ce qui soigne pousse ici, ou presque.
+> Entre doucement, les fioles dorment. Herbes de la canopée, baumes de mousse, bandages. Ce qui guérit pousse ici. Ce qui guérit trop, je le garde sous le comptoir.
 
 - « Voyons ce que tu vends. » → **fin** _(ouvre le Troc)_
 - « D’où viennent tes herbes ? » → herbes
@@ -4699,6 +4858,7 @@ _Effet : retient « tam-ecoute »._
 
 > — Ma mère veut que je respire. Moi aussi, figure-toi. Mais je ne vois pas la différence entre monter et partir. Elle non plus, et elle le sait. Va voir Dask, si tu veux. Je déciderai quand il y aura quelque chose à décider.
 
+- « Monte ou pars : là-haut, au moins, tu cracheras moins noir. » → vivre-dur
 - « Bien. » → **fin**
 
 ### hedda
@@ -4751,6 +4911,12 @@ _Effet : retient « tam-ausculte », +10 XP._
 
 - « Bonne journée. » → **fin**
 
+### vivre-dur
+
+> Tam rit, et tousse. — C’est le meilleur argument qu’on m’ait fait. Et le plus laid.
+
+- « Bien. » → **fin**
+
 ## L’Ancien Thalorin
 
 _Voix de Gaïa_
@@ -4762,6 +4928,7 @@ Commence par : « apres » _(si quête « L’audience » terminée)_, sinon « 
 > La dryade ressemble à un jeune arbre qui aurait décidé de s’asseoir ; ses cheveux sont des feuilles. — Je suis Thalorin, Voix de Gaïa. J’écoute les arbres pour ceux qui n’ont plus le temps de le faire.
 
 - « Qu’est-ce que la Voix de Gaïa ? » → role
+- « Un arbre qui arbitre. Et quand vous n’êtes pas d’accord avec vous-même ? » → ironie
 - « Que la sève coule. » → **fin**
 
 ### role
@@ -4780,6 +4947,13 @@ Commence par : « apres » _(si quête « L’audience » terminée)_, sinon « 
 
 > — Les Voix des Arbres soignent les racines du Bosquet. Déjà, les plus jeunes noms se réchauffent. Les plus vieux prendront plus de temps : ils ont toujours pris leur temps.
 
+- « Que la sève coule. » → **fin**
+
+### ironie
+
+> La dryade rit, et ses feuilles bruissent. — Alors je pousse de travers, pendant cent ans. Le Bosquet est plein de mes hésitations.
+
+- « Qu’est-ce que la Voix de Gaïa ? » → role
 - « Que la sève coule. » → **fin**
 
 ## Tiven
@@ -4837,7 +5011,7 @@ Commence par : « accueil »
 
 ### accueil
 
-> Bienvenue à l’étal Cendrefer ! Outils de Ferros, cordes, lampes à cristal, et les meilleures rumeurs du marché, pour qui sait les écouter.
+> Approche, approche ! Étal Cendrefer : outils de Ferros, cordes, lampes à cristal, tout au prix juste. Le juste, c’est le mien. Les rumeurs, je les donne : elles font vendre les lampes.
 
 - _(si quête « Le Dernier Train » en cours)_ _(sans repère « laissez-passer »)_ « Je dois entrer sur le chantier de la Gare Engloutie. » → chantier
 - _(si repère « laissez-passer »)_ « Merci encore pour le laissez-passer. » → merci
@@ -5254,7 +5428,7 @@ _Si Liane voyage avec toi :_ Liane, doucement : — Elle attend ce train depuis 
 
 _Si Boulon voyage avec toi :_ Boulon se penche vers la clé ; ses yeux de verre clignent, lentement. — Une clé de malle. J’en ai porté dix mille. Celle-là, on l’a tenue longtemps, et on a eu peur de la lâcher.
 
-- _(si Récit « Le Savant Corvan » connu)_ « J’ai vu le dernier train, moi aussi, dans l’Écho de la Gare Engloutie. » → don
+- _(si Récit « Le savant du dernier quai » connu)_ « J’ai vu le dernier train, moi aussi, dans l’Écho de la Gare Engloutie. » → don
 - **[Mémoire 3]** « Laisse-moi écouter le convoi avec toi. » → ecoute
 - « Lui parler de ce que la clé ouvre. » → ouvre
 - « Et si je te laissais une histoire, contre la clé ? » → echange

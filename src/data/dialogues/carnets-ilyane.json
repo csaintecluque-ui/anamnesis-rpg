@@ -11,6 +11,32 @@
       "text": "Des dizaines de carnets couverts de l’écriture serrée d’Ilyane : des récits recueillis dans tout Verdantis. Sur la page ouverte : « Ce qu’on oublie ne disparaît pas tout à fait. Il attend qu’on revienne. »",
       "options": [
         {
+          "text": "Lire l’histoire du savant Corvan.",
+          "requires": [
+            {
+              "notFlag": "carnet-corvan"
+            }
+          ],
+          "next": "corvan"
+        },
+        {
+          "text": "Refermer le carnet.",
+          "next": "fin"
+        }
+      ]
+    },
+    "corvan": {
+      "text": "Une page d’une autre encre : un savant, après la Chute, qui rebâtit un réacteur de l’Ancien Monde, et la foudre qui l’attendait. Dans la marge, de la main d’Ilyane : « Après la Chute, on a cru que réussir suffisait. »",
+      "effects": [
+        {
+          "learnRecit": "corvan"
+        },
+        {
+          "setFlag": "carnet-corvan"
+        }
+      ],
+      "options": [
+        {
           "text": "Refermer le carnet.",
           "next": "fin"
         }

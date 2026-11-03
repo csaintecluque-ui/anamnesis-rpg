@@ -32,6 +32,14 @@
     {
       "requires": [
         {
+          "flag": "golem-vaincu"
+        }
+      ],
+      "node": "arretee-golem"
+    },
+    {
+      "requires": [
+        {
           "flag": "chantier-arrete"
         }
       ],
@@ -135,7 +143,7 @@
               "completeQuest": "dernier-train"
             },
             {
-              "giveXp": 70
+              "giveXp": 50
             },
             {
               "giveFers": 30
@@ -337,6 +345,15 @@
     },
     "explosee-pell": {
       "text": "La foreuse n’est plus qu’une carcasse noire, éventrée. Sous la tente de Brisefer, quelqu’un gémit dans son sommeil, les mains bandées jusqu’aux coudes.",
+      "options": [
+        {
+          "text": "S’éloigner.",
+          "next": "fin"
+        }
+      ]
+    },
+    "arretee-golem": {
+      "text": "La foreuse est muette. Son câble d’alimentation pend dans la poussière, arraché au cœur du Golem qui la faisait tourner.",
       "options": [
         {
           "text": "S’éloigner.",

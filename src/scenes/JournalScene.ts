@@ -4,6 +4,7 @@ import { CAPACITES } from '../rules/combat';
 import { ECHOS, TYPE_LABELS, collectedEchos, empriseLabel } from '../rules/echos';
 import { findLocation } from '../state/gameState';
 import { journalQuests, journalRecits, journalReputation } from '../rules/journal';
+import { NORMAL_DIFFICULTY, characterFiche } from '../rules/fiche';
 import { gardienRank, gardienRankName, nextGardienRank } from '../rules/factions';
 import { heardRumeurs } from '../rules/veillees';
 import { fontPx } from '../settings';
@@ -16,8 +17,9 @@ import { formatDate, momentOf } from '../rules/time';
 
 const MOMENT_WORDS = { matin: 'au matin', midi: 'à midi', soir: 'au soir', nuit: 'la nuit' } as const;
 
-type Tab = 'quetes' | 'recits' | 'echos' | 'reputation' | 'bestiaire';
+type Tab = 'fiche' | 'quetes' | 'recits' | 'echos' | 'reputation' | 'bestiaire';
 const TABS: [Tab, string][] = [
+  ['fiche', 'Fiche'],
   ['quetes', 'Quêtes'],
   ['recits', 'Récits'],
   ['echos', 'Échos'],
@@ -104,16 +106,19 @@ export class JournalScene extends Phaser.Scene {
   private redraw(): void {
     this.layer.removeAll(true);
     const L = LAYOUT;
+    // Six tabs: narrower where the screen would not hold them.
+    const tabWidth = Math.min(L.tabWidth, (GAME_WIDTH - 40 - 16 * (TABS.length - 1)) / TABS.length);
     TABS.forEach(([id, label], i) => {
-      const { container } = addTextButton(this, GAME_WIDTH / 2 + (i - (TABS.length - 1) / 2) * (L.tabWidth + 16), L.tabY, label, () => this.show(id), {
-        width: L.tabWidth,
+      const { container } = addTextButton(this, GAME_WIDTH / 2 + (i - (TABS.length - 1) / 2) * (tabWidth + 16), L.tabY, label, () => this.show(id), {
+        width: tabWidth,
         height: L.tabHeight,
         fontSize: L.buttonFont,
         selected: this.tab === id,
       });
       this.layer.add(container);
     });
-    if (this.tab === 'quetes') this.drawQuests();
+    if (this.tab === 'fiche') this.drawFiche();
+    else if (this.tab === 'quetes') this.drawQuests();
     else if (this.tab === 'recits') this.drawRecits();
     else if (this.tab === 'bestiaire') this.drawBestiary();
     else if (this.tab === 'echos') this.drawEchos();
@@ -159,6 +164,45 @@ export class JournalScene extends Phaser.Scene {
       this.text(LIST_X + LIST_WIDTH / 2, y, `${this.page + 1} / ${pages}`, 18, CSS.muted).setOrigin(0.5);
     }
     detail(Math.min(this.selected, labels.length - 1));
+  }
+
+  /**
+   * The character sheet (étude du 2026-11-03, B1): the values and the experience, the attributes, what each skill adds
+   * to the die, the feats, the equipment, the companions.
+   */
+  private drawFiche(): void {
+    const fiche = characterFiche(this.state);
+    if (!fiche) return;
+    const top = LAYOUT.listTop;
+    const line = 25;
+    const column = (x: number, y: number, title: string, lines: { label: string; value: string }[], width: number): number => {
+      this.text(x, y, title, 22, CSS.copper);
+      let at = y + 34;
+      for (const l of lines) {
+        const t = this.text(x, at, `${l.label} : ${l.value}`, 18, CSS.parchment, width);
+        at += Math.max(line, t.height + 4);
+      }
+      return at + 12;
+    };
+    this.text(LIST_X, top, fiche.titre, 26, CSS.copper);
+    const xp = this.text(LIST_X, top + 36, `Expérience : ${fiche.xp.now} / ${fiche.xp.next} pour le niveau suivant`, 18, CSS.parchment);
+    // The bar of experience towards the next level.
+    const bar = this.add.graphics();
+    const ratio = Math.min(1, fiche.xp.now / Math.max(1, fiche.xp.next));
+    bar.fillStyle(COLORS.ink, 1).fillRect(LIST_X, xp.y + xp.height + 6, 340, 8);
+    bar.lineStyle(1, COLORS.copper, 0.8).strokeRect(LIST_X, xp.y + xp.height + 6, 340, 8);
+    bar.fillStyle(COLORS.copper, 1).fillRect(LIST_X, xp.y + xp.height + 6, Math.round(340 * ratio), 8);
+    this.layer.add(bar);
+    const left = column(LIST_X, top + 92, 'Valeurs', fiche.valeurs, 380);
+    column(LIST_X, left, 'Attributs', fiche.attributs.slice(0, 4), 380);
+    column(LIST_X + 200, left, '', fiche.attributs.slice(4), 200);
+    const middleX = 440;
+    const skillsEnd = column(middleX, top, 'Compétences', fiche.competences.length ? fiche.competences : [{ label: 'Aucune', value: 'rang 0' }], 400);
+    this.text(middleX, skillsEnd - 4, `Le dé : un d20 + le bonus, contre la difficulté. Le % : la chance sur un test normal (difficulté ${NORMAL_DIFFICULTY}).`, 16, CSS.muted, 400);
+    const rightX = 870;
+    let y = column(rightX, top, 'Dons', fiche.dons, GAME_WIDTH - rightX - 40);
+    y = column(rightX, y, 'Équipement', fiche.equipement.length ? fiche.equipement : [{ label: 'Rien', value: 'les mains nues' }], GAME_WIDTH - rightX - 40);
+    if (fiche.groupe.length) column(rightX, y, 'Compagnons', fiche.groupe, GAME_WIDTH - rightX - 40);
   }
 
   private drawQuests(): void {

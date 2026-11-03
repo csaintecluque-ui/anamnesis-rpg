@@ -192,3 +192,12 @@ ne disait rien, traverser Gardebois prenait 8 s.
   lieu de 160, l'animation deux fois plus vite.
 - **Zone de clic** (A5) : le nom d'un PNJ au-dessus de sa tête se clique aussi ; sur écran tactile, le corps compte
   une fois et demie plus large.
+
+## Étude du 3 novembre, vague 2 : la fiche et les barres (B1, B2)
+
+- **La fiche** (`src/rules/fiche.ts`), premier onglet du journal : le niveau, l'expérience jusqu'au suivant (avec sa
+  barre), les valeurs (PV, Défense, PA, résistance, Récits, Résonance), les sept attributs et leur modificateur, chaque
+  compétence apprise avec son rang, **ce qu'elle ajoute au dé** et sa chance sur un test normal (difficulté 12), les
+  dons et le trait, l'équipement (et son usure), les PV des compagnons.
+- **Les barres du HUD**, en haut à droite sous le bandeau : PV du héros (rouges sous le quart), expérience vers le
+  niveau suivant, PV de chaque compagnon.

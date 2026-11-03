@@ -5,11 +5,13 @@ import { fontPx } from '../settings';
 import type { GameState } from '../state/gameState';
 import { addTextButton } from '../ui/button';
 import { withKeyHint } from '../ui/keys';
-import { CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
+import { COLORS, CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
 import { HAS_MOUSE } from '../ui/viewport';
 import { momentOf } from '../rules/time';
 import { resonanceMax, wornCrystal } from '../rules/magic';
 import { Tooltip } from '../ui/tooltip';
+import { xpForLevel } from '../rules/leveling';
+import { findCompanion } from '../rules/companions';
 
 const TOAST_MS = 4000;
 /** Registry key: a word to show on the map once it is (re)built, from a screen that sent the hero there. */
@@ -39,6 +41,10 @@ export class HudScene extends Phaser.Scene {
   /** « Recentrer », while the view has been dragged away from the hero (étude du 2026-11-03, A1). */
   private recenterButton?: Phaser.GameObjects.Container;
   private onRecenter: (() => void) | null = null;
+  /** Bars under the band, top right (étude du 2026-11-03, B2): the hero's PV and experience, each companion's PV. */
+  private bars!: Phaser.GameObjects.Graphics;
+  private barLabels: Phaser.GameObjects.Text[] = [];
+  private barsKey = '';
 
   constructor() {
     super('Hud');
@@ -63,6 +69,10 @@ export class HudScene extends Phaser.Scene {
       })
       .setOrigin(0.5);
     this.refreshStatus();
+    this.bars = this.add.graphics();
+    this.barLabels = [];
+    this.barsKey = '';
+    this.refreshBars();
 
     const button = { height: L.buttonHeight, fontSize: L.buttonFont };
     addTextButton(this, L.margin + L.menuWidth / 2, L.barHeight / 2, withKeyHint('Menu', 'Échap'), () => this.openOverlay('Pause'), {
@@ -126,6 +136,47 @@ export class HudScene extends Phaser.Scene {
   update(): void {
     this.levelUpButton.setVisible(hasPendingLevelUp(this.state.character!) || donDue(this.state.character!));
     this.refreshStatus();
+    this.refreshBars();
+  }
+
+  /**
+   * The hero's PV (copper, red when low) and experience towards the next level, then each companion's PV, as bars
+   * with their numbers; redrawn only when a value changes.
+   */
+  private refreshBars(): void {
+    const hero = this.state.character!;
+    const maxHp = characterStats(hero).maxHp;
+    const rows: { label: string; value: number; max: number; color: number; thin?: boolean }[] = [
+      { label: `PV ${hero.hp} / ${maxHp}`, value: hero.hp, max: maxHp, color: hero.hp <= maxHp / 4 ? COLORS.blocked : COLORS.copper },
+      { label: `XP ${hero.xp} / ${xpForLevel(hero.level + 1)}`, value: hero.xp - xpForLevel(hero.level), max: xpForLevel(hero.level + 1) - xpForLevel(hero.level), color: COLORS.parchment, thin: true },
+      ...this.state.groupe.map((m) => {
+        const def = findCompanion(m.id);
+        const max = def?.hp ?? m.hp;
+        return { label: `${(def?.name ?? m.id).split(' ')[0]} ${m.hp} / ${max}`, value: m.hp, max, color: m.hp <= max / 4 ? COLORS.blocked : COLORS.copper };
+      }),
+    ];
+    const key = rows.map((r) => `${r.label}:${r.color}`).join('|');
+    if (key === this.barsKey) return;
+    this.barsKey = key;
+    this.bars.clear();
+    for (const t of this.barLabels) t.destroy();
+    this.barLabels = [];
+    const width = HAS_MOUSE ? 150 : 190;
+    const right = GAME_WIDTH - LAYOUT.margin;
+    const left = right - width;
+    const step = HAS_MOUSE ? 20 : 28;
+    rows.forEach((r, i) => {
+      const y = LAYOUT.barHeight + 14 + i * step;
+      const h = r.thin ? 5 : 8;
+      this.bars.fillStyle(COLORS.ink, 0.85).fillRect(left - 1, y - h / 2 - 1, width + 2, h + 2);
+      this.bars.lineStyle(1, COLORS.copper, 0.5).strokeRect(left - 1, y - h / 2 - 1, width + 2, h + 2);
+      this.bars.fillStyle(r.color, 1).fillRect(left, y - h / 2, Math.round(width * Math.max(0, Math.min(1, r.value / Math.max(1, r.max)))), h);
+      this.barLabels.push(
+        this.add
+          .text(left - 8, y, r.label, { fontFamily: FONT_SERIF, fontSize: HAS_MOUSE ? '14px' : '18px', color: CSS.parchment, stroke: CSS.ink, strokeThickness: 3 })
+          .setOrigin(1, 0.5),
+      );
+    });
   }
 
   private refreshStatus(): void {

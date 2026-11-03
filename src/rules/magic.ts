@@ -1,6 +1,6 @@
 import powerData from '../data/powers.json';
 import { attributeModifier, SKILL_RANK_MAX } from './attributes';
-import { RESONANCE_BASE, characterStats, type Character } from './character';
+import { RESONANCE_BASE, characterStats, effectSum, type Character } from './character';
 import { ATTACK_AP_COST, type AttackProfile, type Dice } from './combat';
 import { findItem, ownedCount, removeItem, type ItemDef } from './inventory';
 import { marqueResonancePenalty, payThePrice } from './marques';
@@ -43,10 +43,11 @@ export function findPower(id: string): PowerDef | undefined {
 }
 
 /** 3 + rank of Résonance, less the third mark (la peau de cristal). */
-export function resonanceMax(c: Pick<Character, 'skills' | 'marques' | 'usureCristal'>): number {
+export function resonanceMax(c: Pick<Character, 'skills' | 'marques' | 'usureCristal'> & Partial<Pick<Character, 'feat' | 'dons' | 'trait'>>): number {
   // A tired crystal gives less (src/rules/usure.ts ; chantier 6), never under one point.
   const tired = Math.floor((c.usureCristal ?? 0) / CAST_WEAR);
-  const full = RESONANCE_BASE + c.skills.resonance - marqueResonancePenalty(c);
+  const bonus = c.feat ? effectSum(c as Pick<Character, 'feat' | 'dons' | 'trait'>, 'resonanceBonus') : 0;
+  const full = RESONANCE_BASE + c.skills.resonance + bonus - marqueResonancePenalty(c);
   return Math.max(0, tired > 0 ? Math.max(1, full - tired) : full);
 }
 

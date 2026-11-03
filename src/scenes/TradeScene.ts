@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import npcData from '../data/npcs.json';
 import { crystalWear, repair, repairCost, wearOf } from '../rules/usure';
-import { combinedDiscount, deName, merchantPlace, reputationLevel, reputationPrices, reputationSells } from '../rules/reputation';
+import { combinedDiscount, deName, merchantPlace, reputationLevel, reputationPrices, reputationSells, heroDiscount } from '../rules/reputation';
 import { findPlace } from '../rules/world';
 import { characterStats, wearPenalty, type Character, type Slot } from '../rules/character';
 import { armorBonus, buy, buyPrice, carriedWeightKg, equip, merchantCatalogue, merchantDiscount, ownedCount, sell, SELL_RATIO, tradeItems, unequip, useConsumable, type ItemDef } from '../rules/inventory';
@@ -157,7 +157,9 @@ export class TradeScene extends Phaser.Scene {
 
   /** The trader's own discount combined with the town's opinion (negative: dearer). */
   private discount(): number {
-    return combinedDiscount(merchantDiscount(this.state.flags, this.npcId), reputationPrices(this.state, this.npcId));
+    // The hero's own edge or handicap (Langue d'argent, Sang de Ferros ; chantier 6), on top of the trader's discount.
+    const own = this.npcId ? heroDiscount(this.state.character, this.npcId) : 0;
+    return combinedDiscount(merchantDiscount(this.state.flags, this.npcId) + own, reputationPrices(this.state, this.npcId));
   }
 
   private character(): Character {

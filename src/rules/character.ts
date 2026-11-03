@@ -1,9 +1,20 @@
 import avatarData from '../data/avatars.json';
 import featData from '../data/feats.json';
+import traitData from '../data/traits.json';
 import { ATTRIBUTES, CREATION_SKILLS, SKILLS, SKILL_RANK_MAX, type AttributeId, type Attributes, type SkillId } from './attributes';
 import { actionPoints, carryCapacityKg, defense, maxHitPoints, resistancePoints, talesRetained } from './derived';
 
-export type FeatId = 'tough' | 'marksman' | 'weapon-master' | 'kael-memory' | 'amira-spirit' | 'gorim-strength';
+export type FeatId =
+  | 'tough'
+  | 'marksman'
+  | 'weapon-master'
+  | 'kael-memory'
+  | 'amira-spirit'
+  | 'gorim-strength'
+  // Dons de niveau (feuille de route, chantier 6) : at levels 3, 6 and 9 only.
+  | 'marchandeur'
+  | 'peau-dure'
+  | 'sang-froid';
 
 export interface FeatEffects {
   attributes?: Partial<Attributes>;
@@ -15,16 +26,74 @@ export interface FeatEffects {
   revealsHiddenPlaces?: boolean;
   /** Applied once combat exists. */
   combat?: { rangeMultiplier?: number; rangedDamage?: number; meleeHit?: number; meleeDamage?: number };
+  // Chantier 6 : the level feats and the traits.
+  defenseBonus?: number;
+  resistanceBonus?: number;
+  /** Share off every merchant's price (0.1: 10 % cheaper). */
+  buyDiscount?: number;
+  /** Share more at the merchants of Verdantis (Gardebois, Canopéa). */
+  verdantisSurcharge?: number;
+  skillPointsBonus?: number;
+  resonanceBonus?: number;
+  hpBonus?: number;
 }
 
 export interface FeatDef {
   id: FeatId;
   name: string;
   description: string;
+  /** Only taken on levelling up (levels 3, 6, 9), not at creation. */
+  niveau?: boolean;
   effects: FeatEffects;
 }
 
 export const FEATS = featData as FeatDef[];
+/** The feats offered at creation. */
+export const CREATION_FEATS = FEATS.filter((f) => !f.niveau);
+
+/** A trait chosen at creation (feuille de route, chantier 6) : an edge, and its price. Optional. */
+export interface TraitDef {
+  id: string;
+  name: string;
+  description: string;
+  effects: FeatEffects;
+}
+export const TRAITS = traitData as TraitDef[];
+export const findTrait = (id?: string | null): TraitDef | undefined => TRAITS.find((t) => t.id === id);
+
+/** A feat every three levels (feuille de route, chantier 6). */
+export const DON_EVERY = 3;
+
+/** Everything the hero's feats, level feats and trait add up to. */
+export function heroEffects(c: Pick<Character, 'feat' | 'dons' | 'trait'>): FeatEffects[] {
+  return [findFeat(c.feat), ...(c.dons ?? []).map(findFeat), findTrait(c.trait)].filter((x): x is FeatDef | TraitDef => !!x).map((x) => x.effects);
+}
+
+/** The sum of one numeric effect over the hero's feats and trait. */
+export function effectSum(c: Pick<Character, 'feat' | 'dons' | 'trait'>, key: Exclude<keyof FeatEffects, 'attributes' | 'skills' | 'combat' | 'revealsHiddenPlaces'>): number {
+  return heroEffects(c).reduce((sum, e) => sum + ((e[key] as number | undefined) ?? 0), 0);
+}
+
+/** The feats the hero could still take on levelling up. */
+export function donsAvailable(c: Pick<Character, 'feat' | 'dons'>): FeatDef[] {
+  const owned = new Set([c.feat, ...(c.dons ?? [])]);
+  return FEATS.filter((f) => !owned.has(f.id));
+}
+
+/** Whether the hero is owed a feat at their level (3, 6, 9…). */
+export function donDue(c: Pick<Character, 'level' | 'dons'>): boolean {
+  return (c.dons?.length ?? 0) < Math.floor(c.level / DON_EVERY);
+}
+
+/** Takes a feat: its ranks and attributes at once; the rest counts from now on. */
+export function takeDon(c: Character, id: FeatId): void {
+  const feat = findFeat(id);
+  if (!feat) return;
+  c.dons = [...(c.dons ?? []), id];
+  for (const [skill, n] of Object.entries(feat.effects.skills ?? {})) c.skills[skill as SkillId] = Math.min(SKILL_RANK_MAX, c.skills[skill as SkillId] + (n ?? 0));
+  for (const [attr, n] of Object.entries(feat.effects.attributes ?? {})) c.attributes[attr as AttributeId] = Math.min(CREATION.maxScore, c.attributes[attr as AttributeId] + (n ?? 0));
+  c.hp = characterStats(c).maxHp;
+}
 
 /** docs/gdd/attributs.md, competences.md, creation.md (validated 2026-11-01). */
 export const CREATION = {
@@ -48,6 +117,8 @@ export interface CharacterDraft {
   originBonus: AttributeId[];
   skillRanks: SkillRanks;
   feat: FeatId | null;
+  /** Optional (chantier 6). */
+  trait?: string | null;
 }
 
 /** Two hands, armour, and a crystal worn at the neck (docs/gdd/inventaire.md, docs/gdd/magie.md). */
@@ -88,6 +159,10 @@ export interface Character {
    * from before the marks (v14) have none, and stay valid as they are.
    */
   marques?: number;
+  /** Feats taken on levelling up (feuille de route, chantier 6). */
+  dons?: FeatId[];
+  /** A trait chosen at creation, with its price (src/data/traits.json ; chantier 6). */
+  trait?: string;
   /** Fights each weapon or armour has been through since its last repair (src/rules/usure.ts ; chantier 6). */
   usure?: Record<string, number>;
   /** Casts since the worn crystal was last tuned (src/rules/usure.ts ; chantier 6). */
@@ -194,9 +269,11 @@ export function changeSkill(d: CharacterDraft, id: SkillId, delta: 1 | -1): Char
 
 export function finalSkills(d: CharacterDraft): SkillRanks {
   const feat = d.feat ? findFeat(d.feat) : undefined;
+  const trait = findTrait(d.trait);
   const result = { ...d.skillRanks };
   for (const id of SKILL_IDS) {
-    result[id] = Math.min(SKILL_RANK_MAX, result[id] + (feat?.effects.skills?.[id] ?? 0));
+    const bonus = (feat?.effects.skills?.[id] ?? 0) + (trait?.effects.skills?.[id] ?? 0);
+    result[id] = Math.max(0, Math.min(SKILL_RANK_MAX, result[id] + bonus));
   }
   return result;
 }
@@ -268,6 +345,7 @@ export function finalizeCharacter(d: CharacterDraft): Character {
     avatar: d.avatar,
     origin: 'human',
     feat: d.feat,
+    ...(d.trait ? { trait: d.trait } : {}),
     level: 1,
     xp: 0,
     attributes: finalAttributes(d),
@@ -284,17 +362,17 @@ export function finalizeCharacter(d: CharacterDraft): Character {
   return character;
 }
 
-export function characterStats(c: Pick<Character, 'attributes' | 'feat' | 'level'>): CharacterStats {
-  const effects = findFeat(c.feat)?.effects ?? {};
+export function characterStats(c: Pick<Character, 'attributes' | 'feat' | 'level'> & Partial<Pick<Character, 'dons' | 'trait'>>): CharacterStats {
+  const sum = (key: Parameters<typeof effectSum>[1]) => effectSum(c, key);
   const attrs = c.attributes;
-  const hpAttrs = { ...attrs, vigor: attrs.vigor + (effects.hpVigorBonus ?? 0) };
+  const hpAttrs = { ...attrs, vigor: attrs.vigor + sum('hpVigorBonus') };
   return {
-    maxHp: maxHitPoints(hpAttrs, c.level) + (effects.hpPerLevelBonus ?? 0) * (c.level - 1),
+    maxHp: Math.max(1, maxHitPoints(hpAttrs, c.level) + sum('hpPerLevelBonus') * (c.level - 1) + sum('hpBonus')),
     resistance: resistancePoints(attrs),
-    defense: defense(attrs),
+    defense: defense(attrs) + sum('defenseBonus'),
     actionPoints: actionPoints(attrs),
-    carryKg: carryCapacityKg(attrs) + (effects.carryBonusKg ?? 0),
-    tales: talesRetained(attrs) + (effects.talesBonus ?? 0),
+    carryKg: carryCapacityKg(attrs) + sum('carryBonusKg'),
+    tales: Math.max(1, talesRetained(attrs) + sum('talesBonus')),
   };
 }
 
@@ -306,6 +384,8 @@ export function characterError(raw: unknown): string | null {
   if (typeof c.avatar !== 'string' || !findAvatar(c.avatar)) return 'apparence inconnue.';
   if (c.origin !== 'human') return 'origine inconnue.';
   if (typeof c.feat !== 'string' || !findFeat(c.feat)) return 'don inconnu.';
+  if (c.dons !== undefined && (!Array.isArray(c.dons) || c.dons.some((d) => typeof d !== 'string' || !findFeat(d)))) return 'dons de niveau inconnus.';
+  if (c.trait !== undefined && (typeof c.trait !== 'string' || !findTrait(c.trait))) return 'trait inconnu.';
   if (!Number.isInteger(c.level) || (c.level as number) < 1) return 'niveau invalide.';
   if (typeof c.xp !== 'number' || !(c.xp >= 0)) return 'expérience invalide.';
   if (!Number.isInteger(c.hp) || (c.hp as number) < 0) return 'points de vie invalides.';

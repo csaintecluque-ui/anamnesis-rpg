@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
-import { characterStats } from '../rules/character';
 import { hasPendingLevelUp } from '../rules/leveling';
+import { characterStats, donDue } from '../rules/character';
 import { fontPx } from '../settings';
 import type { GameState } from '../state/gameState';
 import { addTextButton } from '../ui/button';
@@ -86,7 +86,7 @@ export class HudScene extends Phaser.Scene {
       height: L.levelUpHeight,
       fontSize: L.levelUpFont,
     }).container;
-    this.levelUpButton.setVisible(hasPendingLevelUp(this.state.character!));
+    this.levelUpButton.setVisible(hasPendingLevelUp(this.state.character!) || donDue(this.state.character!));
 
     this.toastBg = this.add.rectangle(GAME_WIDTH / 2, GAME_HEIGHT - 60, 900, 80, 0x1b1512, 0.85).setStrokeStyle(2, 0xc9804f, 0.8).setVisible(false);
     this.toastText = this.add
@@ -108,7 +108,7 @@ export class HudScene extends Phaser.Scene {
   }
 
   update(): void {
-    this.levelUpButton.setVisible(hasPendingLevelUp(this.state.character!));
+    this.levelUpButton.setVisible(hasPendingLevelUp(this.state.character!) || donDue(this.state.character!));
     this.refreshStatus();
   }
 

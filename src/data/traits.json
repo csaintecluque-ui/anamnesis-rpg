@@ -1,0 +1,42 @@
+[
+  {
+    "id": "memoire-trouee",
+    "name": "Mémoire trouée",
+    "description": "Le passé glisse sur toi : un Récit retenu de moins, mais un point de compétence de plus à chaque niveau.",
+    "effects": {
+      "talesBonus": -1,
+      "skillPointsBonus": 1
+    }
+  },
+  {
+    "id": "main-lourde",
+    "name": "Main lourde",
+    "description": "+1 aux dégâts en Mêlée ; mais −2 en Diplomatie : on t’écoute avec méfiance.",
+    "effects": {
+      "combat": {
+        "meleeDamage": 1
+      },
+      "skills": {
+        "diplomacy": -2
+      }
+    }
+  },
+  {
+    "id": "sang-de-ferros",
+    "name": "Sang de Ferros",
+    "description": "+2 aux jets de résistance ; mais à Gardebois et à Canopéa, on te fait payer 10 % de plus.",
+    "effects": {
+      "resistanceBonus": 2,
+      "verdantisSurcharge": 0.1
+    }
+  },
+  {
+    "id": "reveur",
+    "name": "Rêveur·se",
+    "description": "Les cristaux te parlent : +2 Points de Résonance ; mais −4 PV : ton corps suit mal.",
+    "effects": {
+      "resonanceBonus": 2,
+      "hpBonus": -4
+    }
+  }
+]

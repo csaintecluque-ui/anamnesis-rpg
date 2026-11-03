@@ -3,7 +3,7 @@ import enemyData from '../data/enemies.json';
 import weaponData from '../data/weapons.json';
 import type { Tile } from '../engine/iso';
 import { attributeModifier, type AttributeId, type SkillId } from './attributes';
-import { characterStats, findFeat, wearPenalty, type Character } from './character';
+import { characterStats, effectSum, heroEffects, wearPenalty, type Character } from './character';
 import type { Effect } from './dialogue';
 import { addItem, armorBonus, findItem, ownedCount, removeItem } from './inventory';
 
@@ -280,7 +280,14 @@ export function heldWeapons(character: Character): WeaponDef[] {
 
 /** One attack per weapon in hand. */
 export function heroAttacks(character: Character): AttackProfile[] {
-  const feat = findFeat(character.feat)?.effects.combat ?? {};
+  // The feats, the level feats and the trait, added up (chantier 6).
+  const combats = heroEffects(character).map((e) => e.combat ?? {});
+  const feat = {
+    meleeHit: combats.reduce((n, e) => n + (e.meleeHit ?? 0), 0),
+    meleeDamage: combats.reduce((n, e) => n + (e.meleeDamage ?? 0), 0),
+    rangedDamage: combats.reduce((n, e) => n + (e.rangedDamage ?? 0), 0),
+    rangeMultiplier: Math.max(1, ...combats.map((e) => e.rangeMultiplier ?? 1)),
+  };
   return heldWeapons(character).map((weapon) => {
     const rank = character.skills[weapon.skill];
     const mod = attributeModifier(character.attributes[weapon.attribute]);
@@ -330,7 +337,7 @@ export function makeHeroCombatant(character: Character, tile: Tile): Combatant {
     tile,
     defeatText: `${character.name} tombe.`,
     // The hero resists a blow to the head or the arms by Vigueur.
-    resistance: attributeModifier(character.attributes.vigor),
+    resistance: attributeModifier(character.attributes.vigor) + effectSum(character, 'resistanceBonus'),
     ...heroAmmo(character),
   };
 }

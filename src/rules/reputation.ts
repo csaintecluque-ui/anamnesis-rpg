@@ -1,4 +1,5 @@
 import factionData from '../data/factions.json';
+import { effectSum, type Character } from './character';
 import npcData from '../data/npcs.json';
 import rangData from '../data/rangs.json';
 import reputationData from '../data/reputation.json';
@@ -147,6 +148,17 @@ export function reputationPrices(state: StoryState, npcId?: string): number {
   const faction = merchantFaction(npcId);
   const rank = faction ? factionRank(state, faction.id) : 0;
   return rank > 0 ? Math.min(town, RANK_PRICES[rank - 1]) : town;
+}
+
+/**
+ * The hero's own edge at a stall (chantier 6) : Langue d'argent (10 % off everywhere), Sang de Ferros (10 % more in
+ * Verdantis). A share off, to add to a trader's own discount.
+ */
+export function heroDiscount(c: Pick<Character, 'feat' | 'dons' | 'trait'> | null | undefined, npcId?: string): number {
+  if (!c) return 0;
+  const place = merchantPlace(npcId);
+  const verdantis = place === 'gardebois' || place === 'canopee' ? effectSum(c, 'verdantisSurcharge') : 0;
+  return effectSum(c, 'buyDiscount') - verdantis;
 }
 
 /** A trader's own discount combined with the town's opinion: one share off (negative: a surcharge). */

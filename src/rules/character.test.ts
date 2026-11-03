@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import {
+import { CREATION_FEATS,
   AVATARS,
   CREATION,
   DEFAULT_AVATAR,
@@ -152,7 +152,8 @@ describe('characterStats', () => {
   });
 
   it('has a description for every feat', () => {
-    expect(FEATS).toHaveLength(6);
+    expect(FEATS).toHaveLength(9);
+    expect(CREATION_FEATS).toHaveLength(6);
     for (const feat of FEATS) expect(feat.description.length).toBeGreaterThan(10);
   });
 });

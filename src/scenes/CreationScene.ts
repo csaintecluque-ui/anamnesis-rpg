@@ -3,7 +3,9 @@ import { ATTRIBUTES, CREATION_SKILLS, SKILLS, attributeModifier, type AttributeI
 import {
   AVATARS,
   CREATION,
-  FEATS,
+  CREATION_FEATS,
+  TRAITS,
+  findTrait,
   attributePointsLeft,
   canLowerAttribute,
   canLowerSkill,
@@ -323,28 +325,55 @@ export class CreationScene extends Phaser.Scene {
 
   private drawFeats(): void {
     this.add
-      .text(GAME_WIDTH / 2, 140, 'Choisis un don.', { fontFamily: FONT_SERIF, fontSize: '24px', color: CSS.parchment })
+      .text(GAME_WIDTH / 2, 128, 'Choisis un don.', { fontFamily: FONT_SERIF, fontSize: '24px', color: CSS.parchment })
       .setOrigin(0.5);
 
-    FEATS.forEach((feat, i) => {
+    CREATION_FEATS.forEach((feat, i) => {
       const x = i % 2 === 0 ? 340 : 940;
-      const y = 235 + Math.floor(i / 2) * 128;
+      const y = 200 + Math.floor(i / 2) * 104;
       const selected = this.draft.feat === feat.id;
       const card = this.add
-        .rectangle(x, y, 570, 112, selected ? 0x5a3a26 : 0x2a211c)
+        .rectangle(x, y, 570, 94, selected ? 0x5a3a26 : 0x2a211c)
         .setStrokeStyle(selected ? 3 : 2, COLORS.copper, selected ? 1 : 0.6)
         .setInteractive({ useHandCursor: true });
       card.on('pointerup', () => this.redraw({ draft: { ...this.draft, feat: feat.id }, message: undefined }));
-      this.add.text(x - 265, y - 30, feat.name, { fontFamily: FONT_SERIF, fontSize: '28px', color: CSS.parchment }).setOrigin(0, 0.5);
+      this.add.text(x - 265, y - 26, feat.name, { fontFamily: FONT_SERIF, fontSize: '26px', color: CSS.parchment }).setOrigin(0, 0.5);
       this.add
-        .text(x - 265, y + 16, feat.description, {
+        .text(x - 265, y + 14, feat.description, {
           fontFamily: FONT_SERIF,
-          fontSize: '22px',
+          fontSize: '20px',
           color: selected ? CSS.parchment : CSS.muted,
           wordWrap: { width: 530 },
         })
         .setOrigin(0, 0.5);
     });
+
+    // A trait, if one wants (feuille de route, chantier 6) : an edge, and its price.
+    this.add
+      .text(GAME_WIDTH / 2, 515, 'Un trait, si tu veux : un avantage, et son prix.', { fontFamily: FONT_SERIF, fontSize: '22px', color: CSS.parchment })
+      .setOrigin(0.5);
+    const choices: { id: string | null; name: string }[] = [{ id: null, name: 'Aucun' }, ...TRAITS.map((t) => ({ id: t.id, name: t.name }))];
+    choices.forEach((t, i) => {
+      const x = 140 + i * 250;
+      const selected = (this.draft.trait ?? null) === t.id;
+      const card = this.add
+        .rectangle(x, 560, 230, 46, selected ? 0x5a3a26 : 0x2a211c)
+        .setStrokeStyle(selected ? 3 : 2, COLORS.copper, selected ? 1 : 0.6)
+        .setInteractive({ useHandCursor: true });
+      card.on('pointerup', () => this.redraw({ draft: { ...this.draft, trait: t.id }, message: undefined }));
+      this.add.text(x, 560, t.name, { fontFamily: FONT_SERIF, fontSize: '21px', color: selected ? CSS.parchment : CSS.muted }).setOrigin(0.5);
+    });
+    const chosen = findTrait(this.draft.trait);
+    this.add
+      .text(GAME_WIDTH / 2, 605, chosen ? chosen.description : 'Sans trait : rien à gagner, rien à payer.', {
+        fontFamily: FONT_SERIF,
+        fontSize: '20px',
+        fontStyle: 'italic',
+        color: CSS.muted,
+        align: 'center',
+        wordWrap: { width: 1150 },
+      })
+      .setOrigin(0.5);
   }
 
   // --- Step 5: summary ----------------------------------------------------
@@ -354,7 +383,7 @@ export class CreationScene extends Phaser.Scene {
     const attrs = finalAttributes(draft);
     const skills = finalSkills(draft);
     const feat = draft.feat ? findFeat(draft.feat) : undefined;
-    const stats = characterStats({ attributes: attrs, feat: draft.feat ?? 'tough', level: 1 });
+    const stats = characterStats({ attributes: attrs, feat: draft.feat ?? 'tough', level: 1, trait: draft.trait ?? undefined });
     const text = (x: number, y: number, value: string, size = 24, color: string = CSS.parchment) =>
       this.add.text(x, y, value, { fontFamily: FONT_SERIF, fontSize: `${size}px`, color }).setOrigin(0, 0.5);
 
@@ -386,7 +415,7 @@ export class CreationScene extends Phaser.Scene {
 
     if (feat) {
       this.add
-        .text(GAME_WIDTH / 2, 545, `Don : ${feat.name} — ${feat.description}`, {
+        .text(GAME_WIDTH / 2, 545, `Don : ${feat.name} — ${feat.description}${findTrait(draft.trait) ? `\nTrait : ${findTrait(draft.trait)!.name} — ${findTrait(draft.trait)!.description}` : ''}`, {
           fontFamily: FONT_SERIF,
           fontSize: '24px',
           color: CSS.parchment,

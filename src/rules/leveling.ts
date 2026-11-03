@@ -1,5 +1,5 @@
 import { SKILL_RANK_MAX, type SkillId } from './attributes';
-import { characterStats, type Character, type SkillRanks } from './character';
+import { effectSum, characterStats, type Character, type SkillRanks } from './character';
 import { skillPointsPerLevel } from './derived';
 
 /** Cumulative XP needed to reach a level (premier jet d'équilibrage, à valider). */
@@ -34,7 +34,8 @@ export function maxRankAt(level: number): number {
 }
 
 export function startLevelUp(character: Character): LevelUpState {
-  return { skillRanks: { ...character.skills }, pointsLeft: skillPointsPerLevel(character.attributes), maxRank: maxRankAt(character.level + 1) };
+  const points = Math.max(1, skillPointsPerLevel(character.attributes) + effectSum(character, 'skillPointsBonus'));
+  return { skillRanks: { ...character.skills }, pointsLeft: points, maxRank: maxRankAt(character.level + 1) };
 }
 
 export function canRaiseLevelSkill(state: LevelUpState, id: SkillId): boolean {

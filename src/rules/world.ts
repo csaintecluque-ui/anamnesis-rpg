@@ -24,6 +24,8 @@ export interface WorldPlace {
   revealedByQuest?: string;
   /** A sleeping line to explore (docs/gdd/voies.md): its danger, 1 to 3. */
   voie?: { danger: number };
+  /** A town's inn (src/data/locations.json): where one wakes up after a fall (src/rules/repos.ts). */
+  auberge?: string;
 }
 
 export interface WorldDef {

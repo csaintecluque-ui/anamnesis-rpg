@@ -2077,7 +2077,7 @@ Commence par : « masques » _(si l’on porte « Plans du masque de Tam »)_ _(
 > — Atelier Cendrefer ! Tu viens de Gardebois ? Alors tu as vu mon frère Tobias. Il vend toujours trop cher et parle trop fort ? Bien : il va bien.
 
 - « Voyons tes lames. » → **fin** _(ouvre le Troc)_
-- « Qu’as-tu de plus que ton frère ? » → forge
+- « Ton atelier : qu’as-tu de plus que ton frère ? » → forge
 - « Un conseil, pour Ironheart ? » → conseil
 - « Au revoir. » → **fin**
 
@@ -2092,7 +2092,7 @@ Commence par : « masques » _(si l’on porte « Plans du masque de Tam »)_ _(
 > — Atelier Cendrefer ! Attends. Tobias m’a écrit : c’est toi qui as rendu sa caisse au petit Brann. Chez les Cendrefer, une dette se paie en prix : tu auras le même que chez lui.
 
 - « Voyons tes lames. » → **fin** _(ouvre le Troc)_
-- « Qu’as-tu de plus que ton frère ? » → forge
+- « Ton atelier : qu’as-tu de plus que ton frère ? » → forge
 - « Un conseil, pour Ironheart ? » → conseil
 - « Au revoir. » → **fin**
 
@@ -4034,18 +4034,18 @@ _Effet : retient « laissez-passer-ironheart »._
 
 ### achat
 
-_Effet : retient « laissez-passer-ironheart »._
+_Effet : retient « laissez-passer-ironheart » pour 7 jours._
 
-> — Dix Fers. Visite d’une semaine, Manufactures-Moyennes seulement. Il tamponne un carton gris et te le tend.
+> — Dix Fers. Visite d’une semaine, Manufactures-Moyennes seulement. Il tamponne un carton gris et te le tend. — Sept jours. Après, tu repasses à la caisse, comme tout le monde.
 
 - « Monter. » → **fin** _(mène à « Ironheart — Les Manufactures-Moyennes »)_
 - « Plus tard. » → **fin**
 
 ### bluff-ok
 
-_Effet : retient « laissez-passer-ironheart »._
+_Effet : retient « laissez-passer-ironheart » pour 1 jours._
 
-> — Cendrefer ? Bon. Dépêche-toi, et pas de détours.
+> — Cendrefer ? Bon. Pour aujourd’hui. Dépêche-toi, et pas de détours.
 
 - « Monter. » → **fin** _(mène à « Ironheart — Les Manufactures-Moyennes »)_
 - « Plus tard. » → **fin**
@@ -4773,7 +4773,7 @@ _Effet : retient « sylvan-triumvirat-dit »._
 
 _Marché des Cendres_
 
-Commence par : « accueil »
+Commence par : « usure » _(si le cristal porté a servi 6 fois ou plus sans être réaccordé)_, sinon « accueil »
 
 ### accueil
 
@@ -4817,6 +4817,19 @@ Commence par : « accueil »
 ### dorna-achete
 
 > Elle enveloppe le cristal dans un chiffon noir. — Dis à Dorna que la tente est toujours là. Elle comprendra.
+
+- « Merci. » → **fin**
+
+### usure
+
+> Elle prend ton cristal entre deux doigts noirs et le fait sonner contre son ongle. — Il chante faux. Tu l’as trop fait travailler. Vingt Fers, et je te le réaccorde : une heure de burin.
+
+- **[20 Fers]** « Le faire réaccorder. » → reaccorde _(−20 Fers, réaccorde le cristal porté)_
+- « Autre chose. » → accueil
+
+### reaccorde
+
+> Le burin tinte, longtemps. Quand elle te le rend, le cristal est tiède, et il chante juste. — Ménage-le. Les cristaux, c’est comme les gens d’en bas : ça s’use sans se plaindre, puis ça casse.
 
 - « Merci. » → **fin**
 
@@ -5014,14 +5027,23 @@ Commence par : « gueri » _(si repère « tiven-soigne »)_, sinon « quete » 
 
 _Marchand de Ferros_
 
-Commence par : « accueil »
+Commence par : « accueil-passe » _(si repère « laissez-passer »)_, sinon « accueil »
 
 ### accueil
 
 > Approche, approche ! Étal Cendrefer : outils de Ferros, cordes, lampes à cristal, tout au prix juste. Le juste, c’est le mien. Les rumeurs, je les donne : elles font vendre les lampes.
 
 - _(si quête « Le Dernier Train » en cours)_ _(sans repère « laissez-passer »)_ « Je dois entrer sur le chantier de la Gare Engloutie. » → chantier
-- _(si repère « laissez-passer »)_ « Merci encore pour le laissez-passer. » → merci
+- « Voir l’étal. » → **fin** _(ouvre le Troc)_
+- « Que racontent les gens, au marché ? » → rumeurs
+- « Au revoir. » → **fin**
+
+### accueil-passe
+
+> Approche, approche ! Étal Cendrefer : outils de Ferros, cordes, lampes à cristal, tout au prix juste. Le juste, c’est le mien. Les rumeurs, je les donne : elles font vendre les lampes.
+
+- « Merci encore pour le laissez-passer. » → merci
+- « Voir l’étal. » → **fin** _(ouvre le Troc)_
 - « Que racontent les gens, au marché ? » → rumeurs
 - « Au revoir. » → **fin**
 
@@ -5168,7 +5190,7 @@ _Effet : −3 PV._
 
 _Druide Vert, au Bosquet des Échos_
 
-Commence par : « retour » _(si quête « Un prêt de la Terre » en cours)_ _(si repère « tiven-soigne »)_, sinon « eclats » _(si l’on porte « Éclats de cristal »)_ _(sans repère « vanel-eclats-vus »)_, sinon « marques » _(1 marque du cristal ou plus)_ _(sans repère « vanel-a-vu-marques »)_, sinon « apres » _(si quête « Un prêt de la Terre » terminée)_, sinon « attente » _(si quête « Un prêt de la Terre » en cours)_, sinon « accueil »
+Commence par : « retour » _(si quête « Un prêt de la Terre » en cours)_ _(si repère « tiven-soigne »)_, sinon « eclats » _(si l’on porte « Éclats de cristal »)_ _(sans repère « vanel-eclats-vus »)_, sinon « marques » _(1 marque du cristal ou plus)_ _(sans repère « vanel-a-vu-marques »)_, sinon « usure » _(si le cristal porté a servi 6 fois ou plus sans être réaccordé)_, sinon « apres » _(si quête « Un prêt de la Terre » terminée)_, sinon « attente » _(si quête « Un prêt de la Terre » en cours)_, sinon « accueil »
 
 ### accueil
 
@@ -5277,6 +5299,19 @@ _Effet : retient « vanel-eclats-vus »._
 > Il creuse entre deux racines avec les doigts, y couche les éclats, referme la terre. — Sévane vend des cristaux, au Comptoir. Mais va doucement, cette fois.
 
 - « Merci, Vanel. » → **fin**
+
+### usure
+
+> Vanel pose l’oreille contre ton cristal, les yeux fermés. — Il est fatigué, pas cassé. La Terre ne vend pas ses soins. Reste la nuit au Bosquet, près des noms gravés : au matin, il chantera juste.
+
+- « Rester la nuit au Bosquet. » → reaccorde _(attend le matin, réaccorde le cristal porté)_
+- « Autre chose. » → accueil
+
+### reaccorde
+
+> Tu dors mal, entre les racines, avec des voix qui ne sont pas les tiennes. Au matin, ton cristal est tiède, et il chante juste. Vanel est déjà parti.
+
+- « Repartir. » → **fin**
 
 ## Varka
 

@@ -55,6 +55,11 @@ export interface GameState {
   expirations?: Record<string, number>;
   /** How many times each sleeping line was gone down into (its crates give less each time ; chantier 6). */
   voiesFaites?: Record<string, number>;
+  /**
+   * The last town walked in (a world-map place with an inn): where one wakes up after a fall (src/rules/repos.ts ;
+   * étude du 2026-11-03, I1). Absent in older saves: Gardebois.
+   */
+  derniereVille?: string;
 }
 
 /** A sleeping line under way: its site on the world map, the draw of its levels, and how deep the hero is. */

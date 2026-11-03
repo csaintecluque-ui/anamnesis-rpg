@@ -44,6 +44,11 @@ Entrer dans une maison ou changer de quartier ne fait pas passer le temps.
 - L'accueil change chaque jour, sur trois jours, avec une **nouvelle du jour**.
 - Canon des prix : un repas coûte ⓕ 15 à 30 (7,5 à 15 Fers) : le repas d’auberge est à 8 Fers ; aucun prix de nuit dans le canon.
 
+- **Se reposer sans auberge** (étude du 2026-11-03, G2 ; `src/rules/repos.ts`) : dans le menu Pause, « Se reposer
+  jusqu'au matin », gratuit, n'importe où sauf sous terre (voies) et sur la route : la moitié des PV rendus (héros et
+  compagnons), sans les PR ni l'emprise ; « une auberge t'aurait tout rendu ». Avant, blessé et à moins de 6 Fers, on
+  ne pouvait plus se soigner.
+
 ## Dialogues
 
 - Conditions : `{ "moment": "nuit" }` (ou `"jour"`, `"matin"`…), `{ "tousLes": 3, "decalage": 1 }` (un jour sur trois).

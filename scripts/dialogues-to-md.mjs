@@ -37,6 +37,7 @@ function condition(c) {
     return `_(avis de ${companionName(c.avis)} ${range})_`;
   }
   if ('lieu' in c) return `_(à « ${nameOf(locations, c.lieu)} »)_`;
+  if ('usureCristal' in c) return `_(si le cristal porté a servi ${c.usureCristal} fois ou plus sans être réaccordé)_`;
   if ('echos' in c) return `_(${c.echos} Échos recueillis ou plus)_`;
   if ('marques' in c) return `_(${c.marques} marque${c.marques > 1 ? 's' : ''} du cristal ou plus${c.max !== undefined ? `, ${c.max} au plus` : ''})_`;
   if ('quest' in c) {
@@ -48,6 +49,9 @@ function condition(c) {
 
 function effect(e) {
   if ('setFlag' in e) return `retient « ${e.setFlag} »`;
+  if ('setFlagFor' in e) return `retient « ${e.setFlagFor} » pour ${e.days} jours`;
+  if ('reaccorder' in e) return 'réaccorde le cristal porté';
+  if ('donnerRecit' in e) return `donne le Récit « ${titleOf(e.donnerRecit)} »`;
   if ('startQuest' in e) return `lance la quête « ${nameOf(quests, e.startQuest)} »`;
   if ('completeQuest' in e) return `termine la quête « ${nameOf(quests, e.completeQuest)} »`;
   if ('giveFers' in e) return `${e.giveFers >= 0 ? '+' : '−'}${Math.abs(e.giveFers)} Fers`;

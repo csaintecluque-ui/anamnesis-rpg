@@ -8,6 +8,8 @@ import { addTextButton } from '../ui/button';
 import { onKeys, withKeyHint } from '../ui/keys';
 import { COLORS, CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
 import { HAS_MOUSE } from '../ui/viewport';
+import { restRefusal, restUntilMorning } from '../rules/repos';
+import { PENDING_NOTICE, type HudScene } from './HudScene';
 
 /** Finger-sized on touch screens, compact with a mouse (docs/gdd/interface.md). */
 const LAYOUT = HAS_MOUSE
@@ -25,7 +27,8 @@ export class PauseScene extends Phaser.Scene {
     const L = LAYOUT;
     // The hidden test mode adds a row of tools under the menu: the panel grows, and everything moves up to stay centred.
     const testMode = getSettings().testMode;
-    const extra = testMode ? L.step + 24 : 0;
+    // One more line than before: « Se reposer » (étude du 2026-11-03, G2).
+    const extra = (testMode ? L.step + 24 : 0) + L.step;
     const top = GAME_HEIGHT / 2 - extra / 2;
     this.add
       .rectangle(GAME_WIDTH / 2, GAME_HEIGHT / 2, L.panel, L.panel + extra, COLORS.ink, 0.97)
@@ -42,6 +45,7 @@ export class PauseScene extends Phaser.Scene {
     const entries: [string, () => void][] = [
       [withKeyHint('Reprendre', 'Échap'), () => this.resumeGame()],
       [withKeyHint('Journal', 'J'), () => this.openJournal()],
+      ['Se reposer jusqu’au matin', () => this.rest()],
       ['Sauvegarder', () => this.leaveMap('Slots', { mode: 'save', returnTo: 'Map' })],
       ['Options', () => this.scene.launch('Options')],
       ['Retour au titre', () => this.backToTitle()],
@@ -93,6 +97,23 @@ export class PauseScene extends Phaser.Scene {
       game.scene.stop('Map');
       game.scene.start('Map');
     });
+  }
+
+  /**
+   * A free night where the hero stands, half the PV back (src/rules/repos.ts); refused under the ground and on the
+   * road. The map is rebuilt for the morning, with the word of the night.
+   */
+  private rest(): void {
+    const state = this.registry.get('game') as GameState;
+    const refusal = restRefusal(state);
+    if (refusal) {
+      this.resumeGame();
+      (this.scene.get('Hud') as HudScene).toast(refusal);
+      return;
+    }
+    this.registry.set(PENDING_NOTICE, restUntilMorning(state));
+    state.entrance = null; // back where the hero stood
+    this.leaveMap('Map');
   }
 
   /** The journal resumes the map when it closes, so the pause menu goes first. */

@@ -3,6 +3,14 @@
   "speaker": "tobias",
   "entries": [
     {
+      "requires": [
+        {
+          "flag": "laissez-passer"
+        }
+      ],
+      "node": "accueil-passe"
+    },
+    {
       "node": "accueil"
     }
   ],
@@ -24,11 +32,37 @@
           ]
         },
         {
-          "text": "Merci encore pour le laissez-passer.",
-          "next": "merci",
-          "requires": [
+          "text": "Voir l’étal.",
+          "next": "fin",
+          "effects": [
             {
-              "flag": "laissez-passer"
+              "openTrade": true
+            }
+          ]
+        },
+        {
+          "text": "Que racontent les gens, au marché ?",
+          "next": "rumeurs"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "accueil-passe": {
+      "text": "Approche, approche ! Étal Cendrefer : outils de Ferros, cordes, lampes à cristal, tout au prix juste. Le juste, c’est le mien. Les rumeurs, je les donne : elles font vendre les lampes.",
+      "options": [
+        {
+          "text": "Merci encore pour le laissez-passer.",
+          "next": "merci"
+        },
+        {
+          "text": "Voir l’étal.",
+          "next": "fin",
+          "effects": [
+            {
+              "openTrade": true
             }
           ]
         },

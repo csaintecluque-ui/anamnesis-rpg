@@ -34,9 +34,10 @@ import { PartyLayer } from './Party';
 import { echoObjects, echoShows } from '../rules/echos';
 import { boardObjects } from '../rules/contrats';
 import { carriesLamp, descend, groupDialogueId, groupFlag, groupNear, leaveVoie, lightTraps, sneakFlag, springTrap, trapSeenFlag, voieGroupXp, voieLevel, voiePlan } from '../rules/voies';
-import type { HudScene } from './HudScene';
+import { PENDING_NOTICE, type HudScene } from './HudScene';
 import type { WorldMapStartData } from './WorldMapScene';
 import { momentOf, type Moment } from '../rules/time';
+import { findPlace } from '../rules/world';
 
 /** Top of the drawn part of each obstacle frame (`texture:frame`), measured once for the whole game. */
 const DRAWN_TOPS = new Map<string, number>();
@@ -204,6 +205,8 @@ export class MapScene extends Phaser.Scene {
     this.heroTile = this.startTile(location.entrance);
     this.state.position = { ...this.heroTile };
     this.state.entrance = null;
+    // Where one wakes up after a fall (src/rules/repos.ts): the last town walked in.
+    if (location.place && findPlace(location.place)?.auberge) this.state.derniereVille = location.place;
     // A save at every place (docs/gdd/jalon-3.md): death sends the hero back to the last one, never far.
     const saved = saveStore.write('auto', this.state);
     if (!saved.ok) console.warn('Sauvegarde auto impossible :', saved.error);
@@ -266,6 +269,12 @@ export class MapScene extends Phaser.Scene {
       this.time.delayedCall(50, () => this.hud().toast('Ici, aucune main ne se lèvera sur personne. Tu le sens dans tes poings : ils ne serreront plus.'));
     }
     if (rencontre) this.announceEncounter(rencontre);
+    // A word left by the screen that sent the hero here (a night's rest, waking up at the inn).
+    const pending = this.registry.get(PENDING_NOTICE) as string | undefined;
+    if (pending) {
+      this.registry.remove(PENDING_NOTICE);
+      this.time.delayedCall(60, () => this.hud().toast(pending));
+    }
     this.time.delayedCall(120, () => this.checkOubli());
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => this.scene.stop('Hud'));
     // A dialogue or a fight may have picked a herb or sent enemies away. Scene events outlive a restart: unhook.

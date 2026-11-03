@@ -5,6 +5,7 @@
   "places": [
     {
       "id": "gardebois",
+      "auberge": "auberge-racine",
       "name": "Gardebois",
       "x": 930,
       "y": 210,
@@ -15,6 +16,7 @@
     },
     {
       "id": "canopee",
+      "auberge": "canopee-auberge",
       "name": "Canopéa",
       "x": 420,
       "y": 330,
@@ -25,6 +27,7 @@
     },
     {
       "id": "ironheart",
+      "auberge": "ironheart-pension",
       "name": "Ironheart",
       "x": 700,
       "y": 64,
@@ -36,6 +39,7 @@
     },
     {
       "id": "sept-portes",
+      "auberge": "sept-portes-auberge",
       "name": "Sept-Portes",
       "x": 1100,
       "y": 455,

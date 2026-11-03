@@ -187,6 +187,9 @@ function validateState(state: unknown): string | null {
   if (!Number.isInteger(state.emprise) || (state.emprise as number) < 0) return 'emprise des Échos invalide.';
   if (state.voie !== null && !isVoie(state.voie)) return 'voie endormie invalide.';
   if (!isContrats(state.contrats)) return 'contrats invalides.';
+  if (state.derniereVille !== undefined && (typeof state.derniereVille !== 'string' || !findPlace(state.derniereVille)?.auberge)) {
+    return 'dernière ville invalide.';
+  }
   if (state.character !== null) return characterError(state.character);
   return null;
 }

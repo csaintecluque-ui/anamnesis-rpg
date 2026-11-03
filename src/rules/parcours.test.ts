@@ -287,9 +287,10 @@ describe('Parcours complet, d’une traite', () => {
     });
     expect(pass).toEqual({ xp: 25, fers: 0 });
     expect(s.flags['laissez-passer']).toBe(true);
-    expect(talk(s, 'tobias')).toBe('accueil');
-    expect(optionTexts(s, 'tobias', 'accueil')).toContain('Merci encore pour le laissez-passer.');
-    expect(optionTexts(s, 'tobias', 'accueil')).not.toContain('Je dois entrer sur le chantier de la Gare Engloutie.');
+    expect(talk(s, 'tobias')).toBe('accueil-passe');
+    expect(optionTexts(s, 'tobias', 'accueil-passe')).toEqual(['Merci encore pour le laissez-passer.', 'Voir l’étal.', 'Que racontent les gens, au marché ?', 'Au revoir.']);
+    // L'étal, dès l'accueil (étude du 2026-11-03, B9 : il fallait passer par les rumeurs).
+    expect(optionTexts(s, 'tobias', 'accueil')).toContain('Voir l’étal.');
   });
 
   it('Gardebois : les trois quêtes annexes se donnent avant la Gare', () => {

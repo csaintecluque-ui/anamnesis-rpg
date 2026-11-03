@@ -12,6 +12,8 @@ import { resonanceMax, wornCrystal } from '../rules/magic';
 import { Tooltip } from '../ui/tooltip';
 
 const TOAST_MS = 4000;
+/** Registry key: a word to show on the map once it is (re)built, from a screen that sent the hero there. */
+export const PENDING_NOTICE = 'pendingNotice';
 /** Free band between the Menu button (left) and the Journal and Inventaire buttons (right). */
 const HEADER_MAX_WIDTH = HAS_MOUSE ? 600 : 470;
 /** Longest hero name shown in the status line before it is shortened. */

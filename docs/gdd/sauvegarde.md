@@ -44,3 +44,14 @@ Code : `src/save/codec.ts` (format, validation, migrations), `src/save/store.ts`
 
 - **Sauvegarde automatique à chaque lieu** (2026-11-02, jalon 3) : en entrant dans un lieu, l'emplacement automatique
   est réécrit ; à la mort du héros, on reprend la sauvegarde la plus récente de tous les emplacements.
+
+- **La mort à deux boutons** (décision de Cyril, 2026-11-03 ; étude, I1, `src/rules/repos.ts`) : l'écran de la mort
+  affiche les PV de la dernière sauvegarde (« … · PV 4 / 44 ») et propose (1) **Reprendre à la dernière sauvegarde**
+  (Entrée), ou (2) **Te réveiller à <ville>** (R) : à l'auberge de la ville de la chute, sinon de la dernière ville
+  traversée, au matin, guéri comme après une nuit d'auberge, la voie ou la route quittée, le combat perdu (ses ennemis
+  restent) ; prix : le Récit ordinaire le plus ancien (jamais un Récit de l'histoire), sinon 10 Fers, sinon rien.
+  Le bouton dit le prix avant le choix. La sauvegarde automatique continue d'être écrite à chaque lieu, même à PV bas :
+  ne pas l'écrire (proposition de l'étude) aurait fait perdre la progression d'un joueur qui quitte sans sauvegarder ;
+  le second bouton suffit à sortir du piège du Golem.
+- **`derniereVille`** : champ **facultatif** (Gardebois s'il manque), pas de nouvelle version ; la ville (une place de
+  la carte du monde qui a une auberge, `world.json`, `auberge`) où l'on se réveille.

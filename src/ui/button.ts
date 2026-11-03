@@ -34,6 +34,12 @@ export function addTextButton(
       align: 'center',
     })
     .setOrigin(0.5);
+  // A label too long for its button gets a smaller font rather than spilling over the frame.
+  const fit = () => {
+    text.setFontSize(fontSize);
+    for (let size = fontSize - 1; text.width > width - 20 && size >= 12; size--) text.setFontSize(size);
+  };
+  fit();
   const container = scene.add.container(x, y, [frame, text]);
 
   if (enabled) {
@@ -49,5 +55,11 @@ export function addTextButton(
     );
   }
 
-  return { container, setLabel: (value) => text.setText(value) };
+  return {
+    container,
+    setLabel: (value) => {
+      text.setText(value);
+      fit();
+    },
+  };
 }

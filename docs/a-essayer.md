@@ -19,15 +19,15 @@ Lien du jeu : https://csaintecluque-ui.github.io/anamnesis-rpg/ (la version s'af
 - [x] **Pell peut être sauvé** (chantier 2, ta feuille de route le proposait) : avec Médecine 3, on le tire du feu de
       la chaudière ; il vit, sans ses mains, et Ingrid, Ilyane et la lavandière le disent. Sans Médecine, il meurt dans
       tes bras. On garde (recommandé), ou Pell meurt toujours ? **Cyril, 2026-11-03 : on garde.**
-- [ ] **Un Réveilleur nommé dès le chapitre 2 ?** (ta feuille de route, chantier 4) Je recommande de **ne pas** ajouter
+- [x] **Un Réveilleur nommé dès le chapitre 2 ?** Cyril : non. (ta feuille de route, chantier 4) Je recommande de **ne pas** ajouter
       de personnage : la dame en gris est le visage de l'adversaire, semée dès le chapitre 1 (elle paie les papiers
       d'Ingrid, puis Kaelis), et les Réveilleurs restent derrière elle. Ou bien tu veux un Réveilleur à part ?
-- [ ] **Qui Edda a perdu dans le train** : (a) **sa mère, la vraie Edda Varn**, déclarée morte il y a trente ans parce
+- [x] **Qui Edda a perdu dans le train** Cyril : (a), sa mère. : (a) **sa mère, la vraie Edda Varn**, déclarée morte il y a trente ans parce
       qu'elle est montée dans le train ; la dame en gris signe de sa main pour la retrouver (recommandé : tout ce qui
       est déjà en jeu s'explique) ; (b) son enfant ; (c) autre ?
-- [ ] **Ilyane** : jusqu'où va sa perte, et peut-on la sauver ? (a) on ne la sauve pas, on retient pour elle (Boulon,
+- [x] **Ilyane** Cyril : (b), on peut la sauver à un prix lourd, à la fin. Jusqu'où va sa perte, et peut-on la sauver ? (a) on ne la sauve pas, on retient pour elle (Boulon,
       tes lettres) ; (b) on peut, à un prix lourd, à la fin (recommandé : un vrai dilemme de fin de jeu) ; (c) autre ?
-- [ ] **Les inventions du chantier 4** (`docs/univers/propositions.md`) : la mort de Saule (le premier sondage), la dame
+- [x] **Les inventions du chantier 4** Cyril : on garde. (`docs/univers/propositions.md`) : la mort de Saule (le premier sondage), la dame
       en gris dès le chapitre 1, Boulon qui l'a portée, les étapes de l'oubli d'Ilyane, les trois lettres de Hesper.
       On garde ?
 - [ ] Dans ton Notion, quand tu veux : les contradictions du canon sur Terminus (`docs/univers/zones-floues.md`,
@@ -96,7 +96,7 @@ Lien du jeu : https://csaintecluque-ui.github.io/anamnesis-rpg/ (la version s'af
       en courant si on te repère (Athlétisme) ; à des Échos furieux, raconter un Récit.
 - Remarques :
 
-## Chantier 4 — Compagnons présents, ennemi incarné (sur la branche)
+## Chantier 4 — Compagnons présents, ennemi incarné (en ligne le 2026-11-03)
 
 - [ ] **Voyage avec Liane, puis avec Boulon** : leurs répliques s'affichent sous le texte dans les scènes clés (Ingrid,
       la foreuse, le Conseil, la Veilleuse, Kaelis, Hesper, la page du dernier départ, la dame en gris…).

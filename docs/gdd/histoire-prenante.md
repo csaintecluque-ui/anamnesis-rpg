@@ -45,9 +45,11 @@ garde-fous). Garde-fous tenus : le pourquoi des Surgeons reste sans explication 
   distille chapitre après chapitre.
 - **Le pourquoi du héros** : pourquoi l'enfant le voit-il, lui ? (même règle : Cyril tranche.)
 - **La raison d'Edda Varn** : pourquoi elle court après le dernier train (argent des Réveilleurs, ou quelqu'un à elle
-  dans ce train). **Tranché par Cyril (2026-11-03) : quelqu'un à elle était dans ce train.** Qui : à proposer.
+  dans ce train). **Tranché par Cyril (2026-11-03) : sa mère, la vraie Edda Varn, est montée dans ce train ; déclarée morte depuis trente ans, elle est celle que la dame en gris cherche.**
 - **Ilyane** : jusqu'où va sa perte ; peut-on la sauver, et à quel prix ? **Cyril (2026-11-03) : oui, Ilyane oublie
-  d'un chapitre à l'autre.** Jusqu'où, et le prix de la sauver : à proposer.
+  d'un chapitre à l'autre ; on peut la sauver, à un prix lourd, à la fin du jeu.** Le prix : à proposer.
+- **Un Réveilleur nommé dès le chapitre 2** (feuille de route, chantier 4) : **non** (Cyril, 2026-11-03) ; la dame en
+  gris est le visage de l'adversaire, les Réveilleurs restent derrière elle.
 
 ## Comment on vérifie qu'on y arrive
 

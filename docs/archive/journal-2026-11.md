@@ -1040,3 +1040,6 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   Liane et Boulon, la quête de Liane rééquilibrée (même estime, soins plus sûrs ou le Récit), la dame en gris semée aux
   chapitres 1 à 3, la lettre de Hesper selon le sort de la clé, Ilyane qui oublie (une chanson, Mirelle, le héros).
   Inventions à valider : `docs/univers/propositions.md`. 676 tests ; vérifié en 1080p (apartés).
+- Cyril : « 1 non, 2 a, 3 b, 4 oui, 5 mets en ligne » : pas de Réveilleur à part (la dame en gris est le visage) ; la
+  dame en gris cherche sa mère, la vraie Edda Varn, montée dans le train ; Ilyane peut être sauvée à un prix lourd, à
+  la fin ; les inventions du chantier 4 sont gardées ; chantier 4 en ligne. Chantier 5 (passe d'écriture) commencé.

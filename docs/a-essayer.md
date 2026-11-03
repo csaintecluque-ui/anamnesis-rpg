@@ -183,6 +183,14 @@ Critère de l'étude : au moins un jet raté par chapitre qui t'a coûté quelqu
 - [ ] **La création** sans Mêlée ni Tir : l'avertissement en bas du résumé.
 - Remarques :
 
+Sur la branche, pas encore en ligne (tes textes du 3 novembre) :
+
+- [ ] **L'enfant à la fenêtre** : dans l'Écho du dernier train, « Entrer », puis « Rester encore un instant ».
+- [ ] **Les fragments du héros** : une nuit d'auberge après chaque chapitre (la vapeur, la main, la voix) ; le journal,
+      onglet Échos, page « Ce qui n'est pas à moi ».
+- [ ] **Les Échos du fond des voies** : au terminus de la halte, de la Combe, du Dépôt Sept ; puis la réponse de plus
+      chez la Veilleuse (la Combe) ou chez Ambroise (la halte, le Dépôt Sept).
+
 ## Déjà en ligne, pas encore essayé sur PC
 
 - [ ] **Chapitre 4, Sept-Portes** sans le mode surpuissant : l'arrivée par la Porte du sud, le Registre, l'une des trois

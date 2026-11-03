@@ -1079,3 +1079,7 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
 - Cyril : « Mets en ligne, les trois textes sont top, pour les Échos oui » et il écrit la vérité derrière l'enfant
   (deux enfants trouvés sur le quai, la main lâchée, l'oubli choisi, le retour à Altavent) : vague 2 (Golem, premier
   combat, fiche et HUD, le dé) mise en ligne ; F1 et les Échos des voies à construire.
+- Sur la branche : le héros qui a oublié (piste A, vérité de Cyril) : l'enfant à la fenêtre dans l'Écho du dernier
+  train, un fragment la nuit à l'auberge par chapitre (la vapeur, la main, la voix qui compte), la page « Ce qui n'est
+  pas à moi » ; les trois Échos de l'histoire au terminus des voies, le détail du héros, et une réponse de plus chez la
+  Veilleuse et Ambroise. 724 tests ; vérifié dans Chromium (Écho de la Combe, page du journal).

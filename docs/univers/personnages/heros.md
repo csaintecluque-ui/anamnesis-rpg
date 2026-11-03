@@ -50,7 +50,7 @@ appartient à Cyril** : le jeu ne la tranche pas sans lui.
 Pourquoi elle (Cyril) : une faute humaine, pas un mystère cosmique ; elle fait écho à Liane (l'oubli choisi), à Ingrid
 (ce qu'on n'a pas vérifié) et à Edda (qui court aussi après quelqu'un monté dans ce train).
 
-Ce que Claude en tire pour le jeu (à construire, vague 2, F1) :
+Ce que Claude en tire pour le jeu (**construit** le 2026-11-03, sur la branche ; `src/rules/heros.ts`, `src/data/heros.json`) :
 
 - **Rien ne se dit avant la fin** : le jeu ne montre que des fragments, jamais l'explication ; aucun PNJ ne la connaît.
 - **L'ordre des fragments** est l'ordre inverse de l'oubli : la vapeur (ch. 2), la main (ch. 3), la voix qui compte

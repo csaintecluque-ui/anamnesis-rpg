@@ -81,3 +81,15 @@ difficulté) ou se battre. Face à des Échos furieux, **leur raconter un Récit
 gardé). Les bêtes et les bandes gagnent en force avec l'histoire (`strengthen`, `docs/gdd/combat.md`, « Chantier 3 »).
 Un personnage pacifiste peut finir les voies : la descente n'est jamais gardée ; seuls les contrats de chasse demandent
 de se battre.
+
+## Les Échos de l'histoire, au terminus (étude du 2026-11-03 ; textes validés par Cyril)
+
+- Au terminus de chaque voie, à la place de la descente, un **Écho fixe** (`histoires` dans `src/data/voies.json`,
+  `HISTOIRE_ID` dans `src/rules/voies.ts`) : « Passé sans arrêt » (halte des Fougères), « Le train qui n'était pas
+  prévu » (tunnel de la Combe), « Le tableau des départs » (Dépôt Sept). Il reste là tant qu'on ne l'a pas écouté
+  jusqu'au bout (20 XP), puis rejoint le Livre des Échos.
+- Après la scène, **le héros seul remarque un détail** : un fragment de son passé (`docs/univers/personnages/heros.md`) :
+  la main contre la vitre (halte), la vapeur (Combe), la voix qui compte jusqu'à sept (Dépôt Sept).
+- **Une réponse de plus** dans l'histoire : la Combe, chez la Veilleuse (« Dans la Combe, des hommes ont entendu ton
+  train, avant la Chute » : elle donne la clé) ; la halte et le Dépôt Sept, chez Ambroise (« un fourgon plombé »,
+  « Voie sept. Le nom commençait par Alta » : il ouvre le Fonds Muet). Jamais obligatoire.

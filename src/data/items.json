@@ -5,7 +5,8 @@
     "description": "Une lame courte, facile à porter.",
     "weightKg": 1,
     "price": 10,
-    "slot": "main"
+    "slot": "main",
+    "lore": "La dague de tes débuts. Ilyane dit qu’un Gardien n’a besoin que d’une lame courte et d’une longue mémoire."
   },
   {
     "id": "dague-dentelee",
@@ -161,14 +162,16 @@
     "description": "Tirée au pied des arbres où reposent les morts : une chaleur, un tour de main, et une voix qui n’est pas la tienne. Défendue à Canopéa.",
     "weightKg": 0.3,
     "price": 30,
-    "healHp": 30
+    "healHp": 30,
+    "lore": "La Sève la défend : boire les morts, c’est les entendre un peu trop longtemps."
   },
   {
     "id": "graines-lumiere",
     "name": "Graines-lumière",
     "description": "Un sac de semences de Canopéa, au sceau du Conseil. Elles n’étaient pas à toi.",
     "weightKg": 1,
-    "price": 30
+    "price": 30,
+    "lore": "Une sur trois reste à l’arbre : c’est la règle de la Sève. On les plante au Premier Bourgeon."
   },
   {
     "id": "branche-anselme",
@@ -184,7 +187,8 @@
     "description": "Taillée par Elouan dans une branche de l’arbre d’Anselme. Elle est pour Aïlis.",
     "weightKg": 0.2,
     "price": 0,
-    "quest": true
+    "quest": true,
+    "lore": "Elouan dit qu’une flûte taillée dans l’arbre d’un mort joue d’abord les airs qu’il aimait."
   },
   {
     "id": "lettre-ilyane",
@@ -200,7 +204,8 @@
     "description": "Scellé d’une feuille d’émeraude : le Triumvirat Vert de Verdantis recommande qui le porte.",
     "weightKg": 0.1,
     "price": 0,
-    "quest": true
+    "quest": true,
+    "lore": "À Ferros, il ouvre le funiculaire des Manufactures ; ailleurs, il fait sourire les contrôleurs."
   },
   {
     "id": "carnet-chansons",
@@ -224,7 +229,8 @@
     "description": "Une vieille clé couverte d’une rouille bleue, douce comme de la mousse. Elle chante quand un train approche.",
     "weightKg": 0.1,
     "price": 0,
-    "quest": true
+    "quest": true,
+    "lore": "Les cheminots de la Bielle disent qu’une clé qui chante attend encore son train."
   },
   {
     "id": "oiseau-de-fer",
@@ -267,7 +273,8 @@
     "weightKg": 0.1,
     "price": 250,
     "slot": "cristal",
-    "pouvoir": "guerison"
+    "pouvoir": "guerison",
+    "lore": "À Verdantis, on ne possède pas un cristal : la Terre le prête, et un jour elle le reprend."
   },
   {
     "id": "cristal-forge",
@@ -276,14 +283,16 @@
     "weightKg": 0.1,
     "price": 250,
     "slot": "cristal",
-    "pouvoir": "flammes"
+    "pouvoir": "flammes",
+    "lore": "Le forcer trop souvent laisse des marques : les veines, le manque. Les tailleurs d’Ironheart le savent, et le vendent quand même."
   },
   {
     "id": "eclats-cristal",
     "name": "Éclats de cristal",
     "description": "Ce qui reste d’un cristal forcé trop souvent : des esquilles froides, qui ne s’allument plus. La tailleuse du Marché des Cendres en rachète.",
     "weightKg": 0.1,
-    "price": 20
+    "price": 20,
+    "categorie": "matieres"
   },
   {
     "id": "plans-masque",
@@ -319,7 +328,8 @@
     "name": "Cœur de ferraille",
     "description": "Le cœur de cristal du Golem, éteint et tiède. Il vaut cher au Marché des Cendres.",
     "weightKg": 3,
-    "price": 25
+    "price": 25,
+    "lore": "Au Marché des Cendres, on dit qu’un cœur de Golem se souvient du dernier ordre qu’on lui a donné."
   },
   {
     "id": "griffes-sylve",
@@ -363,7 +373,8 @@
     "description": "Une lettre pliée, cachetée de cire. On ne l’ouvre pas : on la porte.",
     "weightKg": 0.1,
     "price": 0,
-    "quest": true
+    "quest": true,
+    "lore": "Un Gardien de Mémoire ne lit pas les lettres qu’il porte : c’est la première chose qu’on lui apprend."
   },
   {
     "id": "lanterne-chef-gare",
@@ -371,7 +382,8 @@
     "description": "Une lanterne de l’Ancien Monde, verre rouge et verre vert. Elle ne s’est jamais allumée depuis.",
     "weightKg": 1,
     "price": 0,
-    "quest": true
+    "quest": true,
+    "lore": "Verre rouge, on s’arrête ; verre vert, on repart. Dans les voies endormies, plus personne ne repart."
   },
   {
     "id": "plaque-emaillee",

@@ -42,6 +42,25 @@ Règles : `src/rules/inventory.ts` ; écran : `TradeScene`.
   consulter/équiper/utiliser/vendre), soit depuis un dialogue dont une option porte l'effet
   `openTrade` (Tobias : « Voir l'étal. »), avec achat en plus.
 
+## Le sac rangé (demande de Cyril, 2026-11-03)
+
+Après son premier essai : « il faudrait des onglets, et des descriptions permettant de connaître l'utilité, et pour
+certains objets un bout de lore ; là, tous les objets se suivent ». Règles : `src/rules/objets.ts` ; écran : `TradeScene`.
+
+- **Cinq onglets**, avec leur compte (un onglet vide est grisé) : **Équipement** (armes, armures, cristaux, même prêtés),
+  **Remèdes** (soins, sèves), **Matières** (ce qui entre dans une recette de la forge d'Hedda ou des herbes de Sévane,
+  et les éclats de cristal), **Quête** (ce qu'on porte pour quelqu'un), **Divers** (le reste : corde, lampe, carreaux,
+  graines). Le rangement se déduit des règles ; `categorie` dans `items.json` le force si besoin.
+- **La liste à gauche** (◆ : porté), **la fiche à droite** : le nom ; l'onglet, combien on en a, où il est porté ; **à quoi
+  il sert**, tiré des règles (dégâts et compétence d'une arme, Défense d'une armure, pouvoirs d'un cristal, PV ou PR
+  rendus, recettes où il entre, atelier qui le fabrique, « objet de quête : il ne se vend pas ») ; poids et valeur ; sa
+  description ; parfois **ce qu'on en dit**, en italique (`lore`, `docs/univers/objets.md`, à valider) ; ses boutons
+  (Utiliser, Boire, Soigner, Équiper, Porter, Retirer, Vendre, Acheter).
+- À un étal, l'écran s'ouvre sur l'onglet de ce que vend le marchand ; son prix est à droite de chaque ligne.
+- Clavier : ← → changent d'onglet, ↑ ↓ d'objet, 1 à 4 les boutons de la fiche.
+- **Constat** : la corde, la lampe à cristal et les carreaux ne servent encore à rien d'autre qu'à être vendus
+  (l'arbalète ne consomme pas de carreaux).
+
 ## Les pièces de Hedda (Ironheart, accord de Cyril le 2026-11-02)
 
 À Ironheart, on gagne beaucoup (Kaelis paie 100 Fers, Sorn 80, Ostrik 60) et l'étal de Tobias ne suffisait plus.

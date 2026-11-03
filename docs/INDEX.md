@@ -27,6 +27,7 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `lieux/voies-endormies.md` : les trois voies endormies à explorer, leurs Échos, les tableaux des contrats ; validé.
 - `lieux/sept-portes.md` : Sept-Portes, la cité de Kael (chapitre 4) : canon résumé, propositions ; à valider.
 - `factions.md` : organisations, alliances, conflits en cours ; factions et guildes du jeu (validées).
+- `objets.md` : ce qu'on dit des objets (lignes de lore de l'inventaire) ; à valider.
 - `quetes.md` : histoire principale « Les voies endormies » et quêtes des villes ; validé.
 - `religions.md` : les sept religions.
 - `peuples.md` : peuples par nation, faune utile à la tranche.
@@ -35,7 +36,7 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `personnages/pnj.md` : héros, Ilyane, Tobias, Ingrid, ennemis (validés).
 - `chronologie.md` : dates de référence.
 - `ton.md` : ton du corpus, ton du jeu (dark fantasy pour adultes, charte), sonorités des noms par nation.
-- `zones-floues.md` : 32 contradictions du canon, décisions de Cyril.
+- `zones-floues.md` : 37 contradictions du canon, décisions de Cyril.
 - `propositions.md` : propositions sans autre fichier (quête, attribut Mémoire), propositions rejetées.
 
 ## `gdd/` : conception du jeu (systèmes, chiffres, équilibrage)
@@ -50,7 +51,7 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `tranche-verticale.md` : déroulé de la quête « Le Dernier Train » et ses 4 résolutions.
 - `exploration.md` : cartes Tiled, tuiles, déplacement, interactions.
 - `dialogues.md` : format JSON, conditions, effets, contrôles.
-- `inventaire.md` : objets, Fers, équipement, troc.
+- `inventaire.md` : objets, Fers, équipement, troc ; le sac en onglets et la fiche de chaque objet.
 - `progression.md` : seuils d'XP, montée de niveau.
 - `sauvegarde.md` : emplacements, format, export/import, sauvegarde à chaque lieu, versions v1 à v14.
 - `interface.md` : HUD, menu pause, options, PC (netteté, raccourcis, plein écran).

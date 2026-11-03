@@ -21,6 +21,10 @@ export interface ItemDef {
   resonance?: number;
   /** Quest item: carried for someone, it cannot be sold. */
   quest?: boolean;
+  /** Its tab in the bag, when the rules would put it elsewhere (src/rules/objets.ts). */
+  categorie?: 'equipement' | 'remedes' | 'matieres' | 'quete' | 'divers';
+  /** A line of what is said about it, in italics under its description (docs/univers/objets.md). */
+  lore?: string;
 }
 
 export const ITEMS = itemData as ItemDef[];

@@ -1085,3 +1085,6 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   Veilleuse et Ambroise. 724 tests ; vérifié dans Chromium (Écho de la Combe, page du journal).
 - Cyril : « 1 oui, 2 oui, 3 oui » : le héros qui a oublié et les Échos des voies mis en ligne ; suite de la vague 2
   (objet convoité, voies allégées, un obstacle par chapitre) ; Claude propose des répliques d'Ilyane.
+- Sur la branche : une vitrine par ville (la lampe chez Tobias, le cristal de Vie chez Sévane, la cuirasse chez Ragna) ;
+  les voies à la taille du groupe (5 bêtes au plus seul, 2 de plus par compagnon ; mesuré sur 200 tirages). Proposés
+  à Cyril : les répliques d'Ilyane qui remarque les fragments (A ou B) ; un obstacle par chapitre. 726 tests.

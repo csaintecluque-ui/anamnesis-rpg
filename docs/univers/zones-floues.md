@@ -136,6 +136,30 @@ Ces décisions valent **pour le jeu**. Le dossier `docs/Lore/` reste inchangé.
     réussir peut tout détruire »), qui donne toujours le Récit du savant Corvan. Le roman parle
     aussi de « caste Technique » (V.1) et de « Classe Technique » (IV.6) : le jeu emploie les deux.
 
+Relevés à la lecture des pages de Terminus pour le chapitre 4 (2026-11-03). Sources : [F] la fiche « Terminus »,
+[HL] « Histoire et lore », [S] la légende « Le siège », [FM] la légende « Le Fonds Muet ». Rien n'est tranché par le jeu.
+
+33. **Kael, « le Dernier Survivant »** : le seul lettré survivant de New Babel [HL], ou le dernier des quatre, l'autre
+    sens étant qualifié de contresens [F]. Le jeu dit seulement qu'il a fondé la première bibliothèque et que ses
+    manuscrits sont sous verre sacré ; il n'emploie pas le titre.
+34. **Aldara et les Trois Cents** : Aldara vit de 1820 à 1890 [HL] ou de 1820 à 2051 [S] ; en 1861, une ville
+    « presque détruite » et un duel [HL], ou un siège où aucun dragon n'entre [S] ; les trois cents sont tous morts
+    [HL], ou 291 sur 300 [S] ; 47 clans [HL] ou 11 délégations [S]. Le jeu (monument, Écho des Trois Cents) dit
+    qu'ils sont sortis de l'Anneau au quatre-vingt-unième jour, sans dire combien sont revenus.
+35. **Où dorment les pièces « sans main »** : au Fonds Muet [F][S], ou au Fonds des Acquisitions Rompues, le Fonds
+    Muet étant réservé à la quarantaine des chaînes de Nakh-Rim [FM]. Ta propre formule dit « Fonds Muet (documents
+    « sans main ») ». Le jeu prend la définition de [FM] (Ambroise : « les pièces dont la chaîne passe par une main
+    qu'a touchée Nakh-Rim ») ; la page du dernier départ y est pour cette raison, ce qui tient avec les deux lectures.
+36. **Les Sept Portes** : « un portail par continent » [F], mais Terminus est lui-même un des sept continents. Le jeu
+    nomme six Portes (Verdantis, Ferros, Zephyria, Marisol, Glacialis, Solarix) et laisse la septième sans
+    destination (« Celle-ci, on ne la demande pas ») ; le canon ne dit pas non plus où chaque Porte débouche sur son
+    continent (le jeu : la Porte du sud, à l'est de la forêt de Verdantis). À valider.
+37. **Violence et peuplement à Terminus** : une bataille finale contre le Nécromant et une alliance militaire avec
+    Ferros [HL], contre une ville où la main s'arrête [F][S] ; fondation entre 300 et 500 AN avec 40 000 habitants
+    [HL], contre l'Anneau dès l'an 31 et une plaine de 400 000 personnes [F]. Le jeu suit l'Anneau (aucun combat
+    possible) et ne donne aucun chiffre. Restent « à trancher » dans le Notion même : Iram aux Pas Effacés et
+    l'Anneau, la doctrine du Non-Arrêt ; le jeu n'en parle pas.
+
 ## Réponses de Cyril (2026-11-02, « Oui pour tout »)
 
 - **Monnaie** : une seule monnaie de jeu, le Fer, pour l'instant.

@@ -12,8 +12,10 @@ direction artistique, logo de Cyril, méthode de travail). Ce fichier-ci n'ajout
 2. Seulement ensuite, les documents utiles à la tâche. **Ironheart et le chapitre 3 (« La Clé de Rouille Bleue ») sont
    faits et en ligne** (`docs/univers/lieux/ironheart.md`), ainsi que **« Le Rail des Cendres »**, **« Les Échos sous la
    Forge »** (quête cachée) et **« Voyager autrement »** (train et caravane, `docs/gdd/carte-du-monde.md`) (Claude,
-   2026-11-02, en ligne) : ne pas les refaire, les compléter. **Chantier de Codex (décision de Cyril, 2026-11-02) :
-   Sept-Portes, chapitre 4 (« Les Mémoires du Monde Perdu », sans combat).** Histoire et suites
+   2026-11-02, en ligne) : ne pas les refaire, les compléter. **Sept-Portes, chapitre 4 (« Les Mémoires du Monde
+   Perdu »)** : confié à Codex le 2026-11-02, rien n'est arrivé sur le dépôt ; **repris et construit par Claude le
+   2026-11-03** (décision de Cyril : « L'histoire principale doit continuer », `docs/gdd/jalon-4.md`). Ne pas le
+   refaire ; demander à Cyril le prochain chantier. Histoire et suites
    attendues : `docs/univers/quetes.md` ; factions : `docs/univers/factions.md` ; plan des villes :
    `docs/univers/lieux/villes.md` ; gabarit d'une grande ville : `docs/gdd/villes.md`.
 

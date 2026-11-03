@@ -2,29 +2,26 @@
 
 ## État (2026-11-03)
 
-- Jalons 1 et 2 faits et en ligne (`docs/gdd/jalon-2.md`). 11,5 crédits Higgsfield restants.
-- 584 tests (dont le parcours complet d'affilée, `src/rules/parcours.test.ts`), typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
+- Jalons 1, 2 et 3 faits et en ligne (bilan du 3 : `docs/gdd/jalon-3.md`). 11,5 crédits Higgsfield restants.
+- 612 tests (dont le parcours complet d'affilée, `src/rules/parcours.test.ts`), typecheck et build au vert. En ligne : https://csaintecluque-ui.github.io/anamnesis-rpg/
 - Mode test caché : 5 touches sur la version (écran titre) → menu pause : +50 Fers, PV au max, **Outils de dev**
   (perso surpuissant, groupe, lieux, quêtes, repères, objets, Récits ; `docs/gdd/interface.md`).
 
-## Fait et en ligne (2026-11-02, validé par Cyril)
+## Jalon 4 en cours (`docs/gdd/jalon-4.md`) : l'histoire principale continue
 
-- Canopéa « finie à fond » : cinq quêtes, « La caravane de midi », journal (touche J), réputation des guildes
-  (`docs/univers/lieux/canopee.md`). Ironheart, chapitre 3 : trois quartiers, « La Clé de Rouille Bleue » et ses trois
-  fins, les choix de Canopéa qui comptent (`docs/univers/lieux/ironheart.md`, `docs/univers/quetes.md`).
-- Moteur : objets de quête, `apparaitSi`, rencontres d'histoire, figurants, étapes de quête (`etapes`).
-- « Le Rail des Cendres », « Les Échos sous la Forge », « Voyager autrement » (`quetes.md`, `gdd/carte-du-monde.md`).
+- Étape 1, **chapitre 4, Sept-Portes** (« Les Mémoires du Monde Perdu ») : **construit le 2026-11-03 sur la branche
+  `claude/elegant-mayer-hdmb3c`, à valider par Cyril** ; pas encore en ligne. Repris de Codex (`AGENTS.md`).
+  Lore et noms proposés : `docs/univers/lieux/sept-portes.md` ; contradictions du canon : zones floues 33 à 37.
+- Étape 2 : l'essai de Cyril (une partie sur téléphone) ; étape 3 : chapitre 5, Aetherhaven.
 
 ## Prochaine étape
 
-1. **Jalon 3** (`docs/gdd/jalon-3.md`) : étapes 1 à 7 **validées et en ligne** (veillées `gdd/veillees.md`, passe
-   sombre `gdd/passe-sombre.md`, voies et contrats `gdd/voies.md` ; scènes inventées des Échos à valider) ;
-   **vérification qualité** faite et en ligne (`docs/qualite.md`) ; étape 7 (rangs, adhésions de Ferros, artisanat :
-   `gdd/factions.md`, `gdd/artisanat.md`) **validée et en ligne**. **Jalon 3 fini** ; bilan dans `gdd/jalon-3.md`.
-2. Jalon 4 proposé, à valider : partie test de Cyril, puis Sept-Portes (rien de Codex sur le dépôt, `AGENTS.md`). Notion : page « Anamnesis — le jeu », à tenir à jour à chaque mise en ligne.
+1. Réponses de Cyril sur le chapitre 4 (noms, Altavent, la septième Porte, chiffres), puis « mets en ligne » : pousser
+   sur `main`, compléter la page Notion « Anamnesis — le jeu ».
+2. L'essai de Cyril et ses remarques sur le dosage.
 
 ## Points ouverts
 
 - Chronologie du canon non arbitrée (`docs/univers/zones-floues.md`, points 6 à 13 ; le 14 est tranché) ; points 29
-  et 30 tranchés (le jeu suit le roman ; Elvan banni) ; 31 noté (fiche Verdantis ancienne).
+  et 30 tranchés (le jeu suit le roman ; Elvan banni) ; 31 noté (fiche Verdantis ancienne) ; 33 à 37 notés (Terminus).
 - `npm audit` : vulnérabilités modérées dans les outils de build de la PWA ; à revoir avec workbox.

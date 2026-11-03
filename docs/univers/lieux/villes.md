@@ -171,6 +171,10 @@ Cloudrest, Mistral (Zephyria) [E3, N1, N3]. Crystallis est écartée : son nom e
   monde du cartographe, qui ouvre les voyages ; la Fête du Souvenir, un jour de fête dans la ville.
 - **À vérifier dans le canon** : ce que sont les Sept Portes ; la distance du Cratère de Sartharion ; un siège des
   Gardiens de Mémoire existe-t-il déjà ?
+- **Construite le 2026-11-03 (chapitre 4, à valider)** : `lieux/sept-portes.md` et `gdd/jalon-4.md`. Écarts au plan,
+  d'après le canon relu : les **Halles Basses** (le Cratère rebâti en marché) remplacent le Belvédère ; Ambroise est
+  le **Conservateur** ; le cartographe s'appelle **Lior** (Pell est pris par le garçon de la Gare). Pas encore faits :
+  les deux ambassades, la Réserve interdite, la Fête du Souvenir.
 
 ## 5. Aetherhaven, la cité flottante — Zephyria
 

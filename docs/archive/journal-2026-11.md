@@ -957,3 +957,20 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
 - Cyril : « Oui c'est bon, mets en ligne » : rangs, adhésions, recettes et chiffres validés ; étape 7 mise en ligne ;
   le jalon 3 est fini ; page Notion « Anamnesis — le jeu » complétée (factions et artisanat).
 - Cyril demande le bilan du jalon 3 : écrit dans `docs/gdd/jalon-3.md` (fait, à valider, reporté, points faibles, suite).
+
+## 2026-11-03 (suite) : jalon 4, chapitre 4, Sept-Portes
+
+- Cyril : « L'histoire principale doit continuer. Va pour le chapitre 4, puis j'attaque l'essai. » Rien de Codex sur
+  le dépôt : Claude reprend Sept-Portes (`AGENTS.md`). Jalon 4 ouvert (`docs/gdd/jalon-4.md`).
+- Canon relu dans le Notion (« Terminus », ses légendes « La formule », « Le siège », « Le Fonds Muet », « Histoire et
+  lore ») ; synthèse et propositions dans `docs/univers/lieux/sept-portes.md` ; cinq contradictions notées (zones
+  floues 33 à 37).
+- Construit : la Porte du sud sur la carte du monde (après la Clé, par une lettre de Hesper que lit Ilyane) ; trois
+  quartiers (la place des Sept Portes, le parvis de la Grande Bibliothèque, les Halles Basses) et sept intérieurs ;
+  quinze figurines ; onze habitants ; « Les Mémoires du Monde Perdu » : Hesper, le Registre des Mains, le Fonds Muet
+  (parole, ruse ou nuit ; le raccompagnement si l'on rate), la page du dernier départ (« Terminus : Altavent, sous les
+  Hauts de Zephyria »), la dame en gris et ses trois fins. Aucun combat possible dans l'Anneau. Veillée des Sept
+  Routes, Écho des Trois Cents, tableau des contrats, marchande des nations, onze passants.
+- 612 tests ; vérifié sur PC et téléphone (captures). Corrigé : un nœud « fin » qui finissait la quête trop tôt (le
+  contrôle des dialogues le refuse désormais), la Porte du sud cachée par l'enceinte, les arrivées à l'ombre des
+  maisons, la Porte « de la Communion » renommée Porte de Solarix (le continent). Sur la branche, à valider.

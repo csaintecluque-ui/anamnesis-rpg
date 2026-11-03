@@ -28,7 +28,7 @@ Le fil, d'une ville à l'autre : la maladie mémorielle de Gardebois n'était pa
 | 1 | Gardebois | Le Dernier Train | fait (jalon 1) |
 | 2 | Canopéa | **L'audience** | porter la nouvelle au Triumvirat ; les noms gravés du Bosquet ne transmettent plus rien ; sur le sol sacré, des fouilles des Marches des Cendres le long d'une voie enfouie |
 | 3 | Ironheart | **La Clé de Rouille Bleue** [NOTION, Studio] | au Marché des Cendres (Kaelis), aux Archives Centrales (Noam, Niveau Trois), chez les Travailleurs du Rail (la Veilleuse) : trouver la clé avant les autres, puis la vendre, l'utiliser, la cacher, la donner ou l'étudier |
-| 4 | Sept-Portes | Les Mémoires du Monde Perdu | à la bibliothèque de Kael [NOTION], le Registre des Mains de l'Ordre des Chroniqueurs révèle d'où vient la clé ; ville sans combat : tout se joue par la parole |
+| 4 | Sept-Portes | Les Mémoires du Monde Perdu | à la bibliothèque de Kael [NOTION], le Registre des Mains de l'Ordre des Chroniqueurs révèle d'où vient la clé ; ville sans combat : tout se joue par la parole ; **construite le 2026-11-03, à valider** (`docs/gdd/jalon-4.md`) |
 | suite | autres continents | — | la piste des Réveilleurs, d'une voie endormie à l'autre |
 
 Quêtes secondaires de Ferros, reprises du Studio : **« Le Rail des Cendres »** (enquête, sabotage, escorte, négociation

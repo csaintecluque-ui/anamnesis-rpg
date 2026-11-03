@@ -183,7 +183,7 @@ Critère de l'étude : au moins un jet raté par chapitre qui t'a coûté quelqu
 - [ ] **La création** sans Mêlée ni Tir : l'avertissement en bas du résumé.
 - Remarques :
 
-Sur la branche, pas encore en ligne (tes textes du 3 novembre) :
+En ligne le 2026-11-03 (tes textes du 3 novembre) :
 
 - [ ] **L'enfant à la fenêtre** : dans l'Écho du dernier train, « Entrer », puis « Rester encore un instant ».
 - [ ] **Les fragments du héros** : une nuit d'auberge après chaque chapitre (la vapeur, la main, la voix) ; le journal,

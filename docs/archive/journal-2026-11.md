@@ -1083,3 +1083,5 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   train, un fragment la nuit à l'auberge par chapitre (la vapeur, la main, la voix qui compte), la page « Ce qui n'est
   pas à moi » ; les trois Échos de l'histoire au terminus des voies, le détail du héros, et une réponse de plus chez la
   Veilleuse et Ambroise. 724 tests ; vérifié dans Chromium (Écho de la Combe, page du journal).
+- Cyril : « 1 oui, 2 oui, 3 oui » : le héros qui a oublié et les Échos des voies mis en ligne ; suite de la vague 2
+  (objet convoité, voies allégées, un obstacle par chapitre) ; Claude propose des répliques d'Ilyane.

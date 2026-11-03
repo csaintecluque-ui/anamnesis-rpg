@@ -15,7 +15,7 @@ vérifiée contre le code (§ 1 : ce qui est exact, faux, non reproduit, en conf
 | Vague | Contenu | État |
 |---|---|---|
 | 1 · jouable | Caméra libre, case interdite, course, noms cliquables, combattants visibles, compagnons par l'IA, E1 + E2 (+ garde-fou en simulation), étal de Tobias, repos gratuit, mort à deux boutons | **en ligne** (2026-11-03), avec un don tous les deux niveaux ; partie de Cyril à faire |
-| 2 · tendu | Golem attaquable, premier combat, fiche et HUD, la fiche du dé, le héros qui a oublié, objet convoité, voies, jeu plus long | **en cours** : Golem attaquable, premier combat (C5, C3), fiche et barres (B1, B2), la fiche du dé (45 jets) **en ligne** (2026-11-03) ; F1 (piste A) et les Échos des voies **faits sur la branche** ; reste G1, E5, E4/F3, un obstacle par chapitre |
+| 2 · tendu | Golem attaquable, premier combat, fiche et HUD, la fiche du dé, le héros qui a oublié, objet convoité, voies, jeu plus long | **en cours** : Golem attaquable, premier combat (C5, C3), fiche et barres (B1, B2), la fiche du dé (45 jets) **en ligne** (2026-11-03) ; F1 (piste A) et les Échos des voies **en ligne** (2026-11-03) ; reste G1, E5, E4/F3, un obstacle par chapitre |
 | 3 · vivant | Son, dialogues à une option, apartés seuls, mini-carte, carte des voies | plus tard |
 
 Les chantiers 0 à 6 (`docs/gdd/feuille-de-route.md`) restent en ligne, leur partie sur PC à faire : la liste unique

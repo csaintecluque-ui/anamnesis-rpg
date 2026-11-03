@@ -49,7 +49,7 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `competences.md` : 12 compétences et la Résonance, résolution des tests (d20, seuils de dialogue), la courbe des tests par chapitre et le rôle de chaque compétence (chantier 2).
 - `creation.md` : origine, dons, règles de l'écran de création.
 - `memoire.md` : mécanique signature (Échos, Récits, choix) et son implémentation.
-- `combat.md` : règles du combat, arène, IA ; mort réelle, effets, ennemis variés, butin, bestiaire, compagnons.
+- `combat.md` : règles du combat, arène, IA ; mort réelle, effets, ennemis variés, butin, bestiaire, compagnons ; le combat refait du chantier 3 (PA, visée, résistance, capacités, IA, force par chapitre) et sa simulation.
 - `tranche-verticale.md` : déroulé de la quête « Le Dernier Train » et ses 4 résolutions.
 - `exploration.md` : cartes Tiled, tuiles, déplacement, interactions.
 - `dialogues.md` : format JSON, conditions, effets, contrôles.
@@ -68,7 +68,7 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `feuille-de-route.md` : analyse et feuille de route de Cyril (2026-11-03) : sept chantiers avant tout nouveau chapitre ; en cours.
 - `compagnons.md` : les compagnons (suivi, avis, départ), Liane et Boulon, leurs quêtes ; validé.
 - `veillees.md` : les veillées du conteur (publics, goûts, jet, chapeau, renommée, rumeurs et secrets) ; validé.
-- `voies.md` : les voies endormies à explorer (plans, niveaux, bêtes, caisses, pièges) et les contrats des Gardiens ; validé.
+- `voies.md` : les voies endormies à explorer (plans, niveaux, bêtes, caisses, pièges) et les contrats des Gardiens ; validé ; la voie pacifiste (chantier 3).
 - `echos.md` : le Livre des Échos (douze Échos cachés, types, emprise) ; textes à valider.
 - `passe-sombre.md` : la passe sombre (marques du cristal, « Le registre du Puits Trois », morts et conséquences) ; validée.
 - `villes.md` : gabarit d'une grande ville, systèmes communs, mécanique par ville, coûts, ordre ; validé.

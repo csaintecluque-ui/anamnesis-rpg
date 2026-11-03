@@ -2,7 +2,7 @@ import voieData from '../data/voies.json';
 import { isWalkable, tileKey, type GameMap, type MapObject } from '../engine/tiledMap';
 import type { GameState, VoieState } from '../state/gameState';
 import type { Rng } from './checks';
-import { findEnemy } from './combat';
+import { VOIE_FIGHT, findEnemy } from './combat';
 import { applyEffects, performRoll, type Dialogue, type DialogueOption, type Effect } from './dialogue';
 import { findItem, ownedCount } from './inventory';
 import { advance } from './time';
@@ -38,6 +38,10 @@ export const VOIE_FLAG_PREFIX = 'voie-';
 export const MAX_TIER = 5;
 
 export const groupFlag = (group: string): string => `voie-groupe-${group}-vaincu`;
+/** A group the hero slipped past (Discrétion): it no longer stops them on this level. */
+export const sneakFlag = (group: string): string => `voie-groupe-${group}-evite`;
+/** The dialogue a group opens when it is about to see the hero (chantier 3 : a way past without fighting). */
+export const groupDialogueId = (group: string): string => `voie-groupe-${group}`;
 const chestFlag = (k: number): string => `voie-coffre-${k}-ouvert`;
 const trapFlag = (k: number): string => `voie-piege-${k}`;
 const ECHO_FLAG = 'voie-echo-ecoute';
@@ -190,8 +194,15 @@ export function voieLevel(state: Pick<GameState, 'voie' | 'contrats' | 'characte
       }),
     );
   };
-  for (let g = 1; g <= groups; g++) placeGroup(String(g), pick(rng, DATA.groupes[String(tier)]), `ennemi-${g}`);
-  if (hunt) placeGroup('contrat', hunt.enemies ?? [], 'ennemi-3', { contrat: 'oui' });
+  for (let g = 1; g <= groups; g++) {
+    const enemies = pick(rng, DATA.groupes[String(tier)]);
+    placeGroup(String(g), enemies, `ennemi-${g}`);
+    dialogues[groupDialogueId(String(g))] = groupDialogue(String(g), enemies, tier);
+  }
+  if (hunt) {
+    placeGroup('contrat', hunt.enemies ?? [], 'ennemi-3', { contrat: 'oui' });
+    dialogues[groupDialogueId('contrat')] = groupDialogue('contrat', hunt.enemies ?? [], tier);
+  }
 
   // Crates: one or two, and the station master's chest at the terminus.
   const crates = 1 + (rng() < 0.5 ? 1 : 0) + (terminus ? 1 : 0);
@@ -281,6 +292,56 @@ function crateDialogue(id: string, k: number, tier: number, chief: boolean, rng:
         effects: loot,
         options: [{ text: 'Partir.', next: 'fin' }],
       },
+    },
+  };
+}
+
+/** « Loup de Rouille ×2, Guêpe-Rouille ». */
+function groupNames(enemies: string[]): string {
+  const counts = new Map<string, number>();
+  for (const id of enemies) {
+    const name = findEnemy(id)?.name ?? id;
+    counts.set(name, (counts.get(name) ?? 0) + 1);
+  }
+  return [...counts].map(([name, n]) => (n > 1 ? `${name} ×${n}` : name)).join(', ');
+}
+
+/**
+ * The voie pacifiste (feuille de route, chantier 3) : a group about to see the hero can be slipped past (Discrétion),
+ * fled from once seen (Athlétisme), and Échos furieux soothed by a Récit told; or fought.
+ */
+function groupDialogue(group: string, enemies: string[], tier: number): Dialogue {
+  const fight: DialogueOption = { text: 'Attaquer.', effects: [{ startCombat: `${VOIE_FIGHT}${group}` }], next: 'fin' };
+  const echoes = enemies.length > 0 && enemies.every((id) => id === 'echo-furieux');
+  const xp = Math.round(groupXp(enemies) / 2);
+  const options: DialogueOption[] = [{ text: 'Passer dans leur ombre, sans un bruit.', roll: { skill: 'stealth', difficulty: 9 + tier }, next: 'passe', failNext: 'repere' }];
+  if (echoes) options.push({ text: 'Leur raconter une histoire, pour qu’ils se souviennent d’autre chose.', next: 'apaise', raconter: { neutre: 'apaise' } });
+  options.push(fight, { text: 'Reculer.', next: 'fin' });
+  return {
+    id: groupDialogueId(group),
+    speaker: 'voie-groupe',
+    entries: [{ node: 'face' }],
+    nodes: {
+      face: { text: `Dans le noir, devant toi : ${groupNames(enemies)}. On ne t’a pas encore vu·e.`, options },
+      passe: {
+        text: 'Tu passes à deux pas, dans leur ombre, le souffle retenu. Personne ne lève la tête.',
+        effects: [{ setFlag: sneakFlag(group) }, { giveXp: xp }],
+        options: [{ text: 'Continuer.', next: 'fin' }],
+      },
+      repere: {
+        text: 'Une pierre roule sous ta botte. Les têtes se tournent vers toi.',
+        options: [fight, { text: 'Fuir en courant, avant qu’ils ne soient sur toi.', roll: { skill: 'athletics', difficulty: 9 + tier }, next: 'fin', failNext: 'rattrape' }],
+      },
+      rattrape: { text: 'Ils sont plus rapides que toi.', options: [{ text: 'Se défendre.', effects: [{ startCombat: `${VOIE_FIGHT}${group}` }], next: 'fin' }] },
+      ...(echoes
+        ? {
+            apaise: {
+              text: 'L’Écho écoute. Peu à peu, sa colère retombe ; il se défait comme une brume, en murmurant la fin de ton histoire.',
+              effects: [{ setFlag: groupFlag(group) }, { giveXp: xp * 2 }],
+              options: [{ text: 'Continuer.', next: 'fin' }],
+            },
+          }
+        : {}),
     },
   };
 }

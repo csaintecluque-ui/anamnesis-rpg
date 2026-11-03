@@ -69,6 +69,22 @@ Lien du jeu : https://csaintecluque-ui.github.io/anamnesis-rpg/ (la version s'af
 - [ ] **Montée de niveau** : le rang maximum (niveau + 2) s'affiche ; est-ce gênant ?
 - Remarques :
 
+## Chantier 3 — Le combat refait (sur la branche)
+
+- [ ] **Les PA et les armes** : 7 PA ; la dague frappe pour 2 PA (trois coups par tour), l'épée pour 3. Viser une zone
+      coûte 1 PA de plus (pas à la dague). Le survol d'un ennemi donne aussi la chance que l'effet prenne (« effet 55 % ») :
+      la cible peut y résister, et n'y est plus sensible pendant un tour.
+- [ ] **Viser vaut-il encore le coup ?** Contre le Golem, viser la tête ou les bras aide un peu ; contre un groupe, frapper
+      le corps reste souvent meilleur. Aucune tactique ne doit écraser les autres.
+- [ ] **Les capacités des ennemis** (survol, et le bestiaire du journal) : les Loups en meute, les épines des Rôdeurs, la
+      charge de l'Ours et du Golem, l'arbalétrier qui vise et se met à couvert, les pilleurs et l'Ours qui fuient.
+- [ ] **L'IA** : les ennemis s'en prennent au plus blessé de ton groupe ; les tireurs cherchent un obstacle.
+- [ ] **La force suit l'histoire** : sur la route et dans les voies endormies, les bêtes sont plus solides après chaque
+      chapitre. La difficulté te paraît-elle la même du chapitre 1 au 4 ?
+- [ ] **Voie pacifiste** : dans une voie endormie, approche un groupe : passer dans son ombre (Discrétion), reculer, fuir
+      en courant si on te repère (Athlétisme) ; à des Échos furieux, raconter un Récit.
+- Remarques :
+
 ## Déjà en ligne, pas encore essayé sur PC
 
 - [ ] **Chapitre 4, Sept-Portes** sans le mode surpuissant : l'arrivée par la Porte du sud, le Registre, l'une des trois

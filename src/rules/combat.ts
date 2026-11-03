@@ -22,6 +22,10 @@ export interface WeaponDef {
   damage: Dice;
   /** What it shoots, one per shot (an item: arrows, bolts ; docs/gdd/combat.md, « Munitions »). */
   munition?: string;
+  /** PA per blow (chantier 3) : 2 for a dagger or bare hands, 3 by default. */
+  apCost?: number;
+  /** PA more to aim at a zone, when not AIM_AP_EXTRA (a dagger: none). */
+  aimExtra?: number;
 }
 
 /** An effect a blow can leave (docs/gdd/combat.md, « Effets ») : the lingering ones hurt at the start of each turn. */
@@ -57,6 +61,48 @@ export interface LootDef {
   chance: number;
 }
 
+/**
+ * What makes an enemy fight its own way (feuille de route, chantier 3 : two each ; docs/gdd/combat.md, « Capacités »).
+ * Some carry their numbers elsewhere in the enemy (onHit, range, soin, phases).
+ */
+export type CapaciteId =
+  | 'saigner'
+  | 'bruler'
+  | 'ralentir'
+  | 'tir'
+  | 'soigner'
+  | 'emballement'
+  | 'meute'
+  | 'epines'
+  | 'carapace'
+  | 'charge'
+  | 'fuite'
+  | 'visee';
+
+export const CAPACITES: Record<CapaciteId, { nom: string; texte: string }> = {
+  saigner: { nom: 'Saignement', texte: 'ses coups font parfois saigner' },
+  bruler: { nom: 'Brûlure', texte: 'ses coups brûlent parfois' },
+  ralentir: { nom: 'Engourdissement', texte: 'ses coups ralentissent parfois' },
+  tir: { nom: 'Tir', texte: 'frappe de loin, et cherche le couvert' },
+  soigner: { nom: 'Soins', texte: 'soigne un allié blessé' },
+  emballement: { nom: 'Emballement', texte: 'plus dangereux sous la moitié de ses PV' },
+  meute: { nom: 'Meute', texte: '+2 au toucher quand un allié est déjà au contact de sa cible' },
+  epines: { nom: 'Épines', texte: 'qui le frappe au corps à corps perd 1 PV (épines, froid de l’Écho)' },
+  carapace: { nom: 'Carapace', texte: '2 dégâts de moins à chaque coup reçu' },
+  charge: { nom: 'Charge', texte: '+1d4 dégâts au premier coup, après deux cases de course' },
+  fuite: { nom: 'Fuite', texte: 's’enfuit ou se rend sous le tiers de ses PV' },
+  visee: { nom: 'Visée', texte: '+2 au toucher s’il n’a pas bougé de son tour' },
+};
+
+/** Meute, Visée : the bonus to hit ; Carapace : the damage taken off ; Fuite : the share of PV under which it flees. */
+export const PACK_BONUS = 2;
+export const AIM_STILL_BONUS = 2;
+export const SHELL_REDUCTION = 2;
+export const CHARGE_DAMAGE: Dice = { count: 1, sides: 4 };
+export const CHARGE_MIN_TILES = 2;
+export const THORNS_DAMAGE: Dice = { count: 1, sides: 1 };
+export const FLEE_SHARE = 1 / 3;
+
 export interface EnemyDef {
   id: string;
   name: string;
@@ -68,6 +114,8 @@ export interface EnemyDef {
   initiativeBonus: number;
   xp: number;
   defeatText: string;
+  /** What the log says when it flees or gives up (Fuite). */
+  fleeText?: string;
   /** Tile drawn for this enemy (name in scripts/tiles-def.mjs). */
   tile: string;
   /** In tiles: 1 (default) strikes up close, more shoots from afar. */
@@ -76,6 +124,10 @@ export interface EnemyDef {
   /** A healer tends its wounded allies instead of striking, when one needs it. */
   soin?: { amount: Dice; range: number };
   phases?: PhaseDef[];
+  /** Two capacités (chantier 3). */
+  capacites: CapaciteId[];
+  /** Added to the resistance roll against a blow aimed at the head, the arms or the legs. */
+  resistance: number;
   butin?: LootDef[];
   /** The bestiary page (docs/gdd/combat.md, « Bestiaire ») and where it comes from in the canon. */
   description?: string;
@@ -86,6 +138,9 @@ export interface EnemyDef {
  * A fight started from a dialogue (src/data/encounters.json): the arena is carved around a map object, each enemy
  * starts on its own map object (drawn on the map until the fight is won or avoided).
  */
+/** A fight a dialogue starts against a group of a sleeping line: `startCombat: 'voie:1'` (src/rules/voies.ts). */
+export const VOIE_FIGHT = 'voie:';
+
 export interface EncounterDef {
   id: string;
   center: string;
@@ -111,9 +166,9 @@ export type Zone = 'corps' | 'tete' | 'bras' | 'jambes';
 
 export const ZONES: { id: Zone; label: string; toHitPenalty: number; effect: 'stunned' | 'disarmed' | 'slowed' | null }[] = [
   { id: 'corps', label: 'Corps', toHitPenalty: 0, effect: null },
-  { id: 'tete', label: 'Tête', toHitPenalty: -4, effect: 'stunned' },
+  { id: 'tete', label: 'Tête', toHitPenalty: -2, effect: 'stunned' },
   { id: 'bras', label: 'Bras', toHitPenalty: -2, effect: 'disarmed' },
-  { id: 'jambes', label: 'Jambes', toHitPenalty: -2, effect: 'slowed' },
+  { id: 'jambes', label: 'Jambes', toHitPenalty: -1, effect: 'slowed' },
 ];
 
 export function findZone(id: Zone) {
@@ -131,16 +186,27 @@ export interface AttackProfile {
   damage: Dice;
   /** Added to the damage roll (attribute modifier, feat bonuses). */
   damageBonus: number;
-  /** 3 PA, fixed (docs/gdd/combat.md). */
+  /** PA per blow: by the weapon (2 for a dagger), 3 by default; aiming at a zone costs AIM_AP_EXTRA more. */
   apCost: number;
   /** An effect the blow may leave on the target. */
   onHit?: OnHit;
   /** The item each shot spends (a bow's arrows), if any. */
   munition?: string;
+  /** PA more to aim at a zone: AIM_AP_EXTRA, none with a light blade that finds the gap by itself (a dagger). */
+  aimExtra?: number;
 }
 
 export const ATTACK_AP_COST = 3;
 export const MOVE_AP_COST_PER_TILE = 1;
+/** Aiming at the head, the arms or the legs costs this many PA more (feuille de route, chantier 3). */
+export const AIM_AP_EXTRA = 1;
+/** The resistance roll against a zone's effect: d20 + resistance ≥ this + the damage of the blow (a heavy blow takes surer). */
+export const RESIST_BASE = 8;
+
+/** PA of a blow at this zone. */
+export function attackCost(attack: AttackProfile, zone: Zone = 'corps'): number {
+  return attack.apCost + (zone === 'corps' ? 0 : (attack.aimExtra ?? AIM_AP_EXTRA));
+}
 
 export interface Combatant {
   id: string;
@@ -167,6 +233,37 @@ export interface Combatant {
   /** The hero's arrows and bolts: what is left, and what was shot (settled after the fight, settleAmmo). */
   ammo?: Record<string, number>;
   fired?: Record<string, number>;
+  /** An enemy's capacités (chantier 3); none for the heroes. */
+  capacites: CapaciteId[];
+  /** Added to the resistance roll against a zone's effect. */
+  resistance: number;
+  /** Tiles walked, and whether it struck, this turn (Charge, Visée). */
+  moved: number;
+  struck: boolean;
+  /** Fled or surrendered (Fuite): out of the fight, without loot. */
+  fled?: boolean;
+  /**
+   * The zone effects it has just shaken off: it cannot suffer them again before the end of its next turn (no stun
+   * every turn ; chantier 3).
+   */
+  immune: Partial<Record<ZoneStatus, boolean>>;
+}
+
+/** The fields every fighter starts a fight with. */
+export const freshFighter = (): Pick<Combatant, 'status' | 'defeated' | 'phase' | 'initiative' | 'capacites' | 'resistance' | 'moved' | 'struck' | 'immune'> => ({
+  status: emptyStatus(),
+  defeated: false,
+  phase: 0,
+  initiative: 0,
+  capacites: [],
+  resistance: 0,
+  moved: 0,
+  struck: false,
+  immune: {},
+});
+
+export function hasCapacite(c: Combatant, id: CapaciteId): boolean {
+  return c.capacites.includes(id);
 }
 
 const emptyStatus = () => ({ stunned: false, disarmed: false, slowed: false, burning: 0, bleeding: 0 });
@@ -196,7 +293,8 @@ export function heroAttacks(character: Character): AttackProfile[] {
       toHitBonus: mod + rank + hitBonus,
       damage: weapon.damage,
       damageBonus: mod + (isRanged ? (feat.rangedDamage ?? 0) : (feat.meleeDamage ?? 0)),
-      apCost: ATTACK_AP_COST,
+      apCost: weapon.apCost ?? ATTACK_AP_COST,
+      aimExtra: weapon.aimExtra,
       munition: weapon.munition,
     };
   });
@@ -218,6 +316,7 @@ export function enemyAttack(enemy: EnemyDef): AttackProfile {
 export function makeHeroCombatant(character: Character, tile: Tile): Combatant {
   const stats = characterStats(character);
   return {
+    ...freshFighter(),
     id: 'hero',
     name: character.name,
     side: 'heroes',
@@ -226,13 +325,11 @@ export function makeHeroCombatant(character: Character, tile: Tile): Combatant {
     defense: stats.defense + armorBonus(character),
     actionPoints: stats.actionPoints,
     maxActionPoints: stats.actionPoints,
-    initiative: 0,
     attacks: heroAttacks(character),
     tile,
-    status: emptyStatus(),
-    defeated: false,
     defeatText: `${character.name} tombe.`,
-    phase: 0,
+    // The hero resists a blow to the head or the arms by Vigueur.
+    resistance: attributeModifier(character.attributes.vigor),
     ...heroAmmo(character),
   };
 }
@@ -274,6 +371,7 @@ export function settleAmmo(character: Character, hero: Combatant, won: boolean):
 
 export function makeEnemyCombatant(enemy: EnemyDef, id: string, tile: Tile): Combatant {
   return {
+    ...freshFighter(),
     id,
     name: enemy.name,
     side: 'enemies',
@@ -282,17 +380,43 @@ export function makeEnemyCombatant(enemy: EnemyDef, id: string, tile: Tile): Com
     defense: enemy.defense,
     actionPoints: enemy.actionPoints,
     maxActionPoints: enemy.actionPoints,
-    initiative: 0,
     attacks: [enemyAttack(enemy)],
     tile,
-    status: emptyStatus(),
-    defeated: false,
     defeatText: enemy.defeatText,
     kind: enemy.id,
     heal: enemy.soin,
     phases: enemy.phases,
-    phase: 0,
+    capacites: [...enemy.capacites],
+    resistance: enemy.resistance,
   };
+}
+
+// --- The strength of the road (feuille de route, chantier 3) ------------------------------------------------------
+
+/** The main quests that close each chapter: the story's chapter is one more than those done. */
+export const CHAPTER_QUESTS = ['dernier-train', 'audience', 'cle-rouille-bleue', 'memoires-monde-perdu'];
+
+export function storyChapter(quests: Record<string, string>): number {
+  return 1 + CHAPTER_QUESTS.filter((q) => quests[q] === 'done').length;
+}
+
+/** Per chapter after the first: this share of PV more; from the third, +1 to hit a chapter and +1 Défense. */
+export const MENACE_HP_PER_CHAPTER = 0.4;
+
+/**
+ * The beasts and bands of the road and of the sleeping lines grow with the story; the fights of the story keep the
+ * strength of their chapter. Returns the combatant, made stronger.
+ */
+export function strengthen(c: Combatant, chapter: number): Combatant {
+  const steps = Math.max(0, chapter - 1);
+  if (!steps) return c;
+  c.maxHp = Math.round(c.maxHp * (1 + MENACE_HP_PER_CHAPTER * steps));
+  c.hp = c.maxHp;
+  if (chapter >= 3) {
+    for (const a of c.attacks) a.toHitBonus += chapter - 2;
+    c.defense += 1;
+  }
+  return c;
 }
 
 /** "Rôdeur-Épine 1", "Rôdeur-Épine 2": tells apart enemies of the same kind in the turn order and the log. */
@@ -350,6 +474,7 @@ export function moveAlong(combatant: Combatant, path: Tile[]): Tile[] {
   const taken = path.slice(0, steps);
   if (taken.length > 0) combatant.tile = taken[taken.length - 1];
   combatant.actionPoints -= taken.length;
+  combatant.moved += taken.length;
   return taken;
 }
 
@@ -363,12 +488,12 @@ export function coverBetween(attacker: Tile, target: Tile, coverAt: (tile: Tile)
   return coverAt({ col: target.col + step.col, row: target.row + step.row });
 }
 
-export function canAttack(attacker: Combatant, attack: AttackProfile, target: Combatant): boolean {
+export function canAttack(attacker: Combatant, attack: AttackProfile, target: Combatant, zone: Zone = 'corps'): boolean {
   return (
     !attacker.defeated &&
     !target.defeated &&
     !attacker.status.disarmed &&
-    attacker.actionPoints >= attack.apCost &&
+    attacker.actionPoints >= attackCost(attack, zone) &&
     ammoLeft(attacker, attack) > 0 &&
     distance(attacker.tile, target.tile) <= attack.range
   );
@@ -382,20 +507,55 @@ export interface AttackResult {
   fumble: boolean;
   damage: number;
   zoneEffect: ZoneStatus | null;
+  /** The target shook off the zone's effect (its resistance roll). */
+  resisted: boolean;
   defeated: boolean;
   /** The effect the blow left (burning, bleeding…), if any. */
   inflicted: HitEffect | null;
+  /** PV the attacker lost on the target's thorns (Épines). */
+  thorns: number;
+  /** The phase the blow sent a boss into, if any. */
+  phase: PhaseDef | null;
+}
+
+/**
+ * Bonus to hit from the attacker's capacités: Meute (an ally already at the target's side), Visée (still this turn).
+ * `others` are all the fighters (for Meute).
+ */
+export function capaciteToHit(attacker: Combatant, target: Combatant, others: Combatant[] = []): number {
+  let bonus = 0;
+  if (hasCapacite(attacker, 'meute') && others.some((o) => o !== attacker && o.side === attacker.side && !o.defeated && isAdjacent(o.tile, target.tile))) bonus += PACK_BONUS;
+  if (hasCapacite(attacker, 'visee') && attacker.moved === 0) bonus += AIM_STILL_BONUS;
+  return bonus;
 }
 
 /** Chance (0 to 1) that resolveAttack hits: shown before the player commits (docs/gdd/combat.md). */
-export function hitChance(attack: AttackProfile, target: Combatant, zone: Zone = 'corps', coverBonus = 0): number {
-  const need = target.defense + coverBonus - attack.toHitBonus - findZone(zone).toHitPenalty;
+export function hitChance(attack: AttackProfile, target: Combatant, zone: Zone = 'corps', coverBonus = 0, extraToHit = 0): number {
+  const need = target.defense + coverBonus - attack.toHitBonus - extraToHit - findZone(zone).toHitPenalty;
   let hits = 0;
   for (let roll = 2; roll <= 20; roll++) if (roll === 20 || roll >= need) hits++;
   return hits / 20;
 }
 
-/** d20 + bonus (+ zone penalty) ≥ target's defense (+ cover); a 20 always hits and doubles damage dice, a 1 always misses. */
+/** The average damage of a blow (shown with the chance of an effect). */
+export function averageDamage(attack: AttackProfile): number {
+  return Math.max(0, Math.round((attack.damage.count * (attack.damage.sides + 1)) / 2 + attack.damageBonus));
+}
+
+/**
+ * Chance (0 to 1) that a zone's effect takes once the blow hits, for that much damage (by default, the blow's
+ * average): the target fails its resistance roll, d20 + resistance ≥ RESIST_BASE + damage.
+ */
+export function effectChance(attack: AttackProfile, target: Combatant, damage = averageDamage(attack)): number {
+  const need = RESIST_BASE + damage - target.resistance;
+  return Math.min(1, Math.max(0, (need - 1) / 20));
+}
+
+/**
+ * d20 + bonus (+ zone penalty, + capacités) ≥ target's defense (+ cover); a 20 always hits and doubles damage dice, a
+ * 1 always misses. A zone's effect then takes unless the target makes its resistance roll (chantier 3); the
+ * capacités of both sides apply (Charge, Carapace, Épines), and a boss hurt enough enters its next phase.
+ */
 export function resolveAttack(
   attacker: Combatant,
   attack: AttackProfile,
@@ -403,8 +563,12 @@ export function resolveAttack(
   zone: Zone = 'corps',
   coverBonus = 0,
   rng: Rng = Math.random,
+  others: Combatant[] = [],
 ): AttackResult {
-  attacker.actionPoints -= attack.apCost;
+  const extraToHit = capaciteToHit(attacker, target, others);
+  const charging = hasCapacite(attacker, 'charge') && !attacker.struck && attacker.moved >= CHARGE_MIN_TILES;
+  attacker.actionPoints -= attackCost(attack, zone);
+  attacker.struck = true;
   // A shot spends an arrow or a bolt, hit or miss.
   if (attack.munition && attacker.ammo && attacker.fired) {
     attacker.ammo[attack.munition] = Math.max(0, (attacker.ammo[attack.munition] ?? 0) - 1);
@@ -414,22 +578,37 @@ export function resolveAttack(
   const roll = rollDie(20, rng);
   const fumble = roll === 1;
   const critical = roll === 20;
-  const total = roll + attack.toHitBonus + zoneDef.toHitPenalty;
+  const total = roll + attack.toHitBonus + extraToHit + zoneDef.toHitPenalty;
   const hit = !fumble && (critical || total >= target.defense + coverBonus);
 
-  if (!hit) return { hit: false, critical: false, fumble, damage: 0, zoneEffect: null, defeated: false, inflicted: null };
+  if (!hit) return { hit: false, critical: false, fumble, damage: 0, zoneEffect: null, resisted: false, defeated: false, inflicted: null, thorns: 0, phase: null };
 
-  const dice = rollDice(attack.damage, rng) + (critical ? rollDice(attack.damage, rng) : 0);
-  const damage = Math.max(0, dice + attack.damageBonus);
+  const dice = rollDice(attack.damage, rng) + (critical ? rollDice(attack.damage, rng) : 0) + (charging ? rollDice(CHARGE_DAMAGE, rng) : 0);
+  let damage = Math.max(0, dice + attack.damageBonus);
+  if (hasCapacite(target, 'carapace')) damage = Math.max(1, damage - SHELL_REDUCTION);
   target.hp = Math.max(0, target.hp - damage);
   target.defeated = target.hp === 0;
 
-  const zoneEffect = zoneDef.effect;
-  if (zoneEffect && !target.defeated) target.status[zoneEffect] = true;
+  // The zone's effect, unless the target shakes it off (feuille de route, chantier 3).
+  let zoneEffect = target.defeated ? null : zoneDef.effect;
+  let resisted = false;
+  if (zoneEffect && (target.immune[zoneEffect] || rng() >= effectChance(attack, target, damage))) {
+    resisted = true;
+    zoneEffect = null;
+  }
+  if (zoneEffect) target.status[zoneEffect] = true;
   const inflicted = !target.defeated && attack.onHit && rng() < (attack.onHit.chance ?? 1) ? attack.onHit.effet : null;
   if (inflicted) inflict(target, inflicted);
 
-  return { hit: true, critical, fumble: false, damage, zoneEffect: zoneEffect && !target.defeated ? zoneEffect : null, defeated: target.defeated, inflicted };
+  // Épines: striking it bare-handed close up costs some blood.
+  let thorns = 0;
+  if (hasCapacite(target, 'epines') && distance(attacker.tile, target.tile) <= 1) {
+    thorns = Math.min(attacker.hp, rollDice(THORNS_DAMAGE, rng));
+    attacker.hp -= thorns;
+    attacker.defeated = attacker.hp === 0;
+  }
+  const phase = target.defeated ? null : nextPhase(target);
+  return { hit: true, critical, fumble: false, damage, zoneEffect, resisted, defeated: target.defeated, inflicted, thorns, phase };
 }
 
 export function inflict(target: Combatant, effet: HitEffect): void {
@@ -508,6 +687,8 @@ export function rollLoot(enemies: EnemyDef[], rng: Rng = Math.random): { items: 
  * they last the whole of this turn (a disarmed combatant cannot attack), and are cleared by endTurn.
  */
 export function startTurn(combatant: Combatant): void {
+  combatant.moved = 0;
+  combatant.struck = false;
   if (combatant.status.stunned) {
     combatant.actionPoints = 0;
   } else if (combatant.status.slowed) {
@@ -517,9 +698,14 @@ export function startTurn(combatant: Combatant): void {
   }
 }
 
-/** The zone effects suffered are spent once the combatant's turn is over; burning and bleeding go on. */
+/**
+ * The zone effects suffered are spent once the combatant's turn is over, and it is spared them until the end of its
+ * next turn; burning and bleeding go on.
+ */
 export function endTurn(combatant: Combatant): void {
-  combatant.status = { ...emptyStatus(), burning: combatant.status.burning, bleeding: combatant.status.bleeding };
+  const s = combatant.status;
+  combatant.immune = { stunned: s.stunned, disarmed: s.disarmed, slowed: s.slowed };
+  combatant.status = { ...emptyStatus(), burning: s.burning, bleeding: s.bleeding };
 }
 
 export function isVictory(combatants: Combatant[]): boolean {

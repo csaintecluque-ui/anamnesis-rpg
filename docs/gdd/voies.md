@@ -71,3 +71,13 @@ Onglet « Lieux » : descendre dans chaque voie, au niveau voulu ; révéler les
 - L'escorte d'une caravane (le quatrième contrat du plan) ; des contrats d'un continent à l'autre.
 - Des voies endormies dans chaque nouveau pays, et la grande voie de chaque chapitre.
 - Une vraie image de tableau d'annonces (le panneau sert de repère provisoire).
+
+## La voie pacifiste (chantier 3, 2026-11-03)
+
+Un groupe qui va voir le héros (à deux cases) ouvre une rencontre au lieu d'un combat (`groupDialogue`,
+`src/rules/voies.ts`) : **passer dans son ombre** (Discrétion, 9 + le danger du niveau ; réussi, le groupe ne l'arrête
+plus de tout le niveau, demi-XP), **attaquer**, ou **reculer**. Repéré : **fuir en courant** (Athlétisme, même
+difficulté) ou se battre. Face à des Échos furieux, **leur raconter un Récit** les apaise (XP entière, le Récit est
+gardé). Les bêtes et les bandes gagnent en force avec l'histoire (`strengthen`, `docs/gdd/combat.md`, « Chantier 3 »).
+Un personnage pacifiste peut finir les voies : la descente n'est jamais gardée ; seuls les contrats de chasse demandent
+de se battre.

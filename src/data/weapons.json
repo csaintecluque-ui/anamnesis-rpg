@@ -5,7 +5,11 @@
     "skill": "melee",
     "attribute": "body",
     "range": 1,
-    "damage": { "count": 1, "sides": 3 }
+    "damage": {
+      "count": 1,
+      "sides": 3
+    },
+    "apCost": 2
   },
   {
     "id": "dague",
@@ -13,7 +17,12 @@
     "skill": "melee",
     "attribute": "body",
     "range": 1,
-    "damage": { "count": 1, "sides": 4 }
+    "damage": {
+      "count": 1,
+      "sides": 4
+    },
+    "apCost": 2,
+    "aimExtra": 0
   },
   {
     "id": "dague-dentelee",
@@ -21,7 +30,12 @@
     "skill": "melee",
     "attribute": "body",
     "range": 1,
-    "damage": { "count": 1, "sides": 6 }
+    "damage": {
+      "count": 1,
+      "sides": 6
+    },
+    "apCost": 2,
+    "aimExtra": 0
   },
   {
     "id": "epee-longue",
@@ -29,7 +43,10 @@
     "skill": "melee",
     "attribute": "body",
     "range": 1,
-    "damage": { "count": 1, "sides": 8 }
+    "damage": {
+      "count": 1,
+      "sides": 8
+    }
   },
   {
     "id": "epee-trempee",
@@ -37,7 +54,10 @@
     "skill": "melee",
     "attribute": "body",
     "range": 1,
-    "damage": { "count": 1, "sides": 10 }
+    "damage": {
+      "count": 1,
+      "sides": 10
+    }
   },
   {
     "id": "arc",
@@ -45,7 +65,10 @@
     "skill": "ranged",
     "attribute": "agility",
     "range": 6,
-    "damage": { "count": 1, "sides": 8 },
+    "damage": {
+      "count": 1,
+      "sides": 8
+    },
     "munition": "fleches"
   },
   {
@@ -54,7 +77,10 @@
     "skill": "melee",
     "attribute": "body",
     "range": 1,
-    "damage": { "count": 1, "sides": 10 }
+    "damage": {
+      "count": 1,
+      "sides": 10
+    }
   },
   {
     "id": "arbalete-ferros",
@@ -62,7 +88,10 @@
     "skill": "ranged",
     "attribute": "agility",
     "range": 6,
-    "damage": { "count": 1, "sides": 10 },
+    "damage": {
+      "count": 1,
+      "sides": 10
+    },
     "munition": "carreaux"
   }
 ]

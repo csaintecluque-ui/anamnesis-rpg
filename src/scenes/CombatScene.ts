@@ -2,21 +2,24 @@ import Phaser from 'phaser';
 import { coverAt, isEdge, isOpen, type Arena } from '../engine/arena';
 import { TILE_HEIGHT, TILE_WIDTH, screenToTile, tileToScreen, type Tile } from '../engine/iso';
 import { FACINGS, facingOf, type Facing } from '../engine/facing';
-import { findPath, reachable } from '../engine/pathfinding';
+import { reachable } from '../engine/pathfinding';
 import { tileKey } from '../engine/tiledMap';
 import { applyEffects, type Effect } from '../rules/dialogue';
 import { findItem } from '../rules/inventory';
 import {
   ammoLeft,
   settleAmmo,
+  CAPACITES,
   ENEMIES,
   ZONES,
   LINGERING,
+  attackCost,
   canAttack,
   canHeal,
+  effectChance,
   lingeringDamage,
-  nextPhase,
   resolveHeal,
+  strengthen,
   rollLoot,
   coverBetween,
   distance,
@@ -37,6 +40,7 @@ import {
   type Combatant,
   type Zone,
 } from '../rules/combat';
+import { nextEnemyAction, type AiContext } from '../rules/combatAi';
 import { DEFAULT_AVATAR } from '../rules/character';
 import { canCast, combatPower, healAmount, payCast, powerAttack, resonanceMax, type PowerDef } from '../rules/magic';
 import { companionsAfterFight, findCompanion, makeCompanionCombatant } from '../rules/companions';
@@ -87,6 +91,8 @@ export interface CombatStartData {
   /** Starting cells, in arena coordinates: the hero's, then one per enemy id. */
   heroTile: Tile;
   enemyTiles: Tile[];
+  /** The story's chapter, for the beasts of the road and of the sleeping lines (strengthen); absent for a story fight. */
+  menace?: number;
 }
 
 /** Turn-based combat on a piece of the explored map, with cover from its obstacles (docs/gdd/combat.md). */
@@ -172,7 +178,7 @@ export class CombatScene extends Phaser.Scene {
     this.powerButton = undefined;
     this.powerPoints = undefined;
     const enemyDefs = data.enemyIds.map((id) => findEnemy(id)!);
-    const enemies = enemyDefs.map((def, i) => makeEnemyCombatant(def, `${def.id}-${i}`, data.enemyTiles[i]));
+    const enemies = enemyDefs.map((def, i) => strengthen(makeEnemyCombatant(def, `${def.id}-${i}`, data.enemyTiles[i]), data.menace ?? 1));
     // The companions start next to the hero (docs/gdd/jalon-3.md).
     const party = this.state.groupe.map((m) => ({ m, def: findCompanion(m.id) })).filter((x) => !!x.def);
     const allyTiles = this.freeTilesNear(data.heroTile, [data.heroTile, ...data.enemyTiles], party.length);
@@ -355,12 +361,15 @@ export class CombatScene extends Phaser.Scene {
     const target = hover && this.combatants.find((c) => c.side === 'enemies' && !c.defeated && c.tile.col === hover.col && c.tile.row === hover.row);
     if (target) {
       if (distance(hero.tile, target.tile) > attack.range) this.showCost(target.tile, 'Hors de portée');
-      else if (hero.actionPoints < attack.apCost) this.showCost(target.tile, 'Pas assez de PA');
+      else if (hero.actionPoints < attackCost(attack, this.zone)) this.showCost(target.tile, 'Pas assez de PA');
       else {
         const cover = coverBetween(hero.tile, target.tile, (t) => coverAt(this.arena, t));
         const chance = Math.round(hitChance(attack, target, this.zone, cover) * 100);
         const pr = this.mode === 'pouvoir' && this.power ? ` · ${this.power.cost} PR` : '';
-        this.showCost(target.tile, `${chance} % · ${attack.apCost} PA${pr}${cover > 0 ? ' · à couvert' : ''}`);
+        // A zone's effect may be shaken off (chantier 3): its chance, once the blow lands.
+        const effect = findZone(this.zone).effect;
+        const takes = effect ? (target.immune[effect] ? ' · effet : immunisé·e ce tour' : ` · effet ${Math.round(effectChance(attack, target) * 100)} %`) : '';
+        this.showCost(target.tile, `${chance} % · ${attackCost(attack, this.zone)} PA${pr}${cover > 0 ? ' · à couvert' : ''}${takes}`);
       }
     }
   }
@@ -403,7 +412,7 @@ export class CombatScene extends Phaser.Scene {
     } else {
       const attack = this.currentAttack()!;
       const pr = this.mode === 'pouvoir' && this.power ? `, ${this.power.cost} PR` : '';
-      this.hint.setText(`Choisis un ennemi en rouge vif à portée (${attack.label}, ${attack.apCost} PA${pr}).`);
+      this.hint.setText(`Choisis un ennemi en rouge vif à portée (${attack.label}, ${attackCost(attack, this.zone)} PA${pr}).`);
     }
     this.drawBoard();
   }
@@ -508,7 +517,8 @@ export class CombatScene extends Phaser.Scene {
     const effects = [c.status.burning > 0 ? 'brûle' : '', c.status.bleeding > 0 ? 'saigne' : '', c.status.slowed ? 'ralenti·e' : '', c.status.stunned ? 'étourdi·e' : '', c.status.disarmed ? 'désarmé·e' : '']
       .filter(Boolean)
       .join(', ');
-    return [`${c.name} · PV ${c.hp}/${c.maxHp} · Défense ${c.defense}`, c.side === 'enemies' ? reach : '', effects].filter(Boolean).join('\n');
+    const capacites = c.capacites.map((id) => `${CAPACITES[id].nom} : ${CAPACITES[id].texte}`).join('\n');
+    return [`${c.name} · PV ${c.hp}/${c.maxHp} · Défense ${c.defense}`, c.side === 'enemies' ? reach : '', capacites, effects].filter(Boolean).join('\n');
   }
 
   /** Tab: the next enemy still standing, shown as if hovered (its name, the chance to hit it). */
@@ -550,7 +560,7 @@ export class CombatScene extends Phaser.Scene {
     const token = this.tokens.get(c.id);
     if (!token) return;
     const f = this.feet(c.tile);
-    token.image.setPosition(f.x, f.y).setDepth(f.y + 1).setAlpha(c.defeated ? 0.25 : 1);
+    token.image.setPosition(f.x, f.y).setDepth(f.y + 1).setAlpha(c.defeated ? 0.25 : 1).setVisible(!c.fled);
 
     const x = f.x - HP_BAR_WIDTH / 2;
     const y = f.y - 74 * LAYOUT.arenaScale;
@@ -571,7 +581,7 @@ export class CombatScene extends Phaser.Scene {
     if (!this.roster || this.order.length === 0) return;
     const current = this.turnIndex >= 0 ? this.current() : null;
     const lines = this.order.map((c) => {
-      if (c.defeated) return `   ${c.name} · ${c.side === 'heroes' ? 'à terre' : 'vaincu·e'}`;
+      if (c.defeated) return `   ${c.name} · ${c.side === 'heroes' ? 'à terre' : c.fled ? 'en fuite' : 'vaincu·e'}`;
       const effects = [c.status.burning > 0 ? 'brûle' : '', c.status.bleeding > 0 ? 'saigne' : ''].filter(Boolean).join(', ');
       return `${c === current ? '▶' : '   '} ${c.name} · PV ${c.hp}/${c.maxHp}${effects ? ` · ${effects}` : ''}`;
     });
@@ -659,45 +669,48 @@ export class CombatScene extends Phaser.Scene {
     return new Promise((resolve) => this.time.delayedCall(ms, resolve));
   }
 
-  /** Heroes still standing: what enemies aim at. */
-  private standingHeroes(): Combatant[] {
-    return this.combatants.filter((c) => c.side === 'heroes' && !c.defeated);
+  /** What the enemy AI sees: the arena and everyone in it (src/rules/combatAi.ts). */
+  private aiContext(): AiContext {
+    return {
+      combatants: this.combatants,
+      open: (t) => isOpen(this.arena, t),
+      coverAt: (t) => coverAt(this.arena, t),
+      isEdge: (t) => isEdge(this.arena, t),
+    };
   }
 
   /**
-   * The enemy's turn, each step and blow shown in turn: a healer first tends a badly hurt ally; then the enemy
-   * strikes the nearest hero within reach, or walks toward the nearest one (a shooter stops once in range).
+   * The enemy's turn, each step and blow shown in turn, as the AI decides (docs/gdd/combat.md, « IA ») : it flees
+   * when beaten (Fuite), tends a wounded ally, finishes the weakest hero within reach, or walks (a shooter to cover).
    */
   private async runEnemyTurn(enemy: Combatant): Promise<void> {
-    let guard = 0;
-    while (enemy.actionPoints > 0 && !enemy.defeated && !this.hero().defeated && guard++ < 12) {
-      const hurt = this.combatants.find((a) => a !== enemy && canHeal(enemy, a) && a.hp <= a.maxHp * 0.6);
-      if (hurt) {
-        const healed = resolveHeal(enemy, hurt);
-        this.float(hurt, `+${healed}`, '#9fe0a0');
-        this.appendLog(`${enemy.name} soigne ${hurt.name} : +${healed} PV.`);
-        this.refreshToken(hurt);
+    for (let guard = 0; guard < 14 && !enemy.defeated && !this.hero().defeated; guard++) {
+      const action = nextEnemyAction(enemy, this.aiContext());
+      if (action.kind === 'end') break;
+      if (action.kind === 'flee') {
+        enemy.fled = true;
+        enemy.defeated = true;
+        this.appendLog((enemy.kind && findEnemy(enemy.kind)?.fleeText) || `${enemy.name} s’enfuit, et quitte le combat.`);
+        this.refreshToken(enemy);
+        if (this.checkOutcome()) return;
+        break;
+      }
+      if (action.kind === 'heal') {
+        const healed = resolveHeal(enemy, action.target);
+        this.float(action.target, `+${healed}`, '#9fe0a0');
+        this.appendLog(`${enemy.name} soigne ${action.target.name} : +${healed} PV.`);
+        this.refreshToken(action.target);
         await this.wait(550);
         continue;
       }
-      const attack = enemy.attacks[0];
-      const targets = this.standingHeroes().sort((a, b) => distance(enemy.tile, a.tile) - distance(enemy.tile, b.tile));
-      if (targets.length === 0) break;
-      const inReach = targets.find((t) => canAttack(enemy, attack, t));
-      if (inReach) {
-        this.performAttack(enemy, attack, inReach, 'corps', coverBetween(enemy.tile, inReach.tile, (t) => coverAt(this.arena, t)));
+      if (action.kind === 'attack') {
+        this.performAttack(enemy, action.attack, action.target, 'corps', action.cover);
         if (this.checkOutcome()) return;
         await this.wait(550);
         continue;
       }
-      if (enemy.actionPoints < 1) break;
-      const path = this.pathAdjacentTo(enemy.tile, targets[0].tile);
-      if (!path || path.length === 0) break;
-      // A shooter walks only until it has the target in range.
-      const stop = attack.range > 1 ? path.findIndex((t) => distance(t, targets[0].tile) <= attack.range) : -1;
-      const steps = stop >= 0 ? path.slice(0, stop + 1) : path;
       const from = enemy.tile;
-      const taken = moveAlong(enemy, steps);
+      const taken = moveAlong(enemy, action.path);
       if (taken.length === 0) break;
       await this.animateMove(enemy, taken, from);
       this.refreshToken(enemy);
@@ -705,19 +718,6 @@ export class CombatScene extends Phaser.Scene {
     }
     await this.wait(300);
     this.nextTurn();
-  }
-
-  private pathAdjacentTo(from: Tile, target: Tile): Tile[] | null {
-    const candidates = [-1, 0, 1]
-      .flatMap((dc) => [-1, 0, 1].map((dr) => ({ col: target.col + dc, row: target.row + dr })))
-      .filter((t) => (t.col !== target.col || t.row !== target.row) && this.walkable(t));
-    let best: Tile[] | null = null;
-    for (const tile of candidates) {
-      if (tile.col === from.col && tile.row === from.row) return [];
-      const p = findPath(from, tile, this.walkable);
-      if (p && (!best || p.length < best.length)) best = p;
-    }
-    return best;
   }
 
   private checkOutcome(): boolean {
@@ -800,7 +800,7 @@ export class CombatScene extends Phaser.Scene {
       this.appendLog(`Plus de ${(findItem(attack.munition!)?.name ?? 'munitions').toLowerCase()} : change d’arme dans ta main, ou bats-toi à mains nues.`);
       return;
     }
-    if (!canAttack(hero, attack, target)) {
+    if (!canAttack(hero, attack, target, this.zone)) {
       this.appendLog(distance(hero.tile, target.tile) > attack.range ? 'Hors de portée.' : 'Pas assez de PA.');
       return;
     }
@@ -835,7 +835,7 @@ export class CombatScene extends Phaser.Scene {
   }
 
   private performAttack(attacker: Combatant, attack: AttackProfile, target: Combatant, zone: Zone, cover: number): void {
-    const result = resolveAttack(attacker, attack, target, zone, cover);
+    const result = resolveAttack(attacker, attack, target, zone, cover, Math.random, this.combatants);
     this.refreshToken(attacker);
     this.refreshToken(target);
     const zoneLabel = zone === 'corps' ? '' : ` [${findZone(zone).label}]`;
@@ -849,19 +849,24 @@ export class CombatScene extends Phaser.Scene {
     else {
       const crit = result.critical ? ' (critique !)' : '';
       this.appendLog(spell ? `Les ${spell} touchent${zoneLabel} ${target.name} : ${result.damage} dégâts${crit}.` : `${attacker.name} touche${zoneLabel} ${target.name} : ${result.damage} dégâts${crit}.`);
+      if (result.thorns > 0) {
+        this.log.setText(`${this.log.text} Toucher ${target.name} coûte ${result.thorns} PV.`);
+        this.float(attacker, `−${result.thorns}`, CSS.muted);
+        this.refreshToken(attacker);
+      }
       if (result.defeated) this.appendLog(target.defeatText);
       else {
         const effects: string[] = [];
         if (result.zoneEffect === 'stunned' || result.inflicted === 'etourdi') effects.push('étourdi·e');
         if (result.zoneEffect === 'disarmed') effects.push('désarmé·e');
         if (result.zoneEffect === 'slowed' || result.inflicted === 'ralenti') effects.push('ralenti·e');
+        if (result.resisted) this.log.setText(`${this.log.text} ${target.name} résiste à l’effet.`);
         if (result.inflicted === 'brulure') effects.push(LINGERING.brulure.label);
         if (result.inflicted === 'saignement') effects.push(LINGERING.saignement.label);
         if (effects.length) this.log.setText(`${this.log.text} ${target.name} est ${effects.join(' et ')}.`);
         // A boss hurt enough enters its next phase (docs/gdd/combat.md, « Boss à phases »).
-        const phase = nextPhase(target);
-        if (phase) {
-          this.log.setText(`${this.log.text}\n${phase.texte}`);
+        if (result.phase) {
+          this.log.setText(`${this.log.text}\n${result.phase.texte}`);
           this.float(target, '!', CSS.copper);
         }
       }
@@ -1038,7 +1043,8 @@ export class CombatScene extends Phaser.Scene {
     this.appendLog('Combat gagné.');
     const hurt = this.keepWounds();
     // The bestiary counts the beaten; the beaten leave their loot (docs/gdd/combat.md, « Butin », « Bestiaire »).
-    const beaten = this.combatants.filter((c) => c.side === 'enemies' && c.defeated && c.kind).map((c) => c.kind!);
+    // Who fled leaves nothing behind (Fuite).
+    const beaten = this.combatants.filter((c) => c.side === 'enemies' && c.defeated && !c.fled && c.kind).map((c) => c.kind!);
     recordDefeated(this.state, beaten);
     const loot = rollLoot(beaten.map((k) => ENEMIES.find((e) => e.id === k)!).filter(Boolean));
     // The same item found several times is given at once (three bolts, not three times a bolt).

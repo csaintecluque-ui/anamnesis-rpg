@@ -1,6 +1,6 @@
 import companionData from '../data/companions.json';
 import type { GameState } from '../state/gameState';
-import { ATTACK_AP_COST, type AttackProfile, type Combatant, type Dice, type OnHit } from './combat';
+import { ATTACK_AP_COST, freshFighter, type AttackProfile, type Combatant, type Dice, type OnHit } from './combat';
 import type { Tile } from '../engine/iso';
 
 /**
@@ -62,6 +62,7 @@ export function makeCompanionCombatant(def: CompanionDef, hp: number, tile: Tile
     onHit: a.onHit,
   }));
   return {
+    ...freshFighter(),
     id: `compagnon-${def.id}`,
     name: def.name,
     side: 'heroes',

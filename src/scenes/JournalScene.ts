@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import { bestiaryEntries } from '../rules/bestiary';
+import { CAPACITES } from '../rules/combat';
 import { ECHOS, TYPE_LABELS, collectedEchos, empriseLabel } from '../rules/echos';
 import { findLocation } from '../state/gameState';
 import { journalQuests, journalRecits, journalReputation } from '../rules/journal';
@@ -249,7 +250,10 @@ export class JournalScene extends Phaser.Scene {
           enemy.phases?.length ? 'change de rythme, blessé' : '',
         ].filter(Boolean);
         const stats = this.text(DETAIL_X, status.y + status.height + 14, traits.join(' · '), 20, CSS.parchment, DETAIL_WIDTH);
-        const description = this.text(DETAIL_X, stats.y + stats.height + 18, enemy.description ?? '', 24, CSS.parchment, DETAIL_WIDTH);
+        // Its two capacités (chantier 3).
+        const capacites = enemy.capacites.map((c) => `${CAPACITES[c].nom} : ${CAPACITES[c].texte}.`).join('\n');
+        const caps = this.text(DETAIL_X, stats.y + stats.height + 10, capacites, 19, CSS.copper, DETAIL_WIDTH);
+        const description = this.text(DETAIL_X, caps.y + caps.height + 18, enemy.description ?? '', 24, CSS.parchment, DETAIL_WIDTH);
         if (enemy.source) this.text(DETAIL_X, description.y + description.height + 14, `Source : ${enemy.source}`, 18, CSS.muted, DETAIL_WIDTH);
       },
       'Aucune créature rencontrée. Les routes et les ruines en sont pleines.',

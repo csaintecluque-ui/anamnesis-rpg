@@ -557,6 +557,11 @@
     "role": "Un Écho de l’Ancien Monde"
   },
   {
+    "id": "voie-groupe",
+    "name": "Dans le noir",
+    "role": "Des bêtes ou des pillards d’une voie endormie, qui ne t’ont pas encore vu·e"
+  },
+  {
     "id": "voie-contrat",
     "name": "Sous les gravats",
     "role": "Ce qu’un contrat t’a envoyé chercher"

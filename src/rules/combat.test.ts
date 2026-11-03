@@ -179,7 +179,8 @@ describe('resolveAttack', () => {
   it('aiming at a zone applies its penalty and, on a non-lethal hit, its status effect', () => {
     const { attacker, target } = duel();
     target.hp = 100;
-    const result = resolveAttack(attacker, enemyAttack(rodeur), target, 'tete', 0, sequence(at(18, 20), at(6, 6)));
+    // The d20, the damage, then the target's resistance roll (a low draw: it fails, the effect takes).
+    const result = resolveAttack(attacker, enemyAttack(rodeur), target, 'tete', 0, sequence(at(18, 20), at(6, 6), at(1, 20)));
     expect(result.zoneEffect).toBe('stunned');
     expect(target.status.stunned).toBe(true);
   });

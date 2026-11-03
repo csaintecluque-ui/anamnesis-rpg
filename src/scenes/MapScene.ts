@@ -9,7 +9,7 @@ import { FADED_ALPHA, bodyBox, obstacleBox, overlaps, type Box } from '../engine
 import { findPath } from '../engine/pathfinding';
 import { bigBlock, findObject, isBigAnchor, isWalkable, parseTiledMap, tileKey, type GameMap, type MapObject } from '../engine/tiledMap';
 import { DEFAULT_AVATAR } from '../rules/character';
-import { ENCOUNTERS, findEnemy } from '../rules/combat';
+import { ENCOUNTERS, VOIE_FIGHT, findEnemy, storyChapter } from '../rules/combat';
 import { hasStoryEntry, type Effect } from '../rules/dialogue';
 import {
   ENCOUNTER_VICTORY_FLAG,
@@ -33,7 +33,7 @@ import { FigurantLayer } from './Figurants';
 import { PartyLayer } from './Party';
 import { echoObjects, echoShows } from '../rules/echos';
 import { boardObjects } from '../rules/contrats';
-import { carriesLamp, descend, groupFlag, groupNear, groupXp, leaveVoie, lightTraps, springTrap, trapSeenFlag, voieLevel, voiePlan } from '../rules/voies';
+import { carriesLamp, descend, groupDialogueId, groupFlag, groupNear, groupXp, leaveVoie, lightTraps, sneakFlag, springTrap, trapSeenFlag, voieLevel, voiePlan } from '../rules/voies';
 import type { HudScene } from './HudScene';
 import type { WorldMapStartData } from './WorldMapScene';
 import { momentOf, type Moment } from '../rules/time';
@@ -538,6 +538,8 @@ export class MapScene extends Phaser.Scene {
 
   /** A fight started from a dialogue: the arena is carved around the encounter's centre object. */
   startEncounter(id: string): void {
+    // A group of a sleeping line, attacked from its dialogue (chantier 3).
+    if (id.startsWith(VOIE_FIGHT)) return this.fightVoieGroup(id.slice(VOIE_FIGHT.length));
     const encounter = ENCOUNTERS.find((e) => e.id === id);
     const center = encounter && findObject(this.map, encounter.center);
     if (!encounter || !center) return;
@@ -545,7 +547,8 @@ export class MapScene extends Phaser.Scene {
     this.launchFight(center, encounter.enemies.map((e) => e.id), enemyObjects, encounter.victoryFlag, encounter.victoryEffects);
   }
 
-  private launchFight(center: Tile, enemyIds: string[], enemyObjects: Tile[], victoryFlag: string, victoryEffects: Effect[]): void {
+  /** `menace`: the story's chapter, for the beasts of the road and of the sleeping lines (chantier 3, strengthen). */
+  private launchFight(center: Tile, enemyIds: string[], enemyObjects: Tile[], victoryFlag: string, victoryEffects: Effect[], menace?: number): void {
     const arena = carveArena(this.map, center, ARENA_COLS, ARENA_ROWS, enemyObjects);
     this.registry.set('tileFrames', this.map.frames);
     this.scene.pause();
@@ -557,6 +560,7 @@ export class MapScene extends Phaser.Scene {
       arena,
       heroTile: toArena(arena, this.heroTile),
       enemyTiles: enemyObjects.map((o) => toArena(arena, o)),
+      menace,
     } satisfies CombatStartData);
   }
 
@@ -585,7 +589,7 @@ export class MapScene extends Phaser.Scene {
       row: Math.round(all.reduce((sum, t) => sum + t.row, 0) / all.length),
     };
     const xp = rencontreXp(rencontre);
-    this.launchFight(center, enemies.map((o) => o.properties.ennemi), enemies, ENCOUNTER_VICTORY_FLAG, xp > 0 ? [{ giveXp: xp }] : []);
+    this.launchFight(center, enemies.map((o) => o.properties.ennemi), enemies, ENCOUNTER_VICTORY_FLAG, xp > 0 ? [{ giveXp: xp }] : [], storyChapter(this.state.quests));
   }
 
   // --- Sleeping lines (docs/gdd/voies.md) ---------------------------------------------------------
@@ -609,10 +613,15 @@ export class MapScene extends Phaser.Scene {
     this.lightTraps();
     // Out of sight of a group fled from: it may attack again later.
     for (const g of [...this.fought]) if (groupNear(this.map.objects.filter((o) => o.properties.voie === g), this.heroTile, (o) => this.gone(o)) === null) this.fought.delete(g);
-    const group = groupNear(this.map.objects, this.heroTile, (o) => this.gone(o) || this.fought.has(o.properties.voie));
+    const group = groupNear(this.map.objects, this.heroTile, (o) => this.gone(o) || this.fought.has(o.properties.voie) || !!this.state.flags[sneakFlag(o.properties.voie)]);
     if (group) {
       this.haltWalk();
-      this.fightVoieGroup(group);
+      // Not a fight straight away: slip past, flee, soothe, or attack (chantier 3, the voie pacifiste).
+      this.fought.add(group);
+      if (DIALOGUES[groupDialogueId(group)]) {
+        this.scene.pause();
+        this.scene.launch('Dialogue', { id: groupDialogueId(group) });
+      } else this.fightVoieGroup(group);
       return true;
     }
     return false;
@@ -640,7 +649,7 @@ export class MapScene extends Phaser.Scene {
     this.fought.add(group);
     const ids = enemies.map((o) => o.properties.ennemi);
     const effects: Effect[] = [{ giveXp: groupXp(ids) }, ...(enemies[0].properties.contrat ? [{ contrat: 'fait' as const }] : [])];
-    this.launchFight(center, ids, enemies, groupFlag(group), effects);
+    this.launchFight(center, ids, enemies, groupFlag(group), effects, storyChapter(this.state.quests));
   }
 
   private drawNpcs(): void {

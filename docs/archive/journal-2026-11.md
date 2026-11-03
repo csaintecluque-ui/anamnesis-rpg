@@ -1026,3 +1026,9 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   niveau + 2 ; libellé « Contourner » corrigé. 651 tests ; vérifié en 720p (atelier, palissade).
 - Cyril : « Ok mets en ligne les deux chantiers puis attaque le 3e » : chantiers 1 et 2 en ligne ; chantier 3 (le
   combat) commencé.
+- Chantier 3 sur la branche (`docs/gdd/combat.md`, « Chantier 3 ») : 7 PA (6 à 8 selon l'Agilité), la dague à 2 PA,
+  viser à +1 PA (sauf la dague), un jet de résistance aux effets de zone et une immunité d'un tour, deux capacités
+  par ennemi (Meute, Épines, Charge, Fuite, Visée…), une IA pure (`combatAi.ts` : achever les blessés, se mettre à
+  couvert, fuir), la force des bêtes de la route et des voies qui suit les chapitres, et la voie pacifiste des voies
+  endormies (Discrétion, fuite à l'Athlétisme, un Récit pour les Échos). Simulation (`combatSim.ts`) : l'écart entre
+  tactiques tombe à 14 points au plus (avant : 25 points en faveur des bras). 667 tests ; vérifié en 1080p.

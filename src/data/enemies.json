@@ -3,7 +3,7 @@
     "id": "golem-ferraille",
     "tile": "golem",
     "name": "Golem de Ferraille",
-    "hp": 30,
+    "hp": 26,
     "defense": 12,
     "attackBonus": 2,
     "damage": {
@@ -13,6 +13,11 @@
     "actionPoints": 5,
     "initiativeBonus": -1,
     "xp": 50,
+    "capacites": [
+      "emballement",
+      "charge"
+    ],
+    "resistance": 6,
     "defeatText": "Le Golem de Ferraille s’éteint dans un dernier grincement, et retombe immobile.",
     "phases": [
       {
@@ -45,6 +50,11 @@
     "actionPoints": 5,
     "initiativeBonus": 2,
     "xp": 15,
+    "capacites": [
+      "saigner",
+      "epines"
+    ],
+    "resistance": 1,
     "defeatText": "Le Rôdeur-Épine s’effondre dans les fourrés, ses épines encore hérissées. Il ne se relève pas.",
     "onHit": {
       "effet": "saignement",
@@ -73,7 +83,13 @@
     "actionPoints": 5,
     "initiativeBonus": 0,
     "xp": 35,
+    "capacites": [
+      "charge",
+      "fuite"
+    ],
+    "resistance": 3,
     "defeatText": "L’Ours-Mousse s’affaisse dans les fougères avec un long souffle, et ne bouge plus.",
+    "fleeText": "L’Ours-Mousse se détourne et regagne les fourrés en grognant.",
     "butin": [
       {
         "item": "fourrure-mousse",
@@ -97,6 +113,11 @@
     "actionPoints": 8,
     "initiativeBonus": 3,
     "xp": 15,
+    "capacites": [
+      "saigner",
+      "meute"
+    ],
+    "resistance": 1,
     "defeatText": "Le Loup de Rouille roule dans la poussière, et ne se relève pas.",
     "onHit": {
       "effet": "saignement",
@@ -125,7 +146,13 @@
     "actionPoints": 6,
     "initiativeBonus": 0,
     "xp": 20,
+    "capacites": [
+      "charge",
+      "fuite"
+    ],
+    "resistance": 1,
     "defeatText": "Le fouilleur lâche sa pioche et lève les mains. — Assez ! C’est Kaelis qui paie, au Marché des Cendres d’Ironheart ! On cherche une clé de rouille bleue, c’est tout !",
+    "fleeText": "Le fouilleur lâche sa pioche et détale : « Gardez-la, votre clé ! »",
     "butin": [
       {
         "fers": [
@@ -152,7 +179,13 @@
     "actionPoints": 6,
     "initiativeBonus": 1,
     "xp": 15,
+    "capacites": [
+      "meute",
+      "fuite"
+    ],
+    "resistance": 1,
     "defeatText": "Le pilleur lève les mains. — Assez ! On ne vole que des wagons ! C’est la machine qui conduit : nous, on décharge, à la Cendrière, au bout de l’embranchement !",
+    "fleeText": "Le pilleur lève les mains et recule : « C’est bon, c’est bon ! » Il se fond entre les wagons.",
     "butin": [
       {
         "fers": [
@@ -179,9 +212,18 @@
     "actionPoints": 6,
     "initiativeBonus": 1,
     "xp": 15,
+    "capacites": [
+      "ralentir",
+      "epines"
+    ],
+    "resistance": 2,
     "defeatText": "L’Écho se défait en lumière, avec un soupir. Il reviendra.",
     "description": "Un Écho frappé : au lieu de se dissiper, il s’est multiplié et devient violent. On ne peut que le disperser, pour un temps.",
-    "source": "Loi de la Mémoire Vivante [E2]"
+    "source": "Loi de la Mémoire Vivante [E2]",
+    "onHit": {
+      "effet": "ralenti",
+      "chance": 0.3
+    }
   },
   {
     "id": "griffe-sylve",
@@ -197,6 +239,11 @@
     "actionPoints": 7,
     "initiativeBonus": 3,
     "xp": 20,
+    "capacites": [
+      "saigner",
+      "charge"
+    ],
+    "resistance": 1,
     "onHit": {
       "effet": "saignement",
       "chance": 0.4
@@ -225,6 +272,11 @@
     "actionPoints": 8,
     "initiativeBonus": 4,
     "xp": 6,
+    "capacites": [
+      "ralentir",
+      "meute"
+    ],
+    "resistance": 0,
     "onHit": {
       "effet": "ralenti",
       "chance": 0.35
@@ -253,6 +305,11 @@
     "actionPoints": 6,
     "initiativeBonus": 1,
     "xp": 12,
+    "capacites": [
+      "bruler",
+      "tir"
+    ],
+    "resistance": 0,
     "range": 3,
     "onHit": {
       "effet": "brulure",
@@ -282,6 +339,11 @@
     "actionPoints": 6,
     "initiativeBonus": 1,
     "xp": 15,
+    "capacites": [
+      "tir",
+      "visee"
+    ],
+    "resistance": 0,
     "range": 5,
     "defeatText": "L’arbalétrier jette son arme et lève les mains. — Je me rends ! Je ne fais que tirer, moi !",
     "butin": [
@@ -315,6 +377,11 @@
     "actionPoints": 6,
     "initiativeBonus": 0,
     "xp": 15,
+    "capacites": [
+      "soigner",
+      "fuite"
+    ],
+    "resistance": 0,
     "soin": {
       "amount": {
         "count": 2,
@@ -323,6 +390,7 @@
       "range": 3
     },
     "defeatText": "La rebouteuse laisse tomber sa sacoche de baumes. — Assez… Je soigne, je ne me bats pas.",
+    "fleeText": "La rebouteuse ramasse sa trousse et s’éloigne sans un mot ; elle ne recoudra personne aujourd’hui.",
     "butin": [
       {
         "item": "baume-mousse",

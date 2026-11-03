@@ -13,8 +13,13 @@ export function defense(attrs: Attributes, armorBonus = 0): number {
   return 10 + attributeModifier(attrs.agility) + armorBonus;
 }
 
+/**
+ * 7 PA, one more from Agilité 5, one less under 3 (feuille de route, chantier 3 : the PA depend less on Agilité ; before,
+ * 6 + its modifier, and Agilité 6 gave 9 PA, three blows a turn). 7 PA: two blows and a step, or an aimed blow and
+ * another.
+ */
 export function actionPoints(attrs: Attributes): number {
-  return 6 + attributeModifier(attrs.agility);
+  return 7 + Math.floor(attributeModifier(attrs.agility) / 2);
 }
 
 export function carryCapacityKg(attrs: Attributes): number {

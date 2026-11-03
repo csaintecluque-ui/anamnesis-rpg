@@ -90,7 +90,8 @@ describe('derived values (docs/gdd/attributs.md, character at 3 everywhere)', ()
     expect(maxHitPoints(average)).toBe(32);
     expect(resistancePoints(average)).toBe(3);
     expect(defense(average)).toBe(10);
-    expect(actionPoints(average)).toBe(6);
+    expect(actionPoints(average)).toBe(7);
+    expect([1, 2, 4, 5, 6].map((agility) => actionPoints({ ...average, agility }))).toEqual([6, 6, 7, 8, 8]);
     expect(carryCapacityKg(average)).toBe(60);
     expect(talesRetained(average)).toBe(4);
     expect(skillPointsPerLevel(average)).toBe(3);

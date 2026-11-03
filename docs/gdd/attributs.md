@@ -25,6 +25,6 @@ Ce sont les six attributs du JDR, plus **Mémoire**. Données : `src/data/` ; r�
 | Points de Résistance | Vigueur + mod. Présence (3) ; on en dépense 1 pour relancer un jet ; ils reviennent au repos | JDR |
 | Défense | 10 + mod. Agilité + armure (10) | JDR |
 | Initiative | d20 + mod. Agilité | JDR |
-| Points d'action | 6 + mod. Agilité (6) | adaptation : le JDR fonctionne en actions, pas en PA |
+| Points d'action | 7 + la moitié du mod. Agilité, arrondie en dessous (7) ; avant le chantier 3 : 6 + mod. Agilité | adaptation : le JDR fonctionne en actions, pas en PA |
 | Charge | 30 + 10 × Corps kg (60) | adaptation |
 | Récits retenus | Mémoire + 1 (4) | voir `docs/gdd/memoire.md` |

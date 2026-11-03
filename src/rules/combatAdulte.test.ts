@@ -90,9 +90,9 @@ describe('enemies that shoot, heal and change pace', () => {
 
   it('let the Golem enter its second phase once, at half its PV', () => {
     const golem = makeEnemyCombatant(findEnemy('golem-ferraille')!, 'g', at);
-    golem.hp = 16;
+    golem.hp = 14;
     expect(nextPhase(golem)).toBeNull();
-    golem.hp = 15;
+    golem.hp = 13;
     expect(nextPhase(golem)?.texte).toMatch(/s’emballe/);
     expect([golem.attacks[0].toHitBonus, golem.maxActionPoints]).toEqual([4, 7]);
     expect(nextPhase(golem)).toBeNull();

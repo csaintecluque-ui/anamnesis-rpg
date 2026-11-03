@@ -11,7 +11,10 @@ import {
   VOIE_DEPTH,
   VOIE_PLANS,
   descend,
+  groupDialogueId,
+  groupFlag,
   groupNear,
+  sneakFlag,
   leaveVoie,
   springTrap,
   carriesLamp,
@@ -40,6 +43,21 @@ function levelOf(state: GameState): { map: GameMap; objects: MapObject[]; level:
   const map = parseTiledMap(MAPS[voiePlan(state.voie!)]);
   const level = voieLevel(state, map);
   return { map, objects: level.objects, level };
+}
+
+
+/** A level whose first group is this one (scanning the draws), and its dialogue. */
+function voieLevelWith(enemies: string[]) {
+  for (let seed = 0; seed < 2000; seed++) {
+    for (const site of SITES) {
+      for (let depth = 1; depth <= VOIE_DEPTH; depth++) {
+        const { level } = levelOf(inVoie({ site: site.id, seed, depth }));
+        const ids = level.objects.filter((o) => o.properties.voie === '1').map((o) => o.properties.ennemi);
+        if (ids.join() === enemies.join()) return level.dialogues[groupDialogueId('1')];
+      }
+    }
+  }
+  throw new Error(`aucun niveau avec ${enemies.join(', ')}`);
 }
 
 const SPOTS = ['ennemi-1', 'ennemi-2', 'ennemi-3', 'coffre-1', 'coffre-2', 'coffre-3', 'piege-1', 'piege-2', 'piege-3', 'piege-4', 'echo-1', 'contrat', 'descente'];
@@ -199,6 +217,50 @@ describe('exploring', () => {
     expect(groupNear([beast], { col: 8, row: 7 }, () => false)).toBe('2');
     expect(groupNear([beast], { col: 7, row: 7 }, () => false)).toBeNull();
     expect(groupNear([beast], { col: 9, row: 5 }, () => true)).toBeNull();
+  });
+});
+
+describe('the voie pacifiste (feuille de route, chantier 3)', () => {
+  it('every group can be slipped past (Discrétion), fled from once seen (Athlétisme), or attacked', () => {
+    for (const site of SITES) {
+      for (let depth = 1; depth <= VOIE_DEPTH; depth++) {
+        const state = inVoie({ site: site.id, seed: 11 * depth, depth });
+        const { level } = levelOf(state);
+        const groups = [...new Set(level.objects.filter((o) => o.type === 'ennemi').map((o) => o.properties.voie))];
+        for (const g of groups) {
+          const d = level.dialogues[groupDialogueId(g)];
+          expect(d, `${site.id} ${depth} : groupe ${g}`).toBeDefined();
+          expect(dialogueProblems(d)).toEqual([]);
+          const [sneak] = d.nodes.face.options;
+          expect(sneak.roll).toEqual({ skill: 'stealth', difficulty: 9 + level.tier });
+          expect(d.nodes.face.options.some((o) => o.effects?.some((e) => 'startCombat' in e && e.startCombat === `voie:${g}`))).toBe(true);
+          expect(d.nodes.repere.options.some((o) => o.roll?.skill === 'athletics')).toBe(true);
+        }
+      }
+    }
+  });
+
+  it('a group slipped past lets the hero by for the rest of the level; Échos furieux listen to a Récit', () => {
+    const state = inVoie({ site: 'tunnel-combe', seed: 5, depth: 3 });
+    const { level } = levelOf(state);
+    Object.assign(DIALOGUES, level.dialogues);
+    choose(state, groupDialogueId('1'), 'face', 'Passer dans leur ombre');
+    expect(state.flags[sneakFlag('1')]).toBe(true);
+    const echoes = voieLevelWith(['echo-furieux', 'echo-furieux']);
+    expect(echoes.nodes.face.options.some((o) => o.raconter?.neutre === 'apaise')).toBe(true);
+    expect(echoes.nodes.apaise.effects).toContainEqual({ setFlag: groupFlag('1') });
+  });
+
+  it('a pacifist walks every line down to its terminus: the descent is never guarded by a fight', () => {
+    for (const site of SITES) {
+      const state = inVoie({ site: site.id, seed: 3, depth: 1 });
+      while (!levelOf(state).level.terminus) {
+        const { objects } = levelOf(state);
+        expect(objects.some((o) => o.type === 'descente')).toBe(true);
+        descend(state);
+      }
+      expect(state.voie?.depth).toBe(VOIE_DEPTH);
+    }
   });
 });
 

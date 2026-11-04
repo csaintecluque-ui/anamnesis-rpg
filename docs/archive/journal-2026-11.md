@@ -1129,3 +1129,4 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   passent » sur la route (un moment de la journée) ; **B11** « Fins vues : n / N » au journal des trois quêtes
   principales à plusieurs issues (7, 3, 3), retenues sur l'appareil. H3 (bulles des passants) était déjà fait
   (3,8 s). 750 tests ; chaque point vérifié dans Chromium. Les Options ne disaient plus vrai sur le son : corrigé.
+- Cyril : « Garde les noms, mets en ligne » : les noms des fins validés ; le bloc A mis en ligne.

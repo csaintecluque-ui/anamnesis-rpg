@@ -225,7 +225,7 @@ En ligne le 2026-11-03 (tes textes du 3 novembre) :
       Espace, Entrée, I, J, C, Échap et les touches du combat restent.
 - Remarques :
 
-## Étude du 3 novembre, vague 3, bloc A : la carte et ses repères (sur la branche)
+## Étude du 3 novembre, vague 3, bloc A : la carte et ses repères (en ligne le 2026-11-04)
 
 - [ ] **La mini-carte**, en bas à droite : le lieu entier, les sorties, les habitants (cuivre), les ennemis (rouge),
       toi (point clair) et le cadre de la vue. Clique dessus : la vue y va ; « Recentrer (C) » la ramène. **M** la

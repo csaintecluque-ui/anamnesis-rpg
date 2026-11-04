@@ -73,14 +73,14 @@ avoir peur. Je ne sais plus les mots. »* Le quai d'Altavent reste pour la fin.
 | 2 | « Ce que la mer rend » : l'avis de l'Entrepôt ; quatre entrées (la capitaine Mérande, l'ordre de la Grande Amiral, la ruse, la cale à marée basse) ; Euria, Oaïna, la dame en gris et la conque ; quatre fins ; la caisse de Marisol au fil ; l'air (fragment du chapitre 7, la nuit après) ; la lettre d'Ilyane chez Noéa | en ligne |
 | 3 à 5 | La conque muette et Basile (le Récit « Le chant qu'on ne chante pas ») ; « Le Don rendu », « Sous une lune rouge », « Le Cargo Noir », « La grotte du Grand Reflux » ; les adhésions à la Confrérie des Brisants (la paie du Bel-Écart) et aux Plongeurs de Perles (la première perle) ; douze passants, dix-sept habitants qui parlent seuls, la veillée de la Conque Rieuse et ses deux rumeurs, cinq habitants qui écoutent un Récit | en ligne |
 
-**À valider** (inventés au montage) : les six noms de la caisse de Marisol (**Ilan, sept ans ; Naïs, six ans ; Corin,
+**Validés par Cyril le 2026-11-04** (« 1 oui, 2 oui ») : les six noms de la caisse de Marisol (**Ilan, sept ans ; Naïs, six ans ; Corin,
 huit ans ; Sela, cinq ans ; Timo, neuf ans ; Rhéa, six ans**) ; la conque de la mère, qui les récite (« Je les compte
 encore. Si je m'arrête, je les perds. ») ; la plaque « Halte de la Mer — voie 7 » ; l'Écho « Le Don des Eaux » (la
 procession qui pose la caisse au bord de l'eau) ; la capitaine Mérande Fond-de-Cale ; Marina Azurios qui signe un ordre
 « pour un Gardien de Mémoire ». Coralia apparaît sur la carte du monde après Aetherhaven ; la lettre de Hesper est dite
 par la page « Le fil ».
 
-**À valider aussi** (étapes 3 à 5) : Basile Chante-Creux et sa conque muette ; Amande, la bague et Tadéo ; Iris Coquelune,
+**Validés aussi** (étapes 3 à 5) : Basile Chante-Creux et sa conque muette ; Amande, la bague et Tadéo ; Iris Coquelune,
 et Aïo qui, parti seul sous la lune rouge, revient sans le nom de sa mère (le prix de l'Abysse, canon : la mémoire) ;
 Gunnar, second du Cargo Noir, et la Compagnie de la Fonte Grise, d'Ironheart, qui avait signé l'ordre du déversement ;
 Lio, le novice d'Euria, et les Abyssaux de la grotte (« Mère-Abysse, reprends tout ») ; l'armateur Doucenet et le

@@ -252,6 +252,8 @@ Cloudrest, Mistral (Zephyria) [E3, N1, N3]. Crystallis est écartée : son nom e
 
 ## 8. Marche-Mère, la ville qui marche — Solarix (Communion des Sables Vivants)
 
+Fiche relue contre le canon le 2026-11-04 (proposition, à valider) : `lieux/marche-mere.md`.
+
 - **Canon** : capitale de la Communion, ville-caravane ; matriarcat symbiotique, Reine des Sables [N5] ; un Léviathan
   mesure jusqu'à 300 m et porte **un clan** (quelques centaines de personnes, tentes sur la plate-forme dorsale) ; la
   Marche elle-même marche **autour** des Léviathans, à pied, à dos de monture et en convois [NOTION : arbitrage] ; la Reine Shal'Vera et son dragon Kresh'Tal [N5] ; le Désert-qui-Marche, Aq'Shara [R7] ; *Kal'mesh*,

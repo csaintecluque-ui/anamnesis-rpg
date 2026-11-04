@@ -1190,3 +1190,14 @@ TILES.push({
     '<path d="M26 76 l-2 9" stroke="#d8504a" stroke-width="2.5"/><path d="M38 84 l3 9" stroke="#e8d8a0" stroke-width="2.5"/>' +
     '<path d="M28 92 l-3 4" stroke="#7fbf6a" stroke-width="2.5"/>',
 });
+
+// Un Ferrôme rangé au rebut sous des tôles, aux Forges-Basses ; sa main dépasse (étude du 2026-11-03, H4).
+TILES.push({
+  name: 'ferraille',
+  svg:
+    '<path d="M10 84 L26 70 L46 74 L56 86 L34 92 Z" fill="#5a5552" stroke="#1B1512" stroke-width="1"/>' +
+    '<path d="M18 80 L36 72 L50 78 L30 86 Z" fill="#7a736c" stroke="#1B1512" stroke-width="0.8"/>' +
+    '<path d="M14 86 L30 80" stroke="#3a3533" stroke-width="3"/><circle cx="44" cy="84" r="3" fill="#9a4a2c"/>' +
+    '<path d="M36 72 L38 62 M40 72 L42 60 M44 73 L46 62 M47 75 L51 66" stroke="#a8a29a" stroke-width="2.5" stroke-linecap="round"/>' +
+    '<path d="M34 76 Q40 70 48 76" stroke="#a8a29a" stroke-width="4" fill="none"/>',
+});

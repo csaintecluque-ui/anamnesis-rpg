@@ -106,3 +106,33 @@ describe('les habitants de Canopéa écoutent un Récit, une fois chacun (D3)', 
     }
   });
 });
+
+describe('Ironheart : le Ferrôme au rebut (H4, F4)', () => {
+  it('raté, une étincelle (deux PV) et l’on reprend le lendemain ; réussi, il dit qui il attend et donne son Récit', () => {
+    const state = game();
+    const hp = state.character!.hp;
+    applyEffects(state, DIALOGUES['ferrome-rebut'].nodes.etincelle.effects);
+    expect(state.character!.hp).toBe(hp - 2);
+    expect(optionTexts(state, 'ferrome-rebut', 'regard')).toEqual(['Le laisser compter.']);
+    const lucky = game();
+    choose(lucky, 'ferrome-rebut', 'voix', 'Depuis quand');
+    expect(knowsRecit(lucky.character!, 'matricule-4-17')).toBe(true);
+    expect(lucky.flags['ferrome-reveille']).toBe(true);
+  });
+});
+
+describe('les habitants d’Ironheart écoutent un Récit, une fois chacun (D3)', () => {
+  it('Varka, Kerta, Tam et Joss ont chacun leur Récit préféré', () => {
+    for (const [npc, node, recit, special] of [
+      ['varka', 'accueil', 'echelle-de-pim', 'raconte-pim'],
+      ['kerta', 'accueil', 'saule', 'raconte-saule'],
+      ['tam', 'accueil', 'savant-corvan', 'raconte-savant'],
+      ['joss', 'accueil', 'convoi-sans-conducteur', 'raconte-convoi'],
+    ]) {
+      const state = game();
+      learnRecit(state.character!, recit);
+      expect(tell(state, npc, node, recit), npc).toBe(special);
+      expect(visibleOptions(DIALOGUES[npc].nodes[node], state).some((v) => v.option.raconter), npc).toBe(false);
+    }
+  });
+});

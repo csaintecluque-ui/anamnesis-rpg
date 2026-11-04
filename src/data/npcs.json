@@ -438,6 +438,11 @@
     "role": "Forges-Basses"
   },
   {
+    "id": "ferrome-rebut",
+    "name": "Un Ferrôme au rebut",
+    "role": "Contre le mur de l’atelier Cendrefer"
+  },
+  {
     "id": "hesk",
     "name": "Hesk",
     "role": "Peuple des Cendres Noires, gardienne du dessous"

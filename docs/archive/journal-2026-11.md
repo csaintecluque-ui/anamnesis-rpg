@@ -1142,3 +1142,6 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   (Mémoire 3 : le souvenir de sa sœur), le Récit « L'échelle de Pim » ; Elouan, Aïlis, Tiven et Malo écoutent un
   Récit. À valider (`univers/lieux/canopee.md`). 758 tests ; vérifié dans Chromium.
 - Cyril : « 1 oui, 2 mets en ligne maintenant » : Canopéa validée ; la veillée de nuit, Kael, Gardebois et Canopéa mis en ligne.
+- Sur la branche, **Ironheart** : le Ferrôme au rebut contre l'atelier Cendrefer (Artisanat), « Quatre-dix-sept »
+  qui attend Irma Kessel depuis quarante ans, son Récit ; Varka, Kerta, Tam et Joss écoutent un Récit. À valider
+  (`univers/lieux/ironheart.md`). 764 tests ; vérifié dans Chromium. Notion : la page du jeu reçoit le bloc B validé.

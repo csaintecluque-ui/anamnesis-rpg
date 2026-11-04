@@ -78,6 +78,9 @@ renommée, rumeurs qui ouvrent des secrets). Chaque Récit porte ses thèmes (`t
 - À Canopéa : Elouan (chansons, arbres ; la berceuse de Maëlis), Aïlis (familles, arbres ; « Saule »), Tiven
   (familles, mystères ; « Odon Passe-Rive »), Malo (mystères, familles ; « L'échelle de Pim »).
 - **Un Récit par ville hors quête** (F4) : à Gardebois, « Odon Passe-Rive », par le mystère du pont et Sylvan ; à
-  Canopéa, « L'échelle de Pim », par l'échelle aux rubans et le nom gravé au Bosquet (Mémoire 3).
+  Canopéa, « L'échelle de Pim », par l'échelle aux rubans et le nom gravé au Bosquet (Mémoire 3) ; à Ironheart,
+  « Quatre-dix-sept », par le Ferrôme au rebut des Forges-Basses (Artisanat).
+- À Ironheart : Varka (trains, machines ; « L'échelle de Pim »), Kerta (familles ; « Saule »), Tam (machines,
+  familles ; « Le savant du dernier quai »), Joss (trains, mystères ; « Le convoi sans conducteur »).
 - **Le plafond reste Mémoire + 1** (l'étude proposait + 2 ; décision de Cyril, 2026-11-04) : avec plus de Récits à
   gagner, c'est le plafond qui rend l'oubli réel.

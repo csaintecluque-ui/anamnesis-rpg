@@ -253,6 +253,9 @@ En ligne le 2026-11-03 (tes textes du 3 novembre) :
       finie) écoutent un de tes Récits, une fois chacun ; chacun a sa réponse préférée.
 - [ ] **Canopéa, l'échelle aux rubans** : au bord sud du marché suspendu ; puis, au Bosquet des Échos, un petit nom
       gravé bas sur un arbre (Mémoire 3). Elouan, Aïlis, Tiven et Malo écoutent aussi un Récit.
+- [ ] **Ironheart, le Ferrôme au rebut** (sur la branche) : contre le mur de l'atelier Cendrefer, une main de métal
+      qui compte ; Artisanat pour rebrancher sa voix (avec Boulon, c'est mieux). Varka, Kerta, Tam et Joss écoutent un
+      Récit.
 - Remarques :
 
 ## Déjà en ligne, pas encore essayé sur PC

@@ -48,6 +48,26 @@
           "next": "toux"
         },
         {
+          "text": "Tu veux une histoire ? Ça repose la toux.",
+          "requires": [
+            {
+              "notFlag": "raconte-tam"
+            }
+          ],
+          "next": "raconte-neutre",
+          "raconter": {
+            "aime": [
+              "machines",
+              "familles"
+            ],
+            "recits": {
+              "savant-corvan": "raconte-savant"
+            },
+            "touche": "raconte-touche",
+            "neutre": "raconte-neutre"
+          }
+        },
+        {
           "text": "Bonne journée.",
           "next": "fin"
         }
@@ -326,6 +346,57 @@
       "options": [
         {
           "text": "Bien.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-neutre": {
+      "text": "Tam écoute en retenant sa toux jusqu’à la fin, par politesse. Puis il tousse longtemps. — Pardon. Elle était bien.",
+      "effects": [
+        {
+          "setFlag": "raconte-tam"
+        },
+        {
+          "giveXp": 5
+        }
+      ],
+      "options": [
+        {
+          "text": "Prends soin de toi, Tam.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-touche": {
+      "text": "Les yeux de Tam s’allument. — Une machine, avec des gens dedans. C’est ça que je veux faire : des choses qui servent à ceux d’en bas.",
+      "effects": [
+        {
+          "setFlag": "raconte-tam"
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "Prends soin de toi, Tam.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-savant": {
+      "text": "Tam répète, la voix râpeuse : « Même réussir peut tout détruire. » Il regarde son masque de feutre. — Si mon masque réussit, ils le prendront là-haut et nous laisseront la toux. C’est ça qu’il voulait dire ?",
+      "effects": [
+        {
+          "setFlag": "raconte-tam"
+        },
+        {
+          "giveXp": 15
+        }
+      ],
+      "options": [
+        {
+          "text": "Prends soin de toi, Tam.",
           "next": "fin"
         }
       ]

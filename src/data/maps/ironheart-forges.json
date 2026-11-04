@@ -11,7 +11,7 @@
  "tilewidth": 64,
  "tileheight": 32,
  "nextlayerid": 4,
- "nextobjectid": 28,
+ "nextobjectid": 29,
  "layers": [
   {
    "id": 1,
@@ -1689,6 +1689,25 @@
     },
     {
      "id": 12,
+     "name": "ferrome-rebut",
+     "type": "objet",
+     "x": 560,
+     "y": 240,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": [
+      {
+       "name": "tuile",
+       "type": "string",
+       "value": "ferraille"
+      }
+     ]
+    },
+    {
+     "id": 13,
      "name": "porte-ironheart-martelroux",
      "type": "porte",
      "x": 624,
@@ -1717,7 +1736,7 @@
      ]
     },
     {
-     "id": 13,
+     "id": 14,
      "name": "devant-ironheart-martelroux",
      "type": "arrivee",
      "x": 656,
@@ -1730,7 +1749,7 @@
      "properties": []
     },
     {
-     "id": 14,
+     "id": 15,
      "name": "entree-marche",
      "type": "porte",
      "x": 784,
@@ -1769,7 +1788,7 @@
      ]
     },
     {
-     "id": 15,
+     "id": 16,
      "name": "devant-renfoncement",
      "type": "arrivee",
      "x": 752,
@@ -1782,7 +1801,7 @@
      "properties": []
     },
     {
-     "id": 16,
+     "id": 17,
      "name": "veilleuse",
      "type": "pnj",
      "x": 752,
@@ -1801,7 +1820,7 @@
      ]
     },
     {
-     "id": 17,
+     "id": 18,
      "name": "vieille-machine",
      "type": "objet",
      "x": 848,
@@ -1814,7 +1833,7 @@
      "properties": []
     },
     {
-     "id": 18,
+     "id": 19,
      "name": "forge-eteinte",
      "type": "objet",
      "x": 144,
@@ -1827,7 +1846,7 @@
      "properties": []
     },
     {
-     "id": 19,
+     "id": 20,
      "name": "devant-forge-eteinte",
      "type": "arrivee",
      "x": 176,
@@ -1840,7 +1859,7 @@
      "properties": []
     },
     {
-     "id": 20,
+     "id": 21,
      "name": "vers-triage",
      "type": "sortie",
      "x": 944,
@@ -1869,7 +1888,7 @@
      ]
     },
     {
-     "id": 21,
+     "id": 22,
      "name": "devant-triage",
      "type": "arrivee",
      "x": 912,
@@ -1882,7 +1901,7 @@
      "properties": []
     },
     {
-     "id": 22,
+     "id": 23,
      "name": "panneau-triage-forges",
      "type": "panneau",
      "x": 912,
@@ -1901,7 +1920,7 @@
      ]
     },
     {
-     "id": 23,
+     "id": 24,
      "name": "pilote-endormi",
      "type": "objet",
      "x": 816,
@@ -1920,7 +1939,7 @@
      ]
     },
     {
-     "id": 24,
+     "id": 25,
      "name": "funiculaire",
      "type": "porte",
      "x": 464,
@@ -1959,7 +1978,7 @@
      ]
     },
     {
-     "id": 25,
+     "id": 26,
      "name": "devant-funiculaire",
      "type": "arrivee",
      "x": 464,
@@ -1972,7 +1991,7 @@
      "properties": []
     },
     {
-     "id": 26,
+     "id": 27,
      "name": "patrouilleur",
      "type": "pnj",
      "x": 400,
@@ -1985,7 +2004,7 @@
      "properties": []
     },
     {
-     "id": 27,
+     "id": 28,
      "name": "panneau-ironheart",
      "type": "panneau",
      "x": 112,
@@ -2016,7 +2035,7 @@
    "tilewidth": 64,
    "tileheight": 96,
    "columns": 8,
-   "tilecount": 190,
+   "tilecount": 191,
    "margin": 0,
    "spacing": 0,
    "tiles": [
@@ -6752,6 +6771,31 @@
        "name": "nom",
        "type": "string",
        "value": "rubans"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 190,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "ferraille"
       },
       {
        "name": "bloquant",

@@ -64,6 +64,25 @@
           "next": "file"
         },
         {
+          "text": "Je peux te raconter une histoire, en attendant ton tour.",
+          "requires": [
+            {
+              "notFlag": "raconte-kerta"
+            }
+          ],
+          "next": "raconte-neutre",
+          "raconter": {
+            "aime": [
+              "familles"
+            ],
+            "recits": {
+              "saule": "raconte-saule"
+            },
+            "touche": "raconte-touche",
+            "neutre": "raconte-neutre"
+          }
+        },
+        {
           "text": "Bonne journée.",
           "next": "fin"
         }
@@ -150,6 +169,57 @@
       "options": [
         {
           "text": "…",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-neutre": {
+      "text": "Kerta écoute sans quitter la file des yeux. — Merci. Ça fait passer le temps. Ici, le temps, c’est tout ce qu’on a en trop.",
+      "effects": [
+        {
+          "setFlag": "raconte-kerta"
+        },
+        {
+          "giveXp": 5
+        }
+      ],
+      "options": [
+        {
+          "text": "Bon courage, Kerta.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-touche": {
+      "text": "Kerta pose son seau. — Une famille qui tient. Je la raconterai à Tam, ce soir, s’il ne tousse pas trop pour écouter.",
+      "effects": [
+        {
+          "setFlag": "raconte-kerta"
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "Bon courage, Kerta.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-saule": {
+      "text": "Kerta serre l’anse de son seau. — Un garçon parti gagner des Fers sur un chantier. C’est pour ça que je veux que Tam monte. Là-haut, au moins, on ne meurt pas sous les déblais. On y meurt autrement, peut-être.",
+      "effects": [
+        {
+          "setFlag": "raconte-kerta"
+        },
+        {
+          "giveXp": 15
+        }
+      ],
+      "options": [
+        {
+          "text": "Bon courage, Kerta.",
           "next": "fin"
         }
       ]

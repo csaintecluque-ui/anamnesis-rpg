@@ -1,0 +1,105 @@
+{
+  "id": "ferrome-rebut",
+  "speaker": "ferrome-rebut",
+  "entries": [
+    {
+      "requires": [
+        {
+          "flag": "ferrome-reveille"
+        }
+      ],
+      "node": "apres"
+    },
+    {
+      "node": "regard"
+    }
+  ],
+  "nodes": {
+    "regard": {
+      "text": "Contre le mur de l’atelier Cendrefer, sous des tôles et des tuyaux rangés, une main de métal dépasse. Ses doigts bougent encore, lentement : ils comptent jusqu’à quatre, puis recommencent.",
+      "options": [
+        {
+          "text": "Ouvrir sa plaque de poitrine et rebrancher sa voix.",
+          "next": "voix",
+          "requires": [
+            {
+              "notFlag": "ferrome-etincelle"
+            }
+          ],
+          "roll": {
+            "skill": "crafting",
+            "difficulty": 12
+          },
+          "failNext": "etincelle"
+        },
+        {
+          "text": "Le laisser compter.",
+          "next": "fin"
+        }
+      ]
+    },
+    "etincelle": {
+      "text": "Un fil mal isolé crache une étincelle bleue : ta main s’engourdit jusqu’au coude. Les doigts de métal n’ont pas cessé de compter. Il te faudra reprendre à froid, demain.",
+      "effects": [
+        {
+          "blesser": 2
+        },
+        {
+          "setFlagFor": "ferrome-etincelle",
+          "days": 1
+        }
+      ],
+      "options": [
+        {
+          "text": "Reculer.",
+          "next": "fin"
+        }
+      ]
+    },
+    "voix": {
+      "text": "Une voix grésille, très polie : « Matricule quatre-dix-sept, porteur. En attente de : Irma Kessel, riveteuse, Équipe Six. Elle a dit : attends-moi ici, je redescends. » Les doigts s’arrêtent de compter.",
+      "apartes": {
+        "boulon": "Boulon pose sa main sur l’épaule de métal. « On ne fond pas un Ferrôme : on le range. Moi, j’ai eu de la chance. »"
+      },
+      "options": [
+        {
+          "text": "Depuis quand attends-tu ?",
+          "next": "attente"
+        }
+      ]
+    },
+    "attente": {
+      "text": "« Quatorze mille six cents relèves. » Une relève par jour : quarante ans. « Elle est montée aux Manufactures, avec son Innovation. Ceux qui montent ne redescendent pas. Je le sais. J’attends quand même. »",
+      "effects": [
+        {
+          "setFlag": "ferrome-reveille"
+        },
+        {
+          "learnRecit": "matricule-4-17"
+        },
+        {
+          "giveXp": 20
+        }
+      ],
+      "options": [
+        {
+          "text": "Je dirai qu’on t’attend, toi aussi.",
+          "next": "fin"
+        },
+        {
+          "text": "Refermer la plaque.",
+          "next": "fin"
+        }
+      ]
+    },
+    "apres": {
+      "text": "Quatre-dix-sept ne compte plus sur ses doigts. Quand tu passes, sa voix grésille : « Toujours en attente. Merci de demander. »",
+      "options": [
+        {
+          "text": "À bientôt, quatre-dix-sept.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

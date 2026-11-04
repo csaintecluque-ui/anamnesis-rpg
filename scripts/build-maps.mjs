@@ -732,6 +732,8 @@ function ironheartForges() {
   m.object('tam', 'pnj', 13, 6, { disparaitSi: 'tam-monte,tam-arrete' });
   house(m, 'ironheart-pension', 'maison-brique', [9, 16], [10, 17]);
   house(m, 'ironheart-atelier', 'forge', [15, 7], [15, 8]);
+  // Un Ferrôme rangé au rebut, contre le mur de l'atelier (étude du 2026-11-03, H4) : « Ferros ne jette rien ».
+  m.object('ferrome-rebut', 'objet', 17, 7, { tuile: 'ferraille' });
   house(m, 'ironheart-martelroux', 'maison-brique', [19, 17], [20, 18]);
   // Le renfoncement sans enseigne, entre deux fonderies éteintes : l'entrée du Marché des Cendres.
   m.setObstacle(24, 8, 'forge');

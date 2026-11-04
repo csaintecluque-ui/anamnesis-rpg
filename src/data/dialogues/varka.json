@@ -72,6 +72,26 @@
           "next": "convois"
         },
         {
+          "text": "J’ai une histoire pour le brasero.",
+          "requires": [
+            {
+              "notFlag": "raconte-varka"
+            }
+          ],
+          "next": "raconte-neutre",
+          "raconter": {
+            "aime": [
+              "trains",
+              "machines"
+            ],
+            "recits": {
+              "echelle-de-pim": "raconte-pim"
+            },
+            "touche": "raconte-touche",
+            "neutre": "raconte-neutre"
+          }
+        },
+        {
           "text": "Au revoir.",
           "next": "fin"
         }
@@ -311,6 +331,57 @@
       "options": [
         {
           "text": "Merci, Varka.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-neutre": {
+      "text": "Varka écoute en tendant les mains au feu. — Ça se raconte bien. Ça ne fait pas rouler un convoi, mais ça se raconte bien.",
+      "effects": [
+        {
+          "setFlag": "raconte-varka"
+        },
+        {
+          "giveXp": 5
+        }
+      ],
+      "options": [
+        {
+          "text": "Bonne nuit, Varka.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-touche": {
+      "text": "Varka hoche la tête, lentement. — Des rails, du fer, des gens qui tiennent. Celle-là, les gars la voudront ce soir. Reviens la leur dire quand tu veux.",
+      "effects": [
+        {
+          "setFlag": "raconte-varka"
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "Bonne nuit, Varka.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-pim": {
+      "text": "Varka crache dans le brasero. — Un garde-corps pour ceux d’en haut, une échelle pour les petits. Chez nous, c’est pareil, en fer. Un jour, on la racontera au triage, ton histoire, et tout le monde saura de quoi on parle.",
+      "effects": [
+        {
+          "setFlag": "raconte-varka"
+        },
+        {
+          "giveXp": 15
+        }
+      ],
+      "options": [
+        {
+          "text": "Bonne nuit, Varka.",
           "next": "fin"
         }
       ]

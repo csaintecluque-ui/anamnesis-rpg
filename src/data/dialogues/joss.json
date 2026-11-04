@@ -68,6 +68,26 @@
           "next": "vu"
         },
         {
+          "text": "Une histoire, pour la relève ?",
+          "requires": [
+            {
+              "notFlag": "raconte-joss"
+            }
+          ],
+          "next": "raconte-neutre",
+          "raconter": {
+            "aime": [
+              "trains",
+              "mysteres"
+            ],
+            "recits": {
+              "convoi-sans-conducteur": "raconte-convoi"
+            },
+            "touche": "raconte-touche",
+            "neutre": "raconte-neutre"
+          }
+        },
+        {
           "text": "Au revoir.",
           "next": "fin"
         }
@@ -300,6 +320,57 @@
       "options": [
         {
           "text": "…",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-neutre": {
+      "text": "Joss écoute en astiquant sa lanterne. — Pas mal. La nuit, ce genre d’histoire, ça tient éveillé. Le jour, ça endort.",
+      "effects": [
+        {
+          "setFlag": "raconte-joss"
+        },
+        {
+          "giveXp": 5
+        }
+      ],
+      "options": [
+        {
+          "text": "Bonne relève, Joss.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-touche": {
+      "text": "Joss pose sa lanterne. — Celle-là, je la connais presque. Les aiguilleurs se la racontent depuis toujours, chacun avec sa fin.",
+      "effects": [
+        {
+          "setFlag": "raconte-joss"
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "Bonne relève, Joss.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-convoi": {
+      "text": "Joss ne rit pas. — Un convoi sans conducteur. À l’aiguillage, on a une règle : on ne rit pas des trains qu’on n’a pas vus passer. On les note quand même, au cas où.",
+      "effects": [
+        {
+          "setFlag": "raconte-joss"
+        },
+        {
+          "giveXp": 15
+        }
+      ],
+      "options": [
+        {
+          "text": "Bonne relève, Joss.",
           "next": "fin"
         }
       ]

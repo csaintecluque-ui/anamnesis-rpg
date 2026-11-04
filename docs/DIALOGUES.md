@@ -1890,6 +1890,50 @@ _Effet : retient « marques-rate » pour 1 jours._
 
 - « Partir. » → **fin**
 
+## Un Ferrôme au rebut
+
+_Contre le mur de l’atelier Cendrefer_
+
+Commence par : « apres » _(si repère « ferrome-reveille »)_, sinon « regard »
+
+### regard
+
+> Contre le mur de l’atelier Cendrefer, sous des tôles et des tuyaux rangés, une main de métal dépasse. Ses doigts bougent encore, lentement : ils comptent jusqu’à quatre, puis recommencent.
+
+- _(sans repère « ferrome-etincelle »)_ **🎲 Artisanat 12** « Ouvrir sa plaque de poitrine et rebrancher sa voix. » → voix, ✗ → etincelle
+- « Le laisser compter. » → **fin**
+
+### etincelle
+
+_Effet : −2 PV, retient « ferrome-etincelle » pour 1 jours._
+
+> Un fil mal isolé crache une étincelle bleue : ta main s’engourdit jusqu’au coude. Les doigts de métal n’ont pas cessé de compter. Il te faudra reprendre à froid, demain.
+
+- « Reculer. » → **fin**
+
+### voix
+
+> Une voix grésille, très polie : « Matricule quatre-dix-sept, porteur. En attente de : Irma Kessel, riveteuse, Équipe Six. Elle a dit : attends-moi ici, je redescends. » Les doigts s’arrêtent de compter.
+
+_Si Boulon voyage avec toi :_ Boulon pose sa main sur l’épaule de métal. « On ne fond pas un Ferrôme : on le range. Moi, j’ai eu de la chance. »
+
+- « Depuis quand attends-tu ? » → attente
+
+### attente
+
+_Effet : retient « ferrome-reveille », retient le Récit « Quatre-dix-sept », +20 XP._
+
+> « Quatorze mille six cents relèves. » Une relève par jour : quarante ans. « Elle est montée aux Manufactures, avec son Innovation. Ceux qui montent ne redescendent pas. Je le sais. J’attends quand même. »
+
+- « Je dirai qu’on t’attend, toi aussi. » → **fin**
+- « Refermer la plaque. » → **fin**
+
+### apres
+
+> Quatre-dix-sept ne compte plus sur ses doigts. Quand tu passes, sa voix grésille : « Toujours en attente. Merci de demander. »
+
+- « À bientôt, quatre-dix-sept. » → **fin**
+
 ## La foreuse de Brisefer
 
 _Objet_
@@ -3122,6 +3166,7 @@ Commence par : « merci » _(si repère « dette-joss-payee »)_, sinon « apres
 > Un aiguilleur aux yeux cernés astique sa lanterne. — Joss Brakel, aiguilleur de nuit. De jour, maintenant : la nuit, plus personne ne roule.
 
 - « Tu as vu partir les convois ? » → vu
+- _(sans repère « raconte-joss »)_ « Une histoire, pour la relève ? » → raconte-neutre 📖 raconter un Récit : convoi-sans-conducteur → raconte-convoi ; trains, mysteres → raconte-touche ; autres → raconte-neutre
 - « Au revoir. » → **fin**
 
 ### vu
@@ -3222,6 +3267,30 @@ _Effet : retient « joss-sommeil », +10 XP._
 > Joss ne répond pas. Il serre sa lanterne jusqu’à ce que ses jointures blanchissent. — Je dors mal. Tu peux partir tranquille.
 
 - « … » → **fin**
+
+### raconte-neutre
+
+_Effet : retient « raconte-joss », +5 XP._
+
+> Joss écoute en astiquant sa lanterne. — Pas mal. La nuit, ce genre d’histoire, ça tient éveillé. Le jour, ça endort.
+
+- « Bonne relève, Joss. » → **fin**
+
+### raconte-touche
+
+_Effet : retient « raconte-joss », +10 XP._
+
+> Joss pose sa lanterne. — Celle-là, je la connais presque. Les aiguilleurs se la racontent depuis toujours, chacun avec sa fin.
+
+- « Bonne relève, Joss. » → **fin**
+
+### raconte-convoi
+
+_Effet : retient « raconte-joss », +15 XP._
+
+> Joss ne rit pas. — Un convoi sans conducteur. À l’aiguillage, on a une règle : on ne rit pas des trains qu’on n’a pas vus passer. On les note quand même, au cas où.
+
+- « Bonne relève, Joss. » → **fin**
 
 ## Olmo Sept-Routes
 
@@ -3589,6 +3658,7 @@ Commence par : « apres-arrete » _(si quête « Le registre du Puits Trois » t
 
 - « Qu’est-ce qui ne va pas ? » → probleme
 - « Pourquoi la file se tait-elle ? » → file
+- _(sans repère « raconte-kerta »)_ « Je peux te raconter une histoire, en attendant ton tour. » → raconte-neutre 📖 raconter un Récit : saule → raconte-saule ; familles → raconte-touche ; autres → raconte-neutre
 - « Bonne journée. » → **fin**
 
 ### file
@@ -3642,6 +3712,30 @@ _Effet : lance la quête « Le registre du Puits Trois »._
 > Kerta est dans la file. Son seau est vide ; elle ne le remplit pas. — Les visières rouges l’ont pris à l’inspection. « Faux d’Innovateur. » Un sceau qui bavait. Personne ne me dit où il est. Personne ne me le dira jamais. Va-t’en.
 
 - « … » → **fin**
+
+### raconte-neutre
+
+_Effet : retient « raconte-kerta », +5 XP._
+
+> Kerta écoute sans quitter la file des yeux. — Merci. Ça fait passer le temps. Ici, le temps, c’est tout ce qu’on a en trop.
+
+- « Bon courage, Kerta. » → **fin**
+
+### raconte-touche
+
+_Effet : retient « raconte-kerta », +10 XP._
+
+> Kerta pose son seau. — Une famille qui tient. Je la raconterai à Tam, ce soir, s’il ne tousse pas trop pour écouter.
+
+- « Bon courage, Kerta. » → **fin**
+
+### raconte-saule
+
+_Effet : retient « raconte-kerta », +15 XP._
+
+> Kerta serre l’anse de son seau. — Un garçon parti gagner des Fers sur un chantier. C’est pour ça que je veux que Tam monte. Là-haut, au moins, on ne meurt pas sous les déblais. On y meurt autrement, peut-être.
+
+- « Bon courage, Kerta. » → **fin**
 
 ## Des lettres éparpillées
 
@@ -5522,6 +5616,7 @@ Commence par : « apres-masques » _(si quête « Le registre du Puits Trois » 
 > Un jeune homme maigre tousse dans sa manche, près du registre, puis cache vite la manche. — Tu lis le registre ? Personne ne le lit vraiment. On y cherche son nom, ou celui d’un autre, et on se tait.
 
 - « Pourquoi caches-tu ta manche ? » → toux
+- _(sans repère « raconte-tam »)_ « Tu veux une histoire ? Ça repose la toux. » → raconte-neutre 📖 raconter un Récit : savant-corvan → raconte-savant ; machines, familles → raconte-touche ; autres → raconte-neutre
 - « Bonne journée. » → **fin**
 
 ### toux
@@ -5622,6 +5717,30 @@ _Effet : retient « tam-ausculte », +10 XP._
 > Tam rit, et tousse. — C’est le meilleur argument qu’on m’ait fait. Et le plus laid.
 
 - « Bien. » → **fin**
+
+### raconte-neutre
+
+_Effet : retient « raconte-tam », +5 XP._
+
+> Tam écoute en retenant sa toux jusqu’à la fin, par politesse. Puis il tousse longtemps. — Pardon. Elle était bien.
+
+- « Prends soin de toi, Tam. » → **fin**
+
+### raconte-touche
+
+_Effet : retient « raconte-tam », +10 XP._
+
+> Les yeux de Tam s’allument. — Une machine, avec des gens dedans. C’est ça que je veux faire : des choses qui servent à ceux d’en bas.
+
+- « Prends soin de toi, Tam. » → **fin**
+
+### raconte-savant
+
+_Effet : retient « raconte-tam », +15 XP._
+
+> Tam répète, la voix râpeuse : « Même réussir peut tout détruire. » Il regarde son masque de feutre. — Si mon masque réussit, ils le prendront là-haut et nous laisseront la toux. C’est ça qu’il voulait dire ?
+
+- « Prends soin de toi, Tam. » → **fin**
 
 ## L’Ancien Thalorin
 
@@ -6089,6 +6208,7 @@ Commence par : « lanterne » _(si quête « La lanterne du triage » en cours)_
 > Une femme en bleu de chauffe se réchauffe les mains au brasero. — Le triage ne roule plus la nuit. Pas une grève : la grève est interdite, ici. On a peur, c’est tout. La peur, elle, n’est pas encore interdite.
 
 - « Peur de quoi ? » → convois
+- _(sans repère « raconte-varka »)_ « J’ai une histoire pour le brasero. » → raconte-neutre 📖 raconter un Récit : echelle-de-pim → raconte-pim ; trains, machines → raconte-touche ; autres → raconte-neutre
 - « Au revoir. » → **fin**
 
 ### convois
@@ -6186,6 +6306,30 @@ _Effet : reprend 1 × « Lanterne de chef de gare », termine la quête « La la
 > Varka prend la lanterne à deux mains, comme on porte un enfant, et l’accroche au poste d’aiguillage. — Le rail est une promesse collective. Te voilà Graisseur, comme tout le monde au début.
 
 - « Merci, Varka. » → **fin**
+
+### raconte-neutre
+
+_Effet : retient « raconte-varka », +5 XP._
+
+> Varka écoute en tendant les mains au feu. — Ça se raconte bien. Ça ne fait pas rouler un convoi, mais ça se raconte bien.
+
+- « Bonne nuit, Varka. » → **fin**
+
+### raconte-touche
+
+_Effet : retient « raconte-varka », +10 XP._
+
+> Varka hoche la tête, lentement. — Des rails, du fer, des gens qui tiennent. Celle-là, les gars la voudront ce soir. Reviens la leur dire quand tu veux.
+
+- « Bonne nuit, Varka. » → **fin**
+
+### raconte-pim
+
+_Effet : retient « raconte-varka », +15 XP._
+
+> Varka crache dans le brasero. — Un garde-corps pour ceux d’en haut, une échelle pour les petits. Chez nous, c’est pareil, en fer. Un jour, on la racontera au triage, ton histoire, et tout le monde saura de quoi on parle.
+
+- « Bonne nuit, Varka. » → **fin**
 
 ## La Veilleuse du Rail
 

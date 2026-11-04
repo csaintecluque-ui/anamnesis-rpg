@@ -105,6 +105,10 @@
         {
           "text": "Les papiers venaient de Ferros. Mais qui payait ?",
           "next": "lyra"
+        },
+        {
+          "text": "Alors fermez la frontière, avant qu’ils creusent ailleurs.",
+          "next": "lyra-presse"
         }
       ]
     },
@@ -114,6 +118,23 @@
         {
           "text": "Et ce mal qui fait oublier ?",
           "next": "thalorin"
+        },
+        {
+          "text": "Des preuves, j’en trouverai.",
+          "next": "thalorin-preuves"
+        }
+      ]
+    },
+    "lyra-presse": {
+      "text": "Kael approuve d’un signe de tête. Lyra Cœur-de-Sève, la Première Racine, lève la main. — Doucement, tous les deux. Quatre parts sur dix de notre commerce passent par Ferros. Fermer la frontière sur une rumeur, c’est affamer Gardebois. Il nous faut des preuves.",
+      "options": [
+        {
+          "text": "Et ce mal qui fait oublier ?",
+          "next": "thalorin"
+        },
+        {
+          "text": "Des preuves, j’en trouverai.",
+          "next": "thalorin-preuves"
         }
       ]
     },
@@ -131,6 +152,15 @@
               "giveXp": 20
             }
           ]
+        }
+      ]
+    },
+    "thalorin-preuves": {
+      "text": "Au centre, l’Ancien Thalorin n’a pas bougé. Sa voix ressemble au vent dans les feuilles. — Commence par le Bosquet des Échos. Depuis peu, ses noms gravés se taisent : on pose la main, et le bois reste froid. Ce mal n’est pas seulement à Gardebois.",
+      "options": [
+        {
+          "text": "Je peux chercher pourquoi.",
+          "next": "mission"
         }
       ]
     },

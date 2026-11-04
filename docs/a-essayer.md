@@ -245,6 +245,8 @@ En ligne le 2026-11-03 (tes textes du 3 novembre) :
 
 - [ ] **La première veillée, même la nuit** : arrive à la Racine la nuit, avec un Récit : quelques veilleurs restent
       pour une première fois.
+- [ ] **L'audience de Kael** (Canopéa) : après ton récit de la Gare, deux tons possibles (« qui payait ? » ou « fermez
+      la frontière »), puis deux encore ; plus de suite de quatre écrans sans choix.
 - Remarques :
 
 ## Déjà en ligne, pas encore essayé sur PC

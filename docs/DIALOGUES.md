@@ -3238,18 +3238,33 @@ Commence par : « apres » _(si quête « L’audience » terminée)_, sinon « 
 _Si Liane voyage avec toi :_ Liane, au fond des gradins, serre sa besace contre elle. Elle n’a pas dit le nom de son frère. Personne ne l’a demandé.
 
 - « Les papiers venaient de Ferros. Mais qui payait ? » → lyra
+- « Alors fermez la frontière, avant qu’ils creusent ailleurs. » → lyra-presse
 
 ### lyra
 
 > Lyra Cœur-de-Sève, la Première Racine, lève la main. — Doucement, Gardien. Quatre parts sur dix de notre commerce passent par Ferros. Fermer la frontière sur une rumeur, c’est affamer Gardebois. Il nous faut des preuves.
 
 - « Et ce mal qui fait oublier ? » → thalorin
+- « Des preuves, j’en trouverai. » → thalorin-preuves
+
+### lyra-presse
+
+> Kael approuve d’un signe de tête. Lyra Cœur-de-Sève, la Première Racine, lève la main. — Doucement, tous les deux. Quatre parts sur dix de notre commerce passent par Ferros. Fermer la frontière sur une rumeur, c’est affamer Gardebois. Il nous faut des preuves.
+
+- « Et ce mal qui fait oublier ? » → thalorin
+- « Des preuves, j’en trouverai. » → thalorin-preuves
 
 ### thalorin
 
 > Au centre, l’Ancien Thalorin n’a pas bougé. Sa voix ressemble au vent dans les feuilles. — Ce mal n’est pas seulement à Gardebois. Depuis peu, les noms gravés du Bosquet des Échos se taisent. On pose la main, et le bois reste froid.
 
 - « Je peux chercher pourquoi. » → mission _(retient « audience-tenue », +20 XP)_
+
+### thalorin-preuves
+
+> Au centre, l’Ancien Thalorin n’a pas bougé. Sa voix ressemble au vent dans les feuilles. — Commence par le Bosquet des Échos. Depuis peu, ses noms gravés se taisent : on pose la main, et le bois reste froid. Ce mal n’est pas seulement à Gardebois.
+
+- « Je peux chercher pourquoi. » → mission
 
 ### mission
 

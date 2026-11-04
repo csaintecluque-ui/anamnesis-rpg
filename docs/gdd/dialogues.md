@@ -37,3 +37,14 @@ Moteur : `src/rules/dialogue.ts` ; écran : `DialogueScene`. Textes à relire : 
 - **Relecture** : `npm run dialogues` régénère `docs/DIALOGUES.md`, une version lisible pour relire les textes.
 - **Écran** : panneau en bas de l'écran ; la carte est en pause et rien ne passe au travers.
 - **Expérience** : elle s'accumule (`character.xp`) ; la montée de niveau est décrite dans `docs/gdd/progression.md`.
+
+## Étude du 3 novembre, vague 3 : les écrans à une seule réponse (D2)
+
+Mesure (2026-11-04, 758 nœuds) : 51 % ont une seule réponse, mais **308 sont des fins de conversation** (la dernière
+réplique, puis « Au revoir », « Partir »…) et la plupart des autres ramènent aux sujets (« Merci pour la nouvelle »).
+Les écrans **sans choix au milieu d'une conversation** ne sont que 80 (11 %), et une seule suite en compte plus de
+deux : l'audience de Kael Marchevent (quatre écrans), l'exemple de l'étude. Corrigée : après le récit de la Gare,
+le héros demande qui payait, ou exige qu'on ferme la frontière (Kael approuve, Lyra calme « tous les deux ») ; puis
+il demande ce mal qui fait oublier, ou promet des preuves (Thalorin l'envoie d'abord au Bosquet). La plus longue
+suite sans choix fait maintenant deux écrans. Le reste n'est pas un défaut : on ne force pas un choix à chaque
+« Merci ».

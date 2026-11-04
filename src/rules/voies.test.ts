@@ -25,7 +25,10 @@ import {
   tierOf,
   voieLevel,
   voiePlan,
+  voieRecord,
+  voieRecordLabel,
   voieTitle,
+  HISTOIRES,
 } from './voies';
 import { DIALOGUES } from '../data/dialogues';
 import { WORLD, WORLD_MAP_TARGET, knownPlaces } from './world';
@@ -307,5 +310,30 @@ describe('a level holds no more beasts than the party can face (étude du 2026-1
         }
       }
     }
+  });
+});
+
+describe('the world map says how far each line was explored (étude du 2026-11-03, H1)', () => {
+  it('counts the deepest level reached, the yield left and the terminus Écho', () => {
+    const state = createNewGame(testCharacter());
+    expect(voieRecordLabel(state, 'halte-fougeres')).toBe('Jamais descendue.');
+    startVoie(state, 'halte-fougeres', () => 0.5);
+    descend(state);
+    expect(voieRecord(state, 'halte-fougeres')).toMatchObject({ visits: 1, depth: 2, nextYield: 0.8, echoHeard: false });
+    expect(voieRecordLabel(state, 'halte-fougeres')).toBe('Descendue jusqu’au niveau 2 sur 3 · le butin : 80 % de la première fois.');
+    leaveVoie(state);
+    // A second visit that stops at the first level keeps the deepest one reached.
+    startVoie(state, 'halte-fougeres', () => 0.5);
+    leaveVoie(state);
+    expect(voieRecord(state, 'halte-fougeres').depth).toBe(2);
+    state.voiesProfondeur = { 'halte-fougeres': 3 };
+    state.flags[HISTOIRES['halte-fougeres'].flag] = true;
+    expect(voieRecordLabel(state, 'halte-fougeres')).toBe('Descendue jusqu’au terminus · le butin : 60 % de la première fois · l’Écho du terminus est entendu.');
+  });
+
+  it('reads an older save that went down without saying how deep as the first level', () => {
+    const state = createNewGame(testCharacter());
+    state.voiesFaites = { 'tunnel-combe': 2 };
+    expect(voieRecord(state, 'tunnel-combe')).toMatchObject({ visits: 2, depth: 1 });
   });
 });

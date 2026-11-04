@@ -233,6 +233,8 @@ En ligne le 2026-11-03 (tes textes du 3 novembre) :
 - [ ] **Les compagnons parlent seuls** : avec Liane, laisse venir la nuit (l'auberge, ou un trajet) : elle te parle
       d'elle-même, sans clic. Avec Boulon et Liane, leurs trois échanges viennent un par arrivée dans un lieu. Trop
       souvent ? Au mauvais moment ?
+- [ ] **Les voies sur la carte du monde** : après une descente, trois points au-dessus de la voie (●●○ : jusqu'au
+      niveau 2) ; le survol dit jusqu'où tu es allé et ce que le butin vaut encore.
 - Remarques :
 
 ## Déjà en ligne, pas encore essayé sur PC

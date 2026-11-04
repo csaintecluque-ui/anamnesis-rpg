@@ -105,3 +105,13 @@ seulement s'ils tiennent sous ce plafond. Mesure sur 200 tirages par cas :
 | Halte des Fougères | 5,1 à 6,3 ; 9 | 4,2 ; 5 | 4,9 à 5,6 ; 7 |
 | Tunnel de la Combe | 6,3 à 6,7 ; 9 | 4,0 à 4,3 ; 5 | 5,6 à 5,7 ; 7 |
 | Dépôt Sept | 6,8 à 7,6 ; 12 | 3,5 à 3,9 ; 5 | 5,1 à 5,8 ; 7 |
+
+## Étude du 3 novembre, vague 3 : ce que la carte du monde en dit (H1)
+
+- Au-dessus de l'icône d'une voie déjà descendue, **trois points**, un par niveau : en cuivre jusqu'au plus profond
+  atteint (●●○ : jusqu'au niveau 2).
+- Au survol et dans le panneau du lieu : « Descendue jusqu'au niveau 2 sur 3 · le butin : 80 % de la première fois »,
+  et « l'Écho du terminus est entendu » une fois qu'il l'est ; « Jamais descendue. » sinon. Le butin suit la règle
+  du chantier 6 (un cinquième de moins à chaque descente, jamais sous deux cinquièmes).
+- La sauvegarde retient le niveau le plus profond de chaque voie (`voiesProfondeur`, facultatif : une ancienne
+  sauvegarde qui y est descendue compte le premier niveau). `voieRecord`, `voieRecordLabel` (`src/rules/voies.ts`).

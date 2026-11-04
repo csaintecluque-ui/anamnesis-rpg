@@ -21,7 +21,7 @@ import { addTextButton } from '../ui/button';
 import { COLORS, CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
 import { HAS_MOUSE } from '../ui/viewport';
 import { MOMENTS, advance, shortTime } from '../rules/time';
-import { startVoie } from '../rules/voies';
+import { VOIE_DEPTH, startVoie, voieRecord, voieRecordLabel } from '../rules/voies';
 import { onKeys, withKeyHint } from '../ui/keys';
 import { Tooltip } from '../ui/tooltip';
 
@@ -255,6 +255,15 @@ export class WorldMapScene extends Phaser.Scene {
         g.fillStyle(INK, 1).fillRect(p.x - 10, p.y - 10, 20, 20);
         g.lineStyle(2, COPPER, 1).strokeRect(p.x - 10, p.y - 10, 20, 20);
         g.lineStyle(2, PARCHMENT, 0.8).lineBetween(p.x - 4, p.y + 8, p.x - 2, p.y - 6).lineBetween(p.x + 4, p.y + 8, p.x + 2, p.y - 6);
+        // How deep the hero went (étude H1): one pip per level, lit down to the deepest reached.
+        const { visits, depth } = voieRecord(this.state, place.id);
+        if (visits > 0) {
+          for (let level = 1; level <= VOIE_DEPTH; level++) {
+            const x = p.x + (level - (VOIE_DEPTH + 1) / 2) * 10;
+            g.fillStyle(level <= depth ? COPPER : INK, 1).fillCircle(x, p.y - 17, 3.5);
+            g.lineStyle(1.5, INK, 1).strokeCircle(x, p.y - 17, 3.5);
+          }
+        }
       } else {
         g.fillStyle(COPPER, 1).fillCircle(p.x, p.y, 11);
         g.lineStyle(3, INK, 1).strokeCircle(p.x, p.y, 11);
@@ -276,7 +285,8 @@ export class WorldMapScene extends Phaser.Scene {
       });
       hit.on('pointermove', (pointer: Phaser.Input.Pointer) => {
         const here = distanceBetween(this.pos, place) <= AT_PLACE;
-        this.tooltip.show(`${place.name}${here ? ' — tu es ici' : ` — ${travelTimeLabel(distanceBetween(this.pos, place))}`}`, pointer.worldX, pointer.worldY);
+        const record = place.voie ? `\n${voieRecordLabel(this.state, place.id)}` : '';
+        this.tooltip.show(`${place.name}${here ? ' — tu es ici' : ` — ${travelTimeLabel(distanceBetween(this.pos, place))}`}${record}`, pointer.worldX, pointer.worldY);
       });
       hit.on('pointerout', () => this.tooltip.hide());
     }
@@ -361,7 +371,7 @@ export class WorldMapScene extends Phaser.Scene {
 
   private offerPlace(place: WorldPlace): void {
     if (distanceBetween(this.pos, place) <= AT_PLACE) {
-      this.showPanel(`${place.name} — ${place.description}${dangerLabel(place)}`, [
+      this.showPanel(`${place.name} — ${place.description}${dangerLabel(place)}${place.voie ? `\n${voieRecordLabel(this.state, place.id)}` : ''}`, [
         [place.voie ? 'Descendre' : 'Entrer', () => this.arrive(place)],
         ['Rester sur la carte', () => this.clearPanel()],
       ], place);

@@ -119,6 +119,27 @@ export function voieGroupXp(state: Pick<GameState, 'voie' | 'voiesFaites'>, enem
   return Math.round(groupXp(enemies) * voieYield(state));
 }
 
+/**
+ * What the world map says of a sleeping line (étude du 2026-11-03, H1): how deep the hero went (an older save that
+ * went down without saying how deep: the first level), what its crates and beasts will still give next time (a
+ * fraction of the first time), and whether the Écho of its terminus was heard.
+ */
+export function voieRecord(state: Pick<GameState, 'voiesFaites' | 'voiesProfondeur' | 'flags'>, site: string): { visits: number; depth: number; nextYield: number; echoHeard: boolean } {
+  const visits = state.voiesFaites?.[site] ?? 0;
+  const depth = Math.min(VOIE_DEPTH, state.voiesProfondeur?.[site] ?? (visits > 0 ? 1 : 0));
+  const histoire = HISTOIRES[site];
+  return { visits, depth, nextYield: Math.max(0.4, 1 - 0.2 * visits), echoHeard: !!histoire && !!state.flags[histoire.flag] };
+}
+
+/** « Descendue jusqu’au niveau 2 sur 3 · le butin : 80 % de la première fois », or « Jamais descendue. » */
+export function voieRecordLabel(state: Pick<GameState, 'voiesFaites' | 'voiesProfondeur' | 'flags'>, site: string): string {
+  const r = voieRecord(state, site);
+  if (r.visits === 0) return 'Jamais descendue.';
+  const depth = r.depth >= VOIE_DEPTH ? 'Descendue jusqu’au terminus' : `Descendue jusqu’au niveau ${r.depth} sur ${VOIE_DEPTH}`;
+  const echo = r.echoHeard ? ' · l’Écho du terminus est entendu' : '';
+  return `${depth} · le butin : ${Math.round(r.nextYield * 100)} % de la première fois${echo}.`;
+}
+
 /** Danger of a level: the site's own, deeper and deeper (1 to 5). */
 export function tierOf(voie: VoieState): number {
   return Math.min(MAX_TIER, (voieSite(voie)?.voie?.danger ?? 1) + voie.depth - 1);
@@ -156,6 +177,7 @@ export function clearVoieFlags(flags: Record<string, true>): void {
 export function startVoie(state: GameState, site: string, rng: Rng = Math.random): void {
   state.voie = { site, seed: Math.floor(rng() * 2 ** 31), depth: 1 };
   state.voiesFaites = { ...state.voiesFaites, [site]: (state.voiesFaites?.[site] ?? 0) + 1 };
+  state.voiesProfondeur = { ...state.voiesProfondeur, [site]: Math.max(1, state.voiesProfondeur?.[site] ?? 0) };
   clearVoieFlags(state.flags);
   state.encounter = null;
   state.location = VOIE_LOCATION;
@@ -166,6 +188,8 @@ export function startVoie(state: GameState, site: string, rng: Rng = Math.random
 export function descend(state: GameState): boolean {
   if (!state.voie || isTerminus(state.voie)) return false;
   state.voie.depth++;
+  const site = state.voie.site;
+  state.voiesProfondeur = { ...state.voiesProfondeur, [site]: Math.max(state.voie.depth, state.voiesProfondeur?.[site] ?? 0) };
   clearVoieFlags(state.flags);
   state.entrance = 'entree';
   advance(state.time, 1);

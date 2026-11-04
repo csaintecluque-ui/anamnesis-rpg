@@ -150,7 +150,9 @@ const questItems = (state: GameState) => QUEST_ITEMS.filter((id) => ownedCount(s
 const ADHESIONS = ['lanterne-triage', 'fonds-echos', 'ce-qui-se-souvient', 'course-ilots', 'convoi-pain'];
 /** The quests of the city of Aetherhaven, played on their own (aetherhaven.test.ts). */
 const AETHERHAVEN = ['onze-etats', 'second-cristal', 'voiles-dormantes', 'asile', 'hirondelle'];
-const unfinished = (state: GameState) => QUESTS.filter((q) => !ADHESIONS.includes(q.id) && !AETHERHAVEN.includes(q.id) && state.quests[q.id] !== 'done').map((q) => q.id);
+/** The crates of the continents already played, found on the way back (caissesRetour.test.ts). */
+const RETOURS = ['sous-la-faille', 'caisse-cendriere', 'caisse-sans-main'];
+const unfinished = (state: GameState) => QUESTS.filter((q) => !ADHESIONS.includes(q.id) && !AETHERHAVEN.includes(q.id) && !RETOURS.includes(q.id) && state.quests[q.id] !== 'done').map((q) => q.id);
 
 // --- Balayages : gains répétables, entrées de dialogue qui en cachent une autre -------------------------------------
 

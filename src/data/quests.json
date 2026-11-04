@@ -553,5 +553,88 @@
     "id": "course-ilots",
     "name": "La course des îlots",
     "summary": "Les Ailes Noires ne prennent personne : le vent prend qui il veut. Une course contre Ravel, du Perchoir au Nid des Nuées, d’îlot en îlot, sans les ponts."
+  },
+  {
+    "id": "sous-la-faille",
+    "name": "Ce que cherchait la foreuse",
+    "summary": "Ilyane a gardé les papiers de la prospection de la Gare Engloutie. Une ligne qu’elle n’avait pas comprise : « Objectif : une caisse plombée, sous la Faille, quai sept. Commanditaire : E. V. »",
+    "etapes": [
+      {
+        "si": "faille-quai-sept",
+        "texte": "Sous la Faille, le quai sept, et une caisse plombée prise dans la boue."
+      }
+    ],
+    "fins": [
+      {
+        "id": "gardee",
+        "titre": "La pièce gardée"
+      },
+      {
+        "id": "gardiens",
+        "titre": "La pièce confiée à Ilyane"
+      },
+      {
+        "id": "laissee",
+        "titre": "La caisse laissée sous la Faille"
+      }
+    ]
+  },
+  {
+    "id": "caisse-cendriere",
+    "name": "Sous la cendre",
+    "summary": "La caisse de Ferros a été déchargée à la Cendrière, au bout de l’embranchement : le carnet de bord du dernier train le dit, et la clé de rouille bleue chante quand on y passe.",
+    "etapes": [
+      {
+        "si": "caisse-ferros-cherchee",
+        "texte": "Chercher, à la Cendrière, sous les tas de cendre, un coin de plomb."
+      }
+    ],
+    "fins": [
+      {
+        "id": "gardee",
+        "titre": "La pièce gardée"
+      },
+      {
+        "id": "archives",
+        "titre": "La caisse classée aux Archives"
+      },
+      {
+        "id": "laissee",
+        "titre": "La caisse laissée sous la cendre"
+      },
+      {
+        "id": "prise",
+        "titre": "Les gants fins sont passés avant"
+      }
+    ]
+  },
+  {
+    "id": "caisse-sans-main",
+    "name": "La caisse sans main",
+    "summary": "Au Fonds Muet de Sept-Portes dort une caisse plombée que personne n’a jamais signée. Ce qui n’a pas de main ne se classe pas, et ce qui ne se classe pas ne s’ouvre pas.",
+    "etapes": [
+      {
+        "si": "caisse-terminus-cherchee",
+        "texte": "Descendre au Fonds Muet, au fond de la Grande Bibliothèque."
+      }
+    ],
+    "fins": [
+      {
+        "id": "gardee",
+        "titre": "La pièce gardée"
+      },
+      {
+        "id": "confiee",
+        "titre": "Une main pour la caisse"
+      },
+      {
+        "id": "laissee",
+        "titre": "La caisse laissée au Fonds Muet"
+      },
+      {
+        "id": "prise",
+        "titre": "Le monte-charge forcé"
+      }
+    ]
   }
 ]

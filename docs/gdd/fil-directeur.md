@@ -77,3 +77,17 @@ reste des caisses et des alliances décide. Les fins sont celles de Cyril.
 - **La carte du monde** entoure la piste d'un anneau cuivré qui respire (« La piste ») : le lieu de la quête
   principale en cours, puis « Zephyria · Aetherhaven » après Sept-Portes.
 - Les caisses ont leurs repères (`trouvee`, `prise`) à écrire avec chaque ville.
+
+## Les trois caisses des continents déjà joués (construites le 2026-11-04, sur la branche ; **à valider**)
+
+Cyril (2026-11-04, « 4 oui ») : les trois quêtes de retour d'abord. Courtes, après « Les noms qui montent » ; ce qu'on
+a fait de la clé de rouille bleue et de la page du dernier départ décide.
+
+| Caisse | Quête | Où | Ce que les choix d'avant changent |
+|---|---|---|---|
+| Verdantis | « Ce que cherchait la foreuse » | Ilyane a gardé les papiers de la prospection : « Objectif : une caisse plombée, sous la Faille, quai sept. Commanditaire : E. V. » Sous la Faille de la Gare Engloutie, le quai sept ; la foreuse s'est arrêtée à deux mètres. L'eau a bu les noms, il reste les âges | toujours trouvée (tous les chemins du chapitre 1 arrêtent la foreuse) |
+| Ferros | « Sous la cendre » | la Cendrière, sous le troisième tas ; six noms de la même main que le rouleau de Zephyria : Oda, Tilo, Mara, Jens, Ruth, Anouk | la clé confiée à Noam : le carnet de bord (page quatorze) ; rendue à la Veilleuse : elle chante à l'aiguillage ; **vendue à Kaelis : les gants fins l'ont déjà prise** |
+| Terminus | « La caisse sans main » | au Fonds Muet, arrivée par le monte-charge des archives la nuit du dernier départ, jamais signée ; six noms encore : Aldo, Nour, Tess, Sven, Lou, Mirko | **la ligne vendue à la dame en gris : le monte-charge a été forcé par en dessous** |
+
+Pour chacune : garder la pièce, la confier (à Ilyane, aux Archives par Noam, à Ambroise, qui écrit enfin « Reçu : le Fonds
+Muet »), ou la laisser. La page « Le fil » les compte ; la piste montre la ville quand la quête est en cours.

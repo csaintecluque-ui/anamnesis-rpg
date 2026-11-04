@@ -11,7 +11,7 @@
  "tilewidth": 64,
  "tileheight": 32,
  "nextlayerid": 4,
- "nextobjectid": 10,
+ "nextobjectid": 11,
  "layers": [
   {
    "id": 1,
@@ -1072,6 +1072,19 @@
     },
     {
      "id": 9,
+     "name": "faille-descente",
+     "type": "objet",
+     "x": 656,
+     "y": 304,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": []
+    },
+    {
+     "id": 10,
      "name": "panneau-gare",
      "type": "panneau",
      "x": 80,

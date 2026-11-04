@@ -344,6 +344,8 @@ function gareEngloutie() {
   m.object('golem-gare', 'golem', 21, 13);
   m.object('caisse-prospection', 'coffre', 17, 11);
   m.object('foreuse', 'foreuse', 19, 8);
+  // La Faille, au pied de la foreuse : dessous, le quai sept (« Ce que cherchait la foreuse », après le chapitre 5).
+  m.object('faille-descente', 'objet', 20, 9);
   m.object('panneau-gare', 'panneau', 2, 8, {
     texte: 'Gare Engloutie — la forêt a repris ce que les hommes avaient laissé.',
   });
@@ -923,6 +925,8 @@ function ironheartCendriere() {
   for (const [c, r] of [[9, 4], [10, 4], [12, 11], [13, 11], [5, 11]]) m.setObstacle(c, r, 'caisses');
   for (const [c, r] of [[4, 4], [15, 4], [8, 10], [16, 10]]) m.setObstacle(c, r, 'reverbere');
   for (const [c, r] of [[4, 9], [17, 3], [3, 3]]) m.setObstacle(c, r, 'tas-cendres');
+  // La caisse de Ferros, sous le troisième tas (« Sous la cendre », après le chapitre 5 ; docs/gdd/fil-directeur.md).
+  m.object('caisse-ferros', 'objet', 17, 3, { apparaitSi: 'caisse-ferros-cherchee', disparaitSi: 'caisse-ferros-reglee' });
   return m.toTiled();
 }
 
@@ -1158,7 +1162,11 @@ Object.assign(INTERIORS, {
     outside: 'sept-portes-bibliotheque',
     floor: 'dalles',
     furniture: [[1, 1, 'etagere'], [2, 1, 'etagere'], [5, 1, 'etagere'], [6, 1, 'etagere'], [1, 3, 'etagere'], [1, 4, 'etagere'], [4, 3, 'lutrin']],
-    objects: [['page-dernier-depart', 'objet', 4, 3]],
+    objects: [
+      ['page-dernier-depart', 'objet', 4, 3],
+      // La caisse sans main (« La caisse sans main », après le chapitre 5).
+      ['caisse-terminus', 'objet', 6, 3, { tuile: 'caisses', apparaitSi: 'caisse-terminus-cherchee', disparaitSi: 'caisse-terminus-reglee' }],
+    ],
   }),
   'sept-portes-gardiens': interior('sept-portes-gardiens', {
     w: 8,

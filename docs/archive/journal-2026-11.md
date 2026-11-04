@@ -1169,3 +1169,6 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
 - Aetherhaven, étape 5, en ligne : quinze passants, les phrases de seize habitants, la veillée du Nid des Nuées et ses
   deux rumeurs, cinq habitants qui écoutent un Récit. Le chapitre 5 est complet (sauf les deuxièmes quêtes de guilde).
   830 tests ; vérifié dans Chromium.
+- Cyril : « 1 oui, 2 oui, 3 oui, 4 oui » : les six noms, les inventions du montage et les deux noms changés validés
+  (Notion à jour). Sur la branche, à valider : les trois caisses du retour (Verdantis sous la Faille, Ferros à la
+  Cendrière, Terminus au Fonds Muet), qui dépendent de la clé et de la ligne. 839 tests.

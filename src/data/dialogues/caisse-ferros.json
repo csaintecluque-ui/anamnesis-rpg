@@ -1,0 +1,145 @@
+{
+  "id": "caisse-ferros",
+  "speaker": "caisse-ferros",
+  "entries": [
+    {
+      "node": "tas"
+    }
+  ],
+  "nodes": {
+    "tas": {
+      "text": "Sous le troisième tas de cendre, un coin de plomb dépasse. La clé de rouille bleue, si tu l’avais, chanterait ici. Il faut dégager la cendre à mains nues, et elle est encore tiède.",
+      "options": [
+        {
+          "text": "Dégager la caisse.",
+          "next": "caisse",
+          "roll": {
+            "skill": "athletics",
+            "difficulty": 13
+          },
+          "failNext": "etouffe"
+        },
+        {
+          "text": "Plus tard.",
+          "next": "fin"
+        }
+      ]
+    },
+    "etouffe": {
+      "text": "La cendre s’effondre sur tes bras et dans ta gorge. Tu recules, en toussant noir. Le coin de plomb est toujours là.",
+      "effects": [
+        {
+          "blesser": 2
+        }
+      ],
+      "options": [
+        {
+          "text": "Réessayer.",
+          "next": "tas"
+        },
+        {
+          "text": "Plus tard.",
+          "next": "fin"
+        }
+      ]
+    },
+    "caisse": {
+      "text": "Une caisse plombée, intacte : Ferros ne jette rien, même ce qu’il oublie. Dedans, une pièce lourde et froide, et une liste, de la même main que le rouleau de Zephyria : Oda, sept ans ; Tilo, six ans ; Mara, huit ans ; Jens, cinq ans ; Ruth, neuf ans ; Anouk, sept ans.",
+      "options": [
+        {
+          "text": "Prendre la pièce.",
+          "next": "gardee",
+          "effects": [
+            {
+              "giveItem": "piece-ferros"
+            },
+            {
+              "setFlag": "caisse-ferros-trouvee"
+            },
+            {
+              "setFlag": "caisse-ferros-reglee"
+            },
+            {
+              "giveXp": 40
+            },
+            {
+              "completeQuest": "caisse-cendriere"
+            },
+            {
+              "setFlag": "fin-caisse-cendriere-gardee"
+            }
+          ]
+        },
+        {
+          "text": "Faire classer la caisse aux Archives, par Noam.",
+          "next": "archives",
+          "effects": [
+            {
+              "setFlag": "caisse-ferros-trouvee"
+            },
+            {
+              "setFlag": "caisse-ferros-reglee"
+            },
+            {
+              "giveXp": 40
+            },
+            {
+              "completeQuest": "caisse-cendriere"
+            },
+            {
+              "setFlag": "fin-caisse-cendriere-archives"
+            }
+          ]
+        },
+        {
+          "text": "La laisser sous la cendre.",
+          "next": "laissee",
+          "effects": [
+            {
+              "setFlag": "caisse-ferros-trouvee"
+            },
+            {
+              "setFlag": "caisse-ferros-reglee"
+            },
+            {
+              "giveXp": 40
+            },
+            {
+              "completeQuest": "caisse-cendriere"
+            },
+            {
+              "setFlag": "fin-caisse-cendriere-laissee"
+            }
+          ]
+        }
+      ]
+    },
+    "gardee": {
+      "text": "Tu charges la pièce sur ton dos. La liste, tu la lis une fois encore, et tu la remets au fond de la caisse. Six noms de plus. Tu les comptes sans le vouloir.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "archives": {
+      "text": "Le lendemain, deux archivistes descendent l’embranchement avec un chariot. Noam inscrit la caisse lui-même : « Fonds Zéro bis (voir : vous). Contenu : non classé. Motif : on ne sait pas ce que c’est. »",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "laissee": {
+      "text": "Tu repousses la cendre sur le plomb. Ferros ne jette rien ; il oublie très bien. La caisse attendra encore.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

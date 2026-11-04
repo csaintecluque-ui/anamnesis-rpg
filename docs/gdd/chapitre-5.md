@@ -125,8 +125,8 @@ Bastien ou au Registre), « L'asile » (la page de Holger : des plans d'Ouvriers
 masque de Tam), « L'hirondelle de Siffrin » (l'oiseleur et le mot « Nuit. Quai. Grêle. »), « Le convoi de pain »
 (l'adhésion à la Compagnie Vire-Nuée : la Veuve Grêle combattue, effrayée, payée d'un quart, ou laissée faire),
 « La course des îlots » (l'adhésion aux Ailes Noires : deux sauts contre Ravel). Une Plume descend sans payer ; un
-Passager vole à moitié prix. Les deuxièmes quêtes de chaque guilde viendront plus tard. **À valider** : la doublure du
-dôme, Pointe, la Veuve Grêle et ses grêlons, le mot sous la cage.
+Passager vole à moitié prix. Les deuxièmes quêtes de chaque guilde viendront plus tard. **Validés par Cyril le 2026-11-04** : la doublure
+du dôme, Pointe, la Veuve Grêle et ses grêlons, le mot sous la cage.
 
 Étape 5, au montage : la veillée du Nid des Nuées aime les chansons et les morts (à Aetherhaven, les morts voyagent dans
 le vent), pas les puissants (personne n'aime qu'on lui dise quoi faire) ; ses rumeurs : le sommeil du Perchoir

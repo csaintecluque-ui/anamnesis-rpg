@@ -1,0 +1,122 @@
+{
+  "id": "caisse-terminus",
+  "speaker": "caisse-terminus",
+  "entries": [
+    {
+      "node": "caisse"
+    }
+  ],
+  "nodes": {
+    "caisse": {
+      "text": "Une caisse plombée, intacte, sous une housse de toile grise. Ni étiquette ni main. Le plomb ne porte qu’un chiffre, frappé : 7.",
+      "options": [
+        {
+          "text": "Rompre le plomb.",
+          "next": "ouverte"
+        },
+        {
+          "text": "Laisser la caisse.",
+          "next": "fin"
+        }
+      ]
+    },
+    "ouverte": {
+      "text": "Une pièce lourde et froide, et une liste de six noms, de la même écriture encore : Aldo, huit ans ; Nour, six ans ; Tess, sept ans ; Sven, cinq ans ; Lou, six ans ; Mirko, neuf ans.",
+      "options": [
+        {
+          "text": "Prendre la pièce.",
+          "next": "gardee",
+          "effects": [
+            {
+              "giveItem": "piece-terminus"
+            },
+            {
+              "setFlag": "caisse-terminus-trouvee"
+            },
+            {
+              "setFlag": "caisse-terminus-reglee"
+            },
+            {
+              "giveXp": 40
+            },
+            {
+              "completeQuest": "caisse-sans-main"
+            },
+            {
+              "setFlag": "fin-caisse-sans-main-gardee"
+            }
+          ]
+        },
+        {
+          "text": "La confier à Ambroise.",
+          "next": "confiee",
+          "effects": [
+            {
+              "setFlag": "caisse-terminus-trouvee"
+            },
+            {
+              "setFlag": "caisse-terminus-reglee"
+            },
+            {
+              "giveXp": 40
+            },
+            {
+              "completeQuest": "caisse-sans-main"
+            },
+            {
+              "setFlag": "fin-caisse-sans-main-confiee"
+            }
+          ]
+        },
+        {
+          "text": "Refermer la housse, et la laisser.",
+          "next": "laissee",
+          "effects": [
+            {
+              "setFlag": "caisse-terminus-trouvee"
+            },
+            {
+              "setFlag": "caisse-terminus-reglee"
+            },
+            {
+              "giveXp": 40
+            },
+            {
+              "completeQuest": "caisse-sans-main"
+            },
+            {
+              "setFlag": "fin-caisse-sans-main-laissee"
+            }
+          ]
+        }
+      ]
+    },
+    "gardee": {
+      "text": "Tu sors du Fonds Muet avec la pièce. Le portier ne dit rien : elle n’a pas de main. Elle n’existe pas, ici.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "confiee": {
+      "text": "Ambroise descend lui-même, et inscrit la caisse au Registre, de sa main : « Reçu : le Fonds Muet. » Il pose la plume. — Trois mille ans qu’elle attendait quelqu’un pour la recevoir. Ce sera nous.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "laissee": {
+      "text": "Tu refermes la housse sur le plomb rompu. Le Fonds Muet garde ce qu’on ne cite pas. Il gardera ça aussi.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

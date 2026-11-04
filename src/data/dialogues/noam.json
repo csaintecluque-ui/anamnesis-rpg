@@ -5,6 +5,22 @@
     {
       "requires": [
         {
+          "quest": "noms-qui-montent",
+          "status": "done"
+        },
+        {
+          "flag": "cle-archives"
+        },
+        {
+          "quest": "caisse-cendriere",
+          "status": "none"
+        }
+      ],
+      "node": "carnet-cendriere"
+    },
+    {
+      "requires": [
+        {
           "item": "releve-echo"
         },
         {
@@ -522,6 +538,27 @@
         {
           "text": "Merci, Noam.",
           "next": "fin"
+        }
+      ]
+    },
+    "carnet-cendriere": {
+      "text": "Noam ouvre un dossier avant que tu parles. — Le carnet de bord du dernier train, page quatorze (voir : Cendrière). « Embranchement de la Cendrière : déchargé une caisse plombée. Reçu : personne. » Je l’ai classé. Classer, c’est déjà agir, à Ferros.",
+      "options": [
+        {
+          "text": "Je vais à la Cendrière.",
+          "next": "fin",
+          "effects": [
+            {
+              "startQuest": "caisse-cendriere"
+            },
+            {
+              "setFlag": "caisse-ferros-cherchee"
+            }
+          ]
+        },
+        {
+          "text": "Autre chose.",
+          "next": "apres-archives"
         }
       ]
     }

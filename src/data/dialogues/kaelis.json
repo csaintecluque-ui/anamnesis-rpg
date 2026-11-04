@@ -5,6 +5,22 @@
     {
       "requires": [
         {
+          "quest": "noms-qui-montent",
+          "status": "done"
+        },
+        {
+          "flag": "cle-vendue"
+        },
+        {
+          "quest": "caisse-cendriere",
+          "status": "none"
+        }
+      ],
+      "node": "gants-cendriere"
+    },
+    {
+      "requires": [
+        {
           "quest": "ce-qui-se-souvient",
           "status": "active"
         },
@@ -485,6 +501,45 @@
         {
           "text": "Non, pas à toi.",
           "next": "fin"
+        }
+      ]
+    },
+    "gants-cendriere": {
+      "text": "Kaelis compte des os sans les regarder. — Mes gants fins sont revenus de la Cendrière, la semaine dernière, avec une caisse de plomb. Ils ne m’ont pas dit ce qu’il y avait dedans. Ils ne m’ont pas payée non plus.",
+      "options": [
+        {
+          "text": "Ils avaient la clé.",
+          "next": "gants-cle"
+        },
+        {
+          "text": "Autre chose.",
+          "next": "apres-vente"
+        }
+      ]
+    },
+    "gants-cle": {
+      "text": "— Ta clé, oui. Celle que tu m’as vendue. Kaelis sourit, sans méchanceté. — Toute relique a un prix. Le tien, tu l’as touché il y a longtemps.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin",
+          "effects": [
+            {
+              "startQuest": "caisse-cendriere"
+            },
+            {
+              "setFlag": "caisse-ferros-prise"
+            },
+            {
+              "giveXp": 10
+            },
+            {
+              "completeQuest": "caisse-cendriere"
+            },
+            {
+              "setFlag": "fin-caisse-cendriere-prise"
+            }
+          ]
         }
       ]
     }

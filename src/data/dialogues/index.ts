@@ -148,6 +148,9 @@ import oiselier from './oiselier.json';
 import veuveGrele from './veuve-grele.json';
 import carnetPerchoir from './carnet-perchoir.json';
 import doublureDome from './doublure-dome.json';
+import failleDescente from './faille-descente.json';
+import caisseFerros from './caisse-ferros.json';
+import caisseTerminus from './caisse-terminus.json';
 
 /** Dialogue files by object name (PNJ, Écho or object) of the maps. */
 export const DIALOGUES: Record<string, Dialogue> = {
@@ -303,6 +306,10 @@ export const DIALOGUES: Record<string, Dialogue> = {
   'veuve-grele': veuveGrele as Dialogue,
   'carnet-perchoir': carnetPerchoir as Dialogue,
   'doublure-dome': doublureDome as Dialogue,
+  // Après le chapitre 5 : les caisses de Verdantis, Ferros et Terminus.
+  'faille-descente': failleDescente as Dialogue,
+  'caisse-ferros': caisseFerros as Dialogue,
+  'caisse-terminus': caisseTerminus as Dialogue,
   // Le Livre des Échos (docs/gdd/echos.md) : one dialogue per Écho, built from src/data/echos.json.
   ...echoDialogues(),
 };

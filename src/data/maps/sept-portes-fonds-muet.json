@@ -11,7 +11,7 @@
  "tilewidth": 64,
  "tileheight": 32,
  "nextlayerid": 4,
- "nextobjectid": 4,
+ "nextobjectid": 5,
  "layers": [
   {
    "id": 1,
@@ -215,6 +215,35 @@
      "rotation": 0,
      "visible": true,
      "properties": []
+    },
+    {
+     "id": 4,
+     "name": "caisse-terminus",
+     "type": "objet",
+     "x": 208,
+     "y": 112,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": [
+      {
+       "name": "tuile",
+       "type": "string",
+       "value": "caisses"
+      },
+      {
+       "name": "apparaitSi",
+       "type": "string",
+       "value": "caisse-terminus-cherchee"
+      },
+      {
+       "name": "disparaitSi",
+       "type": "string",
+       "value": "caisse-terminus-reglee"
+      }
+     ]
     }
    ]
   }

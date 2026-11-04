@@ -89,6 +89,19 @@
     {
       "requires": [
         {
+          "quest": "noms-qui-montent",
+          "status": "done"
+        },
+        {
+          "quest": "sous-la-faille",
+          "status": "none"
+        }
+      ],
+      "node": "papiers-prospection"
+    },
+    {
+      "requires": [
+        {
           "flag": "porte-sud-connue"
         },
         {
@@ -814,6 +827,33 @@
         },
         {
           "text": "Ne dis pas ça.",
+          "next": "fin"
+        }
+      ]
+    },
+    "papiers-prospection": {
+      "text": "Ilyane te tend une liasse de papiers tachés. — Je les ai trouvés dans mon coffre. Ceux de la prospection, qu’Ingrid avait laissés. Il y a une ligne que je n’avais pas comprise. Je ne sais plus pourquoi je les ai gardés.",
+      "options": [
+        {
+          "text": "Lire la ligne.",
+          "next": "papiers-ligne"
+        }
+      ]
+    },
+    "papiers-ligne": {
+      "text": "« Objectif : une caisse plombée, sous la Faille, quai sept. Commanditaire : E. V. » Ilyane te regarde. — E. V. Tu sais qui c’est, toi ? Moi, je crois que je l’ai su.",
+      "options": [
+        {
+          "text": "Oui. Je vais à la Gare.",
+          "next": "fin",
+          "effects": [
+            {
+              "startQuest": "sous-la-faille"
+            }
+          ]
+        },
+        {
+          "text": "Plus tard, Ilyane.",
           "next": "fin"
         }
       ]

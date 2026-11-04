@@ -524,5 +524,29 @@
     "slot": "armure",
     "armorBonus": 2,
     "lore": "Les Ailes Noires ne le vendent pas : le vent le donne, disent-elles."
+  },
+  {
+    "id": "piece-verdantis",
+    "name": "Une pièce de la machine",
+    "description": "Lourde, froide, emballée dans une toile qui ne s’est pas défaite. Ni marque, ni usage qu’on reconnaisse. Elle sortait de la caisse trouvée sous la Faille de la Gare Engloutie.",
+    "weightKg": 6,
+    "price": 0,
+    "quest": true
+  },
+  {
+    "id": "piece-ferros",
+    "name": "Une pièce de la machine",
+    "description": "Lourde, froide, emballée dans une toile qui ne s’est pas défaite. Ni marque, ni usage qu’on reconnaisse. Elle sortait de la caisse trouvée sous la cendre de la Cendrière.",
+    "weightKg": 6,
+    "price": 0,
+    "quest": true
+  },
+  {
+    "id": "piece-terminus",
+    "name": "Une pièce de la machine",
+    "description": "Lourde, froide, emballée dans une toile qui ne s’est pas défaite. Ni marque, ni usage qu’on reconnaisse. Elle sortait de la caisse trouvée au Fonds Muet de Sept-Portes.",
+    "weightKg": 6,
+    "price": 0,
+    "quest": true
   }
 ]

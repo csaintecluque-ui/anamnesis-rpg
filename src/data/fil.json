@@ -56,20 +56,45 @@
     {
       "flag": "caisse-zephyria-trouvee",
       "texte": "J’ai la pièce de la caisse de Zephyria. Lourde, froide, et muette."
+    },
+    {
+      "flag": "caisse-verdantis-trouvee",
+      "texte": "Sous la Faille de la Gare Engloutie, le quai sept : la caisse de Verdantis. L’eau a bu les noms ; il ne reste que des âges."
+    },
+    {
+      "flag": "caisse-ferros-trouvee",
+      "texte": "Sous la cendre de la Cendrière, la caisse de Ferros, intacte. Six noms, de la même main que le rouleau de Zephyria."
+    },
+    {
+      "flag": "caisse-ferros-prise",
+      "texte": "La caisse de Ferros est partie de la Cendrière avec les gants fins de Kaelis, pour ceux qui paient."
+    },
+    {
+      "flag": "caisse-terminus-trouvee",
+      "texte": "Au Fonds Muet de Sept-Portes, la caisse sans main : six noms encore, et la même écriture."
+    },
+    {
+      "flag": "caisse-terminus-prise",
+      "texte": "La caisse sans main du Fonds Muet a été prise par en dessous. Quelqu’un avait vendu la ligne."
     }
   ],
   "caisses": [
     {
       "id": "verdantis",
-      "continent": "Verdantis"
+      "continent": "Verdantis",
+      "trouvee": "caisse-verdantis-trouvee"
     },
     {
       "id": "ferros",
-      "continent": "Ferros"
+      "continent": "Ferros",
+      "trouvee": "caisse-ferros-trouvee",
+      "prise": "caisse-ferros-prise"
     },
     {
       "id": "terminus",
-      "continent": "Terminus"
+      "continent": "Terminus",
+      "trouvee": "caisse-terminus-trouvee",
+      "prise": "caisse-terminus-prise"
     },
     {
       "id": "zephyria",
@@ -92,9 +117,27 @@
   ],
   "pistes": [
     {
+      "quest": "sous-la-faille",
+      "status": "active",
+      "texte": "Gardebois : la Faille de la Gare Engloutie, et le quai sept dessous.",
+      "cible": "gardebois"
+    },
+    {
+      "quest": "caisse-cendriere",
+      "status": "active",
+      "texte": "Ironheart : la Cendrière, au bout de l’embranchement.",
+      "cible": "ironheart"
+    },
+    {
+      "quest": "caisse-sans-main",
+      "status": "active",
+      "texte": "Sept-Portes : le Fonds Muet, au fond de la Grande Bibliothèque.",
+      "cible": "sept-portes"
+    },
+    {
       "quest": "noms-qui-montent",
       "status": "done",
-      "texte": "Cinq caisses encore, sur cinq continents. La suite du fil attend que leurs villes s’ouvrent."
+      "texte": "Trois caisses ont pu dormir là où tu es déjà passé : Ilyane, à Gardebois, a gardé des papiers ; à Ironheart, la Cendrière ; à Sept-Portes, Ambroise. Les quatre autres attendent leurs villes."
     },
     {
       "quest": "noms-qui-montent",

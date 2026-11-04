@@ -5,6 +5,38 @@
     {
       "requires": [
         {
+          "quest": "noms-qui-montent",
+          "status": "done"
+        },
+        {
+          "notFlag": "fin-memoires-monde-perdu-vendue"
+        },
+        {
+          "quest": "caisse-sans-main",
+          "status": "none"
+        }
+      ],
+      "node": "sans-main"
+    },
+    {
+      "requires": [
+        {
+          "quest": "noms-qui-montent",
+          "status": "done"
+        },
+        {
+          "flag": "fin-memoires-monde-perdu-vendue"
+        },
+        {
+          "quest": "caisse-sans-main",
+          "status": "none"
+        }
+      ],
+      "node": "sans-main-vide"
+    },
+    {
+      "requires": [
+        {
           "quest": "memoires-monde-perdu",
           "status": "active"
         },
@@ -406,6 +438,71 @@
         {
           "text": "Et personne d’autre ne l’a demandée ?",
           "next": "edda-demande"
+        }
+      ]
+    },
+    "sans-main": {
+      "text": "Ambroise ferme le Registre. — Vous revenez de Zephyria, de la cendre aux semelles. Alors vous savez ce qu’est une caisse plombée. Il y en a une au Fonds Muet. Elle n’a pas de main.",
+      "options": [
+        {
+          "text": "Pas de main ?",
+          "next": "sans-main-2"
+        }
+      ]
+    },
+    "sans-main-2": {
+      "text": "— Arrivée par le monte-charge des archives, la nuit du dernier départ, dit le registre. Personne ne l’a signée. Ce qui n’a pas de main ne se classe pas ; ce qui ne se classe pas ne s’ouvre pas. Mais vous, vous n’êtes pas d’ici.",
+      "options": [
+        {
+          "text": "Je descends la voir.",
+          "next": "fin",
+          "effects": [
+            {
+              "startQuest": "caisse-sans-main"
+            },
+            {
+              "setFlag": "caisse-terminus-cherchee"
+            }
+          ]
+        },
+        {
+          "text": "Autre chose.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "sans-main-vide": {
+      "text": "Ambroise ferme le Registre. — Il y avait une caisse au Fonds Muet, sans main. Il y a deux semaines, le monte-charge a été forcé par en dessous. Ceux qui l’ont prise savaient où chercher : quelqu’un leur avait vendu une ligne.",
+      "options": [
+        {
+          "text": "Je sais qui.",
+          "next": "sans-main-vide-2"
+        }
+      ]
+    },
+    "sans-main-vide-2": {
+      "text": "— Moi aussi. Il ne dit pas ton nom. Il n’en a pas besoin. — Le Registre l’écrira : « Sortie : par en dessous. Main : aucune. » C’est la première fois qu’une ligne me fait honte.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin",
+          "effects": [
+            {
+              "startQuest": "caisse-sans-main"
+            },
+            {
+              "setFlag": "caisse-terminus-prise"
+            },
+            {
+              "giveXp": 10
+            },
+            {
+              "completeQuest": "caisse-sans-main"
+            },
+            {
+              "setFlag": "fin-caisse-sans-main-prise"
+            }
+          ]
         }
       ]
     }

@@ -29,6 +29,9 @@ describe('les fins vues (étude B11)', () => {
       ['voiles-dormantes', 3],
       ['asile', 2],
       ['convoi-pain', 3],
+      ['sous-la-faille', 3],
+      ['caisse-cendriere', 4],
+      ['caisse-sans-main', 4],
     ]);
   });
 

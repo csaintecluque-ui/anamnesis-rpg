@@ -1,0 +1,177 @@
+{
+  "id": "faille-descente",
+  "speaker": "faille-descente",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "sous-la-faille",
+          "status": "active"
+        }
+      ],
+      "node": "bord"
+    },
+    {
+      "node": "faille"
+    }
+  ],
+  "nodes": {
+    "faille": {
+      "text": "La Faille, au pied de la foreuse. Elle respire, froide, et l’on entend de l’eau tout au fond.",
+      "options": [
+        {
+          "text": "S’éloigner du bord.",
+          "next": "fin"
+        }
+      ]
+    },
+    "bord": {
+      "text": "La Faille s’ouvre au pied de la foreuse arrêtée. En bas, à quelques mètres, un quai : le quai sept, enfoui sous la gare. Une corde de Ferros pend encore, oubliée par les foreurs.",
+      "options": [
+        {
+          "text": "Descendre par la corde.",
+          "next": "bas",
+          "roll": {
+            "skill": "athletics",
+            "difficulty": 12
+          },
+          "failNext": "glisse"
+        },
+        {
+          "text": "Descendre le long des racines.",
+          "next": "bas",
+          "effects": [
+            {
+              "blesser": 3
+            }
+          ]
+        },
+        {
+          "text": "Plus tard.",
+          "next": "fin"
+        }
+      ]
+    },
+    "glisse": {
+      "text": "La corde file entre tes mains, brûle tes paumes, et tu remontes comme tu peux. La Faille n’a pas bougé.",
+      "effects": [
+        {
+          "blesser": 2
+        }
+      ],
+      "options": [
+        {
+          "text": "Réessayer.",
+          "next": "bord"
+        },
+        {
+          "text": "Plus tard.",
+          "next": "fin"
+        }
+      ]
+    },
+    "bas": {
+      "text": "Le quai sept, sous la Gare Engloutie. L’eau du ruisseau suinte des voûtes. Contre le butoir, une caisse plombée, prise dans la boue : la foreuse s’est arrêtée à deux mètres d’elle. Le plomb a tenu ; le bois, non.",
+      "effects": [
+        {
+          "setFlag": "faille-quai-sept"
+        }
+      ],
+      "options": [
+        {
+          "text": "L’ouvrir.",
+          "next": "ouverte"
+        }
+      ]
+    },
+    "ouverte": {
+      "text": "Dedans, une pièce lourde et froide, emballée de toile, et une liste. L’eau a bu les noms : il ne reste que des traînées d’encre, et des âges. Sept, six, huit, cinq, six, neuf.",
+      "options": [
+        {
+          "text": "Prendre la pièce.",
+          "next": "gardee",
+          "effects": [
+            {
+              "giveItem": "piece-verdantis"
+            },
+            {
+              "setFlag": "caisse-verdantis-trouvee"
+            },
+            {
+              "giveXp": 40
+            },
+            {
+              "completeQuest": "sous-la-faille"
+            },
+            {
+              "setFlag": "fin-sous-la-faille-gardee"
+            }
+          ]
+        },
+        {
+          "text": "La confier à Ilyane, au relais des Gardiens.",
+          "next": "gardiens",
+          "effects": [
+            {
+              "setFlag": "caisse-verdantis-trouvee"
+            },
+            {
+              "giveXp": 40
+            },
+            {
+              "completeQuest": "sous-la-faille"
+            },
+            {
+              "setFlag": "fin-sous-la-faille-gardiens"
+            }
+          ]
+        },
+        {
+          "text": "La laisser sous la Faille.",
+          "next": "laissee",
+          "effects": [
+            {
+              "setFlag": "caisse-verdantis-trouvee"
+            },
+            {
+              "giveXp": 40
+            },
+            {
+              "completeQuest": "sous-la-faille"
+            },
+            {
+              "setFlag": "fin-sous-la-faille-laissee"
+            }
+          ]
+        }
+      ]
+    },
+    "gardee": {
+      "text": "Tu remontes avec la pièce sur le dos. Elle est froide, et elle le reste, même contre toi.",
+      "options": [
+        {
+          "text": "Remonter.",
+          "next": "fin"
+        }
+      ]
+    },
+    "gardiens": {
+      "text": "Tu remontes la pièce jusqu’au relais. Ilyane la range sous son lit, avec ses carnets. — Je ne saurai pas ce que c’est. Je saurai que tu me l’as confiée. Pour l’instant, c’est assez.",
+      "options": [
+        {
+          "text": "Merci, Ilyane.",
+          "next": "fin"
+        }
+      ]
+    },
+    "laissee": {
+      "text": "Tu refermes ce qui reste du bois sur la pièce. La Faille l’a gardée jusqu’ici ; elle la gardera encore. Tu remontes sans elle.",
+      "options": [
+        {
+          "text": "Remonter.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

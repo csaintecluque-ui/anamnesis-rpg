@@ -5,6 +5,22 @@
     {
       "requires": [
         {
+          "quest": "noms-qui-montent",
+          "status": "done"
+        },
+        {
+          "flag": "cle-veilleuse"
+        },
+        {
+          "quest": "caisse-cendriere",
+          "status": "none"
+        }
+      ],
+      "node": "cle-cendriere"
+    },
+    {
+      "requires": [
+        {
           "item": "cle-rouille-bleue"
         },
         {
@@ -510,6 +526,27 @@
         {
           "text": "Je reviendrai.",
           "next": "fin"
+        }
+      ]
+    },
+    "cle-cendriere": {
+      "text": "La Veilleuse ouvre la main sur la clé. — Elle chante, la nuit, quand je passe l’aiguillage de la Cendrière. Elle n’a jamais chanté que pour les trains. Jamais pour un endroit. Va voir. Et reviens me dire.",
+      "options": [
+        {
+          "text": "J’y vais.",
+          "next": "fin",
+          "effects": [
+            {
+              "startQuest": "caisse-cendriere"
+            },
+            {
+              "setFlag": "caisse-ferros-cherchee"
+            }
+          ]
+        },
+        {
+          "text": "Autre chose.",
+          "next": "rendue-apres"
         }
       ]
     }

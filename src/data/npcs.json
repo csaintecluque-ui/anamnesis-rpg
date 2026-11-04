@@ -925,5 +925,20 @@
     "id": "doublure-dome",
     "name": "La doublure du dôme",
     "role": "Temple du Grand Courant"
+  },
+  {
+    "id": "faille-descente",
+    "name": "La Faille",
+    "role": "Gare Engloutie"
+  },
+  {
+    "id": "caisse-ferros",
+    "name": "Un coin de plomb dans la cendre",
+    "role": "La Cendrière"
+  },
+  {
+    "id": "caisse-terminus",
+    "name": "Une caisse sans main",
+    "role": "Le Fonds Muet"
   }
 ]

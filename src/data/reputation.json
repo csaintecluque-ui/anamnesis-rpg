@@ -31,6 +31,14 @@
     {
       "flag": "conteur-racine-3",
       "points": 3
+    },
+    {
+      "quest": "sous-la-faille",
+      "points": 5
+    },
+    {
+      "flag": "fin-sous-la-faille-gardiens",
+      "points": 5
     }
   ],
   "canopee": [
@@ -167,6 +175,10 @@
     {
       "flag": "conteur-bielle-3",
       "points": 3
+    },
+    {
+      "quest": "caisse-cendriere",
+      "points": 5
     }
   ],
   "travailleurs-rail": [
@@ -277,6 +289,10 @@
     {
       "flag": "holger-defendu",
       "points": -10
+    },
+    {
+      "flag": "fin-caisse-cendriere-archives",
+      "points": 10
     }
   ],
   "sept-portes": [
@@ -303,6 +319,14 @@
     {
       "flag": "conteur-sept-routes-3",
       "points": 3
+    },
+    {
+      "quest": "caisse-sans-main",
+      "points": 5
+    },
+    {
+      "flag": "fin-caisse-sans-main-confiee",
+      "points": 5
     }
   ],
   "aetherhaven": [

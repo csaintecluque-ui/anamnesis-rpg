@@ -99,7 +99,7 @@ souvient (un peu d'expérience, un peu de réputation). Celles qu'on ne recopie 
 - Deux noms changés au montage, pour ne pas prêter à confusion : **Évrard** Tiédevent (un Anselme existe à Gardebois),
   Holger **Brandt** (Vass sonnait trop près de Varn). Les oiseaux de Siffrin sont des **hirondelles du Zénith** (canon,
   « Zephyria — Races & peuples »), et Shass parle en Vent-Cantique, la langue sifflée des Sylphes.
-- **À valider** (inventés au montage) : les six noms du rouleau (**Ama, six ans ; Joran, huit ans ; Sefi, cinq ans ;
+- **Validés par Cyril le 2026-11-04** (« 1 oui, 2 oui, 3 oui ») : les deux noms changés, et ce qui avait été inventé au montage : les six noms du rouleau (**Ama, six ans ; Joran, huit ans ; Sefi, cinq ans ;
   Nilo, sept ans ; Brune, neuf ans ; Hélie, six ans**) ; la Colonne (le courant qui monte du couchant) ; la plaque
   « Halte — voie 7 » ; les Mantes-ailes (canon) qui nichent dans les wagons d'en bas ; l'Écho « Ceux qui regardaient en
   l'air » (des gens qui comptent les machines qui retombent, au temps de la Pluie) ; les textes des dix voiles (trois

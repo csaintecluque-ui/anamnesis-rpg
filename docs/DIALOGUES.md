@@ -248,7 +248,7 @@ _Effet : retient « raconte-ailis », +15 XP._
 
 _Conservateur de la Grande Bibliothèque_
 
-Commence par : « denonce » _(si quête « Les Mémoires du Monde Perdu » en cours)_ _(si repère « page-lue »)_ _(si repère « main-edda-fausse »)_ _(sans repère « edda-reglee »)_, sinon « registre » _(si quête « Les Mémoires du Monde Perdu » en cours)_ _(si repère « hesper-vue »)_ _(sans repère « registre-lu »)_, sinon « demande » _(si quête « Les Mémoires du Monde Perdu » en cours)_ _(si repère « registre-lu »)_ _(sans repère « fonds-muet-ouvert »)_, sinon « accueil »
+Commence par : « sans-main » _(si quête « Les noms qui montent » terminée)_ _(sans repère « fin-memoires-monde-perdu-vendue »)_ _(si quête « La caisse sans main » pas commencée)_, sinon « sans-main-vide » _(si quête « Les noms qui montent » terminée)_ _(si repère « fin-memoires-monde-perdu-vendue »)_ _(si quête « La caisse sans main » pas commencée)_, sinon « denonce » _(si quête « Les Mémoires du Monde Perdu » en cours)_ _(si repère « page-lue »)_ _(si repère « main-edda-fausse »)_ _(sans repère « edda-reglee »)_, sinon « registre » _(si quête « Les Mémoires du Monde Perdu » en cours)_ _(si repère « hesper-vue »)_ _(sans repère « registre-lu »)_, sinon « demande » _(si quête « Les Mémoires du Monde Perdu » en cours)_ _(si repère « registre-lu »)_ _(sans repère « fonds-muet-ouvert »)_, sinon « accueil »
 
 ### accueil
 
@@ -389,6 +389,31 @@ _Effet : retient « fonds-muet-ouvert », retient « fonds-muet-parole », +10 X
 > Il tourne les pages. — La clé : entrée il y a trois jours, d’une main gantée, qui l’a achetée aux Marches des Cendres. Le carnet : une page recopiée, vendue quarante Fers l’an dernier. Sa chaîne dort au Fonds Muet. On ne la cite pas.
 
 - « Et personne d’autre ne l’a demandée ? » → edda-demande
+
+### sans-main
+
+> Ambroise ferme le Registre. — Vous revenez de Zephyria, de la cendre aux semelles. Alors vous savez ce qu’est une caisse plombée. Il y en a une au Fonds Muet. Elle n’a pas de main.
+
+- « Pas de main ? » → sans-main-2
+
+### sans-main-2
+
+> — Arrivée par le monte-charge des archives, la nuit du dernier départ, dit le registre. Personne ne l’a signée. Ce qui n’a pas de main ne se classe pas ; ce qui ne se classe pas ne s’ouvre pas. Mais vous, vous n’êtes pas d’ici.
+
+- « Je descends la voir. » → **fin** _(lance la quête « La caisse sans main », retient « caisse-terminus-cherchee »)_
+- « Autre chose. » → accueil
+
+### sans-main-vide
+
+> Ambroise ferme le Registre. — Il y avait une caisse au Fonds Muet, sans main. Il y a deux semaines, le monte-charge a été forcé par en dessous. Ceux qui l’ont prise savaient où chercher : quelqu’un leur avait vendu une ligne.
+
+- « Je sais qui. » → sans-main-vide-2
+
+### sans-main-vide-2
+
+> — Moi aussi. Il ne dit pas ton nom. Il n’en a pas besoin. — Le Registre l’écrira : « Sortie : par en dessous. Main : aucune. » C’est la première fois qu’une ligne me fait honte.
+
+- « Partir. » → **fin** _(lance la quête « La caisse sans main », retient « caisse-terminus-prise », +10 XP, termine la quête « La caisse sans main », retient « fin-caisse-sans-main-prise »)_
 
 ## Un très vieil arbre gravé
 
@@ -1006,6 +1031,54 @@ _Effet : retient « caisse-recuperee », retient « rodeurs-caisse-partis »._
 - « Prendre la caisse. » → **fin** _(retient « caisse-recuperee »)_
 - « Plus tard. » → **fin**
 
+## Un coin de plomb dans la cendre
+
+_La Cendrière_
+
+Commence par : « tas »
+
+### tas
+
+> Sous le troisième tas de cendre, un coin de plomb dépasse. La clé de rouille bleue, si tu l’avais, chanterait ici. Il faut dégager la cendre à mains nues, et elle est encore tiède.
+
+- **🎲 Athlétisme 13** « Dégager la caisse. » → caisse, ✗ → etouffe
+- « Plus tard. » → **fin**
+
+### etouffe
+
+_Effet : −2 PV._
+
+> La cendre s’effondre sur tes bras et dans ta gorge. Tu recules, en toussant noir. Le coin de plomb est toujours là.
+
+- « Réessayer. » → tas
+- « Plus tard. » → **fin**
+
+### caisse
+
+> Une caisse plombée, intacte : Ferros ne jette rien, même ce qu’il oublie. Dedans, une pièce lourde et froide, et une liste, de la même main que le rouleau de Zephyria : Oda, sept ans ; Tilo, six ans ; Mara, huit ans ; Jens, cinq ans ; Ruth, neuf ans ; Anouk, sept ans.
+
+- « Prendre la pièce. » → gardee _(donne 1 × « Une pièce de la machine », retient « caisse-ferros-trouvee », retient « caisse-ferros-reglee », +40 XP, termine la quête « Sous la cendre », retient « fin-caisse-cendriere-gardee »)_
+- « Faire classer la caisse aux Archives, par Noam. » → archives _(retient « caisse-ferros-trouvee », retient « caisse-ferros-reglee », +40 XP, termine la quête « Sous la cendre », retient « fin-caisse-cendriere-archives »)_
+- « La laisser sous la cendre. » → laissee _(retient « caisse-ferros-trouvee », retient « caisse-ferros-reglee », +40 XP, termine la quête « Sous la cendre », retient « fin-caisse-cendriere-laissee »)_
+
+### gardee
+
+> Tu charges la pièce sur ton dos. La liste, tu la lis une fois encore, et tu la remets au fond de la caisse. Six noms de plus. Tu les comptes sans le vouloir.
+
+- « Partir. » → **fin**
+
+### archives
+
+> Le lendemain, deux archivistes descendent l’embranchement avec un chariot. Noam inscrit la caisse lui-même : « Fonds Zéro bis (voir : vous). Contenu : non classé. Motif : on ne sait pas ce que c’est. »
+
+- « Partir. » → **fin**
+
+### laissee
+
+> Tu repousses la cendre sur le plomb. Ferros ne jette rien ; il oublie très bien. La caisse attendra encore.
+
+- « Partir. » → **fin**
+
 ## Caisse de prospection
 
 _Objet_
@@ -1024,6 +1097,45 @@ Commence par : « vide » _(si repère « caisse-prospection-ouverte »)_, sinon
 > La caisse ne contient plus que des outils rouillés.
 
 - « … » → **fin**
+
+## Une caisse sans main
+
+_Le Fonds Muet_
+
+Commence par : « caisse »
+
+### caisse
+
+> Une caisse plombée, intacte, sous une housse de toile grise. Ni étiquette ni main. Le plomb ne porte qu’un chiffre, frappé : 7.
+
+- « Rompre le plomb. » → ouverte
+- « Laisser la caisse. » → **fin**
+
+### ouverte
+
+> Une pièce lourde et froide, et une liste de six noms, de la même écriture encore : Aldo, huit ans ; Nour, six ans ; Tess, sept ans ; Sven, cinq ans ; Lou, six ans ; Mirko, neuf ans.
+
+- « Prendre la pièce. » → gardee _(donne 1 × « Une pièce de la machine », retient « caisse-terminus-trouvee », retient « caisse-terminus-reglee », +40 XP, termine la quête « La caisse sans main », retient « fin-caisse-sans-main-gardee »)_
+- « La confier à Ambroise. » → confiee _(retient « caisse-terminus-trouvee », retient « caisse-terminus-reglee », +40 XP, termine la quête « La caisse sans main », retient « fin-caisse-sans-main-confiee »)_
+- « Refermer la housse, et la laisser. » → laissee _(retient « caisse-terminus-trouvee », retient « caisse-terminus-reglee », +40 XP, termine la quête « La caisse sans main », retient « fin-caisse-sans-main-laissee »)_
+
+### gardee
+
+> Tu sors du Fonds Muet avec la pièce. Le portier ne dit rien : elle n’a pas de main. Elle n’existe pas, ici.
+
+- « Partir. » → **fin**
+
+### confiee
+
+> Ambroise descend lui-même, et inscrit la caisse au Registre, de sa main : « Reçu : le Fonds Muet. » Il pose la plume. — Trois mille ans qu’elle attendait quelqu’un pour la recevoir. Ce sera nous.
+
+- « Partir. » → **fin**
+
+### laissee
+
+> Tu refermes la housse sur le plomb rompu. Le Fonds Muet garde ce qu’on ne cite pas. Il gardera ça aussi.
+
+- « Partir. » → **fin**
 
 ## La caisse de Zephyria
 
@@ -2592,6 +2704,69 @@ _Effet : reprend 1 × « Le carnet du Perchoir », donne 1 × « La septième vo
 
 - « Au revoir. » → **fin**
 
+## La Faille
+
+_Gare Engloutie_
+
+Commence par : « bord » _(si quête « Ce que cherchait la foreuse » en cours)_, sinon « faille »
+
+### faille
+
+> La Faille, au pied de la foreuse. Elle respire, froide, et l’on entend de l’eau tout au fond.
+
+- « S’éloigner du bord. » → **fin**
+
+### bord
+
+> La Faille s’ouvre au pied de la foreuse arrêtée. En bas, à quelques mètres, un quai : le quai sept, enfoui sous la gare. Une corde de Ferros pend encore, oubliée par les foreurs.
+
+- **🎲 Athlétisme 12** « Descendre par la corde. » → bas, ✗ → glisse
+- « Descendre le long des racines. » → bas _(−3 PV)_
+- « Plus tard. » → **fin**
+
+### glisse
+
+_Effet : −2 PV._
+
+> La corde file entre tes mains, brûle tes paumes, et tu remontes comme tu peux. La Faille n’a pas bougé.
+
+- « Réessayer. » → bord
+- « Plus tard. » → **fin**
+
+### bas
+
+_Effet : retient « faille-quai-sept »._
+
+> Le quai sept, sous la Gare Engloutie. L’eau du ruisseau suinte des voûtes. Contre le butoir, une caisse plombée, prise dans la boue : la foreuse s’est arrêtée à deux mètres d’elle. Le plomb a tenu ; le bois, non.
+
+- « L’ouvrir. » → ouverte
+
+### ouverte
+
+> Dedans, une pièce lourde et froide, emballée de toile, et une liste. L’eau a bu les noms : il ne reste que des traînées d’encre, et des âges. Sept, six, huit, cinq, six, neuf.
+
+- « Prendre la pièce. » → gardee _(donne 1 × « Une pièce de la machine », retient « caisse-verdantis-trouvee », +40 XP, termine la quête « Ce que cherchait la foreuse », retient « fin-sous-la-faille-gardee »)_
+- « La confier à Ilyane, au relais des Gardiens. » → gardiens _(retient « caisse-verdantis-trouvee », +40 XP, termine la quête « Ce que cherchait la foreuse », retient « fin-sous-la-faille-gardiens »)_
+- « La laisser sous la Faille. » → laissee _(retient « caisse-verdantis-trouvee », +40 XP, termine la quête « Ce que cherchait la foreuse », retient « fin-sous-la-faille-laissee »)_
+
+### gardee
+
+> Tu remontes avec la pièce sur le dos. Elle est froide, et elle le reste, même contre toi.
+
+- « Remonter. » → **fin**
+
+### gardiens
+
+> Tu remontes la pièce jusqu’au relais. Ilyane la range sous son lit, avec ses carnets. — Je ne saurai pas ce que c’est. Je saurai que tu me l’as confiée. Pour l’instant, c’est assez.
+
+- « Merci, Ilyane. » → **fin**
+
+### laissee
+
+> Tu refermes ce qui reste du bois sur la pièce. La Faille l’a gardée jusqu’ici ; elle la gardera encore. Tu remontes sans elle.
+
+- « Remonter. » → **fin**
+
 ## Un Ferrôme au rebut
 
 _Contre le mur de l’atelier Cendrefer_
@@ -3470,7 +3645,7 @@ _Effet : retient « mensonge-huissier »._
 
 _Gardienne de Mémoire de Gardebois_
 
-Commence par : « echo-lettre » _(si repère « echos-confies »)_ _(sans repère « ilyane-echo-lu »)_, sinon « carnet » _(si quête « Le carnet de chansons » en cours)_ _(si l’on porte « Carnet de chansons d’Ilyane »)_, sinon « appel-veilleuse » _(si quête « La Clé de Rouille Bleue » terminée)_ _(si quête « Les Mémoires du Monde Perdu » pas commencée)_ _(si repère « cle-veilleuse »)_, sinon « appel-archives » _(si quête « La Clé de Rouille Bleue » terminée)_ _(si quête « Les Mémoires du Monde Perdu » pas commencée)_ _(si repère « cle-archives »)_, sinon « appel-vendue » _(si quête « La Clé de Rouille Bleue » terminée)_ _(si quête « Les Mémoires du Monde Perdu » pas commencée)_ _(si repère « cle-vendue »)_, sinon « appel-sept-portes » _(si quête « La Clé de Rouille Bleue » terminée)_ _(si quête « Les Mémoires du Monde Perdu » pas commencée)_, sinon « oubli-3 » _(si repère « porte-sud-connue »)_ _(sans repère « ilyane-oubli-3 »)_, sinon « oubli-2 » _(si quête « L’audience » terminée)_ _(sans repère « ilyane-oubli-2 »)_ _(sans repère « ilyane-oubli-3 »)_, sinon « remarque-enfant » _(si repère « heros-enfant »)_ _(sans repère « ilyane-remarque-enfant »)_, sinon « remarque-vapeur » _(si repère « heros-fragment-vapeur »)_ _(sans repère « ilyane-remarque-vapeur »)_, sinon « remarque-main » _(si repère « heros-fragment-main »)_ _(sans repère « ilyane-remarque-main »)_, sinon « remarque-voix » _(si repère « heros-fragment-voix »)_ _(sans repère « ilyane-remarque-voix »)_, sinon « nouvelles-canopee » _(si quête « L’audience » terminée)_, sinon « pell-vivant » _(si repère « foreuse-explosee »)_ _(si repère « pell-sauve »)_ _(sans repère « ilyane-sait-pell »)_, sinon « pell » _(si repère « foreuse-explosee »)_ _(sans repère « ilyane-sait-pell »)_, sinon « oubli-1 » _(si quête « L’audience » en cours)_ _(sans repère « ilyane-oubli-1 »)_ _(sans repère « ilyane-oubli-2 »)_ _(sans repère « ilyane-oubli-3 »)_, sinon « resolu » _(si quête « Le Dernier Train » terminée)_, sinon « en-cours » _(si quête « Le Dernier Train » en cours)_, sinon « accueil »
+Commence par : « echo-lettre » _(si repère « echos-confies »)_ _(sans repère « ilyane-echo-lu »)_, sinon « carnet » _(si quête « Le carnet de chansons » en cours)_ _(si l’on porte « Carnet de chansons d’Ilyane »)_, sinon « appel-veilleuse » _(si quête « La Clé de Rouille Bleue » terminée)_ _(si quête « Les Mémoires du Monde Perdu » pas commencée)_ _(si repère « cle-veilleuse »)_, sinon « appel-archives » _(si quête « La Clé de Rouille Bleue » terminée)_ _(si quête « Les Mémoires du Monde Perdu » pas commencée)_ _(si repère « cle-archives »)_, sinon « appel-vendue » _(si quête « La Clé de Rouille Bleue » terminée)_ _(si quête « Les Mémoires du Monde Perdu » pas commencée)_ _(si repère « cle-vendue »)_, sinon « appel-sept-portes » _(si quête « La Clé de Rouille Bleue » terminée)_ _(si quête « Les Mémoires du Monde Perdu » pas commencée)_, sinon « papiers-prospection » _(si quête « Les noms qui montent » terminée)_ _(si quête « Ce que cherchait la foreuse » pas commencée)_, sinon « oubli-3 » _(si repère « porte-sud-connue »)_ _(sans repère « ilyane-oubli-3 »)_, sinon « oubli-2 » _(si quête « L’audience » terminée)_ _(sans repère « ilyane-oubli-2 »)_ _(sans repère « ilyane-oubli-3 »)_, sinon « remarque-enfant » _(si repère « heros-enfant »)_ _(sans repère « ilyane-remarque-enfant »)_, sinon « remarque-vapeur » _(si repère « heros-fragment-vapeur »)_ _(sans repère « ilyane-remarque-vapeur »)_, sinon « remarque-main » _(si repère « heros-fragment-main »)_ _(sans repère « ilyane-remarque-main »)_, sinon « remarque-voix » _(si repère « heros-fragment-voix »)_ _(sans repère « ilyane-remarque-voix »)_, sinon « nouvelles-canopee » _(si quête « L’audience » terminée)_, sinon « pell-vivant » _(si repère « foreuse-explosee »)_ _(si repère « pell-sauve »)_ _(sans repère « ilyane-sait-pell »)_, sinon « pell » _(si repère « foreuse-explosee »)_ _(sans repère « ilyane-sait-pell »)_, sinon « oubli-1 » _(si quête « L’audience » en cours)_ _(sans repère « ilyane-oubli-1 »)_ _(sans repère « ilyane-oubli-2 »)_ _(sans repère « ilyane-oubli-3 »)_, sinon « resolu » _(si quête « Le Dernier Train » terminée)_, sinon « en-cours » _(si quête « Le Dernier Train » en cours)_, sinon « accueil »
 
 ### resolu
 
@@ -3744,6 +3919,19 @@ _Effet : retient « ilyane-remarque-voix »._
 
 - « Je te le rendrai. » → **fin**
 - « Ne dis pas ça. » → **fin**
+
+### papiers-prospection
+
+> Ilyane te tend une liasse de papiers tachés. — Je les ai trouvés dans mon coffre. Ceux de la prospection, qu’Ingrid avait laissés. Il y a une ligne que je n’avais pas comprise. Je ne sais plus pourquoi je les ai gardés.
+
+- « Lire la ligne. » → papiers-ligne
+
+### papiers-ligne
+
+> « Objectif : une caisse plombée, sous la Faille, quai sept. Commanditaire : E. V. » Ilyane te regarde. — E. V. Tu sais qui c’est, toi ? Moi, je crois que je l’ai su.
+
+- « Oui. Je vais à la Gare. » → **fin** _(lance la quête « Ce que cherchait la foreuse »)_
+- « Plus tard, Ilyane. » → **fin**
 
 ## Ingrid Brisefer
 
@@ -4335,7 +4523,7 @@ _Effet : donne 1 × « Sauf-conduit du Triumvirat », termine la quête « L’a
 
 _Marchand d’ossements, Marches des Cendres_
 
-Commence par : « plaque » _(si quête « Ce qui se souvient » en cours)_ _(si l’on porte « Plaque émaillée »)_, sinon « offre » _(si l’on porte « Clé de rouille bleue »)_, sinon « apres-vente » _(si repère « cle-vendue »)_, sinon « apres » _(si quête « La Clé de Rouille Bleue » terminée)_, sinon « retour » _(si repère « kaelis-parle »)_, sinon « accueil-garrik » _(si repère « fouille-elucidee »)_, sinon « accueil »
+Commence par : « gants-cendriere » _(si quête « Les noms qui montent » terminée)_ _(si repère « cle-vendue »)_ _(si quête « Sous la cendre » pas commencée)_, sinon « plaque » _(si quête « Ce qui se souvient » en cours)_ _(si l’on porte « Plaque émaillée »)_, sinon « offre » _(si l’on porte « Clé de rouille bleue »)_, sinon « apres-vente » _(si repère « cle-vendue »)_, sinon « apres » _(si quête « La Clé de Rouille Bleue » terminée)_, sinon « retour » _(si repère « kaelis-parle »)_, sinon « accueil-garrik » _(si repère « fouille-elucidee »)_, sinon « accueil »
 
 ### accueil
 
@@ -4485,6 +4673,19 @@ _Si Boulon voyage avec toi :_ Boulon, très bas : — Gants fins, Fers neufs. Je
 
 - « Qu’ouvre-t-elle ? » → ouvre
 - « Non, pas à toi. » → **fin**
+
+### gants-cendriere
+
+> Kaelis compte des os sans les regarder. — Mes gants fins sont revenus de la Cendrière, la semaine dernière, avec une caisse de plomb. Ils ne m’ont pas dit ce qu’il y avait dedans. Ils ne m’ont pas payée non plus.
+
+- « Ils avaient la clé. » → gants-cle
+- « Autre chose. » → apres-vente
+
+### gants-cle
+
+> — Ta clé, oui. Celle que tu m’as vendue. Kaelis sourit, sans méchanceté. — Toute relique a un prix. Le tien, tu l’as touché il y a longtemps.
+
+- « Partir. » → **fin** _(lance la quête « Sous la cendre », retient « caisse-ferros-prise », +10 XP, termine la quête « Sous la cendre », retient « fin-caisse-cendriere-prise »)_
 
 ## Kerta Orvel
 
@@ -5387,7 +5588,7 @@ _Effet : retient « raconte-nell », +15 XP._
 
 _Archives Centrales de Ferros_
 
-Commence par : « releve » _(si l’on porte « Relevé d’un Écho »)_ _(si quête « Les Échos sous la Forge » en cours)_, sinon « cle » _(si l’on porte « Clé de rouille bleue »)_ _(si quête « La Clé de Rouille Bleue » en cours)_, sinon « registre » _(si quête « Le contrat de Boulon » en cours)_ _(sans repère « boulon-libre »)_, sinon « fonds » _(si quête « Le fonds des Échos » en cours)_ _(5 Échos recueillis ou plus)_, sinon « apres-archives » _(si repère « cle-archives »)_, sinon « accueil »
+Commence par : « carnet-cendriere » _(si quête « Les noms qui montent » terminée)_ _(si repère « cle-archives »)_ _(si quête « Sous la cendre » pas commencée)_, sinon « releve » _(si l’on porte « Relevé d’un Écho »)_ _(si quête « Les Échos sous la Forge » en cours)_, sinon « cle » _(si l’on porte « Clé de rouille bleue »)_ _(si quête « La Clé de Rouille Bleue » en cours)_, sinon « registre » _(si quête « Le contrat de Boulon » en cours)_ _(sans repère « boulon-libre »)_, sinon « fonds » _(si quête « Le fonds des Échos » en cours)_ _(5 Échos recueillis ou plus)_, sinon « apres-archives » _(si repère « cle-archives »)_, sinon « accueil »
 
 ### accueil
 
@@ -5563,6 +5764,13 @@ _Effet : termine la quête « Le fonds des Échos », retient « membre-archives
 > Noam lit ton Livre des Échos page à page et recopie chaque Écho sur une fiche grise. — Classé (voir : fonds des Échos, cinq entrées ; correspondant : vous). Les Archives de Ferros vous comptent parmi les leurs.
 
 - « Merci, Noam. » → **fin**
+
+### carnet-cendriere
+
+> Noam ouvre un dossier avant que tu parles. — Le carnet de bord du dernier train, page quatorze (voir : Cendrière). « Embranchement de la Cendrière : déchargé une caisse plombée. Reçu : personne. » Je l’ai classé. Classer, c’est déjà agir, à Ferros.
+
+- « Je vais à la Cendrière. » → **fin** _(lance la quête « Sous la cendre », retient « caisse-ferros-cherchee »)_
+- « Autre chose. » → apres-archives
 
 ## Le nom de Pim
 
@@ -7888,7 +8096,7 @@ _Effet : retient « raconte-varka », +15 XP._
 
 _Travailleurs du Rail_
 
-Commence par : « avec-cle » _(si l’on porte « Clé de rouille bleue »)_ _(si quête « La Clé de Rouille Bleue » en cours)_, sinon « rendue-apres » _(si repère « cle-veilleuse »)_, sinon « apres » _(si repère « cle-obtenue »)_, sinon « question-cle » _(si repère « kaelis-parle »)_ _(si quête « La Clé de Rouille Bleue » en cours)_, sinon « accueil »
+Commence par : « cle-cendriere » _(si quête « Les noms qui montent » terminée)_ _(si repère « cle-veilleuse »)_ _(si quête « Sous la cendre » pas commencée)_, sinon « avec-cle » _(si l’on porte « Clé de rouille bleue »)_ _(si quête « La Clé de Rouille Bleue » en cours)_, sinon « rendue-apres » _(si repère « cle-veilleuse »)_, sinon « apres » _(si repère « cle-obtenue »)_, sinon « question-cle » _(si repère « kaelis-parle »)_ _(si quête « La Clé de Rouille Bleue » en cours)_, sinon « accueil »
 
 ### accueil
 
@@ -8044,6 +8252,13 @@ _Effet : retient « indice-veilleuse », +5 XP._
 
 - « Une autre, alors. » → echange
 - « Je reviendrai. » → **fin**
+
+### cle-cendriere
+
+> La Veilleuse ouvre la main sur la clé. — Elle chante, la nuit, quand je passe l’aiguillage de la Cendrière. Elle n’a jamais chanté que pour les trains. Jamais pour un endroit. Va voir. Et reviens me dire.
+
+- « J’y vais. » → **fin** _(lance la quête « Sous la cendre », retient « caisse-ferros-cherchee »)_
+- « Autre chose. » → rendue-apres
 
 ## Véline Nacelière
 

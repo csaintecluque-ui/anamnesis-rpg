@@ -424,8 +424,13 @@ export function storyChapter(quests: Record<string, string>): number {
   return 1 + CHAPTER_QUESTS.filter((q) => quests[q] === 'done').length;
 }
 
-/** Per chapter after the first: this share of PV more; from the third, +1 to hit a chapter and +1 Défense. */
+/** Per chapter after the first: this share of PV more; from the third, +1 to hit (at most MENACE_HIT_MAX) and +1 Défense. */
 export const MENACE_HP_PER_CHAPTER = 0.4;
+/**
+ * The beasts' bonus to hit from the strength of the road stops at +1 (étude du 2026-11-03, simulation E4 / F3 ; accord
+ * de Cyril) : at +2, chapter 4 fell well below chapter 3 (an optimised hero, 82 % then 69 % against three Loups).
+ */
+export const MENACE_HIT_MAX = 1;
 
 /**
  * The beasts and bands of the road and of the sleeping lines grow with the story; the fights of the story keep the
@@ -437,7 +442,7 @@ export function strengthen(c: Combatant, chapter: number): Combatant {
   c.maxHp = Math.round(c.maxHp * (1 + MENACE_HP_PER_CHAPTER * steps));
   c.hp = c.maxHp;
   if (chapter >= 3) {
-    for (const a of c.attacks) a.toHitBonus += chapter - 2;
+    for (const a of c.attacks) a.toHitBonus += Math.min(MENACE_HIT_MAX, chapter - 2);
     c.defense += 1;
   }
   return c;

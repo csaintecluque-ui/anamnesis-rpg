@@ -98,6 +98,6 @@ describe('derived values (docs/gdd/attributs.md, character at 3 everywhere)', ()
   });
 
   it('adds hit points per level from Vigueur', () => {
-    expect(maxHitPoints({ ...average, vigor: 5 }, 2)).toBe(20 + 20 + 6);
+    expect(maxHitPoints({ ...average, vigor: 5 }, 2)).toBe(20 + 20 + 7);
   });
 });

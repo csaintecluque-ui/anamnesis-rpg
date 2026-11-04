@@ -21,7 +21,7 @@ Ce sont les six attributs du JDR, plus **Mémoire**. Données : `src/data/` ; r�
 
 | Valeur | Formule | Source |
 |---|---|---|
-| Points de vie | 20 + 4 × Vigueur (32) ; par niveau : +4 + mod. Vigueur | JDR, dé de vie fixé (adaptation) |
+| Points de vie | 20 + 4 × Vigueur (32) ; par niveau : +5 + mod. Vigueur (+4 avant le 2026-11-04 ; étude, F3) | JDR, dé de vie fixé (adaptation) |
 | Points de Résistance | Vigueur + mod. Présence (3) ; on en dépense 1 pour relancer un jet ; ils reviennent au repos | JDR |
 | Défense | 10 + mod. Agilité + armure (10) | JDR |
 | Initiative | d20 + mod. Agilité | JDR |

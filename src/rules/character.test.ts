@@ -143,8 +143,8 @@ describe('characterStats', () => {
   it('applies Dur à Cuire: +2 Vigueur for hit points', () => {
     // Vigueur 3 → computed as 5: 20 + 4 × 5 = 40.
     expect(characterStats(base).maxHp).toBe(40);
-    // Level 2: +4 + mod(5) = +6, plus +2 from the feat.
-    expect(characterStats({ ...base, level: 2 }).maxHp).toBe(48);
+    // Level 2: +5 + mod(5) = +7, plus +2 from the feat (étude, F3 : 5 PV par niveau, d'abord 4).
+    expect(characterStats({ ...base, level: 2 }).maxHp).toBe(49);
   });
 
   it('applies Fort comme Gorim (+10 kg) and Mémoire de Kael (+1 Récit)', () => {

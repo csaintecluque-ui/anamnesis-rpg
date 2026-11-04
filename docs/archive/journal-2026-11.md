@@ -1097,3 +1097,5 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
 - Sur la branche : au chapitre 2, un fourré ferme la fouille de Garrik, l'Ours-Mousse dort à la seule entrée sur la
   sacoche de Malo (Discrétion, baies, combat). Vérifié à l'écran. 730 tests.
 - Cyril : « oui, mets en ligne » : l'obstacle du chapitre 2 mis en ligne.
+- Simulation E4 / F3 (combat.md) : E4 trop généreux ; Cyril : « On fait ta recommandation » : bonus au toucher des
+  bêtes plafonné à +1, 5 PV par niveau ; mis en ligne. La vague 2 est finie.

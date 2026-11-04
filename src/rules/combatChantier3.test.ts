@@ -170,7 +170,8 @@ describe('the strength of the road', () => {
     expect(storyChapter({ 'dernier-train': 'done', audience: 'done' })).toBe(3);
     const wolf = (ch: number) => strengthen(enemy('loup-rouille', at(0, 0)), ch);
     expect([wolf(1).maxHp, wolf(2).maxHp, wolf(3).maxHp]).toEqual([12, 17, 22]);
-    expect([wolf(1).attacks[0].toHitBonus, wolf(4).attacks[0].toHitBonus, wolf(4).defense]).toEqual([2, 4, 14]);
+    // To hit: +1 at most from the road, from chapter 3 (étude, E4 / F3 simulés ; d'abord +2 au chapitre 4).
+    expect([wolf(1).attacks[0].toHitBonus, wolf(3).attacks[0].toHitBonus, wolf(4).attacks[0].toHitBonus, wolf(4).defense]).toEqual([2, 3, 3, 14]);
   });
 });
 

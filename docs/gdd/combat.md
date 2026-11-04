@@ -272,7 +272,7 @@ dans la partie de Cyril, le levier est ce qu'elle rend (2d4) ou le seuil où ell
 niv. 3 avec Liane contre 2 Loups du ch. 2 ≥ 60 %, et toujours < 30 % seul contre le Golem. L'écart entre tactiques
 reste sous 15 points.
 
-## Étude du 3 novembre : E4 et F3 simulés (proposition, **à valider**)
+## Étude du 3 novembre : E4 et F3 simulés (**recommandation appliquée** le 2026-11-04, accord de Cyril)
 
 Les deux derniers réglages de la vague 2. **E4** (l'étude) : les bêtes de la route prennent +25 % de PV par chapitre
 au lieu de +40 %, et leur bonus au toucher ne commence qu'au chapitre 4. **F3** : +1 PV par niveau pour le héros (5 +
@@ -316,6 +316,6 @@ Lecture :
 | Optimisé · 3 Loups | 82 / 69 | 82 / 75 | 85 / 79 |
 | Optimisé · 3 Échos furieux | 55 / 39 | 55 / 45 | 59 / 49 |
 
-**Recommandation de Claude : plafond +1 et F3 (+1 PV par niveau)** : le chapitre 4 redevient aussi tendu que le 3, pas
+**Appliqué (accord de Cyril)** : `MENACE_HIT_MAX = 1` (`combat.ts`) et `HP_PER_LEVEL = 5` (`derived.ts`). **Recommandation de Claude : plafond +1 et F3 (+1 PV par niveau)** : le chapitre 4 redevient aussi tendu que le 3, pas
 plus facile ; les groupes dangereux le restent ; le héros sent un peu plus chaque niveau. Le parleur, lui, reste fait
 pour éviter les meutes : avec Liane, la parole, la fuite ou la Discrétion.

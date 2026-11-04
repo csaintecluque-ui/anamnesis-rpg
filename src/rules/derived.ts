@@ -1,7 +1,10 @@
 import { attributeModifier, type Attributes } from './attributes';
 
+/** PV gained per level, before the Vigueur modifier (étude du 2026-11-03, F3 : 5, d'abord 4 ; accord de Cyril). */
+export const HP_PER_LEVEL = 5;
+
 export function maxHitPoints(attrs: Attributes, level = 1): number {
-  const perLevel = 4 + attributeModifier(attrs.vigor);
+  const perLevel = HP_PER_LEVEL + attributeModifier(attrs.vigor);
   return 20 + 4 * attrs.vigor + (level - 1) * Math.max(1, perLevel);
 }
 

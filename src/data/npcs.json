@@ -202,6 +202,16 @@
     "role": "Bosquet des Échos"
   },
   {
+    "id": "nom-pim",
+    "name": "Le nom de Pim",
+    "role": "Bosquet des Échos"
+  },
+  {
+    "id": "rubans-echelle",
+    "name": "L’échelle aux rubans",
+    "role": "Grande Nacelle"
+  },
+  {
     "id": "colporteuse",
     "name": "La colporteuse",
     "role": "Marchande ambulante",

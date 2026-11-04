@@ -189,6 +189,26 @@
           "next": "peur"
         },
         {
+          "text": "J’ai une histoire, si tu as une minute.",
+          "requires": [
+            {
+              "notFlag": "raconte-malo"
+            }
+          ],
+          "next": "raconte-neutre",
+          "raconter": {
+            "aime": [
+              "mysteres",
+              "familles"
+            ],
+            "recits": {
+              "echelle-de-pim": "raconte-pim"
+            },
+            "touche": "raconte-touche",
+            "neutre": "raconte-neutre"
+          }
+        },
+        {
           "text": "À plus tard, Malo.",
           "next": "fin"
         }
@@ -222,6 +242,57 @@
           ],
           "next": "ami"
         },
+        {
+          "text": "À bientôt, Malo.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-neutre": {
+      "text": "Malo trépigne jusqu’à la fin, puis repart en courant. — Je l’ai ! Je la porterai aux Ramures avec le courrier.",
+      "effects": [
+        {
+          "setFlag": "raconte-malo"
+        },
+        {
+          "giveXp": 5
+        }
+      ],
+      "options": [
+        {
+          "text": "À bientôt, Malo.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-touche": {
+      "text": "Malo s’assoit, pour une fois. — Encore une comme ça et je deviens conteur, pas coursier. Grand-mère dirait que c’est pareil, en plus lent.",
+      "effects": [
+        {
+          "setFlag": "raconte-malo"
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "À bientôt, Malo.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-pim": {
+      "text": "Malo baisse les yeux. — Pim ? Il me courait après sur les passerelles. Il voulait être coursier, plus tard. Sa sœur noue un ruban à l’échelle chaque matin, avant le marché.",
+      "effects": [
+        {
+          "setFlag": "raconte-malo"
+        },
+        {
+          "giveXp": 15
+        }
+      ],
+      "options": [
         {
           "text": "À bientôt, Malo.",
           "next": "fin"

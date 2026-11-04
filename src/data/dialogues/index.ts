@@ -71,6 +71,8 @@ import renfoncement from './renfoncement.json';
 import rika from './rika.json';
 import rocherSauge from './rocher-sauge.json';
 import refletPont from './reflet-pont.json';
+import rubansEchelle from './rubans-echelle.json';
+import nomPim from './nom-pim.json';
 import sacocheLettres from './sacoche-lettres.json';
 import sauge1 from './sauge-1.json';
 import sauge2 from './sauge-2.json';
@@ -175,6 +177,8 @@ export const DIALOGUES: Record<string, Dialogue> = {
   rika: rika as Dialogue,
   'rocher-sauge': rocherSauge as Dialogue,
   'reflet-pont': refletPont as Dialogue,
+  'rubans-echelle': rubansEchelle as Dialogue,
+  'nom-pim': nomPim as Dialogue,
   'sacoche-lettres': sacocheLettres as Dialogue,
   'sauge-1': sauge1 as Dialogue,
   'sauge-2': sauge2 as Dialogue,

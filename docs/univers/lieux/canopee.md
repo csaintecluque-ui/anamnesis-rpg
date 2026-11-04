@@ -110,3 +110,17 @@ et celles des morts qui dorment à leur pied ; pas les machines ni les forages.
 - Elvan Morelle dénoncé est **banni** (« ici, on n'enferme pas : on retire les racines ») ; la gardienne du grenier, une
   Jeune-Pousse, est soupçonnée si le héros a volé et nie.
 - Vanel reprend les marques d'un cristal forcé, contre un rang de Résonance ; il enterre les éclats d'un cristal fendu.
+
+## Vague 3, bloc B : ce qui reste à découvrir (propositions du 2026-11-04, **à valider**)
+
+Même modèle que Gardebois (validé) : un mystère, le Récit de la ville hors quête, des habitants qui écoutent.
+
+| Élément | Proposition | Ancrage | Statut |
+|---|---|---|---|
+| L'échelle aux rubans | Au bord sud du marché suspendu, l'échelle de corde des Jeunes-Pousses : des dizaines de rubans noués aux barreaux ; sur le plus récent, brodé, « PIM ». On peut nouer un ruban soi-même ; une Jeune-Pousse s'arrête, regarde, et repart | Véline (validé) : « l'an dernier, un petit des Jeunes-Pousses ; on a gravé son nom, puis réparé un garde-corps : celui des Citoyens-Arbres » ; les échelles et les ascenseurs [NOTION] | à valider |
+| **Pim** | Le nom de l'enfant : sept ans, il grimpait les échelles plus vite que les grands ; un barreau a cédé un soir de vent | idem | à valider |
+| Le nom de Pim, au Bosquet | Bas sur un arbre gravé, à hauteur d'enfant, le dernier trait dérapé. Avec Mémoire 3, la main sur le nom : le souvenir de **sa sœur**, quinze ans, qui grave en pensant « Ils ont réparé leur garde-corps. Le nôtre, c'était une échelle. » Récit « L'échelle de Pim » (familles, morts, puissants) : le Récit de Canopéa hors quête | toucher un nom gravé transmet le souvenir de qui l'a gravé [NOTION, comme Anselme] | à valider |
+| Elouan | Rejoue la berceuse de Maëlis d'un trait : « Les berceuses voyagent mieux que les gens : personne ne leur demande de papiers. » | — | à valider |
+| Aïlis | Au Récit « Saule » : « Quand Anselme est parti, je ne dormais plus non plus. On redort, un jour. Dis-le-lui de ma part. » | Anselme (validé) | à valider |
+| Tiven | Au Récit « Odon Passe-Rive » : « Personne n'écrit nos noms quand on tombe. Lui, au moins, il écrivait ceux des autres. » | les Nacelliers tombés (validé) | à valider |
+| Malo | Au Récit « L'échelle de Pim » : Pim lui courait après sur les passerelles, il voulait être coursier ; sa sœur noue un ruban chaque matin | — | à valider |

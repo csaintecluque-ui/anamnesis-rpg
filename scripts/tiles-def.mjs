@@ -1179,3 +1179,14 @@ TILES.push({
     '<path d="M41 79 L42 76 L43 79 L46 80 L43 81 L42 84 L41 81 L38 80 Z" fill="#ffe7a8" opacity="0.9"/>' +
     '<circle cx="23" cy="82" r="1.4" fill="#ffffff" opacity="0.9"/>',
 });
+
+// L'échelle de corde des Jeunes-Pousses, au bord du marché de Canopéa, et ses rubans (étude du 2026-11-03, H4).
+TILES.push({
+  name: 'rubans',
+  svg:
+    '<path d="M24 70 L22 96 M40 70 L42 96" stroke="#8a6a3c" stroke-width="2" fill="none"/>' +
+    '<path d="M23 76 L41 76 M23 84 L41 84 M22 92 L42 92" stroke="#a07a48" stroke-width="2"/>' +
+    '<path d="M24 76 l-5 8 M40 76 l5 9 M23 84 l-6 7 M41 84 l4 8" stroke-width="2.5" fill="none" stroke="#c9804f"/>' +
+    '<path d="M26 76 l-2 9" stroke="#d8504a" stroke-width="2.5"/><path d="M38 84 l3 9" stroke="#e8d8a0" stroke-width="2.5"/>' +
+    '<path d="M28 92 l-3 4" stroke="#7fbf6a" stroke-width="2.5"/>',
+});

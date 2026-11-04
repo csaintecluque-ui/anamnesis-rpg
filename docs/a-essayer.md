@@ -251,6 +251,8 @@ En ligne le 2026-11-03 (tes textes du 3 novembre) :
       (Athlétisme), puis montre ce que tu as trouvé à Sylvan, à la Racine.
 - [ ] **Raconter à un habitant** : Tobias (dans les rumeurs), Maëlis, Nell, Brann et Liane (une fois leur quête
       finie) écoutent un de tes Récits, une fois chacun ; chacun a sa réponse préférée.
+- [ ] **Canopéa, l'échelle aux rubans** : au bord sud du marché suspendu ; puis, au Bosquet des Échos, un petit nom
+      gravé bas sur un arbre (Mémoire 3). Elouan, Aïlis, Tiven et Malo écoutent aussi un Récit.
 - Remarques :
 
 ## Déjà en ligne, pas encore essayé sur PC

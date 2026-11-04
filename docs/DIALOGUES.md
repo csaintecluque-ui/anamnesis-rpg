@@ -108,6 +108,7 @@ Commence par : « flute » _(si quête « Le chant d’Anselme » en cours)_ _(s
 > Entre, entre. Tu as croisé mon petit-fils, je parie ? Malo court partout ; ses pieds ne touchent jamais les planches. Moi, je ne vais plus bien loin : jusqu’au Bosquet des Échos, chaque soir, pour parler à mon Anselme.
 
 - « Parler à un arbre ? » → arbre
+- _(sans repère « raconte-ailis »)_ « Je peux te raconter une histoire, Aïlis. » → raconte-neutre 📖 raconter un Récit : saule → raconte-saule ; familles, arbres → raconte-touche ; autres → raconte-neutre
 - « Au revoir, Aïlis. » → **fin**
 
 ### arbre
@@ -162,6 +163,7 @@ _Effet : retient « anselme-connu »._
 > Entre, entre ! Tu entends ? Non, bien sûr, c’est le soir que je joue. Malo dit que les oiseaux répondent. Moi, je dis que c’est Anselme qui les fait chanter.
 
 - « Parlez-moi encore d’Anselme. » → arbre
+- _(sans repère « raconte-ailis »)_ « Je peux te raconter une histoire, Aïlis. » → raconte-neutre 📖 raconter un Récit : saule → raconte-saule ; familles, arbres → raconte-touche ; autres → raconte-neutre
 - « Au revoir, Aïlis. » → **fin**
 
 ### inquiete
@@ -177,6 +179,30 @@ _Effet : retient « anselme-connu »._
 > Aïlis serre la flûte contre elle. — Oui. Oui, c’est vrai. Le bois du Bosquet a oublié, mais la flûte, elle, n’a rien oublié. Va, mon enfant. Trouve ce qui lui fait mal, à notre forêt.
 
 - « Je trouverai. » → **fin**
+
+### raconte-neutre
+
+_Effet : retient « raconte-ailis », +5 XP._
+
+> Aïlis écoute en tricotant, sans perdre une maille. — Tu racontes vite, comme Malo court. Ralentis : une histoire, ça se pose, ça ne se livre pas.
+
+- « Au revoir, Aïlis. » → **fin**
+
+### raconte-touche
+
+_Effet : retient « raconte-ailis », +10 XP._
+
+> Aïlis pose son tricot. — Anselme me racontait celle-là autrement. Il mettait l’arbre au début, pas à la fin. Mais la tienne est bien aussi.
+
+- « Au revoir, Aïlis. » → **fin**
+
+### raconte-saule
+
+_Effet : retient « raconte-ailis », +15 XP._
+
+> Aïlis ferme les yeux. — Un garçon sous les déblais, et une sœur qui ne dort plus. Quand Anselme est parti, je ne dormais plus non plus. On redort, un jour. Dis-le-lui de ma part.
+
+- « Au revoir, Aïlis. » → **fin**
 
 ## Ambroise Encrelune
 
@@ -1641,6 +1667,7 @@ Commence par : « apres » _(si quête « Le chant d’Anselme » terminée)_, s
 
 - « Tu peux jouer quelque chose ? » → musique
 - « Pourquoi ne pas couper les arbres ? » → arbres
+- _(sans repère « raconte-elouan »)_ « Je connais une chanson, si tu veux l’entendre. » → raconte-neutre 📖 raconter un Récit : berceuse-de-maelis → raconte-berceuse ; chansons, arbres → raconte-touche ; autres → raconte-neutre
 - « Au revoir. » → **fin**
 
 ### musique
@@ -1721,6 +1748,31 @@ Commence par : « apres » _(si quête « Le chant d’Anselme » terminée)_, s
 > Chaque soir, j’entends la flûte d’Aïlis jusqu’ici. Les oiseaux se taisent pour l’écouter, puis ils répondent. Tu vois ? Le bois se souvient du vent.
 
 - « Tu peux jouer quelque chose ? » → musique
+- _(sans repère « raconte-elouan »)_ « Je connais une chanson, si tu veux l’entendre. » → raconte-neutre 📖 raconter un Récit : berceuse-de-maelis → raconte-berceuse ; chansons, arbres → raconte-touche ; autres → raconte-neutre
+- « Au revoir, Elouan. » → **fin**
+
+### raconte-neutre
+
+_Effet : retient « raconte-elouan », +5 XP._
+
+> Elouan écoute en caressant le bois d’une flûte inachevée. — Il manque une musique à ton histoire. Ça viendra : les histoires finissent toujours par en trouver une.
+
+- « Au revoir, Elouan. » → **fin**
+
+### raconte-touche
+
+_Effet : retient « raconte-elouan », +10 XP._
+
+> Elouan ferme les yeux et marque la mesure du doigt sur l’établi. — Celle-là chante déjà toute seule. Je n’aurai qu’à lui tailler un instrument.
+
+- « Au revoir, Elouan. » → **fin**
+
+### raconte-berceuse
+
+_Effet : retient « raconte-elouan », +15 XP._
+
+> Elouan prend une flûte de saule et rejoue la berceuse d’un trait, juste du premier coup. — Les berceuses voyagent mieux que les gens : personne ne leur demande de papiers.
+
 - « Au revoir, Elouan. » → **fin**
 
 ## Elvan Morelle
@@ -4050,6 +4102,7 @@ Commence par : « retour » _(si quête « Les lettres de Malo » en cours)_ _(s
 
 - « Montre-moi la ville. » → ville
 - « Tu n’as jamais peur de tomber ? » → peur
+- _(sans repère « raconte-malo »)_ « J’ai une histoire, si tu as une minute. » → raconte-neutre 📖 raconter un Récit : echelle-de-pim → raconte-pim ; mysteres, familles → raconte-touche ; autres → raconte-neutre
 - « À plus tard, Malo. » → **fin**
 
 ### flute
@@ -4060,6 +4113,30 @@ _Effet : retient « malo-flute-dit »._
 
 - _(si quête « Les lettres de Malo » pas commencée)_ « Merci pour la nouvelle. » → souci
 - _(si quête « Les lettres de Malo » terminée)_ « Merci pour la nouvelle, Malo. » → ami
+- « À bientôt, Malo. » → **fin**
+
+### raconte-neutre
+
+_Effet : retient « raconte-malo », +5 XP._
+
+> Malo trépigne jusqu’à la fin, puis repart en courant. — Je l’ai ! Je la porterai aux Ramures avec le courrier.
+
+- « À bientôt, Malo. » → **fin**
+
+### raconte-touche
+
+_Effet : retient « raconte-malo », +10 XP._
+
+> Malo s’assoit, pour une fois. — Encore une comme ça et je deviens conteur, pas coursier. Grand-mère dirait que c’est pareil, en plus lent.
+
+- « À bientôt, Malo. » → **fin**
+
+### raconte-pim
+
+_Effet : retient « raconte-malo », +15 XP._
+
+> Malo baisse les yeux. — Pim ? Il me courait après sur les passerelles. Il voulait être coursier, plus tard. Sa sœur noue un ruban à l’échelle chaque matin, avant le marché.
+
 - « À bientôt, Malo. » → **fin**
 
 ## La marchande des nations
@@ -4409,6 +4486,33 @@ _Effet : termine la quête « Le fonds des Échos », retient « membre-archives
 > Noam lit ton Livre des Échos page à page et recopie chaque Écho sur une fiche grise. — Classé (voir : fonds des Échos, cinq entrées ; correspondant : vous). Les Archives de Ferros vous comptent parmi les leurs.
 
 - « Merci, Noam. » → **fin**
+
+## Le nom de Pim
+
+_Bosquet des Échos_
+
+Commence par : « apres » _(si repère « pim-touche »)_, sinon « nom »
+
+### nom
+
+> Bas sur le tronc, à hauteur d’enfant, un nom tout petit : PIM. Le bois est encore clair autour des lettres, et le dernier trait a dérapé, comme si la main qui gravait avait tremblé.
+
+- **[Mémoire 3]** « Poser la main sur le nom. » → souvenir
+- « Le laisser dormir. » → **fin**
+
+### souvenir
+
+_Effet : retient « pim-touche », retient le Récit « L’échelle de Pim », +20 XP._
+
+> Une chaleur monte dans ta paume, et ce n’est pas la tienne. Une fille de quinze ans grave à la lueur d’un cristal, en se mordant la lèvre. Elle pense : « Ils ont réparé leur garde-corps. Le nôtre, c’était une échelle. » Puis le dernier trait lui échappe.
+
+- « Retirer la main. » → **fin**
+
+### apres
+
+> Le nom de Pim, bas sur le tronc. Le bois a gardé un peu de chaleur, à l’endroit où ta main s’est posée.
+
+- « Le laisser dormir. » → **fin**
 
 ## Le contrôleur Ostrik
 
@@ -5038,6 +5142,29 @@ _Effet : retient « sauge-3-cueillie »._
 
 - « … » → **fin**
 
+## L’échelle aux rubans
+
+_Grande Nacelle_
+
+Commence par : « regard »
+
+### regard
+
+_Effet : retient « rubans-vus »._
+
+> Au bord du marché, une échelle de corde descend vers les étages des Jeunes-Pousses. Des dizaines de rubans sont noués à ses barreaux, délavés ou neufs. Sur le plus récent, quelqu’un a brodé trois lettres : PIM.
+
+- _(sans repère « ruban-noue »)_ « Nouer un ruban, toi aussi. » → noue
+- « Laisser l’échelle. » → **fin**
+
+### noue
+
+_Effet : retient « ruban-noue », +5 XP._
+
+> Tu n’as qu’un bout de cordelette : tu le noues au barreau du haut. En bas, une Jeune-Pousse qui montait s’arrête, te regarde un moment, puis reprend sa montée sans rien dire.
+
+- « Laisser l’échelle. » → **fin**
+
 ## La sacoche des Nacelliers
 
 _Objet_
@@ -5582,6 +5709,7 @@ _Effet : retient « tiven-brulure-rate »._
 
 > Tiven te montre des paumes roses et neuves. — Regarde ! Aujourd’hui, j’ai déjà monté trois nacelles. Remercie Vanel pour moi.
 
+- _(sans repère « raconte-tiven »)_ « Tu veux une histoire, pour la prochaine montée ? » → raconte-neutre 📖 raconter un Récit : odon-passe-rive → raconte-odon ; familles, mysteres → raconte-touche ; autres → raconte-neutre
 - « Bon courage. » → **fin**
 
 ### panse-medecine
@@ -5589,6 +5717,30 @@ _Effet : retient « tiven-brulure-rate »._
 > Tu rinces, tu graisses, tu serres. Tiven grimace, puis souffle. — Ça tire, mais ça ne brûle plus. Où est-ce qu’on apprend ça ?
 
 - « Ménage-toi. » → **fin**
+
+### raconte-neutre
+
+_Effet : retient « raconte-tiven », +5 XP._
+
+> Tiven écoute en enroulant une corde autour de son coude. — Je la raconterai aux autres, ce soir, en haut. Si je m’en souviens jusque-là.
+
+- « Bon courage, Tiven. » → **fin**
+
+### raconte-touche
+
+_Effet : retient « raconte-tiven », +10 XP._
+
+> Tiven sourit. — Celle-là, je la garde pour les nuits de vent. Là-haut, quand la nacelle grince, il faut quelque chose à se dire.
+
+- « Bon courage, Tiven. » → **fin**
+
+### raconte-odon
+
+_Effet : retient « raconte-tiven », +15 XP._
+
+> Tiven ne dit rien un moment. — Un passeur. Nous aussi, on fait passer : des paniers, des gens, des lettres. Personne n’écrit nos noms quand on tombe. Lui, au moins, il écrivait ceux des autres.
+
+- « Bon courage, Tiven. » → **fin**
 
 ## Tobias Cendrefer
 

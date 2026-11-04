@@ -62,6 +62,26 @@
           "next": "arbre"
         },
         {
+          "text": "Je peux te raconter une histoire, Aïlis.",
+          "requires": [
+            {
+              "notFlag": "raconte-ailis"
+            }
+          ],
+          "next": "raconte-neutre",
+          "raconter": {
+            "aime": [
+              "familles",
+              "arbres"
+            ],
+            "recits": {
+              "saule": "raconte-saule"
+            },
+            "touche": "raconte-touche",
+            "neutre": "raconte-neutre"
+          }
+        },
+        {
           "text": "Au revoir, Aïlis.",
           "next": "fin"
         }
@@ -203,6 +223,26 @@
           "next": "arbre"
         },
         {
+          "text": "Je peux te raconter une histoire, Aïlis.",
+          "requires": [
+            {
+              "notFlag": "raconte-ailis"
+            }
+          ],
+          "next": "raconte-neutre",
+          "raconter": {
+            "aime": [
+              "familles",
+              "arbres"
+            ],
+            "recits": {
+              "saule": "raconte-saule"
+            },
+            "touche": "raconte-touche",
+            "neutre": "raconte-neutre"
+          }
+        },
+        {
           "text": "Au revoir, Aïlis.",
           "next": "fin"
         }
@@ -236,6 +276,57 @@
       "options": [
         {
           "text": "Je trouverai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-neutre": {
+      "text": "Aïlis écoute en tricotant, sans perdre une maille. — Tu racontes vite, comme Malo court. Ralentis : une histoire, ça se pose, ça ne se livre pas.",
+      "effects": [
+        {
+          "setFlag": "raconte-ailis"
+        },
+        {
+          "giveXp": 5
+        }
+      ],
+      "options": [
+        {
+          "text": "Au revoir, Aïlis.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-touche": {
+      "text": "Aïlis pose son tricot. — Anselme me racontait celle-là autrement. Il mettait l’arbre au début, pas à la fin. Mais la tienne est bien aussi.",
+      "effects": [
+        {
+          "setFlag": "raconte-ailis"
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "Au revoir, Aïlis.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-saule": {
+      "text": "Aïlis ferme les yeux. — Un garçon sous les déblais, et une sœur qui ne dort plus. Quand Anselme est parti, je ne dormais plus non plus. On redort, un jour. Dis-le-lui de ma part.",
+      "effects": [
+        {
+          "setFlag": "raconte-ailis"
+        },
+        {
+          "giveXp": 15
+        }
+      ],
+      "options": [
+        {
+          "text": "Au revoir, Aïlis.",
           "next": "fin"
         }
       ]

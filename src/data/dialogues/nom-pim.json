@@ -1,0 +1,67 @@
+{
+  "id": "nom-pim",
+  "speaker": "nom-pim",
+  "entries": [
+    {
+      "requires": [
+        {
+          "flag": "pim-touche"
+        }
+      ],
+      "node": "apres"
+    },
+    {
+      "node": "nom"
+    }
+  ],
+  "nodes": {
+    "nom": {
+      "text": "Bas sur le tronc, à hauteur d’enfant, un nom tout petit : PIM. Le bois est encore clair autour des lettres, et le dernier trait a dérapé, comme si la main qui gravait avait tremblé.",
+      "options": [
+        {
+          "text": "Poser la main sur le nom.",
+          "next": "souvenir",
+          "requires": [
+            {
+              "attribute": "memory",
+              "min": 3
+            }
+          ]
+        },
+        {
+          "text": "Le laisser dormir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "souvenir": {
+      "text": "Une chaleur monte dans ta paume, et ce n’est pas la tienne. Une fille de quinze ans grave à la lueur d’un cristal, en se mordant la lèvre. Elle pense : « Ils ont réparé leur garde-corps. Le nôtre, c’était une échelle. » Puis le dernier trait lui échappe.",
+      "effects": [
+        {
+          "setFlag": "pim-touche"
+        },
+        {
+          "learnRecit": "echelle-de-pim"
+        },
+        {
+          "giveXp": 20
+        }
+      ],
+      "options": [
+        {
+          "text": "Retirer la main.",
+          "next": "fin"
+        }
+      ]
+    },
+    "apres": {
+      "text": "Le nom de Pim, bas sur le tronc. Le bois a gardé un peu de chaleur, à l’endroit où ta main s’est posée.",
+      "options": [
+        {
+          "text": "Le laisser dormir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

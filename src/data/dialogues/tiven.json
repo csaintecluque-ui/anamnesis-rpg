@@ -201,6 +201,26 @@
       "text": "Tiven te montre des paumes roses et neuves. — Regarde ! Aujourd’hui, j’ai déjà monté trois nacelles. Remercie Vanel pour moi.",
       "options": [
         {
+          "text": "Tu veux une histoire, pour la prochaine montée ?",
+          "requires": [
+            {
+              "notFlag": "raconte-tiven"
+            }
+          ],
+          "next": "raconte-neutre",
+          "raconter": {
+            "aime": [
+              "familles",
+              "mysteres"
+            ],
+            "recits": {
+              "odon-passe-rive": "raconte-odon"
+            },
+            "touche": "raconte-touche",
+            "neutre": "raconte-neutre"
+          }
+        },
+        {
           "text": "Bon courage.",
           "next": "fin"
         }
@@ -211,6 +231,57 @@
       "options": [
         {
           "text": "Ménage-toi.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-neutre": {
+      "text": "Tiven écoute en enroulant une corde autour de son coude. — Je la raconterai aux autres, ce soir, en haut. Si je m’en souviens jusque-là.",
+      "effects": [
+        {
+          "setFlag": "raconte-tiven"
+        },
+        {
+          "giveXp": 5
+        }
+      ],
+      "options": [
+        {
+          "text": "Bon courage, Tiven.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-touche": {
+      "text": "Tiven sourit. — Celle-là, je la garde pour les nuits de vent. Là-haut, quand la nacelle grince, il faut quelque chose à se dire.",
+      "effects": [
+        {
+          "setFlag": "raconte-tiven"
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "Bon courage, Tiven.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-odon": {
+      "text": "Tiven ne dit rien un moment. — Un passeur. Nous aussi, on fait passer : des paniers, des gens, des lettres. Personne n’écrit nos noms quand on tombe. Lui, au moins, il écrivait ceux des autres.",
+      "effects": [
+        {
+          "setFlag": "raconte-tiven"
+        },
+        {
+          "giveXp": 15
+        }
+      ],
+      "options": [
+        {
+          "text": "Bon courage, Tiven.",
           "next": "fin"
         }
       ]

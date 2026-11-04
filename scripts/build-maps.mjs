@@ -469,6 +469,8 @@ function canopeeNacelle() {
   // « Un prêt de la Terre » (docs/gdd/magie.md) : Tiven, le jeune Nacellier aux mains brûlées par les cordes.
   m.object('tiven', 'pnj', 2, 12);
   m.object('panneau-canopee', 'panneau', 6, 16, { texte: 'Canopéa — la Grande Nacelle. Ici, rien ne touche le sol.' });
+  // L'échelle aux rubans (étude du 2026-11-03, H4) : celle des Jeunes-Pousses, où l'on noue un ruban pour Pim.
+  m.object('rubans-echelle', 'objet', 16, 17, { tuile: 'rubans' });
   return m.toTiled();
 }
 
@@ -503,6 +505,8 @@ function canopeeAieux() {
   for (const [c, r] of [[8, 6], [12, 5], [16, 6], [17, 10], [16, 14], [14, 16], [8, 14]]) m.setObstacle(c, r, 'arbre-souvenir');
   m.object('arbre-ancien', 'objet', 16, 6);
   m.object('arbre-anselme', 'objet', 8, 14);
+  // Le nom de Pim, gravé bas par sa sœur (étude du 2026-11-03, H4) ; avec Mémoire 3, on reçoit son souvenir.
+  m.object('nom-pim', 'objet', 16, 14);
   // Un jeune arbre au tronc lisse, où Liane peut graver le nom de son frère (« Ce que Liane veut oublier »).
   m.setObstacle(6, 9, 'arbre-souvenir');
   m.object('arbre-vierge', 'objet', 6, 9);

@@ -1,0 +1,51 @@
+{
+  "id": "rubans-echelle",
+  "speaker": "rubans-echelle",
+  "entries": [
+    {
+      "node": "regard"
+    }
+  ],
+  "nodes": {
+    "regard": {
+      "text": "Au bord du marché, une échelle de corde descend vers les étages des Jeunes-Pousses. Des dizaines de rubans sont noués à ses barreaux, délavés ou neufs. Sur le plus récent, quelqu’un a brodé trois lettres : PIM.",
+      "effects": [
+        {
+          "setFlag": "rubans-vus"
+        }
+      ],
+      "options": [
+        {
+          "text": "Nouer un ruban, toi aussi.",
+          "next": "noue",
+          "requires": [
+            {
+              "notFlag": "ruban-noue"
+            }
+          ]
+        },
+        {
+          "text": "Laisser l’échelle.",
+          "next": "fin"
+        }
+      ]
+    },
+    "noue": {
+      "text": "Tu n’as qu’un bout de cordelette : tu le noues au barreau du haut. En bas, une Jeune-Pousse qui montait s’arrête, te regarde un moment, puis reprend sa montée sans rien dire.",
+      "effects": [
+        {
+          "setFlag": "ruban-noue"
+        },
+        {
+          "giveXp": 5
+        }
+      ],
+      "options": [
+        {
+          "text": "Laisser l’échelle.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

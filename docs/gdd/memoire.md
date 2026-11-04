@@ -75,6 +75,9 @@ renommée, rumeurs qui ouvrent des secrets). Chaque Récit porte ses thèmes (`t
   (10 XP), une pour le reste (5 XP). Le Récit n'est pas oublié. À Gardebois : Tobias (rails et machines ; « Un jeudi
   ordinaire » : 20 Fers), Maëlis (familles, chansons ; « Saule »), Nell (chansons ; la berceuse), Brann (machines ;
   « Le savant du dernier quai »), Liane (arbres, familles ; « Les voix du Bosquet », +1 d'avis).
-- **Un Récit par ville hors quête** (F4) : à Gardebois, « Odon Passe-Rive », par le mystère du pont et Sylvan.
-- **Le plafond reste Mémoire + 1** (l'étude proposait + 2) : avec plus de Récits à gagner, c'est le plafond qui
-  rend l'oubli réel ; à trancher par Cyril.
+- À Canopéa : Elouan (chansons, arbres ; la berceuse de Maëlis), Aïlis (familles, arbres ; « Saule »), Tiven
+  (familles, mystères ; « Odon Passe-Rive »), Malo (mystères, familles ; « L'échelle de Pim »).
+- **Un Récit par ville hors quête** (F4) : à Gardebois, « Odon Passe-Rive », par le mystère du pont et Sylvan ; à
+  Canopéa, « L'échelle de Pim », par l'échelle aux rubans et le nom gravé au Bosquet (Mémoire 3).
+- **Le plafond reste Mémoire + 1** (l'étude proposait + 2 ; décision de Cyril, 2026-11-04) : avec plus de Récits à
+  gagner, c'est le plafond qui rend l'oubli réel.

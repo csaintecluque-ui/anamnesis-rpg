@@ -85,6 +85,26 @@
           "next": "arbres"
         },
         {
+          "text": "Je connais une chanson, si tu veux l’entendre.",
+          "requires": [
+            {
+              "notFlag": "raconte-elouan"
+            }
+          ],
+          "next": "raconte-neutre",
+          "raconter": {
+            "aime": [
+              "chansons",
+              "arbres"
+            ],
+            "recits": {
+              "berceuse-de-maelis": "raconte-berceuse"
+            },
+            "touche": "raconte-touche",
+            "neutre": "raconte-neutre"
+          }
+        },
+        {
           "text": "Au revoir.",
           "next": "fin"
         }
@@ -280,6 +300,77 @@
           "text": "Tu peux jouer quelque chose ?",
           "next": "musique"
         },
+        {
+          "text": "Je connais une chanson, si tu veux l’entendre.",
+          "requires": [
+            {
+              "notFlag": "raconte-elouan"
+            }
+          ],
+          "next": "raconte-neutre",
+          "raconter": {
+            "aime": [
+              "chansons",
+              "arbres"
+            ],
+            "recits": {
+              "berceuse-de-maelis": "raconte-berceuse"
+            },
+            "touche": "raconte-touche",
+            "neutre": "raconte-neutre"
+          }
+        },
+        {
+          "text": "Au revoir, Elouan.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-neutre": {
+      "text": "Elouan écoute en caressant le bois d’une flûte inachevée. — Il manque une musique à ton histoire. Ça viendra : les histoires finissent toujours par en trouver une.",
+      "effects": [
+        {
+          "setFlag": "raconte-elouan"
+        },
+        {
+          "giveXp": 5
+        }
+      ],
+      "options": [
+        {
+          "text": "Au revoir, Elouan.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-touche": {
+      "text": "Elouan ferme les yeux et marque la mesure du doigt sur l’établi. — Celle-là chante déjà toute seule. Je n’aurai qu’à lui tailler un instrument.",
+      "effects": [
+        {
+          "setFlag": "raconte-elouan"
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "Au revoir, Elouan.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-berceuse": {
+      "text": "Elouan prend une flûte de saule et rejoue la berceuse d’un trait, juste du premier coup. — Les berceuses voyagent mieux que les gens : personne ne leur demande de papiers.",
+      "effects": [
+        {
+          "setFlag": "raconte-elouan"
+        },
+        {
+          "giveXp": 15
+        }
+      ],
+      "options": [
         {
           "text": "Au revoir, Elouan.",
           "next": "fin"

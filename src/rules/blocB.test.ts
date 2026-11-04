@@ -72,3 +72,37 @@ describe('les habitants de Gardebois écoutent un Récit, une fois chacun (D3)',
     expect(state.character!.fers).toBe(fers + 20);
   });
 });
+
+describe('Canopéa : l’échelle aux rubans et le nom de Pim (H4, F4)', () => {
+  it('les rubans disent un nom ; on peut en nouer un, une fois', () => {
+    const state = game();
+    choose(state, 'rubans-echelle', 'regard', 'Nouer un ruban');
+    expect(state.flags['ruban-noue']).toBe(true);
+    expect(optionTexts(state, 'rubans-echelle', 'regard')).toEqual(['Laisser l’échelle.']);
+  });
+
+  it('au Bosquet, avec Mémoire 3, la main sur le nom donne le souvenir de sa sœur et le Récit de Canopéa', () => {
+    const forgetful = createNewGame(testCharacter({ memory: 2 }));
+    const view = visibleOptions(DIALOGUES['nom-pim'].nodes.nom, forgetful).find((v) => v.option.text.startsWith('Poser la main'));
+    expect(view?.enabled).toBe(false);
+    const state = game();
+    choose(state, 'nom-pim', 'nom', 'Poser la main');
+    expect(knowsRecit(state.character!, 'echelle-de-pim')).toBe(true);
+  });
+});
+
+describe('les habitants de Canopéa écoutent un Récit, une fois chacun (D3)', () => {
+  it('Elouan, Aïlis, Tiven et Malo ont chacun leur Récit préféré', () => {
+    for (const [npc, node, recit, special] of [
+      ['elouan', 'accueil', 'berceuse-de-maelis', 'raconte-berceuse'],
+      ['ailis', 'accueil', 'saule', 'raconte-saule'],
+      ['tiven', 'gueri', 'odon-passe-rive', 'raconte-odon'],
+      ['malo', 'ami', 'echelle-de-pim', 'raconte-pim'],
+    ]) {
+      const state = game();
+      learnRecit(state.character!, recit);
+      expect(tell(state, npc, node, recit), npc).toBe(special);
+      expect(visibleOptions(DIALOGUES[npc].nodes[node], state).some((v) => v.option.raconter), npc).toBe(false);
+    }
+  });
+});

@@ -1137,3 +1137,7 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   lavoir) et son Récit chez Sylvan, et cinq habitants qui écoutent un Récit (Tobias, Maëlis, Nell, Brann, Liane).
   Propositions à valider (`univers/lieux/gardebois.md`). Le plafond de Récits reste Mémoire + 1 : à trancher. 756
   tests ; vérifié dans Chromium.
+- Cyril : « 1 oui, 2 on reste à +1, 3 oui » : Gardebois validé ; plafond de Récits à Mémoire + 1 ; une ville à la
+  fois. Sur la branche, **Canopéa** : l'échelle aux rubans des Jeunes-Pousses (PIM), le nom de Pim gravé au Bosquet
+  (Mémoire 3 : le souvenir de sa sœur), le Récit « L'échelle de Pim » ; Elouan, Aïlis, Tiven et Malo écoutent un
+  Récit. À valider (`univers/lieux/canopee.md`). 758 tests ; vérifié dans Chromium.

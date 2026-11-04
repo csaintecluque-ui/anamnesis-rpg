@@ -165,5 +165,15 @@
       "familles",
       "morts"
     ]
+  },
+  {
+    "id": "echelle-de-pim",
+    "titre": "L’échelle de Pim",
+    "texte": "Pim avait sept ans et grimpait les échelles des Jeunes-Pousses plus vite que les grands. Un soir de vent, un barreau a cédé. Sa sœur a gravé son nom au Bosquet ; le Conseil, lui, a fait réparer un garde-corps : celui des Citoyens-Arbres. Depuis, chaque Jeune-Pousse noue un ruban à l’échelle.",
+    "themes": [
+      "familles",
+      "morts",
+      "puissants"
+    ]
   }
 ]

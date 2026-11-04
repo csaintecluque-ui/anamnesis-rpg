@@ -205,7 +205,11 @@ export interface Dialogue {
   id: string;
   speaker: string;
   /** First entry whose conditions hold decides where the conversation starts. */
-  entries: { requires?: Condition[]; node: string }[];
+  /**
+   * `seul`: a companion's talk that comes by itself, once, when it holds on arriving in a place or at nightfall (étude
+   * du 2026-11-03, D4 : l'aveu de Liane la nuit), and not only when one clicks on them.
+   */
+  entries: { requires?: Condition[]; node: string; seul?: boolean }[];
   nodes: Record<string, DialogueNode>;
 }
 
@@ -359,6 +363,21 @@ export function startNode(dialogue: Dialogue, state: GameState): string {
   const entry = dialogue.entries.find((e) => (e.requires ?? []).every((c) => conditionMet(state, c)));
   if (!entry) throw new Error(`Dialogue ${dialogue.id} has no entry for this state`);
   return entry.node;
+}
+
+/**
+ * The companion's talk that comes by itself now (étude D4): for each companion in the party, the entry their dialogue
+ * would open on, if it is marked `seul` and was not offered yet. `flag` records the offer (one time each).
+ */
+export function autoTalk(state: GameState, dialogues: Record<string, Dialogue>): { id: string; flag: string } | null {
+  for (const m of state.groupe) {
+    const dialogue = dialogues[`compagnon-${m.id}`];
+    const entry = dialogue?.entries.find((e) => (e.requires ?? []).every((c) => conditionMet(state, c)));
+    if (!dialogue || !entry?.seul) continue;
+    const flag = `aparte-seul-${m.id}-${entry.node}`;
+    if (!state.flags[flag]) return { id: dialogue.id, flag };
+  }
+  return null;
 }
 
 /** True when a conditional entry holds, not just the last, unconditional one (a figurant who has something to say). */

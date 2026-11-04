@@ -11,7 +11,7 @@ import { findPath } from '../engine/pathfinding';
 import { bigBlock, findObject, isBigAnchor, isWalkable, parseTiledMap, tileKey, type GameMap, type MapObject } from '../engine/tiledMap';
 import { DEFAULT_AVATAR } from '../rules/character';
 import { ENCOUNTERS, GOLEM_FIGHT, VOIE_FIGHT, findEnemy, storyChapter } from '../rules/combat';
-import { expireFlags, hasStoryEntry, type Effect } from '../rules/dialogue';
+import { autoTalk, expireFlags, hasStoryEntry, type Effect } from '../rules/dialogue';
 import {
   ENCOUNTER_VICTORY_FLAG,
   WORLD_MAP_TARGET,
@@ -47,6 +47,10 @@ const DRAWN_TOPS = new Map<string, number>();
 
 /** Delay before the enemies of a random encounter attack, so the arrival is seen first. */
 const AMBUSH_DELAY_MS = 900;
+/** A companion's talk that comes by itself waits this long after arriving, and for the hero to stand still (étude D4). */
+const AUTO_TALK_DELAY_MS = 1200;
+/** Registry key: the moment of the day when the map last looked for such a talk (nightfall brings one). */
+const AUTO_TALK_MOMENT = 'autoTalkMoment';
 
 /** Map objects drawn by an obstacle tile on the same cell, and touchable on that tile's image. */
 const INTERACTIVE_OBSTACLES = new Set(['panneau', 'echo', 'golem', 'coffre', 'foreuse', 'porte', 'objet']);
@@ -111,6 +115,8 @@ export class MapScene extends Phaser.Scene {
   private partyIds = '';
   /** The moment of the day when the map was built: some Échos only show at night (docs/gdd/echos.md). */
   private builtAt = '';
+  /** When to look for a companion's talk that comes by itself (étude D4); null: not on this map. */
+  private autoTalkAt: number | null = null;
   /**
    * Groups of a sleeping line already fought here (docs/gdd/voies.md): after fleeing, they let the hero walk away;
    * they attack again only once the hero has been out of their sight. Touching them still starts the fight.
@@ -266,6 +272,12 @@ export class MapScene extends Phaser.Scene {
 
     this.registry.set(MINI_MAP_SOURCE, this.miniMapSource());
     this.scene.launch('Hud', { locationName: level?.title ?? location.name });
+    // A companion's talk that comes by itself (étude D4): on arriving somewhere, or when the moment of the day has
+    // changed (nightfall rebuilds the map); never in a sleeping line, where the fights come first.
+    const moment = momentOf(this.state.time);
+    const lookForTalk = arrived || this.registry.get(AUTO_TALK_MOMENT) !== moment;
+    this.registry.set(AUTO_TALK_MOMENT, moment);
+    this.autoTalkAt = lookForTalk && !this.state.voie ? this.time.now + AUTO_TALK_DELAY_MS : null;
     if (level) {
       const light = carriesLamp(state) ? 'Ta lampe à cristal éclaire le passage : tu verras les pièges à deux pas.' : 'Il fait sombre : une lampe à cristal te montrerait les pièges.';
       this.time.delayedCall(50, () => this.hud().toast(`${level.title}. ${light} Pour remonter, reviens à l’entrée.`));
@@ -311,6 +323,16 @@ export class MapScene extends Phaser.Scene {
 
   update(_time: number, delta: number): void {
     if (this.state) this.state.playTimeSeconds += delta / 1000;
+    if (this.autoTalkAt !== null && !this.moving && this.time.now >= this.autoTalkAt) {
+      this.autoTalkAt = null;
+      const talk = autoTalk(this.state, DIALOGUES);
+      if (talk) {
+        this.state.flags[talk.flag] = true;
+        this.hud().tip(null);
+        this.scene.pause();
+        this.scene.launch('Dialogue', { id: talk.id });
+      }
+    }
   }
 
   // --- Clavier et souris (feuille de route, chantier 0 : « PC d'abord ») ----------------------------

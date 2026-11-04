@@ -11,7 +11,8 @@
           "notFlag": "liane-a-vu-marques"
         }
       ],
-      "node": "marques"
+      "node": "marques",
+      "seul": true
     },
     {
       "requires": [
@@ -23,7 +24,8 @@
           "item": "champignon-memoire"
         }
       ],
-      "node": "manger"
+      "node": "manger",
+      "seul": true
     },
     {
       "requires": [
@@ -35,7 +37,8 @@
           "moment": "nuit"
         }
       ],
-      "node": "nuit"
+      "node": "nuit",
+      "seul": true
     },
     {
       "requires": [

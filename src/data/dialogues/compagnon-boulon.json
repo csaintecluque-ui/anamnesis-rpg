@@ -8,7 +8,8 @@
           "lieu": "ironheart-forges"
         }
       ],
-      "node": "gare"
+      "node": "gare",
+      "seul": true
     },
     {
       "requires": [
@@ -19,7 +20,8 @@
           "notFlag": "duo-1"
         }
       ],
-      "node": "duo-1"
+      "node": "duo-1",
+      "seul": true
     },
     {
       "requires": [
@@ -33,7 +35,8 @@
           "notFlag": "duo-2"
         }
       ],
-      "node": "duo-2"
+      "node": "duo-2",
+      "seul": true
     },
     {
       "requires": [
@@ -50,7 +53,8 @@
           "flag": "liane-a-oublie"
         }
       ],
-      "node": "duo-3-oublie"
+      "node": "duo-3-oublie",
+      "seul": true
     },
     {
       "requires": [
@@ -64,7 +68,8 @@
           "notFlag": "duo-3"
         }
       ],
-      "node": "duo-3"
+      "node": "duo-3",
+      "seul": true
     },
     {
       "requires": [

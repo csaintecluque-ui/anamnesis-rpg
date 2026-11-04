@@ -72,3 +72,15 @@ Ferrômes aux Archives et le prix du rachat.
 
 Tests : `src/rules/compagnonsChantier4.test.ts` (chaque compagnon réagit dans chaque quête principale où il peut être,
 dix apartés au moins chacun).
+
+## Étude du 3 novembre, vague 3 : les paroles qui viennent seules (D4)
+
+Constat de l'étude : l'aveu de Liane exigeait de cliquer sur elle la nuit, et personne ne le trouvait. Une entrée de
+dialogue de compagnon marquée `"seul": true` (`autoTalk`, `src/rules/dialogue.ts`) s'ouvre d'elle-même, **une fois**,
+quand elle est vraie **en arrivant dans un lieu** ou **quand le moment de la journée change** (la nuit tombe), 1,2 s
+après, le héros arrêté ; jamais dans une voie endormie. Un clic sur le compagnon l'ouvre toujours ensuite.
+
+- **Liane** : ses marques du cristal (« Tes veines »), le champignon de mémoire pendant sa quête, **l'aveu la nuit**.
+- **Boulon** : la gare de l'Ouest à Ironheart, les **trois échanges avec Liane**, un par arrivée.
+- Chacune se laisse refuser (« Dors bien, Liane. », « On continue. », « Attends. Garde-le encore. ») : un test le
+  vérifie (`src/rules/autoTalk.test.ts`), avec l'aveu une seule fois et les trois échanges dans l'ordre.

@@ -230,6 +230,9 @@ En ligne le 2026-11-03 (tes textes du 3 novembre) :
 - [ ] **La mini-carte**, en bas à droite : le lieu entier, les sorties, les habitants (cuivre), les ennemis (rouge),
       toi (point clair) et le cadre de la vue. Clique dessus : la vue y va ; « Recentrer (C) » la ramène. **M** la
       masque ou l'affiche (aussi dans les Options). Lisible ? Trop petite ? Elle cache quelque chose d'utile ?
+- [ ] **Les compagnons parlent seuls** : avec Liane, laisse venir la nuit (l'auberge, ou un trajet) : elle te parle
+      d'elle-même, sans clic. Avec Boulon et Liane, leurs trois échanges viennent un par arrivée dans un lieu. Trop
+      souvent ? Au mauvais moment ?
 - Remarques :
 
 ## Déjà en ligne, pas encore essayé sur PC

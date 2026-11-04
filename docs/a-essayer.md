@@ -204,7 +204,7 @@ En ligne le 2026-11-03 (tes textes du 3 novembre) :
 - [ ] **Les répliques d'Ilyane** à chaque retour, après un fragment revenu.
 - Remarques :
 
-## Le son, premiers bruitages (fabriqués par le code)
+## Le son, premiers bruitages (fabriqués par le code ; en ligne pour essai le 2026-11-04)
 
 - [ ] Monte le volume (options) : les pas, les coups portés et ratés, les soins, le parchemin à chaque dialogue, un
       objet reçu ; et en arrivant à la Gare Engloutie, **le train qu'on entend avant de le voir**. Trop fort, trop

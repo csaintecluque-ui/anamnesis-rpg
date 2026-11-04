@@ -1101,3 +1101,4 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   bêtes plafonné à +1, 5 PV par niveau ; mis en ligne. La vague 2 est finie.
 - Cyril : « Higgsfield à la fin, fais les bruitages » : huit bruitages fabriqués par le code (`npm run sfx`), branchés sur
   la carte, le combat, les dialogues, et le train de la Gare. 732 tests ; vérifié dans Chromium.
+- Cyril : « Oui pour essayer » : les bruitages mis en ligne, à l'essai.

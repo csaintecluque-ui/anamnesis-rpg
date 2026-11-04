@@ -63,3 +63,11 @@ fois, en accueil, comme ses autres nouvelles : son « Quelles nouvelles ? » a l
 - Les compagnons réagissent au Récit choisi (Liane à « Saule », Boulon aux trains).
 - Un public par nouvelle ville (Sept-Portes, Aetherhaven…), avec ses goûts et ses rumeurs.
 - Des goûts à découvrir (l'aubergiste ne les dit qu'à qui revient) ; un public changeant selon les nouvelles du jour.
+
+## Étude du 3 novembre, vague 3 : un premier soir jamais vide (D5)
+
+Constat de l'étude : arrivé à la Racine la nuit, « il ne reste personne » ; les goûts du public, eux, étaient déjà
+dits avant de choisir (l'aubergiste, puis ♥ et ✗ sur chaque Récit). Désormais, **la première veillée d'une auberge
+s'ouvre aussi la nuit** : « Les derniers veilleurs traînent autour des braises. Sylvan te fait signe : « Pour une
+première, ils resteront bien encore un peu. » » Ensuite, la nuit, la veillée est finie comme avant ; le soir, elle
+est toujours là. `veilleeOpen` (`src/rules/veillees.ts`).

@@ -5,6 +5,7 @@ import { resolveCheck, rollD20, successChance, type Rng } from './checks';
 import { applyEffects, rollBonus, type Effect } from './dialogue';
 import { findRecit, type RecitDef } from './recits';
 import { reputationLevel } from './reputation';
+import { momentOf } from './time';
 
 /**
  * Les veillées du conteur (docs/gdd/veillees.md, jalon 3, étape 4) : le soir, à l'auberge, le héros raconte un de ses
@@ -126,6 +127,17 @@ export function veilleeChoices(state: GameState, publicId: string): VeilleeChoic
     const difficulty = tellingDifficulty(state, pub, recit);
     return [{ recit, ...taste(pub, recit), deja: !!state.flags[toldFlag(pub.id, recit.id)], difficulty, chance: successChance(bonus, 0, difficulty) }];
   });
+}
+
+/**
+ * Is the veillée on (étude du 2026-11-03, D5)? In the evening, always (« soir »); at night, only the first time at this
+ * inn (« tard »): a few late listeners stay for a first telling, rather than an empty room after a long road.
+ */
+export function veilleeOpen(state: Pick<GameState, 'time' | 'flags'>, publicId: string): 'soir' | 'tard' | null {
+  const moment = momentOf(state.time);
+  if (moment === 'soir') return 'soir';
+  const toldHere = Object.keys(state.flags).some((f) => f.startsWith(`veillee-${publicId}-`));
+  return moment === 'nuit' && !toldHere ? 'tard' : null;
 }
 
 /** How many different Récits this public has liked (its renown, up to VEILLEE.renommee). */

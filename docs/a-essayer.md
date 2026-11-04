@@ -241,6 +241,12 @@ En ligne le 2026-11-03 (tes textes du 3 novembre) :
       partie sur le même appareil compte celles de la première. Ça donne envie de rejouer autrement ?
 - Remarques :
 
+## Étude du 3 novembre, vague 3, bloc B : l'écriture (sur la branche)
+
+- [ ] **La première veillée, même la nuit** : arrive à la Racine la nuit, avec un Récit : quelques veilleurs restent
+      pour une première fois.
+- Remarques :
+
 ## Déjà en ligne, pas encore essayé sur PC
 
 - [ ] **Chapitre 4, Sept-Portes** sans le mode surpuissant : l'arrivée par la Porte du sud, le Registre, l'une des trois

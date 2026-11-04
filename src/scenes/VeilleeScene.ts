@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import npcData from '../data/npcs.json';
-import { THEMES, VEILLEE, findPublic, renown, tell, tellingSkill, veilleeChoices, type PublicDef, type VeilleeChoice, type VeilleeResult } from '../rules/veillees';
+import { THEMES, VEILLEE, findPublic, renown, tell, tellingSkill, veilleeChoices, veilleeOpen, type PublicDef, type VeilleeChoice, type VeilleeResult } from '../rules/veillees';
 import { momentOf, waitUntil } from '../rules/time';
 import { fontPx } from '../settings';
 import type { GameState } from '../state/gameState';
@@ -71,9 +71,9 @@ export class VeilleeScene extends Phaser.Scene {
     this.choices = [];
     if (this.result) return this.drawResult(this.result);
     const top = LAYOUT.titleY + LAYOUT.closeHeight / 2 + 18;
-    const moment = momentOf(this.state.time);
-    if (moment !== 'soir') return this.drawClosed(top, moment === 'nuit');
-    this.drawEvening(top);
+    const open = veilleeOpen(this.state, this.pub.id);
+    if (!open) return this.drawClosed(top, momentOf(this.state.time) === 'nuit');
+    this.drawEvening(top, open === 'tard');
   }
 
   /** Text that wraps at the panel's width; returns its bottom edge. */
@@ -109,10 +109,12 @@ export class VeilleeScene extends Phaser.Scene {
     this.choices = [wait, () => this.close()];
   }
 
-  /** The public, its tastes, and the Récits to choose from. */
-  private drawEvening(top: number): void {
+  /** The public, its tastes, and the Récits to choose from; `late`: a first veillée at night, a few listeners left. */
+  private drawEvening(top: number, late = false): void {
     const L = LAYOUT;
-    let y = this.paragraph(top, this.pub.public, 20, CSS.muted, true);
+    const host = npcData.find((n) => n.id === this.pub.hote)?.name.split(' ')[0] ?? '';
+    const audience = late ? `Les derniers veilleurs traînent autour des braises. ${host} te fait signe : « Pour une première, ils resteront bien encore un peu. »` : this.pub.public;
+    let y = this.paragraph(top, audience, 20, CSS.muted, true);
     y = this.paragraph(y + 8, `« ${this.pub.gouts} »`, 20, CSS.parchment);
     const { name, bonus } = tellingSkill(this.state);
     const fame = renown(this.state, this.pub.id);

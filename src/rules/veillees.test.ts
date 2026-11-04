@@ -22,6 +22,7 @@ import {
   tellingSkill,
   toldFlag,
   veilleeChoices,
+  veilleeOpen,
   type Theme,
 } from './veillees';
 
@@ -241,5 +242,21 @@ describe('the rumours open secrets', () => {
     expect(state.flags['fiche-lue']).toBe(true);
     expect(state.character!.xp).toBe(20);
     expect(visibleOptions(DIALOGUES.noam.nodes.tout, state).map((v) => v.option.text)).toEqual(['Les Archives prennent-elles des correspondants ?', 'Je vois.']);
+  });
+});
+
+describe('a first veillée even at night (étude du 2026-11-03, D5)', () => {
+  it('opens every evening, and at night only for a first telling at this inn', () => {
+    const state = createNewGame(testCharacter());
+    state.time = { day: 1, phase: 2 };
+    expect(veilleeOpen(state, 'racine')).toBe('soir');
+    state.time = { day: 1, phase: 0 };
+    expect(veilleeOpen(state, 'racine')).toBeNull();
+    state.time = { day: 1, phase: 3 };
+    expect(veilleeOpen(state, 'racine')).toBe('tard');
+    state.flags[toldFlag('racine', 'saule')] = true;
+    expect(veilleeOpen(state, 'racine')).toBeNull();
+    // Another inn keeps its own first time.
+    expect(veilleeOpen(state, 'nid')).toBe('tard');
   });
 });

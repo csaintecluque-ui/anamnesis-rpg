@@ -168,7 +168,7 @@ describe('les habitants de Sept-Portes écoutent un Récit, une fois chacun (D3)
   it('chaque ville a son Récit hors quête, et chaque Récit nouveau plaît à au moins un public de veillée', () => {
     for (const id of ['odon-passe-rive', 'echelle-de-pim', 'matricule-4-17', 'la-dedicace']) {
       const recit = RECITS.find((r) => r.id === id)!;
-      expect(PUBLICS.some((p) => p.aime.some((t) => recit.themes.includes(t))), id).toBe(true);
+      expect(PUBLICS.some((p) => p.aime.some((t) => (recit.themes ?? []).includes(t))), id).toBe(true);
     }
   });
 });

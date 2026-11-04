@@ -1183,3 +1183,4 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
 - Étape 3 en ligne : les haltes de Thryn'vek (un soir, trois haltes, chez Ish'Lenne), la halte muette (les nombres de la Sèche retrouvés de bouche en bouche), le Récit « Thryn'vek ». 917 tests.
 - Étape 4 en ligne : « Les deux nombres », « Le Forage Noir », « Sept nuits le même rêve », « Celui qui voulait s'arrêter », « Le dragonnet » ; les Guides de l'Eau et les Matriarches de Cristaux. 930 tests.
 - Étape 5 en ligne : douze passants, dix-huit habitants qui parlent seuls, la veillée de la Halte et ses deux rumeurs, cinq habitants qui écoutent un Récit. Marche-Mère complet : 931 tests ; vérifié dans Chromium. Notion : page « Marche-Mère » (le validé seulement).
+- Cyril : « Oui pour les trois » : les inventions de Marche-Mère validées (Notion à jour) ; la suite : Glacialis, Khrysos d'abord (l'ordre validé de `gdd/villes.md`).

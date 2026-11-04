@@ -98,7 +98,7 @@ des routes, et ce qu'on y lit.
 | 4 | « Les deux nombres » (Ahm’Ras, Yel’Dara : dits, gardés, ou confiés à la seconde tête ; le jeu ne les dit jamais) ; « Le Forage Noir » (Eskil Kolm, la Matriarche : Marcheur, rentré, ou rendu à Ferros) ; « Sept nuits le même rêve » (Ysha’Ren et Dova’Ren : le Temple, le baume de Nes’Mira, ou son choix) ; « Celui qui voulait s’arrêter » (Oss’Amar : il remarche, Longue-Ombre le porte, ou il reste) ; « Le dragonnet » (Kéo’Sa, Saal’Ema : le lien, les Liens-Dragons, une amitié en attendant ; un dragon vient chercher qui siffle dans le désert) ; les adhésions aux Guides de l’Eau (le chariot perdu) et aux Matriarches de Cristaux (le lot de la Mer de Verre, et le cristal vivant) | en ligne |
 | 5 | Douze passants (le Camp, le convoi, le Cœur Spiral, Longue-Ombre, la Halte), les phrases spontanées de dix-huit habitants, la veillée de la Halte (on y veut des histoires d’ailleurs, de familles et de l’Ancien Monde ; deux rumeurs : le Coffre des routes, ce que Longue-Ombre permet), cinq habitants qui écoutent un Récit (Saal’Ema, Kéo’Sa, Varo’Ssin, Eskil, Ish’Lenne) | en ligne |
 
-**À valider** (inventés au montage) : les six noms de la caisse de la Communion (**Inès, six ans ; Pavel, huit ans ; Lila,
+**Validés par Cyril le 2026-11-04** (« Oui pour les trois ») : les six noms de la caisse de la Communion (**Inès, six ans ; Pavel, huit ans ; Lila,
 cinq ans ; Oren, sept ans ; Nadia, neuf ans ; Sacha, six ans**) ; les mots de l’épisode (« Au quai sans nom, une caisse de
 plomb, et personne. Les Marcheurs ont attendu un jour. Personne n’est venu. Ils ont planté le verre, pour qu’on sache que
 c’était là. ») ; l’Écho « Personne n’est venu » (les Marcheurs qui attendent un jour autour de la caisse, puis plantent le

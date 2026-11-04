@@ -232,22 +232,25 @@ mkdirSync(OUT, { recursive: true });
 for (const tile of TILES.filter((t) => t.art)) {
   const { src, kind } = tile.art;
   const srcUrl = new URL(src, RAW);
-  if (!existsSync(srcUrl)) {
-    console.warn(`${tile.name} : image brute absente (${src}), frame inchangée`);
-    continue;
-  }
-  const frame =
-    kind === 'ground' ? await groundFrame(srcUrl, tile.art.seam ?? 'both') : kind === 'wall' ? await wallFrame(srcUrl, tile.art) : await standingFrame(srcUrl, tile.art);
-  await frame.toFile(fileURLToPath(new URL(`${tile.name}.png`, OUT)));
-  // Large decor: the full-size image the map draws once over its block of cells (`big` in tiles-def).
+  if (existsSync(srcUrl)) {
+    const frame =
+      kind === 'ground' ? await groundFrame(srcUrl, tile.art.seam ?? 'both') : kind === 'wall' ? await wallFrame(srcUrl, tile.art) : await standingFrame(srcUrl, tile.art);
+    await frame.toFile(fileURLToPath(new URL(`${tile.name}.png`, OUT)));
+    console.log(`${tile.name} ← ${src}`);
+  } else console.warn(`${tile.name} : image brute absente (${src}), frame inchangée`);
+  // Large decor: the full-size image the map draws once over its block of cells (`big` in tiles-def), made even when
+  // the cell's own picture is missing (the bridge: water under it, its own picture over it).
   if (tile.big) {
-    // Its own picture when the cell tile is something else (the bridge: water under it).
     const bigSrc = tile.big.art.src ? new URL(tile.big.art.src, RAW) : srcUrl;
+    if (!existsSync(bigSrc)) {
+      console.warn(`${tile.name} (grand décor) : image brute absente, inchangé`);
+      continue;
+    }
     const big = await standingFrame(bigSrc, { ...tile.art, ...tile.big.art, frameWidth: tile.big.width, frameHeight: tile.big.height });
     mkdirSync(DECOR_OUT, { recursive: true });
     await big.toFile(fileURLToPath(new URL(`${tile.name}.png`, DECOR_OUT)));
+    console.log(`${tile.name} (grand décor) ← ${tile.big.art.src ?? src}`);
   }
-  console.log(`${tile.name} ← ${src}`);
 }
 
 const PORTRAIT_OUT = new URL('../public/portraits/', import.meta.url);

@@ -17,9 +17,10 @@ export interface BigGroundArt {
 }
 
 export const BIG_GROUND_ART: Record<string, BigGroundArt> = {
-  // Measured on public/decor/pont.png: the deck lay about 18 px behind the feet line (half a cell along the rows); its
-  // front railing and edge rise 14 px, from its first front post (x 34).
-  pont: { shift: { x: -18, y: 9 }, front: { height: 14, fromX: 34 } },
+  // Measured on public/decor/pont.png: its deck lies on the feet line once moved half a cell along the rows (−18, +9)
+  // and lowered by the 26 px of its east footing, whole since 2026-11-04, which sinks below the block into the bank;
+  // its front railing and edge rise 14 px, from its first front post (x 34).
+  pont: { shift: { x: -18, y: 9 + 26 }, front: { height: 14, fromX: 34 } },
 };
 
 /** An opaque enough pixel belongs to the picture. */

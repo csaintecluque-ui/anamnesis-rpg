@@ -291,7 +291,9 @@ footings at both ends. No water, no river, no ground, no grass, no cast shadow. 
 (grand décor de sol), appuis enfoncés dans les berges ; la lanterne qui se trouvait sur son passage est retirée.
 Recalage du 2026-11-04 (retour de Cyril : le héros « passe à côté ») : l'image est posée 18 px à gauche et 9 px plus
 bas (une demi-case vers l'avant), et sa rambarde de devant est redessinée au-dessus des marcheurs
-(`src/engine/bigGround.ts`) ; aucune nouvelle génération.
+(`src/engine/bigGround.ts`) ; aucune nouvelle génération. Le même jour, l'image entière : l'image brute d'origine,
+reprise de l'historique Higgsfield (variante A, `e3e82355`, identique au pixel près à l'ancienne une fois traitée ;
+aucun crédit), est retraitée sans couper son appui est (`foot: 120` au lieu de 146) ; le placement compense (+26 px).
 
 ## Jalon 2, étape 4 : contenu (2026-11-01, 22 images, 16 crédits, solde 19)
 

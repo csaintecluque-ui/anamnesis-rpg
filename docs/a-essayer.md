@@ -218,7 +218,8 @@ En ligne le 2026-11-03 (tes textes du 3 novembre) :
 ## Le pont de Gardebois et la marche à la souris (en ligne pour essai le 2026-11-04)
 
 - [ ] **Traverse le pont** (Gardebois, à l'est du village) : le héros marche sur le tablier, derrière la rambarde de
-      devant qui lui cache les pieds ; les compagnons et les passants aussi. Encore « à côté » à un endroit ?
+      devant qui lui cache les pieds ; les compagnons et les passants aussi. Le pont est entier : son appui de pierre
+      est sur la berge est, plus coupé net. Encore « à côté » ou « image de fond » à un endroit ?
 - [ ] **Plus de marche au clavier** (flèches, ZQSD) : sur la carte comme au combat, on se déplace à la souris ; E,
       Espace, Entrée, I, J, C, Échap et les touches du combat restent.
 - Remarques :

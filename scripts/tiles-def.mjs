@@ -51,7 +51,8 @@ export const TILES = [
     name: 'pont',
     // Water on each cell; the bridge itself is one picture over its block, under the walkers (big, ground layer).
     art: { src: 'lot1/eau.png', kind: 'ground' },
-    big: { width: 176, height: 120, art: { src: 'jalon2/pont-a.png', kind: 'standing', maxWidth: 172, maxHeight: 118, foot: 146 } },
+    // Whole, footings included (2026-11-04): placed on the map by src/engine/bigGround.ts.
+    big: { width: 176, height: 120, art: { src: 'jalon2/pont-a.png', kind: 'standing', maxWidth: 172, maxHeight: 118, foot: 120 } },
     svg:
       diamond('#2c4a55') +
       `<path d="M14 73 L50 91 L58 87 L22 69 Z" fill="#6b4a32" stroke="${INK}" stroke-width="1"/>` +

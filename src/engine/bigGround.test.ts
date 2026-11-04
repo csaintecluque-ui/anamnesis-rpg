@@ -27,10 +27,10 @@ describe('le devant d’un grand décor de sol (la rambarde du pont)', () => {
     expect(alpha(data, 2, 2)).toBe(255);
   });
 
-  it('le pont est décrit : déplacé d’une demi-case vers l’avant, une rambarde d’une douzaine de pixels', () => {
+  it('le pont est décrit : déplacé vers l’avant et vers le bas, une rambarde d’une douzaine de pixels', () => {
     const { shift, front } = BIG_GROUND_ART.pont;
-    // Half a cell along the rows (−32, +16 per cell) moves the deck's line by 16 px at a given x.
-    expect(shift.y - shift.x / 2).toBeGreaterThanOrEqual(14);
+    expect(shift.x).toBeLessThan(0);
+    expect(shift.y).toBeGreaterThan(0);
     expect(front.height).toBeGreaterThanOrEqual(10);
     expect(front.height).toBeLessThan(20);
   });

@@ -1112,3 +1112,7 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   marcheurs. Le dessin est recalé (`src/engine/bigGround.ts`) et sa rambarde de devant est redessinée par-dessus les
   marcheurs du pont (14 px de chaque colonne, sans l'appui de pierre devant lequel pousse une fougère). Vérifié à
   l'écran case par case. 736 tests. Mis en ligne pour essai.
+- Cyril : « oui on fait ça » : l'image d'origine du pont reprise de son historique Higgsfield (variante A, sans
+  crédit ; retraitée, elle redonne l'ancienne au pixel près) ; le pont est maintenant entier, appui de pierre est
+  compris, posé sur la berge. `npm run art` refait un grand décor même sans l'image de la case (l'eau). Vérifié à
+  l'écran. Mis en ligne pour essai.

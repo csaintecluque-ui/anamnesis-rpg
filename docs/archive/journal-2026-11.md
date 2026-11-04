@@ -1130,3 +1130,10 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   principales à plusieurs issues (7, 3, 3), retenues sur l'appareil. H3 (bulles des passants) était déjà fait
   (3,8 s). 750 tests ; chaque point vérifié dans Chromium. Les Options ne disaient plus vrai sur le son : corrigé.
 - Cyril : « Garde les noms, mets en ligne » : les noms des fins validés ; le bloc A mis en ligne.
+- Cyril : « Oui on attaque le Bloc B ». Mesuré d'abord : 51 % d'écrans à une réponse, mais 308 sont des fins de
+  conversation ; 80 seulement sont sans choix au milieu (11 %), et une seule suite dépasse deux écrans (Kael).
+  Sur la branche : **D5** la première veillée d'une auberge s'ouvre aussi la nuit ; **D2** l'audience de Kael en
+  deux tons ; **Gardebois** (H4, F4, D3) : ce qui brille sous le pont, la boîte d'**Odon Passe-Rive** (le passeur du
+  lavoir) et son Récit chez Sylvan, et cinq habitants qui écoutent un Récit (Tobias, Maëlis, Nell, Brann, Liane).
+  Propositions à valider (`univers/lieux/gardebois.md`). Le plafond de Récits reste Mémoire + 1 : à trancher. 756
+  tests ; vérifié dans Chromium.

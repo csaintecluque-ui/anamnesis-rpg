@@ -559,15 +559,6 @@ export class CombatScene extends Phaser.Scene {
     this.tryAttack(target);
   }
 
-  /** The arrows (or ZQSD, WASD): one step, in Déplacer mode, if this turn's PA allow it. */
-  private stepHero(x: number, y: number): void {
-    if (!this.awaitingHero || this.busy || this.ended || this.mode !== 'move') return;
-    const hero = this.actor();
-    const next = { col: hero.tile.col + Math.sign(x + y), row: hero.tile.row + Math.sign(y - x) };
-    const path = this.reach.get(tileKey(next));
-    if (path) void this.heroMove(path);
-  }
-
   private setHovered(id: string | null): void {
     this.hovered = id;
     this.refreshAll();
@@ -965,16 +956,12 @@ export class CombatScene extends Phaser.Scene {
     onKeys(this, DIGIT_KEYS[0], () => this.setMode('move'));
     onKeys(this, ['TAB'], () => this.focusNext());
     onKeys(this, ['ENTER'], () => this.strikeFocus());
-    onKeys(this, ['UP', 'W'], () => this.stepHero(0, -1));
-    onKeys(this, ['DOWN', 'S'], () => this.stepHero(0, 1));
-    onKeys(this, ['LEFT', 'Q', 'A'], () => this.stepHero(-1, 0));
-    onKeys(this, ['RIGHT', 'D'], () => this.stepHero(1, 0));
     [0, 1].forEach((i) => onKeys(this, DIGIT_KEYS[i + 1], () => i < this.actor().attacks.length && this.setMode(i)));
     onKeys(this, ['Z'], () => this.cycleZone());
     onKeys(this, ['SPACE'], () => this.endHeroTurn());
     if (SHOW_KEY_HINTS) {
       this.add
-        .text(GAME_WIDTH / 2, GAME_HEIGHT - 16, `Clavier : 1 Déplacer (flèches pour avancer) · 2 et 3 attaques${power ? ' · 4 pouvoir' : ''} · Tab viser, Entrée frapper · Z zone visée · Espace fin du tour`, {
+        .text(GAME_WIDTH / 2, GAME_HEIGHT - 16, `Clavier : 1 Déplacer · 2 et 3 attaques${power ? ' · 4 pouvoir' : ''} · Tab viser, Entrée frapper · Z zone visée · Espace fin du tour`, {
           fontFamily: FONT_SERIF,
           fontSize: '16px',
           color: CSS.muted,

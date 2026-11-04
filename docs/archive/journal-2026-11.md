@@ -1106,3 +1106,9 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   (interrupteur silencieux de l'iPhone, audio réveillé à chaque toucher et au retour au premier plan) mis en ligne.
 - Cyril : pas métalliques, « une pièce » en combat : mesuré (pas et coup sous 300 Hz, inaudibles sur téléphone ; le
   soin en clochette) ; pas, coup, soin et train refaits dans les médiums ; un test garde chaque son audible.
+- Cyril : la marche au clavier « injouable » sur des losanges ; au pont, le héros « passe à côté, pas dessus », « on
+  voit que c'est une image de fond ». Marche au clavier retirée (carte et combat ; les autres touches restent).
+  Mesuré : le tablier était dessiné une demi-case derrière la ligne des pieds (18 px), et tout le pont sous les
+  marcheurs. Le dessin est recalé (`src/engine/bigGround.ts`) et sa rambarde de devant est redessinée par-dessus les
+  marcheurs du pont (14 px de chaque colonne, sans l'appui de pierre devant lequel pousse une fougère). Vérifié à
+  l'écran case par case. 736 tests. Mis en ligne pour essai.

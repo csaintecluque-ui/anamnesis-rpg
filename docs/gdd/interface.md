@@ -165,10 +165,11 @@ L'écran logique reste 1280 × 720, dessiné 1,5 fois plus grand sur un écran 1
   - au combat, sur un combattant : PV, Défense, portée, effets ; sur la carte du monde, le lieu et le temps de marche ;
   - dans l'inventaire, la fiche suit l'objet sous la souris.
 - **Raccourcis clavier** :
-  - carte : **flèches, ZQSD ou WASD** pour marcher (une case tant que la touche est tenue) ; **E, Espace ou Entrée**
-    pour parler ou agir avec le plus proche (à trois pas au plus) ; I, J, Échap comme avant ;
+  - carte : **E, Espace ou Entrée** pour parler ou agir avec le plus proche (à trois pas au plus) ; I, J, Échap comme
+    avant. On marche **à la souris seulement** : les flèches (ZQSD, WASD) sont retirées le 2026-11-04, injouables sur
+    une grille en losanges (retour de Cyril) ;
   - dialogue : 1 à 9, et Entrée ou Espace quand il n'y a qu'une réponse ;
-  - combat : 1 Déplacer (et les flèches pour avancer d'une case), 2 et 3 les armes, 4 le pouvoir, **Tab** pour viser
+  - combat : 1 Déplacer (la case se choisit à la souris), 2 et 3 les armes, 4 le pouvoir, **Tab** pour viser
     un ennemi, **Entrée** pour le frapper, Z la zone, Espace la fin du tour ; Fuir reste à la souris ;
   - carte du monde : **Tab** ou les flèches pour passer d'un lieu à l'autre, **Entrée** pour partir, **Échap** pour fermer ;
   - inventaire : ← → les onglets, ↑ ↓ les objets, 1 à 4 les boutons ; journal : ← → ou Tab, les onglets ;
@@ -187,8 +188,8 @@ ne disait rien, traverser Gardebois prenait 8 s.
   sous le menu, ou le premier pas du héros ramènent la vue sur lui. Un appui qui bouge de plus de 10 px est un glisser,
   pas un clic.
 - **Case interdite** (A2) : un losange rouge barré qui s'efface, et « On ne passe pas par là. » sous la souris
-  (« Rien par là. » hors de la carte) ; au clavier, le losange seul.
-- **Courir** (A3) : **Maj** tenue en cliquant ou en marchant aux flèches, ou un **double clic** : un pas en 80 ms au
+  (« Rien par là. » hors de la carte).
+- **Courir** (A3) : **Maj** tenue en cliquant, ou un **double clic** : un pas en 80 ms au
   lieu de 160, l'animation deux fois plus vite.
 - **Zone de clic** (A5) : le nom d'un PNJ au-dessus de sa tête se clique aussi ; sur écran tactile, le corps compte
   une fois et demie plus large.

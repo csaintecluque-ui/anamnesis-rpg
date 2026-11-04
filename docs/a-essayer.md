@@ -56,11 +56,10 @@ Lien du jeu : https://csaintecluque-ui.github.io/anamnesis-rpg/ (la version s'af
 - [ ] **Survol à la souris** sur la carte : un habitant, une porte (ouverte, fermée), une caisse, un ennemi, un Écho :
       l'infobulle dit ce que fait le clic ; la main remplace la flèche.
 - [ ] **Survol d'une option de dialogue** à jet de dés ou à condition (même grisée) : le jet et tes chances.
-- [ ] **Marcher au clavier** : flèches ou ZQSD (WASD aussi), en tenant la touche ; **E** (ou Espace, Entrée) pour parler
-      ou agir avec le plus proche.
+- [ ] **E** (ou Espace, Entrée) pour parler ou agir avec le plus proche ; on marche à la souris seulement.
 - [ ] **Dialogue** : 1 à 9 pour répondre ; Entrée quand il n'y a qu'une réponse.
 - [ ] **Combat** : la barre d'actions et ses touches (1 Déplacer, 2 et 3 les armes, 4 le pouvoir, Z la zone, Espace
-      fin du tour) ; les flèches pour avancer d'une case ; **Tab** pour viser, **Entrée** pour frapper ; le survol d'un
+      fin du tour) ; **Tab** pour viser, **Entrée** pour frapper ; le survol d'un
       ennemi (PV, défense, portée).
 - [ ] **Carte du monde** : Tab pour passer d'un lieu à l'autre, Entrée pour partir, Échap pour fermer ; le survol
       d'un lieu (le temps de marche).
@@ -159,7 +158,7 @@ Critère de l'étude : le chapitre 1 sans frustration de navigation, la caisse g
 
 - [ ] **La caméra** : glisse la vue à la souris, zoome à la molette, « Recentrer (C) » ; la vue revient au premier pas.
 - [ ] **Clic sur un mur, un étal, le pont** : le losange rouge et « On ne passe pas par là. »
-- [ ] **Courir** : Maj + clic, ou double clic ; Maj + flèches.
+- [ ] **Courir** : Maj + clic, ou double clic.
 - [ ] **Le nom d'un PNJ** se clique comme son corps.
 - [ ] **Un héros de parole** (Présence haute, Mêlée 3, une dague) : la caisse et ses deux Rôdeurs, seul, au niveau 1.
       La simulation dit 8 fois sur 10 ; et toi ?
@@ -214,6 +213,14 @@ En ligne le 2026-11-03 (tes textes du 3 novembre) :
 - [x] **Sur le téléphone** (aucun son au premier essai ; correctif en ligne le 2026-11-04) : le son marche. recharge depuis l'écran
       titre (la version en bas à gauche doit avoir changé), touche l'écran une fois, monte le volume média du
       téléphone. Toujours rien ? Dis-moi si c'est l'iPhone ou la Samsung, et si l'interrupteur silencieux était mis.
+- Remarques :
+
+## Le pont de Gardebois et la marche à la souris (en ligne pour essai le 2026-11-04)
+
+- [ ] **Traverse le pont** (Gardebois, à l'est du village) : le héros marche sur le tablier, derrière la rambarde de
+      devant qui lui cache les pieds ; les compagnons et les passants aussi. Encore « à côté » à un endroit ?
+- [ ] **Plus de marche au clavier** (flèches, ZQSD) : sur la carte comme au combat, on se déplace à la souris ; E,
+      Espace, Entrée, I, J, C, Échap et les touches du combat restent.
 - Remarques :
 
 ## Déjà en ligne, pas encore essayé sur PC

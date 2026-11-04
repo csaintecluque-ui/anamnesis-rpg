@@ -289,6 +289,9 @@ railings with posts on both long sides, a few hanging lanterns with glowing cyan
 footings at both ends. No water, no river, no ground, no grass, no cast shadow. » Gardée : `assets/raw/jalon2/pont-a.png`
 (pente ≈ 0,5, celle de la grille ; la B était trop raide). Image unique de 176 × 120 posée sur les deux cases d'eau
 (grand décor de sol), appuis enfoncés dans les berges ; la lanterne qui se trouvait sur son passage est retirée.
+Recalage du 2026-11-04 (retour de Cyril : le héros « passe à côté ») : l'image est posée 18 px à gauche et 9 px plus
+bas (une demi-case vers l'avant), et sa rambarde de devant est redessinée au-dessus des marcheurs
+(`src/engine/bigGround.ts`) ; aucune nouvelle génération.
 
 ## Jalon 2, étape 4 : contenu (2026-11-01, 22 images, 16 crédits, solde 19)
 

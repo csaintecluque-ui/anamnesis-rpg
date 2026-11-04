@@ -4,6 +4,7 @@ import { MAPS } from '../data/maps';
 import npcData from '../data/npcs.json';
 import { TILE_HEIGHT, TILE_WIDTH, screenToTile, tileToScreen, type Tile } from '../engine/iso';
 import { carveArena, farEdgeTiles, toArena } from '../engine/arena';
+import { BIG_GROUND_ART, keepFront, type BigGroundArt } from '../engine/bigGround';
 import { FACINGS, facingOf, type Facing } from '../engine/facing';
 import { FADED_ALPHA, bodyBox, obstacleBox, overlaps, type Box } from '../engine/occlusion';
 import { findPath } from '../engine/pathfinding';
@@ -120,10 +121,7 @@ export class MapScene extends Phaser.Scene {
   private fadedForHero = new Set<Phaser.GameObjects.Image>();
   /** The traps of a sleeping line seen in the lamp's light (docs/gdd/voies.md, « La lampe »). */
   private trapMarks!: Phaser.GameObjects.Graphics;
-  /** Arrows, ZQSD (AZERTY) or WASD (QWERTY): one cell at a time, as long as the key is held (« PC d'abord »). */
-  private moveKeys: Phaser.Input.Keyboard.Key[][] = [];
-  private shiftKey?: Phaser.Input.Keyboard.Key;
-  /** The hero runs to the current goal (Maj, or a double click). */
+  /** The hero runs to the current goal (Maj + clic, or a double click). Walking is by the mouse only (Cyril, 2026-11-04). */
   private running = false;
   private lastTap = { at: 0, col: -1, row: -1 };
   /** The free camera (étude, A1): its zoom (× RENDER_SCALE), the press being dragged, and whether it follows the hero. */
@@ -253,7 +251,7 @@ export class MapScene extends Phaser.Scene {
       if (HAS_MOUSE) this.onHover(pointer);
     });
     this.input.on('wheel', (_p: Phaser.Input.Pointer, _o: unknown, _dx: number, dy: number) => this.zoomBy(dy > 0 ? -ZOOM_STEP : ZOOM_STEP));
-    this.setUpMoveKeys();
+    this.clearOnPause();
     onKeys(this, ['E', 'SPACE', 'ENTER'], () => this.interactNearest());
     onKeys(this, ['C', 'HOME'], () => this.recenter());
     // Only while the map runs: overlays pause it, so these keys cannot reopen anything over them.
@@ -307,47 +305,21 @@ export class MapScene extends Phaser.Scene {
 
   update(_time: number, delta: number): void {
     if (this.state) this.state.playTimeSeconds += delta / 1000;
-    if (!this.moving && this.state) this.stepByKeys();
   }
 
   // --- Clavier et souris (feuille de route, chantier 0 : « PC d'abord ») ----------------------------
 
-  /** Screen directions to cells: up the screen is north-west on the map, right is north-east. */
-  private setUpMoveKeys(): void {
-    const keyboard = this.input.keyboard;
-    if (!keyboard) return;
-    const keys = (names: string[]) => names.map((n) => keyboard.addKey(n));
-    this.moveKeys = [keys(['UP', 'Z', 'W']), keys(['DOWN', 'S']), keys(['LEFT', 'Q', 'A']), keys(['RIGHT', 'D'])];
-    this.shiftKey = keyboard.addKey('SHIFT');
-    // A key released while a dialogue was open must not keep the hero walking.
-    const onResume = () => keyboard.resetKeys();
-    // An overlay opens (a dialogue, the inventory, a fight): no tooltip nor hand cursor left behind.
+  /** An overlay opens (a dialogue, the inventory, a fight): no tooltip nor hand cursor left behind. */
+  private clearOnPause(): void {
     const onPause = () => {
       this.input.setDefaultCursor('default');
       if (this.scene.isActive('Hud')) this.hud().tip(null);
     };
-    this.events.on(Phaser.Scenes.Events.RESUME, onResume);
     this.events.on(Phaser.Scenes.Events.PAUSE, onPause);
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
-      this.events.off(Phaser.Scenes.Events.RESUME, onResume);
       this.events.off(Phaser.Scenes.Events.PAUSE, onPause);
       this.input.setDefaultCursor('default');
     });
-  }
-
-  private stepByKeys(): void {
-    const [up, down, left, right] = this.moveKeys.map((group) => group.some((k) => k.isDown));
-    const y = (down ? 1 : 0) - (up ? 1 : 0);
-    const x = (right ? 1 : 0) - (left ? 1 : 0);
-    if (!x && !y) return;
-    // Screen (x, y) to cells: col grows to the lower right, row to the lower left.
-    const dc = Math.sign(x + y);
-    const dr = Math.sign(y - x);
-    const next = { col: this.heroTile.col + dc, row: this.heroTile.row + dr };
-    this.hud().tip(null);
-    this.running = !!this.shiftKey?.isDown;
-    if (this.walkable(next)) this.goTo(next, () => this.checkExit());
-    else this.showBlocked(next);
   }
 
   /** E, Space or Enter: the nearest person or thing within reach (a few steps at most), as a click would. */
@@ -410,13 +382,34 @@ export class MapScene extends Phaser.Scene {
         if (big && isBigAnchor(this.map, { col, row }, this.map.ground)) bigGround.push({ col, row, name: big });
       }
     }
-    // A block of w × h cells: its image is centred (w − h) half-cells left of the front cell (src/engine/tiledMap.ts).
+    // A block of w × h cells: its image is centred (w − h) half-cells left of the front cell (src/engine/tiledMap.ts),
+    // then moved so the bridge's deck lies under the walkers' feet; its front railing goes over them (bigGround.ts).
     for (const tile of bigGround) {
+      const key = `decor-${tile.name}`;
+      if (!this.textures.exists(key)) continue;
       const { cols, rows } = bigBlock(this.map, tile, this.map.ground);
-      const image = this.textures.get(`decor-${tile.name}`).getSourceImage();
+      const image = this.textures.get(key).getSourceImage() as HTMLImageElement;
+      const art = BIG_GROUND_ART[tile.name];
       const f = this.feet(tile);
-      rt.draw(`decor-${tile.name}`, f.x - ((cols - rows) * TILE_WIDTH) / 4 - image.width / 2, f.y - image.height);
+      const x = f.x - ((cols - rows) * TILE_WIDTH) / 4 - image.width / 2 + (art?.shift.x ?? 0);
+      const y = f.y - image.height + (art?.shift.y ?? 0);
+      rt.draw(key, x, y);
+      if (art) this.add.image(x, y, this.frontOf(key, image, art.front)).setOrigin(0, 0).setDepth(f.y + 1);
     }
+  }
+
+  /** The front of a large ground decor (its railing), made once from its picture. */
+  private frontOf(key: string, image: HTMLImageElement, front: BigGroundArt['front']): string {
+    const frontKey = `${key}-devant`;
+    if (this.textures.exists(frontKey)) return frontKey;
+    const canvas = this.textures.createCanvas(frontKey, image.width, image.height);
+    if (!canvas) return key;
+    canvas.context.drawImage(image, 0, 0);
+    const pixels = canvas.context.getImageData(0, 0, image.width, image.height);
+    keepFront(pixels.data, image.width, image.height, front);
+    canvas.context.putImageData(pixels, 0, 0);
+    canvas.refresh();
+    return frontKey;
   }
 
   private drawObstacles(): void {

@@ -4,6 +4,7 @@ import { CAPACITES } from '../rules/combat';
 import { ECHOS, TYPE_LABELS, collectedEchos, empriseLabel } from '../rules/echos';
 import { findLocation } from '../state/gameState';
 import { journalQuests, journalRecits, journalReputation } from '../rules/journal';
+import { filPage } from '../rules/fil';
 import { rememberEndings } from '../rules/fins';
 import { NORMAL_DIFFICULTY, characterFiche } from '../rules/fiche';
 import { herosPage } from '../rules/heros';
@@ -21,9 +22,10 @@ import { formatDate, momentOf } from '../rules/time';
 
 const MOMENT_WORDS = { matin: 'au matin', midi: 'à midi', soir: 'au soir', nuit: 'la nuit' } as const;
 
-type Tab = 'fiche' | 'quetes' | 'recits' | 'echos' | 'reputation' | 'bestiaire';
+type Tab = 'fiche' | 'fil' | 'quetes' | 'recits' | 'echos' | 'reputation' | 'bestiaire';
 const TABS: [Tab, string][] = [
   ['fiche', 'Fiche'],
+  ['fil', 'Le fil'],
   ['quetes', 'Quêtes'],
   ['recits', 'Récits'],
   ['echos', 'Échos'],
@@ -122,6 +124,7 @@ export class JournalScene extends Phaser.Scene {
       this.layer.add(container);
     });
     if (this.tab === 'fiche') this.drawFiche();
+    else if (this.tab === 'fil') this.drawFil();
     else if (this.tab === 'quetes') this.drawQuests();
     else if (this.tab === 'recits') this.drawRecits();
     else if (this.tab === 'bestiaire') this.drawBestiary();
@@ -174,6 +177,39 @@ export class JournalScene extends Phaser.Scene {
    * The character sheet (étude du 2026-11-03, B1): the values and the experience, the attributes, what each skill adds
    * to the die, the feats, the equipment, the companions.
    */
+  /** Le fil directeur (docs/gdd/fil-directeur.md): the question, what is known, the seven crates, the next lead. */
+  private drawFil(): void {
+    const fil = filPage(this.state);
+    const top = LAYOUT.listTop;
+    let y = top;
+    if (fil.question) {
+      const question = this.text(LIST_X, y, fil.question, 26, CSS.copper, GAME_WIDTH - 2 * LIST_X);
+      y = question.y + question.height + 14;
+    }
+    const knownWidth = 760;
+    this.text(LIST_X, y, 'Ce que je sais', 20, CSS.copper);
+    y += 30;
+    for (const line of fil.savoirs) {
+      const t = this.text(LIST_X, y, `· ${line}`, 19, CSS.parchment, knownWidth);
+      y += t.height + 8;
+    }
+    if (fil.piste) {
+      y += 10;
+      this.text(LIST_X, y, 'La piste', 20, CSS.copper);
+      const t = this.text(LIST_X, y + 30, fil.piste.texte, 19, CSS.parchment, knownWidth);
+      y += 30 + t.height;
+    }
+    // The seven crates, on the right: found, taken by others, or not yet.
+    const x = LIST_X + knownWidth + 50;
+    this.text(x, top, 'Les sept caisses', 20, CSS.copper);
+    const marks = { inconnue: '○', trouvee: '●', prise: '✕' } as const;
+    fil.caisses.forEach((c, i) => {
+      const color = c.etat === 'inconnue' ? CSS.muted : c.etat === 'trouvee' ? CSS.parchment : CSS.copper;
+      this.text(x, top + 34 + i * 30, `${marks[c.etat]}  ${c.continent}`, 19, color);
+    });
+    this.text(x, top + 34 + 7 * 30 + 8, '● trouvée · ✕ prise par d’autres · ○ pas encore', 15, CSS.muted, GAME_WIDTH - x - 30);
+  }
+
   private drawFiche(): void {
     const fiche = characterFiche(this.state);
     if (!fiche) return;

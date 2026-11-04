@@ -270,6 +270,12 @@ En ligne le 2026-11-03 (tes textes du 3 novembre) :
       qui sonnent faux ?
 - Remarques :
 
+## Le fil directeur (en ligne le 2026-11-04)
+
+- [ ] **Journal, onglet « Le fil »** : ce que tu sais, la piste, les sept caisses. Clair ? Il manque quelque chose ?
+- [ ] **La carte du monde** : un anneau cuivré marque la piste (après Sept-Portes : Zephyria, au bord de la carte).
+- Remarques :
+
 ## Déjà en ligne, pas encore essayé sur PC
 
 - [ ] **Chapitre 4, Sept-Portes** sans le mode surpuissant : l'arrivée par la Porte du sud, le Registre, l'une des trois

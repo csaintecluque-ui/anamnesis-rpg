@@ -1154,3 +1154,4 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   pour 52 habitants, une bulle à la fois. Proposé puis **validé** (« 1 oui, 2 oui, 3 c, 4 oui ») : le fil directeur
   (sept caisses, une par continent ; la dame en gris ; la maladie qui s'étend ; chaque caisse, une pièce de la machine
   et la liste de ceux qui voyageaient avec elle). Passants et phrases mis en ligne pour qu'il les juge en jouant.
+- Construit et mis en ligne : la page « Le fil » au journal (question, ce que je sais, la piste, les sept caisses) et l'anneau de la piste sur la carte du monde. 773 tests ; vérifié dans Chromium.

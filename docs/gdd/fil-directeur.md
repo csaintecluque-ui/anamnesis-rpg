@@ -67,3 +67,13 @@ reste des caisses et des alliances décide. Les fins sont celles de Cyril.
    qu'est la machine, et ce qu'elle fait, reste à Cyril ; le jeu ne l'explique pas avant la fin.
 3. L'urgence (la maladie s'étend à chaque voie rouverte ; Ilyane oublie plus vite) : **oui**.
 4. La page « Le fil » au journal et les marques sur la carte du monde, avant Aetherhaven : **oui**.
+
+## Construit (2026-11-04)
+
+- **La page « Le fil »**, deuxième onglet du journal (`src/rules/fil.ts`, données `src/data/fil.json`) : la question
+  (une fois la page du dernier départ lue), « Ce que je sais » (une ligne par pas de l'histoire : la foreuse, les
+  fouilleurs, la clé et son sort, la main d'Edda Varn, la page, les caisses dispersées), « La piste », et les sept
+  caisses (○ pas encore, ● trouvée, ✕ prise par d'autres). Avant tout : « Ilyane t'a envoyé·e à la Gare Engloutie… ».
+- **La carte du monde** entoure la piste d'un anneau cuivré qui respire (« La piste ») : le lieu de la quête
+  principale en cours, puis « Zephyria · Aetherhaven » après Sept-Portes.
+- Les caisses ont leurs repères (`trouvee`, `prise`) à écrire avec chaque ville.

@@ -1,0 +1,107 @@
+{
+  "question": {
+    "flag": "page-lue",
+    "texte": "Où sont les sept caisses du dernier train, et qui les attend ?"
+  },
+  "avant": "Ilyane t’a envoyé·e à la Gare Engloutie, à l’est de Gardebois : écoute l’Écho du dernier train. Le fil commence là.",
+  "savoirs": [
+    {
+      "quest": "dernier-train",
+      "texte": "À la Gare Engloutie, une foreuse de Ferros a déchiré l’Écho du dernier train. La maladie des souvenirs est partie de là."
+    },
+    {
+      "flag": "fouille-elucidee",
+      "texte": "Des fouilleurs des Marches des Cendres creusent le sol sacré de Canopéa, le long d’une vieille voie."
+    },
+    {
+      "flag": "cle-mentionnee",
+      "texte": "Ils cherchent une clé de rouille bleue, que transportait le dernier train."
+    },
+    {
+      "flag": "cle-veilleuse",
+      "texte": "La clé de rouille bleue est retournée à la Veilleuse du Rail, sur sa ligne."
+    },
+    {
+      "flag": "cle-archives",
+      "texte": "La clé de rouille bleue dort aux Archives de Ferros, classée."
+    },
+    {
+      "flag": "cle-vendue",
+      "texte": "La clé de rouille bleue est passée entre des gants fins, chez les Marches des Cendres."
+    },
+    {
+      "flag": "main-edda-fausse",
+      "texte": "La dame en gris signe « Edda Varn » : une main de Ferros, close au Registre depuis trente ans. Elle ne cherche pas l’argent : elle cherche quelqu’un."
+    },
+    {
+      "flag": "page-lue",
+      "texte": "La page du dernier départ : « Dernier départ, voie sept. Terminus : Altavent, sous les Hauts de Zephyria. Déchargé : sept caisses plombées. Reçu : personne. »"
+    },
+    {
+      "quest": "memoires-monde-perdu",
+      "texte": "Les sept caisses ont quitté le quai d’Altavent. Une par continent, dit-on, chacune au bout d’une voie endormie. D’autres les cherchent, et paient la dame en gris."
+    }
+  ],
+  "caisses": [
+    {
+      "id": "verdantis",
+      "continent": "Verdantis"
+    },
+    {
+      "id": "ferros",
+      "continent": "Ferros"
+    },
+    {
+      "id": "terminus",
+      "continent": "Terminus"
+    },
+    {
+      "id": "zephyria",
+      "continent": "Zephyria"
+    },
+    {
+      "id": "marisol",
+      "continent": "Marisol"
+    },
+    {
+      "id": "glacialis",
+      "continent": "Glacialis"
+    },
+    {
+      "id": "communion",
+      "continent": "la Communion"
+    }
+  ],
+  "pistes": [
+    {
+      "quest": "memoires-monde-perdu",
+      "status": "done",
+      "texte": "Zephyria : Altavent, sous les Hauts. Aetherhaven, au sud-ouest, en dirigeable.",
+      "cible": "Zephyria · Aetherhaven"
+    },
+    {
+      "quest": "memoires-monde-perdu",
+      "status": "active",
+      "texte": "Sept-Portes : Hesper Mille-Récits, et la Grande Bibliothèque.",
+      "cible": "sept-portes"
+    },
+    {
+      "quest": "cle-rouille-bleue",
+      "status": "active",
+      "texte": "Ironheart : le Marché des Cendres, et la clé de rouille bleue.",
+      "cible": "ironheart"
+    },
+    {
+      "quest": "audience",
+      "status": "active",
+      "texte": "Canopéa : le Triumvirat Vert attend ton récit.",
+      "cible": "canopee"
+    },
+    {
+      "quest": "dernier-train",
+      "status": "active",
+      "texte": "Gardebois : la Gare Engloutie, à l’est du marché.",
+      "cible": "gardebois"
+    }
+  ]
+}

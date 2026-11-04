@@ -24,6 +24,7 @@ import { COLORS, CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
 import { HAS_MOUSE } from '../ui/viewport';
 import { MOMENTS, advance, shortTime } from '../rules/time';
 import { VOIE_DEPTH, startVoie, voieRecord, voieRecordLabel } from '../rules/voies';
+import { filPage } from '../rules/fil';
 import { onKeys, withKeyHint } from '../ui/keys';
 import { Tooltip } from '../ui/tooltip';
 
@@ -89,6 +90,7 @@ export class WorldMapScene extends Phaser.Scene {
     this.drawMap();
     this.trail = this.add.graphics();
     this.drawPlaces();
+    this.markLead();
     this.hero = this.makeHero();
     this.placeHero();
 
@@ -292,6 +294,24 @@ export class WorldMapScene extends Phaser.Scene {
       });
       hit.on('pointerout', () => this.tooltip.hide());
     }
+  }
+
+  /** Le fil (docs/gdd/fil-directeur.md): a copper ring, slowly breathing, where the lead points. */
+  private markLead(): void {
+    const target = filPage(this.state).piste?.cible;
+    if (!target) return;
+    const place = WORLD.places.find((p) => p.id === target);
+    const far = WORLD.distant.find((d) => d.name === target);
+    const spot = place ?? far;
+    if (!spot) return;
+    const p = this.screen(spot);
+    const radius = far ? 64 : 24;
+    const ring = this.add.ellipse(p.x, p.y, radius * 2, far ? radius * 1.1 : radius * 2).setStrokeStyle(3, COPPER, 0.9).setDepth(9);
+    this.tweens.add({ targets: ring, scale: 1.15, alpha: 0.45, duration: 1100, yoyo: true, repeat: -1 });
+    this.add
+      .text(p.x, p.y - (far ? 46 : 32), 'La piste', { fontFamily: FONT_SERIF, fontSize: HAS_MOUSE ? '15px' : '18px', color: CSS.ink, stroke: CSS.parchment, strokeThickness: 4, fontStyle: 'italic' })
+      .setOrigin(0.5, 1)
+      .setDepth(9);
   }
 
   private makeHero(): Phaser.GameObjects.Container {

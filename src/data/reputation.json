@@ -293,6 +293,10 @@
     {
       "flag": "fin-caisse-cendriere-archives",
       "points": 10
+    },
+    {
+      "flag": "fin-cargo-noir-brule",
+      "points": 5
     }
   ],
   "sept-portes": [
@@ -447,6 +451,62 @@
     {
       "flag": "ruse-amiraute",
       "points": -5
+    },
+    {
+      "quest": "don-rendu",
+      "points": 5
+    },
+    {
+      "flag": "fin-don-rendu-verite",
+      "points": 5
+    },
+    {
+      "quest": "lune-rouge",
+      "points": 5
+    },
+    {
+      "flag": "fin-lune-rouge-seul",
+      "points": -10
+    },
+    {
+      "quest": "cargo-noir",
+      "points": 5
+    },
+    {
+      "quest": "grotte-reflux",
+      "points": 10
+    }
+  ],
+  "confrerie-brisants": [
+    {
+      "quest": "paie-brisants",
+      "points": 15
+    },
+    {
+      "flag": "fin-cargo-noir-confrerie",
+      "points": 15
+    },
+    {
+      "flag": "fin-cargo-noir-amiraute",
+      "points": -10
+    }
+  ],
+  "plongeurs-perles": [
+    {
+      "quest": "premiere-perle",
+      "points": 15
+    },
+    {
+      "flag": "fin-cargo-noir-amiraute",
+      "points": 15
+    },
+    {
+      "flag": "fin-cargo-noir-confrerie",
+      "points": -10
+    },
+    {
+      "flag": "fin-lune-rouge-ensemble",
+      "points": 5
     }
   ]
 }

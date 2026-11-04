@@ -18,6 +18,17 @@
       "node": "qui"
     },
     {
+      "requires": [
+        {
+          "flag": "conque-muette-entendue"
+        },
+        {
+          "notFlag": "oaina-muette"
+        }
+      ],
+      "node": "muette"
+    },
+    {
       "node": "accueil"
     }
   ],
@@ -28,6 +39,35 @@
         {
           "text": "« La mer se souvient que » ?",
           "next": "formule"
+        },
+        {
+          "text": "Certaines conques se taisent ?",
+          "requires": [
+            {
+              "notFlag": "oaina-muette"
+            }
+          ],
+          "next": "muette"
+        },
+        {
+          "text": "Je voudrais confier une histoire à une conque.",
+          "requires": [
+            {
+              "notFlag": "raconte-oaina"
+            }
+          ],
+          "next": "raconte-neutre",
+          "raconter": {
+            "aime": [
+              "chansons",
+              "morts"
+            ],
+            "recits": {
+              "chant-anselme": "raconte-special"
+            },
+            "touche": "raconte-touche",
+            "neutre": "raconte-neutre"
+          }
         },
         {
           "text": "Au revoir.",
@@ -64,6 +104,84 @@
     },
     "qui-2": {
       "text": "— L’Abysse donne exactement ce qu’on lui demande. Elle le sait, maintenant. C’est pour ça qu’elle écoute cette conque depuis dix jours.",
+      "options": [
+        {
+          "text": "Merci, Oaïna.",
+          "next": "fin"
+        }
+      ]
+    },
+    "muette": {
+      "text": "— Une conque, puis trois, puis neuf, depuis un mois. La maladie des souvenirs est arrivée jusqu’ici. Celle de Basile Chante-Creux s’est tue la première. Il y avait confié le chant qu’on ne chante pas.",
+      "effects": [
+        {
+          "setFlag": "oaina-muette"
+        }
+      ],
+      "options": [
+        {
+          "text": "Le chant qu’on ne chante pas ?",
+          "next": "muette-2"
+        },
+        {
+          "text": "Merci, Oaïna.",
+          "next": "fin"
+        }
+      ]
+    },
+    "muette-2": {
+      "text": "— Chaque légende de Marisol en a un : il manque toujours. Basile disait connaître celui de la légende de Naïra. Il l’avait confié à sa conque, pour ne jamais le chanter à terre. La nuit, il est sur le port, devant l’autel.",
+      "options": [
+        {
+          "text": "Merci, Oaïna.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-special": {
+      "text": "Oaïna ferme ses yeux luminescents. — Un chant pour les morts qu’on n’a pas fini. Chez nous, on le laisserait au fond. Elle approche une conque vide de tes lèvres. — Redis-le là-dedans. Elle le gardera, tant qu’elle pourra.",
+      "effects": [
+        {
+          "setFlag": "raconte-oaina"
+        },
+        {
+          "giveXp": 15
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Oaïna.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-touche": {
+      "text": "Oaïna écoute, la main sur une conque. — Elle a frémi. Les conques aiment les histoires qui chantent.",
+      "effects": [
+        {
+          "setFlag": "raconte-oaina"
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Oaïna.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-neutre": {
+      "text": "— Merci. Elle est entrée. Les conques ne trient pas.",
+      "effects": [
+        {
+          "setFlag": "raconte-oaina"
+        },
+        {
+          "giveXp": 5
+        }
+      ],
       "options": [
         {
           "text": "Merci, Oaïna.",

@@ -165,6 +165,16 @@ import matteo from './matteo.json';
 import aio from './aio.json';
 import ondine from './ondine.json';
 import autelPort from './autel-port.json';
+import conqueMuette from './conque-muette.json';
+import basile from './basile.json';
+import amande from './amande.json';
+import tadeo from './tadeo.json';
+import irisCoquelune from './iris-coquelune.json';
+import gunnar from './gunnar.json';
+import doucenet from './doucenet.json';
+import bancPerles from './banc-perles.json';
+import abyssauxGrotte from './abyssaux-grotte.json';
+import lio from './lio.json';
 
 /** Dialogue files by object name (PNJ, Écho or object) of the maps. */
 export const DIALOGUES: Record<string, Dialogue> = {
@@ -339,6 +349,17 @@ export const DIALOGUES: Record<string, Dialogue> = {
   aio: aio as Dialogue,
   ondine: ondine as Dialogue,
   'autel-port': autelPort as Dialogue,
+  // Chapitre 6, Coralia : les quêtes de la ville et les deux guildes.
+  'conque-muette': conqueMuette as Dialogue,
+  basile: basile as Dialogue,
+  amande: amande as Dialogue,
+  tadeo: tadeo as Dialogue,
+  'iris-coquelune': irisCoquelune as Dialogue,
+  gunnar: gunnar as Dialogue,
+  doucenet: doucenet as Dialogue,
+  'banc-perles': bancPerles as Dialogue,
+  'abyssaux-grotte': abyssauxGrotte as Dialogue,
+  lio: lio as Dialogue,
   // Le Livre des Échos (docs/gdd/echos.md) : one dialogue per Écho, built from src/data/echos.json.
   ...echoDialogues(),
 };

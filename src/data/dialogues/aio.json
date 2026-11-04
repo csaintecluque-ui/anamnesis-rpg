@@ -3,6 +3,18 @@
   "speaker": "aio",
   "entries": [
     {
+      "requires": [
+        {
+          "quest": "lune-rouge",
+          "status": "none"
+        },
+        {
+          "lieu": "coralia-coquelune"
+        }
+      ],
+      "node": "lune"
+    },
+    {
       "node": "accueil"
     }
   ],
@@ -11,7 +23,298 @@
       "text": "Un garçon de dix ans, un panier vide sous le bras. — T’as déjà plongé ? Moi, je tiens deux minutes. Ondine dit que c’est rien. Ondine en tient dix, mais elle a des branchies : c’est de la triche.",
       "options": [
         {
+          "text": "Les plongeurs remontent ce qu’on donne à la mer ?",
+          "requires": [
+            {
+              "quest": "don-rendu",
+              "status": "active"
+            },
+            {
+              "notFlag": "don-rendu-indice"
+            }
+          ],
+          "next": "bagues"
+        },
+        {
+          "text": "Je te raconte une histoire ?",
+          "requires": [
+            {
+              "notFlag": "raconte-aio"
+            }
+          ],
+          "next": "raconte-neutre",
+          "raconter": {
+            "aime": [
+              "familles"
+            ],
+            "recits": {
+              "echelle-de-pim": "raconte-special"
+            },
+            "touche": "raconte-touche",
+            "neutre": "raconte-neutre"
+          }
+        },
+        {
           "text": "Au revoir, Aïo.",
+          "next": "fin"
+        }
+      ]
+    },
+    "bagues": {
+      "text": "— Pas moi ! Je le jure sur Marethis. Mais Tadéo, aux Canaux, il a des bagues à vendre, des fois. Il dit qu’il les trouve.",
+      "effects": [
+        {
+          "setFlag": "don-rendu-indice"
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Aïo.",
+          "next": "fin"
+        }
+      ]
+    },
+    "lune": {
+      "text": "Aïo remplit un sac de pierres pour descendre plus vite. — Cette nuit, la lune sera rouge. Les perles noires remontent sous la lune rouge. Une seule, et maman a son remède. Tu ne le diras pas, hein ?",
+      "effects": [
+        {
+          "startQuest": "lune-rouge"
+        }
+      ],
+      "options": [
+        {
+          "text": "« Ne plonge jamais seul sous une lune rouge. »",
+          "next": "empeche",
+          "roll": {
+            "skill": "diplomacy",
+            "difficulty": 16
+          },
+          "failNext": "obstine"
+        },
+        {
+          "text": "Je plonge avec toi. Tu ne seras pas seul.",
+          "next": "ensemble",
+          "roll": {
+            "skill": "athletics",
+            "difficulty": 16
+          },
+          "failNext": "ensemble-dur"
+        },
+        {
+          "text": "Combien coûte le remède ?",
+          "next": "prix"
+        },
+        {
+          "text": "C’est ton choix.",
+          "next": "seul"
+        }
+      ]
+    },
+    "obstine": {
+      "text": "— Tu parles comme Ondine. Il resserre son sac.",
+      "options": [
+        {
+          "text": "Je plonge avec toi.",
+          "next": "ensemble",
+          "roll": {
+            "skill": "athletics",
+            "difficulty": 16
+          },
+          "failNext": "ensemble-dur"
+        },
+        {
+          "text": "Combien coûte le remède ?",
+          "next": "prix"
+        },
+        {
+          "text": "C’est ton choix.",
+          "next": "seul"
+        }
+      ]
+    },
+    "prix": {
+      "text": "— Soixante Fers. Maman dit que c’est le prix d’un bateau. C’est pas vrai, mais presque.",
+      "options": [
+        {
+          "text": "Les voilà.",
+          "requires": [
+            {
+              "fers": 60
+            }
+          ],
+          "next": "paye",
+          "effects": [
+            {
+              "giveFers": -60
+            },
+            {
+              "giveXp": 30
+            },
+            {
+              "completeQuest": "lune-rouge"
+            },
+            {
+              "setFlag": "fin-lune-rouge-paye"
+            }
+          ]
+        },
+        {
+          "text": "Je plonge avec toi.",
+          "next": "ensemble",
+          "roll": {
+            "skill": "athletics",
+            "difficulty": 16
+          },
+          "failNext": "ensemble-dur"
+        },
+        {
+          "text": "C’est ton choix.",
+          "next": "seul"
+        }
+      ]
+    },
+    "empeche": {
+      "text": "Aïo vide son sac, pierre par pierre, sans te regarder. — D’accord. Mais demain, tu m’apprends à tenir trois minutes.",
+      "effects": [
+        {
+          "giveXp": 30
+        },
+        {
+          "completeQuest": "lune-rouge"
+        },
+        {
+          "setFlag": "fin-lune-rouge-empeche"
+        }
+      ],
+      "options": [
+        {
+          "text": "Promis.",
+          "next": "fin"
+        }
+      ]
+    },
+    "ensemble": {
+      "text": "Sous la lune rouge, la mer est noire et tiède. Aïo descend vite, lesté de ses pierres ; tu le suis. Au fond, une huître entrouverte. Il remonte en riant, une perle noire dans le poing, et toi, tu remontes en comptant.",
+      "effects": [
+        {
+          "giveXp": 40
+        },
+        {
+          "completeQuest": "lune-rouge"
+        },
+        {
+          "setFlag": "fin-lune-rouge-ensemble"
+        }
+      ],
+      "options": [
+        {
+          "text": "Rentrer.",
+          "next": "fin"
+        }
+      ]
+    },
+    "ensemble-dur": {
+      "text": "La mer te serre la poitrine. Tu remontes trop tôt, et Aïo avec toi, sans perle. Sur le quai, il crache de l’eau et rit quand même. — Demain, on recommence ? Il voit ta tête. — D’accord, non.",
+      "effects": [
+        {
+          "blesser": 5
+        },
+        {
+          "giveXp": 30
+        },
+        {
+          "completeQuest": "lune-rouge"
+        },
+        {
+          "setFlag": "fin-lune-rouge-ensemble"
+        }
+      ],
+      "options": [
+        {
+          "text": "Rentrer.",
+          "next": "fin"
+        }
+      ]
+    },
+    "paye": {
+      "text": "Aïo regarde les Fers, puis toi, et ne sait plus quoi faire de ses mains. — Je te rembourserai. En perles. Plus tard. Beaucoup plus tard.",
+      "options": [
+        {
+          "text": "Rentrer.",
+          "next": "fin"
+        }
+      ]
+    },
+    "seul": {
+      "text": "Aïo sourit, et file vers le port. Au matin, les Murmureurs le ramènent, vivant, une perle noire dans le poing. Il ne se souvient plus du nom de sa mère. L’Abysse prend toujours quelque chose.",
+      "effects": [
+        {
+          "setFlag": "aio-oublie"
+        },
+        {
+          "avancer": 2
+        },
+        {
+          "completeQuest": "lune-rouge"
+        },
+        {
+          "setFlag": "fin-lune-rouge-seul"
+        }
+      ],
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-special": {
+      "text": "Aïo ne dit rien pendant longtemps. Puis : — Moi, je tombe pas. Je plonge. C’est pas pareil. Il serre son panier contre lui. — Pim, elle avait des rubans. Moi, j’ai des perles.",
+      "effects": [
+        {
+          "setFlag": "raconte-aio"
+        },
+        {
+          "giveXp": 15
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Aïo.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-touche": {
+      "text": "Aïo écoute la bouche ouverte. — Encore ! Une autre !",
+      "effects": [
+        {
+          "setFlag": "raconte-aio"
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Aïo.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-neutre": {
+      "text": "— C’est bien. Mais il manquait un requin.",
+      "effects": [
+        {
+          "setFlag": "raconte-aio"
+        },
+        {
+          "giveXp": 5
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Aïo.",
           "next": "fin"
         }
       ]

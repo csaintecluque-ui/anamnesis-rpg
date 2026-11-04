@@ -29,6 +29,27 @@
           "failNext": "surpris"
         },
         {
+          "text": "Soulever le verrou rongé, d’une main.",
+          "requires": [
+            {
+              "quest": "mer-rend",
+              "status": "active"
+            },
+            {
+              "flag": "rumeur-cale-algues"
+            },
+            {
+              "notFlag": "cale-guettee"
+            }
+          ],
+          "next": "dedans",
+          "roll": {
+            "skill": "stealth",
+            "difficulty": 13
+          },
+          "failNext": "surpris"
+        },
+        {
           "text": "La laisser.",
           "next": "fin"
         }

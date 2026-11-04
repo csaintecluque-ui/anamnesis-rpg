@@ -1,0 +1,76 @@
+{
+  "id": "tadeo",
+  "speaker": "tadeo",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "don-rendu",
+          "status": "active"
+        },
+        {
+          "flag": "don-rendu-indice"
+        },
+        {
+          "notFlag": "tadeo-avoue"
+        }
+      ],
+      "node": "aveu"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Un plongeur maigre, les mains abîmées par le corail, recoud un filet. — Tadéo. Je remonte ce qui se vend. Le reste, la mer peut le garder.",
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "aveu": {
+      "text": "Tadéo voit ta question avant que tu la poses. — La bague ? Oui. Je l’ai remontée. Je voulais la vendre.",
+      "options": [
+        {
+          "text": "Et ?",
+          "next": "aveu-2"
+        }
+      ]
+    },
+    "aveu-2": {
+      "text": "— Je n’ai pas pu. Je l’ai reposée sur l’autel, la nuit. Je ne savais pas que la veuve la trouverait là. Je ne savais pas qu’elle croirait que la mer la lui rendait.",
+      "effects": [
+        {
+          "setFlag": "tadeo-avoue"
+        }
+      ],
+      "options": [
+        {
+          "text": "Je ne dirai rien.",
+          "next": "fin"
+        },
+        {
+          "text": "Les Murmureurs doivent le savoir.",
+          "next": "denonce"
+        }
+      ]
+    },
+    "denonce": {
+      "text": "Tadéo baisse la tête. — « Rends toujours aux eaux ce qu’elle t’a offert. » Je sais. J’irai moi-même.",
+      "effects": [
+        {
+          "setFlag": "tadeo-denonce"
+        }
+      ],
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

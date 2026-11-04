@@ -26,6 +26,19 @@
       "text": "La Grande Amiral Marina Azurios, en uniforme blanc, lit un rapport sans s’asseoir. — Un voyageur. Bienvenue à Coralia. Je n’ai que peu de temps : Ferros a reçu notre ultimatum, et Ferros ne répond pas.",
       "options": [
         {
+          "text": "Le déversement venait d’une compagnie de Ferros, pas de l’Empire.",
+          "requires": [
+            {
+              "quest": "cargo-noir",
+              "status": "active"
+            },
+            {
+              "item": "journal-cargo"
+            }
+          ],
+          "next": "journal"
+        },
+        {
           "text": "Au revoir.",
           "next": "fin"
         }
@@ -80,6 +93,29 @@
       "effects": [
         {
           "setFlag": "ordre-refuse"
+        }
+      ],
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "journal": {
+      "text": "La Grande Amiral lit, longtemps. — Une compagnie. L’Empire peut payer sans perdre la face, et nous, obtenir réparation sans guerre. Ou je brandis ce journal à l’Assemblée des Marées, et l’embargo passe à l’unanimité. Je choisirai.",
+      "effects": [
+        {
+          "takeItem": "journal-cargo"
+        },
+        {
+          "giveXp": 30
+        },
+        {
+          "completeQuest": "cargo-noir"
+        },
+        {
+          "setFlag": "fin-cargo-noir-amiraute"
         }
       ],
       "options": [

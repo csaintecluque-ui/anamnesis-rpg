@@ -173,5 +173,40 @@
         "texte": "Un copiste, en recopiant ta dernière phrase : « La doublure du Temple ? Des voiles de deuil, cousues depuis des siècles. Les listes de la Pluie sont tout en haut, là où le bleu est le plus pâle. »"
       }
     ]
+  },
+  {
+    "id": "conque",
+    "lieu": "coralia-auberge",
+    "hote": "noea",
+    "ville": "coralia",
+    "nom": "La Conque Rieuse",
+    "public": "Des marins de la Confrérie, des plongeuses aux cheveux encore mouillés, deux Sélénides qui écoutent les yeux fermés, un marchand de Ferros qui ne dit pas d’où il vient.",
+    "gouts": "Ils aiment les chansons et les histoires de familles, et ils les reprennent, jamais deux fois pareil. Les histoires de machines, beaucoup moins : depuis le Cargo Noir, les machines sentent le pétrole.",
+    "aime": [
+      "chansons",
+      "familles"
+    ],
+    "deteste": [
+      "machines"
+    ],
+    "reactions": {
+      "triomphe": "Au deuxième couplet, toute la salle reprend, chacun avec ses mots. Les Sélénides chantent sous le chant. Noéa fait passer une conque vide, et elle revient lourde de Fers.",
+      "succes": "On t’écoute en mangeant. À la fin, une plongeuse dit : « La mer se souvient que tu l’as dit. » Toute la salle répond : « Et nous, moins bien. » La conque de Noéa fait le tour.",
+      "redite": "« On l’a chantée hier, autrement ! » On l’écoute quand même, pour voir ce que tu as changé.",
+      "echec": "Tu la racontes d’un bout à l’autre, sans rien laisser au fond. Un vieux marin secoue la tête : « Un récit fini à terre, c’est un récit qui ment. » On parle d’autre chose.",
+      "deteste": "Au premier piston, un marin crache par terre. « Encore une machine ! » Le marchand de Ferros baisse les yeux."
+    },
+    "rumeurs": [
+      {
+        "id": "cale-algues",
+        "titre": "La cale de l’Entrepôt",
+        "texte": "Une plongeuse, en tordant ses cheveux : « La cale de l’Entrepôt des douanes ? Le verrou est rongé par le sel. À marée basse, on le soulève d’une main. »"
+      },
+      {
+        "id": "bel-ecart",
+        "titre": "La cargaison du Bel-Écart",
+        "texte": "Un matelot du Bel-Écart, à mi-voix : « La cargaison qu’on a perdue ? Doucenet l’a vendue à Terminus, et il nous a dit que la mer l’avait prise. »"
+      }
+    ]
   }
 ]

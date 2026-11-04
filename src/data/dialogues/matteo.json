@@ -3,6 +3,18 @@
   "speaker": "matteo",
   "entries": [
     {
+      "requires": [
+        {
+          "quest": "paie-brisants",
+          "status": "active"
+        },
+        {
+          "flag": "doucenet-paye"
+        }
+      ],
+      "node": "paie-faite"
+    },
+    {
       "node": "accueil"
     }
   ],
@@ -15,6 +27,32 @@
           "next": "ferros"
         },
         {
+          "text": "Je veux entrer à la Confrérie.",
+          "requires": [
+            {
+              "quest": "paie-brisants",
+              "status": "none"
+            },
+            {
+              "notFlag": "membre-plongeurs-perles"
+            }
+          ],
+          "next": "paie"
+        },
+        {
+          "text": "La Confrérie en fera meilleur usage.",
+          "requires": [
+            {
+              "quest": "cargo-noir",
+              "status": "active"
+            },
+            {
+              "item": "journal-cargo"
+            }
+          ],
+          "next": "journal-confrerie"
+        },
+        {
           "text": "Au revoir.",
           "next": "fin"
         }
@@ -25,6 +63,67 @@
       "options": [
         {
           "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "paie": {
+      "text": "— La Confrérie ne prend pas les gens : elle prend ceux qui font payer. L’armateur Doucenet doit trois mois de solde à l’équipage du Bel-Écart. Fais-le payer, et tu es Mousse.",
+      "options": [
+        {
+          "text": "J’y vais.",
+          "next": "fin",
+          "effects": [
+            {
+              "startQuest": "paie-brisants"
+            }
+          ]
+        },
+        {
+          "text": "Plus tard.",
+          "next": "fin"
+        }
+      ]
+    },
+    "paie-faite": {
+      "text": "— Trois mois, rubis sur l’ongle. Matteo te tend un anneau de corde tressée. — Mousse de la Confrérie des Brisants. Ce n’est pas grand-chose. C’est plus que ce que Doucenet a jamais donné.",
+      "effects": [
+        {
+          "completeQuest": "paie-brisants"
+        },
+        {
+          "setFlag": "membre-confrerie-brisants"
+        },
+        {
+          "giveXp": 40
+        }
+      ],
+      "options": [
+        {
+          "text": "Le prendre.",
+          "next": "fin"
+        }
+      ]
+    },
+    "journal-confrerie": {
+      "text": "— Avec ça, on négocie avec les marchands de Ferros directement, par Terminus : des réparations contre du commerce, sans l’Assemblée. Matteo sourit. — La mer ne fait pas de politique. Les marins, si.",
+      "effects": [
+        {
+          "takeItem": "journal-cargo"
+        },
+        {
+          "giveXp": 30
+        },
+        {
+          "completeQuest": "cargo-noir"
+        },
+        {
+          "setFlag": "fin-cargo-noir-confrerie"
+        }
+      ],
+      "options": [
+        {
+          "text": "Partir.",
           "next": "fin"
         }
       ]

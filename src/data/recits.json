@@ -202,5 +202,14 @@
     "themes": [
       "morts"
     ]
+  },
+  {
+    "id": "chant-qu-on-ne-chante-pas",
+    "titre": "Le chant qu’on ne chante pas",
+    "texte": "À Coralia, un vieux marin avait confié à une conque le chant qui manque à la légende de Naïra, pour ne jamais le chanter à terre. La maladie des souvenirs est arrivée jusqu’à la Salle des Conques : la conque s’est tue. Basile ne s’en souvient plus non plus. Il dit que c’est juste : un chant qu’on ne chante pas doit pouvoir se perdre.",
+    "themes": [
+      "chansons",
+      "mysteres"
+    ]
   }
 ]

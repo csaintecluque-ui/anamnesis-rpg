@@ -15,6 +15,61 @@
       "node": "don"
     },
     {
+      "requires": [
+        {
+          "quest": "grotte-reflux",
+          "status": "active"
+        },
+        {
+          "flag": "lio-libre"
+        },
+        {
+          "flag": "abyssaux-vaincus"
+        }
+      ],
+      "node": "retour-combat"
+    },
+    {
+      "requires": [
+        {
+          "quest": "grotte-reflux",
+          "status": "active"
+        },
+        {
+          "flag": "lio-libre"
+        },
+        {
+          "flag": "abyssaux-partis"
+        }
+      ],
+      "node": "retour-parole"
+    },
+    {
+      "requires": [
+        {
+          "quest": "grotte-reflux",
+          "status": "active"
+        },
+        {
+          "flag": "lio-libre"
+        }
+      ],
+      "node": "retour-discret"
+    },
+    {
+      "requires": [
+        {
+          "quest": "grotte-reflux",
+          "status": "none"
+        },
+        {
+          "quest": "mer-rend",
+          "status": "done"
+        }
+      ],
+      "node": "lio"
+    },
+    {
       "node": "accueil"
     }
   ],
@@ -65,6 +120,84 @@
       "options": [
         {
           "text": "J’y vais.",
+          "next": "fin"
+        }
+      ]
+    },
+    "lio": {
+      "text": "Euria ne porte pas son masque. — Lio, mon novice, n’est pas rentré. Les Abyssaux le voulaient : un novice entend la Mère-Abysse sans savoir lui parler. Ils l’ont emmené dans la grotte du Grand Reflux, qui ne s’ouvre qu’à marée basse.",
+      "options": [
+        {
+          "text": "J’y vais.",
+          "next": "fin",
+          "effects": [
+            {
+              "startQuest": "grotte-reflux"
+            }
+          ]
+        },
+        {
+          "text": "Plus tard.",
+          "next": "fin"
+        }
+      ]
+    },
+    "retour-combat": {
+      "text": "Euria serre Lio contre elle, sans un mot pour les morts de la grotte. Puis, à voix basse : — La mer les prendra. Elle les voulait tant.",
+      "effects": [
+        {
+          "giveXp": 40
+        },
+        {
+          "completeQuest": "grotte-reflux"
+        },
+        {
+          "setFlag": "fin-grotte-reflux-combat"
+        }
+      ],
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "retour-parole": {
+      "text": "— Tu leur as rendu leurs mots ? Euria remet son masque, et tu ne vois plus que ses yeux. — C’est la seule arme qui compte, ici. Ils ne reviendront pas avant d’avoir trouvé une meilleure phrase.",
+      "effects": [
+        {
+          "giveXp": 50
+        },
+        {
+          "completeQuest": "grotte-reflux"
+        },
+        {
+          "setFlag": "fin-grotte-reflux-parole"
+        }
+      ],
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "retour-discret": {
+      "text": "Euria pose la main sur la tête de Lio. — Ils prieront toute la nuit, sans s’apercevoir de rien. La Mère-Abysse ne répond pas à ceux qui parlent tout seuls.",
+      "effects": [
+        {
+          "giveXp": 45
+        },
+        {
+          "completeQuest": "grotte-reflux"
+        },
+        {
+          "setFlag": "fin-grotte-reflux-discretion"
+        }
+      ],
+      "options": [
+        {
+          "text": "Partir.",
           "next": "fin"
         }
       ]

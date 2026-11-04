@@ -71,5 +71,6 @@
   { "id": "coralia-plongeurs", "name": "Coralia — la maison des Plongeurs de Perles", "scene": "Map", "map": "coralia-plongeurs", "entrance": "entree", "place": "coralia" },
   { "id": "coralia-palais", "name": "Coralia — le Palais du Grand Amiral", "scene": "Map", "map": "coralia-palais", "entrance": "entree", "place": "coralia" },
   { "id": "coralia-temple", "name": "Coralia — le Temple des Profondeurs Chuchotantes", "scene": "Map", "map": "coralia-temple", "entrance": "entree", "place": "coralia" },
-  { "id": "coralia-conques", "name": "Coralia — la Salle des Conques", "scene": "Map", "map": "coralia-conques", "entrance": "entree", "place": "coralia" }
+  { "id": "coralia-conques", "name": "Coralia — la Salle des Conques", "scene": "Map", "map": "coralia-conques", "entrance": "entree", "place": "coralia" },
+  { "id": "coralia-grotte", "name": "Coralia — la grotte du Grand Reflux", "scene": "Map", "map": "coralia-grotte", "entrance": "entree", "place": "coralia", "fond": "#0f1418" }
 ]

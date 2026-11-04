@@ -1,0 +1,89 @@
+{
+  "id": "abyssaux-grotte",
+  "speaker": "abyssaux-grotte",
+  "entries": [
+    {
+      "node": "abyssaux"
+    }
+  ],
+  "nodes": {
+    "abyssaux": {
+      "text": "Trois Abyssaux, des masques de coquillage noir, entourent un garçon à genoux au bord d’une faille où l’eau respire. Le plus grand récite : « Mère-Abysse, reprends tout. » Ils veulent que le novice le dise à leur place.",
+      "options": [
+        {
+          "text": "Attaquer.",
+          "next": "fin",
+          "effects": [
+            {
+              "startCombat": "abyssaux-grotte"
+            }
+          ]
+        },
+        {
+          "text": "« Tout », c’est vague. L’Abysse donne exactement ce qu’on lui demande.",
+          "next": "parole",
+          "roll": {
+            "skill": "diplomacy",
+            "difficulty": 16
+          },
+          "failNext": "force"
+        },
+        {
+          "text": "Profiter de la prière pour emmener Lio.",
+          "next": "discret",
+          "roll": {
+            "skill": "stealth",
+            "difficulty": 16
+          },
+          "failNext": "force"
+        },
+        {
+          "text": "Reculer.",
+          "next": "fin"
+        }
+      ]
+    },
+    "parole": {
+      "text": "Le grand se tait au milieu du mot. Les deux autres le regardent. — Tout, ça veut dire nous aussi, dit l’un d’eux. Personne ne répond. Ils remettent leurs masques et sortent dans la marée, sans Lio.",
+      "effects": [
+        {
+          "setFlag": "abyssaux-partis"
+        }
+      ],
+      "options": [
+        {
+          "text": "Aller voir Lio.",
+          "next": "fin"
+        }
+      ]
+    },
+    "discret": {
+      "text": "Tu te glisses le long des rochers, une main sur l’épaule de Lio, et vous reculez ensemble dans le bruit de la prière. Quand ils se retournent, la faille respire toute seule.",
+      "effects": [
+        {
+          "setFlag": "lio-libre"
+        }
+      ],
+      "options": [
+        {
+          "text": "Ressortir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "force": {
+      "text": "Le grand se retourne. — Un témoin ? La Mère-Abysse aime les témoins.",
+      "options": [
+        {
+          "text": "Se battre.",
+          "next": "fin",
+          "effects": [
+            {
+              "startCombat": "abyssaux-grotte"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

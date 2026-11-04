@@ -174,11 +174,12 @@ export function flightSky(state: TravelState, from: { x: number; y: number }, pl
   return knownPlaces(state.flags, state.quests).find((p) => crossingOf(p) && distanceBetween(from, p) <= AT_PLACE);
 }
 
-/** The fare: the first crossing of each kind is paid by Hesper ; a member of the Compagnie Vire-Nuée flies at half price. */
+/** The fare: the first crossing of each kind is paid by Hesper ; a member of the Compagnie Vire-Nuée flies, of the Confrérie des Brisants sails, at half price. */
 export function flightFare(state: TravelState, sky: WorldPlace): number {
   const crossing = crossingOf(sky);
   if (!crossing || !state.flags[firstFlag(crossing.moyen)]) return 0;
-  return crossing.moyen === 'dirigeable' && state.flags['membre-compagnie-vire-nuee'] ? Math.floor(crossing.fers / 2) : crossing.fers;
+  const guild = crossing.moyen === 'dirigeable' ? 'membre-compagnie-vire-nuee' : 'membre-confrerie-brisants';
+  return state.flags[guild] ? Math.floor(crossing.fers / 2) : crossing.fers;
 }
 
 /** « un jour en dirigeable », « deux jours en navire » : how long a crossing lasts. */

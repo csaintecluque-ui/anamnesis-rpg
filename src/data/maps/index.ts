@@ -76,6 +76,7 @@ import coraliaPlongeursJson from './coralia-plongeurs.json';
 import coraliaPalaisJson from './coralia-palais.json';
 import coraliaTempleJson from './coralia-temple.json';
 import coraliaConquesJson from './coralia-conques.json';
+import coraliaGrotteJson from './coralia-grotte.json';
 
 /** Tiled maps by id (`map` of src/data/locations.json). */
 export const MAPS: Record<string, TiledMapJson> = {
@@ -156,4 +157,5 @@ export const MAPS: Record<string, TiledMapJson> = {
   'coralia-palais': coraliaPalaisJson as TiledMapJson,
   'coralia-temple': coraliaTempleJson as TiledMapJson,
   'coralia-conques': coraliaConquesJson as TiledMapJson,
+  'coralia-grotte': coraliaGrotteJson as TiledMapJson,
 };

@@ -617,5 +617,148 @@
       "Hirondelles du Zénith ! Elles disent le temps !",
       "Trente Fers, et pas de questions."
     ]
+  },
+  {
+    "id": "merande",
+    "lines": [
+      "Rien à déclarer ?",
+      "Depuis le Cargo Noir, tout ce qui flotte sans pavillon est suspect."
+    ]
+  },
+  {
+    "id": "marina-azurios",
+    "lines": [
+      "Ferros ne répond pas.",
+      "Notre mer, notre vie."
+    ]
+  },
+  {
+    "id": "euria",
+    "lines": [
+      "La mer se souvient que nous sommes venus.",
+      "Écoutez. Elle respire."
+    ]
+  },
+  {
+    "id": "oaina",
+    "lines": [
+      "Une conque de plus s’est tue cette nuit.",
+      "Approchez-la de votre oreille. Doucement."
+    ]
+  },
+  {
+    "id": "edda-coralia",
+    "lines": [
+      "Pas une fois.",
+      "Elle parle d’eux. Toujours d’eux."
+    ]
+  },
+  {
+    "id": "noea",
+    "lines": [
+      "La Conque Rieuse ! On chante, jamais deux fois pareil !",
+      "Du poisson, du pain, un hamac : choisissez."
+    ]
+  },
+  {
+    "id": "aureo",
+    "lines": [
+      "Deux saisons pour une coque. Une seconde pour la perdre.",
+      "Le bois flotté ne ment pas : il a déjà nagé."
+    ]
+  },
+  {
+    "id": "matteo",
+    "lines": [
+      "Un marin seul est un marin mort.",
+      "La Confrérie compte ce que les armateurs oublient."
+    ]
+  },
+  {
+    "id": "aio",
+    "lines": [
+      "Deux minutes ! Presque trois !",
+      "Maman tousse moins, aujourd’hui."
+    ],
+    "reactions": [
+      {
+        "flag": "aio-oublie",
+        "lines": [
+          "La dame, là-bas, elle est gentille. Elle dit qu’elle me connaît."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ondine",
+    "lines": [
+      "Un plongeur, on le reconnaît à ce qu’il remonte.",
+      "Au nord, les huîtres meurent ouvertes."
+    ]
+  },
+  {
+    "id": "amande",
+    "lines": [
+      "Il ne veut pas partir.",
+      "La mer me l’a rendue."
+    ],
+    "reactions": [
+      {
+        "flag": "fin-don-rendu-verite",
+        "lines": [
+          "Il est parti. C’est bien. Il aimait les départs."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tadeo",
+    "lines": [
+      "Je remonte ce qui se vend.",
+      "Le corail coupe plus que les couteaux."
+    ]
+  },
+  {
+    "id": "iris-coquelune",
+    "lines": [
+      "Aïo ? Il est sorti ?",
+      "Le remède est amer. Ça veut dire qu’il marche."
+    ]
+  },
+  {
+    "id": "gunnar",
+    "lines": [
+      "Trois ans sans bateau.",
+      "Ferros paiera. Ou pas."
+    ]
+  },
+  {
+    "id": "doucenet",
+    "lines": [
+      "Le fret, c’est des chiffres. Les marins, c’est des frais.",
+      "La mer a pris la cargaison. Pas moi."
+    ],
+    "reactions": [
+      {
+        "flag": "doucenet-paye",
+        "lines": [
+          "Trois mois. Trois mois !"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "basile",
+    "lines": [
+      "La mer se souvient que j’étais jeune.",
+      "Et moi, moins bien."
+    ]
+  },
+  {
+    "id": "lio",
+    "lines": [
+      "Je ne l’ai pas dit.",
+      "Elle respirait. La faille respirait."
+    ]
   }
 ]

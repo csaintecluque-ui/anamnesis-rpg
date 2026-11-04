@@ -1559,7 +1559,18 @@ function coraliaPort(reflux) {
     }
     m.line([12, 14], [12, 23], 'rail-noye');
     m.object('vers-voie-noyee', 'sortie', 12, 23, { cible: 'coralia-voie-noyee', arrivee: 'depuis-port', libelle: 'Suivre les rails sous la mer' });
+    // La grotte du Grand Reflux, et le banc d'huîtres perlières, que la marée basse découvre.
+    m.setObstacle(4, 17, 'grotte');
+    m.object('vers-grotte', 'sortie', 5, 17, { cible: 'coralia-grotte', arrivee: 'depuis-port', libelle: 'La grotte du Grand Reflux' });
+    m.object('banc-perles', 'objet', 6, 15, { tuile: 'banc-perles' });
   }
+  m.object('depuis-grotte', 'arrivee', 9, 12);
+  // Le Cargo Noir, confisqué depuis 2995 ; son second, sur parole, sur le quai. Le jour, une veuve devant l'autel ;
+  // la nuit, un vieux marin.
+  m.setObstacle(2, 9, 'cargo-noir');
+  m.object('gunnar', 'pnj', 9, 9);
+  m.object('amande', 'pnj', 13, 7, { moment: 'jour' });
+  m.object('basile', 'pnj', 13, 7, { moment: 'nuit' });
   for (const [c, r] of [[14, 15], [18, 15], [24, 15]]) m.setObstacle(c, r, 'bateau');
   m.setObstacle(7, 6, 'bateau');
   m.object('navire-marisol', 'porte', 7, 6, { cible: CARTE_DU_MONDE, libelle: 'Le navire de la Thalassocratie' });
@@ -1608,6 +1619,8 @@ function coraliaCanaux() {
   m.object('depuis-port', 'arrivee', 2, 11);
   m.object('vers-amiraute', 'sortie', 27, 11, { cible: 'coralia-amiraute', arrivee: 'depuis-canaux', libelle: 'L’Amirauté' });
   m.object('depuis-amiraute', 'arrivee', 25, 11);
+  m.object('tadeo', 'pnj', 11, 13);
+  m.object('doucenet', 'pnj', 19, 11);
   m.setObstacle(10, 12, 'panneau');
   m.object('panneau-canaux', 'panneau', 10, 12, { texte: 'Les Canaux. Au nord, la Conque Rieuse ; au sud, les Plongeurs de Perles ; à l’est, l’Amirauté.' });
   return m.toTiled();
@@ -1653,6 +1666,33 @@ function coraliaVoieNoyee() {
   return m.toTiled();
 }
 
+/** La grotte du Grand Reflux, à marée basse : des bassins, une bouche de l'Abysse, les Abyssaux et leur novice. */
+function coraliaGrotte() {
+  const m = new MapBuilder(18, 12);
+  m.ground.fill(gid('sable-mouille'));
+  for (let col = 0; col < 18; col++) {
+    m.setObstacle(col, 0, 'rocher-mouille');
+    m.setObstacle(col, 11, 'rocher-mouille');
+  }
+  for (let row = 0; row < 12; row++) {
+    m.setObstacle(0, row, 'rocher-mouille');
+    m.setObstacle(17, row, 'rocher-mouille');
+  }
+  for (const [c, r] of [[5, 3], [6, 3], [5, 8], [11, 2], [12, 2]]) m.setGround(c, r, 'eau');
+  for (const [c, r] of [[8, 4], [4, 6], [13, 8]]) m.setObstacle(c, r, 'rocher-mouille');
+  m.setObstacle(14, 5, 'faille');
+  m.setObstacle(0, 6, null);
+  m.object('vers-port', 'sortie', 0, 6, { cible: 'coralia-port', arrivee: 'depuis-grotte', libelle: 'Ressortir avant la marée' });
+  m.object('depuis-port', 'arrivee', 1, 6);
+  m.object('entree', 'arrivee', 1, 6);
+  m.object('lio', 'pnj', 13, 6, { disparaitSi: 'lio-libre' });
+  const sect = { ennemi: 'abyssal', dialogue: 'abyssaux-grotte', disparaitSi: 'abyssaux-vaincus,abyssaux-partis,lio-libre', texte: 'Des Abyssaux.' };
+  m.object('abyssal-1', 'ennemi', 11, 6, sect);
+  m.object('abyssal-2', 'ennemi', 12, 4, sect);
+  m.object('abyssal-3', 'ennemi', 12, 8, sect);
+  return m.toTiled();
+}
+
 const CORAL_ROOM = { floor: 'corail-dalles', wall: 'mur' };
 Object.assign(INTERIORS, {
   'coralia-entrepot': interior('coralia-entrepot', {
@@ -1667,7 +1707,7 @@ Object.assign(INTERIORS, {
     furniture: [[1, 1, 'tonneaux'], [1, 2, 'tonneaux'], [7, 1, 'lanterne-coquillage'], [3, 3, 'comptoir'], [4, 3, 'comptoir'], [2, 5, 'table'], [7, 4, 'table']],
     objects: [['noea', 'pnj', 4, 2]],
   }),
-  'coralia-coquelune': interior('coralia-coquelune', { ...CORAL_ROOM, outside: 'coralia-canaux', furniture: [[1, 1, 'lit'], [6, 1, 'etagere'], [4, 3, 'table'], [1, 4, 'filet-peche']], objects: [['aio', 'pnj', 3, 2]] }),
+  'coralia-coquelune': interior('coralia-coquelune', { ...CORAL_ROOM, outside: 'coralia-canaux', furniture: [[1, 1, 'lit'], [6, 1, 'etagere'], [4, 3, 'table'], [1, 4, 'filet-peche']], objects: [['aio', 'pnj', 3, 2, { disparaitSi: 'aio-plonge-seul' }], ['iris-coquelune', 'pnj', 2, 2]] }),
   'coralia-relais': interior('coralia-relais', { ...CORAL_ROOM, outside: 'coralia-canaux', furniture: [[2, 1, 'etagere'], [3, 1, 'etagere'], [6, 1, 'lanterne-coquillage'], [5, 4, 'table']], objects: [] }),
   'coralia-plongeurs': interior('coralia-plongeurs', { ...CORAL_ROOM, outside: 'coralia-canaux', furniture: [[1, 1, 'filet-peche'], [6, 1, 'conque'], [4, 3, 'table'], [1, 4, 'tonneaux']], objects: [['ondine', 'pnj', 3, 2]] }),
   'coralia-palais': interior('coralia-palais', {
@@ -1680,7 +1720,7 @@ Object.assign(INTERIORS, {
     ...CORAL_ROOM, w: 9, h: 7, outside: 'coralia-amiraute',
     furniture: [[1, 0, 'vitre-mer'], [2, 0, 'vitre-mer'], [3, 0, 'vitre-mer'], [4, 0, 'vitre-mer'], [5, 0, 'vitre-mer'], [6, 0, 'vitre-mer'], [7, 0, 'vitre-mer'], [8, 0, 'vitre-mer'],
       [2, 2, 'conque'], [4, 2, 'conque'], [6, 2, 'conque'], [8, 2, 'conque'], [2, 5, 'conque'], [7, 5, 'conque']],
-    objects: [['oaina', 'pnj', 5, 4], ['edda-coralia', 'pnj', 3, 3, { apparaitSi: 'mer-rend-commencee', disparaitSi: 'caisse-marisol-reglee' }]],
+    objects: [['conque-muette', 'objet', 7, 5], ['oaina', 'pnj', 5, 4], ['edda-coralia', 'pnj', 3, 3, { apparaitSi: 'mer-rend-commencee', disparaitSi: 'caisse-marisol-reglee' }]],
   }),
 });
 
@@ -1833,6 +1873,7 @@ for (const [id, map] of Object.entries({
   'coralia-canaux': coraliaCanaux(),
   'coralia-amiraute': coraliaAmiraute(),
   'coralia-voie-noyee': coraliaVoieNoyee(),
+  'coralia-grotte': coraliaGrotte(),
   ...ENCOUNTER_MAPS,
   ...VOIE_MAPS,
 })) {

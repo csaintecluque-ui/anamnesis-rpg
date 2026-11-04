@@ -11,7 +11,7 @@
  "tilewidth": 64,
  "tileheight": 32,
  "nextlayerid": 4,
- "nextobjectid": 17,
+ "nextobjectid": 23,
  "layers": [
   {
    "id": 1,
@@ -1029,7 +1029,7 @@
     0,
     0,
     0,
-    0,
+    302,
     0,
     0,
     0,
@@ -1271,7 +1271,7 @@
     0,
     0,
     0,
-    0,
+    303,
     0,
     0,
     0,
@@ -1520,6 +1520,118 @@
     },
     {
      "id": 2,
+     "name": "vers-grotte",
+     "type": "sortie",
+     "x": 176,
+     "y": 560,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": [
+      {
+       "name": "cible",
+       "type": "string",
+       "value": "coralia-grotte"
+      },
+      {
+       "name": "arrivee",
+       "type": "string",
+       "value": "depuis-port"
+      },
+      {
+       "name": "libelle",
+       "type": "string",
+       "value": "La grotte du Grand Reflux"
+      }
+     ]
+    },
+    {
+     "id": 3,
+     "name": "banc-perles",
+     "type": "objet",
+     "x": 208,
+     "y": 496,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": [
+      {
+       "name": "tuile",
+       "type": "string",
+       "value": "banc-perles"
+      }
+     ]
+    },
+    {
+     "id": 4,
+     "name": "depuis-grotte",
+     "type": "arrivee",
+     "x": 304,
+     "y": 400,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": []
+    },
+    {
+     "id": 5,
+     "name": "gunnar",
+     "type": "pnj",
+     "x": 304,
+     "y": 304,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": []
+    },
+    {
+     "id": 6,
+     "name": "amande",
+     "type": "pnj",
+     "x": 432,
+     "y": 240,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": [
+      {
+       "name": "moment",
+       "type": "string",
+       "value": "jour"
+      }
+     ]
+    },
+    {
+     "id": 7,
+     "name": "basile",
+     "type": "pnj",
+     "x": 432,
+     "y": 240,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": [
+      {
+       "name": "moment",
+       "type": "string",
+       "value": "nuit"
+      }
+     ]
+    },
+    {
+     "id": 8,
      "name": "navire-marisol",
      "type": "porte",
      "x": 240,
@@ -1543,7 +1655,7 @@
      ]
     },
     {
-     "id": 3,
+     "id": 9,
      "name": "entree",
      "type": "arrivee",
      "x": 304,
@@ -1556,7 +1668,7 @@
      "properties": []
     },
     {
-     "id": 4,
+     "id": 10,
      "name": "depuis-voie",
      "type": "arrivee",
      "x": 400,
@@ -1569,7 +1681,7 @@
      "properties": []
     },
     {
-     "id": 5,
+     "id": 11,
      "name": "porte-coralia-entrepot",
      "type": "porte",
      "x": 528,
@@ -1608,7 +1720,7 @@
      ]
     },
     {
-     "id": 6,
+     "id": 12,
      "name": "devant-coralia-entrepot",
      "type": "arrivee",
      "x": 528,
@@ -1621,7 +1733,7 @@
      "properties": []
     },
     {
-     "id": 7,
+     "id": 13,
      "name": "merande",
      "type": "pnj",
      "x": 592,
@@ -1634,7 +1746,7 @@
      "properties": []
     },
     {
-     "id": 8,
+     "id": 14,
      "name": "cale-entrepot",
      "type": "objet",
      "x": 528,
@@ -1653,7 +1765,7 @@
      ]
     },
     {
-     "id": 9,
+     "id": 15,
      "name": "porte-coralia-chantier",
      "type": "porte",
      "x": 656,
@@ -1682,7 +1794,7 @@
      ]
     },
     {
-     "id": 10,
+     "id": 16,
      "name": "devant-coralia-chantier",
      "type": "arrivee",
      "x": 656,
@@ -1695,7 +1807,7 @@
      "properties": []
     },
     {
-     "id": 11,
+     "id": 17,
      "name": "porte-coralia-confrerie",
      "type": "porte",
      "x": 816,
@@ -1724,7 +1836,7 @@
      ]
     },
     {
-     "id": 12,
+     "id": 18,
      "name": "devant-coralia-confrerie",
      "type": "arrivee",
      "x": 816,
@@ -1737,7 +1849,7 @@
      "properties": []
     },
     {
-     "id": 13,
+     "id": 19,
      "name": "autel-port",
      "type": "objet",
      "x": 400,
@@ -1750,7 +1862,7 @@
      "properties": []
     },
     {
-     "id": 14,
+     "id": 20,
      "name": "panneau-port",
      "type": "panneau",
      "x": 336,
@@ -1769,7 +1881,7 @@
      ]
     },
     {
-     "id": 15,
+     "id": 21,
      "name": "vers-canaux",
      "type": "sortie",
      "x": 944,
@@ -1798,7 +1910,7 @@
      ]
     },
     {
-     "id": 16,
+     "id": 22,
      "name": "depuis-canaux",
      "type": "arrivee",
      "x": 880,
@@ -1819,11 +1931,11 @@
    "name": "tiles",
    "image": "../../../public/tiles/tiles.png",
    "imagewidth": 512,
-   "imageheight": 3648,
+   "imageheight": 3840,
    "tilewidth": 64,
    "tileheight": 96,
    "columns": 8,
-   "tilecount": 301,
+   "tilecount": 313,
    "margin": 0,
    "spacing": 0,
    "tiles": [
@@ -9334,6 +9446,306 @@
        "name": "nom",
        "type": "string",
        "value": "murmureur"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 301,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "cargo-noir"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 4
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 302,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "grotte"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 4
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 303,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "banc-perles"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 304,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "rocher-mouille"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 4
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 305,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "amande"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 306,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "tadeo"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 307,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "iris-coquelune"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 308,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "gunnar"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 309,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "doucenet"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 310,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "basile"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 311,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "lio"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 312,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "abyssal"
       },
       {
        "name": "bloquant",

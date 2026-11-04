@@ -1,0 +1,60 @@
+{
+  "id": "basile",
+  "speaker": "basile",
+  "entries": [
+    {
+      "requires": [
+        {
+          "flag": "oaina-muette"
+        },
+        {
+          "notFlag": "basile-recit"
+        }
+      ],
+      "node": "chant"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Un vieux marin, assis au pied de l’autel, regarde la mer revenir. — La mer se souvient que j’étais jeune. Et moi, moins bien.",
+      "options": [
+        {
+          "text": "Bonne nuit.",
+          "next": "fin"
+        }
+      ]
+    },
+    "chant": {
+      "text": "Basile ne se retourne pas. — Ma conque s’est tue ? Je sais. Moi aussi, j’ai oublié. Je l’ai chanté une fois, en mer, il y a quarante ans, et je l’ai confié à la conque pour ne jamais le chanter à terre.",
+      "options": [
+        {
+          "text": "Ça vous fait de la peine ?",
+          "next": "chant-2"
+        }
+      ]
+    },
+    "chant-2": {
+      "text": "— Non. Un chant qu’on ne chante pas doit pouvoir se perdre ; sinon, ce serait un livre. Il rit tout bas. — Raconte-le, toi, si tu veux. Pas le chant : l’histoire du vieux qui l’a perdu.",
+      "effects": [
+        {
+          "setFlag": "basile-recit"
+        },
+        {
+          "learnRecit": "chant-qu-on-ne-chante-pas"
+        },
+        {
+          "giveXp": 15
+        }
+      ],
+      "options": [
+        {
+          "text": "Bonne nuit, Basile.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

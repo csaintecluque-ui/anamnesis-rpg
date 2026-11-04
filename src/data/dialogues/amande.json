@@ -1,0 +1,203 @@
+{
+  "id": "amande",
+  "speaker": "amande",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "don-rendu",
+          "status": "done"
+        }
+      ],
+      "node": "apres"
+    },
+    {
+      "requires": [
+        {
+          "quest": "don-rendu",
+          "status": "active"
+        },
+        {
+          "flag": "tadeo-avoue"
+        }
+      ],
+      "node": "choix"
+    },
+    {
+      "requires": [
+        {
+          "quest": "don-rendu",
+          "status": "active"
+        }
+      ],
+      "node": "attente"
+    },
+    {
+      "node": "bague"
+    }
+  ],
+  "nodes": {
+    "bague": {
+      "text": "Une femme en noir, les mains serrées. — L’alliance de mon mari. Je l’avais donnée à la mer, à la Marée des Ancêtres, avec son corps. Elle me l’a rendue. Ça veut dire qu’il ne veut pas partir. Ou que je l’ai mal donnée.",
+      "options": [
+        {
+          "text": "Je vais chercher pourquoi.",
+          "next": "fin",
+          "effects": [
+            {
+              "startQuest": "don-rendu"
+            }
+          ]
+        },
+        {
+          "text": "Regarder la bague de près.",
+          "next": "marques",
+          "roll": {
+            "skill": "investigation",
+            "difficulty": 16
+          },
+          "failNext": "rien"
+        },
+        {
+          "text": "Je suis désolé·e.",
+          "next": "fin"
+        }
+      ]
+    },
+    "marques": {
+      "text": "Sur l’anneau, deux rayures fraîches, bien droites : la lame d’un couteau de plongeur. La mer ne fait pas ça.",
+      "effects": [
+        {
+          "startQuest": "don-rendu"
+        },
+        {
+          "setFlag": "don-rendu-indice"
+        }
+      ],
+      "options": [
+        {
+          "text": "Je vais chercher qui.",
+          "next": "fin"
+        }
+      ]
+    },
+    "rien": {
+      "text": "L’argent est usé, poli par l’eau. Tu n’y lis rien. Amande reprend son attente, comme si tu n’étais pas là.",
+      "options": [
+        {
+          "text": "Je vais chercher pourquoi.",
+          "next": "fin",
+          "effects": [
+            {
+              "startQuest": "don-rendu"
+            }
+          ]
+        },
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "attente": {
+      "text": "Amande n’a pas bougé. — Certains disent que c’est le Grand Reflux. D’autres, que c’est moi.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "choix": {
+      "text": "Amande lève les yeux vers toi. Elle a compris que tu sais quelque chose.",
+      "options": [
+        {
+          "text": "La mer ne l’a pas rendue. Un plongeur l’avait remontée, puis reposée.",
+          "next": "verite",
+          "effects": [
+            {
+              "giveXp": 30
+            },
+            {
+              "completeQuest": "don-rendu"
+            },
+            {
+              "setFlag": "fin-don-rendu-verite"
+            }
+          ]
+        },
+        {
+          "text": "C’est un présage. Il vous attend.",
+          "next": "presage",
+          "effects": [
+            {
+              "giveXp": 10
+            },
+            {
+              "completeQuest": "don-rendu"
+            },
+            {
+              "setFlag": "fin-don-rendu-presage"
+            }
+          ]
+        },
+        {
+          "text": "Le plongeur s’est dénoncé aux Murmureurs.",
+          "requires": [
+            {
+              "flag": "tadeo-denonce"
+            }
+          ],
+          "next": "denonce",
+          "effects": [
+            {
+              "giveXp": 20
+            },
+            {
+              "completeQuest": "don-rendu"
+            },
+            {
+              "setFlag": "fin-don-rendu-denonce"
+            }
+          ]
+        }
+      ]
+    },
+    "verite": {
+      "text": "Amande ferme les yeux, longtemps. — Alors elle l’avait prise. Alors il est parti. Elle pleure, enfin, et elle rit aussi. — Merci. Je vais pouvoir le laisser tranquille.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "presage": {
+      "text": "— Je le savais. Je viendrai tous les jours, alors. Elle s’assoit au pied de l’autel. Elle y sera encore demain, et après-demain. « Ne mens jamais en mer », dit le commandement.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "denonce": {
+      "text": "— Un plongeur. Amande regarde la bague, puis la mer. — Je la redonnerai moi-même, demain, plus loin. Là où personne ne plonge.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "apres": {
+      "text": "Amande n’est plus devant l’autel que pour y poser des fleurs de corail, le matin.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

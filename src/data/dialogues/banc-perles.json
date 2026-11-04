@@ -1,0 +1,76 @@
+{
+  "id": "banc-perles",
+  "speaker": "banc-perles",
+  "entries": [
+    {
+      "node": "banc"
+    }
+  ],
+  "nodes": {
+    "banc": {
+      "text": "Le banc d’huîtres, découvert à moitié par la marée. Plus loin, là où l’eau reste, les grosses dorment.",
+      "options": [
+        {
+          "text": "Plonger là où l’eau reste.",
+          "requires": [
+            {
+              "quest": "premiere-perle",
+              "status": "active"
+            },
+            {
+              "notFlag": "perle-trouvee"
+            }
+          ],
+          "next": "perle",
+          "roll": {
+            "skill": "athletics",
+            "difficulty": 16
+          },
+          "failNext": "rate"
+        },
+        {
+          "text": "Laisser le banc.",
+          "next": "fin"
+        }
+      ]
+    },
+    "perle": {
+      "text": "Tu remontes, le souffle court, une huître dans la main. Dedans, une perle blanche, ronde, sans tache.",
+      "effects": [
+        {
+          "giveItem": "perle-blanche"
+        },
+        {
+          "setFlag": "perle-trouvee"
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "La garder pour Ondine.",
+          "next": "fin"
+        }
+      ]
+    },
+    "rate": {
+      "text": "Le froid te serre la poitrine avant le fond. Tu remontes les mains vides et les paumes coupées par les coquilles.",
+      "effects": [
+        {
+          "blesser": 2
+        }
+      ],
+      "options": [
+        {
+          "text": "Réessayer.",
+          "next": "banc"
+        },
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

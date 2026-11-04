@@ -186,5 +186,29 @@
         "giveXp": 40
       }
     ]
+  },
+  {
+    "id": "abyssaux-grotte",
+    "center": "abyssal-1",
+    "enemies": [
+      {
+        "id": "abyssal",
+        "object": "abyssal-1"
+      },
+      {
+        "id": "abyssal",
+        "object": "abyssal-2"
+      },
+      {
+        "id": "abyssal",
+        "object": "abyssal-3"
+      }
+    ],
+    "victoryFlag": "abyssaux-vaincus",
+    "victoryEffects": [
+      {
+        "giveXp": 40
+      }
+    ]
   }
 ]

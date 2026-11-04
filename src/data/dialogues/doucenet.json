@@ -1,0 +1,118 @@
+{
+  "id": "doucenet",
+  "speaker": "doucenet",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "paie-brisants",
+          "status": "active"
+        },
+        {
+          "notFlag": "doucenet-paye"
+        }
+      ],
+      "node": "paie"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Un armateur aux bagues d’or compte des pièces sur un tonneau. — Doucenet, armement et fret. Si vous cherchez un bateau, j’en ai. Un équipage aussi : il coûte trop cher.",
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "paie": {
+      "text": "— Le Bel-Écart ? L’équipage a perdu une cargaison. Je ne paie pas les pertes.",
+      "options": [
+        {
+          "text": "Les Sept Lois : secours et partage en mer. Payez.",
+          "requires": [
+            {
+              "notFlag": "doucenet-ferme"
+            }
+          ],
+          "next": "paye",
+          "roll": {
+            "skill": "diplomacy",
+            "difficulty": 16
+          },
+          "failNext": "refus"
+        },
+        {
+          "text": "Si vous ne payez pas, aucun bateau ne sort du port demain.",
+          "requires": [
+            {
+              "notFlag": "doucenet-ferme"
+            }
+          ],
+          "next": "paye",
+          "roll": {
+            "skill": "command",
+            "difficulty": 16
+          },
+          "failNext": "refus"
+        },
+        {
+          "text": "Vous avez vendu la cargaison à Terminus, Doucenet.",
+          "requires": [
+            {
+              "flag": "rumeur-bel-ecart"
+            },
+            {
+              "notFlag": "doucenet-ferme"
+            }
+          ],
+          "next": "paye",
+          "roll": {
+            "skill": "command",
+            "difficulty": 13
+          },
+          "failNext": "refus"
+        },
+        {
+          "text": "Plus tard.",
+          "next": "fin"
+        }
+      ]
+    },
+    "paye": {
+      "text": "Doucenet pâlit, puis compte. — Trois mois. Dites à Matteo que je m’en souviendrai. Il recompte, et ajoute un Fer, pour le principe.",
+      "effects": [
+        {
+          "setFlag": "doucenet-paye"
+        },
+        {
+          "giveXp": 15
+        }
+      ],
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "refus": {
+      "text": "— Allez-vous-en. Revenez demain : j’aurai peut-être oublié votre tête.",
+      "effects": [
+        {
+          "setFlagFor": "doucenet-ferme",
+          "days": 1
+        }
+      ],
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

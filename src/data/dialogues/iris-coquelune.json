@@ -1,0 +1,37 @@
+{
+  "id": "iris-coquelune",
+  "speaker": "iris-coquelune",
+  "entries": [
+    {
+      "requires": [
+        {
+          "flag": "aio-oublie"
+        }
+      ],
+      "node": "oubli"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Une femme pâle, dans le lit, tousse doucement. — Aïo ? Il est sorti ? Il sort toujours. Il croit que je ne sais pas.",
+      "options": [
+        {
+          "text": "Reposez-vous.",
+          "next": "fin"
+        }
+      ]
+    },
+    "oubli": {
+      "text": "Iris caresse les cheveux de son fils, qui dort. — Il m’appelle « madame ». Il est poli, c’est déjà ça. Il a eu sa perle, j’ai mon remède. Je n’ai plus de nom.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

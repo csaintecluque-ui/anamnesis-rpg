@@ -2181,5 +2181,237 @@
       "L’Académie dit que le cristal azur se fatigue. Le Conseil dit qu’on verra dans six ans.",
       "Quatre cents voiles par jour au-dessus de la Tour, les jours de vent. Je les compte."
     ]
+  },
+  {
+    "id": "pecheur-port",
+    "location": "coralia-port",
+    "name": "Un pêcheur",
+    "tile": "pecheur",
+    "path": [
+      [
+        11,
+        2
+      ],
+      [
+        15,
+        2
+      ]
+    ],
+    "lines": [
+      "La mer donne, la mer reprend. Ce matin, elle a surtout repris.",
+      "Trois thons. Le quota en permet quatre. Je laisse le quatrième pour demain."
+    ]
+  },
+  {
+    "id": "marchande-poisson",
+    "location": "coralia-port",
+    "name": "Une marchande de poisson",
+    "tile": "marchande-poisson",
+    "path": [
+      [
+        19,
+        7
+      ]
+    ],
+    "lines": [
+      "Du thon, du calamar, de la crevette ! Tout ce qui nage, et rien de Ferros !",
+      "Les Atolls du nord ? On n’y pêche plus. Les poissons y ont deux têtes."
+    ]
+  },
+  {
+    "id": "matelot-port",
+    "location": "coralia-port",
+    "name": "Un matelot",
+    "tile": "matelot",
+    "path": [
+      [
+        22,
+        10
+      ],
+      [
+        27,
+        12
+      ]
+    ],
+    "lines": [
+      "Un marin seul est un marin mort. C’est pour ça qu’on boit à plusieurs.",
+      "Doucenet ? Je ne signerai plus jamais avec lui. Personne ne signera plus."
+    ],
+    "reactions": [
+      {
+        "quest": "paie-brisants",
+        "lines": [
+          "Trois mois de solde, d’un coup ! La Confrérie a trouvé quelqu’un qui sait parler."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "selenide-port",
+    "location": "coralia-port",
+    "name": "Une Sélénide",
+    "tile": "selenide",
+    "path": [
+      [
+        14,
+        1
+      ],
+      [
+        24,
+        1
+      ]
+    ],
+    "lines": [
+      "L’air sec me fatigue. Je redescendrai ce soir, à la marée.",
+      "Vous respirez fort, vous autres. On vous entend à trente pas, sous l’eau."
+    ]
+  },
+  {
+    "id": "plongeuse-canaux",
+    "location": "coralia-canaux",
+    "name": "Une plongeuse",
+    "tile": "plongeuse",
+    "path": [
+      [
+        3,
+        9
+      ],
+      [
+        8,
+        13
+      ]
+    ],
+    "lines": [
+      "Quatre minutes, aujourd’hui. Ondine dit que je n’ai plus d’excuse.",
+      "On ne remonte rien des eaux noires. Rien qu’on ait envie de vendre."
+    ]
+  },
+  {
+    "id": "murmureur-canaux",
+    "location": "coralia-canaux",
+    "name": "Un Murmureur",
+    "tile": "murmureur",
+    "path": [
+      [
+        15,
+        2
+      ],
+      [
+        24,
+        5
+      ]
+    ],
+    "lines": [
+      "Sous le canal, quelque chose respire. Ce n’est pas le canal.",
+      "Ne mentez jamais en mer. Ni sur les canaux : c’est de la mer aussi."
+    ]
+  },
+  {
+    "id": "enfant-canaux",
+    "location": "coralia-canaux",
+    "name": "Un enfant des Canaux",
+    "tile": "aio",
+    "path": [
+      [
+        16,
+        17
+      ],
+      [
+        20,
+        20
+      ]
+    ],
+    "lines": [
+      "La mer se souvient que j’ai gagné à la course ! — Et nous, moins bien !",
+      "Aïo tient deux minutes sous l’eau. Moi, une. Et demi."
+    ]
+  },
+  {
+    "id": "ferrien-coralia",
+    "location": "coralia-canaux",
+    "name": "Un marchand de Ferros",
+    "tile": "changeur",
+    "path": [
+      [
+        22,
+        9
+      ]
+    ],
+    "lines": [
+      "Ils me vendent le poisson deux fois plus cher. Je paie : on m’a dit que c’était le prix du Cargo Noir.",
+      "Je ne suis pas Ferros. Je vends des clous."
+    ]
+  },
+  {
+    "id": "garde-amiraute",
+    "location": "coralia-amiraute",
+    "name": "Une garde de l’Amirauté",
+    "tile": "matelot",
+    "path": [
+      [
+        11,
+        7
+      ],
+      [
+        15,
+        7
+      ]
+    ],
+    "lines": [
+      "La Grande Amiral reçoit le matin. L’après-midi, elle lit les réponses de Ferros. Il n’y en a pas.",
+      "Un embargo ? Ce n’est pas mon travail de le souhaiter."
+    ]
+  },
+  {
+    "id": "murmureuse-amiraute",
+    "location": "coralia-amiraute",
+    "name": "Une Murmureuse",
+    "tile": "murmureur",
+    "path": [
+      [
+        13,
+        14
+      ]
+    ],
+    "lines": [
+      "La Mère-Abysse ne ment pas. Elle répond. Ce n’est pas pareil.",
+      "« Je reprends ce qui fut donné. Je rends ce qui sera repris. » Le reste, c’est nous qui le disons."
+    ]
+  },
+  {
+    "id": "selenide-amiraute",
+    "location": "coralia-amiraute",
+    "name": "Un Sélénide des Récifs",
+    "tile": "selenide",
+    "path": [
+      [
+        20,
+        14
+      ],
+      [
+        23,
+        16
+      ]
+    ],
+    "lines": [
+      "La Salle des Conques se tait un peu plus chaque nuit. Ma grand-mère y avait laissé sa berceuse.",
+      "Vos yeux ne brillent pas dans le noir ? Comment faites-vous pour lire ?"
+    ]
+  },
+  {
+    "id": "chanteuse-conque",
+    "location": "coralia-auberge",
+    "name": "Une chanteuse de la Conque",
+    "tile": "noea",
+    "path": [
+      [
+        5,
+        4
+      ]
+    ],
+    "lines": [
+      "Ce soir, je chante la Course des Sept Mers. Jamais pareil que la veille : c’est la règle.",
+      "Un chant manque à chaque légende. On le laisse au fond. C’est sa place."
+    ]
   }
 ]

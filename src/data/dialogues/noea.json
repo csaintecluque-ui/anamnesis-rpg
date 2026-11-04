@@ -30,6 +30,24 @@
       "node": "lettre"
     },
     {
+      "requires": [
+        {
+          "tousLes": 3,
+          "decalage": 1
+        }
+      ],
+      "node": "accueil-2"
+    },
+    {
+      "requires": [
+        {
+          "tousLes": 3,
+          "decalage": 2
+        }
+      ],
+      "node": "accueil-3"
+    },
+    {
       "node": "accueil"
     }
   ],
@@ -44,6 +62,15 @@
         {
           "text": "Quelles nouvelles ?",
           "next": "nouvelles"
+        },
+        {
+          "text": "Chanter un Récit à la veillée.",
+          "next": "fin",
+          "effects": [
+            {
+              "veillee": "conque"
+            }
+          ]
         },
         {
           "text": "Au revoir.",
@@ -133,6 +160,26 @@
       "text": "— L’Amirauté a saisi une caisse que la mer a rendue. Les Murmureurs ne dorment plus. Et une dame en gris passe ses journées à la Salle des Conques, une conque contre l’oreille. On parie sur ce qu’elle écoute.",
       "options": [
         {
+          "text": "Je voudrais vous raconter une histoire, à vous seule.",
+          "requires": [
+            {
+              "notFlag": "raconte-noea"
+            }
+          ],
+          "next": "raconte-neutre",
+          "raconter": {
+            "aime": [
+              "chansons",
+              "familles"
+            ],
+            "recits": {
+              "on-se-retrouvera": "raconte-special"
+            },
+            "touche": "raconte-touche",
+            "neutre": "raconte-neutre"
+          }
+        },
+        {
           "text": "Merci, Noéa.",
           "next": "accueil"
         }
@@ -171,6 +218,109 @@
       "options": [
         {
           "text": "Plier la lettre.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-special": {
+      "text": "Noéa pose sa chope. — Celle-là, je la chanterai ce soir, et je la changerai un peu, pour qu’elle reste vraie. À Coralia, les promesses qu’on se fait sur un quai se chantent toujours au présent.",
+      "effects": [
+        {
+          "setFlag": "raconte-noea"
+        },
+        {
+          "giveXp": 15
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Noéa.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-touche": {
+      "text": "Noéa fredonne déjà. — Elle a un air, ton histoire. Tu ne l’entends pas ? Moi si.",
+      "effects": [
+        {
+          "setFlag": "raconte-noea"
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Noéa.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-neutre": {
+      "text": "— Bien raconté. Mais trop d’un bloc : il faut laisser un bout au fond, pour la mer.",
+      "effects": [
+        {
+          "setFlag": "raconte-noea"
+        },
+        {
+          "giveXp": 5
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Noéa.",
+          "next": "fin"
+        }
+      ]
+    },
+    "accueil-2": {
+      "text": "Noéa essuie une chope en chantant faux, exprès. — La Conque Rieuse ! Ce matin, la marée a laissé un requin-dragon sur le sable du port. Mort, heureusement. Les enfants l’ont pesé : trois Aïo.",
+      "options": [
+        {
+          "text": "Manger ou dormir ?",
+          "next": "servir"
+        },
+        {
+          "text": "Quelles nouvelles ?",
+          "next": "nouvelles"
+        },
+        {
+          "text": "Chanter un Récit à la veillée.",
+          "next": "fin",
+          "effects": [
+            {
+              "veillee": "conque"
+            }
+          ]
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "accueil-3": {
+      "text": "Noéa a les yeux rouges. — La Conque Rieuse. Cette nuit, une conque de plus s’est tue, à la Salle. Celle d’une grand-mère du canal. On a chanté pour elle, sans les mots.",
+      "options": [
+        {
+          "text": "Manger ou dormir ?",
+          "next": "servir"
+        },
+        {
+          "text": "Quelles nouvelles ?",
+          "next": "nouvelles"
+        },
+        {
+          "text": "Chanter un Récit à la veillée.",
+          "next": "fin",
+          "effects": [
+            {
+              "veillee": "conque"
+            }
+          ]
+        },
+        {
+          "text": "Au revoir.",
           "next": "fin"
         }
       ]

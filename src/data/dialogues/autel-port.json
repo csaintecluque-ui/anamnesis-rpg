@@ -3,6 +3,15 @@
   "speaker": "autel-port",
   "entries": [
     {
+      "requires": [
+        {
+          "quest": "don-rendu",
+          "status": "none"
+        }
+      ],
+      "node": "bague"
+    },
+    {
       "node": "autel"
     }
   ],
@@ -12,6 +21,15 @@
       "options": [
         {
           "text": "Le laisser.",
+          "next": "fin"
+        }
+      ]
+    },
+    "bague": {
+      "text": "Sur l’autel, une bague d’argent, mouillée, posée comme si la mer venait de la rendre. Une femme en noir la regarde, sans oser y toucher.",
+      "options": [
+        {
+          "text": "La laisser.",
           "next": "fin"
         }
       ]

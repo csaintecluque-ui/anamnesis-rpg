@@ -1015,5 +1015,55 @@
     "id": "echo-le-don",
     "name": "Un Écho",
     "role": "La halte noyée"
+  },
+  {
+    "id": "amande",
+    "name": "Amande",
+    "role": "Une veuve, devant l’autel"
+  },
+  {
+    "id": "tadeo",
+    "name": "Tadéo",
+    "role": "Plongeur, aux Canaux"
+  },
+  {
+    "id": "iris-coquelune",
+    "name": "Iris Coquelune",
+    "role": "La mère d’Aïo"
+  },
+  {
+    "id": "gunnar",
+    "name": "Gunnar",
+    "role": "Second du Cargo Noir, sur parole"
+  },
+  {
+    "id": "doucenet",
+    "name": "Doucenet",
+    "role": "Armateur"
+  },
+  {
+    "id": "basile",
+    "name": "Basile Chante-Creux",
+    "role": "Un vieux marin"
+  },
+  {
+    "id": "lio",
+    "name": "Lio",
+    "role": "Novice des Murmureurs"
+  },
+  {
+    "id": "abyssaux-grotte",
+    "name": "Les Abyssaux",
+    "role": "La grotte du Grand Reflux"
+  },
+  {
+    "id": "conque-muette",
+    "name": "Une conque muette",
+    "role": "Salle des Conques"
+  },
+  {
+    "id": "banc-perles",
+    "name": "Un banc d’huîtres perlières",
+    "role": "Le Grand Port, à marée basse"
   }
 ]

@@ -673,5 +673,107 @@
         "titre": "La caisse laissée à la dame en gris"
       }
     ]
+  },
+  {
+    "id": "don-rendu",
+    "name": "Le Don rendu",
+    "summary": "Amande avait offert à la mer l’alliance de son mari, à la Marée des Ancêtres. La bague est revenue sur l’autel du port : une offrande rendue, c’est un mauvais présage. Elle croit qu’il ne veut pas partir.",
+    "etapes": [
+      {
+        "si": "don-rendu-indice",
+        "texte": "Les plongeurs remontent parfois ce qu’on donne à la mer. Aïo connaît un certain Tadéo, aux Canaux."
+      }
+    ],
+    "fins": [
+      {
+        "id": "verite",
+        "titre": "La vérité dite à Amande"
+      },
+      {
+        "id": "presage",
+        "titre": "Le présage laissé"
+      },
+      {
+        "id": "denonce",
+        "titre": "Tadéo dénoncé aux Murmureurs"
+      }
+    ]
+  },
+  {
+    "id": "lune-rouge",
+    "name": "Sous une lune rouge",
+    "summary": "Aïo Coquelune, dix ans, veut plonger seul cette nuit, sous la lune rouge, pour une perle noire qui paierait le remède de sa mère. « Ne plonge jamais seul sous une lune rouge », dit le commandement.",
+    "fins": [
+      {
+        "id": "empeche",
+        "titre": "Aïo retenu"
+      },
+      {
+        "id": "ensemble",
+        "titre": "La plongée à deux"
+      },
+      {
+        "id": "paye",
+        "titre": "Le remède payé"
+      },
+      {
+        "id": "seul",
+        "titre": "Aïo parti seul"
+      }
+    ]
+  },
+  {
+    "id": "cargo-noir",
+    "name": "Le Cargo Noir",
+    "summary": "Le navire de Ferros confisqué en 2995 pourrit au port. Son second, Gunnar, est retenu sur parole. Il garde le journal de bord, et ce qu’il y a dedans pourrait éviter une guerre, ou la déclencher.",
+    "etapes": [
+      {
+        "si": "journal-cargo-lu",
+        "texte": "Le journal de bord : le déversement a été ordonné par la Compagnie de la Fonte Grise, d’Ironheart, pas par l’Empire. Le porter à la Grande Amiral, le rendre à Gunnar, ou le confier à la Confrérie des Brisants."
+      }
+    ],
+    "fins": [
+      {
+        "id": "amiraute",
+        "titre": "Le journal à la Grande Amiral"
+      },
+      {
+        "id": "brule",
+        "titre": "Le journal rendu à Gunnar"
+      },
+      {
+        "id": "confrerie",
+        "titre": "Le journal à la Confrérie des Brisants"
+      }
+    ]
+  },
+  {
+    "id": "grotte-reflux",
+    "name": "La grotte du Grand Reflux",
+    "summary": "Lio, le novice d’Euria, a disparu. À marée basse, les Abyssaux l’ont emmené dans la grotte du Grand Reflux, pour qu’il parle à la Mère-Abysse à leur place.",
+    "fins": [
+      {
+        "id": "combat",
+        "titre": "Les Abyssaux vaincus"
+      },
+      {
+        "id": "parole",
+        "titre": "Les Abyssaux renvoyés à leurs mots"
+      },
+      {
+        "id": "discretion",
+        "titre": "Lio libéré sans bruit"
+      }
+    ]
+  },
+  {
+    "id": "paie-brisants",
+    "name": "La paie des Brisants",
+    "summary": "L’armateur Doucenet refuse de payer l’équipage du Bel-Écart. La Confrérie des Brisants, le syndicat des marins marchands, prend qui sait faire payer."
+  },
+  {
+    "id": "premiere-perle",
+    "name": "La première perle",
+    "summary": "« Un plongeur, on le reconnaît à ce qu’il remonte », dit Ondine Perle-Noire. À marée basse, le banc d’huîtres devant le Grand Port."
   }
 ]

@@ -564,5 +564,28 @@
     "weightKg": 6,
     "price": 0,
     "quest": true
+  },
+  {
+    "id": "journal-cargo",
+    "name": "Le journal de bord du Cargo Noir",
+    "description": "Un journal de bord taché d’huile. À la date du déversement, une ligne, et une signature qui n’est pas celle du capitaine : un ordre de la Compagnie de la Fonte Grise, à Ironheart.",
+    "weightKg": 0.5,
+    "price": 0,
+    "quest": true
+  },
+  {
+    "id": "perle-blanche",
+    "name": "Une perle blanche",
+    "description": "Une perle ronde, remontée à marée basse du banc devant le Grand Port. Les Plongeurs de Perles reconnaissent un des leurs à ce qu’il remonte.",
+    "weightKg": 0,
+    "price": 40,
+    "quest": true
+  },
+  {
+    "id": "perle-noire",
+    "name": "Une perle noire",
+    "description": "Une perle noire, grosse comme un œil d’enfant, remontée sous une lune rouge.",
+    "weightKg": 0,
+    "price": 120
   }
 ]

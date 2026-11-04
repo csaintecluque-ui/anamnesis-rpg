@@ -1782,3 +1782,52 @@ TILES.push(
   npcTile('plongeuse', { body: '#2c5a6a', hair: '#1a1410', skin: '#b88858', accent: '#e8c060', extra: '<circle cx="32" cy="46" r="10" fill="none" stroke="#9fe0e0" stroke-width="1.5" opacity="0.7"/>' }),
   npcTile('murmureur', { body: '#1f3a4a', hair: '#5a5a62', skin: '#c8b8a8', accent: '#3ac0c0', extra: '<path d="M22 46 Q32 34 42 46 Q32 54 22 46 Z" fill="#e8dccf" stroke="#1B1512" stroke-width="0.8"/>' }),
 );
+
+// Les quêtes de Coralia (chapitre 6) : le Cargo Noir, la grotte du Grand Reflux, le banc de perles ; leurs gens.
+TILES.push(
+  {
+    // Le Cargo Noir [NOTION, l'Incident de 2995] : un navire de Ferros confisqué, coque noire, cheminée froide.
+    name: 'cargo-noir',
+    blocking: true,
+    cover: 4,
+    svg:
+      diamond('#2c5a6a') +
+      '<path d="M2 74 Q32 94 62 74 L58 60 L6 60 Z" fill="#2a2a30" stroke="#1B1512" stroke-width="1.2"/>' +
+      '<rect x="22" y="36" width="20" height="24" fill="#3a3a40" stroke="#1B1512" stroke-width="1"/>' +
+      '<rect x="36" y="18" width="7" height="20" fill="#5a3a2a" stroke="#1B1512" stroke-width="1"/>' +
+      '<path d="M8 66 L56 66" stroke="#a0402a" stroke-width="2"/><path d="M10 72 Q20 78 30 74" stroke="#1a1a1a" stroke-width="3" opacity="0.6"/>',
+  },
+  {
+    // L'entrée de la grotte du Grand Reflux, à marée basse : une arche de roche noire, des algues.
+    name: 'grotte',
+    blocking: true,
+    cover: 4,
+    svg:
+      diamond('#9a8a6a') +
+      shadow(24, 8) +
+      '<path d="M4 86 Q6 30 32 22 Q58 30 60 86 Z" fill="#3a3a40" stroke="#1B1512" stroke-width="1.2"/>' +
+      '<path d="M18 88 Q20 54 32 50 Q44 54 46 88 Z" fill="#0f1418"/>' +
+      '<path d="M8 70 Q12 60 10 50 M56 72 Q52 62 56 52" stroke="#3a7a5a" stroke-width="2.5" fill="none"/>',
+  },
+  {
+    // Un banc d'huîtres perlières, découvert à marée basse.
+    name: 'banc-perles',
+    svg:
+      '<ellipse cx="22" cy="80" rx="8" ry="4" fill="#5a5a62" stroke="#1B1512" stroke-width="0.8"/><ellipse cx="38" cy="84" rx="9" ry="4" fill="#6a6a72" stroke="#1B1512" stroke-width="0.8"/>' +
+      '<ellipse cx="34" cy="74" rx="7" ry="3.5" fill="#5a5a62" stroke="#1B1512" stroke-width="0.8"/><circle cx="36" cy="82" r="1.8" fill="#f4eef0"/>',
+  },
+  {
+    name: 'rocher-mouille',
+    blocking: true,
+    cover: 4,
+    svg: diamond('#8a7a5a') + shadow(18, 6) + '<path d="M10 84 Q12 54 30 50 Q50 52 54 84 Z" fill="#4a4a50" stroke="#1B1512" stroke-width="1"/><path d="M16 70 Q20 64 24 70 M40 66 Q44 60 48 66" stroke="#3a7a5a" stroke-width="2" fill="none"/>',
+  },
+  npcTile('amande', { body: '#2a2a32', hair: '#8a6a4a', skin: '#c89868', accent: '#f4eef0', extra: '<path d="M22 44 Q32 34 42 44 L44 58 L20 58 Z" fill="#2a2a32" opacity="0.7"/>' }),
+  npcTile('tadeo', { body: '#5a6a6a', hair: '#1a1410', skin: '#b88858', accent: '#e8c060', extra: '<path d="M44 62 L52 58" stroke="#a8a29a" stroke-width="2"/>' }),
+  npcTile('iris-coquelune', { body: '#d8c8b8', hair: '#3a2a1c', skin: '#c8a888', accent: '#3a8ab8' }),
+  npcTile('gunnar', { body: '#3a3a42', hair: '#c8a060', skin: '#e0c0a8', accent: '#a0402a', extra: '<path d="M22 58 L42 58" stroke="#a0402a" stroke-width="2"/>' }),
+  npcTile('doucenet', { body: '#5a3a5a', hair: '#8a8a8a', skin: '#d8b090', accent: '#e8c060', extra: '<circle cx="40" cy="62" r="3" fill="#e8c060"/><circle cx="44" cy="60" r="2.5" fill="#e8c060"/>' }),
+  npcTile('basile', { body: '#3a4a5a', hair: '#e8e4dc', skin: '#b89878', accent: '#f4eef0', extra: '<path d="M22 64 L42 64" stroke="#f4eef0" stroke-width="1.5"/>' }),
+  npcTile('lio', { small: true, body: '#1f3a4a', hair: '#3a2a1c', skin: '#c8b8a8', accent: '#3ac0c0' }),
+  npcTile('abyssal', { body: '#1a2a2a', hair: '#0f1418', skin: '#8aa8a8', accent: '#3a7a5a', extra: '<path d="M22 46 Q32 38 42 46 Q32 54 22 46 Z" fill="#2a3a3a" stroke="#1B1512" stroke-width="0.8"/><circle cx="28" cy="46" r="1.4" fill="#9fe0e0"/><circle cx="36" cy="46" r="1.4" fill="#9fe0e0"/>' }),
+);

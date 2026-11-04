@@ -1,0 +1,44 @@
+{
+  "id": "conque-muette",
+  "speaker": "conque-muette",
+  "entries": [
+    {
+      "node": "muette"
+    }
+  ],
+  "nodes": {
+    "muette": {
+      "text": "Une conque sur son pied, une étiquette au nom de Basile Chante-Creux. Tu la portes à ton oreille. Rien. Pas même le bruit de la mer.",
+      "options": [
+        {
+          "text": "Écouter plus longtemps.",
+          "requires": [
+            {
+              "attribute": "memory",
+              "min": 4
+            }
+          ],
+          "next": "loin"
+        },
+        {
+          "text": "La reposer.",
+          "next": "fin"
+        }
+      ]
+    },
+    "loin": {
+      "text": "Au fond du silence, une voix d’homme, très loin, chante un chant qu’elle n’achève pas. Puis plus rien. La conque n’est pas vide : elle oublie.",
+      "effects": [
+        {
+          "setFlag": "conque-muette-entendue"
+        }
+      ],
+      "options": [
+        {
+          "text": "La reposer.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

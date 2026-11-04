@@ -307,6 +307,10 @@ En ligne le 2026-11-03 (tes textes du 3 novembre) :
       rails qui descendent dans la mer.
 - [ ] **« Ce que la mer rend »** : l'Entrepôt des douanes, la Grande Amiral, Euria, Oaïna, la dame en gris et sa
       conque ; quatre fins.
+- [ ] **Les quêtes de la ville** : la bague rendue (Amande), Aïo sous la lune rouge, le Cargo Noir (Gunnar), la grotte
+      du Grand Reflux à marée basse (Lio et les Abyssaux), la conque muette (Basile, la nuit).
+- [ ] **Les guildes** : la Confrérie des Brisants (Matteo, l'armateur Doucenet) ou les Plongeurs de Perles (Ondine, le
+      banc d'huîtres à marée basse).
 - Remarques :
 
 ## Déjà en ligne, pas encore essayé sur PC

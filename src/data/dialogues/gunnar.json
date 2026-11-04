@@ -1,0 +1,177 @@
+{
+  "id": "gunnar",
+  "speaker": "gunnar",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "cargo-noir",
+          "status": "done"
+        }
+      ],
+      "node": "apres"
+    },
+    {
+      "requires": [
+        {
+          "quest": "cargo-noir",
+          "status": "active"
+        },
+        {
+          "item": "journal-cargo"
+        }
+      ],
+      "node": "journal"
+    },
+    {
+      "requires": [
+        {
+          "quest": "cargo-noir",
+          "status": "active"
+        },
+        {
+          "flag": "gunnar-refus"
+        }
+      ],
+      "node": "refus"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Un homme de Ferros, en vareuse grise, regarde le Cargo Noir pourrir à l’ancre. — Gunnar, second. Sur parole, ils disent : ça veut dire sans bateau. Depuis trois ans, j’attends que Ferros paie, ou que Marisol pende quelqu’un.",
+      "options": [
+        {
+          "text": "Que s’est-il passé ?",
+          "next": "passe"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "passe": {
+      "text": "— On a vidé les cuves en mer. Ordre écrit. Le capitaine a obéi ; il est mort l’hiver dernier, de honte, ou de rhum. L’ordre, je l’ai gardé, dans le journal de bord. Personne ne me l’a jamais demandé.",
+      "effects": [
+        {
+          "startQuest": "cargo-noir"
+        }
+      ],
+      "options": [
+        {
+          "text": "Montrez-moi le journal.",
+          "next": "montre",
+          "roll": {
+            "skill": "diplomacy",
+            "difficulty": 16
+          },
+          "failNext": "non"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "non": {
+      "text": "— Pour que Marisol le brandisse devant l’Empire ? Non. Gunnar remonte son col.",
+      "effects": [
+        {
+          "setFlag": "gunnar-refus"
+        }
+      ],
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "refus": {
+      "text": "Gunnar ne te regarde pas. — Toujours non.",
+      "options": [
+        {
+          "text": "Matteo vous fait dire que la Confrérie paiera votre retour.",
+          "requires": [
+            {
+              "flag": "membre-confrerie-brisants"
+            }
+          ],
+          "next": "montre"
+        },
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "montre": {
+      "text": "Il sort le journal de sa vareuse. À la date du déversement, une ligne, et une signature : « Ordre de la Compagnie de la Fonte Grise, Ironheart. » — Pas l’Empire. Une compagnie. Ça change tout, ou rien, selon qui le lit.",
+      "effects": [
+        {
+          "giveItem": "journal-cargo"
+        },
+        {
+          "setFlag": "journal-cargo-lu"
+        },
+        {
+          "giveXp": 15
+        }
+      ],
+      "options": [
+        {
+          "text": "Le prendre.",
+          "next": "fin"
+        }
+      ]
+    },
+    "journal": {
+      "text": "Gunnar regarde le journal dans ta main. — Alors ? Qui va le lire ?",
+      "options": [
+        {
+          "text": "Je vous le rends. Brûlez-le.",
+          "next": "brule",
+          "effects": [
+            {
+              "takeItem": "journal-cargo"
+            },
+            {
+              "giveXp": 30
+            },
+            {
+              "completeQuest": "cargo-noir"
+            },
+            {
+              "setFlag": "fin-cargo-noir-brule"
+            }
+          ]
+        },
+        {
+          "text": "Pas encore.",
+          "next": "fin"
+        }
+      ]
+    },
+    "brule": {
+      "text": "Gunnar le jette dans le brasero du quai et regarde les pages se tordre. — Ferros paiera, ou ne paiera pas. Au moins, ce ne sera pas grâce à moi.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "apres": {
+      "text": "Gunnar regarde toujours le Cargo Noir. — Un jour, ils me laisseront remonter à bord. Ce jour-là, je le coulerai moi-même.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "lio",
+  "speaker": "lio",
+  "entries": [
+    {
+      "requires": [
+        {
+          "flag": "abyssaux-vaincus"
+        }
+      ],
+      "node": "libre"
+    },
+    {
+      "requires": [
+        {
+          "flag": "abyssaux-partis"
+        }
+      ],
+      "node": "libre"
+    },
+    {
+      "node": "prisonnier"
+    }
+  ],
+  "nodes": {
+    "prisonnier": {
+      "text": "Le novice ne lève pas les yeux. Il récite quelque chose, très bas, pour ne pas entendre les autres.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "libre": {
+      "text": "Lio tremble. — Ils voulaient que je dise « tout ». Je ne l’ai pas dit. Je ne l’ai pas dit, hein ?",
+      "effects": [
+        {
+          "setFlag": "lio-libre"
+        }
+      ],
+      "options": [
+        {
+          "text": "Non. Viens, on rentre.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

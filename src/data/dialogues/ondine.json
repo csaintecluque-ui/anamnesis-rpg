@@ -3,6 +3,18 @@
   "speaker": "ondine",
   "entries": [
     {
+      "requires": [
+        {
+          "quest": "premiere-perle",
+          "status": "active"
+        },
+        {
+          "item": "perle-blanche"
+        }
+      ],
+      "node": "perle-apportee"
+    },
+    {
       "node": "accueil"
     }
   ],
@@ -11,7 +23,132 @@
       "text": "Une vieille Semi-Abyssale, un collier de perles noires, des branchies fines sous les oreilles. — Ondine Perle-Noire, des Plongeurs de Perles. Au nord des Atolls, on ne remonte plus rien : Ferros y a laissé ses eaux noires, et les huîtres y meurent ouvertes.",
       "options": [
         {
+          "text": "Je veux plonger avec vous.",
+          "requires": [
+            {
+              "quest": "premiere-perle",
+              "status": "none"
+            },
+            {
+              "notFlag": "membre-confrerie-brisants"
+            }
+          ],
+          "next": "perle"
+        },
+        {
+          "text": "Je vous raconte une histoire ?",
+          "requires": [
+            {
+              "notFlag": "raconte-ondine"
+            }
+          ],
+          "next": "raconte-neutre",
+          "raconter": {
+            "aime": [
+              "familles",
+              "morts"
+            ],
+            "recits": {
+              "odon-passe-rive": "raconte-special"
+            },
+            "touche": "raconte-touche",
+            "neutre": "raconte-neutre"
+          }
+        },
+        {
           "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "perle": {
+      "text": "— Un plongeur, on le reconnaît à ce qu’il remonte. À marée basse, devant le Grand Port, le banc d’huîtres se découvre à moitié. Va. Et ne remonte pas avec n’importe quoi.",
+      "options": [
+        {
+          "text": "J’y vais.",
+          "next": "fin",
+          "effects": [
+            {
+              "startQuest": "premiere-perle"
+            }
+          ]
+        },
+        {
+          "text": "Plus tard.",
+          "next": "fin"
+        }
+      ]
+    },
+    "perle-apportee": {
+      "text": "Ondine fait rouler la perle dans sa paume. — Ronde. Propre. Pas des eaux noires. Elle te passe au cou un fil de perles grises. — Apnée : le premier rang. On y meurt rarement.",
+      "effects": [
+        {
+          "takeItem": "perle-blanche"
+        },
+        {
+          "completeQuest": "premiere-perle"
+        },
+        {
+          "setFlag": "membre-plongeurs-perles"
+        },
+        {
+          "giveXp": 40
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Ondine.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-special": {
+      "text": "Ondine touche ses perles noires, une à une. — Un passeur qui cochait les enfants. Nous, on compte les plongeurs qui remontent. C’est le même carnet. Personne ne veut le tenir, et quelqu’un doit.",
+      "effects": [
+        {
+          "setFlag": "raconte-ondine"
+        },
+        {
+          "giveXp": 15
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Ondine.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-touche": {
+      "text": "Ondine sourit, ce qui ne lui arrive pas souvent. — Celle-là, je la raconterai aux novices, avant leur première plongée.",
+      "effects": [
+        {
+          "setFlag": "raconte-ondine"
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Ondine.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-neutre": {
+      "text": "— Bien. Courte, et sans mensonge. Ça me suffit.",
+      "effects": [
+        {
+          "setFlag": "raconte-ondine"
+        },
+        {
+          "giveXp": 5
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Ondine.",
           "next": "fin"
         }
       ]

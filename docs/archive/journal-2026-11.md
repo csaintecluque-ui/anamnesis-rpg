@@ -1175,3 +1175,4 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
 - Cyril : « 1 oui, 2 oui, 3 oui, 4 oui » : les trois caisses du retour validées et mises en ligne ; la suite : Coralia.
 - Coralia : canon relu (fiche de la Thalassocratie, légendes, Profondeurs Chuchotantes) ; proposé, à valider : `univers/lieux/coralia.md`, `gdd/chapitre-6.md` (« Ce que la mer rend »).
 - Cyril : « 1 oui, 2 oui, 3 oui, 4 oui » : Coralia validé. En ligne : les marées, le navire, la ville, « Ce que la mer rend » (quatre fins), la caisse de Marisol, l'air, la lettre d'Ilyane. 860 tests ; vérifié dans Chromium.
+- Coralia complet, en ligne : la conque muette et Basile ; la bague rendue, Aïo sous la lune rouge, le Cargo Noir, la grotte des Abyssaux ; la Confrérie des Brisants et les Plongeurs de Perles ; passants, phrases, veillée de la Conque Rieuse. 876 tests ; vérifié dans Chromium.

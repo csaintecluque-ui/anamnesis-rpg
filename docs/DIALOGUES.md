@@ -9,6 +9,43 @@ _(si …)_ = option qui n’apparaît que dans cette situation ; → = où mène
 **🎲 Discrétion 10** = jet de dé (d20 + modificateur + rang contre 10) : → en cas de réussite, ✗ → en cas d’échec.
 🌙 = scène de nuit (le fond s’assombrit).
 
+## Les Abyssaux
+
+_La grotte du Grand Reflux_
+
+Commence par : « abyssaux »
+
+### abyssaux
+
+> Trois Abyssaux, des masques de coquillage noir, entourent un garçon à genoux au bord d’une faille où l’eau respire. Le plus grand récite : « Mère-Abysse, reprends tout. » Ils veulent que le novice le dise à leur place.
+
+- « Attaquer. » → **fin** _(lance le combat « abyssaux-grotte »)_
+- **🎲 Diplomatie 16** « « Tout », c’est vague. L’Abysse donne exactement ce qu’on lui demande. » → parole, ✗ → force
+- **🎲 Discrétion 16** « Profiter de la prière pour emmener Lio. » → discret, ✗ → force
+- « Reculer. » → **fin**
+
+### parole
+
+_Effet : retient « abyssaux-partis »._
+
+> Le grand se tait au milieu du mot. Les deux autres le regardent. — Tout, ça veut dire nous aussi, dit l’un d’eux. Personne ne répond. Ils remettent leurs masques et sortent dans la marée, sans Lio.
+
+- « Aller voir Lio. » → **fin**
+
+### discret
+
+_Effet : retient « lio-libre »._
+
+> Tu te glisses le long des rochers, une main sur l’épaule de Lio, et vous reculez ensemble dans le bruit de la prière. Quand ils se retournent, la faille respire toute seule.
+
+- « Ressortir. » → **fin**
+
+### force
+
+> Le grand se retourne. — Un témoin ? La Mère-Abysse aime les témoins.
+
+- « Se battre. » → **fin** _(lance le combat « abyssaux-grotte »)_
+
 ## Des caisses marquées « E. V. »
 
 _La soute_
@@ -248,13 +285,179 @@ _Effet : retient « raconte-ailis », +15 XP._
 
 _Plongeur de perles, dix ans_
 
-Commence par : « accueil »
+Commence par : « lune » _(si quête « Sous une lune rouge » pas commencée)_ _(à « Coralia — la maison Coquelune »)_, sinon « accueil »
 
 ### accueil
 
 > Un garçon de dix ans, un panier vide sous le bras. — T’as déjà plongé ? Moi, je tiens deux minutes. Ondine dit que c’est rien. Ondine en tient dix, mais elle a des branchies : c’est de la triche.
 
+- _(si quête « Le Don rendu » en cours)_ _(sans repère « don-rendu-indice »)_ « Les plongeurs remontent ce qu’on donne à la mer ? » → bagues
+- _(sans repère « raconte-aio »)_ « Je te raconte une histoire ? » → raconte-neutre 📖 raconter un Récit : echelle-de-pim → raconte-special ; familles → raconte-touche ; autres → raconte-neutre
 - « Au revoir, Aïo. » → **fin**
+
+### bagues
+
+_Effet : retient « don-rendu-indice »._
+
+> — Pas moi ! Je le jure sur Marethis. Mais Tadéo, aux Canaux, il a des bagues à vendre, des fois. Il dit qu’il les trouve.
+
+- « Merci, Aïo. » → **fin**
+
+### lune
+
+_Effet : lance la quête « Sous une lune rouge »._
+
+> Aïo remplit un sac de pierres pour descendre plus vite. — Cette nuit, la lune sera rouge. Les perles noires remontent sous la lune rouge. Une seule, et maman a son remède. Tu ne le diras pas, hein ?
+
+- **🎲 Diplomatie 16** « « Ne plonge jamais seul sous une lune rouge. » » → empeche, ✗ → obstine
+- **🎲 Athlétisme 16** « Je plonge avec toi. Tu ne seras pas seul. » → ensemble, ✗ → ensemble-dur
+- « Combien coûte le remède ? » → prix
+- « C’est ton choix. » → seul
+
+### obstine
+
+> — Tu parles comme Ondine. Il resserre son sac.
+
+- **🎲 Athlétisme 16** « Je plonge avec toi. » → ensemble, ✗ → ensemble-dur
+- « Combien coûte le remède ? » → prix
+- « C’est ton choix. » → seul
+
+### prix
+
+> — Soixante Fers. Maman dit que c’est le prix d’un bateau. C’est pas vrai, mais presque.
+
+- **[60 Fers]** « Les voilà. » → paye _(−60 Fers, +30 XP, termine la quête « Sous une lune rouge », retient « fin-lune-rouge-paye »)_
+- **🎲 Athlétisme 16** « Je plonge avec toi. » → ensemble, ✗ → ensemble-dur
+- « C’est ton choix. » → seul
+
+### empeche
+
+_Effet : +30 XP, termine la quête « Sous une lune rouge », retient « fin-lune-rouge-empeche »._
+
+> Aïo vide son sac, pierre par pierre, sans te regarder. — D’accord. Mais demain, tu m’apprends à tenir trois minutes.
+
+- « Promis. » → **fin**
+
+### ensemble
+
+_Effet : +40 XP, termine la quête « Sous une lune rouge », retient « fin-lune-rouge-ensemble »._
+
+> Sous la lune rouge, la mer est noire et tiède. Aïo descend vite, lesté de ses pierres ; tu le suis. Au fond, une huître entrouverte. Il remonte en riant, une perle noire dans le poing, et toi, tu remontes en comptant.
+
+- « Rentrer. » → **fin**
+
+### ensemble-dur
+
+_Effet : −5 PV, +30 XP, termine la quête « Sous une lune rouge », retient « fin-lune-rouge-ensemble »._
+
+> La mer te serre la poitrine. Tu remontes trop tôt, et Aïo avec toi, sans perle. Sur le quai, il crache de l’eau et rit quand même. — Demain, on recommence ? Il voit ta tête. — D’accord, non.
+
+- « Rentrer. » → **fin**
+
+### paye
+
+> Aïo regarde les Fers, puis toi, et ne sait plus quoi faire de ses mains. — Je te rembourserai. En perles. Plus tard. Beaucoup plus tard.
+
+- « Rentrer. » → **fin**
+
+### seul
+
+_Effet : retient « aio-oublie », fait passer 2 moments, termine la quête « Sous une lune rouge », retient « fin-lune-rouge-seul »._
+
+> Aïo sourit, et file vers le port. Au matin, les Murmureurs le ramènent, vivant, une perle noire dans le poing. Il ne se souvient plus du nom de sa mère. L’Abysse prend toujours quelque chose.
+
+- « Partir. » → **fin**
+
+### raconte-special
+
+_Effet : retient « raconte-aio », +15 XP._
+
+> Aïo ne dit rien pendant longtemps. Puis : — Moi, je tombe pas. Je plonge. C’est pas pareil. Il serre son panier contre lui. — Pim, elle avait des rubans. Moi, j’ai des perles.
+
+- « Merci, Aïo. » → **fin**
+
+### raconte-touche
+
+_Effet : retient « raconte-aio », +10 XP._
+
+> Aïo écoute la bouche ouverte. — Encore ! Une autre !
+
+- « Merci, Aïo. » → **fin**
+
+### raconte-neutre
+
+_Effet : retient « raconte-aio », +5 XP._
+
+> — C’est bien. Mais il manquait un requin.
+
+- « Merci, Aïo. » → **fin**
+
+## Amande
+
+_Une veuve, devant l’autel_
+
+Commence par : « apres » _(si quête « Le Don rendu » terminée)_, sinon « choix » _(si quête « Le Don rendu » en cours)_ _(si repère « tadeo-avoue »)_, sinon « attente » _(si quête « Le Don rendu » en cours)_, sinon « bague »
+
+### bague
+
+> Une femme en noir, les mains serrées. — L’alliance de mon mari. Je l’avais donnée à la mer, à la Marée des Ancêtres, avec son corps. Elle me l’a rendue. Ça veut dire qu’il ne veut pas partir. Ou que je l’ai mal donnée.
+
+- « Je vais chercher pourquoi. » → **fin** _(lance la quête « Le Don rendu »)_
+- **🎲 Investigation 16** « Regarder la bague de près. » → marques, ✗ → rien
+- « Je suis désolé·e. » → **fin**
+
+### marques
+
+_Effet : lance la quête « Le Don rendu », retient « don-rendu-indice »._
+
+> Sur l’anneau, deux rayures fraîches, bien droites : la lame d’un couteau de plongeur. La mer ne fait pas ça.
+
+- « Je vais chercher qui. » → **fin**
+
+### rien
+
+> L’argent est usé, poli par l’eau. Tu n’y lis rien. Amande reprend son attente, comme si tu n’étais pas là.
+
+- « Je vais chercher pourquoi. » → **fin** _(lance la quête « Le Don rendu »)_
+- « Partir. » → **fin**
+
+### attente
+
+> Amande n’a pas bougé. — Certains disent que c’est le Grand Reflux. D’autres, que c’est moi.
+
+- « Partir. » → **fin**
+
+### choix
+
+> Amande lève les yeux vers toi. Elle a compris que tu sais quelque chose.
+
+- « La mer ne l’a pas rendue. Un plongeur l’avait remontée, puis reposée. » → verite _(+30 XP, termine la quête « Le Don rendu », retient « fin-don-rendu-verite »)_
+- « C’est un présage. Il vous attend. » → presage _(+10 XP, termine la quête « Le Don rendu », retient « fin-don-rendu-presage »)_
+- _(si repère « tadeo-denonce »)_ « Le plongeur s’est dénoncé aux Murmureurs. » → denonce _(+20 XP, termine la quête « Le Don rendu », retient « fin-don-rendu-denonce »)_
+
+### verite
+
+> Amande ferme les yeux, longtemps. — Alors elle l’avait prise. Alors il est parti. Elle pleure, enfin, et elle rit aussi. — Merci. Je vais pouvoir le laisser tranquille.
+
+- « Partir. » → **fin**
+
+### presage
+
+> — Je le savais. Je viendrai tous les jours, alors. Elle s’assoit au pied de l’autel. Elle y sera encore demain, et après-demain. « Ne mens jamais en mer », dit le commandement.
+
+- « Partir. » → **fin**
+
+### denonce
+
+> — Un plongeur. Amande regarde la bague, puis la mer. — Je la redonnerai moi-même, demain, plus loin. Là où personne ne plonge.
+
+- « Partir. » → **fin**
+
+### apres
+
+> Amande n’est plus devant l’autel que pour y poser des fleurs de corail, le matin.
+
+- « Partir. » → **fin**
 
 ## Ambroise Encrelune
 
@@ -766,6 +969,7 @@ Commence par : « accueil »
 > Un charpentier torse nu, du sel dans la barbe, cogne une cheville dans une coque. — Auréo Brisevague, Chantier naval. Pour un bateau, il faut deux saisons. Pour une rame, revenez demain.
 
 - « Les marées ? » → marees
+- _(sans repère « raconte-aureo »)_ « Je peux vous raconter une histoire, pendant que vous cognez ? » → raconte-neutre 📖 raconter un Récit : machine-vers-ouest → raconte-special ; machines → raconte-touche ; autres → raconte-neutre
 - « Au revoir. » → **fin**
 
 ### marees
@@ -774,17 +978,103 @@ Commence par : « accueil »
 
 - « Au revoir. » → **fin**
 
+### raconte-special
+
+_Effet : retient « raconte-aureo », +15 XP._
+
+> Auréo pose son maillet. — Une machine qui roule seule vers l’ouest, sans personne pour lui dire où s’arrêter. Il regarde la coque. — Les bateaux aussi, si on les laisse. C’est pour ça qu’on les amarre.
+
+- « Merci, Auréo. » → **fin**
+
+### raconte-touche
+
+_Effet : retient « raconte-aureo », +10 XP._
+
+> Auréo hoche la tête au rythme du maillet. — Une bonne histoire, c’est une bonne coque : ça tient, et ça flotte.
+
+- « Merci, Auréo. » → **fin**
+
+### raconte-neutre
+
+_Effet : retient « raconte-aureo », +5 XP._
+
+> — Hm. Il cogne une cheville. — Ça manque d’eau.
+
+- « Merci, Auréo. » → **fin**
+
 ## Un autel de corail
 
 _Le Grand Port_
 
-Commence par : « autel »
+Commence par : « bague » _(si quête « Le Don rendu » pas commencée)_, sinon « autel »
 
 ### autel
 
 > Un autel de corail rose, au bout du quai. On y pose ce qu’on rend à la mer : un collier, une lettre pliée, une dent de lait. La mer les prend à la marée suivante.
 
 - « Le laisser. » → **fin**
+
+### bague
+
+> Sur l’autel, une bague d’argent, mouillée, posée comme si la mer venait de la rendre. Une femme en noir la regarde, sans oser y toucher.
+
+- « La laisser. » → **fin**
+
+## Un banc d’huîtres perlières
+
+_Le Grand Port, à marée basse_
+
+Commence par : « banc »
+
+### banc
+
+> Le banc d’huîtres, découvert à moitié par la marée. Plus loin, là où l’eau reste, les grosses dorment.
+
+- _(si quête « La première perle » en cours)_ _(sans repère « perle-trouvee »)_ **🎲 Athlétisme 16** « Plonger là où l’eau reste. » → perle, ✗ → rate
+- « Laisser le banc. » → **fin**
+
+### perle
+
+_Effet : donne 1 × « Une perle blanche », retient « perle-trouvee », +10 XP._
+
+> Tu remontes, le souffle court, une huître dans la main. Dedans, une perle blanche, ronde, sans tache.
+
+- « La garder pour Ondine. » → **fin**
+
+### rate
+
+_Effet : −2 PV._
+
+> Le froid te serre la poitrine avant le fond. Tu remontes les mains vides et les paumes coupées par les coquilles.
+
+- « Réessayer. » → banc
+- « Partir. » → **fin**
+
+## Basile Chante-Creux
+
+_Un vieux marin_
+
+Commence par : « chant » _(si repère « oaina-muette »)_ _(sans repère « basile-recit »)_, sinon « accueil »
+
+### accueil
+
+> Un vieux marin, assis au pied de l’autel, regarde la mer revenir. — La mer se souvient que j’étais jeune. Et moi, moins bien.
+
+- « Bonne nuit. » → **fin**
+
+### chant
+
+> Basile ne se retourne pas. — Ma conque s’est tue ? Je sais. Moi aussi, j’ai oublié. Je l’ai chanté une fois, en mer, il y a quarante ans, et je l’ai confié à la conque pour ne jamais le chanter à terre.
+
+- « Ça vous fait de la peine ? » → chant-2
+
+### chant-2
+
+_Effet : retient « basile-recit », retient le Récit « Le chant qu’on ne chante pas », +15 XP._
+
+> — Non. Un chant qu’on ne chante pas doit pouvoir se perdre ; sinon, ce serait un livre. Il rit tout bas. — Raconte-le, toi, si tu veux. Pas le chant : l’histoire du vieux qui l’a perdu.
+
+- « Bonne nuit, Basile. » → **fin**
 
 ## Bastien Basse-Corniche
 
@@ -1262,6 +1552,7 @@ Commence par : « cale »
 > La cale de l’Entrepôt des douanes, découverte par la marée : une porte basse de bois noir, des algues sur le verrou. À marée haute, elle sera sous l’eau.
 
 - _(si quête « Ce que la mer rend » en cours)_ _(sans repère « cale-guettee »)_ **🎲 Discrétion 16** « Passer par la cale. » → dedans, ✗ → surpris
+- _(si quête « Ce que la mer rend » en cours)_ _(si repère « rumeur-cale-algues »)_ _(sans repère « cale-guettee »)_ **🎲 Discrétion 13** « Soulever le verrou rongé, d’une main. » → dedans, ✗ → surpris
 - « La laisser. » → **fin**
 
 ### dedans
@@ -1793,6 +2084,27 @@ _Effet : retient « liane-a-vu-marques »._
 - « Que veux-tu faire ? » → choix
 - « Dors, Liane. » → **fin**
 
+## Une conque muette
+
+_Salle des Conques_
+
+Commence par : « muette »
+
+### muette
+
+> Une conque sur son pied, une étiquette au nom de Basile Chante-Creux. Tu la portes à ton oreille. Rien. Pas même le bruit de la mer.
+
+- **[Mémoire 4]** « Écouter plus longtemps. » → loin
+- « La reposer. » → **fin**
+
+### loin
+
+_Effet : retient « conque-muette-entendue »._
+
+> Au fond du silence, une voix d’homme, très loin, chante un chant qu’elle n’achève pas. Puis plus rien. La conque n’est pas vide : elle oublie.
+
+- « La reposer. » → **fin**
+
 ## La convoyeuse
 
 _Compagnie des Lisières, la caravane de midi_
@@ -2044,6 +2356,43 @@ _Effet : donne 1 × « La liste de l’an cinquante », retient « liste-trouvee
 > Entre deux voiles de prière, un tissu plus long que les autres, couturé de noms en colonnes serrées. En haut : « Et pour l’an cinquante ». Trois cent douze noms. Zélie le décout pour toi, sans un mot.
 
 - « Le prendre. » → **fin**
+
+## Doucenet
+
+_Armateur_
+
+Commence par : « paie » _(si quête « La paie des Brisants » en cours)_ _(sans repère « doucenet-paye »)_, sinon « accueil »
+
+### accueil
+
+> Un armateur aux bagues d’or compte des pièces sur un tonneau. — Doucenet, armement et fret. Si vous cherchez un bateau, j’en ai. Un équipage aussi : il coûte trop cher.
+
+- « Au revoir. » → **fin**
+
+### paie
+
+> — Le Bel-Écart ? L’équipage a perdu une cargaison. Je ne paie pas les pertes.
+
+- _(sans repère « doucenet-ferme »)_ **🎲 Diplomatie 16** « Les Sept Lois : secours et partage en mer. Payez. » → paye, ✗ → refus
+- _(sans repère « doucenet-ferme »)_ **🎲 Commandement 16** « Si vous ne payez pas, aucun bateau ne sort du port demain. » → paye, ✗ → refus
+- _(si repère « rumeur-bel-ecart »)_ _(sans repère « doucenet-ferme »)_ **🎲 Commandement 13** « Vous avez vendu la cargaison à Terminus, Doucenet. » → paye, ✗ → refus
+- « Plus tard. » → **fin**
+
+### paye
+
+_Effet : retient « doucenet-paye », +15 XP._
+
+> Doucenet pâlit, puis compte. — Trois mois. Dites à Matteo que je m’en souviendrai. Il recompte, et ajoute un Fer, pour le principe.
+
+- « Partir. » → **fin**
+
+### refus
+
+_Effet : retient « doucenet-ferme » pour 1 jours._
+
+> — Allez-vous-en. Revenez demain : j’aurai peut-être oublié votre tête.
+
+- « Partir. » → **fin**
 
 ## L’échelle de corde
 
@@ -2800,7 +3149,7 @@ _Effet : retient « marques-rate » pour 1 jours._
 
 _Murmureuse des Profondeurs Chuchotantes_
 
-Commence par : « don » _(si quête « Ce que la mer rend » en cours)_ _(sans repère « euria-don »)_, sinon « accueil »
+Commence par : « don » _(si quête « Ce que la mer rend » en cours)_ _(sans repère « euria-don »)_, sinon « retour-combat » _(si quête « La grotte du Grand Reflux » en cours)_ _(si repère « lio-libre »)_ _(si repère « abyssaux-vaincus »)_, sinon « retour-parole » _(si quête « La grotte du Grand Reflux » en cours)_ _(si repère « lio-libre »)_ _(si repère « abyssaux-partis »)_, sinon « retour-discret » _(si quête « La grotte du Grand Reflux » en cours)_ _(si repère « lio-libre »)_, sinon « lio » _(si quête « La grotte du Grand Reflux » pas commencée)_ _(si quête « Ce que la mer rend » terminée)_, sinon « accueil »
 
 ### accueil
 
@@ -2830,6 +3179,37 @@ _Effet : retient « euria-don »._
 > — La rendre encore, à marée basse, là où elle avait été donnée. Mais quelqu’un a demandé à la Mère-Abysse de la faire remonter. Tant que cette demande court, la mer la rendra. Va à la Salle des Conques : Oaïna sait qui.
 
 - « J’y vais. » → **fin**
+
+### lio
+
+> Euria ne porte pas son masque. — Lio, mon novice, n’est pas rentré. Les Abyssaux le voulaient : un novice entend la Mère-Abysse sans savoir lui parler. Ils l’ont emmené dans la grotte du Grand Reflux, qui ne s’ouvre qu’à marée basse.
+
+- « J’y vais. » → **fin** _(lance la quête « La grotte du Grand Reflux »)_
+- « Plus tard. » → **fin**
+
+### retour-combat
+
+_Effet : +40 XP, termine la quête « La grotte du Grand Reflux », retient « fin-grotte-reflux-combat »._
+
+> Euria serre Lio contre elle, sans un mot pour les morts de la grotte. Puis, à voix basse : — La mer les prendra. Elle les voulait tant.
+
+- « Partir. » → **fin**
+
+### retour-parole
+
+_Effet : +50 XP, termine la quête « La grotte du Grand Reflux », retient « fin-grotte-reflux-parole »._
+
+> — Tu leur as rendu leurs mots ? Euria remet son masque, et tu ne vois plus que ses yeux. — C’est la seule arme qui compte, ici. Ils ne reviendront pas avant d’avoir trouvé une meilleure phrase.
+
+- « Partir. » → **fin**
+
+### retour-discret
+
+_Effet : +45 XP, termine la quête « La grotte du Grand Reflux », retient « fin-grotte-reflux-discretion »._
+
+> Euria pose la main sur la tête de Lio. — Ils prieront toute la nuit, sans s’apercevoir de rien. La Mère-Abysse ne répond pas à ceux qui parlent tout seuls.
+
+- « Partir. » → **fin**
 
 ## Évrard Tiédevent
 
@@ -3485,6 +3865,70 @@ Commence par : « guichet »
 > Le train quitte Ironheart dans un souffle de vapeur cristalline. Puis la forêt : quarante minutes sous une canopée de deux cents mètres, dans une voiture à toit de verre. À la halte, la Grande Nacelle te monte jusqu’aux cimes.
 
 - « Monter jusqu’aux cimes. » → **fin** _(fait passer 2 moments, mène à « Canopéa — La Grande Nacelle »)_
+
+## Gunnar
+
+_Second du Cargo Noir, sur parole_
+
+Commence par : « apres » _(si quête « Le Cargo Noir » terminée)_, sinon « journal » _(si quête « Le Cargo Noir » en cours)_ _(si l’on porte « Le journal de bord du Cargo Noir »)_, sinon « refus » _(si quête « Le Cargo Noir » en cours)_ _(si repère « gunnar-refus »)_, sinon « accueil »
+
+### accueil
+
+> Un homme de Ferros, en vareuse grise, regarde le Cargo Noir pourrir à l’ancre. — Gunnar, second. Sur parole, ils disent : ça veut dire sans bateau. Depuis trois ans, j’attends que Ferros paie, ou que Marisol pende quelqu’un.
+
+- « Que s’est-il passé ? » → passe
+- « Au revoir. » → **fin**
+
+### passe
+
+_Effet : lance la quête « Le Cargo Noir »._
+
+> — On a vidé les cuves en mer. Ordre écrit. Le capitaine a obéi ; il est mort l’hiver dernier, de honte, ou de rhum. L’ordre, je l’ai gardé, dans le journal de bord. Personne ne me l’a jamais demandé.
+
+- **🎲 Diplomatie 16** « Montrez-moi le journal. » → montre, ✗ → non
+- « Au revoir. » → **fin**
+
+### non
+
+_Effet : retient « gunnar-refus »._
+
+> — Pour que Marisol le brandisse devant l’Empire ? Non. Gunnar remonte son col.
+
+- « Partir. » → **fin**
+
+### refus
+
+> Gunnar ne te regarde pas. — Toujours non.
+
+- _(si repère « membre-confrerie-brisants »)_ « Matteo vous fait dire que la Confrérie paiera votre retour. » → montre
+- « Partir. » → **fin**
+
+### montre
+
+_Effet : donne 1 × « Le journal de bord du Cargo Noir », retient « journal-cargo-lu », +15 XP._
+
+> Il sort le journal de sa vareuse. À la date du déversement, une ligne, et une signature : « Ordre de la Compagnie de la Fonte Grise, Ironheart. » — Pas l’Empire. Une compagnie. Ça change tout, ou rien, selon qui le lit.
+
+- « Le prendre. » → **fin**
+
+### journal
+
+> Gunnar regarde le journal dans ta main. — Alors ? Qui va le lire ?
+
+- « Je vous le rends. Brûlez-le. » → brule _(reprend 1 × « Le journal de bord du Cargo Noir », +30 XP, termine la quête « Le Cargo Noir », retient « fin-cargo-noir-brule »)_
+- « Pas encore. » → **fin**
+
+### brule
+
+> Gunnar le jette dans le brasero du quai et regarde les pages se tordre. — Ferros paiera, ou ne paiera pas. Au moins, ce ne sera pas grâce à moi.
+
+- « Partir. » → **fin**
+
+### apres
+
+> Gunnar regarde toujours le Cargo Noir. — Un jour, ils me laisseront remonter à bord. Ce jour-là, je le coulerai moi-même.
+
+- « Partir. » → **fin**
 
 ## La halte de la ligne de l’Ouest
 
@@ -4389,6 +4833,24 @@ _Effet : retient « chantier-arrete », termine la quête « Le Dernier Train »
 - « Il n’avait plus rien à garder. » → **fin**
 - « Je sais. » → **fin**
 
+## Iris Coquelune
+
+_La mère d’Aïo_
+
+Commence par : « oubli » _(si repère « aio-oublie »)_, sinon « accueil »
+
+### accueil
+
+> Une femme pâle, dans le lit, tousse doucement. — Aïo ? Il est sorti ? Il sort toujours. Il croit que je ne sais pas.
+
+- « Reposez-vous. » → **fin**
+
+### oubli
+
+> Iris caresse les cheveux de son fils, qui dort. — Il m’appelle « madame ». Il est poli, c’est déjà ça. Il a eu sa perle, j’ai mon remède. Je n’ai plus de nom.
+
+- « Partir. » → **fin**
+
 ## Joss Brakel
 
 _Aiguilleur de nuit_
@@ -5131,6 +5593,26 @@ _Effet : retient « raconte-liane », +15 XP, avis de Liane +1._
 
 - « À bientôt, Liane. » → **fin**
 
+## Lio
+
+_Novice des Murmureurs_
+
+Commence par : « libre » _(si repère « abyssaux-vaincus »)_, sinon « libre » _(si repère « abyssaux-partis »)_, sinon « prisonnier »
+
+### prisonnier
+
+> Le novice ne lève pas les yeux. Il récite quelque chose, très bas, pour ne pas entendre les autres.
+
+- « Partir. » → **fin**
+
+### libre
+
+_Effet : retient « lio-libre »._
+
+> Lio tremble. — Ils voulaient que je dise « tout ». Je ne l’ai pas dit. Je ne l’ai pas dit, hein ?
+
+- « Non. Viens, on rentre. » → **fin**
+
 ## Lior Rose-des-Vents
 
 _Cartographe_
@@ -5621,6 +6103,7 @@ Commence par : « audience » _(si quête « Ce que la mer rend » en cours)_ _(
 
 > La Grande Amiral Marina Azurios, en uniforme blanc, lit un rapport sans s’asseoir. — Un voyageur. Bienvenue à Coralia. Je n’ai que peu de temps : Ferros a reçu notre ultimatum, et Ferros ne répond pas.
 
+- _(si quête « Le Cargo Noir » en cours)_ _(si l’on porte « Le journal de bord du Cargo Noir »)_ « Le déversement venait d’une compagnie de Ferros, pas de l’Empire. » → journal
 - « Au revoir. » → **fin**
 
 ### audience
@@ -5647,17 +6130,27 @@ _Effet : retient « ordre-refuse »._
 
 - « Partir. » → **fin**
 
+### journal
+
+_Effet : reprend 1 × « Le journal de bord du Cargo Noir », +30 XP, termine la quête « Le Cargo Noir », retient « fin-cargo-noir-amiraute »._
+
+> La Grande Amiral lit, longtemps. — Une compagnie. L’Empire peut payer sans perdre la face, et nous, obtenir réparation sans guerre. Ou je brandis ce journal à l’Assemblée des Marées, et l’embargo passe à l’unanimité. Je choisirai.
+
+- « Partir. » → **fin**
+
 ## Matteo Marée-Haute
 
 _Confrérie des Brisants_
 
-Commence par : « accueil »
+Commence par : « paie-faite » _(si quête « La paie des Brisants » en cours)_ _(si repère « doucenet-paye »)_, sinon « accueil »
 
 ### accueil
 
 > Un marin en vareuse, la casquette sur l’oreille. — Matteo Marée-Haute, de la Confrérie des Brisants. Le syndicat des marins marchands : si un équipage est mal payé, c’est nous qui le savons d’abord.
 
 - « Et Ferros ? » → ferros
+- _(si quête « La paie des Brisants » pas commencée)_ _(sans repère « membre-plongeurs-perles »)_ « Je veux entrer à la Confrérie. » → paie
+- _(si quête « Le Cargo Noir » en cours)_ _(si l’on porte « Le journal de bord du Cargo Noir »)_ « La Confrérie en fera meilleur usage. » → journal-confrerie
 - « Au revoir. » → **fin**
 
 ### ferros
@@ -5665,6 +6158,29 @@ Commence par : « accueil »
 > — Ferros pollue, et Ferros paie. Sans son métal, nos coques pourrissent. L’Amirauté parle d’embargo, les Plongeurs de Perles applaudissent. Nous, on compte ce qu’on mangera l’hiver.
 
 - « Au revoir. » → **fin**
+
+### paie
+
+> — La Confrérie ne prend pas les gens : elle prend ceux qui font payer. L’armateur Doucenet doit trois mois de solde à l’équipage du Bel-Écart. Fais-le payer, et tu es Mousse.
+
+- « J’y vais. » → **fin** _(lance la quête « La paie des Brisants »)_
+- « Plus tard. » → **fin**
+
+### paie-faite
+
+_Effet : termine la quête « La paie des Brisants », retient « membre-confrerie-brisants », +40 XP._
+
+> — Trois mois, rubis sur l’ongle. Matteo te tend un anneau de corde tressée. — Mousse de la Confrérie des Brisants. Ce n’est pas grand-chose. C’est plus que ce que Doucenet a jamais donné.
+
+- « Le prendre. » → **fin**
+
+### journal-confrerie
+
+_Effet : reprend 1 × « Le journal de bord du Cargo Noir », +30 XP, termine la quête « Le Cargo Noir », retient « fin-cargo-noir-confrerie »._
+
+> — Avec ça, on négocie avec les marchands de Ferros directement, par Terminus : des réparations contre du commerce, sans l’Assemblée. Matteo sourit. — La mer ne fait pas de politique. Les marins, si.
+
+- « Partir. » → **fin**
 
 ## Mérande Fond-de-Cale
 
@@ -6092,7 +6608,7 @@ _Effet : termine la quête « Le fonds des Échos », retient « membre-archives
 
 _Aubergiste de la Conque Rieuse_
 
-Commence par : « lettre-prise » _(si quête « Ce que la mer rend » terminée)_ _(si repère « caisse-marisol-prise »)_ _(sans repère « noea-lettre »)_, sinon « lettre » _(si quête « Ce que la mer rend » terminée)_ _(sans repère « noea-lettre »)_, sinon « accueil »
+Commence par : « lettre-prise » _(si quête « Ce que la mer rend » terminée)_ _(si repère « caisse-marisol-prise »)_ _(sans repère « noea-lettre »)_, sinon « lettre » _(si quête « Ce que la mer rend » terminée)_ _(sans repère « noea-lettre »)_, sinon « accueil-2 » _(un jour sur 3, le 2e)_, sinon « accueil-3 » _(un jour sur 3, le 3e)_, sinon « accueil »
 
 ### accueil
 
@@ -6100,6 +6616,7 @@ Commence par : « lettre-prise » _(si quête « Ce que la mer rend » terminée
 
 - « Manger ou dormir ? » → servir
 - « Quelles nouvelles ? » → nouvelles
+- « Chanter un Récit à la veillée. » → **fin** _(ouvre la veillée « conque »)_
 - « Au revoir. » → **fin**
 
 ### servir
@@ -6127,6 +6644,7 @@ Commence par : « lettre-prise » _(si quête « Ce que la mer rend » terminée
 
 > — L’Amirauté a saisi une caisse que la mer a rendue. Les Murmureurs ne dorment plus. Et une dame en gris passe ses journées à la Salle des Conques, une conque contre l’oreille. On parie sur ce qu’elle écoute.
 
+- _(sans repère « raconte-noea »)_ « Je voudrais vous raconter une histoire, à vous seule. » → raconte-neutre 📖 raconter un Récit : on-se-retrouvera → raconte-special ; chansons, familles → raconte-touche ; autres → raconte-neutre
 - « Merci, Noéa. » → accueil
 
 ### lettre
@@ -6150,6 +6668,48 @@ _Effet : retient « noea-lettre »._
 > — Une lettre pour toi, arrivée par le navire. Noéa te la tend, et détourne les yeux. Deux lignes, d’une écriture qui tremble beaucoup. « La mer. Qu’est-ce que c’est, déjà ? »
 
 - « Plier la lettre. » → **fin**
+
+### raconte-special
+
+_Effet : retient « raconte-noea », +15 XP._
+
+> Noéa pose sa chope. — Celle-là, je la chanterai ce soir, et je la changerai un peu, pour qu’elle reste vraie. À Coralia, les promesses qu’on se fait sur un quai se chantent toujours au présent.
+
+- « Merci, Noéa. » → **fin**
+
+### raconte-touche
+
+_Effet : retient « raconte-noea », +10 XP._
+
+> Noéa fredonne déjà. — Elle a un air, ton histoire. Tu ne l’entends pas ? Moi si.
+
+- « Merci, Noéa. » → **fin**
+
+### raconte-neutre
+
+_Effet : retient « raconte-noea », +5 XP._
+
+> — Bien raconté. Mais trop d’un bloc : il faut laisser un bout au fond, pour la mer.
+
+- « Merci, Noéa. » → **fin**
+
+### accueil-2
+
+> Noéa essuie une chope en chantant faux, exprès. — La Conque Rieuse ! Ce matin, la marée a laissé un requin-dragon sur le sable du port. Mort, heureusement. Les enfants l’ont pesé : trois Aïo.
+
+- « Manger ou dormir ? » → servir
+- « Quelles nouvelles ? » → nouvelles
+- « Chanter un Récit à la veillée. » → **fin** _(ouvre la veillée « conque »)_
+- « Au revoir. » → **fin**
+
+### accueil-3
+
+> Noéa a les yeux rouges. — La Conque Rieuse. Cette nuit, une conque de plus s’est tue, à la Salle. Celle d’une grand-mère du canal. On a chanté pour elle, sans les mots.
+
+- « Manger ou dormir ? » → servir
+- « Quelles nouvelles ? » → nouvelles
+- « Chanter un Récit à la veillée. » → **fin** _(ouvre la veillée « conque »)_
+- « Au revoir. » → **fin**
 
 ## Le nom de Pim
 
@@ -6182,13 +6742,15 @@ _Effet : retient « pim-touche », retient le Récit « L’échelle de Pim », 
 
 _Gardienne de la Salle des Conques_
 
-Commence par : « qui » _(si quête « Ce que la mer rend » en cours)_ _(si repère « euria-don »)_ _(sans repère « oaina-dit »)_, sinon « accueil »
+Commence par : « qui » _(si quête « Ce que la mer rend » en cours)_ _(si repère « euria-don »)_ _(sans repère « oaina-dit »)_, sinon « muette » _(si repère « conque-muette-entendue »)_ _(sans repère « oaina-muette »)_, sinon « accueil »
 
 ### accueil
 
 > Une Sélénide aux yeux luminescents, les cheveux en mouvement comme dans l’eau, veille sur les conques. — La Salle des Conques. Les marins y confient ce qu’ils ne veulent pas perdre. Approchez une conque de votre oreille : la mer vous le rendra.
 
 - « « La mer se souvient que » ? » → formule
+- _(sans repère « oaina-muette »)_ « Certaines conques se taisent ? » → muette
+- _(sans repère « raconte-oaina »)_ « Je voudrais confier une histoire à une conque. » → raconte-neutre 📖 raconter un Récit : chant-anselme → raconte-special ; chansons, morts → raconte-touche ; autres → raconte-neutre
 - « Au revoir. » → **fin**
 
 ### formule
@@ -6209,6 +6771,45 @@ _Effet : retient « oaina-dit »._
 ### qui-2
 
 > — L’Abysse donne exactement ce qu’on lui demande. Elle le sait, maintenant. C’est pour ça qu’elle écoute cette conque depuis dix jours.
+
+- « Merci, Oaïna. » → **fin**
+
+### muette
+
+_Effet : retient « oaina-muette »._
+
+> — Une conque, puis trois, puis neuf, depuis un mois. La maladie des souvenirs est arrivée jusqu’ici. Celle de Basile Chante-Creux s’est tue la première. Il y avait confié le chant qu’on ne chante pas.
+
+- « Le chant qu’on ne chante pas ? » → muette-2
+- « Merci, Oaïna. » → **fin**
+
+### muette-2
+
+> — Chaque légende de Marisol en a un : il manque toujours. Basile disait connaître celui de la légende de Naïra. Il l’avait confié à sa conque, pour ne jamais le chanter à terre. La nuit, il est sur le port, devant l’autel.
+
+- « Merci, Oaïna. » → **fin**
+
+### raconte-special
+
+_Effet : retient « raconte-oaina », +15 XP._
+
+> Oaïna ferme ses yeux luminescents. — Un chant pour les morts qu’on n’a pas fini. Chez nous, on le laisserait au fond. Elle approche une conque vide de tes lèvres. — Redis-le là-dedans. Elle le gardera, tant qu’elle pourra.
+
+- « Merci, Oaïna. » → **fin**
+
+### raconte-touche
+
+_Effet : retient « raconte-oaina », +10 XP._
+
+> Oaïna écoute, la main sur une conque. — Elle a frémi. Les conques aiment les histoires qui chantent.
+
+- « Merci, Oaïna. » → **fin**
+
+### raconte-neutre
+
+_Effet : retient « raconte-oaina », +5 XP._
+
+> — Merci. Elle est entrée. Les conques ne trient pas.
 
 - « Merci, Oaïna. » → **fin**
 
@@ -6305,13 +6906,54 @@ _Effet : retient « pointe-libre », retient « raid-annonce », +10 XP._
 
 _Doyenne des Plongeurs de Perles_
 
-Commence par : « accueil »
+Commence par : « perle-apportee » _(si quête « La première perle » en cours)_ _(si l’on porte « Une perle blanche »)_, sinon « accueil »
 
 ### accueil
 
 > Une vieille Semi-Abyssale, un collier de perles noires, des branchies fines sous les oreilles. — Ondine Perle-Noire, des Plongeurs de Perles. Au nord des Atolls, on ne remonte plus rien : Ferros y a laissé ses eaux noires, et les huîtres y meurent ouvertes.
 
+- _(si quête « La première perle » pas commencée)_ _(sans repère « membre-confrerie-brisants »)_ « Je veux plonger avec vous. » → perle
+- _(sans repère « raconte-ondine »)_ « Je vous raconte une histoire ? » → raconte-neutre 📖 raconter un Récit : odon-passe-rive → raconte-special ; familles, morts → raconte-touche ; autres → raconte-neutre
 - « Au revoir. » → **fin**
+
+### perle
+
+> — Un plongeur, on le reconnaît à ce qu’il remonte. À marée basse, devant le Grand Port, le banc d’huîtres se découvre à moitié. Va. Et ne remonte pas avec n’importe quoi.
+
+- « J’y vais. » → **fin** _(lance la quête « La première perle »)_
+- « Plus tard. » → **fin**
+
+### perle-apportee
+
+_Effet : reprend 1 × « Une perle blanche », termine la quête « La première perle », retient « membre-plongeurs-perles », +40 XP._
+
+> Ondine fait rouler la perle dans sa paume. — Ronde. Propre. Pas des eaux noires. Elle te passe au cou un fil de perles grises. — Apnée : le premier rang. On y meurt rarement.
+
+- « Merci, Ondine. » → **fin**
+
+### raconte-special
+
+_Effet : retient « raconte-ondine », +15 XP._
+
+> Ondine touche ses perles noires, une à une. — Un passeur qui cochait les enfants. Nous, on compte les plongeurs qui remontent. C’est le même carnet. Personne ne veut le tenir, et quelqu’un doit.
+
+- « Merci, Ondine. » → **fin**
+
+### raconte-touche
+
+_Effet : retient « raconte-ondine », +10 XP._
+
+> Ondine sourit, ce qui ne lui arrive pas souvent. — Celle-là, je la raconterai aux novices, avant leur première plongée.
+
+- « Merci, Ondine. » → **fin**
+
+### raconte-neutre
+
+_Effet : retient « raconte-ondine », +5 XP._
+
+> — Bien. Courte, et sans mensonge. Ça me suffit.
+
+- « Merci, Ondine. » → **fin**
 
 ## Ossiane Vire-Nuée
 
@@ -7737,6 +8379,41 @@ _Effet : retient « sylvan-triumvirat-dit »._
 - « Quelles nouvelles ? » → rumeurs
 - « Raconter un Récit à la veillée. » → **fin** _(ouvre la veillée « racine »)_
 - « Au revoir. » → **fin**
+
+## Tadéo
+
+_Plongeur, aux Canaux_
+
+Commence par : « aveu » _(si quête « Le Don rendu » en cours)_ _(si repère « don-rendu-indice »)_ _(sans repère « tadeo-avoue »)_, sinon « accueil »
+
+### accueil
+
+> Un plongeur maigre, les mains abîmées par le corail, recoud un filet. — Tadéo. Je remonte ce qui se vend. Le reste, la mer peut le garder.
+
+- « Au revoir. » → **fin**
+
+### aveu
+
+> Tadéo voit ta question avant que tu la poses. — La bague ? Oui. Je l’ai remontée. Je voulais la vendre.
+
+- « Et ? » → aveu-2
+
+### aveu-2
+
+_Effet : retient « tadeo-avoue »._
+
+> — Je n’ai pas pu. Je l’ai reposée sur l’autel, la nuit. Je ne savais pas que la veuve la trouverait là. Je ne savais pas qu’elle croirait que la mer la lui rendait.
+
+- « Je ne dirai rien. » → **fin**
+- « Les Murmureurs doivent le savoir. » → denonce
+
+### denonce
+
+_Effet : retient « tadeo-denonce »._
+
+> Tadéo baisse la tête. — « Rends toujours aux eaux ce qu’elle t’a offert. » Je sais. J’irai moi-même.
+
+- « Partir. » → **fin**
 
 ## La tailleuse de cristaux
 

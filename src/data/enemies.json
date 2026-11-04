@@ -546,5 +546,41 @@
     ],
     "description": "Capitaine des pirates de l’air qui prennent les convois de nourriture. Des grêlons de fer cousus aux manches.",
     "source": "jeu (pirates aériens : canon)"
+  },
+  {
+    "id": "abyssal",
+    "tile": "abyssal",
+    "name": "Abyssal",
+    "hp": 16,
+    "defense": 13,
+    "attackBonus": 3,
+    "damage": {
+      "count": 1,
+      "sides": 6
+    },
+    "actionPoints": 7,
+    "initiativeBonus": 2,
+    "xp": 24,
+    "capacites": [
+      "meute",
+      "saigner"
+    ],
+    "resistance": 1,
+    "onHit": {
+      "effet": "saignement",
+      "chance": 0.3
+    },
+    "defeatText": "L’Abyssal tombe à genoux dans l’eau du bassin. — Elle nous aurait tout rendu. Tout.",
+    "butin": [
+      {
+        "fers": [
+          3,
+          10
+        ],
+        "chance": 1
+      }
+    ],
+    "description": "Un fidèle de la secte des Abyssaux (canon : convaincus que Marethis veut engloutir toute la surface). Un masque de coquillage noir.",
+    "source": "Notion, « Les Profondeurs Chuchotantes — Marisol »"
   }
 ]

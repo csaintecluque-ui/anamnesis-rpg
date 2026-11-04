@@ -775,5 +775,46 @@
     "id": "premiere-perle",
     "name": "La première perle",
     "summary": "« Un plongeur, on le reconnaît à ce qu’il remonte », dit Ondine Perle-Noire. À marée basse, le banc d’huîtres devant le Grand Port."
+  },
+  {
+    "id": "plus-lieu",
+    "name": "Ce qui n’a plus lieu",
+    "summary": "À la Marche-Mère, la conteuse Ish’Lenne garde les mots d’un épisode qu’on ne dit plus : une caisse que personne n’est venu chercher, à une halte morte. La route est passée ailleurs il y a des siècles. Une dame en gris est partie à pied vers elle, il y a quatre jours.",
+    "etapes": [
+      {
+        "si": "plus-lieu-commencee",
+        "texte": "Trouver la halte morte : Nes’Mira, sur le dos de Longue-Ombre ; le Coffre des routes, chez les guides ; ou Daru’Khen, le premier guide. Ish’Lenne, à la Tente des Mille Pas, garde les mots de l’épisode."
+      },
+      {
+        "si": "halte-trouvee",
+        "texte": "La halte est à neuf kilomètres de la piste, plein sud. Y aller, c’est quitter la Marche : prendre l’eau de l’Année Errante à la Tente de l’Eau, puis rattraper la Marche au retour."
+      },
+      {
+        "si": "ish-mots",
+        "texte": "Ish’Lenne m’a donné les mots de l’épisode. Je ne dois les dire qu’au pied de son jalon."
+      },
+      {
+        "si": "edda-marche-vue",
+        "texte": "La dame en gris est à la halte, contre la caisse ouverte, sans eau."
+      }
+    ],
+    "fins": [
+      {
+        "id": "halte",
+        "titre": "La caisse laissée à sa halte"
+      },
+      {
+        "id": "gardee",
+        "titre": "La pièce gardée"
+      },
+      {
+        "id": "longue-ombre",
+        "titre": "La caisse portée par Longue-Ombre"
+      },
+      {
+        "id": "edda",
+        "titre": "La caisse laissée à la dame en gris"
+      }
+    ]
   }
 ]

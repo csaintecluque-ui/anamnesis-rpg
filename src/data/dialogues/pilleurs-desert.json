@@ -1,0 +1,114 @@
+{
+  "id": "pilleurs-desert",
+  "speaker": "pilleurs-desert",
+  "entries": [
+    {
+      "node": "barre"
+    }
+  ],
+  "nodes": {
+    "barre": {
+      "text": "Trois hommes au chèche noir, assis dans le col entre les dunes, des pelles en travers des genoux. — Demi-tour. On nous paie pour que personne n’approche du jalon. Quelqu’un est déjà là-bas, et elle paie mieux que toi.",
+      "options": [
+        {
+          "text": "Vous avez soif ?",
+          "requires": [
+            {
+              "item": "gourde-errance"
+            }
+          ],
+          "next": "eau",
+          "effects": [
+            {
+              "takeItem": "gourde-errance"
+            },
+            {
+              "setFlag": "pilleurs-partis"
+            },
+            {
+              "setFlag": "pilleurs-abreuves"
+            }
+          ]
+        },
+        {
+          "text": "Partez. Maintenant.",
+          "next": "partis",
+          "roll": {
+            "skill": "command",
+            "difficulty": 16
+          },
+          "failNext": "combat"
+        },
+        {
+          "text": "(Passer par la crête, sans qu’ils te voient.)",
+          "next": "contournes",
+          "roll": {
+            "skill": "stealth",
+            "difficulty": 16
+          },
+          "failNext": "combat"
+        },
+        {
+          "text": "(Les attaquer.)",
+          "next": "fin",
+          "effects": [
+            {
+              "startCombat": "pilleurs-desert"
+            }
+          ]
+        }
+      ]
+    },
+    "eau": {
+      "text": "Ils boivent ta gourde à trois, jusqu’au fond, sans un merci. — On nous a payés en Fers. Pas en eau. — Ils ramassent leurs pelles et repartent vers la piste, en titubant un peu.",
+      "options": [
+        {
+          "text": "Continuer vers le jalon.",
+          "next": "fin"
+        }
+      ]
+    },
+    "partis": {
+      "text": "Ils se regardent. Le plus vieux crache dans le sable. — Elle ne nous paie pas assez pour mourir. — Ils s’en vont vers la piste, sans se retourner.",
+      "effects": [
+        {
+          "setFlag": "pilleurs-partis"
+        }
+      ],
+      "options": [
+        {
+          "text": "Continuer vers le jalon.",
+          "next": "fin"
+        }
+      ]
+    },
+    "contournes": {
+      "text": "Tu passes par la crête, à plat ventre, le sable dans la bouche. En bas, ils se disputent la dernière gorgée de leur outre. Personne ne lève les yeux.",
+      "effects": [
+        {
+          "setFlag": "pilleurs-contournes"
+        }
+      ],
+      "options": [
+        {
+          "text": "Continuer vers le jalon.",
+          "next": "fin"
+        }
+      ]
+    },
+    "combat": {
+      "text": "— Tu l’auras voulu. — Ils se lèvent, les pelles et les lames à la main.",
+      "options": [
+        {
+          "text": "Se défendre.",
+          "next": "fin",
+          "effects": [
+            {
+              "startCombat": "pilleurs-desert"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -20,12 +20,18 @@
           ]
         },
         {
-          "text": "Qui t’a donné ce pouvoir ?",
-          "next": "veto"
+          "text": "L’eau de l’Année Errante.",
+          "requires": [
+            {
+              "quest": "plus-lieu",
+              "status": "active"
+            }
+          ],
+          "next": "errance"
         },
         {
-          "text": "Tu comptes, aussi ?",
-          "next": "compte"
+          "text": "Qui t’a donné ce pouvoir ?",
+          "next": "veto"
         },
         {
           "text": "Merci.",
@@ -68,6 +74,20 @@
         },
         {
           "text": "Merci.",
+          "next": "fin"
+        }
+      ]
+    },
+    "errance": {
+      "text": "Elle te tend une gourde de peau, pleine, sans poser de question. — On ne refuse pas l’eau. Si tu ne reviens pas, demain matin, tu seras dans mon compte, avec les autres. Alors reviens.",
+      "effects": [
+        {
+          "giveItem": "gourde-errance"
+        }
+      ],
+      "options": [
+        {
+          "text": "Je reviendrai.",
           "next": "fin"
         }
       ]

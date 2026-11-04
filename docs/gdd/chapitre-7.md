@@ -1,4 +1,4 @@
-# Chapitre 7 : Marche-Mère — **proposition, à valider** (2026-11-04)
+# Chapitre 7 : Marche-Mère — **validé par Cyril** le 2026-11-04 (« Ok lance », sur les quatre recommandations)
 
 Cyril (2026-11-04, « 3 Marche-Mère ») : après Coralia, la ville qui marche, qui a la caisse de la Communion. Le lieu,
 ses habitants et ce que dit le canon : `docs/univers/lieux/marche-mere.md`. Le fil : `fil-directeur.md`.
@@ -87,3 +87,20 @@ des routes, et ce qu'on y lit.
    nombre. ») ; l'eau à la halte morte ; et le fragment du héros, la couverture pour deux ?
 4. **Les deux guildes** : les Guides de l'Eau (la route suit l'eau) contre les Matriarches de Cristaux (la route plie vers
    la Mer de Verre) ?
+
+## Construit (2026-11-04)
+
+| Étape | Contenu | État |
+|---|---|---|
+| 1 | La ville qui marche (`src/rules/marche.ts` : le Camp en chariots le matin et à midi, en tentes le soir et la nuit ; le sable qui défile sous la Marche) ; la caravane des verriers sur la carte du monde (le premier passage payé par Hesper, puis 35 Fers, trois jours) ; la Marche qui se déplace chaque jour dans le désert du sud-est ; le Camp, le convoi des verriers, le Cœur Spiral, le dos de Longue-Ombre, le désert et la halte morte ; douze intérieurs ; la chaleur hors de la Marche (4 PV par lieu sans eau, jamais le dernier) | en ligne |
+| 2 | « Ce qui n’a plus lieu » : Tam’Ruu ou Ish’Lenne l’ouvrent ; la halte trouvée par Nes’Mira (Survie 16), le Coffre des routes (Discrétion ou Artisanat 16) ou Daru’Khen (Persuasion 16, ou les Guides de l’Eau) ; l’eau de l’Année Errante (la Gardienne) ; Yel’Dara et le compte d’il y a trente ans ; les pilleurs du col (les abreuver, les chasser, les contourner, se battre) ; la dame en gris et l’eau ; quatre fins ; l’épisode dit au pied du jalon et son Écho ; la Marche à rattraper (Survie 16, ou le grondement de Longue-Ombre) ; la caisse de la Communion au fil ; la couverture (fragment du chapitre 8, la nuit après) ; la lettre d’Ilyane chez Tam’Ruu | en ligne |
+
+**À valider** (inventés au montage) : les six noms de la caisse de la Communion (**Inès, six ans ; Pavel, huit ans ; Lila,
+cinq ans ; Oren, sept ans ; Nadia, neuf ans ; Sacha, six ans**) ; les mots de l’épisode (« Au quai sans nom, une caisse de
+plomb, et personne. Les Marcheurs ont attendu un jour. Personne n’est venu. Ils ont planté le verre, pour qu’on sache que
+c’était là. ») ; l’Écho « Personne n’est venu » (les Marcheurs qui attendent un jour autour de la caisse, puis plantent le
+jalon) ; la plaque « Halte des Sables — voie 7 » ; le nombre du matin d’après, « onze » (dix des leurs et la ration de
+l’étrangère) ; le Coffre des routes, qui garde des pierres d’eau, une par puits ; les pilleurs au chèche noir payés par les
+Réveilleurs ; Longue-Ombre qui laisse voir ce qu’elle regarde ; la Reine qui « n’y retourne qu’en rêve » ; Kresh’Tal sur
+son perchoir ; une Marcheuse du Souffle au Temple.
+

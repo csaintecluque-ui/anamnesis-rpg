@@ -1313,6 +1313,30 @@ Commence par : « vide » _(si repère « rencontre-cache-ouverte »)_, sinon «
 
 - « Partir. » → **fin**
 
+## La caisse de la halte morte
+
+_Hors de la Marche_
+
+Commence par : « vide » _(si repère « caisse-communion-reglee »)_, sinon « occupee » _(si quête « Ce qui n’a plus lieu » en cours)_, sinon « fermee »
+
+### fermee
+
+> Une caisse de plomb à demi enfouie, le couvercle soudé par le sable. Près d’elle, un jalon. Tu n’as aucune raison de l’ouvrir. Pas encore.
+
+- « La laisser. » → **fin**
+
+### occupee
+
+> La caisse est ouverte. Contre elle, la dame en gris, qui ne bouge pas. C’est à elle qu’il faut parler d’abord.
+
+- « La laisser. » → **fin**
+
+### vide
+
+> La caisse, ouverte, mangée de sable. Le vent y entre et en ressort. Plus rien dedans ne t’attend.
+
+- « La laisser. » → **fin**
+
 ## La caisse égarée
 
 _Objet_
@@ -1813,6 +1837,42 @@ Commence par : « accueil »
 
 - « Descendre du chariot. » → **fin** _(attend à midi, attend le soir, mène à « Gardebois — Marché des Lisières »)_
 
+## Le Coffre des routes
+
+_La tente des guides_
+
+Commence par : « coffre-quete » _(si quête « Ce qui n’a plus lieu » en cours)_ _(sans repère « halte-trouvee »)_ _(sans repère « coffre-surpris »)_, sinon « coffre »
+
+### coffre
+
+> Un coffre de bois clouté. Dedans, pas un papier : des pierres d’eau, une par puits du cercle, rangées dans l’ordre de la route. Les guides lisent la Marche avec leurs doigts.
+
+- « Refermer le coffre. » → **fin**
+
+### coffre-quete
+
+> Les pierres d’eau, une par puits, dans l’ordre du cercle ; quelque part là-dedans, la piste de demain, et le jalon qu’elle frôle. À trois pas, Daru’Khen somnole, son bâton sur les genoux.
+
+- **🎲 Discrétion 16** « Les lire du bout des doigts, sans un bruit. » → lu, ✗ → surpris
+- **🎲 Artisanat 16** « Défaire le nœud du coffre sans le trahir. » → lu, ✗ → surpris
+- « Refermer le coffre. » → **fin**
+
+### lu
+
+_Effet : retient « halte-trouvee », retient « coffre-lu »._
+
+> Tu comptes les pierres. La quatrième n’est pas une pierre : un éclat de verre, poli. Un jalon. Demain, la piste passera au plus près de lui, à neuf kilomètres, plein sud. Tu refermes le coffre comme tu l’as trouvé.
+
+- « S’éloigner. » → **fin**
+
+### surpris
+
+_Effet : retient « coffre-surpris »._
+
+> — Ce coffre n’est pas à toi. — Daru’Khen rabat le couvercle sur tes doigts, sans brutalité. — Dans la Marche, on demande. Tout le camp le saura demain.
+
+- « S’éloigner. » → **fin**
+
 ## La colporteuse
 
 _Marchande ambulante_
@@ -2159,6 +2219,58 @@ Commence par : « cristal »
 
 - « Se reposer un instant. » → **fin** _(+40 PV)_
 - « S’éloigner. » → **fin**
+
+## Daru’Khen
+
+_Premier guide_
+
+Commence par : « halte-q » _(si quête « Ce qui n’a plus lieu » en cours)_ _(sans repère « halte-trouvee »)_ _(sans repère « daru-refus »)_, sinon « accueil »
+
+### accueil
+
+> Un homme sec, un chèche couleur de sable, un bâton couvert d’encoches. — Les guides ne choisissent rien, l’étranger. L’eau choisit, nous la suivons. Tu voulais savoir autre chose ?
+
+- « Où va la Marche ? » → route
+- « Les jalons, au loin ? » → jalons
+- « Rien. » → **fin**
+
+### route
+
+> — Au point d’eau suivant, puis au suivant. Le cercle a un sens, et ses fenêtres ont des dates. On ne revient pas : une Marche qui rebrousse chemin arrive en retard partout.
+
+- « Les jalons, au loin ? » → jalons
+- « Rien. » → **fin**
+
+### jalons
+
+> — Des haltes mortes. La route a changé, un jour, parce qu’un puits a séché, et ce qui est tombé hors de la route est tombé hors du récit. Y aller, c’est quitter la Marche : l’Année Errante. Cinq sur cent n’en reviennent pas.
+
+- « Où va la Marche ? » → route
+- « Rien. » → **fin**
+
+### halte-q
+
+> — Une halte morte avec un quai dessous ? Les guides savent où passe la piste, pas ce qui dort sous les jalons. Et ce qui dort sous les jalons ne regarde pas les étrangers.
+
+- **🎲 Diplomatie 16** « Dis-moi seulement où passe la piste, demain. » → dit, ✗ → refus
+- _(si repère « membre-guides-eau »)_ « Je suis des Guides de l’Eau. » → dit
+- « Plus tard. » → **fin**
+
+### dit
+
+_Effet : retient « halte-trouvee »._
+
+> Il trace un trait dans le sable avec son bâton. — Demain, au milieu du jour, la piste passera à neuf kilomètres d’un jalon qui n’a plus d’épisode. Plein sud. Pars à l’aube, avec de l’eau, et ne compte pas sur nous pour t’attendre.
+
+- « Merci, Daru’Khen. » → **fin**
+
+### refus
+
+_Effet : retient « daru-refus »._
+
+> — Non. La dernière à qui j’ai montré la piste est partie seule vers le sud, et je n’ai pas dormi depuis. Demande au désert.
+
+- « Tant pis. » → **fin**
 
 ## Le technicien Dask
 
@@ -2849,6 +2961,82 @@ _Effet : retient « rouleau-lache »._
 _Effet : donne 1 × « Une pièce de la machine », retient « caisse-zephyria-trouvee », retient « edda-lache », retient « caisse-zephyria-reglee », retient « edda-halte-reglee », termine la quête « Les noms qui montent », retient « fin-noms-qui-montent-lache », +60 XP._
 
 > Elle regarde le tissu disparaître. — C’était tout ce que j’avais d’elle. Elle se lève, et époussette son manteau. — Prenez la pièce. Je n’ai plus rien à porter.
+
+- « La regarder partir. » → **fin**
+
+## La dame en gris
+
+_La halte morte_
+
+Commence par : « soif » _(si quête « Ce qui n’a plus lieu » en cours)_ _(sans repère « edda-marche-vue »)_, sinon « caisse »
+
+### soif
+
+_Effet : retient « edda-marche-vue »._
+
+> La dame en gris est assise contre une caisse ouverte, les lèvres fendues, une gourde vide à ses pieds. Elle lève les yeux vers toi. — Elle est venue jusqu’ici, elle aussi. Les Gardiennes l’ont comptée. Le lendemain matin, elle était dans un nombre.
+
+- _(si l’on porte « L’eau de l’Année Errante »)_ « Lui tendre ta gourde. » → boit _(reprend 1 × « L’eau de l’Année Errante », retient « edda-eau »)_
+- _(si l’on porte « L’eau de l’Année Errante »)_ « Ta gourde contre la caisse. » → marchandee _(reprend 1 × « L’eau de l’Année Errante », retient « edda-marchandee »)_
+- « Je n’ai pas d’eau à te donner. » → sans-eau
+
+### boit
+
+> Elle boit sans fierté, à longues gorgées, et te rend la gourde vide. — Merci. Je m’en souviendrai : je me souviens de tout, c’est bien mon malheur. Regarde ce qu’elle a laissé.
+
+- « Regarder dans la caisse. » → caisse
+
+### marchandee
+
+> Elle te regarde longtemps. — Dans la Communion, ce que tu fais là s’appelle un sacrilège. — Elle prend la gourde quand même, boit, et se lève. — La caisse est à toi. Je n’oublierai pas le prix.
+
+- « Regarder dans la caisse. » → caisse
+
+### sans-eau
+
+> — Alors assieds-toi un moment. Il n’y a rien d’autre à faire, à la halte, que regarder ce qu’elle a laissé.
+
+- « Regarder dans la caisse. » → caisse
+
+### caisse
+
+> Dans la caisse, une pièce de la machine, emballée dans une toile que le sable n’a pas mangée, et une liste : Inès, six ans ; Pavel, huit ans ; Lila, cinq ans ; Oren, sept ans ; Nadia, neuf ans ; Sacha, six ans. La même main que sur les autres.
+
+- « La laisser ici, à sa halte. » → halte _(retient « caisse-communion-trouvee », retient « caisse-communion-reglee », termine la quête « Ce qui n’a plus lieu », retient « fin-plus-lieu-halte », +60 XP)_
+- « Prendre la pièce. » → gardee _(donne 1 × « Une pièce de la machine », retient « caisse-communion-trouvee », retient « caisse-communion-reglee », termine la quête « Ce qui n’a plus lieu », retient « fin-plus-lieu-gardee », +60 XP)_
+- **🎲 Athlétisme 16** « La rapporter à la Marche, à Longue-Ombre. » → longue-ombre, ✗ → trop-lourde _(retient « caisse-communion-trouvee », fait passer 2 moments, retient « caisse-communion-reglee », termine la quête « Ce qui n’a plus lieu », retient « fin-plus-lieu-longue-ombre », +60 XP)_
+- _(sans repère « edda-marchandee »)_ « La laisser à la dame en gris. » → edda _(retient « caisse-communion-prise », retient « caisse-communion-reglee », termine la quête « Ce qui n’a plus lieu », retient « fin-plus-lieu-edda », +60 XP)_
+
+### trop-lourde
+
+> Tu la soulèves d’un pouce, et tu la reposes. Neuf kilomètres de sable, avec ça sur le dos : tu ne les feras pas. La dame en gris te regarde sans rien dire.
+
+- _(si repère « membre-guides-eau »)_ « Les guides ont des chariots. » → longue-ombre _(retient « caisse-communion-trouvee », fait passer 2 moments, retient « caisse-communion-reglee », termine la quête « Ce qui n’a plus lieu », retient « fin-plus-lieu-longue-ombre », +60 XP)_
+- « La laisser ici, à sa halte. » → halte _(retient « caisse-communion-trouvee », retient « caisse-communion-reglee », termine la quête « Ce qui n’a plus lieu », retient « fin-plus-lieu-halte », +60 XP)_
+- « Prendre la pièce, seulement. » → gardee _(donne 1 × « Une pièce de la machine », retient « caisse-communion-trouvee », retient « caisse-communion-reglee », termine la quête « Ce qui n’a plus lieu », retient « fin-plus-lieu-gardee », +60 XP)_
+- _(sans repère « edda-marchandee »)_ « La laisser à la dame en gris. » → edda _(retient « caisse-communion-prise », retient « caisse-communion-reglee », termine la quête « Ce qui n’a plus lieu », retient « fin-plus-lieu-edda », +60 XP)_
+
+### halte
+
+> Tu refermes le plomb sur la liste. La dame en gris se lève, regarde le jalon, puis toi. — Personne ne l’aura, alors. C’est peut-être ce qu’elle voulait. — Elle repart vers la piste, sans se retourner.
+
+- « Rester encore un peu. » → **fin**
+
+### gardee
+
+> Tu charges la pièce sur ton dos ; elle est lourde et froide. La dame en gris recopie la liste dans le sable, de mémoire, avec son doigt, un nom après l’autre. Le vent les efface derrière elle.
+
+- « Partir. » → **fin**
+
+### longue-ombre
+
+> Le soir, la caisse sur le dos, tu rattrapes la Marche. Nes’Mira t’aide à la hisser sur la carapace, entre deux plaques. Longue-Ombre ne bronche pas. Elle marchera avec la ville, maintenant.
+
+- « Souffler. » → **fin** _(mène à « Marche-Mère — le dos de Longue-Ombre »)_
+
+### edda
+
+> Tu t’écartes. Elle charge la caisse sur son dos, sans un mot, et part vers le sud, pas vers la Marche. Derrière la dune, des silhouettes l’attendaient.
 
 - « La regarder partir. » → **fin**
 
@@ -3644,6 +3832,50 @@ _Effet : retient « holger-livre », retient « asile-reglee », +50 Fers, +20 X
 
 - « Partir. » → **fin**
 
+## La Gardienne de l’Eau
+
+_Celle qui verse_
+
+Commence par : « accueil »
+
+### accueil
+
+> Une femme voilée de bleu, les mains mouillées jusqu’aux poignets, verse sans lever les yeux. — Ta ration. La même pour tout le monde, la même pour l’étranger.
+
+- « La boire. » → boire _(+5 PV)_
+- _(si quête « Ce qui n’a plus lieu » en cours)_ « L’eau de l’Année Errante. » → errance
+- « Qui t’a donné ce pouvoir ? » → veto
+- « Merci. » → **fin**
+
+### boire
+
+> L’eau est tiède et sent la jarre. Elle se tourne déjà vers la suivante.
+
+- « Qui t’a donné ce pouvoir ? » → veto
+- « Merci. » → **fin**
+
+### veto
+
+> — « Celle qui donne l’eau peut arrêter la Marche. » Samyr l’a dit, une phrase, il y a vingt-neuf siècles. Nous sommes cent dix-huit depuis. Aucune ne l’a dit. Elle verse encore.
+
+- « Tu comptes, aussi ? » → compte
+- « Merci. » → **fin**
+
+### compte
+
+> — Je verse, donc je sais combien ne viennent plus. Yel’Dara m’entend, elle ne verse pas. Depuis Neth’Sara, le compte a deux têtes. Pour qu’on ne puisse plus demander.
+
+- « Qui t’a donné ce pouvoir ? » → veto
+- « Merci. » → **fin**
+
+### errance
+
+_Effet : donne 1 × « L’eau de l’Année Errante »._
+
+> Elle te tend une gourde de peau, pleine, sans poser de question. — On ne refuse pas l’eau. Si tu ne reviens pas, demain matin, tu seras dans mon compte, avec les autres. Alors reviens.
+
+- « Je reviendrai. » → **fin**
+
 ## Garrik
 
 _Fouilleur_
@@ -4161,6 +4393,34 @@ _Effet : retient « raconte-hesper », +15 XP._
 > Hesper écrit le nom d’Odon dans un registre de cuir. — Les Gardiens gardent aussi ceux qui faisaient passer. Il n’avait pas de papiers à donner : il avait des noms. C’est la même chose.
 
 - « Merci, Hesper. » → **fin**
+
+## Hiran’Amra
+
+_Matriarche de Cristaux_
+
+Commence par : « accueil »
+
+### accueil
+
+> Une femme aux cristaux-bijoux, au front et au cou, qui pèse des éclats d’ambre sur une balance de verre. — Le cristal fait vivre la Marche, l’étranger. Sept chariots sur dix qui roulent, c’est lui qui les paie. Tu achètes, tu vends, tu regardes ?
+
+- « La Mer de Verre ? » → mer
+- « Et Ferros ? » → ferros
+- « Je regarde. » → **fin**
+
+### mer
+
+> — Je voudrais que la route y passe plus souvent. Les guides disent que l’eau décide. L’eau n’a jamais payé une lentille de serre.
+
+- « Et Ferros ? » → ferros
+- « Je regarde. » → **fin**
+
+### ferros
+
+> — Ferros paierait le double, par Terminus. Ferros a aussi planté une foreuse dans un cimetière. Je n’oublie ni l’un ni l’autre, et je ne les mélange pas.
+
+- « La Mer de Verre ? » → mer
+- « Je regarde. » → **fin**
 
 ## Holger Brandt
 
@@ -4851,6 +5111,115 @@ Commence par : « oubli » _(si repère « aio-oublie »)_, sinon « accueil »
 
 - « Partir. » → **fin**
 
+## Ish’Lenne
+
+_Conteuse de la Tente des Mille Pas_
+
+Commence par : « merci » _(si repère « episode-dit »)_ _(sans repère « ish-merci »)_, sinon « caisse » _(si quête « Ce qui n’a plus lieu » en cours)_ _(sans repère « ish-mots »)_, sinon « caisse-debut » _(si quête « Ce que la mer rend » terminée)_ _(si quête « Ce qui n’a plus lieu » pas commencée)_, sinon « accueil »
+
+### accueil
+
+> Une conteuse aux cheveux blancs, des rubans de route aux poignets, assise devant un brasero. — Le soir, à la halte, je dis l’épisode qui lui appartient. Ailleurs, je me tais : un épisode dit ailleurs que chez lui, c’est du bavardage.
+
+- « Et les haltes mortes ? » → mortes
+- « Pourquoi ne rien écrire ? » → ecrire
+- « Je reviendrai à la halte. » → **fin**
+
+### mortes
+
+> — Je garde leurs mots. Je ne les dis pas. Ce qui se perd, à Solarix, ne se perd pas de la mémoire, l’étranger : ça se perd de la route.
+
+- « Pourquoi ne rien écrire ? » → ecrire
+- « Je reviendrai à la halte. » → **fin**
+
+### ecrire
+
+> — On n’emporte pas de bibliothèque à cinq kilomètres à l’heure, et on ne bâtit pas d’archives quand on ne bâtit rien. Nos légendes ont lieu. Tu les entendras là où elles se sont passées, ou tu ne les entendras pas.
+
+- « Et les haltes mortes ? » → mortes
+- « Je reviendrai à la halte. » → **fin**
+
+### caisse-debut
+
+_Effet : lance la quête « Ce qui n’a plus lieu », retient « plus-lieu-commencee »._
+
+> — Tu viens pour « La caisse que personne n’est venu chercher ». Je connais ses mots. Je ne les dirai qu’à sa halte, et sa halte est morte : la route est passée ailleurs il y a des siècles. Moi, je ne quitte pas la Marche. Toi, tu n’es pas d’ici.
+
+- **🎲 Diplomatie 16** « Donne-moi les mots : je les dirai là-bas. » → mots, ✗ → pas-encore
+- _(si repère « halte-trouvee »)_ « Je sais où est sa halte. » → mots
+- « Où est-elle, cette halte ? » → ou
+- « Plus tard. » → **fin**
+
+### caisse
+
+> — « La caisse que personne n’est venu chercher. » Ses mots ne se disent qu’au pied de son jalon. Je ne quitte pas la Marche. Toi, tu peux.
+
+- **🎲 Diplomatie 16** « Donne-moi les mots : je les dirai là-bas. » → mots, ✗ → pas-encore
+- _(si repère « halte-trouvee »)_ « Je sais où est sa halte. » → mots
+- « Où est-elle, cette halte ? » → ou
+- « Plus tard. » → **fin**
+
+### ou
+
+> — Je ne sais pas. Les guides savent où passe la piste ; Longue-Ombre le sait aussi, dit-on. La dame en gris m’a posé la même question. Je ne lui ai pas donné les mots : c’est la caisse qu’elle voulait, et l’épisode l’ennuyait.
+
+- « Je comprends. » → caisse
+
+### mots
+
+_Effet : retient « ish-mots »._
+
+> Elle te dit l’épisode une fois, à voix basse, puis te le fait répéter, mot pour mot, jusqu’à ce que tu l’aies. — Ne le dis nulle part ailleurs qu’au pied de son jalon. Ailleurs, ce ne serait que du bruit.
+
+- « Je le dirai là-bas. » → **fin**
+
+### pas-encore
+
+> — Tu le dirais au premier feu de camp venu, pour faire rire. Reviens quand tu sauras où il faut le dire.
+
+- « Je reviendrai. » → **fin**
+
+### merci
+
+_Effet : retient « ish-merci »._
+
+> Ish’Lenne te regarde entrer, et pose sa main à plat sur ton bras. — Tu l’as dit là-bas. Je l’ai senti, je crois. Ou j’ai voulu le sentir. Ça revient au même, à mon âge.
+
+- « Il a de nouveau lieu. » → accueil
+
+## Un jalon
+
+_La halte morte_
+
+Commence par : « vivant » _(si repère « episode-dit »)_, sinon « dire » _(si repère « ish-mots »)_, sinon « jalon »
+
+### jalon
+
+> Un jalon de verre, debout depuis des siècles, sans un mot. Le sable l’a poli jusqu’à le rendre presque invisible. Personne n’est venu le voir depuis que la route a changé.
+
+- « Le laisser debout. » → **fin**
+
+### dire
+
+> Un jalon de verre, debout depuis des siècles, sans un mot. Les mots, c’est toi qui les as, ceux qu’Ish’Lenne t’a fait répéter. Ici, et nulle part ailleurs.
+
+- « Dire l’épisode, au pied du jalon. » → dit
+- « Pas maintenant. » → **fin**
+
+### dit
+
+_Effet : retient « episode-dit », +30 XP._
+
+> Tu le dis à voix haute, mot pour mot : « Au quai sans nom, une caisse de plomb, et personne. Les Marcheurs ont attendu un jour. Personne n’est venu. Ils ont planté le verre, pour qu’on sache que c’était là. » Le vent tombe. La halte a de nouveau lieu.
+
+- « Rester un moment. » → **fin**
+
+### vivant
+
+> Le jalon. Le vent tourne autour, et le sable chante un peu contre le verre. La halte a de nouveau lieu, pour quelqu’un au moins.
+
+- « Le laisser debout. » → **fin**
+
 ## Joss Brakel
 
 _Aiguilleur de nuit_
@@ -5446,6 +5815,18 @@ _Effet : retient « raconte-kerta », +15 XP._
 
 - « Bon courage, Kerta. » → **fin**
 
+## Kresh’Tal
+
+_Le dragon de la Reine_
+
+Commence par : « perchoir »
+
+### perchoir
+
+> Un dragon rouge, très ancien, couché sur un perchoir de cristal. Un œil s’ouvre, te pèse, et se referme. Tu n’existes plus pour lui. Plus loin, quelqu’un murmure : « Kresh’Tal. Six cents ans. Ne le réveille pas pour rien. »
+
+- « Passer sans bruit. » → **fin**
+
 ## Le Lâcher
 
 _La Haute-Île_
@@ -5832,6 +6213,18 @@ _Effet : retient « dedicace-lue », +10 XP._
 
 - « Le laisser. » → **fin**
 
+## Longue-Ombre
+
+_La plus vieille des douze_
+
+Commence par : « tete »
+
+### tete
+
+> La tête de Longue-Ombre, plus haute qu’une tente. Un œil d’ambre, mi-clos, qui ne te regarde pas : il regarde le désert, au sud. Sous ta main, la carapace est tiède, et elle bat, très lentement.
+
+- « Retirer ta main. » → **fin**
+
 ## Lyra Cœur-de-Sève
 
 _Première Racine_
@@ -6092,6 +6485,34 @@ Commence par : « accueil »
 
 - « Voyons ça. » → **fin** _(ouvre le Troc)_
 - « Au revoir. » → **fin**
+
+## Une Marcheuse du Souffle
+
+_Temple du Désert-Vivant_
+
+Commence par : « accueil »
+
+### accueil
+
+> Une femme pieds nus, la tête rasée, assise entre trois jalons. — Chaque pas laisse une trace. C’est le sixième principe, et c’est tout ce que je t’enseignerai : le reste, tu le marcheras.
+
+- « Une trace de quoi ? » → trace
+- « Aq’Shara, c’est votre dieu ? » → aqshara
+- « Je te laisse. » → **fin**
+
+### trace
+
+> — Une trace est ce qu’on laisse derrière soi. Et derrière soi est le seul endroit où l’on ne va pas. Le clergé ne commente jamais cette phrase. Moi non plus.
+
+- « Aq’Shara, c’est votre dieu ? » → aqshara
+- « Je te laisse. » → **fin**
+
+### aqshara
+
+> — Le Désert. Ni juge, ni créateur, ni dieu. Il marche ; nous marchons. Il ne nous doit rien, et c’est reposant.
+
+- « Une trace de quoi ? » → trace
+- « Je te laisse. » → **fin**
 
 ## Marina Azurios
 
@@ -6415,6 +6836,71 @@ _Effet : retient « raconte-nell », +15 XP._
 > Nell te coupe : « Dors sous la feuille, dors sous le vent ! » Elle la sait par cœur, maintenant. Elle te la chante en entier, lentement, pour être sûre que toi, tu ne l’oublieras pas.
 
 - « Merci, Nell. » → **fin**
+
+## Nes’Mira
+
+_Soigneuse de Longue-Ombre_
+
+Commence par : « porte » _(si repère « fin-plus-lieu-longue-ombre »)_ _(sans repère « nes-porte »)_, sinon « tete » _(si quête « Ce qui n’a plus lieu » en cours)_ _(sans repère « halte-trouvee »)_ _(sans repère « nes-tente »)_, sinon « accueil »
+
+### accueil
+
+> Une femme pieds nus sur la carapace, les avant-bras gris de sable, frotte un baume entre deux plaques. — Doucement. Elle sent tes pas. Elle sent tout. Aujourd’hui, elle est lasse.
+
+- « Elle te parle ? » → lien
+- « Lasse de quoi ? » → lasse
+- « Je te laisse. » → **fin**
+
+### lien
+
+> — Pas avec des mots. Avec ce qui me serre le ventre quand elle a mal, et qui se desserre quand elle mange. Le lien, ça s’appelle. Le rompre, c’est la pire chose qu’on puisse faire, ici ou ailleurs.
+
+- « Lasse de quoi ? » → lasse
+- « Je te laisse. » → **fin**
+
+### lasse
+
+> — De porter. Elle porte un clan, des tentes, des vieux, et depuis plus longtemps que personne ne s’en souvient. Elle ne s’en plaint pas. C’est moi qui m’en plains, pour elle.
+
+- « Elle te parle ? » → lien
+- « Je te laisse. » → **fin**
+
+### tete
+
+> — Tu veux savoir ce qu’elle regarde, à chaque tour, au même endroit ? Pose ta main sur sa tête, près de l’œil, et ne pense à rien. Si elle te laisse entrer, tu le sauras. Si elle ne veut pas, n’insiste pas.
+
+- **🎲 Survie 16** « Poser la main près de son œil. » → vision, ✗ → refus
+- « Plus tard. » → **fin**
+
+### vision
+
+_Effet : retient « halte-trouvee », retient « lien-longue-ombre »._
+
+> Une chaleur te monte dans le bras, lente, énorme. Tu vois avec des yeux trop grands : une plaine blanche, un trait de verre debout, et au pied, quelque chose de lourd, posé, que personne n’est venu prendre. Demain, la Marche passera à neuf kilomètres.
+
+- « Retirer ta main. » → vision-2
+
+### vision-2
+
+> Nes’Mira te regarde, les yeux mouillés. — Elle t’a laissé entrer. Elle ne fait jamais ça. Si tu te perds, là-bas, écoute-la : elle gronde, tu entendras d’où vient le grondement.
+
+- « Merci, Nes’Mira. » → **fin**
+
+### refus
+
+_Effet : retient « nes-tente »._
+
+> Rien. La carapace est tiède, l’œil reste mi-clos. Nes’Mira secoue la tête. — Elle est lasse. Demande aux guides : ils savent où passe la piste, eux.
+
+- « Je comprends. » → **fin**
+
+### porte
+
+_Effet : retient « nes-porte »._
+
+> — Elle la porte, ta caisse, entre deux plaques, près du cou. Elle ne s’est pas plainte. Cette nuit, elle a dormi d’un sommeil que je ne lui connaissais plus.
+
+- « Tant mieux. » → accueil
 
 ## L’archiviste Noam
 
@@ -7258,6 +7744,49 @@ Commence par : « ferme »
 
 - « Merci. » → **fin**
 
+## Les pilleurs des sables
+
+_Hors de la Marche_
+
+Commence par : « barre »
+
+### barre
+
+> Trois hommes au chèche noir, assis dans le col entre les dunes, des pelles en travers des genoux. — Demi-tour. On nous paie pour que personne n’approche du jalon. Quelqu’un est déjà là-bas, et elle paie mieux que toi.
+
+- _(si l’on porte « L’eau de l’Année Errante »)_ « Vous avez soif ? » → eau _(reprend 1 × « L’eau de l’Année Errante », retient « pilleurs-partis », retient « pilleurs-abreuves »)_
+- **🎲 Commandement 16** « Partez. Maintenant. » → partis, ✗ → combat
+- **🎲 Discrétion 16** « (Passer par la crête, sans qu’ils te voient.) » → contournes, ✗ → combat
+- « (Les attaquer.) » → **fin** _(lance le combat « pilleurs-desert »)_
+
+### eau
+
+> Ils boivent ta gourde à trois, jusqu’au fond, sans un merci. — On nous a payés en Fers. Pas en eau. — Ils ramassent leurs pelles et repartent vers la piste, en titubant un peu.
+
+- « Continuer vers le jalon. » → **fin**
+
+### partis
+
+_Effet : retient « pilleurs-partis »._
+
+> Ils se regardent. Le plus vieux crache dans le sable. — Elle ne nous paie pas assez pour mourir. — Ils s’en vont vers la piste, sans se retourner.
+
+- « Continuer vers le jalon. » → **fin**
+
+### contournes
+
+_Effet : retient « pilleurs-contournes »._
+
+> Tu passes par la crête, à plat ventre, le sable dans la bouche. En bas, ils se disputent la dernière gorgée de leur outre. Personne ne lève les yeux.
+
+- « Continuer vers le jalon. » → **fin**
+
+### combat
+
+> — Tu l’auras voulu. — Ils se lèvent, les pelles et les lames à la main.
+
+- « Se défendre. » → **fin** _(lance le combat « pilleurs-desert »)_
+
 ## La machine sans homme
 
 _Au dépôt de la Veilleuse_
@@ -7314,6 +7843,36 @@ _Effet : retient « pilote-ecoute », retient le Récit « La machine qui roulai
 > Sous ta main, un ordre très ancien, répété sans fin : « Vers l’ouest. Rejoindre le chantier. » Le chantier n’existe plus depuis des siècles. La machine ne vole rien : elle obéit. Les pilleurs n’ont fait que l’atteler.
 
 - « Retirer la main. » → **fin**
+
+## Les traces de la Marche
+
+_Hors de la Marche_
+
+Commence par : « rattraper »
+
+### rattraper
+
+> Les traces de la Marche, larges de plusieurs kilomètres, filent vers l’est. Elle est déjà loin : on ne revient pas, c’est à toi de la rejoindre. Le sable se souvient de chaque pas ; encore faut-il savoir les lire.
+
+- **🎲 Survie 16** « Suivre les traces. » → rejointe, ✗ → perdu
+- _(si repère « lien-longue-ombre »)_ « Écouter le grondement de Longue-Ombre. » → rejointe
+- « Pas encore. » → **fin**
+
+### rejointe
+
+_Effet : fait passer 1 moment._
+
+> Tu marches dans les traces jusqu’au milieu de l’après-midi. D’abord la poussière, puis les chariots, puis les douze Léviathans, qui avancent au pas comme si de rien n’était.
+
+- « Rejoindre la Marche. » → **fin** _(mène à « Marche-Mère — le Camp »)_
+
+### perdu
+
+_Effet : −6 PV, fait passer 3 moments._
+
+> Tu suis des traces qui ne sont pas les bonnes, jusqu’au soir. La nuit tombe, froide, et tu la passes dans le creux d’une dune. Au matin, tu retrouves la Marche de loin, à la poussière qu’elle lève.
+
+- « La rejoindre, enfin. » → **fin** _(mène à « Marche-Mère — le Camp »)_
 
 ## L’Entrepôt des douanes
 
@@ -7910,6 +8469,34 @@ _Effet : retient « ruban-noue », +5 XP._
 
 - « Laisser l’échelle. » → **fin**
 
+## Saal’Ema
+
+_Doyenne de son clan_
+
+Commence par : « accueil »
+
+### accueil
+
+> Une très vieille femme, un bâton de route en travers des genoux. — Assieds-toi, petit pied. Sur Longue-Ombre, on ne marche plus : on est porté. J’ai marché quatre-vingts ans. Maintenant, la bête marche pour moi.
+
+- « Parle-moi de Longue-Ombre. » → bete
+- « Ça ne te manque pas, de marcher ? » → marcher
+- « Je te laisse. » → **fin**
+
+### bete
+
+> — La plus vieille des douze. Elle était déjà vieille quand ma grand-mère était petite. À chaque tour du cercle, au même endroit, elle tourne la tête vers le désert, au sud. Personne ne sait ce qu’elle regarde.
+
+- « Ça ne te manque pas, de marcher ? » → marcher
+- « Je te laisse. » → **fin**
+
+### marcher
+
+> — Si. Le soir, je descends au camp, et je fais trois pas dans le sable, pour qu’il se souvienne encore de moi. Le sable se souvient de chaque pas, tu sais. Moi, de moins en moins.
+
+- « Parle-moi de Longue-Ombre. » → bete
+- « Je te laisse. » → **fin**
+
 ## La sacoche des Nacelliers
 
 _Objet_
@@ -8107,6 +8694,45 @@ Commence par : « accueil »
 > Elle glisse la fiole dans ta main sans la regarder. — Tu ne l’as pas eue ici. Et tu ne l’as pas eue du tout.
 
 - « Merci, Sévane. » → **fin**
+
+## La Reine Shal’Vera
+
+_Reine des Sables_
+
+Commence par : « accueil »
+
+### accueil
+
+> Une femme dont on voit les veines d’or sous la peau, et la lumière à travers les mains. Ses yeux d’ambre te regardent comme on regarde une route. — Quelqu’un de loin. Le Désert t’a senti avant les guides. Que viens-tu chercher, qui ne se trouve pas en marchant ?
+
+- « Qui décide, dans la Marche ? » → pouvoir
+- « Ferros ? » → ferros
+- « La Mer de Verre ? » → verre
+- « Rien, Majesté. » → **fin**
+
+### pouvoir
+
+> — Les Neuf Voix proposent, les Marches votent, et quand elles ne s’entendent pas, je tranche, après avoir écouté le Désert. Je ne commande rien. On me croit plus forte que je ne suis.
+
+- « Ferros ? » → ferros
+- « La Mer de Verre ? » → verre
+- « Merci, Majesté. » → **fin**
+
+### ferros
+
+> — Ferros a planté une foreuse dans un cimetière. Nous l’avons détruite ; deux cents des leurs sont morts. Je ne m’en réjouis pas. Je ne le regrette pas non plus.
+
+- « Qui décide, dans la Marche ? » → pouvoir
+- « La Mer de Verre ? » → verre
+- « Merci, Majesté. » → **fin**
+
+### verre
+
+> — J’y ai marché sept jours et sept nuits, sans eau, pour devenir ce que tu vois. Six sur dix y meurent, et deviennent des statues. Je n’y retourne qu’en rêve, et je me réveille avec du sable sous les ongles.
+
+- « Qui décide, dans la Marche ? » → pouvoir
+- « Ferros ? » → ferros
+- « Merci, Majesté. » → **fin**
 
 ## Shass
 
@@ -8478,6 +9104,117 @@ Commence par : « usure » _(si le cristal porté a servi 6 fois ou plus sans ê
 > Le burin tinte, longtemps. Quand elle te le rend, le cristal est tiède, et il chante juste. — Ménage-le. Les cristaux, c’est comme les gens d’en bas : ça s’use sans se plaindre, puis ça casse.
 
 - « Merci. » → **fin**
+
+## Tam’Ruu
+
+_Tient la Halte_
+
+Commence par : « lettre-prise » _(si quête « Ce qui n’a plus lieu » terminée)_ _(si repère « caisse-communion-prise »)_ _(sans repère « tam-lettre »)_, sinon « lettre » _(si quête « Ce qui n’a plus lieu » terminée)_ _(sans repère « tam-lettre »)_, sinon « dame » _(si quête « Ce que la mer rend » terminée)_ _(si quête « Ce qui n’a plus lieu » pas commencée)_, sinon « accueil-2 » _(un jour sur 3, le 2e)_, sinon « accueil-3 » _(un jour sur 3, le 3e)_, sinon « accueil »
+
+### accueil
+
+> Un homme large, un tablier de cuir, une louche à la main ; derrière lui, une jarre plus haute que lui. — La Halte ! Ce soir elle est là, demain elle sera plus loin, et la soupe sera la même. Qu’est-ce qu’il te faut ?
+
+- « Manger ou dormir ? » → servir
+- « Comment vit la Marche ? » → nouvelles
+- « Au revoir. » → **fin**
+
+### accueil-2
+
+> Tam’Ruu goûte sa soupe, grimace, ajoute du sel. — Tu reviens ! La Halte aussi, tu vois : elle t’a suivi·e de trente kilomètres.
+
+- « Manger ou dormir ? » → servir
+- « Comment vit la Marche ? » → nouvelles
+- « Au revoir. » → **fin**
+
+### accueil-3
+
+> — Les pieds ? Tout le monde a mal aux pieds le premier mois. Après, on a mal ailleurs. Assieds-toi.
+
+- « Manger ou dormir ? » → servir
+- « Comment vit la Marche ? » → nouvelles
+- « Au revoir. » → **fin**
+
+### servir
+
+> — Une soupe de lentilles des serres, ou une natte jusqu’au matin. L’eau, tu la prends à la Tente de l’Eau, comme tout le monde : je ne la vends pas, personne ne la vend.
+
+- **[8 Fers]** « Une soupe. » → mange _(−8 Fers, +15 PV)_
+- **[8 Fers]** « Une natte jusqu’au matin. » → dodo _(−8 Fers, dort jusqu’au matin)_
+- **[8 Fers]** « Une natte jusqu’au soir. » → dodo _(−8 Fers, dort jusqu’à le soir)_
+- « Rien, merci. » → accueil
+
+### mange
+
+> Une soupe épaisse, qui sent le cumin et la toile chaude. Autour de toi, des gens mangent debout : on mange vite, le soir, avant que la halte commence.
+
+- « Merci, Tam’Ruu. » → accueil
+
+### dodo
+
+> Une natte, une couverture qui sent le chameau, et le grondement lent des Léviathans qui dorment tout autour du camp.
+
+- « Bonne nuit. » → **fin**
+
+### nouvelles
+
+> — Trois choses. Le matin, l’eau : chacun sa ration, à la Tente de l’Eau, et personne ne la refuse à personne. Le soir, la halte : Ish’Lenne dit l’épisode qui appartient à l’endroit. Entre les deux, on marche.
+
+- « Pourquoi ne jamais s’arrêter ? » → arreter
+- « Et les Léviathans ? » → leviathans
+- « Merci. » → accueil
+
+### arreter
+
+> — L’eau qui stagne pourrit, le sable qui bouge vit. Une Marche qui s’arrête arrive en retard au point d’eau suivant. Et qui arrive en retard à l’eau ne repart pas.
+
+- « Et les Léviathans ? » → leviathans
+- « Merci. » → accueil
+
+### leviathans
+
+> — Douze. Ils portent les clans-souches, les sanctuaires, et ceux qui ne marchent plus. Nous, on marche autour. Une Marche n’est pas embarquée, l’étranger : retiens ça, tu vexeras moins de monde.
+
+- « Pourquoi ne jamais s’arrêter ? » → arreter
+- « Merci. » → accueil
+
+### dame
+
+_Effet : lance la quête « Ce qui n’a plus lieu », retient « plus-lieu-commencee »._
+
+> — Toi, tu cherches la même chose que la dame en gris. Ça se voit aux chaussures. Elle est passée il y a quatre jours. Elle a demandé l’eau de l’Année Errante, et on la lui a donnée : on ne refuse pas l’eau. Puis elle est partie vers le sud. À pied.
+
+- « Vers quoi ? » → dame-quoi
+- « Manger ou dormir ? » → servir
+- « Merci. » → **fin**
+
+### dame-quoi
+
+> — Une halte morte, à ce qu’on dit. Va voir Ish’Lenne, à la Tente des Mille Pas : elle garde les mots de ces endroits-là. Elle ne te les dira pas, mais elle te dira pourquoi.
+
+- « Merci, Tam’Ruu. » → accueil
+
+### lettre
+
+> — Un pli pour toi, arrivé avec la caravane des verriers. Il a fait trois semaines de route, et ça se sent.
+
+- « L’ouvrir. » → lettre-texte
+
+### lettre-texte
+
+_Effet : retient « tam-lettre »._
+
+> L’écriture d’Ilyane, qui tremble. « Tu marches avec une ville ? Moi, je marche jusqu’au puits, le matin, et en arrivant je ne sais plus pourquoi je suis venue. Alors j’y retourne le lendemain. Le puits, lui, se souvient de moi. »
+
+- « Plier la lettre. » → **fin**
+
+### lettre-prise
+
+_Effet : retient « tam-lettre »._
+
+> — Un pli pour toi, arrivé avec la caravane. Tam’Ruu te le tend, et regarde ailleurs. Trois lignes, presque illisibles. « Je suis allée au puits. Je ne sais plus pourquoi. Il y avait quelqu’un avec moi, je crois. »
+
+- « Plier la lettre. » → **fin**
 
 ## Tam Orvel
 
@@ -9223,6 +9960,34 @@ _Effet : retient « raconte-varka », +15 XP._
 
 - « Bonne nuit, Varka. » → **fin**
 
+## Varo’Ssin
+
+_Maître verrier, Homme-de-Verre_
+
+Commence par : « accueil »
+
+### accueil
+
+> Un homme dont la peau, par plaques, est devenue du verre ; on voit dessous la lueur du four. — Je coule les jalons. Un mètre vingt, du verre de la Mer de Verre, rien d’écrit dessus. Un jalon ne dit pas ce qui s’est passé : il dit que c’était là.
+
+- « Tu as soif, parfois ? » → soif
+- « La Mer de Verre ? » → mer
+- « Je te laisse travailler. » → **fin**
+
+### soif
+
+> — Je vais à la distribution une fois la semaine. Ne me demande pas si c’est pour boire : je ne l’ai jamais su moi-même. La Gardienne me sert sans rien dire. C’est une forme de politesse, des deux côtés.
+
+- « La Mer de Verre ? » → mer
+- « Je te laisse travailler. » → **fin**
+
+### mer
+
+> — Le cimetière de l’Ancien Monde. Des villes entières, vitrifiées. On y prend le verre des jalons, un peu, une fois l’an. Ferros a voulu y forer : la foreuse n’existe plus, et deux cents des leurs non plus.
+
+- « Tu as soif, parfois ? » → soif
+- « Je te laisse travailler. » → **fin**
+
 ## La Veilleuse du Rail
 
 _Travailleurs du Rail_
@@ -9921,6 +10686,48 @@ Commence par : « merci » _(si repère « rencontre-voyageur-aide »)_, sinon �
 > Le voyageur te fait un grand signe. — Cette fois, je tiens la carte dans le bon sens !
 
 - « Bonne route ! » → **fin**
+
+## Yel’Dara
+
+_La seconde tête du compte_
+
+Commence par : « edda » _(si quête « Ce qui n’a plus lieu » en cours)_ _(sans repère « yel-edda »)_, sinon « accueil »
+
+### accueil
+
+> Une vieille femme voilée de bleu, assise près des jarres, les mains vides sur les genoux. Ses lèvres remuent sans bruit. — Je ne verse pas. J’entends. Chaque matin, le nombre de la Gardienne, et je le garde dans une seconde tête.
+
+- « Combien de jours gardes-tu ? » → jours
+- « Pourquoi deux têtes ? » → deux
+- « Je te laisse compter. » → **fin**
+
+### jours
+
+> — Mille quatre cents de mémoire ferme. Au-delà, je récite ce que ma devancière m’a récité, qui récitait la sienne. Au jour le jour, c’est exact. Au siècle, ça s’effrite.
+
+- « Pourquoi deux têtes ? » → deux
+- « Je te laisse compter. » → **fin**
+
+### deux
+
+> — Parce qu’une fois, pendant la Sèche, quelqu’un a demandé à la Gardienne de se taire deux matins. Elle s’est tue. Deux nombres sont morts avec elle. Depuis, on est deux à les porter.
+
+- « Combien de jours gardes-tu ? » → jours
+- « Je te laisse compter. » → **fin**
+
+### edda
+
+_Effet : retient « yel-edda »._
+
+> — La dame en gris est venue me demander un matin. Un seul. Il y a trente ans, une étrangère seule a quitté la Marche à pied, vers une halte morte. Elle voulait le compte du matin d’après.
+
+- « Quel nombre ? » → nombre
+
+### nombre
+
+> Yel’Dara ferme les yeux et descend les jours, un par un, jusqu’à celui-là. — Onze. Dix des nôtres, et la ration de l’étrangère. Je le lui ai dit. Elle est restée assise longtemps. Puis elle a demandé l’eau de l’errance.
+
+- « Merci, Yel’Dara. » → **fin**
 
 ## Ysolde Cent-Plis
 

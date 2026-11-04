@@ -1,11 +1,15 @@
 import { describe, expect, it } from 'vitest';
+import { DIALOGUES } from '../data/dialogues';
 import { MAPS } from '../data/maps';
 import { findPath } from '../engine/pathfinding';
 import { findObject, isWalkable, parseTiledMap, tileKey, type GameMap, type MapObject } from '../engine/tiledMap';
 import { createNewGame, findLocation, LOCATIONS, type GameState } from '../state/gameState';
-import { addItem } from './inventory';
+import { applyEffects, startNode } from './dialogue';
+import { echoObjects } from './echos';
+import { filPage } from './fil';
+import { addItem, ownedCount } from './inventory';
 import { campDresse, chaleur, GOURDE, mapNow, sableDefile, SOIF_PV } from './marche';
-import { testCharacter } from './questTestKit';
+import { choose, optionTexts, testCharacter } from './questTestKit';
 import {
   crossingOf,
   FIRST_CARAVAN_FLAG,
@@ -144,5 +148,144 @@ describe('la caravane des verriers, et la Marche sur la carte du monde', () => {
 
   it('donne à chaque ville au-delà des routes une quête qui la fait apparaître (rien ne reste caché pour de bon)', () => {
     for (const place of WORLD.places.filter((p) => crossingOf(p))) expect(place.known || place.revealedByQuest, place.id).toBeTruthy();
+  });
+});
+
+// --- « Ce qui n'a plus lieu » ---------------------------------------------------------------------------------------
+
+const talk = (state: GameState, id: string) => {
+  const node = startNode(DIALOGUES[id], state);
+  applyEffects(state, DIALOGUES[id].nodes[node].effects);
+  return node;
+};
+/** A roll that fails: the node it falls to, and that node's effects. */
+const fail = (state: GameState, dialogue: string, node: string, text: string) => {
+  const option = DIALOGUES[dialogue].nodes[node].options.find((o) => o.text.startsWith(text))!;
+  applyEffects(state, DIALOGUES[dialogue].nodes[option.failNext!].effects);
+  return option.failNext;
+};
+const caisse = (state: GameState) => filPage(state).caisses.find((c) => c.continent === 'la Communion')?.etat;
+/** At the halte, the quest started, the halte found and the water of the errance in hand. */
+const atHalte = (): GameState => {
+  const state = game();
+  talk(state, 'tam-ruu');
+  choose(state, 'daru-khen', 'halte-q', 'Dis-moi seulement');
+  choose(state, 'gardienne-eau', 'accueil', 'L’eau de l’Année Errante');
+  return state;
+};
+
+describe('« Ce qui n’a plus lieu »', () => {
+  it('commence à la Halte, après Coralia : la dame en gris est partie à pied vers le sud', () => {
+    const state = game();
+    expect(talk(state, 'tam-ruu')).toBe('dame');
+    expect(state.quests['plus-lieu']).toBe('active');
+    expect(caisse(state)).toBe('inconnue');
+    expect(filPage(state).piste?.cible).toBe('marche-mere');
+    // Ou chez Ish'Lenne, qui garde les mots.
+    const other = game();
+    expect(talk(other, 'ish-lenne')).toBe('caisse-debut');
+    expect(other.quests['plus-lieu']).toBe('active');
+  });
+
+  it('trouve la halte de trois façons : Longue-Ombre, le Coffre des routes, le premier guide', () => {
+    const viaNes = game();
+    talk(viaNes, 'tam-ruu');
+    expect(talk(viaNes, 'nes-mira')).toBe('tete');
+    choose(viaNes, 'nes-mira', 'tete', 'Poser la main');
+    expect(viaNes.flags['halte-trouvee']).toBe(true);
+    expect(viaNes.flags['lien-longue-ombre']).toBe(true);
+
+    const viaCoffre = game();
+    talk(viaCoffre, 'tam-ruu');
+    expect(talk(viaCoffre, 'coffre-routes')).toBe('coffre-quete');
+    choose(viaCoffre, 'coffre-routes', 'coffre-quete', 'Défaire le nœud');
+    expect(viaCoffre.flags['halte-trouvee']).toBe(true);
+
+    const surpris = game();
+    talk(surpris, 'tam-ruu');
+    expect(fail(surpris, 'coffre-routes', 'coffre-quete', 'Les lire')).toBe('surpris');
+    expect(talk(surpris, 'coffre-routes')).toBe('coffre');
+
+    const viaDaru = game();
+    talk(viaDaru, 'tam-ruu');
+    viaDaru.flags['membre-guides-eau'] = true;
+    choose(viaDaru, 'daru-khen', 'halte-q', 'Je suis des Guides de l’Eau');
+    expect(viaDaru.flags['halte-trouvee']).toBe(true);
+  });
+
+  it('Ish’Lenne donne les mots à qui sait où il faut les dire ; au pied du jalon, la halte a de nouveau lieu, et son Écho se montre', () => {
+    const state = atHalte();
+    expect(optionTexts(state, 'ish-lenne', 'caisse')).toContain('Je sais où est sa halte.');
+    choose(state, 'ish-lenne', 'caisse', 'Je sais où est sa halte');
+    expect(state.flags['ish-mots']).toBe(true);
+    const echo = echoObjects('marche-halte-morte').find((o) => o.properties.echo === 'personne')!;
+    expect(echo.properties.apparaitSi).toBe('episode-dit');
+    expect(talk(state, 'jalon-halte')).toBe('dire');
+    choose(state, 'jalon-halte', 'dire', 'Dire l’épisode');
+    expect(state.flags['episode-dit']).toBe(true);
+    expect(talk(state, 'jalon-halte')).toBe('vivant');
+    expect(talk(state, 'ish-lenne')).toBe('merci');
+  });
+
+  it('le pas de la dame en gris : le compte d’un matin d’il y a trente ans, et sa réplique à la halte', () => {
+    const state = atHalte();
+    expect(talk(state, 'yel-dara')).toBe('edda');
+    expect(DIALOGUES['yel-dara'].nodes.nombre.text).toContain('la ration de l’étrangère');
+    expect(talk(state, 'edda-marche')).toBe('soif');
+    expect(DIALOGUES['edda-marche'].nodes.soif.text).toContain('Le lendemain matin, elle était dans un nombre.');
+    expect(talk(state, 'edda-marche')).toBe('caisse');
+  });
+
+  it('l’eau : la donner, la marchander (un sacrilège, et la dame en gris ne reprend plus la caisse), ou n’en pas avoir', () => {
+    const donne = atHalte();
+    talk(donne, 'edda-marche');
+    choose(donne, 'edda-marche', 'soif', 'Lui tendre ta gourde');
+    expect(donne.flags['edda-eau']).toBe(true);
+    expect(ownedCount(donne.character!, GOURDE)).toBe(0);
+
+    const marchande = atHalte();
+    talk(marchande, 'edda-marche');
+    choose(marchande, 'edda-marche', 'soif', 'Ta gourde contre la caisse');
+    expect(optionTexts(marchande, 'edda-marche', 'caisse')).not.toContain('La laisser à la dame en gris.');
+
+    const sansEau = game();
+    talk(sansEau, 'tam-ruu');
+    talk(sansEau, 'edda-marche');
+    expect(optionTexts(sansEau, 'edda-marche', 'soif')).toEqual(['Je n’ai pas d’eau à te donner.']);
+  });
+
+  it('quatre fins : laissée à sa halte, la pièce gardée, portée par Longue-Ombre, laissée à la dame en gris', () => {
+    const ends: [string, string, 'trouvee' | 'prise'][] = [
+      ['La laisser ici', 'halte', 'trouvee'],
+      ['Prendre la pièce', 'gardee', 'trouvee'],
+      ['La rapporter à la Marche', 'longue-ombre', 'trouvee'],
+      ['La laisser à la dame en gris', 'edda', 'prise'],
+    ];
+    for (const [text, fin, etat] of ends) {
+      const state = atHalte();
+      talk(state, 'edda-marche');
+      choose(state, 'edda-marche', 'soif', 'Je n’ai pas d’eau');
+      choose(state, 'edda-marche', 'caisse', text);
+      expect(state.quests['plus-lieu'], fin).toBe('done');
+      expect(state.flags[`fin-plus-lieu-${fin}`], fin).toBe(true);
+      expect(caisse(state), fin).toBe(etat);
+      expect(talk(state, 'caisse-communion')).toBe('vide');
+      expect(talk(state, 'tam-ruu')).toBe(etat === 'prise' ? 'lettre-prise' : 'lettre');
+    }
+    // Trop lourde : sans les chariots des guides, on la laisse, ou on n'en prend que la pièce.
+    const lourde = atHalte();
+    talk(lourde, 'edda-marche');
+    expect(fail(lourde, 'edda-marche', 'caisse', 'La rapporter')).toBe('trop-lourde');
+    expect(optionTexts(lourde, 'edda-marche', 'trop-lourde')).not.toContain('Les guides ont des chariots.');
+  });
+
+  it('les pilleurs du col : leur donner à boire les fait partir ; et la Marche, au retour, se rattrape', () => {
+    const state = atHalte();
+    choose(state, 'pilleurs-desert', 'barre', 'Vous avez soif');
+    expect(state.flags['pilleurs-partis']).toBe(true);
+    expect(ownedCount(state.character!, GOURDE)).toBe(0);
+    expect(optionTexts(state, 'piste-retour', 'rattraper')).toEqual(['Suivre les traces.', 'Pas encore.']);
+    state.flags['lien-longue-ombre'] = true;
+    expect(optionTexts(state, 'piste-retour', 'rattraper')).toContain('Écouter le grondement de Longue-Ombre.');
   });
 });

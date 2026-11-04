@@ -595,5 +595,13 @@
     "weightKg": 2,
     "price": 0,
     "lore": "On ne refuse pas l’eau à un assoiffé : c’est un sacrilège, dans la Communion."
+  },
+  {
+    "id": "piece-communion",
+    "name": "Une pièce de la machine",
+    "description": "Lourde, froide, emballée dans une toile que le sable n’a pas mangée. Elle sortait de la caisse d’une halte morte, à neuf kilomètres de la piste de la Marche-Mère.",
+    "weightKg": 6,
+    "price": 0,
+    "quest": true
   }
 ]

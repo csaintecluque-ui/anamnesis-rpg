@@ -11,7 +11,7 @@
  "tilewidth": 64,
  "tileheight": 32,
  "nextlayerid": 4,
- "nextobjectid": 6,
+ "nextobjectid": 8,
  "layers": [
   {
    "id": 1,
@@ -598,7 +598,7 @@
     0,
     0,
     0,
-    342,
+    0,
     0,
     0,
     171,
@@ -768,6 +768,54 @@
     },
     {
      "id": 2,
+     "name": "caisse-communion",
+     "type": "objet",
+     "x": 368,
+     "y": 304,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": [
+      {
+       "name": "tuile",
+       "type": "string",
+       "value": "caisse-sable"
+      },
+      {
+       "name": "disparaitSi",
+       "type": "string",
+       "value": "fin-plus-lieu-longue-ombre,fin-plus-lieu-edda"
+      }
+     ]
+    },
+    {
+     "id": 3,
+     "name": "edda-marche",
+     "type": "pnj",
+     "x": 400,
+     "y": 304,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": [
+      {
+       "name": "apparaitSi",
+       "type": "string",
+       "value": "plus-lieu-commencee"
+      },
+      {
+       "name": "disparaitSi",
+       "type": "string",
+       "value": "caisse-communion-reglee"
+      }
+     ]
+    },
+    {
+     "id": 4,
      "name": "panneau-halte-sables",
      "type": "panneau",
      "x": 464,
@@ -786,7 +834,7 @@
      ]
     },
     {
-     "id": 3,
+     "id": 5,
      "name": "vers-desert",
      "type": "sortie",
      "x": 16,
@@ -815,7 +863,7 @@
      ]
     },
     {
-     "id": 4,
+     "id": 6,
      "name": "depuis-desert",
      "type": "arrivee",
      "x": 80,
@@ -828,7 +876,7 @@
      "properties": []
     },
     {
-     "id": 5,
+     "id": 7,
      "name": "entree",
      "type": "arrivee",
      "x": 80,
@@ -849,11 +897,11 @@
    "name": "tiles",
    "image": "../../../public/tiles/tiles.png",
    "imagewidth": 512,
-   "imageheight": 4416,
+   "imageheight": 4512,
    "tilewidth": 64,
    "tileheight": 96,
    "columns": 8,
-   "tilecount": 367,
+   "tilecount": 369,
    "margin": 0,
    "spacing": 0,
    "tiles": [
@@ -10014,6 +10062,56 @@
        "name": "nom",
        "type": "string",
        "value": "dragonnet"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 367,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "traces-pas"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 368,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "pilleur-sables"
       },
       {
        "name": "bloquant",

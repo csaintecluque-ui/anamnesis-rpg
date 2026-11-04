@@ -1,0 +1,55 @@
+{
+  "id": "caisse-communion",
+  "speaker": "caisse-communion",
+  "entries": [
+    {
+      "requires": [
+        {
+          "flag": "caisse-communion-reglee"
+        }
+      ],
+      "node": "vide"
+    },
+    {
+      "requires": [
+        {
+          "quest": "plus-lieu",
+          "status": "active"
+        }
+      ],
+      "node": "occupee"
+    },
+    {
+      "node": "fermee"
+    }
+  ],
+  "nodes": {
+    "fermee": {
+      "text": "Une caisse de plomb à demi enfouie, le couvercle soudé par le sable. Près d’elle, un jalon. Tu n’as aucune raison de l’ouvrir. Pas encore.",
+      "options": [
+        {
+          "text": "La laisser.",
+          "next": "fin"
+        }
+      ]
+    },
+    "occupee": {
+      "text": "La caisse est ouverte. Contre elle, la dame en gris, qui ne bouge pas. C’est à elle qu’il faut parler d’abord.",
+      "options": [
+        {
+          "text": "La laisser.",
+          "next": "fin"
+        }
+      ]
+    },
+    "vide": {
+      "text": "La caisse, ouverte, mangée de sable. Le vent y entre et en ressort. Plus rien dedans ne t’attend.",
+      "options": [
+        {
+          "text": "La laisser.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

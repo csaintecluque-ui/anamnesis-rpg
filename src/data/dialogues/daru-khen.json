@@ -3,6 +3,21 @@
   "speaker": "daru-khen",
   "entries": [
     {
+      "requires": [
+        {
+          "quest": "plus-lieu",
+          "status": "active"
+        },
+        {
+          "notFlag": "halte-trouvee"
+        },
+        {
+          "notFlag": "daru-refus"
+        }
+      ],
+      "node": "halte-q"
+    },
+    {
       "node": "accueil"
     }
   ],
@@ -46,6 +61,61 @@
         },
         {
           "text": "Rien.",
+          "next": "fin"
+        }
+      ]
+    },
+    "halte-q": {
+      "text": "— Une halte morte avec un quai dessous ? Les guides savent où passe la piste, pas ce qui dort sous les jalons. Et ce qui dort sous les jalons ne regarde pas les étrangers.",
+      "options": [
+        {
+          "text": "Dis-moi seulement où passe la piste, demain.",
+          "next": "dit",
+          "roll": {
+            "skill": "diplomacy",
+            "difficulty": 16
+          },
+          "failNext": "refus"
+        },
+        {
+          "text": "Je suis des Guides de l’Eau.",
+          "requires": [
+            {
+              "flag": "membre-guides-eau"
+            }
+          ],
+          "next": "dit"
+        },
+        {
+          "text": "Plus tard.",
+          "next": "fin"
+        }
+      ]
+    },
+    "dit": {
+      "text": "Il trace un trait dans le sable avec son bâton. — Demain, au milieu du jour, la piste passera à neuf kilomètres d’un jalon qui n’a plus d’épisode. Plein sud. Pars à l’aube, avec de l’eau, et ne compte pas sur nous pour t’attendre.",
+      "effects": [
+        {
+          "setFlag": "halte-trouvee"
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Daru’Khen.",
+          "next": "fin"
+        }
+      ]
+    },
+    "refus": {
+      "text": "— Non. La dernière à qui j’ai montré la piste est partie seule vers le sud, et je n’ai pas dormi depuis. Demande au désert.",
+      "effects": [
+        {
+          "setFlag": "daru-refus"
+        }
+      ],
+      "options": [
+        {
+          "text": "Tant pis.",
           "next": "fin"
         }
       ]

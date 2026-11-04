@@ -190,6 +190,10 @@ import ishLenne from './ish-lenne.json';
 import kreshTal from './kresh-tal.json';
 import longueOmbre from './longue-ombre.json';
 import jalonHalte from './jalon-halte.json';
+import pilleursDesert from './pilleurs-desert.json';
+import pisteRetour from './piste-retour.json';
+import caisseCommunion from './caisse-communion.json';
+import eddaMarche from './edda-marche.json';
 
 /** Dialogue files by object name (PNJ, Écho or object) of the maps. */
 export const DIALOGUES: Record<string, Dialogue> = {
@@ -391,6 +395,11 @@ export const DIALOGUES: Record<string, Dialogue> = {
   'kresh-tal': kreshTal as Dialogue,
   'longue-ombre': longueOmbre as Dialogue,
   'jalon-halte': jalonHalte as Dialogue,
+  // « Ce qui n’a plus lieu » (chapitre 7)
+  'pilleurs-desert': pilleursDesert as Dialogue,
+  'piste-retour': pisteRetour as Dialogue,
+  'caisse-communion': caisseCommunion as Dialogue,
+  'edda-marche': eddaMarche as Dialogue,
   // Le Livre des Échos (docs/gdd/echos.md) : one dialogue per Écho, built from src/data/echos.json.
   ...echoDialogues(),
 };

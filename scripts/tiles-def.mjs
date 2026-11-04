@@ -2027,3 +2027,9 @@ TILES.push(
   // Un dragonnet des sables : rouge, la taille d'un chien.
   { name: 'dragonnet', sprite: true, svg: shadow(12, 4) + '<path d="M18 80 Q20 64 30 62 Q36 56 42 50 Q46 46 48 50 Q46 58 44 64 Q46 76 42 82 Z" fill="#a8402a" stroke="#1B1512" stroke-width="1.2"/><path d="M24 66 Q14 56 22 52 Q28 58 28 64 Z" fill="#c85a3a" stroke="#1B1512" stroke-width="1"/><circle cx="46" cy="52" r="1.4" fill="#ffd880"/>' },
 );
+
+// « Ce qui n'a plus lieu » (chapitre 7) : des traces de pas dans le sable, et les pilleurs payés par les Réveilleurs.
+TILES.push(
+  { name: 'traces-pas', svg: '<path d="M18 80 q2 -3 4 0 q-2 3 -4 0 M26 76 q2 -3 4 0 q-2 3 -4 0 M34 82 q2 -3 4 0 q-2 3 -4 0 M42 78 q2 -3 4 0 q-2 3 -4 0" fill="#9a7444" opacity="0.8"/>' },
+  npcTile('pilleur-sables', { body: '#2a2420', hair: '#1a1410', skin: '#a87850', accent: '#a0402a', extra: '<path d="M22 44 L42 44 L42 52 L22 52 Z" fill="#1a1410" opacity="0.85"/><path d="M46 52 L54 40" stroke="#8a8a8a" stroke-width="2.5"/>' }),
+);

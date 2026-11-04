@@ -3,6 +3,21 @@
   "speaker": "coffre-routes",
   "entries": [
     {
+      "requires": [
+        {
+          "quest": "plus-lieu",
+          "status": "active"
+        },
+        {
+          "notFlag": "halte-trouvee"
+        },
+        {
+          "notFlag": "coffre-surpris"
+        }
+      ],
+      "node": "coffre-quete"
+    },
+    {
       "node": "coffre"
     }
   ],
@@ -12,6 +27,64 @@
       "options": [
         {
           "text": "Refermer le coffre.",
+          "next": "fin"
+        }
+      ]
+    },
+    "coffre-quete": {
+      "text": "Les pierres d’eau, une par puits, dans l’ordre du cercle ; quelque part là-dedans, la piste de demain, et le jalon qu’elle frôle. À trois pas, Daru’Khen somnole, son bâton sur les genoux.",
+      "options": [
+        {
+          "text": "Les lire du bout des doigts, sans un bruit.",
+          "next": "lu",
+          "roll": {
+            "skill": "stealth",
+            "difficulty": 16
+          },
+          "failNext": "surpris"
+        },
+        {
+          "text": "Défaire le nœud du coffre sans le trahir.",
+          "next": "lu",
+          "roll": {
+            "skill": "crafting",
+            "difficulty": 16
+          },
+          "failNext": "surpris"
+        },
+        {
+          "text": "Refermer le coffre.",
+          "next": "fin"
+        }
+      ]
+    },
+    "lu": {
+      "text": "Tu comptes les pierres. La quatrième n’est pas une pierre : un éclat de verre, poli. Un jalon. Demain, la piste passera au plus près de lui, à neuf kilomètres, plein sud. Tu refermes le coffre comme tu l’as trouvé.",
+      "effects": [
+        {
+          "setFlag": "halte-trouvee"
+        },
+        {
+          "setFlag": "coffre-lu"
+        }
+      ],
+      "options": [
+        {
+          "text": "S’éloigner.",
+          "next": "fin"
+        }
+      ]
+    },
+    "surpris": {
+      "text": "— Ce coffre n’est pas à toi. — Daru’Khen rabat le couvercle sur tes doigts, sans brutalité. — Dans la Marche, on demande. Tout le camp le saura demain.",
+      "effects": [
+        {
+          "setFlag": "coffre-surpris"
+        }
+      ],
+      "options": [
+        {
+          "text": "S’éloigner.",
           "next": "fin"
         }
       ]

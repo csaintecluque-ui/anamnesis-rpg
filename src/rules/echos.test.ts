@@ -15,8 +15,8 @@ import { choose, testCharacter } from './questTestKit';
 const game = () => createNewGame(testCharacter());
 
 describe('the Échos', () => {
-  it('are fifteen, each on a free cell of its place, off the passers-by’s paths', () => {
-    expect(ECHOS).toHaveLength(15);
+  it('are sixteen, each on a free cell of its place, off the passers-by’s paths', () => {
+    expect(ECHOS).toHaveLength(16);
     for (const e of ECHOS) {
       const location = findLocation(e.lieu);
       expect(location, e.id).toBeDefined();

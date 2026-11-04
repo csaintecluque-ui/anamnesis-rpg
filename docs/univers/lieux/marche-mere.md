@@ -1,4 +1,4 @@
-# Marche-Mère, la ville qui marche (Solarix, Communion des Sables Vivants) — **proposition, à valider** (2026-11-04)
+# Marche-Mère, la ville qui marche (Solarix, Communion des Sables Vivants) — **validé par Cyril** le 2026-11-04 (« Ok lance »)
 
 Le chapitre 7 et ses quêtes : `docs/gdd/chapitre-7.md`. Le plan de départ : `villes.md` §8.
 

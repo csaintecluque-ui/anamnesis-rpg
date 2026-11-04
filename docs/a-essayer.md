@@ -313,6 +313,17 @@ En ligne le 2026-11-03 (tes textes du 3 novembre) :
       banc d'huîtres à marée basse).
 - Remarques :
 
+## Chapitre 7, Marche-Mère (en ligne le 2026-11-04, en construction)
+
+- [ ] **La caravane** : depuis la carte du monde, après Coralia ; la Marche n'est jamais au même endroit d'un jour à
+      l'autre. **Coralia** apparaît aussi, maintenant, après Aetherhaven.
+- [ ] **La ville qui marche** : le Camp en chariots le jour (le sable défile sous la carte), en tentes le soir ; le Cœur
+      Spiral et le dos de Longue-Ombre, par les échelles et le pont de corde.
+- [ ] **« Ce qui n'a plus lieu »** : Tam'Ruu ou Ish'Lenne ; trouver la halte (Nes'Mira, le Coffre des routes, Daru'Khen) ;
+      l'eau de l'Année Errante ; les pilleurs du col ; la dame en gris sans eau ; quatre fins ; l'épisode dit au jalon ;
+      rattraper la Marche au retour.
+- Remarques :
+
 ## Déjà en ligne, pas encore essayé sur PC
 
 - [ ] **Chapitre 4, Sept-Portes** sans le mode surpuissant : l'arrivée par la Porte du sud, le Registre, l'une des trois

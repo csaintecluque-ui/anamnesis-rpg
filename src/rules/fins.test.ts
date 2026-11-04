@@ -37,6 +37,7 @@ describe('les fins vues (étude B11)', () => {
       ['lune-rouge', 4],
       ['cargo-noir', 3],
       ['grotte-reflux', 3],
+      ['plus-lieu', 4],
     ]);
   });
 

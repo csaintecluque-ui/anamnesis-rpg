@@ -96,6 +96,30 @@
     {
       "flag": "caisse-marisol-prise",
       "texte": "La caisse de Marisol est partie, une nuit de marée basse, par la cale que j’avais laissée ouverte."
+    },
+    {
+      "flag": "plus-lieu-commencee",
+      "texte": "À la Marche-Mère, la conteuse Ish’Lenne garde les mots d’un épisode qu’on ne dit plus : une caisse que personne n’est venu chercher, à une halte morte."
+    },
+    {
+      "flag": "yel-edda",
+      "texte": "Il y a trente ans, une étrangère a quitté la Marche-Mère, seule, vers cette halte. Le matin d’après, les Gardiennes ont compté une ration de moins, avec celles des morts."
+    },
+    {
+      "flag": "edda-marche-vue",
+      "texte": "À la halte morte, la dame en gris, sans eau, contre la caisse ouverte. « Le lendemain matin, elle était dans un nombre. »"
+    },
+    {
+      "flag": "episode-dit",
+      "texte": "J’ai dit l’épisode de la caisse au pied de son jalon : pour la première fois depuis des siècles, la halte a de nouveau lieu."
+    },
+    {
+      "flag": "caisse-communion-trouvee",
+      "texte": "La caisse de la Communion : six noms encore, de la même main. Inès, Pavel, Lila, Oren, Nadia, Sacha."
+    },
+    {
+      "flag": "caisse-communion-prise",
+      "texte": "La caisse de la Communion est partie vers le sud, sur le dos de la dame en gris."
     }
   ],
   "caisses": [
@@ -134,7 +158,9 @@
     },
     {
       "id": "communion",
-      "continent": "la Communion"
+      "continent": "la Communion",
+      "trouvee": "caisse-communion-trouvee",
+      "prise": "caisse-communion-prise"
     }
   ],
   "pistes": [
@@ -157,9 +183,21 @@
       "cible": "sept-portes"
     },
     {
+      "quest": "plus-lieu",
+      "status": "done",
+      "texte": "Six caisses sur sept ont un sort. La septième dort à Glacialis : la suite du fil attend que ses villes s’ouvrent."
+    },
+    {
+      "quest": "plus-lieu",
+      "status": "active",
+      "texte": "Marche-Mère : la Tente des Mille Pas, au Camp, et une halte morte qu’on voit de la piste.",
+      "cible": "marche-mere"
+    },
+    {
       "quest": "mer-rend",
       "status": "done",
-      "texte": "Quatre caisses sur sept ont un sort. La suite du fil attend que les villes de Glacialis et de la Communion s’ouvrent."
+      "texte": "Une lettre de Hesper, reçue au dernier relais : « Une caravane de verriers de la Communion est arrivée à Sept-Portes. Leurs conteurs ont un épisode qu’ils ne disent plus : une caisse que personne n’est venu chercher, à une halte morte. » La caravane des verriers y retourne.",
+      "cible": "marche-mere"
     },
     {
       "quest": "mer-rend",

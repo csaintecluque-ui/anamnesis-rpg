@@ -183,5 +183,17 @@
     "xp": 20,
     "texte": "Marée basse, il y a très longtemps. Une procession descend les rails jusqu’au bout, une caisse de plomb sur les épaules. Une femme chante, sans jamais répéter un mot. Ils posent la caisse au bord de l’eau, et remontent sans se retourner. La mer monte.",
     "don": "athletics"
+  },
+  {
+    "id": "personne",
+    "titre": "Personne n’est venu",
+    "lieu": "marche-halte-morte",
+    "col": 9,
+    "row": 9,
+    "type": "complet",
+    "xp": 20,
+    "si": "episode-dit",
+    "texte": "Il y a très longtemps. Des Marcheurs arrivent à pied par le désert et trouvent, sur ce quai, une caisse de plomb, et personne. Ils s’assoient autour, et attendent un jour entier. Personne ne vient. Le soir, ils plantent une tige de verre près de la caisse, et repartent sans elle.",
+    "don": "investigation"
   }
 ]

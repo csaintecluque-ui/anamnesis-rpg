@@ -5,6 +5,46 @@
     {
       "requires": [
         {
+          "quest": "plus-lieu",
+          "status": "done"
+        },
+        {
+          "flag": "caisse-communion-prise"
+        },
+        {
+          "notFlag": "tam-lettre"
+        }
+      ],
+      "node": "lettre-prise"
+    },
+    {
+      "requires": [
+        {
+          "quest": "plus-lieu",
+          "status": "done"
+        },
+        {
+          "notFlag": "tam-lettre"
+        }
+      ],
+      "node": "lettre"
+    },
+    {
+      "requires": [
+        {
+          "quest": "mer-rend",
+          "status": "done"
+        },
+        {
+          "quest": "plus-lieu",
+          "status": "none"
+        }
+      ],
+      "node": "dame"
+    },
+    {
+      "requires": [
+        {
           "tousLes": 3,
           "decalage": 1
         }
@@ -194,6 +234,77 @@
         {
           "text": "Merci.",
           "next": "accueil"
+        }
+      ]
+    },
+    "dame": {
+      "text": "— Toi, tu cherches la même chose que la dame en gris. Ça se voit aux chaussures. Elle est passée il y a quatre jours. Elle a demandé l’eau de l’Année Errante, et on la lui a donnée : on ne refuse pas l’eau. Puis elle est partie vers le sud. À pied.",
+      "effects": [
+        {
+          "startQuest": "plus-lieu"
+        },
+        {
+          "setFlag": "plus-lieu-commencee"
+        }
+      ],
+      "options": [
+        {
+          "text": "Vers quoi ?",
+          "next": "dame-quoi"
+        },
+        {
+          "text": "Manger ou dormir ?",
+          "next": "servir"
+        },
+        {
+          "text": "Merci.",
+          "next": "fin"
+        }
+      ]
+    },
+    "dame-quoi": {
+      "text": "— Une halte morte, à ce qu’on dit. Va voir Ish’Lenne, à la Tente des Mille Pas : elle garde les mots de ces endroits-là. Elle ne te les dira pas, mais elle te dira pourquoi.",
+      "options": [
+        {
+          "text": "Merci, Tam’Ruu.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "lettre": {
+      "text": "— Un pli pour toi, arrivé avec la caravane des verriers. Il a fait trois semaines de route, et ça se sent.",
+      "options": [
+        {
+          "text": "L’ouvrir.",
+          "next": "lettre-texte"
+        }
+      ]
+    },
+    "lettre-texte": {
+      "text": "L’écriture d’Ilyane, qui tremble. « Tu marches avec une ville ? Moi, je marche jusqu’au puits, le matin, et en arrivant je ne sais plus pourquoi je suis venue. Alors j’y retourne le lendemain. Le puits, lui, se souvient de moi. »",
+      "effects": [
+        {
+          "setFlag": "tam-lettre"
+        }
+      ],
+      "options": [
+        {
+          "text": "Plier la lettre.",
+          "next": "fin"
+        }
+      ]
+    },
+    "lettre-prise": {
+      "text": "— Un pli pour toi, arrivé avec la caravane. Tam’Ruu te le tend, et regarde ailleurs. Trois lignes, presque illisibles. « Je suis allée au puits. Je ne sais plus pourquoi. Il y avait quelqu’un avec moi, je crois. »",
+      "effects": [
+        {
+          "setFlag": "tam-lettre"
+        }
+      ],
+      "options": [
+        {
+          "text": "Plier la lettre.",
+          "next": "fin"
         }
       ]
     }

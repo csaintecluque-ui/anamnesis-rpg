@@ -45,6 +45,14 @@
       "titre": "L’air",
       "texte": "Un air que l’autre enfant fredonnait pour ne pas avoir peur. Je ne sais plus les mots.",
       "reve": "Cette nuit, quelqu’un fredonne tout près de toi, un air d’enfant, pour ne pas avoir peur. Au réveil, tu l’as encore dans la gorge, sans les mots."
+    },
+    {
+      "id": "couverture",
+      "flag": "heros-fragment-couverture",
+      "chapitre": 8,
+      "titre": "La couverture",
+      "texte": "Une couverture pour deux, parce qu’il n’y en avait qu’une. L’autre enfant me laissait le côté chaud.",
+      "reve": "Cette nuit, tu as froid d’un côté seulement. De l’autre, quelqu’un de petit te laisse le côté chaud. Au réveil, tu as tiré la couverture vers toi, et il n’y a personne."
     }
   ],
   "manque": "Il manque encore quelque chose. Un quai, peut-être."

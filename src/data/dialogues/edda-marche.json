@@ -1,0 +1,350 @@
+{
+  "id": "edda-marche",
+  "speaker": "edda-marche",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "plus-lieu",
+          "status": "active"
+        },
+        {
+          "notFlag": "edda-marche-vue"
+        }
+      ],
+      "node": "soif"
+    },
+    {
+      "node": "caisse"
+    }
+  ],
+  "nodes": {
+    "soif": {
+      "text": "La dame en gris est assise contre une caisse ouverte, les lèvres fendues, une gourde vide à ses pieds. Elle lève les yeux vers toi. — Elle est venue jusqu’ici, elle aussi. Les Gardiennes l’ont comptée. Le lendemain matin, elle était dans un nombre.",
+      "effects": [
+        {
+          "setFlag": "edda-marche-vue"
+        }
+      ],
+      "options": [
+        {
+          "text": "Lui tendre ta gourde.",
+          "requires": [
+            {
+              "item": "gourde-errance"
+            }
+          ],
+          "next": "boit",
+          "effects": [
+            {
+              "takeItem": "gourde-errance"
+            },
+            {
+              "setFlag": "edda-eau"
+            }
+          ]
+        },
+        {
+          "text": "Ta gourde contre la caisse.",
+          "requires": [
+            {
+              "item": "gourde-errance"
+            }
+          ],
+          "next": "marchandee",
+          "effects": [
+            {
+              "takeItem": "gourde-errance"
+            },
+            {
+              "setFlag": "edda-marchandee"
+            }
+          ]
+        },
+        {
+          "text": "Je n’ai pas d’eau à te donner.",
+          "next": "sans-eau"
+        }
+      ]
+    },
+    "boit": {
+      "text": "Elle boit sans fierté, à longues gorgées, et te rend la gourde vide. — Merci. Je m’en souviendrai : je me souviens de tout, c’est bien mon malheur. Regarde ce qu’elle a laissé.",
+      "options": [
+        {
+          "text": "Regarder dans la caisse.",
+          "next": "caisse"
+        }
+      ]
+    },
+    "marchandee": {
+      "text": "Elle te regarde longtemps. — Dans la Communion, ce que tu fais là s’appelle un sacrilège. — Elle prend la gourde quand même, boit, et se lève. — La caisse est à toi. Je n’oublierai pas le prix.",
+      "options": [
+        {
+          "text": "Regarder dans la caisse.",
+          "next": "caisse"
+        }
+      ]
+    },
+    "sans-eau": {
+      "text": "— Alors assieds-toi un moment. Il n’y a rien d’autre à faire, à la halte, que regarder ce qu’elle a laissé.",
+      "options": [
+        {
+          "text": "Regarder dans la caisse.",
+          "next": "caisse"
+        }
+      ]
+    },
+    "caisse": {
+      "text": "Dans la caisse, une pièce de la machine, emballée dans une toile que le sable n’a pas mangée, et une liste : Inès, six ans ; Pavel, huit ans ; Lila, cinq ans ; Oren, sept ans ; Nadia, neuf ans ; Sacha, six ans. La même main que sur les autres.",
+      "options": [
+        {
+          "text": "La laisser ici, à sa halte.",
+          "next": "halte",
+          "effects": [
+            {
+              "setFlag": "caisse-communion-trouvee"
+            },
+            {
+              "setFlag": "caisse-communion-reglee"
+            },
+            {
+              "completeQuest": "plus-lieu"
+            },
+            {
+              "setFlag": "fin-plus-lieu-halte"
+            },
+            {
+              "giveXp": 60
+            }
+          ]
+        },
+        {
+          "text": "Prendre la pièce.",
+          "next": "gardee",
+          "effects": [
+            {
+              "giveItem": "piece-communion"
+            },
+            {
+              "setFlag": "caisse-communion-trouvee"
+            },
+            {
+              "setFlag": "caisse-communion-reglee"
+            },
+            {
+              "completeQuest": "plus-lieu"
+            },
+            {
+              "setFlag": "fin-plus-lieu-gardee"
+            },
+            {
+              "giveXp": 60
+            }
+          ]
+        },
+        {
+          "text": "La rapporter à la Marche, à Longue-Ombre.",
+          "next": "longue-ombre",
+          "roll": {
+            "skill": "athletics",
+            "difficulty": 16
+          },
+          "failNext": "trop-lourde",
+          "effects": [
+            {
+              "setFlag": "caisse-communion-trouvee"
+            },
+            {
+              "avancer": 2
+            },
+            {
+              "setFlag": "caisse-communion-reglee"
+            },
+            {
+              "completeQuest": "plus-lieu"
+            },
+            {
+              "setFlag": "fin-plus-lieu-longue-ombre"
+            },
+            {
+              "giveXp": 60
+            }
+          ]
+        },
+        {
+          "text": "La laisser à la dame en gris.",
+          "requires": [
+            {
+              "notFlag": "edda-marchandee"
+            }
+          ],
+          "next": "edda",
+          "effects": [
+            {
+              "setFlag": "caisse-communion-prise"
+            },
+            {
+              "setFlag": "caisse-communion-reglee"
+            },
+            {
+              "completeQuest": "plus-lieu"
+            },
+            {
+              "setFlag": "fin-plus-lieu-edda"
+            },
+            {
+              "giveXp": 60
+            }
+          ]
+        }
+      ]
+    },
+    "trop-lourde": {
+      "text": "Tu la soulèves d’un pouce, et tu la reposes. Neuf kilomètres de sable, avec ça sur le dos : tu ne les feras pas. La dame en gris te regarde sans rien dire.",
+      "options": [
+        {
+          "text": "Les guides ont des chariots.",
+          "requires": [
+            {
+              "flag": "membre-guides-eau"
+            }
+          ],
+          "next": "longue-ombre",
+          "effects": [
+            {
+              "setFlag": "caisse-communion-trouvee"
+            },
+            {
+              "avancer": 2
+            },
+            {
+              "setFlag": "caisse-communion-reglee"
+            },
+            {
+              "completeQuest": "plus-lieu"
+            },
+            {
+              "setFlag": "fin-plus-lieu-longue-ombre"
+            },
+            {
+              "giveXp": 60
+            }
+          ]
+        },
+        {
+          "text": "La laisser ici, à sa halte.",
+          "next": "halte",
+          "effects": [
+            {
+              "setFlag": "caisse-communion-trouvee"
+            },
+            {
+              "setFlag": "caisse-communion-reglee"
+            },
+            {
+              "completeQuest": "plus-lieu"
+            },
+            {
+              "setFlag": "fin-plus-lieu-halte"
+            },
+            {
+              "giveXp": 60
+            }
+          ]
+        },
+        {
+          "text": "Prendre la pièce, seulement.",
+          "next": "gardee",
+          "effects": [
+            {
+              "giveItem": "piece-communion"
+            },
+            {
+              "setFlag": "caisse-communion-trouvee"
+            },
+            {
+              "setFlag": "caisse-communion-reglee"
+            },
+            {
+              "completeQuest": "plus-lieu"
+            },
+            {
+              "setFlag": "fin-plus-lieu-gardee"
+            },
+            {
+              "giveXp": 60
+            }
+          ]
+        },
+        {
+          "text": "La laisser à la dame en gris.",
+          "requires": [
+            {
+              "notFlag": "edda-marchandee"
+            }
+          ],
+          "next": "edda",
+          "effects": [
+            {
+              "setFlag": "caisse-communion-prise"
+            },
+            {
+              "setFlag": "caisse-communion-reglee"
+            },
+            {
+              "completeQuest": "plus-lieu"
+            },
+            {
+              "setFlag": "fin-plus-lieu-edda"
+            },
+            {
+              "giveXp": 60
+            }
+          ]
+        }
+      ]
+    },
+    "halte": {
+      "text": "Tu refermes le plomb sur la liste. La dame en gris se lève, regarde le jalon, puis toi. — Personne ne l’aura, alors. C’est peut-être ce qu’elle voulait. — Elle repart vers la piste, sans se retourner.",
+      "options": [
+        {
+          "text": "Rester encore un peu.",
+          "next": "fin"
+        }
+      ]
+    },
+    "gardee": {
+      "text": "Tu charges la pièce sur ton dos ; elle est lourde et froide. La dame en gris recopie la liste dans le sable, de mémoire, avec son doigt, un nom après l’autre. Le vent les efface derrière elle.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "longue-ombre": {
+      "text": "Le soir, la caisse sur le dos, tu rattrapes la Marche. Nes’Mira t’aide à la hisser sur la carapace, entre deux plaques. Longue-Ombre ne bronche pas. Elle marchera avec la ville, maintenant.",
+      "options": [
+        {
+          "text": "Souffler.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "marche-longue-ombre",
+              "arrivee": "depuis-camp"
+            }
+          ]
+        }
+      ]
+    },
+    "edda": {
+      "text": "Tu t’écartes. Elle charge la caisse sur son dos, sans un mot, et part vers le sud, pas vers la Marche. Derrière la dune, des silhouettes l’attendaient.",
+      "options": [
+        {
+          "text": "La regarder partir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

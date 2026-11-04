@@ -1861,12 +1861,19 @@ function marcheLongueOmbre() {
   return m.toTiled();
 }
 
-/** Hors de la Marche : neuf kilomètres de sable entre la piste et une halte morte. */
+/** Hors de la Marche : neuf kilomètres de sable entre la piste et une halte morte ; un col entre deux lignes de dunes. */
 function marcheDesert() {
   const m = new MapBuilder(28, 20);
   m.ground.fill(gid('sable'));
-  for (const [c, r] of [[5, 4], [9, 15], [13, 3], [16, 12], [20, 6], [22, 16], [7, 9], [24, 3], [11, 18], [3, 16]]) m.setObstacle(c, r, 'dune');
-  m.object('vers-camp', 'sortie', 0, 10, { cible: 'marche-camp', arrivee: 'depuis-desert', libelle: 'Rattraper la Marche' });
+  for (const [c, r] of [[5, 4], [9, 15], [20, 6], [22, 16], [7, 9], [24, 3], [11, 18], [3, 16]]) m.setObstacle(c, r, 'dune');
+  // Une crête de dunes du nord au sud ; on la passe par un col, que les pilleurs gardent tant que la quête dure.
+  for (let row = 0; row < 20; row++) if (row < 9 || row > 11) m.setObstacle(14, row, 'dune');
+  const pilleurs = { ennemi: 'pilleur-sables', dialogue: 'pilleurs-desert', apparaitSi: 'plus-lieu-commencee', disparaitSi: 'pilleurs-vaincus,pilleurs-partis,pilleurs-contournes,caisse-communion-reglee', texte: 'Deux pilleurs au chèche noir.' };
+  m.object('pilleur-1', 'ennemi', 14, 9, pilleurs);
+  m.object('pilleur-2', 'ennemi', 14, 10, pilleurs);
+  m.object('pilleur-3', 'ennemi', 14, 11, pilleurs);
+  // Le retour : la Marche ne revient pas, il faut la rattraper (un jet de Survie, src/data/dialogues/piste-retour.json).
+  m.object('piste-retour', 'objet', 1, 10, { tuile: 'traces-pas' });
   m.object('depuis-camp', 'arrivee', 2, 10);
   m.object('entree', 'arrivee', 2, 10);
   m.object('vers-halte', 'sortie', 27, 10, { cible: 'marche-halte-morte', arrivee: 'depuis-desert', libelle: 'Le jalon, là-bas' });
@@ -1885,7 +1892,9 @@ function marcheHalteMorte() {
   blocks(m, 'butoir', [[21, 11]]);
   m.setObstacle(12, 6, 'jalon');
   m.object('jalon-halte', 'objet', 12, 6);
-  m.setObstacle(11, 9, 'caisse-sable');
+  m.object('caisse-communion', 'objet', 11, 9, { tuile: 'caisse-sable', disparaitSi: 'fin-plus-lieu-longue-ombre,fin-plus-lieu-edda' });
+  m.object('edda-marche', 'pnj', 12, 9, { apparaitSi: 'plus-lieu-commencee', disparaitSi: 'caisse-communion-reglee' });
+  // L'Écho de la halte morte (src/data/echos.json) se pose en (9, 9), une fois l'épisode dit au pied du jalon.
   m.setObstacle(14, 9, 'stele');
   m.object('panneau-halte-sables', 'panneau', 14, 9, { texte: 'Une plaque de l’Ancien Monde, que le sable a polie : « Halte des Sables — voie 7 ». La Communion n’écrit pas ; quelqu’un, avant elle, écrivait.' });
   m.object('vers-desert', 'sortie', 0, 8, { cible: 'marche-desert', arrivee: 'depuis-halte', libelle: 'Repartir vers la piste' });

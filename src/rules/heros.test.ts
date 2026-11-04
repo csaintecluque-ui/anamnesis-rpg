@@ -14,7 +14,7 @@ import { HISTOIRES, HISTOIRE_ID, VOIE_DEPTH, voieLevel, voiePlan } from './voies
  */
 
 const chapterDone = (state: GameState, n: number) => {
-  for (const q of ['dernier-train', 'audience', 'cle-rouille-bleue', 'memoires-monde-perdu', 'noms-qui-montent', 'mer-rend'].slice(0, n)) state.quests[q] = 'done';
+  for (const q of ['dernier-train', 'audience', 'cle-rouille-bleue', 'memoires-monde-perdu', 'noms-qui-montent', 'mer-rend', 'plus-lieu'].slice(0, n)) state.quests[q] = 'done';
 };
 
 describe('the child at the window (chapter 1)', () => {
@@ -49,6 +49,10 @@ describe('the fragments come back in the order of the return: the steam, the han
     // L'air (chapitre 6, Coralia) : la nuit après « Ce que la mer rend ».
     chapterDone(state, 6);
     expect(dreamFragment(state)).toMatch(/fredonne/);
+    expect(dreamFragment(state)).toBeNull();
+    // La couverture (chapitre 7, Marche-Mère) : la nuit après « Ce qui n'a plus lieu ».
+    chapterDone(state, 7);
+    expect(dreamFragment(state)).toMatch(/le côté chaud/);
     expect(FRAGMENTS.every((f) => state.flags[f.flag])).toBe(true);
   });
 
@@ -64,8 +68,8 @@ describe('the fragments come back in the order of the return: the steam, the han
     state.flags['heros-fragment-voix'] = true;
     const page = herosPage(state)!;
     expect(page.titre).toBe('Ce qui n’est pas à moi');
-    expect(page.lignes.map((l) => l.titre)).toEqual(['L’enfant à la fenêtre', 'La vapeur', 'La main', 'La voix qui compte', 'Le ruban', 'L’air']);
-    expect(page.lignes.map((l) => !!l.texte)).toEqual([false, false, false, true, false, false]);
+    expect(page.lignes.map((l) => l.titre)).toEqual(['L’enfant à la fenêtre', 'La vapeur', 'La main', 'La voix qui compte', 'Le ruban', 'L’air', 'La couverture']);
+    expect(page.lignes.map((l) => !!l.texte)).toEqual([false, false, false, true, false, false, false]);
     expect(page.manque).toMatch(/Un quai/);
   });
 });

@@ -3,6 +3,32 @@
   "speaker": "nes-mira",
   "entries": [
     {
+      "requires": [
+        {
+          "flag": "fin-plus-lieu-longue-ombre"
+        },
+        {
+          "notFlag": "nes-porte"
+        }
+      ],
+      "node": "porte"
+    },
+    {
+      "requires": [
+        {
+          "quest": "plus-lieu",
+          "status": "active"
+        },
+        {
+          "notFlag": "halte-trouvee"
+        },
+        {
+          "notFlag": "nes-tente"
+        }
+      ],
+      "node": "tete"
+    },
+    {
       "node": "accueil"
     }
   ],
@@ -47,6 +73,78 @@
         {
           "text": "Je te laisse.",
           "next": "fin"
+        }
+      ]
+    },
+    "tete": {
+      "text": "— Tu veux savoir ce qu’elle regarde, à chaque tour, au même endroit ? Pose ta main sur sa tête, près de l’œil, et ne pense à rien. Si elle te laisse entrer, tu le sauras. Si elle ne veut pas, n’insiste pas.",
+      "options": [
+        {
+          "text": "Poser la main près de son œil.",
+          "next": "vision",
+          "roll": {
+            "skill": "survival",
+            "difficulty": 16
+          },
+          "failNext": "refus"
+        },
+        {
+          "text": "Plus tard.",
+          "next": "fin"
+        }
+      ]
+    },
+    "vision": {
+      "text": "Une chaleur te monte dans le bras, lente, énorme. Tu vois avec des yeux trop grands : une plaine blanche, un trait de verre debout, et au pied, quelque chose de lourd, posé, que personne n’est venu prendre. Demain, la Marche passera à neuf kilomètres.",
+      "effects": [
+        {
+          "setFlag": "halte-trouvee"
+        },
+        {
+          "setFlag": "lien-longue-ombre"
+        }
+      ],
+      "options": [
+        {
+          "text": "Retirer ta main.",
+          "next": "vision-2"
+        }
+      ]
+    },
+    "vision-2": {
+      "text": "Nes’Mira te regarde, les yeux mouillés. — Elle t’a laissé entrer. Elle ne fait jamais ça. Si tu te perds, là-bas, écoute-la : elle gronde, tu entendras d’où vient le grondement.",
+      "options": [
+        {
+          "text": "Merci, Nes’Mira.",
+          "next": "fin"
+        }
+      ]
+    },
+    "refus": {
+      "text": "Rien. La carapace est tiède, l’œil reste mi-clos. Nes’Mira secoue la tête. — Elle est lasse. Demande aux guides : ils savent où passe la piste, eux.",
+      "effects": [
+        {
+          "setFlag": "nes-tente"
+        }
+      ],
+      "options": [
+        {
+          "text": "Je comprends.",
+          "next": "fin"
+        }
+      ]
+    },
+    "porte": {
+      "text": "— Elle la porte, ta caisse, entre deux plaques, près du cou. Elle ne s’est pas plainte. Cette nuit, elle a dormi d’un sommeil que je ne lui connaissais plus.",
+      "effects": [
+        {
+          "setFlag": "nes-porte"
+        }
+      ],
+      "options": [
+        {
+          "text": "Tant mieux.",
+          "next": "accueil"
         }
       ]
     }

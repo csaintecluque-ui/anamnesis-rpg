@@ -1140,5 +1140,30 @@
     "id": "jalon-halte",
     "name": "Un jalon",
     "role": "La halte morte"
+  },
+  {
+    "id": "edda-marche",
+    "name": "La dame en gris",
+    "role": "La halte morte"
+  },
+  {
+    "id": "caisse-communion",
+    "name": "La caisse de la halte morte",
+    "role": "Hors de la Marche"
+  },
+  {
+    "id": "pilleurs-desert",
+    "name": "Les pilleurs des sables",
+    "role": "Hors de la Marche"
+  },
+  {
+    "id": "piste-retour",
+    "name": "Les traces de la Marche",
+    "role": "Hors de la Marche"
+  },
+  {
+    "id": "echo-personne",
+    "name": "Un Écho",
+    "role": "La halte morte"
   }
 ]

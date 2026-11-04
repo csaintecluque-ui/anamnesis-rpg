@@ -3,6 +3,42 @@
   "speaker": "ish-lenne",
   "entries": [
     {
+      "requires": [
+        {
+          "flag": "episode-dit"
+        },
+        {
+          "notFlag": "ish-merci"
+        }
+      ],
+      "node": "merci"
+    },
+    {
+      "requires": [
+        {
+          "quest": "plus-lieu",
+          "status": "active"
+        },
+        {
+          "notFlag": "ish-mots"
+        }
+      ],
+      "node": "caisse"
+    },
+    {
+      "requires": [
+        {
+          "quest": "mer-rend",
+          "status": "done"
+        },
+        {
+          "quest": "plus-lieu",
+          "status": "none"
+        }
+      ],
+      "node": "caisse-debut"
+    },
+    {
       "node": "accueil"
     }
   ],
@@ -47,6 +83,122 @@
         {
           "text": "Je reviendrai à la halte.",
           "next": "fin"
+        }
+      ]
+    },
+    "caisse-debut": {
+      "text": "— Tu viens pour « La caisse que personne n’est venu chercher ». Je connais ses mots. Je ne les dirai qu’à sa halte, et sa halte est morte : la route est passée ailleurs il y a des siècles. Moi, je ne quitte pas la Marche. Toi, tu n’es pas d’ici.",
+      "effects": [
+        {
+          "startQuest": "plus-lieu"
+        },
+        {
+          "setFlag": "plus-lieu-commencee"
+        }
+      ],
+      "options": [
+        {
+          "text": "Donne-moi les mots : je les dirai là-bas.",
+          "next": "mots",
+          "roll": {
+            "skill": "diplomacy",
+            "difficulty": 16
+          },
+          "failNext": "pas-encore"
+        },
+        {
+          "text": "Je sais où est sa halte.",
+          "requires": [
+            {
+              "flag": "halte-trouvee"
+            }
+          ],
+          "next": "mots"
+        },
+        {
+          "text": "Où est-elle, cette halte ?",
+          "next": "ou"
+        },
+        {
+          "text": "Plus tard.",
+          "next": "fin"
+        }
+      ]
+    },
+    "caisse": {
+      "text": "— « La caisse que personne n’est venu chercher. » Ses mots ne se disent qu’au pied de son jalon. Je ne quitte pas la Marche. Toi, tu peux.",
+      "options": [
+        {
+          "text": "Donne-moi les mots : je les dirai là-bas.",
+          "next": "mots",
+          "roll": {
+            "skill": "diplomacy",
+            "difficulty": 16
+          },
+          "failNext": "pas-encore"
+        },
+        {
+          "text": "Je sais où est sa halte.",
+          "requires": [
+            {
+              "flag": "halte-trouvee"
+            }
+          ],
+          "next": "mots"
+        },
+        {
+          "text": "Où est-elle, cette halte ?",
+          "next": "ou"
+        },
+        {
+          "text": "Plus tard.",
+          "next": "fin"
+        }
+      ]
+    },
+    "ou": {
+      "text": "— Je ne sais pas. Les guides savent où passe la piste ; Longue-Ombre le sait aussi, dit-on. La dame en gris m’a posé la même question. Je ne lui ai pas donné les mots : c’est la caisse qu’elle voulait, et l’épisode l’ennuyait.",
+      "options": [
+        {
+          "text": "Je comprends.",
+          "next": "caisse"
+        }
+      ]
+    },
+    "mots": {
+      "text": "Elle te dit l’épisode une fois, à voix basse, puis te le fait répéter, mot pour mot, jusqu’à ce que tu l’aies. — Ne le dis nulle part ailleurs qu’au pied de son jalon. Ailleurs, ce ne serait que du bruit.",
+      "effects": [
+        {
+          "setFlag": "ish-mots"
+        }
+      ],
+      "options": [
+        {
+          "text": "Je le dirai là-bas.",
+          "next": "fin"
+        }
+      ]
+    },
+    "pas-encore": {
+      "text": "— Tu le dirais au premier feu de camp venu, pour faire rire. Reviens quand tu sauras où il faut le dire.",
+      "options": [
+        {
+          "text": "Je reviendrai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "merci": {
+      "text": "Ish’Lenne te regarde entrer, et pose sa main à plat sur ton bras. — Tu l’as dit là-bas. Je l’ai senti, je crois. Ou j’ai voulu le sentir. Ça revient au même, à mon âge.",
+      "effects": [
+        {
+          "setFlag": "ish-merci"
+        }
+      ],
+      "options": [
+        {
+          "text": "Il a de nouveau lieu.",
+          "next": "accueil"
         }
       ]
     }

@@ -3,12 +3,67 @@
   "speaker": "jalon-halte",
   "entries": [
     {
+      "requires": [
+        {
+          "flag": "episode-dit"
+        }
+      ],
+      "node": "vivant"
+    },
+    {
+      "requires": [
+        {
+          "flag": "ish-mots"
+        }
+      ],
+      "node": "dire"
+    },
+    {
       "node": "jalon"
     }
   ],
   "nodes": {
     "jalon": {
       "text": "Un jalon de verre, debout depuis des siècles, sans un mot. Le sable l’a poli jusqu’à le rendre presque invisible. Personne n’est venu le voir depuis que la route a changé.",
+      "options": [
+        {
+          "text": "Le laisser debout.",
+          "next": "fin"
+        }
+      ]
+    },
+    "dire": {
+      "text": "Un jalon de verre, debout depuis des siècles, sans un mot. Les mots, c’est toi qui les as, ceux qu’Ish’Lenne t’a fait répéter. Ici, et nulle part ailleurs.",
+      "options": [
+        {
+          "text": "Dire l’épisode, au pied du jalon.",
+          "next": "dit"
+        },
+        {
+          "text": "Pas maintenant.",
+          "next": "fin"
+        }
+      ]
+    },
+    "dit": {
+      "text": "Tu le dis à voix haute, mot pour mot : « Au quai sans nom, une caisse de plomb, et personne. Les Marcheurs ont attendu un jour. Personne n’est venu. Ils ont planté le verre, pour qu’on sache que c’était là. » Le vent tombe. La halte a de nouveau lieu.",
+      "effects": [
+        {
+          "setFlag": "episode-dit"
+        },
+        {
+          "giveXp": 30
+        }
+      ],
+      "options": [
+        {
+          "text": "Rester un moment.",
+          "next": "fin"
+        }
+      ]
+    },
+    "vivant": {
+      "text": "Le jalon. Le vent tourne autour, et le sable chante un peu contre le verre. La halte a de nouveau lieu, pour quelqu’un au moins.",
       "options": [
         {
           "text": "Le laisser debout.",

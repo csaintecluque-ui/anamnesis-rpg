@@ -1986,11 +1986,11 @@
    "name": "tiles",
    "image": "../../../public/tiles/tiles.png",
    "imagewidth": 512,
-   "imageheight": 4416,
+   "imageheight": 4512,
    "tilewidth": 64,
    "tileheight": 96,
    "columns": 8,
-   "tilecount": 367,
+   "tilecount": 369,
    "margin": 0,
    "spacing": 0,
    "tiles": [
@@ -11151,6 +11151,56 @@
        "name": "nom",
        "type": "string",
        "value": "dragonnet"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 367,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "traces-pas"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 368,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "pilleur-sables"
       },
       {
        "name": "bloquant",

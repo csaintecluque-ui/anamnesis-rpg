@@ -1,0 +1,81 @@
+{
+  "id": "piste-retour",
+  "speaker": "piste-retour",
+  "entries": [
+    {
+      "node": "rattraper"
+    }
+  ],
+  "nodes": {
+    "rattraper": {
+      "text": "Les traces de la Marche, larges de plusieurs kilomètres, filent vers l’est. Elle est déjà loin : on ne revient pas, c’est à toi de la rejoindre. Le sable se souvient de chaque pas ; encore faut-il savoir les lire.",
+      "options": [
+        {
+          "text": "Suivre les traces.",
+          "next": "rejointe",
+          "roll": {
+            "skill": "survival",
+            "difficulty": 16
+          },
+          "failNext": "perdu"
+        },
+        {
+          "text": "Écouter le grondement de Longue-Ombre.",
+          "requires": [
+            {
+              "flag": "lien-longue-ombre"
+            }
+          ],
+          "next": "rejointe"
+        },
+        {
+          "text": "Pas encore.",
+          "next": "fin"
+        }
+      ]
+    },
+    "rejointe": {
+      "text": "Tu marches dans les traces jusqu’au milieu de l’après-midi. D’abord la poussière, puis les chariots, puis les douze Léviathans, qui avancent au pas comme si de rien n’était.",
+      "effects": [
+        {
+          "avancer": 1
+        }
+      ],
+      "options": [
+        {
+          "text": "Rejoindre la Marche.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "marche-camp",
+              "arrivee": "depuis-desert"
+            }
+          ]
+        }
+      ]
+    },
+    "perdu": {
+      "text": "Tu suis des traces qui ne sont pas les bonnes, jusqu’au soir. La nuit tombe, froide, et tu la passes dans le creux d’une dune. Au matin, tu retrouves la Marche de loin, à la poussière qu’elle lève.",
+      "effects": [
+        {
+          "blesser": 6
+        },
+        {
+          "avancer": 3
+        }
+      ],
+      "options": [
+        {
+          "text": "La rejoindre, enfin.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "marche-camp",
+              "arrivee": "depuis-desert"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -24,6 +24,7 @@ const CURVE: Record<number, { score: [number, number]; roll: [number, number] }>
   4: { score: [3, 5], roll: [13, 15] },
   5: { score: [4, 5], roll: [14, 16] },
   6: { score: [4, 6], roll: [15, 17] },
+  7: { score: [5, 6], roll: [16, 18] },
 };
 
 /** The chapter of a map, by its name; null for the maps of the road (encounters, the sleeping lines). */
@@ -34,6 +35,7 @@ function chapterOfMap(map: string): number | null {
   if (/^sept-portes/.test(map)) return 4;
   if (/^(aetherhaven|bas-cendres|voie-du-bas|halte-cendres)/.test(map)) return 5;
   if (/^coralia/.test(map)) return 6;
+  if (/^marche/.test(map)) return 7;
   return null;
 }
 

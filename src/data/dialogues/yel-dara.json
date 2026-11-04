@@ -3,6 +3,18 @@
   "speaker": "yel-dara",
   "entries": [
     {
+      "requires": [
+        {
+          "quest": "plus-lieu",
+          "status": "active"
+        },
+        {
+          "notFlag": "yel-edda"
+        }
+      ],
+      "node": "edda"
+    },
+    {
       "node": "accueil"
     }
   ],
@@ -46,6 +58,29 @@
         },
         {
           "text": "Je te laisse compter.",
+          "next": "fin"
+        }
+      ]
+    },
+    "edda": {
+      "text": "— La dame en gris est venue me demander un matin. Un seul. Il y a trente ans, une étrangère seule a quitté la Marche à pied, vers une halte morte. Elle voulait le compte du matin d’après.",
+      "effects": [
+        {
+          "setFlag": "yel-edda"
+        }
+      ],
+      "options": [
+        {
+          "text": "Quel nombre ?",
+          "next": "nombre"
+        }
+      ]
+    },
+    "nombre": {
+      "text": "Yel’Dara ferme les yeux et descend les jours, un par un, jusqu’à celui-là. — Onze. Dix des nôtres, et la ration de l’étrangère. Je le lui ai dit. Elle est restée assise longtemps. Puis elle a demandé l’eau de l’errance.",
+      "options": [
+        {
+          "text": "Merci, Yel’Dara.",
           "next": "fin"
         }
       ]

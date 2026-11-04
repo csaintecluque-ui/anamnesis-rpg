@@ -30,6 +30,8 @@ export interface EchoDef {
   don: SkillId;
   /** Hidden to a hero whose Mémoire is lower (4 or 5). */
   memoire?: number;
+  /** Shown only once this flag is set (the episode said at its halte, Marche-Mère). */
+  si?: string;
 }
 
 /** What a reliving gives to the Écho's skill, until the next sleep; and what it costs in emprise. */
@@ -76,7 +78,7 @@ export function echoObjects(location: string, memoire = Infinity): MapObject[] {
     type: 'objet',
     col: e.col,
     row: e.row,
-    properties: { tuile: 'echo', ...(e.moment ? { moment: e.moment } : {}), echo: e.id },
+    properties: { tuile: 'echo', ...(e.moment ? { moment: e.moment } : {}), ...(e.si ? { apparaitSi: e.si } : {}), echo: e.id },
   }));
 }
 

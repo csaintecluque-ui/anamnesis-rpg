@@ -210,5 +210,29 @@
         "giveXp": 40
       }
     ]
+  },
+  {
+    "id": "pilleurs-desert",
+    "center": "pilleur-2",
+    "enemies": [
+      {
+        "id": "pilleur-sables",
+        "object": "pilleur-1"
+      },
+      {
+        "id": "pilleur-sables",
+        "object": "pilleur-2"
+      },
+      {
+        "id": "pilleur-sables",
+        "object": "pilleur-3"
+      }
+    ],
+    "victoryFlag": "pilleurs-vaincus",
+    "victoryEffects": [
+      {
+        "giveXp": 40
+      }
+    ]
   }
 ]

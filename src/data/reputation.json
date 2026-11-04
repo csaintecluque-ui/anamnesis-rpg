@@ -508,5 +508,27 @@
       "flag": "fin-lune-rouge-ensemble",
       "points": 5
     }
+  ],
+  "marche-mere": [
+    {
+      "quest": "plus-lieu",
+      "points": 15
+    },
+    {
+      "flag": "fin-plus-lieu-longue-ombre",
+      "points": 5
+    },
+    {
+      "flag": "episode-dit",
+      "points": 5
+    },
+    {
+      "flag": "edda-marchandee",
+      "points": -10
+    },
+    {
+      "flag": "coffre-surpris",
+      "points": -5
+    }
   ]
 }

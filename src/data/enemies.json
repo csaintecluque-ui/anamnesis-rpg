@@ -582,5 +582,40 @@
     ],
     "description": "Un fidèle de la secte des Abyssaux (canon : convaincus que Marethis veut engloutir toute la surface). Un masque de coquillage noir.",
     "source": "Notion, « Les Profondeurs Chuchotantes — Marisol »"
+  },
+  {
+    "id": "pilleur-sables",
+    "tile": "pilleur-sables",
+    "name": "Pilleur des sables",
+    "hp": 20,
+    "defense": 13,
+    "attackBonus": 4,
+    "damage": {
+      "count": 1,
+      "sides": 8
+    },
+    "actionPoints": 7,
+    "initiativeBonus": 2,
+    "xp": 26,
+    "capacites": [
+      "meute",
+      "saigner"
+    ],
+    "onHit": {
+      "effet": "saignement",
+      "chance": 0.25
+    },
+    "defeatText": "Le pilleur roule au pied de la dune. — On nous avait payés pour attendre. Pas pour ça.",
+    "butin": [
+      {
+        "fers": [
+          6,
+          16
+        ],
+        "chance": 1
+      }
+    ],
+    "description": "Un pilleur au chèche noir, payé par les Réveilleurs pour garder les abords d’une halte morte. Une pelle, une lame, et pas assez d’eau.",
+    "source": "Le jeu (chapitre 7) ; les Réveilleurs : canon"
   }
 ]

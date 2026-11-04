@@ -40,5 +40,22 @@
   { "id": "rencontre-clairiere", "name": "Une clairière", "scene": "Map", "map": "rencontre-clairiere", "entrance": "entree", "encounter": true },
   { "id": "rencontre-route", "name": "Sur la route", "scene": "Map", "map": "rencontre-route", "entrance": "entree", "encounter": true },
   { "id": "rencontre-ruines", "name": "Des ruines de l’Ancien Monde", "scene": "Map", "map": "rencontre-ruines", "entrance": "entree", "encounter": true },
-  { "id": "voie-endormie", "name": "Une voie endormie", "scene": "Map", "map": "voie-quai", "entrance": "entree", "voie": true }
+  { "id": "voie-endormie", "name": "Une voie endormie", "scene": "Map", "map": "voie-quai", "entrance": "entree", "voie": true },
+  { "id": "aetherhaven-quai", "name": "Aetherhaven — le Quai des Dirigeables", "scene": "Map", "map": "aetherhaven-quai", "entrance": "entree", "place": "aetherhaven", "fond": "#a9c4d8" },
+  { "id": "aetherhaven-marches", "name": "Aetherhaven — les Îles-Marchés", "scene": "Map", "map": "aetherhaven-marches", "entrance": "depuis-quai", "place": "aetherhaven", "fond": "#a9c4d8" },
+  { "id": "aetherhaven-haute-ile", "name": "Aetherhaven — la Haute-Île", "scene": "Map", "map": "aetherhaven-haute-ile", "entrance": "entree", "place": "aetherhaven", "fond": "#a9c4d8" },
+  { "id": "aetherhaven-voilerie", "name": "Aetherhaven — la Voilerie Clairvol", "scene": "Map", "map": "aetherhaven-voilerie", "entrance": "entree", "place": "aetherhaven" },
+  { "id": "aetherhaven-compagnie", "name": "Aetherhaven — le comptoir de la Compagnie Vire-Nuée", "scene": "Map", "map": "aetherhaven-compagnie", "entrance": "entree", "place": "aetherhaven" },
+  { "id": "aetherhaven-perchoir", "name": "Aetherhaven — le Perchoir des Ailes Noires", "scene": "Map", "map": "aetherhaven-perchoir", "entrance": "entree", "place": "aetherhaven" },
+  { "id": "aetherhaven-soute", "name": "Aetherhaven — la soute d’un dirigeable", "scene": "Map", "map": "aetherhaven-soute", "entrance": "entree", "place": "aetherhaven" },
+  { "id": "aetherhaven-nid", "name": "Aetherhaven — le Nid des Nuées", "scene": "Map", "map": "aetherhaven-nid", "entrance": "entree", "place": "aetherhaven" },
+  { "id": "aetherhaven-moulin", "name": "Aetherhaven — la maison-moulin Plume-Vive", "scene": "Map", "map": "aetherhaven-moulin", "entrance": "entree", "place": "aetherhaven" },
+  { "id": "aetherhaven-registre", "name": "Aetherhaven — le Registre des Voiles", "scene": "Map", "map": "aetherhaven-registre", "entrance": "entree", "place": "aetherhaven" },
+  { "id": "aetherhaven-tour", "name": "Aetherhaven — la Tour des Vents", "scene": "Map", "map": "aetherhaven-tour", "entrance": "entree", "place": "aetherhaven" },
+  { "id": "aetherhaven-temple", "name": "Aetherhaven — le Temple du Grand Courant", "scene": "Map", "map": "aetherhaven-temple", "entrance": "entree", "place": "aetherhaven" },
+  { "id": "aetherhaven-observatoire", "name": "Aetherhaven — l’Observatoire des vents", "scene": "Map", "map": "aetherhaven-observatoire", "entrance": "entree", "place": "aetherhaven" },
+  { "id": "aetherhaven-relais", "name": "Aetherhaven — le Relais des Gardiens de Mémoire", "scene": "Map", "map": "aetherhaven-relais", "entrance": "entree", "place": "aetherhaven" },
+  { "id": "bas-cendres", "name": "Sous les nuages — le pays de cendre", "scene": "Map", "map": "bas-cendres", "entrance": "entree", "place": "aetherhaven", "fond": "#2b2826" },
+  { "id": "voie-du-bas", "name": "Sous les nuages — la Voie du Bas", "scene": "Map", "map": "voie-du-bas", "entrance": "entree", "place": "aetherhaven", "fond": "#2b2826" },
+  { "id": "halte-cendres", "name": "Sous les nuages — la Halte des Cendres", "scene": "Map", "map": "halte-cendres", "entrance": "entree", "place": "aetherhaven", "fond": "#2b2826" }
 ]

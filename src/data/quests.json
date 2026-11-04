@@ -355,5 +355,46 @@
         "titre": "Le silence gardé"
       }
     ]
+  },
+  {
+    "id": "noms-qui-montent",
+    "name": "Les noms qui montent",
+    "summary": "À Aetherhaven, des bandes de tissu montent de sous les nuages : un prénom et un âge, toujours les six mêmes noms. Elles viennent d’en bas, où personne ne descend.",
+    "etapes": [
+      {
+        "si": "bande-vue",
+        "texte": "Siffrin m’a donné une bande de tissu : « Ama, six ans. » Le Registre des Voiles, dans les Îles-Marchés, en garde d’autres."
+      },
+      {
+        "si": "tiroir-vu",
+        "texte": "Six noms, toujours les mêmes, qui montent d’un même point de la mer de nuages. La dame en gris est passée au Registre avant moi. Trouver qui descend : la Compagnie Vire-Nuée, les Ailes Noires, ou Vessin, le voilier."
+      },
+      {
+        "si": "au-bas",
+        "texte": "Sous les nuages, des rails partent vers l’est. Les suivre jusqu’au bout."
+      },
+      {
+        "si": "caisse-zephyria-reglee",
+        "texte": "Remonter par l’échelle de corde, là où la machine m’a déposé·e. Le Calme attend vers sept cents mètres."
+      }
+    ],
+    "fins": [
+      {
+        "id": "partage",
+        "titre": "Le rouleau à la dame en gris, la pièce à moi"
+      },
+      {
+        "id": "tout",
+        "titre": "Tout pris à la dame en gris"
+      },
+      {
+        "id": "laissee",
+        "titre": "Tout laissé à la dame en gris"
+      },
+      {
+        "id": "lache",
+        "titre": "Les six noms lâchés au vent"
+      }
+    ]
   }
 ]

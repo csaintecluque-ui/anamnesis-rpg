@@ -1,0 +1,46 @@
+{
+  "id": "achats-edda",
+  "speaker": "achats-edda",
+  "entries": [
+    {
+      "node": "caisses"
+    }
+  ],
+  "nodes": {
+    "caisses": {
+      "text": "Trois caisses marquées « E. V. ». Deux masques de toile, des cordes neuves, des vivres pour quatre jours. Une liste de sa main : six prénoms, six âges. Et, dans un coffret capitonné, un second cristal azur, jamais gréé.",
+      "effects": [
+        {
+          "setFlag": "achats-edda-vus"
+        }
+      ],
+      "options": [
+        {
+          "text": "Prendre le cristal.",
+          "next": "vol",
+          "effects": [
+            {
+              "giveItem": "cristal-second"
+            },
+            {
+              "setFlag": "cristal-edda-vole"
+            }
+          ]
+        },
+        {
+          "text": "Tout laisser en place.",
+          "next": "fin"
+        }
+      ]
+    },
+    "vol": {
+      "text": "Tu glisses le cristal dans ton sac. Le coffret vide garde sa forme dans le velours. Quelqu’un le remarquera.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

@@ -259,7 +259,7 @@ export class MapScene extends Phaser.Scene {
     this.npcBubble = null;
     this.drag = null;
     this.running = false;
-    this.cameras.main.setBackgroundColor(COLORS.ink);
+    this.cameras.main.setBackgroundColor(location.fond ?? COLORS.ink);
     this.fitCamera();
     this.following = true;
     this.cameras.main.startFollow(this.hero, true, 0.15, 0.15);

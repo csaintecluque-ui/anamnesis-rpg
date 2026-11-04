@@ -105,6 +105,26 @@ import porteFondsMuet from './porte-fonds-muet.json';
 import portierNuit from './portier-nuit.json';
 import registreConsultations from './registre-consultations.json';
 import registreMains from './registre-mains.json';
+import gardienCiel from './gardien-ciel.json';
+import siffrin from './siffrin.json';
+import ysolde from './ysolde.json';
+import tiroirVoiles from './tiroir-voiles.json';
+import ossiane from './ossiane.json';
+import ravel from './ravel.json';
+import vessin from './vessin.json';
+import mantesVoie from './mantes-voie.json';
+import caisseZephyria from './caisse-zephyria.json';
+import echelleRemontee from './echelle-remontee.json';
+import porteSoute from './porte-soute.json';
+import achatsEdda from './achats-edda.json';
+import carcasseIlot from './carcasse-ilot.json';
+import sautIlotVent from './saut-ilot-vent.json';
+import sautIlotRetour from './saut-ilot-retour.json';
+import assel from './assel.json';
+import zelie from './zelie.json';
+import shass from './shass.json';
+import evrard from './evrard.json';
+import eddaHalte from './edda-halte.json';
 
 /** Dialogue files by object name (PNJ, Écho or object) of the maps. */
 export const DIALOGUES: Record<string, Dialogue> = {
@@ -213,6 +233,28 @@ export const DIALOGUES: Record<string, Dialogue> = {
   'portier-nuit': portierNuit as Dialogue,
   'registre-consultations': registreConsultations as Dialogue,
   'registre-mains': registreMains as Dialogue,
+  // Chapitre 5, Aetherhaven (docs/gdd/chapitre-5.md).
+  'gardien-ciel': gardienCiel as Dialogue,
+  siffrin: siffrin as Dialogue,
+  ysolde: ysolde as Dialogue,
+  'tiroir-voiles': tiroirVoiles as Dialogue,
+  ossiane: ossiane as Dialogue,
+  ravel: ravel as Dialogue,
+  vessin: vessin as Dialogue,
+  'mantes-voie': mantesVoie as Dialogue,
+  'caisse-zephyria': caisseZephyria as Dialogue,
+  'echelle-remontee': echelleRemontee as Dialogue,
+  'porte-soute': porteSoute as Dialogue,
+  'achats-edda': achatsEdda as Dialogue,
+  'carcasse-ilot': carcasseIlot as Dialogue,
+  'saut-ilot-vent': sautIlotVent as Dialogue,
+  'saut-ilot-retour': sautIlotRetour as Dialogue,
+  assel: assel as Dialogue,
+  zelie: zelie as Dialogue,
+  shass: shass as Dialogue,
+  evrard: evrard as Dialogue,
+  // Chapitre 5 : la dame en gris à la Halte des Cendres.
+  'edda-halte': eddaHalte as Dialogue,
   // Le Livre des Échos (docs/gdd/echos.md) : one dialogue per Écho, built from src/data/echos.json.
   ...echoDialogues(),
 };

@@ -119,5 +119,45 @@
         "giveXp": 20
       }
     ]
+  },
+  {
+    "id": "mantes-voie",
+    "center": "mante-voie-1",
+    "enemies": [
+      {
+        "id": "mante-ailes",
+        "object": "mante-voie-1"
+      },
+      {
+        "id": "mante-ailes",
+        "object": "mante-voie-2"
+      }
+    ],
+    "victoryFlag": "mantes-voie-vaincues",
+    "victoryEffects": [
+      {
+        "giveXp": 30
+      }
+    ]
+  },
+  {
+    "id": "escorte-edda",
+    "center": "aile-gage-1",
+    "enemies": [
+      {
+        "id": "aile-noire-lame",
+        "object": "aile-gage-1"
+      },
+      {
+        "id": "aile-noire-lame",
+        "object": "aile-gage-2"
+      }
+    ],
+    "victoryFlag": "escorte-edda-vaincue",
+    "victoryEffects": [
+      {
+        "giveXp": 30
+      }
+    ]
   }
 ]

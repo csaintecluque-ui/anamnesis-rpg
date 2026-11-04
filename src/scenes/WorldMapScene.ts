@@ -2,8 +2,13 @@ import Phaser from 'phaser';
 import { performRoll, rollChance } from '../rules/dialogue';
 import { SKILLS } from '../rules/attributes';
 import {
+  AT_PLACE,
   WORLD,
   clearEncounterFlags,
+  flightFare,
+  flightSky,
+  flightTimeLabel,
+  payFlight,
   distanceBetween,
   canWaitOut,
   encounterChecks,
@@ -43,8 +48,6 @@ const MAP_Y = 70;
 const MAP_W = GAME_WIDTH - 2 * MAP_X;
 const MAP_H = GAME_HEIGHT - MAP_Y - 30;
 const SCALE = Math.min(MAP_W / WORLD.width, MAP_H / WORLD.height);
-/** A place counts as reached within this distance (world units). */
-const AT_PLACE = 12;
 const PLACE_HIT_RADIUS = HAS_MOUSE ? 28 : 40;
 
 const INK = COLORS.ink;
@@ -67,8 +70,11 @@ export class WorldMapScene extends Phaser.Scene {
   private trail!: Phaser.GameObjects.Graphics;
   private panel: Phaser.GameObjects.GameObject[] = [];
   private status!: Phaser.GameObjects.Text;
-  /** `moments`: the moments of the day already counted for this stretch of road (src/rules/time.ts). */
-  private trip: { place: WorldPlace; from: { x: number; y: number }; travelled: number; moments: number } | null = null;
+  /**
+   * `moments`: the moments of the day already counted for this stretch of road (src/rules/time.ts). `flight`: an
+   * airship's trip (Aetherhaven), its moments counted at once on landing, and nothing met on the way.
+   */
+  private trip: { place: WorldPlace; from: { x: number; y: number }; travelled: number; moments: number; flight?: number } | null = null;
   private rng: () => number = Math.random;
   /** The panel's buttons, for Enter (the first) and Escape (the last) ; the place picked with Tab. */
   private panelActions: (() => void)[] = [];
@@ -124,7 +130,7 @@ export class WorldMapScene extends Phaser.Scene {
     this.state.playTimeSeconds += delta / 1000;
     if (!this.trip) return;
     const { place } = this.trip;
-    const step = (WORLD.travel.pixelsPerSecond * delta) / 1000;
+    const step = ((this.trip.flight ? 3 : 1) * WORLD.travel.pixelsPerSecond * delta) / 1000;
     const left = distanceBetween(this.pos, place);
     const move = Math.min(step, left);
     const before = this.trip.travelled;
@@ -134,6 +140,11 @@ export class WorldMapScene extends Phaser.Scene {
     this.trip.travelled += move;
     this.placeHero();
     this.drawTrail();
+    if (this.trip.flight) {
+      this.status.setText(`En dirigeable vers ${place.name}`);
+      if (move >= left) this.arrive(place);
+      return;
+    }
     // A quarter of a day's walk is one moment of the day (docs/gdd/temps.md).
     const moments = Math.floor(this.trip.travelled / (WORLD.travel.pixelsPerDay / MOMENTS.length));
     if (moments > this.trip.moments) {
@@ -224,7 +235,7 @@ export class WorldMapScene extends Phaser.Scene {
     const g = this.add.graphics();
     const all = knownPlaces(this.state.flags, this.state.quests);
     // The sleeping lines (docs/gdd/voies.md) are off the roads: no road leads there, and they get their own mark.
-    const places = all.filter((p) => !p.voie);
+    const places = all.filter((p) => !p.voie && !p.dirigeable);
     // Known roads between places: a faint dotted line.
     g.fillStyle(0x6b4a32, 0.5);
     for (let i = 0; i < places.length; i++) {
@@ -268,6 +279,13 @@ export class WorldMapScene extends Phaser.Scene {
             g.lineStyle(1.5, INK, 1).strokeCircle(x, p.y - 17, 3.5);
           }
         }
+      } else if (place.dirigeable) {
+        // A town in the sky: a pale-blue mark, and a small airship over it.
+        g.fillStyle(0xa9c4d8, 1).fillCircle(p.x, p.y, 11);
+        g.lineStyle(3, INK, 1).strokeCircle(p.x, p.y, 11);
+        g.fillStyle(PARCHMENT, 1).fillEllipse(p.x, p.y - 22, 26, 11);
+        g.lineStyle(1.5, INK, 1).strokeEllipse(p.x, p.y - 22, 26, 11);
+        g.fillStyle(COPPER, 1).fillRect(p.x - 4, p.y - 16, 8, 4);
       } else {
         g.fillStyle(COPPER, 1).fillCircle(p.x, p.y, 11);
         g.lineStyle(3, INK, 1).strokeCircle(p.x, p.y, 11);
@@ -290,7 +308,7 @@ export class WorldMapScene extends Phaser.Scene {
       hit.on('pointermove', (pointer: Phaser.Input.Pointer) => {
         const here = distanceBetween(this.pos, place) <= AT_PLACE;
         const record = place.voie ? `\n${voieRecordLabel(this.state, place.id)}` : '';
-        this.tooltip.show(`${place.name}${here ? ' — tu es ici' : ` — ${travelTimeLabel(distanceBetween(this.pos, place))}`}${record}`, pointer.worldX, pointer.worldY);
+        this.tooltip.show(`${place.name}${here ? ' — tu es ici' : ` — ${this.tripLabel(place)}`}${record}`, pointer.worldX, pointer.worldY);
       });
       hit.on('pointerout', () => this.tooltip.hide());
     }
@@ -402,11 +420,45 @@ export class WorldMapScene extends Phaser.Scene {
     this.offerTrip(place, false);
   }
 
+  /** « environ un jour de marche », or « un jour en dirigeable ». */
+  private tripLabel(place: WorldPlace): string {
+    const sky = flightSky(this.state, this.pos, place);
+    return sky ? flightTimeLabel(sky) : travelTimeLabel(distanceBetween(this.pos, place));
+  }
+
   private offerTrip(place: WorldPlace, resumed: boolean): void {
-    const time = travelTimeLabel(distanceBetween(this.pos, place));
+    const sky = flightSky(this.state, this.pos, place);
+    if (sky) {
+      this.offerFlight(place, sky);
+      return;
+    }
+    const time = this.tripLabel(place);
     const lead = resumed ? `Reprendre la route vers ${place.name} ?` : `${place.name} — ${place.description}${dangerLabel(place)}`;
     this.showPanel(`${lead}\n(${time})`, [
       ['Partir', () => this.depart(place)],
+      ['Choisir un autre lieu', () => this.clearPanel()],
+    ], place);
+  }
+
+  /**
+   * The airship of the Confédération (docs/gdd/chapitre-5.md): to Aetherhaven, or from it to any known town ; the
+   * first flight is paid by Hesper.
+   */
+  private offerFlight(place: WorldPlace, sky: WorldPlace): void {
+    const fare = flightFare(this.state, sky);
+    const fers = this.state.character?.fers ?? 0;
+    const price = fare === 0 ? 'Hesper a payé ta place.' : `${fare} Fers la place (tu en as ${fers}).`;
+    const text = `${place.name} — ${place.description}\n(${flightTimeLabel(sky)} · ${price})`;
+    if (fers < fare) {
+      this.showPanel(`${text}\nIl te manque de quoi payer la place.`, [['Choisir un autre lieu', () => this.clearPanel()]], place);
+      return;
+    }
+    this.showPanel(text, [
+      ['Prendre le dirigeable', () => {
+        if (!payFlight(this.state, sky)) return;
+        this.clearPanel();
+        this.trip = { place, from: { ...this.pos }, travelled: 0, moments: 0, flight: sky.dirigeable?.moments ?? 4 };
+      }],
       ['Choisir un autre lieu', () => this.clearPanel()],
     ], place);
   }
@@ -419,8 +471,9 @@ export class WorldMapScene extends Phaser.Scene {
   // --- Arrivals and encounters ---------------------------------------------------------------------
 
   private arrive(place: WorldPlace): void {
-    // Even a short walk takes a moment of the day.
-    if (this.trip && this.trip.moments === 0) advance(this.state.time, 1);
+    // Even a short walk takes a moment of the day ; a flight, its own length.
+    if (this.trip?.flight) advance(this.state.time, this.trip.flight);
+    else if (this.trip && this.trip.moments === 0) advance(this.state.time, 1);
     this.trip = null;
     this.state.encounter = null;
     this.state.location = place.location;

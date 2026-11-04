@@ -1,0 +1,50 @@
+{
+  "id": "caisse-zephyria",
+  "speaker": "caisse-zephyria",
+  "entries": [
+    {
+      "requires": [
+        {
+          "flag": "caisse-zephyria-reglee"
+        }
+      ],
+      "node": "vide"
+    },
+    {
+      "node": "pleine"
+    }
+  ],
+  "nodes": {
+    "pleine": {
+      "text": "Une caisse plombée, ouverte depuis longtemps : le plomb a cédé, le bois a gonflé. Dedans, une forme lourde, emballée de toile. Le rouleau qui en sortait n’y est plus : la dame en gris l’a sur les genoux.",
+      "options": [
+        {
+          "text": "Soulever la toile.",
+          "next": "toile"
+        },
+        {
+          "text": "Laisser la caisse.",
+          "next": "fin"
+        }
+      ]
+    },
+    "toile": {
+      "text": "Froid, lourd, et rien que tu reconnaisses. Ni marque, ni mot, ni vis. Une chose faite pour être portée, et pour ne rien dire.",
+      "options": [
+        {
+          "text": "Laisser la caisse.",
+          "next": "fin"
+        }
+      ]
+    },
+    "vide": {
+      "text": "La caisse est vide. Au fond, la cendre garde la forme de ce qui y dormait.",
+      "options": [
+        {
+          "text": "Laisser la caisse.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

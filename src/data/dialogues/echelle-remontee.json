@@ -1,0 +1,315 @@
+{
+  "id": "echelle-remontee",
+  "speaker": "echelle-remontee",
+  "entries": [
+    {
+      "requires": [
+        {
+          "notFlag": "caisse-zephyria-reglee"
+        }
+      ],
+      "node": "attente"
+    },
+    {
+      "requires": [
+        {
+          "flag": "descente-compagnie"
+        },
+        {
+          "notFlag": "calme-passe"
+        }
+      ],
+      "node": "calme-deux"
+    },
+    {
+      "requires": [
+        {
+          "flag": "descente-vessin"
+        },
+        {
+          "notFlag": "calme-passe"
+        }
+      ],
+      "node": "calme-deux"
+    },
+    {
+      "requires": [
+        {
+          "notFlag": "calme-passe"
+        }
+      ],
+      "node": "calme-un"
+    },
+    {
+      "node": "apres"
+    }
+  ],
+  "nodes": {
+    "attente": {
+      "text": "L’échelle de corde pend des nuages. Là-haut, la machine attend, ancrée au-dessus de la cendre. Tu n’es pas descendu·e jusqu’ici pour remonter les mains vides.",
+      "options": [
+        {
+          "text": "Suivre les rails, d’abord.",
+          "next": "fin"
+        }
+      ]
+    },
+    "calme-deux": {
+      "text": "La machine monte. La cendre s’éclaircit, le ciel blanchit. Vers sept cents mètres, le vent tombe d’un coup : le Calme. Le premier cristal se tait. Le second prend le relais, et la machine passe sans un frisson.",
+      "effects": [
+        {
+          "setFlag": "calme-passe"
+        }
+      ],
+      "options": [
+        {
+          "text": "Regarder en bas.",
+          "next": "edda-calme"
+        }
+      ]
+    },
+    "calme-un": {
+      "text": "Ravel tient la barre, les yeux mi-clos. — Dis-moi quand. La cendre s’éclaircit. Le vent faiblit, puis faiblit encore. Tu écoutes.",
+      "options": [
+        {
+          "text": "Écouter, comme l’écrit la septième voile.",
+          "requires": [
+            {
+              "flag": "septieme-juste"
+            }
+          ],
+          "next": "calme-passe",
+          "roll": {
+            "skill": "survival",
+            "difficulty": 14
+          },
+          "failNext": "calme-chute"
+        },
+        {
+          "text": "Écouter le vent.",
+          "next": "calme-passe",
+          "roll": {
+            "skill": "survival",
+            "difficulty": 16
+          },
+          "failNext": "calme-chute"
+        }
+      ]
+    },
+    "calme-chute": {
+      "text": "Trop tard. Le cristal se tait, la machine s’arrête, et redescend, lentement, et il n’y a rien à faire. En bas, Ravel te tend sa gourde sans un mot. — On réessaie quand tu veux.",
+      "effects": [
+        {
+          "blesser": 3
+        },
+        {
+          "avancer": 1
+        }
+      ],
+      "options": [
+        {
+          "text": "Réessayer.",
+          "next": "calme-un"
+        },
+        {
+          "text": "Attendre un peu.",
+          "next": "fin"
+        }
+      ]
+    },
+    "calme-passe": {
+      "text": "— Maintenant ! Ravel pousse la machine avant que le vent ne meure. Le cristal se tait une seconde, puis la machine sort du Calme de l’autre côté, sur sa lancée. Ravel rit, pour la première fois. — Tu l’as entendu.",
+      "effects": [
+        {
+          "setFlag": "calme-passe"
+        },
+        {
+          "giveXp": 25
+        }
+      ],
+      "options": [
+        {
+          "text": "Regarder en bas.",
+          "next": "edda-calme"
+        }
+      ]
+    },
+    "edda-calme": {
+      "text": "Plus bas, une machine noire ne monte plus. Un seul cristal, éteint. Dedans, deux pilotes qui jurent, et la dame en gris, immobile. Elle redescend, lentement, et il n’y a rien à faire. Sauf toi.",
+      "options": [
+        {
+          "text": "Lui lancer une corde.",
+          "next": "edda-sauvee",
+          "roll": {
+            "skill": "athletics",
+            "difficulty": 15
+          },
+          "failNext": "edda-manquee"
+        },
+        {
+          "text": "Lui lancer ton second cristal.",
+          "requires": [
+            {
+              "item": "cristal-second"
+            },
+            {
+              "notFlag": "cristal-edda-vole"
+            }
+          ],
+          "next": "edda-cristal",
+          "effects": [
+            {
+              "takeItem": "cristal-second"
+            }
+          ]
+        },
+        {
+          "text": "Lui lancer le cristal pris dans sa soute.",
+          "requires": [
+            {
+              "item": "cristal-second"
+            },
+            {
+              "flag": "cristal-edda-vole"
+            }
+          ],
+          "next": "edda-sien",
+          "effects": [
+            {
+              "takeItem": "cristal-second"
+            }
+          ]
+        },
+        {
+          "text": "La laisser aux Gardiens du Ciel.",
+          "next": "edda-laissee"
+        }
+      ]
+    },
+    "edda-sauvee": {
+      "text": "La corde se tend. La machine noire remonte dans ton sillage et sort du Calme. La dame en gris lève les yeux vers toi. Elle ne dit pas merci. Elle hoche la tête, une fois, et ne te quitte plus du regard jusqu’au quai.",
+      "effects": [
+        {
+          "setFlag": "edda-sauvee-calme"
+        },
+        {
+          "giveXp": 20
+        }
+      ],
+      "options": [
+        {
+          "text": "Rentrer au quai.",
+          "next": "arrivee"
+        }
+      ]
+    },
+    "edda-cristal": {
+      "text": "Tu lances le cristal. Un des pilotes l’attrape au vol, le grée de travers, et la machine noire reprend sa montée en tremblant. La dame en gris regarde le cristal, puis toi, longtemps.",
+      "effects": [
+        {
+          "setFlag": "edda-sauvee-calme"
+        },
+        {
+          "giveXp": 20
+        }
+      ],
+      "options": [
+        {
+          "text": "Rentrer au quai.",
+          "next": "arrivee"
+        }
+      ]
+    },
+    "edda-sien": {
+      "text": "Tu lances le cristal. Un pilote l’attrape, le grée, et la machine noire remonte. La dame en gris le reconnaît : le sien, celui de sa soute. Elle te regarde, et tu ne sais pas si c’est de la colère ou autre chose.",
+      "effects": [
+        {
+          "setFlag": "edda-sauvee-calme"
+        },
+        {
+          "giveXp": 20
+        }
+      ],
+      "options": [
+        {
+          "text": "Rentrer au quai.",
+          "next": "arrivee"
+        }
+      ]
+    },
+    "edda-manquee": {
+      "text": "La corde file dans le vide, trop courte. La machine noire s’enfonce dans la cendre, lentement. Les Gardiens du Ciel la repêcheront, s’ils arrivent à temps.",
+      "effects": [
+        {
+          "setFlag": "edda-laissee-calme"
+        }
+      ],
+      "options": [
+        {
+          "text": "Rentrer au quai.",
+          "next": "arrivee"
+        }
+      ]
+    },
+    "edda-laissee": {
+      "text": "Tu regardes la machine noire s’enfoncer dans la cendre. Les Gardiens du Ciel la repêcheront, s’ils arrivent à temps. Ils arrivent souvent à temps.",
+      "effects": [
+        {
+          "setFlag": "edda-laissee-calme"
+        }
+      ],
+      "options": [
+        {
+          "text": "Rentrer au quai.",
+          "next": "arrivee"
+        }
+      ]
+    },
+    "arrivee": {
+      "text": "Le quai, les mâts, le vent. Les gens d’Aetherhaven ne demandent pas d’où tu viens. Ils voient la cendre sur tes vêtements, et ils s’écartent un peu.",
+      "options": [
+        {
+          "text": "Descendre de la machine.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "aetherhaven-quai",
+              "arrivee": "entree"
+            },
+            {
+              "avancer": 1
+            },
+            {
+              "setFlag": "remonte-du-bas"
+            }
+          ]
+        }
+      ]
+    },
+    "apres": {
+      "text": "L’échelle de corde pend des nuages. Il n’y a plus rien à chercher en bas.",
+      "options": [
+        {
+          "text": "Remonter.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "aetherhaven-quai",
+              "arrivee": "entree"
+            },
+            {
+              "avancer": 1
+            },
+            {
+              "setFlag": "remonte-du-bas"
+            }
+          ]
+        },
+        {
+          "text": "Rester encore un peu.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

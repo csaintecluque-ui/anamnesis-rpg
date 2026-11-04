@@ -44,6 +44,23 @@ import septPortesAubergeJson from './sept-portes-auberge.json';
 import septPortesCartographeJson from './sept-portes-cartographe.json';
 import septPortesConseilJson from './sept-portes-conseil.json';
 import septPortesJumeauxJson from './sept-portes-jumeaux.json';
+import aetherhavenQuaiJson from './aetherhaven-quai.json';
+import aetherhavenMarchesJson from './aetherhaven-marches.json';
+import aetherhavenHauteIleJson from './aetherhaven-haute-ile.json';
+import aetherhavenVoilerieJson from './aetherhaven-voilerie.json';
+import aetherhavenCompagnieJson from './aetherhaven-compagnie.json';
+import aetherhavenPerchoirJson from './aetherhaven-perchoir.json';
+import aetherhavenSouteJson from './aetherhaven-soute.json';
+import aetherhavenNidJson from './aetherhaven-nid.json';
+import aetherhavenMoulinJson from './aetherhaven-moulin.json';
+import aetherhavenRegistreJson from './aetherhaven-registre.json';
+import aetherhavenTourJson from './aetherhaven-tour.json';
+import aetherhavenTempleJson from './aetherhaven-temple.json';
+import aetherhavenObservatoireJson from './aetherhaven-observatoire.json';
+import aetherhavenRelaisJson from './aetherhaven-relais.json';
+import basCendresJson from './bas-cendres.json';
+import voieDuBasJson from './voie-du-bas.json';
+import halteCendresJson from './halte-cendres.json';
 
 /** Tiled maps by id (`map` of src/data/locations.json). */
 export const MAPS: Record<string, TiledMapJson> = {
@@ -92,4 +109,21 @@ export const MAPS: Record<string, TiledMapJson> = {
   'sept-portes-cartographe': septPortesCartographeJson as TiledMapJson,
   'sept-portes-conseil': septPortesConseilJson as TiledMapJson,
   'sept-portes-jumeaux': septPortesJumeauxJson as TiledMapJson,
+  'aetherhaven-quai': aetherhavenQuaiJson as TiledMapJson,
+  'aetherhaven-marches': aetherhavenMarchesJson as TiledMapJson,
+  'aetherhaven-haute-ile': aetherhavenHauteIleJson as TiledMapJson,
+  'aetherhaven-voilerie': aetherhavenVoilerieJson as TiledMapJson,
+  'aetherhaven-compagnie': aetherhavenCompagnieJson as TiledMapJson,
+  'aetherhaven-perchoir': aetherhavenPerchoirJson as TiledMapJson,
+  'aetherhaven-soute': aetherhavenSouteJson as TiledMapJson,
+  'aetherhaven-nid': aetherhavenNidJson as TiledMapJson,
+  'aetherhaven-moulin': aetherhavenMoulinJson as TiledMapJson,
+  'aetherhaven-registre': aetherhavenRegistreJson as TiledMapJson,
+  'aetherhaven-tour': aetherhavenTourJson as TiledMapJson,
+  'aetherhaven-temple': aetherhavenTempleJson as TiledMapJson,
+  'aetherhaven-observatoire': aetherhavenObservatoireJson as TiledMapJson,
+  'aetherhaven-relais': aetherhavenRelaisJson as TiledMapJson,
+  'bas-cendres': basCendresJson as TiledMapJson,
+  'voie-du-bas': voieDuBasJson as TiledMapJson,
+  'halte-cendres': halteCendresJson as TiledMapJson,
 };

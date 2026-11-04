@@ -17,6 +17,8 @@ export interface LocationDef {
   voie?: boolean;
   /** Within the Anneau of the Nexus, at Sept-Portes (docs/univers/lieux/sept-portes.md): no blow can be struck. */
   nexus?: boolean;
+  /** What lies beyond the map's edges (a colour): the sky of Aetherhaven, the ash under the clouds. Ink otherwise. */
+  fond?: string;
 }
 
 export const LOCATIONS = locationData as LocationDef[];

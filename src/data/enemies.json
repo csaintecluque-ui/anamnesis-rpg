@@ -406,5 +406,71 @@
     ],
     "description": "Elle recoud les pilleurs des Marches entre deux convois : tant qu’elle tient debout, ils se relèvent.",
     "source": "jeu (Marches des Cendres : Studio)"
+  },
+  {
+    "id": "mante-ailes",
+    "tile": "mante-ailes",
+    "name": "Mante-ailes",
+    "hp": 18,
+    "defense": 14,
+    "attackBonus": 3,
+    "damage": {
+      "count": 1,
+      "sides": 8
+    },
+    "actionPoints": 7,
+    "initiativeBonus": 3,
+    "xp": 24,
+    "capacites": [
+      "saigner",
+      "charge"
+    ],
+    "resistance": 1,
+    "onHit": {
+      "effet": "saignement",
+      "chance": 0.35
+    },
+    "defeatText": "La Mante-ailes se replie sur elle-même, ses ailes de lame ouvertes dans la cendre.",
+    "butin": [
+      {
+        "item": "aile-mante",
+        "chance": 0.6
+      }
+    ],
+    "description": "« Insectes prédateurs gigantesques, ailes tranchantes. » Sous les nuages de Zephyria, elles nichent dans les carcasses des wagons.",
+    "source": "Notion, « Zephyria — Races & peuples »"
+  },
+  {
+    "id": "aile-noire-lame",
+    "tile": "aile-noire",
+    "name": "Aile Noire à gages",
+    "hp": 16,
+    "defense": 13,
+    "attackBonus": 3,
+    "damage": {
+      "count": 1,
+      "sides": 6
+    },
+    "actionPoints": 6,
+    "initiativeBonus": 2,
+    "xp": 22,
+    "capacites": [
+      "meute",
+      "fuite"
+    ],
+    "resistance": 1,
+    "defeatText": "L’Aile Noire recule, une main levée. — Ça suffit. On était payés pour descendre, pas pour ça.",
+    "fleeText": "L’Aile Noire saute du quai et disparaît dans la cendre.",
+    "butin": [
+      {
+        "fers": [
+          4,
+          12
+        ],
+        "chance": 1
+      }
+    ],
+    "description": "Un pilote des Ailes Noires, loué pour une descente. Il vole sans contrat, et se bat de même.",
+    "source": "jeu (les Ailes Noires : canon, « La Septième Voile »)"
   }
 ]

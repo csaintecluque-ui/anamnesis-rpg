@@ -1194,6 +1194,307 @@ Object.assign(INTERIORS, {
   }),
 });
 
+// --- Aetherhaven, la cité flottante (chapitre 5, docs/univers/lieux/aetherhaven.md ; visuels provisoires) --------
+// Canon [NOTION, Zephyria] : des îles portées par les cristaux azur, reliées par des ponts suspendus, à trois mille
+// mètres ; dessous, une mer de nuages. Trois quartiers : le Quai des Dirigeables, les Îles-Marchés, la Haute-Île.
+
+/** A city above the clouds: clouds everywhere, nothing walkable until islands and bridges are laid. */
+function skyCity(width, height) {
+  const m = new MapBuilder(width, height);
+  m.ground.fill(gid('nuages'));
+  return m;
+}
+
+/** An island, an ellipse of radii rx × ry around (cc, cr). */
+function island(m, cc, cr, rx, ry, tile = 'ilot') {
+  for (let row = cr - ry; row <= cr + ry; row++) {
+    for (let col = cc - rx; col <= cc + rx; col++) {
+      if (((col - cc) / (rx + 0.5)) ** 2 + ((row - cr) / (ry + 0.5)) ** 2 <= 1) m.setGround(col, row, tile);
+    }
+  }
+}
+
+/** A suspended bridge along a row or a column. */
+function skyBridge(m, [c0, r0], [c1, r1]) {
+  if (r0 === r1) for (let col = Math.min(c0, c1); col <= Math.max(c0, c1); col++) m.setGround(col, r0, 'pont-ciel-c');
+  else for (let row = Math.min(r0, r1); row <= Math.max(r0, r1); row++) m.setGround(c0, row, 'pont-ciel-r');
+}
+
+Object.assign(LOCATION_NAMES, {
+  'aetherhaven-voilerie': 'Voilerie Clairvol',
+  'aetherhaven-compagnie': 'Comptoir de la Compagnie Vire-Nuée',
+  'aetherhaven-perchoir': 'Le Perchoir des Ailes Noires',
+  'aetherhaven-soute': 'La soute d’un dirigeable',
+  'aetherhaven-nid': 'Le Nid des Nuées',
+  'aetherhaven-moulin': 'Maison-moulin Plume-Vive',
+  'aetherhaven-registre': 'Le Registre des Voiles',
+  'aetherhaven-tour': 'La Tour des Vents',
+  'aetherhaven-temple': 'Le Temple du Grand Courant',
+  'aetherhaven-observatoire': 'L’Observatoire des vents',
+  'aetherhaven-relais': 'Relais des Gardiens de Mémoire',
+});
+
+/** Le Quai des Dirigeables : on arrive là, sous l'arche de la Charte. */
+function aetherhavenQuai() {
+  const m = skyCity(28, 22);
+  island(m, 12, 11, 8, 7);
+  m.rect(1, 5, 4, 17, 'planches'); // le quai de bois, où s'amarrent les dirigeables
+  island(m, 22, 5, 2, 2); // l'îlot du Perchoir
+  skyBridge(m, [18, 6], [19, 6]);
+  skyBridge(m, [21, 11], [27, 11]); // vers les Îles-Marchés
+
+  for (const [c, r] of [[2, 6], [2, 11], [2, 17]]) m.setObstacle(c, r, 'mat-amarrage');
+  m.setObstacle(2, 8, 'dirigeable');
+  m.object('dirigeable-confederation', 'porte', 2, 8, { cible: CARTE_DU_MONDE, libelle: 'Le dirigeable de la Confédération' });
+  // ★ La soute d'un dirigeable amarré : celui qui sert la dame en gris.
+  house(m, 'aetherhaven-soute', 'dirigeable', [2, 14], [3, 14], { verrou: 'soute-ouverte', dialogue: 'porte-soute' });
+  m.setObstacle(6, 9, 'arche-vent');
+  m.object('arche-charte', 'panneau', 6, 9, {
+    texte: 'Sur l’arche, en lettres d’or pâle : « Rien ne doit entraver le vent. » Charte de la Confédération, article premier.',
+  });
+  m.object('entree', 'arrivee', 4, 10);
+  // La vigie de Siffrin, d'où l'on guette les dirigeables et les oiseaux.
+  m.setObstacle(10, 5, 'vigie');
+  m.object('siffrin', 'pnj', 11, 6, { moment: 'jour' });
+  house(m, 'aetherhaven-voilerie', 'maison-voile', [16, 7], [16, 8]);
+  house(m, 'aetherhaven-compagnie', 'maison-voile', [8, 15], [9, 15]);
+  house(m, 'aetherhaven-perchoir', 'maison-voile', [22, 4], [22, 5]);
+  m.object('gardien-ciel', 'pnj', 7, 11);
+  for (const [c, r] of [[5, 7], [5, 15], [14, 13], [18, 10], [11, 17]]) m.setObstacle(c, r, 'cristal-azur');
+  for (const [c, r] of [[13, 8], [17, 15]]) m.setObstacle(c, r, 'jardin-suspendu');
+  m.setObstacle(15, 16, 'filet');
+  m.setObstacle(20, 9, 'panneau');
+  m.object('panneau-quai', 'panneau', 20, 9, { texte: 'Aetherhaven — le Quai des Dirigeables. À l’est, par le pont, les Îles-Marchés.' });
+  m.object('vers-marches', 'sortie', 27, 11, { cible: 'aetherhaven-marches', arrivee: 'depuis-quai', libelle: 'Le pont des Îles-Marchés' });
+  m.object('depuis-marches', 'arrivee', 24, 11);
+  return m.toTiled();
+}
+
+/** Les Îles-Marchés : des îlots et leurs ponts ; le marché, le Nid des Nuées, le Registre des Voiles. */
+function aetherhavenMarches() {
+  const m = skyCity(30, 24);
+  island(m, 4, 12, 3, 3); // l'îlot d'arrivée
+  island(m, 14, 12, 5, 4); // le marché
+  island(m, 12, 3, 4, 2); // le Nid des Nuées, la maison-moulin
+  island(m, 21, 3, 1, 1); // l'îlot du vent, qu'on n'atteint qu'en sautant
+  island(m, 13, 21, 4, 2); // le Registre des Voiles
+  island(m, 25, 12, 3, 3); // vers la Haute-Île
+  skyBridge(m, [0, 12], [0, 12]);
+  skyBridge(m, [8, 12], [8, 12]);
+  skyBridge(m, [13, 6], [13, 7]);
+  skyBridge(m, [13, 17], [13, 18]);
+  skyBridge(m, [20, 12], [21, 12]);
+  skyBridge(m, [29, 12], [29, 12]);
+
+  m.object('vers-quai', 'sortie', 0, 12, { cible: 'aetherhaven-quai', arrivee: 'depuis-marches', libelle: 'Le Quai des Dirigeables' });
+  m.object('depuis-quai', 'arrivee', 2, 12);
+  m.object('vers-haute-ile', 'sortie', 29, 12, { cible: 'aetherhaven-haute-ile', arrivee: 'depuis-marches', libelle: 'La Haute-Île' });
+  m.object('depuis-haute-ile', 'arrivee', 26, 12);
+  // Le marché : la nourriture vient d'en bas, elle est chère.
+  for (const [c, r] of [[11, 10], [17, 10], [11, 14], [17, 14]]) m.setObstacle(c, r, 'etal');
+  for (const [c, r] of [[14, 9], [14, 15], [5, 10], [24, 14]]) m.setObstacle(c, r, 'cristal-azur');
+  for (const [c, r] of [[10, 12], [18, 12]]) m.setObstacle(c, r, 'jardin-suspendu');
+  m.setObstacle(16, 15, 'filet');
+  house(m, 'aetherhaven-nid', 'maison-voile', [11, 2], [11, 3]);
+  house(m, 'aetherhaven-moulin', 'moulin', [14, 2], [14, 3]);
+  house(m, 'aetherhaven-registre', 'maison-voile', [12, 21], [13, 21]);
+  // Sauter d'îlot en îlot (Athlétisme) : deux cases de nuages entre le Nid et l'îlot du vent.
+  m.object('saut-ilot-vent', 'objet', 16, 3);
+  m.object('ilot-vent-arrivee', 'arrivee', 20, 3);
+  m.object('saut-ilot-retour', 'objet', 21, 2);
+  m.object('ilot-nid-arrivee', 'arrivee', 15, 3);
+  m.setObstacle(22, 3, 'machine-volante');
+  m.object('carcasse-ilot', 'coffre', 22, 3, { disparaitSi: 'carcasse-fouillee' });
+  m.setObstacle(6, 15, 'panneau');
+  m.object('panneau-marches', 'panneau', 6, 15, { texte: 'Les Îles-Marchés. Au nord, le Nid des Nuées ; au sud, le Registre des Voiles ; à l’est, la Haute-Île.' });
+  return m.toTiled();
+}
+
+/** La Haute-Île : la Tour des Vents, le Temple du Grand Courant, l'Observatoire, le Relais ; au bord, le Lâcher. */
+function aetherhavenHauteIle() {
+  const m = skyCity(28, 22);
+  island(m, 14, 11, 10, 8);
+  for (let row = 3; row <= 19; row++) for (let col = 4; col <= 24; col++) if (m.groundAt(col, row) === gid('ilot') && (col - 14) ** 2 / 36 + (row - 9) ** 2 / 16 <= 1) m.setGround(col, row, 'dalles-azur');
+  skyBridge(m, [0, 12], [3, 12]);
+  m.object('vers-marches', 'sortie', 0, 12, { cible: 'aetherhaven-marches', arrivee: 'depuis-haute-ile', libelle: 'Les Îles-Marchés' });
+  m.object('depuis-marches', 'arrivee', 3, 12);
+  m.object('entree', 'arrivee', 3, 12);
+  house(m, 'aetherhaven-tour', 'tour-vents', [14, 5], [14, 6]);
+  house(m, 'aetherhaven-temple', 'temple-vent', [8, 8], [9, 8]);
+  house(m, 'aetherhaven-observatoire', 'maison-voile', [20, 8], [20, 9]);
+  house(m, 'aetherhaven-relais', 'maison-voile', [8, 15], [9, 15]);
+  for (const [c, r] of [[11, 7], [17, 7], [11, 12], [17, 12], [14, 16]]) m.setObstacle(c, r, 'cristal-azur');
+  for (const [c, r] of [[6, 11], [19, 15], [12, 18]]) m.setObstacle(c, r, 'jardin-suspendu');
+  // Le Lâcher : le bord de l'île, d'où l'on lâche les voiles.
+  for (const row of [9, 10, 11, 13, 14]) m.setObstacle(24, row, 'garde-fou');
+  m.object('voile-lacher', 'objet', 24, 12, { tuile: 'voile-accrochee' });
+  m.object('lacher', 'objet', 24, 10);
+  m.setObstacle(21, 13, 'panneau');
+  m.object('panneau-lacher', 'panneau', 21, 13, { texte: 'Le Lâcher. Ce qu’on y ouvre la main, le vent le porte à qui voudra le prendre.' });
+  return m.toTiled();
+}
+
+Object.assign(INTERIORS, {
+  'aetherhaven-voilerie': interior('aetherhaven-voilerie', {
+    outside: 'aetherhaven-quai',
+    furniture: [[2, 1, 'etabli'], [3, 1, 'etabli'], [6, 1, 'etagere'], [1, 4, 'ballots'], [1, 3, 'ballots'], [6, 4, 'machine-volante']],
+    objects: [['vessin', 'pnj', 4, 3]],
+  }),
+  'aetherhaven-compagnie': interior('aetherhaven-compagnie', {
+    outside: 'aetherhaven-quai',
+    furniture: [[2, 1, 'etagere'], [5, 1, 'etagere'], [3, 3, 'comptoir'], [4, 3, 'comptoir'], [6, 4, 'table'], [1, 4, 'caisses']],
+    objects: [['ossiane', 'pnj', 4, 2]],
+  }),
+  'aetherhaven-perchoir': interior('aetherhaven-perchoir', {
+    outside: 'aetherhaven-quai',
+    furniture: [[1, 1, 'tonneaux'], [6, 1, 'cristal-veille'], [1, 4, 'hamac'], [4, 3, 'table'], [6, 4, 'table']],
+    objects: [['ravel', 'pnj', 3, 2]],
+  }),
+  'aetherhaven-soute': interior('aetherhaven-soute', {
+    outside: 'aetherhaven-quai',
+    floor: 'planches',
+    furniture: [[1, 1, 'caisses'], [2, 1, 'caisses'], [1, 2, 'ballots'], [6, 1, 'tonneaux'], [6, 2, 'tonneaux'], [5, 4, 'caisses'], [2, 4, 'caisses']],
+    objects: [['achats-edda', 'coffre', 2, 4, { disparaitSi: 'achats-edda-vus' }]],
+  }),
+  'aetherhaven-nid': interior('aetherhaven-nid', {
+    w: 8,
+    h: 6,
+    outside: 'aetherhaven-marches',
+    furniture: [[1, 2, 'hamac'], [1, 4, 'hamac'], [7, 1, 'cristal-veille'], [3, 3, 'comptoir'], [4, 3, 'comptoir'], [7, 4, 'table'], [5, 5, 'table']],
+    objects: [['assel', 'pnj', 4, 2]],
+  }),
+  'aetherhaven-moulin': interior('aetherhaven-moulin', {
+    outside: 'aetherhaven-marches',
+    furniture: [[1, 1, 'lit'], [6, 1, 'etagere'], [4, 3, 'table'], [1, 4, 'ballots']],
+    objects: [['siffrin', 'pnj', 3, 2, { moment: 'nuit' }]],
+  }),
+  'aetherhaven-registre': interior('aetherhaven-registre', {
+    w: 9,
+    h: 7,
+    outside: 'aetherhaven-marches',
+    furniture: [
+      [2, 1, 'etagere'], [3, 1, 'etagere'], [4, 1, 'etagere'], [6, 1, 'etagere'], [7, 1, 'etagere'],
+      [1, 3, 'etagere'], [1, 4, 'etagere'], [5, 4, 'lutrin'], [7, 4, 'comptoir'], [8, 4, 'comptoir'], [3, 6, 'ballots'],
+    ],
+    objects: [['ysolde', 'pnj', 7, 3], ['tiroir-voiles', 'objet', 5, 4]],
+  }),
+  'aetherhaven-tour': interior('aetherhaven-tour', {
+    w: 9,
+    h: 7,
+    outside: 'aetherhaven-haute-ile',
+    floor: 'dalles-azur',
+    furniture: [[2, 1, 'gradin'], [3, 1, 'gradin'], [4, 1, 'gradin'], [5, 1, 'gradin'], [6, 1, 'gradin'], [7, 1, 'gradin'], [4, 3, 'table'], [5, 3, 'table'], [1, 5, 'cristal-azur'], [8, 5, 'cristal-azur']],
+    objects: [['sieges-conseil', 'panneau', 5, 1, { texte: 'Dix-huit sièges, un par cité. Ici, on décide à l’unanimité, ou aux deux tiers ; le plus souvent, on ne décide pas.' }]],
+  }),
+  'aetherhaven-temple': interior('aetherhaven-temple', {
+    w: 8,
+    h: 6,
+    outside: 'aetherhaven-haute-ile',
+    floor: 'dalles-azur',
+    furniture: [[2, 1, 'cristal-azur'], [6, 1, 'cristal-azur'], [4, 1, 'stele'], [1, 4, 'jardin-suspendu'], [7, 4, 'jardin-suspendu']],
+    objects: [['zelie', 'pnj', 4, 3], ['shass', 'pnj', 6, 2]],
+  }),
+  'aetherhaven-observatoire': interior('aetherhaven-observatoire', {
+    outside: 'aetherhaven-haute-ile',
+    furniture: [[2, 1, 'etagere'], [5, 1, 'lutrin'], [4, 3, 'table'], [1, 4, 'cristal-azur']],
+    objects: [['evrard', 'pnj', 3, 2]],
+  }),
+  'aetherhaven-relais': interior('aetherhaven-relais', {
+    outside: 'aetherhaven-haute-ile',
+    furniture: [[2, 1, 'etagere'], [3, 1, 'etagere'], [6, 1, 'cristal-veille'], [1, 4, 'hamac'], [5, 4, 'table']],
+    objects: [],
+  }),
+});
+
+// --- En bas : la Voie du Bas, sous la mer de nuages (chapitre 5, « Les noms qui montent ») -------------------------
+// Canon [NOTION, La Septième Voile] : « Il faut commencer par le sol, puisque tout le monde l'oublie. » Après le
+// Nexus, la cendre restait suspendue à trois ou quatre cents mètres. Ici : un pays gris, des rails sous la poussière.
+
+/** A grey land under the clouds: ash, heaps of ash, ruins, from a fixed seed. */
+function ashLand(width, height, seed, keepClear) {
+  const m = new MapBuilder(width, height);
+  m.ground.fill(gid('sol-cendre'));
+  const rng = mulberry32(seed);
+  for (let col = 0; col < width; col++) {
+    m.setObstacle(col, 0, 'tas-cendres');
+    m.setObstacle(col, height - 1, 'tas-cendres');
+  }
+  for (let row = 0; row < height; row++) {
+    m.setObstacle(0, row, 'tas-cendres');
+    m.setObstacle(width - 1, row, 'tas-cendres');
+  }
+  for (let row = 1; row < height - 1; row++) {
+    for (let col = 1; col < width - 1; col++) {
+      if (keepClear(col, row)) continue;
+      const roll = rng();
+      if (roll < 0.05) m.setObstacle(col, row, 'tas-cendres');
+      else if (roll < 0.07) m.setObstacle(col, row, 'ruine');
+      else if (roll < 0.2) m.setGround(col, row, 'paves-cendre');
+    }
+  }
+  return m;
+}
+
+/** Où le dirigeable descend : une échelle de corde qui pend des nuages ; les rails partent vers l'est. */
+function basCendres() {
+  const rail = 8;
+  const m = ashLand(22, 16, 7100, (c, r) => Math.abs(r - rail) <= 1 || (c <= 5 && r >= 5 && r <= 11));
+  m.line([4, rail], [21, rail], 'rail');
+  m.setObstacle(3, 8, 'echelle-corde');
+  m.object('echelle-remontee', 'objet', 3, 8);
+  m.object('entree', 'arrivee', 4, 9);
+  m.object('depuis-voie', 'arrivee', 19, 9);
+  m.setObstacle(21, rail, null);
+  m.object('vers-voie', 'sortie', 21, rail, { cible: 'voie-du-bas', arrivee: 'depuis-cendres', libelle: 'Suivre les rails' });
+  m.setObstacle(9, 5, 'panneau');
+  m.object('borne-bas', 'panneau', 9, 5, { texte: 'Une borne de l’Ancien Monde, mangée par la cendre. On lit encore un chiffre : 7.' });
+  return m.toTiled();
+}
+
+/** La voie elle-même : une tranchée, des wagons morts ; un Écho ; des Mantes-ailes nichent dans les carcasses. */
+function voieDuBas() {
+  const rail = 7;
+  const m = ashLand(28, 14, 7200, (c, r) => Math.abs(r - rail) <= 1 || (c >= 11 && c <= 15 && r >= 8 && r <= 11));
+  m.line([0, rail], [27, rail], 'rail');
+  blocks(m, 'wagon', [[9, 5], [10, 5], [17, 9], [18, 9]]);
+  m.object('depuis-cendres', 'arrivee', 2, 7);
+  m.object('entree', 'arrivee', 2, 7);
+  m.setObstacle(0, rail, null);
+  m.object('vers-cendres', 'sortie', 0, rail, { cible: 'bas-cendres', arrivee: 'depuis-voie', libelle: 'Revenir vers l’échelle' });
+  m.setObstacle(27, rail, null);
+  m.object('vers-halte', 'sortie', 27, rail, { cible: 'halte-cendres', arrivee: 'depuis-voie', libelle: 'La Halte des Cendres' });
+  m.object('depuis-halte', 'arrivee', 25, 7);
+  // L'Écho de la voie (src/data/echos.json) se pose en (13, 9).
+  // Deux Mantes-ailes nichent dans les wagons, en travers de la voie : on se bat, on passe, ou l'on attend.
+  const mantes = { ennemi: 'mante-ailes', dialogue: 'mantes-voie', disparaitSi: 'mantes-voie-vaincues,mantes-voie-passees' };
+  m.object('mante-voie-1', 'ennemi', 19, 7, { ...mantes, texte: 'Deux Mantes-ailes, sur la voie.' });
+  m.object('mante-voie-2', 'ennemi', 20, 8, { ...mantes, texte: 'Deux Mantes-ailes, sur la voie.' });
+  return m.toTiled();
+}
+
+/** La Halte des Cendres, au bout de la voie : un quai, un butoir, la caisse. */
+function halteCendres() {
+  const m = ashLand(20, 14, 7300, (c, r) => r >= 5 && r <= 10);
+  m.rect(4, 3, 16, 5, 'quai');
+  m.line([0, 7], [15, 7], 'rail');
+  blocks(m, 'butoir', [[16, 7]]);
+  blocks(m, 'reverbere', [[5, 3], [15, 3]]);
+  m.setObstacle(0, 7, null);
+  m.object('vers-voie', 'sortie', 0, 7, { cible: 'voie-du-bas', arrivee: 'depuis-halte', libelle: 'Repartir par la voie' });
+  m.object('depuis-voie', 'arrivee', 2, 7);
+  m.object('entree', 'arrivee', 2, 7);
+  m.setObstacle(11, 4, 'caisse-ouverte');
+  m.object('caisse-zephyria', 'objet', 11, 4);
+  // La dame en gris est arrivée la première, avec deux Ailes Noires payées pour la descente.
+  m.object('edda-halte', 'pnj', 10, 5, { disparaitSi: 'edda-halte-reglee' });
+  const escorte = { ennemi: 'aile-noire-lame', disparaitSi: 'escorte-edda-vaincue,edda-halte-reglee', texte: 'Une Aile Noire, payée pour la descente. Elle attend la dame en gris, et te regarde sans hâte.' };
+  m.object('aile-gage-1', 'ennemi', 13, 6, escorte);
+  m.object('aile-gage-2', 'ennemi', 14, 5, escorte);
+  m.setObstacle(7, 4, 'stele');
+  m.object('panneau-halte', 'panneau', 7, 4, { texte: 'Sur une plaque, sous la cendre : « Halte — voie 7 — ne pas stationner. »' });
+  return m.toTiled();
+}
+
 // Les voies endormies à explorer (docs/gdd/voies.md, jalon 3, étape 6) : une réserve de plans de l'Ancien Monde. Chaque
 // niveau d'une voie en tire un, puis le jeu le garnit au hasard sur ses points d'apparition : bêtes (`ennemi-1..3`),
 // caisses (`coffre-1..3`), pièges (`piege-1..4`), un Écho (`echo-1`), l'objet d'un contrat (`contrat`), la descente.
@@ -1332,6 +1633,12 @@ for (const [id, map] of Object.entries({
   'sept-portes-parvis': septPortesParvis(),
   'sept-portes-halles': septPortesHalles(),
   'canopee-amphitheatre': amphitheatre(),
+  'aetherhaven-quai': aetherhavenQuai(),
+  'aetherhaven-marches': aetherhavenMarches(),
+  'aetherhaven-haute-ile': aetherhavenHauteIle(),
+  'bas-cendres': basCendres(),
+  'voie-du-bas': voieDuBas(),
+  'halte-cendres': halteCendres(),
   ...ENCOUNTER_MAPS,
   ...VOIE_MAPS,
 })) {

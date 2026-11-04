@@ -427,5 +427,52 @@
     "weightKg": 0.5,
     "price": 0,
     "quest": true
+  },
+  {
+    "id": "bande-nom",
+    "name": "Une bande de tissu",
+    "description": "Une bande de tissu gris, effilochée, que l’hirondelle de Siffrin a rapportée de sous les nuages. Un prénom et un âge, d’une écriture qui a bu la cendre : « Ama, six ans. »",
+    "weightKg": 0,
+    "price": 0,
+    "quest": true
+  },
+  {
+    "id": "cristal-second",
+    "name": "Second cristal azur",
+    "description": "Un cristal azur fendu selon son axe, prêt à gréer. Une machine qui en porte deux traverse le Calme.",
+    "weightKg": 0.5,
+    "price": 120,
+    "lore": "« On ne traverse pas le Calme avec un seul cristal. » Septième voile du Lever, d’Aerys Haute-Foudre."
+  },
+  {
+    "id": "masque-toile",
+    "name": "Masque de toile",
+    "description": "Un masque de toile serrée, doublé de charbon, de la Voilerie Clairvol.",
+    "weightKg": 0.2,
+    "price": 15,
+    "usage": "Sous les nuages, l’air est fait de cendre : avec le masque, elle ne blesse plus la gorge."
+  },
+  {
+    "id": "piece-zephyria",
+    "name": "Une pièce de la machine",
+    "description": "Lourde, froide, emballée dans une toile qui ne s’est pas défaite. Elle n’a ni marque ni usage qu’on reconnaisse. Elle sortait de la caisse de Zephyria.",
+    "weightKg": 6,
+    "price": 0,
+    "quest": true
+  },
+  {
+    "id": "rouleau-noms",
+    "name": "Le rouleau des six noms",
+    "description": "Un rouleau de tissu long de plusieurs pas. Six prénoms d’enfants et leur âge, écrits et réécrits sur toute la longueur, de la même main.",
+    "weightKg": 1,
+    "price": 0,
+    "quest": true
+  },
+  {
+    "id": "aile-mante",
+    "name": "Aile de Mante",
+    "description": "Une aile de Mante-ailes, fine et dure. Les voiliers d’Aetherhaven en font des lames à couper la toile.",
+    "weightKg": 0.3,
+    "price": 18
   }
 ]

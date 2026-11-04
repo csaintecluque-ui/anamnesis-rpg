@@ -1,0 +1,162 @@
+{
+  "id": "ossiane",
+  "speaker": "ossiane",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "noms-qui-montent",
+          "status": "active"
+        },
+        {
+          "notFlag": "caisse-zephyria-reglee"
+        },
+        {
+          "flag": "ossiane-accepte"
+        }
+      ],
+      "node": "prete"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Une Aérienne en veste bleu nuit relève ses lunettes de vent. — Ossiane Vire-Nuée, Compagnie Vire-Nuée. Routes déclarées, deux cristaux par machine, et personne ne tombe. Vous voyagez ?",
+      "options": [
+        {
+          "text": "Deux cristaux, toujours ?",
+          "next": "cristaux"
+        },
+        {
+          "text": "Je dois descendre sous les nuages.",
+          "requires": [
+            {
+              "quest": "noms-qui-montent",
+              "status": "active"
+            },
+            {
+              "notFlag": "caisse-zephyria-reglee"
+            },
+            {
+              "flag": "tiroir-vu"
+            },
+            {
+              "notFlag": "ossiane-refus"
+            }
+          ],
+          "next": "bas"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "cristaux": {
+      "text": "— Toujours. La septième voile le dit, et la Charte ne l’impose pas. Alors c’est nous qui l’imposons, à nos pilotes. Les Ailes Noires appellent ça une entrave. Moi, j’appelle ça rentrer le soir.",
+      "options": [
+        {
+          "text": "Autre chose.",
+          "next": "accueil"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "bas": {
+      "text": "Ossiane te regarde longtemps. — Le Bas n’est pas une route déclarée. Si je descends et que je ne remonte pas, ce n’est pas moi qui paie : ce sont tous ceux qui croyaient au contrat.",
+      "options": [
+        {
+          "text": "Une fois. Pour six enfants dont personne ne se souvient.",
+          "next": "accepte",
+          "roll": {
+            "skill": "diplomacy",
+            "difficulty": 15
+          },
+          "failNext": "refus"
+        },
+        {
+          "text": "Je comprends.",
+          "next": "fin"
+        }
+      ]
+    },
+    "accepte": {
+      "text": "Elle remet ses lunettes. — Une fois. Deux cristaux, vous ne touchez à rien à bord, et nous remontons avant la nuit. Je ne le fais pas pour vous. Six noms, ça fait six familles qui n’ont jamais su.",
+      "effects": [
+        {
+          "setFlag": "ossiane-accepte"
+        }
+      ],
+      "options": [
+        {
+          "text": "Partir maintenant.",
+          "next": "fin",
+          "effects": [
+            {
+              "setFlag": "descente-compagnie"
+            },
+            {
+              "setFlag": "au-bas"
+            },
+            {
+              "avancer": 1
+            },
+            {
+              "goTo": "bas-cendres"
+            }
+          ]
+        },
+        {
+          "text": "Pas tout de suite.",
+          "next": "fin"
+        }
+      ]
+    },
+    "refus": {
+      "text": "— Non. Si je romps un contrat pour une bonne raison, demain quelqu’un le rompra pour une mauvaise. Allez voir le Perchoir. Ils ne demandent rien, eux. C’est bien leur problème.",
+      "effects": [
+        {
+          "setFlag": "ossiane-refus"
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci quand même.",
+          "next": "fin"
+        }
+      ]
+    },
+    "prete": {
+      "text": "— On part quand vous voulez. Deux cristaux, et retour avant la nuit.",
+      "options": [
+        {
+          "text": "Partir maintenant.",
+          "next": "fin",
+          "effects": [
+            {
+              "setFlag": "descente-compagnie"
+            },
+            {
+              "setFlag": "au-bas"
+            },
+            {
+              "avancer": 1
+            },
+            {
+              "goTo": "bas-cendres"
+            }
+          ]
+        },
+        {
+          "text": "Pas encore.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

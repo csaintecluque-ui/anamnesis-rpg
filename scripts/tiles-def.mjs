@@ -1227,3 +1227,300 @@ TILES.push(
   npcTile('chroniqueur', { body: '#1f1b2a', hair: '#bdb6aa', accent: '#5a4a8a', extra: '<path d="M44 58 L48 50" stroke="#efe6cf" stroke-width="1.5"/>' }),
   npcTile('etudiante', { body: '#4a3a5a', hair: '#8a4a2a', accent: '#d8c8e8', extra: '<rect x="38" y="62" width="9" height="7" fill="#7a5a3a" stroke="#1B1512" stroke-width="0.8"/>' }),
 );
+
+// Aetherhaven, la cité flottante (chapitre 5, docs/univers/lieux/aetherhaven.md) : provisoire. Canon [NOTION] : des
+// îles portées par les cristaux azur, des ponts suspendus, du bois, du cristal et du tissu, bleu ciel, blanc argent,
+// or pâle ; dessous, une mer de nuages. Ajoutées en dernier, pour ne décaler aucune tuile.
+const cloudSea =
+  diamond('#d9e3ea', 'rgba(60,80,100,0.12)') +
+  '<circle cx="20" cy="80" r="7" fill="#eef3f6"/><circle cx="38" cy="84" r="8" fill="#e6edf2"/>' +
+  '<circle cx="31" cy="74" r="6" fill="#f6f9fb"/><circle cx="48" cy="79" r="4" fill="#c9d6e0" opacity="0.8"/>' +
+  '<circle cx="14" cy="86" r="3" fill="#c9d6e0" opacity="0.7"/>';
+const ropes = (a, b) => `<path d="${a}" stroke="#7a6a52" stroke-width="1.2" fill="none"/><path d="${b}" stroke="#7a6a52" stroke-width="1.2" fill="none"/>`;
+const skyHouse = (wall, sail, stripe) =>
+  diamond('#c4c8b0') +
+  shadow(22, 8) +
+  `<path d="M10 84 L10 50 L54 50 L54 84 L32 94 Z" fill="${wall}" stroke="${INK}" stroke-width="1.2"/>` +
+  `<path d="M6 52 L32 12 L58 52 Z" fill="${sail}" stroke="${INK}" stroke-width="1.2"/>` +
+  `<path d="M19 36 L45 36" stroke="${stripe}" stroke-width="3"/>` +
+  `<path d="M32 12 L32 4 L40 7 L32 10" fill="${stripe}" stroke="${INK}" stroke-width="0.8"/>` +
+  `<path d="M27 92 L27 70 Q32 64 37 70 L37 90 Z" fill="${COPPER}" stroke="${INK}" stroke-width="1"/>` +
+  '<path d="M14 60 L22 60 L22 68 L14 68 Z M42 60 L50 60 L50 68 L42 68 Z" fill="#bfe6ff" stroke="#1B1512" stroke-width="0.8"/>';
+TILES.push(
+  { name: 'nuages', blocking: true, svg: cloudSea },
+  {
+    name: 'ilot',
+    svg:
+      diamond('#c4c8b0') +
+      '<path d="M14 80 Q22 76 30 80 M36 86 Q42 83 48 86 M30 72 Q36 69 42 72" stroke="#a3a88e" stroke-width="1.3" fill="none"/>' +
+      '<circle cx="22" cy="86" r="1.4" fill="#e2cf8a"/>',
+  },
+  {
+    // Le long des colonnes (vers le bas à droite à l'écran), deux cordes de garde.
+    name: 'pont-ciel-c',
+    svg:
+      cloudSea +
+      '<path d="M8 76 L40 92 L56 84 L24 68 Z" fill="#d2b88a" stroke="#5a4634" stroke-width="1"/>' +
+      '<path d="M14 78 L22 74 M24 83 L32 79 M34 88 L42 84" stroke="#8a6a48" stroke-width="1.2"/>' +
+      ropes('M6 70 Q22 80 38 86', 'M26 62 Q42 72 58 78'),
+  },
+  {
+    name: 'pont-ciel-r',
+    svg:
+      cloudSea +
+      '<path d="M56 76 L24 92 L8 84 L40 68 Z" fill="#d2b88a" stroke="#5a4634" stroke-width="1"/>' +
+      '<path d="M50 78 L42 74 M40 83 L32 79 M30 88 L22 84" stroke="#8a6a48" stroke-width="1.2"/>' +
+      ropes('M58 70 Q42 80 26 86', 'M38 62 Q22 72 6 78'),
+  },
+  { name: 'dalles-azur', svg: diamond('#c9d2d8') + '<path d="M16 72 L48 88 M48 72 L16 88" stroke="#a8b4bc" stroke-width="1.2"/><circle cx="32" cy="80" r="1.6" fill="#e2cf8a"/>' },
+  {
+    // Un mât d'amarrage : on y attache les dirigeables.
+    name: 'mat-amarrage',
+    blocking: true,
+    svg:
+      diamond('#c4c8b0') +
+      shadow(10, 4) +
+      '<rect x="29" y="14" width="6" height="70" fill="#8a6a48" stroke="#1B1512" stroke-width="0.8"/>' +
+      '<path d="M20 22 L44 22" stroke="#5a4634" stroke-width="3"/>' +
+      `<circle cx="32" cy="12" r="4" fill="${COPPER}" stroke="${INK}" stroke-width="0.8"/>` +
+      '<path d="M44 22 Q54 40 50 60" stroke="#7a6a52" stroke-width="1.2" fill="none"/>',
+  },
+  {
+    // Un dirigeable amarré : la nacelle sur le quai, l'enveloppe au-dessus.
+    name: 'dirigeable',
+    blocking: true,
+    cover: 4,
+    svg:
+      diamond('#c4c8b0') +
+      shadow(22, 7) +
+      '<ellipse cx="32" cy="24" rx="30" ry="15" fill="#e8eef2" stroke="#1B1512" stroke-width="1.2"/>' +
+      '<path d="M4 24 Q32 14 60 24 M8 30 Q32 22 56 30" stroke="#9fb4c4" stroke-width="1.2" fill="none"/>' +
+      '<path d="M2 18 L-2 10 L8 16 Z M2 30 L-2 38 L8 32 Z" fill="#6ab4e0" stroke="#1B1512" stroke-width="0.8"/>' +
+      '<path d="M18 38 L20 62 M46 38 L44 62 M32 39 L32 62" stroke="#7a6a52" stroke-width="1.2"/>' +
+      `<path d="M14 62 L50 62 L46 80 L18 80 Z" fill="#c8a878" stroke="${INK}" stroke-width="1.2"/>` +
+      '<path d="M20 66 L26 66 L26 72 L20 72 Z M30 66 L36 66 L36 72 L30 72 Z M40 66 L46 66 L46 72 L40 72 Z" fill="#bfe6ff"/>' +
+      '<path d="M34 46 L38 52 L34 58 L30 52 Z" fill="#6ab4e0" stroke="#1B1512" stroke-width="0.8"/>',
+  },
+  { name: 'maison-voile', blocking: true, cover: 4, svg: skyHouse('#e8dcc4', '#f4f7f9', '#6ab4e0') },
+  {
+    // La maison-moulin Plume-Vive : une tour de bois et quatre ailes de toile.
+    name: 'moulin',
+    blocking: true,
+    cover: 4,
+    svg:
+      diamond('#c4c8b0') +
+      shadow(18, 7) +
+      `<path d="M18 86 L22 34 L42 34 L46 86 Z" fill="#c8a878" stroke="${INK}" stroke-width="1.2"/>` +
+      `<path d="M18 36 L32 22 L46 36 Z" fill="#a07a48" stroke="${INK}" stroke-width="1"/>` +
+      '<path d="M32 30 L8 10 L12 6 Z M32 30 L56 10 L52 6 Z M32 30 L10 52 L6 48 Z M32 30 L54 52 L58 48 Z" fill="#f4f7f9" stroke="#1B1512" stroke-width="0.8"/>' +
+      `<circle cx="32" cy="30" r="3" fill="${COPPER}"/>` +
+      `<path d="M27 86 L27 70 Q32 64 37 70 L37 86 Z" fill="${COPPER}" stroke="${INK}" stroke-width="1"/>`,
+  },
+  {
+    // La Tour des Vents [NOTION] : une spirale de cristal bleu (ici, son pied et sa pointe).
+    name: 'tour-vents',
+    blocking: true,
+    cover: 4,
+    svg:
+      diamond('#c9d2d8') +
+      shadow(20, 7) +
+      '<path d="M16 88 L24 4 L40 4 L48 88 Z" fill="#6ab4e0" stroke="#1B1512" stroke-width="1.2" opacity="0.92"/>' +
+      '<path d="M18 80 Q32 70 46 76 M20 62 Q32 52 44 58 M22 44 Q32 34 42 40 M23 26 Q32 18 41 22" stroke="#e8f6ff" stroke-width="2" fill="none"/>' +
+      '<path d="M24 4 L32 -6 L40 4 Z" fill="#bfe6ff" stroke="#1B1512" stroke-width="1"/>' +
+      `<path d="M27 88 L27 72 Q32 66 37 72 L37 88 Z" fill="#e2cf8a" stroke="${INK}" stroke-width="1"/>`,
+  },
+  {
+    // Le Temple du Grand Courant : un dôme ouvert, des rubans dans le vent.
+    name: 'temple-vent',
+    blocking: true,
+    cover: 4,
+    svg:
+      diamond('#c9d2d8') +
+      shadow(24, 8) +
+      `<path d="M8 84 L8 52 L56 52 L56 84 L32 94 Z" fill="#eef2f4" stroke="${INK}" stroke-width="1.2"/>` +
+      `<path d="M8 52 Q32 10 56 52 Z" fill="#dfe8ee" stroke="${INK}" stroke-width="1.2"/>` +
+      '<path d="M16 84 L16 60 Q20 56 24 60 L24 86 M40 86 L40 60 Q44 56 48 60 L48 84" stroke="#9fb4c4" stroke-width="1.5" fill="#bfe6ff"/>' +
+      '<path d="M32 18 Q44 10 52 16 M32 22 Q42 20 48 26" stroke="#6ab4e0" stroke-width="2" fill="none"/>' +
+      `<path d="M27 92 L27 70 L37 70 L37 90 Z" fill="${COPPER}" stroke="${INK}" stroke-width="1"/>`,
+  },
+  {
+    // Un cristal azur sur un poteau : il flotte un peu, et chante par vent fort [NOTION].
+    name: 'cristal-azur',
+    blocking: true,
+    svg:
+      diamond('#c4c8b0') +
+      '<rect x="30" y="44" width="4" height="40" fill="#8a6a48"/>' +
+      '<circle cx="32" cy="28" r="14" fill="#6ab4e0" opacity="0.2"/>' +
+      '<path d="M32 14 L38 28 L32 40 L26 28 Z" fill="#9fd4f0" stroke="#2a5a7a" stroke-width="1.5"/>',
+  },
+  {
+    name: 'jardin-suspendu',
+    blocking: true,
+    cover: 2,
+    svg:
+      diamond('#c4c8b0') +
+      shadow(16, 5) +
+      '<path d="M14 64 L50 64 L46 82 L18 82 Z" fill="#a07a48" stroke="#1B1512" stroke-width="1"/>' +
+      '<circle cx="22" cy="58" r="7" fill="#7fae5a"/><circle cx="34" cy="54" r="8" fill="#8fbe6a"/><circle cx="44" cy="60" r="6" fill="#6f9e4a"/>' +
+      '<path d="M18 82 Q16 90 20 94 M30 82 Q30 90 28 94 M44 82 Q46 88 44 92" stroke="#6f9e4a" stroke-width="2" fill="none"/>' +
+      '<circle cx="30" cy="52" r="1.6" fill="#e2cf8a"/><circle cx="40" cy="58" r="1.6" fill="#f4f7f9"/>',
+  },
+  {
+    // Le garde-fou au bord d'une île : on s'y accoude pour regarder les nuages, on n'y passe pas.
+    name: 'garde-fou',
+    blocking: true,
+    svg:
+      diamond('#c4c8b0') +
+      '<path d="M10 78 L10 60 M32 90 L32 72 M54 78 L54 60" stroke="#8a6a48" stroke-width="3"/>' +
+      '<path d="M8 62 L32 74 L56 62" stroke="#a07a48" stroke-width="3" fill="none"/>',
+  },
+  {
+    // Une voile accrochée au garde-fou du Lâcher : un tissu couvert d'écriture.
+    name: 'voile-accrochee',
+    svg:
+      '<path d="M10 78 L10 60 M32 90 L32 72 M54 78 L54 60" stroke="#8a6a48" stroke-width="3"/>' +
+      '<path d="M8 62 L32 74 L56 62" stroke="#a07a48" stroke-width="3" fill="none"/>' +
+      '<path d="M36 70 Q46 58 58 54 Q54 66 60 74 Q48 74 38 82 Z" fill="#f4efe2" stroke="#1B1512" stroke-width="0.8"/>' +
+      '<path d="M42 70 L54 62 M43 74 L55 67 M45 77 L54 72" stroke="#5a5048" stroke-width="0.9"/>',
+  },
+  {
+    // Une voile qui passe dans le vent : on l'attrape d'un clic.
+    name: 'voile',
+    svg:
+      '<ellipse cx="32" cy="86" rx="9" ry="3" fill="rgba(0,0,0,0.18)"/>' +
+      '<path d="M18 52 Q30 42 46 46 Q42 58 50 66 Q34 64 22 70 Q26 60 18 52 Z" fill="#f8f4ea" stroke="#1B1512" stroke-width="0.9"/>' +
+      '<path d="M24 54 L40 50 M25 58 L42 55 M26 62 L42 60" stroke="#5a5048" stroke-width="0.9"/>' +
+      '<path d="M46 46 Q54 40 58 44 M22 70 Q14 76 10 72" stroke="#6ab4e0" stroke-width="1.2" fill="none"/>',
+  },
+  {
+    // Le filet d'un attrapeur de voiles, sur sa perche.
+    name: 'filet',
+    blocking: true,
+    svg:
+      diamond('#c4c8b0') +
+      '<path d="M30 86 L34 20" stroke="#8a6a48" stroke-width="3"/>' +
+      '<path d="M34 20 Q50 22 52 40 Q44 50 34 44 Z" fill="none" stroke="#5a4634" stroke-width="1.2"/>' +
+      '<path d="M38 24 L40 46 M44 26 L46 46 M34 32 L52 34 M35 38 L50 42" stroke="#5a4634" stroke-width="0.8"/>',
+  },
+  {
+    // La caisse de Zephyria, ouverte : un rouleau de tissu en sort, couvert des mêmes noms.
+    name: 'caisse-ouverte',
+    blocking: true,
+    cover: 2,
+    svg:
+      diamond('#4e4945') +
+      shadow(20, 7) +
+      '<path d="M12 66 L32 56 L52 66 L52 84 L32 94 L12 84 Z" fill="#5a4a3a" stroke="#1B1512" stroke-width="1.2"/>' +
+      '<path d="M12 66 L32 76 L52 66 M32 76 L32 94" stroke="#1B1512" stroke-width="1"/>' +
+      '<path d="M16 64 L30 50 L36 52 L24 66" fill="#3a3028" stroke="#1B1512" stroke-width="0.8"/>' +
+      '<path d="M36 72 Q48 70 54 60 Q58 50 52 44 Q46 52 40 54 Q42 64 36 72 Z" fill="#f4efe2" stroke="#1B1512" stroke-width="0.8"/>' +
+      '<path d="M44 56 L52 50 M42 62 L52 56" stroke="#5a5048" stroke-width="0.9"/>' +
+      '<rect x="20" y="78" width="6" height="4" fill="#8a8a94" stroke="#1B1512" stroke-width="0.6"/>',
+  },
+  {
+    // Une machine volante légère : un cadre de bois, une toile, deux cristaux.
+    name: 'machine-volante',
+    blocking: true,
+    cover: 2,
+    svg:
+      diamond('#c4c8b0') +
+      shadow(22, 6) +
+      '<path d="M6 46 L32 30 L58 46 L32 54 Z" fill="#f4f7f9" stroke="#1B1512" stroke-width="1"/>' +
+      '<path d="M32 30 L32 54 M18 38 L46 50" stroke="#8a6a48" stroke-width="1.5"/>' +
+      '<path d="M20 56 L44 56 L40 76 L24 76 Z" fill="#c8a878" stroke="#1B1512" stroke-width="1"/>' +
+      '<path d="M22 54 L26 46 M42 54 L38 46 M24 76 L22 84 M40 76 L42 84" stroke="#8a6a48" stroke-width="1.5"/>' +
+      '<path d="M14 58 L18 64 L14 70 L10 64 Z M50 58 L54 64 L50 70 L46 64 Z" fill="#9fd4f0" stroke="#2a5a7a" stroke-width="1"/>',
+  },
+  {
+    // La vigie du Quai : une petite tour de guet, une corde à oiseaux.
+    name: 'vigie',
+    blocking: true,
+    cover: 4,
+    svg:
+      diamond('#c4c8b0') +
+      shadow(14, 5) +
+      '<path d="M20 86 L24 30 M44 86 L40 30 M22 60 L42 60 M23 44 L41 44" stroke="#8a6a48" stroke-width="3"/>' +
+      `<path d="M16 30 L48 30 L44 18 L20 18 Z" fill="#c8a878" stroke="${INK}" stroke-width="1"/>` +
+      '<path d="M14 18 L32 4 L50 18 Z" fill="#f4f7f9" stroke="#1B1512" stroke-width="1"/>' +
+      '<path d="M48 24 Q56 26 58 34" stroke="#7a6a52" stroke-width="1" fill="none"/><path d="M56 34 l4 -2 l-1 4 Z" fill="#3a4a5a"/>',
+  },
+  {
+    // L'arche du Quai : deux poteaux, une traverse, des rubans de vent.
+    name: 'arche-vent',
+    blocking: true,
+    svg:
+      diamond('#c4c8b0') +
+      shadow(24, 6) +
+      '<path d="M10 86 L10 26 M54 86 L54 26" stroke="#8a6a48" stroke-width="5"/>' +
+      `<path d="M4 26 Q32 10 60 26 L60 32 Q32 16 4 32 Z" fill="#c8a878" stroke="${INK}" stroke-width="1"/>` +
+      '<path d="M18 26 Q16 40 22 48 M32 20 Q30 36 36 44 M46 26 Q44 40 50 46" stroke="#6ab4e0" stroke-width="2.5" fill="none"/>' +
+      '<path d="M24 24 Q22 34 26 40 M40 22 Q38 32 42 38" stroke="#f4f7f9" stroke-width="2" fill="none"/>',
+  },
+  {
+    // Une échelle de corde qui pend des nuages, au pays d'en bas : on remonte par là.
+    name: 'echelle-corde',
+    blocking: true,
+    svg:
+      diamond('#4e4945') +
+      '<path d="M24 -4 L24 86 M40 -4 L40 86" stroke="#8a6a48" stroke-width="2"/>' +
+      '<path d="M24 10 L40 10 M24 24 L40 24 M24 38 L40 38 M24 52 L40 52 M24 66 L40 66 M24 80 L40 80" stroke="#a07a48" stroke-width="2.5"/>' +
+      '<ellipse cx="32" cy="2" rx="22" ry="6" fill="#d9e3ea" opacity="0.9"/>',
+  },
+);
+
+// Les habitants d'Aetherhaven (provisoires). Canon [NOTION, Zephyria — Races & peuples] : les Aériens ont la peau pâle,
+// bleu ciel ou crème, des cheveux qui flottent ; les Sylphes sont faits de vent et de lumière ; les Chasseurs d'Orage
+// luisent un peu de turquoise ; les humains portent des vêtements légers.
+const floatingHair = (color) => `<path d="M24 40 Q18 30 22 24 M32 37 Q32 26 36 22 M40 40 Q46 30 44 24" stroke="${color}" stroke-width="2" fill="none"/>`;
+TILES.push(
+  // Ossiane Vire-Nuée, capitaine, Aérienne : veste de pilote bleu nuit, galons d'or pâle, lunettes de vent.
+  npcTile('ossiane', { body: '#2a3a5a', hair: '#e8eef2', skin: '#d8e4ec', accent: '#e2cf8a', extra: floatingHair('#e8eef2') + '<path d="M25 46 L39 46" stroke="#6ab4e0" stroke-width="3"/>' }),
+  // Siffrin Plume-Vive, douze ans, guetteur : une hirondelle sur l'épaule.
+  npcTile('siffrin', { small: true, body: '#6ab4e0', hair: '#c8a060', skin: '#e8d8c8', accent: '#f4f7f9', extra: '<path d="M40 50 l8 -4 l-2 5 l5 1 l-7 2 Z" fill="#3a4a5a"/>' }),
+  // Zélie Chantebrise, aéroprêtresse du Grand Courant : robe blanche, rubans bleus.
+  npcTile('zelie', { body: '#eef2f4', hair: '#e2cf8a', skin: '#e8dcd0', accent: '#6ab4e0', extra: '<path d="M20 60 Q14 70 18 80 M44 60 Q50 70 46 80" stroke="#6ab4e0" stroke-width="2" fill="none"/>' }),
+  // Vessin Clairvol, voilier, humain : tablier de toile, une aiguille, du fil.
+  npcTile('vessin', { body: '#8a7a5a', hair: '#5a3a24', accent: '#f4f7f9', extra: '<rect x="24" y="62" width="16" height="16" fill="#e8dcc4" stroke="#1B1512" stroke-width="0.8"/>' }),
+  // Assel Nuée-Douce, aubergiste : châle crème, une théière.
+  npcTile('assel', { body: '#d8c8a8', hair: '#8a8a94', skin: '#d8e4ec', accent: '#6ab4e0', extra: '<ellipse cx="45" cy="68" rx="5" ry="4" fill="#9fb4c4" stroke="#1B1512" stroke-width="0.8"/>' }),
+  // Shass, une Sylphe : du vent et de la lumière, à demi là.
+  { name: 'shass', sprite: true, svg: '<g opacity="0.72">' + person({ body: '#bfe6ff', hair: '#f4f7f9', skin: '#e8f6ff', accent: '#ffffff' }) + '</g><circle cx="32" cy="58" r="22" fill="#bfe6ff" opacity="0.18"/>' },
+  // Ysolde Cent-Plis, greffière du Registre des Voiles : des tissus pliés sous le bras.
+  npcTile('ysolde', { body: '#5a6a7a', hair: '#e8eef2', skin: '#d8e4ec', accent: '#e2cf8a', extra: floatingHair('#e8eef2') + '<rect x="38" y="58" width="11" height="9" fill="#f4efe2" stroke="#1B1512" stroke-width="0.8"/>' }),
+  // Ravel Sans-Fil, des Ailes Noires : cuir noir, un seul cristal au cou.
+  npcTile('ravel', { body: '#1f1f26', hair: '#2a2420', skin: '#d8dcd0', accent: '#6ab4e0', extra: '<path d="M32 58 L35 63 L32 68 L29 63 Z" fill="#9fd4f0" stroke="#1B1512" stroke-width="0.6"/>' }),
+  // Évrard Tiédevent, aéromancien venu de Cumulus : manteau gris perle, carnet de mesures.
+  npcTile('evrard', { body: '#8a94a0', hair: '#c8c8c8', skin: '#d8e4ec', accent: '#2a5a7a', extra: '<rect x="38" y="60" width="9" height="11" fill="#efe6cf" stroke="#1B1512" stroke-width="0.8"/>' }),
+  // Céleste Fend-l'Air, dix-sept ans, apprentie des Ailes Noires : cuir noir, écharpe bleue au vent.
+  npcTile('celeste', { body: '#2a2a32', hair: '#e8d8b0', skin: '#e8dcd0', accent: '#6ab4e0', extra: '<path d="M26 52 Q16 50 10 56" stroke="#6ab4e0" stroke-width="3" fill="none"/>' }),
+  // Odile, sa mère : laine crème, mains jointes.
+  npcTile('odile', { body: '#d8c8a8', hair: '#a8a29a', skin: '#e8dcd0', accent: '#8a7a5a' }),
+  // Holger Brandt, archiviste de Ferros en fuite : manteau d'encre râpé, une sacoche serrée.
+  npcTile('holger', { body: '#3a3238', hair: '#5a4a3a', accent: '#8a6a48', extra: '<rect x="38" y="62" width="10" height="10" fill="#5a3e2a" stroke="#1B1512" stroke-width="0.8"/>' }),
+  // Bastien Basse-Corniche, descendant d'une vigie : vieux, une longue-vue.
+  npcTile('bastien', { body: '#5a6a5a', hair: '#e0dcd4', skin: '#d8c8b8', accent: '#e2cf8a', extra: '<path d="M44 50 L54 44" stroke="#c9804f" stroke-width="3"/>' }),
+  // Un Gardien du Ciel, Chasseur d'Orage : brassard turquoise, une lueur sur la peau.
+  npcTile('gardien-ciel', { body: '#2a4a5a', hair: '#1a2a32', skin: '#b8dcd8', accent: '#3ae0d0', extra: '<circle cx="32" cy="48" r="11" fill="#3ae0d0" opacity="0.12"/>' }),
+);
+
+// Les bêtes et les gens d'armes d'en bas (chapitre 5). Canon [NOTION, Zephyria — Races & peuples] : les Mantes-ailes,
+// « insectes prédateurs gigantesques, ailes tranchantes ». Les Ailes Noires à gages : cuir noir, un seul cristal.
+TILES.push(
+  {
+    name: 'mante-ailes',
+    sprite: true,
+    svg:
+      shadow(18, 5) +
+      '<path d="M22 84 L26 64 M42 84 L38 64 M28 84 L30 66 M36 84 L34 66" stroke="#5a6a3a" stroke-width="2"/>' +
+      '<ellipse cx="32" cy="60" rx="8" ry="12" fill="#7a8a4a" stroke="#1B1512" stroke-width="1"/>' +
+      '<path d="M32 50 L12 26 L22 52 Z M32 50 L52 26 L42 52 Z" fill="#c8d0d8" stroke="#1B1512" stroke-width="1" opacity="0.9"/>' +
+      '<path d="M14 28 L22 50 M50 28 L42 50" stroke="#ffffff" stroke-width="1.2" opacity="0.8"/>' +
+      '<path d="M28 42 Q22 34 18 40 M36 42 Q42 34 46 40" stroke="#5a6a3a" stroke-width="2.5" fill="none"/>' +
+      '<path d="M26 36 L32 30 L38 36 L32 44 Z" fill="#8a9a5a" stroke="#1B1512" stroke-width="1"/>' +
+      '<circle cx="29" cy="35" r="1.6" fill="#d8504a"/><circle cx="35" cy="35" r="1.6" fill="#d8504a"/>',
+  },
+  npcTile('aile-noire', { body: '#1f1f26', hair: '#3a2a1c', skin: '#c8b8a8', accent: '#6ab4e0', extra: '<path d="M22 50 L42 50" stroke="#2a2a32" stroke-width="5"/><path d="M46 56 L52 76" stroke="#a8a29a" stroke-width="2.5"/>' }),
+);
+
+// La dame en gris, en bas, à la Halte des Cendres (chapitre 5) : la même, la cendre en plus sur le manteau.
+TILES.push(npcTile('edda-halte', { body: '#6a6a70', hair: '#1a1614', skin: '#d9b8a0', accent: '#3a3a40', extra: '<path d="M22 70 L26 76 M38 66 L42 72 M30 78 L34 82" stroke="#9a948e" stroke-width="2"/>' }));

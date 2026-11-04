@@ -1,0 +1,44 @@
+{
+  "id": "carcasse-ilot",
+  "speaker": "carcasse-ilot",
+  "entries": [
+    {
+      "node": "carcasse"
+    }
+  ],
+  "nodes": {
+    "carcasse": {
+      "text": "Une vieille machine à deux cristaux, posée là depuis des années. La toile est partie, le cadre a blanchi. Sous le siège, dans un étui de cuir durci, un cristal azur, fendu, intact.",
+      "options": [
+        {
+          "text": "Le prendre.",
+          "next": "pris",
+          "effects": [
+            {
+              "giveItem": "cristal-second"
+            },
+            {
+              "setFlag": "carcasse-fouillee"
+            },
+            {
+              "giveXp": 15
+            }
+          ]
+        },
+        {
+          "text": "Le laisser.",
+          "next": "fin"
+        }
+      ]
+    },
+    "pris": {
+      "text": "Le cristal chante un peu quand tu le sors de l’étui. Sur l’îlot du vent, le vent ne s’arrête jamais.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

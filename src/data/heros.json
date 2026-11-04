@@ -29,6 +29,14 @@
       "titre": "La voix qui compte",
       "texte": "Une voix d’enfant compte jusqu’à sept, et recommence. Elle compte pour moi.",
       "reve": "Cette nuit, une voix d’enfant compte jusqu’à sept, et recommence. Tu te réveilles en comptant avec elle."
+    },
+    {
+      "id": "ruban",
+      "flag": "heros-fragment-ruban",
+      "chapitre": 6,
+      "titre": "Le ruban",
+      "texte": "Un ruban noué au poignet de l’autre enfant, avec des lettres dessus. Je ne savais pas encore lire.",
+      "reve": "Cette nuit, un ruban flotte au poignet d’un enfant, couvert de lettres. Tu essaies de les lire, et tu te réveilles avant."
     }
   ],
   "manque": "Il manque encore quelque chose. Un quai, peut-être."

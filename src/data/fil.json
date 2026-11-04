@@ -40,6 +40,22 @@
     {
       "quest": "memoires-monde-perdu",
       "texte": "Les sept caisses ont quitté le quai d’Altavent. Une par continent, dit-on, chacune au bout d’une voie endormie. D’autres les cherchent, et paient la dame en gris."
+    },
+    {
+      "flag": "tiroir-vu",
+      "texte": "À Aetherhaven, des bandes de tissu montent de sous les nuages : six prénoms d’enfants, toujours les mêmes. Quarante-deux voyageurs, sept caisses : six par caisse."
+    },
+    {
+      "flag": "edda-ecriture",
+      "texte": "Sur le rouleau de la caisse de Zephyria, la dame en gris a reconnu l’écriture de sa mère. Les six noms, écrits et réécrits, de sa main."
+    },
+    {
+      "flag": "caisse-zephyria-prise",
+      "texte": "La caisse de Zephyria est partie avec la dame en gris, pour ceux qui la paient."
+    },
+    {
+      "flag": "caisse-zephyria-trouvee",
+      "texte": "J’ai la pièce de la caisse de Zephyria. Lourde, froide, et muette."
     }
   ],
   "caisses": [
@@ -57,7 +73,9 @@
     },
     {
       "id": "zephyria",
-      "continent": "Zephyria"
+      "continent": "Zephyria",
+      "trouvee": "caisse-zephyria-trouvee",
+      "prise": "caisse-zephyria-prise"
     },
     {
       "id": "marisol",
@@ -74,10 +92,21 @@
   ],
   "pistes": [
     {
+      "quest": "noms-qui-montent",
+      "status": "done",
+      "texte": "Cinq caisses encore, sur cinq continents. La suite du fil attend que leurs villes s’ouvrent."
+    },
+    {
+      "quest": "noms-qui-montent",
+      "status": "active",
+      "texte": "Aetherhaven : les six noms montent de sous les nuages. Quelqu’un doit descendre.",
+      "cible": "aetherhaven"
+    },
+    {
       "quest": "memoires-monde-perdu",
       "status": "done",
-      "texte": "Zephyria : Altavent, sous les Hauts. Aetherhaven, au sud-ouest, en dirigeable.",
-      "cible": "Zephyria · Aetherhaven"
+      "texte": "Zephyria : Aetherhaven, la cité flottante, au sud-ouest. Le dirigeable de la Confédération y monte ; Hesper a payé ta place.",
+      "cible": "aetherhaven"
     },
     {
       "quest": "memoires-monde-perdu",

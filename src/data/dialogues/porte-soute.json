@@ -1,0 +1,97 @@
+{
+  "id": "porte-soute",
+  "speaker": "porte-soute",
+  "entries": [
+    {
+      "node": "verrouillee"
+    }
+  ],
+  "nodes": {
+    "verrouillee": {
+      "text": "Un dirigeable gris, sans pavillon, au bout du quai. Sous la nacelle, la trappe de la soute est fermée par un cadenas neuf. Un homme d’équipage dort sur un rouleau de cordes.",
+      "options": [
+        {
+          "text": "Crocheter le cadenas.",
+          "next": "ouverte",
+          "roll": {
+            "skill": "crafting",
+            "difficulty": 14
+          },
+          "failNext": "echec"
+        },
+        {
+          "text": "Attendre la nuit, et passer derrière lui.",
+          "requires": [
+            {
+              "moment": "nuit"
+            },
+            {
+              "notFlag": "soute-guettee"
+            }
+          ],
+          "next": "ouverte",
+          "roll": {
+            "skill": "stealth",
+            "difficulty": 14
+          },
+          "failNext": "reveil"
+        },
+        {
+          "text": "Laisser la soute.",
+          "next": "fin"
+        }
+      ]
+    },
+    "echec": {
+      "text": "Le cadenas résiste, et l’homme d’équipage remue dans son sommeil.",
+      "options": [
+        {
+          "text": "Réessayer.",
+          "next": "verrouillee"
+        },
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "reveil": {
+      "text": "L’homme ouvre un œil. — La soute est louée. Repasse quand elle ne le sera plus. Il ne se rendort pas.",
+      "effects": [
+        {
+          "setFlagFor": "soute-guettee",
+          "days": 1
+        }
+      ],
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "ouverte": {
+      "text": "La trappe s’ouvre sur une odeur de toile neuve et de goudron.",
+      "effects": [
+        {
+          "setFlag": "soute-ouverte"
+        }
+      ],
+      "options": [
+        {
+          "text": "Entrer.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "aetherhaven-soute"
+            }
+          ]
+        },
+        {
+          "text": "Plus tard.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

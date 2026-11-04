@@ -1,0 +1,190 @@
+{
+  "id": "vessin",
+  "speaker": "vessin",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "noms-qui-montent",
+          "status": "active"
+        },
+        {
+          "notFlag": "caisse-zephyria-reglee"
+        },
+        {
+          "flag": "machine-vessin"
+        }
+      ],
+      "node": "prete"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Un homme aux mains pleines de fil coud une toile tendue sur un cadre. Il ne lève pas l’aiguille. — Voilerie Clairvol. Des voiles, des cordes, des masques, et des machines, quand on m’apporte de quoi les faire monter.",
+      "options": [
+        {
+          "text": "Voir ce que vous vendez.",
+          "next": "fin",
+          "effects": [
+            {
+              "openTrade": true
+            }
+          ]
+        },
+        {
+          "text": "Une machine, pour descendre sous les nuages ?",
+          "requires": [
+            {
+              "quest": "noms-qui-montent",
+              "status": "active"
+            },
+            {
+              "notFlag": "caisse-zephyria-reglee"
+            },
+            {
+              "flag": "tiroir-vu"
+            }
+          ],
+          "next": "machine"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "machine": {
+      "text": "Vessin pose enfin l’aiguille. — J’ai un cadre et un cristal. Pour le Bas, il en faut deux : le Calme ne pardonne pas. Apportez-moi un second cristal et je grée la machine. Vous la piloterez vous-même : elle est docile.",
+      "options": [
+        {
+          "text": "Voici un second cristal.",
+          "requires": [
+            {
+              "item": "cristal-second"
+            }
+          ],
+          "next": "grement",
+          "effects": [
+            {
+              "takeItem": "cristal-second"
+            }
+          ]
+        },
+        {
+          "text": "Où trouver un second cristal ?",
+          "next": "ou"
+        },
+        {
+          "text": "Plus tard.",
+          "next": "fin"
+        }
+      ]
+    },
+    "ou": {
+      "text": "— Ici, cent vingt Fers. Ou sur l’îlot du vent, à l’est du Nid : une vieille machine s’y est posée il y a des années, et personne n’ose sauter jusque-là. Les Ailes Noires jurent qu’il reste un cristal dans la carcasse.",
+      "options": [
+        {
+          "text": "Voici un second cristal.",
+          "requires": [
+            {
+              "item": "cristal-second"
+            }
+          ],
+          "next": "grement",
+          "effects": [
+            {
+              "takeItem": "cristal-second"
+            }
+          ]
+        },
+        {
+          "text": "Voir ce que vous vendez.",
+          "next": "fin",
+          "effects": [
+            {
+              "openTrade": true
+            }
+          ]
+        },
+        {
+          "text": "Plus tard.",
+          "next": "fin"
+        }
+      ]
+    },
+    "grement": {
+      "text": "Il fixe le cristal sous le cadre, de biais, face au courant de la fenêtre, et la toile se tend toute seule. — Voilà. Deux cristaux, un cadre, et le vent. Elle vous attend au quai.",
+      "effects": [
+        {
+          "setFlag": "machine-vessin"
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "Partir maintenant.",
+          "next": "fin",
+          "effects": [
+            {
+              "setFlag": "descente-vessin"
+            },
+            {
+              "setFlag": "au-bas"
+            },
+            {
+              "avancer": 1
+            },
+            {
+              "goTo": "bas-cendres"
+            }
+          ]
+        },
+        {
+          "text": "Plus tard.",
+          "next": "fin"
+        }
+      ]
+    },
+    "prete": {
+      "text": "— Votre machine vous attend au quai. Deux cristaux, un cadre, et le vent.",
+      "options": [
+        {
+          "text": "Partir maintenant.",
+          "next": "fin",
+          "effects": [
+            {
+              "setFlag": "descente-vessin"
+            },
+            {
+              "setFlag": "au-bas"
+            },
+            {
+              "avancer": 1
+            },
+            {
+              "goTo": "bas-cendres"
+            }
+          ]
+        },
+        {
+          "text": "Voir ce que vous vendez.",
+          "next": "fin",
+          "effects": [
+            {
+              "openTrade": true
+            }
+          ]
+        },
+        {
+          "text": "Pas encore.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

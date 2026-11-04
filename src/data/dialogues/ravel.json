@@ -1,0 +1,193 @@
+{
+  "id": "ravel",
+  "speaker": "ravel",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "noms-qui-montent",
+          "status": "active"
+        },
+        {
+          "notFlag": "caisse-zephyria-reglee"
+        },
+        {
+          "flag": "ravel-paye"
+        }
+      ],
+      "node": "prete"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Un homme en cuir noir, un seul cristal au cou, les pieds sur la table. — Le Perchoir. On vole sans contrat, sans second cristal, sans rien demander à personne. Si tu viens nous dire que c’est dangereux, la porte est derrière toi.",
+      "options": [
+        {
+          "text": "Pourquoi un seul cristal ?",
+          "next": "un"
+        },
+        {
+          "text": "Je dois descendre sous les nuages.",
+          "requires": [
+            {
+              "quest": "noms-qui-montent",
+              "status": "active"
+            },
+            {
+              "notFlag": "caisse-zephyria-reglee"
+            },
+            {
+              "flag": "tiroir-vu"
+            }
+          ],
+          "next": "bas"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "un": {
+      "text": "— Parce que le second, c’est quelqu’un d’autre qui te dit comment voler. « Rien ne doit entraver le vent » : première phrase de la Charte. Aerys l’a écrite. Elle savait ce qu’elle disait.",
+      "options": [
+        {
+          "text": "Elle a aussi écrit la septième voile.",
+          "next": "aerys"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "aerys": {
+      "text": "Ravel sourit, sans gaieté. — Et elle ne l’a jamais imposée. Tu vois ? Même elle.",
+      "options": [
+        {
+          "text": "Autre chose.",
+          "next": "accueil"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "bas": {
+      "text": "— En bas ? Tu es la deuxième cette semaine. La dame en gris a payé deux des miens, hier. Soixante Fers, et je t’emmène moi-même. Un cristal, une machine légère, et tu me dis quand on entre dans le Calme. Si tu sais l’entendre.",
+      "options": [
+        {
+          "text": "Soixante Fers. Allons-y.",
+          "requires": [
+            {
+              "fers": 60
+            }
+          ],
+          "next": "fin",
+          "effects": [
+            {
+              "giveFers": -60
+            },
+            {
+              "setFlag": "ravel-paye"
+            },
+            {
+              "setFlag": "descente-ailes"
+            },
+            {
+              "setFlag": "au-bas"
+            },
+            {
+              "avancer": 1
+            },
+            {
+              "goTo": "bas-cendres"
+            }
+          ]
+        },
+        {
+          "text": "Que voulait la dame en gris ?",
+          "next": "edda"
+        },
+        {
+          "text": "Pas maintenant.",
+          "next": "fin"
+        }
+      ]
+    },
+    "edda": {
+      "text": "— Descendre, remonter, et qu’on ne pose pas de questions. On n’en pose jamais. Elle avait un second cristal dans ses bagages ; mes pilotes ont refusé de le gréer. Il dort dans la soute de son dirigeable, au bout du quai.",
+      "effects": [
+        {
+          "setFlag": "soute-connue"
+        }
+      ],
+      "options": [
+        {
+          "text": "Soixante Fers. Allons-y.",
+          "requires": [
+            {
+              "fers": 60
+            }
+          ],
+          "next": "fin",
+          "effects": [
+            {
+              "giveFers": -60
+            },
+            {
+              "setFlag": "ravel-paye"
+            },
+            {
+              "setFlag": "descente-ailes"
+            },
+            {
+              "setFlag": "au-bas"
+            },
+            {
+              "avancer": 1
+            },
+            {
+              "goTo": "bas-cendres"
+            }
+          ]
+        },
+        {
+          "text": "Pas maintenant.",
+          "next": "fin"
+        }
+      ]
+    },
+    "prete": {
+      "text": "Ravel décroise les pieds. — On redescend ? La machine est dehors. Toujours un seul cristal.",
+      "options": [
+        {
+          "text": "Partir maintenant.",
+          "next": "fin",
+          "effects": [
+            {
+              "setFlag": "descente-ailes"
+            },
+            {
+              "setFlag": "au-bas"
+            },
+            {
+              "avancer": 1
+            },
+            {
+              "goTo": "bas-cendres"
+            }
+          ]
+        },
+        {
+          "text": "Pas encore.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

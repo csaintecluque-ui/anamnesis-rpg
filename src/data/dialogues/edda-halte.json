@@ -1,0 +1,348 @@
+{
+  "id": "edda-halte",
+  "speaker": "edda-halte",
+  "entries": [
+    {
+      "requires": [
+        {
+          "flag": "escorte-edda-vaincue"
+        },
+        {
+          "notFlag": "edda-halte-reglee"
+        }
+      ],
+      "node": "halte-vaincue"
+    },
+    {
+      "requires": [
+        {
+          "flag": "edda-ecriture"
+        },
+        {
+          "notFlag": "edda-halte-reglee"
+        }
+      ],
+      "node": "halte-choix"
+    },
+    {
+      "node": "halte"
+    }
+  ],
+  "nodes": {
+    "halte": {
+      "text": "La dame en gris est assise au bord du quai, le rouleau déroulé sur les genoux, jusqu’à ses pieds, jusque dans la cendre. Elle ne lève pas les yeux. — Ce n’est pas son nom. C’est son écriture.",
+      "effects": [
+        {
+          "setFlag": "edda-ecriture"
+        }
+      ],
+      "options": [
+        {
+          "text": "Votre mère ?",
+          "next": "halte-mere"
+        },
+        {
+          "text": "Qu’y a-t-il dans la caisse ?",
+          "next": "halte-caisse"
+        }
+      ]
+    },
+    "halte-mere": {
+      "text": "— Les six mêmes noms, sur toute la longueur. Elle les a écrits, et réécrits. Elle faisait ça avec nos noms à nous, quand j’étais petite, les soirs où elle avait peur de les perdre. Je croyais que c’était un jeu.",
+      "options": [
+        {
+          "text": "Qu’y a-t-il dans la caisse ?",
+          "next": "halte-caisse"
+        },
+        {
+          "text": "Et maintenant ?",
+          "next": "halte-choix"
+        }
+      ]
+    },
+    "halte-caisse": {
+      "text": "— Une pièce. Lourde, froide. Ceux qui me paient la veulent ; ils ne m’ont jamais dit pour quoi faire, et je n’ai jamais demandé. Moi, je voulais la liste. Je l’ai.",
+      "options": [
+        {
+          "text": "Votre mère ?",
+          "next": "halte-mere"
+        },
+        {
+          "text": "Et maintenant ?",
+          "next": "halte-choix"
+        }
+      ]
+    },
+    "halte-choix": {
+      "text": "Elle roule le tissu lentement, sans le serrer. Derrière elle, les deux Ailes Noires attendent, la main près de la ceinture. — Alors. Qu’est-ce que vous voulez, vous ?",
+      "options": [
+        {
+          "text": "Gardez le rouleau. Je prends la pièce.",
+          "next": "halte-partage"
+        },
+        {
+          "text": "Je prends tout.",
+          "next": "halte-tout"
+        },
+        {
+          "text": "Prenez tout. Je n’en veux pas.",
+          "next": "halte-laissee"
+        },
+        {
+          "text": "Personne ne gardera ces noms.",
+          "next": "halte-lache"
+        }
+      ]
+    },
+    "halte-partage": {
+      "text": "Elle te regarde longtemps, puis pousse la pièce vers toi du bout du pied, sans lâcher le rouleau. — Ceux qui me paient seront déçus. Je leur dirai que vous étiez là avant moi. C’est presque vrai.",
+      "effects": [
+        {
+          "giveItem": "piece-zephyria"
+        },
+        {
+          "setFlag": "caisse-zephyria-trouvee"
+        },
+        {
+          "setFlag": "edda-partage"
+        },
+        {
+          "setFlag": "caisse-zephyria-reglee"
+        },
+        {
+          "setFlag": "edda-halte-reglee"
+        },
+        {
+          "completeQuest": "noms-qui-montent"
+        },
+        {
+          "setFlag": "fin-noms-qui-montent-partage"
+        },
+        {
+          "giveXp": 60
+        }
+      ],
+      "options": [
+        {
+          "text": "La regarder partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "halte-tout": {
+      "text": "Elle sourit pour la première fois, sans joie. — Tout. Bien sûr.",
+      "options": [
+        {
+          "text": "Vous n’en ferez rien de bon. Donnez-les-moi.",
+          "next": "halte-cede",
+          "roll": {
+            "skill": "diplomacy",
+            "difficulty": 15
+          },
+          "failNext": "halte-refus"
+        },
+        {
+          "text": "Je ne vous le demande pas.",
+          "next": "halte-cede",
+          "roll": {
+            "skill": "command",
+            "difficulty": 15
+          },
+          "failNext": "halte-refus"
+        },
+        {
+          "text": "Alors on se bat.",
+          "next": "fin",
+          "effects": [
+            {
+              "startCombat": "escorte-edda"
+            }
+          ]
+        },
+        {
+          "text": "Non. Oublions ça.",
+          "next": "halte-choix"
+        }
+      ]
+    },
+    "halte-refus": {
+      "text": "— Non. Elle se lève, le rouleau contre elle. Derrière elle, les deux Ailes Noires se redressent. — La pièce, venez la prendre, si vous voulez. Le rouleau, jamais.",
+      "options": [
+        {
+          "text": "Alors on se bat.",
+          "next": "fin",
+          "effects": [
+            {
+              "startCombat": "escorte-edda"
+            }
+          ]
+        },
+        {
+          "text": "Gardez le rouleau. Je prends la pièce.",
+          "next": "halte-partage"
+        },
+        {
+          "text": "Prenez tout, alors.",
+          "next": "halte-laissee"
+        }
+      ]
+    },
+    "halte-cede": {
+      "text": "Elle tend le rouleau, et ses doigts ne le lâchent qu’au dernier moment. Puis la pièce. — Vous ne savez même pas ce que c’est. Moi non plus. Ça fait au moins une chose qu’on partage.",
+      "effects": [
+        {
+          "giveItem": "piece-zephyria"
+        },
+        {
+          "setFlag": "caisse-zephyria-trouvee"
+        },
+        {
+          "giveItem": "rouleau-noms"
+        },
+        {
+          "setFlag": "edda-depouillee"
+        },
+        {
+          "setFlag": "caisse-zephyria-reglee"
+        },
+        {
+          "setFlag": "edda-halte-reglee"
+        },
+        {
+          "completeQuest": "noms-qui-montent"
+        },
+        {
+          "setFlag": "fin-noms-qui-montent-tout"
+        },
+        {
+          "giveXp": 60
+        }
+      ],
+      "options": [
+        {
+          "text": "La regarder partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "halte-vaincue": {
+      "text": "Les deux Ailes Noires ont reculé jusqu’à leur machine. La dame en gris n’a pas bougé. Elle tend le rouleau, puis la pièce. — Vous avez gagné. Je ne sais pas quoi, mais vous avez gagné.",
+      "effects": [
+        {
+          "giveItem": "piece-zephyria"
+        },
+        {
+          "setFlag": "caisse-zephyria-trouvee"
+        },
+        {
+          "giveItem": "rouleau-noms"
+        },
+        {
+          "setFlag": "edda-depouillee"
+        },
+        {
+          "setFlag": "caisse-zephyria-reglee"
+        },
+        {
+          "setFlag": "edda-halte-reglee"
+        },
+        {
+          "completeQuest": "noms-qui-montent"
+        },
+        {
+          "setFlag": "fin-noms-qui-montent-tout"
+        },
+        {
+          "giveXp": 60
+        }
+      ],
+      "options": [
+        {
+          "text": "La regarder partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "halte-laissee": {
+      "text": "— Vraiment ? Elle charge la pièce sur l’épaule d’un des pilotes et garde le rouleau contre elle. — Ceux qui me paient vous remercieraient, s’ils savaient remercier. Moi, je vous remercie.",
+      "effects": [
+        {
+          "setFlag": "caisse-zephyria-prise"
+        },
+        {
+          "setFlag": "edda-tout"
+        },
+        {
+          "setFlag": "caisse-zephyria-reglee"
+        },
+        {
+          "setFlag": "edda-halte-reglee"
+        },
+        {
+          "completeQuest": "noms-qui-montent"
+        },
+        {
+          "setFlag": "fin-noms-qui-montent-laissee"
+        },
+        {
+          "giveXp": 40
+        }
+      ],
+      "options": [
+        {
+          "text": "La regarder partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "halte-lache": {
+      "text": "Tu prends le bout du rouleau. Elle ne te retient pas. Le vent du Bas l’emporte d’un coup, et les six noms montent vers les nuages, vers la ville, vers qui voudra les attraper.",
+      "effects": [
+        {
+          "setFlag": "rouleau-lache"
+        }
+      ],
+      "options": [
+        {
+          "text": "Regarder la dame en gris.",
+          "next": "halte-lache-2"
+        }
+      ]
+    },
+    "halte-lache-2": {
+      "text": "Elle regarde le tissu disparaître. — C’était tout ce que j’avais d’elle. Elle se lève, et époussette son manteau. — Prenez la pièce. Je n’ai plus rien à porter.",
+      "effects": [
+        {
+          "giveItem": "piece-zephyria"
+        },
+        {
+          "setFlag": "caisse-zephyria-trouvee"
+        },
+        {
+          "setFlag": "edda-lache"
+        },
+        {
+          "setFlag": "caisse-zephyria-reglee"
+        },
+        {
+          "setFlag": "edda-halte-reglee"
+        },
+        {
+          "completeQuest": "noms-qui-montent"
+        },
+        {
+          "setFlag": "fin-noms-qui-montent-lache"
+        },
+        {
+          "giveXp": 60
+        }
+      ],
+      "options": [
+        {
+          "text": "La regarder partir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

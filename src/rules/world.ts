@@ -27,6 +27,8 @@ export interface WorldPlace {
   voie?: { danger: number };
   /** A town's inn (src/data/locations.json): where one wakes up after a fall (src/rules/repos.ts). */
   auberge?: string;
+  /** A town in the sky (Aetherhaven): reached and left only by airship, for this fare and this many moments. */
+  dirigeable?: { fers: number; moments: number };
 }
 
 export interface WorldDef {
@@ -140,6 +142,42 @@ export function travelTimeLabel(distance: number): string {
   const days = Math.round(distance / WORLD.travel.pixelsPerDay);
   if (days < 1) return 'moins d’un jour de marche';
   return days === 1 ? 'environ un jour de marche' : `environ ${days} jours de marche`;
+}
+
+/** A place counts as reached within this distance (world units). */
+export const AT_PLACE = 12;
+/** Set once the first flight is taken: Hesper has paid for it (chapitre 5, docs/gdd/chapitre-5.md). */
+export const FIRST_FLIGHT_FLAG = 'premier-vol';
+
+type TravelState = Pick<GameState, 'flags' | 'quests' | 'character'>;
+
+/**
+ * A trip to or from a town in the sky is a flight (docs/gdd/chapitre-5.md): the airship of the Confédération calls at
+ * every town. The sky town whose airship it is, or nothing for a walk.
+ */
+export function flightSky(state: TravelState, from: { x: number; y: number }, place: WorldPlace): WorldPlace | undefined {
+  if (place.dirigeable) return place;
+  return knownPlaces(state.flags, state.quests).find((p) => p.dirigeable && distanceBetween(from, p) <= AT_PLACE);
+}
+
+/** The fare: the first flight is paid by Hesper. */
+export function flightFare(state: TravelState, sky: WorldPlace): number {
+  return state.flags[FIRST_FLIGHT_FLAG] ? (sky.dirigeable?.fers ?? 0) : 0;
+}
+
+/** « un jour en dirigeable » : how long a flight lasts. */
+export function flightTimeLabel(sky: WorldPlace): string {
+  const moments = sky.dirigeable?.moments ?? 4;
+  return moments >= 4 ? `${moments === 4 ? 'un jour' : `${Math.round(moments / 4)} jours`} en dirigeable` : 'quelques heures en dirigeable';
+}
+
+/** Pays the fare (false if the purse is too light). */
+export function payFlight(state: TravelState, sky: WorldPlace): boolean {
+  const fare = flightFare(state, sky);
+  if (!state.character || state.character.fers < fare) return false;
+  state.character.fers -= fare;
+  state.flags[FIRST_FLIGHT_FLAG] = true;
+  return true;
 }
 
 /** How many encounter checks happen while the travelled distance goes from `before` to `after`. */

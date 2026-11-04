@@ -296,5 +296,19 @@
       "flag": "conteur-sept-routes-3",
       "points": 3
     }
+  ],
+  "aetherhaven": [
+    {
+      "quest": "noms-qui-montent",
+      "points": 15
+    },
+    {
+      "flag": "edda-sauvee-calme",
+      "points": 5
+    },
+    {
+      "flag": "fin-noms-qui-montent-lache",
+      "points": 5
+    }
   ]
 }

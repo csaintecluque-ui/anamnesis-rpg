@@ -88,6 +88,22 @@
         "danger": 3
       },
       "revealedBy": "connait-depot-sept"
+    },
+    {
+      "id": "aetherhaven",
+      "auberge": "aetherhaven-nid",
+      "name": "Aetherhaven",
+      "x": 130,
+      "y": 440,
+      "location": "aetherhaven-quai",
+      "entrance": "entree",
+      "revealedByQuest": "memoires-monde-perdu",
+      "dirigeable": {
+        "fers": 30,
+        "moments": 4
+      },
+      "description": "La capitale de la Confédération Libre de Zephyria, à trois mille mètres : des îles qui flottent au-dessus d’une mer de nuages. On n’y va qu’en dirigeable.",
+      "revealedBy": "connait-aetherhaven"
     }
   ],
   "rails": [
@@ -109,7 +125,8 @@
       "name": "Zephyria · Aetherhaven",
       "x": 130,
       "y": 440,
-      "hint": "Au sud-ouest, en dirigeable."
+      "hint": "Au sud-ouest, en dirigeable.",
+      "remplacePar": "aetherhaven"
     }
   ],
   "zones": [

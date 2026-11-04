@@ -9,6 +9,27 @@ _(si …)_ = option qui n’apparaît que dans cette situation ; → = où mène
 **🎲 Discrétion 10** = jet de dé (d20 + modificateur + rang contre 10) : → en cas de réussite, ✗ → en cas d’échec.
 🌙 = scène de nuit (le fond s’assombrit).
 
+## Des caisses marquées « E. V. »
+
+_La soute_
+
+Commence par : « caisses »
+
+### caisses
+
+_Effet : retient « achats-edda-vus »._
+
+> Trois caisses marquées « E. V. ». Deux masques de toile, des cordes neuves, des vivres pour quatre jours. Une liste de sa main : six prénoms, six âges. Et, dans un coffret capitonné, un second cristal azur, jamais gréé.
+
+- « Prendre le cristal. » → vol _(donne 1 × « Second cristal azur », retient « cristal-edda-vole »)_
+- « Tout laisser en place. » → **fin**
+
+### vol
+
+> Tu glisses le cristal dans ton sac. Le coffret vide garde sa forme dans le velours. Quelqu’un le remarquera.
+
+- « Partir. » → **fin**
+
 ## Le levier de l’embranchement
 
 _Triage des Cendres_
@@ -562,6 +583,78 @@ _Effet : retient « raconte-arlo », +15 XP._
 
 - « À bientôt, Arlo. » → **fin**
 
+## Assel Nuée-Douce
+
+_Aubergiste du Nid des Nuées_
+
+Commence par : « lettre-prise » _(si quête « Les noms qui montent » terminée)_ _(si repère « caisse-zephyria-prise »)_ _(sans repère « assel-lettre »)_, sinon « lettre » _(si quête « Les noms qui montent » terminée)_ _(sans repère « assel-lettre »)_, sinon « accueil »
+
+### accueil
+
+> Une vieille Aérienne au châle crème verse un thé tiède : à trois mille mètres, l’eau bout avant d’être chaude. — Le Nid des Nuées. Des hamacs, du thé, et du pain, quand le convoi d’en bas est arrivé.
+
+- « Manger ou dormir ? » → servir
+- « Quelles nouvelles ? » → nouvelles
+- « Au revoir. » → **fin**
+
+### servir
+
+> — Du pain d’en bas, du thé d’en haut, ou un hamac. Le pain coûte plus cher que le hamac : il a voyagé plus loin que vous.
+
+- **[12 Fers]** « Du pain et du thé. » → mange _(−12 Fers, +15 PV)_
+- **[10 Fers]** « Un hamac jusqu’au matin. » → dodo _(−10 Fers, dort jusqu’au matin)_
+- **[10 Fers]** « Un hamac jusqu’à la nuit. » → dodo _(−10 Fers, dort jusqu’à la nuit)_
+- « Rien, merci. » → accueil
+
+### mange
+
+> Le pain est rassis, le thé à peine chaud, et c’est le meilleur repas que tu aies fait depuis longtemps. Assel te regarde manger sans rien dire.
+
+- « Merci, Assel. » → accueil
+
+### dodo
+
+> Le hamac tangue au vent. Dehors, les cristaux chantent tout bas, et tu t’endors sur leur note.
+
+- « Se lever. » → **fin**
+
+### nouvelles
+
+> — Le convoi d’en bas est passé hier, sans pirates pour une fois. Et au Registre, Ysolde a reçu une bande sans auteur de plus. Elle les range comme si on allait venir les chercher.
+
+- _(si quête « Les noms qui montent » en cours)_ _(sans repère « edda-halte-reglee »)_ « Une dame en gris a dormi ici ? » → edda
+- « Merci, Assel. » → accueil
+
+### edda
+
+_Effet : retient « edda-liste-recopiee »._
+
+> — Trois nuits, au fond. Elle payait d’avance, en Fers de Ferros, et ne mangeait presque pas. Le soir, elle recopiait la même liste, encore et encore. Je lui ai demandé si c’était une prière. — Non, m’a-t-elle dit. C’est pour ne pas les perdre.
+
+- « Merci, Assel. » → accueil
+
+### lettre
+
+> — Une lettre pour toi, montée avec le courrier de Verdantis. Elle a fait trois villes avant de te trouver.
+
+- « L’ouvrir. » → lettre-texte
+
+### lettre-texte
+
+_Effet : retient « assel-lettre »._
+
+> L’écriture d’Ilyane, qui tremble un peu plus. « Tu m’écris d’en haut ? Je garde tes lettres. Je ne sais plus qui me les envoie, mais je les garde. Ton nom est en haut de chacune : je le lis à voix haute, et pendant un moment, je sais. »
+
+- « Plier la lettre. » → **fin**
+
+### lettre-prise
+
+_Effet : retient « assel-lettre »._
+
+> — Une lettre pour toi, montée avec le courrier de Verdantis. Assel te la tend, et détourne les yeux. L’écriture d’Ilyane tremble beaucoup. Trois lignes. « Je garde tes lettres. Il y a un nom en haut. Je ne sais plus le dire. »
+
+- « Plier la lettre. » → **fin**
+
 ## Boulon
 
 _Ferrôme, porteur à la gare de l’Ouest_
@@ -818,6 +911,50 @@ Commence par : « vide » _(si repère « caisse-prospection-ouverte »)_, sinon
 > La caisse ne contient plus que des outils rouillés.
 
 - « … » → **fin**
+
+## La caisse de Zephyria
+
+_Halte des Cendres_
+
+Commence par : « vide » _(si repère « caisse-zephyria-reglee »)_, sinon « pleine »
+
+### pleine
+
+> Une caisse plombée, ouverte depuis longtemps : le plomb a cédé, le bois a gonflé. Dedans, une forme lourde, emballée de toile. Le rouleau qui en sortait n’y est plus : la dame en gris l’a sur les genoux.
+
+- « Soulever la toile. » → toile
+- « Laisser la caisse. » → **fin**
+
+### toile
+
+> Froid, lourd, et rien que tu reconnaisses. Ni marque, ni mot, ni vis. Une chose faite pour être portée, et pour ne rien dire.
+
+- « Laisser la caisse. » → **fin**
+
+### vide
+
+> La caisse est vide. Au fond, la cendre garde la forme de ce qui y dormait.
+
+- « Laisser la caisse. » → **fin**
+
+## Une carcasse de machine
+
+_L’îlot du vent_
+
+Commence par : « carcasse »
+
+### carcasse
+
+> Une vieille machine à deux cristaux, posée là depuis des années. La toile est partie, le cadre a blanchi. Sous le siège, dans un étui de cuir durci, un cristal azur, fendu, intact.
+
+- « Le prendre. » → pris _(donne 1 × « Second cristal azur », retient « carcasse-fouillee », +15 XP)_
+- « Le laisser. » → **fin**
+
+### pris
+
+> Le cristal chante un peu quand tu le sors de l’étui. Sur l’îlot du vent, le vent ne s’arrête jamais.
+
+- « Partir. » → **fin**
 
 ## Les carnets d’Ilyane
 
@@ -1428,6 +1565,112 @@ _Effet : retient « dorna-cristal »._
 
 - « Merci du conseil. » → accueil
 
+## L’échelle de corde
+
+_Sous les nuages_
+
+Commence par : « attente » _(sans repère « caisse-zephyria-reglee »)_, sinon « calme-deux » _(si repère « descente-compagnie »)_ _(sans repère « calme-passe »)_, sinon « calme-deux » _(si repère « descente-vessin »)_ _(sans repère « calme-passe »)_, sinon « calme-un » _(sans repère « calme-passe »)_, sinon « apres »
+
+### attente
+
+> L’échelle de corde pend des nuages. Là-haut, la machine attend, ancrée au-dessus de la cendre. Tu n’es pas descendu·e jusqu’ici pour remonter les mains vides.
+
+- « Suivre les rails, d’abord. » → **fin**
+
+### calme-deux
+
+_Effet : retient « calme-passe »._
+
+> La machine monte. La cendre s’éclaircit, le ciel blanchit. Vers sept cents mètres, le vent tombe d’un coup : le Calme. Le premier cristal se tait. Le second prend le relais, et la machine passe sans un frisson.
+
+- « Regarder en bas. » → edda-calme
+
+### calme-un
+
+> Ravel tient la barre, les yeux mi-clos. — Dis-moi quand. La cendre s’éclaircit. Le vent faiblit, puis faiblit encore. Tu écoutes.
+
+- _(si repère « septieme-juste »)_ **🎲 Survie 14** « Écouter, comme l’écrit la septième voile. » → calme-passe, ✗ → calme-chute
+- **🎲 Survie 16** « Écouter le vent. » → calme-passe, ✗ → calme-chute
+
+### calme-chute
+
+_Effet : −3 PV, fait passer 1 moment._
+
+> Trop tard. Le cristal se tait, la machine s’arrête, et redescend, lentement, et il n’y a rien à faire. En bas, Ravel te tend sa gourde sans un mot. — On réessaie quand tu veux.
+
+- « Réessayer. » → calme-un
+- « Attendre un peu. » → **fin**
+
+### calme-passe
+
+_Effet : retient « calme-passe », +25 XP._
+
+> — Maintenant ! Ravel pousse la machine avant que le vent ne meure. Le cristal se tait une seconde, puis la machine sort du Calme de l’autre côté, sur sa lancée. Ravel rit, pour la première fois. — Tu l’as entendu.
+
+- « Regarder en bas. » → edda-calme
+
+### edda-calme
+
+> Plus bas, une machine noire ne monte plus. Un seul cristal, éteint. Dedans, deux pilotes qui jurent, et la dame en gris, immobile. Elle redescend, lentement, et il n’y a rien à faire. Sauf toi.
+
+- **🎲 Athlétisme 15** « Lui lancer une corde. » → edda-sauvee, ✗ → edda-manquee
+- _(si l’on porte « Second cristal azur »)_ _(sans repère « cristal-edda-vole »)_ « Lui lancer ton second cristal. » → edda-cristal _(reprend 1 × « Second cristal azur »)_
+- _(si l’on porte « Second cristal azur »)_ _(si repère « cristal-edda-vole »)_ « Lui lancer le cristal pris dans sa soute. » → edda-sien _(reprend 1 × « Second cristal azur »)_
+- « La laisser aux Gardiens du Ciel. » → edda-laissee
+
+### edda-sauvee
+
+_Effet : retient « edda-sauvee-calme », +20 XP._
+
+> La corde se tend. La machine noire remonte dans ton sillage et sort du Calme. La dame en gris lève les yeux vers toi. Elle ne dit pas merci. Elle hoche la tête, une fois, et ne te quitte plus du regard jusqu’au quai.
+
+- « Rentrer au quai. » → arrivee
+
+### edda-cristal
+
+_Effet : retient « edda-sauvee-calme », +20 XP._
+
+> Tu lances le cristal. Un des pilotes l’attrape au vol, le grée de travers, et la machine noire reprend sa montée en tremblant. La dame en gris regarde le cristal, puis toi, longtemps.
+
+- « Rentrer au quai. » → arrivee
+
+### edda-sien
+
+_Effet : retient « edda-sauvee-calme », +20 XP._
+
+> Tu lances le cristal. Un pilote l’attrape, le grée, et la machine noire remonte. La dame en gris le reconnaît : le sien, celui de sa soute. Elle te regarde, et tu ne sais pas si c’est de la colère ou autre chose.
+
+- « Rentrer au quai. » → arrivee
+
+### edda-manquee
+
+_Effet : retient « edda-laissee-calme »._
+
+> La corde file dans le vide, trop courte. La machine noire s’enfonce dans la cendre, lentement. Les Gardiens du Ciel la repêcheront, s’ils arrivent à temps.
+
+- « Rentrer au quai. » → arrivee
+
+### edda-laissee
+
+_Effet : retient « edda-laissee-calme »._
+
+> Tu regardes la machine noire s’enfoncer dans la cendre. Les Gardiens du Ciel la repêcheront, s’ils arrivent à temps. Ils arrivent souvent à temps.
+
+- « Rentrer au quai. » → arrivee
+
+### arrivee
+
+> Le quai, les mâts, le vent. Les gens d’Aetherhaven ne demandent pas d’où tu viens. Ils voient la cendre sur tes vêtements, et ils s’écartent un peu.
+
+- « Descendre de la machine. » → **fin** _(mène à « Aetherhaven — le Quai des Dirigeables », fait passer 1 moment, retient « remonte-du-bas »)_
+
+### apres
+
+> L’échelle de corde pend des nuages. Il n’y a plus rien à chercher en bas.
+
+- « Remonter. » → **fin** _(mène à « Aetherhaven — le Quai des Dirigeables », fait passer 1 moment, retient « remonte-du-bas »)_
+- « Rester encore un peu. » → **fin**
+
 ## L’Écho de la berceuse
 
 _Écho du Passé_
@@ -1621,6 +1864,109 @@ _Effet : retient le Récit « On se retrouvera »._
 > L’Écho rejoue sa promesse. Ta lettre pour Ilyane est dans ta besace : Ragna, à l’atelier Cendrefer, la fera partir.
 
 - « Partir. » → **fin**
+
+## La dame en gris
+
+_Halte des Cendres_
+
+Commence par : « halte-vaincue » _(si repère « escorte-edda-vaincue »)_ _(sans repère « edda-halte-reglee »)_, sinon « halte-choix » _(si repère « edda-ecriture »)_ _(sans repère « edda-halte-reglee »)_, sinon « halte »
+
+### halte
+
+_Effet : retient « edda-ecriture »._
+
+> La dame en gris est assise au bord du quai, le rouleau déroulé sur les genoux, jusqu’à ses pieds, jusque dans la cendre. Elle ne lève pas les yeux. — Ce n’est pas son nom. C’est son écriture.
+
+- « Votre mère ? » → halte-mere
+- « Qu’y a-t-il dans la caisse ? » → halte-caisse
+
+### halte-mere
+
+> — Les six mêmes noms, sur toute la longueur. Elle les a écrits, et réécrits. Elle faisait ça avec nos noms à nous, quand j’étais petite, les soirs où elle avait peur de les perdre. Je croyais que c’était un jeu.
+
+- « Qu’y a-t-il dans la caisse ? » → halte-caisse
+- « Et maintenant ? » → halte-choix
+
+### halte-caisse
+
+> — Une pièce. Lourde, froide. Ceux qui me paient la veulent ; ils ne m’ont jamais dit pour quoi faire, et je n’ai jamais demandé. Moi, je voulais la liste. Je l’ai.
+
+- « Votre mère ? » → halte-mere
+- « Et maintenant ? » → halte-choix
+
+### halte-choix
+
+> Elle roule le tissu lentement, sans le serrer. Derrière elle, les deux Ailes Noires attendent, la main près de la ceinture. — Alors. Qu’est-ce que vous voulez, vous ?
+
+- « Gardez le rouleau. Je prends la pièce. » → halte-partage
+- « Je prends tout. » → halte-tout
+- « Prenez tout. Je n’en veux pas. » → halte-laissee
+- « Personne ne gardera ces noms. » → halte-lache
+
+### halte-partage
+
+_Effet : donne 1 × « Une pièce de la machine », retient « caisse-zephyria-trouvee », retient « edda-partage », retient « caisse-zephyria-reglee », retient « edda-halte-reglee », termine la quête « Les noms qui montent », retient « fin-noms-qui-montent-partage », +60 XP._
+
+> Elle te regarde longtemps, puis pousse la pièce vers toi du bout du pied, sans lâcher le rouleau. — Ceux qui me paient seront déçus. Je leur dirai que vous étiez là avant moi. C’est presque vrai.
+
+- « La regarder partir. » → **fin**
+
+### halte-tout
+
+> Elle sourit pour la première fois, sans joie. — Tout. Bien sûr.
+
+- **🎲 Diplomatie 15** « Vous n’en ferez rien de bon. Donnez-les-moi. » → halte-cede, ✗ → halte-refus
+- **🎲 Commandement 15** « Je ne vous le demande pas. » → halte-cede, ✗ → halte-refus
+- « Alors on se bat. » → **fin** _(lance le combat « escorte-edda »)_
+- « Non. Oublions ça. » → halte-choix
+
+### halte-refus
+
+> — Non. Elle se lève, le rouleau contre elle. Derrière elle, les deux Ailes Noires se redressent. — La pièce, venez la prendre, si vous voulez. Le rouleau, jamais.
+
+- « Alors on se bat. » → **fin** _(lance le combat « escorte-edda »)_
+- « Gardez le rouleau. Je prends la pièce. » → halte-partage
+- « Prenez tout, alors. » → halte-laissee
+
+### halte-cede
+
+_Effet : donne 1 × « Une pièce de la machine », retient « caisse-zephyria-trouvee », donne 1 × « Le rouleau des six noms », retient « edda-depouillee », retient « caisse-zephyria-reglee », retient « edda-halte-reglee », termine la quête « Les noms qui montent », retient « fin-noms-qui-montent-tout », +60 XP._
+
+> Elle tend le rouleau, et ses doigts ne le lâchent qu’au dernier moment. Puis la pièce. — Vous ne savez même pas ce que c’est. Moi non plus. Ça fait au moins une chose qu’on partage.
+
+- « La regarder partir. » → **fin**
+
+### halte-vaincue
+
+_Effet : donne 1 × « Une pièce de la machine », retient « caisse-zephyria-trouvee », donne 1 × « Le rouleau des six noms », retient « edda-depouillee », retient « caisse-zephyria-reglee », retient « edda-halte-reglee », termine la quête « Les noms qui montent », retient « fin-noms-qui-montent-tout », +60 XP._
+
+> Les deux Ailes Noires ont reculé jusqu’à leur machine. La dame en gris n’a pas bougé. Elle tend le rouleau, puis la pièce. — Vous avez gagné. Je ne sais pas quoi, mais vous avez gagné.
+
+- « La regarder partir. » → **fin**
+
+### halte-laissee
+
+_Effet : retient « caisse-zephyria-prise », retient « edda-tout », retient « caisse-zephyria-reglee », retient « edda-halte-reglee », termine la quête « Les noms qui montent », retient « fin-noms-qui-montent-laissee », +40 XP._
+
+> — Vraiment ? Elle charge la pièce sur l’épaule d’un des pilotes et garde le rouleau contre elle. — Ceux qui me paient vous remercieraient, s’ils savaient remercier. Moi, je vous remercie.
+
+- « La regarder partir. » → **fin**
+
+### halte-lache
+
+_Effet : retient « rouleau-lache »._
+
+> Tu prends le bout du rouleau. Elle ne te retient pas. Le vent du Bas l’emporte d’un coup, et les six noms montent vers les nuages, vers la ville, vers qui voudra les attraper.
+
+- « Regarder la dame en gris. » → halte-lache-2
+
+### halte-lache-2
+
+_Effet : donne 1 × « Une pièce de la machine », retient « caisse-zephyria-trouvee », retient « edda-lache », retient « caisse-zephyria-reglee », retient « edda-halte-reglee », termine la quête « Les noms qui montent », retient « fin-noms-qui-montent-lache », +60 XP._
+
+> Elle regarde le tissu disparaître. — C’était tout ce que j’avais d’elle. Elle se lève, et époussette son manteau. — Prenez la pièce. Je n’ai plus rien à porter.
+
+- « La regarder partir. » → **fin**
 
 ## La dame en gris
 
@@ -1915,6 +2261,48 @@ _Effet : retient « marques-rate » pour 1 jours._
 
 - « Partir. » → **fin**
 
+## Évrard Tiédevent
+
+_Aéromancien de Cumulus_
+
+Commence par : « accueil »
+
+### accueil
+
+> Un homme en manteau gris perle compare deux tissus à la loupe, en marmonnant des chiffres. — Neuf pour cent. Neuf ! Pardon. Évrard Tiédevent, aéromancien, de Cumulus. Vous savez lire une vitesse minimale ?
+
+- « Neuf pour cent de quoi ? » → neuf
+- « Le Calme, c’est quoi, au juste ? » → calme
+- « Au revoir. » → **fin**
+
+### neuf
+
+> — Trois des onze états de la septième voile donnent des vitesses minimales trop basses de neuf pour cent. Ce sont les trois plus recopiés, parce que ce sont les plus courts. J’ai demandé au Conseil des Vents d’arrêter une version.
+
+- « Et alors ? » → conseil
+- « Au revoir. » → **fin**
+
+### conseil
+
+> — Le débat est prévu pour six ans. Arrêter une version, c’est faire un livre, disent-ils, et Aerys a refusé le livre. En attendant, un quart des vols privés passent le Calme avec la mauvaise vitesse en tête.
+
+- « Autre chose. » → accueil
+- « Au revoir. » → **fin**
+
+### calme
+
+> — Une couche sans vent, vers sept cents mètres. Elle se déplace, on ne la voit pas. Un cristal ne porte qu’à proportion de l’air qui passe : dans le Calme, il se tait. Avec un seul cristal, il faut l’avoir traversé avant qu’il se taise.
+
+- « Comment on sait qu’on y entre ? » → oreille
+- « Au revoir. » → **fin**
+
+### oreille
+
+> — À l’oreille. Le cristal change de note juste avant. La septième voile le dit, et c’est là que les états ne s’accordent pas. Mauvaise note, mauvais moment.
+
+- « Autre chose. » → accueil
+- « Au revoir. » → **fin**
+
 ## Un Ferrôme au rebut
 
 _Contre le mur de l’atelier Cendrefer_
@@ -2135,6 +2523,44 @@ _Effet : retient « trappe-vue », lance la quête « Les Échos sous la Forge �
 > La forge est froide, et la trappe scellée de l’intérieur. On dit qu’on entend, la nuit, plus de voix sous les pavés qu’avant.
 
 - « Partir. » → **fin**
+
+## Gardienne du Ciel
+
+_Le Quai des Dirigeables_
+
+Commence par : « accueil »
+
+### accueil
+
+> Une femme en uniforme bleu d’orage, un brassard turquoise ; sa peau luit un peu, d’un reflet de foudre. — Bienvenue à Aetherhaven. Je ne demanderai pas d’où vous venez : ça ne se fait pas, chez nous. Il vous faut quelque chose ?
+
+- « Qui êtes-vous ? » → gardiens
+- _(si repère « page-lue »)_ « Une dame en gris est passée par ici ? » → dame
+- « Comment descend-on sous les nuages ? » → bas
+- « Au revoir. » → **fin**
+
+### gardiens
+
+> — Gardienne du Ciel. On règle le trafic, on repêche ceux qui tombent, quand on arrive à temps. Le reste, la Charte s’en charge, ou personne.
+
+- « Autre chose. » → accueil
+- « Au revoir. » → **fin**
+
+### dame
+
+_Effet : retient « perchoir-indique »._
+
+> — Je ne demande pas. Mais je regarde. Un manteau gris, des gants de Ferros. Elle a voulu savoir qui descend sous les nuages. Les compagnies ont dit non. Elle est montée au Perchoir, sur l’îlot du nord-est.
+
+- « Autre chose. » → accueil
+- « Merci. » → **fin**
+
+### bas
+
+> — On n’y descend pas. Les routes déclarées s’arrêtent à la mer de nuages, et le Code de l’Air réserve les altitudes. Ceux qui descendent quand même partent du Perchoir. Ceux qui remontent, on les compte.
+
+- « Autre chose. » → accueil
+- « Merci. » → **fin**
 
 ## Garrik
 
@@ -4344,6 +4770,43 @@ _Effet : retient « raconte-malo », +15 XP._
 
 - « À bientôt, Malo. » → **fin**
 
+## Des Mantes-ailes
+
+_La Voie du Bas_
+
+Commence par : « mantes »
+
+### mantes
+
+> Deux Mantes-ailes sont posées sur les wagons, en travers de la voie. Leurs ailes repliées font un bruit de lames qu’on aiguise. Elles ne t’ont pas encore vu·e.
+
+- « Attaquer. » → **fin** _(lance le combat « mantes-voie »)_
+- **🎲 Discrétion 15** « Passer sous les wagons, sans bruit. » → passe, ✗ → repere
+- _(si l’on porte « Masque de toile »)_ « Attendre qu’elles s’envolent, le masque sur la bouche. » → attente
+- « Reculer. » → **fin**
+
+### passe
+
+_Effet : retient « mantes-voie-passees », +15 XP._
+
+> Tu passes sous le premier wagon sur les coudes. Une aile se déplie au-dessus de toi, se replie. Tu ressors de l’autre côté, gris de la tête aux pieds.
+
+- « Continuer. » → **fin**
+
+### repere
+
+> Une rafale soulève la cendre. Les deux têtes se tournent ensemble vers toi.
+
+- « Se battre. » → **fin** _(lance le combat « mantes-voie »)_
+
+### attente
+
+_Effet : fait passer 2 moments, retient « mantes-voie-passees »._
+
+> Tu t’assois dans la cendre, le masque serré. Les heures passent. Puis, d’un coup, les deux Mantes s’envolent ensemble, vers le haut, et la voie est libre.
+
+- « Continuer. » → **fin**
+
 ## La marchande des nations
 
 _Marché des nations_
@@ -4744,6 +5207,58 @@ _Effet : retient « pim-touche », retient le Récit « L’échelle de Pim », 
 
 - « Le laisser dormir. » → **fin**
 
+## Ossiane Vire-Nuée
+
+_Capitaine de la Compagnie Vire-Nuée_
+
+Commence par : « prete » _(si quête « Les noms qui montent » en cours)_ _(sans repère « caisse-zephyria-reglee »)_ _(si repère « ossiane-accepte »)_, sinon « accueil »
+
+### accueil
+
+> Une Aérienne en veste bleu nuit relève ses lunettes de vent. — Ossiane Vire-Nuée, Compagnie Vire-Nuée. Routes déclarées, deux cristaux par machine, et personne ne tombe. Vous voyagez ?
+
+- « Deux cristaux, toujours ? » → cristaux
+- _(si quête « Les noms qui montent » en cours)_ _(sans repère « caisse-zephyria-reglee »)_ _(si repère « tiroir-vu »)_ _(sans repère « ossiane-refus »)_ « Je dois descendre sous les nuages. » → bas
+- « Au revoir. » → **fin**
+
+### cristaux
+
+> — Toujours. La septième voile le dit, et la Charte ne l’impose pas. Alors c’est nous qui l’imposons, à nos pilotes. Les Ailes Noires appellent ça une entrave. Moi, j’appelle ça rentrer le soir.
+
+- « Autre chose. » → accueil
+- « Au revoir. » → **fin**
+
+### bas
+
+> Ossiane te regarde longtemps. — Le Bas n’est pas une route déclarée. Si je descends et que je ne remonte pas, ce n’est pas moi qui paie : ce sont tous ceux qui croyaient au contrat.
+
+- **🎲 Diplomatie 15** « Une fois. Pour six enfants dont personne ne se souvient. » → accepte, ✗ → refus
+- « Je comprends. » → **fin**
+
+### accepte
+
+_Effet : retient « ossiane-accepte »._
+
+> Elle remet ses lunettes. — Une fois. Deux cristaux, vous ne touchez à rien à bord, et nous remontons avant la nuit. Je ne le fais pas pour vous. Six noms, ça fait six familles qui n’ont jamais su.
+
+- « Partir maintenant. » → **fin** _(retient « descente-compagnie », retient « au-bas », fait passer 1 moment, mène à « Sous les nuages — le pays de cendre »)_
+- « Pas tout de suite. » → **fin**
+
+### refus
+
+_Effet : retient « ossiane-refus »._
+
+> — Non. Si je romps un contrat pour une bonne raison, demain quelqu’un le rompra pour une mauvaise. Allez voir le Perchoir. Ils ne demandent rien, eux. C’est bien leur problème.
+
+- « Merci quand même. » → **fin**
+
+### prete
+
+> — On part quand vous voulez. Deux cristaux, et retour avant la nuit.
+
+- « Partir maintenant. » → **fin** _(retient « descente-compagnie », retient « au-bas », fait passer 1 moment, mène à « Sous les nuages — le pays de cendre »)_
+- « Pas encore. » → **fin**
+
 ## Le contrôleur Ostrik
 
 _Bureau des Transports_
@@ -5125,6 +5640,44 @@ _Effet : −2 PV._
 - « Réessayer. » → verrouillee
 - « Partir. » → **fin**
 
+## La soute d’un dirigeable gris
+
+_Le Quai des Dirigeables_
+
+Commence par : « verrouillee »
+
+### verrouillee
+
+> Un dirigeable gris, sans pavillon, au bout du quai. Sous la nacelle, la trappe de la soute est fermée par un cadenas neuf. Un homme d’équipage dort sur un rouleau de cordes.
+
+- **🎲 Artisanat 14** « Crocheter le cadenas. » → ouverte, ✗ → echec
+- _(la nuit)_ _(sans repère « soute-guettee »)_ **🎲 Discrétion 14** « Attendre la nuit, et passer derrière lui. » → ouverte, ✗ → reveil
+- « Laisser la soute. » → **fin**
+
+### echec
+
+> Le cadenas résiste, et l’homme d’équipage remue dans son sommeil.
+
+- « Réessayer. » → verrouillee
+- « Partir. » → **fin**
+
+### reveil
+
+_Effet : retient « soute-guettee » pour 1 jours._
+
+> L’homme ouvre un œil. — La soute est louée. Repasse quand elle ne le sera plus. Il ne se rendort pas.
+
+- « Partir. » → **fin**
+
+### ouverte
+
+_Effet : retient « soute-ouverte »._
+
+> La trappe s’ouvre sur une odeur de toile neuve et de goudron.
+
+- « Entrer. » → **fin** _(mène à « Aetherhaven — la soute d’un dirigeable »)_
+- « Plus tard. » → **fin**
+
 ## Le portier de nuit
 
 _Gardien de la Bibliothèque, la nuit_
@@ -5152,6 +5705,58 @@ _Effet : retient « portier-aveu », retient le Récit « La dédicace », +20 X
 
 - « Je n’ai rien vu. » → **fin**
 - « Bonne ronde. » → **fin**
+
+## Ravel Sans-Fil
+
+_Des Ailes Noires_
+
+Commence par : « prete » _(si quête « Les noms qui montent » en cours)_ _(sans repère « caisse-zephyria-reglee »)_ _(si repère « ravel-paye »)_, sinon « accueil »
+
+### accueil
+
+> Un homme en cuir noir, un seul cristal au cou, les pieds sur la table. — Le Perchoir. On vole sans contrat, sans second cristal, sans rien demander à personne. Si tu viens nous dire que c’est dangereux, la porte est derrière toi.
+
+- « Pourquoi un seul cristal ? » → un
+- _(si quête « Les noms qui montent » en cours)_ _(sans repère « caisse-zephyria-reglee »)_ _(si repère « tiroir-vu »)_ « Je dois descendre sous les nuages. » → bas
+- « Au revoir. » → **fin**
+
+### un
+
+> — Parce que le second, c’est quelqu’un d’autre qui te dit comment voler. « Rien ne doit entraver le vent » : première phrase de la Charte. Aerys l’a écrite. Elle savait ce qu’elle disait.
+
+- « Elle a aussi écrit la septième voile. » → aerys
+- « Au revoir. » → **fin**
+
+### aerys
+
+> Ravel sourit, sans gaieté. — Et elle ne l’a jamais imposée. Tu vois ? Même elle.
+
+- « Autre chose. » → accueil
+- « Au revoir. » → **fin**
+
+### bas
+
+> — En bas ? Tu es la deuxième cette semaine. La dame en gris a payé deux des miens, hier. Soixante Fers, et je t’emmène moi-même. Un cristal, une machine légère, et tu me dis quand on entre dans le Calme. Si tu sais l’entendre.
+
+- **[60 Fers]** « Soixante Fers. Allons-y. » → **fin** _(−60 Fers, retient « ravel-paye », retient « descente-ailes », retient « au-bas », fait passer 1 moment, mène à « Sous les nuages — le pays de cendre »)_
+- « Que voulait la dame en gris ? » → edda
+- « Pas maintenant. » → **fin**
+
+### edda
+
+_Effet : retient « soute-connue »._
+
+> — Descendre, remonter, et qu’on ne pose pas de questions. On n’en pose jamais. Elle avait un second cristal dans ses bagages ; mes pilotes ont refusé de le gréer. Il dort dans la soute de son dirigeable, au bout du quai.
+
+- **[60 Fers]** « Soixante Fers. Allons-y. » → **fin** _(−60 Fers, retient « ravel-paye », retient « descente-ailes », retient « au-bas », fait passer 1 moment, mène à « Sous les nuages — le pays de cendre »)_
+- « Pas maintenant. » → **fin**
+
+### prete
+
+> Ravel décroise les pieds. — On redescend ? La machine est dehors. Toujours un seul cristal.
+
+- « Partir maintenant. » → **fin** _(retient « descente-ailes », retient « au-bas », fait passer 1 moment, mène à « Sous les nuages — le pays de cendre »)_
+- « Pas encore. » → **fin**
 
 ## Sous le pont
 
@@ -5510,6 +6115,62 @@ Commence par : « cueillir » _(si quête « Les herbes de lisière » en cours)
 - « La cueillir. » → **fin** _(retient « sauge-2-cueillie »)_
 - « La laisser. » → **fin**
 
+## Le bord de l’îlot du vent
+
+_Les Îles-Marchés_
+
+Commence par : « bord »
+
+### bord
+
+> Deux pas de vide entre l’îlot du vent et le bord du Nid. Le vent pousse dans le dos, cette fois.
+
+- **🎲 Athlétisme 14** « Sauter. » → reussi, ✗ → rate
+- « Ne pas sauter. » → **fin**
+
+### reussi
+
+> Tu cours, tu sautes, et le vent te pousse dans le dos. Tu roules sur l’herbe pâle de l’autre côté.
+
+- « Se relever. » → **fin** _(mène à « Aetherhaven — les Îles-Marchés »)_
+
+### rate
+
+_Effet : −2 PV._
+
+> Ton pied touche le bord d’en face et glisse. Tu te rattrapes à une racine du tien, et tu t’écorches les paumes sur la pierre. En dessous, la mer de nuages n’a rien vu.
+
+- « Réessayer. » → bord
+- « Renoncer. » → **fin**
+
+## Le bord de l’îlot
+
+_Les Îles-Marchés_
+
+Commence par : « bord »
+
+### bord
+
+> Deux pas de vide entre le bord et l’îlot du vent. Dessous, la mer de nuages, et plus bas, rien qu’on puisse voir.
+
+- **🎲 Athlétisme 14** « Sauter. » → reussi, ✗ → rate
+- « Ne pas sauter. » → **fin**
+
+### reussi
+
+> Tu cours, tu sautes, et le vent te pousse dans le dos. Tu roules sur l’herbe pâle de l’autre côté.
+
+- « Se relever. » → **fin** _(mène à « Aetherhaven — les Îles-Marchés »)_
+
+### rate
+
+_Effet : −2 PV._
+
+> Ton pied touche le bord d’en face et glisse. Tu te rattrapes à une racine du tien, et tu t’écorches les paumes sur la pierre. En dessous, la mer de nuages n’a rien vu.
+
+- « Réessayer. » → bord
+- « Renoncer. » → **fin**
+
 ## Sévane Mielvert
 
 _Herboriste du Comptoir de la Sève_
@@ -5552,6 +6213,97 @@ Commence par : « accueil »
 > Elle glisse la fiole dans ta main sans la regarder. — Tu ne l’as pas eue ici. Et tu ne l’as pas eue du tout.
 
 - « Merci, Sévane. » → **fin**
+
+## Shass
+
+_Une Sylphe du Temple_
+
+Commence par : « accueil »
+
+### accueil
+
+> Une silhouette de lumière pâle, à demi là. Quand elle parle, le vent parle avec elle. — Tu portes de la cendre. Même quand tu n’en portes pas. Tu viens d’en bas, ou tu vas y aller.
+
+- « Qui es-tu ? » → qui
+- « Tu sens la cendre ? » → cendre
+- « Au revoir. » → **fin**
+
+### qui
+
+> — Shass. Je chante pour le Temple, en Vent-Cantique. Les Aériens volent avec des cristaux ; moi, avec rien. Mais je ne descends jamais : sous le Calme, je m’éteins.
+
+- « Autre chose. » → accueil
+- « Au revoir. » → **fin**
+
+### cendre
+
+> — Je sens ce qui a traversé le Calme. Tout ce qui est passé dessous garde un silence sur lui. Toi, tu as un silence plus ancien. Il ne vient pas d’ici.
+
+- « Autre chose. » → accueil
+- « Au revoir. » → **fin**
+
+## Siffrin Plume-Vive
+
+_Guetteur du Quai_
+
+Commence par : « oiseau » _(si quête « Les noms qui montent » pas commencée)_ _(si quête « Les Mémoires du Monde Perdu » terminée)_, sinon « accueil »
+
+### oiseau
+
+> Un garçon siffle deux notes, et une hirondelle se pose sur son poing. Elle tient dans le bec un bout de tissu gris. — Encore une ! Celle-là vient d’en bas. Regarde : il y a un nom dessus.
+
+- « Montre-moi. » → bande _(lance la quête « Les noms qui montent », retient « bande-vue », donne 1 × « Une bande de tissu »)_
+- « Pas maintenant, Siffrin. » → **fin**
+
+### bande
+
+> « Ama, six ans. » L’encre a bu la cendre, on lit encore. — Il en monte depuis toujours, de sous les nuages. Grand-mère dit que c’est le Bas qui se souvient. Garde-la. Ysolde, au Registre, en a un plein tiroir.
+
+- « Le Bas ? » → le-bas
+- « Où est le Registre ? » → registre
+- « Merci, Siffrin. » → **fin**
+
+### le-bas
+
+> — Le pays d’en bas. Personne n’y va. Avant, on vivait là, dans la cendre, et puis on est montés. Grand-mère dit qu’il faut commencer par le sol, puisque tout le monde l’oublie. C’est dans une voile, ça.
+
+- « Où est le Registre ? » → registre
+- « Merci, Siffrin. » → **fin**
+
+### registre
+
+> — Dans les Îles-Marchés, sur l’îlot du sud. Tu passes le pont, tu descends, tu ne peux pas le rater : c’est la maison où tout le monde entre avec un bout de tissu à la main.
+
+- « Merci, Siffrin. » → **fin**
+
+### accueil
+
+> Siffrin guette le ciel, deux doigts entre les lèvres. — Tu veux voir une hirondelle du Zénith ? Elles disent le temps qu’il fera. Celle-là dit : beau, et du vent.
+
+- « Comment tu les appelles ? » → sifflet
+- _(si quête « Les noms qui montent » en cours)_ « D’autres bandes sont montées ? » → bandes
+- « À bientôt. » → **fin**
+
+### sifflet
+
+> — En sifflant. Les Sylphes parlent comme ça, au Temple, en Vent-Cantique. Moi, je ne connais que quatre mots. Essaie : deux notes courtes, et puis une longue.
+
+- _(sans repère « siffle-avec-siffrin »)_ « Siffler avec lui. » → essai
+- « Une autre fois. » → **fin**
+
+### essai
+
+_Effet : retient « siffle-avec-siffrin », +5 XP._
+
+> Tu siffles. C’est faux. Une hirondelle passe, te regarde, et s’en va. Siffrin rit si fort qu’il manque de tomber de la vigie. — Elle a dit : pas encore.
+
+- « Pas encore. » → **fin**
+
+### bandes
+
+> — Pas depuis la tienne. Elles viennent avec le vent du couchant, toujours au même endroit, au-dessus de la Colonne, le grand courant qui monte. Les vieux disent qu’en dessous il y a une voie.
+
+- « Merci, Siffrin. » → **fin**
 
 ## Sorn
 
@@ -5932,6 +6684,24 @@ Commence par : « apres » _(si quête « L’audience » terminée)_, sinon « 
 
 - « Qu’est-ce que la Voix de Gaïa ? » → role
 - « Que la sève coule. » → **fin**
+
+## Le tiroir des voiles sans auteur
+
+_Registre des Voiles_
+
+Commence par : « ouvert » _(si repère « tiroir-vu »)_, sinon « ferme »
+
+### ferme
+
+> Un tiroir long, fermé à clé, sous le lutrin. Ysolde garde la clé à la ceinture.
+
+- « Laisser le tiroir. » → **fin**
+
+### ouvert
+
+> Des dizaines de bandes grises. Ama, six ans. Joran, huit ans. Sefi, cinq ans. Nilo, sept ans. Brune, neuf ans. Hélie, six ans. Puis de nouveau Ama, et Joran, jusqu’au fond du tiroir.
+
+- « Refermer le tiroir. » → **fin**
 
 ## Tiven
 
@@ -6790,6 +7560,53 @@ _Effet : retient « descente-autorisee »._
 
 - « Merci, Véline. » → **fin**
 
+## Vessin Clairvol
+
+_Voilier_
+
+Commence par : « prete » _(si quête « Les noms qui montent » en cours)_ _(sans repère « caisse-zephyria-reglee »)_ _(si repère « machine-vessin »)_, sinon « accueil »
+
+### accueil
+
+> Un homme aux mains pleines de fil coud une toile tendue sur un cadre. Il ne lève pas l’aiguille. — Voilerie Clairvol. Des voiles, des cordes, des masques, et des machines, quand on m’apporte de quoi les faire monter.
+
+- « Voir ce que vous vendez. » → **fin** _(ouvre le Troc)_
+- _(si quête « Les noms qui montent » en cours)_ _(sans repère « caisse-zephyria-reglee »)_ _(si repère « tiroir-vu »)_ « Une machine, pour descendre sous les nuages ? » → machine
+- « Au revoir. » → **fin**
+
+### machine
+
+> Vessin pose enfin l’aiguille. — J’ai un cadre et un cristal. Pour le Bas, il en faut deux : le Calme ne pardonne pas. Apportez-moi un second cristal et je grée la machine. Vous la piloterez vous-même : elle est docile.
+
+- _(si l’on porte « Second cristal azur »)_ « Voici un second cristal. » → grement _(reprend 1 × « Second cristal azur »)_
+- « Où trouver un second cristal ? » → ou
+- « Plus tard. » → **fin**
+
+### ou
+
+> — Ici, cent vingt Fers. Ou sur l’îlot du vent, à l’est du Nid : une vieille machine s’y est posée il y a des années, et personne n’ose sauter jusque-là. Les Ailes Noires jurent qu’il reste un cristal dans la carcasse.
+
+- _(si l’on porte « Second cristal azur »)_ « Voici un second cristal. » → grement _(reprend 1 × « Second cristal azur »)_
+- « Voir ce que vous vendez. » → **fin** _(ouvre le Troc)_
+- « Plus tard. » → **fin**
+
+### grement
+
+_Effet : retient « machine-vessin », +10 XP._
+
+> Il fixe le cristal sous le cadre, de biais, face au courant de la fenêtre, et la toile se tend toute seule. — Voilà. Deux cristaux, un cadre, et le vent. Elle vous attend au quai.
+
+- « Partir maintenant. » → **fin** _(retient « descente-vessin », retient « au-bas », fait passer 1 moment, mène à « Sous les nuages — le pays de cendre »)_
+- « Plus tard. » → **fin**
+
+### prete
+
+> — Votre machine vous attend au quai. Deux cristaux, un cadre, et le vent.
+
+- « Partir maintenant. » → **fin** _(retient « descente-vessin », retient « au-bas », fait passer 1 moment, mène à « Sous les nuages — le pays de cendre »)_
+- « Voir ce que vous vendez. » → **fin** _(ouvre le Troc)_
+- « Pas encore. » → **fin**
+
 ## La vieille machine
 
 _Ligne qu’on dit maudite_
@@ -6855,3 +7672,124 @@ Commence par : « merci » _(si repère « rencontre-voyageur-aide »)_, sinon �
 > Le voyageur te fait un grand signe. — Cette fois, je tiens la carte dans le bon sens !
 
 - « Bonne route ! » → **fin**
+
+## Ysolde Cent-Plis
+
+_Greffière du Registre des Voiles_
+
+Commence par : « bande » _(si quête « Les noms qui montent » en cours)_ _(si repère « bande-vue »)_ _(sans repère « tiroir-vu »)_, sinon « accueil »
+
+### accueil
+
+> Une femme aux cheveux pâles, qui flottent un peu, plie un tissu en quatre sans le regarder. — Le Registre des Voiles. On compte ce qui passe : combien de fois une voile a été attrapée, recopiée, relâchée. Vous en apportez une ?
+
+- « Que comptez-vous, au juste ? » → compter
+- _(si repère « tiroir-vu »)_ « Revoir le tiroir des voiles sans auteur. » → questions
+- « Au revoir. » → **fin**
+
+### compter
+
+> — Les passages. Une voile vit deux ans, le temps d’un tissu. Si personne ne la recopie, elle tombe et pourrit dans un jardin. Si on la recopie, elle repart. Certaines passent quarante mille fois par an. D’autres dorment.
+
+- « Elles dorment ? » → dorment
+- « Au revoir. » → **fin**
+
+### dorment
+
+> — Quatre voiles ne sont plus recopiées depuis 2659 : les listes de la Pluie, des noms, par années. Nous n’en gardons que les premiers mots. La quatrième commence par « Et pour l’an cinquante ».
+
+- « Autre chose. » → accueil
+- « Au revoir. » → **fin**
+
+### bande
+
+> Ysolde voit la bande grise dans ta main, et pose son tissu. — Ama, six ans. Vous l’avez aussi. Venez.
+
+- « La suivre. » → tiroir
+
+### tiroir
+
+_Effet : retient « tiroir-vu », reprend 1 × « Une bande de tissu »._
+
+> Elle ouvre un tiroir long, sous le lutrin, et glisse ta bande avec les autres : des dizaines, rangées par date. — Les voiles sans auteur. Six noms, toujours les mêmes, qui reviennent : Ama, Joran, Sefi, Nilo, Brune, Hélie.
+
+- « D’où viennent-elles ? » → origine
+- « Qui les a écrites ? » → main
+- « Quelqu’un d’autre les a vues ? » → premiere
+- « Qui descend en bas ? » → descendre
+
+### questions
+
+> Ysolde rouvre le tiroir et attend, une bande entre les doigts.
+
+- « D’où viennent-elles ? » → origine
+- « Qui les a écrites ? » → main
+- « Quelqu’un d’autre les a vues ? » → premiere
+- « Qui descend en bas ? » → descendre
+
+### origine
+
+> — D’un seul point. Les vigies notent où on les attrape : toujours au-dessus de la Colonne, le grand courant qui monte du couchant. Dessous, d’après les vieilles cartes, passe une voie de l’Ancien Monde. Personne n’est allé voir.
+
+- « Autre chose. » → questions
+- « Merci, Ysolde. » → **fin**
+
+### main
+
+> — On ne sait pas. L’encre a bu la cendre : on lit les noms, plus la main. Six enfants, et personne pour les réclamer. Je les range quand même. On ne sait jamais qui viendra les chercher.
+
+- « Autre chose. » → questions
+- « Merci, Ysolde. » → **fin**
+
+### premiere
+
+_Effet : retient « edda-registre-voiles »._
+
+> Elle tourne vers toi le registre des consultations : « E. Varn », d’une écriture serrée. — Une dame en gris. Elle a recopié les six noms, très vite, et elle a demandé qui descend. Je lui ai dit la vérité : personne.
+
+- « Autre chose. » → questions
+- « Merci, Ysolde. » → **fin**
+
+### descendre
+
+> — La Compagnie Vire-Nuée a une route déclarée, et le Bas n’en est pas une. Les Ailes Noires descendent quand on les paie, au Perchoir. Et Vessin, le voilier, a un cadre qui n’attend qu’un cristal de plus.
+
+- « Autre chose. » → questions
+- « Merci, Ysolde. » → **fin**
+
+## Zélie Chantebrise
+
+_Aéroprêtresse du Grand Courant_
+
+Commence par : « accueil »
+
+### accueil
+
+> Une prêtresse en robe blanche, des rubans bleus aux poignets, écoute le vent passer sous le dôme. — Le Temple du Grand Courant. Ceux qui partent y entrent ; ceux qui restent viennent écouter. Vous écoutez ?
+
+- « Le Grand Courant ? » → courant
+- _(si repère « tiroir-vu »)_ « Ceux qui tombent, aussi ? » → tombent
+- « Écouter un moment. » → ecoute
+- « Au revoir. » → **fin**
+
+### courant
+
+> — Le vent qui fait le tour du monde et ne s’arrête jamais. Les morts y entrent, et voyagent. Les Aériens disent qu’on les entend, les soirs de grand vent, dans les cristaux.
+
+- « Autre chose. » → accueil
+- « Au revoir. » → **fin**
+
+### tombent
+
+> Zélie baisse la voix. — Ceux qui tombent aussi. Pendant la Pluie, neuf mille sont entrés dans le Courant ; moins que la cendre n’en aurait pris en bas. C’est vrai, et je ne le dis jamais devant les familles. Ça ne console personne.
+
+- « Autre chose. » → accueil
+- « Au revoir. » → **fin**
+
+### ecoute
+
+_Effet : +5 PV._
+
+> Tu écoutes. Le vent passe sous le dôme, fait chanter les cristaux, et repart. Pendant un instant, tu ne penses à rien. C’est rare.
+
+- « Remercier Zélie. » → **fin**

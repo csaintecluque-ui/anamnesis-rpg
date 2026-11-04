@@ -161,5 +161,16 @@
     "xp": 20,
     "texte": "Le quatre-vingt-unième jour. Trois cents personnes passent la ligne de l’Anneau, en rangs serrés : des Éprouveurs au brassard blanc, des volontaires, un rameur de dix-sept ans. Derrière elles, la main peut de nouveau se lever. Elles le savent. Elles avancent.",
     "don": "command"
+  },
+  {
+    "id": "la-pluie",
+    "titre": "Ceux qui regardaient en l’air",
+    "lieu": "voie-du-bas",
+    "col": 13,
+    "row": 9,
+    "type": "complet",
+    "xp": 20,
+    "texte": "Des gens, un linge sur la bouche, regardent en l’air. Une machine de bois et de toile monte, disparaît dans la cendre, et redescend. Puis une autre. Une femme assise sur une caisse fait un trait dans un carnet à chaque retour. Elle ne lève plus les yeux.",
+    "don": "survival"
   }
 ]

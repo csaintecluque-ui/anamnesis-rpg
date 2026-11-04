@@ -31,6 +31,7 @@ function chapterOfMap(map: string): number | null {
   if (/^(canopee|sol-racines)/.test(map)) return 2;
   if (/^ironheart/.test(map)) return 3;
   if (/^sept-portes/.test(map)) return 4;
+  if (/^(aetherhaven|bas-cendres|voie-du-bas|halte-cendres)/.test(map)) return 5;
   return null;
 }
 

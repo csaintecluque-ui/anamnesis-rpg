@@ -1,0 +1,80 @@
+{
+  "id": "evrard",
+  "speaker": "evrard",
+  "entries": [
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Un homme en manteau gris perle compare deux tissus à la loupe, en marmonnant des chiffres. — Neuf pour cent. Neuf ! Pardon. Évrard Tiédevent, aéromancien, de Cumulus. Vous savez lire une vitesse minimale ?",
+      "options": [
+        {
+          "text": "Neuf pour cent de quoi ?",
+          "next": "neuf"
+        },
+        {
+          "text": "Le Calme, c’est quoi, au juste ?",
+          "next": "calme"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "neuf": {
+      "text": "— Trois des onze états de la septième voile donnent des vitesses minimales trop basses de neuf pour cent. Ce sont les trois plus recopiés, parce que ce sont les plus courts. J’ai demandé au Conseil des Vents d’arrêter une version.",
+      "options": [
+        {
+          "text": "Et alors ?",
+          "next": "conseil"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "conseil": {
+      "text": "— Le débat est prévu pour six ans. Arrêter une version, c’est faire un livre, disent-ils, et Aerys a refusé le livre. En attendant, un quart des vols privés passent le Calme avec la mauvaise vitesse en tête.",
+      "options": [
+        {
+          "text": "Autre chose.",
+          "next": "accueil"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "calme": {
+      "text": "— Une couche sans vent, vers sept cents mètres. Elle se déplace, on ne la voit pas. Un cristal ne porte qu’à proportion de l’air qui passe : dans le Calme, il se tait. Avec un seul cristal, il faut l’avoir traversé avant qu’il se taise.",
+      "options": [
+        {
+          "text": "Comment on sait qu’on y entre ?",
+          "next": "oreille"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "oreille": {
+      "text": "— À l’oreille. Le cristal change de note juste avant. La septième voile le dit, et c’est là que les états ne s’accordent pas. Mauvaise note, mauvais moment.",
+      "options": [
+        {
+          "text": "Autre chose.",
+          "next": "accueil"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

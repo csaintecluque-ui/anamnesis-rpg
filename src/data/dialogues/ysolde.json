@@ -1,0 +1,190 @@
+{
+  "id": "ysolde",
+  "speaker": "ysolde",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "noms-qui-montent",
+          "status": "active"
+        },
+        {
+          "flag": "bande-vue"
+        },
+        {
+          "notFlag": "tiroir-vu"
+        }
+      ],
+      "node": "bande"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Une femme aux cheveux pâles, qui flottent un peu, plie un tissu en quatre sans le regarder. — Le Registre des Voiles. On compte ce qui passe : combien de fois une voile a été attrapée, recopiée, relâchée. Vous en apportez une ?",
+      "options": [
+        {
+          "text": "Que comptez-vous, au juste ?",
+          "next": "compter"
+        },
+        {
+          "text": "Revoir le tiroir des voiles sans auteur.",
+          "requires": [
+            {
+              "flag": "tiroir-vu"
+            }
+          ],
+          "next": "questions"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "compter": {
+      "text": "— Les passages. Une voile vit deux ans, le temps d’un tissu. Si personne ne la recopie, elle tombe et pourrit dans un jardin. Si on la recopie, elle repart. Certaines passent quarante mille fois par an. D’autres dorment.",
+      "options": [
+        {
+          "text": "Elles dorment ?",
+          "next": "dorment"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "dorment": {
+      "text": "— Quatre voiles ne sont plus recopiées depuis 2659 : les listes de la Pluie, des noms, par années. Nous n’en gardons que les premiers mots. La quatrième commence par « Et pour l’an cinquante ».",
+      "options": [
+        {
+          "text": "Autre chose.",
+          "next": "accueil"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "bande": {
+      "text": "Ysolde voit la bande grise dans ta main, et pose son tissu. — Ama, six ans. Vous l’avez aussi. Venez.",
+      "options": [
+        {
+          "text": "La suivre.",
+          "next": "tiroir"
+        }
+      ]
+    },
+    "tiroir": {
+      "text": "Elle ouvre un tiroir long, sous le lutrin, et glisse ta bande avec les autres : des dizaines, rangées par date. — Les voiles sans auteur. Six noms, toujours les mêmes, qui reviennent : Ama, Joran, Sefi, Nilo, Brune, Hélie.",
+      "effects": [
+        {
+          "setFlag": "tiroir-vu"
+        },
+        {
+          "takeItem": "bande-nom"
+        }
+      ],
+      "options": [
+        {
+          "text": "D’où viennent-elles ?",
+          "next": "origine"
+        },
+        {
+          "text": "Qui les a écrites ?",
+          "next": "main"
+        },
+        {
+          "text": "Quelqu’un d’autre les a vues ?",
+          "next": "premiere"
+        },
+        {
+          "text": "Qui descend en bas ?",
+          "next": "descendre"
+        }
+      ]
+    },
+    "questions": {
+      "text": "Ysolde rouvre le tiroir et attend, une bande entre les doigts.",
+      "options": [
+        {
+          "text": "D’où viennent-elles ?",
+          "next": "origine"
+        },
+        {
+          "text": "Qui les a écrites ?",
+          "next": "main"
+        },
+        {
+          "text": "Quelqu’un d’autre les a vues ?",
+          "next": "premiere"
+        },
+        {
+          "text": "Qui descend en bas ?",
+          "next": "descendre"
+        }
+      ]
+    },
+    "origine": {
+      "text": "— D’un seul point. Les vigies notent où on les attrape : toujours au-dessus de la Colonne, le grand courant qui monte du couchant. Dessous, d’après les vieilles cartes, passe une voie de l’Ancien Monde. Personne n’est allé voir.",
+      "options": [
+        {
+          "text": "Autre chose.",
+          "next": "questions"
+        },
+        {
+          "text": "Merci, Ysolde.",
+          "next": "fin"
+        }
+      ]
+    },
+    "main": {
+      "text": "— On ne sait pas. L’encre a bu la cendre : on lit les noms, plus la main. Six enfants, et personne pour les réclamer. Je les range quand même. On ne sait jamais qui viendra les chercher.",
+      "options": [
+        {
+          "text": "Autre chose.",
+          "next": "questions"
+        },
+        {
+          "text": "Merci, Ysolde.",
+          "next": "fin"
+        }
+      ]
+    },
+    "premiere": {
+      "text": "Elle tourne vers toi le registre des consultations : « E. Varn », d’une écriture serrée. — Une dame en gris. Elle a recopié les six noms, très vite, et elle a demandé qui descend. Je lui ai dit la vérité : personne.",
+      "effects": [
+        {
+          "setFlag": "edda-registre-voiles"
+        }
+      ],
+      "options": [
+        {
+          "text": "Autre chose.",
+          "next": "questions"
+        },
+        {
+          "text": "Merci, Ysolde.",
+          "next": "fin"
+        }
+      ]
+    },
+    "descendre": {
+      "text": "— La Compagnie Vire-Nuée a une route déclarée, et le Bas n’en est pas une. Les Ailes Noires descendent quand on les paie, au Perchoir. Et Vessin, le voilier, a un cadre qui n’attend qu’un cristal de plus.",
+      "options": [
+        {
+          "text": "Autre chose.",
+          "next": "questions"
+        },
+        {
+          "text": "Merci, Ysolde.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

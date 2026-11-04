@@ -699,5 +699,115 @@
     "id": "echo-trois-cents",
     "name": "Un Écho",
     "role": "Les Trois Cents"
+  },
+  {
+    "id": "gardien-ciel",
+    "name": "Gardienne du Ciel",
+    "role": "Le Quai des Dirigeables"
+  },
+  {
+    "id": "siffrin",
+    "name": "Siffrin Plume-Vive",
+    "role": "Guetteur du Quai"
+  },
+  {
+    "id": "vessin",
+    "name": "Vessin Clairvol",
+    "role": "Voilier",
+    "sells": [
+      "masque-toile",
+      "cristal-second",
+      "lampe-cristal"
+    ]
+  },
+  {
+    "id": "ossiane",
+    "name": "Ossiane Vire-Nuée",
+    "role": "Capitaine de la Compagnie Vire-Nuée"
+  },
+  {
+    "id": "ravel",
+    "name": "Ravel Sans-Fil",
+    "role": "Des Ailes Noires"
+  },
+  {
+    "id": "assel",
+    "name": "Assel Nuée-Douce",
+    "role": "Aubergiste du Nid des Nuées"
+  },
+  {
+    "id": "ysolde",
+    "name": "Ysolde Cent-Plis",
+    "role": "Greffière du Registre des Voiles"
+  },
+  {
+    "id": "zelie",
+    "name": "Zélie Chantebrise",
+    "role": "Aéroprêtresse du Grand Courant"
+  },
+  {
+    "id": "shass",
+    "name": "Shass",
+    "role": "Une Sylphe du Temple"
+  },
+  {
+    "id": "evrard",
+    "name": "Évrard Tiédevent",
+    "role": "Aéromancien de Cumulus"
+  },
+  {
+    "id": "tiroir-voiles",
+    "name": "Le tiroir des voiles sans auteur",
+    "role": "Registre des Voiles"
+  },
+  {
+    "id": "caisse-zephyria",
+    "name": "La caisse de Zephyria",
+    "role": "Halte des Cendres"
+  },
+  {
+    "id": "echelle-remontee",
+    "name": "L’échelle de corde",
+    "role": "Sous les nuages"
+  },
+  {
+    "id": "porte-soute",
+    "name": "La soute d’un dirigeable gris",
+    "role": "Le Quai des Dirigeables"
+  },
+  {
+    "id": "achats-edda",
+    "name": "Des caisses marquées « E. V. »",
+    "role": "La soute"
+  },
+  {
+    "id": "carcasse-ilot",
+    "name": "Une carcasse de machine",
+    "role": "L’îlot du vent"
+  },
+  {
+    "id": "saut-ilot-vent",
+    "name": "Le bord de l’îlot",
+    "role": "Les Îles-Marchés"
+  },
+  {
+    "id": "saut-ilot-retour",
+    "name": "Le bord de l’îlot du vent",
+    "role": "Les Îles-Marchés"
+  },
+  {
+    "id": "mantes-voie",
+    "name": "Des Mantes-ailes",
+    "role": "La Voie du Bas"
+  },
+  {
+    "id": "edda-halte",
+    "name": "La dame en gris",
+    "role": "Halte des Cendres"
+  },
+  {
+    "id": "echo-la-pluie",
+    "name": "Un Écho",
+    "role": "La Voie du Bas"
   }
 ]

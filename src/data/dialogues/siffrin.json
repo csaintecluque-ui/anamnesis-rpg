@@ -1,0 +1,154 @@
+{
+  "id": "siffrin",
+  "speaker": "siffrin",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "noms-qui-montent",
+          "status": "none"
+        },
+        {
+          "quest": "memoires-monde-perdu",
+          "status": "done"
+        }
+      ],
+      "node": "oiseau"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "oiseau": {
+      "text": "Un garçon siffle deux notes, et une hirondelle se pose sur son poing. Elle tient dans le bec un bout de tissu gris. — Encore une ! Celle-là vient d’en bas. Regarde : il y a un nom dessus.",
+      "options": [
+        {
+          "text": "Montre-moi.",
+          "next": "bande",
+          "effects": [
+            {
+              "startQuest": "noms-qui-montent"
+            },
+            {
+              "setFlag": "bande-vue"
+            },
+            {
+              "giveItem": "bande-nom"
+            }
+          ]
+        },
+        {
+          "text": "Pas maintenant, Siffrin.",
+          "next": "fin"
+        }
+      ]
+    },
+    "bande": {
+      "text": "« Ama, six ans. » L’encre a bu la cendre, on lit encore. — Il en monte depuis toujours, de sous les nuages. Grand-mère dit que c’est le Bas qui se souvient. Garde-la. Ysolde, au Registre, en a un plein tiroir.",
+      "options": [
+        {
+          "text": "Le Bas ?",
+          "next": "le-bas"
+        },
+        {
+          "text": "Où est le Registre ?",
+          "next": "registre"
+        },
+        {
+          "text": "Merci, Siffrin.",
+          "next": "fin"
+        }
+      ]
+    },
+    "le-bas": {
+      "text": "— Le pays d’en bas. Personne n’y va. Avant, on vivait là, dans la cendre, et puis on est montés. Grand-mère dit qu’il faut commencer par le sol, puisque tout le monde l’oublie. C’est dans une voile, ça.",
+      "options": [
+        {
+          "text": "Où est le Registre ?",
+          "next": "registre"
+        },
+        {
+          "text": "Merci, Siffrin.",
+          "next": "fin"
+        }
+      ]
+    },
+    "registre": {
+      "text": "— Dans les Îles-Marchés, sur l’îlot du sud. Tu passes le pont, tu descends, tu ne peux pas le rater : c’est la maison où tout le monde entre avec un bout de tissu à la main.",
+      "options": [
+        {
+          "text": "Merci, Siffrin.",
+          "next": "fin"
+        }
+      ]
+    },
+    "accueil": {
+      "text": "Siffrin guette le ciel, deux doigts entre les lèvres. — Tu veux voir une hirondelle du Zénith ? Elles disent le temps qu’il fera. Celle-là dit : beau, et du vent.",
+      "options": [
+        {
+          "text": "Comment tu les appelles ?",
+          "next": "sifflet"
+        },
+        {
+          "text": "D’autres bandes sont montées ?",
+          "requires": [
+            {
+              "quest": "noms-qui-montent",
+              "status": "active"
+            }
+          ],
+          "next": "bandes"
+        },
+        {
+          "text": "À bientôt.",
+          "next": "fin"
+        }
+      ]
+    },
+    "sifflet": {
+      "text": "— En sifflant. Les Sylphes parlent comme ça, au Temple, en Vent-Cantique. Moi, je ne connais que quatre mots. Essaie : deux notes courtes, et puis une longue.",
+      "options": [
+        {
+          "text": "Siffler avec lui.",
+          "requires": [
+            {
+              "notFlag": "siffle-avec-siffrin"
+            }
+          ],
+          "next": "essai"
+        },
+        {
+          "text": "Une autre fois.",
+          "next": "fin"
+        }
+      ]
+    },
+    "essai": {
+      "text": "Tu siffles. C’est faux. Une hirondelle passe, te regarde, et s’en va. Siffrin rit si fort qu’il manque de tomber de la vigie. — Elle a dit : pas encore.",
+      "effects": [
+        {
+          "setFlag": "siffle-avec-siffrin"
+        },
+        {
+          "giveXp": 5
+        }
+      ],
+      "options": [
+        {
+          "text": "Pas encore.",
+          "next": "fin"
+        }
+      ]
+    },
+    "bandes": {
+      "text": "— Pas depuis la tienne. Elles viennent avec le vent du couchant, toujours au même endroit, au-dessus de la Colonne, le grand courant qui monte. Les vieux disent qu’en dessous il y a une voie.",
+      "options": [
+        {
+          "text": "Merci, Siffrin.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

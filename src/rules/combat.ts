@@ -420,7 +420,7 @@ export function makeEnemyCombatant(enemy: EnemyDef, id: string, tile: Tile): Com
 // --- The strength of the road (feuille de route, chantier 3) ------------------------------------------------------
 
 /** The main quests that close each chapter: the story's chapter is one more than those done. */
-export const CHAPTER_QUESTS = ['dernier-train', 'audience', 'cle-rouille-bleue', 'memoires-monde-perdu'];
+export const CHAPTER_QUESTS = ['dernier-train', 'audience', 'cle-rouille-bleue', 'memoires-monde-perdu', 'noms-qui-montent'];
 
 export function storyChapter(quests: Record<string, string>): number {
   return 1 + CHAPTER_QUESTS.filter((q) => quests[q] === 'done').length;

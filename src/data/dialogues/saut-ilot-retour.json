@@ -1,0 +1,62 @@
+{
+  "id": "saut-ilot-retour",
+  "speaker": "saut-ilot-retour",
+  "entries": [
+    {
+      "node": "bord"
+    }
+  ],
+  "nodes": {
+    "bord": {
+      "text": "Deux pas de vide entre l’îlot du vent et le bord du Nid. Le vent pousse dans le dos, cette fois.",
+      "options": [
+        {
+          "text": "Sauter.",
+          "next": "reussi",
+          "roll": {
+            "skill": "athletics",
+            "difficulty": 14
+          },
+          "failNext": "rate"
+        },
+        {
+          "text": "Ne pas sauter.",
+          "next": "fin"
+        }
+      ]
+    },
+    "reussi": {
+      "text": "Tu cours, tu sautes, et le vent te pousse dans le dos. Tu roules sur l’herbe pâle de l’autre côté.",
+      "options": [
+        {
+          "text": "Se relever.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "aetherhaven-marches",
+              "arrivee": "ilot-nid-arrivee"
+            }
+          ]
+        }
+      ]
+    },
+    "rate": {
+      "text": "Ton pied touche le bord d’en face et glisse. Tu te rattrapes à une racine du tien, et tu t’écorches les paumes sur la pierre. En dessous, la mer de nuages n’a rien vu.",
+      "effects": [
+        {
+          "blesser": 2
+        }
+      ],
+      "options": [
+        {
+          "text": "Réessayer.",
+          "next": "bord"
+        },
+        {
+          "text": "Renoncer.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

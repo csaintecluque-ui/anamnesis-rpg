@@ -1,0 +1,206 @@
+{
+  "id": "assel",
+  "speaker": "assel",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "noms-qui-montent",
+          "status": "done"
+        },
+        {
+          "flag": "caisse-zephyria-prise"
+        },
+        {
+          "notFlag": "assel-lettre"
+        }
+      ],
+      "node": "lettre-prise"
+    },
+    {
+      "requires": [
+        {
+          "quest": "noms-qui-montent",
+          "status": "done"
+        },
+        {
+          "notFlag": "assel-lettre"
+        }
+      ],
+      "node": "lettre"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Une vieille Aérienne au châle crème verse un thé tiède : à trois mille mètres, l’eau bout avant d’être chaude. — Le Nid des Nuées. Des hamacs, du thé, et du pain, quand le convoi d’en bas est arrivé.",
+      "options": [
+        {
+          "text": "Manger ou dormir ?",
+          "next": "servir"
+        },
+        {
+          "text": "Quelles nouvelles ?",
+          "next": "nouvelles"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "servir": {
+      "text": "— Du pain d’en bas, du thé d’en haut, ou un hamac. Le pain coûte plus cher que le hamac : il a voyagé plus loin que vous.",
+      "options": [
+        {
+          "text": "Du pain et du thé.",
+          "requires": [
+            {
+              "fers": 12
+            }
+          ],
+          "next": "mange",
+          "effects": [
+            {
+              "giveFers": -12
+            },
+            {
+              "heal": 15
+            }
+          ]
+        },
+        {
+          "text": "Un hamac jusqu’au matin.",
+          "requires": [
+            {
+              "fers": 10
+            }
+          ],
+          "next": "dodo",
+          "effects": [
+            {
+              "giveFers": -10
+            },
+            {
+              "dormir": "matin"
+            }
+          ]
+        },
+        {
+          "text": "Un hamac jusqu’à la nuit.",
+          "requires": [
+            {
+              "fers": 10
+            }
+          ],
+          "next": "dodo",
+          "effects": [
+            {
+              "giveFers": -10
+            },
+            {
+              "dormir": "nuit"
+            }
+          ]
+        },
+        {
+          "text": "Rien, merci.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "mange": {
+      "text": "Le pain est rassis, le thé à peine chaud, et c’est le meilleur repas que tu aies fait depuis longtemps. Assel te regarde manger sans rien dire.",
+      "options": [
+        {
+          "text": "Merci, Assel.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "dodo": {
+      "text": "Le hamac tangue au vent. Dehors, les cristaux chantent tout bas, et tu t’endors sur leur note.",
+      "options": [
+        {
+          "text": "Se lever.",
+          "next": "fin"
+        }
+      ]
+    },
+    "nouvelles": {
+      "text": "— Le convoi d’en bas est passé hier, sans pirates pour une fois. Et au Registre, Ysolde a reçu une bande sans auteur de plus. Elle les range comme si on allait venir les chercher.",
+      "options": [
+        {
+          "text": "Une dame en gris a dormi ici ?",
+          "requires": [
+            {
+              "quest": "noms-qui-montent",
+              "status": "active"
+            },
+            {
+              "notFlag": "edda-halte-reglee"
+            }
+          ],
+          "next": "edda"
+        },
+        {
+          "text": "Merci, Assel.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "edda": {
+      "text": "— Trois nuits, au fond. Elle payait d’avance, en Fers de Ferros, et ne mangeait presque pas. Le soir, elle recopiait la même liste, encore et encore. Je lui ai demandé si c’était une prière. — Non, m’a-t-elle dit. C’est pour ne pas les perdre.",
+      "effects": [
+        {
+          "setFlag": "edda-liste-recopiee"
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Assel.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "lettre": {
+      "text": "— Une lettre pour toi, montée avec le courrier de Verdantis. Elle a fait trois villes avant de te trouver.",
+      "options": [
+        {
+          "text": "L’ouvrir.",
+          "next": "lettre-texte"
+        }
+      ]
+    },
+    "lettre-texte": {
+      "text": "L’écriture d’Ilyane, qui tremble un peu plus. « Tu m’écris d’en haut ? Je garde tes lettres. Je ne sais plus qui me les envoie, mais je les garde. Ton nom est en haut de chacune : je le lis à voix haute, et pendant un moment, je sais. »",
+      "effects": [
+        {
+          "setFlag": "assel-lettre"
+        }
+      ],
+      "options": [
+        {
+          "text": "Plier la lettre.",
+          "next": "fin"
+        }
+      ]
+    },
+    "lettre-prise": {
+      "text": "— Une lettre pour toi, montée avec le courrier de Verdantis. Assel te la tend, et détourne les yeux. L’écriture d’Ilyane tremble beaucoup. Trois lignes. « Je garde tes lettres. Il y a un nom en haut. Je ne sais plus le dire. »",
+      "effects": [
+        {
+          "setFlag": "assel-lettre"
+        }
+      ],
+      "options": [
+        {
+          "text": "Plier la lettre.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

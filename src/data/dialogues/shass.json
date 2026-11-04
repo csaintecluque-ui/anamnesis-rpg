@@ -1,0 +1,54 @@
+{
+  "id": "shass",
+  "speaker": "shass",
+  "entries": [
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Une silhouette de lumière pâle, à demi là. Quand elle parle, le vent parle avec elle. — Tu portes de la cendre. Même quand tu n’en portes pas. Tu viens d’en bas, ou tu vas y aller.",
+      "options": [
+        {
+          "text": "Qui es-tu ?",
+          "next": "qui"
+        },
+        {
+          "text": "Tu sens la cendre ?",
+          "next": "cendre"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "qui": {
+      "text": "— Shass. Je chante pour le Temple, en Vent-Cantique. Les Aériens volent avec des cristaux ; moi, avec rien. Mais je ne descends jamais : sous le Calme, je m’éteins.",
+      "options": [
+        {
+          "text": "Autre chose.",
+          "next": "accueil"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "cendre": {
+      "text": "— Je sens ce qui a traversé le Calme. Tout ce qui est passé dessous garde un silence sur lui. Toi, tu as un silence plus ancien. Il ne vient pas d’ici.",
+      "options": [
+        {
+          "text": "Autre chose.",
+          "next": "accueil"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

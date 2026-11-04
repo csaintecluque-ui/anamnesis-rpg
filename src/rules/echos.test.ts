@@ -15,8 +15,8 @@ import { choose, testCharacter } from './questTestKit';
 const game = () => createNewGame(testCharacter());
 
 describe('the Échos', () => {
-  it('are thirteen, each on a free cell of its place, off the passers-by’s paths', () => {
-    expect(ECHOS).toHaveLength(13);
+  it('are fourteen, each on a free cell of its place, off the passers-by’s paths', () => {
+    expect(ECHOS).toHaveLength(14);
     for (const e of ECHOS) {
       const location = findLocation(e.lieu);
       expect(location, e.id).toBeDefined();
@@ -90,7 +90,8 @@ describe('the emprise', () => {
     expect(echoObjects('canopee-ramures', 4)).toEqual([]);
     expect(echoObjects('canopee-ramures', 5).map((o) => o.name)).toEqual(['echo-conseil']);
     expect(ECHOS.filter((e) => e.memoire).length).toBe(5);
-    expect(new Set(ECHOS.map((e) => e.don)).size).toBe(ECHOS.length);
+    // Each skill has its Écho (thirteen skills ; the Voie du Bas gives Survie again, chapitre 5).
+    expect(new Set(ECHOS.map((e) => e.don)).size).toBe(13);
   });
 
   it('loosens with a night’s sleep', () => {

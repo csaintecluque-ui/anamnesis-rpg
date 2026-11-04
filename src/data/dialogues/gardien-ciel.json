@@ -1,0 +1,81 @@
+{
+  "id": "gardien-ciel",
+  "speaker": "gardien-ciel",
+  "entries": [
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Une femme en uniforme bleu d’orage, un brassard turquoise ; sa peau luit un peu, d’un reflet de foudre. — Bienvenue à Aetherhaven. Je ne demanderai pas d’où vous venez : ça ne se fait pas, chez nous. Il vous faut quelque chose ?",
+      "options": [
+        {
+          "text": "Qui êtes-vous ?",
+          "next": "gardiens"
+        },
+        {
+          "text": "Une dame en gris est passée par ici ?",
+          "requires": [
+            {
+              "flag": "page-lue"
+            }
+          ],
+          "next": "dame"
+        },
+        {
+          "text": "Comment descend-on sous les nuages ?",
+          "next": "bas"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "gardiens": {
+      "text": "— Gardienne du Ciel. On règle le trafic, on repêche ceux qui tombent, quand on arrive à temps. Le reste, la Charte s’en charge, ou personne.",
+      "options": [
+        {
+          "text": "Autre chose.",
+          "next": "accueil"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "dame": {
+      "text": "— Je ne demande pas. Mais je regarde. Un manteau gris, des gants de Ferros. Elle a voulu savoir qui descend sous les nuages. Les compagnies ont dit non. Elle est montée au Perchoir, sur l’îlot du nord-est.",
+      "effects": [
+        {
+          "setFlag": "perchoir-indique"
+        }
+      ],
+      "options": [
+        {
+          "text": "Autre chose.",
+          "next": "accueil"
+        },
+        {
+          "text": "Merci.",
+          "next": "fin"
+        }
+      ]
+    },
+    "bas": {
+      "text": "— On n’y descend pas. Les routes déclarées s’arrêtent à la mer de nuages, et le Code de l’Air réserve les altitudes. Ceux qui descendent quand même partent du Perchoir. Ceux qui remontent, on les compte.",
+      "options": [
+        {
+          "text": "Autre chose.",
+          "next": "accueil"
+        },
+        {
+          "text": "Merci.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

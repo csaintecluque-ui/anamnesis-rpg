@@ -1,0 +1,37 @@
+{
+  "id": "tiroir-voiles",
+  "speaker": "tiroir-voiles",
+  "entries": [
+    {
+      "requires": [
+        {
+          "flag": "tiroir-vu"
+        }
+      ],
+      "node": "ouvert"
+    },
+    {
+      "node": "ferme"
+    }
+  ],
+  "nodes": {
+    "ferme": {
+      "text": "Un tiroir long, fermé à clé, sous le lutrin. Ysolde garde la clé à la ceinture.",
+      "options": [
+        {
+          "text": "Laisser le tiroir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "ouvert": {
+      "text": "Des dizaines de bandes grises. Ama, six ans. Joran, huit ans. Sefi, cinq ans. Nilo, sept ans. Brune, neuf ans. Hélie, six ans. Puis de nouveau Ama, et Joran, jusqu’au fond du tiroir.",
+      "options": [
+        {
+          "text": "Refermer le tiroir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

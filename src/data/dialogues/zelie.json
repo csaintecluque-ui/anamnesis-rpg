@@ -1,0 +1,77 @@
+{
+  "id": "zelie",
+  "speaker": "zelie",
+  "entries": [
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Une prêtresse en robe blanche, des rubans bleus aux poignets, écoute le vent passer sous le dôme. — Le Temple du Grand Courant. Ceux qui partent y entrent ; ceux qui restent viennent écouter. Vous écoutez ?",
+      "options": [
+        {
+          "text": "Le Grand Courant ?",
+          "next": "courant"
+        },
+        {
+          "text": "Ceux qui tombent, aussi ?",
+          "requires": [
+            {
+              "flag": "tiroir-vu"
+            }
+          ],
+          "next": "tombent"
+        },
+        {
+          "text": "Écouter un moment.",
+          "next": "ecoute"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "courant": {
+      "text": "— Le vent qui fait le tour du monde et ne s’arrête jamais. Les morts y entrent, et voyagent. Les Aériens disent qu’on les entend, les soirs de grand vent, dans les cristaux.",
+      "options": [
+        {
+          "text": "Autre chose.",
+          "next": "accueil"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "tombent": {
+      "text": "Zélie baisse la voix. — Ceux qui tombent aussi. Pendant la Pluie, neuf mille sont entrés dans le Courant ; moins que la cendre n’en aurait pris en bas. C’est vrai, et je ne le dis jamais devant les familles. Ça ne console personne.",
+      "options": [
+        {
+          "text": "Autre chose.",
+          "next": "accueil"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "ecoute": {
+      "text": "Tu écoutes. Le vent passe sous le dôme, fait chanter les cristaux, et repart. Pendant un instant, tu ne penses à rien. C’est rare.",
+      "effects": [
+        {
+          "heal": 5
+        }
+      ],
+      "options": [
+        {
+          "text": "Remercier Zélie.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

@@ -21,7 +21,7 @@ describe('le fil directeur au journal', () => {
     state.quests['memoires-monde-perdu'] = 'done';
     const page = filPage(state);
     expect(page.question).toContain('sept caisses');
-    expect(page.piste?.cible).toBe('Zephyria · Aetherhaven');
+    expect(page.piste?.cible).toBe('aetherhaven');
   });
 
   it('compte sept caisses, une par continent, toutes inconnues pour l’instant', () => {

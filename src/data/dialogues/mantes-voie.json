@@ -1,0 +1,95 @@
+{
+  "id": "mantes-voie",
+  "speaker": "mantes-voie",
+  "entries": [
+    {
+      "node": "mantes"
+    }
+  ],
+  "nodes": {
+    "mantes": {
+      "text": "Deux Mantes-ailes sont posées sur les wagons, en travers de la voie. Leurs ailes repliées font un bruit de lames qu’on aiguise. Elles ne t’ont pas encore vu·e.",
+      "options": [
+        {
+          "text": "Attaquer.",
+          "next": "fin",
+          "effects": [
+            {
+              "startCombat": "mantes-voie"
+            }
+          ]
+        },
+        {
+          "text": "Passer sous les wagons, sans bruit.",
+          "next": "passe",
+          "roll": {
+            "skill": "stealth",
+            "difficulty": 15
+          },
+          "failNext": "repere"
+        },
+        {
+          "text": "Attendre qu’elles s’envolent, le masque sur la bouche.",
+          "requires": [
+            {
+              "item": "masque-toile"
+            }
+          ],
+          "next": "attente"
+        },
+        {
+          "text": "Reculer.",
+          "next": "fin"
+        }
+      ]
+    },
+    "passe": {
+      "text": "Tu passes sous le premier wagon sur les coudes. Une aile se déplie au-dessus de toi, se replie. Tu ressors de l’autre côté, gris de la tête aux pieds.",
+      "effects": [
+        {
+          "setFlag": "mantes-voie-passees"
+        },
+        {
+          "giveXp": 15
+        }
+      ],
+      "options": [
+        {
+          "text": "Continuer.",
+          "next": "fin"
+        }
+      ]
+    },
+    "repere": {
+      "text": "Une rafale soulève la cendre. Les deux têtes se tournent ensemble vers toi.",
+      "options": [
+        {
+          "text": "Se battre.",
+          "next": "fin",
+          "effects": [
+            {
+              "startCombat": "mantes-voie"
+            }
+          ]
+        }
+      ]
+    },
+    "attente": {
+      "text": "Tu t’assois dans la cendre, le masque serré. Les heures passent. Puis, d’un coup, les deux Mantes s’envolent ensemble, vers le haut, et la voie est libre.",
+      "effects": [
+        {
+          "avancer": 2
+        },
+        {
+          "setFlag": "mantes-voie-passees"
+        }
+      ],
+      "options": [
+        {
+          "text": "Continuer.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

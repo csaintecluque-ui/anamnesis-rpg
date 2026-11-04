@@ -967,10 +967,72 @@ describe('Parcours complet, d’une traite', () => {
     expect(repeatableGains(s)).toEqual([]);
   });
 
+  it('« Les noms qui montent » : Aetherhaven, le cristal de l’îlot, la machine de Vessin, la pièce partagée', () => {
+    walk(s, 'sept-portes-parvis');
+    walk(s, 'sept-portes');
+    travel(s, 'aetherhaven');
+    expect(s.location).toBe('aetherhaven-quai');
+    expect(talk(s, 'siffrin')).toBe('oiseau');
+    say(s, 'siffrin', 'oiseau', 'Montre-moi');
+    expect(s.quests['noms-qui-montent']).toBe('active');
+    walk(s, 'aetherhaven-marches');
+    walk(s, 'aetherhaven-registre');
+    expect(talk(s, 'ysolde')).toBe('bande');
+    say(s, 'ysolde', 'bande', 'La suivre');
+    say(s, 'ysolde', 'tiroir', 'Quelqu’un d’autre');
+    say(s, 'ysolde', 'premiere', 'Autre chose');
+    say(s, 'ysolde', 'questions', 'Qui descend');
+    walk(s, 'aetherhaven-marches');
+    // Le second cristal, sur l'îlot du vent : un saut (Athlétisme), la carcasse, et le saut du retour.
+    say(s, 'saut-ilot-vent', 'bord', 'Sauter');
+    say(s, 'saut-ilot-vent', 'reussi', 'Se relever');
+    expect(talk(s, 'carcasse-ilot')).toBe('carcasse');
+    say(s, 'carcasse-ilot', 'carcasse', 'Le prendre');
+    expect(present(s, 'aetherhaven-marches', 'carcasse-ilot')).toBe(false);
+    say(s, 'saut-ilot-retour', 'bord', 'Sauter');
+    walk(s, 'aetherhaven-quai');
+    walk(s, 'aetherhaven-voilerie');
+    say(s, 'vessin', 'accueil', 'Une machine');
+    say(s, 'vessin', 'machine', 'Voici un second cristal');
+    say(s, 'vessin', 'grement', 'Partir maintenant');
+    expect(s.location).toBe('bas-cendres');
+    expect(talk(s, 'echelle-remontee')).toBe('attente');
+    walk(s, 'voie-du-bas');
+    expect(talk(s, 'mantes-voie')).toBe('mantes');
+    say(s, 'mantes-voie', 'mantes', 'Attaquer');
+    win(s, 'mantes-voie');
+    expect(present(s, 'voie-du-bas', 'mante-voie-1')).toBe(false);
+    walk(s, 'halte-cendres');
+    expect(talk(s, 'edda-halte')).toBe('halte');
+    expect(s.flags['edda-ecriture']).toBe(true);
+    say(s, 'edda-halte', 'halte', 'Votre mère');
+    say(s, 'edda-halte', 'halte-mere', 'Et maintenant');
+    say(s, 'edda-halte', 'halte-choix', 'Gardez le rouleau');
+    expect(s.quests['noms-qui-montent']).toBe('done');
+    expect(s.flags['caisse-zephyria-trouvee']).toBe(true);
+    expect(present(s, 'halte-cendres', 'edda-halte')).toBe(false);
+    expect(talk(s, 'caisse-zephyria')).toBe('vide');
+    walk(s, 'voie-du-bas');
+    walk(s, 'bas-cendres');
+    expect(talk(s, 'echelle-remontee')).toBe('calme-deux');
+    say(s, 'echelle-remontee', 'calme-deux', 'Regarder en bas');
+    say(s, 'echelle-remontee', 'edda-calme', 'Lui lancer une corde');
+    say(s, 'echelle-remontee', 'edda-sauvee', 'Rentrer au quai');
+    say(s, 'echelle-remontee', 'arrivee', 'Descendre de la machine');
+    expect(s.location).toBe('aetherhaven-quai');
+    walk(s, 'aetherhaven-marches');
+    walk(s, 'aetherhaven-nid');
+    expect(talk(s, 'assel')).toBe('lettre');
+    say(s, 'assel', 'lettre', 'L’ouvrir');
+    expect(talk(s, 'assel')).toBe('accueil');
+    expect(reputationScore(s, 'aetherhaven')).toBe(20);
+    expect(repeatableGains(s)).toEqual([]);
+  });
+
   it('Bilan : tout est fini, rien ne traîne, rien ne se gagne deux fois', () => {
     expect(unfinished(s)).toEqual([]);
     expect(journalQuests(s).every((q) => q.done)).toBe(true);
-    expect(questItems(s)).toEqual(['cristal-vanel', 'sauf-conduit']);
+    expect(questItems(s)).toEqual(['cristal-vanel', 'piece-zephyria', 'sauf-conduit']);
     expect(s.character!.fers).toBe(20);
     expect(levelForXp(s.character!.xp)).toBe(5);
     expect(reputations(s)).toEqual({
@@ -1442,9 +1504,45 @@ describe('Variante : Ironheart avant les quêtes annexes (parole, combats, autre
     expect(reputationScore(s, 'sept-portes')).toBe(15);
   });
 
+  it('« Les noms qui montent » par Ossiane : les six noms lâchés au vent, la dame en gris laissée aux Gardiens du Ciel', () => {
+    walk(s, 'sept-portes-parvis');
+    walk(s, 'sept-portes');
+    travel(s, 'aetherhaven');
+    say(s, 'siffrin', 'oiseau', 'Montre-moi');
+    walk(s, 'aetherhaven-marches');
+    walk(s, 'aetherhaven-registre');
+    say(s, 'ysolde', 'bande', 'La suivre');
+    walk(s, 'aetherhaven-marches');
+    walk(s, 'aetherhaven-quai');
+    walk(s, 'aetherhaven-compagnie');
+    expect(talk(s, 'ossiane')).toBe('accueil');
+    say(s, 'ossiane', 'accueil', 'Je dois descendre');
+    say(s, 'ossiane', 'bas', 'Une fois');
+    say(s, 'ossiane', 'accepte', 'Partir maintenant');
+    expect(s.location).toBe('bas-cendres');
+    walk(s, 'voie-du-bas');
+    say(s, 'mantes-voie', 'mantes', 'Passer sous les wagons');
+    walk(s, 'halte-cendres');
+    expect(talk(s, 'edda-halte')).toBe('halte');
+    say(s, 'edda-halte', 'halte', 'Qu’y a-t-il');
+    say(s, 'edda-halte', 'halte-caisse', 'Et maintenant');
+    say(s, 'edda-halte', 'halte-choix', 'Personne ne gardera');
+    say(s, 'edda-halte', 'halte-lache', 'Regarder la dame');
+    say(s, 'edda-halte', 'halte-lache-2', 'La regarder partir');
+    expect(s.flags['fin-noms-qui-montent-lache']).toBe(true);
+    walk(s, 'voie-du-bas');
+    walk(s, 'bas-cendres');
+    expect(talk(s, 'echelle-remontee')).toBe('calme-deux');
+    say(s, 'echelle-remontee', 'calme-deux', 'Regarder en bas');
+    say(s, 'echelle-remontee', 'edda-calme', 'La laisser');
+    say(s, 'echelle-remontee', 'edda-laissee', 'Rentrer au quai');
+    say(s, 'echelle-remontee', 'arrivee', 'Descendre de la machine');
+    expect(reputationScore(s, 'aetherhaven')).toBe(20);
+  });
+
   it('Bilan de la variante', () => {
     expect(unfinished(s)).toEqual([]);
-    expect(questItems(s)).toEqual(['cristal-vanel', 'sauf-conduit']);
+    expect(questItems(s)).toEqual(['cristal-vanel', 'piece-zephyria', 'sauf-conduit']);
     expect(reputations(s)).toEqual({
       gardebois: 40,
       canopee: 50,

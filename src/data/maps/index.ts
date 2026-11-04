@@ -77,6 +77,25 @@ import coraliaPalaisJson from './coralia-palais.json';
 import coraliaTempleJson from './coralia-temple.json';
 import coraliaConquesJson from './coralia-conques.json';
 import coraliaGrotteJson from './coralia-grotte.json';
+import marcheAtelierJson from './marche-atelier.json';
+import marcheCampJson from './marche-camp.json';
+import marcheCoeurJson from './marche-coeur.json';
+import marcheComptoirJson from './marche-comptoir.json';
+import marcheDesertJson from './marche-desert.json';
+import marcheEauJson from './marche-eau.json';
+import marcheGuidesJson from './marche-guides.json';
+import marcheHalteJson from './marche-halte.json';
+import marcheHalteMorteJson from './marche-halte-morte.json';
+import marcheLongueOmbreJson from './marche-longue-ombre.json';
+import marcheMillePasJson from './marche-mille-pas.json';
+import marcheNidJson from './marche-nid.json';
+import marchePavillonJson from './marche-pavillon.json';
+import marcheRelaisJson from './marche-relais.json';
+import marcheRenJson from './marche-ren.json';
+import marcheRouteJson from './marche-route.json';
+import marcheSaalEmaJson from './marche-saal-ema.json';
+import marcheTempleJson from './marche-temple.json';
+import marcheVerriersJson from './marche-verriers.json';
 
 /** Tiled maps by id (`map` of src/data/locations.json). */
 export const MAPS: Record<string, TiledMapJson> = {
@@ -158,4 +177,23 @@ export const MAPS: Record<string, TiledMapJson> = {
   'coralia-temple': coraliaTempleJson as TiledMapJson,
   'coralia-conques': coraliaConquesJson as TiledMapJson,
   'coralia-grotte': coraliaGrotteJson as TiledMapJson,
+  'marche-atelier': marcheAtelierJson as TiledMapJson,
+  'marche-camp': marcheCampJson as TiledMapJson,
+  'marche-coeur': marcheCoeurJson as TiledMapJson,
+  'marche-comptoir': marcheComptoirJson as TiledMapJson,
+  'marche-desert': marcheDesertJson as TiledMapJson,
+  'marche-eau': marcheEauJson as TiledMapJson,
+  'marche-guides': marcheGuidesJson as TiledMapJson,
+  'marche-halte': marcheHalteJson as TiledMapJson,
+  'marche-halte-morte': marcheHalteMorteJson as TiledMapJson,
+  'marche-longue-ombre': marcheLongueOmbreJson as TiledMapJson,
+  'marche-mille-pas': marcheMillePasJson as TiledMapJson,
+  'marche-nid': marcheNidJson as TiledMapJson,
+  'marche-pavillon': marchePavillonJson as TiledMapJson,
+  'marche-relais': marcheRelaisJson as TiledMapJson,
+  'marche-ren': marcheRenJson as TiledMapJson,
+  'marche-route': marcheRouteJson as TiledMapJson,
+  'marche-saal-ema': marcheSaalEmaJson as TiledMapJson,
+  'marche-temple': marcheTempleJson as TiledMapJson,
+  'marche-verriers': marcheVerriersJson as TiledMapJson,
 };

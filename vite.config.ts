@@ -26,6 +26,20 @@ export default defineConfig({
   base: './',
   build: {
     target: 'es2022',
+    rollupOptions: {
+      output: {
+        // The game's data (maps above all) has outgrown one file: each part gets its own chunk, small enough for
+        // the offline cache (workbox, below), and cached apart from the code that changes more often.
+        manualChunks(id: string) {
+          if (id.includes('/node_modules/phaser/')) return 'phaser';
+          // One chunk per town (the name's first word: canopee, coralia, marche…), so none ever gets too big.
+          if (id.includes('/src/data/maps/')) return `cartes-${id.split('/src/data/maps/')[1].split(/[-.]/)[0]}`;
+          if (id.includes('/src/data/dialogues/')) return 'dialogues';
+          if (id.includes('/src/data/')) return 'donnees';
+          return undefined;
+        },
+      },
+    },
   },
   plugins: [
     VitePWA({

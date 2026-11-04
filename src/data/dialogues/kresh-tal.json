@@ -1,0 +1,20 @@
+{
+  "id": "kresh-tal",
+  "speaker": "kresh-tal",
+  "entries": [
+    {
+      "node": "perchoir"
+    }
+  ],
+  "nodes": {
+    "perchoir": {
+      "text": "Un dragon rouge, très ancien, couché sur un perchoir de cristal. Un œil s’ouvre, te pèse, et se referme. Tu n’existes plus pour lui. Plus loin, quelqu’un murmure : « Kresh’Tal. Six cents ans. Ne le réveille pas pour rien. »",
+      "options": [
+        {
+          "text": "Passer sans bruit.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "id": "ish-lenne",
+  "speaker": "ish-lenne",
+  "entries": [
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Une conteuse aux cheveux blancs, des rubans de route aux poignets, assise devant un brasero. — Le soir, à la halte, je dis l’épisode qui lui appartient. Ailleurs, je me tais : un épisode dit ailleurs que chez lui, c’est du bavardage.",
+      "options": [
+        {
+          "text": "Et les haltes mortes ?",
+          "next": "mortes"
+        },
+        {
+          "text": "Pourquoi ne rien écrire ?",
+          "next": "ecrire"
+        },
+        {
+          "text": "Je reviendrai à la halte.",
+          "next": "fin"
+        }
+      ]
+    },
+    "mortes": {
+      "text": "— Je garde leurs mots. Je ne les dis pas. Ce qui se perd, à Solarix, ne se perd pas de la mémoire, l’étranger : ça se perd de la route.",
+      "options": [
+        {
+          "text": "Pourquoi ne rien écrire ?",
+          "next": "ecrire"
+        },
+        {
+          "text": "Je reviendrai à la halte.",
+          "next": "fin"
+        }
+      ]
+    },
+    "ecrire": {
+      "text": "— On n’emporte pas de bibliothèque à cinq kilomètres à l’heure, et on ne bâtit pas d’archives quand on ne bâtit rien. Nos légendes ont lieu. Tu les entendras là où elles se sont passées, ou tu ne les entendras pas.",
+      "options": [
+        {
+          "text": "Et les haltes mortes ?",
+          "next": "mortes"
+        },
+        {
+          "text": "Je reviendrai à la halte.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

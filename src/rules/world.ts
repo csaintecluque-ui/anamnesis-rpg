@@ -31,15 +31,46 @@ export interface WorldPlace {
   dirigeable?: { fers: number; moments: number };
   /** A town across the sea (Coralia): reached and left only by ship, likewise. */
   navire?: { fers: number; moments: number };
+  /** A town across the desert (Marche-Mère): reached and left only with the glassmakers' caravan, likewise. */
+  caravane?: { fers: number; moments: number };
+  /**
+   * A town that walks (Marche-Mère, docs/gdd/chapitre-7.md): it goes round these points, one lap in this many days,
+   * and its mark on the world map moves with the days (`walkTheMarches`).
+   */
+  marche?: { points: [number, number][]; jours: number };
 }
 
-export type Moyen = 'dirigeable' | 'navire';
+export type Moyen = 'dirigeable' | 'navire' | 'caravane';
 
-/** How a town beyond the roads is reached: by airship or by ship, its fare and its length; nothing for the others. */
+/** How a town beyond the roads is reached: by airship, ship or caravan, its fare and its length; nothing for the others. */
 export function crossingOf(place: WorldPlace): { moyen: Moyen; fers: number; moments: number } | undefined {
   if (place.dirigeable) return { moyen: 'dirigeable', ...place.dirigeable };
   if (place.navire) return { moyen: 'navire', ...place.navire };
+  if (place.caravane) return { moyen: 'caravane', ...place.caravane };
   return undefined;
+}
+
+/** Where a walking town is on a given day: along its round of points, a lap every `jours` days (day 1 at the first point). */
+export function marchePosition(marche: NonNullable<WorldPlace['marche']>, day: number): { x: number; y: number } {
+  const { points, jours } = marche;
+  const t = ((((day - 1) % jours) + jours) % jours) / jours;
+  const legs = points.map((p, i) => [p, points[(i + 1) % points.length]] as const);
+  const lengths = legs.map(([a, b]) => Math.hypot(b[0] - a[0], b[1] - a[1]));
+  let left = t * lengths.reduce((sum, l) => sum + l, 0);
+  for (let i = 0; i < legs.length; i++) {
+    if (left <= lengths[i] || i === legs.length - 1) {
+      const [a, b] = legs[i];
+      const k = lengths[i] ? Math.min(1, left / lengths[i]) : 0;
+      return { x: Math.round(a[0] + (b[0] - a[0]) * k), y: Math.round(a[1] + (b[1] - a[1]) * k) };
+    }
+    left -= lengths[i];
+  }
+  return { x: points[0][0], y: points[0][1] };
+}
+
+/** Moves the walking towns of the world map to where they are today (called before the map is drawn or left). */
+export function walkTheMarches(day: number): void {
+  for (const place of WORLD.places) if (place.marche) Object.assign(place, marchePosition(place.marche, day));
 }
 
 export interface WorldDef {
@@ -161,7 +192,15 @@ export const AT_PLACE = 12;
 export const FIRST_FLIGHT_FLAG = 'premier-vol';
 /** Set once the first crossing by ship is taken: Hesper has paid for it too (chapitre 6, docs/gdd/chapitre-6.md). */
 export const FIRST_CROSSING_FLAG = 'premiere-traversee';
-const firstFlag = (moyen: Moyen) => (moyen === 'navire' ? FIRST_CROSSING_FLAG : FIRST_FLIGHT_FLAG);
+/** Set once the first journey with the caravan is taken: Hesper has paid for it as well (chapitre 7). */
+export const FIRST_CARAVAN_FLAG = 'premiere-caravane';
+const firstFlag = (moyen: Moyen) => ({ dirigeable: FIRST_FLIGHT_FLAG, navire: FIRST_CROSSING_FLAG, caravane: FIRST_CARAVAN_FLAG })[moyen];
+/** The guild whose members travel at half price, for each kind of crossing. */
+const HALF_PRICE: Record<Moyen, string> = {
+  dirigeable: 'membre-compagnie-vire-nuee',
+  navire: 'membre-confrerie-brisants',
+  caravane: 'membre-matriarches-cristaux',
+};
 
 type TravelState = Pick<GameState, 'flags' | 'quests' | 'character'>;
 
@@ -174,20 +213,24 @@ export function flightSky(state: TravelState, from: { x: number; y: number }, pl
   return knownPlaces(state.flags, state.quests).find((p) => crossingOf(p) && distanceBetween(from, p) <= AT_PLACE);
 }
 
-/** The fare: the first crossing of each kind is paid by Hesper ; a member of the Compagnie Vire-Nuée flies, of the Confrérie des Brisants sails, at half price. */
+/**
+ * The fare: the first crossing of each kind is paid by Hesper ; a member of the Compagnie Vire-Nuée flies, of the
+ * Confrérie des Brisants sails, of the Matriarches de Cristaux rides with the caravan, at half price.
+ */
 export function flightFare(state: TravelState, sky: WorldPlace): number {
   const crossing = crossingOf(sky);
   if (!crossing || !state.flags[firstFlag(crossing.moyen)]) return 0;
-  const guild = crossing.moyen === 'dirigeable' ? 'membre-compagnie-vire-nuee' : 'membre-confrerie-brisants';
-  return state.flags[guild] ? Math.floor(crossing.fers / 2) : crossing.fers;
+  return state.flags[HALF_PRICE[crossing.moyen]] ? Math.floor(crossing.fers / 2) : crossing.fers;
 }
 
-/** « un jour en dirigeable », « deux jours en navire » : how long a crossing lasts. */
+const DAYS = ['', 'un jour', 'deux jours', 'trois jours', 'quatre jours', 'cinq jours'];
+/** « un jour en dirigeable », « deux jours en navire », « trois jours en caravane » : how long a crossing lasts. */
 export function flightTimeLabel(sky: WorldPlace): string {
   const crossing = crossingOf(sky);
   const moments = crossing?.moments ?? 4;
   const en = `en ${crossing?.moyen ?? 'dirigeable'}`;
-  return moments >= 4 ? `${moments < 8 ? 'un jour' : `${Math.round(moments / 4) === 2 ? 'deux' : Math.round(moments / 4)} jours`} ${en}` : `quelques heures ${en}`;
+  const days = Math.round(moments / 4);
+  return moments >= 4 ? `${DAYS[days] ?? `${days} jours`} ${en}` : `quelques heures ${en}`;
 }
 
 /** Pays the fare (false if the purse is too light). */

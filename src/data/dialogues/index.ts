@@ -175,6 +175,21 @@ import doucenet from './doucenet.json';
 import bancPerles from './banc-perles.json';
 import abyssauxGrotte from './abyssaux-grotte.json';
 import lio from './lio.json';
+import tamRuu from './tam-ruu.json';
+import gardienneEau from './gardienne-eau.json';
+import yelDara from './yel-dara.json';
+import daruKhen from './daru-khen.json';
+import coffreRoutes from './coffre-routes.json';
+import varoSsin from './varo-ssin.json';
+import hiranAmra from './hiran-amra.json';
+import shalVera from './shal-vera.json';
+import marcheuseSouffle from './marcheuse-souffle.json';
+import saalEma from './saal-ema.json';
+import nesMira from './nes-mira.json';
+import ishLenne from './ish-lenne.json';
+import kreshTal from './kresh-tal.json';
+import longueOmbre from './longue-ombre.json';
+import jalonHalte from './jalon-halte.json';
 
 /** Dialogue files by object name (PNJ, Écho or object) of the maps. */
 export const DIALOGUES: Record<string, Dialogue> = {
@@ -360,6 +375,22 @@ export const DIALOGUES: Record<string, Dialogue> = {
   'banc-perles': bancPerles as Dialogue,
   'abyssaux-grotte': abyssauxGrotte as Dialogue,
   lio: lio as Dialogue,
+  // La Marche-Mère (chapitre 7, docs/gdd/chapitre-7.md)
+  'tam-ruu': tamRuu as Dialogue,
+  'gardienne-eau': gardienneEau as Dialogue,
+  'yel-dara': yelDara as Dialogue,
+  'daru-khen': daruKhen as Dialogue,
+  'coffre-routes': coffreRoutes as Dialogue,
+  'varo-ssin': varoSsin as Dialogue,
+  'hiran-amra': hiranAmra as Dialogue,
+  'shal-vera': shalVera as Dialogue,
+  'marcheuse-souffle': marcheuseSouffle as Dialogue,
+  'saal-ema': saalEma as Dialogue,
+  'nes-mira': nesMira as Dialogue,
+  'ish-lenne': ishLenne as Dialogue,
+  'kresh-tal': kreshTal as Dialogue,
+  'longue-ombre': longueOmbre as Dialogue,
+  'jalon-halte': jalonHalte as Dialogue,
   // Le Livre des Échos (docs/gdd/echos.md) : one dialogue per Écho, built from src/data/echos.json.
   ...echoDialogues(),
 };

@@ -1,0 +1,76 @@
+{
+  "id": "gardienne-eau",
+  "speaker": "gardienne-eau",
+  "entries": [
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Une femme voilée de bleu, les mains mouillées jusqu’aux poignets, verse sans lever les yeux. — Ta ration. La même pour tout le monde, la même pour l’étranger.",
+      "options": [
+        {
+          "text": "La boire.",
+          "next": "boire",
+          "effects": [
+            {
+              "heal": 5
+            }
+          ]
+        },
+        {
+          "text": "Qui t’a donné ce pouvoir ?",
+          "next": "veto"
+        },
+        {
+          "text": "Tu comptes, aussi ?",
+          "next": "compte"
+        },
+        {
+          "text": "Merci.",
+          "next": "fin"
+        }
+      ]
+    },
+    "boire": {
+      "text": "L’eau est tiède et sent la jarre. Elle se tourne déjà vers la suivante.",
+      "options": [
+        {
+          "text": "Qui t’a donné ce pouvoir ?",
+          "next": "veto"
+        },
+        {
+          "text": "Merci.",
+          "next": "fin"
+        }
+      ]
+    },
+    "veto": {
+      "text": "— « Celle qui donne l’eau peut arrêter la Marche. » Samyr l’a dit, une phrase, il y a vingt-neuf siècles. Nous sommes cent dix-huit depuis. Aucune ne l’a dit. Elle verse encore.",
+      "options": [
+        {
+          "text": "Tu comptes, aussi ?",
+          "next": "compte"
+        },
+        {
+          "text": "Merci.",
+          "next": "fin"
+        }
+      ]
+    },
+    "compte": {
+      "text": "— Je verse, donc je sais combien ne viennent plus. Yel’Dara m’entend, elle ne verse pas. Depuis Neth’Sara, le compte a deux têtes. Pour qu’on ne puisse plus demander.",
+      "options": [
+        {
+          "text": "Qui t’a donné ce pouvoir ?",
+          "next": "veto"
+        },
+        {
+          "text": "Merci.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,201 @@
+{
+  "id": "tam-ruu",
+  "speaker": "tam-ruu",
+  "entries": [
+    {
+      "requires": [
+        {
+          "tousLes": 3,
+          "decalage": 1
+        }
+      ],
+      "node": "accueil-2"
+    },
+    {
+      "requires": [
+        {
+          "tousLes": 3,
+          "decalage": 2
+        }
+      ],
+      "node": "accueil-3"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Un homme large, un tablier de cuir, une louche à la main ; derrière lui, une jarre plus haute que lui. — La Halte ! Ce soir elle est là, demain elle sera plus loin, et la soupe sera la même. Qu’est-ce qu’il te faut ?",
+      "options": [
+        {
+          "text": "Manger ou dormir ?",
+          "next": "servir"
+        },
+        {
+          "text": "Comment vit la Marche ?",
+          "next": "nouvelles"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "accueil-2": {
+      "text": "Tam’Ruu goûte sa soupe, grimace, ajoute du sel. — Tu reviens ! La Halte aussi, tu vois : elle t’a suivi·e de trente kilomètres.",
+      "options": [
+        {
+          "text": "Manger ou dormir ?",
+          "next": "servir"
+        },
+        {
+          "text": "Comment vit la Marche ?",
+          "next": "nouvelles"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "accueil-3": {
+      "text": "— Les pieds ? Tout le monde a mal aux pieds le premier mois. Après, on a mal ailleurs. Assieds-toi.",
+      "options": [
+        {
+          "text": "Manger ou dormir ?",
+          "next": "servir"
+        },
+        {
+          "text": "Comment vit la Marche ?",
+          "next": "nouvelles"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "servir": {
+      "text": "— Une soupe de lentilles des serres, ou une natte jusqu’au matin. L’eau, tu la prends à la Tente de l’Eau, comme tout le monde : je ne la vends pas, personne ne la vend.",
+      "options": [
+        {
+          "text": "Une soupe.",
+          "requires": [
+            {
+              "fers": 8
+            }
+          ],
+          "next": "mange",
+          "effects": [
+            {
+              "giveFers": -8
+            },
+            {
+              "heal": 15
+            }
+          ]
+        },
+        {
+          "text": "Une natte jusqu’au matin.",
+          "requires": [
+            {
+              "fers": 8
+            }
+          ],
+          "next": "dodo",
+          "effects": [
+            {
+              "giveFers": -8
+            },
+            {
+              "dormir": "matin"
+            }
+          ]
+        },
+        {
+          "text": "Une natte jusqu’au soir.",
+          "requires": [
+            {
+              "fers": 8
+            }
+          ],
+          "next": "dodo",
+          "effects": [
+            {
+              "giveFers": -8
+            },
+            {
+              "dormir": "soir"
+            }
+          ]
+        },
+        {
+          "text": "Rien, merci.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "mange": {
+      "text": "Une soupe épaisse, qui sent le cumin et la toile chaude. Autour de toi, des gens mangent debout : on mange vite, le soir, avant que la halte commence.",
+      "options": [
+        {
+          "text": "Merci, Tam’Ruu.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "dodo": {
+      "text": "Une natte, une couverture qui sent le chameau, et le grondement lent des Léviathans qui dorment tout autour du camp.",
+      "options": [
+        {
+          "text": "Bonne nuit.",
+          "next": "fin"
+        }
+      ]
+    },
+    "nouvelles": {
+      "text": "— Trois choses. Le matin, l’eau : chacun sa ration, à la Tente de l’Eau, et personne ne la refuse à personne. Le soir, la halte : Ish’Lenne dit l’épisode qui appartient à l’endroit. Entre les deux, on marche.",
+      "options": [
+        {
+          "text": "Pourquoi ne jamais s’arrêter ?",
+          "next": "arreter"
+        },
+        {
+          "text": "Et les Léviathans ?",
+          "next": "leviathans"
+        },
+        {
+          "text": "Merci.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "arreter": {
+      "text": "— L’eau qui stagne pourrit, le sable qui bouge vit. Une Marche qui s’arrête arrive en retard au point d’eau suivant. Et qui arrive en retard à l’eau ne repart pas.",
+      "options": [
+        {
+          "text": "Et les Léviathans ?",
+          "next": "leviathans"
+        },
+        {
+          "text": "Merci.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "leviathans": {
+      "text": "— Douze. Ils portent les clans-souches, les sanctuaires, et ceux qui ne marchent plus. Nous, on marche autour. Une Marche n’est pas embarquée, l’étranger : retiens ça, tu vexeras moins de monde.",
+      "options": [
+        {
+          "text": "Pourquoi ne jamais s’arrêter ?",
+          "next": "arreter"
+        },
+        {
+          "text": "Merci.",
+          "next": "accueil"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "id": "marcheuse-souffle",
+  "speaker": "marcheuse-souffle",
+  "entries": [
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Une femme pieds nus, la tête rasée, assise entre trois jalons. — Chaque pas laisse une trace. C’est le sixième principe, et c’est tout ce que je t’enseignerai : le reste, tu le marcheras.",
+      "options": [
+        {
+          "text": "Une trace de quoi ?",
+          "next": "trace"
+        },
+        {
+          "text": "Aq’Shara, c’est votre dieu ?",
+          "next": "aqshara"
+        },
+        {
+          "text": "Je te laisse.",
+          "next": "fin"
+        }
+      ]
+    },
+    "trace": {
+      "text": "— Une trace est ce qu’on laisse derrière soi. Et derrière soi est le seul endroit où l’on ne va pas. Le clergé ne commente jamais cette phrase. Moi non plus.",
+      "options": [
+        {
+          "text": "Aq’Shara, c’est votre dieu ?",
+          "next": "aqshara"
+        },
+        {
+          "text": "Je te laisse.",
+          "next": "fin"
+        }
+      ]
+    },
+    "aqshara": {
+      "text": "— Le Désert. Ni juge, ni créateur, ni dieu. Il marche ; nous marchons. Il ne nous doit rien, et c’est reposant.",
+      "options": [
+        {
+          "text": "Une trace de quoi ?",
+          "next": "trace"
+        },
+        {
+          "text": "Je te laisse.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

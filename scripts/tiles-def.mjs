@@ -1831,3 +1831,199 @@ TILES.push(
   npcTile('lio', { small: true, body: '#1f3a4a', hair: '#3a2a1c', skin: '#c8b8a8', accent: '#3ac0c0' }),
   npcTile('abyssal', { body: '#1a2a2a', hair: '#0f1418', skin: '#8aa8a8', accent: '#3a7a5a', extra: '<path d="M22 46 Q32 38 42 46 Q32 54 22 46 Z" fill="#2a3a3a" stroke="#1B1512" stroke-width="0.8"/><circle cx="28" cy="46" r="1.4" fill="#9fe0e0"/><circle cx="36" cy="46" r="1.4" fill="#9fe0e0"/>' }),
 );
+
+// La Marche-Mère (chapitre 7, docs/univers/lieux/marche-mere.md) : provisoire. Canon [NOTION, la Communion] : des tentes
+// beige et ocre qu'on monte en trente minutes, des convois de chariots, les Léviathans de Sable et leur carapace
+// cristalline, le cristal vivant du Cœur Spiral, les jalons de verre plantés aux haltes.
+const tent = (cloth, stripe, door = INK) =>
+  diamond('#d8b880') +
+  shadow(24, 8) +
+  `<path d="M4 86 L32 22 L60 86 L32 96 Z" fill="${cloth}" stroke="${INK}" stroke-width="1.2"/>` +
+  `<path d="M32 22 L32 96" stroke="${stripe}" stroke-width="2"/><path d="M14 64 L50 64" stroke="${stripe}" stroke-width="1.5" opacity="0.7"/>` +
+  `<path d="M26 94 L32 70 L38 94 Z" fill="${door}" opacity="0.85"/>` +
+  `<path d="M32 22 L32 12 M29 14 L35 10" stroke="#5a4634" stroke-width="2"/>`;
+const wagon = (cover, wheel = '#5a4634') =>
+  diamond('#c8a06a') +
+  shadow(26, 8) +
+  `<path d="M6 76 L6 60 L58 60 L58 76 L32 86 Z" fill="#8a6a48" stroke="${INK}" stroke-width="1.2"/>` +
+  `<path d="M8 60 Q8 30 32 28 Q56 30 56 60 Z" fill="${cover}" stroke="${INK}" stroke-width="1.2"/>` +
+  `<path d="M18 58 Q18 36 32 34 M46 58 Q46 36 32 34" stroke="rgba(0,0,0,0.2)" stroke-width="1.5" fill="none"/>` +
+  `<circle cx="16" cy="82" r="7" fill="none" stroke="${wheel}" stroke-width="3"/><circle cx="48" cy="82" r="7" fill="none" stroke="${wheel}" stroke-width="3"/>` +
+  `<path d="M28 76 L28 64 L36 64 L36 76 Z" fill="${INK}" opacity="0.8"/>`;
+TILES.push(
+  { name: 'sable', svg: diamond('#d8b880') + '<path d="M12 78 Q20 74 28 78 M32 86 Q40 82 48 86 M36 72 Q42 70 48 72" stroke="#c09a60" stroke-width="1.3" fill="none"/>' },
+  { name: 'piste', svg: diamond('#c8a06a') + '<path d="M8 76 L40 92 M22 70 L54 86" stroke="#a8804a" stroke-width="2.5" opacity="0.8"/><path d="M30 76 l4 2 M40 80 l4 2" stroke="#e8cc98" stroke-width="1.5"/>' },
+  {
+    // La carapace d'un Léviathan [NOTION : carapace cristalline] : des plaques sombres, des éclats d'ambre.
+    name: 'carapace',
+    svg: diamond('#8a7860') + '<path d="M16 80 L32 72 L48 80 L32 88 Z" fill="none" stroke="#6a5a46" stroke-width="1.5"/><path d="M4 80 L16 74 M48 86 L60 80" stroke="#6a5a46" stroke-width="1.2"/><path d="M38 76 l3 -4 l3 4 Z" fill="#e8b860" opacity="0.8"/>',
+  },
+  { name: 'verre-sol', svg: diamond('#ecdcc4') + '<path d="M10 80 Q24 74 32 82 Q42 90 54 80" stroke="#e0a848" stroke-width="1.5" fill="none" opacity="0.8"/><path d="M28 70 l4 2" stroke="#fff4dc" stroke-width="2"/>' },
+  { name: 'tapis-sable', svg: diamond('#a8603a') + '<path d="M32 70 L52 80 L32 90 L12 80 Z" fill="none" stroke="#e8c070" stroke-width="1.5"/><path d="M32 76 L40 80 L32 84 L24 80 Z" fill="#e8c070" opacity="0.6"/>' },
+  {
+    // Des rails de l'Ancien Monde qui affleurent du sable, près d'une halte morte.
+    name: 'rail-sable',
+    svg: diamond('#d0ac72') + '<path d="M12 74 L52 74 M10 80 L50 80" stroke="#6a5a4a" stroke-width="1.8" opacity="0.8"/><path d="M16 70 L20 78 M36 74 L40 82" stroke="#5a4a3a" stroke-width="2"/><path d="M24 82 Q34 74 46 78 L50 82 Z" fill="#d8b880"/>',
+  },
+  {
+    // Une corde tendue entre deux Léviathans : on y marche en se tenant (canon : ponts suspendus, tyroliennes).
+    name: 'pont-corde',
+    svg: '<path d="M4 76 L36 92 L60 80 L28 64 Z" fill="#a8804a" stroke="#1B1512" stroke-width="1"/><path d="M12 76 L40 90 M20 72 L48 86 M28 68 L56 82" stroke="#6a4a2a" stroke-width="1.5"/><path d="M4 70 L36 86 M28 58 L60 74" stroke="#e8cc98" stroke-width="1.2"/>',
+  },
+  { name: 'mur-toile', blocking: true, svg: '<path d="M32 5 L63 20 L63 80 L32 95 L1 80 L1 20 Z" fill="#c8a070" stroke="#1B1512" stroke-width="1"/><path d="M16 12 L16 88 M48 12 L48 88" stroke="#a87c4a" stroke-width="2"/>' },
+  { name: 'tente-ocre', blocking: true, cover: 4, svg: tent('#c87a3a', '#8a4a20') },
+  { name: 'tente-beige', blocking: true, cover: 4, svg: tent('#e8d4a8', '#b89a6a') },
+  { name: 'tente-rouge', blocking: true, cover: 4, svg: tent('#a8402a', '#e8c070') },
+  // La Tente de l'Eau des Gardiennes : toile bleue, une jarre devant.
+  { name: 'tente-eau', blocking: true, cover: 4, svg: tent('#3a6a8a', '#e8d4a8', '#1f3a4a') + '<ellipse cx="54" cy="84" rx="5" ry="6" fill="#a8603a" stroke="#1B1512" stroke-width="0.8"/>' },
+  {
+    // La Tente des Mille Pas : la plus grande du camp, ses mâts couverts de rubans de route.
+    name: 'tente-mille-pas',
+    blocking: true,
+    cover: 4,
+    svg: tent('#d8b880', '#a8402a') + '<path d="M8 80 L4 40 M56 80 L60 40" stroke="#5a4634" stroke-width="2"/><path d="M4 42 l6 6 M60 42 l-6 6 M4 50 l5 5" stroke="#e8c070" stroke-width="2"/>',
+  },
+  { name: 'chariot', blocking: true, cover: 4, svg: wagon('#e8d4a8') },
+  { name: 'chariot-ocre', blocking: true, cover: 4, svg: wagon('#c87a3a') },
+  { name: 'chariot-eau', blocking: true, cover: 4, svg: wagon('#3a6a8a') },
+  {
+    // Un chariot-four des verriers : on y coule les jalons, la cheminée fume.
+    name: 'four-verre',
+    blocking: true,
+    cover: 4,
+    svg: wagon('#6a5a4a') + '<rect x="40" y="10" width="8" height="22" fill="#5a4634" stroke="#1B1512" stroke-width="1"/><circle cx="44" cy="8" r="5" fill="#8a8a8a" opacity="0.5"/><path d="M24 48 Q32 40 40 48 Z" fill="#f0a040"/>',
+  },
+  {
+    // Un feu de camp, le soir.
+    name: 'feu-camp',
+    blocking: true,
+    svg: diamond('#d8b880') + '<ellipse cx="32" cy="80" rx="12" ry="5" fill="#5a4634"/><path d="M24 78 Q26 60 32 54 Q38 62 40 78 Z" fill="#f0a040"/><path d="M28 78 Q30 66 32 62 Q36 68 36 78 Z" fill="#fff0a0"/>',
+  },
+  {
+    // Un jalon [NOTION] : une tige de verre d'un mètre vingt, coulée à la Mer de Verre, sans inscription.
+    name: 'jalon',
+    blocking: true,
+    svg: shadow(6, 3) + '<path d="M30 84 L31 26 L33 26 L34 84 Z" fill="#e8f0f0" stroke="#7aa8a8" stroke-width="1" opacity="0.9"/><path d="M32 30 L32 80" stroke="#ffffff" stroke-width="1"/>',
+  },
+  { name: 'dune', blocking: true, cover: 2, svg: diamond('#d8b880') + '<path d="M2 84 Q20 56 36 62 Q52 68 62 84 Z" fill="#e0c088" stroke="#b89a60" stroke-width="1"/><path d="M14 74 Q24 66 34 68" stroke="#f0d8a8" stroke-width="2" fill="none"/>' },
+  {
+    // Le flanc d'un Léviathan : le bord de sa carapace, qu'on ne franchit pas.
+    name: 'flanc-leviathan',
+    blocking: true,
+    cover: 4,
+    svg: '<path d="M1 80 L1 40 Q32 20 63 40 L63 80 L32 95 Z" fill="#6a5a46" stroke="#1B1512" stroke-width="1.2"/><path d="M8 50 Q32 34 56 50" stroke="#8a7860" stroke-width="3" fill="none"/><path d="M20 44 l4 -8 l4 8 Z M40 42 l4 -10 l4 10 Z" fill="#e8b860" stroke="#1B1512" stroke-width="0.6"/>',
+  },
+  {
+    // La tête de Longue-Ombre, la plus vieille des douze : un front de pierre vivante, un œil d'ambre mi-clos.
+    name: 'tete-leviathan',
+    blocking: true,
+    cover: 4,
+    svg: shadow(28, 9) + '<path d="M2 86 Q0 40 32 30 Q64 40 62 86 L32 96 Z" fill="#7a6a54" stroke="#1B1512" stroke-width="1.2"/><path d="M10 56 Q32 44 54 56" stroke="#5a4a3a" stroke-width="3" fill="none"/><ellipse cx="44" cy="62" rx="7" ry="3" fill="#e8b860" stroke="#1B1512" stroke-width="0.8"/><path d="M38 61 L50 62" stroke="#1B1512" stroke-width="1.5"/>',
+  },
+  {
+    // Un pilier de cristaux-mémoire [NOTION, lectures publiques] : ambre et blanc, une lueur au cœur.
+    name: 'pilier-cristal',
+    blocking: true,
+    cover: 3,
+    svg: shadow(12, 5) + '<path d="M24 84 L26 26 L32 14 L38 26 L40 84 Z" fill="#f0e0c0" stroke="#1B1512" stroke-width="1" opacity="0.92"/><path d="M28 40 L36 40 M27 56 L37 56 M27 70 L37 70" stroke="#e0a848" stroke-width="1.5"/><circle cx="32" cy="48" r="4" fill="#ffd880" opacity="0.8"/>',
+  },
+  {
+    // Le Pavillon de la Reine [NOTION] : du cristal vivant en spirale, sans murs, des voiles tendues.
+    name: 'palais-cristal',
+    blocking: true,
+    cover: 4,
+    svg: diamond('#ecdcc4') + shadow(26, 9) + '<path d="M8 86 L16 40 L32 8 L48 40 L56 86 L32 96 Z" fill="#f4e8d0" stroke="#1B1512" stroke-width="1.2" opacity="0.9"/><path d="M32 8 Q20 40 32 60 Q44 76 32 94" stroke="#e0a848" stroke-width="2.5" fill="none"/><path d="M27 92 L27 74 Q32 68 37 74 L37 90 Z" fill="#e0a848" stroke="#1B1512" stroke-width="1"/>',
+  },
+  {
+    // Le Temple du Désert-Vivant : une coupole basse de verre ambré, du sable au seuil.
+    name: 'temple-desert',
+    blocking: true,
+    cover: 4,
+    svg: diamond('#ecdcc4') + shadow(24, 8) + '<path d="M8 84 L8 58 L56 58 L56 84 L32 94 Z" fill="#d8a860" stroke="#1B1512" stroke-width="1.2"/><path d="M6 58 Q32 18 58 58 Z" fill="#e8c070" stroke="#1B1512" stroke-width="1.2" opacity="0.9"/><path d="M27 92 L27 72 L37 72 L37 90 Z" fill="#5a3a24" stroke="#1B1512" stroke-width="1"/><circle cx="32" cy="40" r="5" fill="#fff0c0"/>',
+  },
+  {
+    // Le Nid des dragonnets, sur les Perchoirs : un grand panier de branches et de toile, des écailles rouges.
+    name: 'nid-dragon',
+    blocking: true,
+    cover: 4,
+    svg: diamond('#ecdcc4') + shadow(26, 8) + '<path d="M4 84 Q4 52 32 48 Q60 52 60 84 L32 94 Z" fill="#8a6a48" stroke="#1B1512" stroke-width="1.2"/><path d="M6 66 Q32 58 58 66 M8 76 Q32 68 56 76" stroke="#5a4634" stroke-width="2" fill="none"/><path d="M22 52 Q26 40 34 44 Q40 36 44 50" fill="#a8402a" stroke="#1B1512" stroke-width="1"/><path d="M27 92 L27 74 L37 74 L37 90 Z" fill="#3a2a1c"/>',
+  },
+  {
+    // Une citerne des Gardiennes : une jarre de terre haute comme un homme, cerclée de cuivre.
+    name: 'citerne',
+    blocking: true,
+    cover: 3,
+    svg: shadow(16, 6) + '<path d="M18 84 Q10 60 20 42 L44 42 Q54 60 46 84 Z" fill="#a8603a" stroke="#1B1512" stroke-width="1.2"/><path d="M16 56 L48 56 M14 70 L50 70" stroke="#C9804F" stroke-width="2.5"/><ellipse cx="32" cy="42" rx="12" ry="4" fill="#3a6a8a" stroke="#1B1512" stroke-width="1"/>',
+  },
+  {
+    // Une voile tendue pour l'ombre (canon : ombres artificielles), sur quatre perches.
+    name: 'voile-ombre',
+    blocking: true,
+    svg: shadow(20, 6) + '<path d="M10 84 L10 40 M54 84 L54 40" stroke="#5a4634" stroke-width="2.5"/><path d="M4 42 Q32 52 60 38 L56 30 Q32 40 8 34 Z" fill="#e8d4a8" stroke="#1B1512" stroke-width="1"/>',
+  },
+  {
+    // La caisse de la Communion : à demi enfouie, le plomb mangé de sable, le couvercle ouvert.
+    name: 'caisse-sable',
+    blocking: true,
+    cover: 2,
+    svg: diamond('#d0ac72') + shadow(20, 7) + '<path d="M12 70 L32 60 L52 70 L52 84 L32 94 L12 84 Z" fill="#6a5a4a" stroke="#1B1512" stroke-width="1.2"/><path d="M12 70 L32 80 L52 70" stroke="#1B1512" stroke-width="1"/><path d="M14 64 L34 54 L40 46 L20 56 Z" fill="#7a6a5a" stroke="#1B1512" stroke-width="1"/><path d="M8 86 Q22 78 34 88 Q46 80 58 86 L52 90 L12 90 Z" fill="#d8b880"/>',
+  },
+  {
+    // Un dragon rouge sur son perchoir : Kresh'Tal, le compagnon de la Reine [NOTION], qu'on ne dérange pas.
+    name: 'dragon-rouge',
+    blocking: true,
+    cover: 4,
+    svg: shadow(26, 8) + '<path d="M10 84 Q12 54 30 50 Q42 46 50 30 Q56 22 60 28 Q56 40 54 54 Q56 74 50 86 Z" fill="#a8402a" stroke="#1B1512" stroke-width="1.2"/><path d="M14 60 Q4 40 20 34 Q28 46 26 56 Z" fill="#c85a3a" stroke="#1B1512" stroke-width="1"/><circle cx="56" cy="30" r="1.8" fill="#ffd880"/>',
+  },
+);
+
+// Les habitants de la Marche-Mère (provisoires). Canon [NOTION, la Communion] : pieds nus sur les Léviathans, des
+// broderies de lignée, des cristaux-bijoux ; les Hommes-de-Verre, la peau en partie cristallisée ; la Reine, la peau
+// translucide, des veines d'or, les yeux d'ambre.
+const veil = (c) => `<path d="M22 46 Q32 36 42 46 L44 62 L20 62 Z" fill="${c}" opacity="0.55"/>`;
+const glassSkin = '<path d="M26 44 L30 52 M36 42 L34 50 M24 64 L30 72 M38 66 L36 74" stroke="#bfe8f0" stroke-width="1.5"/>';
+TILES.push(
+  // Tam'Ruu, qui tient la Halte : un tablier de cuir, une louche.
+  npcTile('tam-ruu', { body: '#a8603a', hair: '#2a1a10', skin: '#a87850', accent: '#e8c070', extra: '<path d="M44 52 L50 62" stroke="#5a4634" stroke-width="2.5"/><circle cx="51" cy="64" r="3" fill="#8a6a48"/>' }),
+  // Ish'Lenne, conteuse de la Tente des Mille Pas : des rubans de route aux poignets.
+  npcTile('ish-lenne', { body: '#6a3a5a', hair: '#e8e0d0', skin: '#b88858', accent: '#e8c070', extra: '<path d="M18 74 l-4 6 M46 74 l4 6" stroke="#e8c070" stroke-width="2"/>' + veil('#e8d4a8') }),
+  // Nes'Mira, soigneuse de Longue-Ombre : une sacoche de baumes, du sable aux avant-bras.
+  npcTile('nes-mira', { body: '#8a6a48', hair: '#1a1410', skin: '#9a6a44', accent: '#3a6a5a', extra: '<rect x="42" y="64" width="9" height="7" fill="#5a4634" stroke="#1B1512" stroke-width="0.6"/>' }),
+  // Varo'Ssin, maître verrier, Homme-de-Verre [NOTION] : la peau en partie cristallisée.
+  npcTile('varo-ssin', { body: '#5a4a3a', hair: '#bfe8f0', skin: '#c8d8d8', accent: '#e0a848', extra: glassSkin }),
+  // Saal'Ema, doyenne de son clan : très vieille, un bâton de route.
+  npcTile('saal-ema', { body: '#8a4a2a', hair: '#f0ece4', skin: '#9a7050', accent: '#e8c070', extra: '<path d="M46 40 L50 84" stroke="#5a4634" stroke-width="2.5"/>' }),
+  // Kéo'Sa, neuf ans, sa petite-fille : une écaille rouge au cou.
+  npcTile('keo-sa', { small: true, body: '#c87a3a', hair: '#1a1410', skin: '#a87850', accent: '#a8402a', extra: '<path d="M30 58 l2 3 l2 -3 Z" fill="#a8402a"/>' }),
+  // Yel'Dara, la seconde tête du compte : elle ne verse pas ; les mains vides, une cruche à la ceinture.
+  npcTile('yel-dara', { body: '#3a6a8a', hair: '#d8d0c4', skin: '#9a7050', accent: '#e8d4a8', extra: veil('#3a6a8a') }),
+  // La Gardienne de l'Eau, celle qui verse.
+  npcTile('gardienne-eau', { body: '#2c5a7a', hair: '#1a1410', skin: '#a87850', accent: '#e8d4a8', extra: veil('#2c5a7a') + '<ellipse cx="46" cy="66" rx="5" ry="6" fill="#a8603a" stroke="#1B1512" stroke-width="0.6"/>' }),
+  // Daru'Khen, premier guide : un chèche, un bâton à encoches.
+  npcTile('daru-khen', { body: '#c8a06a', hair: '#e8d4a8', skin: '#8a5a3a', accent: '#5a4634', extra: '<path d="M22 44 L42 44 L40 38 L24 38 Z" fill="#e8d4a8"/><path d="M48 40 L50 84" stroke="#5a4634" stroke-width="2"/>' }),
+  // La Matriarche Hiran'Amra, des cristaux : des cristaux-bijoux au front et au cou.
+  npcTile('hiran-amra', { body: '#7a3a2a', hair: '#1a1410', skin: '#b88858', accent: '#e0a848', extra: '<path d="M30 40 l2 -4 l2 4 Z" fill="#e0a848"/><circle cx="28" cy="58" r="1.8" fill="#e0a848"/><circle cx="32" cy="59" r="1.8" fill="#e0a848"/><circle cx="36" cy="58" r="1.8" fill="#e0a848"/>' }),
+  // Ahm'Ras, nomade pur : un manteau de route usé, les yeux plissés.
+  npcTile('ahm-ras', { body: '#6a5a4a', hair: '#3a2a1c', skin: '#8a5a3a', accent: '#c8a06a', extra: '<path d="M20 44 Q32 34 44 44 L44 52 L20 52 Z" fill="#6a5a4a" opacity="0.8"/>' }),
+  // Eskil Kolm, de Ferros : une veste d'ouvrier de forage sous une toile de Marcheur.
+  npcTile('eskil', { body: '#3a3a42', hair: '#d8c090', skin: '#e0c0a8', accent: '#a0402a', extra: '<path d="M18 60 L46 60 L46 66 L18 66 Z" fill="#e8d4a8" opacity="0.7"/>' }),
+  // Ysha'Ren, seize ans : un foulard sur les avant-bras, où la peau commence à luire.
+  npcTile('ysha-ren', { body: '#c87a3a', hair: '#2a1a10', skin: '#b88858', accent: '#e8d4a8', extra: '<path d="M18 72 l-4 6 M46 72 l4 6" stroke="#bfe8f0" stroke-width="2.5"/>' }),
+  // Dova'Ren, sa mère.
+  npcTile('dova-ren', { body: '#8a4a2a', hair: '#3a2a1c', skin: '#a87850', accent: '#e8c070' }),
+  // Oss'Amar, quatre-vingts ans : un manteau de deuil gris, du henné noir aux joues [NOTION, funérailles].
+  npcTile('oss-amar', { body: '#6a6a62', hair: '#f0ece4', skin: '#9a7050', accent: '#3a3a3a', extra: '<path d="M26 50 l-2 3 M38 50 l2 3" stroke="#1a1410" stroke-width="1.5"/>' }),
+  // La Reine Shal'Vera [NOTION] : peau translucide, veines d'or, yeux d'ambre, une robe de fils de verre.
+  npcTile('shal-vera', { body: '#f0e8d8', hair: '#3a2a1c', skin: '#e8e0d8', accent: '#e0a848', extra: '<path d="M28 44 L30 52 M36 44 L34 52" stroke="#e0a848" stroke-width="1.2"/><circle cx="29" cy="48" r="1.4" fill="#e0a848"/><circle cx="35" cy="48" r="1.4" fill="#e0a848"/><path d="M26 38 l3 -5 l3 5 l3 -5 l3 5" stroke="#ffd880" stroke-width="1.5" fill="none"/>' }),
+  // La dame en gris, dans la Marche : le même manteau, de la poussière jusqu'aux genoux.
+  npcTile('edda-marche', { body: '#6a6a70', hair: '#1a1614', skin: '#d9b8a0', accent: '#3a3a40', extra: '<path d="M18 74 L46 74 L44 82 L20 82 Z" fill="#c8a06a" opacity="0.6"/>' }),
+  // Des passants : un Marcheur, une Marcheuse, un convoyeur, une porteuse d'eau, un verrier, un enfant de la Marche.
+  npcTile('marcheur', { body: '#c87a3a', hair: '#2a1a10', skin: '#a87850', accent: '#e8d4a8', extra: '<path d="M22 44 L42 44 L40 38 L24 38 Z" fill="#e8d4a8"/>' }),
+  npcTile('marcheuse', { body: '#a8402a', hair: '#1a1410', skin: '#9a6a44', accent: '#e8c070', extra: veil('#e8d4a8') }),
+  npcTile('convoyeur', { body: '#8a6a48', hair: '#3a2a1c', skin: '#b88858', accent: '#5a4634', extra: '<path d="M46 40 Q56 46 50 56" stroke="#5a4634" stroke-width="1.5" fill="none"/>' }),
+  npcTile('porteuse-eau', { body: '#3a6a8a', hair: '#2a1a10', skin: '#a87850', accent: '#e8d4a8', extra: '<ellipse cx="32" cy="34" rx="7" ry="4" fill="#a8603a" stroke="#1B1512" stroke-width="0.8"/>' }),
+  npcTile('verrier', { body: '#5a4a3a', hair: '#1a1410', skin: '#b88858', accent: '#e0a848', extra: '<path d="M44 56 L54 48" stroke="#8a8a8a" stroke-width="2"/><circle cx="55" cy="47" r="2.5" fill="#f0a040"/>' }),
+  npcTile('enfant-marche', { small: true, body: '#e8d4a8', hair: '#1a1410', skin: '#9a6a44', accent: '#c87a3a' }),
+  // Un dragonnet des sables : rouge, la taille d'un chien.
+  { name: 'dragonnet', sprite: true, svg: shadow(12, 4) + '<path d="M18 80 Q20 64 30 62 Q36 56 42 50 Q46 46 48 50 Q46 58 44 64 Q46 76 42 82 Z" fill="#a8402a" stroke="#1B1512" stroke-width="1.2"/><path d="M24 66 Q14 56 22 52 Q28 58 28 64 Z" fill="#c85a3a" stroke="#1B1512" stroke-width="1"/><circle cx="46" cy="52" r="1.4" fill="#ffd880"/>' },
+);

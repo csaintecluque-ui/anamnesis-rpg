@@ -1,0 +1,20 @@
+{
+  "id": "coffre-routes",
+  "speaker": "coffre-routes",
+  "entries": [
+    {
+      "node": "coffre"
+    }
+  ],
+  "nodes": {
+    "coffre": {
+      "text": "Un coffre de bois clouté. Dedans, pas un papier : des pierres d’eau, une par puits du cercle, rangées dans l’ordre de la route. Les guides lisent la Marche avec leurs doigts.",
+      "options": [
+        {
+          "text": "Refermer le coffre.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

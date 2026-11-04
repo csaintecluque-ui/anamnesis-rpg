@@ -15,6 +15,7 @@ import {
   encounterChecks,
   findPlace,
   knownPlaces,
+  walkTheMarches,
   pickTerrain,
   rollEncounter,
   storyRencontre,
@@ -93,6 +94,8 @@ export class WorldMapScene extends Phaser.Scene {
     this.panel = [];
     this.panelActions = [];
     this.picked = -1;
+    // The Marche-Mère is not where it was yesterday (src/rules/world.ts).
+    walkTheMarches(this.state.time.day);
 
     this.drawMap();
     this.trail = this.add.graphics();
@@ -208,6 +211,14 @@ export class WorldMapScene extends Phaser.Scene {
       const label = this.screen({ x: lisiere.x1 - 150, y: lisiere.y1 - 40 });
       this.label(label.x, label.y, lisiere.name, '#7a4a2a');
     }
+    // The desert of Solarix, to the south-east (the Communion): dunes over the edge of the forests.
+    const dunes = seeded(3007);
+    for (let i = 0; i < 70; i++) {
+      const x = 860 + dunes() * 320;
+      const y = 505 + dunes() * 100;
+      const p = this.screen({ x, y });
+      g.fillStyle([0xd8b47a, 0xc9a46a, 0xe2c48e][Math.floor(dunes() * 3)], 0.7).fillEllipse(p.x, p.y, (24 + dunes() * 30) * SCALE, (8 + dunes() * 8) * SCALE);
+    }
     // Lands beyond: written at the edge, not reachable yet.
     const known = new Set(knownPlaces(this.state.flags, this.state.quests).map((p) => p.id));
     for (const far of WORLD.distant.filter((d) => !d.remplacePar || !known.has(d.remplacePar))) {
@@ -280,6 +291,13 @@ export class WorldMapScene extends Phaser.Scene {
             g.lineStyle(1.5, INK, 1).strokeCircle(x, p.y - 17, 3.5);
           }
         }
+      } else if (place.caravane) {
+        // A town that walks: a sand-coloured mark, and a small covered wagon beside it.
+        g.fillStyle(0xd8b47a, 1).fillCircle(p.x, p.y, 11);
+        g.lineStyle(3, INK, 1).strokeCircle(p.x, p.y, 11);
+        g.fillStyle(PARCHMENT, 1).fillRect(p.x + 12, p.y - 28, 20, 12);
+        g.lineStyle(1.5, INK, 1).strokeRect(p.x + 12, p.y - 28, 20, 12);
+        g.fillStyle(INK, 1).fillCircle(p.x + 16, p.y - 14, 3).fillCircle(p.x + 28, p.y - 14, 3);
       } else if (place.navire) {
         // A town across the sea: a sea-blue mark, and a small sail beside it.
         g.fillStyle(0x3a7a8a, 1).fillCircle(p.x, p.y, 11);
@@ -462,7 +480,7 @@ export class WorldMapScene extends Phaser.Scene {
       return;
     }
     this.showPanel(text, [
-      [crossingOf(sky)?.moyen === 'navire' ? 'Embarquer' : 'Prendre le dirigeable', () => {
+      [{ navire: 'Embarquer', dirigeable: 'Prendre le dirigeable', caravane: 'Partir avec la caravane' }[crossingOf(sky)?.moyen ?? 'dirigeable'], () => {
         if (!payFlight(this.state, sky)) return;
         this.clearPanel();
         const crossing = crossingOf(sky);

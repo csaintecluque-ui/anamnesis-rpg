@@ -21,6 +21,12 @@ export interface LocationDef {
   fond?: string;
   /** Its map at low tide, in the morning and the evening (Coralia ; src/rules/marees.ts). */
   maree?: string;
+  /** Its map once the camp is pitched, at evening and night (the Marche-Mère ; src/rules/marche.ts). */
+  camp?: string;
+  /** The sand runs beyond its edges while the Marche walks (src/rules/marche.ts). */
+  sable?: boolean;
+  /** Off the Marche, in the desert: the heat costs hit points to whoever has no water (src/rules/marche.ts). */
+  soif?: boolean;
 }
 
 export const LOCATIONS = locationData as LocationDef[];

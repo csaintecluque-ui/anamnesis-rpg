@@ -1,0 +1,54 @@
+{
+  "id": "nes-mira",
+  "speaker": "nes-mira",
+  "entries": [
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Une femme pieds nus sur la carapace, les avant-bras gris de sable, frotte un baume entre deux plaques. — Doucement. Elle sent tes pas. Elle sent tout. Aujourd’hui, elle est lasse.",
+      "options": [
+        {
+          "text": "Elle te parle ?",
+          "next": "lien"
+        },
+        {
+          "text": "Lasse de quoi ?",
+          "next": "lasse"
+        },
+        {
+          "text": "Je te laisse.",
+          "next": "fin"
+        }
+      ]
+    },
+    "lien": {
+      "text": "— Pas avec des mots. Avec ce qui me serre le ventre quand elle a mal, et qui se desserre quand elle mange. Le lien, ça s’appelle. Le rompre, c’est la pire chose qu’on puisse faire, ici ou ailleurs.",
+      "options": [
+        {
+          "text": "Lasse de quoi ?",
+          "next": "lasse"
+        },
+        {
+          "text": "Je te laisse.",
+          "next": "fin"
+        }
+      ]
+    },
+    "lasse": {
+      "text": "— De porter. Elle porte un clan, des tentes, des vieux, et depuis plus longtemps que personne ne s’en souvient. Elle ne s’en plaint pas. C’est moi qui m’en plains, pour elle.",
+      "options": [
+        {
+          "text": "Elle te parle ?",
+          "next": "lien"
+        },
+        {
+          "text": "Je te laisse.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

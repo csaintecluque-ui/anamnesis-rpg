@@ -1,0 +1,20 @@
+{
+  "id": "longue-ombre",
+  "speaker": "longue-ombre",
+  "entries": [
+    {
+      "node": "tete"
+    }
+  ],
+  "nodes": {
+    "tete": {
+      "text": "La tête de Longue-Ombre, plus haute qu’une tente. Un œil d’ambre, mi-clos, qui ne te regarde pas : il regarde le désert, au sud. Sous ta main, la carapace est tiède, et elle bat, très lentement.",
+      "options": [
+        {
+          "text": "Retirer ta main.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

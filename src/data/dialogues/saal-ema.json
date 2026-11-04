@@ -1,0 +1,54 @@
+{
+  "id": "saal-ema",
+  "speaker": "saal-ema",
+  "entries": [
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Une très vieille femme, un bâton de route en travers des genoux. — Assieds-toi, petit pied. Sur Longue-Ombre, on ne marche plus : on est porté. J’ai marché quatre-vingts ans. Maintenant, la bête marche pour moi.",
+      "options": [
+        {
+          "text": "Parle-moi de Longue-Ombre.",
+          "next": "bete"
+        },
+        {
+          "text": "Ça ne te manque pas, de marcher ?",
+          "next": "marcher"
+        },
+        {
+          "text": "Je te laisse.",
+          "next": "fin"
+        }
+      ]
+    },
+    "bete": {
+      "text": "— La plus vieille des douze. Elle était déjà vieille quand ma grand-mère était petite. À chaque tour du cercle, au même endroit, elle tourne la tête vers le désert, au sud. Personne ne sait ce qu’elle regarde.",
+      "options": [
+        {
+          "text": "Ça ne te manque pas, de marcher ?",
+          "next": "marcher"
+        },
+        {
+          "text": "Je te laisse.",
+          "next": "fin"
+        }
+      ]
+    },
+    "marcher": {
+      "text": "— Si. Le soir, je descends au camp, et je fais trois pas dans le sable, pour qu’il se souvienne encore de moi. Le sable se souvient de chaque pas, tu sais. Moi, de moins en moins.",
+      "options": [
+        {
+          "text": "Parle-moi de Longue-Ombre.",
+          "next": "bete"
+        },
+        {
+          "text": "Je te laisse.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

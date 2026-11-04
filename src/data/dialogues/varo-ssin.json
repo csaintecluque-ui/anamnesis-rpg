@@ -1,0 +1,54 @@
+{
+  "id": "varo-ssin",
+  "speaker": "varo-ssin",
+  "entries": [
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Un homme dont la peau, par plaques, est devenue du verre ; on voit dessous la lueur du four. — Je coule les jalons. Un mètre vingt, du verre de la Mer de Verre, rien d’écrit dessus. Un jalon ne dit pas ce qui s’est passé : il dit que c’était là.",
+      "options": [
+        {
+          "text": "Tu as soif, parfois ?",
+          "next": "soif"
+        },
+        {
+          "text": "La Mer de Verre ?",
+          "next": "mer"
+        },
+        {
+          "text": "Je te laisse travailler.",
+          "next": "fin"
+        }
+      ]
+    },
+    "soif": {
+      "text": "— Je vais à la distribution une fois la semaine. Ne me demande pas si c’est pour boire : je ne l’ai jamais su moi-même. La Gardienne me sert sans rien dire. C’est une forme de politesse, des deux côtés.",
+      "options": [
+        {
+          "text": "La Mer de Verre ?",
+          "next": "mer"
+        },
+        {
+          "text": "Je te laisse travailler.",
+          "next": "fin"
+        }
+      ]
+    },
+    "mer": {
+      "text": "— Le cimetière de l’Ancien Monde. Des villes entières, vitrifiées. On y prend le verre des jalons, un peu, une fois l’an. Ferros a voulu y forer : la foreuse n’existe plus, et deux cents des leurs non plus.",
+      "options": [
+        {
+          "text": "Tu as soif, parfois ?",
+          "next": "soif"
+        },
+        {
+          "text": "Je te laisse travailler.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

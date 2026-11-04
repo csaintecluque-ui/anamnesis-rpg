@@ -587,5 +587,13 @@
     "description": "Une perle noire, grosse comme un œil d’enfant, remontée sous une lune rouge.",
     "weightKg": 0,
     "price": 120
+  },
+  {
+    "id": "gourde-errance",
+    "name": "L’eau de l’Année Errante",
+    "description": "Une gourde de peau, pleine, que les Gardiennes de l’Eau donnent à qui quitte la Marche. Hors de la Marche, la chaleur ne te prend rien tant que tu la portes.",
+    "weightKg": 2,
+    "price": 0,
+    "lore": "On ne refuse pas l’eau à un assoiffé : c’est un sacrilège, dans la Communion."
   }
 ]

@@ -1,0 +1,54 @@
+{
+  "id": "daru-khen",
+  "speaker": "daru-khen",
+  "entries": [
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Un homme sec, un chèche couleur de sable, un bâton couvert d’encoches. — Les guides ne choisissent rien, l’étranger. L’eau choisit, nous la suivons. Tu voulais savoir autre chose ?",
+      "options": [
+        {
+          "text": "Où va la Marche ?",
+          "next": "route"
+        },
+        {
+          "text": "Les jalons, au loin ?",
+          "next": "jalons"
+        },
+        {
+          "text": "Rien.",
+          "next": "fin"
+        }
+      ]
+    },
+    "route": {
+      "text": "— Au point d’eau suivant, puis au suivant. Le cercle a un sens, et ses fenêtres ont des dates. On ne revient pas : une Marche qui rebrousse chemin arrive en retard partout.",
+      "options": [
+        {
+          "text": "Les jalons, au loin ?",
+          "next": "jalons"
+        },
+        {
+          "text": "Rien.",
+          "next": "fin"
+        }
+      ]
+    },
+    "jalons": {
+      "text": "— Des haltes mortes. La route a changé, un jour, parce qu’un puits a séché, et ce qui est tombé hors de la route est tombé hors du récit. Y aller, c’est quitter la Marche : l’Année Errante. Cinq sur cent n’en reviennent pas.",
+      "options": [
+        {
+          "text": "Où va la Marche ?",
+          "next": "route"
+        },
+        {
+          "text": "Rien.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

@@ -118,7 +118,49 @@
         "fers": 40,
         "moments": 8
       },
-      "description": "La capitale de la Thalassocratie de Marisol, posée sur un récif vivant : des maisons de corail, des canaux, et la mer qui se retire deux fois par jour. On n’y va qu’en navire."
+      "description": "La capitale de la Thalassocratie de Marisol, posée sur un récif vivant : des maisons de corail, des canaux, et la mer qui se retire deux fois par jour. On n’y va qu’en navire.",
+      "revealedByQuest": "noms-qui-montent"
+    },
+    {
+      "id": "marche-mere",
+      "auberge": "marche-halte",
+      "name": "Marche-Mère",
+      "x": 960,
+      "y": 565,
+      "location": "marche-camp",
+      "entrance": "entree",
+      "revealedByQuest": "mer-rend",
+      "revealedBy": "connait-marche-mere",
+      "caravane": {
+        "fers": 35,
+        "moments": 12
+      },
+      "marche": {
+        "points": [
+          [
+            960,
+            565
+          ],
+          [
+            1060,
+            592
+          ],
+          [
+            1150,
+            568
+          ],
+          [
+            1120,
+            522
+          ],
+          [
+            1010,
+            520
+          ]
+        ],
+        "jours": 30
+      },
+      "description": "La capitale de la Communion des Sables Vivants : huit cent mille personnes qui marchent autour de douze Léviathans, et ne s’arrêtent jamais. On la rejoint avec la caravane des verriers."
     }
   ],
   "rails": [
@@ -149,6 +191,13 @@
       "y": 575,
       "hint": "Au sud, par la mer, en navire.",
       "remplacePar": "coralia"
+    },
+    {
+      "name": "Communion · Marche-Mère",
+      "x": 1040,
+      "y": 590,
+      "hint": "Au sud-est, une ville qui marche.",
+      "remplacePar": "marche-mere"
     }
   ],
   "zones": [

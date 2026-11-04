@@ -1,0 +1,83 @@
+{
+  "id": "shal-vera",
+  "speaker": "shal-vera",
+  "entries": [
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Une femme dont on voit les veines d’or sous la peau, et la lumière à travers les mains. Ses yeux d’ambre te regardent comme on regarde une route. — Quelqu’un de loin. Le Désert t’a senti avant les guides. Que viens-tu chercher, qui ne se trouve pas en marchant ?",
+      "options": [
+        {
+          "text": "Qui décide, dans la Marche ?",
+          "next": "pouvoir"
+        },
+        {
+          "text": "Ferros ?",
+          "next": "ferros"
+        },
+        {
+          "text": "La Mer de Verre ?",
+          "next": "verre"
+        },
+        {
+          "text": "Rien, Majesté.",
+          "next": "fin"
+        }
+      ]
+    },
+    "pouvoir": {
+      "text": "— Les Neuf Voix proposent, les Marches votent, et quand elles ne s’entendent pas, je tranche, après avoir écouté le Désert. Je ne commande rien. On me croit plus forte que je ne suis.",
+      "options": [
+        {
+          "text": "Ferros ?",
+          "next": "ferros"
+        },
+        {
+          "text": "La Mer de Verre ?",
+          "next": "verre"
+        },
+        {
+          "text": "Merci, Majesté.",
+          "next": "fin"
+        }
+      ]
+    },
+    "ferros": {
+      "text": "— Ferros a planté une foreuse dans un cimetière. Nous l’avons détruite ; deux cents des leurs sont morts. Je ne m’en réjouis pas. Je ne le regrette pas non plus.",
+      "options": [
+        {
+          "text": "Qui décide, dans la Marche ?",
+          "next": "pouvoir"
+        },
+        {
+          "text": "La Mer de Verre ?",
+          "next": "verre"
+        },
+        {
+          "text": "Merci, Majesté.",
+          "next": "fin"
+        }
+      ]
+    },
+    "verre": {
+      "text": "— J’y ai marché sept jours et sept nuits, sans eau, pour devenir ce que tu vois. Six sur dix y meurent, et deviennent des statues. Je n’y retourne qu’en rêve, et je me réveille avec du sable sous les ongles.",
+      "options": [
+        {
+          "text": "Qui décide, dans la Marche ?",
+          "next": "pouvoir"
+        },
+        {
+          "text": "Ferros ?",
+          "next": "ferros"
+        },
+        {
+          "text": "Merci, Majesté.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

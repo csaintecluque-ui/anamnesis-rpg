@@ -1065,5 +1065,80 @@
     "id": "banc-perles",
     "name": "Un banc d’huîtres perlières",
     "role": "Le Grand Port, à marée basse"
+  },
+  {
+    "id": "tam-ruu",
+    "name": "Tam’Ruu",
+    "role": "Tient la Halte"
+  },
+  {
+    "id": "gardienne-eau",
+    "name": "La Gardienne de l’Eau",
+    "role": "Celle qui verse"
+  },
+  {
+    "id": "yel-dara",
+    "name": "Yel’Dara",
+    "role": "La seconde tête du compte"
+  },
+  {
+    "id": "daru-khen",
+    "name": "Daru’Khen",
+    "role": "Premier guide"
+  },
+  {
+    "id": "coffre-routes",
+    "name": "Le Coffre des routes",
+    "role": "La tente des guides"
+  },
+  {
+    "id": "varo-ssin",
+    "name": "Varo’Ssin",
+    "role": "Maître verrier, Homme-de-Verre"
+  },
+  {
+    "id": "hiran-amra",
+    "name": "Hiran’Amra",
+    "role": "Matriarche de Cristaux"
+  },
+  {
+    "id": "shal-vera",
+    "name": "La Reine Shal’Vera",
+    "role": "Reine des Sables"
+  },
+  {
+    "id": "marcheuse-souffle",
+    "name": "Une Marcheuse du Souffle",
+    "role": "Temple du Désert-Vivant"
+  },
+  {
+    "id": "saal-ema",
+    "name": "Saal’Ema",
+    "role": "Doyenne de son clan"
+  },
+  {
+    "id": "nes-mira",
+    "name": "Nes’Mira",
+    "role": "Soigneuse de Longue-Ombre"
+  },
+  {
+    "id": "ish-lenne",
+    "name": "Ish’Lenne",
+    "role": "Conteuse de la Tente des Mille Pas"
+  },
+  {
+    "id": "kresh-tal",
+    "name": "Kresh’Tal",
+    "role": "Le dragon de la Reine"
+  },
+  {
+    "id": "longue-ombre",
+    "name": "Longue-Ombre",
+    "role": "La plus vieille des douze"
+  },
+  {
+    "id": "jalon-halte",
+    "name": "Un jalon",
+    "role": "La halte morte"
   }
 ]

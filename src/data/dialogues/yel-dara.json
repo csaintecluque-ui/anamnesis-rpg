@@ -1,0 +1,54 @@
+{
+  "id": "yel-dara",
+  "speaker": "yel-dara",
+  "entries": [
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Une vieille femme voilée de bleu, assise près des jarres, les mains vides sur les genoux. Ses lèvres remuent sans bruit. — Je ne verse pas. J’entends. Chaque matin, le nombre de la Gardienne, et je le garde dans une seconde tête.",
+      "options": [
+        {
+          "text": "Combien de jours gardes-tu ?",
+          "next": "jours"
+        },
+        {
+          "text": "Pourquoi deux têtes ?",
+          "next": "deux"
+        },
+        {
+          "text": "Je te laisse compter.",
+          "next": "fin"
+        }
+      ]
+    },
+    "jours": {
+      "text": "— Mille quatre cents de mémoire ferme. Au-delà, je récite ce que ma devancière m’a récité, qui récitait la sienne. Au jour le jour, c’est exact. Au siècle, ça s’effrite.",
+      "options": [
+        {
+          "text": "Pourquoi deux têtes ?",
+          "next": "deux"
+        },
+        {
+          "text": "Je te laisse compter.",
+          "next": "fin"
+        }
+      ]
+    },
+    "deux": {
+      "text": "— Parce qu’une fois, pendant la Sèche, quelqu’un a demandé à la Gardienne de se taire deux matins. Elle s’est tue. Deux nombres sont morts avec elle. Depuis, on est deux à les porter.",
+      "options": [
+        {
+          "text": "Combien de jours gardes-tu ?",
+          "next": "jours"
+        },
+        {
+          "text": "Je te laisse compter.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

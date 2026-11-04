@@ -1,0 +1,54 @@
+{
+  "id": "hiran-amra",
+  "speaker": "hiran-amra",
+  "entries": [
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Une femme aux cristaux-bijoux, au front et au cou, qui pèse des éclats d’ambre sur une balance de verre. — Le cristal fait vivre la Marche, l’étranger. Sept chariots sur dix qui roulent, c’est lui qui les paie. Tu achètes, tu vends, tu regardes ?",
+      "options": [
+        {
+          "text": "La Mer de Verre ?",
+          "next": "mer"
+        },
+        {
+          "text": "Et Ferros ?",
+          "next": "ferros"
+        },
+        {
+          "text": "Je regarde.",
+          "next": "fin"
+        }
+      ]
+    },
+    "mer": {
+      "text": "— Je voudrais que la route y passe plus souvent. Les guides disent que l’eau décide. L’eau n’a jamais payé une lentille de serre.",
+      "options": [
+        {
+          "text": "Et Ferros ?",
+          "next": "ferros"
+        },
+        {
+          "text": "Je regarde.",
+          "next": "fin"
+        }
+      ]
+    },
+    "ferros": {
+      "text": "— Ferros paierait le double, par Terminus. Ferros a aussi planté une foreuse dans un cimetière. Je n’oublie ni l’un ni l’autre, et je ne les mélange pas.",
+      "options": [
+        {
+          "text": "La Mer de Verre ?",
+          "next": "mer"
+        },
+        {
+          "text": "Je regarde.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "id": "jalon-halte",
+  "speaker": "jalon-halte",
+  "entries": [
+    {
+      "node": "jalon"
+    }
+  ],
+  "nodes": {
+    "jalon": {
+      "text": "Un jalon de verre, debout depuis des siècles, sans un mot. Le sable l’a poli jusqu’à le rendre presque invisible. Personne n’est venu le voir depuis que la route a changé.",
+      "options": [
+        {
+          "text": "Le laisser debout.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

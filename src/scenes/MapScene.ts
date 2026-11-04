@@ -33,13 +33,14 @@ import type { CombatStartData } from './CombatScene';
 import { FigurantLayer } from './Figurants';
 import { PartyLayer } from './Party';
 import { echoObjects, echoShows } from '../rules/echos';
-import { mapAtTide, mareeBasse } from '../rules/marees';
+import { mareeBasse } from '../rules/marees';
+import { campDresse, chaleur, mapNow, sableDefile } from '../rules/marche';
 import { boardObjects } from '../rules/contrats';
 import { carriesLamp, descend, groupDialogueId, groupFlag, groupNear, leaveVoie, lightTraps, sneakFlag, springTrap, trapSeenFlag, voieGroupXp, voieLevel, voiePlan } from '../rules/voies';
 import { PENDING_NOTICE, type HudScene } from './HudScene';
 import type { WorldMapStartData } from './WorldMapScene';
 import { momentOf, type Moment } from '../rules/time';
-import { findPlace } from '../rules/world';
+import { findPlace, walkTheMarches } from '../rules/world';
 import { playSfx, playStep } from '../audio/sfx';
 import { MINI_MAP_SOURCE, type MiniMapSource, type MiniMarker } from '../ui/miniMap';
 import { BUBBLE_MS, labelScaleFor, speechBubble } from './speech';
@@ -100,6 +101,8 @@ const LIT_TRAP = 0xc0503a;
 
 export class MapScene extends Phaser.Scene {
   private momentVeil!: Phaser.GameObjects.Rectangle;
+  /** The sand that runs under the Marche while it walks (src/rules/marche.ts). */
+  private sandFlow: Phaser.GameObjects.TileSprite | null = null;
   private state!: GameState;
   private map!: GameMap;
   private originX = 0;
@@ -179,7 +182,7 @@ export class MapScene extends Phaser.Scene {
       this.scene.restart();
       return;
     }
-    this.map = parseTiledMap(MAPS[location.voie && state.voie ? voiePlan(state.voie) : mapAtTide(location, state.time)]);
+    this.map = parseTiledMap(MAPS[location.voie && state.voie ? voiePlan(state.voie) : mapNow(location, state.time)]);
     const level = location.voie && state.voie ? voieLevel(state, this.map) : null;
     if (level) {
       this.map.objects.push(...level.objects);
@@ -261,6 +264,7 @@ export class MapScene extends Phaser.Scene {
     this.drag = null;
     this.running = false;
     this.cameras.main.setBackgroundColor(location.fond ?? COLORS.ink);
+    this.sandFlow = sableDefile(location, state.time) ? this.makeSandFlow() : null;
     this.fitCamera();
     this.following = true;
     this.cameras.main.startFollow(this.hero, true, 0.15, 0.15);
@@ -308,6 +312,10 @@ export class MapScene extends Phaser.Scene {
     }
     // The tides of Coralia (src/rules/marees.ts): said when the hero arrives in a place they change.
     if (arrived && location.maree) this.time.delayedCall(60, () => this.hud().toast(mareeBasse(state.time) ? 'Marée basse : la mer s’est retirée, et des passages se sont ouverts.' : 'Marée haute : la mer a recouvert les passages du reflux.'));
+    // The Marche-Mère (src/rules/marche.ts): it walks by day and pitches camp at evening.
+    if (arrived && location.camp) this.time.delayedCall(60, () => this.hud().toast(campDresse(state.time) ? 'Le soir : la Marche a dressé le camp.' : 'La Marche avance : le camp est plié dans les chariots, et le sable défile.'));
+    // Off the Marche, the heat: water of the errance, or hit points.
+    if (arrived && location.soif) this.time.delayedCall(70, () => this.sufferHeat());
     // The Anneau (docs/univers/lieux/sept-portes.md): said once, on arriving at Sept-Portes.
     if (location.nexus && !state.flags['anneau-senti']) {
       state.flags['anneau-senti'] = true;
@@ -347,8 +355,39 @@ export class MapScene extends Phaser.Scene {
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => this.events.off(Phaser.Scenes.Events.RESUME, onResume));
   }
 
+  /** Dunes drawn once into a texture, and a tiled sheet of them under the whole view, that the update slides. */
+  private makeSandFlow(): Phaser.GameObjects.TileSprite {
+    if (!this.textures.exists('sable-defile')) {
+      const g = this.make.graphics({ x: 0, y: 0 }, false);
+      g.fillStyle(0xc9a46a, 1).fillRect(0, 0, 256, 128);
+      for (const [x, y, w, c] of [[20, 20, 90, 0xb88f58], [140, 54, 100, 0xd8b47a], [60, 92, 120, 0xb88f58], [190, 10, 60, 0xd8b47a], [0, 70, 50, 0xd8b47a]] as const) {
+        g.fillStyle(c, 1).fillEllipse(x + w / 2, y + 8, w, 14);
+      }
+      g.lineStyle(1, 0x9a7444, 0.5);
+      for (let i = 0; i < 6; i++) g.lineBetween(i * 46, 40 + (i % 3) * 22, i * 46 + 30, 34 + (i % 3) * 22);
+      g.generateTexture('sable-defile', 256, 128);
+      g.destroy();
+    }
+    return this.add
+      .tileSprite(GAME_WIDTH / 2, GAME_HEIGHT / 2, GAME_WIDTH * 4, GAME_HEIGHT * 4, 'sable-defile')
+      .setScrollFactor(0)
+      .setDepth(-1e6);
+  }
+
+  /** The heat, off the Marche (src/rules/marche.ts): said, and paid in hit points without water. */
+  private sufferHeat(): void {
+    if (!this.state.character) return;
+    const lost = chaleur(this.state.character);
+    if (lost === null) this.hud().toast('La chaleur. Tu bois une gorgée de l’eau de l’errance, et tu repars.');
+    else this.hud().toast(lost > 0 ? `La chaleur, et pas une goutte d’eau : tu perds ${lost} PV.` : 'La chaleur. Tu tiens debout, à peine.');
+  }
+
   update(_time: number, delta: number): void {
     if (this.state) this.state.playTimeSeconds += delta / 1000;
+    if (this.sandFlow) {
+      this.sandFlow.tilePositionX += delta * 0.045;
+      this.sandFlow.tilePositionY += delta * 0.0225;
+    }
     if (this.state && this.time.now >= this.nextBarkAt) this.speakUp();
     if (this.autoTalkAt !== null && !this.moving && this.time.now >= this.autoTalkAt) {
       this.autoTalkAt = null;
@@ -1279,6 +1318,7 @@ export class MapScene extends Phaser.Scene {
   /** Leaves a place (or an encounter) for the world map, where one stands at that place (docs/gdd/carte-du-monde.md). */
   private openWorldMap(): void {
     const encounter = this.state.encounter;
+    walkTheMarches(this.state.time.day);
     const place = this.state.voie ? leaveVoie(this.state) : placeOfLocation(this.state.location);
     let start: WorldMapStartData;
     if (encounter) start = { x: encounter.x, y: encounter.y, destination: encounter.destination };

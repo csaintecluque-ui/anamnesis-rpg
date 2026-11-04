@@ -1724,6 +1724,225 @@ Object.assign(INTERIORS, {
   }),
 });
 
+// --- La Marche-Mère, la ville qui marche (chapitre 7, docs/univers/lieux/marche-mere.md ; visuels provisoires) -------
+// Canon [NOTION, la Communion] : une Marche n'est pas embarquée ; la foule va à pied et en convois autour des douze
+// Léviathans, qui portent les clans-souches et le Cœur Spiral. Le jour, elle avance (le sable défile, src/rules/marche.ts) ;
+// le soir, elle dresse le camp.
+
+Object.assign(LOCATION_NAMES, {
+  'marche-halte': 'La Halte',
+  'marche-mille-pas': 'La Tente des Mille Pas',
+  'marche-eau': 'La Tente de l’Eau',
+  'marche-guides': 'La tente des guides',
+  'marche-relais': 'Relais des Gardiens de Mémoire',
+  'marche-ren': 'La tente des Ren',
+  'marche-atelier': 'L’Atelier de Varo’Ssin',
+  'marche-comptoir': 'Le comptoir des Matriarches de Cristaux',
+  'marche-pavillon': 'Le Pavillon de la Reine',
+  'marche-temple': 'Le Temple du Désert-Vivant',
+  'marche-nid': 'Le Nid des dragonnets',
+  'marche-saal-ema': 'La tente de Saal’Ema',
+});
+
+/** Le Camp du soir, ou la Marche en route : les mêmes foyers, en tentes le soir, en chariots le jour. */
+function marcheCamp(dresse) {
+  const m = new MapBuilder(32, 26);
+  m.ground.fill(gid('sable'));
+  for (let col = 0; col < 32; col++) for (const row of [12, 13]) m.setGround(col, row, 'piste');
+  if (!dresse) for (let row = 0; row < 26; row++) for (const col of [15, 16]) m.setGround(col, row, 'piste');
+  const homes = [
+    ['marche-halte', 'tente-ocre', 'chariot-ocre', [8, 8]],
+    ['marche-mille-pas', 'tente-mille-pas', 'chariot', [16, 6]],
+    ['marche-eau', 'tente-eau', 'chariot-eau', [24, 8]],
+    ['marche-guides', 'tente-beige', 'chariot', [8, 17]],
+    ['marche-relais', 'tente-beige', 'chariot', [19, 19]],
+    ['marche-ren', 'tente-rouge', 'chariot-ocre', [25, 17]],
+  ];
+  for (const [id, tente, chariot, [c, r]] of homes) house(m, id, dresse ? tente : chariot, [c, r], [c, r + 1]);
+  // La caravane des verriers, qui va à Sept-Portes et en revient (la carte du monde).
+  m.setObstacle(1, 11, 'four-verre');
+  m.object('caravane', 'porte', 1, 11, { cible: CARTE_DU_MONDE, libelle: 'La caravane des verriers' });
+  m.object('entree', 'arrivee', 2, 12);
+  m.object('vers-verriers', 'sortie', 31, 12, { cible: 'marche-verriers', arrivee: 'depuis-camp', libelle: 'Le convoi des verriers' });
+  m.object('depuis-verriers', 'arrivee', 29, 12);
+  m.object('vers-coeur', 'sortie', 15, 0, { cible: 'marche-coeur', arrivee: 'depuis-camp', libelle: 'L’échelle de corde du Cœur Spiral' });
+  m.object('depuis-coeur', 'arrivee', 15, 2);
+  m.object('vers-longue-ombre', 'sortie', 15, 25, { cible: 'marche-longue-ombre', arrivee: 'depuis-camp', libelle: 'L’échelle de Longue-Ombre' });
+  m.object('depuis-longue-ombre', 'arrivee', 15, 23);
+  // Quitter la Marche : le désert, et la halte morte qu'on voit de la piste.
+  m.object('vers-desert', 'sortie', 0, 22, { cible: 'marche-desert', arrivee: 'depuis-camp', libelle: 'Quitter la Marche' });
+  m.object('depuis-desert', 'arrivee', 2, 21);
+  if (dresse) {
+    for (const [c, r] of [[12, 10], [20, 14], [6, 14]]) m.setObstacle(c, r, 'feu-camp');
+    for (const [c, r] of [[11, 15], [13, 15], [20, 10], [22, 10]]) m.setObstacle(c, r, 'etal');
+    for (const [c, r] of [[4, 4], [28, 4], [4, 21], [28, 22], [12, 21]]) m.setObstacle(c, r, 'tente-beige');
+    for (const [c, r] of [[20, 3], [11, 3], [24, 23]]) m.setObstacle(c, r, 'tente-ocre');
+    m.setObstacle(27, 13, 'jalon');
+  } else {
+    for (const [c, r] of [[4, 4], [28, 4], [4, 21], [28, 22], [12, 21], [20, 3], [11, 3], [24, 23]]) m.setObstacle(c, r, 'chariot');
+    for (const [c, r] of [[6, 11], [22, 14], [11, 14]]) m.setObstacle(c, r, 'voile-ombre');
+  }
+  m.setObstacle(4, 11, 'panneau');
+  m.object('panneau-camp', 'panneau', 4, 11, { texte: dresse
+    ? 'Le Camp du soir. Un jalon planté pour la nuit, sans un mot dessus : la Communion n’écrit pas. Un enfant te montre du doigt la Halte, la Tente des Mille Pas, la Tente de l’Eau.'
+    : 'La Marche en route : les tentes pliées dans les chariots, la foule à pied, et au loin les douze Léviathans qui avancent au pas. Le soir, tout se remontera en trente minutes.' });
+  return m.toTiled();
+}
+
+/** Le convoi des verriers (Vel'Amra) : les chariots-fours où l'on coule les jalons, l'atelier, le comptoir des cristaux. */
+function marcheVerriers() {
+  const m = new MapBuilder(26, 20);
+  m.ground.fill(gid('sable'));
+  for (let col = 0; col < 26; col++) for (const row of [10, 11]) m.setGround(col, row, 'piste');
+  house(m, 'marche-atelier', 'four-verre', [8, 6], [8, 7]);
+  house(m, 'marche-comptoir', 'tente-rouge', [18, 6], [18, 7]);
+  for (const [c, r] of [[4, 6], [13, 5], [22, 5], [5, 15], [12, 15], [20, 15]]) m.setObstacle(c, r, 'four-verre');
+  for (const [c, r] of [[9, 14], [10, 14], [11, 14], [16, 14], [17, 14]]) m.setObstacle(c, r, 'jalon');
+  for (const [c, r] of [[15, 8], [3, 12]]) m.setObstacle(c, r, 'caisses');
+  m.object('vers-camp', 'sortie', 0, 10, { cible: 'marche-camp', arrivee: 'depuis-verriers', libelle: 'Le Camp' });
+  m.object('depuis-camp', 'arrivee', 2, 10);
+  m.object('entree', 'arrivee', 2, 10);
+  m.setObstacle(6, 9, 'panneau');
+  m.object('panneau-verriers', 'panneau', 6, 9, { texte: 'Le convoi des verriers. Des tiges de verre d’un mètre vingt refroidissent en rang dans le sable : les jalons des haltes à venir.' });
+  return m.toTiled();
+}
+
+/** A platform of carapace on a Léviathan's back: an oval, its rim a flank one does not cross. */
+function leviathanBack(m, cx, cy, rx, ry, floor) {
+  for (let row = 0; row < m.height; row++) {
+    for (let col = 0; col < m.width; col++) {
+      const d = ((col - cx) / rx) ** 2 + ((row - cy) / ry) ** 2;
+      if (d <= 1) m.setGround(col, row, d < 0.55 && floor ? floor : 'carapace');
+    }
+  }
+}
+
+/** Le Cœur Spiral, sur le Léviathan central : le Pavillon de la Reine, le Temple, les piliers, les Perchoirs. */
+function marcheCoeur() {
+  const m = new MapBuilder(26, 22);
+  m.ground.fill(0);
+  leviathanBack(m, 13, 11, 11.5, 9.5, 'verre-sol');
+  for (let col = 0; col <= 2; col++) m.setGround(col, 11, 'pont-corde');
+  house(m, 'marche-pavillon', 'palais-cristal', [13, 4], [13, 5]);
+  house(m, 'marche-temple', 'temple-desert', [6, 9], [7, 10]);
+  house(m, 'marche-nid', 'nid-dragon', [20, 9], [20, 10]);
+  for (const [c, r] of [[10, 8], [16, 8], [10, 14], [16, 14]]) m.setObstacle(c, r, 'pilier-cristal');
+  m.setObstacle(19, 4, 'dragon-rouge');
+  m.object('kresh-tal', 'objet', 19, 4);
+  for (const [c, r] of [[7, 15], [19, 15]]) m.setObstacle(c, r, 'voile-ombre');
+  m.object('vers-camp', 'sortie', 13, 20, { cible: 'marche-camp', arrivee: 'depuis-coeur', libelle: 'Redescendre au camp' });
+  m.object('depuis-camp', 'arrivee', 13, 18);
+  m.object('entree', 'arrivee', 13, 18);
+  m.object('vers-longue-ombre', 'sortie', 0, 11, { cible: 'marche-longue-ombre', arrivee: 'depuis-coeur', libelle: 'Le pont de corde vers Longue-Ombre' });
+  m.object('depuis-longue-ombre', 'arrivee', 3, 11);
+  m.setObstacle(12, 16, 'panneau');
+  m.object('panneau-coeur', 'panneau', 12, 16, { texte: 'Le Cœur Spiral. Le cristal pousse en spirale, sans murs, pour que le vent passe. Sous tes pieds nus, la carapace est tiède.' });
+  return m.toTiled();
+}
+
+/** Le dos de Longue-Ombre, la plus vieille des douze : le clan-souche de Saal'Ema, et sa soigneuse près de la tête. */
+function marcheLongueOmbre() {
+  const m = new MapBuilder(24, 18);
+  m.ground.fill(0);
+  leviathanBack(m, 11, 9, 10.5, 7.5, null);
+  for (let col = 0; col <= 1; col++) m.setGround(col, 9, 'pont-corde');
+  m.setObstacle(21, 9, 'tete-leviathan');
+  m.object('longue-ombre', 'objet', 21, 9);
+  m.object('nes-mira', 'pnj', 18, 10);
+  house(m, 'marche-saal-ema', 'tente-ocre', [8, 5], [8, 6]);
+  for (const [c, r] of [[12, 4], [5, 12], [13, 13]]) m.setObstacle(c, r, 'tente-beige');
+  for (const [c, r] of [[15, 6], [6, 9]]) m.setObstacle(c, r, 'voile-ombre');
+  m.setObstacle(14, 12, 'citerne');
+  m.object('vers-coeur', 'sortie', 0, 9, { cible: 'marche-coeur', arrivee: 'depuis-longue-ombre', libelle: 'Le pont de corde vers le Cœur Spiral' });
+  m.object('depuis-coeur', 'arrivee', 3, 9);
+  m.object('vers-camp', 'sortie', 11, 16, { cible: 'marche-camp', arrivee: 'depuis-longue-ombre', libelle: 'Descendre au camp' });
+  m.object('depuis-camp', 'arrivee', 11, 14);
+  m.object('entree', 'arrivee', 11, 14);
+  return m.toTiled();
+}
+
+/** Hors de la Marche : neuf kilomètres de sable entre la piste et une halte morte. */
+function marcheDesert() {
+  const m = new MapBuilder(28, 20);
+  m.ground.fill(gid('sable'));
+  for (const [c, r] of [[5, 4], [9, 15], [13, 3], [16, 12], [20, 6], [22, 16], [7, 9], [24, 3], [11, 18], [3, 16]]) m.setObstacle(c, r, 'dune');
+  m.object('vers-camp', 'sortie', 0, 10, { cible: 'marche-camp', arrivee: 'depuis-desert', libelle: 'Rattraper la Marche' });
+  m.object('depuis-camp', 'arrivee', 2, 10);
+  m.object('entree', 'arrivee', 2, 10);
+  m.object('vers-halte', 'sortie', 27, 10, { cible: 'marche-halte-morte', arrivee: 'depuis-desert', libelle: 'Le jalon, là-bas' });
+  m.object('depuis-halte', 'arrivee', 25, 10);
+  return m.toTiled();
+}
+
+/** La halte morte : un jalon debout, et sous le sable, un quai de l'Ancien Monde. */
+function marcheHalteMorte() {
+  const m = new MapBuilder(22, 16);
+  m.ground.fill(gid('sable'));
+  m.line([0, 11], [21, 11], 'rail-sable');
+  m.rect(6, 8, 15, 10, 'quai');
+  blocks(m, 'ruine', [[7, 8], [15, 8]]);
+  blocks(m, 'dune', [[3, 3], [18, 4], [4, 14], [17, 14]]);
+  blocks(m, 'butoir', [[21, 11]]);
+  m.setObstacle(12, 6, 'jalon');
+  m.object('jalon-halte', 'objet', 12, 6);
+  m.setObstacle(11, 9, 'caisse-sable');
+  m.setObstacle(14, 9, 'stele');
+  m.object('panneau-halte-sables', 'panneau', 14, 9, { texte: 'Une plaque de l’Ancien Monde, que le sable a polie : « Halte des Sables — voie 7 ». La Communion n’écrit pas ; quelqu’un, avant elle, écrivait.' });
+  m.object('vers-desert', 'sortie', 0, 8, { cible: 'marche-desert', arrivee: 'depuis-halte', libelle: 'Repartir vers la piste' });
+  m.object('depuis-desert', 'arrivee', 2, 8);
+  m.object('entree', 'arrivee', 2, 8);
+  return m.toTiled();
+}
+
+const TENT_ROOM = { floor: 'tapis-sable', wall: 'mur-toile' };
+const GLASS_ROOM = { floor: 'verre-sol', wall: 'pilier-cristal' };
+Object.assign(INTERIORS, {
+  'marche-halte': interior('marche-halte', {
+    ...TENT_ROOM, w: 8, h: 6, outside: 'marche-camp',
+    furniture: [[1, 1, 'tonneaux'], [1, 2, 'tonneaux'], [7, 1, 'citerne'], [3, 3, 'comptoir'], [4, 3, 'comptoir'], [2, 5, 'table'], [7, 4, 'table']],
+    objects: [['tam-ruu', 'pnj', 4, 2]],
+  }),
+  'marche-mille-pas': interior('marche-mille-pas', {
+    ...TENT_ROOM, w: 9, h: 7, outside: 'marche-camp',
+    furniture: [[2, 1, 'ballots'], [7, 1, 'ballots'], [5, 3, 'feu-camp'], [1, 5, 'ballots'], [8, 5, 'ballots']],
+    objects: [['ish-lenne', 'pnj', 5, 2]],
+  }),
+  'marche-eau': interior('marche-eau', {
+    ...TENT_ROOM, w: 8, h: 6, outside: 'marche-camp',
+    furniture: [[2, 1, 'citerne'], [4, 1, 'citerne'], [6, 1, 'citerne'], [3, 4, 'table']],
+    objects: [['gardienne-eau', 'pnj', 4, 2], ['yel-dara', 'pnj', 6, 3]],
+  }),
+  'marche-guides': interior('marche-guides', {
+    ...TENT_ROOM, outside: 'marche-camp',
+    furniture: [[1, 1, 'ballots'], [6, 1, 'caisses'], [4, 3, 'table'], [1, 4, 'ballots']],
+    objects: [['daru-khen', 'pnj', 3, 2], ['coffre-routes', 'objet', 6, 1]],
+  }),
+  'marche-relais': interior('marche-relais', { ...TENT_ROOM, outside: 'marche-camp', furniture: [[2, 1, 'etagere'], [3, 1, 'etagere'], [5, 4, 'table']], objects: [] }),
+  'marche-ren': interior('marche-ren', { ...TENT_ROOM, outside: 'marche-camp', furniture: [[1, 1, 'lit'], [6, 1, 'lit'], [4, 3, 'table']], objects: [] }),
+  'marche-atelier': interior('marche-atelier', {
+    ...TENT_ROOM, outside: 'marche-verriers',
+    furniture: [[2, 1, 'etabli'], [3, 1, 'etabli'], [6, 1, 'jalon'], [6, 2, 'jalon'], [1, 4, 'caisses']],
+    objects: [['varo-ssin', 'pnj', 4, 3]],
+  }),
+  'marche-comptoir': interior('marche-comptoir', {
+    ...TENT_ROOM, outside: 'marche-verriers',
+    furniture: [[3, 3, 'comptoir'], [4, 3, 'comptoir'], [1, 1, 'caisses'], [6, 1, 'etagere']],
+    objects: [['hiran-amra', 'pnj', 4, 2]],
+  }),
+  'marche-pavillon': interior('marche-pavillon', {
+    ...GLASS_ROOM, w: 9, h: 7, outside: 'marche-coeur',
+    furniture: [[2, 2, 'voile-ombre'], [7, 2, 'voile-ombre'], [1, 5, 'citerne']],
+    objects: [['shal-vera', 'pnj', 5, 2]],
+  }),
+  'marche-temple': interior('marche-temple', {
+    ...GLASS_ROOM, w: 8, h: 6, outside: 'marche-coeur',
+    furniture: [[2, 1, 'jalon'], [4, 1, 'jalon'], [6, 1, 'jalon'], [1, 4, 'pilier-cristal']],
+    objects: [['marcheuse-souffle', 'pnj', 4, 3]],
+  }),
+  'marche-nid': interior('marche-nid', { floor: 'sable', wall: 'mur-toile', w: 8, h: 6, outside: 'marche-coeur', furniture: [[1, 1, 'ballots'], [7, 1, 'citerne']], objects: [] }),
+  'marche-saal-ema': interior('marche-saal-ema', { ...TENT_ROOM, outside: 'marche-longue-ombre', furniture: [[1, 1, 'lit'], [6, 1, 'ballots'], [4, 3, 'table']], objects: [['saal-ema', 'pnj', 3, 2]] }),
+});
+
 // Les voies endormies à explorer (docs/gdd/voies.md, jalon 3, étape 6) : une réserve de plans de l'Ancien Monde. Chaque
 // niveau d'une voie en tire un, puis le jeu le garnit au hasard sur ses points d'apparition : bêtes (`ennemi-1..3`),
 // caisses (`coffre-1..3`), pièges (`piege-1..4`), un Écho (`echo-1`), l'objet d'un contrat (`contrat`), la descente.
@@ -1874,6 +2093,13 @@ for (const [id, map] of Object.entries({
   'coralia-amiraute': coraliaAmiraute(),
   'coralia-voie-noyee': coraliaVoieNoyee(),
   'coralia-grotte': coraliaGrotte(),
+  'marche-route': marcheCamp(false),
+  'marche-camp': marcheCamp(true),
+  'marche-verriers': marcheVerriers(),
+  'marche-coeur': marcheCoeur(),
+  'marche-longue-ombre': marcheLongueOmbre(),
+  'marche-desert': marcheDesert(),
+  'marche-halte-morte': marcheHalteMorte(),
   ...ENCOUNTER_MAPS,
   ...VOIE_MAPS,
 })) {

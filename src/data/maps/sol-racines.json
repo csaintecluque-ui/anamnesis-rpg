@@ -1400,11 +1400,11 @@
    "name": "tiles",
    "image": "../../../public/tiles/tiles.png",
    "imagewidth": 512,
-   "imageheight": 3840,
+   "imageheight": 4416,
    "tilewidth": 64,
    "tileheight": 96,
    "columns": 8,
-   "tilecount": 313,
+   "tilecount": 367,
    "margin": 0,
    "spacing": 0,
    "tiles": [
@@ -9215,6 +9215,1356 @@
        "name": "nom",
        "type": "string",
        "value": "abyssal"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 313,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "sable"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 314,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "piste"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 315,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "carapace"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 316,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "verre-sol"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 317,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "tapis-sable"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 318,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "rail-sable"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 319,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "pont-corde"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 320,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "mur-toile"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 321,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "tente-ocre"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 4
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 322,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "tente-beige"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 4
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 323,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "tente-rouge"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 4
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 324,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "tente-eau"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 4
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 325,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "tente-mille-pas"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 4
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 326,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "chariot"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 4
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 327,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "chariot-ocre"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 4
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 328,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "chariot-eau"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 4
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 329,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "four-verre"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 4
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 330,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "feu-camp"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 331,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "jalon"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 332,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "dune"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 2
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 333,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "flanc-leviathan"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 4
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 334,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "tete-leviathan"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 4
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 335,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "pilier-cristal"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 3
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 336,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "palais-cristal"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 4
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 337,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "temple-desert"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 4
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 338,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "nid-dragon"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 4
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 339,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "citerne"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 3
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 340,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "voile-ombre"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 341,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "caisse-sable"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 2
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 342,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "dragon-rouge"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 4
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 343,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "tam-ruu"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 344,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "ish-lenne"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 345,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "nes-mira"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 346,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "varo-ssin"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 347,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "saal-ema"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 348,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "keo-sa"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 349,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "yel-dara"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 350,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "gardienne-eau"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 351,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "daru-khen"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 352,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "hiran-amra"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 353,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "ahm-ras"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 354,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "eskil"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 355,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "ysha-ren"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 356,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "dova-ren"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 357,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "oss-amar"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 358,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "shal-vera"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 359,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "edda-marche"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 360,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "marcheur"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 361,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "marcheuse"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 362,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "convoyeur"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 363,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "porteuse-eau"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 364,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "verrier"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 365,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "enfant-marche"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 366,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "dragonnet"
       },
       {
        "name": "bloquant",

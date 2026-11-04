@@ -115,6 +115,8 @@ export class MapScene extends Phaser.Scene {
    * they attack again only once the hero has been out of their sight. Touching them still starts the fight.
    */
   private fought = new Set<string>();
+  /** How much higher the walkers stand on a cell (the arched deck of a bridge, src/engine/bigGround.ts). */
+  private lifts = new Map<string, number>();
   /** Obstacle images, faded while they hide the hero or something to touch (src/engine/occlusion.ts). */
   private obstacleImages: Phaser.GameObjects.Image[] = [];
   private fadedForThings = new Set<Phaser.GameObjects.Image>();
@@ -178,6 +180,7 @@ export class MapScene extends Phaser.Scene {
     this.arrival = null;
     this.interactables = [];
     this.fought = new Set();
+    this.lifts = new Map();
     this.obstacleImages = [];
     this.fadedForThings = new Set();
     this.fadedForHero = new Set();
@@ -189,7 +192,7 @@ export class MapScene extends Phaser.Scene {
     this.drawPlacedObjects();
     this.figurants = new FigurantLayer(this, {
       frames: this.map.frames,
-      feet: (t) => this.feet(t),
+      feet: (t) => this.walkerFeet(t),
       walkable: (t) => this.walkable(t),
       heroTile: () => this.heroTile,
       story: () => this.state,
@@ -211,13 +214,13 @@ export class MapScene extends Phaser.Scene {
     // A save at every place (docs/gdd/jalon-3.md): death sends the hero back to the last one, never far.
     const saved = saveStore.write('auto', this.state);
     if (!saved.ok) console.warn('Sauvegarde auto impossible :', saved.error);
-    const start = this.feet(this.heroTile);
+    const start = this.walkerFeet(this.heroTile);
     this.hero = this.add.sprite(start.x, start.y, 'tiles', this.map.frames.heros).setOrigin(0.5, 1).setDepth(start.y);
     this.revealThings();
     this.revealHero(this.heroTile);
     this.lightTraps(false);
     this.setUpWalk();
-    this.party = new PartyLayer(this, { frames: this.map.frames, feet: (t) => this.feet(t), walkable: (t) => this.walkable(t) });
+    this.party = new PartyLayer(this, { frames: this.map.frames, feet: (t) => this.walkerFeet(t), walkable: (t) => this.walkable(t) });
     this.partyIds = state.groupe.map((m) => m.id).join(',');
     this.party.spawn(state.groupe.map((m) => m.id), this.heroTile);
 
@@ -383,7 +386,8 @@ export class MapScene extends Phaser.Scene {
       }
     }
     // A block of w × h cells: its image is centred (w − h) half-cells left of the front cell (src/engine/tiledMap.ts),
-    // then moved so the bridge's deck lies under the walkers' feet; its front railing goes over them (bigGround.ts).
+    // then moved so the bridge's ends meet the paths; the walkers climb onto its arched deck, and its front railing
+    // goes over them (src/engine/bigGround.ts).
     for (const tile of bigGround) {
       const key = `decor-${tile.name}`;
       if (!this.textures.exists(key)) continue;
@@ -394,8 +398,18 @@ export class MapScene extends Phaser.Scene {
       const x = f.x - ((cols - rows) * TILE_WIDTH) / 4 - image.width / 2 + (art?.shift.x ?? 0);
       const y = f.y - image.height + (art?.shift.y ?? 0);
       rt.draw(key, x, y);
-      if (art) this.add.image(x, y, this.frontOf(key, image, art.front)).setOrigin(0, 0).setDepth(f.y + 1);
+      if (!art) continue;
+      this.add.image(x, y, this.frontOf(key, image, art.front)).setOrigin(0, 0).setDepth(f.y + 1);
+      for (let c = tile.col - cols + 1; c <= tile.col; c++) {
+        for (let r = tile.row - rows + 1; r <= tile.row; r++) this.lifts.set(tileKey({ col: c, row: r }), art.lift);
+      }
     }
+  }
+
+  /** Where a walker's feet go on a cell: its diamond's bottom, raised on a bridge's deck. */
+  private walkerFeet(tile: Tile): { x: number; y: number } {
+    const f = this.feet(tile);
+    return { x: f.x, y: f.y - (this.lifts.get(tileKey(tile)) ?? 0) };
   }
 
   /** The front of a large ground decor (its railing), made once from its picture. */
@@ -832,7 +846,7 @@ export class MapScene extends Phaser.Scene {
     if (!this.following) this.recenter();
     this.walk(facingOf(this.heroTile, next));
     const diagonal = next.col !== this.heroTile.col && next.row !== this.heroTile.row;
-    const target = this.feet(next);
+    const target = this.walkerFeet(next);
     this.revealHero(next);
     this.tweens.add({
       targets: this.hero,

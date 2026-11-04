@@ -293,7 +293,9 @@ Recalage du 2026-11-04 (retour de Cyril : le héros « passe à côté ») : l'i
 bas (une demi-case vers l'avant), et sa rambarde de devant est redessinée au-dessus des marcheurs
 (`src/engine/bigGround.ts`) ; aucune nouvelle génération. Le même jour, l'image entière : l'image brute d'origine,
 reprise de l'historique Higgsfield (variante A, `e3e82355`, identique au pixel près à l'ancienne une fois traitée ;
-aucun crédit), est retraitée sans couper son appui est (`foot: 120` au lieu de 146) ; le placement compense (+26 px).
+aucun crédit), est retraitée sans couper son appui est (`foot: 120` au lieu de 146). Puis (retour de Cyril : « un
+décalage au niveau des chemins ») : l'image reprend la place d'origine, ses deux bouts sur les chemins (abaissée de
+28 px, sans glissement de côté), et les marcheurs montent de 12 px sur les deux cases du pont (l'arche).
 
 ## Jalon 2, étape 4 : contenu (2026-11-01, 22 images, 16 crédits, solde 19)
 

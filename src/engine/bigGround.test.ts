@@ -27,10 +27,15 @@ describe('le devant d’un grand décor de sol (la rambarde du pont)', () => {
     expect(alpha(data, 2, 2)).toBe(255);
   });
 
-  it('le pont est décrit : déplacé vers l’avant et vers le bas, une rambarde d’une douzaine de pixels', () => {
-    const { shift, front } = BIG_GROUND_ART.pont;
-    expect(shift.x).toBeLessThan(0);
-    expect(shift.y).toBeGreaterThan(0);
+  it('le pont est décrit : ses bouts sur les chemins, un tablier en arche, une rambarde d’une douzaine de pixels', () => {
+    const { shift, lift, front } = BIG_GROUND_ART.pont;
+    // The ends of the deck, (30, 38) and (145, 97) in the picture, on the line of the cells' centres: with the picture's
+    // bottom on the front cell's diamond bottom, that line is y = x / 2 + 52 − shift.y + shift.x / 2.
+    const line = (x: number) => x / 2 + 52 - shift.y + shift.x / 2;
+    expect(Math.abs(line(30) - 38)).toBeLessThanOrEqual(3);
+    expect(Math.abs(line(145) - 97)).toBeLessThanOrEqual(3);
+    expect(lift).toBeGreaterThan(0);
+    expect(lift).toBeLessThan(16);
     expect(front.height).toBeGreaterThanOrEqual(10);
     expect(front.height).toBeLessThan(20);
   });

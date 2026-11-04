@@ -1,14 +1,17 @@
 /**
  * The large ground decor (the Gardebois bridge, `big` in scripts/tiles-def.mjs) : one picture over a block of water
- * cells, drawn with the ground. Two things set it apart from a flat picture (retour de Cyril, 2026-11-04 : « il passe à
- * côté, pas dessus ; on voit que c'est une image de fond ») :
- * - its deck must lie on the line where the walkers' feet go: the picture is moved by `shift` ;
+ * cells, drawn with the ground. Three things set it apart from a flat picture (retours de Cyril, 2026-11-04 : « il
+ * passe à côté, pas dessus ; on voit que c'est une image de fond », puis « un décalage au niveau des chemins ») :
+ * - its ends meet the paths on both banks: the picture is moved by `shift` ;
+ * - its deck is arched: on its cells, the walkers stand `lift` pixels higher, on the planks ;
  * - its front railing hides the walkers' feet: the lowest pixels of each column of the picture (its railing and the
  *   deck's edge) are drawn a second time, over the walkers of the block and under whatever stands in front of it.
  */
 export interface BigGroundArt {
   /** Moves the picture from its default place (centred on the block, its bottom on the front cell's), in pixels. */
   shift: { x: number; y: number };
+  /** How much higher than the ground the walkers stand on the block's cells (the top of the arch). */
+  lift: number;
   /**
    * The front of the picture: how high the railing and the deck's edge rise above the lowest pixel of each column, and
    * the first column where they start (the stone footing before it stays on the ground: a fern grows in front of it).
@@ -17,10 +20,11 @@ export interface BigGroundArt {
 }
 
 export const BIG_GROUND_ART: Record<string, BigGroundArt> = {
-  // Measured on public/decor/pont.png: its deck lies on the feet line once moved half a cell along the rows (−18, +9)
-  // and lowered by the 26 px of its east footing, whole since 2026-11-04, which sinks below the block into the bank;
-  // its front railing and edge rise 14 px, from its first front post (x 34).
-  pont: { shift: { x: -18, y: 9 + 26 }, front: { height: 14, fromX: 34 } },
+  // Measured on public/decor/pont.png: the ends of its deck, (30, 38) and (145, 97), lie on the line of the paths once
+  // the picture is lowered by 28 px (its east footing, whole since 2026-11-04, sinks below the block into the bank);
+  // the middle of its deck stands 12 px above that line; its front railing and edge rise 14 px, from its first front
+  // post (x 34).
+  pont: { shift: { x: 0, y: 28 }, lift: 12, front: { height: 14, fromX: 34 } },
 };
 
 /** An opaque enough pixel belongs to the picture. */

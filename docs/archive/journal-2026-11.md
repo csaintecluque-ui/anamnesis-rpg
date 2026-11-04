@@ -1116,3 +1116,8 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   crédit ; retraitée, elle redonne l'ancienne au pixel près) ; le pont est maintenant entier, appui de pierre est
   compris, posé sur la berge. `npm run art` refait un grand décor même sans l'image de la case (l'eau). Vérifié à
   l'écran. Mis en ligne pour essai.
+- Cyril (photo de la tablette) : « un décalage au niveau des chemins ». Cause : le pont est en arche ; le premier
+  correctif avait aligné le milieu du tablier (12 px plus haut que ses bouts) sur la marche, ce qui avançait tout le
+  pont d'une demi-case. Le pont reprend sa place (ses bouts sur les chemins des deux berges) et les marcheurs montent
+  de 12 px sur ses deux cases (héros, compagnons, passants). Un test vérifie les bouts sur la ligne des chemins.
+  Vérifié à l'écran. Mis en ligne pour essai.

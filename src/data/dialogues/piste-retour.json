@@ -29,6 +29,15 @@
           "next": "rejointe"
         },
         {
+          "text": "Siffler, comme Kéo’Sa te l’a appris.",
+          "requires": [
+            {
+              "flag": "nid-ami"
+            }
+          ],
+          "next": "taxi"
+        },
+        {
           "text": "Pas encore.",
           "next": "fin"
         }
@@ -67,6 +76,21 @@
       "options": [
         {
           "text": "La rejoindre, enfin.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "marche-camp",
+              "arrivee": "depuis-desert"
+            }
+          ]
+        }
+      ]
+    },
+    "taxi": {
+      "text": "Un dragon des sables se pose dans un nuage de poussière, une femme des Liens-Dragons sur le dos. — Kéo’Sa m’a dit qu’un étranger sifflait faux, quelque part au sud. Monte.",
+      "options": [
+        {
+          "text": "Monter.",
           "next": "fin",
           "effects": [
             {

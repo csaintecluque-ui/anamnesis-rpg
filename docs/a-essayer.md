@@ -322,6 +322,9 @@ En ligne le 2026-11-03 (tes textes du 3 novembre) :
 - [ ] **« Ce qui n'a plus lieu »** : Tam'Ruu ou Ish'Lenne ; trouver la halte (Nes'Mira, le Coffre des routes, Daru'Khen) ;
       l'eau de l'Année Errante ; les pilleurs du col ; la dame en gris sans eau ; quatre fins ; l'épisode dit au jalon ;
       rattraper la Marche au retour.
+- [ ] **Les haltes** : trois soirs chez Ish'Lenne ; au troisième, la halte muette (Kéo'Sa, Saal'Ema, Yel'Dara).
+- [ ] **Les quêtes de la ville** : Ahm'Ras (la nuit, près du feu), Eskil (convoi des verriers), Ysha'Ren et Dova'Ren,
+      Oss'Amar, le dragonnet du Nid ; les guildes (Daru'Khen et le chariot perdu, Hiran'Amra et le lot de cristaux).
 - Remarques :
 
 ## Déjà en ligne, pas encore essayé sur PC

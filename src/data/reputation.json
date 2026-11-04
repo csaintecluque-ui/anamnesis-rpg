@@ -533,6 +533,86 @@
     {
       "quest": "halte-muette",
       "points": 10
+    },
+    {
+      "flag": "cristal-vivant-vendu",
+      "points": -5
+    },
+    {
+      "flag": "cristal-vivant-vendu",
+      "points": -5
+    },
+    {
+      "quest": "deux-nombres",
+      "points": 5
+    },
+    {
+      "quest": "forage-noir",
+      "points": 5
+    },
+    {
+      "quest": "sept-nuits",
+      "points": 5
+    },
+    {
+      "quest": "arreter",
+      "points": 5
+    },
+    {
+      "quest": "dragonnet",
+      "points": 5
+    },
+    {
+      "flag": "fin-deux-nombres-yel",
+      "points": 5
+    },
+    {
+      "flag": "fin-forage-noir-livre",
+      "points": -5
+    },
+    {
+      "flag": "fin-arreter-porte",
+      "points": 5
+    },
+    {
+      "flag": "cristal-vivant-vendu",
+      "points": -5
+    }
+  ],
+  "guides-eau": [
+    {
+      "quest": "chariot-perdu",
+      "points": 15
+    },
+    {
+      "flag": "fin-forage-noir-marcheur",
+      "points": 5
+    },
+    {
+      "flag": "cristal-vivant-rendu",
+      "points": 10
+    },
+    {
+      "flag": "cristal-vivant-vendu",
+      "points": -10
+    }
+  ],
+  "matriarches-cristaux": [
+    {
+      "quest": "verre-mer",
+      "points": 15
+    },
+    {
+      "flag": "cristal-vivant-vendu",
+      "points": 10
+    },
+    {
+      "flag": "fin-forage-noir-livre",
+      "points": 15
+    },
+    {
+      "flag": "fin-forage-noir-marcheur",
+      "points": -10
     }
   ]
 }

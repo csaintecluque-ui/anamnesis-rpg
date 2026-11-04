@@ -86,6 +86,91 @@ Commence par : « accueil »
 
 - « Au revoir. » → **fin**
 
+## Ahm’Ras
+
+_Nomade pur_
+
+Commence par : « choix » _(si quête « Les deux nombres » en cours)_ _(si repère « ahm-yel »)_, sinon « attend » _(si quête « Les deux nombres » en cours)_, sinon « apres » _(si quête « Les deux nombres » terminée)_, sinon « accueil »
+
+### accueil
+
+> Un homme au manteau de route usé, assis seul près du feu, les yeux plissés comme au grand vent. — Tu as entendu Thryn’vek ? Il y manque deux nombres. Moi, je les ai.
+
+- « Comment ça ? » → chaine
+- « Bonne nuit. » → **fin**
+
+### chaine
+
+> — Une école de la Marche des Os Blancs dit que Neth’Sara les a dits une fois, à une seule personne. Cette personne a eu une fille, qui a eu une fille. Ma grand-mère me les a mis dans la bouche, à sept ans.
+
+- « Pourquoi les dire maintenant ? » → pourquoi
+
+### pourquoi
+
+_Effet : lance la quête « Les deux nombres », retient « deux-nombres-commence »._
+
+> — J’ai soixante ans et pas d’enfant. Je veux les dire à la huitième halte, le soir où Ish’Lenne la dit. Yel’Dara ne veut pas. Va la voir, à la Tente de l’Eau, si tu veux comprendre pourquoi.
+
+- « J’irai. » → **fin**
+
+### attend
+
+> — Tu as vu Yel’Dara ? Elle te dira que je mens, ou que j’ai raison, et que dans les deux cas il vaut mieux me taire.
+
+- « Pas encore. » → **fin**
+
+### choix
+
+> — Alors, l’étranger. Je les dis, à la huitième halte, ou je les garde ? Tu n’es pas d’ici : c’est pour ça que je te le demande à toi.
+
+- « Dis-les, à la huitième halte. » → dits _(termine la quête « Les deux nombres », retient « fin-deux-nombres-dits », +40 XP)_
+- **🎲 Diplomatie 16** « Garde-les. Ils sont morts avec elle. » → gardes, ✗ → tetu _(termine la quête « Les deux nombres », retient « fin-deux-nombres-gardes », +40 XP)_
+- _(si repère « yel-propose »)_ « Donne-les à Yel’Dara, à elle seule. » → yel _(termine la quête « Les deux nombres », retient « fin-deux-nombres-yel », +40 XP)_
+- **🎲 Investigation 16** « Comment sais-tu qu’ils sont vrais ? » → doute, ✗ → vexe
+
+### vexe
+
+> — Tu me traites de menteur ? — Il serre les mâchoires, puis se calme. — Tu as le droit. Moi aussi, je me le demande, la nuit.
+
+- « Pardon. » → choix
+
+### doute
+
+> — Je ne le sais pas. Ma grand-mère ne mentait pas. Elle se trompait, parfois. — Il hausse les épaules. — Cela ne prouve rien, comme dit la halte. Rien du tout.
+
+- « Je comprends. » → choix
+
+### tetu
+
+> — Non. Tu n’es pas d’ici, et ce n’est pas toi qui les portes depuis cinquante ans.
+
+- « Alors dis-les, à la huitième halte. » → dits _(termine la quête « Les deux nombres », retient « fin-deux-nombres-dits », +40 XP)_
+- _(si repère « yel-propose »)_ « Donne-les à Yel’Dara, à elle seule. » → yel _(termine la quête « Les deux nombres », retient « fin-deux-nombres-yel », +40 XP)_
+
+### dits
+
+> Le soir venu, il les dit, debout devant le feu d’Ish’Lenne. Deux nombres. Personne ne les répète. Yel’Dara ferme les yeux. Ish’Lenne dit seulement : « Cela ne prouve rien. » Tu ne les retiens pas : ils ne sont pas à toi.
+
+- « Rester près du feu. » → **fin**
+
+### gardes
+
+> Il se tait longtemps. — Ils mourront avec moi, alors. Comme avec elle. — Il a l’air soulagé, et il s’en veut de l’être.
+
+- « Bonne nuit, Ahm’Ras. » → **fin**
+
+### yel
+
+> Au matin, pendant la distribution, il va les lui dire à l’oreille. Yel’Dara hoche la tête, une fois. Deux nombres sont rentrés dans une tête, sans passer par l’air.
+
+- « C’est bien. » → **fin**
+
+### apres
+
+> Ahm’Ras, près du feu, te fait un signe de tête. Il n’en dit pas plus. Il n’a plus rien à dire, et ça lui va.
+
+- « Bonne nuit. » → **fin**
+
 ## Le levier de l’embranchement
 
 _Triage des Cendres_
@@ -1810,6 +1895,50 @@ Commence par : « champi »
 
 - « Partir. » → **fin**
 
+## Un chariot renversé
+
+_Hors de la Marche_
+
+Commence par : « chariot » _(si quête « Le chariot perdu » en cours)_ _(sans repère « chariot-ramene »)_, sinon « vide »
+
+### chariot
+
+> Un chariot couché sur le flanc, une roue cassée, des lentilles éparpillées qui brûlent au soleil. Dessous, à l’ombre, un convoyeur aux lèvres fendues. — Je me suis endormi. Les bœufs ont suivi une odeur d’eau qui n’existait pas.
+
+- **🎲 Artisanat 16** « Réparer la roue. » → repare, ✗ → laisse
+- _(si l’on porte « L’eau de l’Année Errante »)_ « Lui donner ta gourde. » → abreuve _(reprend 1 × « L’eau de l’Année Errante »)_
+- « Le ramener à pied, sans le chariot. » → laisse
+
+### repare
+
+_Effet : retient « chariot-ramene »._
+
+> Une cheville de bois, une corde, la roue tiendra jusqu’au camp. Le convoyeur rit, d’un rire de soif. Vous rattrapez la Marche à la nuit, le chariot grinçant derrière vous.
+
+- « Rentrer. » → **fin** _(mène à « Marche-Mère — le Camp »)_
+
+### abreuve
+
+_Effet : retient « chariot-ramene »._
+
+> Il boit ta gourde en trois gorgées et se relève. À deux, vous redressez le chariot. Il te devra de l’eau toute sa vie, dit-il, et dans la Communion, c’est une dette sérieuse.
+
+- « Rentrer. » → **fin** _(mène à « Marche-Mère — le Camp »)_
+
+### laisse
+
+_Effet : retient « chariot-ramene », retient « chariot-laisse »._
+
+> Le chariot restera là, pour le sable. Tu soutiens le convoyeur jusqu’à la piste, et la piste jusqu’au camp. Les lentilles, on les comptera perdues.
+
+- « Rentrer. » → **fin** _(mène à « Marche-Mère — le Camp »)_
+
+### vide
+
+> Les traces d’un chariot, que le vent efface déjà.
+
+- « Passer. » → **fin**
+
 ## Le chef de caravane
 
 _Compagnie des Lisières_
@@ -2224,7 +2353,7 @@ Commence par : « cristal »
 
 _Premier guide_
 
-Commence par : « halte-q » _(si quête « Ce qui n’a plus lieu » en cours)_ _(sans repère « halte-trouvee »)_ _(sans repère « daru-refus »)_, sinon « accueil »
+Commence par : « adhesion » _(si quête « Le chariot perdu » en cours)_ _(si repère « chariot-ramene »)_, sinon « halte-q » _(si quête « Ce qui n’a plus lieu » en cours)_ _(sans repère « halte-trouvee »)_ _(sans repère « daru-refus »)_, sinon « chariot-attend » _(si quête « Le chariot perdu » en cours)_, sinon « accueil »
 
 ### accueil
 
@@ -2232,6 +2361,7 @@ Commence par : « halte-q » _(si quête « Ce qui n’a plus lieu » en cours)_
 
 - « Où va la Marche ? » → route
 - « Les jalons, au loin ? » → jalons
+- _(si quête « Le chariot perdu » pas commencée)_ _(sans repère « membre-matriarches-cristaux »)_ « Je veux entrer chez les Guides de l’Eau. » → guide
 - « Rien. » → **fin**
 
 ### route
@@ -2271,6 +2401,28 @@ _Effet : retient « daru-refus »._
 > — Non. La dernière à qui j’ai montré la piste est partie seule vers le sud, et je n’ai pas dormi depuis. Demande au désert.
 
 - « Tant pis. » → **fin**
+
+### guide
+
+_Effet : lance la quête « Le chariot perdu », retient « chariot-perdu-commence »._
+
+> — Les Guides de l’Eau ? Un chariot de lentilles s’est écarté de la piste cette nuit, côté sud, avant la crête de dunes. Son convoyeur n’a pas rejoint. Ramène-le, et on parlera.
+
+- « J’y vais. » → **fin**
+
+### chariot-attend
+
+> — Le chariot. Côté sud, avant la crête. Le sable aura déjà mangé ses traces, à cette heure. Lis-le quand même.
+
+- « J’y vais. » → **fin**
+
+### adhesion
+
+_Effet : termine la quête « Le chariot perdu », retient « membre-guides-eau », donne 1 × « Une pierre d’eau », donne 1 × « L’eau de l’Année Errante », +40 XP._
+
+> Daru’Khen te tend une pierre ronde, polie par des doigts. — Une pierre d’eau, du Coffre. Porteur·se des Guides de l’Eau. Tu ne choisiras rien, toi non plus : tu suivras l’eau.
+
+- « La prendre. » → **fin**
 
 ## Le technicien Dask
 
@@ -2506,17 +2658,117 @@ _Effet : retient « doucenet-ferme » pour 1 jours._
 
 - « Partir. » → **fin**
 
+## Dova’Ren
+
+_Sa mère_
+
+Commence par : « choix » _(si quête « Sept nuits le même rêve » en cours)_, sinon « apres » _(si quête « Sept nuits le même rêve » terminée)_, sinon « accueil »
+
+### accueil
+
+> Une femme se tient entre toi et le fond de la tente, où une adolescente dort, un foulard noué sur les avant-bras. — Elle dort. Elle dort mal. Ne la réveille pas.
+
+- « Qu’est-ce qu’elle a ? » → mal
+- « Pardon. » → **fin**
+
+### mal
+
+_Effet : lance la quête « Sept nuits le même rêve », retient « sept-nuits-commence »._
+
+> — Rien. — Elle ment mal, et elle le sait. — Sept nuits le même rêve. Et la peau des bras qui luit. Les signes de l’Appel. Six sur dix meurent dans la Mer de Verre. Je ne la donnerai pas au Désert.
+
+- « Que veux-tu que je fasse ? » → aide
+
+### aide
+
+> — Rien. Qu’on ne sache pas. Nes’Mira a un baume qui ralentit le verre, dit-on : pour les plaques des Léviathans. Sur une peau, personne n’a essayé.
+
+- « Je reviendrai. » → **fin**
+
+### choix
+
+> Dova’Ren te regarde, les bras croisés. — Alors ? Tu vas le dire au Temple, comme les autres le feraient ?
+
+- « Le dire au Temple. » → temple _(termine la quête « Sept nuits le même rêve », retient « fin-sept-nuits-temple », +40 XP)_
+- **🎲 Médecine 16** « Le baume de Nes’Mira, pour cacher le verre. » → cachee, ✗ → rate _(termine la quête « Sept nuits le même rêve », retient « fin-sept-nuits-cachee », +40 XP)_
+- _(si repère « ysha-parle »)_ « Qu’elle choisisse, elle. » → choisit _(termine la quête « Sept nuits le même rêve », retient « fin-sept-nuits-choisit », +40 XP)_
+- « Pas encore. » → **fin**
+
+### rate
+
+> Le baume brûle la peau d’Ysha’Ren sans rien ralentir. Elle serre les dents. Dova’Ren t’arrache le pot des mains. — Assez.
+
+- « Le dire au Temple. » → temple _(termine la quête « Sept nuits le même rêve », retient « fin-sept-nuits-temple », +40 XP)_
+- _(si repère « ysha-parle »)_ « Qu’elle choisisse, elle. » → choisit _(termine la quête « Sept nuits le même rêve », retient « fin-sept-nuits-choisit », +40 XP)_
+
+### temple
+
+> La Marcheuse du Souffle vient le soir même. Les Anciens-Dragons la reconnaîtront, ou non. Dova’Ren ne te regarde plus. Tu ne sauras pas ce que le verre aura fait d’Ysha’Ren.
+
+- « Partir. » → **fin**
+
+### cachee
+
+> Le baume ralentit le verre. Sous le foulard, la peau luira moins, un an, deux peut-être. Le rêve, lui, ne s’arrête pas. Dova’Ren te serre la main sans un mot.
+
+- « Partir. » → **fin**
+
+### choisit
+
+> Ysha’Ren se lève, et dit à sa mère, très calmement, qu’elle ira. Pas parce que le Désert l’a choisie : parce qu’on lui a demandé, une fois. Dova’Ren pleure. Elle ne dit pas non.
+
+- « Les laisser. » → **fin**
+
+### apres
+
+> Dova’Ren plie des toiles, sans lever les yeux. — Ce qui est fait est fait. Va.
+
+- « Partir. » → **fin**
+
 ## Un dragonnet
 
 _Le Nid des dragonnets_
 
-Commence par : « dragonnet »
+Commence par : « nourrir » _(si quête « Le dragonnet » en cours)_, sinon « dragonnet »
 
 ### dragonnet
 
 > Un dragonnet rouge, la taille d’un chien, roulé en boule dans le sable du Nid. Il ne lève pas la tête. Ses écailles sont ternes, et sa gamelle est pleine.
 
 - « Le laisser tranquille. » → **fin**
+
+### nourrir
+
+> Le dragonnet ne lève pas la tête. Kéo’Sa te regarde, et attend que tu fasses quelque chose.
+
+- **🎲 Survie 16** « L’aider à manger, avec Kéo’Sa. » → keo, ✗ → refuse _(retient « nid-ami », termine la quête « Le dragonnet », retient « fin-dragonnet-keo », +40 XP)_
+- _(si repère « saal-dragonnet »)_ « Le confier aux Liens-Dragons du Cœur. » → liens _(termine la quête « Le dragonnet », retient « fin-dragonnet-liens », +40 XP)_
+- **🎲 Diplomatie 16** « Lui parler chaque jour, en attendant ses quinze ans. » → attendre, ✗ → refuse _(retient « nid-ami », termine la quête « Le dragonnet », retient « fin-dragonnet-attendre », +40 XP)_
+- « Plus tard. » → **fin**
+
+### refuse
+
+> Il détourne la tête, et souffle un peu de sable sur tes mains. Pas aujourd’hui. Kéo’Sa soupire, à la façon des grandes personnes.
+
+- « Plus tard. » → **fin**
+
+### keo
+
+> Tu tiens la gamelle, Kéo’Sa tient sa tête. Il mange une bouchée, puis tout. Il s’endort la tête sur ses genoux. Le lien est fait. Personne ne pourra le défaire, et Saal’Ema le sait déjà.
+
+- « Les laisser dormir. » → **fin**
+
+### liens
+
+> Une femme des Liens-Dragons vient le chercher le soir. Il la suit, lentement, en se retournant deux fois. Kéo’Sa ne pleure pas devant toi.
+
+- « Partir. » → **fin**
+
+### attendre
+
+> Kéo’Sa promet, la main sur le cœur. Le dragonnet mange un peu quand elle lui parle. Pas de lien : une amitié, en attendant. — Si tu te perds dans le désert, siffle. Il viendra peut-être.
+
+- « Je sifflerai. » → **fin**
 
 ## L’échelle de corde
 
@@ -3344,6 +3596,71 @@ _Effet : retient « marques-rate » pour 1 jours._
 > Gravées à froid, avec soin, comme on signe un serment. Sous les mains, un seul mot, presque effacé, dans la même langue inconnue que la berceuse.
 
 - « Partir. » → **fin**
+
+## Eskil Kolm
+
+_De Ferros, caché dans le convoi_
+
+Commence par : « choix » _(si quête « Le Forage Noir » en cours)_ _(si repère « hiran-eskil »)_, sinon « attend » _(si quête « Le Forage Noir » en cours)_, sinon « apres-marcheur » _(si repère « fin-forage-noir-marcheur »)_, sinon « accueil »
+
+### accueil
+
+> Un homme pâle sous une toile de Marcheur, des mains d’ouvrier. Il parle bas, avec l’accent d’Ironheart. — Ne dis pas mon nom trop fort. Eskil Kolm. J’étais sur la foreuse, en 2995. Le seul qui n’était pas dedans quand les dragons sont arrivés.
+
+- « Et depuis ? » → depuis
+- « Je n’ai rien entendu. » → **fin**
+
+### depuis
+
+_Effet : lance la quête « Le Forage Noir », retient « forage-commence »._
+
+> — Depuis, je marche. Cinq ans. Les Gardiennes me donnent l’eau, comme à tout le monde. La Matriarche des cristaux m’a reconnu la semaine dernière. Elle veut me rendre à Ferros, par Terminus, contre un meilleur prix sur le verre.
+
+- « Que veux-tu, toi ? » → veut
+
+### veut
+
+> — Rester. Devenir Marcheur, si on veut de moi. Ou rentrer, si on ne veut pas. Mais pas être vendu. Pas encore une fois : Ferros m’a déjà vendu une fois, à une foreuse.
+
+- « Je vais parler à la Matriarche. » → **fin**
+
+### attend
+
+> — Tu as vu la Matriarche ? Elle sourit beaucoup, pour quelqu’un qui compte en Fers.
+
+- « Pas encore. » → **fin**
+
+### choix
+
+> Eskil se ronge l’ongle du pouce jusqu’au sang. — Alors ? Qu’est-ce qu’on fait de moi ?
+
+- _(si repère « hiran-cede »)_ « Tu peux rester : la Matriarche a cédé. » → marcheur _(termine la quête « Le Forage Noir », retient « fin-forage-noir-marcheur », +40 XP)_
+- « Je t’emmène à Sept-Portes, avec la caravane. » → rentre _(termine la quête « Le Forage Noir », retient « fin-forage-noir-rentre », +40 XP)_
+- « La Matriarche fera ce qu’elle veut. » → livre _(termine la quête « Le Forage Noir », retient « fin-forage-noir-livre », +20 XP)_
+
+### marcheur
+
+> Eskil s’assoit dans le sable et pleure, sans bruit. — Cinq ans que je marche sans savoir si j’en avais le droit. — Le lendemain, il a retiré sa veste de Ferros, et il ne l’a pas remise.
+
+- « Bonne route, Eskil. » → **fin**
+
+### rentre
+
+> Il part avec la caravane des verriers, caché entre deux caisses de lentilles. À Sept-Portes, il prendra le train d’Ironheart. — Ils me demanderont où j’étais. Je leur dirai : je marchais.
+
+- « Bon retour, Eskil. » → **fin**
+
+### livre
+
+> Deux jours plus tard, la caravane part pour Terminus avec un homme de plus, les mains liées dans le dos. Il ne se retourne pas vers toi. La Matriarche, elle, te salue.
+
+- « Détourner les yeux. » → **fin**
+
+### apres-marcheur
+
+> Eskil porte une toile de Marcheur, sans rien dessous qui rappelle Ferros. Il marche à côté des chariots, pieds nus, et il a appris à ne plus compter les kilomètres.
+
+- « Bonne route. » → **fin**
 
 ## Euria Sel-Doux
 
@@ -4410,7 +4727,7 @@ _Effet : retient « raconte-hesper », +15 XP._
 
 _Matriarche de Cristaux_
 
-Commence par : « accueil »
+Commence par : « adhesion » _(si quête « Le verre de la Mer » en cours)_ _(si repère « lot-trie »)_, sinon « eskil » _(si quête « Le Forage Noir » en cours)_ _(sans repère « hiran-eskil »)_, sinon « accueil »
 
 ### accueil
 
@@ -4418,6 +4735,7 @@ Commence par : « accueil »
 
 - « La Mer de Verre ? » → mer
 - « Et Ferros ? » → ferros
+- _(si quête « Le verre de la Mer » pas commencée)_ _(sans repère « membre-guides-eau »)_ « Je veux entrer chez les Matriarches. » → tailleur
 - « Je regarde. » → **fin**
 
 ### mer
@@ -4433,6 +4751,52 @@ Commence par : « accueil »
 
 - « La Mer de Verre ? » → mer
 - « Je regarde. » → **fin**
+
+### eskil
+
+_Effet : retient « hiran-eskil »._
+
+> — L’homme de Ferros ? Ferros réclame des réparations pour sa foreuse. Un survivant, rendu par nous avec courtoisie, c’est un geste. Les taxes de Terminus baissent, la Marche mange mieux. Tout le monde y gagne.
+
+- « Lui, il y perd. » → perd
+- **🎲 Diplomatie 16** « Laissez-le rester dans la Marche. » → cede, ✗ → non
+
+### perd
+
+> — Il a foré un cimetière. Il a déjà beaucoup perdu, c’est vrai. Il nous a fait perdre davantage.
+
+- **🎲 Diplomatie 16** « Laissez-le rester dans la Marche. » → cede, ✗ → non
+- « Je verrai avec lui. » → **fin**
+
+### cede
+
+_Effet : retient « hiran-cede »._
+
+> Elle repose sa balance. — Soit. La Marche le gardera, s’il le veut. Mais si Ferros le réclame un jour, ce n’est plus à moi qu’on le demandera.
+
+- « Merci, Matriarche. » → **fin**
+
+### non
+
+> — Non. Je ne vends pas un homme. Je fais un geste. La différence te paraît mince ; ici, elle compte.
+
+- « Je verrai avec lui. » → **fin**
+
+### tailleur
+
+_Effet : lance la quête « Le verre de la Mer », retient « verre-mer-commence »._
+
+> — Les Matriarches ? Un lot de la Mer de Verre attend d’être trié avant la caravane : là, contre le mur. Un tailleur sait reconnaître un éclat d’un autre. Montre-moi que tu sais.
+
+- « Je m’y mets. » → **fin**
+
+### adhesion
+
+_Effet : termine la quête « Le verre de la Mer », retient « membre-matriarches-cristaux », +40 XP._
+
+> Hiran’Amra regarde ton tri, éclat par éclat. — Tailleur·se des Matriarches de Cristaux. Le verre fait vivre la Marche ; maintenant, il te fait vivre aussi.
+
+- « Merci, Matriarche. » → **fin**
 
 ## Holger Brandt
 
@@ -5828,13 +6192,14 @@ _Si Boulon voyage avec toi :_ Boulon, très bas : — Gants fins, Fers neufs. Je
 
 _Neuf ans, apprend à parler aux dragonnets_
 
-Commence par : « nombres » _(si quête « La halte muette » en cours)_ _(sans repère « muette-keo »)_, sinon « accueil »
+Commence par : « nombres » _(si quête « La halte muette » en cours)_ _(sans repère « muette-keo »)_, sinon « nid » _(si quête « Le dragonnet » en cours)_, sinon « accueil »
 
 ### accueil
 
 > Une fillette de neuf ans, une écaille rouge au cou, accroupie devant un dragonnet qui ne la regarde pas. — Chut. Il ne mange plus depuis que son Lien est mort. Moi, je lui parle quand même. On n’a pas le droit de se lier avant quinze ans. Lui, il ne le sait pas.
 
 - « Comment tu lui parles ? » → parler
+- _(si quête « Le dragonnet » pas commencée)_ « Je peux t’aider ? » → aider
 - « Je te laisse. » → **fin**
 
 ### parler
@@ -5850,6 +6215,20 @@ _Effet : retient « muette-keo »._
 > — Les dix jours ? On les apprend à sept ans ! Avec un pas entre chacun. — Elle se lève, et marche. — Troisième, quatre. Neuvième, quarante et un. Dix-septième, deux cent six. Vingt-quatrième, six cent dix-neuf. — Elle s’arrête. — Après, je me trompe toujours.
 
 - « C’est déjà beaucoup. Merci. » → **fin**
+
+### aider
+
+_Effet : lance la quête « Le dragonnet », retient « dragonnet-commence »._
+
+> — Il faut qu’il mange. Grand-mère dit qu’il ne mangera qu’avec un Lien, et que je suis trop petite pour en être un. Lui, il ne sait pas compter jusqu’à quinze.
+
+- « Je vais voir ce qu’on peut faire. » → **fin**
+
+### nid
+
+> Kéo’Sa caresse le dragonnet du bout des doigts. — Tu as vu grand-mère ? Elle dit toujours non, d’abord. Après, elle réfléchit.
+
+- « Je reviens. » → **fin**
 
 ## Kerta Orvel
 
@@ -6351,6 +6730,39 @@ Commence par : « tete »
 > La tête de Longue-Ombre, plus haute qu’une tente. Un œil d’ambre, mi-clos, qui ne te regarde pas : il regarde le désert, au sud. Sous ta main, la carapace est tiède, et elle bat, très lentement.
 
 - « Retirer ta main. » → **fin**
+
+## Un lot de cristaux
+
+_Le comptoir des Matriarches_
+
+Commence par : « lot » _(si quête « Le verre de la Mer » en cours)_ _(sans repère « lot-trie »)_, sinon « trie »
+
+### lot
+
+> Une trentaine d’éclats de la Mer de Verre, ambrés, laiteux, certains presque noirs. À trier par pureté avant la caravane.
+
+- **🎲 Artisanat 16** « Les trier, éclat par éclat. » → vivant, ✗ → rate
+- « Plus tard. » → **fin**
+
+### rate
+
+> Tu te trompes deux fois ; Hiran’Amra, de loin, corrige d’un geste sans rien dire. Puis, sous tes doigts, un éclat tiède, qui bat. Un cristal vivant.
+
+- « Le mettre à part, pour qu’il retourne à la Mer de Verre. » → **fin** _(retient « lot-trie », retient « cristal-vivant-rendu »)_
+- « Le classer avec les autres. » → **fin** _(retient « lot-trie », retient « cristal-vivant-vendu »)_
+
+### vivant
+
+> Le tri se fait vite. Puis, sous tes doigts, un éclat tiède, qui bat. Un cristal vivant, que quelqu’un a ramassé avec les autres. La Communion dit qu’ils ont une conscience, et qu’on ne les vend pas.
+
+- « Le mettre à part, pour qu’il retourne à la Mer de Verre. » → **fin** _(retient « lot-trie », retient « cristal-vivant-rendu »)_
+- « Le classer avec les autres. » → **fin** _(retient « lot-trie », retient « cristal-vivant-vendu »)_
+
+### trie
+
+> Le lot, trié et emballé pour la caravane.
+
+- « Passer. » → **fin**
 
 ## Lyra Cœur-de-Sève
 
@@ -6968,7 +7380,7 @@ _Effet : retient « raconte-nell », +15 XP._
 
 _Soigneuse de Longue-Ombre_
 
-Commence par : « porte » _(si repère « fin-plus-lieu-longue-ombre »)_ _(sans repère « nes-porte »)_, sinon « tete » _(si quête « Ce qui n’a plus lieu » en cours)_ _(sans repère « halte-trouvee »)_ _(sans repère « nes-tente »)_, sinon « accueil »
+Commence par : « porte » _(si repère « fin-plus-lieu-longue-ombre »)_ _(sans repère « nes-porte »)_, sinon « tete » _(si quête « Ce qui n’a plus lieu » en cours)_ _(sans repère « halte-trouvee »)_ _(sans repère « nes-tente »)_, sinon « oss » _(si quête « Celui qui voulait s’arrêter » en cours)_ _(sans repère « nes-oss »)_, sinon « accueil »
 
 ### accueil
 
@@ -7028,6 +7440,14 @@ _Effet : retient « nes-porte »._
 > — Elle la porte, ta caisse, entre deux plaques, près du cou. Elle ne s’est pas plainte. Cette nuit, elle a dormi d’un sommeil que je ne lui connaissais plus.
 
 - « Tant mieux. » → accueil
+
+### oss
+
+_Effet : retient « nes-oss »._
+
+> — Oss’Amar ? Les Léviathans portent ceux qui ne marchent plus, il le sait. Il ne veut pas être porté : il veut rester avec elle. Mais si tu le lui proposes au nom de Longue-Ombre, il ne dira peut-être pas non. Elle l’aimait bien, sa femme.
+
+- « Je le lui dirai. » → **fin**
 
 ## L’archiviste Noam
 
@@ -7568,6 +7988,75 @@ _Effet : retient « raconte-ondine », +5 XP._
 
 - « Merci, Ondine. » → **fin**
 
+## Oss’Amar
+
+_Quatre-vingts ans, en deuil_
+
+Commence par : « choix » _(si quête « Celui qui voulait s’arrêter » en cours)_, sinon « apres » _(si quête « Celui qui voulait s’arrêter » terminée)_, sinon « accueil »
+
+### accueil
+
+_Effet : lance la quête « Celui qui voulait s’arrêter », retient « arreter-commence »._
+
+> Un vieil homme en manteau de deuil gris, du henné noir aux joues, assis dans le sable. Il ne se lève pas quand on passe. — C’est ici qu’elle est morte. Il y a dix-huit mois, à cette halte. Demain, la Marche repart. Moi, je reste.
+
+- « Si tu restes, tu meurs. » → meurs
+- « Personne ne peut t’en empêcher ? » → tabou
+
+### meurs
+
+> — Je sais. Qui s’arrête meurt. C’est même pour ça que je m’arrête.
+
+- « Personne ne peut t’en empêcher ? » → tabou
+- « Je reviendrai. » → **fin**
+
+### tabou
+
+> — S’arrêter, c’est un tabou. Mais personne n’empêche un vieux de s’asseoir. On le compte, le lendemain matin, c’est tout.
+
+- « Je reviendrai. » → **fin**
+
+### choix
+
+> Oss’Amar regarde la piste, devant, puis le jalon de la halte, derrière. — Tu reviens me faire marcher, toi aussi ?
+
+- **🎲 Diplomatie 16** « Marche encore. Pour elle. » → marche, ✗ → non _(termine la quête « Celui qui voulait s’arrêter », retient « fin-arreter-marche », +40 XP)_
+- _(si repère « nes-oss »)_ « Longue-Ombre te portera. » → porte _(termine la quête « Celui qui voulait s’arrêter », retient « fin-arreter-porte », +40 XP)_
+- « Reste, si c’est ton choix. » → reste _(termine la quête « Celui qui voulait s’arrêter », retient « fin-arreter-reste », +20 XP)_
+- « Pas encore. » → **fin**
+
+### non
+
+> — Tu ne l’as pas connue. Elle, elle m’aurait laissé m’asseoir.
+
+- _(si repère « nes-oss »)_ « Longue-Ombre te portera. » → porte _(termine la quête « Celui qui voulait s’arrêter », retient « fin-arreter-porte », +40 XP)_
+- « Reste, si c’est ton choix. » → reste _(termine la quête « Celui qui voulait s’arrêter », retient « fin-arreter-reste », +20 XP)_
+- « Je reviendrai. » → **fin**
+
+### marche
+
+> Il se lève, lentement, en s’appuyant sur ton épaule. — Pour elle, alors. Elle détestait que je m’assoie.
+
+- « Marcher avec lui. » → **fin**
+
+### porte
+
+> Le soir, Nes’Mira et toi le hissez sur la carapace. Il s’assoit face à l’arrière, pour voir la halte s’éloigner le plus longtemps possible.
+
+- « Le laisser regarder. » → **fin**
+
+### reste
+
+> Quand la Marche repart, il reste assis près du jalon, les mains sur les genoux. Le lendemain matin, la Gardienne compte une ration de moins. Elle ne dit pas son nom.
+
+- « Partir. » → **fin**
+
+### apres
+
+> La place où Oss’Amar s’asseyait est vide. Le sable n’y garde plus rien.
+
+- « Passer. » → **fin**
+
 ## Ossiane Vire-Nuée
 
 _Capitaine de la Compagnie Vire-Nuée_
@@ -7983,6 +8472,7 @@ Commence par : « rattraper »
 
 - **🎲 Survie 16** « Suivre les traces. » → rejointe, ✗ → perdu
 - _(si repère « lien-longue-ombre »)_ « Écouter le grondement de Longue-Ombre. » → rejointe
+- _(si repère « nid-ami »)_ « Siffler, comme Kéo’Sa te l’a appris. » → taxi
 - « Pas encore. » → **fin**
 
 ### rejointe
@@ -8000,6 +8490,12 @@ _Effet : −6 PV, fait passer 3 moments._
 > Tu suis des traces qui ne sont pas les bonnes, jusqu’au soir. La nuit tombe, froide, et tu la passes dans le creux d’une dune. Au matin, tu retrouves la Marche de loin, à la poussière qu’elle lève.
 
 - « La rejoindre, enfin. » → **fin** _(mène à « Marche-Mère — le Camp »)_
+
+### taxi
+
+> Un dragon des sables se pose dans un nuage de poussière, une femme des Liens-Dragons sur le dos. — Kéo’Sa m’a dit qu’un étranger sifflait faux, quelque part au sud. Monte.
+
+- « Monter. » → **fin** _(mène à « Marche-Mère — le Camp »)_
 
 ## L’Entrepôt des douanes
 
@@ -8600,7 +9096,7 @@ _Effet : retient « ruban-noue », +5 XP._
 
 _Doyenne de son clan_
 
-Commence par : « nombres » _(si quête « La halte muette » en cours)_ _(sans repère « muette-saal »)_, sinon « accueil »
+Commence par : « nombres » _(si quête « La halte muette » en cours)_ _(sans repère « muette-saal »)_, sinon « dragonnet » _(si quête « Le dragonnet » en cours)_ _(sans repère « saal-dragonnet »)_, sinon « accueil »
 
 ### accueil
 
@@ -8631,6 +9127,14 @@ _Effet : retient « muette-saal »._
 > Saal’Ema ferme les yeux. — La fin, je l’ai, la petite a le début. Vingt-neuvième, neuf cent huit. Puis deux pas sans rien. Trente-deuxième, mille quarante-quatre, le plus haut. Trente-huitième, trois cent douze. Quarante et unième, vingt-six.
 
 - « Merci, Saal’Ema. » → **fin**
+
+### dragonnet
+
+_Effet : retient « saal-dragonnet »._
+
+> — Un lien à neuf ans, c’est un lien qu’on portera toute sa vie, et qu’on ne choisit pas encore. S’il casse, elle cassera avec. Les Liens-Dragons du Cœur pourraient le prendre, un adulte. Mais lui ne voudra peut-être pas.
+
+- « Je comprends. » → **fin**
 
 ## La sacoche des Nacelliers
 
@@ -10826,7 +11330,7 @@ Commence par : « merci » _(si repère « rencontre-voyageur-aide »)_, sinon �
 
 _La seconde tête du compte_
 
-Commence par : « edda » _(si quête « Ce qui n’a plus lieu » en cours)_ _(sans repère « yel-edda »)_, sinon « total » _(si quête « La halte muette » en cours)_ _(sans repère « muette-yel »)_, sinon « accueil »
+Commence par : « edda » _(si quête « Ce qui n’a plus lieu » en cours)_ _(sans repère « yel-edda »)_, sinon « total » _(si quête « La halte muette » en cours)_ _(sans repère « muette-yel »)_, sinon « ahm » _(si quête « Les deux nombres » en cours)_ _(sans repère « ahm-yel »)_, sinon « accueil »
 
 ### accueil
 
@@ -10871,6 +11375,47 @@ _Effet : retient « muette-yel »._
 > — Le total ? Onze mille quatre cents, dit à l’arrivée au point vingt-quatre. Il est faux : il manque deux jours. Ça, personne ne l’oublie. C’est même tout ce qu’on retient, quand on oublie le reste.
 
 - « Merci, Yel’Dara. » → **fin**
+
+### ahm
+
+> — Ahm’Ras. Il croit les avoir. Peut-être. Neth’Sara a voulu deux têtes pour qu’on ne puisse plus demander. Si ces nombres reviennent, on demandera encore qui avait raison, elle ou Orr’Dahn. On ne le saura pas mieux. On souffrira plus.
+
+- « Et s’il te les donnait, à toi seule ? » → confier
+- « Je comprends. » → **fin** _(retient « ahm-yel »)_
+
+### confier
+
+_Effet : retient « ahm-yel », retient « yel-propose »._
+
+> — Je les entendrais. Je ne les dirais pas. Une seconde tête, c’est fait pour ça.
+
+- « Je le lui dirai. » → **fin**
+
+## Ysha’Ren
+
+_Seize ans_
+
+Commence par : « parle » _(si quête « Sept nuits le même rêve » en cours)_ _(sans repère « ysha-parle »)_, sinon « accueil »
+
+### accueil
+
+> L’adolescente remonte son foulard sur ses avant-bras. — Tu es l’étranger qui pose des questions. Pose-les à ma mère : c’est elle qui répond, ici.
+
+- « Je te laisse. » → **fin**
+
+### parle
+
+> Elle se redresse ; le foulard glisse, et sa peau, aux avant-bras, est claire et dépolie, presque du verre. — Le rêve, c’est toujours le même. Je marche dans le verre, seule, et je n’ai pas soif.
+
+- « Et toi, que veux-tu ? » → veut
+
+### veut
+
+_Effet : retient « ysha-parle »._
+
+> — Je ne sais pas. Personne ne me l’a demandé. Ma mère veut que je me cache. La Marcheuse du Souffle voudrait que j’y aille. Moi, je voudrais que quelqu’un me le demande. Toi, tu viens de le faire.
+
+- « Je le dirai à ta mère. » → **fin**
 
 ## Ysolde Cent-Plis
 

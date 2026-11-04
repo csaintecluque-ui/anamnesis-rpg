@@ -27,6 +27,18 @@
       "node": "total"
     },
     {
+      "requires": [
+        {
+          "quest": "deux-nombres",
+          "status": "active"
+        },
+        {
+          "notFlag": "ahm-yel"
+        }
+      ],
+      "node": "ahm"
+    },
+    {
       "node": "accueil"
     }
   ],
@@ -107,6 +119,41 @@
       "options": [
         {
           "text": "Merci, Yel’Dara.",
+          "next": "fin"
+        }
+      ]
+    },
+    "ahm": {
+      "text": "— Ahm’Ras. Il croit les avoir. Peut-être. Neth’Sara a voulu deux têtes pour qu’on ne puisse plus demander. Si ces nombres reviennent, on demandera encore qui avait raison, elle ou Orr’Dahn. On ne le saura pas mieux. On souffrira plus.",
+      "options": [
+        {
+          "text": "Et s’il te les donnait, à toi seule ?",
+          "next": "confier"
+        },
+        {
+          "text": "Je comprends.",
+          "next": "fin",
+          "effects": [
+            {
+              "setFlag": "ahm-yel"
+            }
+          ]
+        }
+      ]
+    },
+    "confier": {
+      "text": "— Je les entendrais. Je ne les dirais pas. Une seconde tête, c’est fait pour ça.",
+      "effects": [
+        {
+          "setFlag": "ahm-yel"
+        },
+        {
+          "setFlag": "yel-propose"
+        }
+      ],
+      "options": [
+        {
+          "text": "Je le lui dirai.",
           "next": "fin"
         }
       ]

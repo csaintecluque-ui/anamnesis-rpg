@@ -1,0 +1,179 @@
+{
+  "id": "eskil",
+  "speaker": "eskil",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "forage-noir",
+          "status": "active"
+        },
+        {
+          "flag": "hiran-eskil"
+        }
+      ],
+      "node": "choix"
+    },
+    {
+      "requires": [
+        {
+          "quest": "forage-noir",
+          "status": "active"
+        }
+      ],
+      "node": "attend"
+    },
+    {
+      "requires": [
+        {
+          "flag": "fin-forage-noir-marcheur"
+        }
+      ],
+      "node": "apres-marcheur"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Un homme pâle sous une toile de Marcheur, des mains d’ouvrier. Il parle bas, avec l’accent d’Ironheart. — Ne dis pas mon nom trop fort. Eskil Kolm. J’étais sur la foreuse, en 2995. Le seul qui n’était pas dedans quand les dragons sont arrivés.",
+      "options": [
+        {
+          "text": "Et depuis ?",
+          "next": "depuis"
+        },
+        {
+          "text": "Je n’ai rien entendu.",
+          "next": "fin"
+        }
+      ]
+    },
+    "depuis": {
+      "text": "— Depuis, je marche. Cinq ans. Les Gardiennes me donnent l’eau, comme à tout le monde. La Matriarche des cristaux m’a reconnu la semaine dernière. Elle veut me rendre à Ferros, par Terminus, contre un meilleur prix sur le verre.",
+      "effects": [
+        {
+          "startQuest": "forage-noir"
+        },
+        {
+          "setFlag": "forage-commence"
+        }
+      ],
+      "options": [
+        {
+          "text": "Que veux-tu, toi ?",
+          "next": "veut"
+        }
+      ]
+    },
+    "veut": {
+      "text": "— Rester. Devenir Marcheur, si on veut de moi. Ou rentrer, si on ne veut pas. Mais pas être vendu. Pas encore une fois : Ferros m’a déjà vendu une fois, à une foreuse.",
+      "options": [
+        {
+          "text": "Je vais parler à la Matriarche.",
+          "next": "fin"
+        }
+      ]
+    },
+    "attend": {
+      "text": "— Tu as vu la Matriarche ? Elle sourit beaucoup, pour quelqu’un qui compte en Fers.",
+      "options": [
+        {
+          "text": "Pas encore.",
+          "next": "fin"
+        }
+      ]
+    },
+    "choix": {
+      "text": "Eskil se ronge l’ongle du pouce jusqu’au sang. — Alors ? Qu’est-ce qu’on fait de moi ?",
+      "options": [
+        {
+          "text": "Tu peux rester : la Matriarche a cédé.",
+          "requires": [
+            {
+              "flag": "hiran-cede"
+            }
+          ],
+          "next": "marcheur",
+          "effects": [
+            {
+              "completeQuest": "forage-noir"
+            },
+            {
+              "setFlag": "fin-forage-noir-marcheur"
+            },
+            {
+              "giveXp": 40
+            }
+          ]
+        },
+        {
+          "text": "Je t’emmène à Sept-Portes, avec la caravane.",
+          "next": "rentre",
+          "effects": [
+            {
+              "completeQuest": "forage-noir"
+            },
+            {
+              "setFlag": "fin-forage-noir-rentre"
+            },
+            {
+              "giveXp": 40
+            }
+          ]
+        },
+        {
+          "text": "La Matriarche fera ce qu’elle veut.",
+          "next": "livre",
+          "effects": [
+            {
+              "completeQuest": "forage-noir"
+            },
+            {
+              "setFlag": "fin-forage-noir-livre"
+            },
+            {
+              "giveXp": 20
+            }
+          ]
+        }
+      ]
+    },
+    "marcheur": {
+      "text": "Eskil s’assoit dans le sable et pleure, sans bruit. — Cinq ans que je marche sans savoir si j’en avais le droit. — Le lendemain, il a retiré sa veste de Ferros, et il ne l’a pas remise.",
+      "options": [
+        {
+          "text": "Bonne route, Eskil.",
+          "next": "fin"
+        }
+      ]
+    },
+    "rentre": {
+      "text": "Il part avec la caravane des verriers, caché entre deux caisses de lentilles. À Sept-Portes, il prendra le train d’Ironheart. — Ils me demanderont où j’étais. Je leur dirai : je marchais.",
+      "options": [
+        {
+          "text": "Bon retour, Eskil.",
+          "next": "fin"
+        }
+      ]
+    },
+    "livre": {
+      "text": "Deux jours plus tard, la caravane part pour Terminus avec un homme de plus, les mains liées dans le dos. Il ne se retourne pas vers toi. La Matriarche, elle, te salue.",
+      "options": [
+        {
+          "text": "Détourner les yeux.",
+          "next": "fin"
+        }
+      ]
+    },
+    "apres-marcheur": {
+      "text": "Eskil porte une toile de Marcheur, sans rien dessous qui rappelle Ferros. Il marche à côté des chariots, pieds nus, et il a appris à ne plus compter les kilomètres.",
+      "options": [
+        {
+          "text": "Bonne route.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

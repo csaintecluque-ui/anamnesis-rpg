@@ -332,3 +332,86 @@ describe('les haltes de Thryn’vek, et la halte muette', () => {
     expect(JSON.stringify(DIALOGUES['ish-lenne'])).not.toMatch(/trentième, \d|trente et unième, \d/i);
   });
 });
+
+describe('les quêtes de la Marche-Mère', () => {
+  it('les deux nombres : Ahm’Ras, Yel’Dara ; confiés à la seconde tête, sans passer par l’air', () => {
+    const state = game();
+    state.time.phase = 2;
+    choose(state, 'ahm-ras', 'accueil', 'Comment ça');
+    choose(state, 'ahm-ras', 'chaine', 'Pourquoi');
+    expect(state.quests['deux-nombres']).toBe('active');
+    expect(talk(state, 'yel-dara')).toBe('ahm');
+    choose(state, 'yel-dara', 'ahm', 'Et s’il te les donnait');
+    expect(talk(state, 'ahm-ras')).toBe('choix');
+    choose(state, 'ahm-ras', 'choix', 'Donne-les à Yel’Dara');
+    expect(state.flags['fin-deux-nombres-yel']).toBe(true);
+    expect(talk(state, 'ahm-ras')).toBe('apres');
+  });
+
+  it('le Forage Noir : la Matriarche cède, Eskil devient Marcheur ; ou elle le rend à Ferros', () => {
+    const state = game();
+    choose(state, 'eskil', 'accueil', 'Et depuis');
+    expect(talk(state, 'hiran-amra')).toBe('eskil');
+    choose(state, 'hiran-amra', 'eskil', 'Laissez-le rester');
+    choose(state, 'eskil', 'choix', 'Tu peux rester');
+    expect(state.flags['fin-forage-noir-marcheur']).toBe(true);
+    const livre = game();
+    choose(livre, 'eskil', 'accueil', 'Et depuis');
+    talk(livre, 'hiran-amra');
+    expect(optionTexts(livre, 'eskil', 'choix')).not.toContain('Tu peux rester : la Matriarche a cédé.');
+    choose(livre, 'eskil', 'choix', 'La Matriarche fera');
+    expect(livre.flags['fin-forage-noir-livre']).toBe(true);
+  });
+
+  it('sept nuits le même rêve : Ysha’Ren, à qui personne n’avait rien demandé, choisit', () => {
+    const state = game();
+    choose(state, 'dova-ren', 'accueil', 'Qu’est-ce qu’elle a');
+    expect(state.quests['sept-nuits']).toBe('active');
+    expect(optionTexts(state, 'dova-ren', 'choix')).not.toContain('Qu’elle choisisse, elle.');
+    expect(talk(state, 'ysha-ren')).toBe('parle');
+    choose(state, 'ysha-ren', 'parle', 'Et toi');
+    choose(state, 'dova-ren', 'choix', 'Qu’elle choisisse');
+    expect(state.flags['fin-sept-nuits-choisit']).toBe(true);
+  });
+
+  it('celui qui voulait s’arrêter : Longue-Ombre le portera, si Nes’Mira l’a dit', () => {
+    const state = game();
+    talk(state, 'oss-amar');
+    expect(state.quests['arreter']).toBe('active');
+    expect(talk(state, 'nes-mira')).toBe('oss');
+    choose(state, 'oss-amar', 'choix', 'Longue-Ombre te portera');
+    expect(state.flags['fin-arreter-porte']).toBe(true);
+  });
+
+  it('le dragonnet : Kéo’Sa, Saal’Ema ; une amitié en attendant, et un dragon qui vient chercher qui siffle dans le désert', () => {
+    const state = game();
+    choose(state, 'keo-sa', 'accueil', 'Je peux t’aider');
+    expect(talk(state, 'keo-sa')).toBe('nid');
+    expect(talk(state, 'saal-ema')).toBe('dragonnet');
+    expect(optionTexts(state, 'dragonnet', 'nourrir')).toContain('Le confier aux Liens-Dragons du Cœur.');
+    choose(state, 'dragonnet', 'nourrir', 'Lui parler chaque jour');
+    expect(state.flags['fin-dragonnet-attendre']).toBe(true);
+    expect(optionTexts(state, 'piste-retour', 'rattraper')).toContain('Siffler, comme Kéo’Sa te l’a appris.');
+  });
+
+  it('les deux guildes : le chariot perdu (les Guides de l’Eau) ferme l’entrée aux Matriarches, et l’inverse', () => {
+    const guide = game();
+    choose(guide, 'daru-khen', 'accueil', 'Je veux entrer chez les Guides');
+    expect(guide.quests['chariot-perdu']).toBe('active');
+    choose(guide, 'chariot-perdu', 'chariot', 'Le ramener à pied');
+    expect(talk(guide, 'daru-khen')).toBe('adhesion');
+    expect(guide.flags['membre-guides-eau']).toBe(true);
+    expect(ownedCount(guide.character!, GOURDE)).toBe(1);
+    expect(optionTexts(guide, 'hiran-amra', 'accueil')).not.toContain('Je veux entrer chez les Matriarches.');
+
+    const tailleur = game();
+    choose(tailleur, 'hiran-amra', 'accueil', 'Je veux entrer chez les Matriarches');
+    choose(tailleur, 'lot-cristaux', 'lot', 'Les trier');
+    choose(tailleur, 'lot-cristaux', 'vivant', 'Le mettre à part');
+    expect(talk(tailleur, 'hiran-amra')).toBe('adhesion');
+    expect(tailleur.flags['membre-matriarches-cristaux']).toBe(true);
+    expect(tailleur.flags['cristal-vivant-rendu']).toBe(true);
+    expect(optionTexts(tailleur, 'daru-khen', 'accueil')).not.toContain('Je veux entrer chez les Guides de l’Eau.');
+    expect(flightFare({ ...tailleur, flags: { ...tailleur.flags, [FIRST_CARAVAN_FLAG]: true } }, findPlace('marche-mere')!)).toBe(17);
+  });
+});

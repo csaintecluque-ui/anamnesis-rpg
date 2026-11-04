@@ -1,0 +1,252 @@
+{
+  "id": "ahm-ras",
+  "speaker": "ahm-ras",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "deux-nombres",
+          "status": "active"
+        },
+        {
+          "flag": "ahm-yel"
+        }
+      ],
+      "node": "choix"
+    },
+    {
+      "requires": [
+        {
+          "quest": "deux-nombres",
+          "status": "active"
+        }
+      ],
+      "node": "attend"
+    },
+    {
+      "requires": [
+        {
+          "quest": "deux-nombres",
+          "status": "done"
+        }
+      ],
+      "node": "apres"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Un homme au manteau de route usé, assis seul près du feu, les yeux plissés comme au grand vent. — Tu as entendu Thryn’vek ? Il y manque deux nombres. Moi, je les ai.",
+      "options": [
+        {
+          "text": "Comment ça ?",
+          "next": "chaine"
+        },
+        {
+          "text": "Bonne nuit.",
+          "next": "fin"
+        }
+      ]
+    },
+    "chaine": {
+      "text": "— Une école de la Marche des Os Blancs dit que Neth’Sara les a dits une fois, à une seule personne. Cette personne a eu une fille, qui a eu une fille. Ma grand-mère me les a mis dans la bouche, à sept ans.",
+      "options": [
+        {
+          "text": "Pourquoi les dire maintenant ?",
+          "next": "pourquoi"
+        }
+      ]
+    },
+    "pourquoi": {
+      "text": "— J’ai soixante ans et pas d’enfant. Je veux les dire à la huitième halte, le soir où Ish’Lenne la dit. Yel’Dara ne veut pas. Va la voir, à la Tente de l’Eau, si tu veux comprendre pourquoi.",
+      "effects": [
+        {
+          "startQuest": "deux-nombres"
+        },
+        {
+          "setFlag": "deux-nombres-commence"
+        }
+      ],
+      "options": [
+        {
+          "text": "J’irai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "attend": {
+      "text": "— Tu as vu Yel’Dara ? Elle te dira que je mens, ou que j’ai raison, et que dans les deux cas il vaut mieux me taire.",
+      "options": [
+        {
+          "text": "Pas encore.",
+          "next": "fin"
+        }
+      ]
+    },
+    "choix": {
+      "text": "— Alors, l’étranger. Je les dis, à la huitième halte, ou je les garde ? Tu n’es pas d’ici : c’est pour ça que je te le demande à toi.",
+      "options": [
+        {
+          "text": "Dis-les, à la huitième halte.",
+          "next": "dits",
+          "effects": [
+            {
+              "completeQuest": "deux-nombres"
+            },
+            {
+              "setFlag": "fin-deux-nombres-dits"
+            },
+            {
+              "giveXp": 40
+            }
+          ]
+        },
+        {
+          "text": "Garde-les. Ils sont morts avec elle.",
+          "next": "gardes",
+          "roll": {
+            "skill": "diplomacy",
+            "difficulty": 16
+          },
+          "failNext": "tetu",
+          "effects": [
+            {
+              "completeQuest": "deux-nombres"
+            },
+            {
+              "setFlag": "fin-deux-nombres-gardes"
+            },
+            {
+              "giveXp": 40
+            }
+          ]
+        },
+        {
+          "text": "Donne-les à Yel’Dara, à elle seule.",
+          "requires": [
+            {
+              "flag": "yel-propose"
+            }
+          ],
+          "next": "yel",
+          "effects": [
+            {
+              "completeQuest": "deux-nombres"
+            },
+            {
+              "setFlag": "fin-deux-nombres-yel"
+            },
+            {
+              "giveXp": 40
+            }
+          ]
+        },
+        {
+          "text": "Comment sais-tu qu’ils sont vrais ?",
+          "next": "doute",
+          "roll": {
+            "skill": "investigation",
+            "difficulty": 16
+          },
+          "failNext": "vexe"
+        }
+      ]
+    },
+    "vexe": {
+      "text": "— Tu me traites de menteur ? — Il serre les mâchoires, puis se calme. — Tu as le droit. Moi aussi, je me le demande, la nuit.",
+      "options": [
+        {
+          "text": "Pardon.",
+          "next": "choix"
+        }
+      ]
+    },
+    "doute": {
+      "text": "— Je ne le sais pas. Ma grand-mère ne mentait pas. Elle se trompait, parfois. — Il hausse les épaules. — Cela ne prouve rien, comme dit la halte. Rien du tout.",
+      "options": [
+        {
+          "text": "Je comprends.",
+          "next": "choix"
+        }
+      ]
+    },
+    "tetu": {
+      "text": "— Non. Tu n’es pas d’ici, et ce n’est pas toi qui les portes depuis cinquante ans.",
+      "options": [
+        {
+          "text": "Alors dis-les, à la huitième halte.",
+          "next": "dits",
+          "effects": [
+            {
+              "completeQuest": "deux-nombres"
+            },
+            {
+              "setFlag": "fin-deux-nombres-dits"
+            },
+            {
+              "giveXp": 40
+            }
+          ]
+        },
+        {
+          "text": "Donne-les à Yel’Dara, à elle seule.",
+          "requires": [
+            {
+              "flag": "yel-propose"
+            }
+          ],
+          "next": "yel",
+          "effects": [
+            {
+              "completeQuest": "deux-nombres"
+            },
+            {
+              "setFlag": "fin-deux-nombres-yel"
+            },
+            {
+              "giveXp": 40
+            }
+          ]
+        }
+      ]
+    },
+    "dits": {
+      "text": "Le soir venu, il les dit, debout devant le feu d’Ish’Lenne. Deux nombres. Personne ne les répète. Yel’Dara ferme les yeux. Ish’Lenne dit seulement : « Cela ne prouve rien. » Tu ne les retiens pas : ils ne sont pas à toi.",
+      "options": [
+        {
+          "text": "Rester près du feu.",
+          "next": "fin"
+        }
+      ]
+    },
+    "gardes": {
+      "text": "Il se tait longtemps. — Ils mourront avec moi, alors. Comme avec elle. — Il a l’air soulagé, et il s’en veut de l’être.",
+      "options": [
+        {
+          "text": "Bonne nuit, Ahm’Ras.",
+          "next": "fin"
+        }
+      ]
+    },
+    "yel": {
+      "text": "Au matin, pendant la distribution, il va les lui dire à l’oreille. Yel’Dara hoche la tête, une fois. Deux nombres sont rentrés dans une tête, sans passer par l’air.",
+      "options": [
+        {
+          "text": "C’est bien.",
+          "next": "fin"
+        }
+      ]
+    },
+    "apres": {
+      "text": "Ahm’Ras, près du feu, te fait un signe de tête. Il n’en dit pas plus. Il n’a plus rien à dire, et ça lui va.",
+      "options": [
+        {
+          "text": "Bonne nuit.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

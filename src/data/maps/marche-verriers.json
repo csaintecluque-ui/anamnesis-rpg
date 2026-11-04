@@ -11,7 +11,7 @@
  "tilewidth": 64,
  "tileheight": 32,
  "nextlayerid": 4,
- "nextobjectid": 9,
+ "nextobjectid": 10,
  "layers": [
   {
    "id": 1,
@@ -1175,6 +1175,25 @@
     },
     {
      "id": 5,
+     "name": "eskil",
+     "type": "pnj",
+     "x": 400,
+     "y": 432,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": [
+      {
+       "name": "disparaitSi",
+       "type": "string",
+       "value": "fin-forage-noir-rentre,fin-forage-noir-livre"
+      }
+     ]
+    },
+    {
+     "id": 6,
      "name": "vers-camp",
      "type": "sortie",
      "x": 16,
@@ -1203,7 +1222,7 @@
      ]
     },
     {
-     "id": 6,
+     "id": 7,
      "name": "depuis-camp",
      "type": "arrivee",
      "x": 80,
@@ -1216,7 +1235,7 @@
      "properties": []
     },
     {
-     "id": 7,
+     "id": 8,
      "name": "entree",
      "type": "arrivee",
      "x": 80,
@@ -1229,7 +1248,7 @@
      "properties": []
     },
     {
-     "id": 8,
+     "id": 9,
      "name": "panneau-verriers",
      "type": "panneau",
      "x": 208,

@@ -147,7 +147,7 @@ const questItems = (state: GameState) => QUEST_ITEMS.filter((id) => ownedCount(s
  * Quests left undone. The adhesion quests of the factions of Ferros exclude one another (rivals, docs/gdd/factions.md)
  * and ask for a descent into a sleeping line: they have their own tests (factions.test.ts).
  */
-const ADHESIONS = ['lanterne-triage', 'fonds-echos', 'ce-qui-se-souvient', 'course-ilots', 'convoi-pain', 'paie-brisants', 'premiere-perle'];
+const ADHESIONS = ['lanterne-triage', 'fonds-echos', 'ce-qui-se-souvient', 'course-ilots', 'convoi-pain', 'paie-brisants', 'premiere-perle', 'chariot-perdu', 'verre-mer'];
 /** The quests of the city of Aetherhaven, played on their own (aetherhaven.test.ts). */
 const AETHERHAVEN = ['onze-etats', 'second-cristal', 'voiles-dormantes', 'asile', 'hirondelle'];
 /** The crates of the continents already played, found on the way back (caissesRetour.test.ts). */
@@ -155,7 +155,7 @@ const RETOURS = ['sous-la-faille', 'caisse-cendriere', 'caisse-sans-main'];
 /** Chapter 6, Coralia, played on its own (coralia.test.ts). */
 const CORALIA = ['mer-rend', 'don-rendu', 'lune-rouge', 'cargo-noir', 'grotte-reflux'];
 /** Chapter 7, Marche-Mère, played on its own (marcheMere.test.ts). */
-const MARCHE = ['plus-lieu', 'halte-muette'];
+const MARCHE = ['plus-lieu', 'halte-muette', 'deux-nombres', 'forage-noir', 'sept-nuits', 'arreter', 'dragonnet'];
 const unfinished = (state: GameState) => QUESTS.filter((q) => !ADHESIONS.includes(q.id) && !AETHERHAVEN.includes(q.id) && !RETOURS.includes(q.id) && !CORALIA.includes(q.id) && !MARCHE.includes(q.id) && state.quests[q.id] !== 'done').map((q) => q.id);
 
 // --- Balayages : gains répétables, entrées de dialogue qui en cachent une autre -------------------------------------

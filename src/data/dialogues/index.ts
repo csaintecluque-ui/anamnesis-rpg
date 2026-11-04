@@ -196,6 +196,13 @@ import caisseCommunion from './caisse-communion.json';
 import eddaMarche from './edda-marche.json';
 import keoSa from './keo-sa.json';
 import dragonnet from './dragonnet.json';
+import ahmRas from './ahm-ras.json';
+import eskil from './eskil.json';
+import dovaRen from './dova-ren.json';
+import yshaRen from './ysha-ren.json';
+import ossAmar from './oss-amar.json';
+import chariotPerdu from './chariot-perdu.json';
+import lotCristaux from './lot-cristaux.json';
 
 /** Dialogue files by object name (PNJ, Écho or object) of the maps. */
 export const DIALOGUES: Record<string, Dialogue> = {
@@ -405,6 +412,14 @@ export const DIALOGUES: Record<string, Dialogue> = {
   // La Marche-Mère : le Nid des dragonnets
   'keo-sa': keoSa as Dialogue,
   dragonnet: dragonnet as Dialogue,
+  // La Marche-Mère : les quêtes de la ville
+  'ahm-ras': ahmRas as Dialogue,
+  eskil: eskil as Dialogue,
+  'dova-ren': dovaRen as Dialogue,
+  'ysha-ren': yshaRen as Dialogue,
+  'oss-amar': ossAmar as Dialogue,
+  'chariot-perdu': chariotPerdu as Dialogue,
+  'lot-cristaux': lotCristaux as Dialogue,
   // Le Livre des Échos (docs/gdd/echos.md) : one dialogue per Écho, built from src/data/echos.json.
   ...echoDialogues(),
 };

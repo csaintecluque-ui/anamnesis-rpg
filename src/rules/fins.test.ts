@@ -38,6 +38,11 @@ describe('les fins vues (étude B11)', () => {
       ['cargo-noir', 3],
       ['grotte-reflux', 3],
       ['plus-lieu', 4],
+      ['deux-nombres', 3],
+      ['forage-noir', 3],
+      ['sept-nuits', 3],
+      ['arreter', 3],
+      ['dragonnet', 3],
     ]);
   });
 

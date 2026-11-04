@@ -15,6 +15,18 @@
       "node": "nombres"
     },
     {
+      "requires": [
+        {
+          "quest": "dragonnet",
+          "status": "active"
+        },
+        {
+          "notFlag": "saal-dragonnet"
+        }
+      ],
+      "node": "dragonnet"
+    },
+    {
       "node": "accueil"
     }
   ],
@@ -72,6 +84,20 @@
       "options": [
         {
           "text": "Merci, Saal’Ema.",
+          "next": "fin"
+        }
+      ]
+    },
+    "dragonnet": {
+      "text": "— Un lien à neuf ans, c’est un lien qu’on portera toute sa vie, et qu’on ne choisit pas encore. S’il casse, elle cassera avec. Les Liens-Dragons du Cœur pourraient le prendre, un adulte. Mais lui ne voudra peut-être pas.",
+      "effects": [
+        {
+          "setFlag": "saal-dragonnet"
+        }
+      ],
+      "options": [
+        {
+          "text": "Je comprends.",
           "next": "fin"
         }
       ]

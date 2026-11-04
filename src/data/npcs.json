@@ -1175,5 +1175,40 @@
     "id": "dragonnet",
     "name": "Un dragonnet",
     "role": "Le Nid des dragonnets"
+  },
+  {
+    "id": "ahm-ras",
+    "name": "Ahm’Ras",
+    "role": "Nomade pur"
+  },
+  {
+    "id": "eskil",
+    "name": "Eskil Kolm",
+    "role": "De Ferros, caché dans le convoi"
+  },
+  {
+    "id": "ysha-ren",
+    "name": "Ysha’Ren",
+    "role": "Seize ans"
+  },
+  {
+    "id": "dova-ren",
+    "name": "Dova’Ren",
+    "role": "Sa mère"
+  },
+  {
+    "id": "oss-amar",
+    "name": "Oss’Amar",
+    "role": "Quatre-vingts ans, en deuil"
+  },
+  {
+    "id": "lot-cristaux",
+    "name": "Un lot de cristaux",
+    "role": "Le comptoir des Matriarches"
+  },
+  {
+    "id": "chariot-perdu",
+    "name": "Un chariot renversé",
+    "role": "Hors de la Marche"
   }
 ]

@@ -1,0 +1,127 @@
+{
+  "id": "chariot-perdu",
+  "speaker": "chariot-perdu",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "chariot-perdu",
+          "status": "active"
+        },
+        {
+          "notFlag": "chariot-ramene"
+        }
+      ],
+      "node": "chariot"
+    },
+    {
+      "node": "vide"
+    }
+  ],
+  "nodes": {
+    "chariot": {
+      "text": "Un chariot couché sur le flanc, une roue cassée, des lentilles éparpillées qui brûlent au soleil. Dessous, à l’ombre, un convoyeur aux lèvres fendues. — Je me suis endormi. Les bœufs ont suivi une odeur d’eau qui n’existait pas.",
+      "options": [
+        {
+          "text": "Réparer la roue.",
+          "next": "repare",
+          "roll": {
+            "skill": "crafting",
+            "difficulty": 16
+          },
+          "failNext": "laisse"
+        },
+        {
+          "text": "Lui donner ta gourde.",
+          "requires": [
+            {
+              "item": "gourde-errance"
+            }
+          ],
+          "next": "abreuve",
+          "effects": [
+            {
+              "takeItem": "gourde-errance"
+            }
+          ]
+        },
+        {
+          "text": "Le ramener à pied, sans le chariot.",
+          "next": "laisse"
+        }
+      ]
+    },
+    "repare": {
+      "text": "Une cheville de bois, une corde, la roue tiendra jusqu’au camp. Le convoyeur rit, d’un rire de soif. Vous rattrapez la Marche à la nuit, le chariot grinçant derrière vous.",
+      "effects": [
+        {
+          "setFlag": "chariot-ramene"
+        }
+      ],
+      "options": [
+        {
+          "text": "Rentrer.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "marche-camp",
+              "arrivee": "depuis-desert"
+            }
+          ]
+        }
+      ]
+    },
+    "abreuve": {
+      "text": "Il boit ta gourde en trois gorgées et se relève. À deux, vous redressez le chariot. Il te devra de l’eau toute sa vie, dit-il, et dans la Communion, c’est une dette sérieuse.",
+      "effects": [
+        {
+          "setFlag": "chariot-ramene"
+        }
+      ],
+      "options": [
+        {
+          "text": "Rentrer.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "marche-camp",
+              "arrivee": "depuis-desert"
+            }
+          ]
+        }
+      ]
+    },
+    "laisse": {
+      "text": "Le chariot restera là, pour le sable. Tu soutiens le convoyeur jusqu’à la piste, et la piste jusqu’au camp. Les lentilles, on les comptera perdues.",
+      "effects": [
+        {
+          "setFlag": "chariot-ramene"
+        },
+        {
+          "setFlag": "chariot-laisse"
+        }
+      ],
+      "options": [
+        {
+          "text": "Rentrer.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "marche-camp",
+              "arrivee": "depuis-desert"
+            }
+          ]
+        }
+      ]
+    },
+    "vide": {
+      "text": "Les traces d’un chariot, que le vent efface déjà.",
+      "options": [
+        {
+          "text": "Passer.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

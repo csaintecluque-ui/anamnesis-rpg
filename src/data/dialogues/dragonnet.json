@@ -3,6 +3,15 @@
   "speaker": "dragonnet",
   "entries": [
     {
+      "requires": [
+        {
+          "quest": "dragonnet",
+          "status": "active"
+        }
+      ],
+      "node": "nourrir"
+    },
+    {
       "node": "dragonnet"
     }
   ],
@@ -12,6 +21,117 @@
       "options": [
         {
           "text": "Le laisser tranquille.",
+          "next": "fin"
+        }
+      ]
+    },
+    "nourrir": {
+      "text": "Le dragonnet ne lève pas la tête. Kéo’Sa te regarde, et attend que tu fasses quelque chose.",
+      "options": [
+        {
+          "text": "L’aider à manger, avec Kéo’Sa.",
+          "next": "keo",
+          "roll": {
+            "skill": "survival",
+            "difficulty": 16
+          },
+          "failNext": "refuse",
+          "effects": [
+            {
+              "setFlag": "nid-ami"
+            },
+            {
+              "completeQuest": "dragonnet"
+            },
+            {
+              "setFlag": "fin-dragonnet-keo"
+            },
+            {
+              "giveXp": 40
+            }
+          ]
+        },
+        {
+          "text": "Le confier aux Liens-Dragons du Cœur.",
+          "requires": [
+            {
+              "flag": "saal-dragonnet"
+            }
+          ],
+          "next": "liens",
+          "effects": [
+            {
+              "completeQuest": "dragonnet"
+            },
+            {
+              "setFlag": "fin-dragonnet-liens"
+            },
+            {
+              "giveXp": 40
+            }
+          ]
+        },
+        {
+          "text": "Lui parler chaque jour, en attendant ses quinze ans.",
+          "next": "attendre",
+          "roll": {
+            "skill": "diplomacy",
+            "difficulty": 16
+          },
+          "failNext": "refuse",
+          "effects": [
+            {
+              "setFlag": "nid-ami"
+            },
+            {
+              "completeQuest": "dragonnet"
+            },
+            {
+              "setFlag": "fin-dragonnet-attendre"
+            },
+            {
+              "giveXp": 40
+            }
+          ]
+        },
+        {
+          "text": "Plus tard.",
+          "next": "fin"
+        }
+      ]
+    },
+    "refuse": {
+      "text": "Il détourne la tête, et souffle un peu de sable sur tes mains. Pas aujourd’hui. Kéo’Sa soupire, à la façon des grandes personnes.",
+      "options": [
+        {
+          "text": "Plus tard.",
+          "next": "fin"
+        }
+      ]
+    },
+    "keo": {
+      "text": "Tu tiens la gamelle, Kéo’Sa tient sa tête. Il mange une bouchée, puis tout. Il s’endort la tête sur ses genoux. Le lien est fait. Personne ne pourra le défaire, et Saal’Ema le sait déjà.",
+      "options": [
+        {
+          "text": "Les laisser dormir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "liens": {
+      "text": "Une femme des Liens-Dragons vient le chercher le soir. Il la suit, lentement, en se retournant deux fois. Kéo’Sa ne pleure pas devant toi.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "attendre": {
+      "text": "Kéo’Sa promet, la main sur le cœur. Le dragonnet mange un peu quand elle lui parle. Pas de lien : une amitié, en attendant. — Si tu te perds dans le désert, siffle. Il viendra peut-être.",
+      "options": [
+        {
+          "text": "Je sifflerai.",
           "next": "fin"
         }
       ]

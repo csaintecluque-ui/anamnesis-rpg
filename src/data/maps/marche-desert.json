@@ -11,7 +11,7 @@
  "tilewidth": 64,
  "tileheight": 32,
  "nextlayerid": 4,
- "nextobjectid": 9,
+ "nextobjectid": 10,
  "layers": [
   {
    "id": 1,
@@ -1307,6 +1307,35 @@
     },
     {
      "id": 5,
+     "name": "chariot-perdu",
+     "type": "objet",
+     "x": 208,
+     "y": 464,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": [
+      {
+       "name": "tuile",
+       "type": "string",
+       "value": "chariot"
+      },
+      {
+       "name": "apparaitSi",
+       "type": "string",
+       "value": "chariot-perdu-commence"
+      },
+      {
+       "name": "disparaitSi",
+       "type": "string",
+       "value": "chariot-ramene"
+      }
+     ]
+    },
+    {
+     "id": 6,
      "name": "depuis-camp",
      "type": "arrivee",
      "x": 80,
@@ -1319,7 +1348,7 @@
      "properties": []
     },
     {
-     "id": 6,
+     "id": 7,
      "name": "entree",
      "type": "arrivee",
      "x": 80,
@@ -1332,7 +1361,7 @@
      "properties": []
     },
     {
-     "id": 7,
+     "id": 8,
      "name": "vers-halte",
      "type": "sortie",
      "x": 880,
@@ -1361,7 +1390,7 @@
      ]
     },
     {
-     "id": 8,
+     "id": 9,
      "name": "depuis-halte",
      "type": "arrivee",
      "x": 816,

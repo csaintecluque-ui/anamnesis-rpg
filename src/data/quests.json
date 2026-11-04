@@ -839,5 +839,160 @@
         "texte": "Yel’Dara m’a dit le total, et ce qui lui manque."
       }
     ]
+  },
+  {
+    "id": "deux-nombres",
+    "name": "Les deux nombres",
+    "summary": "Ahm’Ras, un nomade pur, dit porter les deux nombres que Neth’Sara a tus pendant la Sèche, en 2148. Il veut les dire à la huitième halte de Thryn’vek. Yel’Dara, la seconde tête du compte, ne veut pas.",
+    "etapes": [
+      {
+        "si": "deux-nombres-commence",
+        "texte": "Entendre Yel’Dara, à la Tente de l’Eau, puis revenir à Ahm’Ras, près du feu, le soir."
+      }
+    ],
+    "fins": [
+      {
+        "id": "dits",
+        "titre": "Les deux nombres dits à la halte"
+      },
+      {
+        "id": "gardes",
+        "titre": "Les deux nombres gardés"
+      },
+      {
+        "id": "yel",
+        "titre": "Les deux nombres confiés à Yel’Dara"
+      }
+    ]
+  },
+  {
+    "id": "forage-noir",
+    "name": "Le Forage Noir",
+    "summary": "Eskil Kolm, de Ferros, était sur la foreuse de la Mer de Verre en 2995. Il marche caché dans le convoi des verriers depuis cinq ans. La Matriarche Hiran’Amra l’a reconnu, et voudrait le rendre à Ferros.",
+    "etapes": [
+      {
+        "si": "forage-commence",
+        "texte": "Parler à la Matriarche Hiran’Amra, au comptoir des cristaux, puis revenir à Eskil."
+      }
+    ],
+    "fins": [
+      {
+        "id": "marcheur",
+        "titre": "Eskil devenu Marcheur"
+      },
+      {
+        "id": "rentre",
+        "titre": "Eskil rentré à Ironheart"
+      },
+      {
+        "id": "livre",
+        "titre": "Eskil rendu à Ferros"
+      }
+    ]
+  },
+  {
+    "id": "sept-nuits",
+    "name": "Sept nuits le même rêve",
+    "summary": "Ysha’Ren, seize ans, a les signes de l’Appel : le même rêve sept nuits, la peau des bras qui commence à cristalliser. Six sur dix meurent dans la Mer de Verre. Sa mère, Dova’Ren, cache les marques.",
+    "etapes": [
+      {
+        "si": "sept-nuits-commence",
+        "texte": "Écouter Ysha’Ren elle-même ; Nes’Mira aurait un baume qui ralentit le verre."
+      }
+    ],
+    "fins": [
+      {
+        "id": "temple",
+        "titre": "Ysha’Ren confiée au Temple"
+      },
+      {
+        "id": "cachee",
+        "titre": "Les marques cachées"
+      },
+      {
+        "id": "choisit",
+        "titre": "Ysha’Ren a choisi"
+      }
+    ]
+  },
+  {
+    "id": "arreter",
+    "name": "Celui qui voulait s’arrêter",
+    "summary": "Oss’Amar, quatre-vingts ans, veut rester à la halte où sa femme est morte, il y a dix-huit mois, et mourir là. Qui s’arrête meurt.",
+    "etapes": [
+      {
+        "si": "arreter-commence",
+        "texte": "Nes’Mira, sur Longue-Ombre, aurait une idée."
+      }
+    ],
+    "fins": [
+      {
+        "id": "marche",
+        "titre": "Oss’Amar remarche"
+      },
+      {
+        "id": "porte",
+        "titre": "Oss’Amar porté par Longue-Ombre"
+      },
+      {
+        "id": "reste",
+        "titre": "Oss’Amar resté à sa halte"
+      }
+    ]
+  },
+  {
+    "id": "dragonnet",
+    "name": "Le dragonnet",
+    "summary": "Au Nid, un dragonnet ne mange plus depuis la mort de son Lien. Kéo’Sa, neuf ans, veut se lier à lui, et on n’a pas le droit avant quinze ans.",
+    "etapes": [
+      {
+        "si": "dragonnet-commence",
+        "texte": "Saal’Ema, la grand-mère de Kéo’Sa, sur Longue-Ombre, a son avis."
+      }
+    ],
+    "fins": [
+      {
+        "id": "keo",
+        "titre": "Le lien de Kéo’Sa"
+      },
+      {
+        "id": "liens",
+        "titre": "Le dragonnet confié aux Liens-Dragons"
+      },
+      {
+        "id": "attendre",
+        "titre": "Une amitié, en attendant"
+      }
+    ]
+  },
+  {
+    "id": "chariot-perdu",
+    "name": "Le chariot perdu",
+    "summary": "Un chariot de lentilles s’est écarté de la piste dans la nuit. Les Guides de l’Eau prennent qui sait retrouver ce que la Marche a laissé derrière elle.",
+    "etapes": [
+      {
+        "si": "chariot-perdu-commence",
+        "texte": "Le chariot est quelque part hors de la Marche, côté piste, avant la crête de dunes."
+      },
+      {
+        "si": "chariot-ramene",
+        "texte": "Le convoyeur est rentré. Daru’Khen attend."
+      }
+    ]
+  },
+  {
+    "id": "verre-mer",
+    "name": "Le verre de la Mer",
+    "summary": "Un lot de cristaux de la Mer de Verre attend d’être trié avant la caravane. Les Matriarches de Cristaux prennent qui sait reconnaître un éclat d’un autre.",
+    "etapes": [
+      {
+        "si": "verre-mer-commence",
+        "texte": "Le lot est au comptoir, près de la Matriarche."
+      },
+      {
+        "si": "lot-trie",
+        "texte": "Le lot est trié. Hiran’Amra attend."
+      }
+    ]
   }
 ]

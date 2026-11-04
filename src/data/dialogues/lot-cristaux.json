@@ -1,0 +1,108 @@
+{
+  "id": "lot-cristaux",
+  "speaker": "lot-cristaux",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "verre-mer",
+          "status": "active"
+        },
+        {
+          "notFlag": "lot-trie"
+        }
+      ],
+      "node": "lot"
+    },
+    {
+      "node": "trie"
+    }
+  ],
+  "nodes": {
+    "lot": {
+      "text": "Une trentaine d’éclats de la Mer de Verre, ambrés, laiteux, certains presque noirs. À trier par pureté avant la caravane.",
+      "options": [
+        {
+          "text": "Les trier, éclat par éclat.",
+          "next": "vivant",
+          "roll": {
+            "skill": "crafting",
+            "difficulty": 16
+          },
+          "failNext": "rate"
+        },
+        {
+          "text": "Plus tard.",
+          "next": "fin"
+        }
+      ]
+    },
+    "rate": {
+      "text": "Tu te trompes deux fois ; Hiran’Amra, de loin, corrige d’un geste sans rien dire. Puis, sous tes doigts, un éclat tiède, qui bat. Un cristal vivant.",
+      "options": [
+        {
+          "text": "Le mettre à part, pour qu’il retourne à la Mer de Verre.",
+          "next": "fin",
+          "effects": [
+            {
+              "setFlag": "lot-trie"
+            },
+            {
+              "setFlag": "cristal-vivant-rendu"
+            }
+          ]
+        },
+        {
+          "text": "Le classer avec les autres.",
+          "next": "fin",
+          "effects": [
+            {
+              "setFlag": "lot-trie"
+            },
+            {
+              "setFlag": "cristal-vivant-vendu"
+            }
+          ]
+        }
+      ]
+    },
+    "vivant": {
+      "text": "Le tri se fait vite. Puis, sous tes doigts, un éclat tiède, qui bat. Un cristal vivant, que quelqu’un a ramassé avec les autres. La Communion dit qu’ils ont une conscience, et qu’on ne les vend pas.",
+      "options": [
+        {
+          "text": "Le mettre à part, pour qu’il retourne à la Mer de Verre.",
+          "next": "fin",
+          "effects": [
+            {
+              "setFlag": "lot-trie"
+            },
+            {
+              "setFlag": "cristal-vivant-rendu"
+            }
+          ]
+        },
+        {
+          "text": "Le classer avec les autres.",
+          "next": "fin",
+          "effects": [
+            {
+              "setFlag": "lot-trie"
+            },
+            {
+              "setFlag": "cristal-vivant-vendu"
+            }
+          ]
+        }
+      ]
+    },
+    "trie": {
+      "text": "Le lot, trié et emballé pour la caravane.",
+      "options": [
+        {
+          "text": "Passer.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

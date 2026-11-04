@@ -15,6 +15,15 @@
       "node": "nombres"
     },
     {
+      "requires": [
+        {
+          "quest": "dragonnet",
+          "status": "active"
+        }
+      ],
+      "node": "nid"
+    },
+    {
       "node": "accueil"
     }
   ],
@@ -25,6 +34,16 @@
         {
           "text": "Comment tu lui parles ?",
           "next": "parler"
+        },
+        {
+          "text": "Je peux t’aider ?",
+          "requires": [
+            {
+              "quest": "dragonnet",
+              "status": "none"
+            }
+          ],
+          "next": "aider"
         },
         {
           "text": "Je te laisse.",
@@ -51,6 +70,32 @@
       "options": [
         {
           "text": "C’est déjà beaucoup. Merci.",
+          "next": "fin"
+        }
+      ]
+    },
+    "aider": {
+      "text": "— Il faut qu’il mange. Grand-mère dit qu’il ne mangera qu’avec un Lien, et que je suis trop petite pour en être un. Lui, il ne sait pas compter jusqu’à quinze.",
+      "effects": [
+        {
+          "startQuest": "dragonnet"
+        },
+        {
+          "setFlag": "dragonnet-commence"
+        }
+      ],
+      "options": [
+        {
+          "text": "Je vais voir ce qu’on peut faire.",
+          "next": "fin"
+        }
+      ]
+    },
+    "nid": {
+      "text": "Kéo’Sa caresse le dragonnet du bout des doigts. — Tu as vu grand-mère ? Elle dit toujours non, d’abord. Après, elle réfléchit.",
+      "options": [
+        {
+          "text": "Je reviens.",
           "next": "fin"
         }
       ]

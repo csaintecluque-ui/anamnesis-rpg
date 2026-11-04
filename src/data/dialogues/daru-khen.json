@@ -5,6 +5,18 @@
     {
       "requires": [
         {
+          "quest": "chariot-perdu",
+          "status": "active"
+        },
+        {
+          "flag": "chariot-ramene"
+        }
+      ],
+      "node": "adhesion"
+    },
+    {
+      "requires": [
+        {
           "quest": "plus-lieu",
           "status": "active"
         },
@@ -16,6 +28,15 @@
         }
       ],
       "node": "halte-q"
+    },
+    {
+      "requires": [
+        {
+          "quest": "chariot-perdu",
+          "status": "active"
+        }
+      ],
+      "node": "chariot-attend"
     },
     {
       "node": "accueil"
@@ -32,6 +53,19 @@
         {
           "text": "Les jalons, au loin ?",
           "next": "jalons"
+        },
+        {
+          "text": "Je veux entrer chez les Guides de l’Eau.",
+          "requires": [
+            {
+              "quest": "chariot-perdu",
+              "status": "none"
+            },
+            {
+              "notFlag": "membre-matriarches-cristaux"
+            }
+          ],
+          "next": "guide"
         },
         {
           "text": "Rien.",
@@ -116,6 +150,58 @@
       "options": [
         {
           "text": "Tant pis.",
+          "next": "fin"
+        }
+      ]
+    },
+    "guide": {
+      "text": "— Les Guides de l’Eau ? Un chariot de lentilles s’est écarté de la piste cette nuit, côté sud, avant la crête de dunes. Son convoyeur n’a pas rejoint. Ramène-le, et on parlera.",
+      "effects": [
+        {
+          "startQuest": "chariot-perdu"
+        },
+        {
+          "setFlag": "chariot-perdu-commence"
+        }
+      ],
+      "options": [
+        {
+          "text": "J’y vais.",
+          "next": "fin"
+        }
+      ]
+    },
+    "chariot-attend": {
+      "text": "— Le chariot. Côté sud, avant la crête. Le sable aura déjà mangé ses traces, à cette heure. Lis-le quand même.",
+      "options": [
+        {
+          "text": "J’y vais.",
+          "next": "fin"
+        }
+      ]
+    },
+    "adhesion": {
+      "text": "Daru’Khen te tend une pierre ronde, polie par des doigts. — Une pierre d’eau, du Coffre. Porteur·se des Guides de l’Eau. Tu ne choisiras rien, toi non plus : tu suivras l’eau.",
+      "effects": [
+        {
+          "completeQuest": "chariot-perdu"
+        },
+        {
+          "setFlag": "membre-guides-eau"
+        },
+        {
+          "giveItem": "pierre-eau"
+        },
+        {
+          "giveItem": "gourde-errance"
+        },
+        {
+          "giveXp": 40
+        }
+      ],
+      "options": [
+        {
+          "text": "La prendre.",
           "next": "fin"
         }
       ]

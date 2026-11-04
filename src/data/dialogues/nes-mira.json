@@ -29,6 +29,18 @@
       "node": "tete"
     },
     {
+      "requires": [
+        {
+          "quest": "arreter",
+          "status": "active"
+        },
+        {
+          "notFlag": "nes-oss"
+        }
+      ],
+      "node": "oss"
+    },
+    {
       "node": "accueil"
     }
   ],
@@ -145,6 +157,20 @@
         {
           "text": "Tant mieux.",
           "next": "accueil"
+        }
+      ]
+    },
+    "oss": {
+      "text": "— Oss’Amar ? Les Léviathans portent ceux qui ne marchent plus, il le sait. Il ne veut pas être porté : il veut rester avec elle. Mais si tu le lui proposes au nom de Longue-Ombre, il ne dira peut-être pas non. Elle l’aimait bien, sa femme.",
+      "effects": [
+        {
+          "setFlag": "nes-oss"
+        }
+      ],
+      "options": [
+        {
+          "text": "Je le lui dirai.",
+          "next": "fin"
         }
       ]
     }

@@ -11,7 +11,7 @@
  "tilewidth": 64,
  "tileheight": 32,
  "nextlayerid": 4,
- "nextobjectid": 24,
+ "nextobjectid": 25,
  "layers": [
   {
    "id": 1,
@@ -2172,6 +2172,25 @@
     },
     {
      "id": 23,
+     "name": "oss-amar",
+     "type": "pnj",
+     "x": 304,
+     "y": 720,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": [
+      {
+       "name": "disparaitSi",
+       "type": "string",
+       "value": "fin-arreter-reste"
+      }
+     ]
+    },
+    {
+     "id": 24,
      "name": "panneau-camp",
      "type": "panneau",
      "x": 144,

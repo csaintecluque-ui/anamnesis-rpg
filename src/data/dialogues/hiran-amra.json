@@ -3,6 +3,30 @@
   "speaker": "hiran-amra",
   "entries": [
     {
+      "requires": [
+        {
+          "quest": "verre-mer",
+          "status": "active"
+        },
+        {
+          "flag": "lot-trie"
+        }
+      ],
+      "node": "adhesion"
+    },
+    {
+      "requires": [
+        {
+          "quest": "forage-noir",
+          "status": "active"
+        },
+        {
+          "notFlag": "hiran-eskil"
+        }
+      ],
+      "node": "eskil"
+    },
+    {
       "node": "accueil"
     }
   ],
@@ -17,6 +41,19 @@
         {
           "text": "Et Ferros ?",
           "next": "ferros"
+        },
+        {
+          "text": "Je veux entrer chez les Matriarches.",
+          "requires": [
+            {
+              "quest": "verre-mer",
+              "status": "none"
+            },
+            {
+              "notFlag": "membre-guides-eau"
+            }
+          ],
+          "next": "tailleur"
         },
         {
           "text": "Je regarde.",
@@ -46,6 +83,107 @@
         },
         {
           "text": "Je regarde.",
+          "next": "fin"
+        }
+      ]
+    },
+    "eskil": {
+      "text": "— L’homme de Ferros ? Ferros réclame des réparations pour sa foreuse. Un survivant, rendu par nous avec courtoisie, c’est un geste. Les taxes de Terminus baissent, la Marche mange mieux. Tout le monde y gagne.",
+      "effects": [
+        {
+          "setFlag": "hiran-eskil"
+        }
+      ],
+      "options": [
+        {
+          "text": "Lui, il y perd.",
+          "next": "perd"
+        },
+        {
+          "text": "Laissez-le rester dans la Marche.",
+          "next": "cede",
+          "roll": {
+            "skill": "diplomacy",
+            "difficulty": 16
+          },
+          "failNext": "non"
+        }
+      ]
+    },
+    "perd": {
+      "text": "— Il a foré un cimetière. Il a déjà beaucoup perdu, c’est vrai. Il nous a fait perdre davantage.",
+      "options": [
+        {
+          "text": "Laissez-le rester dans la Marche.",
+          "next": "cede",
+          "roll": {
+            "skill": "diplomacy",
+            "difficulty": 16
+          },
+          "failNext": "non"
+        },
+        {
+          "text": "Je verrai avec lui.",
+          "next": "fin"
+        }
+      ]
+    },
+    "cede": {
+      "text": "Elle repose sa balance. — Soit. La Marche le gardera, s’il le veut. Mais si Ferros le réclame un jour, ce n’est plus à moi qu’on le demandera.",
+      "effects": [
+        {
+          "setFlag": "hiran-cede"
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Matriarche.",
+          "next": "fin"
+        }
+      ]
+    },
+    "non": {
+      "text": "— Non. Je ne vends pas un homme. Je fais un geste. La différence te paraît mince ; ici, elle compte.",
+      "options": [
+        {
+          "text": "Je verrai avec lui.",
+          "next": "fin"
+        }
+      ]
+    },
+    "tailleur": {
+      "text": "— Les Matriarches ? Un lot de la Mer de Verre attend d’être trié avant la caravane : là, contre le mur. Un tailleur sait reconnaître un éclat d’un autre. Montre-moi que tu sais.",
+      "effects": [
+        {
+          "startQuest": "verre-mer"
+        },
+        {
+          "setFlag": "verre-mer-commence"
+        }
+      ],
+      "options": [
+        {
+          "text": "Je m’y mets.",
+          "next": "fin"
+        }
+      ]
+    },
+    "adhesion": {
+      "text": "Hiran’Amra regarde ton tri, éclat par éclat. — Tailleur·se des Matriarches de Cristaux. Le verre fait vivre la Marche ; maintenant, il te fait vivre aussi.",
+      "effects": [
+        {
+          "completeQuest": "verre-mer"
+        },
+        {
+          "setFlag": "membre-matriarches-cristaux"
+        },
+        {
+          "giveXp": 40
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Matriarche.",
           "next": "fin"
         }
       ]

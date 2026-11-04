@@ -1,0 +1,55 @@
+{
+  "id": "ysha-ren",
+  "speaker": "ysha-ren",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "sept-nuits",
+          "status": "active"
+        },
+        {
+          "notFlag": "ysha-parle"
+        }
+      ],
+      "node": "parle"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "L’adolescente remonte son foulard sur ses avant-bras. — Tu es l’étranger qui pose des questions. Pose-les à ma mère : c’est elle qui répond, ici.",
+      "options": [
+        {
+          "text": "Je te laisse.",
+          "next": "fin"
+        }
+      ]
+    },
+    "parle": {
+      "text": "Elle se redresse ; le foulard glisse, et sa peau, aux avant-bras, est claire et dépolie, presque du verre. — Le rêve, c’est toujours le même. Je marche dans le verre, seule, et je n’ai pas soif.",
+      "options": [
+        {
+          "text": "Et toi, que veux-tu ?",
+          "next": "veut"
+        }
+      ]
+    },
+    "veut": {
+      "text": "— Je ne sais pas. Personne ne me l’a demandé. Ma mère veut que je me cache. La Marcheuse du Souffle voudrait que j’y aille. Moi, je voudrais que quelqu’un me le demande. Toi, tu viens de le faire.",
+      "effects": [
+        {
+          "setFlag": "ysha-parle"
+        }
+      ],
+      "options": [
+        {
+          "text": "Je le dirai à ta mère.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

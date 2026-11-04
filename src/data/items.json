@@ -603,5 +603,13 @@
     "weightKg": 6,
     "price": 0,
     "quest": true
+  },
+  {
+    "id": "pierre-eau",
+    "name": "Une pierre d’eau",
+    "description": "Une pierre ronde du Coffre des routes, polie par les doigts des guides : elle vient d’un puits du cercle. Les guides en donnent une à qui devient l’un des leurs.",
+    "weightKg": 0.2,
+    "price": 0,
+    "quest": true
   }
 ]

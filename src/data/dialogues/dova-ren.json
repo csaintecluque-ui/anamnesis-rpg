@@ -1,0 +1,208 @@
+{
+  "id": "dova-ren",
+  "speaker": "dova-ren",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "sept-nuits",
+          "status": "active"
+        }
+      ],
+      "node": "choix"
+    },
+    {
+      "requires": [
+        {
+          "quest": "sept-nuits",
+          "status": "done"
+        }
+      ],
+      "node": "apres"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Une femme se tient entre toi et le fond de la tente, où une adolescente dort, un foulard noué sur les avant-bras. — Elle dort. Elle dort mal. Ne la réveille pas.",
+      "options": [
+        {
+          "text": "Qu’est-ce qu’elle a ?",
+          "next": "mal"
+        },
+        {
+          "text": "Pardon.",
+          "next": "fin"
+        }
+      ]
+    },
+    "mal": {
+      "text": "— Rien. — Elle ment mal, et elle le sait. — Sept nuits le même rêve. Et la peau des bras qui luit. Les signes de l’Appel. Six sur dix meurent dans la Mer de Verre. Je ne la donnerai pas au Désert.",
+      "effects": [
+        {
+          "startQuest": "sept-nuits"
+        },
+        {
+          "setFlag": "sept-nuits-commence"
+        }
+      ],
+      "options": [
+        {
+          "text": "Que veux-tu que je fasse ?",
+          "next": "aide"
+        }
+      ]
+    },
+    "aide": {
+      "text": "— Rien. Qu’on ne sache pas. Nes’Mira a un baume qui ralentit le verre, dit-on : pour les plaques des Léviathans. Sur une peau, personne n’a essayé.",
+      "options": [
+        {
+          "text": "Je reviendrai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "choix": {
+      "text": "Dova’Ren te regarde, les bras croisés. — Alors ? Tu vas le dire au Temple, comme les autres le feraient ?",
+      "options": [
+        {
+          "text": "Le dire au Temple.",
+          "next": "temple",
+          "effects": [
+            {
+              "completeQuest": "sept-nuits"
+            },
+            {
+              "setFlag": "fin-sept-nuits-temple"
+            },
+            {
+              "giveXp": 40
+            }
+          ]
+        },
+        {
+          "text": "Le baume de Nes’Mira, pour cacher le verre.",
+          "next": "cachee",
+          "roll": {
+            "skill": "medicine",
+            "difficulty": 16
+          },
+          "failNext": "rate",
+          "effects": [
+            {
+              "completeQuest": "sept-nuits"
+            },
+            {
+              "setFlag": "fin-sept-nuits-cachee"
+            },
+            {
+              "giveXp": 40
+            }
+          ]
+        },
+        {
+          "text": "Qu’elle choisisse, elle.",
+          "requires": [
+            {
+              "flag": "ysha-parle"
+            }
+          ],
+          "next": "choisit",
+          "effects": [
+            {
+              "completeQuest": "sept-nuits"
+            },
+            {
+              "setFlag": "fin-sept-nuits-choisit"
+            },
+            {
+              "giveXp": 40
+            }
+          ]
+        },
+        {
+          "text": "Pas encore.",
+          "next": "fin"
+        }
+      ]
+    },
+    "rate": {
+      "text": "Le baume brûle la peau d’Ysha’Ren sans rien ralentir. Elle serre les dents. Dova’Ren t’arrache le pot des mains. — Assez.",
+      "options": [
+        {
+          "text": "Le dire au Temple.",
+          "next": "temple",
+          "effects": [
+            {
+              "completeQuest": "sept-nuits"
+            },
+            {
+              "setFlag": "fin-sept-nuits-temple"
+            },
+            {
+              "giveXp": 40
+            }
+          ]
+        },
+        {
+          "text": "Qu’elle choisisse, elle.",
+          "requires": [
+            {
+              "flag": "ysha-parle"
+            }
+          ],
+          "next": "choisit",
+          "effects": [
+            {
+              "completeQuest": "sept-nuits"
+            },
+            {
+              "setFlag": "fin-sept-nuits-choisit"
+            },
+            {
+              "giveXp": 40
+            }
+          ]
+        }
+      ]
+    },
+    "temple": {
+      "text": "La Marcheuse du Souffle vient le soir même. Les Anciens-Dragons la reconnaîtront, ou non. Dova’Ren ne te regarde plus. Tu ne sauras pas ce que le verre aura fait d’Ysha’Ren.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "cachee": {
+      "text": "Le baume ralentit le verre. Sous le foulard, la peau luira moins, un an, deux peut-être. Le rêve, lui, ne s’arrête pas. Dova’Ren te serre la main sans un mot.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "choisit": {
+      "text": "Ysha’Ren se lève, et dit à sa mère, très calmement, qu’elle ira. Pas parce que le Désert l’a choisie : parce qu’on lui a demandé, une fois. Dova’Ren pleure. Elle ne dit pas non.",
+      "options": [
+        {
+          "text": "Les laisser.",
+          "next": "fin"
+        }
+      ]
+    },
+    "apres": {
+      "text": "Dova’Ren plie des toiles, sans lever les yeux. — Ce qui est fait est fait. Va.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

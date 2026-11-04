@@ -1,0 +1,216 @@
+{
+  "id": "oss-amar",
+  "speaker": "oss-amar",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "arreter",
+          "status": "active"
+        }
+      ],
+      "node": "choix"
+    },
+    {
+      "requires": [
+        {
+          "quest": "arreter",
+          "status": "done"
+        }
+      ],
+      "node": "apres"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Un vieil homme en manteau de deuil gris, du henné noir aux joues, assis dans le sable. Il ne se lève pas quand on passe. — C’est ici qu’elle est morte. Il y a dix-huit mois, à cette halte. Demain, la Marche repart. Moi, je reste.",
+      "effects": [
+        {
+          "startQuest": "arreter"
+        },
+        {
+          "setFlag": "arreter-commence"
+        }
+      ],
+      "options": [
+        {
+          "text": "Si tu restes, tu meurs.",
+          "next": "meurs"
+        },
+        {
+          "text": "Personne ne peut t’en empêcher ?",
+          "next": "tabou"
+        }
+      ]
+    },
+    "meurs": {
+      "text": "— Je sais. Qui s’arrête meurt. C’est même pour ça que je m’arrête.",
+      "options": [
+        {
+          "text": "Personne ne peut t’en empêcher ?",
+          "next": "tabou"
+        },
+        {
+          "text": "Je reviendrai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "tabou": {
+      "text": "— S’arrêter, c’est un tabou. Mais personne n’empêche un vieux de s’asseoir. On le compte, le lendemain matin, c’est tout.",
+      "options": [
+        {
+          "text": "Je reviendrai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "choix": {
+      "text": "Oss’Amar regarde la piste, devant, puis le jalon de la halte, derrière. — Tu reviens me faire marcher, toi aussi ?",
+      "options": [
+        {
+          "text": "Marche encore. Pour elle.",
+          "next": "marche",
+          "roll": {
+            "skill": "diplomacy",
+            "difficulty": 16
+          },
+          "failNext": "non",
+          "effects": [
+            {
+              "completeQuest": "arreter"
+            },
+            {
+              "setFlag": "fin-arreter-marche"
+            },
+            {
+              "giveXp": 40
+            }
+          ]
+        },
+        {
+          "text": "Longue-Ombre te portera.",
+          "requires": [
+            {
+              "flag": "nes-oss"
+            }
+          ],
+          "next": "porte",
+          "effects": [
+            {
+              "completeQuest": "arreter"
+            },
+            {
+              "setFlag": "fin-arreter-porte"
+            },
+            {
+              "giveXp": 40
+            }
+          ]
+        },
+        {
+          "text": "Reste, si c’est ton choix.",
+          "next": "reste",
+          "effects": [
+            {
+              "completeQuest": "arreter"
+            },
+            {
+              "setFlag": "fin-arreter-reste"
+            },
+            {
+              "giveXp": 20
+            }
+          ]
+        },
+        {
+          "text": "Pas encore.",
+          "next": "fin"
+        }
+      ]
+    },
+    "non": {
+      "text": "— Tu ne l’as pas connue. Elle, elle m’aurait laissé m’asseoir.",
+      "options": [
+        {
+          "text": "Longue-Ombre te portera.",
+          "requires": [
+            {
+              "flag": "nes-oss"
+            }
+          ],
+          "next": "porte",
+          "effects": [
+            {
+              "completeQuest": "arreter"
+            },
+            {
+              "setFlag": "fin-arreter-porte"
+            },
+            {
+              "giveXp": 40
+            }
+          ]
+        },
+        {
+          "text": "Reste, si c’est ton choix.",
+          "next": "reste",
+          "effects": [
+            {
+              "completeQuest": "arreter"
+            },
+            {
+              "setFlag": "fin-arreter-reste"
+            },
+            {
+              "giveXp": 20
+            }
+          ]
+        },
+        {
+          "text": "Je reviendrai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "marche": {
+      "text": "Il se lève, lentement, en s’appuyant sur ton épaule. — Pour elle, alors. Elle détestait que je m’assoie.",
+      "options": [
+        {
+          "text": "Marcher avec lui.",
+          "next": "fin"
+        }
+      ]
+    },
+    "porte": {
+      "text": "Le soir, Nes’Mira et toi le hissez sur la carapace. Il s’assoit face à l’arrière, pour voir la halte s’éloigner le plus longtemps possible.",
+      "options": [
+        {
+          "text": "Le laisser regarder.",
+          "next": "fin"
+        }
+      ]
+    },
+    "reste": {
+      "text": "Quand la Marche repart, il reste assis près du jalon, les mains sur les genoux. Le lendemain matin, la Gardienne compte une ration de moins. Elle ne dit pas son nom.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "apres": {
+      "text": "La place où Oss’Amar s’asseyait est vide. Le sable n’y garde plus rien.",
+      "options": [
+        {
+          "text": "Passer.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

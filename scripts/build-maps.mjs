@@ -1778,10 +1778,12 @@ function marcheCamp(dresse) {
     for (const [c, r] of [[4, 4], [28, 4], [4, 21], [28, 22], [12, 21]]) m.setObstacle(c, r, 'tente-beige');
     for (const [c, r] of [[20, 3], [11, 3], [24, 23]]) m.setObstacle(c, r, 'tente-ocre');
     m.setObstacle(27, 13, 'jalon');
+    m.object('ahm-ras', 'pnj', 13, 11);
   } else {
     for (const [c, r] of [[4, 4], [28, 4], [4, 21], [28, 22], [12, 21], [20, 3], [11, 3], [24, 23]]) m.setObstacle(c, r, 'chariot');
     for (const [c, r] of [[6, 11], [22, 14], [11, 14]]) m.setObstacle(c, r, 'voile-ombre');
   }
+  m.object('oss-amar', 'pnj', 9, 22, { disparaitSi: 'fin-arreter-reste' });
   m.setObstacle(4, 11, 'panneau');
   m.object('panneau-camp', 'panneau', 4, 11, { texte: dresse
     ? 'Le Camp du soir. Un jalon planté pour la nuit, sans un mot dessus : la Communion n’écrit pas. Un enfant te montre du doigt la Halte, la Tente des Mille Pas, la Tente de l’Eau.'
@@ -1799,6 +1801,7 @@ function marcheVerriers() {
   for (const [c, r] of [[4, 6], [13, 5], [22, 5], [5, 15], [12, 15], [20, 15]]) m.setObstacle(c, r, 'four-verre');
   for (const [c, r] of [[9, 14], [10, 14], [11, 14], [16, 14], [17, 14]]) m.setObstacle(c, r, 'jalon');
   for (const [c, r] of [[15, 8], [3, 12]]) m.setObstacle(c, r, 'caisses');
+  m.object('eskil', 'pnj', 12, 13, { disparaitSi: 'fin-forage-noir-rentre,fin-forage-noir-livre' });
   m.object('vers-camp', 'sortie', 0, 10, { cible: 'marche-camp', arrivee: 'depuis-verriers', libelle: 'Le Camp' });
   m.object('depuis-camp', 'arrivee', 2, 10);
   m.object('entree', 'arrivee', 2, 10);
@@ -1874,6 +1877,7 @@ function marcheDesert() {
   m.object('pilleur-3', 'ennemi', 14, 11, pilleurs);
   // Le retour : la Marche ne revient pas, il faut la rattraper (un jet de Survie, src/data/dialogues/piste-retour.json).
   m.object('piste-retour', 'objet', 1, 10, { tuile: 'traces-pas' });
+  m.object('chariot-perdu', 'objet', 6, 14, { tuile: 'chariot', apparaitSi: 'chariot-perdu-commence', disparaitSi: 'chariot-ramene' });
   m.object('depuis-camp', 'arrivee', 2, 10);
   m.object('entree', 'arrivee', 2, 10);
   m.object('vers-halte', 'sortie', 27, 10, { cible: 'marche-halte-morte', arrivee: 'depuis-desert', libelle: 'Le jalon, là-bas' });
@@ -1927,7 +1931,7 @@ Object.assign(INTERIORS, {
     objects: [['daru-khen', 'pnj', 3, 2], ['coffre-routes', 'objet', 6, 1]],
   }),
   'marche-relais': interior('marche-relais', { ...TENT_ROOM, outside: 'marche-camp', furniture: [[2, 1, 'etagere'], [3, 1, 'etagere'], [5, 4, 'table']], objects: [] }),
-  'marche-ren': interior('marche-ren', { ...TENT_ROOM, outside: 'marche-camp', furniture: [[1, 1, 'lit'], [6, 1, 'lit'], [4, 3, 'table']], objects: [] }),
+  'marche-ren': interior('marche-ren', { ...TENT_ROOM, outside: 'marche-camp', furniture: [[1, 1, 'lit'], [6, 1, 'lit'], [4, 3, 'table']], objects: [['dova-ren', 'pnj', 3, 2], ['ysha-ren', 'pnj', 6, 2]] }),
   'marche-atelier': interior('marche-atelier', {
     ...TENT_ROOM, outside: 'marche-verriers',
     furniture: [[2, 1, 'etabli'], [3, 1, 'etabli'], [6, 1, 'jalon'], [6, 2, 'jalon'], [1, 4, 'caisses']],
@@ -1936,7 +1940,7 @@ Object.assign(INTERIORS, {
   'marche-comptoir': interior('marche-comptoir', {
     ...TENT_ROOM, outside: 'marche-verriers',
     furniture: [[3, 3, 'comptoir'], [4, 3, 'comptoir'], [1, 1, 'caisses'], [6, 1, 'etagere']],
-    objects: [['hiran-amra', 'pnj', 4, 2]],
+    objects: [['hiran-amra', 'pnj', 4, 2], ['lot-cristaux', 'objet', 6, 4, { tuile: 'caisses' }]],
   }),
   'marche-pavillon': interior('marche-pavillon', {
     ...GLASS_ROOM, w: 9, h: 7, outside: 'marche-coeur',

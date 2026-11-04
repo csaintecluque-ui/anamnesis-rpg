@@ -283,6 +283,8 @@ Fiche relue contre le canon le 2026-11-04 (proposition, à valider) : `lieux/mar
 
 ## 9. Khrysos, la cité de cristal — Glacialis
 
+Fiche relue contre le canon le 2026-11-04 (proposition, à valider) : `lieux/khrysos.md`.
+
 - **Canon** : capitale du Dominion Cristallin (Conseil des Neuf Cristaux) ; nom Khrysos [NOTION : arbitrage] [E3, N6] ; Bibliothèques de Glace, Mer Gelée [E3, N6] ; Enfants du Givre, Entités cristallines [E7-5] ;
   la Voie de l'Hiver Éveillé, Nörvath principe de mémoire, les cristaux « portent la mémoire du monde » [R5] ; la
   Mémoire du Gel [E7-5] ; Crysta Frostborn, Bjorn Glaceforge [N6] ; Guerre Froide du Nord contre Solarix [E10].

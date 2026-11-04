@@ -179,5 +179,9 @@ Relevés à la lecture des pages de Terminus pour le chapitre 4 (2026-11-03). So
 
 ## Questions encore ouvertes
 
+- **Thryn'vek** (2026-11-04) : c'est le nom du puits de la légende de la Marche-Mère (« Thryn'vek », Solarix), et une
+  expression glacienne de la fiche de Glacialis (*Thryn'vek* : « tiens bon », pour souhaiter bonne chance). Le jeu
+  emploie le premier (le Récit de la Marche-Mère) et n'emploiera pas le second sans l'avis de Cyril.
+
 - **Serre Mémoire** : à Canopéa selon les légendes, dans un village selon le roman (IV.4). Non tranché ; le jeu n'y
   fait pas référence.

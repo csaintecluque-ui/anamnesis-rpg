@@ -1,0 +1,69 @@
+# Le fil directeur, de Sept-Portes à la fin (proposition du 2026-11-04, **à valider**)
+
+Demande de Cyril (2026-11-04) : « Pour la fin, on va attendre toutes les villes. Mais il faut un vrai fil
+directeur. » Le plan validé (`docs/gdd/jeu-complet.md`) donne la ligne (« Les voies endormies », les Réveilleurs, la
+finale à la Faille) ; il manque ce que le joueur **poursuit** de ville en ville, et pourquoi c'est pressant.
+
+Tout est construit sur du validé : la page du dernier départ (« Dernier départ, voie sept. Terminus : Altavent, sous
+les Hauts de Zephyria. Déchargé : sept caisses plombées. Reçu : personne. »), la voix qui compte jusqu'à sept, les
+sept continents [canon] et les Sept Portes, la dame en gris qui court après sa mère, Ilyane qui oublie, et la vérité
+du héros (Cyril) : rien ne s'en dit avant Altavent. Le pourquoi des Surgeons reste un mystère.
+
+## La question que le joueur porte
+
+**« Où sont les sept caisses du dernier train, et qui les attend ? »** Puis, en dessous, la sienne : « Qui était
+l'enfant à la fenêtre ? »
+
+## Trois fils tressés
+
+1. **Les sept caisses** (le monde). À Altavent, personne n'a signé pour elles. En trois mille ans, elles ont quitté
+   le quai et se sont dispersées : **une par continent**, enfouie au bout d'une voie endormie. Le Registre des Mains
+   de Sept-Portes en garde les chaînes, rompues. Les **Réveilleurs** [canon : ils veulent restaurer les technologies
+   de l'Ancien Monde] les suivent, ville après ville, avec l'argent qu'ils confient à la dame en gris.
+2. **La dame en gris** (le visage de l'adversaire). Edda Varn n'est pas une Réveilleuse : elle les utilise pour
+   retrouver sa mère, montée dans ce train. On la croise dans chaque ville, avant ou après le héros : rivale, parfois
+   alliée, jamais méchante. Les Réveilleurs restent derrière elle, sans visage (validé).
+3. **Ce qui n'est pas à moi** (le héros). Un fragment de plus par ville, dans l'ordre inverse de l'oubli ; l'enfant
+   à la fenêtre revient dans certains Échos, toujours sans un mot de plus.
+
+**L'urgence** : chaque voie que les Réveilleurs rouvrent déchire ses Échos, et la maladie des souvenirs s'étend
+(c'est elle qui a commencé à la Gare Engloutie). **Ilyane** en est le visage : elle oublie un peu plus à chaque caisse
+qu'ils prennent avant le héros.
+
+## Ce que chaque ville donne (dans l'ordre qu'on veut, pilier « liberté »)
+
+Pour chacune des six villes à venir (Aetherhaven, Windspire, Porto-Lumina, Coralia, Marche-Mère, Khrysos ou
+Auroraheim) :
+
+- **une trace de caisse** : une rumeur, une chaîne du Registre, une voie endormie, et au terminus la caisse, ouverte
+  ou non ; ce qu'on en fait (la garder, la confier aux Gardiens, à l'Ordre de l'Équilibre, la vendre, la laisser
+  aux Réveilleurs) pèse sur la fin ;
+- **un pas de la dame en gris** : ce qu'elle a trouvé de sa mère dans cette ville ;
+- **un fragment** pour le héros, et une réplique d'Ilyane au retour ;
+- le reste de la ville (quêtes secondaires, guildes, passants) **sans dépendre** du fil.
+
+Les trois caisses des continents déjà joués (Verdantis, Ferros, Terminus) se rattachent à ce qui existe : la Gare
+Engloutie (ce que la prospection cherchait sous la Faille), la clé de rouille bleue, la page du Fonds Muet. Une
+courte quête au retour dans chaque ville le dirait (à écrire).
+
+## La fin (on attend toutes les villes, décision de Cyril)
+
+Quand le sort des sept caisses est connu, la voie sept s'ouvre jusqu'à **Altavent** : le train s'arrête pour le héros
+une dernière fois (monter, ou rester et porter ce qu'il sait). Puis la **finale à la Faille** (plan validé), où ce qui
+reste des caisses et des alliances décide. Les fins sont celles de Cyril.
+
+## Comment le jeu le montre
+
+- **Une page « Le fil » au journal** : la question, ce qu'on sait (une ligne de plus à chaque pas), les sept caisses
+  (trouvée par toi, prise par les Réveilleurs, inconnue), la piste suivante.
+- **La carte du monde** marque les villes où une trace attend.
+- Les passants en parlent : « Une dame en gris a demandé la voie sept. »
+
+## Ce qui reste à Cyril
+
+1. La structure (sept caisses, une par continent, la course contre les Réveilleurs, la dame en gris en visage) : oui ?
+2. **Ce que contiennent les caisses** : (a) ce que l'Ancien Monde a éloigné de la Chute, la technologie que veulent les
+   Réveilleurs ; (b) le registre des voyageurs, les noms des enfants du train ; (c) les deux, chaque caisse une pièce
+   de la machine et la liste de ceux qui voyageaient avec elle. Recommandation : **(c)**.
+3. L'urgence (la maladie s'étend à chaque voie rouverte ; Ilyane oublie plus vite) : oui ?
+4. La page « Le fil » au journal et les marques sur la carte du monde : oui (avant Aetherhaven) ?

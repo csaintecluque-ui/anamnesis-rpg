@@ -1160,3 +1160,7 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   valider : `univers/lieux/aetherhaven.md` et `gdd/chapitre-5.md` (« Les noms qui montent » : la caisse tombée sous
   les nuages, dont les six noms montent jusqu'à la ville ; la dame en gris reconnaît l'écriture de sa mère ; le ruban
   au poignet de l'autre enfant ; sept quêtes de ville, deux guildes).
+- Cyril : « 1 oui, 2 oui, 3 oui, 4 oui » : Aetherhaven validé. Construit et mis en ligne : la ville (trois quartiers
+  au-dessus des nuages, onze intérieurs, trois cartes en bas), le dirigeable sur la carte du monde, « Les noms qui
+  montent » (quatre fins, la caisse de Zephyria au fil, le ruban, la lettre d'Ilyane), les voiles à attraper et à
+  lâcher, le mystère du Lâcher et le Récit « La septième voile ». 811 tests ; vérifié dans Chromium.

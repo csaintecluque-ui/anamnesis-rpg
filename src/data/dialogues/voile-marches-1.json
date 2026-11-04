@@ -1,0 +1,37 @@
+{
+  "id": "voile-marches-1",
+  "speaker": "voile-marches-1",
+  "entries": [
+    {
+      "node": "voile"
+    }
+  ],
+  "nodes": {
+    "voile": {
+      "text": "« Pain de nuage : farine d’en bas, levain d’en haut, et beaucoup de patience, parce qu’ici rien ne cuit comme il faut. » Dessous, d’une autre main : « Menteuse. Il ne lève jamais. »",
+      "options": [
+        {
+          "text": "La garder, pour la recopier.",
+          "next": "fin",
+          "effects": [
+            {
+              "setFlag": "voile-marches-1-attrapee"
+            },
+            {
+              "giveItem": "voile-attrapee"
+            }
+          ]
+        },
+        {
+          "text": "La laisser repartir.",
+          "next": "fin",
+          "effects": [
+            {
+              "setFlag": "voile-marches-1-attrapee"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

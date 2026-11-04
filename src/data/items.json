@@ -474,5 +474,20 @@
     "description": "Une aile de Mante-ailes, fine et dure. Les voiliers d’Aetherhaven en font des lames à couper la toile.",
     "weightKg": 0.3,
     "price": 18
+  },
+  {
+    "id": "voile-attrapee",
+    "name": "Une voile attrapée",
+    "description": "Un tissu écrit, pris au vent d’Aetherhaven. Il vit deux ans, si personne ne le recopie.",
+    "weightKg": 0,
+    "price": 0,
+    "usage": "Recopiée sur un tissu neuf, elle se lâche au bord de la Haute-Île, et le Registre la compte."
+  },
+  {
+    "id": "tissu-voile",
+    "name": "Tissu à voile",
+    "description": "Un carré de toile fine et blanche, de la Voilerie Clairvol, pour recopier une voile.",
+    "weightKg": 0.1,
+    "price": 5
   }
 ]

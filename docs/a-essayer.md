@@ -276,6 +276,18 @@ En ligne le 2026-11-03 (tes textes du 3 novembre) :
 - [ ] **La carte du monde** : un anneau cuivré marque la piste (après Sept-Portes : Zephyria, au bord de la carte).
 - Remarques :
 
+## Chapitre 5, Aetherhaven (en ligne le 2026-11-04)
+
+- [ ] **Le dirigeable** : après Sept-Portes, sur la carte du monde, Aetherhaven au sud-ouest. Le premier vol est payé
+      par Hesper ; les suivants coûtent 30 Fers, un jour de vol, sans rencontre.
+- [ ] **La ville** : le Quai des Dirigeables, les Îles-Marchés, la Haute-Île, au-dessus d'une mer de nuages. Les
+      voiles qui passent : on les attrape d'un clic, on en recopie une (un tissu de Vessin) et on la lâche au bord.
+- [ ] **« Les noms qui montent »** : Siffrin et sa bande de tissu, le tiroir d'Ysolde, trois façons de descendre
+      (Ossiane et sa Compagnie, Ravel des Ailes Noires, la machine de Vessin avec un second cristal), la Voie du Bas,
+      la dame en gris à la Halte des Cendres, le Calme à la remontée. Les quatre fins se valent-elles ?
+- [ ] **Le mystère du Lâcher** : la voile du garde-fou, et la nuit, celui qui la change. Le Récit « La septième voile ».
+- Remarques :
+
 ## Déjà en ligne, pas encore essayé sur PC
 
 - [ ] **Chapitre 4, Sept-Portes** sans le mode surpuissant : l'arrivée par la Porte du sud, le Registre, l'une des trois

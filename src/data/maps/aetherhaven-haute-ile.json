@@ -11,7 +11,7 @@
  "tilewidth": 64,
  "tileheight": 32,
  "nextlayerid": 4,
- "nextobjectid": 15,
+ "nextobjectid": 20,
  "layers": [
   {
    "id": 1,
@@ -1551,7 +1551,147 @@
       {
        "name": "texte",
        "type": "string",
-       "value": "Le Lâcher. Ce qu’on y ouvre la main, le vent le porte à qui voudra le prendre."
+       "value": "Le Lâcher. Ce qu’on lâche d’ici, le vent le porte à qui voudra le prendre."
+      }
+     ]
+    },
+    {
+     "id": 15,
+     "name": "bastien",
+     "type": "pnj",
+     "x": 752,
+     "y": 368,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": [
+      {
+       "name": "moment",
+       "type": "string",
+       "value": "nuit"
+      }
+     ]
+    },
+    {
+     "id": 16,
+     "name": "voile-haute-1",
+     "type": "objet",
+     "x": 528,
+     "y": 464,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": [
+      {
+       "name": "tuile",
+       "type": "string",
+       "value": "voile"
+      },
+      {
+       "name": "flotte",
+       "type": "string",
+       "value": "oui"
+      },
+      {
+       "name": "disparaitSi",
+       "type": "string",
+       "value": "voile-haute-1-attrapee"
+      }
+     ]
+    },
+    {
+     "id": 17,
+     "name": "voile-haute-2",
+     "type": "objet",
+     "x": 336,
+     "y": 336,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": [
+      {
+       "name": "tuile",
+       "type": "string",
+       "value": "voile"
+      },
+      {
+       "name": "flotte",
+       "type": "string",
+       "value": "oui"
+      },
+      {
+       "name": "disparaitSi",
+       "type": "string",
+       "value": "voile-haute-2-attrapee"
+      }
+     ]
+    },
+    {
+     "id": 18,
+     "name": "voile-haute-3",
+     "type": "objet",
+     "x": 656,
+     "y": 400,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": [
+      {
+       "name": "tuile",
+       "type": "string",
+       "value": "voile"
+      },
+      {
+       "name": "flotte",
+       "type": "string",
+       "value": "oui"
+      },
+      {
+       "name": "disparaitSi",
+       "type": "string",
+       "value": "voile-haute-3-attrapee"
+      }
+     ]
+    },
+    {
+     "id": 19,
+     "name": "voile-nom-2",
+     "type": "objet",
+     "x": 592,
+     "y": 560,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": [
+      {
+       "name": "tuile",
+       "type": "string",
+       "value": "voile"
+      },
+      {
+       "name": "flotte",
+       "type": "string",
+       "value": "oui"
+      },
+      {
+       "name": "disparaitSi",
+       "type": "string",
+       "value": "voile-nom-2-attrapee"
+      },
+      {
+       "name": "apparaitSi",
+       "type": "string",
+       "value": "rouleau-lache"
       }
      ]
     }
@@ -1568,7 +1708,7 @@
    "tilewidth": 64,
    "tileheight": 96,
    "columns": 8,
-   "tilecount": 251,
+   "tilecount": 252,
    "margin": 0,
    "spacing": 0,
    "tiles": [
@@ -7829,6 +7969,31 @@
        "name": "nom",
        "type": "string",
        "value": "edda-halte"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 251,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "saut"
       },
       {
        "name": "bloquant",

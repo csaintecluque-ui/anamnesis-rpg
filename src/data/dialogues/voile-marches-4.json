@@ -1,0 +1,37 @@
+{
+  "id": "voile-marches-4",
+  "speaker": "voile-marches-4",
+  "entries": [
+    {
+      "node": "voile"
+    }
+  ],
+  "nodes": {
+    "voile": {
+      "text": "En Common, d’une main de Ferros : « Je cherche ma sœur, montée ici il y a six ans. Elle s’appelle Ilse. Elle avait peur du vide. » Dessous, une autre main : « Elle n’en a plus peur. Elle vole à Mistral. »",
+      "options": [
+        {
+          "text": "La garder, pour la recopier.",
+          "next": "fin",
+          "effects": [
+            {
+              "setFlag": "voile-marches-4-attrapee"
+            },
+            {
+              "giveItem": "voile-attrapee"
+            }
+          ]
+        },
+        {
+          "text": "La laisser repartir.",
+          "next": "fin",
+          "effects": [
+            {
+              "setFlag": "voile-marches-4-attrapee"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

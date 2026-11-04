@@ -682,6 +682,8 @@ export class MapScene extends Phaser.Scene {
       const image = this.add.image(f.x, f.y, 'tiles', this.map.frames[o.properties.tuile] ?? this.map.frames.pnj).setOrigin(0.5, 1).setDepth(f.y);
       // An Écho is only half there.
       if (o.properties.echo) image.setAlpha(0.55);
+      // Something carried by the wind (a voile at Aetherhaven): it rises and sinks a little, never quite still.
+      if (o.properties.flotte) this.tweens.add({ targets: image, y: f.y - 8, duration: 1500 + (o.col * 37 + o.row * 53) % 700, yoyo: true, repeat: -1, ease: 'Sine.easeInOut' });
       // Something to search (a crate of a sleeping line): a copper glow at its foot, among the crates of the decor.
       if (o.properties.lueur) {
         const glow = this.add.ellipse(f.x, f.y - TILE_HEIGHT / 2, TILE_WIDTH * 1.1, TILE_HEIGHT * 1.1, COLORS.copper, 0.7).setDepth(f.y - 1);

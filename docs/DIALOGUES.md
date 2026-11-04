@@ -655,6 +655,36 @@ _Effet : retient « assel-lettre »._
 
 - « Plier la lettre. » → **fin**
 
+## Bastien Basse-Corniche
+
+_Descendant d’une vigie_
+
+Commence par : « nuit »
+
+### nuit
+
+_Effet : retient « bastien-rencontre »._
+
+> Un vieil homme, une longue-vue en bandoulière, noue une voile neuve au garde-fou. Il sursaute. — Je ne fais rien de mal. Elle s’use, alors je la change. Tous les deux ans, depuis quarante ans.
+
+- « Pourquoi celle-là ? » → pourquoi
+- « Je ne dirai rien. » → **fin**
+
+### pourquoi
+
+> — C’est le début de la quatrième liste de la Pluie : les noms de l’an cinquante. Mon aïeule était vigie à Basse-Corniche ; elle a compté ceux-là. Personne ne recopie plus la liste. Alors je garde le début, pour qu’on sache qu’elle existe.
+
+- « Et la liste entière ? » → entiere
+- « Je ne dirai rien. » → **fin**
+
+### entiere
+
+_Effet : retient « bastien-entiere »._
+
+> — Le Registre n’en garde que les quatre premiers mots. Le reste, si une copie dort encore quelque part, c’est chez quelqu’un qui ne sait pas ce qu’il a. Moi, je suis trop vieux pour sauter d’un îlot à l’autre.
+
+- « Bonne nuit, Bastien. » → **fin**
+
 ## Boulon
 
 _Ferrôme, porteur à la gare de l’Ouest_
@@ -4214,6 +4244,27 @@ _Effet : retient « raconte-kerta », +15 XP._
 
 - « Bon courage, Kerta. » → **fin**
 
+## Le Lâcher
+
+_La Haute-Île_
+
+Commence par : « bord »
+
+### bord
+
+> Le bord de la Haute-Île. Le vent monte de la mer de nuages, assez fort pour qu’on s’y appuie. Pour lâcher une voile, il faut l’avoir attrapée, et un tissu neuf pour la recopier.
+
+- _(si l’on porte « Une voile attrapée »)_ _(si l’on porte « Tissu à voile »)_ _(sans repère « voiles-lachees-1 »)_ « Recopier une voile sur un tissu neuf, et la lâcher. » → lachee _(reprend 1 × « Une voile attrapée », reprend 1 × « Tissu à voile », fait passer 1 moment, retient « voiles-lachees-1 », +10 XP)_
+- _(si l’on porte « Une voile attrapée »)_ _(si l’on porte « Tissu à voile »)_ _(si repère « voiles-lachees-1 »)_ _(sans repère « voiles-lachees-2 »)_ « Recopier une voile sur un tissu neuf, et la lâcher. » → lachee _(reprend 1 × « Une voile attrapée », reprend 1 × « Tissu à voile », fait passer 1 moment, retient « voiles-lachees-2 », +10 XP)_
+- _(si l’on porte « Une voile attrapée »)_ _(si l’on porte « Tissu à voile »)_ _(si repère « voiles-lachees-2 »)_ « Recopier une voile sur un tissu neuf, et la lâcher. » → lachee _(reprend 1 × « Une voile attrapée », reprend 1 × « Tissu à voile », fait passer 1 moment)_
+- « Regarder le vent. » → **fin**
+
+### lachee
+
+> Tu recopies la voile mot pour mot, en t’appliquant. Puis tu ouvres la main. Le vent la prend tout de suite, et elle monte, et elle part. Quelque part, quelqu’un l’attrapera. Le Registre la comptera.
+
+- « Rester encore un peu. » → **fin**
+
 ## Des lettres éparpillées
 
 _Objet_
@@ -7648,6 +7699,189 @@ _Effet : retient « capot-rate » pour 1 jours._
 
 - « La Cendrière : le tunnel du triage. » → **fin**
 
+## Une voile
+
+_Dans le vent d’Aetherhaven_
+
+Commence par : « voile »
+
+### voile
+
+> « Je ne suis pas sûre d’avoir eu raison. Je suis sûre de ce que j’aurais fait si j’avais eu tort dans l’autre sens. » La phrase d’Aerys que la Charte ne cite pas. Elle circule toute seule, recopiée par ceux qui doutent.
+
+- « La garder, pour la recopier. » → **fin** _(retient « voile-haute-1-attrapee », donne 1 × « Une voile attrapée »)_
+- « La laisser repartir. » → **fin** _(retient « voile-haute-1-attrapee »)_
+
+## Une voile
+
+_Dans le vent d’Aetherhaven_
+
+Commence par : « voile »
+
+### voile
+
+> « Le vent n’a pas de mémoire, alors il emporte la nôtre, et la dépose ailleurs, chez des gens qui ne savaient pas qu’ils l’attendaient. » Au dos, quatorze petits traits : quatorze mains l’ont recopiée avant toi.
+
+- « La garder, pour la recopier. » → **fin** _(retient « voile-haute-2-attrapee », donne 1 × « Une voile attrapée »)_
+- « La laisser repartir. » → **fin** _(retient « voile-haute-2-attrapee »)_
+
+## Une voile
+
+_Dans le vent d’Aetherhaven_
+
+Commence par : « voile »
+
+### voile
+
+> Un dessin d’enfant : une machine, deux cristaux, un soleil. Dessous, en lettres énormes : « PAPA REVIENT AVANT LA NUIT. » Le tissu a deux ans, au moins. On ne sait pas s’il est revenu.
+
+- « La garder, pour la recopier. » → **fin** _(retient « voile-haute-3-attrapee », donne 1 × « Une voile attrapée »)_
+- « La laisser repartir. » → **fin** _(retient « voile-haute-3-attrapee »)_
+
+## Une voile au garde-fou
+
+_Le Lâcher_
+
+Commence par : « voile »
+
+### voile
+
+> Une voile accrochée au garde-fou, que personne ne détache : rien ne doit entraver le vent. Quatre mots, d’une écriture ancienne recopiée avec soin : « Et pour l’an cinquante ».
+
+- **🎲 Investigation 14** « Regarder le tissu de près. » → indice, ✗ → rien
+- « La laisser au vent. » → **fin**
+
+### rien
+
+> Un tissu, quatre mots, un nœud. Le vent te pique les yeux, et la voile claque contre le garde-fou. Tu n’en tires rien de plus, pour l’instant.
+
+- « La laisser au vent. » → **fin**
+
+### indice
+
+_Effet : retient « voile-lacher-indice »._
+
+> Le tissu est neuf, le nœud aussi. Une voile vit deux ans ; celle-ci n’en a pas un. Quelqu’un la remplace, et la recopie à l’identique. De nuit, sans doute : le jour, on le verrait.
+
+- « La laisser au vent. » → **fin**
+
+## Une voile
+
+_Dans le vent d’Aetherhaven_
+
+Commence par : « voile »
+
+### voile
+
+> « Pain de nuage : farine d’en bas, levain d’en haut, et beaucoup de patience, parce qu’ici rien ne cuit comme il faut. » Dessous, d’une autre main : « Menteuse. Il ne lève jamais. »
+
+- « La garder, pour la recopier. » → **fin** _(retient « voile-marches-1-attrapee », donne 1 × « Une voile attrapée »)_
+- « La laisser repartir. » → **fin** _(retient « voile-marches-1-attrapee »)_
+
+## Une voile
+
+_Dans le vent d’Aetherhaven_
+
+Commence par : « voile »
+
+### voile
+
+> « Si je les attache, je fais un livre. Un livre a une couverture, une couverture a un propriétaire. » Une des quatre réponses d’Aerys, recopiée par une main d’enfant, avec une faute à « propriétaire ».
+
+- « La garder, pour la recopier. » → **fin** _(retient « voile-marches-2-attrapee », donne 1 × « Une voile attrapée »)_
+- « La laisser repartir. » → **fin** _(retient « voile-marches-2-attrapee »)_
+
+## Une voile
+
+_Dans le vent d’Aetherhaven_
+
+Commence par : « voile »
+
+### voile
+
+> « Le Conseil des Vents a voté hier. Sur quoi ? Personne ne sait. Pour ou contre ? Ils ont voté de revoter. » Signé : un citoyen libre, et fatigué.
+
+- « La garder, pour la recopier. » → **fin** _(retient « voile-marches-3-attrapee », donne 1 × « Une voile attrapée »)_
+- « La laisser repartir. » → **fin** _(retient « voile-marches-3-attrapee »)_
+
+## Une voile
+
+_Dans le vent d’Aetherhaven_
+
+Commence par : « voile »
+
+### voile
+
+> En Common, d’une main de Ferros : « Je cherche ma sœur, montée ici il y a six ans. Elle s’appelle Ilse. Elle avait peur du vide. » Dessous, une autre main : « Elle n’en a plus peur. Elle vole à Mistral. »
+
+- « La garder, pour la recopier. » → **fin** _(retient « voile-marches-4-attrapee », donne 1 × « Une voile attrapée »)_
+- « La laisser repartir. » → **fin** _(retient « voile-marches-4-attrapee »)_
+
+## Une voile
+
+_Dans le vent d’Aetherhaven_
+
+Commence par : « voile »
+
+### voile
+
+> Une bande grise, toute neuve, qui vient d’en bas : « Joran, huit ans. » Tu sais d’où elle vient. Tu l’as lâchée toi-même.
+
+- « La garder, pour la recopier. » → **fin** _(retient « voile-nom-1-attrapee », donne 1 × « Une voile attrapée »)_
+- « La laisser repartir. » → **fin** _(retient « voile-nom-1-attrapee »)_
+
+## Une voile
+
+_Dans le vent d’Aetherhaven_
+
+Commence par : « voile »
+
+### voile
+
+> Une bande grise, qui vient d’en bas : « Hélie, six ans. » Un enfant d’Aetherhaven court derrière, et s’arrête quand tu la prends.
+
+- « La garder, pour la recopier. » → **fin** _(retient « voile-nom-2-attrapee », donne 1 × « Une voile attrapée »)_
+- « La laisser repartir. » → **fin** _(retient « voile-nom-2-attrapee »)_
+
+## Une voile
+
+_Dans le vent d’Aetherhaven_
+
+Commence par : « voile »
+
+### voile
+
+> Quatre mots, d’une main appliquée, sur un tissu bleu : « Ceci n’est pas beau. » Le reste a été coupé. Quelqu’un a gardé le début de la septième voile, et rien d’autre.
+
+- « La garder, pour la recopier. » → **fin** _(retient « voile-quai-1-attrapee », donne 1 × « Une voile attrapée »)_
+- « La laisser repartir. » → **fin** _(retient « voile-quai-1-attrapee »)_
+
+## Une voile
+
+_Dans le vent d’Aetherhaven_
+
+Commence par : « voile »
+
+### voile
+
+> « Si tu attrapes ceci au-dessus de Cloudrest, c’est que le vent t’aime autant que moi. Reviens jeudi. » Aucun nom. Il y a beaucoup de jeudis.
+
+- « La garder, pour la recopier. » → **fin** _(retient « voile-quai-2-attrapee », donne 1 × « Une voile attrapée »)_
+- « La laisser repartir. » → **fin** _(retient « voile-quai-2-attrapee »)_
+
+## Une voile
+
+_Dans le vent d’Aetherhaven_
+
+Commence par : « voile »
+
+### voile
+
+> Un tissu de pilote, couvert de chiffres : des vitesses, des masses, des heures. En bas, au crayon : « Le Calme est mince à l’aube. Monte à l’aube. » Le crayon a appuyé si fort qu’il a troué la toile.
+
+- « La garder, pour la recopier. » → **fin** _(retient « voile-quai-3-attrapee », donne 1 × « Une voile attrapée »)_
+- « La laisser repartir. » → **fin** _(retient « voile-quai-3-attrapee »)_
+
 ## Un voyageur égaré
 
 _Voyageur_
@@ -7685,7 +7919,22 @@ Commence par : « bande » _(si quête « Les noms qui montent » en cours)_ _(s
 
 - « Que comptez-vous, au juste ? » → compter
 - _(si repère « tiroir-vu »)_ « Revoir le tiroir des voiles sans auteur. » → questions
+- _(si repère « bastien-rencontre »)_ _(sans repère « ysolde-aerys »)_ « Racontez-moi Aerys. » → aerys
 - « Au revoir. » → **fin**
+
+### aerys
+
+> Ysolde pose son tissu. — Aerys Haute-Foudre a trouvé comment fendre le cristal, et elle a écrit le Lever en sept voiles. Les six premières disent comment monter. La septième, comment redescendre vivant. Elle commence par « Ceci n’est pas beau ».
+
+- « Et ensuite ? » → aerys-2
+
+### aerys-2
+
+_Effet : retient « ysolde-aerys », retient le Récit « La septième voile », +10 XP._
+
+> — On a recopié les six belles, pas la septième. Il est tombé neuf mille quatre cents personnes en trente et un ans. Quatre fois, on lui a demandé de l’imposer. Quatre fois, elle a refusé, et elle l’a recopiée à la main, chaque jour, jusqu’à sa mort.
+
+- « Merci, Ysolde. » → **fin**
 
 ### compter
 

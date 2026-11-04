@@ -1,4 +1,4 @@
-# Aetherhaven, la cité flottante (Zephyria) — proposition du 2026-11-04, **à valider**
+# Aetherhaven, la cité flottante (Zephyria) — **validé par Cyril** le 2026-11-04 (« 1 oui, 2 oui, 3 oui, 4 oui »)
 
 Le chapitre 5 et les quêtes : `docs/gdd/chapitre-5.md`. Le plan de départ : `villes.md` §5.
 
@@ -61,9 +61,9 @@ Pages lues : « Confédération Libre de Zephyria — fiche complète », « La 
 | **Shass** | une Sylphe | allure d'après la page « Zephyria — Races & peuples », à lire quand on la dessine |
 | **Ysolde Cent-Plis** | greffière du Registre des Voiles | compte les passages ; garde un tiroir de « voiles sans auteur » |
 | **Ravel Sans-Fil** | des Ailes Noires | un seul cristal, jamais de contrat ; « Rien ne doit entraver le vent. » |
-| **Anselme Tiédevent** | aéromancien venu de Cumulus | a trouvé que trois des onze états de la septième voile sont faux (accroche du canon) |
+| **Évrard Tiédevent** | aéromancien venu de Cumulus | a trouvé que trois des onze états de la septième voile sont faux (accroche du canon) |
 | **Céleste Fend-l'Air** et **Odile**, sa mère | 17 ans, apprentie des Ailes Noires | veut monter avec un seul cristal ; sa mère voudrait qu'on l'en empêche |
-| **Holger Vass** | archiviste de Ferros en fuite | demande l'asile ; Ferros le réclame |
+| **Holger Brandt** | archiviste de Ferros en fuite | demande l'asile ; Ferros le réclame |
 | **la Veuve Grêle** | capitaine de pirates de l'air | prend les convois de nourriture |
 
 ## Les deux guildes (à valider)
@@ -91,3 +91,16 @@ souvient (un peu d'expérience, un peu de réputation). Celles qu'on ne recopie 
   quête « Les voiles dormantes ».
 - **Le Récit d'Aetherhaven** : **« La septième voile »** (la légende d'Aerys, telle que le canon la raconte), qu'on
   gagne en écoutant Ysolde au Registre.
+
+## Construit (2026-11-04)
+
+- Les trois quartiers, onze intérieurs, et en bas trois cartes (le pays de cendre, la Voie du Bas, la Halte des
+  Cendres) ; le dirigeable de la Confédération sur la carte du monde (`src/rules/world.ts`, `dirigeable`).
+- Deux noms changés au montage, pour ne pas prêter à confusion : **Évrard** Tiédevent (un Anselme existe à Gardebois),
+  Holger **Brandt** (Vass sonnait trop près de Varn). Les oiseaux de Siffrin sont des **hirondelles du Zénith** (canon,
+  « Zephyria — Races & peuples »), et Shass parle en Vent-Cantique, la langue sifflée des Sylphes.
+- **À valider** (inventés au montage) : les six noms du rouleau (**Ama, six ans ; Joran, huit ans ; Sefi, cinq ans ;
+  Nilo, sept ans ; Brune, neuf ans ; Hélie, six ans**) ; la Colonne (le courant qui monte du couchant) ; la plaque
+  « Halte — voie 7 » ; les Mantes-ailes (canon) qui nichent dans les wagons d'en bas ; l'Écho « Ceux qui regardaient en
+  l'air » (des gens qui comptent les machines qui retombent, au temps de la Pluie) ; les textes des dix voiles (trois
+  reprennent Aerys, canon ; les autres sont inventés).

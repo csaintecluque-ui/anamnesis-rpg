@@ -716,6 +716,7 @@
     "role": "Voilier",
     "sells": [
       "masque-toile",
+      "tissu-voile",
       "cristal-second",
       "lampe-cristal"
     ]
@@ -809,5 +810,80 @@
     "id": "echo-la-pluie",
     "name": "Un Écho",
     "role": "La Voie du Bas"
+  },
+  {
+    "id": "bastien",
+    "name": "Bastien Basse-Corniche",
+    "role": "Descendant d’une vigie"
+  },
+  {
+    "id": "lacher",
+    "name": "Le Lâcher",
+    "role": "La Haute-Île"
+  },
+  {
+    "id": "voile-lacher",
+    "name": "Une voile au garde-fou",
+    "role": "Le Lâcher"
+  },
+  {
+    "id": "voile-quai-1",
+    "name": "Une voile",
+    "role": "Dans le vent d’Aetherhaven"
+  },
+  {
+    "id": "voile-quai-2",
+    "name": "Une voile",
+    "role": "Dans le vent d’Aetherhaven"
+  },
+  {
+    "id": "voile-quai-3",
+    "name": "Une voile",
+    "role": "Dans le vent d’Aetherhaven"
+  },
+  {
+    "id": "voile-marches-1",
+    "name": "Une voile",
+    "role": "Dans le vent d’Aetherhaven"
+  },
+  {
+    "id": "voile-marches-2",
+    "name": "Une voile",
+    "role": "Dans le vent d’Aetherhaven"
+  },
+  {
+    "id": "voile-marches-3",
+    "name": "Une voile",
+    "role": "Dans le vent d’Aetherhaven"
+  },
+  {
+    "id": "voile-marches-4",
+    "name": "Une voile",
+    "role": "Dans le vent d’Aetherhaven"
+  },
+  {
+    "id": "voile-haute-1",
+    "name": "Une voile",
+    "role": "Dans le vent d’Aetherhaven"
+  },
+  {
+    "id": "voile-haute-2",
+    "name": "Une voile",
+    "role": "Dans le vent d’Aetherhaven"
+  },
+  {
+    "id": "voile-haute-3",
+    "name": "Une voile",
+    "role": "Dans le vent d’Aetherhaven"
+  },
+  {
+    "id": "voile-nom-1",
+    "name": "Une voile",
+    "role": "Dans le vent d’Aetherhaven"
+  },
+  {
+    "id": "voile-nom-2",
+    "name": "Une voile",
+    "role": "Dans le vent d’Aetherhaven"
   }
 ]

@@ -11,7 +11,7 @@
  "tilewidth": 64,
  "tileheight": 32,
  "nextlayerid": 4,
- "nextobjectid": 17,
+ "nextobjectid": 20,
  "layers": [
   {
    "id": 1,
@@ -1607,6 +1607,93 @@
      "rotation": 0,
      "visible": true,
      "properties": []
+    },
+    {
+     "id": 17,
+     "name": "voile-quai-1",
+     "type": "objet",
+     "x": 304,
+     "y": 432,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": [
+      {
+       "name": "tuile",
+       "type": "string",
+       "value": "voile"
+      },
+      {
+       "name": "flotte",
+       "type": "string",
+       "value": "oui"
+      },
+      {
+       "name": "disparaitSi",
+       "type": "string",
+       "value": "voile-quai-1-attrapee"
+      }
+     ]
+    },
+    {
+     "id": 18,
+     "name": "voile-quai-2",
+     "type": "objet",
+     "x": 496,
+     "y": 336,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": [
+      {
+       "name": "tuile",
+       "type": "string",
+       "value": "voile"
+      },
+      {
+       "name": "flotte",
+       "type": "string",
+       "value": "oui"
+      },
+      {
+       "name": "disparaitSi",
+       "type": "string",
+       "value": "voile-quai-2-attrapee"
+      }
+     ]
+    },
+    {
+     "id": 19,
+     "name": "voile-quai-3",
+     "type": "objet",
+     "x": 592,
+     "y": 432,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": [
+      {
+       "name": "tuile",
+       "type": "string",
+       "value": "voile"
+      },
+      {
+       "name": "flotte",
+       "type": "string",
+       "value": "oui"
+      },
+      {
+       "name": "disparaitSi",
+       "type": "string",
+       "value": "voile-quai-3-attrapee"
+      }
+     ]
     }
    ]
   }
@@ -1621,7 +1708,7 @@
    "tilewidth": 64,
    "tileheight": 96,
    "columns": 8,
-   "tilecount": 251,
+   "tilecount": 252,
    "margin": 0,
    "spacing": 0,
    "tiles": [
@@ -7882,6 +7969,31 @@
        "name": "nom",
        "type": "string",
        "value": "edda-halte"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 251,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "saut"
       },
       {
        "name": "bloquant",

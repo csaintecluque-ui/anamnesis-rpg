@@ -1,0 +1,37 @@
+{
+  "id": "voile-nom-1",
+  "speaker": "voile-nom-1",
+  "entries": [
+    {
+      "node": "voile"
+    }
+  ],
+  "nodes": {
+    "voile": {
+      "text": "Une bande grise, toute neuve, qui vient d’en bas : « Joran, huit ans. » Tu sais d’où elle vient. Tu l’as lâchée toi-même.",
+      "options": [
+        {
+          "text": "La garder, pour la recopier.",
+          "next": "fin",
+          "effects": [
+            {
+              "setFlag": "voile-nom-1-attrapee"
+            },
+            {
+              "giveItem": "voile-attrapee"
+            }
+          ]
+        },
+        {
+          "text": "La laisser repartir.",
+          "next": "fin",
+          "effects": [
+            {
+              "setFlag": "voile-nom-1-attrapee"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

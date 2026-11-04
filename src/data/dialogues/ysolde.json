@@ -39,7 +39,48 @@
           "next": "questions"
         },
         {
+          "text": "Racontez-moi Aerys.",
+          "requires": [
+            {
+              "flag": "bastien-rencontre"
+            },
+            {
+              "notFlag": "ysolde-aerys"
+            }
+          ],
+          "next": "aerys"
+        },
+        {
           "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "aerys": {
+      "text": "Ysolde pose son tissu. — Aerys Haute-Foudre a trouvé comment fendre le cristal, et elle a écrit le Lever en sept voiles. Les six premières disent comment monter. La septième, comment redescendre vivant. Elle commence par « Ceci n’est pas beau ».",
+      "options": [
+        {
+          "text": "Et ensuite ?",
+          "next": "aerys-2"
+        }
+      ]
+    },
+    "aerys-2": {
+      "text": "— On a recopié les six belles, pas la septième. Il est tombé neuf mille quatre cents personnes en trente et un ans. Quatre fois, on lui a demandé de l’imposer. Quatre fois, elle a refusé, et elle l’a recopiée à la main, chaque jour, jusqu’à sa mort.",
+      "effects": [
+        {
+          "setFlag": "ysolde-aerys"
+        },
+        {
+          "learnRecit": "la-septieme-voile"
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Ysolde.",
           "next": "fin"
         }
       ]

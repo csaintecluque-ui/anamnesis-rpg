@@ -309,6 +309,14 @@
     {
       "flag": "fin-noms-qui-montent-lache",
       "points": 5
+    },
+    {
+      "flag": "voiles-lachees-1",
+      "points": 4
+    },
+    {
+      "flag": "voiles-lachees-2",
+      "points": 4
     }
   ]
 }

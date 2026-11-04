@@ -1,0 +1,37 @@
+{
+  "id": "voile-haute-1",
+  "speaker": "voile-haute-1",
+  "entries": [
+    {
+      "node": "voile"
+    }
+  ],
+  "nodes": {
+    "voile": {
+      "text": "« Je ne suis pas sûre d’avoir eu raison. Je suis sûre de ce que j’aurais fait si j’avais eu tort dans l’autre sens. » La phrase d’Aerys que la Charte ne cite pas. Elle circule toute seule, recopiée par ceux qui doutent.",
+      "options": [
+        {
+          "text": "La garder, pour la recopier.",
+          "next": "fin",
+          "effects": [
+            {
+              "setFlag": "voile-haute-1-attrapee"
+            },
+            {
+              "giveItem": "voile-attrapee"
+            }
+          ]
+        },
+        {
+          "text": "La laisser repartir.",
+          "next": "fin",
+          "effects": [
+            {
+              "setFlag": "voile-haute-1-attrapee"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

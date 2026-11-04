@@ -1,0 +1,37 @@
+{
+  "id": "voile-marches-3",
+  "speaker": "voile-marches-3",
+  "entries": [
+    {
+      "node": "voile"
+    }
+  ],
+  "nodes": {
+    "voile": {
+      "text": "« Le Conseil des Vents a voté hier. Sur quoi ? Personne ne sait. Pour ou contre ? Ils ont voté de revoter. » Signé : un citoyen libre, et fatigué.",
+      "options": [
+        {
+          "text": "La garder, pour la recopier.",
+          "next": "fin",
+          "effects": [
+            {
+              "setFlag": "voile-marches-3-attrapee"
+            },
+            {
+              "giveItem": "voile-attrapee"
+            }
+          ]
+        },
+        {
+          "text": "La laisser repartir.",
+          "next": "fin",
+          "effects": [
+            {
+              "setFlag": "voile-marches-3-attrapee"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

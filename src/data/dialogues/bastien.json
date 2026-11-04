@@ -1,0 +1,56 @@
+{
+  "id": "bastien",
+  "speaker": "bastien",
+  "entries": [
+    {
+      "node": "nuit"
+    }
+  ],
+  "nodes": {
+    "nuit": {
+      "text": "Un vieil homme, une longue-vue en bandoulière, noue une voile neuve au garde-fou. Il sursaute. — Je ne fais rien de mal. Elle s’use, alors je la change. Tous les deux ans, depuis quarante ans.",
+      "effects": [
+        {
+          "setFlag": "bastien-rencontre"
+        }
+      ],
+      "options": [
+        {
+          "text": "Pourquoi celle-là ?",
+          "next": "pourquoi"
+        },
+        {
+          "text": "Je ne dirai rien.",
+          "next": "fin"
+        }
+      ]
+    },
+    "pourquoi": {
+      "text": "— C’est le début de la quatrième liste de la Pluie : les noms de l’an cinquante. Mon aïeule était vigie à Basse-Corniche ; elle a compté ceux-là. Personne ne recopie plus la liste. Alors je garde le début, pour qu’on sache qu’elle existe.",
+      "options": [
+        {
+          "text": "Et la liste entière ?",
+          "next": "entiere"
+        },
+        {
+          "text": "Je ne dirai rien.",
+          "next": "fin"
+        }
+      ]
+    },
+    "entiere": {
+      "text": "— Le Registre n’en garde que les quatre premiers mots. Le reste, si une copie dort encore quelque part, c’est chez quelqu’un qui ne sait pas ce qu’il a. Moi, je suis trop vieux pour sauter d’un îlot à l’autre.",
+      "effects": [
+        {
+          "setFlag": "bastien-entiere"
+        }
+      ],
+      "options": [
+        {
+          "text": "Bonne nuit, Bastien.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

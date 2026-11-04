@@ -1,0 +1,37 @@
+{
+  "id": "voile-haute-2",
+  "speaker": "voile-haute-2",
+  "entries": [
+    {
+      "node": "voile"
+    }
+  ],
+  "nodes": {
+    "voile": {
+      "text": "« Le vent n’a pas de mémoire, alors il emporte la nôtre, et la dépose ailleurs, chez des gens qui ne savaient pas qu’ils l’attendaient. » Au dos, quatorze petits traits : quatorze mains l’ont recopiée avant toi.",
+      "options": [
+        {
+          "text": "La garder, pour la recopier.",
+          "next": "fin",
+          "effects": [
+            {
+              "setFlag": "voile-haute-2-attrapee"
+            },
+            {
+              "giveItem": "voile-attrapee"
+            }
+          ]
+        },
+        {
+          "text": "La laisser repartir.",
+          "next": "fin",
+          "effects": [
+            {
+              "setFlag": "voile-haute-2-attrapee"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

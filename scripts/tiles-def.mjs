@@ -1524,3 +1524,12 @@ TILES.push(
 
 // La dame en gris, en bas, à la Halte des Cendres (chapitre 5) : la même, la cendre en plus sur le manteau.
 TILES.push(npcTile('edda-halte', { body: '#6a6a70', hair: '#1a1614', skin: '#d9b8a0', accent: '#3a3a40', extra: '<path d="M22 70 L26 76 M38 66 L42 72 M30 78 L34 82" stroke="#9a948e" stroke-width="2"/>' }));
+
+// Le bord d'où l'on saute vers un autre îlot (Athlétisme) : deux traits de vent et une flèche, à la craie.
+TILES.push({
+  name: 'saut',
+  svg:
+    '<path d="M18 84 Q32 76 46 84" stroke="#f4f7f9" stroke-width="2.5" fill="none" stroke-dasharray="4 3"/>' +
+    '<path d="M24 76 L40 70 M36 66 L42 70 L36 74" stroke="#6ab4e0" stroke-width="2.5" fill="none" stroke-linecap="round"/>' +
+    '<path d="M20 70 Q26 66 30 68 M38 60 Q44 58 48 62" stroke="#f4f7f9" stroke-width="1.5" fill="none" opacity="0.8"/>',
+});

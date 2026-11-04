@@ -125,6 +125,21 @@ import zelie from './zelie.json';
 import shass from './shass.json';
 import evrard from './evrard.json';
 import eddaHalte from './edda-halte.json';
+import voileQuai1 from './voile-quai-1.json';
+import voileQuai2 from './voile-quai-2.json';
+import voileQuai3 from './voile-quai-3.json';
+import voileMarches1 from './voile-marches-1.json';
+import voileMarches2 from './voile-marches-2.json';
+import voileMarches3 from './voile-marches-3.json';
+import voileMarches4 from './voile-marches-4.json';
+import voileHaute1 from './voile-haute-1.json';
+import voileHaute2 from './voile-haute-2.json';
+import voileHaute3 from './voile-haute-3.json';
+import voileNom1 from './voile-nom-1.json';
+import voileNom2 from './voile-nom-2.json';
+import lacher from './lacher.json';
+import voileLacher from './voile-lacher.json';
+import bastien from './bastien.json';
 
 /** Dialogue files by object name (PNJ, Écho or object) of the maps. */
 export const DIALOGUES: Record<string, Dialogue> = {
@@ -255,6 +270,22 @@ export const DIALOGUES: Record<string, Dialogue> = {
   evrard: evrard as Dialogue,
   // Chapitre 5 : la dame en gris à la Halte des Cendres.
   'edda-halte': eddaHalte as Dialogue,
+  // Chapitre 5 : les voiles d’Aetherhaven, le Lâcher, le mystère du garde-fou.
+  'voile-quai-1': voileQuai1 as Dialogue,
+  'voile-quai-2': voileQuai2 as Dialogue,
+  'voile-quai-3': voileQuai3 as Dialogue,
+  'voile-marches-1': voileMarches1 as Dialogue,
+  'voile-marches-2': voileMarches2 as Dialogue,
+  'voile-marches-3': voileMarches3 as Dialogue,
+  'voile-marches-4': voileMarches4 as Dialogue,
+  'voile-haute-1': voileHaute1 as Dialogue,
+  'voile-haute-2': voileHaute2 as Dialogue,
+  'voile-haute-3': voileHaute3 as Dialogue,
+  'voile-nom-1': voileNom1 as Dialogue,
+  'voile-nom-2': voileNom2 as Dialogue,
+  lacher: lacher as Dialogue,
+  'voile-lacher': voileLacher as Dialogue,
+  bastien: bastien as Dialogue,
   // Le Livre des Échos (docs/gdd/echos.md) : one dialogue per Écho, built from src/data/echos.json.
   ...echoDialogues(),
 };

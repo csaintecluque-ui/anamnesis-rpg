@@ -1,0 +1,37 @@
+{
+  "id": "voile-quai-3",
+  "speaker": "voile-quai-3",
+  "entries": [
+    {
+      "node": "voile"
+    }
+  ],
+  "nodes": {
+    "voile": {
+      "text": "Un tissu de pilote, couvert de chiffres : des vitesses, des masses, des heures. En bas, au crayon : « Le Calme est mince à l’aube. Monte à l’aube. » Le crayon a appuyé si fort qu’il a troué la toile.",
+      "options": [
+        {
+          "text": "La garder, pour la recopier.",
+          "next": "fin",
+          "effects": [
+            {
+              "setFlag": "voile-quai-3-attrapee"
+            },
+            {
+              "giveItem": "voile-attrapee"
+            }
+          ]
+        },
+        {
+          "text": "La laisser repartir.",
+          "next": "fin",
+          "effects": [
+            {
+              "setFlag": "voile-quai-3-attrapee"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "voile-nom-2",
+  "speaker": "voile-nom-2",
+  "entries": [
+    {
+      "node": "voile"
+    }
+  ],
+  "nodes": {
+    "voile": {
+      "text": "Une bande grise, qui vient d’en bas : « Hélie, six ans. » Un enfant d’Aetherhaven court derrière, et s’arrête quand tu la prends.",
+      "options": [
+        {
+          "text": "La garder, pour la recopier.",
+          "next": "fin",
+          "effects": [
+            {
+              "setFlag": "voile-nom-2-attrapee"
+            },
+            {
+              "giveItem": "voile-attrapee"
+            }
+          ]
+        },
+        {
+          "text": "La laisser repartir.",
+          "next": "fin",
+          "effects": [
+            {
+              "setFlag": "voile-nom-2-attrapee"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

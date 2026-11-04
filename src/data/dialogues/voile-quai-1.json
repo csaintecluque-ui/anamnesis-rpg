@@ -1,0 +1,37 @@
+{
+  "id": "voile-quai-1",
+  "speaker": "voile-quai-1",
+  "entries": [
+    {
+      "node": "voile"
+    }
+  ],
+  "nodes": {
+    "voile": {
+      "text": "Quatre mots, d’une main appliquée, sur un tissu bleu : « Ceci n’est pas beau. » Le reste a été coupé. Quelqu’un a gardé le début de la septième voile, et rien d’autre.",
+      "options": [
+        {
+          "text": "La garder, pour la recopier.",
+          "next": "fin",
+          "effects": [
+            {
+              "setFlag": "voile-quai-1-attrapee"
+            },
+            {
+              "giveItem": "voile-attrapee"
+            }
+          ]
+        },
+        {
+          "text": "La laisser repartir.",
+          "next": "fin",
+          "effects": [
+            {
+              "setFlag": "voile-quai-1-attrapee"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

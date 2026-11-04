@@ -27,7 +27,7 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `lieux/ironheart.md` : Ironheart (chapitre 3), canon résumé et ville construite ; validé.
 - `lieux/voies-endormies.md` : les trois voies endormies à explorer, leurs Échos, les tableaux des contrats ; validé.
 - `lieux/sept-portes.md` : Sept-Portes, la cité de Kael (chapitre 4) : canon résumé, propositions ; validé.
-- `lieux/aetherhaven.md` : Aetherhaven, la cité flottante (chapitre 5) : canon relu (voiles, Calme, Ailes Noires), lieux, habitants, guildes ; à valider.
+- `lieux/aetherhaven.md` : Aetherhaven, la cité flottante (chapitre 5) : canon relu (voiles, Calme, Ailes Noires), lieux, habitants, guildes ; validé, construit.
 - `factions.md` : organisations, alliances, conflits en cours ; factions et guildes du jeu (validées).
 - `objets.md` : ce qu'on dit des objets (lignes de lore de l'inventaire) ; validé.
 - `quetes.md` : histoire principale « Les voies endormies » et quêtes des villes ; validé.
@@ -68,7 +68,7 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `fil-directeur.md` : le fil directeur de Sept-Portes à la fin (sept caisses, la dame en gris, l'urgence) ; validé.
 - `jalon-3.md` : le jalon 3, le cœur du jeu complet (combat, compagnons, Échos, veillées, ruines, contrats…) et son bilan ; fait et en ligne.
 - `jalon-4.md` : le jalon 4, l'histoire principale continue ; chapitre 4 (Sept-Portes) en ligne.
-- `chapitre-5.md` : chapitre 5, Aetherhaven : « Les noms qui montent », sept quêtes de ville, deux guildes ; à valider.
+- `chapitre-5.md` : chapitre 5, Aetherhaven : « Les noms qui montent », sept quêtes de ville, deux guildes ; validé, étapes 1 à 3 en ligne.
 - `histoire-prenante.md` : rendre l'histoire prenante (diagnostic, sept leviers, questions à Cyril) ; nourrit les chantiers 1 et 4.
 - `feuille-de-route.md` : analyse et feuille de route de Cyril (2026-11-03) : sept chantiers avant tout nouveau chapitre ; en ligne.
 - `etude-2026-11-03.md` : l'étude complète de Cyril (87 améliorations, trois vagues) vérifiée contre le code ; la vague 1 faite, l'ordre de la vague 2, les questions ; en cours.

@@ -1,0 +1,37 @@
+{
+  "id": "voile-quai-2",
+  "speaker": "voile-quai-2",
+  "entries": [
+    {
+      "node": "voile"
+    }
+  ],
+  "nodes": {
+    "voile": {
+      "text": "« Si tu attrapes ceci au-dessus de Cloudrest, c’est que le vent t’aime autant que moi. Reviens jeudi. » Aucun nom. Il y a beaucoup de jeudis.",
+      "options": [
+        {
+          "text": "La garder, pour la recopier.",
+          "next": "fin",
+          "effects": [
+            {
+              "setFlag": "voile-quai-2-attrapee"
+            },
+            {
+              "giveItem": "voile-attrapee"
+            }
+          ]
+        },
+        {
+          "text": "La laisser repartir.",
+          "next": "fin",
+          "effects": [
+            {
+              "setFlag": "voile-quai-2-attrapee"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

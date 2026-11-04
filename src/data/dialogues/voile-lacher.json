@@ -1,0 +1,52 @@
+{
+  "id": "voile-lacher",
+  "speaker": "voile-lacher",
+  "entries": [
+    {
+      "node": "voile"
+    }
+  ],
+  "nodes": {
+    "voile": {
+      "text": "Une voile accrochée au garde-fou, que personne ne détache : rien ne doit entraver le vent. Quatre mots, d’une écriture ancienne recopiée avec soin : « Et pour l’an cinquante ».",
+      "options": [
+        {
+          "text": "Regarder le tissu de près.",
+          "next": "indice",
+          "roll": {
+            "skill": "investigation",
+            "difficulty": 14
+          },
+          "failNext": "rien"
+        },
+        {
+          "text": "La laisser au vent.",
+          "next": "fin"
+        }
+      ]
+    },
+    "rien": {
+      "text": "Un tissu, quatre mots, un nœud. Le vent te pique les yeux, et la voile claque contre le garde-fou. Tu n’en tires rien de plus, pour l’instant.",
+      "options": [
+        {
+          "text": "La laisser au vent.",
+          "next": "fin"
+        }
+      ]
+    },
+    "indice": {
+      "text": "Le tissu est neuf, le nœud aussi. Une voile vit deux ans ; celle-ci n’en a pas un. Quelqu’un la remplace, et la recopie à l’identique. De nuit, sans doute : le jour, on le verrait.",
+      "effects": [
+        {
+          "setFlag": "voile-lacher-indice"
+        }
+      ],
+      "options": [
+        {
+          "text": "La laisser au vent.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

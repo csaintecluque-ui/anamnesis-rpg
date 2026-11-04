@@ -1,0 +1,37 @@
+{
+  "id": "voile-marches-2",
+  "speaker": "voile-marches-2",
+  "entries": [
+    {
+      "node": "voile"
+    }
+  ],
+  "nodes": {
+    "voile": {
+      "text": "« Si je les attache, je fais un livre. Un livre a une couverture, une couverture a un propriétaire. » Une des quatre réponses d’Aerys, recopiée par une main d’enfant, avec une faute à « propriétaire ».",
+      "options": [
+        {
+          "text": "La garder, pour la recopier.",
+          "next": "fin",
+          "effects": [
+            {
+              "setFlag": "voile-marches-2-attrapee"
+            },
+            {
+              "giveItem": "voile-attrapee"
+            }
+          ]
+        },
+        {
+          "text": "La laisser repartir.",
+          "next": "fin",
+          "effects": [
+            {
+              "setFlag": "voile-marches-2-attrapee"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

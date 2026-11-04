@@ -1,0 +1,122 @@
+{
+  "id": "lacher",
+  "speaker": "lacher",
+  "entries": [
+    {
+      "node": "bord"
+    }
+  ],
+  "nodes": {
+    "bord": {
+      "text": "Le bord de la Haute-Île. Le vent monte de la mer de nuages, assez fort pour qu’on s’y appuie. Pour lâcher une voile, il faut l’avoir attrapée, et un tissu neuf pour la recopier.",
+      "options": [
+        {
+          "text": "Recopier une voile sur un tissu neuf, et la lâcher.",
+          "requires": [
+            {
+              "item": "voile-attrapee"
+            },
+            {
+              "item": "tissu-voile"
+            },
+            {
+              "notFlag": "voiles-lachees-1"
+            }
+          ],
+          "next": "lachee",
+          "effects": [
+            {
+              "takeItem": "voile-attrapee"
+            },
+            {
+              "takeItem": "tissu-voile"
+            },
+            {
+              "avancer": 1
+            },
+            {
+              "setFlag": "voiles-lachees-1"
+            },
+            {
+              "giveXp": 10
+            }
+          ]
+        },
+        {
+          "text": "Recopier une voile sur un tissu neuf, et la lâcher.",
+          "requires": [
+            {
+              "item": "voile-attrapee"
+            },
+            {
+              "item": "tissu-voile"
+            },
+            {
+              "flag": "voiles-lachees-1"
+            },
+            {
+              "notFlag": "voiles-lachees-2"
+            }
+          ],
+          "next": "lachee",
+          "effects": [
+            {
+              "takeItem": "voile-attrapee"
+            },
+            {
+              "takeItem": "tissu-voile"
+            },
+            {
+              "avancer": 1
+            },
+            {
+              "setFlag": "voiles-lachees-2"
+            },
+            {
+              "giveXp": 10
+            }
+          ]
+        },
+        {
+          "text": "Recopier une voile sur un tissu neuf, et la lâcher.",
+          "requires": [
+            {
+              "item": "voile-attrapee"
+            },
+            {
+              "item": "tissu-voile"
+            },
+            {
+              "flag": "voiles-lachees-2"
+            }
+          ],
+          "next": "lachee",
+          "effects": [
+            {
+              "takeItem": "voile-attrapee"
+            },
+            {
+              "takeItem": "tissu-voile"
+            },
+            {
+              "avancer": 1
+            }
+          ]
+        },
+        {
+          "text": "Regarder le vent.",
+          "next": "fin"
+        }
+      ]
+    },
+    "lachee": {
+      "text": "Tu recopies la voile mot pour mot, en t’appliquant. Puis tu ouvres la main. Le vent la prend tout de suite, et elle monte, et elle part. Quelque part, quelqu’un l’attrapera. Le Registre la comptera.",
+      "options": [
+        {
+          "text": "Rester encore un peu.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

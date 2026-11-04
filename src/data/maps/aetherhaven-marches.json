@@ -11,7 +11,7 @@
  "tilewidth": 64,
  "tileheight": 32,
  "nextlayerid": 4,
- "nextobjectid": 17,
+ "nextobjectid": 22,
  "layers": [
   {
    "id": 1,
@@ -1710,7 +1710,13 @@
      "point": true,
      "rotation": 0,
      "visible": true,
-     "properties": []
+     "properties": [
+      {
+       "name": "tuile",
+       "type": "string",
+       "value": "saut"
+      }
+     ]
     },
     {
      "id": 12,
@@ -1736,7 +1742,13 @@
      "point": true,
      "rotation": 0,
      "visible": true,
-     "properties": []
+     "properties": [
+      {
+       "name": "tuile",
+       "type": "string",
+       "value": "saut"
+      }
+     ]
     },
     {
      "id": 14,
@@ -1788,6 +1800,156 @@
        "value": "Les Îles-Marchés. Au nord, le Nid des Nuées ; au sud, le Registre des Voiles ; à l’est, la Haute-Île."
       }
      ]
+    },
+    {
+     "id": 17,
+     "name": "voile-marches-1",
+     "type": "objet",
+     "x": 432,
+     "y": 336,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": [
+      {
+       "name": "tuile",
+       "type": "string",
+       "value": "voile"
+      },
+      {
+       "name": "flotte",
+       "type": "string",
+       "value": "oui"
+      },
+      {
+       "name": "disparaitSi",
+       "type": "string",
+       "value": "voile-marches-1-attrapee"
+      }
+     ]
+    },
+    {
+     "id": 18,
+     "name": "voile-marches-2",
+     "type": "objet",
+     "x": 528,
+     "y": 432,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": [
+      {
+       "name": "tuile",
+       "type": "string",
+       "value": "voile"
+      },
+      {
+       "name": "flotte",
+       "type": "string",
+       "value": "oui"
+      },
+      {
+       "name": "disparaitSi",
+       "type": "string",
+       "value": "voile-marches-2-attrapee"
+      }
+     ]
+    },
+    {
+     "id": 19,
+     "name": "voile-marches-3",
+     "type": "objet",
+     "x": 80,
+     "y": 464,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": [
+      {
+       "name": "tuile",
+       "type": "string",
+       "value": "voile"
+      },
+      {
+       "name": "flotte",
+       "type": "string",
+       "value": "oui"
+      },
+      {
+       "name": "disparaitSi",
+       "type": "string",
+       "value": "voile-marches-3-attrapee"
+      }
+     ]
+    },
+    {
+     "id": 20,
+     "name": "voile-marches-4",
+     "type": "objet",
+     "x": 496,
+     "y": 720,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": [
+      {
+       "name": "tuile",
+       "type": "string",
+       "value": "voile"
+      },
+      {
+       "name": "flotte",
+       "type": "string",
+       "value": "oui"
+      },
+      {
+       "name": "disparaitSi",
+       "type": "string",
+       "value": "voile-marches-4-attrapee"
+      }
+     ]
+    },
+    {
+     "id": 21,
+     "name": "voile-nom-1",
+     "type": "objet",
+     "x": 304,
+     "y": 144,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": [
+      {
+       "name": "tuile",
+       "type": "string",
+       "value": "voile"
+      },
+      {
+       "name": "flotte",
+       "type": "string",
+       "value": "oui"
+      },
+      {
+       "name": "disparaitSi",
+       "type": "string",
+       "value": "voile-nom-1-attrapee"
+      },
+      {
+       "name": "apparaitSi",
+       "type": "string",
+       "value": "rouleau-lache"
+      }
+     ]
     }
    ]
   }
@@ -1802,7 +1964,7 @@
    "tilewidth": 64,
    "tileheight": 96,
    "columns": 8,
-   "tilecount": 251,
+   "tilecount": 252,
    "margin": 0,
    "spacing": 0,
    "tiles": [
@@ -8063,6 +8225,31 @@
        "name": "nom",
        "type": "string",
        "value": "edda-halte"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 251,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "saut"
       },
       {
        "name": "bloquant",

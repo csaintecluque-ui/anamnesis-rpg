@@ -1198,6 +1198,14 @@ Object.assign(INTERIORS, {
 // Canon [NOTION, Zephyria] : des îles portées par les cristaux azur, reliées par des ponts suspendus, à trois mille
 // mètres ; dessous, une mer de nuages. Trois quartiers : le Quai des Dirigeables, les Îles-Marchés, la Haute-Île.
 
+/**
+ * Les voiles qui passent (docs/univers/lieux/aetherhaven.md) : on les attrape d'un clic ; chacune a son dialogue
+ * (src/data/dialogues/voile-*.json). Celles des six noms n'apparaissent que si on les a lâchés au vent, en bas.
+ */
+function voiles(m, list) {
+  for (const [name, c, r, extra] of list) m.object(name, 'objet', c, r, { tuile: 'voile', flotte: 'oui', disparaitSi: `${name}-attrapee`, ...(extra ?? {}) });
+}
+
 /** A city above the clouds: clouds everywhere, nothing walkable until islands and bridges are laid. */
 function skyCity(width, height) {
   const m = new MapBuilder(width, height);
@@ -1267,6 +1275,7 @@ function aetherhavenQuai() {
   m.object('panneau-quai', 'panneau', 20, 9, { texte: 'Aetherhaven — le Quai des Dirigeables. À l’est, par le pont, les Îles-Marchés.' });
   m.object('vers-marches', 'sortie', 27, 11, { cible: 'aetherhaven-marches', arrivee: 'depuis-quai', libelle: 'Le pont des Îles-Marchés' });
   m.object('depuis-marches', 'arrivee', 24, 11);
+  voiles(m, [['voile-quai-1', 9, 13], ['voile-quai-2', 15, 10], ['voile-quai-3', 18, 13]]);
   return m.toTiled();
 }
 
@@ -1299,14 +1308,15 @@ function aetherhavenMarches() {
   house(m, 'aetherhaven-moulin', 'moulin', [14, 2], [14, 3]);
   house(m, 'aetherhaven-registre', 'maison-voile', [12, 21], [13, 21]);
   // Sauter d'îlot en îlot (Athlétisme) : deux cases de nuages entre le Nid et l'îlot du vent.
-  m.object('saut-ilot-vent', 'objet', 16, 3);
+  m.object('saut-ilot-vent', 'objet', 16, 3, { tuile: 'saut' });
   m.object('ilot-vent-arrivee', 'arrivee', 20, 3);
-  m.object('saut-ilot-retour', 'objet', 21, 2);
+  m.object('saut-ilot-retour', 'objet', 21, 2, { tuile: 'saut' });
   m.object('ilot-nid-arrivee', 'arrivee', 15, 3);
   m.setObstacle(22, 3, 'machine-volante');
   m.object('carcasse-ilot', 'coffre', 22, 3, { disparaitSi: 'carcasse-fouillee' });
   m.setObstacle(6, 15, 'panneau');
   m.object('panneau-marches', 'panneau', 6, 15, { texte: 'Les Îles-Marchés. Au nord, le Nid des Nuées ; au sud, le Registre des Voiles ; à l’est, la Haute-Île.' });
+  voiles(m, [['voile-marches-1', 13, 10], ['voile-marches-2', 16, 13], ['voile-marches-3', 2, 14], ['voile-marches-4', 15, 22], ['voile-nom-1', 9, 4, { apparaitSi: 'rouleau-lache' }]]);
   return m.toTiled();
 }
 
@@ -1330,7 +1340,10 @@ function aetherhavenHauteIle() {
   m.object('voile-lacher', 'objet', 24, 12, { tuile: 'voile-accrochee' });
   m.object('lacher', 'objet', 24, 10);
   m.setObstacle(21, 13, 'panneau');
-  m.object('panneau-lacher', 'panneau', 21, 13, { texte: 'Le Lâcher. Ce qu’on y ouvre la main, le vent le porte à qui voudra le prendre.' });
+  m.object('panneau-lacher', 'panneau', 21, 13, { texte: 'Le Lâcher. Ce qu’on lâche d’ici, le vent le porte à qui voudra le prendre.' });
+  // La nuit, celui qui change la voile du garde-fou (le mystère de la ville).
+  m.object('bastien', 'pnj', 23, 11, { moment: 'nuit' });
+  voiles(m, [['voile-haute-1', 16, 14], ['voile-haute-2', 10, 10], ['voile-haute-3', 20, 12], ['voile-nom-2', 18, 17, { apparaitSi: 'rouleau-lache' }]]);
   return m.toTiled();
 }
 

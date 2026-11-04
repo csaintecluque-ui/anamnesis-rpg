@@ -1,0 +1,37 @@
+{
+  "id": "voile-haute-3",
+  "speaker": "voile-haute-3",
+  "entries": [
+    {
+      "node": "voile"
+    }
+  ],
+  "nodes": {
+    "voile": {
+      "text": "Un dessin d’enfant : une machine, deux cristaux, un soleil. Dessous, en lettres énormes : « PAPA REVIENT AVANT LA NUIT. » Le tissu a deux ans, au moins. On ne sait pas s’il est revenu.",
+      "options": [
+        {
+          "text": "La garder, pour la recopier.",
+          "next": "fin",
+          "effects": [
+            {
+              "setFlag": "voile-haute-3-attrapee"
+            },
+            {
+              "giveItem": "voile-attrapee"
+            }
+          ]
+        },
+        {
+          "text": "La laisser repartir.",
+          "next": "fin",
+          "effects": [
+            {
+              "setFlag": "voile-haute-3-attrapee"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

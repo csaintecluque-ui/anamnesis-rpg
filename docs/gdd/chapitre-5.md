@@ -1,4 +1,4 @@
-# Chapitre 5 : Aetherhaven — proposition du 2026-11-04, **à valider**
+# Chapitre 5 : Aetherhaven — **validé par Cyril** le 2026-11-04 (« 1 oui, 2 oui, 3 oui, 4 oui »)
 
 Demande de Cyril (2026-11-04) : une ville de plus, avec des quêtes secondaires et des guildes, « attention à la
 qualité des dialogues », et un vrai fil directeur (`fil-directeur.md`, validé). Le lieu, ses habitants et ce que dit
@@ -55,12 +55,12 @@ pour la fin du jeu.
 
 | Quête | Qui | Ce qui se joue | Façons d'en sortir |
 |---|---|---|---|
-| **Les onze états** (accroche du canon) | Anselme Tiédevent | trois des onze copies de la septième voile donnent des vitesses trop basses, et ce sont les plus recopiées parce que les plus courtes | trouver l'état juste (Érudition ou Investigation 14) ; puis le porter au Conseil des Vents (il en débattra six ans), le recopier et le lâcher soi-même, ou le vendre aux Ailes Noires |
+| **Les onze états** (accroche du canon) | Évrard Tiédevent | trois des onze copies de la septième voile donnent des vitesses trop basses, et ce sont les plus recopiées parce que les plus courtes | trouver l'état juste (Érudition ou Investigation 14) ; puis le porter au Conseil des Vents (il en débattra six ans), le recopier et le lâcher soi-même, ou le vendre aux Ailes Noires |
 | **Le second cristal** (accroche du canon) | Odile, Céleste | Céleste veut monter avec un seul cristal ; la Charte interdit de l'interdire | la convaincre (Persuasion), lui offrir le second cristal, voler avec elle (Athlétisme), lui donner le bon état de la voile, ou la laisser partir |
 | **Les voiles dormantes** (accroche du canon) | Bastien Basse-Corniche | le mystère du Lâcher : la quatrième liste de la Pluie, « Et pour l'an cinquante », dort au Registre depuis 2659 | retrouver la dernière copie (au Temple, au Perchoir, dans la soute), la recopier et la lâcher pour la réveiller ; ou la confier au Registre, qui la gardera sans la lâcher |
 | **L'asile** | Holger Vass | un archiviste de Ferros en fuite demande l'asile ; un agent de Ferros dit qu'il a volé une page scellée | le défendre devant les Gardiens du Ciel (la Charte), le livrer, ou lire la page avant de choisir (Discrétion) ; pèse sur les Archives de Ferros |
 | **La soute** | une maison fermée | le dirigeable amarré qui sert la dame en gris : ses achats (masques, cordes, un seul cristal) | y entrer (Discrétion ou Artisanat 14) ; on peut lui voler son second cristal de rechange : elle entrera dans le Calme sans recours, à cause de nous |
-| **Le martinet de Siffrin** | Siffrin | son meilleur oiseau ne revient plus ; il est en cage chez les pirates de l'air | une quête courte et chaude ; mène à la Veuve Grêle |
+| **L’hirondelle de Siffrin** | Siffrin | sa meilleure hirondelle du Zénith ne revient plus ; il est en cage chez les pirates de l'air | une quête courte et chaude ; mène à la Veuve Grêle |
 | **La Veuve Grêle** | Gardiens du Ciel, Compagnie | les pirates prennent les convois de nourriture | combattre, négocier (ils ont faim aussi), ou les guider vers un convoi de la Compagnie rivale ; le combat du chapitre |
 
 ## Les quêtes des guildes (une d'adhésion et deux de plus chacune, pour commencer)
@@ -90,7 +90,7 @@ pour la fin du jeu.
 4. Les sept quêtes de la ville, puis les deux guildes.
 5. Passants, phrases spontanées, veillée, habitants qui écoutent. Mise en ligne à chaque étape jouable.
 
-## Questions à Cyril (2026-11-04)
+## Questions à Cyril (2026-11-04) : toutes validées
 
 1. **Les voiles** comme mémoire d'Aetherhaven (canon), au lieu des carillons ; et les deux guildes que le canon oppose
    (une compagnie à deux cristaux, les Ailes Noires à un seul) ?
@@ -100,3 +100,20 @@ pour la fin du jeu.
    son écriture. ») ; le jeu ne dit jamais si la voix qui compte jusqu'à sept est la sienne ?
 4. **Le fragment** : le ruban au poignet de l'autre enfant, que le héros ne savait pas lire ; le quai d'Altavent
    gardé pour la fin ?
+
+## Construit (2026-11-04)
+
+| Étape | Contenu | État |
+|---|---|---|
+| 1 | Tuiles, cartes, lieux ; le dirigeable sur la carte du monde (premier vol payé par Hesper, puis 30 Fers, un jour) | en ligne |
+| 2 | « Les noms qui montent » : quatre fins ; la caisse de Zephyria au fil ; le ruban (fragment du chapitre 6, la nuit après) ; la lettre d'Ilyane chez Assel | en ligne |
+| 3 | Les voiles à attraper et à lâcher ; le mystère du Lâcher (Bastien) ; le Récit « La septième voile » | en ligne |
+| 4 | Les sept quêtes de la ville, les deux guildes | à faire |
+| 5 | Passants, phrases spontanées, veillée du Nid des Nuées, habitants qui écoutent un Récit | à faire |
+
+Au montage : la remontée se fait toujours par le Calme ; avec deux cristaux (Ossiane, Vessin) on passe, avec Ravel il
+faut l'entendre (Survie 16, 14 avec le bon état de la septième voile). La dame en gris remonte toujours avec un seul
+cristal, et cale dans le Calme : on l'aide (une corde, ou un second cristal) ou on la laisse aux Gardiens du Ciel.
+La quête se termine à la Halte, au choix de la caisse ; la remontée vient après. Le premier pas d'Edda : elle a
+recopié les six noms au Registre, et les recopiait le soir au Nid (Assel). Le chapitre est joué de bout en bout par
+le test de parcours (deux routes : Vessin et la corde ; Ossiane et les noms lâchés au vent).

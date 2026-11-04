@@ -183,6 +183,14 @@
     "quest": true
   },
   {
+    "id": "boite-odon",
+    "name": "La boîte du passeur",
+    "description": "Une boîte de fer-blanc repêchée sous le pont de Gardebois. Dedans, un carnet de passeur : des prénoms d’enfants, cochés un à un. Sylvan, à la Racine, saura peut-être à qui elle était.",
+    "weightKg": 0.3,
+    "price": 0,
+    "quest": true
+  },
+  {
     "id": "flute-anselme",
     "name": "Flûte d’Anselme",
     "description": "Taillée par Elouan dans une branche de l’arbre d’Anselme. Elle est pour Aïlis.",

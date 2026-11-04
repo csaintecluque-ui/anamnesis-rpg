@@ -156,5 +156,14 @@
       "mysteres",
       "ancien-monde"
     ]
+  },
+  {
+    "id": "odon-passe-rive",
+    "titre": "Odon Passe-Rive",
+    "texte": "Trente ans durant, Odon a fait passer la Lisière, de nuit, à ceux qui n’avaient pas de papiers. Il écrivait le prénom de chaque enfant et le cochait de l’autre côté. Quand la maladie des souvenirs lui a rendu le feu de la Chute, il a couru vers l’eau. Son carnet s’arrête au milieu d’un nom.",
+    "themes": [
+      "familles",
+      "morts"
+    ]
   }
 ]

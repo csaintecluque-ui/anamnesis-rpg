@@ -71,7 +71,77 @@
       "text": "« Dors sous la feuille… » Nell chantonne en faisant voler son oiseau de bois.",
       "options": [
         {
+          "text": "Tu veux une histoire, Nell ?",
+          "requires": [
+            {
+              "notFlag": "raconte-nell"
+            }
+          ],
+          "next": "raconte-neutre",
+          "raconter": {
+            "aime": [
+              "chansons"
+            ],
+            "recits": {
+              "berceuse-de-maelis": "raconte-berceuse"
+            },
+            "touche": "raconte-touche",
+            "neutre": "raconte-neutre"
+          }
+        },
+        {
           "text": "…",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-neutre": {
+      "text": "Nell écoute en serrant son oiseau de bois contre elle. À la fin, elle hoche la tête, très sérieuse. — Elle est triste. Tu en as une avec une chanson ?",
+      "effects": [
+        {
+          "setFlag": "raconte-nell"
+        },
+        {
+          "giveXp": 5
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Nell.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-touche": {
+      "text": "Au deuxième couplet, Nell chante avec toi, faux et très fort. Puis elle repart en courant le chanter à sa mère.",
+      "effects": [
+        {
+          "setFlag": "raconte-nell"
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Nell.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-berceuse": {
+      "text": "Nell te coupe : « Dors sous la feuille, dors sous le vent ! » Elle la sait par cœur, maintenant. Elle te la chante en entier, lentement, pour être sûre que toi, tu ne l’oublieras pas.",
+      "effects": [
+        {
+          "setFlag": "raconte-nell"
+        },
+        {
+          "giveXp": 15
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Nell.",
           "next": "fin"
         }
       ]

@@ -1,0 +1,72 @@
+{
+  "id": "reflet-pont",
+  "speaker": "reflet-pont",
+  "entries": [
+    {
+      "node": "regard"
+    }
+  ],
+  "nodes": {
+    "regard": {
+      "text": "Sous l’arche du pont, entre deux pierres du lit, quelque chose renvoie la lumière : du métal, une boîte peut-être. L’eau n’est pas profonde, mais le courant est vif et le fond, couvert de mousse.",
+      "options": [
+        {
+          "text": "Descendre dans l’eau et l’attraper.",
+          "next": "boite",
+          "requires": [
+            {
+              "notFlag": "reflet-glisse"
+            }
+          ],
+          "roll": {
+            "skill": "athletics",
+            "difficulty": 11
+          },
+          "failNext": "glisse"
+        },
+        {
+          "text": "Laisser ça au ruisseau.",
+          "next": "fin"
+        }
+      ]
+    },
+    "glisse": {
+      "text": "L’eau te saisit jusqu’aux genoux, glacée. Ton pied part sur la mousse, tu tombes assis·e dans le courant, et la boîte reste où elle est. Demain, l’eau sera peut-être plus basse.",
+      "effects": [
+        {
+          "blesser": 2
+        },
+        {
+          "setFlagFor": "reflet-glisse",
+          "days": 1
+        }
+      ],
+      "options": [
+        {
+          "text": "Remonter, trempé·e.",
+          "next": "fin"
+        }
+      ]
+    },
+    "boite": {
+      "text": "Ta main se referme sur une boîte de fer-blanc, bosselée, fermée d’une ficelle. Dedans, au sec dans une toile cirée, un carnet : des dates, des prénoms d’enfants, et une croix devant chacun. La dernière page s’arrête au milieu d’un nom.",
+      "effects": [
+        {
+          "giveItem": "boite-odon"
+        },
+        {
+          "setFlag": "boite-odon-prise"
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "Garder la boîte.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

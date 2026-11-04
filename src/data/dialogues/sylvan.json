@@ -92,6 +92,15 @@
           "next": "liane"
         },
         {
+          "text": "J’ai repêché cette boîte sous le pont.",
+          "next": "odon",
+          "requires": [
+            {
+              "item": "boite-odon"
+            }
+          ]
+        },
+        {
           "text": "Merci.",
           "next": "accueil"
         }
@@ -102,6 +111,35 @@
       "options": [
         {
           "text": "Merci.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "odon": {
+      "text": "Sylvan s’essuie les mains avant de la toucher. — La boîte d’Odon Passe-Rive. Trente ans qu’il faisait passer la Lisière, la nuit, à ceux qui n’avaient pas de papiers, et qu’il cochait chaque enfant de l’autre côté. C’est lui qu’on a repêché au lavoir.",
+      "options": [
+        {
+          "text": "Que dit la dernière page ?",
+          "next": "odon-fin"
+        }
+      ]
+    },
+    "odon-fin": {
+      "text": "Sylvan lit, longtemps. — Il s’est arrêté au milieu d’un nom : le feu de la Chute l’a repris avant. Garde-le, toi, ce carnet, dans ta tête de Gardien·ne. Au marché, on l’aura oublié avant l’hiver.",
+      "effects": [
+        {
+          "takeItem": "boite-odon"
+        },
+        {
+          "learnRecit": "odon-passe-rive"
+        },
+        {
+          "giveXp": 20
+        }
+      ],
+      "options": [
+        {
+          "text": "Je m’en souviendrai.",
           "next": "accueil"
         }
       ]

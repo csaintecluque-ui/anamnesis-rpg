@@ -11,7 +11,7 @@
  "tilewidth": 64,
  "tileheight": 32,
  "nextlayerid": 4,
- "nextobjectid": 25,
+ "nextobjectid": 26,
  "layers": [
   {
    "id": 1,
@@ -1614,6 +1614,30 @@
     },
     {
      "id": 12,
+     "name": "reflet-pont",
+     "type": "objet",
+     "x": 688,
+     "y": 624,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": [
+      {
+       "name": "tuile",
+       "type": "string",
+       "value": "reflet"
+      },
+      {
+       "name": "disparaitSi",
+       "type": "string",
+       "value": "boite-odon-prise"
+      }
+     ]
+    },
+    {
+     "id": 13,
      "name": "caisse-egaree",
      "type": "coffre",
      "x": 784,
@@ -1632,7 +1656,7 @@
      ]
     },
     {
-     "id": 13,
+     "id": 14,
      "name": "rodeur-caisse-1",
      "type": "ennemi",
      "x": 752,
@@ -1661,7 +1685,7 @@
      ]
     },
     {
-     "id": 14,
+     "id": 15,
      "name": "rodeur-caisse-2",
      "type": "ennemi",
      "x": 816,
@@ -1690,7 +1714,7 @@
      ]
     },
     {
-     "id": 15,
+     "id": 16,
      "name": "echo-berceuse",
      "type": "echo",
      "x": 176,
@@ -1709,7 +1733,7 @@
      ]
     },
     {
-     "id": 16,
+     "id": 17,
      "name": "entree",
      "type": "arrivee",
      "x": 112,
@@ -1722,7 +1746,7 @@
      "properties": []
     },
     {
-     "id": 17,
+     "id": 18,
      "name": "vers-monde",
      "type": "sortie",
      "x": 16,
@@ -1746,7 +1770,7 @@
      ]
     },
     {
-     "id": 18,
+     "id": 19,
      "name": "vers-gare",
      "type": "sortie",
      "x": 880,
@@ -1775,7 +1799,7 @@
      ]
     },
     {
-     "id": 19,
+     "id": 20,
      "name": "ilyane",
      "type": "pnj",
      "x": 176,
@@ -1788,7 +1812,7 @@
      "properties": []
     },
     {
-     "id": 20,
+     "id": 21,
      "name": "tobias",
      "type": "pnj",
      "x": 464,
@@ -1801,7 +1825,7 @@
      "properties": []
     },
     {
-     "id": 21,
+     "id": 22,
      "name": "convoyeuse",
      "type": "pnj",
      "x": 336,
@@ -1814,7 +1838,7 @@
      "properties": []
     },
     {
-     "id": 22,
+     "id": 23,
      "name": "liane",
      "type": "pnj",
      "x": 624,
@@ -1827,7 +1851,7 @@
      "properties": []
     },
     {
-     "id": 23,
+     "id": 24,
      "name": "panneau-gare",
      "type": "panneau",
      "x": 848,
@@ -1846,7 +1870,7 @@
      ]
     },
     {
-     "id": 24,
+     "id": 25,
      "name": "panneau-entree",
      "type": "panneau",
      "x": 48,
@@ -1877,7 +1901,7 @@
    "tilewidth": 64,
    "tileheight": 96,
    "columns": 8,
-   "tilecount": 188,
+   "tilecount": 189,
    "margin": 0,
    "spacing": 0,
    "tiles": [
@@ -6563,6 +6587,31 @@
        "name": "nom",
        "type": "string",
        "value": "glacien"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 188,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "reflet"
       },
       {
        "name": "bloquant",

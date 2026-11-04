@@ -165,6 +165,26 @@
           ]
         },
         {
+          "text": "Tu veux entendre une histoire ?",
+          "requires": [
+            {
+              "notFlag": "raconte-liane"
+            }
+          ],
+          "next": "raconte-neutre",
+          "raconter": {
+            "aime": [
+              "arbres",
+              "familles"
+            ],
+            "recits": {
+              "voix-ecorce": "raconte-bosquet"
+            },
+            "touche": "raconte-touche",
+            "neutre": "raconte-neutre"
+          }
+        },
+        {
           "text": "…",
           "next": "fin"
         }
@@ -205,6 +225,65 @@
       "options": [
         {
           "text": "Je reviendrai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-neutre": {
+      "text": "Liane hausse les épaules, mais elle a écouté jusqu’au bout. — Mes malades aimeraient. Moi, je préfère les plantes : elles ne racontent rien, mais elles guérissent.",
+      "effects": [
+        {
+          "setFlag": "raconte-liane"
+        },
+        {
+          "giveXp": 5
+        }
+      ],
+      "options": [
+        {
+          "text": "À bientôt, Liane.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-touche": {
+      "text": "Liane sourit en coin. — Tu racontes mieux que tu ne cueilles. Reviens quand tu veux.",
+      "effects": [
+        {
+          "setFlag": "raconte-liane"
+        },
+        {
+          "giveXp": 10
+        },
+        {
+          "avis": "liane",
+          "delta": 1
+        }
+      ],
+      "options": [
+        {
+          "text": "À bientôt, Liane.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-bosquet": {
+      "text": "Liane écoute sans bouger. — Les noms gravés se souviennent à notre place ? Alors il y a un nom que je n’ai jamais osé y porter. Un jour, peut-être.",
+      "effects": [
+        {
+          "setFlag": "raconte-liane"
+        },
+        {
+          "giveXp": 15
+        },
+        {
+          "avis": "liane",
+          "delta": 1
+        }
+      ],
+      "options": [
+        {
+          "text": "À bientôt, Liane.",
           "next": "fin"
         }
       ]

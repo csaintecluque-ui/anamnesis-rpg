@@ -639,6 +639,7 @@ Commence par : « apres » _(si quête « La caisse égarée » terminée)_, sin
 
 > Maître Cendrefer m’a laissé ranger tout seul, aujourd’hui. C’est une forme de confiance, je crois.
 
+- _(sans repère « raconte-brann »)_ « Tu veux une histoire, Brann ? » → raconte-neutre 📖 raconter un Récit : savant-corvan → raconte-savant ; machines, trains → raconte-touche ; autres → raconte-neutre
 - « … » → **fin**
 
 ### ironie
@@ -647,6 +648,30 @@ Commence par : « apres » _(si quête « La caisse égarée » terminée)_, sin
 
 - « Je vais la chercher. » → merci _(lance la quête « La caisse égarée »)_
 - « Je me moque. » → **fin**
+
+### raconte-neutre
+
+_Effet : retient « raconte-brann », +5 XP._
+
+> Brann écoute la bouche ouverte, puis se gratte la nuque. — J’ai pas tout compris. Mais je la redirai à Maître Cendrefer : il aime quand je retiens des choses.
+
+- « Bon courage, Brann. » → **fin**
+
+### raconte-touche
+
+_Effet : retient « raconte-brann », +10 XP._
+
+> Brann en oublie ses caisses. — Des machines plus grandes que des maisons ? Un jour, j’en ferai une. Une petite. Qui range les clous.
+
+- « Bon courage, Brann. » → **fin**
+
+### raconte-savant
+
+_Effet : retient « raconte-brann », +15 XP._
+
+> Brann répète tout bas : « Même réussir peut tout détruire. » Il regarde ses mains noires de graisse. — Moi, je veux juste réussir une serrure. Maître Cendrefer dit que c’est déjà beaucoup.
+
+- « Bon courage, Brann. » → **fin**
 
 ## Une boîte de fer
 
@@ -3650,6 +3675,7 @@ _Effet : retient « liane-malades-rate »._
 
 - _(avis de Liane ≥ -4)_ « Viens avec moi, Liane. » → recrue
 - _(sans repère « liane-malades-vus »)_ _(sans repère « liane-malades-rate »)_ **🎲 Médecine 10** « Laisse-moi voir tes malades. » → malades, ✗ → malades-rate
+- _(sans repère « raconte-liane »)_ « Tu veux entendre une histoire ? » → raconte-neutre 📖 raconter un Récit : voix-ecorce → raconte-bosquet ; arbres, familles → raconte-touche ; autres → raconte-neutre
 - « … » → **fin**
 
 ### recrue
@@ -3666,6 +3692,30 @@ _Effet : retient « liane-malades-vus », avis de Liane +1, +10 XP._
 > Liane te regarde faire, bras croisés. — Le pouls, les yeux, la langue : tu sais lire un malade. Ils n’ont pas de fièvre. Ils revivent quelque chose. Mes herbes calment le corps ; le reste vient de la Gare.
 
 - « Je reviendrai. » → **fin**
+
+### raconte-neutre
+
+_Effet : retient « raconte-liane », +5 XP._
+
+> Liane hausse les épaules, mais elle a écouté jusqu’au bout. — Mes malades aimeraient. Moi, je préfère les plantes : elles ne racontent rien, mais elles guérissent.
+
+- « À bientôt, Liane. » → **fin**
+
+### raconte-touche
+
+_Effet : retient « raconte-liane », +10 XP, avis de Liane +1._
+
+> Liane sourit en coin. — Tu racontes mieux que tu ne cueilles. Reviens quand tu veux.
+
+- « À bientôt, Liane. » → **fin**
+
+### raconte-bosquet
+
+_Effet : retient « raconte-liane », +15 XP, avis de Liane +1._
+
+> Liane écoute sans bouger. — Les noms gravés se souviennent à notre place ? Alors il y a un nom que je n’ai jamais osé y porter. Un jour, peut-être.
+
+- « À bientôt, Liane. » → **fin**
 
 ## Lior Rose-des-Vents
 
@@ -3894,6 +3944,7 @@ Commence par : « apres » _(si quête « La berceuse oubliée » terminée)_, s
 
 > Elle s’est endormie en chantonnant. Merci. Gardebois n’oubliera pas ce que tu as fait pour nous.
 
+- _(sans repère « raconte-maelis »)_ « Je peux te raconter une histoire, pour Nell. » → raconte-neutre 📖 raconter un Récit : saule → raconte-saule ; familles, chansons → raconte-touche ; autres → raconte-neutre
 - « Prends soin d’elle. » → **fin**
 
 ### cruel
@@ -3901,6 +3952,30 @@ Commence par : « apres » _(si quête « La berceuse oubliée » terminée)_, s
 > Maëlis recule d’un pas, puis se redresse. — Ailleurs, oui. Ici, c’est ma fille. Va-t’en.
 
 - « Partir. » → **fin**
+
+### raconte-neutre
+
+_Effet : retient « raconte-maelis », +5 XP._
+
+> Maëlis écoute jusqu’au bout, les mains serrées sur son tablier. — Je la lui raconterai ce soir. Si elle s’en souvient demain, ce sera grâce à toi.
+
+- « Prends soin d’elle. » → **fin**
+
+### raconte-touche
+
+_Effet : retient « raconte-maelis », +10 XP._
+
+> Maëlis sourit pour la première fois depuis longtemps. — Celle-là, Nell la gardera. Les histoires de famille tiennent mieux que les autres : on les raconte trop souvent pour les perdre.
+
+- « Prends soin d’elle. » → **fin**
+
+### raconte-saule
+
+_Effet : retient « raconte-maelis », +15 XP._
+
+> Maëlis porte la main à sa bouche. — Saule ? Il portait Nell sur ses épaules, les jours de foire. Elle l’appelait « l’arbre qui rit ». Dis à Liane qu’on se souvient de lui, au marché aussi.
+
+- « Prends soin d’elle. » → **fin**
 
 ## Malo Feuillevent
 
@@ -4127,7 +4202,32 @@ Commence par : « apres » _(si quête « La berceuse oubliée » terminée)_, s
 
 > « Dors sous la feuille… » Nell chantonne en faisant voler son oiseau de bois.
 
+- _(sans repère « raconte-nell »)_ « Tu veux une histoire, Nell ? » → raconte-neutre 📖 raconter un Récit : berceuse-de-maelis → raconte-berceuse ; chansons → raconte-touche ; autres → raconte-neutre
 - « … » → **fin**
+
+### raconte-neutre
+
+_Effet : retient « raconte-nell », +5 XP._
+
+> Nell écoute en serrant son oiseau de bois contre elle. À la fin, elle hoche la tête, très sérieuse. — Elle est triste. Tu en as une avec une chanson ?
+
+- « Merci, Nell. » → **fin**
+
+### raconte-touche
+
+_Effet : retient « raconte-nell », +10 XP._
+
+> Au deuxième couplet, Nell chante avec toi, faux et très fort. Puis elle repart en courant le chanter à sa mère.
+
+- « Merci, Nell. » → **fin**
+
+### raconte-berceuse
+
+_Effet : retient « raconte-nell », +15 XP._
+
+> Nell te coupe : « Dors sous la feuille, dors sous le vent ! » Elle la sait par cœur, maintenant. Elle te la chante en entier, lentement, pour être sûre que toi, tu ne l’oublieras pas.
+
+- « Merci, Nell. » → **fin**
 
 ## L’archiviste Noam
 
@@ -4703,6 +4803,35 @@ Commence par : « accueil »
 
 - « Au revoir. » → **fin**
 
+## Sous le pont
+
+_Quelque chose brille dans l’eau_
+
+Commence par : « regard »
+
+### regard
+
+> Sous l’arche du pont, entre deux pierres du lit, quelque chose renvoie la lumière : du métal, une boîte peut-être. L’eau n’est pas profonde, mais le courant est vif et le fond, couvert de mousse.
+
+- _(sans repère « reflet-glisse »)_ **🎲 Athlétisme 11** « Descendre dans l’eau et l’attraper. » → boite, ✗ → glisse
+- « Laisser ça au ruisseau. » → **fin**
+
+### glisse
+
+_Effet : −2 PV, retient « reflet-glisse » pour 1 jours._
+
+> L’eau te saisit jusqu’aux genoux, glacée. Ton pied part sur la mousse, tu tombes assis·e dans le courant, et la boîte reste où elle est. Demain, l’eau sera peut-être plus basse.
+
+- « Remonter, trempé·e. » → **fin**
+
+### boite
+
+_Effet : donne 1 × « La boîte du passeur », retient « boite-odon-prise », +10 XP._
+
+> Ta main se referme sur une boîte de fer-blanc, bosselée, fermée d’une ficelle. Dedans, au sec dans une toile cirée, un carnet : des dates, des prénoms d’enfants, et une croix devant chacun. La dernière page s’arrête au milieu d’un nom.
+
+- « Garder la boîte. » → **fin**
+
 ## Le registre des consultations
 
 _Grande Bibliothèque_
@@ -5119,6 +5248,7 @@ Commence par : « ilyane-chante » _(si quête « Le carnet de chansons » termi
 > On dit que la maladie des souvenirs vient de la Gare, depuis que Ferros y creuse. La petite Nell, chez les Lunelierre, ne reconnaît plus sa propre berceuse. Et Brann, l’apprenti de Tobias, a perdu une caisse sur la route de l’est.
 
 - « Et l’herboriste, Liane ? » → liane
+- _(si l’on porte « La boîte du passeur »)_ « J’ai repêché cette boîte sous le pont. » → odon
 - « Merci. » → accueil
 
 ### liane
@@ -5126,6 +5256,20 @@ Commence par : « ilyane-chante » _(si quête « Le carnet de chansons » termi
 > Liane ? Toujours au bord du ruisseau, près du marché, le nez dans ses herbes. Elle est brusque, mais personne ne soigne mieux qu’elle.
 
 - « Merci. » → accueil
+
+### odon
+
+> Sylvan s’essuie les mains avant de la toucher. — La boîte d’Odon Passe-Rive. Trente ans qu’il faisait passer la Lisière, la nuit, à ceux qui n’avaient pas de papiers, et qu’il cochait chaque enfant de l’autre côté. C’est lui qu’on a repêché au lavoir.
+
+- « Que dit la dernière page ? » → odon-fin
+
+### odon-fin
+
+_Effet : reprend 1 × « La boîte du passeur », retient le Récit « Odon Passe-Rive », +20 XP._
+
+> Sylvan lit, longtemps. — Il s’est arrêté au milieu d’un nom : le feu de la Chute l’a repris avant. Garde-le, toi, ce carnet, dans ta tête de Gardien·ne. Au marché, on l’aura oublié avant l’hiver.
+
+- « Je m’en souviendrai. » → accueil
 
 ### ilyane-chante
 
@@ -5474,8 +5618,8 @@ Commence par : « accueil-passe » _(si repère « laissez-passer »)_, sinon «
 
 > Que des gens voient des trains et des flammes. La veuve du meunier a mis le feu à sa grange pour éteindre celui qu’elle voyait. Les Verdantins accusent Ferros, forcément. Moi, je dis que la peur fait vendre les rumeurs, et pas les lampes.
 
-- « Voir l’étal. » → **fin** _(ouvre le Troc)_
 - « Parlons d’autre chose. » → accueil
+- _(sans repère « raconte-tobias »)_ « Une histoire contre une rumeur ? » → raconte-neutre 📖 raconter un Récit : jeudi-ordinaire → raconte-jeudi ; machines, trains → raconte-touche ; autres → raconte-neutre
 - _(si repère « rumeur-arbalete-convoi »)_ _(sans repère « arbalete-convoi-achetee »)_ « Et ces arbalètes « tombées d’un convoi » ? » → arbalete
 - « Au revoir. » → **fin**
 
@@ -5535,6 +5679,33 @@ _Effet : retient « tobias-sourire »._
 > — Et si ma sœur te demande d’où elle vient, tu l’as trouvée sur la route.
 
 - « Promis. » → **fin**
+
+### raconte-neutre
+
+_Effet : retient « raconte-tobias », +5 XP._
+
+> Tobias écoute en rangeant ses cordes, poliment. — Joli. Ça ne fera pas vendre une lampe, mais joli.
+
+- « Parlons d’autre chose. » → accueil
+- « Au revoir. » → **fin**
+
+### raconte-touche
+
+_Effet : retient « raconte-tobias », +10 XP, +10 Fers._
+
+> Tobias pose ses cordes. — Des rails, des machines : tu parles ma langue. À Ferros, les vieux racontent ça aux apprentis pour qu’ils respectent l’acier. Tiens, pour l’histoire : au marché, elle vaut bien ça.
+
+- « Parlons d’autre chose. » → accueil
+- « Au revoir. » → **fin**
+
+### raconte-jeudi
+
+_Effet : retient « raconte-tobias », +15 XP, +20 Fers._
+
+> Tobias ne sourit plus. — Un jeudi. Ma mère n’ouvrait jamais boutique le jeudi, et elle n’a jamais su dire pourquoi. Elle disait que le monde était tombé un jour où personne ne faisait attention. Celle-là, je te la paie double.
+
+- « Parlons d’autre chose. » → accueil
+- « Au revoir. » → **fin**
 
 ## Un trou de fouille
 

@@ -80,17 +80,28 @@
       "text": "Que des gens voient des trains et des flammes. La veuve du meunier a mis le feu à sa grange pour éteindre celui qu’elle voyait. Les Verdantins accusent Ferros, forcément. Moi, je dis que la peur fait vendre les rumeurs, et pas les lampes.",
       "options": [
         {
-          "text": "Voir l’étal.",
-          "next": "fin",
-          "effects": [
-            {
-              "openTrade": true
-            }
-          ]
-        },
-        {
           "text": "Parlons d’autre chose.",
           "next": "accueil"
+        },
+        {
+          "text": "Une histoire contre une rumeur ?",
+          "requires": [
+            {
+              "notFlag": "raconte-tobias"
+            }
+          ],
+          "next": "raconte-neutre",
+          "raconter": {
+            "aime": [
+              "machines",
+              "trains"
+            ],
+            "recits": {
+              "jeudi-ordinaire": "raconte-jeudi"
+            },
+            "touche": "raconte-touche",
+            "neutre": "raconte-neutre"
+          }
         },
         {
           "text": "Et ces arbalètes « tombées d’un convoi » ?",
@@ -276,6 +287,75 @@
       "options": [
         {
           "text": "Promis.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-neutre": {
+      "text": "Tobias écoute en rangeant ses cordes, poliment. — Joli. Ça ne fera pas vendre une lampe, mais joli.",
+      "effects": [
+        {
+          "setFlag": "raconte-tobias"
+        },
+        {
+          "giveXp": 5
+        }
+      ],
+      "options": [
+        {
+          "text": "Parlons d’autre chose.",
+          "next": "accueil"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-touche": {
+      "text": "Tobias pose ses cordes. — Des rails, des machines : tu parles ma langue. À Ferros, les vieux racontent ça aux apprentis pour qu’ils respectent l’acier. Tiens, pour l’histoire : au marché, elle vaut bien ça.",
+      "effects": [
+        {
+          "setFlag": "raconte-tobias"
+        },
+        {
+          "giveXp": 10
+        },
+        {
+          "giveFers": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "Parlons d’autre chose.",
+          "next": "accueil"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-jeudi": {
+      "text": "Tobias ne sourit plus. — Un jeudi. Ma mère n’ouvrait jamais boutique le jeudi, et elle n’a jamais su dire pourquoi. Elle disait que le monde était tombé un jour où personne ne faisait attention. Celle-là, je te la paie double.",
+      "effects": [
+        {
+          "setFlag": "raconte-tobias"
+        },
+        {
+          "giveXp": 15
+        },
+        {
+          "giveFers": 20
+        }
+      ],
+      "options": [
+        {
+          "text": "Parlons d’autre chose.",
+          "next": "accueil"
+        },
+        {
+          "text": "Au revoir.",
           "next": "fin"
         }
       ]

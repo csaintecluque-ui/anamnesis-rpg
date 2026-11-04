@@ -247,6 +247,10 @@ En ligne le 2026-11-03 (tes textes du 3 novembre) :
       pour une première fois.
 - [ ] **L'audience de Kael** (Canopéa) : après ton récit de la Gare, deux tons possibles (« qui payait ? » ou « fermez
       la frontière »), puis deux encore ; plus de suite de quatre écrans sans choix.
+- [ ] **Gardebois, ce qui brille sous le pont** : un reflet dans le ruisseau, sous l'arche. Descends le chercher
+      (Athlétisme), puis montre ce que tu as trouvé à Sylvan, à la Racine.
+- [ ] **Raconter à un habitant** : Tobias (dans les rumeurs), Maëlis, Nell, Brann et Liane (une fois leur quête
+      finie) écoutent un de tes Récits, une fois chacun ; chacun a sa réponse préférée.
 - Remarques :
 
 ## Déjà en ligne, pas encore essayé sur PC

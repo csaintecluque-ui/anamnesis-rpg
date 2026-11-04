@@ -104,6 +104,26 @@
       "text": "Maître Cendrefer m’a laissé ranger tout seul, aujourd’hui. C’est une forme de confiance, je crois.",
       "options": [
         {
+          "text": "Tu veux une histoire, Brann ?",
+          "requires": [
+            {
+              "notFlag": "raconte-brann"
+            }
+          ],
+          "next": "raconte-neutre",
+          "raconter": {
+            "aime": [
+              "machines",
+              "trains"
+            ],
+            "recits": {
+              "savant-corvan": "raconte-savant"
+            },
+            "touche": "raconte-touche",
+            "neutre": "raconte-neutre"
+          }
+        },
+        {
           "text": "…",
           "next": "fin"
         }
@@ -123,6 +143,57 @@
         },
         {
           "text": "Je me moque.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-neutre": {
+      "text": "Brann écoute la bouche ouverte, puis se gratte la nuque. — J’ai pas tout compris. Mais je la redirai à Maître Cendrefer : il aime quand je retiens des choses.",
+      "effects": [
+        {
+          "setFlag": "raconte-brann"
+        },
+        {
+          "giveXp": 5
+        }
+      ],
+      "options": [
+        {
+          "text": "Bon courage, Brann.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-touche": {
+      "text": "Brann en oublie ses caisses. — Des machines plus grandes que des maisons ? Un jour, j’en ferai une. Une petite. Qui range les clous.",
+      "effects": [
+        {
+          "setFlag": "raconte-brann"
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "Bon courage, Brann.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-savant": {
+      "text": "Brann répète tout bas : « Même réussir peut tout détruire. » Il regarde ses mains noires de graisse. — Moi, je veux juste réussir une serrure. Maître Cendrefer dit que c’est déjà beaucoup.",
+      "effects": [
+        {
+          "setFlag": "raconte-brann"
+        },
+        {
+          "giveXp": 15
+        }
+      ],
+      "options": [
+        {
+          "text": "Bon courage, Brann.",
           "next": "fin"
         }
       ]

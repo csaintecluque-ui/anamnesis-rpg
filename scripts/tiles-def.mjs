@@ -1168,3 +1168,14 @@ TILES.push(
   npcTile('nomade-sables', { body: '#c8a060', hair: '#2a1a10', skin: '#8a5a3c', accent: '#a0402a', extra: '<path d="M22 46 Q32 36 42 46" stroke="#c8a060" stroke-width="5" fill="none"/>' }),
   npcTile('glacien', { body: '#d0e0ec', hair: '#f0f4f8', skin: '#e8d8d0', accent: '#5a8ab0' }),
 );
+
+// Ce qui brille sous le pont de Gardebois (étude du 2026-11-03, H4) : des reflets sur l'eau, rien de plus ; la boîte
+// du passeur est au fond. Ajoutée en dernier, pour ne décaler aucune tuile.
+TILES.push({
+  name: 'reflet',
+  svg:
+    '<ellipse cx="32" cy="80" rx="10" ry="4" fill="#9fd4dc" opacity="0.45"/>' +
+    '<path d="M30 72 L32 66 L34 72 L40 74 L34 76 L32 82 L30 76 L24 74 Z" fill="#fff6d8" opacity="0.95"/>' +
+    '<path d="M41 79 L42 76 L43 79 L46 80 L43 81 L42 84 L41 81 L38 80 Z" fill="#ffe7a8" opacity="0.9"/>' +
+    '<circle cx="23" cy="82" r="1.4" fill="#ffffff" opacity="0.9"/>',
+});

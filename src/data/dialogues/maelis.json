@@ -96,6 +96,26 @@
       "text": "Elle s’est endormie en chantonnant. Merci. Gardebois n’oubliera pas ce que tu as fait pour nous.",
       "options": [
         {
+          "text": "Je peux te raconter une histoire, pour Nell.",
+          "requires": [
+            {
+              "notFlag": "raconte-maelis"
+            }
+          ],
+          "next": "raconte-neutre",
+          "raconter": {
+            "aime": [
+              "familles",
+              "chansons"
+            ],
+            "recits": {
+              "saule": "raconte-saule"
+            },
+            "touche": "raconte-touche",
+            "neutre": "raconte-neutre"
+          }
+        },
+        {
           "text": "Prends soin d’elle.",
           "next": "fin"
         }
@@ -106,6 +126,57 @@
       "options": [
         {
           "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-neutre": {
+      "text": "Maëlis écoute jusqu’au bout, les mains serrées sur son tablier. — Je la lui raconterai ce soir. Si elle s’en souvient demain, ce sera grâce à toi.",
+      "effects": [
+        {
+          "setFlag": "raconte-maelis"
+        },
+        {
+          "giveXp": 5
+        }
+      ],
+      "options": [
+        {
+          "text": "Prends soin d’elle.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-touche": {
+      "text": "Maëlis sourit pour la première fois depuis longtemps. — Celle-là, Nell la gardera. Les histoires de famille tiennent mieux que les autres : on les raconte trop souvent pour les perdre.",
+      "effects": [
+        {
+          "setFlag": "raconte-maelis"
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "Prends soin d’elle.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-saule": {
+      "text": "Maëlis porte la main à sa bouche. — Saule ? Il portait Nell sur ses épaules, les jours de foire. Elle l’appelait « l’arbre qui rit ». Dis à Liane qu’on se souvient de lui, au marché aussi.",
+      "effects": [
+        {
+          "setFlag": "raconte-maelis"
+        },
+        {
+          "giveXp": 15
+        }
+      ],
+      "options": [
+        {
+          "text": "Prends soin d’elle.",
           "next": "fin"
         }
       ]

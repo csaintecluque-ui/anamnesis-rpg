@@ -244,6 +244,8 @@ function gardebois() {
   m.setObstacle(17, 21, 'sauge');
   m.object('sauge-2', 'objet', 17, 21, { disparaitSi: 'sauge-2-cueillie' });
   m.object('rocher-sauge', 'objet', 3, 20);
+  // Ce qui brille sous le pont (étude du 2026-11-03, H4) : la boîte du passeur, au fond du ruisseau.
+  m.object('reflet-pont', 'objet', 21, 19, { tuile: 'reflet', disparaitSi: 'boite-odon-prise' });
   m.setObstacle(24, 21, 'caisses');
   m.object('caisse-egaree', 'coffre', 24, 21, { disparaitSi: 'caisse-recuperee' });
   const rodeurs = { ennemi: 'rodeur-epine', disparaitSi: 'rodeurs-caisse-partis,rodeurs-caisse-vaincus', texte: 'Un Rôdeur-Épine monte la garde près de la caisse.' };

@@ -120,6 +120,11 @@
     "role": "Objet"
   },
   {
+    "id": "reflet-pont",
+    "name": "Sous le pont",
+    "role": "Quelque chose brille dans l’eau"
+  },
+  {
     "id": "caisse-egaree",
     "name": "La caisse égarée",
     "role": "Objet"

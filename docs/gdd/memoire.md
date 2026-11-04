@@ -67,3 +67,14 @@ renommée, rumeurs qui ouvrent des secrets). Chaque Récit porte ses thèmes (`t
   - **ch. 4**, Ambroise : « une main contre une main », un Récit déposé au Registre ouvre le Fonds Muet.
 - **Reste à faire** (chantier 1, puis la passe d'écriture du chantier 5) : une option « raconter » dans chaque quête,
   avec des réactions propres au Récit choisi.
+
+## Étude du 3 novembre, vague 3, bloc B : les habitants écoutent (D3, F4)
+
+- **Raconter à un habitant** (le mécanisme `raconter` des dialogues) : une fois par habitant, le héros lui raconte un
+  de ses Récits. Une réponse pour un Récit précis (la meilleure : 15 XP, parfois des Fers), une pour ce qu'il aime
+  (10 XP), une pour le reste (5 XP). Le Récit n'est pas oublié. À Gardebois : Tobias (rails et machines ; « Un jeudi
+  ordinaire » : 20 Fers), Maëlis (familles, chansons ; « Saule »), Nell (chansons ; la berceuse), Brann (machines ;
+  « Le savant du dernier quai »), Liane (arbres, familles ; « Les voix du Bosquet », +1 d'avis).
+- **Un Récit par ville hors quête** (F4) : à Gardebois, « Odon Passe-Rive », par le mystère du pont et Sylvan.
+- **Le plafond reste Mémoire + 1** (l'étude proposait + 2) : avec plus de Récits à gagner, c'est le plafond qui
+  rend l'oubli réel ; à trancher par Cyril.

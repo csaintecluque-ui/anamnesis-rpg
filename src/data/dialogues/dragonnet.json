@@ -1,0 +1,20 @@
+{
+  "id": "dragonnet",
+  "speaker": "dragonnet",
+  "entries": [
+    {
+      "node": "dragonnet"
+    }
+  ],
+  "nodes": {
+    "dragonnet": {
+      "text": "Un dragonnet rouge, la taille d’un chien, roulé en boule dans le sable du Nid. Il ne lève pas la tête. Ses écailles sont ternes, et sa gamelle est pleine.",
+      "options": [
+        {
+          "text": "Le laisser tranquille.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

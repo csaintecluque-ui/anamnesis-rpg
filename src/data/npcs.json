@@ -1165,5 +1165,15 @@
     "id": "echo-personne",
     "name": "Un Écho",
     "role": "La halte morte"
+  },
+  {
+    "id": "keo-sa",
+    "name": "Kéo’Sa",
+    "role": "Neuf ans, apprend à parler aux dragonnets"
+  },
+  {
+    "id": "dragonnet",
+    "name": "Un dragonnet",
+    "role": "Le Nid des dragonnets"
   }
 ]

@@ -15,6 +15,18 @@
       "node": "edda"
     },
     {
+      "requires": [
+        {
+          "quest": "halte-muette",
+          "status": "active"
+        },
+        {
+          "notFlag": "muette-yel"
+        }
+      ],
+      "node": "total"
+    },
+    {
       "node": "accueil"
     }
   ],
@@ -78,6 +90,20 @@
     },
     "nombre": {
       "text": "Yel’Dara ferme les yeux et descend les jours, un par un, jusqu’à celui-là. — Onze. Dix des nôtres, et la ration de l’étrangère. Je le lui ai dit. Elle est restée assise longtemps. Puis elle a demandé l’eau de l’errance.",
+      "options": [
+        {
+          "text": "Merci, Yel’Dara.",
+          "next": "fin"
+        }
+      ]
+    },
+    "total": {
+      "text": "— Le total ? Onze mille quatre cents, dit à l’arrivée au point vingt-quatre. Il est faux : il manque deux jours. Ça, personne ne l’oublie. C’est même tout ce qu’on retient, quand on oublie le reste.",
+      "effects": [
+        {
+          "setFlag": "muette-yel"
+        }
+      ],
       "options": [
         {
           "text": "Merci, Yel’Dara.",

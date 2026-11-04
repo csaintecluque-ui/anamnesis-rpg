@@ -289,3 +289,46 @@ describe('« Ce qui n’a plus lieu »', () => {
     expect(optionTexts(state, 'piste-retour', 'rattraper')).toContain('Écouter le grondement de Longue-Ombre.');
   });
 });
+
+describe('les haltes de Thryn’vek, et la halte muette', () => {
+  const game = (): GameState => {
+    const state = createNewGame(testCharacter());
+    state.quests['plus-lieu'] = 'done';
+    return state;
+  };
+
+  it('un épisode par soir chez Ish’Lenne, trois soirs ; au troisième, la septième halte se tait', () => {
+    const state = game();
+    state.time.phase = 2;
+    expect(talk(state, 'ish-lenne')).toBe('thryn-1a');
+    expect(talk(state, 'ish-lenne')).toBe('thryn-demain');
+    state.time.day += 1;
+    delete state.flags['thryn-soir'];
+    expect(talk(state, 'ish-lenne')).toBe('thryn-2a');
+    state.time.day += 1;
+    delete state.flags['thryn-soir'];
+    expect(talk(state, 'ish-lenne')).toBe('thryn-3a');
+    expect(state.quests['halte-muette']).toBe('active');
+    expect(talk(state, 'ish-lenne')).toBe('thryn-3-attend');
+    // Le jour, elle ne dit pas les haltes.
+    state.time.phase = 1;
+    expect(talk(state, 'ish-lenne')).toBe('accueil');
+  });
+
+  it('les nombres, de bouche en bouche : Kéo’Sa, Saal’Ema, Yel’Dara ; rendus un soir, la halte reparle, et le Récit « Thryn’vek »', () => {
+    const state = game();
+    for (const f of ['thryn-1', 'thryn-2', 'muette-commencee']) state.flags[f] = true;
+    state.quests['halte-muette'] = 'active';
+    expect(talk(state, 'keo-sa')).toBe('nombres');
+    expect(talk(state, 'saal-ema')).toBe('nombres');
+    expect(talk(state, 'yel-dara')).toBe('total');
+    state.time.phase = 2;
+    expect(talk(state, 'ish-lenne')).toBe('thryn-3-rendu');
+    expect(state.quests['halte-muette']).toBe('done');
+    choose(state, 'ish-lenne', 'thryn-3-rendu', 'Et ensuite');
+    choose(state, 'ish-lenne', 'thryn-3b', 'Et ensuite');
+    expect(state.character!.recits).toContain('thryn-vek');
+    // Les deux nombres tus ne sont dits nulle part.
+    expect(JSON.stringify(DIALOGUES['ish-lenne'])).not.toMatch(/trentième, \d|trente et unième, \d/i);
+  });
+});

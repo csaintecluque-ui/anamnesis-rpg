@@ -2506,6 +2506,18 @@ _Effet : retient « doucenet-ferme » pour 1 jours._
 
 - « Partir. » → **fin**
 
+## Un dragonnet
+
+_Le Nid des dragonnets_
+
+Commence par : « dragonnet »
+
+### dragonnet
+
+> Un dragonnet rouge, la taille d’un chien, roulé en boule dans le sable du Nid. Il ne lève pas la tête. Ses écailles sont ternes, et sa gamelle est pleine.
+
+- « Le laisser tranquille. » → **fin**
+
 ## L’échelle de corde
 
 _Sous les nuages_
@@ -5115,7 +5127,7 @@ Commence par : « oubli » _(si repère « aio-oublie »)_, sinon « accueil »
 
 _Conteuse de la Tente des Mille Pas_
 
-Commence par : « merci » _(si repère « episode-dit »)_ _(sans repère « ish-merci »)_, sinon « caisse » _(si quête « Ce qui n’a plus lieu » en cours)_ _(sans repère « ish-mots »)_, sinon « caisse-debut » _(si quête « Ce que la mer rend » terminée)_ _(si quête « Ce qui n’a plus lieu » pas commencée)_, sinon « accueil »
+Commence par : « merci » _(si repère « episode-dit »)_ _(sans repère « ish-merci »)_, sinon « caisse » _(si quête « Ce qui n’a plus lieu » en cours)_ _(sans repère « ish-mots »)_, sinon « caisse-debut » _(si quête « Ce que la mer rend » terminée)_ _(si quête « Ce qui n’a plus lieu » pas commencée)_, sinon « thryn-demain » _(le soir)_ _(si repère « thryn-soir »)_, sinon « thryn-1a » _(le soir)_ _(sans repère « thryn-1 »)_, sinon « thryn-2a » _(le soir)_ _(si repère « thryn-1 »)_ _(sans repère « thryn-2 »)_, sinon « thryn-3-rendu » _(le soir)_ _(si repère « thryn-2 »)_ _(sans repère « thryn-3 »)_ _(si repère « muette-keo »)_ _(si repère « muette-saal »)_ _(si repère « muette-yel »)_, sinon « thryn-3a » _(le soir)_ _(si repère « thryn-2 »)_ _(sans repère « thryn-3 »)_ _(sans repère « muette-commencee »)_, sinon « thryn-3-attend » _(le soir)_ _(si repère « muette-commencee »)_ _(sans repère « thryn-3 »)_, sinon « accueil »
 
 ### accueil
 
@@ -5186,6 +5198,94 @@ _Effet : retient « ish-merci »._
 > Ish’Lenne te regarde entrer, et pose sa main à plat sur ton bras. — Tu l’as dit là-bas. Je l’ai senti, je crois. Ou j’ai voulu le sentir. Ça revient au même, à mon âge.
 
 - « Il a de nouveau lieu. » → accueil
+
+### thryn-demain
+
+> — Une halte par soir, l’étranger. Demain, la Marche sera plus loin, et l’épisode aussi. Reviens demain soir.
+
+- « À demain soir. » → **fin**
+
+### thryn-1a
+
+_Effet : retient « thryn-1 », retient « thryn-soir » pour 1 jours._
+
+> — Tu tombes bien : cette saison, la Marche-Mère passe sur Thryn’vek, neuf haltes, et aucune n’est morte. Ce soir, la première. — Elle ferme les yeux. — Thryn’vek était le meilleur puits du cercle. Au sixième mois de 2148, il rendait onze litres l’heure.
+
+- « Et ensuite ? » → thryn-1b
+
+### thryn-1b
+
+> — Il n’y avait pas eu de signe. Huit cent mille personnes, douze Léviathans, et onze litres l’heure. Les guides sont partis le soir même, sur des scorpions de course, dans quatre directions. Ils sont revenus en neuf jours.
+
+- « Et ensuite ? » → thryn-1c
+
+### thryn-1c
+
+> — En arrière, c’était la mort en quatre mois. Tout droit, huit sur dix. Par le sud, quarante et un jours, sur ce que quelqu’un avait entendu dire. Et une Gardienne qui pouvait tout arrêter d’un mot. — Elle rouvre les yeux. — Demain soir, la suite.
+
+- « Demain soir. » → **fin**
+
+### thryn-2a
+
+_Effet : retient « thryn-2 », retient « thryn-soir » pour 1 jours._
+
+> — Ce soir, la quatrième halte. Neth’Sara avait quarante-sept ans. Elle n’était ni sage, ni aimée, ni liée à un dragon. Elle versait bien, elle comptait juste. Et chaque matin, elle savait combien ne venaient plus.
+
+- « Et ensuite ? » → thryn-2b
+
+### thryn-2b
+
+> — La Marche est partie par le sud. Personne n’a décidé : une Marche qui a fini d’attendre part. Neth’Sara était en tête de la distribution, avec son mot. Elle ne l’a pas dit. Elle a eu raison, et elle a passé trente et un ans là-dessus.
+
+- « Et ensuite ? » → thryn-2c
+
+### thryn-2c
+
+> — Au troisième matin, elle a dit le nombre à voix haute. Les morts de la nuit. Personne n’avait le droit de la faire taire. Il a traversé la Marche en une heure et demie. Puis tous les matins. — Demain soir, la Sèche.
+
+- « Demain soir. » → **fin**
+
+### thryn-3a
+
+_Effet : lance la quête « La halte muette », retient « muette-commencee »._
+
+> — Ce soir, la septième halte : la Sèche. On met un pas entre chaque nombre. Le troisième jour, quatre. Le neuvième, quarante et — Ish’Lenne s’arrête. Ses lèvres bougent. Rien ne vient. Autour du feu, plus personne ne respire.
+
+- « Ish’Lenne ? » → thryn-muette
+
+### thryn-muette
+
+> — Je les ai dits quarante ans. Ils ne viennent plus. — Elle regarde ses mains. — Une halte ne meurt que par l’eau, d’habitude. Les nombres, on les apprend aux enfants à sept ans. Ils sont encore quelque part, dans d’autres bouches.
+
+- « Je vais les chercher. » → **fin**
+
+### thryn-3-attend
+
+> Ish’Lenne est assise devant le feu éteint, les mains ouvertes. — Les nombres. Tant qu’ils ne sont pas revenus, la septième halte se tait. Elle n’a jamais attendu personne, avant toi.
+
+- « Je les cherche encore. » → **fin**
+
+### thryn-3-rendu
+
+_Effet : retient « thryn-3 », retient « thryn-soir » pour 1 jours, termine la quête « La halte muette », +50 XP._
+
+> Tu lui dis ce que la chaîne t’a rendu, un nombre après l’autre, avec un pas entre chacun, et deux pas sans rien aux deux jours vides. Elle répète avec toi. Au troisième nombre, sa voix reprend la tienne, et ne la lâche plus.
+
+- « Et ensuite ? » → thryn-3b
+
+### thryn-3b
+
+> — Le soir du vingt-neuvième, Orr’Dahn est venu lui demander de se taire deux matins, pour voir si la Marche marcherait mieux. Elle s’est tue. Deux nombres ne sont pas passés dans une autre tête. Ils n’existent plus.
+
+- « Et ensuite ? » → thryn-3c
+
+### thryn-3c
+
+_Effet : retient le Récit « Thryn’vek »._
+
+> — Au point vingt-quatre, elle a obtenu que le compte ait deux têtes : une qui verse, une qui entend. Son motif tient en six mots. « Pour qu’on ne puisse plus demander. » — Ish’Lenne te regarde. — Tu l’as entendu à sa place. Il est à toi, maintenant.
+
+- « Merci, Ish’Lenne. » → **fin**
 
 ## Un jalon
 
@@ -5723,6 +5823,33 @@ _Si Boulon voyage avec toi :_ Boulon, très bas : — Gants fins, Fers neufs. Je
 > — Ta clé, oui. Celle que tu m’as vendue. Kaelis sourit, sans méchanceté. — Toute relique a un prix. Le tien, tu l’as touché il y a longtemps.
 
 - « Partir. » → **fin** _(lance la quête « Sous la cendre », retient « caisse-ferros-prise », +10 XP, termine la quête « Sous la cendre », retient « fin-caisse-cendriere-prise »)_
+
+## Kéo’Sa
+
+_Neuf ans, apprend à parler aux dragonnets_
+
+Commence par : « nombres » _(si quête « La halte muette » en cours)_ _(sans repère « muette-keo »)_, sinon « accueil »
+
+### accueil
+
+> Une fillette de neuf ans, une écaille rouge au cou, accroupie devant un dragonnet qui ne la regarde pas. — Chut. Il ne mange plus depuis que son Lien est mort. Moi, je lui parle quand même. On n’a pas le droit de se lier avant quinze ans. Lui, il ne le sait pas.
+
+- « Comment tu lui parles ? » → parler
+- « Je te laisse. » → **fin**
+
+### parler
+
+> — Pas avec la bouche. Avec le ventre. Grand-mère Saal’Ema dit que c’est pareil avec Longue-Ombre, en plus gros. Quand il a mal, j’ai mal ici. — Elle montre sous ses côtes.
+
+- « Je te laisse. » → **fin**
+
+### nombres
+
+_Effet : retient « muette-keo »._
+
+> — Les dix jours ? On les apprend à sept ans ! Avec un pas entre chacun. — Elle se lève, et marche. — Troisième, quatre. Neuvième, quarante et un. Dix-septième, deux cent six. Vingt-quatrième, six cent dix-neuf. — Elle s’arrête. — Après, je me trompe toujours.
+
+- « C’est déjà beaucoup. Merci. » → **fin**
 
 ## Kerta Orvel
 
@@ -8473,7 +8600,7 @@ _Effet : retient « ruban-noue », +5 XP._
 
 _Doyenne de son clan_
 
-Commence par : « accueil »
+Commence par : « nombres » _(si quête « La halte muette » en cours)_ _(sans repère « muette-saal »)_, sinon « accueil »
 
 ### accueil
 
@@ -8496,6 +8623,14 @@ Commence par : « accueil »
 
 - « Parle-moi de Longue-Ombre. » → bete
 - « Je te laisse. » → **fin**
+
+### nombres
+
+_Effet : retient « muette-saal »._
+
+> Saal’Ema ferme les yeux. — La fin, je l’ai, la petite a le début. Vingt-neuvième, neuf cent huit. Puis deux pas sans rien. Trente-deuxième, mille quarante-quatre, le plus haut. Trente-huitième, trois cent douze. Quarante et unième, vingt-six.
+
+- « Merci, Saal’Ema. » → **fin**
 
 ## La sacoche des Nacelliers
 
@@ -10691,7 +10826,7 @@ Commence par : « merci » _(si repère « rencontre-voyageur-aide »)_, sinon �
 
 _La seconde tête du compte_
 
-Commence par : « edda » _(si quête « Ce qui n’a plus lieu » en cours)_ _(sans repère « yel-edda »)_, sinon « accueil »
+Commence par : « edda » _(si quête « Ce qui n’a plus lieu » en cours)_ _(sans repère « yel-edda »)_, sinon « total » _(si quête « La halte muette » en cours)_ _(sans repère « muette-yel »)_, sinon « accueil »
 
 ### accueil
 
@@ -10726,6 +10861,14 @@ _Effet : retient « yel-edda »._
 ### nombre
 
 > Yel’Dara ferme les yeux et descend les jours, un par un, jusqu’à celui-là. — Onze. Dix des nôtres, et la ration de l’étrangère. Je le lui ai dit. Elle est restée assise longtemps. Puis elle a demandé l’eau de l’errance.
+
+- « Merci, Yel’Dara. » → **fin**
+
+### total
+
+_Effet : retient « muette-yel »._
+
+> — Le total ? Onze mille quatre cents, dit à l’arrivée au point vingt-quatre. Il est faux : il manque deux jours. Ça, personne ne l’oublie. C’est même tout ce qu’on retient, quand on oublie le reste.
 
 - « Merci, Yel’Dara. » → **fin**
 

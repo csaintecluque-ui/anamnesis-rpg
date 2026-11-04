@@ -1948,7 +1948,7 @@ Object.assign(INTERIORS, {
     furniture: [[2, 1, 'jalon'], [4, 1, 'jalon'], [6, 1, 'jalon'], [1, 4, 'pilier-cristal']],
     objects: [['marcheuse-souffle', 'pnj', 4, 3]],
   }),
-  'marche-nid': interior('marche-nid', { floor: 'sable', wall: 'mur-toile', w: 8, h: 6, outside: 'marche-coeur', furniture: [[1, 1, 'ballots'], [7, 1, 'citerne']], objects: [] }),
+  'marche-nid': interior('marche-nid', { floor: 'sable', wall: 'mur-toile', w: 8, h: 6, outside: 'marche-coeur', furniture: [[1, 1, 'ballots'], [7, 1, 'citerne']], objects: [['keo-sa', 'pnj', 3, 3], ['dragonnet', 'pnj', 5, 2]] }),
   'marche-saal-ema': interior('marche-saal-ema', { ...TENT_ROOM, outside: 'marche-longue-ombre', furniture: [[1, 1, 'lit'], [6, 1, 'ballots'], [4, 3, 'table']], objects: [['saal-ema', 'pnj', 3, 2]] }),
 });
 

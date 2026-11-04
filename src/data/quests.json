@@ -816,5 +816,28 @@
         "titre": "La caisse laissée à la dame en gris"
       }
     ]
+  },
+  {
+    "id": "halte-muette",
+    "name": "La halte muette",
+    "summary": "Un soir, à la septième halte de Thryn’vek, Ish’Lenne s’est arrêtée au milieu de l’épisode : les nombres ne venaient plus. En vingt-neuf siècles, une halte n’était jamais morte autrement que par l’eau.",
+    "etapes": [
+      {
+        "si": "muette-commencee",
+        "texte": "Les nombres de la Sèche se disent de bouche en bouche : on les apprend aux enfants à sept ans. Les retrouver chez ceux qui les portent encore, et les rendre à Ish’Lenne, un soir."
+      },
+      {
+        "si": "muette-keo",
+        "texte": "Kéo’Sa, au Nid des dragonnets, m’a dit les premiers jours, jusqu’au vingt-quatrième."
+      },
+      {
+        "si": "muette-saal",
+        "texte": "Saal’Ema, sur Longue-Ombre, m’a dit les derniers, et les deux jours vides."
+      },
+      {
+        "si": "muette-yel",
+        "texte": "Yel’Dara m’a dit le total, et ce qui lui manque."
+      }
+    ]
   }
 ]

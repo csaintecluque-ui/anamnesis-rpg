@@ -194,6 +194,8 @@ import pilleursDesert from './pilleurs-desert.json';
 import pisteRetour from './piste-retour.json';
 import caisseCommunion from './caisse-communion.json';
 import eddaMarche from './edda-marche.json';
+import keoSa from './keo-sa.json';
+import dragonnet from './dragonnet.json';
 
 /** Dialogue files by object name (PNJ, Écho or object) of the maps. */
 export const DIALOGUES: Record<string, Dialogue> = {
@@ -400,6 +402,9 @@ export const DIALOGUES: Record<string, Dialogue> = {
   'piste-retour': pisteRetour as Dialogue,
   'caisse-communion': caisseCommunion as Dialogue,
   'edda-marche': eddaMarche as Dialogue,
+  // La Marche-Mère : le Nid des dragonnets
+  'keo-sa': keoSa as Dialogue,
+  dragonnet: dragonnet as Dialogue,
   // Le Livre des Échos (docs/gdd/echos.md) : one dialogue per Écho, built from src/data/echos.json.
   ...echoDialogues(),
 };

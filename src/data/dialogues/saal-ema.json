@@ -3,6 +3,18 @@
   "speaker": "saal-ema",
   "entries": [
     {
+      "requires": [
+        {
+          "quest": "halte-muette",
+          "status": "active"
+        },
+        {
+          "notFlag": "muette-saal"
+        }
+      ],
+      "node": "nombres"
+    },
+    {
       "node": "accueil"
     }
   ],
@@ -46,6 +58,20 @@
         },
         {
           "text": "Je te laisse.",
+          "next": "fin"
+        }
+      ]
+    },
+    "nombres": {
+      "text": "Saal’Ema ferme les yeux. — La fin, je l’ai, la petite a le début. Vingt-neuvième, neuf cent huit. Puis deux pas sans rien. Trente-deuxième, mille quarante-quatre, le plus haut. Trente-huitième, trois cent douze. Quarante et unième, vingt-six.",
+      "effects": [
+        {
+          "setFlag": "muette-saal"
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Saal’Ema.",
           "next": "fin"
         }
       ]

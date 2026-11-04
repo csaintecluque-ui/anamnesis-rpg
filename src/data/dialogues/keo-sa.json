@@ -1,0 +1,59 @@
+{
+  "id": "keo-sa",
+  "speaker": "keo-sa",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "halte-muette",
+          "status": "active"
+        },
+        {
+          "notFlag": "muette-keo"
+        }
+      ],
+      "node": "nombres"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Une fillette de neuf ans, une écaille rouge au cou, accroupie devant un dragonnet qui ne la regarde pas. — Chut. Il ne mange plus depuis que son Lien est mort. Moi, je lui parle quand même. On n’a pas le droit de se lier avant quinze ans. Lui, il ne le sait pas.",
+      "options": [
+        {
+          "text": "Comment tu lui parles ?",
+          "next": "parler"
+        },
+        {
+          "text": "Je te laisse.",
+          "next": "fin"
+        }
+      ]
+    },
+    "parler": {
+      "text": "— Pas avec la bouche. Avec le ventre. Grand-mère Saal’Ema dit que c’est pareil avec Longue-Ombre, en plus gros. Quand il a mal, j’ai mal ici. — Elle montre sous ses côtes.",
+      "options": [
+        {
+          "text": "Je te laisse.",
+          "next": "fin"
+        }
+      ]
+    },
+    "nombres": {
+      "text": "— Les dix jours ? On les apprend à sept ans ! Avec un pas entre chacun. — Elle se lève, et marche. — Troisième, quatre. Neuvième, quarante et un. Dix-septième, deux cent six. Vingt-quatrième, six cent dix-neuf. — Elle s’arrête. — Après, je me trompe toujours.",
+      "effects": [
+        {
+          "setFlag": "muette-keo"
+        }
+      ],
+      "options": [
+        {
+          "text": "C’est déjà beaucoup. Merci.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

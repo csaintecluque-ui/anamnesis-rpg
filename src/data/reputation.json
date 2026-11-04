@@ -529,6 +529,10 @@
     {
       "flag": "coffre-surpris",
       "points": -5
+    },
+    {
+      "quest": "halte-muette",
+      "points": 10
     }
   ]
 }

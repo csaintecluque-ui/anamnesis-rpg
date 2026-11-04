@@ -211,5 +211,14 @@
       "chansons",
       "mysteres"
     ]
+  },
+  {
+    "id": "thryn-vek",
+    "titre": "Thryn’vek",
+    "texte": "En 2148, le meilleur puits du cercle de la Marche-Mère a séché sans prévenir. La Marche a pris par le sud : quarante et un jours, la Sèche. Neth’Sara, la Gardienne de l’Eau, pouvait l’arrêter d’un mot ; elle ne l’a pas dit. Elle a dit autre chose, chaque matin, à voix haute : combien étaient morts la nuit. Deux matins, on lui a demandé de se taire. Ces deux nombres-là n’existent plus.",
+    "themes": [
+      "morts",
+      "familles"
+    ]
   }
 ]

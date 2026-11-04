@@ -39,6 +39,96 @@
       "node": "caisse-debut"
     },
     {
+      "requires": [
+        {
+          "moment": "soir"
+        },
+        {
+          "flag": "thryn-soir"
+        }
+      ],
+      "node": "thryn-demain"
+    },
+    {
+      "requires": [
+        {
+          "moment": "soir"
+        },
+        {
+          "notFlag": "thryn-1"
+        }
+      ],
+      "node": "thryn-1a"
+    },
+    {
+      "requires": [
+        {
+          "moment": "soir"
+        },
+        {
+          "flag": "thryn-1"
+        },
+        {
+          "notFlag": "thryn-2"
+        }
+      ],
+      "node": "thryn-2a"
+    },
+    {
+      "requires": [
+        {
+          "moment": "soir"
+        },
+        {
+          "flag": "thryn-2"
+        },
+        {
+          "notFlag": "thryn-3"
+        },
+        {
+          "flag": "muette-keo"
+        },
+        {
+          "flag": "muette-saal"
+        },
+        {
+          "flag": "muette-yel"
+        }
+      ],
+      "node": "thryn-3-rendu"
+    },
+    {
+      "requires": [
+        {
+          "moment": "soir"
+        },
+        {
+          "flag": "thryn-2"
+        },
+        {
+          "notFlag": "thryn-3"
+        },
+        {
+          "notFlag": "muette-commencee"
+        }
+      ],
+      "node": "thryn-3a"
+    },
+    {
+      "requires": [
+        {
+          "moment": "soir"
+        },
+        {
+          "flag": "muette-commencee"
+        },
+        {
+          "notFlag": "thryn-3"
+        }
+      ],
+      "node": "thryn-3-attend"
+    },
+    {
       "node": "accueil"
     }
   ],
@@ -199,6 +289,169 @@
         {
           "text": "Il a de nouveau lieu.",
           "next": "accueil"
+        }
+      ]
+    },
+    "thryn-demain": {
+      "text": "— Une halte par soir, l’étranger. Demain, la Marche sera plus loin, et l’épisode aussi. Reviens demain soir.",
+      "options": [
+        {
+          "text": "À demain soir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "thryn-1a": {
+      "text": "— Tu tombes bien : cette saison, la Marche-Mère passe sur Thryn’vek, neuf haltes, et aucune n’est morte. Ce soir, la première. — Elle ferme les yeux. — Thryn’vek était le meilleur puits du cercle. Au sixième mois de 2148, il rendait onze litres l’heure.",
+      "effects": [
+        {
+          "setFlag": "thryn-1"
+        },
+        {
+          "setFlagFor": "thryn-soir",
+          "days": 1
+        }
+      ],
+      "options": [
+        {
+          "text": "Et ensuite ?",
+          "next": "thryn-1b"
+        }
+      ]
+    },
+    "thryn-1b": {
+      "text": "— Il n’y avait pas eu de signe. Huit cent mille personnes, douze Léviathans, et onze litres l’heure. Les guides sont partis le soir même, sur des scorpions de course, dans quatre directions. Ils sont revenus en neuf jours.",
+      "options": [
+        {
+          "text": "Et ensuite ?",
+          "next": "thryn-1c"
+        }
+      ]
+    },
+    "thryn-1c": {
+      "text": "— En arrière, c’était la mort en quatre mois. Tout droit, huit sur dix. Par le sud, quarante et un jours, sur ce que quelqu’un avait entendu dire. Et une Gardienne qui pouvait tout arrêter d’un mot. — Elle rouvre les yeux. — Demain soir, la suite.",
+      "options": [
+        {
+          "text": "Demain soir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "thryn-2a": {
+      "text": "— Ce soir, la quatrième halte. Neth’Sara avait quarante-sept ans. Elle n’était ni sage, ni aimée, ni liée à un dragon. Elle versait bien, elle comptait juste. Et chaque matin, elle savait combien ne venaient plus.",
+      "effects": [
+        {
+          "setFlag": "thryn-2"
+        },
+        {
+          "setFlagFor": "thryn-soir",
+          "days": 1
+        }
+      ],
+      "options": [
+        {
+          "text": "Et ensuite ?",
+          "next": "thryn-2b"
+        }
+      ]
+    },
+    "thryn-2b": {
+      "text": "— La Marche est partie par le sud. Personne n’a décidé : une Marche qui a fini d’attendre part. Neth’Sara était en tête de la distribution, avec son mot. Elle ne l’a pas dit. Elle a eu raison, et elle a passé trente et un ans là-dessus.",
+      "options": [
+        {
+          "text": "Et ensuite ?",
+          "next": "thryn-2c"
+        }
+      ]
+    },
+    "thryn-2c": {
+      "text": "— Au troisième matin, elle a dit le nombre à voix haute. Les morts de la nuit. Personne n’avait le droit de la faire taire. Il a traversé la Marche en une heure et demie. Puis tous les matins. — Demain soir, la Sèche.",
+      "options": [
+        {
+          "text": "Demain soir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "thryn-3a": {
+      "text": "— Ce soir, la septième halte : la Sèche. On met un pas entre chaque nombre. Le troisième jour, quatre. Le neuvième, quarante et — Ish’Lenne s’arrête. Ses lèvres bougent. Rien ne vient. Autour du feu, plus personne ne respire.",
+      "effects": [
+        {
+          "startQuest": "halte-muette"
+        },
+        {
+          "setFlag": "muette-commencee"
+        }
+      ],
+      "options": [
+        {
+          "text": "Ish’Lenne ?",
+          "next": "thryn-muette"
+        }
+      ]
+    },
+    "thryn-muette": {
+      "text": "— Je les ai dits quarante ans. Ils ne viennent plus. — Elle regarde ses mains. — Une halte ne meurt que par l’eau, d’habitude. Les nombres, on les apprend aux enfants à sept ans. Ils sont encore quelque part, dans d’autres bouches.",
+      "options": [
+        {
+          "text": "Je vais les chercher.",
+          "next": "fin"
+        }
+      ]
+    },
+    "thryn-3-attend": {
+      "text": "Ish’Lenne est assise devant le feu éteint, les mains ouvertes. — Les nombres. Tant qu’ils ne sont pas revenus, la septième halte se tait. Elle n’a jamais attendu personne, avant toi.",
+      "options": [
+        {
+          "text": "Je les cherche encore.",
+          "next": "fin"
+        }
+      ]
+    },
+    "thryn-3-rendu": {
+      "text": "Tu lui dis ce que la chaîne t’a rendu, un nombre après l’autre, avec un pas entre chacun, et deux pas sans rien aux deux jours vides. Elle répète avec toi. Au troisième nombre, sa voix reprend la tienne, et ne la lâche plus.",
+      "effects": [
+        {
+          "setFlag": "thryn-3"
+        },
+        {
+          "setFlagFor": "thryn-soir",
+          "days": 1
+        },
+        {
+          "completeQuest": "halte-muette"
+        },
+        {
+          "giveXp": 50
+        }
+      ],
+      "options": [
+        {
+          "text": "Et ensuite ?",
+          "next": "thryn-3b"
+        }
+      ]
+    },
+    "thryn-3b": {
+      "text": "— Le soir du vingt-neuvième, Orr’Dahn est venu lui demander de se taire deux matins, pour voir si la Marche marcherait mieux. Elle s’est tue. Deux nombres ne sont pas passés dans une autre tête. Ils n’existent plus.",
+      "options": [
+        {
+          "text": "Et ensuite ?",
+          "next": "thryn-3c"
+        }
+      ]
+    },
+    "thryn-3c": {
+      "text": "— Au point vingt-quatre, elle a obtenu que le compte ait deux têtes : une qui verse, une qui entend. Son motif tient en six mots. « Pour qu’on ne puisse plus demander. » — Ish’Lenne te regarde. — Tu l’as entendu à sa place. Il est à toi, maintenant.",
+      "effects": [
+        {
+          "learnRecit": "thryn-vek"
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Ish’Lenne.",
+          "next": "fin"
         }
       ]
     }

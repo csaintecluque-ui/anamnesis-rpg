@@ -225,6 +225,13 @@ En ligne le 2026-11-03 (tes textes du 3 novembre) :
       Espace, Entrée, I, J, C, Échap et les touches du combat restent.
 - Remarques :
 
+## Étude du 3 novembre, vague 3, bloc A : la carte et ses repères (sur la branche)
+
+- [ ] **La mini-carte**, en bas à droite : le lieu entier, les sorties, les habitants (cuivre), les ennemis (rouge),
+      toi (point clair) et le cadre de la vue. Clique dessus : la vue y va ; « Recentrer (C) » la ramène. **M** la
+      masque ou l'affiche (aussi dans les Options). Lisible ? Trop petite ? Elle cache quelque chose d'utile ?
+- Remarques :
+
 ## Déjà en ligne, pas encore essayé sur PC
 
 - [ ] **Chapitre 4, Sept-Portes** sans le mode surpuissant : l'arrivée par la Porte du sud, le Registre, l'une des trois

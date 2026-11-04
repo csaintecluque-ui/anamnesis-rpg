@@ -40,6 +40,7 @@ import type { WorldMapStartData } from './WorldMapScene';
 import { momentOf, type Moment } from '../rules/time';
 import { findPlace } from '../rules/world';
 import { playSfx, playStep } from '../audio/sfx';
+import { MINI_MAP_SOURCE, type MiniMapSource, type MiniMarker } from '../ui/miniMap';
 
 /** Top of the drawn part of each obstacle frame (`texture:frame`), measured once for the whole game. */
 const DRAWN_TOPS = new Map<string, number>();
@@ -261,7 +262,9 @@ export class MapScene extends Phaser.Scene {
     onKeys(this, ['ESC'], () => this.hud().openOverlay('Pause'));
     onKeys(this, ['I'], () => this.hud().openOverlay('Trade', {}));
     onKeys(this, ['J'], () => this.hud().openOverlay('Journal'));
+    onKeys(this, ['M'], () => this.hud().toggleMiniMap());
 
+    this.registry.set(MINI_MAP_SOURCE, this.miniMapSource());
     this.scene.launch('Hud', { locationName: level?.title ?? location.name });
     if (level) {
       const light = carriesLamp(state) ? 'Ta lampe à cristal éclaire le passage : tu verras les pièges à deux pas.' : 'Il fait sombre : une lampe à cristal te montrerait les pièges.';
@@ -1007,6 +1010,37 @@ export class MapScene extends Phaser.Scene {
       ],
       true,
     );
+  }
+
+  /** What the HUD's small map shows of this place (étude A7, src/ui/miniMap.ts). */
+  private miniMapSource(): MiniMapSource {
+    const fromCellZero = (x: number, y: number) => ({ x: x - this.originX, y: y - this.originY });
+    return {
+      map: this.map,
+      hero: () => fromCellZero(this.hero.x, this.hero.y - TILE_HEIGHT / 2),
+      markers: () => {
+        const marks: MiniMarker[] = this.map.objects
+          .filter((o) => (o.type === 'sortie' || o.type === 'porte') && !this.gone(o))
+          .map((o) => ({ col: o.col, row: o.row, kind: 'exit' }));
+        for (const { object, image } of this.interactables) {
+          if (!image.visible || this.gone(object)) continue;
+          const kind = object.type === 'pnj' || object.type === 'golem' ? 'person' : object.type === 'ennemi' ? 'enemy' : object.properties.echo || object.type === 'echo' ? 'echo' : null;
+          if (kind) marks.push({ col: object.col, row: object.row, kind });
+        }
+        return marks;
+      },
+      view: () => {
+        const v = this.cameras.main.worldView;
+        return { ...fromCellZero(v.x, v.y), width: v.width, height: v.height };
+      },
+      lookAt: (tile) => {
+        const c = this.center(tile);
+        this.cameras.main.stopFollow();
+        this.cameras.main.centerOn(c.x, c.y);
+        this.following = false;
+        if (this.scene.isActive('Hud')) this.hud().showRecenter(() => this.recenter());
+      },
+    };
   }
 
   // --- Interactions ------------------------------------------------------

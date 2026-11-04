@@ -5,6 +5,8 @@ export interface Settings {
   textSize: TextSize;
   /** Hidden testing tools in the pause menu (docs/gdd/interface.md, « Mode test »). */
   testMode: boolean;
+  /** The place's small map in the corner (étude du 2026-11-03, A7): M, or the options. */
+  miniMap: boolean;
 }
 
 export type TextSize = 'normale' | 'grande';
@@ -14,7 +16,7 @@ export const TEXT_SIZES: { id: TextSize; label: string; scale: number }[] = [
   { id: 'grande', label: 'Grande', scale: 1.15 },
 ];
 
-export const DEFAULT_SETTINGS: Settings = { volume: 80, textSize: 'normale', testMode: false };
+export const DEFAULT_SETTINGS: Settings = { volume: 80, textSize: 'normale', testMode: false, miniMap: true };
 const KEY = 'anamnesis.settings';
 
 export function parseSettings(raw: string | null): Settings {
@@ -23,7 +25,7 @@ export function parseSettings(raw: string | null): Settings {
     const value = JSON.parse(raw) as Partial<Settings>;
     const volume = Number.isInteger(value.volume) ? Math.min(100, Math.max(0, value.volume as number)) : DEFAULT_SETTINGS.volume;
     const textSize = TEXT_SIZES.some((t) => t.id === value.textSize) ? (value.textSize as TextSize) : DEFAULT_SETTINGS.textSize;
-    return { volume, textSize, testMode: value.testMode === true };
+    return { volume, textSize, testMode: value.testMode === true, miniMap: value.miniMap !== false };
   } catch {
     return { ...DEFAULT_SETTINGS };
   }

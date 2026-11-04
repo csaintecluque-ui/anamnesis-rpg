@@ -1,7 +1,6 @@
 import Phaser from 'phaser';
 import { hasPendingLevelUp } from '../rules/leveling';
 import { characterStats, donDue } from '../rules/character';
-import { fontPx } from '../settings';
 import type { GameState } from '../state/gameState';
 import { addTextButton } from '../ui/button';
 import { withKeyHint } from '../ui/keys';
@@ -12,12 +11,16 @@ import { resonanceMax, wornCrystal } from '../rules/magic';
 import { Tooltip } from '../ui/tooltip';
 import { xpForLevel } from '../rules/leveling';
 import { findCompanion } from '../rules/companions';
+import { fontPx, getSettings, saveSettings } from '../settings';
+import { MINI_MAP_SOURCE, MiniMap, type MiniMapSource } from '../ui/miniMap';
 
 const TOAST_MS = 4000;
 /** Registry key: a word to show on the map once it is (re)built, from a screen that sent the hero there. */
 export const PENDING_NOTICE = 'pendingNotice';
 /** Free band between the Menu button (left) and the Journal and Inventaire buttons (right). */
 const HEADER_MAX_WIDTH = HAS_MOUSE ? 600 : 470;
+/** The place's small map, bottom right (étude du 2026-11-03, A7). */
+const MINI_MAP = HAS_MOUSE ? { width: 232, height: 128 } : { width: 260, height: 144 };
 /** Longest hero name shown in the status line before it is shortened. */
 const NAME_MAX = HAS_MOUSE ? 20 : 12;
 
@@ -45,6 +48,7 @@ export class HudScene extends Phaser.Scene {
   private bars!: Phaser.GameObjects.Graphics;
   private barLabels: Phaser.GameObjects.Text[] = [];
   private barsKey = '';
+  private miniMap?: MiniMap;
 
   constructor() {
     super('Hud');
@@ -120,6 +124,25 @@ export class HudScene extends Phaser.Scene {
       ...button,
       width: 220,
     }).container.setVisible(false);
+
+    const source = this.registry.get(MINI_MAP_SOURCE) as MiniMapSource | undefined;
+    this.miniMap = source
+      ? new MiniMap(
+          this,
+          source,
+          { x: GAME_WIDTH - L.margin - MINI_MAP.width, y: GAME_HEIGHT - L.margin - MINI_MAP.height, ...MINI_MAP },
+          (inside, x, y) => this.tip(inside ? withKeyHint('Mini-carte : un clic y porte la vue', 'M pour la masquer') : null, x, y),
+        )
+      : undefined;
+    this.miniMap?.setVisible(getSettings().miniMap);
+  }
+
+  /** M: shows or hides the small map, remembered on this device. */
+  toggleMiniMap(): void {
+    const miniMap = !getSettings().miniMap;
+    saveSettings({ ...getSettings(), miniMap });
+    this.miniMap?.setVisible(miniMap);
+    if (!miniMap) this.tip(null);
   }
 
   /** Shows « Recentrer » with what it does, or hides it (null). */
@@ -137,6 +160,9 @@ export class HudScene extends Phaser.Scene {
     this.levelUpButton.setVisible(hasPendingLevelUp(this.state.character!) || donDue(this.state.character!));
     this.refreshStatus();
     this.refreshBars();
+    // The options (opened from the pause menu) may have shown or hidden it.
+    if (this.miniMap && this.miniMap.visible !== getSettings().miniMap) this.miniMap.setVisible(getSettings().miniMap);
+    this.miniMap?.update();
   }
 
   /**
@@ -199,8 +225,10 @@ export class HudScene extends Phaser.Scene {
   }
 
   toast(message: string): void {
-    this.toastText.setFontSize(fontPx(24)).setText(message).setVisible(true);
-    this.toastBg.setVisible(true).setSize(Math.min(1100, this.toastText.width + 60), this.toastText.height + 30);
+    // Narrower beside the small map, so that the two never overlap.
+    const width = this.miniMap?.visible ? GAME_WIDTH - 2 * (MINI_MAP.width + LAYOUT.margin + 16) : 1100;
+    this.toastText.setFontSize(fontPx(24)).setWordWrapWidth(width - 60).setText(message).setVisible(true);
+    this.toastBg.setVisible(true).setSize(Math.min(width, this.toastText.width + 60), this.toastText.height + 30);
     this.toastTimer?.remove();
     this.toastTimer = this.time.delayedCall(TOAST_MS, () => {
       this.toastText.setVisible(false);

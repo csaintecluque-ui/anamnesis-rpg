@@ -60,7 +60,7 @@ export class OptionsScene extends Phaser.Scene {
         enabled: settings.volume < 100,
       }).container,
     );
-    label(260, 204, 'Le jeu n’a pas encore de sons : le réglage s’appliquera dès leur arrivée.', CSS.muted).setFontSize(18);
+    label(260, 204, 'Les bruitages : les pas, les coups, les dialogues, le train de la Gare.', CSS.muted).setFontSize(18);
 
     // Text size
     label(260, 270, 'Taille du texte');
@@ -87,18 +87,35 @@ export class OptionsScene extends Phaser.Scene {
     );
     label(260, 392, 'S’applique aux dialogues et aux messages du jeu.', CSS.muted).setFontSize(18);
 
+    // The place's small map (étude A7).
+    label(260, 456, 'Mini-carte');
+    [
+      { label: 'Affichée', on: true },
+      { label: 'Masquée', on: false },
+    ].forEach((choice, i) => {
+      this.layer.add(
+        addTextButton(this, 690 + i * 200, 456, choice.label, () => this.applyChange({ miniMap: choice.on }), {
+          width: 180,
+          height: 64,
+          fontSize: 24,
+          selected: settings.miniMap === choice.on,
+        }).container,
+      );
+    });
+    if (SHOW_KEY_HINTS) label(260, 496, 'La touche M l’affiche ou la masque sur la carte.', CSS.muted).setFontSize(18);
+
     // Full screen (PC, Android). Safari on iPhone has no full-screen API: the installed app already fills the screen.
     if (this.scale.fullscreen.available) {
-      label(260, 500, 'Plein écran');
+      label(260, 560, 'Plein écran');
       const on = this.scale.isFullscreen;
       this.layer.add(
-        addTextButton(this, 790, 500, on ? 'Quitter le plein écran' : 'Passer en plein écran', () => this.toggleFullscreen(), {
+        addTextButton(this, 790, 560, on ? 'Quitter le plein écran' : 'Passer en plein écran', () => this.toggleFullscreen(), {
           width: 380,
           height: 64,
           fontSize: 24,
         }).container,
       );
-      if (SHOW_KEY_HINTS) label(260, 540, 'La touche F11 du navigateur fonctionne aussi.', CSS.muted).setFontSize(18);
+      if (SHOW_KEY_HINTS) label(260, 598, 'La touche F11 du navigateur fonctionne aussi.', CSS.muted).setFontSize(18);
     }
   }
 

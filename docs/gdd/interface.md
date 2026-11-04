@@ -202,3 +202,15 @@ ne disait rien, traverser Gardebois prenait 8 s.
   dons et le trait, l'équipement (et son usure), les PV des compagnons.
 - **Les barres du HUD**, en haut à droite sous le bandeau : PV du héros (rouges sous le quart), expérience vers le
   niveau suivant, PV de chaque compagnon.
+
+## Étude du 3 novembre, vague 3 : la mini-carte (A7)
+
+- **La mini-carte** (`src/engine/miniMap.ts` pour le calcul, `src/ui/miniMap.ts` pour le dessin), en bas à droite
+  (232 × 128 sur PC) : tout le lieu en losange, comme la carte ; le sol (vert), les chemins, planchers et le pont
+  (sable), l'eau (bleu), ce qui bloque (vert sombre) ; les **sorties et portes** (losanges clairs), les **habitants**
+  (cuivre), les **ennemis** (rouge), les **Échos** (bleu clair) ; le **héros** (point clair cerclé d'encre) ; le
+  **cadre de la vue**.
+- **Un clic** (ou un glisser) sur elle porte la vue à cet endroit, comme glisser la carte : le héros ne bouge pas,
+  « Recentrer (C) » paraît. Le survol le dit dans l'infobulle.
+- **M** l'affiche ou la masque ; les **Options** aussi (« Mini-carte : Affichée / Masquée »), retenu sur l'appareil.
+  Les messages du bas se font plus étroits quand elle est là, pour ne jamais la couvrir.

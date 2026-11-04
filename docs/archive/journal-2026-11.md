@@ -1121,3 +1121,11 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   pont d'une demi-case. Le pont reprend sa place (ses bouts sur les chemins des deux berges) et les marcheurs montent
   de 12 px sur ses deux cases (héros, compagnons, passants). Un test vérifie les bouts sur la ligne des chemins.
   Vérifié à l'écran. Mis en ligne pour essai.
+- Cyril : « On fait A » (vague 3, bloc A : la carte et ses repères). Sur la branche, un commit par point : **A7** la
+  mini-carte (en bas à droite, le lieu entier, sorties, habitants, ennemis, Échos, le héros et le cadre de la vue ;
+  un clic y porte la vue ; M ou les Options la masquent) ; **D4** les paroles des compagnons viennent seules, une
+  fois, en arrivant ou à la nuit (l'aveu de Liane, la gare et les trois échanges de Boulon) ; **H1** la carte du
+  monde dit jusqu'où chaque voie a été explorée (●●○, butin restant, Écho du terminus) ; **H2** « Attendre qu'ils
+  passent » sur la route (un moment de la journée) ; **B11** « Fins vues : n / N » au journal des trois quêtes
+  principales à plusieurs issues (7, 3, 3), retenues sur l'appareil. H3 (bulles des passants) était déjà fait
+  (3,8 s). 750 tests ; chaque point vérifié dans Chromium. Les Options ne disaient plus vrai sur le son : corrigé.

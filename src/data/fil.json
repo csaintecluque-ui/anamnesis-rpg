@@ -76,6 +76,26 @@
     {
       "flag": "caisse-terminus-prise",
       "texte": "La caisse sans main du Fonds Muet a été prise par en dessous. Quelqu’un avait vendu la ligne."
+    },
+    {
+      "flag": "mer-rend-commencee",
+      "texte": "À Coralia, la mer a rendu une caisse de plomb que la ville lui avait offerte. Les Murmureurs disent : mauvais présage."
+    },
+    {
+      "flag": "oaina-dit",
+      "texte": "La dame en gris avait demandé à la Mère-Abysse : « Rends-moi ce que ma mère a laissé. » L’Abysse donne exactement ce qu’on lui demande."
+    },
+    {
+      "flag": "edda-conque-vue",
+      "texte": "À la Salle des Conques, la mère de la dame en gris a laissé sa voix, il y a trente ans. Elle y parle de six enfants. Pas de sa fille."
+    },
+    {
+      "flag": "caisse-marisol-trouvee",
+      "texte": "La caisse de Marisol : six noms encore, de la même main. Ilan, Naïs, Corin, Sela, Timo, Rhéa."
+    },
+    {
+      "flag": "caisse-marisol-prise",
+      "texte": "La caisse de Marisol est partie, une nuit de marée basse, par la cale que j’avais laissée ouverte."
     }
   ],
   "caisses": [
@@ -104,7 +124,9 @@
     },
     {
       "id": "marisol",
-      "continent": "Marisol"
+      "continent": "Marisol",
+      "trouvee": "caisse-marisol-trouvee",
+      "prise": "caisse-marisol-prise"
     },
     {
       "id": "glacialis",
@@ -135,9 +157,21 @@
       "cible": "sept-portes"
     },
     {
+      "quest": "mer-rend",
+      "status": "done",
+      "texte": "Quatre caisses sur sept ont un sort. La suite du fil attend que les villes de Glacialis et de la Communion s’ouvrent."
+    },
+    {
+      "quest": "mer-rend",
+      "status": "active",
+      "texte": "Coralia : l’Entrepôt des douanes, sur le quai du sud, et la Salle des Conques, à l’Amirauté.",
+      "cible": "coralia"
+    },
+    {
       "quest": "noms-qui-montent",
       "status": "done",
-      "texte": "Trois caisses ont pu dormir là où tu es déjà passé : Ilyane, à Gardebois, a gardé des papiers ; à Ironheart, la Cendrière ; à Sept-Portes, Ambroise. Les quatre autres attendent leurs villes."
+      "texte": "Une lettre de Hesper, reçue au dernier relais : « À Coralia, la mer a rendu une caisse de plomb. » Et trois caisses ont pu dormir là où tu es déjà passé : Ilyane à Gardebois, la Cendrière, Ambroise à Sept-Portes.",
+      "cible": "coralia"
     },
     {
       "quest": "noms-qui-montent",

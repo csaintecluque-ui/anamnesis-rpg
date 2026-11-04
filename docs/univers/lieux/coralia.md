@@ -1,4 +1,4 @@
-# Coralia, la cité du corail (Marisol) — proposition du 2026-11-04, **à valider**
+# Coralia, la cité du corail (Marisol) — **validé par Cyril** le 2026-11-04 (« 1 oui, 2 oui, 3 oui, 4 oui »)
 
 Le chapitre 6 et ses quêtes : `docs/gdd/chapitre-6.md`. Le plan de départ : `villes.md` §7.
 

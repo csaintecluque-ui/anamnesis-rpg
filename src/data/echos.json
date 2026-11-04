@@ -172,5 +172,16 @@
     "xp": 20,
     "texte": "Des gens, un linge sur la bouche, regardent en l’air. Une machine de bois et de toile monte, disparaît dans la cendre, et redescend. Puis une autre. Une femme assise sur une caisse fait un trait dans un carnet à chaque retour. Elle ne lève plus les yeux.",
     "don": "survival"
+  },
+  {
+    "id": "le-don",
+    "titre": "Le Don des Eaux",
+    "lieu": "coralia-voie-noyee",
+    "col": 8,
+    "row": 9,
+    "type": "complet",
+    "xp": 20,
+    "texte": "Marée basse, il y a très longtemps. Une procession descend les rails jusqu’au bout, une caisse de plomb sur les épaules. Une femme chante, sans jamais répéter un mot. Ils posent la caisse au bord de l’eau, et remontent sans se retourner. La mer monte.",
+    "don": "athletics"
   }
 ]

@@ -1,0 +1,20 @@
+{
+  "id": "autel-port",
+  "speaker": "autel-port",
+  "entries": [
+    {
+      "node": "autel"
+    }
+  ],
+  "nodes": {
+    "autel": {
+      "text": "Un autel de corail rose, au bout du quai. On y pose ce qu’on rend à la mer : un collier, une lettre pliée, une dent de lait. La mer les prend à la marée suivante.",
+      "options": [
+        {
+          "text": "Le laisser.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

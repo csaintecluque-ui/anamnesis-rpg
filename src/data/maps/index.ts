@@ -61,6 +61,21 @@ import aetherhavenRelaisJson from './aetherhaven-relais.json';
 import basCendresJson from './bas-cendres.json';
 import voieDuBasJson from './voie-du-bas.json';
 import halteCendresJson from './halte-cendres.json';
+import coraliaPortJson from './coralia-port.json';
+import coraliaPortRefluxJson from './coralia-port-reflux.json';
+import coraliaCanauxJson from './coralia-canaux.json';
+import coraliaAmirauteJson from './coralia-amiraute.json';
+import coraliaVoieNoyeeJson from './coralia-voie-noyee.json';
+import coraliaEntrepotJson from './coralia-entrepot.json';
+import coraliaChantierJson from './coralia-chantier.json';
+import coraliaConfrerieJson from './coralia-confrerie.json';
+import coraliaAubergeJson from './coralia-auberge.json';
+import coraliaCoqueluneJson from './coralia-coquelune.json';
+import coraliaRelaisJson from './coralia-relais.json';
+import coraliaPlongeursJson from './coralia-plongeurs.json';
+import coraliaPalaisJson from './coralia-palais.json';
+import coraliaTempleJson from './coralia-temple.json';
+import coraliaConquesJson from './coralia-conques.json';
 
 /** Tiled maps by id (`map` of src/data/locations.json). */
 export const MAPS: Record<string, TiledMapJson> = {
@@ -126,4 +141,19 @@ export const MAPS: Record<string, TiledMapJson> = {
   'bas-cendres': basCendresJson as TiledMapJson,
   'voie-du-bas': voieDuBasJson as TiledMapJson,
   'halte-cendres': halteCendresJson as TiledMapJson,
+  'coralia-port': coraliaPortJson as TiledMapJson,
+  'coralia-port-reflux': coraliaPortRefluxJson as TiledMapJson,
+  'coralia-canaux': coraliaCanauxJson as TiledMapJson,
+  'coralia-amiraute': coraliaAmirauteJson as TiledMapJson,
+  'coralia-voie-noyee': coraliaVoieNoyeeJson as TiledMapJson,
+  'coralia-entrepot': coraliaEntrepotJson as TiledMapJson,
+  'coralia-chantier': coraliaChantierJson as TiledMapJson,
+  'coralia-confrerie': coraliaConfrerieJson as TiledMapJson,
+  'coralia-auberge': coraliaAubergeJson as TiledMapJson,
+  'coralia-coquelune': coraliaCoqueluneJson as TiledMapJson,
+  'coralia-relais': coraliaRelaisJson as TiledMapJson,
+  'coralia-plongeurs': coraliaPlongeursJson as TiledMapJson,
+  'coralia-palais': coraliaPalaisJson as TiledMapJson,
+  'coralia-temple': coraliaTempleJson as TiledMapJson,
+  'coralia-conques': coraliaConquesJson as TiledMapJson,
 };

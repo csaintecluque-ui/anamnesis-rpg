@@ -1,0 +1,93 @@
+{
+  "id": "marina-azurios",
+  "speaker": "marina-azurios",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "mer-rend",
+          "status": "active"
+        },
+        {
+          "notFlag": "ordre-donne"
+        },
+        {
+          "notFlag": "ordre-refuse"
+        }
+      ],
+      "node": "audience"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "La Grande Amiral Marina Azurios, en uniforme blanc, lit un rapport sans s’asseoir. — Un voyageur. Bienvenue à Coralia. Je n’ai que peu de temps : Ferros a reçu notre ultimatum, et Ferros ne répond pas.",
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "audience": {
+      "text": "La Grande Amiral lève les yeux de son rapport. — La caisse que la mer a rendue ? Mes douanes y voient Ferros. Le Synode y voit un présage. Et vous, qu’y voyez-vous ?",
+      "options": [
+        {
+          "text": "Ce n’est pas Ferros. C’est plus vieux que Ferros.",
+          "next": "ordre",
+          "roll": {
+            "skill": "diplomacy",
+            "difficulty": 15
+          },
+          "failNext": "sec"
+        },
+        {
+          "text": "Une pièce d’une machine que d’autres cherchent, et des noms d’enfants.",
+          "requires": [
+            {
+              "flag": "caisse-zephyria-reglee"
+            }
+          ],
+          "next": "ordre"
+        },
+        {
+          "text": "Rien de précis. Je suis curieux.",
+          "next": "sec"
+        }
+      ]
+    },
+    "ordre": {
+      "text": "Elle signe sans se rasseoir, à gauche du sceau. — Pour un Gardien de Mémoire. Mes douanes vous ouvriront. Si c’est Ferros, vous me le direz. Si ce n’est pas Ferros, vous me le direz aussi.",
+      "effects": [
+        {
+          "giveItem": "ordre-amiraute"
+        },
+        {
+          "setFlag": "ordre-donne"
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Grande Amiral.",
+          "next": "fin"
+        }
+      ]
+    },
+    "sec": {
+      "text": "— Alors elle restera où elle est, jusqu’à ce que quelqu’un sache. Bonne journée.",
+      "effects": [
+        {
+          "setFlag": "ordre-refuse"
+        }
+      ],
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

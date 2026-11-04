@@ -548,5 +548,21 @@
     "weightKg": 6,
     "price": 0,
     "quest": true
+  },
+  {
+    "id": "ordre-amiraute",
+    "name": "Un ordre de l’Amirauté",
+    "description": "Un papier épais, signé par la Grande Amiral à gauche du sceau : « Pour un Gardien de Mémoire. Les douanes ouvriront. »",
+    "weightKg": 0,
+    "price": 0,
+    "quest": true
+  },
+  {
+    "id": "piece-marisol",
+    "name": "Une pièce de la machine",
+    "description": "Lourde, froide, emballée dans une toile qui ne s’est pas défaite, même sous la mer. Elle sortait de la caisse que la mer a rendue à Coralia.",
+    "weightKg": 6,
+    "price": 0,
+    "quest": true
   }
 ]

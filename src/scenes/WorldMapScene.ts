@@ -5,6 +5,7 @@ import {
   AT_PLACE,
   WORLD,
   clearEncounterFlags,
+  crossingOf,
   flightFare,
   flightSky,
   flightTimeLabel,
@@ -74,7 +75,7 @@ export class WorldMapScene extends Phaser.Scene {
    * `moments`: the moments of the day already counted for this stretch of road (src/rules/time.ts). `flight`: an
    * airship's trip (Aetherhaven), its moments counted at once on landing, and nothing met on the way.
    */
-  private trip: { place: WorldPlace; from: { x: number; y: number }; travelled: number; moments: number; flight?: number } | null = null;
+  private trip: { place: WorldPlace; from: { x: number; y: number }; travelled: number; moments: number; flight?: number; moyen?: string } | null = null;
   private rng: () => number = Math.random;
   /** The panel's buttons, for Enter (the first) and Escape (the last) ; the place picked with Tab. */
   private panelActions: (() => void)[] = [];
@@ -141,7 +142,7 @@ export class WorldMapScene extends Phaser.Scene {
     this.placeHero();
     this.drawTrail();
     if (this.trip.flight) {
-      this.status.setText(`En dirigeable vers ${place.name}`);
+      this.status.setText(`En ${this.trip.moyen ?? 'dirigeable'} vers ${place.name}`);
       if (move >= left) this.arrive(place);
       return;
     }
@@ -235,7 +236,7 @@ export class WorldMapScene extends Phaser.Scene {
     const g = this.add.graphics();
     const all = knownPlaces(this.state.flags, this.state.quests);
     // The sleeping lines (docs/gdd/voies.md) are off the roads: no road leads there, and they get their own mark.
-    const places = all.filter((p) => !p.voie && !p.dirigeable);
+    const places = all.filter((p) => !p.voie && !crossingOf(p));
     // Known roads between places: a faint dotted line.
     g.fillStyle(0x6b4a32, 0.5);
     for (let i = 0; i < places.length; i++) {
@@ -279,6 +280,13 @@ export class WorldMapScene extends Phaser.Scene {
             g.lineStyle(1.5, INK, 1).strokeCircle(x, p.y - 17, 3.5);
           }
         }
+      } else if (place.navire) {
+        // A town across the sea: a sea-blue mark, and a small sail beside it.
+        g.fillStyle(0x3a7a8a, 1).fillCircle(p.x, p.y, 11);
+        g.lineStyle(3, INK, 1).strokeCircle(p.x, p.y, 11);
+        g.fillStyle(PARCHMENT, 1).fillTriangle(p.x + 16, p.y - 30, p.x + 16, p.y - 12, p.x + 30, p.y - 12);
+        g.lineStyle(1.5, INK, 1).strokeTriangle(p.x + 16, p.y - 30, p.x + 16, p.y - 12, p.x + 30, p.y - 12);
+        g.fillStyle(COPPER, 1).fillRect(p.x + 10, p.y - 11, 24, 4);
       } else if (place.dirigeable) {
         // A town in the sky: a pale-blue mark, and a small airship over it.
         g.fillStyle(0xa9c4d8, 1).fillCircle(p.x, p.y, 11);
@@ -454,10 +462,11 @@ export class WorldMapScene extends Phaser.Scene {
       return;
     }
     this.showPanel(text, [
-      ['Prendre le dirigeable', () => {
+      [crossingOf(sky)?.moyen === 'navire' ? 'Embarquer' : 'Prendre le dirigeable', () => {
         if (!payFlight(this.state, sky)) return;
         this.clearPanel();
-        this.trip = { place, from: { ...this.pos }, travelled: 0, moments: 0, flight: sky.dirigeable?.moments ?? 4 };
+        const crossing = crossingOf(sky);
+        this.trip = { place, from: { ...this.pos }, travelled: 0, moments: 0, flight: crossing?.moments ?? 4, moyen: crossing?.moyen };
       }],
       ['Choisir un autre lieu', () => this.clearPanel()],
     ], place);

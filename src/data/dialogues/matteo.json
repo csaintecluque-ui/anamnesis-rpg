@@ -1,0 +1,33 @@
+{
+  "id": "matteo",
+  "speaker": "matteo",
+  "entries": [
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Un marin en vareuse, la casquette sur l’oreille. — Matteo Marée-Haute, de la Confrérie des Brisants. Le syndicat des marins marchands : si un équipage est mal payé, c’est nous qui le savons d’abord.",
+      "options": [
+        {
+          "text": "Et Ferros ?",
+          "next": "ferros"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "ferros": {
+      "text": "— Ferros pollue, et Ferros paie. Sans son métal, nos coques pourrissent. L’Amirauté parle d’embargo, les Plongeurs de Perles applaudissent. Nous, on compte ce qu’on mangera l’hiver.",
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

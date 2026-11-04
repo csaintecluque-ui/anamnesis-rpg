@@ -1,0 +1,33 @@
+{
+  "id": "aureo",
+  "speaker": "aureo",
+  "entries": [
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Un charpentier torse nu, du sel dans la barbe, cogne une cheville dans une coque. — Auréo Brisevague, Chantier naval. Pour un bateau, il faut deux saisons. Pour une rame, revenez demain.",
+      "options": [
+        {
+          "text": "Les marées ?",
+          "next": "marees"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "marees": {
+      "text": "— Deux fois par jour, le matin et le soir, la mer se retire du port. On voit alors les rails qui descendent dedans. Mon grand-père disait qu’avant, les trains allaient jusqu’à la mer, et que la mer est venue à leur rencontre.",
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

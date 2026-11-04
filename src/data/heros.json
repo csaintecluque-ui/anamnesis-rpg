@@ -37,6 +37,14 @@
       "titre": "Le ruban",
       "texte": "Un ruban noué au poignet de l’autre enfant, avec des lettres dessus. Je ne savais pas encore lire.",
       "reve": "Cette nuit, un ruban flotte au poignet d’un enfant, couvert de lettres. Tu essaies de les lire, et tu te réveilles avant."
+    },
+    {
+      "id": "air",
+      "flag": "heros-fragment-air",
+      "chapitre": 7,
+      "titre": "L’air",
+      "texte": "Un air que l’autre enfant fredonnait pour ne pas avoir peur. Je ne sais plus les mots.",
+      "reve": "Cette nuit, quelqu’un fredonne tout près de toi, un air d’enfant, pour ne pas avoir peur. Au réveil, tu l’as encore dans la gorge, sans les mots."
     }
   ],
   "manque": "Il manque encore quelque chose. Un quai, peut-être."

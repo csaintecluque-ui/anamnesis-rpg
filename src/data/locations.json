@@ -57,5 +57,19 @@
   { "id": "aetherhaven-relais", "name": "Aetherhaven — le Relais des Gardiens de Mémoire", "scene": "Map", "map": "aetherhaven-relais", "entrance": "entree", "place": "aetherhaven" },
   { "id": "bas-cendres", "name": "Sous les nuages — le pays de cendre", "scene": "Map", "map": "bas-cendres", "entrance": "entree", "place": "aetherhaven", "fond": "#2b2826" },
   { "id": "voie-du-bas", "name": "Sous les nuages — la Voie du Bas", "scene": "Map", "map": "voie-du-bas", "entrance": "entree", "place": "aetherhaven", "fond": "#2b2826" },
-  { "id": "halte-cendres", "name": "Sous les nuages — la Halte des Cendres", "scene": "Map", "map": "halte-cendres", "entrance": "entree", "place": "aetherhaven", "fond": "#2b2826" }
+  { "id": "halte-cendres", "name": "Sous les nuages — la Halte des Cendres", "scene": "Map", "map": "halte-cendres", "entrance": "entree", "place": "aetherhaven", "fond": "#2b2826" },
+  { "id": "coralia-port", "name": "Coralia — le Grand Port", "scene": "Map", "map": "coralia-port", "entrance": "entree", "place": "coralia", "fond": "#24505e", "maree": "coralia-port-reflux" },
+  { "id": "coralia-canaux", "name": "Coralia — les Canaux", "scene": "Map", "map": "coralia-canaux", "entrance": "depuis-port", "place": "coralia", "fond": "#24505e" },
+  { "id": "coralia-amiraute", "name": "Coralia — l’Amirauté", "scene": "Map", "map": "coralia-amiraute", "entrance": "entree", "place": "coralia", "fond": "#24505e" },
+  { "id": "coralia-voie-noyee", "name": "Coralia — la voie qui entre dans la mer", "scene": "Map", "map": "coralia-voie-noyee", "entrance": "entree", "place": "coralia", "fond": "#24505e" },
+  { "id": "coralia-entrepot", "name": "Coralia — l’Entrepôt des douanes", "scene": "Map", "map": "coralia-entrepot", "entrance": "entree", "place": "coralia" },
+  { "id": "coralia-chantier", "name": "Coralia — le Chantier naval", "scene": "Map", "map": "coralia-chantier", "entrance": "entree", "place": "coralia" },
+  { "id": "coralia-confrerie", "name": "Coralia — la maison de la Confrérie des Brisants", "scene": "Map", "map": "coralia-confrerie", "entrance": "entree", "place": "coralia" },
+  { "id": "coralia-auberge", "name": "Coralia — la Conque Rieuse", "scene": "Map", "map": "coralia-auberge", "entrance": "entree", "place": "coralia" },
+  { "id": "coralia-coquelune", "name": "Coralia — la maison Coquelune", "scene": "Map", "map": "coralia-coquelune", "entrance": "entree", "place": "coralia" },
+  { "id": "coralia-relais", "name": "Coralia — le Relais des Gardiens de Mémoire", "scene": "Map", "map": "coralia-relais", "entrance": "entree", "place": "coralia" },
+  { "id": "coralia-plongeurs", "name": "Coralia — la maison des Plongeurs de Perles", "scene": "Map", "map": "coralia-plongeurs", "entrance": "entree", "place": "coralia" },
+  { "id": "coralia-palais", "name": "Coralia — le Palais du Grand Amiral", "scene": "Map", "map": "coralia-palais", "entrance": "entree", "place": "coralia" },
+  { "id": "coralia-temple", "name": "Coralia — le Temple des Profondeurs Chuchotantes", "scene": "Map", "map": "coralia-temple", "entrance": "entree", "place": "coralia" },
+  { "id": "coralia-conques", "name": "Coralia — la Salle des Conques", "scene": "Map", "map": "coralia-conques", "entrance": "entree", "place": "coralia" }
 ]

@@ -33,6 +33,7 @@ import type { CombatStartData } from './CombatScene';
 import { FigurantLayer } from './Figurants';
 import { PartyLayer } from './Party';
 import { echoObjects, echoShows } from '../rules/echos';
+import { mapAtTide, mareeBasse } from '../rules/marees';
 import { boardObjects } from '../rules/contrats';
 import { carriesLamp, descend, groupDialogueId, groupFlag, groupNear, leaveVoie, lightTraps, sneakFlag, springTrap, trapSeenFlag, voieGroupXp, voieLevel, voiePlan } from '../rules/voies';
 import { PENDING_NOTICE, type HudScene } from './HudScene';
@@ -178,7 +179,7 @@ export class MapScene extends Phaser.Scene {
       this.scene.restart();
       return;
     }
-    this.map = parseTiledMap(MAPS[location.voie && state.voie ? voiePlan(state.voie) : location.map]);
+    this.map = parseTiledMap(MAPS[location.voie && state.voie ? voiePlan(state.voie) : mapAtTide(location, state.time)]);
     const level = location.voie && state.voie ? voieLevel(state, this.map) : null;
     if (level) {
       this.map.objects.push(...level.objects);
@@ -305,6 +306,8 @@ export class MapScene extends Phaser.Scene {
       const light = carriesLamp(state) ? 'Ta lampe à cristal éclaire le passage : tu verras les pièges à deux pas.' : 'Il fait sombre : une lampe à cristal te montrerait les pièges.';
       this.time.delayedCall(50, () => this.hud().toast(`${level.title}. ${light} Pour remonter, reviens à l’entrée.`));
     }
+    // The tides of Coralia (src/rules/marees.ts): said when the hero arrives in a place they change.
+    if (arrived && location.maree) this.time.delayedCall(60, () => this.hud().toast(mareeBasse(state.time) ? 'Marée basse : la mer s’est retirée, et des passages se sont ouverts.' : 'Marée haute : la mer a recouvert les passages du reflux.'));
     // The Anneau (docs/univers/lieux/sept-portes.md): said once, on arriving at Sept-Portes.
     if (location.nexus && !state.flags['anneau-senti']) {
       state.flags['anneau-senti'] = true;

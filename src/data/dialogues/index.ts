@@ -151,6 +151,20 @@ import doublureDome from './doublure-dome.json';
 import failleDescente from './faille-descente.json';
 import caisseFerros from './caisse-ferros.json';
 import caisseTerminus from './caisse-terminus.json';
+import porteEntrepot from './porte-entrepot.json';
+import merande from './merande.json';
+import marinaAzurios from './marina-azurios.json';
+import euria from './euria.json';
+import oaina from './oaina.json';
+import eddaCoralia from './edda-coralia.json';
+import caleEntrepot from './cale-entrepot.json';
+import caisseMarisol from './caisse-marisol.json';
+import noea from './noea.json';
+import aureo from './aureo.json';
+import matteo from './matteo.json';
+import aio from './aio.json';
+import ondine from './ondine.json';
+import autelPort from './autel-port.json';
 
 /** Dialogue files by object name (PNJ, Écho or object) of the maps. */
 export const DIALOGUES: Record<string, Dialogue> = {
@@ -310,6 +324,21 @@ export const DIALOGUES: Record<string, Dialogue> = {
   'faille-descente': failleDescente as Dialogue,
   'caisse-ferros': caisseFerros as Dialogue,
   'caisse-terminus': caisseTerminus as Dialogue,
+  // Chapitre 6, Coralia (docs/gdd/chapitre-6.md).
+  'porte-entrepot': porteEntrepot as Dialogue,
+  merande: merande as Dialogue,
+  'marina-azurios': marinaAzurios as Dialogue,
+  euria: euria as Dialogue,
+  oaina: oaina as Dialogue,
+  'edda-coralia': eddaCoralia as Dialogue,
+  'cale-entrepot': caleEntrepot as Dialogue,
+  'caisse-marisol': caisseMarisol as Dialogue,
+  noea: noea as Dialogue,
+  aureo: aureo as Dialogue,
+  matteo: matteo as Dialogue,
+  aio: aio as Dialogue,
+  ondine: ondine as Dialogue,
+  'autel-port': autelPort as Dialogue,
   // Le Livre des Échos (docs/gdd/echos.md) : one dialogue per Écho, built from src/data/echos.json.
   ...echoDialogues(),
 };

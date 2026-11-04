@@ -104,6 +104,21 @@
       },
       "description": "La capitale de la Confédération Libre de Zephyria, à trois mille mètres : des îles qui flottent au-dessus d’une mer de nuages. On n’y va qu’en dirigeable.",
       "revealedBy": "connait-aetherhaven"
+    },
+    {
+      "id": "coralia",
+      "auberge": "coralia-auberge",
+      "name": "Coralia",
+      "x": 620,
+      "y": 560,
+      "location": "coralia-port",
+      "entrance": "entree",
+      "revealedBy": "connait-coralia",
+      "navire": {
+        "fers": 40,
+        "moments": 8
+      },
+      "description": "La capitale de la Thalassocratie de Marisol, posée sur un récif vivant : des maisons de corail, des canaux, et la mer qui se retire deux fois par jour. On n’y va qu’en navire."
     }
   ],
   "rails": [
@@ -127,6 +142,13 @@
       "y": 440,
       "hint": "Au sud-ouest, en dirigeable.",
       "remplacePar": "aetherhaven"
+    },
+    {
+      "name": "Marisol · Coralia",
+      "x": 620,
+      "y": 575,
+      "hint": "Au sud, par la mer, en navire.",
+      "remplacePar": "coralia"
     }
   ],
   "zones": [

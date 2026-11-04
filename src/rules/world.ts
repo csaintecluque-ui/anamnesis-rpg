@@ -29,6 +29,17 @@ export interface WorldPlace {
   auberge?: string;
   /** A town in the sky (Aetherhaven): reached and left only by airship, for this fare and this many moments. */
   dirigeable?: { fers: number; moments: number };
+  /** A town across the sea (Coralia): reached and left only by ship, likewise. */
+  navire?: { fers: number; moments: number };
+}
+
+export type Moyen = 'dirigeable' | 'navire';
+
+/** How a town beyond the roads is reached: by airship or by ship, its fare and its length; nothing for the others. */
+export function crossingOf(place: WorldPlace): { moyen: Moyen; fers: number; moments: number } | undefined {
+  if (place.dirigeable) return { moyen: 'dirigeable', ...place.dirigeable };
+  if (place.navire) return { moyen: 'navire', ...place.navire };
+  return undefined;
 }
 
 export interface WorldDef {
@@ -148,6 +159,9 @@ export function travelTimeLabel(distance: number): string {
 export const AT_PLACE = 12;
 /** Set once the first flight is taken: Hesper has paid for it (chapitre 5, docs/gdd/chapitre-5.md). */
 export const FIRST_FLIGHT_FLAG = 'premier-vol';
+/** Set once the first crossing by ship is taken: Hesper has paid for it too (chapitre 6, docs/gdd/chapitre-6.md). */
+export const FIRST_CROSSING_FLAG = 'premiere-traversee';
+const firstFlag = (moyen: Moyen) => (moyen === 'navire' ? FIRST_CROSSING_FLAG : FIRST_FLIGHT_FLAG);
 
 type TravelState = Pick<GameState, 'flags' | 'quests' | 'character'>;
 
@@ -156,21 +170,23 @@ type TravelState = Pick<GameState, 'flags' | 'quests' | 'character'>;
  * every town. The sky town whose airship it is, or nothing for a walk.
  */
 export function flightSky(state: TravelState, from: { x: number; y: number }, place: WorldPlace): WorldPlace | undefined {
-  if (place.dirigeable) return place;
-  return knownPlaces(state.flags, state.quests).find((p) => p.dirigeable && distanceBetween(from, p) <= AT_PLACE);
+  if (crossingOf(place)) return place;
+  return knownPlaces(state.flags, state.quests).find((p) => crossingOf(p) && distanceBetween(from, p) <= AT_PLACE);
 }
 
-/** The fare: the first flight is paid by Hesper ; a member of the Compagnie Vire-Nuée pays half. */
+/** The fare: the first crossing of each kind is paid by Hesper ; a member of the Compagnie Vire-Nuée flies at half price. */
 export function flightFare(state: TravelState, sky: WorldPlace): number {
-  if (!state.flags[FIRST_FLIGHT_FLAG]) return 0;
-  const fare = sky.dirigeable?.fers ?? 0;
-  return state.flags['membre-compagnie-vire-nuee'] ? Math.floor(fare / 2) : fare;
+  const crossing = crossingOf(sky);
+  if (!crossing || !state.flags[firstFlag(crossing.moyen)]) return 0;
+  return crossing.moyen === 'dirigeable' && state.flags['membre-compagnie-vire-nuee'] ? Math.floor(crossing.fers / 2) : crossing.fers;
 }
 
-/** « un jour en dirigeable » : how long a flight lasts. */
+/** « un jour en dirigeable », « deux jours en navire » : how long a crossing lasts. */
 export function flightTimeLabel(sky: WorldPlace): string {
-  const moments = sky.dirigeable?.moments ?? 4;
-  return moments >= 4 ? `${moments === 4 ? 'un jour' : `${Math.round(moments / 4)} jours`} en dirigeable` : 'quelques heures en dirigeable';
+  const crossing = crossingOf(sky);
+  const moments = crossing?.moments ?? 4;
+  const en = `en ${crossing?.moyen ?? 'dirigeable'}`;
+  return moments >= 4 ? `${moments < 8 ? 'un jour' : `${Math.round(moments / 4) === 2 ? 'deux' : Math.round(moments / 4)} jours`} ${en}` : `quelques heures ${en}`;
 }
 
 /** Pays the fare (false if the purse is too light). */
@@ -178,7 +194,7 @@ export function payFlight(state: TravelState, sky: WorldPlace): boolean {
   const fare = flightFare(state, sky);
   if (!state.character || state.character.fers < fare) return false;
   state.character.fers -= fare;
-  state.flags[FIRST_FLIGHT_FLAG] = true;
+  state.flags[firstFlag(crossingOf(sky)?.moyen ?? 'dirigeable')] = true;
   return true;
 }
 

@@ -1,0 +1,67 @@
+{
+  "id": "cale-entrepot",
+  "speaker": "cale-entrepot",
+  "entries": [
+    {
+      "node": "cale"
+    }
+  ],
+  "nodes": {
+    "cale": {
+      "text": "La cale de l’Entrepôt des douanes, découverte par la marée : une porte basse de bois noir, des algues sur le verrou. À marée haute, elle sera sous l’eau.",
+      "options": [
+        {
+          "text": "Passer par la cale.",
+          "requires": [
+            {
+              "quest": "mer-rend",
+              "status": "active"
+            },
+            {
+              "notFlag": "cale-guettee"
+            }
+          ],
+          "next": "dedans",
+          "roll": {
+            "skill": "stealth",
+            "difficulty": 16
+          },
+          "failNext": "surpris"
+        },
+        {
+          "text": "La laisser.",
+          "next": "fin"
+        }
+      ]
+    },
+    "dedans": {
+      "text": "Le verrou cède sous les algues. Tu te glisses dans l’Entrepôt, mouillé jusqu’aux genoux.",
+      "options": [
+        {
+          "text": "Entrer.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "coralia-entrepot"
+            }
+          ]
+        }
+      ]
+    },
+    "surpris": {
+      "text": "Une lanterne se penche au-dessus du quai. — Encore un de Ferros ? Ah, non. Pire : un curieux. La capitaine Mérande ne crie pas. Elle attend que tu remontes.",
+      "effects": [
+        {
+          "setFlagFor": "cale-guettee",
+          "days": 1
+        }
+      ],
+      "options": [
+        {
+          "text": "Remonter.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

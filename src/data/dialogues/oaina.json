@@ -1,0 +1,75 @@
+{
+  "id": "oaina",
+  "speaker": "oaina",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "mer-rend",
+          "status": "active"
+        },
+        {
+          "flag": "euria-don"
+        },
+        {
+          "notFlag": "oaina-dit"
+        }
+      ],
+      "node": "qui"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Une Sélénide aux yeux luminescents, les cheveux en mouvement comme dans l’eau, veille sur les conques. — La Salle des Conques. Les marins y confient ce qu’ils ne veulent pas perdre. Approchez une conque de votre oreille : la mer vous le rendra.",
+      "options": [
+        {
+          "text": "« La mer se souvient que » ?",
+          "next": "formule"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "formule": {
+      "text": "— Et nous, moins bien. Oaïna sourit. — Vous connaissez la réponse. Alors vous savez déjà ce qu’il faut savoir de Coralia.",
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "qui": {
+      "text": "Oaïna regarde la dame en gris, au fond de la salle, une conque contre l’oreille. — Il y a dix jours, elle a demandé aux Murmureurs de prier la Mère-Abysse : « Rends-moi ce que ma mère a laissé. » La mer a rendu la caisse.",
+      "effects": [
+        {
+          "setFlag": "oaina-dit"
+        }
+      ],
+      "options": [
+        {
+          "text": "Elle aurait dû demander sa mère.",
+          "next": "qui-2"
+        },
+        {
+          "text": "Merci, Oaïna.",
+          "next": "fin"
+        }
+      ]
+    },
+    "qui-2": {
+      "text": "— L’Abysse donne exactement ce qu’on lui demande. Elle le sait, maintenant. C’est pour ça qu’elle écoute cette conque depuis dix jours.",
+      "options": [
+        {
+          "text": "Merci, Oaïna.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

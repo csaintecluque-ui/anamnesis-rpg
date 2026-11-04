@@ -636,5 +636,42 @@
         "titre": "Le monte-charge forcé"
       }
     ]
+  },
+  {
+    "id": "mer-rend",
+    "name": "Ce que la mer rend",
+    "summary": "À Coralia, la mer a rendu une caisse de plomb que la ville lui avait offerte il y a longtemps. Les douanes de l’Amirauté l’ont saisie ; les Murmureurs y voient un mauvais présage.",
+    "etapes": [
+      {
+        "si": "mer-rend-commencee",
+        "texte": "La caisse dort à l’Entrepôt des douanes, sur le quai du sud. Y entrer : convaincre la capitaine Mérande, obtenir un ordre de l’Amirauté au Palais, ou passer par la cale, à marée basse."
+      },
+      {
+        "si": "euria-don",
+        "texte": "Les Murmureurs voudraient la rendre à la mer. Mais quelqu’un a demandé à la Mère-Abysse de la faire remonter : Oaïna, à la Salle des Conques, sait qui."
+      },
+      {
+        "si": "entrepot-ouvert",
+        "texte": "La porte de l’Entrepôt des douanes m’est ouverte."
+      }
+    ],
+    "fins": [
+      {
+        "id": "rendue",
+        "titre": "La caisse rendue à la mer"
+      },
+      {
+        "id": "gardee",
+        "titre": "La pièce gardée"
+      },
+      {
+        "id": "amiraute",
+        "titre": "La caisse laissée à l’Amirauté"
+      },
+      {
+        "id": "edda",
+        "titre": "La caisse laissée à la dame en gris"
+      }
+    ]
   }
 ]

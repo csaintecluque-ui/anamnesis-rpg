@@ -300,6 +300,15 @@ En ligne le 2026-11-03 (tes textes du 3 novembre) :
       Kaelis, selon la clé (la Cendrière) ; Ambroise et la caisse sans main (le Fonds Muet).
 - Remarques :
 
+## Chapitre 6, Coralia (en ligne le 2026-11-04)
+
+- [ ] **Le navire** : après Aetherhaven, Coralia au sud de la carte du monde ; la première traversée payée par Hesper.
+- [ ] **Les marées** : le matin et le soir, la mer se retire du Grand Port ; le sable, la cale de l'Entrepôt, et les
+      rails qui descendent dans la mer.
+- [ ] **« Ce que la mer rend »** : l'Entrepôt des douanes, la Grande Amiral, Euria, Oaïna, la dame en gris et sa
+      conque ; quatre fins.
+- Remarques :
+
 ## Déjà en ligne, pas encore essayé sur PC
 
 - [ ] **Chapitre 4, Sept-Portes** sans le mode surpuissant : l'arrivée par la Porte du sud, le Registre, l'une des trois

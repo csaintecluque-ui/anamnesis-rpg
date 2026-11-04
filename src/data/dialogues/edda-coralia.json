@@ -1,0 +1,112 @@
+{
+  "id": "edda-coralia",
+  "speaker": "edda-coralia",
+  "entries": [
+    {
+      "requires": [
+        {
+          "flag": "edda-conque-vue"
+        }
+      ],
+      "node": "apres"
+    },
+    {
+      "node": "conque"
+    }
+  ],
+  "nodes": {
+    "conque": {
+      "text": "La dame en gris tient une conque contre son oreille. Elle l’écarte quand tu approches, comme on cache une lettre. — Elle ne parle pas de moi. Pas une fois.",
+      "effects": [
+        {
+          "setFlag": "edda-conque-vue"
+        }
+      ],
+      "options": [
+        {
+          "text": "Votre mère ?",
+          "next": "mere"
+        },
+        {
+          "text": "Vous voulez la caisse ?",
+          "next": "caisse"
+        }
+      ]
+    },
+    "mere": {
+      "text": "— Elle est passée par Coralia il y a trente ans, en allant au train. Elle a laissé sa voix dans une conque, comme font les marins. Elle y parle de six enfants, de leurs âges, du froid qu’il fait la nuit sur les quais. De moi, rien.",
+      "options": [
+        {
+          "text": "Laissez-moi l’écouter.",
+          "next": "ecoute",
+          "roll": {
+            "skill": "diplomacy",
+            "difficulty": 16
+          },
+          "failNext": "non"
+        },
+        {
+          "text": "Vous voulez la caisse ?",
+          "next": "caisse"
+        }
+      ]
+    },
+    "ecoute": {
+      "text": "Elle hésite, puis te tend la conque. Une voix de femme, fatiguée, très calme : « Ilan, sept ans. Naïs, six ans. Corin, huit ans. Sela, cinq ans. Timo, neuf ans. Rhéa, six ans. Je les compte encore. Si je m’arrête, je les perds. »",
+      "effects": [
+        {
+          "setFlag": "conque-ecoutee"
+        },
+        {
+          "giveXp": 15
+        }
+      ],
+      "options": [
+        {
+          "text": "Lui rendre la conque.",
+          "next": "rendue"
+        }
+      ]
+    },
+    "rendue": {
+      "text": "Elle reprend la conque sans te regarder, et la serre contre elle. — Vous voyez. Pas une fois.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "non": {
+      "text": "— Non. C’est la seule chose qu’elle ait laissée qui ne soit pas à eux.",
+      "options": [
+        {
+          "text": "Vous voulez la caisse ?",
+          "next": "caisse"
+        },
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "caisse": {
+      "text": "— Ceux qui me paient la veulent. L’Amirauté ne vendra rien à quelqu’un de Ferros, pas depuis le Cargo Noir. Elle te regarde. — Moi, je veux la liste. Si la porte de cet entrepôt s’ouvre pour vous, pensez à moi.",
+      "options": [
+        {
+          "text": "Je verrai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "apres": {
+      "text": "La dame en gris écoute sa conque. Elle ne lève pas les yeux. — Toujours pas.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

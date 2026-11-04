@@ -1,0 +1,74 @@
+{
+  "id": "porte-entrepot",
+  "speaker": "porte-entrepot",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "mer-rend",
+          "status": "none"
+        }
+      ],
+      "node": "avis"
+    },
+    {
+      "node": "porte"
+    }
+  ],
+  "nodes": {
+    "avis": {
+      "text": "Une porte épaisse, au sceau de l’Amirauté. Un avis cloué, que le sel commence à manger : « Saisie : une caisse de plomb, rendue par la mer. Suspicion de déversement (voir : Cargo Noir). Accès sur ordre de l’Amirauté. »",
+      "effects": [
+        {
+          "startQuest": "mer-rend"
+        },
+        {
+          "setFlag": "mer-rend-commencee"
+        }
+      ],
+      "options": [
+        {
+          "text": "Une caisse de plomb.",
+          "next": "porte"
+        }
+      ]
+    },
+    "porte": {
+      "text": "La porte de l’Entrepôt des douanes, fermée à clé. La capitaine des douanes la surveille du coin de l’œil, à quelques pas.",
+      "options": [
+        {
+          "text": "Montrer l’ordre de l’Amirauté.",
+          "requires": [
+            {
+              "item": "ordre-amiraute"
+            }
+          ],
+          "next": "ouverte"
+        },
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "ouverte": {
+      "text": "Le douanier de garde lit l’ordre deux fois, et ouvre.",
+      "effects": [
+        {
+          "setFlag": "entrepot-ouvert"
+        }
+      ],
+      "options": [
+        {
+          "text": "Entrer.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "coralia-entrepot"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

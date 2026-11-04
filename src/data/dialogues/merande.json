@@ -1,0 +1,158 @@
+{
+  "id": "merande",
+  "speaker": "merande",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "mer-rend",
+          "status": "active"
+        },
+        {
+          "notFlag": "entrepot-ouvert"
+        }
+      ],
+      "node": "garde"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Une capitaine en veste azur, galons d’or, compte des caisses sur une ardoise. — Douanes de l’Amirauté. Rien à déclarer, j’espère ? Ne mentez jamais en mer : le quai, c’est déjà la mer.",
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "garde": {
+      "text": "La capitaine Mérande Fond-de-Cale ne quitte pas la porte des yeux. — La caisse ? Rendue par la mer il y a dix jours. Du plomb de l’Ancien Monde, ou de Ferros : depuis le Cargo Noir, tout ce qui flotte sans pavillon est une pièce à conviction.",
+      "options": [
+        {
+          "text": "Je suis des Gardiens de Mémoire. Laissez-moi voir ce qu’elle contient.",
+          "requires": [
+            {
+              "notFlag": "merande-refus"
+            },
+            {
+              "notFlag": "merande-mefiante"
+            }
+          ],
+          "next": "ouverte",
+          "roll": {
+            "skill": "diplomacy",
+            "difficulty": 16
+          },
+          "failNext": "refus"
+        },
+        {
+          "text": "L’Amirauté m’envoie. Ordre de la Grande Amiral.",
+          "requires": [
+            {
+              "notFlag": "merande-mefiante"
+            }
+          ],
+          "next": "ouverte-ruse",
+          "roll": {
+            "skill": "subterfuge",
+            "difficulty": 16
+          },
+          "failNext": "mensonge"
+        },
+        {
+          "text": "Voici un ordre de l’Amirauté.",
+          "requires": [
+            {
+              "item": "ordre-amiraute"
+            }
+          ],
+          "next": "ouverte"
+        },
+        {
+          "text": "Je reviendrai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "ouverte": {
+      "text": "Elle hésite, puis décroche une clé de sa ceinture. — Regardez. Ne touchez pas au plomb. Si c’est Ferros, je veux pouvoir le prouver.",
+      "effects": [
+        {
+          "setFlag": "entrepot-ouvert"
+        }
+      ],
+      "options": [
+        {
+          "text": "Entrer.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "coralia-entrepot"
+            }
+          ]
+        },
+        {
+          "text": "Plus tard.",
+          "next": "fin"
+        }
+      ]
+    },
+    "ouverte-ruse": {
+      "text": "Elle lit le papier que tu n’as pas, à la manière dont tu le tiens. — La Grande Amiral signe à gauche, d’habitude. Elle hausse les épaules, et ouvre. — Je vérifierai demain.",
+      "effects": [
+        {
+          "setFlag": "entrepot-ouvert"
+        },
+        {
+          "setFlag": "ruse-amiraute"
+        }
+      ],
+      "options": [
+        {
+          "text": "Entrer.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "coralia-entrepot"
+            }
+          ]
+        },
+        {
+          "text": "Plus tard.",
+          "next": "fin"
+        }
+      ]
+    },
+    "refus": {
+      "text": "— Les Gardiens de Mémoire gardent des souvenirs. Moi, je garde des preuves. Revenez avec un ordre de l’Amirauté : le Palais est à l’est, après les Canaux.",
+      "effects": [
+        {
+          "setFlag": "merande-refus"
+        }
+      ],
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "mensonge": {
+      "text": "— Ne mentez jamais en mer : Marethis entend chaque mot. Et moi aussi. Elle se plante devant la porte. — Revenez avec un vrai ordre, ou ne revenez pas.",
+      "effects": [
+        {
+          "setFlag": "merande-mefiante"
+        }
+      ],
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

@@ -152,7 +152,9 @@ const ADHESIONS = ['lanterne-triage', 'fonds-echos', 'ce-qui-se-souvient', 'cour
 const AETHERHAVEN = ['onze-etats', 'second-cristal', 'voiles-dormantes', 'asile', 'hirondelle'];
 /** The crates of the continents already played, found on the way back (caissesRetour.test.ts). */
 const RETOURS = ['sous-la-faille', 'caisse-cendriere', 'caisse-sans-main'];
-const unfinished = (state: GameState) => QUESTS.filter((q) => !ADHESIONS.includes(q.id) && !AETHERHAVEN.includes(q.id) && !RETOURS.includes(q.id) && state.quests[q.id] !== 'done').map((q) => q.id);
+/** Chapter 6, Coralia, played on its own (coralia.test.ts). */
+const CORALIA = ['mer-rend'];
+const unfinished = (state: GameState) => QUESTS.filter((q) => !ADHESIONS.includes(q.id) && !AETHERHAVEN.includes(q.id) && !RETOURS.includes(q.id) && !CORALIA.includes(q.id) && state.quests[q.id] !== 'done').map((q) => q.id);
 
 // --- Balayages : gains répétables, entrées de dialogue qui en cachent une autre -------------------------------------
 

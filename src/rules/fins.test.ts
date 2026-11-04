@@ -32,6 +32,7 @@ describe('les fins vues (étude B11)', () => {
       ['sous-la-faille', 3],
       ['caisse-cendriere', 4],
       ['caisse-sans-main', 4],
+      ['mer-rend', 4],
     ]);
   });
 

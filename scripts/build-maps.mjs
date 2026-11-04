@@ -1526,6 +1526,164 @@ function halteCendres() {
   return m.toTiled();
 }
 
+// --- Coralia, la cité du corail (chapitre 6, docs/univers/lieux/coralia.md ; visuels provisoires) ------------------
+// Canon [NOTION, Marisol] : corail fossilisé, bois flotté, verre marin ; des canaux, des ponts en arche ; le Palais du
+// Grand Amiral, un coquillage nacré. Deux fois par jour, la mer se retire du Grand Port (src/rules/marees.ts).
+
+Object.assign(LOCATION_NAMES, {
+  'coralia-entrepot': 'L’Entrepôt des douanes',
+  'coralia-chantier': 'Le Chantier naval',
+  'coralia-confrerie': 'La maison de la Confrérie des Brisants',
+  'coralia-auberge': 'La Conque Rieuse',
+  'coralia-coquelune': 'Maison Coquelune',
+  'coralia-relais': 'Relais des Gardiens de Mémoire',
+  'coralia-plongeurs': 'La maison des Plongeurs de Perles',
+  'coralia-palais': 'Le Palais du Grand Amiral',
+  'coralia-temple': 'Le Temple des Profondeurs Chuchotantes',
+  'coralia-conques': 'La Salle des Conques',
+});
+
+/** Le Grand Port, à marée haute ou basse : à marée basse, le sable se découvre, et des rails sortent de la mer. */
+function coraliaPort(reflux) {
+  const m = new MapBuilder(30, 24);
+  m.ground.fill(gid('eau'));
+  for (let row = 0; row <= 13; row++) for (let col = 8; col < 30; col++) m.setGround(col, row, 'corail-dalles');
+  for (let row = 0; row <= 13; row++) m.setGround(8, row, 'quai');
+  for (let col = 8; col < 30; col++) m.setGround(col, 13, 'quai');
+  if (reflux) {
+    for (let row = 0; row < 24; row++) {
+      for (let col = 0; col < 30; col++) {
+        const near = (col >= 4 && col <= 7 && row <= 17) || (row >= 14 && row <= 17 && col >= 4);
+        if (near && m.groundAt(col, row) === gid('eau')) m.setGround(col, row, 'sable-mouille');
+      }
+    }
+    m.line([12, 14], [12, 23], 'rail-noye');
+    m.object('vers-voie-noyee', 'sortie', 12, 23, { cible: 'coralia-voie-noyee', arrivee: 'depuis-port', libelle: 'Suivre les rails sous la mer' });
+  }
+  for (const [c, r] of [[14, 15], [18, 15], [24, 15]]) m.setObstacle(c, r, 'bateau');
+  m.setObstacle(7, 6, 'bateau');
+  m.object('navire-marisol', 'porte', 7, 6, { cible: CARTE_DU_MONDE, libelle: 'Le navire de la Thalassocratie' });
+  m.object('entree', 'arrivee', 9, 6);
+  m.object('depuis-voie', 'arrivee', 12, 12);
+  // L'Entrepôt des douanes, sur le quai du sud ; la capitaine devant ; à marée basse, sa cale sort de l'eau, côté mer.
+  house(m, 'coralia-entrepot', 'entrepot', [16, 11], [16, 12], { verrou: 'entrepot-ouvert', dialogue: 'porte-entrepot' });
+  m.object('merande', 'pnj', 18, 12);
+  if (reflux) m.object('cale-entrepot', 'objet', 16, 14, { tuile: 'saut' });
+  house(m, 'coralia-chantier', 'maison-corail', [20, 4], [20, 5]);
+  for (const [c, r] of [[22, 7], [23, 8]]) m.setObstacle(c, r, 'chantier');
+  house(m, 'coralia-confrerie', 'maison-corail-bleue', [25, 10], [25, 11]);
+  for (const [c, r] of [[11, 11], [21, 11]]) m.setObstacle(c, r, 'filet-peche');
+  for (const [c, r] of [[10, 3], [18, 9], [26, 4], [14, 9]]) m.setObstacle(c, r, 'lanterne-coquillage');
+  m.setObstacle(12, 8, 'autel-corail');
+  m.object('autel-port', 'objet', 12, 8);
+  m.setObstacle(10, 10, 'panneau');
+  m.object('panneau-port', 'panneau', 10, 10, { texte: 'Coralia — le Grand Port. Sur le linteau, en lettres d’or : « La mer donne, la mer reprend, la mer protège. »' });
+  m.setObstacle(29, 8, null);
+  m.object('vers-canaux', 'sortie', 29, 8, { cible: 'coralia-canaux', arrivee: 'depuis-port', libelle: 'Les Canaux' });
+  m.object('depuis-canaux', 'arrivee', 27, 8);
+  return m.toTiled();
+}
+
+/** Les Canaux : les maisons de corail, les ponts en arche, le marché flottant, la Conque Rieuse. */
+function coraliaCanaux() {
+  const m = new MapBuilder(28, 22);
+  m.ground.fill(gid('corail-dalles'));
+  for (let col = 0; col < 28; col++) {
+    m.setGround(col, 7, 'eau');
+    m.setGround(col, 15, 'eau');
+  }
+  for (let row = 8; row <= 14; row++) m.setGround(13, row, 'eau');
+  for (const col of [6, 20]) m.setGround(col, 7, 'pont-arche-r');
+  for (const col of [7, 21]) m.setGround(col, 15, 'pont-arche-r');
+  m.setGround(13, 11, 'pont-arche-c');
+  for (const [c, r] of [[3, 15], [10, 15], [17, 7], [24, 15]]) m.setObstacle(c, r, 'maison-bateau');
+  house(m, 'coralia-auberge', 'maison-corail', [6, 4], [6, 5]);
+  house(m, 'coralia-coquelune', 'maison-corail-bleue', [20, 4], [20, 5]);
+  house(m, 'coralia-relais', 'maison-corail-bleue', [6, 18], [7, 18]);
+  house(m, 'coralia-plongeurs', 'maison-corail', [21, 18], [22, 18]);
+  for (const [c, r] of [[16, 9], [18, 9], [16, 13], [18, 13], [9, 9]]) m.setObstacle(c, r, 'etal');
+  for (const [c, r] of [[3, 3], [24, 3], [11, 18], [17, 19], [4, 12], [23, 12]]) m.setObstacle(c, r, 'lanterne-coquillage');
+  m.setObstacle(0, 11, null);
+  m.object('vers-port', 'sortie', 0, 11, { cible: 'coralia-port', arrivee: 'depuis-canaux', libelle: 'Le Grand Port' });
+  m.object('depuis-port', 'arrivee', 2, 11);
+  m.object('vers-amiraute', 'sortie', 27, 11, { cible: 'coralia-amiraute', arrivee: 'depuis-canaux', libelle: 'L’Amirauté' });
+  m.object('depuis-amiraute', 'arrivee', 25, 11);
+  m.setObstacle(10, 12, 'panneau');
+  m.object('panneau-canaux', 'panneau', 10, 12, { texte: 'Les Canaux. Au nord, la Conque Rieuse ; au sud, les Plongeurs de Perles ; à l’est, l’Amirauté.' });
+  return m.toTiled();
+}
+
+/** L'Amirauté : le Palais du Grand Amiral, le Temple des Profondeurs Chuchotantes, la Salle des Conques. */
+function coraliaAmiraute() {
+  const m = new MapBuilder(26, 22);
+  m.ground.fill(gid('corail-dalles'));
+  for (let row = 19; row < 22; row++) for (let col = 0; col < 26; col++) m.setGround(col, row, 'eau');
+  for (let col = 0; col < 26; col++) m.setGround(col, 18, 'quai');
+  house(m, 'coralia-palais', 'palais-nacre', [13, 4], [13, 5]);
+  house(m, 'coralia-temple', 'temple-abysse', [6, 10], [7, 10]);
+  house(m, 'coralia-conques', 'salle-conques', [19, 10], [19, 11]);
+  for (const [c, r] of [[10, 15], [16, 15]]) m.setObstacle(c, r, 'autel-corail');
+  for (const [c, r] of [[10, 5], [16, 5], [4, 14], [22, 14], [13, 9]]) m.setObstacle(c, r, 'lanterne-coquillage');
+  m.setObstacle(0, 11, null);
+  m.object('vers-canaux', 'sortie', 0, 11, { cible: 'coralia-canaux', arrivee: 'depuis-amiraute', libelle: 'Les Canaux' });
+  m.object('depuis-canaux', 'arrivee', 2, 11);
+  m.object('entree', 'arrivee', 2, 11);
+  m.setObstacle(4, 8, 'panneau');
+  m.object('panneau-amiraute', 'panneau', 4, 8, { texte: 'L’Amirauté. « Mare Nostrum, Vita Nostra » : notre mer, notre vie.' });
+  return m.toTiled();
+}
+
+/** À marée basse, la voie qui entre dans la mer : des rails sous le sable mouillé, et une halte noyée. */
+function coraliaVoieNoyee() {
+  const m = new MapBuilder(22, 14);
+  m.ground.fill(gid('sable-mouille'));
+  for (let row = 0; row < 14; row++) for (let col = 0; col < 22; col++) if (row >= 12 || col <= 1 || col >= 20) m.setGround(col, row, 'eau');
+  m.line([11, 0], [11, 11], 'rail-noye');
+  m.rect(6, 8, 10, 10, 'quai');
+  m.rect(12, 8, 16, 10, 'quai');
+  blocks(m, 'butoir', [[11, 11]]);
+  blocks(m, 'ruine', [[7, 8], [15, 8]]);
+  blocks(m, 'reverbere', [[9, 10], [14, 10]]);
+  m.object('vers-port', 'sortie', 11, 0, { cible: 'coralia-port', arrivee: 'depuis-voie', libelle: 'Remonter vers le Grand Port' });
+  m.object('depuis-port', 'arrivee', 11, 1);
+  m.object('entree', 'arrivee', 11, 1);
+  m.setObstacle(13, 9, 'stele');
+  m.object('panneau-halte-noyee', 'panneau', 13, 9, { texte: 'Une plaque, sous les algues : « Halte de la Mer — voie 7 ». Le reste a été poli par les marées.' });
+  // L'Écho de la halte noyée (src/data/echos.json) se pose en (8, 9).
+  return m.toTiled();
+}
+
+const CORAL_ROOM = { floor: 'corail-dalles', wall: 'mur' };
+Object.assign(INTERIORS, {
+  'coralia-entrepot': interior('coralia-entrepot', {
+    ...CORAL_ROOM, w: 8, h: 6, outside: 'coralia-port',
+    furniture: [[1, 1, 'caisses'], [2, 1, 'caisses'], [1, 2, 'tonneaux'], [7, 1, 'caisses'], [7, 2, 'tonneaux'], [5, 3, 'caisse-plomb'], [3, 4, 'table']],
+    objects: [['caisse-marisol', 'objet', 5, 3, { disparaitSi: 'caisse-marisol-reglee' }]],
+  }),
+  'coralia-chantier': interior('coralia-chantier', { ...CORAL_ROOM, outside: 'coralia-port', furniture: [[2, 1, 'etabli'], [3, 1, 'etabli'], [6, 1, 'etagere'], [1, 4, 'ballots'], [6, 4, 'tonneaux']], objects: [['aureo', 'pnj', 4, 3]] }),
+  'coralia-confrerie': interior('coralia-confrerie', { ...CORAL_ROOM, outside: 'coralia-port', furniture: [[1, 1, 'tonneaux'], [4, 3, 'table'], [5, 3, 'table'], [6, 1, 'etagere'], [1, 4, 'filet-peche']], objects: [['matteo', 'pnj', 3, 2]] }),
+  'coralia-auberge': interior('coralia-auberge', {
+    ...CORAL_ROOM, w: 8, h: 6, outside: 'coralia-canaux',
+    furniture: [[1, 1, 'tonneaux'], [1, 2, 'tonneaux'], [7, 1, 'lanterne-coquillage'], [3, 3, 'comptoir'], [4, 3, 'comptoir'], [2, 5, 'table'], [7, 4, 'table']],
+    objects: [['noea', 'pnj', 4, 2]],
+  }),
+  'coralia-coquelune': interior('coralia-coquelune', { ...CORAL_ROOM, outside: 'coralia-canaux', furniture: [[1, 1, 'lit'], [6, 1, 'etagere'], [4, 3, 'table'], [1, 4, 'filet-peche']], objects: [['aio', 'pnj', 3, 2]] }),
+  'coralia-relais': interior('coralia-relais', { ...CORAL_ROOM, outside: 'coralia-canaux', furniture: [[2, 1, 'etagere'], [3, 1, 'etagere'], [6, 1, 'lanterne-coquillage'], [5, 4, 'table']], objects: [] }),
+  'coralia-plongeurs': interior('coralia-plongeurs', { ...CORAL_ROOM, outside: 'coralia-canaux', furniture: [[1, 1, 'filet-peche'], [6, 1, 'conque'], [4, 3, 'table'], [1, 4, 'tonneaux']], objects: [['ondine', 'pnj', 3, 2]] }),
+  'coralia-palais': interior('coralia-palais', {
+    ...CORAL_ROOM, w: 9, h: 7, outside: 'coralia-amiraute',
+    furniture: [[2, 1, 'gradin'], [3, 1, 'gradin'], [5, 1, 'gradin'], [6, 1, 'gradin'], [4, 3, 'table'], [5, 3, 'table'], [1, 5, 'lanterne-coquillage'], [8, 5, 'lanterne-coquillage']],
+    objects: [['marina-azurios', 'pnj', 4, 2]],
+  }),
+  'coralia-temple': interior('coralia-temple', { ...CORAL_ROOM, w: 8, h: 6, outside: 'coralia-amiraute', furniture: [[4, 1, 'autel-corail'], [2, 1, 'lanterne-coquillage'], [6, 1, 'lanterne-coquillage'], [1, 4, 'conque'], [7, 4, 'conque']], objects: [['euria', 'pnj', 4, 3]] }),
+  'coralia-conques': interior('coralia-conques', {
+    ...CORAL_ROOM, w: 9, h: 7, outside: 'coralia-amiraute',
+    furniture: [[1, 0, 'vitre-mer'], [2, 0, 'vitre-mer'], [3, 0, 'vitre-mer'], [4, 0, 'vitre-mer'], [5, 0, 'vitre-mer'], [6, 0, 'vitre-mer'], [7, 0, 'vitre-mer'], [8, 0, 'vitre-mer'],
+      [2, 2, 'conque'], [4, 2, 'conque'], [6, 2, 'conque'], [8, 2, 'conque'], [2, 5, 'conque'], [7, 5, 'conque']],
+    objects: [['oaina', 'pnj', 5, 4], ['edda-coralia', 'pnj', 3, 3, { apparaitSi: 'mer-rend-commencee', disparaitSi: 'caisse-marisol-reglee' }]],
+  }),
+});
+
 // Les voies endormies à explorer (docs/gdd/voies.md, jalon 3, étape 6) : une réserve de plans de l'Ancien Monde. Chaque
 // niveau d'une voie en tire un, puis le jeu le garnit au hasard sur ses points d'apparition : bêtes (`ennemi-1..3`),
 // caisses (`coffre-1..3`), pièges (`piege-1..4`), un Écho (`echo-1`), l'objet d'un contrat (`contrat`), la descente.
@@ -1670,6 +1828,11 @@ for (const [id, map] of Object.entries({
   'bas-cendres': basCendres(),
   'voie-du-bas': voieDuBas(),
   'halte-cendres': halteCendres(),
+  'coralia-port': coraliaPort(false),
+  'coralia-port-reflux': coraliaPort(true),
+  'coralia-canaux': coraliaCanaux(),
+  'coralia-amiraute': coraliaAmiraute(),
+  'coralia-voie-noyee': coraliaVoieNoyee(),
   ...ENCOUNTER_MAPS,
   ...VOIE_MAPS,
 })) {

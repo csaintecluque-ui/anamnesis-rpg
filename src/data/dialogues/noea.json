@@ -1,0 +1,179 @@
+{
+  "id": "noea",
+  "speaker": "noea",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "mer-rend",
+          "status": "done"
+        },
+        {
+          "flag": "caisse-marisol-prise"
+        },
+        {
+          "notFlag": "noea-lettre"
+        }
+      ],
+      "node": "lettre-prise"
+    },
+    {
+      "requires": [
+        {
+          "quest": "mer-rend",
+          "status": "done"
+        },
+        {
+          "notFlag": "noea-lettre"
+        }
+      ],
+      "node": "lettre"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Une Maréenne à la peau dorée, des perles aux oreilles, essuie des chopes en chantant faux, exprès. — La Conque Rieuse ! On mange, on dort, et le soir on chante, jamais deux fois pareil. Qu’est-ce qui vous ferait plaisir ?",
+      "options": [
+        {
+          "text": "Manger ou dormir ?",
+          "next": "servir"
+        },
+        {
+          "text": "Quelles nouvelles ?",
+          "next": "nouvelles"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "servir": {
+      "text": "— Du poisson grillé, du pain de Verdantis, ou un hamac au-dessus du canal. Le pain coûte plus que le poisson : ici, c’est la terre qui est rare.",
+      "options": [
+        {
+          "text": "Du poisson et du pain.",
+          "requires": [
+            {
+              "fers": 10
+            }
+          ],
+          "next": "mange",
+          "effects": [
+            {
+              "giveFers": -10
+            },
+            {
+              "heal": 15
+            }
+          ]
+        },
+        {
+          "text": "Un hamac jusqu’au matin.",
+          "requires": [
+            {
+              "fers": 10
+            }
+          ],
+          "next": "dodo",
+          "effects": [
+            {
+              "giveFers": -10
+            },
+            {
+              "dormir": "matin"
+            }
+          ]
+        },
+        {
+          "text": "Un hamac jusqu’à la nuit.",
+          "requires": [
+            {
+              "fers": 10
+            }
+          ],
+          "next": "dodo",
+          "effects": [
+            {
+              "giveFers": -10
+            },
+            {
+              "dormir": "nuit"
+            }
+          ]
+        },
+        {
+          "text": "Rien, merci.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "mange": {
+      "text": "Le poisson est grillé à la braise de bois flotté, le pain a voyagé deux semaines. Noéa s’assoit en face de toi, sans te demander la permission, et mange ta croûte.",
+      "options": [
+        {
+          "text": "Merci, Noéa.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "dodo": {
+      "text": "Le hamac se balance au-dessus du canal. L’eau clapote contre les piliers, et tu t’endors avant d’avoir compté jusqu’à sept.",
+      "options": [
+        {
+          "text": "Se lever.",
+          "next": "fin"
+        }
+      ]
+    },
+    "nouvelles": {
+      "text": "— L’Amirauté a saisi une caisse que la mer a rendue. Les Murmureurs ne dorment plus. Et une dame en gris passe ses journées à la Salle des Conques, une conque contre l’oreille. On parie sur ce qu’elle écoute.",
+      "options": [
+        {
+          "text": "Merci, Noéa.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "lettre": {
+      "text": "— Une lettre pour toi, arrivée par le navire de Verdantis. Elle a pris l’eau, un peu.",
+      "options": [
+        {
+          "text": "L’ouvrir.",
+          "next": "lettre-texte"
+        }
+      ]
+    },
+    "lettre-texte": {
+      "text": "L’écriture d’Ilyane, qui tremble. « Tu es au bord de la mer ? Je n’ai jamais vu la mer. Ou je l’ai vue, et je l’ai oubliée. Écris-moi comment elle est. Je relirai ta lettre tous les soirs, et chaque soir, ce sera la première fois. »",
+      "effects": [
+        {
+          "setFlag": "noea-lettre"
+        }
+      ],
+      "options": [
+        {
+          "text": "Plier la lettre.",
+          "next": "fin"
+        }
+      ]
+    },
+    "lettre-prise": {
+      "text": "— Une lettre pour toi, arrivée par le navire. Noéa te la tend, et détourne les yeux. Deux lignes, d’une écriture qui tremble beaucoup. « La mer. Qu’est-ce que c’est, déjà ? »",
+      "effects": [
+        {
+          "setFlag": "noea-lettre"
+        }
+      ],
+      "options": [
+        {
+          "text": "Plier la lettre.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

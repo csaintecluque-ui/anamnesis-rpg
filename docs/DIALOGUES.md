@@ -244,6 +244,18 @@ _Effet : retient « raconte-ailis », +15 XP._
 
 - « Au revoir, Aïlis. » → **fin**
 
+## Aïo Coquelune
+
+_Plongeur de perles, dix ans_
+
+Commence par : « accueil »
+
+### accueil
+
+> Un garçon de dix ans, un panier vide sous le bras. — T’as déjà plongé ? Moi, je tiens deux minutes. Ondine dit que c’est rien. Ondine en tient dix, mais elle a des branchies : c’est de la triche.
+
+- « Au revoir, Aïo. » → **fin**
+
 ## Ambroise Encrelune
 
 _Conservateur de la Grande Bibliothèque_
@@ -743,6 +755,37 @@ _Effet : retient « raconte-assel », +5 XP._
 - « Raconter un Récit à la veillée. » → **fin** _(ouvre la veillée « nuees »)_
 - « Au revoir. » → **fin**
 
+## Auréo Brisevague
+
+_Charpentier de marine_
+
+Commence par : « accueil »
+
+### accueil
+
+> Un charpentier torse nu, du sel dans la barbe, cogne une cheville dans une coque. — Auréo Brisevague, Chantier naval. Pour un bateau, il faut deux saisons. Pour une rame, revenez demain.
+
+- « Les marées ? » → marees
+- « Au revoir. » → **fin**
+
+### marees
+
+> — Deux fois par jour, le matin et le soir, la mer se retire du port. On voit alors les rails qui descendent dedans. Mon grand-père disait qu’avant, les trains allaient jusqu’à la mer, et que la mer est venue à leur rencontre.
+
+- « Au revoir. » → **fin**
+
+## Un autel de corail
+
+_Le Grand Port_
+
+Commence par : « autel »
+
+### autel
+
+> Un autel de corail rose, au bout du quai. On y pose ce qu’on rend à la mer : un collier, une lettre pliée, une dent de lait. La mer les prend à la marée suivante.
+
+- « Le laisser. » → **fin**
+
 ## Bastien Basse-Corniche
 
 _Descendant d’une vigie_
@@ -1079,6 +1122,52 @@ _Effet : −2 PV._
 
 - « Partir. » → **fin**
 
+## La caisse que la mer a rendue
+
+_L’Entrepôt des douanes_
+
+Commence par : « caisse »
+
+### caisse
+
+> Une caisse de plomb, mouillée, des algues encore prises dans les sangles. Le plomb a tenu ; le sel a mangé le bois. Sur le couvercle, frappé : 7.
+
+- « L’ouvrir. » → ouverte
+- « La laisser. » → **fin**
+
+### ouverte
+
+> Dedans, une pièce lourde et froide, et une liste que l’eau a gardée, dans une boîte de verre : Ilan, sept ans ; Naïs, six ans ; Corin, huit ans ; Sela, cinq ans ; Timo, neuf ans ; Rhéa, six ans. La même main, encore.
+
+- _(si repère « euria-don »)_ « La rendre à la mer, avec les Murmureurs. » → rendue _(retient « caisse-marisol-trouvee », fait passer 2 moments, retient « caisse-marisol-reglee », termine la quête « Ce que la mer rend », retient « fin-mer-rend-rendue », +60 XP)_
+- « Prendre la pièce. » → gardee _(donne 1 × « Une pièce de la machine », retient « caisse-marisol-trouvee », retient « caisse-marisol-reglee », termine la quête « Ce que la mer rend », retient « fin-mer-rend-gardee », +60 XP)_
+- « La laisser à l’Amirauté. » → amiraute _(retient « caisse-marisol-trouvee », retient « caisse-marisol-reglee », termine la quête « Ce que la mer rend », retient « fin-mer-rend-amiraute », +60 XP)_
+- _(si repère « edda-conque-vue »)_ « La laisser à la dame en gris. » → edda _(retient « caisse-marisol-prise », retient « caisse-marisol-reglee », termine la quête « Ce que la mer rend », retient « fin-mer-rend-edda », +60 XP)_
+
+### rendue
+
+> À la marée basse suivante, Euria et deux Murmureurs portent la caisse jusqu’au bout de la voie qui entre dans la mer. Euria chante sans répéter un seul mot. La mer monte, et la prend. Personne ne l’a, maintenant.
+
+- « Partir. » → **fin**
+
+### gardee
+
+> Tu charges la pièce sur ton dos et tu refermes le plomb sur la liste. Personne, à Coralia, ne saura ce qu’il y avait dedans. La mer, si.
+
+- « Partir. » → **fin**
+
+### amiraute
+
+> Tu refermes le couvercle. Demain, la capitaine Mérande l’ouvrira devant témoins et la classera : pièce à conviction, provenance inconnue, « pas Ferros ». La Grande Amiral sera déçue.
+
+- « Partir. » → **fin**
+
+### edda
+
+> Le soir, à marée basse, tu laisses la cale ouverte. Au matin, la caisse n’est plus là. Sur le sable mouillé, une conque, posée, que tu ne portes pas à ton oreille.
+
+- « Partir. » → **fin**
+
 ## Caisse de prospection
 
 _Objet_
@@ -1161,6 +1250,33 @@ Commence par : « vide » _(si repère « caisse-zephyria-reglee »)_, sinon « 
 > La caisse est vide. Au fond, la cendre garde la forme de ce qui y dormait.
 
 - « Laisser la caisse. » → **fin**
+
+## La cale de l’Entrepôt
+
+_Le Grand Port, à marée basse_
+
+Commence par : « cale »
+
+### cale
+
+> La cale de l’Entrepôt des douanes, découverte par la marée : une porte basse de bois noir, des algues sur le verrou. À marée haute, elle sera sous l’eau.
+
+- _(si quête « Ce que la mer rend » en cours)_ _(sans repère « cale-guettee »)_ **🎲 Discrétion 16** « Passer par la cale. » → dedans, ✗ → surpris
+- « La laisser. » → **fin**
+
+### dedans
+
+> Le verrou cède sous les algues. Tu te glisses dans l’Entrepôt, mouillé jusqu’aux genoux.
+
+- « Entrer. » → **fin** _(mène à « Coralia — l’Entrepôt des douanes »)_
+
+### surpris
+
+_Effet : retient « cale-guettee » pour 1 jours._
+
+> Une lanterne se penche au-dessus du quai. — Encore un de Ferros ? Ah, non. Pire : un curieux. La capitaine Mérande ne crie pas. Elle attend que tu remontes.
+
+- « Remonter. » → **fin**
 
 ## Une carcasse de machine
 
@@ -2231,6 +2347,61 @@ _Effet : retient le Récit « On se retrouvera »._
 
 ## La dame en gris
 
+_Salle des Conques_
+
+Commence par : « apres » _(si repère « edda-conque-vue »)_, sinon « conque »
+
+### conque
+
+_Effet : retient « edda-conque-vue »._
+
+> La dame en gris tient une conque contre son oreille. Elle l’écarte quand tu approches, comme on cache une lettre. — Elle ne parle pas de moi. Pas une fois.
+
+- « Votre mère ? » → mere
+- « Vous voulez la caisse ? » → caisse
+
+### mere
+
+> — Elle est passée par Coralia il y a trente ans, en allant au train. Elle a laissé sa voix dans une conque, comme font les marins. Elle y parle de six enfants, de leurs âges, du froid qu’il fait la nuit sur les quais. De moi, rien.
+
+- **🎲 Diplomatie 16** « Laissez-moi l’écouter. » → ecoute, ✗ → non
+- « Vous voulez la caisse ? » → caisse
+
+### ecoute
+
+_Effet : retient « conque-ecoutee », +15 XP._
+
+> Elle hésite, puis te tend la conque. Une voix de femme, fatiguée, très calme : « Ilan, sept ans. Naïs, six ans. Corin, huit ans. Sela, cinq ans. Timo, neuf ans. Rhéa, six ans. Je les compte encore. Si je m’arrête, je les perds. »
+
+- « Lui rendre la conque. » → rendue
+
+### rendue
+
+> Elle reprend la conque sans te regarder, et la serre contre elle. — Vous voyez. Pas une fois.
+
+- « Partir. » → **fin**
+
+### non
+
+> — Non. C’est la seule chose qu’elle ait laissée qui ne soit pas à eux.
+
+- « Vous voulez la caisse ? » → caisse
+- « Partir. » → **fin**
+
+### caisse
+
+> — Ceux qui me paient la veulent. L’Amirauté ne vendra rien à quelqu’un de Ferros, pas depuis le Cargo Noir. Elle te regarde. — Moi, je veux la liste. Si la porte de cet entrepôt s’ouvre pour vous, pensez à moi.
+
+- « Je verrai. » → **fin**
+
+### apres
+
+> La dame en gris écoute sa conque. Elle ne lève pas les yeux. — Toujours pas.
+
+- « Partir. » → **fin**
+
+## La dame en gris
+
 _Halte des Cendres_
 
 Commence par : « halte-vaincue » _(si repère « escorte-edda-vaincue »)_ _(sans repère « edda-halte-reglee »)_, sinon « halte-choix » _(si repère « edda-ecriture »)_ _(sans repère « edda-halte-reglee »)_, sinon « halte »
@@ -2624,6 +2795,41 @@ _Effet : retient « marques-rate » pour 1 jours._
 > Gravées à froid, avec soin, comme on signe un serment. Sous les mains, un seul mot, presque effacé, dans la même langue inconnue que la berceuse.
 
 - « Partir. » → **fin**
+
+## Euria Sel-Doux
+
+_Murmureuse des Profondeurs Chuchotantes_
+
+Commence par : « don » _(si quête « Ce que la mer rend » en cours)_ _(sans repère « euria-don »)_, sinon « accueil »
+
+### accueil
+
+> Une Murmureuse au masque de coquillage écoute, une main à plat sur l’autel. — La mer se souvient que nous sommes venus, dit-elle. Et nous, moins bien. Asseyez-vous, si vous voulez écouter.
+
+- « Écouter. » → ecoute
+- « Au revoir. » → **fin**
+
+### ecoute
+
+_Effet : +5 PV._
+
+> Tu écoutes. Sous le temple, quelque chose de très grand respire, lentement. Le masque d’Euria vibre avec. Tu ne sais pas combien de temps passe.
+
+- « Remercier Euria. » → **fin**
+
+### don
+
+> Euria Sel-Doux lève son masque. — La caisse. Nous l’avions donnée à la mer, il y a longtemps, au bout de la voie qui entre dans l’eau. La mer l’a rendue. Une offrande rendue, c’est un présage, et celui-là est mauvais.
+
+- « Que faut-il faire ? » → don-2
+
+### don-2
+
+_Effet : retient « euria-don »._
+
+> — La rendre encore, à marée basse, là où elle avait été donnée. Mais quelqu’un a demandé à la Mère-Abysse de la faire remonter. Tant que cette demande court, la mer la rendra. Va à la Salle des Conques : Oaïna sait qui.
+
+- « J’y vais. » → **fin**
 
 ## Évrard Tiédevent
 
@@ -5405,6 +5611,116 @@ Commence par : « accueil »
 - « Voyons ça. » → **fin** _(ouvre le Troc)_
 - « Au revoir. » → **fin**
 
+## Marina Azurios
+
+_Grande Amiral de Marisol_
+
+Commence par : « audience » _(si quête « Ce que la mer rend » en cours)_ _(sans repère « ordre-donne »)_ _(sans repère « ordre-refuse »)_, sinon « accueil »
+
+### accueil
+
+> La Grande Amiral Marina Azurios, en uniforme blanc, lit un rapport sans s’asseoir. — Un voyageur. Bienvenue à Coralia. Je n’ai que peu de temps : Ferros a reçu notre ultimatum, et Ferros ne répond pas.
+
+- « Au revoir. » → **fin**
+
+### audience
+
+> La Grande Amiral lève les yeux de son rapport. — La caisse que la mer a rendue ? Mes douanes y voient Ferros. Le Synode y voit un présage. Et vous, qu’y voyez-vous ?
+
+- **🎲 Diplomatie 15** « Ce n’est pas Ferros. C’est plus vieux que Ferros. » → ordre, ✗ → sec
+- _(si repère « caisse-zephyria-reglee »)_ « Une pièce d’une machine que d’autres cherchent, et des noms d’enfants. » → ordre
+- « Rien de précis. Je suis curieux. » → sec
+
+### ordre
+
+_Effet : donne 1 × « Un ordre de l’Amirauté », retient « ordre-donne »._
+
+> Elle signe sans se rasseoir, à gauche du sceau. — Pour un Gardien de Mémoire. Mes douanes vous ouvriront. Si c’est Ferros, vous me le direz. Si ce n’est pas Ferros, vous me le direz aussi.
+
+- « Merci, Grande Amiral. » → **fin**
+
+### sec
+
+_Effet : retient « ordre-refuse »._
+
+> — Alors elle restera où elle est, jusqu’à ce que quelqu’un sache. Bonne journée.
+
+- « Partir. » → **fin**
+
+## Matteo Marée-Haute
+
+_Confrérie des Brisants_
+
+Commence par : « accueil »
+
+### accueil
+
+> Un marin en vareuse, la casquette sur l’oreille. — Matteo Marée-Haute, de la Confrérie des Brisants. Le syndicat des marins marchands : si un équipage est mal payé, c’est nous qui le savons d’abord.
+
+- « Et Ferros ? » → ferros
+- « Au revoir. » → **fin**
+
+### ferros
+
+> — Ferros pollue, et Ferros paie. Sans son métal, nos coques pourrissent. L’Amirauté parle d’embargo, les Plongeurs de Perles applaudissent. Nous, on compte ce qu’on mangera l’hiver.
+
+- « Au revoir. » → **fin**
+
+## Mérande Fond-de-Cale
+
+_Capitaine des douanes_
+
+Commence par : « garde » _(si quête « Ce que la mer rend » en cours)_ _(sans repère « entrepot-ouvert »)_, sinon « accueil »
+
+### accueil
+
+> Une capitaine en veste azur, galons d’or, compte des caisses sur une ardoise. — Douanes de l’Amirauté. Rien à déclarer, j’espère ? Ne mentez jamais en mer : le quai, c’est déjà la mer.
+
+- « Au revoir. » → **fin**
+
+### garde
+
+> La capitaine Mérande Fond-de-Cale ne quitte pas la porte des yeux. — La caisse ? Rendue par la mer il y a dix jours. Du plomb de l’Ancien Monde, ou de Ferros : depuis le Cargo Noir, tout ce qui flotte sans pavillon est une pièce à conviction.
+
+- _(sans repère « merande-refus »)_ _(sans repère « merande-mefiante »)_ **🎲 Diplomatie 16** « Je suis des Gardiens de Mémoire. Laissez-moi voir ce qu’elle contient. » → ouverte, ✗ → refus
+- _(sans repère « merande-mefiante »)_ **🎲 Subterfuge 16** « L’Amirauté m’envoie. Ordre de la Grande Amiral. » → ouverte-ruse, ✗ → mensonge
+- _(si l’on porte « Un ordre de l’Amirauté »)_ « Voici un ordre de l’Amirauté. » → ouverte
+- « Je reviendrai. » → **fin**
+
+### ouverte
+
+_Effet : retient « entrepot-ouvert »._
+
+> Elle hésite, puis décroche une clé de sa ceinture. — Regardez. Ne touchez pas au plomb. Si c’est Ferros, je veux pouvoir le prouver.
+
+- « Entrer. » → **fin** _(mène à « Coralia — l’Entrepôt des douanes »)_
+- « Plus tard. » → **fin**
+
+### ouverte-ruse
+
+_Effet : retient « entrepot-ouvert », retient « ruse-amiraute »._
+
+> Elle lit le papier que tu n’as pas, à la manière dont tu le tiens. — La Grande Amiral signe à gauche, d’habitude. Elle hausse les épaules, et ouvre. — Je vérifierai demain.
+
+- « Entrer. » → **fin** _(mène à « Coralia — l’Entrepôt des douanes »)_
+- « Plus tard. » → **fin**
+
+### refus
+
+_Effet : retient « merande-refus »._
+
+> — Les Gardiens de Mémoire gardent des souvenirs. Moi, je garde des preuves. Revenez avec un ordre de l’Amirauté : le Palais est à l’est, après les Canaux.
+
+- « Partir. » → **fin**
+
+### mensonge
+
+_Effet : retient « merande-mefiante »._
+
+> — Ne mentez jamais en mer : Marethis entend chaque mot. Et moi aussi. Elle se plante devant la porte. — Revenez avec un vrai ordre, ou ne revenez pas.
+
+- « Partir. » → **fin**
+
 ## Mina
 
 _Une des jumeaux_
@@ -5772,6 +6088,69 @@ _Effet : termine la quête « Le fonds des Échos », retient « membre-archives
 - « Je vais à la Cendrière. » → **fin** _(lance la quête « Sous la cendre », retient « caisse-ferros-cherchee »)_
 - « Autre chose. » → apres-archives
 
+## Noéa Perlemer
+
+_Aubergiste de la Conque Rieuse_
+
+Commence par : « lettre-prise » _(si quête « Ce que la mer rend » terminée)_ _(si repère « caisse-marisol-prise »)_ _(sans repère « noea-lettre »)_, sinon « lettre » _(si quête « Ce que la mer rend » terminée)_ _(sans repère « noea-lettre »)_, sinon « accueil »
+
+### accueil
+
+> Une Maréenne à la peau dorée, des perles aux oreilles, essuie des chopes en chantant faux, exprès. — La Conque Rieuse ! On mange, on dort, et le soir on chante, jamais deux fois pareil. Qu’est-ce qui vous ferait plaisir ?
+
+- « Manger ou dormir ? » → servir
+- « Quelles nouvelles ? » → nouvelles
+- « Au revoir. » → **fin**
+
+### servir
+
+> — Du poisson grillé, du pain de Verdantis, ou un hamac au-dessus du canal. Le pain coûte plus que le poisson : ici, c’est la terre qui est rare.
+
+- **[10 Fers]** « Du poisson et du pain. » → mange _(−10 Fers, +15 PV)_
+- **[10 Fers]** « Un hamac jusqu’au matin. » → dodo _(−10 Fers, dort jusqu’au matin)_
+- **[10 Fers]** « Un hamac jusqu’à la nuit. » → dodo _(−10 Fers, dort jusqu’à la nuit)_
+- « Rien, merci. » → accueil
+
+### mange
+
+> Le poisson est grillé à la braise de bois flotté, le pain a voyagé deux semaines. Noéa s’assoit en face de toi, sans te demander la permission, et mange ta croûte.
+
+- « Merci, Noéa. » → accueil
+
+### dodo
+
+> Le hamac se balance au-dessus du canal. L’eau clapote contre les piliers, et tu t’endors avant d’avoir compté jusqu’à sept.
+
+- « Se lever. » → **fin**
+
+### nouvelles
+
+> — L’Amirauté a saisi une caisse que la mer a rendue. Les Murmureurs ne dorment plus. Et une dame en gris passe ses journées à la Salle des Conques, une conque contre l’oreille. On parie sur ce qu’elle écoute.
+
+- « Merci, Noéa. » → accueil
+
+### lettre
+
+> — Une lettre pour toi, arrivée par le navire de Verdantis. Elle a pris l’eau, un peu.
+
+- « L’ouvrir. » → lettre-texte
+
+### lettre-texte
+
+_Effet : retient « noea-lettre »._
+
+> L’écriture d’Ilyane, qui tremble. « Tu es au bord de la mer ? Je n’ai jamais vu la mer. Ou je l’ai vue, et je l’ai oubliée. Écris-moi comment elle est. Je relirai ta lettre tous les soirs, et chaque soir, ce sera la première fois. »
+
+- « Plier la lettre. » → **fin**
+
+### lettre-prise
+
+_Effet : retient « noea-lettre »._
+
+> — Une lettre pour toi, arrivée par le navire. Noéa te la tend, et détourne les yeux. Deux lignes, d’une écriture qui tremble beaucoup. « La mer. Qu’est-ce que c’est, déjà ? »
+
+- « Plier la lettre. » → **fin**
+
 ## Le nom de Pim
 
 _Bosquet des Échos_
@@ -5798,6 +6177,40 @@ _Effet : retient « pim-touche », retient le Récit « L’échelle de Pim », 
 > Le nom de Pim, bas sur le tronc. Le bois a gardé un peu de chaleur, à l’endroit où ta main s’est posée.
 
 - « Le laisser dormir. » → **fin**
+
+## Oaïna
+
+_Gardienne de la Salle des Conques_
+
+Commence par : « qui » _(si quête « Ce que la mer rend » en cours)_ _(si repère « euria-don »)_ _(sans repère « oaina-dit »)_, sinon « accueil »
+
+### accueil
+
+> Une Sélénide aux yeux luminescents, les cheveux en mouvement comme dans l’eau, veille sur les conques. — La Salle des Conques. Les marins y confient ce qu’ils ne veulent pas perdre. Approchez une conque de votre oreille : la mer vous le rendra.
+
+- « « La mer se souvient que » ? » → formule
+- « Au revoir. » → **fin**
+
+### formule
+
+> — Et nous, moins bien. Oaïna sourit. — Vous connaissez la réponse. Alors vous savez déjà ce qu’il faut savoir de Coralia.
+
+- « Au revoir. » → **fin**
+
+### qui
+
+_Effet : retient « oaina-dit »._
+
+> Oaïna regarde la dame en gris, au fond de la salle, une conque contre l’oreille. — Il y a dix jours, elle a demandé aux Murmureurs de prier la Mère-Abysse : « Rends-moi ce que ma mère a laissé. » La mer a rendu la caisse.
+
+- « Elle aurait dû demander sa mère. » → qui-2
+- « Merci, Oaïna. » → **fin**
+
+### qui-2
+
+> — L’Abysse donne exactement ce qu’on lui demande. Elle le sait, maintenant. C’est pour ça qu’elle écoute cette conque depuis dix jours.
+
+- « Merci, Oaïna. » → **fin**
 
 ## Odile
 
@@ -5887,6 +6300,18 @@ _Effet : retient « pointe-libre », retient « raid-annonce », +10 XP._
 > Le loquet cède sans bruit. L’hirondelle file dans ta manche. Sous le papier de la cage, un mot plié : « Nuit. Quai. Grêle. » L’oiseleur compte toujours ses Fers.
 
 - « Garder le mot. » → **fin**
+
+## Ondine Perle-Noire
+
+_Doyenne des Plongeurs de Perles_
+
+Commence par : « accueil »
+
+### accueil
+
+> Une vieille Semi-Abyssale, un collier de perles noires, des branchies fines sous les oreilles. — Ondine Perle-Noire, des Plongeurs de Perles. Au nord des Atolls, on ne remonte plus rien : Ferros y a laissé ses eaux noires, et les huîtres y meurent ouvertes.
+
+- « Au revoir. » → **fin**
 
 ## Ossiane Vire-Nuée
 
@@ -6247,6 +6672,35 @@ _Effet : retient « pilote-ecoute », retient le Récit « La machine qui roulai
 > Sous ta main, un ordre très ancien, répété sans fin : « Vers l’ouest. Rejoindre le chantier. » Le chantier n’existe plus depuis des siècles. La machine ne vole rien : elle obéit. Les pilleurs n’ont fait que l’atteler.
 
 - « Retirer la main. » → **fin**
+
+## L’Entrepôt des douanes
+
+_Le Grand Port_
+
+Commence par : « avis » _(si quête « Ce que la mer rend » pas commencée)_, sinon « porte »
+
+### avis
+
+_Effet : lance la quête « Ce que la mer rend », retient « mer-rend-commencee »._
+
+> Une porte épaisse, au sceau de l’Amirauté. Un avis cloué, que le sel commence à manger : « Saisie : une caisse de plomb, rendue par la mer. Suspicion de déversement (voir : Cargo Noir). Accès sur ordre de l’Amirauté. »
+
+- « Une caisse de plomb. » → porte
+
+### porte
+
+> La porte de l’Entrepôt des douanes, fermée à clé. La capitaine des douanes la surveille du coin de l’œil, à quelques pas.
+
+- _(si l’on porte « Un ordre de l’Amirauté »)_ « Montrer l’ordre de l’Amirauté. » → ouverte
+- « Partir. » → **fin**
+
+### ouverte
+
+_Effet : retient « entrepot-ouvert »._
+
+> Le douanier de garde lit l’ordre deux fois, et ouvre.
+
+- « Entrer. » → **fin** _(mène à « Coralia — l’Entrepôt des douanes »)_
 
 ## La porte du Fonds Muet
 

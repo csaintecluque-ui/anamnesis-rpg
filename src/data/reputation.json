@@ -434,5 +434,19 @@
       "flag": "onze-conseil",
       "points": -5
     }
+  ],
+  "coralia": [
+    {
+      "quest": "mer-rend",
+      "points": 15
+    },
+    {
+      "flag": "fin-mer-rend-rendue",
+      "points": 5
+    },
+    {
+      "flag": "ruse-amiraute",
+      "points": -5
+    }
   ]
 }

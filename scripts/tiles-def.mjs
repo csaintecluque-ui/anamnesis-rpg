@@ -1554,3 +1554,231 @@ TILES.push(
   npcTile('aeropretre', { body: '#f4f7f9', hair: '#c8c8c8', skin: '#e8dcd0', accent: '#6ab4e0', extra: '<path d="M22 58 Q14 66 18 76 M42 58 Q50 66 46 76" stroke="#6ab4e0" stroke-width="1.5" fill="none"/>' }),
   npcTile('chasseur-orage', { body: '#2a4a5a', hair: '#1a2a32', skin: '#b8dcd8', accent: '#3ae0d0', extra: '<circle cx="32" cy="48" r="11" fill="#3ae0d0" opacity="0.14"/><rect x="38" y="60" width="10" height="8" fill="#efe6cf" stroke="#1B1512" stroke-width="0.8"/>' }),
 );
+
+// Coralia, la cité du corail (chapitre 6, docs/univers/lieux/coralia.md) : provisoire. Canon [NOTION, Marisol] :
+// corail fossilisé, bois flotté, verre marin ; bleu azur, blanc écume, or solaire, turquoise ; toits en voiles.
+const coralHouse = (wall, roof, trim) =>
+  diamond('#e8dccf') +
+  shadow(22, 8) +
+  `<path d="M10 84 L10 50 Q10 44 16 44 L48 44 Q54 44 54 50 L54 84 L32 94 Z" fill="${wall}" stroke="${INK}" stroke-width="1.2"/>` +
+  `<path d="M6 48 Q32 10 58 48 Z" fill="${roof}" stroke="${INK}" stroke-width="1.2"/>` +
+  `<path d="M14 40 Q32 22 50 40" stroke="${trim}" stroke-width="2" fill="none"/>` +
+  `<path d="M27 92 L27 70 Q32 64 37 70 L37 90 Z" fill="#3a8ab8" stroke="${INK}" stroke-width="1"/>` +
+  '<circle cx="18" cy="62" r="4" fill="#9fe0e0" stroke="#1B1512" stroke-width="0.8"/><circle cx="46" cy="62" r="4" fill="#9fe0e0" stroke="#1B1512" stroke-width="0.8"/>' +
+  '<path d="M12 74 Q16 70 20 74 M44 76 Q48 72 52 76" stroke="#d88a80" stroke-width="1.5" fill="none"/>';
+TILES.push(
+  { name: 'corail-dalles', svg: diamond('#e8dccf') + '<path d="M16 76 Q24 72 32 76 Q40 80 48 76 M20 86 Q28 82 36 86" stroke="#d8c4b4" stroke-width="1.3" fill="none"/><circle cx="40" cy="70" r="1.6" fill="#e8a8a0"/>' },
+  { name: 'sable-mouille', svg: diamond('#b8a888') + '<path d="M14 80 Q22 77 30 80 M34 86 Q42 83 50 86 M28 72 Q34 70 40 72" stroke="#9a8a6a" stroke-width="1.2" fill="none"/><circle cx="22" cy="86" r="1.5" fill="#e8dccf"/><path d="M42 76 l3 -2" stroke="#3a7a5a" stroke-width="1.5"/>' },
+  {
+    // Des rails qui sortent de la mer à marée basse, pris dans les algues.
+    name: 'rail-noye',
+    svg:
+      diamond('#9a8a6a') +
+      `<path d="M12 74 L52 74 M10 80 L50 80" stroke="#7a6a5a" stroke-width="1.8" opacity="0.9"/>` +
+      '<path d="M16 70 L20 78 M26 72 L30 80 M36 74 L40 82 M46 76 L50 84" stroke="#5a4a3a" stroke-width="2"/>' +
+      '<path d="M20 82 Q22 76 26 78 M38 70 Q40 66 44 70" stroke="#3a7a5a" stroke-width="2" fill="none"/>',
+  },
+  {
+    // Un pont en arche au-dessus d'un canal, le long des colonnes ; et le long des rangées.
+    name: 'pont-arche-c',
+    svg:
+      diamond('#2c5a6a') + '<path d="M18 80 q6 -3 12 0 M34 86 q6 -3 12 0" stroke="#5b8a96" stroke-width="1.5" fill="none"/>' +
+      '<path d="M8 74 L40 90 L56 82 L24 66 Z" fill="#e8dccf" stroke="#1B1512" stroke-width="1"/>' +
+      '<path d="M8 74 L8 70 L40 86 L40 90 M24 66 L24 62 L56 78 L56 82" stroke="#d8c4b4" stroke-width="2" fill="none"/>',
+  },
+  {
+    name: 'pont-arche-r',
+    svg:
+      diamond('#2c5a6a') + '<path d="M18 80 q6 -3 12 0 M34 86 q6 -3 12 0" stroke="#5b8a96" stroke-width="1.5" fill="none"/>' +
+      '<path d="M56 74 L24 90 L8 82 L40 66 Z" fill="#e8dccf" stroke="#1B1512" stroke-width="1"/>' +
+      '<path d="M56 74 L56 70 L24 86 L24 90 M40 66 L40 62 L8 78 L8 82" stroke="#d8c4b4" stroke-width="2" fill="none"/>',
+  },
+  { name: 'maison-corail', blocking: true, cover: 4, svg: coralHouse('#f2e6dc', '#e8a8a0', '#e8c060') },
+  { name: 'maison-corail-bleue', blocking: true, cover: 4, svg: coralHouse('#f4eef0', '#3a8ab8', '#3ac0c0') },
+  {
+    // Le Palais du Grand Amiral [NOTION] : un coquillage géant nacré.
+    name: 'palais-nacre',
+    blocking: true,
+    cover: 4,
+    svg:
+      diamond('#e8dccf') +
+      shadow(26, 9) +
+      '<path d="M6 86 Q2 40 32 12 Q62 40 58 86 Z" fill="#f4eef0" stroke="#1B1512" stroke-width="1.2"/>' +
+      '<path d="M32 12 L14 84 M32 12 L24 86 M32 12 L32 88 M32 12 L40 86 M32 12 L50 84" stroke="#d8c8d8" stroke-width="1.5"/>' +
+      '<path d="M8 60 Q32 50 56 60" stroke="#e8c060" stroke-width="2" fill="none"/>' +
+      `<path d="M27 92 L27 74 Q32 68 37 74 L37 90 Z" fill="#e8c060" stroke="${INK}" stroke-width="1"/>`,
+  },
+  {
+    // Le Temple des Profondeurs Chuchotantes : un dôme sombre, un œil luminescent [NOTION].
+    name: 'temple-abysse',
+    blocking: true,
+    cover: 4,
+    svg:
+      diamond('#e8dccf') +
+      shadow(24, 8) +
+      `<path d="M8 84 L8 54 L56 54 L56 84 L32 94 Z" fill="#2c4a5a" stroke="${INK}" stroke-width="1.2"/>` +
+      `<path d="M8 54 Q32 14 56 54 Z" fill="#1f3a4a" stroke="${INK}" stroke-width="1.2"/>` +
+      '<ellipse cx="32" cy="38" rx="9" ry="5" fill="#9fe0e0" opacity="0.9"/><circle cx="32" cy="38" r="3" fill="#1f3a4a"/>' +
+      `<path d="M27 92 L27 70 L37 70 L37 90 Z" fill="#3ac0c0" stroke="${INK}" stroke-width="1" opacity="0.8"/>`,
+  },
+  {
+    // La Salle des Conques : une maison basse et sa grande vitre sur la mer.
+    name: 'salle-conques',
+    blocking: true,
+    cover: 4,
+    svg:
+      diamond('#e8dccf') +
+      shadow(24, 8) +
+      `<path d="M6 86 L6 50 L58 50 L58 86 L32 96 Z" fill="#f2e6dc" stroke="${INK}" stroke-width="1.2"/>` +
+      '<path d="M12 56 L52 56 L52 76 L12 76 Z" fill="#3a8ab8" stroke="#1B1512" stroke-width="1"/>' +
+      '<path d="M18 68 q4 -3 8 0 q-4 3 -8 0 M34 62 q4 -3 8 0 q-4 3 -8 0" fill="#e8c060"/>' +
+      `<path d="M2 52 Q32 26 62 52" fill="#e8a8a0" stroke="${INK}" stroke-width="1.2"/>` +
+      '<path d="M26 40 Q32 30 38 40 Q32 44 26 40 Z" fill="#f4eef0" stroke="#1B1512" stroke-width="0.8"/>',
+  },
+  {
+    // L'Entrepôt des douanes : des murs épais, un sceau de l'Amirauté.
+    name: 'entrepot',
+    blocking: true,
+    cover: 4,
+    svg:
+      diamond('#e8dccf') +
+      shadow(26, 8) +
+      `<path d="M4 86 L4 46 L60 46 L60 86 L32 96 Z" fill="#c8b8a8" stroke="${INK}" stroke-width="1.2"/>` +
+      `<path d="M0 48 L32 30 L64 48 Z" fill="#8a7a6a" stroke="${INK}" stroke-width="1.2"/>` +
+      '<path d="M18 92 L18 62 L46 62 L46 90" fill="#5a4a3a" stroke="#1B1512" stroke-width="1"/><path d="M32 62 L32 92" stroke="#1B1512" stroke-width="1"/>' +
+      '<circle cx="32" cy="54" r="5" fill="#e8c060" stroke="#1B1512" stroke-width="0.8"/>',
+  },
+  {
+    // Un bateau amarré, sur l'eau.
+    name: 'bateau',
+    blocking: true,
+    cover: 2,
+    svg:
+      diamond('#2c5a6a') +
+      '<path d="M8 74 Q32 92 56 74 L52 66 L12 66 Z" fill="#8a6a48" stroke="#1B1512" stroke-width="1.2"/>' +
+      '<path d="M32 66 L32 20" stroke="#5a4634" stroke-width="2.5"/>' +
+      '<path d="M32 22 L32 60 L52 58 Z" fill="#f4eef0" stroke="#1B1512" stroke-width="1"/><path d="M32 26 L32 56 L16 54 Z" fill="#e8dccf" stroke="#1B1512" stroke-width="1"/>' +
+      '<path d="M14 70 L50 70" stroke="#e8c060" stroke-width="1.5"/>',
+  },
+  {
+    // Une maison-bateau [NOTION] : une cabine de bois flotté sur une coque.
+    name: 'maison-bateau',
+    blocking: true,
+    cover: 4,
+    svg:
+      diamond('#2c5a6a') +
+      '<path d="M4 76 Q32 96 60 76 L56 68 L8 68 Z" fill="#7a5a3a" stroke="#1B1512" stroke-width="1.2"/>' +
+      `<path d="M14 68 L14 44 L50 44 L50 68 Z" fill="#c8a878" stroke="${INK}" stroke-width="1"/>` +
+      `<path d="M10 46 L32 28 L54 46 Z" fill="#3ac0c0" stroke="${INK}" stroke-width="1"/>` +
+      `<path d="M28 68 L28 54 L36 54 L36 68 Z" fill="${COPPER}" stroke="${INK}" stroke-width="0.8"/>`,
+  },
+  {
+    // Le chantier naval : une coque sur ses étais.
+    name: 'chantier',
+    blocking: true,
+    cover: 4,
+    svg:
+      diamond('#e8dccf') +
+      shadow(26, 7) +
+      '<path d="M10 82 L16 66 M54 82 L48 66 M24 86 L26 70 M40 86 L38 70" stroke="#5a4634" stroke-width="2.5"/>' +
+      '<path d="M4 62 Q32 84 60 62 L58 50 L6 50 Z" fill="#a07a48" stroke="#1B1512" stroke-width="1.2"/>' +
+      '<path d="M10 54 Q32 70 54 54 M8 58 Q32 76 56 58" stroke="#7a5a3a" stroke-width="1" fill="none"/>',
+  },
+  {
+    name: 'filet-peche',
+    blocking: true,
+    svg:
+      diamond('#e8dccf') +
+      '<path d="M14 86 L14 34 M50 86 L50 34" stroke="#8a6a48" stroke-width="3"/>' +
+      '<path d="M14 38 Q32 60 50 38 L50 70 Q32 80 14 70 Z" fill="none" stroke="#5a4634" stroke-width="1"/>' +
+      '<path d="M20 44 L20 74 M26 48 L26 77 M32 50 L32 78 M38 48 L38 77 M44 44 L44 74 M14 54 Q32 66 50 54 M14 64 Q32 74 50 64" stroke="#5a4634" stroke-width="0.7"/>' +
+      '<circle cx="30" cy="66" r="2" fill="#e8c060"/>',
+  },
+  {
+    // Un autel de corail [NOTION] : une petite pierre rose où l'on pose ce qu'on rend à la mer.
+    name: 'autel-corail',
+    blocking: true,
+    svg:
+      diamond('#e8dccf') +
+      shadow(14, 5) +
+      '<path d="M18 84 L20 62 L44 62 L46 84 Z" fill="#e8a8a0" stroke="#1B1512" stroke-width="1"/>' +
+      '<path d="M22 62 Q20 50 26 46 M32 62 Q32 44 36 40 M42 62 Q46 52 42 46" stroke="#d88a80" stroke-width="3" fill="none"/>' +
+      '<path d="M26 60 Q30 56 34 60 Q30 62 26 60 Z" fill="#f4eef0" stroke="#1B1512" stroke-width="0.6"/>',
+  },
+  {
+    name: 'lanterne-coquillage',
+    blocking: true,
+    svg:
+      diamond('#e8dccf') +
+      '<rect x="30" y="38" width="4" height="46" fill="#8a6a48"/>' +
+      '<circle cx="32" cy="30" r="13" fill="#9fe0e0" opacity="0.2"/>' +
+      '<path d="M24 34 Q32 16 40 34 Q32 38 24 34 Z" fill="#f4eef0" stroke="#3a8ab8" stroke-width="1.5"/>',
+  },
+  {
+    // Une conque sur son pied, où l'on confie un souvenir.
+    name: 'conque',
+    blocking: true,
+    svg:
+      shadow(12, 4) +
+      '<rect x="29" y="64" width="6" height="20" fill="#8a6a48"/>' +
+      '<path d="M18 62 Q24 40 42 44 Q50 52 44 62 Q32 70 18 62 Z" fill="#f2d8cc" stroke="#1B1512" stroke-width="1"/>' +
+      '<path d="M24 58 Q30 50 40 52" stroke="#d88a80" stroke-width="1.5" fill="none"/>',
+  },
+  {
+    // La grande vitre de la Salle des Conques : la mer derrière, des poissons qui passent.
+    name: 'vitre-mer',
+    blocking: true,
+    svg:
+      `<path d="M0 80 L0 20 L32 4 L64 20 L64 80 L32 96 Z" fill="#2c6a8a" stroke="${INK}" stroke-width="1.2" opacity="0.9"/>` +
+      '<path d="M14 40 q5 -4 10 0 q-5 4 -10 0 M36 30 q5 -4 10 0 q-5 4 -10 0 M30 58 q4 -3 8 0 q-4 3 -8 0" fill="#e8c060"/>' +
+      '<path d="M8 70 Q14 60 12 50 M54 74 Q50 62 56 52" stroke="#3a9a6a" stroke-width="2" fill="none"/>',
+  },
+  {
+    // La caisse plombée de Marisol, mouillée, des algues sur le plomb.
+    name: 'caisse-plomb',
+    blocking: true,
+    cover: 2,
+    svg:
+      diamond('#c8b8a8') +
+      shadow(20, 7) +
+      '<path d="M12 66 L32 56 L52 66 L52 84 L32 94 L12 84 Z" fill="#6a5a4a" stroke="#1B1512" stroke-width="1.2"/>' +
+      '<path d="M12 66 L32 76 L52 66 M32 76 L32 94" stroke="#1B1512" stroke-width="1"/>' +
+      '<rect x="28" y="62" width="8" height="5" fill="#8a8a94" stroke="#1B1512" stroke-width="0.6"/>' +
+      '<path d="M16 84 Q18 76 22 80 M44 86 Q46 78 50 82" stroke="#3a7a5a" stroke-width="2" fill="none"/>',
+  },
+);
+
+// Les habitants de Coralia (provisoires). Canon [NOTION, Marisol — Races & peuples] : les Sélénides ont la peau bleutée
+// ou nacrée, des branchies, les yeux luminescents, des cheveux qui ondulent comme l'eau ; les Maréens, la peau dorée.
+const gills = '<path d="M24 50 l-3 2 M24 53 l-3 2 M40 50 l3 2 M40 53 l3 2" stroke="#3ac0c0" stroke-width="1"/>';
+const glowEyes = '<circle cx="28" cy="48" r="1.6" fill="#e8ffff"/><circle cx="36" cy="48" r="1.6" fill="#e8ffff"/>';
+const waveHair = (c) => `<path d="M24 42 Q20 48 24 54 M40 42 Q44 48 40 54" stroke="${c}" stroke-width="2.5" fill="none"/>`;
+TILES.push(
+  // Noéa Perlemer, aubergiste de la Conque Rieuse : Maréenne, un tablier, des perles aux oreilles.
+  npcTile('noea', { body: '#3a8ab8', hair: '#2a1a10', skin: '#c89868', accent: '#f4eef0', extra: '<circle cx="23" cy="50" r="1.6" fill="#f4eef0"/><circle cx="41" cy="50" r="1.6" fill="#f4eef0"/>' }),
+  // Aïo Coquelune, dix ans, plongeur de perles : un pagne, un panier.
+  npcTile('aio', { small: true, body: '#3ac0c0', hair: '#1a1410', skin: '#b88858', accent: '#e8c060', extra: '<ellipse cx="44" cy="70" rx="5" ry="3.5" fill="#a07a48" stroke="#1B1512" stroke-width="0.6"/>' }),
+  // Auréo Brisevague, charpentier de marine : torse nu, un maillet.
+  npcTile('aureo', { body: '#8a6a48', hair: '#e8dccf', skin: '#b88858', accent: '#e8c060', extra: '<path d="M44 52 L50 44" stroke="#5a4634" stroke-width="3"/><rect x="47" y="40" width="7" height="5" fill="#8a6a48"/>' }),
+  // Oaïna, Sélénide, gardienne de la Salle des Conques.
+  npcTile('oaina', { body: '#2c6a8a', hair: '#bfe8f0', skin: '#a8c8d8', accent: '#9fe0e0', extra: gills + glowEyes + waveHair('#bfe8f0') }),
+  // Euria Sel-Doux, Murmureuse : un masque de coquillage [NOTION].
+  npcTile('euria', { body: '#1f3a4a', hair: '#e8dccf', skin: '#c8b8a8', accent: '#3ac0c0', extra: '<path d="M22 46 Q32 34 42 46 Q32 54 22 46 Z" fill="#f2d8cc" stroke="#1B1512" stroke-width="0.8"/><path d="M26 44 L38 44 M28 48 L36 48" stroke="#d88a80" stroke-width="1"/>' }),
+  // La capitaine Mérande Fond-de-Cale, des douanes de l'Amirauté : veste azur, galons d'or.
+  npcTile('merande', { body: '#2a5a8a', hair: '#1a1410', skin: '#d8b090', accent: '#e8c060', extra: '<path d="M22 58 L42 58" stroke="#e8c060" stroke-width="2"/>' }),
+  // Matteo Marée-Haute, délégué de la Confrérie des Brisants : vareuse, une casquette de marin.
+  npcTile('matteo', { body: '#3a4a6a', hair: '#3a2a1c', skin: '#c89868', accent: '#f4eef0', extra: '<path d="M22 42 L42 42 L40 38 L24 38 Z" fill="#2a2a3a"/>' }),
+  // Ondine Perle-Noire, doyenne des Plongeurs de Perles : Semi-Abyssale, un collier de perles noires.
+  npcTile('ondine', { body: '#2c5a6a', hair: '#e0e8ec', skin: '#a8b8c0', accent: '#1a1a24', extra: gills + '<circle cx="28" cy="60" r="2" fill="#1a1a24"/><circle cx="32" cy="61" r="2" fill="#1a1a24"/><circle cx="36" cy="60" r="2" fill="#1a1a24"/>' }),
+  // La Grande Amiral Marina Azurios [NOTION] : uniforme blanc, trident d'or.
+  npcTile('marina-azurios', { body: '#f4eef0', hair: '#8a8a94', skin: '#c89868', accent: '#e8c060', extra: '<path d="M48 36 L48 82 M44 36 L44 42 L52 42 L52 36" stroke="#e8c060" stroke-width="2" fill="none"/>' }),
+  // La dame en gris, à Coralia : le même manteau, du sel sur les épaules.
+  npcTile('edda-coralia', { body: '#6a6a70', hair: '#1a1614', skin: '#d9b8a0', accent: '#3a3a40', extra: '<path d="M20 56 l3 2 M42 58 l3 -2 M24 64 l2 2" stroke="#f4eef0" stroke-width="1.5"/>' }),
+  // Des passants : un pêcheur, une marchande de poisson, un Sélénide, un matelot, une plongeuse, un Murmureur.
+  npcTile('pecheur', { body: '#5a6a4a', hair: '#3a2a1c', skin: '#b88858', accent: '#e8c060', extra: '<path d="M46 36 L50 82" stroke="#8a6a48" stroke-width="2"/><path d="M46 36 Q56 44 52 56" stroke="#e8dccf" stroke-width="0.8" fill="none"/>' }),
+  npcTile('marchande-poisson', { body: '#c8a878', hair: '#5a3a24', skin: '#c89868', accent: '#3a8ab8', extra: '<ellipse cx="45" cy="68" rx="7" ry="4" fill="#a07a48" stroke="#1B1512" stroke-width="0.8"/><path d="M40 66 q4 -3 8 0 q-4 3 -8 0" fill="#9fb4c4"/>' }),
+  npcTile('selenide', { body: '#3a7a8a', hair: '#d8f0f4', skin: '#9ab8c8', accent: '#9fe0e0', extra: gills + glowEyes + waveHair('#d8f0f4') }),
+  npcTile('matelot', { body: '#f4eef0', hair: '#2a1a10', skin: '#b88858', accent: '#3a8ab8', extra: '<path d="M22 60 L42 60 M22 66 L42 66" stroke="#3a8ab8" stroke-width="2"/>' }),
+  npcTile('plongeuse', { body: '#2c5a6a', hair: '#1a1410', skin: '#b88858', accent: '#e8c060', extra: '<circle cx="32" cy="46" r="10" fill="none" stroke="#9fe0e0" stroke-width="1.5" opacity="0.7"/>' }),
+  npcTile('murmureur', { body: '#1f3a4a', hair: '#5a5a62', skin: '#c8b8a8', accent: '#3ac0c0', extra: '<path d="M22 46 Q32 34 42 46 Q32 54 22 46 Z" fill="#e8dccf" stroke="#1B1512" stroke-width="0.8"/>' }),
+);

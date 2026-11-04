@@ -1,0 +1,165 @@
+{
+  "id": "caisse-marisol",
+  "speaker": "caisse-marisol",
+  "entries": [
+    {
+      "node": "caisse"
+    }
+  ],
+  "nodes": {
+    "caisse": {
+      "text": "Une caisse de plomb, mouillée, des algues encore prises dans les sangles. Le plomb a tenu ; le sel a mangé le bois. Sur le couvercle, frappé : 7.",
+      "options": [
+        {
+          "text": "L’ouvrir.",
+          "next": "ouverte"
+        },
+        {
+          "text": "La laisser.",
+          "next": "fin"
+        }
+      ]
+    },
+    "ouverte": {
+      "text": "Dedans, une pièce lourde et froide, et une liste que l’eau a gardée, dans une boîte de verre : Ilan, sept ans ; Naïs, six ans ; Corin, huit ans ; Sela, cinq ans ; Timo, neuf ans ; Rhéa, six ans. La même main, encore.",
+      "options": [
+        {
+          "text": "La rendre à la mer, avec les Murmureurs.",
+          "requires": [
+            {
+              "flag": "euria-don"
+            }
+          ],
+          "next": "rendue",
+          "effects": [
+            {
+              "setFlag": "caisse-marisol-trouvee"
+            },
+            {
+              "avancer": 2
+            },
+            {
+              "setFlag": "caisse-marisol-reglee"
+            },
+            {
+              "completeQuest": "mer-rend"
+            },
+            {
+              "setFlag": "fin-mer-rend-rendue"
+            },
+            {
+              "giveXp": 60
+            }
+          ]
+        },
+        {
+          "text": "Prendre la pièce.",
+          "next": "gardee",
+          "effects": [
+            {
+              "giveItem": "piece-marisol"
+            },
+            {
+              "setFlag": "caisse-marisol-trouvee"
+            },
+            {
+              "setFlag": "caisse-marisol-reglee"
+            },
+            {
+              "completeQuest": "mer-rend"
+            },
+            {
+              "setFlag": "fin-mer-rend-gardee"
+            },
+            {
+              "giveXp": 60
+            }
+          ]
+        },
+        {
+          "text": "La laisser à l’Amirauté.",
+          "next": "amiraute",
+          "effects": [
+            {
+              "setFlag": "caisse-marisol-trouvee"
+            },
+            {
+              "setFlag": "caisse-marisol-reglee"
+            },
+            {
+              "completeQuest": "mer-rend"
+            },
+            {
+              "setFlag": "fin-mer-rend-amiraute"
+            },
+            {
+              "giveXp": 60
+            }
+          ]
+        },
+        {
+          "text": "La laisser à la dame en gris.",
+          "requires": [
+            {
+              "flag": "edda-conque-vue"
+            }
+          ],
+          "next": "edda",
+          "effects": [
+            {
+              "setFlag": "caisse-marisol-prise"
+            },
+            {
+              "setFlag": "caisse-marisol-reglee"
+            },
+            {
+              "completeQuest": "mer-rend"
+            },
+            {
+              "setFlag": "fin-mer-rend-edda"
+            },
+            {
+              "giveXp": 60
+            }
+          ]
+        }
+      ]
+    },
+    "rendue": {
+      "text": "À la marée basse suivante, Euria et deux Murmureurs portent la caisse jusqu’au bout de la voie qui entre dans la mer. Euria chante sans répéter un seul mot. La mer monte, et la prend. Personne ne l’a, maintenant.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "gardee": {
+      "text": "Tu charges la pièce sur ton dos et tu refermes le plomb sur la liste. Personne, à Coralia, ne saura ce qu’il y avait dedans. La mer, si.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "amiraute": {
+      "text": "Tu refermes le couvercle. Demain, la capitaine Mérande l’ouvrira devant témoins et la classera : pièce à conviction, provenance inconnue, « pas Ferros ». La Grande Amiral sera déçue.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "edda": {
+      "text": "Le soir, à marée basse, tu laisses la cale ouverte. Au matin, la caisse n’est plus là. Sur le sable mouillé, une conque, posée, que tu ne portes pas à ton oreille.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

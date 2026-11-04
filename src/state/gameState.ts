@@ -19,6 +19,8 @@ export interface LocationDef {
   nexus?: boolean;
   /** What lies beyond the map's edges (a colour): the sky of Aetherhaven, the ash under the clouds. Ink otherwise. */
   fond?: string;
+  /** Its map at low tide, in the morning and the evening (Coralia ; src/rules/marees.ts). */
+  maree?: string;
 }
 
 export const LOCATIONS = locationData as LocationDef[];

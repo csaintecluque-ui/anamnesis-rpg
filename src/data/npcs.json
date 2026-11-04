@@ -940,5 +940,80 @@
     "id": "caisse-terminus",
     "name": "Une caisse sans main",
     "role": "Le Fonds Muet"
+  },
+  {
+    "id": "merande",
+    "name": "Mérande Fond-de-Cale",
+    "role": "Capitaine des douanes"
+  },
+  {
+    "id": "marina-azurios",
+    "name": "Marina Azurios",
+    "role": "Grande Amiral de Marisol"
+  },
+  {
+    "id": "euria",
+    "name": "Euria Sel-Doux",
+    "role": "Murmureuse des Profondeurs Chuchotantes"
+  },
+  {
+    "id": "oaina",
+    "name": "Oaïna",
+    "role": "Gardienne de la Salle des Conques"
+  },
+  {
+    "id": "edda-coralia",
+    "name": "La dame en gris",
+    "role": "Salle des Conques"
+  },
+  {
+    "id": "noea",
+    "name": "Noéa Perlemer",
+    "role": "Aubergiste de la Conque Rieuse"
+  },
+  {
+    "id": "aureo",
+    "name": "Auréo Brisevague",
+    "role": "Charpentier de marine"
+  },
+  {
+    "id": "matteo",
+    "name": "Matteo Marée-Haute",
+    "role": "Confrérie des Brisants"
+  },
+  {
+    "id": "aio",
+    "name": "Aïo Coquelune",
+    "role": "Plongeur de perles, dix ans"
+  },
+  {
+    "id": "ondine",
+    "name": "Ondine Perle-Noire",
+    "role": "Doyenne des Plongeurs de Perles"
+  },
+  {
+    "id": "porte-entrepot",
+    "name": "L’Entrepôt des douanes",
+    "role": "Le Grand Port"
+  },
+  {
+    "id": "cale-entrepot",
+    "name": "La cale de l’Entrepôt",
+    "role": "Le Grand Port, à marée basse"
+  },
+  {
+    "id": "caisse-marisol",
+    "name": "La caisse que la mer a rendue",
+    "role": "L’Entrepôt des douanes"
+  },
+  {
+    "id": "autel-port",
+    "name": "Un autel de corail",
+    "role": "Le Grand Port"
+  },
+  {
+    "id": "echo-le-don",
+    "name": "Un Écho",
+    "role": "La halte noyée"
   }
 ]

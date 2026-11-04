@@ -1,4 +1,4 @@
-# Chapitre 6 : Coralia — proposition du 2026-11-04, **à valider**
+# Chapitre 6 : Coralia — **validé par Cyril** le 2026-11-04 (« 1 oui, 2 oui, 3 oui, 4 oui »)
 
 Cyril (2026-11-04, « 4 oui ») : après les trois caisses du retour, une ville de Marisol, Coralia, qui a sa caisse. Le
 lieu, ses habitants et ce que dit le canon : `docs/univers/lieux/coralia.md`. Le fil : `fil-directeur.md`.
@@ -64,3 +64,18 @@ avoir peur. Je ne sais plus les mots. »* Le quai d'Altavent reste pour la fin.
    et le fragment du héros : l'air que l'autre enfant fredonnait ?
 4. **Les deux guildes** : la Confrérie des Brisants (le commerce avec Ferros) contre les Plongeurs de Perles
    (l'embargo) ?
+
+## Construit (2026-11-04)
+
+| Étape | Contenu | État |
+|---|---|---|
+| 1 | Les marées (`src/rules/marees.ts` : le Grand Port a sa carte de marée basse, le matin et le soir) ; le navire sur la carte du monde (comme le dirigeable : la première traversée payée par Hesper, puis 40 Fers, deux jours) ; trois quartiers, dix intérieurs, la voie noyée | en ligne |
+| 2 | « Ce que la mer rend » : l'avis de l'Entrepôt ; quatre entrées (la capitaine Mérande, l'ordre de la Grande Amiral, la ruse, la cale à marée basse) ; Euria, Oaïna, la dame en gris et la conque ; quatre fins ; la caisse de Marisol au fil ; l'air (fragment du chapitre 7, la nuit après) ; la lettre d'Ilyane chez Noéa | en ligne |
+| 3 à 5 | Le mystère et le Récit ; les quêtes de la ville et les deux guildes ; passants, phrases, veillée | à faire |
+
+**À valider** (inventés au montage) : les six noms de la caisse de Marisol (**Ilan, sept ans ; Naïs, six ans ; Corin,
+huit ans ; Sela, cinq ans ; Timo, neuf ans ; Rhéa, six ans**) ; la conque de la mère, qui les récite (« Je les compte
+encore. Si je m'arrête, je les perds. ») ; la plaque « Halte de la Mer — voie 7 » ; l'Écho « Le Don des Eaux » (la
+procession qui pose la caisse au bord de l'eau) ; la capitaine Mérande Fond-de-Cale ; Marina Azurios qui signe un ordre
+« pour un Gardien de Mémoire ». Coralia apparaît sur la carte du monde après Aetherhaven ; la lettre de Hesper est dite
+par la page « Le fil ».

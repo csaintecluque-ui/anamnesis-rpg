@@ -1,0 +1,20 @@
+{
+  "id": "aio",
+  "speaker": "aio",
+  "entries": [
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Un garçon de dix ans, un panier vide sous le bras. — T’as déjà plongé ? Moi, je tiens deux minutes. Ondine dit que c’est rien. Ondine en tient dix, mais elle a des branchies : c’est de la triche.",
+      "options": [
+        {
+          "text": "Au revoir, Aïo.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

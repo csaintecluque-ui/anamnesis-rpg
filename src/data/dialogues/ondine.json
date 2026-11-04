@@ -1,0 +1,20 @@
+{
+  "id": "ondine",
+  "speaker": "ondine",
+  "entries": [
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Une vieille Semi-Abyssale, un collier de perles noires, des branchies fines sous les oreilles. — Ondine Perle-Noire, des Plongeurs de Perles. Au nord des Atolls, on ne remonte plus rien : Ferros y a laissé ses eaux noires, et les huîtres y meurent ouvertes.",
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

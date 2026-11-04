@@ -1,0 +1,73 @@
+{
+  "id": "euria",
+  "speaker": "euria",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "mer-rend",
+          "status": "active"
+        },
+        {
+          "notFlag": "euria-don"
+        }
+      ],
+      "node": "don"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Une Murmureuse au masque de coquillage écoute, une main à plat sur l’autel. — La mer se souvient que nous sommes venus, dit-elle. Et nous, moins bien. Asseyez-vous, si vous voulez écouter.",
+      "options": [
+        {
+          "text": "Écouter.",
+          "next": "ecoute"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "ecoute": {
+      "text": "Tu écoutes. Sous le temple, quelque chose de très grand respire, lentement. Le masque d’Euria vibre avec. Tu ne sais pas combien de temps passe.",
+      "effects": [
+        {
+          "heal": 5
+        }
+      ],
+      "options": [
+        {
+          "text": "Remercier Euria.",
+          "next": "fin"
+        }
+      ]
+    },
+    "don": {
+      "text": "Euria Sel-Doux lève son masque. — La caisse. Nous l’avions donnée à la mer, il y a longtemps, au bout de la voie qui entre dans l’eau. La mer l’a rendue. Une offrande rendue, c’est un présage, et celui-là est mauvais.",
+      "options": [
+        {
+          "text": "Que faut-il faire ?",
+          "next": "don-2"
+        }
+      ]
+    },
+    "don-2": {
+      "text": "— La rendre encore, à marée basse, là où elle avait été donnée. Mais quelqu’un a demandé à la Mère-Abysse de la faire remonter. Tant que cette demande court, la mer la rendra. Va à la Salle des Conques : Oaïna sait qui.",
+      "effects": [
+        {
+          "setFlag": "euria-don"
+        }
+      ],
+      "options": [
+        {
+          "text": "J’y vais.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

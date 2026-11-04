@@ -4,6 +4,7 @@ import { CAPACITES } from '../rules/combat';
 import { ECHOS, TYPE_LABELS, collectedEchos, empriseLabel } from '../rules/echos';
 import { findLocation } from '../state/gameState';
 import { journalQuests, journalRecits, journalReputation } from '../rules/journal';
+import { rememberEndings } from '../rules/fins';
 import { NORMAL_DIFFICULTY, characterFiche } from '../rules/fiche';
 import { herosPage } from '../rules/heros';
 import { HISTOIRES } from '../rules/voies';
@@ -209,7 +210,7 @@ export class JournalScene extends Phaser.Scene {
   }
 
   private drawQuests(): void {
-    const quests = journalQuests(this.state);
+    const quests = journalQuests(this.state, rememberEndings(this.state.flags));
     this.drawList(
       quests.map((q) => ({ text: q.done ? `✓ ${q.name}` : q.name, muted: q.done })),
       (i) => {
@@ -220,6 +221,12 @@ export class JournalScene extends Phaser.Scene {
         if (q.step) {
           const label = this.text(DETAIL_X, summary.y + summary.height + 26, 'Où j’en suis', 20, CSS.copper);
           this.text(DETAIL_X, label.y + label.height + 8, q.step, 24, CSS.parchment, DETAIL_WIDTH);
+        }
+        // The endings seen (étude B11): the replay value made visible, without telling the ones not seen.
+        if (q.finsVues) {
+          const label = this.text(DETAIL_X, summary.y + summary.height + 26, `Fins vues : ${q.finsVues.seen.length} / ${q.finsVues.total}`, 20, CSS.copper);
+          const more = q.finsVues.seen.length < q.finsVues.total ? '\nD’autres chemins menaient ailleurs.' : '';
+          this.text(DETAIL_X, label.y + label.height + 8, `${q.finsVues.seen.map((t) => `✓ ${t}`).join('\n')}${more}`, 22, CSS.parchment, DETAIL_WIDTH);
         }
       },
       'Aucune quête pour l’instant. Parle aux gens : chacun a quelque chose à demander.',

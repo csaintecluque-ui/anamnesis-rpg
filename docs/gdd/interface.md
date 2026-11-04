@@ -214,3 +214,16 @@ ne disait rien, traverser Gardebois prenait 8 s.
   « Recentrer (C) » paraît. Le survol le dit dans l'infobulle.
 - **M** l'affiche ou la masque ; les **Options** aussi (« Mini-carte : Affichée / Masquée »), retenu sur l'appareil.
   Les messages du bas se font plus étroits quand elle est là, pour ne jamais la couvrir.
+
+## Étude du 3 novembre, vague 3 : les fins vues (B11)
+
+- Une quête principale à plusieurs issues, une fois finie, dit au journal **« Fins vues : 2 / 7 »**, avec le nom de
+  celles qu'on a vues (« ✓ La foreuse sabotée ») et « D'autres chemins menaient ailleurs. » tant qu'il en reste ; les
+  autres ne sont pas nommées. Le Dernier Train en a 7 (le rapport, Corvan, « Même réussir peut tout détruire », la
+  peur, la foreuse sabotée, la chaudière, le Golem), la Clé de Rouille Bleue 3 (rendue, vendue, confiée), les
+  Mémoires du Monde Perdu 3 (la ligne vendue, la dame en gris raccompagnée, le silence).
+- Chaque fin pose `fin-<quête>-<fin>` (`fins` dans `src/data/quests.json`, `src/rules/fins.ts`) ; l'appareil retient
+  les fins vues dans toutes ses parties (comme les options), pour que la deuxième partie compte la première. Une
+  quête finie avant ce compte (ancienne sauvegarde) en montre une, sans nom.
+- Un test vérifie que chaque façon de finir ces quêtes pose le repère d'une de leurs fins, et que chaque fin a la
+  sienne (`src/rules/fins.test.ts`).

@@ -5,6 +5,7 @@ import { contractStep } from './contrats';
 import { factionRank, rankName, talesCap } from './factions';
 import { FACTIONS, REPUTATION, findFaction, levelLabel, reputationLevel, reputationScore } from './reputation';
 import { findPlace, knownPlaces } from './world';
+import { endingsSeen } from './fins';
 
 /** Journal (docs/gdd/interface.md) : quêtes, Récits retenus, réputation, sans rien de plus à sauvegarder. */
 
@@ -12,10 +13,15 @@ export interface JournalQuest extends QuestDef {
   done: boolean;
   /** The latest step reached, while in progress. */
   step?: string;
+  /** Once finished, a main quest with several endings: those seen (in any game on this device), and how many (B11). */
+  finsVues?: { seen: string[]; total: number };
 }
 
-/** Quests in progress first (most recent first), then the finished ones (in the order of the game's data). */
-export function journalQuests(state: GameState): JournalQuest[] {
+/**
+ * Quests in progress first (most recent first), then the finished ones (in the order of the game's data). `endings`:
+ * the ending flags seen on this device (src/rules/fins.ts), this game's by default.
+ */
+export function journalQuests(state: GameState, endings: ReadonlySet<string> = new Set(Object.keys(state.flags))): JournalQuest[] {
   const started = Object.keys(state.quests);
   const active = started.filter((id) => state.quests[id] === 'active').reverse();
   const done = QUESTS.filter((q) => state.quests[q.id] === 'done').map((q) => q.id);
@@ -27,7 +33,10 @@ export function journalQuests(state: GameState): JournalQuest[] {
     if (!quest) return [];
     const done = state.quests[id] === 'done';
     const step = done ? undefined : [...(quest.etapes ?? [])].reverse().find((e) => state.flags[e.si])?.texte;
-    return [{ ...quest, done, step }];
+    const finsVues = done ? endingsSeen(quest, endings) : undefined;
+    // A quest finished before the endings were counted (an older save): its own ending, not named.
+    if (finsVues && finsVues.seen.length === 0) finsVues.seen.push('Une fin vue avant que le journal ne les compte');
+    return [{ ...quest, done, step, finsVues }];
   })];
 }
 

@@ -237,6 +237,9 @@
               "completeQuest": "cle-rouille-bleue"
             },
             {
+              "setFlag": "fin-cle-rouille-bleue-rendue"
+            },
+            {
               "giveXp": 60
             }
           ]
@@ -318,6 +321,9 @@
             },
             {
               "completeQuest": "cle-rouille-bleue"
+            },
+            {
+              "setFlag": "fin-cle-rouille-bleue-rendue"
             },
             {
               "giveXp": 60

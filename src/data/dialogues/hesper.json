@@ -156,6 +156,9 @@
           "completeQuest": "memoires-monde-perdu"
         },
         {
+          "setFlag": "fin-memoires-monde-perdu-vendue"
+        },
+        {
           "giveXp": 60
         },
         {
@@ -178,6 +181,9 @@
       "effects": [
         {
           "completeQuest": "memoires-monde-perdu"
+        },
+        {
+          "setFlag": "fin-memoires-monde-perdu-denoncee"
         },
         {
           "giveXp": 80
@@ -207,6 +213,9 @@
       "effects": [
         {
           "completeQuest": "memoires-monde-perdu"
+        },
+        {
+          "setFlag": "fin-memoires-monde-perdu-silence"
         },
         {
           "giveXp": 80

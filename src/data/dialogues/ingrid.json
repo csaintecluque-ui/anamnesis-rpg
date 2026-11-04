@@ -246,6 +246,9 @@
           "completeQuest": "dernier-train"
         },
         {
+          "setFlag": "fin-dernier-train-rapport"
+        },
+        {
           "giveXp": 80
         },
         {
@@ -267,6 +270,9 @@
         },
         {
           "completeQuest": "dernier-train"
+        },
+        {
+          "setFlag": "fin-dernier-train-corvan"
         },
         {
           "giveXp": 90
@@ -607,6 +613,9 @@
           "completeQuest": "dernier-train"
         },
         {
+          "setFlag": "fin-dernier-train-menace"
+        },
+        {
           "giveXp": 60
         },
         {
@@ -628,6 +637,9 @@
         },
         {
           "completeQuest": "dernier-train"
+        },
+        {
+          "setFlag": "fin-dernier-train-quai"
         },
         {
           "giveXp": 90

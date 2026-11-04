@@ -1841,12 +1841,12 @@ _Si Liane voyage avec toi :_ Liane s’est arrêtée au bord du quai. — Chaque
 > 🌙 Te voilà au pied de la foreuse, dans l’odeur d’huile et de pierre chaude. Personne n’a rien vu.
 
 - **🎲 Artisanat 10** « Saboter le mécanisme. » → sabotee, ✗ → bruit
-- « Ouvrir la chaudière en grand, et courir. » → chaudiere _(retient « foreuse-sabotee », retient « foreuse-explosee », retient « chantier-arrete », termine la quête « Le Dernier Train », +50 XP, +30 Fers, avis de Liane −2)_
+- « Ouvrir la chaudière en grand, et courir. » → chaudiere _(retient « foreuse-sabotee », retient « foreuse-explosee », retient « chantier-arrete », termine la quête « Le Dernier Train », retient « fin-dernier-train-chaudiere », +50 XP, +30 Fers, avis de Liane −2)_
 - « Repartir sans rien toucher. » → **fin**
 
 ### sabotee
 
-_Effet : retient « foreuse-sabotee », retient « chantier-arrete », termine la quête « Le Dernier Train », +70 XP, +30 Fers._
+_Effet : retient « foreuse-sabotee », retient « chantier-arrete », termine la quête « Le Dernier Train », retient « fin-dernier-train-sabotage », +70 XP, +30 Fers._
 
 > 🌙 Une goupille retirée, un engrenage faussé : la foreuse ne repartira pas avant longtemps. Tu regagnes l’ombre sans un bruit.
 
@@ -2384,7 +2384,7 @@ _Si Boulon voyage avec toi :_ Boulon s’incline, et le plancher grince. — On 
 
 ### fin-vendue
 
-_Effet : termine la quête « Les Mémoires du Monde Perdu », +60 XP, retient « piste-zephyria », avis de Liane −1._
+_Effet : termine la quête « Les Mémoires du Monde Perdu », retient « fin-memoires-monde-perdu-vendue », +60 XP, retient « piste-zephyria », avis de Liane −1._
 
 > Hesper écoute, et sa lanterne baisse. — Tu as vendu une ligne. Ici, c’est un métier honnête. Chez les Gardiens, on transmet ; on ne vend pas. Altavent, sous les Hauts de Zephyria. Ils y seront avant toi. Alors cours.
 
@@ -2392,7 +2392,7 @@ _Effet : termine la quête « Les Mémoires du Monde Perdu », +60 XP, retient �
 
 ### fin-denonce
 
-_Effet : termine la quête « Les Mémoires du Monde Perdu », +80 XP, retient « piste-zephyria »._
+_Effet : termine la quête « Les Mémoires du Monde Perdu », retient « fin-memoires-monde-perdu-denoncee », +80 XP, retient « piste-zephyria »._
 
 > — Raccompagnée. Personne ne l’a touchée, et elle est au cent unième kilomètre. C’est la seule justice qu’on ait ici : elle est propre, et elle est terrible. Altavent, sous les Hauts de Zephyria. La piste est à toi.
 
@@ -2406,7 +2406,7 @@ _Effet : termine la quête « Les Mémoires du Monde Perdu », +80 XP, retient �
 
 ### fin-silence
 
-_Effet : termine la quête « Les Mémoires du Monde Perdu », +80 XP, retient « piste-zephyria »._
+_Effet : termine la quête « Les Mémoires du Monde Perdu », retient « fin-memoires-monde-perdu-silence », +80 XP, retient « piste-zephyria »._
 
 > — Tu t’es tue, et elle te suivra : les routes sont longues. Altavent, sous les Hauts de Zephyria. La Porte de Zephyria ne s’ouvre qu’avec un sauf-conduit de la Confédération : il faudra le trouver.
 
@@ -2839,7 +2839,7 @@ _Effet : retient « ingrid-braquee »._
 
 ### convaincue
 
-_Effet : retient « chantier-arrete », retient « ingrid-rapport », termine la quête « Le Dernier Train », +80 XP, +30 Fers._
+_Effet : retient « chantier-arrete », retient « ingrid-rapport », termine la quête « Le Dernier Train », retient « fin-dernier-train-rapport », +80 XP, +30 Fers._
 
 > Ingrid se tait longtemps, puis plie ses papiers en quatre. — J’écrirai à Ferros que la Faille est instable. C’est peut-être même vrai. J’arrête la foreuse. Dites à vos Gardiens que Ferros reviendra, avec ou sans moi.
 
@@ -2847,7 +2847,7 @@ _Effet : retient « chantier-arrete », retient « ingrid-rapport », termine la
 
 ### convaincue-recit
 
-_Effet : retient « chantier-arrete », termine la quête « Le Dernier Train », +90 XP, +30 Fers._
+_Effet : retient « chantier-arrete », termine la quête « Le Dernier Train », retient « fin-dernier-train-corvan », +90 XP, +30 Fers._
 
 > — Corvan ? Je connais l’histoire, oui, et vous avez raison : il a réussi, et ça ne l’a pas sauvé. J’arrête la foreuse. On ne commet pas deux fois la même faute.
 
@@ -3000,7 +3000,7 @@ _Effet : retient « ingrid-defie »._
 
 ### convaincue-peur
 
-_Effet : retient « chantier-arrete », retient « ingrid-rancune », avis de Liane −1, termine la quête « Le Dernier Train », +60 XP, +50 Fers._
+_Effet : retient « chantier-arrete », retient « ingrid-rancune », avis de Liane −1, termine la quête « Le Dernier Train », retient « fin-dernier-train-menace », +60 XP, +50 Fers._
 
 > Ingrid te dévisage, et ses lèvres blanchissent. — Très bien. J’arrête. Elle te lance une bourse. — Pour votre garde. Qu’elle regarde ailleurs, le jour où Ferros reviendra.
 
@@ -3008,7 +3008,7 @@ _Effet : retient « chantier-arrete », retient « ingrid-rancune », avis de Li
 
 ### convaincue-quai
 
-_Effet : retient « chantier-arrete », termine la quête « Le Dernier Train », +90 XP, +30 Fers._
+_Effet : retient « chantier-arrete », termine la quête « Le Dernier Train », retient « fin-dernier-train-quai », +90 XP, +30 Fers._
 
 > Ingrid écoute, les yeux sur la foreuse. — « Même réussir peut tout détruire. » Il savait de quoi il parlait, celui-là. Bien. J’arrête. Pour lui ; pas pour vos Gardiens.
 
@@ -3402,7 +3402,7 @@ _Si Liane voyage avec toi :_ Liane recule d’un pas. — Si tu la lui vends, je
 
 _Si Boulon voyage avec toi :_ Boulon se place entre toi et le comptoir. — Une archive vivante ne se vend pas. C’est toi qui l’as dit, chez Noam. Je l’ai retenu.
 
-- « La lui vendre, pour cent Fers. » → vendue _(reprend 1 × « Clé de rouille bleue », +100 Fers, retient « cle-vendue », termine la quête « La Clé de Rouille Bleue », +60 XP, avis de Boulon −2, avis de Liane −1)_
+- « La lui vendre, pour cent Fers. » → vendue _(reprend 1 × « Clé de rouille bleue », +100 Fers, retient « cle-vendue », termine la quête « La Clé de Rouille Bleue », retient « fin-cle-rouille-bleue-vendue », +60 XP, avis de Boulon −2, avis de Liane −1)_
 - « Qu’ouvre-t-elle ? » → ouvre
 - « Cent Fers. Tu paies les souvenirs au prix des os. » → offre-ironie
 - « Non, pas à toi. » → **fin**
@@ -4156,7 +4156,7 @@ _Effet : retient « fonds-zero-connu »._
 
 > Noam ôte ses lunettes. Pour la première fois, il parle sans note. — Donnez-la-moi. Je vous ouvre le Fonds Zéro, et vos yeux seront les premiers à voir ce qu’il contient depuis la fondation de la ville.
 
-- « La lui confier. » → ouverture _(reprend 1 × « Clé de rouille bleue », retient « cle-archives », termine la quête « La Clé de Rouille Bleue », +70 XP, retient le Récit « Le carnet du dernier train »)_
+- « La lui confier. » → ouverture _(reprend 1 × « Clé de rouille bleue », retient « cle-archives », termine la quête « La Clé de Rouille Bleue », retient « fin-cle-rouille-bleue-confiee », +70 XP, retient le Récit « Le carnet du dernier train »)_
 - « Pas encore. » → **fin**
 
 ### ouverture
@@ -5921,7 +5921,7 @@ _Effet : donne 1 × « Clé de rouille bleue », retient « cle-obtenue », +25 
 
 > — Alors, cette clé ? Elle chante encore ?
 
-- « Te la rendre : sa place est sur la ligne. » → rendue _(reprend 1 × « Clé de rouille bleue », retient « cle-veilleuse », termine la quête « La Clé de Rouille Bleue », +60 XP)_
+- « Te la rendre : sa place est sur la ligne. » → rendue _(reprend 1 × « Clé de rouille bleue », retient « cle-veilleuse », termine la quête « La Clé de Rouille Bleue », retient « fin-cle-rouille-bleue-rendue », +60 XP)_
 - _(sans repère « cle-etudiee »)_ _(sans repère « cle-etude-ratee »)_ **🎲 Érudition 12** « L’étudier d’abord avec toi. » → etude, ✗ → etude-ratee
 - _(si quête « Le Rail des Cendres » en cours)_ _(sans repère « indice-veilleuse »)_ « Les convois du triage, qui partent seuls la nuit ? » → convois-triage
 - « Pas encore. » → **fin**
@@ -5941,7 +5941,7 @@ _Effet : retient « cle-etudiee », +10 XP._
 
 > Sous la rouille bleue, à la loupe de la Veilleuse, un numéro apparaît : un sceau des Archives de Ferros, et deux mots, « Fonds Zéro ». La clé ouvre un coffre des Archives Centrales.
 
-- « Te la rendre. » → rendue _(reprend 1 × « Clé de rouille bleue », retient « cle-veilleuse », termine la quête « La Clé de Rouille Bleue », +60 XP)_
+- « Te la rendre. » → rendue _(reprend 1 × « Clé de rouille bleue », retient « cle-veilleuse », termine la quête « La Clé de Rouille Bleue », retient « fin-cle-rouille-bleue-rendue », +60 XP)_
 - « La garder encore un peu. » → **fin**
 
 ### rendue

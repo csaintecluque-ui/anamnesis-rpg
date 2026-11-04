@@ -219,6 +219,8 @@ export interface QuestDef {
   summary: string;
   /** Where the hero stands, for the journal: the last step whose flag is set (docs/gdd/interface.md). */
   etapes?: { si: string; texte: string }[];
+  /** A main quest's different endings (étude du 2026-11-03, B11) : each one sets `fin-<quest>-<id>` (src/rules/fins.ts). */
+  fins?: { id: string; titre: string }[];
 }
 
 export const END = 'fin';

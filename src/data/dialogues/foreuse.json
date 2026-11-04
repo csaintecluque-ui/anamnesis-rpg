@@ -143,6 +143,9 @@
               "completeQuest": "dernier-train"
             },
             {
+              "setFlag": "fin-dernier-train-chaudiere"
+            },
+            {
               "giveXp": 50
             },
             {
@@ -172,6 +175,9 @@
         },
         {
           "completeQuest": "dernier-train"
+        },
+        {
+          "setFlag": "fin-dernier-train-sabotage"
         },
         {
           "giveXp": 70

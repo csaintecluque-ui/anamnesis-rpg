@@ -2,7 +2,37 @@
   {
     "id": "dernier-train",
     "name": "Le Dernier Train",
-    "summary": "Une maladie mémorielle frappe Gardebois depuis que des prospecteurs de Ferros fouillent la Gare Engloutie. Ilyane t’envoie y écouter l’Écho et trouver qui dirige le chantier."
+    "summary": "Une maladie mémorielle frappe Gardebois depuis que des prospecteurs de Ferros fouillent la Gare Engloutie. Ilyane t’envoie y écouter l’Écho et trouver qui dirige le chantier.",
+    "fins": [
+      {
+        "id": "rapport",
+        "titre": "Ingrid écrit que la Faille est instable"
+      },
+      {
+        "id": "corvan",
+        "titre": "Ingrid se souvient de Corvan"
+      },
+      {
+        "id": "quai",
+        "titre": "« Même réussir peut tout détruire »"
+      },
+      {
+        "id": "menace",
+        "titre": "Ingrid cède à la peur"
+      },
+      {
+        "id": "sabotage",
+        "titre": "La foreuse sabotée"
+      },
+      {
+        "id": "chaudiere",
+        "titre": "La chaudière éclatée"
+      },
+      {
+        "id": "golem",
+        "titre": "Le Golem vaincu"
+      }
+    ]
   },
   {
     "id": "berceuse",
@@ -115,6 +145,20 @@
       {
         "si": "cle-obtenue",
         "texte": "J’ai la clé de rouille bleue. La vendre à Kaelis, la confier à l’archiviste Noam, aux Archives Centrales, ou la rendre à la Veilleuse."
+      }
+    ],
+    "fins": [
+      {
+        "id": "rendue",
+        "titre": "La clé rendue à la Veilleuse"
+      },
+      {
+        "id": "vendue",
+        "titre": "La clé vendue à Kaelis"
+      },
+      {
+        "id": "confiee",
+        "titre": "La clé confiée à Noam"
       }
     ]
   },
@@ -295,6 +339,20 @@
       {
         "si": "edda-reglee",
         "texte": "Retourne voir Hesper, à la maison mère des Gardiens."
+      }
+    ],
+    "fins": [
+      {
+        "id": "vendue",
+        "titre": "La ligne vendue"
+      },
+      {
+        "id": "denoncee",
+        "titre": "La dame en gris raccompagnée"
+      },
+      {
+        "id": "silence",
+        "titre": "Le silence gardé"
       }
     ]
   }

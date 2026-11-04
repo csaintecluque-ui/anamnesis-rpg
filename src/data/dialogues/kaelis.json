@@ -246,6 +246,9 @@
               "completeQuest": "cle-rouille-bleue"
             },
             {
+              "setFlag": "fin-cle-rouille-bleue-vendue"
+            },
+            {
               "giveXp": 60
             },
             {

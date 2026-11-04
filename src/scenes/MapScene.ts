@@ -10,7 +10,7 @@ import { FADED_ALPHA, bodyBox, obstacleBox, overlaps, type Box } from '../engine
 import { findPath } from '../engine/pathfinding';
 import { bigBlock, findObject, isBigAnchor, isWalkable, parseTiledMap, tileKey, type GameMap, type MapObject } from '../engine/tiledMap';
 import { DEFAULT_AVATAR } from '../rules/character';
-import { ENCOUNTERS, GOLEM_FIGHT, VOIE_FIGHT, findEnemy, storyChapter } from '../rules/combat';
+import { ENCOUNTERS, GOLEM_FIGHT, GOLEM_VICTORY_EFFECTS, VOIE_FIGHT, findEnemy, storyChapter } from '../rules/combat';
 import { autoTalk, expireFlags, hasStoryEntry, type Effect } from '../rules/dialogue';
 import {
   ENCOUNTER_VICTORY_FLAG,
@@ -1166,7 +1166,7 @@ export class MapScene extends Phaser.Scene {
     this.scene.pause('Hud');
     this.scene.launch('Combat', {
       enemyIds: ['golem-ferraille', 'rodeur-epine', 'rodeur-epine'],
-      victoryEffects: after ? [{ giveXp: 50 }] : [{ setFlag: 'chantier-arrete' }, { completeQuest: 'dernier-train' }, { giveXp: 70 }, { giveFers: 30 }],
+      victoryEffects: after ? [{ giveXp: 50 }] : GOLEM_VICTORY_EFFECTS,
       victoryFlag: 'golem-vaincu',
       arena,
       heroTile,

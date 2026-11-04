@@ -78,32 +78,47 @@ function wav(samples) {
   return Buffer.concat([header, data]);
 }
 
-/** A step on moss and packed earth: a muffled scuff and a low thud. */
-function pas(seed, cutoff) {
+/**
+ * A step on moss and packed earth: the heel, then the toe, softer, in the middle of the range (a phone's speaker
+ * plays nothing under 300 Hz : a first version, all thud, only clicked there ; essai de Cyril, 2026-11-04), and a few
+ * faint crackles of twigs.
+ */
+function pas(seed, centre) {
   const rng = mulberry32(seed);
-  const s = buffer(0.13);
-  for (let i = 0; i < s.length; i++) s[i] = noise(rng) * env(i / RATE, 0.004, 0.035);
-  lowpass(s, cutoff);
-  for (let i = 0; i < s.length; i++) {
-    const t = i / RATE;
-    s[i] += 0.6 * Math.sin(2 * Math.PI * 85 * t) * env(t, 0.003, 0.03);
+  const s = buffer(0.16);
+  const toe = 0.022 + rng() * 0.012;
+  for (const [start, amp, decay] of [[0, 1, 0.03], [toe, 0.55, 0.024]]) {
+    for (let i = Math.round(start * RATE); i < s.length; i++) s[i] += amp * noise(rng) * env(i / RATE - start, 0.006, decay);
   }
-  return normalize(fades(s), 0.8);
+  bandpass(s, () => centre, 1.1);
+  const crackle = buffer(0.16);
+  for (let k = 0; k < 6; k++) {
+    const at = Math.round((0.004 + rng() * 0.09) * RATE);
+    for (let i = at; i < Math.min(crackle.length, at + 40); i++) crackle[i] += noise(rng) * 0.3 * (1 - (i - at) / 40);
+  }
+  bandpass(crackle, () => 3200, 2);
+  for (let i = 0; i < s.length; i++) s[i] += crackle[i];
+  return normalize(fades(s), 0.75);
 }
 
-/** A blow that lands: a dull impact, a falling thump. */
+/**
+ * A blow that lands: a short smack in the middle of the range, a thud that falls from 320 to 170 Hz with its
+ * overtone, and a little grit (a soft saturation) : what a small speaker can play.
+ */
 function coup() {
   const rng = mulberry32(31);
-  const s = buffer(0.28);
-  for (let i = 0; i < s.length; i++) s[i] = noise(rng) * env(i / RATE, 0.002, 0.045);
-  lowpass(s, 1600);
+  const s = buffer(0.26);
+  const smack = buffer(0.26);
+  for (let i = 0; i < smack.length; i++) smack[i] = noise(rng) * env(i / RATE, 0.002, 0.03);
+  bandpass(smack, () => 1100, 0.9);
   let phase = 0;
   for (let i = 0; i < s.length; i++) {
     const t = i / RATE;
-    phase += (2 * Math.PI * (55 + 110 * Math.exp(-t / 0.05))) / RATE;
-    s[i] += 0.9 * Math.sin(phase) * env(t, 0.002, 0.09);
+    phase += (2 * Math.PI * (170 + 150 * Math.exp(-t / 0.04))) / RATE;
+    s[i] = 0.7 * (Math.sin(phase) + 0.5 * Math.sin(2 * phase)) * env(t, 0.002, 0.07);
   }
-  return normalize(fades(s), 0.85);
+  for (let i = 0; i < s.length; i++) s[i] = Math.tanh(1.8 * (0.8 * s[i] + 2 * smack[i]));
+  return normalize(fades(s), 0.9);
 }
 
 /** A blow that misses: air, cut through. */
@@ -118,19 +133,24 @@ function rate() {
   return normalize(fades(s), 0.7);
 }
 
-/** Care given: two soft bell notes, rising. */
+/**
+ * Care given: a warm chord that swells and fades, and a breath of leaves (two bell notes, first, rang like a coin
+ * picked up ; essai de Cyril, 2026-11-04).
+ */
 function soin() {
-  const s = buffer(1.0);
-  const note = (freq, start, amp) => {
-    for (let i = Math.round(start * RATE); i < s.length; i++) {
-      const t = i / RATE - start;
-      const e = env(t, 0.01, 0.35);
-      s[i] += amp * e * (Math.sin(2 * Math.PI * freq * t) + 0.25 * Math.sin(2 * Math.PI * freq * 2.01 * t) + 0.1 * Math.sin(2 * Math.PI * freq * 3.02 * t));
-    }
-  };
-  note(659.25, 0, 0.8);
-  note(987.77, 0.13, 0.7);
-  return normalize(fades(s, 0.02), 0.6);
+  const rng = mulberry32(83);
+  const s = buffer(1.1);
+  const swell = (t) => (t < 0.3 ? (t / 0.3) ** 2 : Math.exp(-(t - 0.3) / 0.35));
+  for (let i = 0; i < s.length; i++) {
+    const t = i / RATE;
+    const tremolo = 1 + 0.15 * Math.sin(2 * Math.PI * 5.5 * t);
+    s[i] = swell(t) * tremolo * (Math.sin(2 * Math.PI * 392 * t) + 0.7 * Math.sin(2 * Math.PI * 587.33 * t) + 0.25 * Math.sin(2 * Math.PI * 783.99 * t));
+  }
+  const air = buffer(1.1);
+  for (let i = 0; i < air.length; i++) air[i] = noise(rng) * swell(i / RATE);
+  bandpass(air, (t) => 1500 + 800 * t, 1.2);
+  for (let i = 0; i < s.length; i++) s[i] = 0.8 * s[i] + 0.5 * air[i];
+  return normalize(fades(s, 0.05), 0.55);
 }
 
 /** A dialogue opens: the rustle of a parchment, twice. */
@@ -183,7 +203,18 @@ function train() {
     at += 0.5 - 0.3 * Math.min(1, at / 5);
   }
   bandpass(chuffs, () => 700, 2);
-  for (let i = 0; i < s.length; i++) s[i] += 0.5 * chuffs[i] * swell(i / RATE);
+  // The wheels on the joints of the rails: « ta-dam », faster as it comes.
+  const wheels = buffer(seconds);
+  let joint = 0.6;
+  while (joint < seconds - 0.5) {
+    for (const offset of [0, 0.11]) {
+      const start = Math.round((joint + offset) * RATE);
+      for (let i = start; i < Math.min(wheels.length, start + Math.round(0.03 * RATE)); i++) wheels[i] += noise(rng) * env((i - start) / RATE, 0.002, 0.008);
+    }
+    joint += 0.9 - 0.45 * Math.min(1, joint / 5);
+  }
+  bandpass(wheels, () => 1600, 1.5);
+  for (let i = 0; i < s.length; i++) s[i] = 0.6 * s[i] + (0.9 * chuffs[i] + 0.7 * wheels[i]) * swell(i / RATE);
   // The whistle, far: two notes, a slow vibrato.
   for (let i = Math.round(4.1 * RATE); i < Math.round(5.7 * RATE); i++) {
     const t = i / RATE - 4.1;
@@ -195,8 +226,10 @@ function train() {
 }
 
 const SOUNDS = {
-  'pas-1': pas(11, 650),
-  'pas-2': pas(17, 520),
+  'pas-1': pas(11, 420),
+  'pas-2': pas(17, 480),
+  'pas-3': pas(23, 380),
+  'pas-4': pas(29, 520),
   coup: coup(),
   rate: rate(),
   soin: soin(),

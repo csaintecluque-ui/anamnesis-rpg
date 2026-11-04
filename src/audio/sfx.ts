@@ -5,13 +5,15 @@ import type Phaser from 'phaser';
  * fin pour les ambiances). Fabriqués par `npm run sfx` (scripts/generate-sfx.mjs) dans public/audio/sfx/. Le volume
  * général des options s'applique à tous.
  */
-export const SFX_IDS = ['pas-1', 'pas-2', 'coup', 'rate', 'soin', 'dialogue', 'objet', 'train'] as const;
+export const SFX_IDS = ['pas-1', 'pas-2', 'pas-3', 'pas-4', 'coup', 'rate', 'soin', 'dialogue', 'objet', 'train'] as const;
 export type SfxId = (typeof SFX_IDS)[number];
 
 /** Each sound's own level, under the general volume: steps barely there, the train far away. */
 export const SFX_VOLUME: Record<SfxId, number> = {
   'pas-1': 0.16,
   'pas-2': 0.16,
+  'pas-3': 0.16,
+  'pas-4': 0.16,
   coup: 0.6,
   rate: 0.45,
   soin: 0.5,
@@ -35,8 +37,12 @@ export function playSfx(scene: Phaser.Scene, id: SfxId): void {
   }
 }
 
-let stepCount = 0;
-/** One step out of two on each foot. */
+const STEPS: SfxId[] = ['pas-1', 'pas-2', 'pas-3', 'pas-4'];
+let lastStep = -1;
+/** Four steps drawn in turn, never the same twice in a row: no machine-gun of one sound. */
 export function playStep(scene: Phaser.Scene): void {
-  playSfx(scene, stepCount++ % 2 === 0 ? 'pas-1' : 'pas-2');
+  let next = Math.floor(Math.random() * STEPS.length);
+  if (next === lastStep) next = (next + 1) % STEPS.length;
+  lastStep = next;
+  playSfx(scene, STEPS[next]);
 }

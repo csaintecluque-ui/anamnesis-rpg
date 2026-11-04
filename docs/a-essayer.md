@@ -209,7 +209,9 @@ En ligne le 2026-11-03 (tes textes du 3 novembre) :
 - [ ] Monte le volume (options) : les pas, les coups portés et ratés, les soins, le parchemin à chaque dialogue, un
       objet reçu ; et en arrivant à la Gare Engloutie, **le train qu'on entend avant de le voir**. Trop fort, trop
       discret, agaçant à la longue (les pas surtout) ?
-- [ ] **Sur le téléphone** (aucun son au premier essai ; correctif en ligne le 2026-11-04) : recharge depuis l'écran
+- [ ] **Deuxième version des sons** (après ton retour : pas métalliques, « une pièce » en combat) : des pas plus
+      sourds (talon, pointe, brindilles), un coup porté qui claque, un soin en accord chaud. Mieux ?
+- [x] **Sur le téléphone** (aucun son au premier essai ; correctif en ligne le 2026-11-04) : le son marche. recharge depuis l'écran
       titre (la version en bas à gauche doit avoir changé), touche l'écran une fois, monte le volume média du
       téléphone. Toujours rien ? Dis-moi si c'est l'iPhone ou la Samsung, et si l'interrupteur silencieux était mis.
 - Remarques :

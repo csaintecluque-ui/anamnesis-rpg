@@ -1104,3 +1104,5 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
 - Cyril : « Oui pour essayer » : les bruitages mis en ligne, à l'essai.
 - Cyril : « Sur le tel, je n'ai pas entendu de son » : site vérifié (sons servis et mis en cache) ; correctif mobile
   (interrupteur silencieux de l'iPhone, audio réveillé à chaque toucher et au retour au premier plan) mis en ligne.
+- Cyril : pas métalliques, « une pièce » en combat : mesuré (pas et coup sous 300 Hz, inaudibles sur téléphone ; le
+  soin en clochette) ; pas, coup, soin et train refaits dans les médiums ; un test garde chaque son audible.

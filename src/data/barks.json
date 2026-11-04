@@ -1,1 +1,469 @@
-[]
+[
+  {
+    "id": "ilyane",
+    "lines": [
+      "Écoute le cercle des lanternes : il bourdonne quand quelqu’un se souvient.",
+      "Si tu croises un Écho, ne le presse pas. Ils parlent à leur rythme."
+    ],
+    "reactions": [
+      {
+        "quest": "dernier-train",
+        "lines": [
+          "Le marché respire mieux depuis que la foreuse s’est tue. Moi aussi, presque."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tobias",
+    "lines": [
+      "Approche, approche ! Le prix juste, c’est le mien.",
+      "Lampes à cristal ! Elles ne rendent pas la mémoire, mais elles éclairent le chemin."
+    ],
+    "reactions": [
+      {
+        "quest": "dernier-train",
+        "lines": [
+          "La Gare s’est tue, et mes lampes se vendent moins. Le calme, ça ne paie pas."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "convoyeuse",
+    "lines": [
+      "Caravane de midi pour Canopéa ! Pas de rencontres, pas de surprises : quinze Fers.",
+      "Les Loups de Rouille suivent la fumée. Nous, on la suit de loin."
+    ]
+  },
+  {
+    "id": "liane",
+    "lines": [
+      "Sauge-lumière, racine douce, écorce de saule. Le reste, je l’invente.",
+      "Ne marche pas sur le cresson : j’en ai besoin plus que toi."
+    ],
+    "reactions": [
+      {
+        "quest": "herbes-lisiere",
+        "lines": [
+          "Mes malades dorment mieux. Moi, toujours pas, mais c’est une autre histoire."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ingrid",
+    "lines": [
+      "Personne ne descend dans la Faille sans mon accord. Personne.",
+      "Ferros paie au mètre creusé. Le mètre compris, personne ne le paie."
+    ],
+    "reactions": [
+      {
+        "flag": "chantier-arrete",
+        "lines": [
+          "Le chantier est arrêté. Je reste quand même : quelqu’un doit surveiller ce trou."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sylvan",
+    "lines": [
+      "Soupe chaude, lit de mousse, et les nouvelles du jour pour rien !",
+      "Le soir, on raconte. Garde-moi une belle histoire."
+    ]
+  },
+  {
+    "id": "maelis",
+    "lines": [
+      "Elle m’a encore appelée madame, ce matin. Encore.",
+      "Si tu connais une berceuse de Gardebois, chante-la-moi."
+    ],
+    "reactions": [
+      {
+        "quest": "berceuse",
+        "lines": [
+          "Nell chantonne en dormant, maintenant. Je reste des heures à l’écouter.",
+          "Ferme doucement la porte : elle dort."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "nell",
+    "lines": [
+      "Mon oiseau de bois s’appelle Plume. Il ne vole pas, mais il essaie."
+    ],
+    "reactions": [
+      {
+        "quest": "berceuse",
+        "lines": [
+          "Dors sous la feuille, dors sous le vent !",
+          "Plume connaît la chanson, lui aussi."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "brann",
+    "lines": [
+      "J’ai rangé les clous par taille, puis par couleur. Puis tout est tombé.",
+      "Maître Cendrefer dit qu’un bon apprenti ne casse rien deux fois."
+    ],
+    "reactions": [
+      {
+        "quest": "caisse-egaree",
+        "lines": [
+          "Ma mère m’a répondu ! Une lettre entière. Elle dit que je dois manger."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "veline",
+    "lines": [
+      "Nacelle pour les Hautes Ramures ! Tenez-vous aux cordes : le voisin ne vous retiendra pas.",
+      "Ce qui tombe d’ici, la forêt le garde. Regarde où tu mets les pieds."
+    ]
+  },
+  {
+    "id": "chef-caravane",
+    "lines": [
+      "Caravane pour Gardebois au matin ! Les paniers d’abord, les gens ensuite.",
+      "Quinze Fers, et tu dors sur les ballots. Le luxe des Lisières."
+    ]
+  },
+  {
+    "id": "malo",
+    "lines": [
+      "Courrier ! Courrier pour les Ramures ! Pardon, pardon !",
+      "Grand-mère dit que je cours trop. Les lettres, elles, n’attendent pas."
+    ],
+    "reactions": [
+      {
+        "quest": "lettres-malo",
+        "lines": [
+          "Plus une lettre perdue depuis la sacoche. Enfin, presque plus."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tiven",
+    "lines": [
+      "Ça brûle encore. Demain, je monte quand même.",
+      "Une corde file vite. Une paume, moins."
+    ],
+    "reactions": [
+      {
+        "quest": "pret-terre",
+        "lines": [
+          "Trois montées ce matin, et mes mains tiennent ! Vanel avait raison."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "vanel",
+    "lines": [
+      "Racines profondes. Parle bas : l’arbre écoute.",
+      "La magie est un prêt de la Terre. On la rend en soignant."
+    ]
+  },
+  {
+    "id": "lisandre",
+    "lines": [
+      "Des hamacs pour tout le monde, et de la soupe de pétales pour les braves.",
+      "Le soir, au Nid, on raconte des histoires d’arbres. Pas de machines, s’il te plaît."
+    ]
+  },
+  {
+    "id": "elvan",
+    "lines": [
+      "Les affaires vont bien. Très bien. Pourquoi tu me regardes ainsi ?",
+      "Du thé des cimes ? J’en ai, j’en ai beaucoup."
+    ]
+  },
+  {
+    "id": "sevane",
+    "lines": [
+      "Ce qui guérit trop, je le garde sous le comptoir.",
+      "Un cristal de Vie ? Deux cent cinquante Fers, et la Terre te le reprendra un jour."
+    ]
+  },
+  {
+    "id": "elouan",
+    "lines": [
+      "Chut. Le vent passe dans le bois.",
+      "Je ne taille que ce qui est tombé. Le reste chante encore."
+    ]
+  },
+  {
+    "id": "ailis",
+    "lines": [
+      "Malo ! Tes souliers ! Ah, ce n’est que toi.",
+      "Anselme aimait cette heure-ci, quand la lumière passe entre les feuilles."
+    ]
+  },
+  {
+    "id": "mirelle",
+    "lines": [
+      "Le relais est ouvert aux Gardiens, et aux égarés.",
+      "Ilyane chantait faux, et elle le savait. C’était sa façon de rire."
+    ]
+  },
+  {
+    "id": "huissier",
+    "lines": [
+      "Les audiences se demandent par écrit. Par écrit !",
+      "Le Conseil siège. Le Conseil siège toujours."
+    ]
+  },
+  {
+    "id": "kael-marchevent",
+    "lines": [
+      "Racines profondes.",
+      "Des faits, voyageur. Les rumeurs, j’en ai plein les Ramures."
+    ]
+  },
+  {
+    "id": "lyra",
+    "lines": [
+      "Quatre parts sur dix de notre commerce passent par Ferros. Je compte, moi."
+    ]
+  },
+  {
+    "id": "thalorin",
+    "lines": [
+      "Le vent dans les feuilles en dit plus que nous trois réunis."
+    ]
+  },
+  {
+    "id": "garrik",
+    "lines": [
+      "On me paie pour creuser. Réfléchir ne nourrit personne.",
+      "Sol sacré, sol sacré. Le sol, il s’en moque."
+    ]
+  },
+  {
+    "id": "boulon",
+    "lines": [
+      "Bagages ! Bagages pour la ligne de l’Ouest !",
+      "Je porte. Je retiens. C’est ce que je fais de mieux."
+    ],
+    "reactions": [
+      {
+        "quest": "contrat-boulon",
+        "lines": [
+          "Je ne suis plus du matériel. Je porte quand même : j’aime ça."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kerta",
+    "lines": [
+      "La file ne parle pas. Moi, si, à voix basse.",
+      "Un seau par jour, par famille. L’eau a un ordre."
+    ]
+  },
+  {
+    "id": "tam",
+    "lines": [
+      "Ça va, ça va. Juste la poussière.",
+      "Un masque de feutre et de charbon de bois. Ça marche, je te jure."
+    ],
+    "reactions": [
+      {
+        "flag": "masques-forges",
+        "lines": [
+          "Les masques sont pour tout le monde, maintenant. Ragna en coud dix par jour."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "veilleuse",
+    "lines": [
+      "Sept wagons. Toujours sept, quand je les compte en dormant.",
+      "La vieille ligne n’est pas morte. Elle attend."
+    ]
+  },
+  {
+    "id": "patrouilleur",
+    "lines": [
+      "Laissez-passer. Sans papiers, on ne monte pas.",
+      "Un cristal au cou ? Je note. Je note toujours."
+    ]
+  },
+  {
+    "id": "kaelis",
+    "lines": [
+      "Les os ne marchandent jamais. Moi, si.",
+      "Toute relique a un prix. Le tien, c’est quoi ?"
+    ]
+  },
+  {
+    "id": "tailleuse",
+    "lines": [
+      "Ici, rien ne s’écrit.",
+      "Un cristal de forge, taillé à la main. Les visières n’en sauront rien."
+    ]
+  },
+  {
+    "id": "patrouilleuse-haute",
+    "lines": [
+      "Les Manufactures-Hautes sont fermées. Elles sont toujours fermées.",
+      "Circulez."
+    ]
+  },
+  {
+    "id": "dask",
+    "lines": [
+      "Un parrainage, ça se mérite. Ou ça s’achète. Les deux, de préférence.",
+      "Mes chiffres sont bleus. Et les tiens ?"
+    ]
+  },
+  {
+    "id": "joss",
+    "lines": [
+      "Une lanterne bien astiquée, c’est un aiguilleur réveillé.",
+      "Une dette court plus vite qu’un convoi."
+    ],
+    "reactions": [
+      {
+        "flag": "dette-joss-payee",
+        "lines": [
+          "Plus de dette, plus de nuits blanches. Il me reste les trains."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "varka",
+    "lines": [
+      "La grève est interdite. On se réchauffe les mains, c’est tout.",
+      "Le triage ne roule plus la nuit. Demande-toi pourquoi."
+    ],
+    "reactions": [
+      {
+        "flag": "rail-travailleurs",
+        "lines": [
+          "Les convois roulent de nouveau. Les gars te paient une soupe quand tu veux."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ostrik",
+    "lines": [
+      "Bureau des Transports. Vos papiers, et votre motif.",
+      "Tout retard est consigné. Tout."
+    ]
+  },
+  {
+    "id": "noam",
+    "lines": [
+      "Archives Centrales, comptoir public (voir : règlement, article quatre).",
+      "Ferros ne brûle rien. Ferros classe. Je classe."
+    ]
+  },
+  {
+    "id": "hedda",
+    "lines": [
+      "Le fer se trempe. Les gens aussi.",
+      "Mon frère vend des lampes. Moi, je forge ce qui tient."
+    ]
+  },
+  {
+    "id": "rika",
+    "lines": [
+      "Brann mange bien, là-bas ? Il ne mange jamais assez.",
+      "Une chaudronnière, ça ne pleure pas. Ça martèle."
+    ]
+  },
+  {
+    "id": "dorna",
+    "lines": [
+      "Soupe et lit, huit Fers. Et ton cristal sous la chemise, si tu en as un.",
+      "En ville, on tient des listes. Moi, je tiens la soupe au chaud."
+    ]
+  },
+  {
+    "id": "sorn",
+    "lines": [
+      "La Cendrière n’appartient à personne. Donc à nous.",
+      "Tu cherches quelque chose, ou quelqu’un ?"
+    ]
+  },
+  {
+    "id": "marchande-nations",
+    "lines": [
+      "Baumes de Verdantis, carreaux de Ferros ! Je change tout, au cours du jour !",
+      "Fers, Feuilles, coquillages : tout se vaut, si l’on sait compter."
+    ]
+  },
+  {
+    "id": "josse",
+    "lines": [
+      "Trois fois le tour du monde, et je reviens toujours ici. C’est la soupe.",
+      "Une chope, et je te dis d’où vient ton voisin."
+    ]
+  },
+  {
+    "id": "edda",
+    "lines": [
+      "Asseyez-vous ailleurs, je vous prie.",
+      "Je n’achète pas d’histoires. Seulement des papiers."
+    ]
+  },
+  {
+    "id": "ambroise",
+    "lines": [
+      "On enregistre. On ne cherche pas.",
+      "Une chaîne rompue n’est pas fausse : elle est sans main."
+    ]
+  },
+  {
+    "id": "portier-nuit",
+    "lines": [
+      "La Bibliothèque dort. Parlez bas.",
+      "Les livres n’aiment pas les lanternes trop vives."
+    ]
+  },
+  {
+    "id": "lior",
+    "lines": [
+      "Les Sept Portes mènent partout, et aucune carte ne le dit.",
+      "Tu viens d’où ? Attends, laisse-moi deviner sur la carte."
+    ]
+  },
+  {
+    "id": "greffiere",
+    "lines": [
+      "Raccompagné n’est pas condamné. Raccompagné, c’est raccompagné.",
+      "La liste est publique. Personne ne la lit."
+    ]
+  },
+  {
+    "id": "hesper",
+    "lines": [
+      "Une histoire bien dite, c’est déjà une histoire gardée.",
+      "La maison mère t’est ouverte, Gardien. Repose-toi."
+    ]
+  },
+  {
+    "id": "arlo",
+    "lines": [
+      "Si l’Anneau n’arrête pas, c’est permis ! C’est la phrase dangereuse !",
+      "Mina triche au raccompagnement."
+    ]
+  },
+  {
+    "id": "mina",
+    "lines": [
+      "Deux agents, une voiture, et hop : au cent unième kilomètre !",
+      "Arlo pleure quand il perd. Moi, jamais."
+    ]
+  }
+]

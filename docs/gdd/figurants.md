@@ -58,3 +58,25 @@ Un figurant peut porter `reactions` : `[{ quest, status (done par défaut), flag
 remplace ses répliques. Canopéa et Gardebois en ont onze (le vote du Conseil, la flûte d'Aïlis, les graines revenues, le
 Bosquet qui se tait puis se réchauffe…). Trois figurants immobiles au Conseil (un Druide Vert, une députée des Racines,
 une Voix des Arbres) disent le canon du Conseil des Racines Profondes [NOTION].
+
+## Comme dans Fallout : ils parlent d'eux-mêmes (Cyril, 2026-11-04, propositions **à valider**)
+
+« Il nous faut plus de PNJ. Comme dans Fallout, pas forcément avec des dialogues poussés, mais juste de petites
+phrases apparaissant au-dessus d'eux. » Et : « une vision plus reculée si on ajoute du monde ».
+
+- **La vue** : le jeu s'ouvre plus loin (zoom 1 sur PC au lieu de 1,5 ; 1,2 au doigt), la molette recule jusqu'à
+  0,6, jamais plus loin que le lieu entier ; les noms et les bulles grandissent quand on recule.
+- **Les phrases spontanées** : à moins de trois cases du héros, le passant ou l'habitant nommé le plus proche dit
+  une phrase au-dessus de sa tête, sans clic. **Une seule bulle à la fois**, quatre secondes et demie au moins entre
+  deux, quarante secondes avant qu'un même ne reparle, et seulement quelqu'un qui est à l'écran. Le clic sur un passant
+  fait comme avant ; le clic sur un habitant ouvre son dialogue.
+- **Les habitants nommés** (`src/data/barks.json`, `src/rules/barks.ts`) : une à trois phrases chacun, dans sa voix
+  (52 habitants : Tobias, Noam et ses fiches, Varka et la grève interdite, Kaelis, la tailleuse…), certaines qui
+  suivent l'histoire (Ingrid une fois le chantier arrêté, Maëlis une fois la berceuse revenue, Joss sa dette payée).
+- **35 nouveaux passants** (73 en tout), deux répliques chacun, dans les lieux principaux des quatre villes, à la
+  Gare Engloutie et dans deux auberges : une vieille qui a revu la Chute et ne sait plus le nom de sa rue, un garçon
+  des Jeunes-Pousses qui noue un ruban pour Pim, un fondeur de l'Équipe Six (celle d'Irma Kessel), un Ferrôme de la
+  voie qui ne compte pas la voie sept, un Chroniqueur qui a écrit quarante mille lignes dont aucune ne parle de lui…
+  Placés par le moteur sur des cases libres (ni porte, ni sortie, ni Écho, ni chemin d'un autre). Silhouettes
+  provisoires (21 nouvelles).
+- Un test garde chaque phrase courte et sans tic d'écriture.

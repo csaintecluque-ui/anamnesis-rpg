@@ -1201,3 +1201,29 @@ TILES.push({
     '<path d="M36 72 L38 62 M40 72 L42 60 M44 73 L46 62 M47 75 L51 66" stroke="#a8a29a" stroke-width="2.5" stroke-linecap="round"/>' +
     '<path d="M34 76 Q40 70 48 76" stroke="#a8a29a" stroke-width="4" fill="none"/>',
 });
+
+// Les nouveaux passants (Cyril, 2026-11-04 : « plus de PNJ, comme dans Fallout ») : silhouettes provisoires,
+// ajoutées en dernier pour ne décaler aucune tuile (docs/gdd/figurants.md).
+TILES.push(
+  npcTile('caravaniere', { body: '#6a5a3a', hair: '#2a1a10', accent: '#c9804f', extra: '<rect x="38" y="60" width="10" height="12" rx="2" fill="#8a6a3c" stroke="#1B1512" stroke-width="0.8"/>' }),
+  npcTile('cueilleuse', { body: '#5a6a3a', hair: '#7a4a2a', accent: '#d8e0a0', extra: '<circle cx="44" cy="70" r="5" fill="#a07a48" stroke="#1B1512" stroke-width="0.8"/><circle cx="44" cy="67" r="2" fill="#bfe8d8"/>' }),
+  npcTile('garde-vert', { body: '#2f5a32', hair: '#3a2a1c', accent: '#c9a24a', extra: '<path d="M46 40 L46 80" stroke="#8a6a3c" stroke-width="2.5"/>' }),
+  npcTile('vieille', { body: '#6a5a6a', hair: '#e0dcd4', skin: '#d0a888', accent: '#a89aa8', small: true }),
+  npcTile('geometre', { body: '#5a5a62', hair: '#2a2420', accent: '#d8504a', extra: '<path d="M18 50 L18 82" stroke="#e8d8a0" stroke-width="2"/><path d="M18 50 l4 3" stroke="#d8504a" stroke-width="2"/>' }),
+  npcTile('nacelliere', { body: '#3a5a4a', hair: '#8a5a2c', accent: '#c9a24a', extra: '<path d="M20 58 Q32 70 44 58" stroke="#a07a48" stroke-width="3" fill="none"/>' }),
+  npcTile('marchand-the', { body: '#5a7a3a', hair: '#e8d8b0', accent: '#EAD9B8', extra: '<ellipse cx="44" cy="68" rx="5" ry="3" fill="#7fbf6a" stroke="#1B1512" stroke-width="0.8"/>' }),
+  npcTile('scribe', { body: '#4a6a4a', hair: '#1a1410', accent: '#EAD9B8', extra: '<rect x="38" y="58" width="11" height="8" fill="#efe6cf" stroke="#1B1512" stroke-width="0.8"/>' }),
+  npcTile('citoyen-arbre', { body: '#2a6a52', hair: '#c8b07a', skin: '#e0c0a0', accent: '#e8d070', extra: '<path d="M22 56 L42 56" stroke="#e8d070" stroke-width="2.5"/>' }),
+  npcTile('graveur', { body: '#6a5038', hair: '#bdb6aa', accent: '#C9804F', extra: '<path d="M44 62 L50 54" stroke="#9a9a9a" stroke-width="2"/>' }),
+  npcTile('veuve', { body: '#2a2a32', hair: '#5a4a3a', accent: '#6a6a7a', extra: '<path d="M22 44 Q32 34 42 44 L44 60 L20 60 Z" fill="#2a2a32" opacity="0.8"/>' }),
+  npcTile('vendeur-livres', { body: '#4a3a2a', hair: '#6a6a6a', accent: '#a07a48', extra: '<rect x="38" y="60" width="10" height="13" fill="#7a3a2a" stroke="#1B1512" stroke-width="0.8"/>' }),
+  npcTile('mecano', { body: '#4a4a52', hair: '#2a1a14', accent: '#d8a040', extra: '<circle cx="44" cy="66" r="4" fill="none" stroke="#9a9a9a" stroke-width="2"/>' }),
+  npcTile('horlogere', { body: '#5a4a6a', hair: '#3a2a1c', accent: '#e8d070', extra: '<circle cx="40" cy="64" r="3.5" fill="#e8d070" stroke="#1B1512" stroke-width="0.8"/>' }),
+  npcTile('employe', { body: '#b8b8b4', hair: '#3a3a3a', accent: '#6a6a6a', extra: '<rect x="38" y="60" width="9" height="11" fill="#efe6cf" stroke="#1B1512" stroke-width="0.8"/>' }),
+  npcTile('pelerin', { body: '#8a7a5a', hair: '#5a3a2a', skin: '#b88a6a', accent: '#efe6cf', extra: '<path d="M46 38 L46 82" stroke="#6a4a2a" stroke-width="2.5"/>' }),
+  npcTile('changeur', { body: '#6a3a5a', hair: '#1a1410', skin: '#a87a5a', accent: '#e8c84a', extra: '<circle cx="42" cy="68" r="3" fill="#e8c84a"/><circle cx="46" cy="66" r="2.5" fill="#c9804f"/>' }),
+  npcTile('fruitiere', { body: '#8a5a3a', hair: '#2a1a10', skin: '#8a5a3c', accent: '#e8d8a0', extra: '<ellipse cx="44" cy="70" rx="7" ry="4" fill="#a07a48" stroke="#1B1512" stroke-width="0.8"/><circle cx="42" cy="67" r="2" fill="#d8b040"/><circle cx="46" cy="67" r="2" fill="#7fbf6a"/>' }),
+  npcTile('guide', { body: '#3a6a8a', hair: '#e8d8a0', accent: '#e8e0c8', extra: '<path d="M44 52 L50 40 L54 44 Z" fill="#d8504a"/>' }),
+  npcTile('chroniqueur', { body: '#1f1b2a', hair: '#bdb6aa', accent: '#5a4a8a', extra: '<path d="M44 58 L48 50" stroke="#efe6cf" stroke-width="1.5"/>' }),
+  npcTile('etudiante', { body: '#4a3a5a', hair: '#8a4a2a', accent: '#d8c8e8', extra: '<rect x="38" y="62" width="9" height="7" fill="#7a5a3a" stroke="#1B1512" stroke-width="0.8"/>' }),
+);

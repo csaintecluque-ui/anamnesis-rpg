@@ -113,14 +113,19 @@ export class FigurantLayer {
    * Fallout-like (Cyril, 2026-11-04): the nearest passer-by within `radius` cells of the hero who has not spoken up
    * for a while says a line on their own. Returns their distance in cells, or null when nobody is ready.
    */
-  nearestReady(hero: Tile, radius: number, now: number): { walker: Walker; distance: number } | null {
+  nearestReady(hero: Tile, radius: number, now: number, visible: (x: number, y: number) => boolean): { walker: Walker; distance: number } | null {
     let best: { walker: Walker; distance: number } | null = null;
     for (const w of this.walkers) {
-      if (w.bubble || now < w.nextBark || now < w.busyUntil) continue;
+      if (w.bubble || now < w.nextBark || now < w.busyUntil || !visible(w.image.x, w.image.y)) continue;
       const distance = Math.max(Math.abs(w.tile.col - hero.col), Math.abs(w.tile.row - hero.row));
       if (distance <= radius && (!best || distance < best.distance)) best = { walker: w, distance };
     }
     return best;
+  }
+
+  /** Someone is saying something right now. */
+  speaking(): boolean {
+    return this.walkers.some((w) => w.bubble);
   }
 
   /** Says a line on their own, then keeps quiet for a while. */

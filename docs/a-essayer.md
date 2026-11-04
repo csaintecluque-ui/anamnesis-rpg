@@ -260,6 +260,16 @@ En ligne le 2026-11-03 (tes textes du 3 novembre) :
       gommée (Investigation) ; puis, la nuit, le portier. Arlo, Mina, Hesper et Lior écoutent un Récit.
 - Remarques :
 
+## Une vue plus reculée, et des gens qui parlent seuls (sur la branche)
+
+- [ ] **La vue** s'ouvre plus loin ; la molette rapproche ou recule (jusqu'à voir tout le lieu). Les noms restent
+      lisibles ?
+- [ ] **Passe près des gens** : un passant ou un habitant dit une phrase au-dessus de sa tête, sans clic, un seul à la
+      fois. Trop souvent ? Pas assez ?
+- [ ] **Les nouveaux passants** (deux fois plus) : Gardebois, la Gare, Canopéa, Ironheart, Sept-Portes. Des phrases
+      qui sonnent faux ?
+- Remarques :
+
 ## Déjà en ligne, pas encore essayé sur PC
 
 - [ ] **Chapitre 4, Sept-Portes** sans le mode surpuissant : l'arrivée par la Porte du sud, le Registre, l'une des trois

@@ -1118,5 +1118,746 @@
     "lines": [
       "Le grain arrive de Ferros par le rail, en deux jours. Les pêches, à dos d’homme. Le mien."
     ]
+  },
+  {
+    "id": "caravaniere",
+    "location": "gardebois",
+    "name": "Une caravanière de la Compagnie",
+    "tile": "caravaniere",
+    "path": [
+      [
+        11,
+        14
+      ],
+      [
+        11,
+        5
+      ],
+      [
+        22,
+        13
+      ]
+    ],
+    "lines": [
+      "Trois jours de route, et la seule chose qui m’attendait ici, c’est une soupe. Je ne me plains pas : elle est bonne.",
+      "Les Gardes Verts nous fouillent à l’entrée, ceux de Ferros à la sortie. Entre les deux, on vend."
+    ]
+  },
+  {
+    "id": "cueilleuse",
+    "location": "gardebois",
+    "name": "Une cueilleuse de champignons",
+    "tile": "cueilleuse",
+    "path": [
+      [
+        24,
+        2
+      ],
+      [
+        8,
+        3
+      ],
+      [
+        12,
+        17
+      ]
+    ],
+    "lines": [
+      "Les champignons qui brillent, on ne les mange pas. On les vend à ceux qui veulent oublier.",
+      "Ma grand-mère disait que la forêt se souvient de chaque pas. Alors je marche léger."
+    ]
+  },
+  {
+    "id": "garde-vert",
+    "location": "gardebois",
+    "name": "Un Garde Vert",
+    "tile": "garde-vert",
+    "path": [
+      [
+        13,
+        16
+      ]
+    ],
+    "lines": [
+      "On surveille la route de l’est. Ce qui vient de Ferros, on le regarde deux fois.",
+      "Je n’ai rien contre les Ferriens. J’ai quelque chose contre ce qu’ils creusent."
+    ]
+  },
+  {
+    "id": "vieille-banc",
+    "location": "gardebois",
+    "name": "Une vieille femme sur un banc",
+    "tile": "vieille",
+    "path": [
+      [
+        13,
+        6
+      ]
+    ],
+    "lines": [
+      "Hier, j’ai revu la Chute. Des villes qui brûlent. Aujourd’hui, je ne sais plus le nom de ma rue.",
+      "Assieds-toi si tu veux. Moi, j’attends que ça revienne."
+    ],
+    "reactions": [
+      {
+        "quest": "dernier-train",
+        "lines": [
+          "Plus de feu dans mes rêves, depuis quelques nuits. Le nom de ma rue, lui, n’est pas revenu."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ouvrier-brisefer",
+    "location": "gare-engloutie",
+    "name": "Un ouvrier de Brisefer",
+    "tile": "ouvrier",
+    "path": [
+      [
+        18,
+        8
+      ]
+    ],
+    "lines": [
+      "On creuse à la lanterne. Au fond, on entend parfois des annonces de gare. Personne n’en parle.",
+      "Ingrid paie à l’heure, et bien. C’est le reste qui ne paie pas."
+    ],
+    "reactions": [
+      {
+        "flag": "chantier-arrete",
+        "lines": [
+          "Chantier arrêté. On attend la paie de la semaine, et la permission de rentrer."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "geometre",
+    "location": "gare-engloutie",
+    "name": "Une géomètre de Ferros",
+    "tile": "geometre",
+    "path": [
+      [
+        4,
+        4
+      ],
+      [
+        10,
+        16
+      ],
+      [
+        21,
+        6
+      ]
+    ],
+    "lines": [
+      "Trois relevés, trois résultats. La Faille ne se laisse pas mesurer.",
+      "Ne marchez pas sur mes piquets. Ce sont les seules choses droites à des lieues."
+    ]
+  },
+  {
+    "id": "nacelliere",
+    "location": "canopee-nacelle",
+    "name": "Une Nacellière",
+    "tile": "nacelliere",
+    "path": [
+      [
+        16,
+        14
+      ],
+      [
+        6,
+        14
+      ],
+      [
+        11,
+        9
+      ]
+    ],
+    "lines": [
+      "Deux cents mètres de corde, à la main. Le jour où une machine fera ça, je descendrai pour de bon.",
+      "On ne dit pas « tomber », chez les Nacelliers. On dit « rejoindre la forêt »."
+    ]
+  },
+  {
+    "id": "jeune-pousse",
+    "location": "canopee-nacelle",
+    "name": "Un garçon des Jeunes-Pousses",
+    "tile": "enfant-b",
+    "path": [
+      [
+        11,
+        10
+      ],
+      [
+        6,
+        13
+      ],
+      [
+        16,
+        13
+      ]
+    ],
+    "lines": [
+      "Les Citoyens-Arbres ont des ascenseurs. Nous, on a des échelles, et on monte plus vite !",
+      "Tu as vu les rubans, sur l’échelle ? On en noue un chaque matin. Pour Pim."
+    ],
+    "pace": 0.7
+  },
+  {
+    "id": "marchand-the",
+    "location": "canopee-nacelle",
+    "name": "Un marchand de thé des cimes",
+    "tile": "marchand-the",
+    "path": [
+      [
+        20,
+        14
+      ]
+    ],
+    "lines": [
+      "Thé des cimes, cueilli à quatre cents mètres. Plus haut, les feuilles ont le goût du vent.",
+      "Une feuille sur trois reste à l’arbre. C’est pour ça que mon thé est cher."
+    ]
+  },
+  {
+    "id": "scribe-conseil",
+    "location": "canopee-ramures",
+    "name": "Une scribe du Conseil",
+    "tile": "scribe",
+    "path": [
+      [
+        9,
+        15
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        19,
+        8
+      ]
+    ],
+    "lines": [
+      "Trois cents sièges, trois cents avis, un seul procès-verbal. Le mien.",
+      "Racines Ouvertes : on ne ment pas au Conseil. Moi, j’écris lentement, pour que personne ne s’y risque."
+    ]
+  },
+  {
+    "id": "citoyen-arbre",
+    "location": "canopee-ramures",
+    "name": "Un Citoyen-Arbre",
+    "tile": "citoyen-arbre",
+    "path": [
+      [
+        7,
+        9
+      ]
+    ],
+    "lines": [
+      "Les échelles ? Charmantes. Je ne les ai jamais prises.",
+      "Mon ascenseur grince. J’ai fait venir un mécanicien de Ferros. Discrètement."
+    ]
+  },
+  {
+    "id": "graveur",
+    "location": "canopee-aieux",
+    "name": "Un graveur de noms",
+    "tile": "graveur",
+    "path": [
+      [
+        16,
+        15
+      ]
+    ],
+    "lines": [
+      "On grave en colonnes, de haut en bas. Quand le bois fend un signe, on ne le corrige jamais.",
+      "Je grave pour ceux qui ne savent pas écrire. Leurs morts, je les connais tous par leurs lettres."
+    ]
+  },
+  {
+    "id": "veuve-bosquet",
+    "location": "canopee-aieux",
+    "name": "Une veuve du Bosquet",
+    "tile": "veuve",
+    "path": [
+      [
+        15,
+        12
+      ],
+      [
+        14,
+        6
+      ],
+      [
+        7,
+        13
+      ]
+    ],
+    "lines": [
+      "Je viens lui parler tous les jours. Il répond moins depuis l’été : les noms se taisent.",
+      "La main sur le bois, on sent une chaleur. Quelqu’un, peut-être."
+    ],
+    "pace": 1.5,
+    "reactions": [
+      {
+        "quest": "audience",
+        "lines": [
+          "Il répond de nouveau. Pas tous les jours. Assez."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "fondeur",
+    "location": "ironheart-forges",
+    "name": "Un fondeur de l’Équipe Six",
+    "tile": "ouvrier",
+    "path": [
+      [
+        3,
+        3
+      ],
+      [
+        28,
+        12
+      ],
+      [
+        17,
+        12
+      ]
+    ],
+    "lines": [
+      "Nom d’une gueuse ! Encore une coulée ratée, et c’est la paie du mois.",
+      "Les Litanies du Marteau, à la septième heure. On se tait, et on frappe."
+    ]
+  },
+  {
+    "id": "gamine-forges",
+    "location": "ironheart-forges",
+    "name": "Une gamine des Forges",
+    "tile": "enfant-a",
+    "path": [
+      [
+        18,
+        11
+      ],
+      [
+        2,
+        22
+      ],
+      [
+        25,
+        13
+      ]
+    ],
+    "lines": [
+      "Je compte les wagons ! Hier, quarante-deux. Aujourd’hui, j’ai perdu le fil.",
+      "Ne regarde pas un Ferrôme dans les yeux plus de deux secondes. Je compte pour toi !"
+    ],
+    "pace": 0.7
+  },
+  {
+    "id": "porteur-charbon",
+    "location": "ironheart-forges",
+    "name": "Un porteur de charbon",
+    "tile": "porteur",
+    "path": [
+      [
+        23,
+        5
+      ],
+      [
+        13,
+        14
+      ],
+      [
+        10,
+        20
+      ]
+    ],
+    "lines": [
+      "Un sac pour la forge, un sac pour le poêle de la Bielle. Le troisième, il est pour moi.",
+      "Là-haut, l’air se respire. En bas, on le mâche."
+    ]
+  },
+  {
+    "id": "vieille-litanies",
+    "location": "ironheart-forges",
+    "name": "Une vieille qui fredonne les Litanies",
+    "tile": "vieille",
+    "path": [
+      [
+        22,
+        3
+      ]
+    ],
+    "lines": [
+      "Le travail est prière, qu’ils disent. J’ai prié quarante ans. J’attends toujours la réponse.",
+      "Kharos, le Titan Mourant, ne meurt jamais tout à fait. Nous non plus, au Puits Trois."
+    ]
+  },
+  {
+    "id": "vendeur-livres",
+    "location": "ironheart-marche",
+    "name": "Un marchand de livres sans titre",
+    "tile": "vendeur-livres",
+    "path": [
+      [
+        18,
+        9
+      ]
+    ],
+    "lines": [
+      "Des livres aux reliures méconnaissables. Je ne sais pas les lire. Je sais ce qu’ils valent.",
+      "Un livre de l’Ancien Monde, c’est trois mois de paie. Une page arrachée, une semaine."
+    ]
+  },
+  {
+    "id": "gamin-doigts",
+    "location": "ironheart-marche",
+    "name": "Un gamin aux doigts agiles",
+    "tile": "enfant-b",
+    "path": [
+      [
+        4,
+        7
+      ],
+      [
+        8,
+        3
+      ],
+      [
+        14,
+        16
+      ]
+    ],
+    "lines": [
+      "Pardon, pardon ! Je cours, je cours !",
+      "Ta bourse ? Elle est là. Je l’ai juste regardée."
+    ],
+    "pace": 0.7
+  },
+  {
+    "id": "mecanicienne",
+    "location": "ironheart-marche",
+    "name": "Une mécanicienne de pièces détachées",
+    "tile": "mecano",
+    "path": [
+      [
+        9,
+        13
+      ]
+    ],
+    "lines": [
+      "Une machine ancienne sans certificat ? Je ne l’ai pas vue. Elle n’existe pas. Combien ?",
+      "Rien n’est volé, au Marché : tout est retrouvé."
+    ]
+  },
+  {
+    "id": "horlogere",
+    "location": "ironheart-manufactures",
+    "name": "Une horlogère",
+    "tile": "horlogere",
+    "path": [
+      [
+        2,
+        4
+      ]
+    ],
+    "lines": [
+      "Une montre de l’Ancien Monde. Elle marque toujours la même heure. Je la répare depuis vingt ans.",
+      "Aux Manufactures, le temps se vend au poids. Le mien est cher."
+    ]
+  },
+  {
+    "id": "employe-gris",
+    "location": "ironheart-manufactures",
+    "name": "Un employé en gris clair",
+    "tile": "employe",
+    "path": [
+      [
+        12,
+        13
+      ],
+      [
+        16,
+        11
+      ],
+      [
+        22,
+        1
+      ]
+    ],
+    "lines": [
+      "Formulaire quatre, guichet douze, tampon rouge. Ou était-ce guichet quatre, formulaire douze ?",
+      "Je suis monté il y a dix ans. Je n’ai jamais revu ma rue. Je ne regarde plus en bas."
+    ]
+  },
+  {
+    "id": "cheminote",
+    "location": "ironheart-triage",
+    "name": "Une cheminote",
+    "tile": "cheminot",
+    "path": [
+      [
+        24,
+        4
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        11,
+        16
+      ]
+    ],
+    "lines": [
+      "Les convois ne roulent plus la nuit. Les Marches, si.",
+      "Un aiguillage, ça se graisse tous les matins. Une colère, ça se garde au chaud."
+    ],
+    "reactions": [
+      {
+        "flag": "rail-travailleurs",
+        "lines": [
+          "Les convois de nuit ont repris. Varka dit que c’est grâce à quelqu’un. Elle ne dit pas qui."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ferrome-voie",
+    "location": "ironheart-triage",
+    "name": "Un Ferrôme de la voie",
+    "tile": "ferrome",
+    "path": [
+      [
+        18,
+        8
+      ]
+    ],
+    "lines": [
+      "Voie trois, libre. Voie quatre, libre. Voie sept : je ne la compte pas.",
+      "Matériel de quai. C’est écrit sur ma plaque. Ce n’est écrit nulle part ailleurs."
+    ]
+  },
+  {
+    "id": "ancien-aiguilleur",
+    "location": "ironheart-triage",
+    "name": "Un ancien aiguilleur",
+    "tile": "vieillard",
+    "path": [
+      [
+        2,
+        3
+      ]
+    ],
+    "lines": [
+      "Trente ans à l’aiguillage. Puis une main en moins, et plus de place. Le Bureau a tout classé.",
+      "Le prochain train ? Il n’y en a pas. Je le dis quand même, par habitude."
+    ]
+  },
+  {
+    "id": "cheminot-bielle",
+    "location": "ironheart-pension",
+    "name": "Un cheminot de la Bielle",
+    "tile": "cheminot",
+    "path": [
+      [
+        2,
+        4
+      ]
+    ],
+    "lines": [
+      "Une soupe, un lit, et Dorna qui ne pose pas de questions. À Ferros, on appelle ça un foyer.",
+      "Le soir, raconte-nous des trains. Les puissants, laisse-les dehors : les murs écoutent."
+    ]
+  },
+  {
+    "id": "pelerin-souvenir",
+    "location": "sept-portes",
+    "name": "Un pèlerin de la Fête du Souvenir",
+    "tile": "pelerin",
+    "path": [
+      [
+        17,
+        9
+      ],
+      [
+        26,
+        7
+      ],
+      [
+        10,
+        13
+      ]
+    ],
+    "lines": [
+      "Je viens pour la Fête du Souvenir. J’ai trois mois d’avance : je voulais être sûr.",
+      "On dit que Kael écrivait sans laisser de marge. Il avait peur d’oublier quelque chose."
+    ]
+  },
+  {
+    "id": "changeur",
+    "location": "sept-portes",
+    "name": "Un changeur de monnaies",
+    "tile": "changeur",
+    "path": [
+      [
+        3,
+        3
+      ]
+    ],
+    "lines": [
+      "Feuilles contre Fers, Fers contre coquillages. Je prends un dixième, comme tout le monde.",
+      "Une pièce raconte toujours d’où elle vient. Moi, je l’écoute, et je la pèse."
+    ]
+  },
+  {
+    "id": "porteur-portes",
+    "location": "sept-portes",
+    "name": "Un porteur des Sept Portes",
+    "tile": "porteur",
+    "path": [
+      [
+        18,
+        7
+      ],
+      [
+        15,
+        16
+      ],
+      [
+        11,
+        12
+      ]
+    ],
+    "lines": [
+      "Quelques centaines par jour et par porte, pas un de plus. Je compte les bagages, eux comptent les gens.",
+      "La septième ? On ne la demande pas. Je ne sais pas qui l’a dit le premier."
+    ]
+  },
+  {
+    "id": "fruitiere",
+    "location": "sept-portes-halles",
+    "name": "Une marchande de fruits",
+    "tile": "fruitiere",
+    "path": [
+      [
+        1,
+        1
+      ]
+    ],
+    "lines": [
+      "Des poires de Verdantis, des dattes de la Communion, des pommes de glace. Tout se vend, au cratère.",
+      "Personne ne descend au fond. Ce n’est pas interdit. On ne le fait pas, voilà tout."
+    ]
+  },
+  {
+    "id": "ecolier",
+    "location": "sept-portes-halles",
+    "name": "Un écolier de neuf ans",
+    "tile": "enfant-a",
+    "path": [
+      [
+        14,
+        15
+      ],
+      [
+        20,
+        9
+      ],
+      [
+        24,
+        4
+      ]
+    ],
+    "lines": [
+      "« Si l’Anneau n’arrête pas, c’est permis. » C’est faux ! Enfin, c’est dangereux. Je ne sais plus.",
+      "On a vu le monument des Trois Cents. Le plus jeune avait dix-sept ans. C’est vieux, dix-sept ans ?"
+    ],
+    "pace": 0.7
+  },
+  {
+    "id": "guide",
+    "location": "sept-portes-halles",
+    "name": "Un guide pour pèlerins",
+    "tile": "guide",
+    "path": [
+      [
+        11,
+        14
+      ],
+      [
+        8,
+        8
+      ],
+      [
+        20,
+        3
+      ]
+    ],
+    "lines": [
+      "La statue d’Aldara, cinquante mètres ! Les Trois Cents, à droite ! Le pourboire, à la fin.",
+      "Je raconte le siège douze fois par jour. Je ne sais plus si je m’en souviens, ou si je le récite."
+    ]
+  },
+  {
+    "id": "chroniqueur-registre",
+    "location": "sept-portes-parvis",
+    "name": "Un Chroniqueur en robe d’encre",
+    "tile": "chroniqueur",
+    "path": [
+      [
+        23,
+        14
+      ],
+      [
+        16,
+        8
+      ],
+      [
+        11,
+        13
+      ]
+    ],
+    "lines": [
+      "On enregistre, on ne cherche pas. C’est plus difficile qu’il n’y paraît.",
+      "Onze millions six cent mille lignes au Registre. J’en ai écrit quarante mille. Aucune ne parle de moi."
+    ]
+  },
+  {
+    "id": "etudiante",
+    "location": "sept-portes-parvis",
+    "name": "Une étudiante de la Bibliothèque",
+    "tile": "etudiante",
+    "path": [
+      [
+        19,
+        3
+      ]
+    ],
+    "lines": [
+      "Je cherche un livre qui n’est pas au catalogue. On me répond qu’il n’existe pas, sans me dire pourquoi.",
+      "Le Fonds Muet ? Personne n’y entre. Moi, je regarde la porte, tous les jours."
+    ]
+  },
+  {
+    "id": "pilote-zephyria",
+    "location": "sept-portes-auberge",
+    "name": "Une pilote de Zephyria",
+    "tile": "voyageuse-zephyria",
+    "path": [
+      [
+        1,
+        3
+      ]
+    ],
+    "lines": [
+      "Aetherhaven flotte à trois mille mètres. D’en haut, vos guerres ont l’air de rien.",
+      "Les Hauts de Zephyria ont des routes que le vent efface chaque nuit. On les redessine au matin."
+    ]
   }
 ]

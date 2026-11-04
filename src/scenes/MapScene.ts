@@ -150,6 +150,8 @@ export class MapScene extends Phaser.Scene {
   /** Speaking up on their own (Fallout-like): when the next one may, and when each named NPC may again. */
   private nextBarkAt = 0;
   private npcBarkAt = new Map<string, number>();
+  /** The named NPC's bubble on screen, if any: one speaker at a time, whatever the frame rate. */
+  private npcBubble: Phaser.GameObjects.Container | null = null;
   private drag: { x: number; y: number; scrollX: number; scrollY: number; moved: boolean } | null = null;
   private following = true;
   /** A red diamond where a click cannot lead (étude, A2). */
@@ -254,6 +256,7 @@ export class MapScene extends Phaser.Scene {
     this.zoom = Phaser.Math.Clamp(this.registry.get('mapZoom') ?? DEFAULT_ZOOM, this.minZoom, ZOOM_MAX);
     this.nextBarkAt = this.time.now + 1500;
     this.npcBarkAt = new Map();
+    this.npcBubble = null;
     this.drag = null;
     this.running = false;
     this.cameras.main.setBackgroundColor(COLORS.ink);
@@ -363,11 +366,17 @@ export class MapScene extends Phaser.Scene {
   private speakUp(): void {
     const now = this.time.now;
     this.nextBarkAt = now + 400;
+    // One at a time: the timers that clear bubbles follow the frames, and slow frames must not pile them up.
+    if (this.npcBubble || this.figurants.speaking()) return;
     const hero = this.heroTile;
-    const passerBy = this.figurants.nearestReady(hero, BARK_RADIUS, now);
+    // Only someone on screen, below the HUD's band, speaks up.
+    const view = this.cameras.main.worldView;
+    const band = 70 / this.cameras.main.zoom;
+    const visible = (x: number, y: number) => x > view.x && x < view.right && y - 90 > view.y + band && y < view.bottom;
+    const passerBy = this.figurants.nearestReady(hero, BARK_RADIUS, now, visible);
     let npc: { object: MapObject; label: Phaser.GameObjects.Text; lines: string[]; distance: number } | null = null;
     for (const { object, image, label } of this.interactables) {
-      if (object.type !== 'pnj' || !label || !image.visible || this.gone(object) || now < (this.npcBarkAt.get(object.name) ?? 0)) continue;
+      if (object.type !== 'pnj' || !label || !image.visible || this.gone(object) || now < (this.npcBarkAt.get(object.name) ?? 0) || !visible(image.x, image.y)) continue;
       const def = findBarks(object.name);
       if (!def) continue;
       const distance = Math.max(Math.abs(object.col - hero.col), Math.abs(object.row - hero.row));
@@ -384,9 +393,11 @@ export class MapScene extends Phaser.Scene {
     this.npcBarkAt.set(object.name, now + NPC_BARK_COOLDOWN_MS);
     const line = lines[(said + Math.floor(now / NPC_BARK_COOLDOWN_MS)) % lines.length];
     const bubble = speechBubble(this, label.x, label.y - label.displayHeight - 4, npcName(object), line, this.labelScale);
+    this.npcBubble = bubble;
     label.setVisible(false);
     this.time.delayedCall(BUBBLE_MS, () => {
       bubble.destroy();
+      if (this.npcBubble === bubble) this.npcBubble = null;
       if (label.active) label.setVisible(true);
     });
   }

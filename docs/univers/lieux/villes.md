@@ -199,7 +199,8 @@ Cloudrest, Mistral (Zephyria) [E3, N1, N3]. Crystallis est écartée : son nom e
   - **Shass**, une Sylphe (allure selon le canon).
 - **Possibilités** : voyager en dirigeable ; sauter d'îlot en îlot (Athlétisme) ; écouter les carillons (Mémoire,
   Récits) ; la politique des 18 cités.
-- **À vérifier dans le canon** : description d'Aetherhaven (N3) ; ce que le canon dit de la mémoire à Zephyria.
+- **Canon relu le 2026-11-04** (fiche de la Confédération, « La Septième Voile ») : la mémoire de Zephyria, ce sont
+  les voiles ; la proposition détaillée est dans `lieux/aetherhaven.md` et `gdd/chapitre-5.md` (à valider).
 
 ## 6. Windspire, la cité-aiguille — Zephyria
 

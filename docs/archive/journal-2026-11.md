@@ -1155,3 +1155,8 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   (sept caisses, une par continent ; la dame en gris ; la maladie qui s'étend ; chaque caisse, une pièce de la machine
   et la liste de ceux qui voyageaient avec elle). Passants et phrases mis en ligne pour qu'il les juge en jouant.
 - Construit et mis en ligne : la page « Le fil » au journal (question, ce que je sais, la piste, les sept caisses) et l'anneau de la piste sur la carte du monde. 773 tests ; vérifié dans Chromium.
+- Aetherhaven : canon relu dans Notion (fiche de la Confédération, « La Septième Voile ») : la mémoire de Zephyria,
+  ce sont les voiles ; le Calme et la règle des deux cristaux ; les compagnies contre les Ailes Noires. Proposé, à
+  valider : `univers/lieux/aetherhaven.md` et `gdd/chapitre-5.md` (« Les noms qui montent » : la caisse tombée sous
+  les nuages, dont les six noms montent jusqu'à la ville ; la dame en gris reconnaît l'écriture de sa mère ; le ruban
+  au poignet de l'autre enfant ; sept quêtes de ville, deux guildes).

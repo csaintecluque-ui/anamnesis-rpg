@@ -18,7 +18,8 @@
     "walk": "node scripts/assemble-walk.mjs",
     "render-sprites": "node scripts/render-sprites.mjs",
     "maps": "node scripts/build-maps.mjs",
-    "dialogues": "node scripts/dialogues-to-md.mjs"
+    "dialogues": "node scripts/dialogues-to-md.mjs",
+    "sfx": "node scripts/generate-sfx.mjs"
   },
   "repository": {
     "type": "git",

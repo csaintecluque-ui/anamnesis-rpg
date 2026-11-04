@@ -204,6 +204,13 @@ En ligne le 2026-11-03 (tes textes du 3 novembre) :
 - [ ] **Les répliques d'Ilyane** à chaque retour, après un fragment revenu.
 - Remarques :
 
+## Le son, premiers bruitages (fabriqués par le code)
+
+- [ ] Monte le volume (options) : les pas, les coups portés et ratés, les soins, le parchemin à chaque dialogue, un
+      objet reçu ; et en arrivant à la Gare Engloutie, **le train qu'on entend avant de le voir**. Trop fort, trop
+      discret, agaçant à la longue (les pas surtout) ?
+- Remarques :
+
 ## Déjà en ligne, pas encore essayé sur PC
 
 - [ ] **Chapitre 4, Sept-Portes** sans le mode surpuissant : l'arrivée par la Porte du sud, le Registre, l'une des trois

@@ -38,6 +38,7 @@ import { PENDING_NOTICE, type HudScene } from './HudScene';
 import type { WorldMapStartData } from './WorldMapScene';
 import { momentOf, type Moment } from '../rules/time';
 import { findPlace } from '../rules/world';
+import { playSfx, playStep } from '../audio/sfx';
 
 /** Top of the drawn part of each obstacle frame (`texture:frame`), measured once for the whole game. */
 const DRAWN_TOPS = new Map<string, number>();
@@ -271,6 +272,8 @@ export class MapScene extends Phaser.Scene {
       this.time.delayedCall(50, () => this.hud().toast('Ici, aucune main ne se lèvera sur personne. Tu le sens dans tes poings : ils ne serreront plus.'));
     }
     if (rencontre) this.announceEncounter(rencontre);
+    // The train one hears before seeing it, at the Gare Engloutie, until its Écho has been met (étude, J3).
+    if (arrived && location.id === 'gare-engloutie' && !state.flags['echo-dernier-train-vu']) this.time.delayedCall(400, () => playSfx(this, 'train'));
     // An enemy that bars the way attacks whoever arrives (étude du 2026-11-03, C5: the first fight, on the way to the
     // Gare). Only on arriving: after fleeing, it waits on the path, and touching it starts the fight again.
     const ambush = arrived && !rencontre ? this.map.objects.find((o) => o.type === 'ennemi' && o.properties.embuscade && !this.gone(o)) : undefined;
@@ -831,6 +834,7 @@ export class MapScene extends Phaser.Scene {
       return;
     }
     this.moving = true;
+    playStep(this);
     // The camera comes back to the hero as soon as he walks (étude, A1).
     if (!this.following) this.recenter();
     this.walk(facingOf(this.heroTile, next));

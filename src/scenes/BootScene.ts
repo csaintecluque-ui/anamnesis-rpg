@@ -6,6 +6,7 @@ import npcData from '../data/npcs.json';
 import { parseTiledMap } from '../engine/tiledMap';
 import { AVATARS } from '../rules/character';
 import { FIGURANTS, walkSheetKey } from '../rules/figurants';
+import { loadSfx } from '../audio/sfx';
 
 export class BootScene extends Phaser.Scene {
   constructor() {
@@ -32,6 +33,8 @@ export class BootScene extends Phaser.Scene {
     const illustrations = new Set(['titre']);
     for (const d of Object.values(DIALOGUES)) for (const n of Object.values(d.nodes)) if (n.illustration) illustrations.add(n.illustration);
     for (const id of illustrations) this.load.image(`illustration-${id}`, `illustrations/${id}.jpg`);
+    // Sound effects (npm run sfx).
+    loadSfx(this.load);
   }
 
   create(): void {

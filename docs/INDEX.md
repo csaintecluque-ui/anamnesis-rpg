@@ -79,4 +79,5 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `figurants.md` : passants qui marchent et habitants à une ou deux répliques ; validé.
 - `reputation.md` : réputation par ville (paliers, prix, conditions de dialogue) ; paliers validés.
 - `factions.md` : réputation de faction, adhésion aux guildes ; rangs, sommets, rivalités, quêtes d'adhésion de Ferros, rangs des Gardiens (étape 7) ; validé.
+- `son.md` : le son : les bruitages fabriqués par le code (pas, coups, soin, dialogue, objet, le train de la Gare) ; les ambiances Higgsfield prévues.
 - `artisanat.md` : la forge de Ragna et les herbes de Sévane, les recettes ; validé.

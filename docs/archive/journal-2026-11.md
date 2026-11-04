@@ -1099,3 +1099,5 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
 - Cyril : « oui, mets en ligne » : l'obstacle du chapitre 2 mis en ligne.
 - Simulation E4 / F3 (combat.md) : E4 trop généreux ; Cyril : « On fait ta recommandation » : bonus au toucher des
   bêtes plafonné à +1, 5 PV par niveau ; mis en ligne. La vague 2 est finie.
+- Cyril : « Higgsfield à la fin, fais les bruitages » : huit bruitages fabriqués par le code (`npm run sfx`), branchés sur
+  la carte, le combat, les dialogues, et le train de la Gare. 732 tests ; vérifié dans Chromium.

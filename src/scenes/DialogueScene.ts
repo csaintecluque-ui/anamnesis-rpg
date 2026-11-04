@@ -1,4 +1,6 @@
 import Phaser from 'phaser';
+import { playSfx } from '../audio/sfx';
+import type { Effect } from '../rules/dialogue';
 import { DIALOGUES } from '../data/dialogues';
 import npcData from '../data/npcs.json';
 import { END, applyEffects, expireFlags, goesTo, nodeApartes, opensAtelier, opensTrade, opensVeillee, performRoll, raconterChoices, raconterOption, startNode, startsCombat, visibleOptions, type Dialogue, type DialogueOption, type OptionView } from '../rules/dialogue';
@@ -60,6 +62,7 @@ export class DialogueScene extends Phaser.Scene {
   }
 
   create(data: { id: string }): void {
+    playSfx(this, 'dialogue');
     this.dialogue = DIALOGUES[data.id];
     this.state = this.registry.get('game') as GameState;
     expireFlags(this.state);
@@ -110,6 +113,7 @@ export class DialogueScene extends Phaser.Scene {
     this.raconter = null;
     const node = this.dialogue.nodes[nodeId];
     this.notices.push(...applyEffects(this.state, node.effects));
+    if (gives(node.effects)) playSfx(this, 'objet');
     this.layer.removeAll(true);
     if (node.night) this.backdrop.setFillStyle(NIGHT, 0.82);
     else this.backdrop.setFillStyle(COLORS.ink, 0.45);
@@ -224,6 +228,7 @@ export class DialogueScene extends Phaser.Scene {
         }
       }
       this.notices.push(...applyEffects(this.state, view.option.effects));
+      if (gives(view.option.effects)) playSfx(this, 'objet');
       // Sleeping at an inn saves the game (docs/gdd/temps.md).
       if (view.option.effects?.some((e) => 'dormir' in e)) {
         const saved = saveStore.write('auto', this.state);
@@ -305,4 +310,9 @@ export class DialogueScene extends Phaser.Scene {
     this.scene.resume('Map');
     this.scene.stop();
   }
+}
+
+/** Something given (an item, Fers): the sound of a thing picked up. */
+function gives(effects?: Effect[]): boolean {
+  return !!effects?.some((e) => 'giveItem' in e || ('giveFers' in e && e.giveFers > 0));
 }

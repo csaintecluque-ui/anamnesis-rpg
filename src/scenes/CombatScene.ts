@@ -44,6 +44,7 @@ import { nextEnemyAction, type AiContext } from '../rules/combatAi';
 import { wearEquipment } from '../rules/usure';
 import { DEFAULT_AVATAR } from '../rules/character';
 import { canCast, combatPower, healAmount, payCast, powerAttack, resonanceMax, type PowerDef } from '../rules/magic';
+import { playSfx } from '../audio/sfx';
 import { companionsAfterFight, findCompanion, makeCompanionCombatant } from '../rules/companions';
 import { recordDefeated, recordMet } from '../rules/bestiary';
 import { findLocation, type GameState } from '../state/gameState';
@@ -720,6 +721,7 @@ export class CombatScene extends Phaser.Scene {
       }
       if (action.kind === 'heal') {
         const healed = resolveHeal(enemy, action.target);
+        playSfx(this, 'soin');
         this.float(action.target, `+${healed}`, '#9fe0a0');
         this.appendLog(`${enemy.name} soigne ${action.target.name} : +${healed} PV.`);
         this.refreshToken(action.target);
@@ -859,6 +861,7 @@ export class CombatScene extends Phaser.Scene {
 
   private performAttack(attacker: Combatant, attack: AttackProfile, target: Combatant, zone: Zone, cover: number): void {
     const result = resolveAttack(attacker, attack, target, zone, cover, Math.random, this.combatants);
+    playSfx(this, result.hit ? 'coup' : 'rate');
     this.refreshToken(attacker);
     this.refreshToken(target);
     const zoneLabel = zone === 'corps' ? '' : ` [${findZone(zone).label}]`;
@@ -911,6 +914,7 @@ export class CombatScene extends Phaser.Scene {
     this.loseSplitCrystal();
     const healed = Math.min(hero.maxHp - hero.hp, healAmount(c));
     hero.hp += healed;
+    playSfx(this, 'soin');
     this.float(hero, `+${healed}`, '#9fe0a0');
     this.appendLog(`Le cristal de Vie verdit : +${healed} PV.${bled > 0 ? ` Ton nez saigne (−${bled} PV).` : ''}${prixLine(prix)}`);
     this.refreshToken(hero);
@@ -1077,6 +1081,7 @@ export class CombatScene extends Phaser.Scene {
     // Half the arrows shot are picked up again (docs/gdd/combat.md, « Munitions »).
     const picked = settleAmmo(this.state.character!, this.hero(), true);
     const notices = [...hurt, ...picked, ...applyEffects(this.state, [...this.config.victoryEffects, ...lootEffects])];
+    if (lootEffects.length) playSfx(this, 'objet');
     this.state.flags[this.config.victoryFlag] = true;
     this.closeAfter(false, (hud) => {
       if (notices.length) hud.toast(notices.join('   ·   '));

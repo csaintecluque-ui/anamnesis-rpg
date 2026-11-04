@@ -5,6 +5,7 @@ import {
   WORLD,
   clearEncounterFlags,
   distanceBetween,
+  canWaitOut,
   encounterChecks,
   findPlace,
   knownPlaces,
@@ -12,6 +13,7 @@ import {
   rollEncounter,
   storyRencontre,
   travelTimeLabel,
+  waitOut,
   zoneAt,
   type RencontreDef,
   type WorldPlace,
@@ -427,6 +429,8 @@ export class WorldMapScene extends Phaser.Scene {
     }
     const avoid = { skill: r.avoid.skill, difficulty: r.avoid.difficulty };
     const chance = Math.round(rollChance(this.state, avoid) * 100);
+    // A free way out for any hero, at the cost of time (étude H2) ; last, so that Échap picks it.
+    const wait: [string, () => void][] = canWaitOut(r) ? [['Attendre qu’ils passent', () => this.showPanel(waitOut(this.state), [['Continuer', goOn]])]] : [];
     this.showPanel(r.intro, [
       ['Approcher', () => this.startEncounter(r, destination)],
       [
@@ -438,6 +442,7 @@ export class WorldMapScene extends Phaser.Scene {
           else this.showPanel(`Repéré ! Impossible de les éviter.\n${outcome.notice}`, [['Se défendre', () => this.startEncounter(r, destination)]]);
         },
       ],
+      ...wait,
     ]);
   }
 

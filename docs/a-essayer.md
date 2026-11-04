@@ -235,6 +235,8 @@ En ligne le 2026-11-03 (tes textes du 3 novembre) :
       souvent ? Au mauvais moment ?
 - [ ] **Les voies sur la carte du monde** : après une descente, trois points au-dessus de la voie (●●○ : jusqu'au
       niveau 2) ; le survol dit jusqu'où tu es allé et ce que le butin vaut encore.
+- [ ] **Une rencontre hostile sur la route** : « Attendre qu'ils passent » (Échap) marche toujours et coûte un moment
+      de la journée. Trop facile ? Ça enlève l'envie de combattre ?
 - Remarques :
 
 ## Déjà en ligne, pas encore essayé sur PC

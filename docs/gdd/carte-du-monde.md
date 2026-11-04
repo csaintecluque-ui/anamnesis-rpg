@@ -78,3 +78,12 @@ rencontre, pour quelques Fers. Tout passe par des dialogues (effet `goTo`).
 
 Trois ruines de l'Ancien Monde à explorer sur la carte (`voie` dans `src/data/world.json`), hors des routes : elles
 ne tirent pas de rencontre à l'arrivée, mais on y descend sur trois niveaux tirés au hasard (`docs/gdd/voies.md`).
+
+## Étude du 3 novembre, vague 3 : attendre qu'ils passent (H2)
+
+Constat de l'étude : deux loups à la frontière, c'était la mort pour un héros de parole, sans alternative gratuite.
+Toute rencontre hostile de la route offre maintenant, à côté d'« Approcher » et de « Contourner (Survie 55 %) » (la
+chance était déjà dite avant de choisir), **« Attendre qu'ils passent »** (Échap) : toujours réussi, il coûte un
+moment de la journée (« Tu te mets à l'écart, sans un bruit, et tu attends. Ils finissent par s'éloigner. C'est
+maintenant midi. »), puis le voyage reprend. Pas pour la rencontre qu'une quête attend (les loups de « La caravane
+de midi ») : elle demande un vrai choix. `canWaitOut`, `waitOut` (`src/rules/world.ts`).

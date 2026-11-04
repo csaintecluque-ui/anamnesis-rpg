@@ -4,7 +4,8 @@ import type { MapObject } from '../engine/tiledMap';
 import type { SkillId } from './attributes';
 import type { Rng } from './checks';
 import { findEnemy } from './combat';
-import { findLocation } from '../state/gameState';
+import { findLocation, type GameState } from '../state/gameState';
+import { advance, momentOf, type Moment } from './time';
 
 /** Carte du monde et rencontres aléatoires (docs/gdd/carte-du-monde.md). */
 
@@ -71,6 +72,20 @@ export interface RencontreDef {
    * is not set; meeting it sets `flag` (« La caravane de midi » : les Loups de Rouille).
    */
   story?: { quest: string; flag: string };
+}
+
+/**
+ * « Attendre qu'ils passent » (étude du 2026-11-03, H2): a hostile encounter on the road can always be let by, at the
+ * cost of a moment of the day; not the one a quest is waiting for (« La caravane de midi »), which asks for a choice.
+ */
+export const canWaitOut = (r: RencontreDef): boolean => r.hostile && !r.story;
+
+const MOMENT_NAMES: Record<Moment, string> = { matin: 'le matin', midi: 'midi', soir: 'le soir', nuit: 'la nuit' };
+
+/** Lets the encounter go by: a moment of the day passes. Returns what the panel says. */
+export function waitOut(state: Pick<GameState, 'time'>): string {
+  advance(state.time, 1);
+  return `Tu te mets à l’écart, sans un bruit, et tu attends. Ils finissent par s’éloigner. C’est maintenant ${MOMENT_NAMES[momentOf(state.time)]}.`;
 }
 
 /** Where the hero stands while an encounter lasts: the world-map position to come back to. */

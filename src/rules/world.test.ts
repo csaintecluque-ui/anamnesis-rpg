@@ -6,6 +6,7 @@ import {
   ENCOUNTER_VICTORY_FLAG,
   RENCONTRES,
   WORLD,
+  canWaitOut,
   clearEncounterFlags,
   encounterChecks,
   encounterObjects,
@@ -18,6 +19,7 @@ import {
   rencontreXp,
   rollEncounter,
   travelTimeLabel,
+  waitOut,
   zoneAt,
 } from './world';
 import type { AttributeId } from './attributes';
@@ -172,5 +174,24 @@ describe('Canopéa dialogues (docs/univers/lieux/villes.md)', () => {
     const notices = applyEffects(state, ask().effects);
     expect(notices).toContain('Récit retenu : Kael, le Premier Chroniqueur');
     expect(ask().effects).toBeUndefined();
+  });
+});
+
+describe('« Attendre qu’ils passent » on the road (étude du 2026-11-03, H2)', () => {
+  it('is offered for every hostile encounter but the one a quest waits for', () => {
+    const waitable = RENCONTRES.filter(canWaitOut).map((r) => r.id);
+    expect(waitable).toContain('rodeurs');
+    expect(waitable).toContain('loups-rouille');
+    expect(waitable).not.toContain('loups-caravane');
+    expect(waitable).not.toContain('colporteuse');
+  });
+
+  it('costs one moment of the day, and says which one comes', () => {
+    const state = createNewGame(testCharacter());
+    state.time = { day: 2, phase: 2 };
+    expect(waitOut(state)).toContain('C’est maintenant la nuit.');
+    expect(state.time).toEqual({ day: 2, phase: 3 });
+    waitOut(state);
+    expect(state.time).toEqual({ day: 3, phase: 0 });
   });
 });

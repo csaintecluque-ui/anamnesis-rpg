@@ -51,6 +51,25 @@
           "next": "machine"
         },
         {
+          "text": "Je peux vous raconter une histoire, pendant que vous cousez ?",
+          "requires": [
+            {
+              "notFlag": "raconte-vessin"
+            }
+          ],
+          "next": "raconte-neutre",
+          "raconter": {
+            "aime": [
+              "machines"
+            ],
+            "recits": {
+              "matricule-4-17": "raconte-special"
+            },
+            "touche": "raconte-touche",
+            "neutre": "raconte-neutre"
+          }
+        },
+        {
           "text": "Au revoir.",
           "next": "fin"
         }
@@ -182,6 +201,57 @@
         },
         {
           "text": "Pas encore.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-special": {
+      "text": "Vessin lâche son aiguille. — Quarante ans à compter jusqu’à quatre. J’ai un cadre, au fond, que personne n’est revenu chercher. Je le graisse quand même, tous les printemps.",
+      "effects": [
+        {
+          "setFlag": "raconte-vessin"
+        },
+        {
+          "giveXp": 15
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Vessin.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-touche": {
+      "text": "Vessin hoche la tête au rythme de l’aiguille. — Une machine qui attend, ça se respecte. Ça ne se plaint jamais.",
+      "effects": [
+        {
+          "setFlag": "raconte-vessin"
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Vessin.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-neutre": {
+      "text": "Vessin coud sans lever les yeux. — Hm. Elle tient. C’est tout ce qu’on demande à une couture.",
+      "effects": [
+        {
+          "setFlag": "raconte-vessin"
+        },
+        {
+          "giveXp": 5
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Vessin.",
           "next": "fin"
         }
       ]

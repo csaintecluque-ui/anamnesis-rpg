@@ -1541,3 +1541,16 @@ TILES.push(
   npcTile('veuve-grele', { body: '#3a3a40', hair: '#c8c8c8', skin: '#c8b8a8', accent: '#8a8a94', extra: '<circle cx="20" cy="66" r="2.5" fill="#a8a29a"/><circle cx="44" cy="66" r="2.5" fill="#a8a29a"/><circle cx="21" cy="72" r="2.5" fill="#a8a29a"/><circle cx="43" cy="72" r="2.5" fill="#a8a29a"/>' }),
   npcTile('pirate-air', { body: '#4a3a2a', hair: '#1a1410', skin: '#b89878', accent: '#8a2a2a', extra: '<path d="M22 44 L42 44 L40 40 L24 40 Z" fill="#8a2a2a"/><path d="M46 56 Q54 60 50 70" stroke="#a8a29a" stroke-width="2.5" fill="none"/>' }),
 );
+
+// Les passants d'Aetherhaven (chapitre 5) : silhouettes provisoires, d'après le canon des peuples de Zephyria.
+TILES.push(
+  npcTile('attrapeur', { body: '#5a7a8a', hair: '#e8eef2', skin: '#d8e4ec', accent: '#f4f7f9', extra: '<path d="M44 82 L48 30" stroke="#8a6a48" stroke-width="2.5"/><path d="M48 30 Q60 32 58 44 Q52 50 47 46 Z" fill="none" stroke="#5a4634" stroke-width="1"/>' }),
+  npcTile('pilote-vire-nuee', { body: '#2a3a5a', hair: '#c8a060', skin: '#e8dcd0', accent: '#e2cf8a', extra: '<path d="M25 46 L39 46" stroke="#6ab4e0" stroke-width="3"/><circle cx="38" cy="60" r="2.5" fill="#c9804f"/>' }),
+  npcTile('enfant-collier', { small: true, body: '#e8dcc4', hair: '#e8eef2', skin: '#d8e4ec', accent: '#6ab4e0', extra: '<path d="M30 60 L32 64 L34 60" stroke="#6ab4e0" stroke-width="1.5" fill="none"/><path d="M32 64 L34 67 L32 70 L30 67 Z" fill="#9fd4f0" stroke="#1B1512" stroke-width="0.5"/>' }),
+  npcTile('marchand-pain', { body: '#c8a878', hair: '#5a3a24', accent: '#f4f7f9', extra: '<ellipse cx="45" cy="68" rx="7" ry="4" fill="#a07a48" stroke="#1B1512" stroke-width="0.8"/><ellipse cx="44" cy="65" rx="4" ry="2.5" fill="#d8a860"/>' }),
+  npcTile('copiste', { body: '#6a7a8a', hair: '#3a2a1c', accent: '#f4efe2', extra: '<rect x="38" y="58" width="11" height="9" fill="#f4efe2" stroke="#1B1512" stroke-width="0.8"/><path d="M40 61 L47 61 M40 64 L46 64" stroke="#5a5048" stroke-width="0.8"/>' }),
+  { name: 'sylphe', sprite: true, svg: '<g opacity="0.7">' + person({ body: '#d8f0ff', hair: '#ffffff', skin: '#eef8ff', accent: '#bfe6ff' }) + '</g><circle cx="32" cy="58" r="20" fill="#d8f0ff" opacity="0.16"/>' },
+  npcTile('aerien', { body: '#b8d0e8', hair: '#f4f7f9', skin: '#dce8f0', accent: '#e2cf8a', extra: floatingHair('#f4f7f9') }),
+  npcTile('aeropretre', { body: '#f4f7f9', hair: '#c8c8c8', skin: '#e8dcd0', accent: '#6ab4e0', extra: '<path d="M22 58 Q14 66 18 76 M42 58 Q50 66 46 76" stroke="#6ab4e0" stroke-width="1.5" fill="none"/>' }),
+  npcTile('chasseur-orage', { body: '#2a4a5a', hair: '#1a2a32', skin: '#b8dcd8', accent: '#3ae0d0', extra: '<circle cx="32" cy="48" r="11" fill="#3ae0d0" opacity="0.14"/><rect x="38" y="60" width="10" height="8" fill="#efe6cf" stroke="#1B1512" stroke-width="0.8"/>' }),
+);

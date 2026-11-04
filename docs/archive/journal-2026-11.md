@@ -1166,3 +1166,6 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   lâcher, le mystère du Lâcher et le Récit « La septième voile ». 811 tests ; vérifié dans Chromium.
 - Aetherhaven, étape 4, en ligne : six quêtes de la ville et les deux guildes (adhésions : le convoi de pain, la
   course des îlots). 828 tests, dont `aetherhaven.test.ts` ; vérifié dans Chromium.
+- Aetherhaven, étape 5, en ligne : quinze passants, les phrases de seize habitants, la veillée du Nid des Nuées et ses
+  deux rumeurs, cinq habitants qui écoutent un Récit. Le chapitre 5 est complet (sauf les deuxièmes quêtes de guilde).
+  830 tests ; vérifié dans Chromium.

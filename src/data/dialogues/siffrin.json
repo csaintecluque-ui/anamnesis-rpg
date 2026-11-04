@@ -159,6 +159,26 @@
           "next": "essai"
         },
         {
+          "text": "En échange, je te raconte une histoire.",
+          "requires": [
+            {
+              "notFlag": "raconte-siffrin"
+            }
+          ],
+          "next": "raconte-neutre",
+          "raconter": {
+            "aime": [
+              "chansons",
+              "familles"
+            ],
+            "recits": {
+              "echelle-de-pim": "raconte-special"
+            },
+            "touche": "raconte-touche",
+            "neutre": "raconte-neutre"
+          }
+        },
+        {
           "text": "Une autre fois.",
           "next": "fin"
         }
@@ -226,6 +246,57 @@
       "options": [
         {
           "text": "Au revoir, Siffrin.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-special": {
+      "text": "Siffrin regarde le bas de sa vigie, longtemps. — Moi, j’ai une corde. Grand-mère l’a nouée elle-même, deux fois. Elle dit qu’on n’est jamais trop léger pour tomber.",
+      "effects": [
+        {
+          "setFlag": "raconte-siffrin"
+        },
+        {
+          "giveXp": 15
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Siffrin.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-touche": {
+      "text": "Siffrin siffle l’air de ton histoire, faux d’abord, puis juste. — Je la raconterai aux hirondelles. Elles la porteront.",
+      "effects": [
+        {
+          "setFlag": "raconte-siffrin"
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Siffrin.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-neutre": {
+      "text": "Siffrin écoute en surveillant le ciel. — C’est bien. Mais il manquait un oiseau.",
+      "effects": [
+        {
+          "setFlag": "raconte-siffrin"
+        },
+        {
+          "giveXp": 5
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Siffrin.",
           "next": "fin"
         }
       ]

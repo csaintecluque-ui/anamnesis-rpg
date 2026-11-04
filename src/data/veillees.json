@@ -7,8 +7,13 @@
     "nom": "Auberge de la Racine",
     "public": "Des caravaniers de la Compagnie, des familles du Marché, et deux marchands de Ferros qui font semblant de ne pas écouter.",
     "gouts": "Ici, on aime les chansons et les histoires de famille. Les histoires de morts, beaucoup moins : la maladie des souvenirs nous en raconte assez.",
-    "aime": ["chansons", "familles"],
-    "deteste": ["morts"],
+    "aime": [
+      "chansons",
+      "familles"
+    ],
+    "deteste": [
+      "morts"
+    ],
     "reactions": {
       "triomphe": "Au deuxième couplet, toute la salle reprend avec toi. Un caravanier pleure dans sa barbe, une enfant s’endort sur les genoux de sa mère. Sylvan fait passer son chapeau, et il revient lourd.",
       "succes": "On t’écoute en mangeant, puis sans manger. À la fin, des mains frappent la table, et le chapeau de Sylvan fait le tour de la salle.",
@@ -37,8 +42,13 @@
     "nom": "Auberge du Nid",
     "public": "Des Nacelliers en veste de toile, des cultivateurs des cimes, et un druide qui écoute les yeux fermés, dans les hamacs qui se balancent.",
     "gouts": "Au Nid, on aime les histoires d’arbres, et celles des morts qui dorment à leur pied. Les machines et les forages, on en entend assez parler le jour.",
-    "aime": ["arbres", "morts"],
-    "deteste": ["machines"],
+    "aime": [
+      "arbres",
+      "morts"
+    ],
+    "deteste": [
+      "machines"
+    ],
     "reactions": {
       "triomphe": "Personne ne bouge. Quand tu te tais, le druide ouvre les yeux et dit seulement : « Que la sève coule. » Les bols tintent contre les cordes des hamacs, et les Fers pleuvent dans le panier de Lisandre.",
       "succes": "Les hamacs ont cessé de grincer pendant que tu parlais. On te tend un bol de soupe de fleurs, et le panier de Lisandre passe de main en main.",
@@ -67,8 +77,13 @@
     "nom": "Pension de la Bielle",
     "public": "Des cheminots du triage en bleu de chauffe, des ouvriers des Forges en gris, et, près de la porte, un homme qui ne boit pas.",
     "gouts": "À la Bielle, on aime les histoires de trains et de machines : c’est notre pain. Les histoires de puissants, non. Ici, on tient des listes, et les murs ont des oreilles.",
-    "aime": ["trains", "machines"],
-    "deteste": ["puissants"],
+    "aime": [
+      "trains",
+      "machines"
+    ],
+    "deteste": [
+      "puissants"
+    ],
     "reactions": {
       "triomphe": "Quand ton train entre enfin en gare, toute la Bielle tape sur les tables, comme on frappe l’enclume. « Nom d’une gueuse ! » Le casque de Dorna fait le tour de la salle et revient lourd.",
       "succes": "Les cheminots t’écoutent en hochant la tête, comme on écoute un moteur qui tourne rond. Le casque de Dorna fait le tour de la salle.",
@@ -97,8 +112,13 @@
     "nom": "Auberge des Sept Routes",
     "public": "Des voyageurs de toutes les nations, qui se disputent dans six langues : une pilote de Zephyria, deux marins de Marisol, un Glacien qui ne dit rien, une nomade des Sables.",
     "gouts": "Ici, on aime l’Ancien Monde et les mystères : tout le monde est venu acheter une réponse. Les chansons, non. À Sept-Portes, une légende ne se chante pas : elle s’achète.",
-    "aime": ["ancien-monde", "mysteres"],
-    "deteste": ["chansons"],
+    "aime": [
+      "ancien-monde",
+      "mysteres"
+    ],
+    "deteste": [
+      "chansons"
+    ],
     "reactions": {
       "triomphe": "Dans six langues, on se tait. Le Glacien pose sa chope. Quand tu as fini, la pilote de Zephyria lance une pièce, puis toute la salle : des Fers, des Feuilles de Verdantis, un coquillage. Olmo traduit tout en Fers.",
       "succes": "On t’écoute, et l’on se dispute ensuite sur ce que tu as voulu dire : c’est bon signe, à Sept-Portes. Le bol d’Olmo fait le tour.",
@@ -116,6 +136,41 @@
         "id": "main-grise",
         "titre": "La main de la dame en gris",
         "texte": "Olmo, en essuyant une chope : « La dame en gris, au fond, signe Edda Varn. Une Edda Varn de Ferros est morte il y a trente ans : sa main est close au Registre, tout le monde peut le lire. Personne ne lit. »"
+      }
+    ]
+  },
+  {
+    "id": "nuees",
+    "lieu": "aetherhaven-nid",
+    "hote": "assel",
+    "ville": "aetherhaven",
+    "nom": "Le Nid des Nuées",
+    "public": "Des pilotes de la Compagnie et des Ailes Noires, qui s’ignorent d’une table à l’autre ; des copistes ; une Sylphe qui siffle tout bas ; des voyageurs qui ne disent pas d’où ils viennent.",
+    "gouts": "Ils aiment les chansons et les histoires de morts : à Aetherhaven, les morts voyagent dans le vent, on en parle sans peur. Les histoires de puissants, beaucoup moins : personne n’aime qu’on lui dise quoi faire.",
+    "aime": [
+      "chansons",
+      "morts"
+    ],
+    "deteste": [
+      "puissants"
+    ],
+    "reactions": {
+      "triomphe": "La Sylphe reprend ton dernier mot en sifflant, et toute la salle se tait pour l’écouter. Puis les pilotes des deux camps frappent la même table. Assel fait passer une théière renversée, et elle revient lourde.",
+      "succes": "On t’écoute en buvant du thé tiède. À la fin, un copiste demande s’il peut la recopier. À Aetherhaven, c’est le plus beau compliment.",
+      "redite": "« Celle-là passe déjà dans le vent ! » On t’écoute quand même, et quelques Fers tombent dans la théière.",
+      "echec": "Au milieu, un pilote se lève pour aller voir le temps. Puis un autre. Tu finis devant des chaises vides et une Sylphe qui te sourit.",
+      "deteste": "Au premier roi, la salle soupire. Une Aile Noire lance : « Encore quelqu’un qui commande ! » Et l’on parle d’autre chose."
+    },
+    "rumeurs": [
+      {
+        "id": "perchoir-sommeil",
+        "titre": "Le sommeil du Perchoir",
+        "texte": "Une Aile Noire, à mi-voix : « Au Perchoir, la nuit, tout le monde dort à la troisième rafale. Même Ravel. Le carnet reste sur la table, et personne ne le garde. »"
+      },
+      {
+        "id": "doublure",
+        "titre": "La doublure du dôme",
+        "texte": "Un copiste, en recopiant ta dernière phrase : « La doublure du Temple ? Des voiles de deuil, cousues depuis des siècles. Les listes de la Pluie sont tout en haut, là où le bleu est le plus pâle. »"
       }
     ]
   }

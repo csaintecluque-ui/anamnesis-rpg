@@ -30,6 +30,24 @@
       "node": "lettre"
     },
     {
+      "requires": [
+        {
+          "tousLes": 3,
+          "decalage": 1
+        }
+      ],
+      "node": "accueil-2"
+    },
+    {
+      "requires": [
+        {
+          "tousLes": 3,
+          "decalage": 2
+        }
+      ],
+      "node": "accueil-3"
+    },
+    {
       "node": "accueil"
     }
   ],
@@ -44,6 +62,15 @@
         {
           "text": "Quelles nouvelles ?",
           "next": "nouvelles"
+        },
+        {
+          "text": "Raconter un Récit à la veillée.",
+          "next": "fin",
+          "effects": [
+            {
+              "veillee": "nuees"
+            }
+          ]
         },
         {
           "text": "Au revoir.",
@@ -146,6 +173,26 @@
           "next": "edda"
         },
         {
+          "text": "Je voudrais vous raconter une histoire, à vous seule.",
+          "requires": [
+            {
+              "notFlag": "raconte-assel"
+            }
+          ],
+          "next": "raconte-neutre",
+          "raconter": {
+            "aime": [
+              "chansons",
+              "familles"
+            ],
+            "recits": {
+              "berceuse-de-maelis": "raconte-special"
+            },
+            "touche": "raconte-touche",
+            "neutre": "raconte-neutre"
+          }
+        },
+        {
           "text": "Merci, Assel.",
           "next": "accueil"
         }
@@ -198,6 +245,109 @@
       "options": [
         {
           "text": "Plier la lettre.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-special": {
+      "text": "Assel fredonne l’air, faux, puis juste. — On la chantait ici aussi, sur d’autres mots. Les berceuses montent plus haut que les gens. Personne ne leur demande d’où elles viennent.",
+      "effects": [
+        {
+          "setFlag": "raconte-assel"
+        },
+        {
+          "giveXp": 15
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Assel.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-touche": {
+      "text": "Assel ressert du thé, sans qu’on lui demande. — Celle-là, je la raconterai à la veillée. Je dirai qu’elle est de vous.",
+      "effects": [
+        {
+          "setFlag": "raconte-assel"
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Assel.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-neutre": {
+      "text": "— Merci. Elle remue le thé tiède. — Les histoires d’en bas sont toujours un peu lourdes. On s’y fait.",
+      "effects": [
+        {
+          "setFlag": "raconte-assel"
+        },
+        {
+          "giveXp": 5
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Assel.",
+          "next": "fin"
+        }
+      ]
+    },
+    "accueil-2": {
+      "text": "Assel verse un thé tiède. — Le Nid des Nuées. Ce matin, une machine des Ailes Noires a frôlé la Tour des Vents ; le Conseil a voté d’en débattre. Asseyez-vous, ça va durer.",
+      "options": [
+        {
+          "text": "Manger ou dormir ?",
+          "next": "servir"
+        },
+        {
+          "text": "Quelles nouvelles ?",
+          "next": "nouvelles"
+        },
+        {
+          "text": "Raconter un Récit à la veillée.",
+          "next": "fin",
+          "effects": [
+            {
+              "veillee": "nuees"
+            }
+          ]
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "accueil-3": {
+      "text": "Assel ferme une fenêtre que le vent rouvre aussitôt. — Le Nid des Nuées. La nuit dernière, les cristaux ont chanté si fort que personne n’a dormi. Zélie dit que le Courant passait bas.",
+      "options": [
+        {
+          "text": "Manger ou dormir ?",
+          "next": "servir"
+        },
+        {
+          "text": "Quelles nouvelles ?",
+          "next": "nouvelles"
+        },
+        {
+          "text": "Raconter un Récit à la veillée.",
+          "next": "fin",
+          "effects": [
+            {
+              "veillee": "nuees"
+            }
+          ]
+        },
+        {
+          "text": "Au revoir.",
           "next": "fin"
         }
       ]

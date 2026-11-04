@@ -105,6 +105,26 @@
           "next": "dorment"
         },
         {
+          "text": "Je voudrais vous confier une histoire.",
+          "requires": [
+            {
+              "notFlag": "raconte-ysolde"
+            }
+          ],
+          "next": "raconte-neutre",
+          "raconter": {
+            "aime": [
+              "mysteres",
+              "familles"
+            ],
+            "recits": {
+              "la-dedicace": "raconte-special"
+            },
+            "touche": "raconte-touche",
+            "neutre": "raconte-neutre"
+          }
+        },
+        {
           "text": "Au revoir.",
           "next": "fin"
         }
@@ -268,6 +288,57 @@
     },
     "liste-gardee": {
       "text": "Elle la range dans un tiroir à part, sans étiquette. — Je n’écrirai rien dessus. Ceux qui la chercheront sauront.",
+      "options": [
+        {
+          "text": "Merci, Ysolde.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-special": {
+      "text": "Ysolde pose son tissu. — Chez nous, on ne l’effacerait pas. On la compterait. Une correction par nuit, depuis des années : c’est une voile qui passe. Je l’inscris.",
+      "effects": [
+        {
+          "setFlag": "raconte-ysolde"
+        },
+        {
+          "giveXp": 15
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Ysolde.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-touche": {
+      "text": "Ysolde écrit en même temps que tu parles, sans regarder sa main. — Elle passera. Je le sens aux histoires qui ont des noms dedans.",
+      "effects": [
+        {
+          "setFlag": "raconte-ysolde"
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Ysolde.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-neutre": {
+      "text": "— Bien dite. Ysolde la note quand même, dans la marge d’un registre. — Tout ce qui passe ici est compté.",
+      "effects": [
+        {
+          "setFlag": "raconte-ysolde"
+        },
+        {
+          "giveXp": 5
+        }
+      ],
       "options": [
         {
           "text": "Merci, Ysolde.",

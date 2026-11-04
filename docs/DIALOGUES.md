@@ -606,7 +606,7 @@ _Effet : retient « raconte-arlo », +15 XP._
 
 _Aubergiste du Nid des Nuées_
 
-Commence par : « lettre-prise » _(si quête « Les noms qui montent » terminée)_ _(si repère « caisse-zephyria-prise »)_ _(sans repère « assel-lettre »)_, sinon « lettre » _(si quête « Les noms qui montent » terminée)_ _(sans repère « assel-lettre »)_, sinon « accueil »
+Commence par : « lettre-prise » _(si quête « Les noms qui montent » terminée)_ _(si repère « caisse-zephyria-prise »)_ _(sans repère « assel-lettre »)_, sinon « lettre » _(si quête « Les noms qui montent » terminée)_ _(sans repère « assel-lettre »)_, sinon « accueil-2 » _(un jour sur 3, le 2e)_, sinon « accueil-3 » _(un jour sur 3, le 3e)_, sinon « accueil »
 
 ### accueil
 
@@ -614,6 +614,7 @@ Commence par : « lettre-prise » _(si quête « Les noms qui montent » termin�
 
 - « Manger ou dormir ? » → servir
 - « Quelles nouvelles ? » → nouvelles
+- « Raconter un Récit à la veillée. » → **fin** _(ouvre la veillée « nuees »)_
 - « Au revoir. » → **fin**
 
 ### servir
@@ -642,6 +643,7 @@ Commence par : « lettre-prise » _(si quête « Les noms qui montent » termin�
 > — Le convoi d’en bas est passé hier, sans pirates pour une fois. Et au Registre, Ysolde a reçu une bande sans auteur de plus. Elle les range comme si on allait venir les chercher.
 
 - _(si quête « Les noms qui montent » en cours)_ _(sans repère « edda-halte-reglee »)_ « Une dame en gris a dormi ici ? » → edda
+- _(sans repère « raconte-assel »)_ « Je voudrais vous raconter une histoire, à vous seule. » → raconte-neutre 📖 raconter un Récit : berceuse-de-maelis → raconte-special ; chansons, familles → raconte-touche ; autres → raconte-neutre
 - « Merci, Assel. » → accueil
 
 ### edda
@@ -673,6 +675,48 @@ _Effet : retient « assel-lettre »._
 > — Une lettre pour toi, montée avec le courrier de Verdantis. Assel te la tend, et détourne les yeux. L’écriture d’Ilyane tremble beaucoup. Trois lignes. « Je garde tes lettres. Il y a un nom en haut. Je ne sais plus le dire. »
 
 - « Plier la lettre. » → **fin**
+
+### raconte-special
+
+_Effet : retient « raconte-assel », +15 XP._
+
+> Assel fredonne l’air, faux, puis juste. — On la chantait ici aussi, sur d’autres mots. Les berceuses montent plus haut que les gens. Personne ne leur demande d’où elles viennent.
+
+- « Merci, Assel. » → **fin**
+
+### raconte-touche
+
+_Effet : retient « raconte-assel », +10 XP._
+
+> Assel ressert du thé, sans qu’on lui demande. — Celle-là, je la raconterai à la veillée. Je dirai qu’elle est de vous.
+
+- « Merci, Assel. » → **fin**
+
+### raconte-neutre
+
+_Effet : retient « raconte-assel », +5 XP._
+
+> — Merci. Elle remue le thé tiède. — Les histoires d’en bas sont toujours un peu lourdes. On s’y fait.
+
+- « Merci, Assel. » → **fin**
+
+### accueil-2
+
+> Assel verse un thé tiède. — Le Nid des Nuées. Ce matin, une machine des Ailes Noires a frôlé la Tour des Vents ; le Conseil a voté d’en débattre. Asseyez-vous, ça va durer.
+
+- « Manger ou dormir ? » → servir
+- « Quelles nouvelles ? » → nouvelles
+- « Raconter un Récit à la veillée. » → **fin** _(ouvre la veillée « nuees »)_
+- « Au revoir. » → **fin**
+
+### accueil-3
+
+> Assel ferme une fenêtre que le vent rouvre aussitôt. — Le Nid des Nuées. La nuit dernière, les cristaux ont chanté si fort que personne n’a dormi. Zélie dit que le Courant passait bas.
+
+- « Manger ou dormir ? » → servir
+- « Quelles nouvelles ? » → nouvelles
+- « Raconter un Récit à la veillée. » → **fin** _(ouvre la veillée « nuees »)_
+- « Au revoir. » → **fin**
 
 ## Bastien Basse-Corniche
 
@@ -1036,6 +1080,7 @@ Commence par : « carnet »
 > Un carnet de cuir noir, sur la table, gras de doigts. Chaque traversée du Calme, la vitesse qu’on avait en tête, et une croix pour ceux qui ne sont pas revenus. Ravel ne le quitte jamais des yeux, le jour.
 
 - _(si quête « Les onze états » en cours)_ _(la nuit)_ _(sans repère « perchoir-guette »)_ **🎲 Discrétion 15** « Le prendre, quand tout le monde dort. » → pris, ✗ → surpris
+- _(si quête « Les onze états » en cours)_ _(la nuit)_ _(si repère « rumeur-perchoir-sommeil »)_ _(sans repère « perchoir-guette »)_ **🎲 Discrétion 12** « Le prendre à la troisième rafale, quand tout le Perchoir dort. » → pris, ✗ → surpris
 - « Le laisser. » → **fin**
 
 ### pris
@@ -1753,6 +1798,7 @@ Commence par : « doublure » _(si repère « dome-indice »)_ _(sans repère «
 > Des dizaines de vieux tissus cousus ensemble, au-dessus de la stèle. Des prières, des listes, des poèmes, des voiles de deuil. Les coutures ont cinq siècles, ou plus.
 
 - **🎲 Érudition 14** « Chercher « Et pour l’an cinquante ». » → trouvee, ✗ → rien
+- _(si repère « rumeur-doublure »)_ **🎲 Érudition 11** « Chercher tout en haut, là où le bleu est le plus pâle. » → trouvee, ✗ → rien
 - « Laisser la doublure. » → **fin**
 
 ### rien
@@ -6834,6 +6880,7 @@ Commence par : « retour » _(si quête « L’hirondelle de Siffrin » en cours
 > — En sifflant. Les Sylphes parlent comme ça, au Temple, en Vent-Cantique. Moi, je ne connais que quatre mots. Essaie : deux notes courtes, et puis une longue.
 
 - _(sans repère « siffle-avec-siffrin »)_ « Siffler avec lui. » → essai
+- _(sans repère « raconte-siffrin »)_ « En échange, je te raconte une histoire. » → raconte-neutre 📖 raconter un Récit : echelle-de-pim → raconte-special ; chansons, familles → raconte-touche ; autres → raconte-neutre
 - « Une autre fois. » → **fin**
 
 ### essai
@@ -6864,6 +6911,30 @@ _Effet : termine la quête « L’hirondelle de Siffrin », +20 XP._
 > Siffrin siffle deux notes. L’hirondelle quitte ta main et se pose sur son épaule, comme si elle n’était jamais partie. Il ne dit rien. Il pleure un peu, et il fait semblant que c’est le vent.
 
 - « Au revoir, Siffrin. » → **fin**
+
+### raconte-special
+
+_Effet : retient « raconte-siffrin », +15 XP._
+
+> Siffrin regarde le bas de sa vigie, longtemps. — Moi, j’ai une corde. Grand-mère l’a nouée elle-même, deux fois. Elle dit qu’on n’est jamais trop léger pour tomber.
+
+- « Merci, Siffrin. » → **fin**
+
+### raconte-touche
+
+_Effet : retient « raconte-siffrin », +10 XP._
+
+> Siffrin siffle l’air de ton histoire, faux d’abord, puis juste. — Je la raconterai aux hirondelles. Elles la porteront.
+
+- « Merci, Siffrin. » → **fin**
+
+### raconte-neutre
+
+_Effet : retient « raconte-siffrin », +5 XP._
+
+> Siffrin écoute en surveillant le ciel. — C’est bien. Mais il manquait un oiseau.
+
+- « Merci, Siffrin. » → **fin**
 
 ## Sorn
 
@@ -8132,6 +8203,7 @@ Commence par : « prete » _(si quête « Les noms qui montent » en cours)_ _(s
 
 - « Voir ce que vous vendez. » → **fin** _(ouvre le Troc)_
 - _(si quête « Les noms qui montent » en cours)_ _(sans repère « caisse-zephyria-reglee »)_ _(si repère « tiroir-vu »)_ « Une machine, pour descendre sous les nuages ? » → machine
+- _(sans repère « raconte-vessin »)_ « Je peux vous raconter une histoire, pendant que vous cousez ? » → raconte-neutre 📖 raconter un Récit : matricule-4-17 → raconte-special ; machines → raconte-touche ; autres → raconte-neutre
 - « Au revoir. » → **fin**
 
 ### machine
@@ -8166,6 +8238,30 @@ _Effet : retient « machine-vessin », +10 XP._
 - « Partir maintenant. » → **fin** _(retient « descente-vessin », retient « au-bas », fait passer 1 moment, mène à « Sous les nuages — le pays de cendre »)_
 - « Voir ce que vous vendez. » → **fin** _(ouvre le Troc)_
 - « Pas encore. » → **fin**
+
+### raconte-special
+
+_Effet : retient « raconte-vessin », +15 XP._
+
+> Vessin lâche son aiguille. — Quarante ans à compter jusqu’à quatre. J’ai un cadre, au fond, que personne n’est revenu chercher. Je le graisse quand même, tous les printemps.
+
+- « Merci, Vessin. » → **fin**
+
+### raconte-touche
+
+_Effet : retient « raconte-vessin », +10 XP._
+
+> Vessin hoche la tête au rythme de l’aiguille. — Une machine qui attend, ça se respecte. Ça ne se plaint jamais.
+
+- « Merci, Vessin. » → **fin**
+
+### raconte-neutre
+
+_Effet : retient « raconte-vessin », +5 XP._
+
+> Vessin coud sans lever les yeux. — Hm. Elle tient. C’est tout ce qu’on demande à une couture.
+
+- « Merci, Vessin. » → **fin**
 
 ## La Veuve Grêle
 
@@ -8514,6 +8610,7 @@ _Effet : retient « ysolde-aerys », retient le Récit « La septième voile »,
 > — Les passages. Une voile vit deux ans, le temps d’un tissu. Si personne ne la recopie, elle tombe et pourrit dans un jardin. Si on la recopie, elle repart. Certaines passent quarante mille fois par an. D’autres dorment.
 
 - « Elles dorment ? » → dorment
+- _(sans repère « raconte-ysolde »)_ « Je voudrais vous confier une histoire. » → raconte-neutre 📖 raconter un Récit : la-dedicace → raconte-special ; mysteres, familles → raconte-touche ; autres → raconte-neutre
 - « Au revoir. » → **fin**
 
 ### dorment
@@ -8592,6 +8689,30 @@ _Effet : retient « edda-registre-voiles »._
 
 - « Merci, Ysolde. » → **fin**
 
+### raconte-special
+
+_Effet : retient « raconte-ysolde », +15 XP._
+
+> Ysolde pose son tissu. — Chez nous, on ne l’effacerait pas. On la compterait. Une correction par nuit, depuis des années : c’est une voile qui passe. Je l’inscris.
+
+- « Merci, Ysolde. » → **fin**
+
+### raconte-touche
+
+_Effet : retient « raconte-ysolde », +10 XP._
+
+> Ysolde écrit en même temps que tu parles, sans regarder sa main. — Elle passera. Je le sens aux histoires qui ont des noms dedans.
+
+- « Merci, Ysolde. » → **fin**
+
+### raconte-neutre
+
+_Effet : retient « raconte-ysolde », +5 XP._
+
+> — Bien dite. Ysolde la note quand même, dans la marge d’un registre. — Tout ce qui passe ici est compté.
+
+- « Merci, Ysolde. » → **fin**
+
 ## Zélie Chantebrise
 
 _Aéroprêtresse du Grand Courant_
@@ -8612,6 +8733,7 @@ Commence par : « listes » _(si quête « Les voiles dormantes » en cours)_ _(
 > — Le vent qui fait le tour du monde et ne s’arrête jamais. Les morts y entrent, et voyagent. Les Aériens disent qu’on les entend, les soirs de grand vent, dans les cristaux.
 
 - « Autre chose. » → accueil
+- _(sans repère « raconte-zelie »)_ « Je voudrais vous confier une histoire. » → raconte-neutre 📖 raconter un Récit : voix-ecorce → raconte-special ; morts → raconte-touche ; autres → raconte-neutre
 - « Au revoir. » → **fin**
 
 ### tombent
@@ -8640,5 +8762,29 @@ _Effet : retient « dome-indice »._
 ### chercher
 
 > — Rien ne se jette, sous le vent. Cherchez. Au-dessus de la stèle, là où le tissu est le plus vieux.
+
+- « Merci, Zélie. » → **fin**
+
+### raconte-special
+
+_Effet : retient « raconte-zelie », +15 XP._
+
+> — Chez vous, les morts restent dans les arbres ; chez nous, ils voyagent dans le vent. Zélie sourit. — Je me demande s’ils se croisent, quand le vent passe dans les feuilles.
+
+- « Merci, Zélie. » → **fin**
+
+### raconte-touche
+
+_Effet : retient « raconte-zelie », +10 XP._
+
+> Zélie ferme les yeux. — Celle-là, je la dirai au Courant, ce soir. Il la portera.
+
+- « Merci, Zélie. » → **fin**
+
+### raconte-neutre
+
+_Effet : retient « raconte-zelie », +5 XP._
+
+> Zélie écoute, les mains ouvertes. — Merci. Le vent l’a entendue aussi.
 
 - « Merci, Zélie. » → **fin**

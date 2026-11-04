@@ -109,7 +109,7 @@ pour la fin du jeu.
 | 2 | « Les noms qui montent » : quatre fins ; la caisse de Zephyria au fil ; le ruban (fragment du chapitre 6, la nuit après) ; la lettre d'Ilyane chez Assel | en ligne |
 | 3 | Les voiles à attraper et à lâcher ; le mystère du Lâcher (Bastien) ; le Récit « La septième voile » | en ligne |
 | 4 | Six quêtes de la ville (la soute était déjà faite) et les deux guildes, avec leur quête d'adhésion | en ligne |
-| 5 | Passants, phrases spontanées, veillée du Nid des Nuées, habitants qui écoutent un Récit | à faire |
+| 5 | Quinze passants, les phrases spontanées de seize habitants, la veillée du Nid des Nuées (deux rumeurs), cinq habitants qui écoutent un Récit | en ligne |
 
 Au montage : la remontée se fait toujours par le Calme ; avec deux cristaux (Ossiane, Vessin) on passe, avec Ravel il
 faut l'entendre (Survie 16, 14 avec le bon état de la septième voile). La dame en gris remonte toujours avec un seul
@@ -127,3 +127,9 @@ masque de Tam), « L'hirondelle de Siffrin » (l'oiseleur et le mot « Nuit. Qua
 « La course des îlots » (l'adhésion aux Ailes Noires : deux sauts contre Ravel). Une Plume descend sans payer ; un
 Passager vole à moitié prix. Les deuxièmes quêtes de chaque guilde viendront plus tard. **À valider** : la doublure du
 dôme, Pointe, la Veuve Grêle et ses grêlons, le mot sous la cage.
+
+Étape 5, au montage : la veillée du Nid des Nuées aime les chansons et les morts (à Aetherhaven, les morts voyagent dans
+le vent), pas les puissants (personne n'aime qu'on lui dise quoi faire) ; ses rumeurs : le sommeil du Perchoir
+(Discrétion 12 pour le carnet) et la doublure du dôme (Érudition 11). Écoutent un Récit : Siffrin (« L'échelle de
+Pim »), Ysolde (« La dédicace »), Vessin (« Quatre-dix-sept »), Assel (« La berceuse de Maëlis »), Zélie (« Les voix du
+Bosquet »). Le Récit « La septième voile » ne garde que le thème des morts.

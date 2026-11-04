@@ -40,6 +40,20 @@
           "failNext": "rien"
         },
         {
+          "text": "Chercher tout en haut, là où le bleu est le plus pâle.",
+          "requires": [
+            {
+              "flag": "rumeur-doublure"
+            }
+          ],
+          "next": "trouvee",
+          "roll": {
+            "skill": "lore",
+            "difficulty": 11
+          },
+          "failNext": "rien"
+        },
+        {
           "text": "Laisser la doublure.",
           "next": "fin"
         }

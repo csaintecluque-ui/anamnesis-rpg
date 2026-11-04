@@ -32,6 +32,30 @@
           "failNext": "surpris"
         },
         {
+          "text": "Le prendre à la troisième rafale, quand tout le Perchoir dort.",
+          "requires": [
+            {
+              "quest": "onze-etats",
+              "status": "active"
+            },
+            {
+              "moment": "nuit"
+            },
+            {
+              "flag": "rumeur-perchoir-sommeil"
+            },
+            {
+              "notFlag": "perchoir-guette"
+            }
+          ],
+          "next": "pris",
+          "roll": {
+            "skill": "stealth",
+            "difficulty": 12
+          },
+          "failNext": "surpris"
+        },
+        {
           "text": "Le laisser.",
           "next": "fin"
         }

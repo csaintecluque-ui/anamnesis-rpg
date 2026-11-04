@@ -1,9 +1,10 @@
 import { describe, expect, it } from 'vitest';
 import { DIALOGUES } from '../data/dialogues';
 import { createNewGame, type GameState } from '../state/gameState';
-import { applyEffects, startNode } from './dialogue';
+import { applyEffects, raconterOption, startNode, visibleOptions } from './dialogue';
 import { factionRank, rivalMembership } from './factions';
 import { ownedCount, addItem } from './inventory';
+import { learnRecit } from './recits';
 import { reputationScore } from './reputation';
 import { choose, optionTexts, testCharacter } from './questTestKit';
 import { FIRST_FLIGHT_FLAG, findPlace, flightFare, flightSky, payFlight } from './world';
@@ -200,5 +201,40 @@ describe('« La course des îlots » (les Ailes Noires)', () => {
     state.quests['noms-qui-montent'] = 'active';
     state.flags['tiroir-vu'] = true;
     expect(optionTexts(state, 'ravel', 'bas')).toContain('Je suis une Plume. Le vent paie.');
+  });
+});
+
+describe('Aetherhaven vivante : les habitants écoutent, la veillée du Nid des Nuées', () => {
+  it('Siffrin, Ysolde, Vessin, Assel et Zélie écoutent un Récit, une fois chacun, et chacun a son préféré', () => {
+    for (const [npc, node, recit] of [
+      ['siffrin', 'sifflet', 'echelle-de-pim'],
+      ['ysolde', 'compter', 'la-dedicace'],
+      ['vessin', 'accueil', 'matricule-4-17'],
+      ['assel', 'nouvelles', 'berceuse-de-maelis'],
+      ['zelie', 'courant', 'voix-ecorce'],
+    ]) {
+      const state = game();
+      learnRecit(state.character!, recit);
+      const option = DIALOGUES[npc].nodes[node].options.find((o) => o.raconter)!;
+      const target = raconterOption(option.raconter!, recit).next;
+      expect(target, npc).toBe('raconte-special');
+      applyEffects(state, DIALOGUES[npc].nodes[target].effects);
+      expect(visibleOptions(DIALOGUES[npc].nodes[node], state).some((v) => v.option.raconter), npc).toBe(false);
+    }
+  });
+
+  it('Assel ouvre la veillée ; ses rumeurs rendent le carnet du Perchoir et la doublure du dôme plus faciles', () => {
+    const state = game();
+    expect(optionTexts(state, 'assel', 'accueil')).toContain('Raconter un Récit à la veillée.');
+    state.quests['onze-etats'] = 'active';
+    state.time.phase = 3;
+    const rolls = () => visibleOptions(DIALOGUES['carnet-perchoir'].nodes.carnet, state).flatMap((v) => (v.option.roll ? [v.option.roll.difficulty] : []));
+    expect(rolls()).toEqual([15]);
+    state.flags['rumeur-perchoir-sommeil'] = true;
+    expect(rolls()).toEqual([15, 12]);
+    state.flags['dome-indice'] = true;
+    expect(optionTexts(state, 'doublure-dome', 'doublure')).toHaveLength(2);
+    state.flags['rumeur-doublure'] = true;
+    expect(optionTexts(state, 'doublure-dome', 'doublure')).toHaveLength(3);
   });
 });

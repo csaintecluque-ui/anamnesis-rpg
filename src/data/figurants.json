@@ -1859,5 +1859,327 @@
       "Aetherhaven flotte à trois mille mètres. D’en haut, vos guerres ont l’air de rien.",
       "Les Hauts de Zephyria ont des routes que le vent efface chaque nuit. On les redessine au matin."
     ]
+  },
+  {
+    "id": "attrapeur-quai",
+    "location": "aetherhaven-quai",
+    "name": "Un attrapeur de voiles",
+    "tile": "attrapeur",
+    "path": [
+      [
+        8,
+        9
+      ],
+      [
+        12,
+        9
+      ],
+      [
+        12,
+        14
+      ],
+      [
+        8,
+        14
+      ]
+    ],
+    "lines": [
+      "Une voile au-dessus du Quai, ça ne reste pas. Il faut l’attraper avant le pont.",
+      "J’en ai attrapé quarante mille. Pas une n’était pour moi."
+    ]
+  },
+  {
+    "id": "pilote-quai",
+    "location": "aetherhaven-quai",
+    "name": "Une pilote de la Compagnie",
+    "tile": "pilote-vire-nuee",
+    "path": [
+      [
+        5,
+        12
+      ]
+    ],
+    "lines": [
+      "Deux cristaux, une route déclarée, et le soir je dors chez moi.",
+      "Les Ailes Noires nous traitent de cochers. Les cochers rentrent vivants."
+    ]
+  },
+  {
+    "id": "aile-quai",
+    "location": "aetherhaven-quai",
+    "name": "Une Aile Noire",
+    "tile": "aile-noire",
+    "path": [
+      [
+        16,
+        11
+      ],
+      [
+        19,
+        11
+      ]
+    ],
+    "lines": [
+      "Un contrat, c’est une corde qu’on se passe soi-même au cou.",
+      "Tu as vu le Calme ? Non ? Alors tu n’as rien vu."
+    ],
+    "reactions": [
+      {
+        "flag": "membre-ailes-noires",
+        "lines": [
+          "Une Plume ! Ravel t’a laissé gagner, ou tu sautes pour de vrai ?"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "enfant-collier",
+    "location": "aetherhaven-quai",
+    "name": "Une enfant au collier de cristal",
+    "tile": "enfant-collier",
+    "path": [
+      [
+        10,
+        15
+      ],
+      [
+        14,
+        16
+      ],
+      [
+        12,
+        17
+      ]
+    ],
+    "lines": [
+      "Mon collier chante quand il y a du vent. Écoute ! Non, attends. Là !",
+      "Papa dit que les enfants d’avant faisaient pareil, avec les cristaux."
+    ]
+  },
+  {
+    "id": "gardien-patrouille",
+    "location": "aetherhaven-quai",
+    "name": "Un Gardien du Ciel",
+    "tile": "gardien-ciel",
+    "path": [
+      [
+        6,
+        13
+      ],
+      [
+        6,
+        7
+      ]
+    ],
+    "lines": [
+      "Le Code de l’Air tient en quarante-sept lois. Le reste, c’est du vent.",
+      "Tenez votre chapeau. Le vent ne le rend jamais."
+    ]
+  },
+  {
+    "id": "boulangere",
+    "location": "aetherhaven-marches",
+    "name": "Une boulangère",
+    "tile": "marchand-pain",
+    "path": [
+      [
+        12,
+        10
+      ]
+    ],
+    "lines": [
+      "Le pain vient d’en bas. Il coûte ce qu’il a traversé.",
+      "Trois Fers la miche, et ne me parlez pas du convoi de mardi."
+    ],
+    "reactions": [
+      {
+        "flag": "raid-laisse",
+        "lines": [
+          "Le double ! Le pain coûte le double, depuis que la Grêle a pris le convoi."
+        ]
+      },
+      {
+        "quest": "convoi-pain",
+        "lines": [
+          "Il paraît que quelqu’un a gardé le convoi, cette nuit. Je lui garde une miche."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "copiste-marche",
+    "location": "aetherhaven-marches",
+    "name": "Un copiste",
+    "tile": "copiste",
+    "path": [
+      [
+        13,
+        13
+      ],
+      [
+        15,
+        13
+      ],
+      [
+        15,
+        15
+      ]
+    ],
+    "lines": [
+      "Je recopie ce qu’on m’apporte. Un Fer la voile, deux si c’est un poème.",
+      "Une voile qu’on ne recopie plus, c’est quelqu’un qu’on n’appelle plus."
+    ]
+  },
+  {
+    "id": "sylphe-marche",
+    "location": "aetherhaven-marches",
+    "name": "Une Sylphe",
+    "tile": "sylphe",
+    "path": [
+      [
+        16,
+        9
+      ],
+      [
+        18,
+        11
+      ]
+    ],
+    "lines": [
+      "(Elle siffle trois notes, et le vent se tait une seconde autour de toi.)",
+      "Tu marches lourd. C’est la terre, en toi. Ça partira."
+    ]
+  },
+  {
+    "id": "verdantin-marche",
+    "location": "aetherhaven-marches",
+    "name": "Un marchand de Verdantis",
+    "tile": "citoyen-arbre",
+    "path": [
+      [
+        10,
+        14
+      ]
+    ],
+    "lines": [
+      "Des fruits de Canopéa, montés hier. Ici, ils valent leur poids en cristal.",
+      "Que la sève coule, même à trois mille mètres."
+    ]
+  },
+  {
+    "id": "ferrien-marche",
+    "location": "aetherhaven-marches",
+    "name": "Un marchand de Ferros",
+    "tile": "changeur",
+    "path": [
+      [
+        3,
+        11
+      ],
+      [
+        5,
+        13
+      ]
+    ],
+    "lines": [
+      "On me regarde de travers. C’est l’air pur : il rend méfiant.",
+      "À Ferros, on note tout. Chez eux, rien ne s’écrit, et tout le monde s’en souvient."
+    ]
+  },
+  {
+    "id": "vieille-nid",
+    "location": "aetherhaven-nid",
+    "name": "Une vieille du Nid",
+    "tile": "vieille",
+    "path": [
+      [
+        2,
+        4
+      ]
+    ],
+    "lines": [
+      "J’ai vu trois filles monter trop haut, dans ma vie. Deux sont redescendues. On ne parle pas de la troisième.",
+      "Le thé d’Assel est tiède depuis soixante ans."
+    ]
+  },
+  {
+    "id": "aeropretre",
+    "location": "aetherhaven-haute-ile",
+    "name": "Un aéroprêtre",
+    "tile": "aeropretre",
+    "path": [
+      [
+        10,
+        13
+      ],
+      [
+        13,
+        13
+      ],
+      [
+        13,
+        10
+      ]
+    ],
+    "lines": [
+      "Le Grand Courant fait le tour du monde. Vos morts sont passés au-dessus de vous ce matin.",
+      "Écoutez les cristaux, ce soir. Ce n’est pas le vent qui chante."
+    ]
+  },
+  {
+    "id": "pere-lacher",
+    "location": "aetherhaven-haute-ile",
+    "name": "Un père, au Lâcher",
+    "tile": "aerien",
+    "path": [
+      [
+        22,
+        13
+      ]
+    ],
+    "lines": [
+      "On lâche une voile pour ma mère, tous les ans. Le vent sait où elle est.",
+      "Si tu attrapes une voile signée « Linnea », renvoie-la. Elle aimait voyager."
+    ]
+  },
+  {
+    "id": "chasseur-orage",
+    "location": "aetherhaven-haute-ile",
+    "name": "Un Chasseur d’Orage",
+    "tile": "chasseur-orage",
+    "path": [
+      [
+        16,
+        10
+      ],
+      [
+        19,
+        10
+      ],
+      [
+        19,
+        13
+      ]
+    ],
+    "lines": [
+      "Cartographe du vent. Je dessine ce qui ne reste jamais en place.",
+      "Une tempête au nord, dans trois jours. Les hirondelles le savent déjà."
+    ]
+  },
+  {
+    "id": "etudiante-academie",
+    "location": "aetherhaven-haute-ile",
+    "name": "Une étudiante de l’Académie",
+    "tile": "etudiante",
+    "path": [
+      [
+        16,
+        8
+      ]
+    ],
+    "lines": [
+      "L’Académie dit que le cristal azur se fatigue. Le Conseil dit qu’on verra dans six ans.",
+      "Quatre cents voiles par jour au-dessus de la Tour, les jours de vent. Je les compte."
+    ]
   }
 ]

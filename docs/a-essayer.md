@@ -290,6 +290,8 @@ En ligne le 2026-11-03 (tes textes du 3 novembre) :
       Holger et le commis de Ferros, Siffrin et son hirondelle, puis la nuit du convoi de pain.
 - [ ] **Les deux guildes** : la Compagnie Vire-Nuée (par le convoi) ou les Ailes Noires (la course contre Ravel), pas
       les deux.
+- [ ] **La ville vivante** : quinze passants, des phrases au-dessus des têtes, la veillée du Nid des Nuées, cinq
+      habitants qui écoutent un Récit. Des phrases qui sonnent faux ?
 - Remarques :
 
 ## Déjà en ligne, pas encore essayé sur PC

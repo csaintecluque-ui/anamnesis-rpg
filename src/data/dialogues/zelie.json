@@ -53,6 +53,25 @@
           "next": "accueil"
         },
         {
+          "text": "Je voudrais vous confier une histoire.",
+          "requires": [
+            {
+              "notFlag": "raconte-zelie"
+            }
+          ],
+          "next": "raconte-neutre",
+          "raconter": {
+            "aime": [
+              "morts"
+            ],
+            "recits": {
+              "voix-ecorce": "raconte-special"
+            },
+            "touche": "raconte-touche",
+            "neutre": "raconte-neutre"
+          }
+        },
+        {
           "text": "Au revoir.",
           "next": "fin"
         }
@@ -101,6 +120,57 @@
     },
     "chercher": {
       "text": "— Rien ne se jette, sous le vent. Cherchez. Au-dessus de la stèle, là où le tissu est le plus vieux.",
+      "options": [
+        {
+          "text": "Merci, Zélie.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-special": {
+      "text": "— Chez vous, les morts restent dans les arbres ; chez nous, ils voyagent dans le vent. Zélie sourit. — Je me demande s’ils se croisent, quand le vent passe dans les feuilles.",
+      "effects": [
+        {
+          "setFlag": "raconte-zelie"
+        },
+        {
+          "giveXp": 15
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Zélie.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-touche": {
+      "text": "Zélie ferme les yeux. — Celle-là, je la dirai au Courant, ce soir. Il la portera.",
+      "effects": [
+        {
+          "setFlag": "raconte-zelie"
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Zélie.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-neutre": {
+      "text": "Zélie écoute, les mains ouvertes. — Merci. Le vent l’a entendue aussi.",
+      "effects": [
+        {
+          "setFlag": "raconte-zelie"
+        },
+        {
+          "giveXp": 5
+        }
+      ],
       "options": [
         {
           "text": "Merci, Zélie.",

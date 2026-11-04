@@ -1026,7 +1026,7 @@ describe('Parcours complet, d’une traite', () => {
     walk(s, 'aetherhaven-nid');
     expect(talk(s, 'assel')).toBe('lettre');
     say(s, 'assel', 'lettre', 'L’ouvrir');
-    expect(talk(s, 'assel')).toBe('accueil');
+    expect(talk(s, 'assel')).toMatch(/^accueil/);
     expect(reputationScore(s, 'aetherhaven')).toBe(20);
     expect(repeatableGains(s)).toEqual([]);
   });

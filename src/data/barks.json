@@ -465,5 +465,157 @@
       "Deux agents, une voiture, et hop : au cent unième kilomètre !",
       "Arlo pleure quand il perd. Moi, jamais."
     ]
+  },
+  {
+    "id": "gardien-ciel",
+    "lines": [
+      "On ne demande pas d’où vous venez.",
+      "Tenez votre chapeau : le vent prend tout."
+    ]
+  },
+  {
+    "id": "siffrin",
+    "lines": [
+      "Deux notes courtes, une longue !",
+      "Une hirondelle au nord. Il pleut sous les nuages."
+    ],
+    "reactions": [
+      {
+        "quest": "hirondelle",
+        "lines": [
+          "Pointe a senti l’orage avant tout le monde, ce matin !"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ysolde",
+    "lines": [
+      "Quarante mille passages, celle-là. Une belle voile.",
+      "Ce qu’on ne compte plus s’efface."
+    ],
+    "reactions": [
+      {
+        "flag": "rouleau-lache",
+        "lines": [
+          "Six noms, partout dans le ciel. Je n’ai jamais tant compté."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ossiane",
+    "lines": [
+      "Deux cristaux. Toujours.",
+      "Mes pilotes rentrent le soir. Tous."
+    ]
+  },
+  {
+    "id": "ravel",
+    "lines": [
+      "Rien ne doit entraver le vent.",
+      "Un cristal suffit, à qui sait écouter."
+    ],
+    "reactions": [
+      {
+        "flag": "membre-ailes-noires",
+        "lines": [
+          "Une Plume ! Le vent t’a pris."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "vessin",
+    "lines": [
+      "Une toile se tend, ou elle se déchire.",
+      "Masques, cordes, tissus. Le reste sur commande."
+    ]
+  },
+  {
+    "id": "assel",
+    "lines": [
+      "Le thé est tiède : prenez-vous-en à l’altitude.",
+      "Un hamac, un thé, et le vent pour vous bercer."
+    ]
+  },
+  {
+    "id": "zelie",
+    "lines": [
+      "Écoutez. Le Courant passe.",
+      "Ceux qui tombent entrent aussi dans le vent."
+    ]
+  },
+  {
+    "id": "shass",
+    "lines": [
+      "(Trois notes sifflées, très douces.)",
+      "Tu portes de la cendre."
+    ]
+  },
+  {
+    "id": "evrard",
+    "lines": [
+      "Neuf pour cent ! Neuf !",
+      "Six ans de débat. Six !"
+    ],
+    "reactions": [
+      {
+        "flag": "septieme-juste",
+        "lines": [
+          "Le neuvième état. Je le savais."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "bastien",
+    "lines": [
+      "Tous les deux ans, depuis quarante ans.",
+      "Et pour l’an cinquante."
+    ],
+    "reactions": [
+      {
+        "flag": "liste-lachee",
+        "lines": [
+          "Elle passe. Elle passe enfin."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "celeste",
+    "lines": [
+      "À l’aube, je passe le Calme.",
+      "Un cristal suffit. Ravel l’a dit."
+    ]
+  },
+  {
+    "id": "odile",
+    "lines": [
+      "Elle n’écoute personne. C’est de mon côté.",
+      "Dix-sept ans. On ne sait rien, à dix-sept ans."
+    ]
+  },
+  {
+    "id": "holger",
+    "lines": [
+      "Neuf jours. J’ai compté.",
+      "Ici, personne ne signe à la place de personne."
+    ]
+  },
+  {
+    "id": "agent-ferros",
+    "lines": [
+      "Ferros n’oublie rien.",
+      "La Confédération rend les voleurs."
+    ]
+  },
+  {
+    "id": "oiselier",
+    "lines": [
+      "Hirondelles du Zénith ! Elles disent le temps !",
+      "Trente Fers, et pas de questions."
+    ]
   }
 ]

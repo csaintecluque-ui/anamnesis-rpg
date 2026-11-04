@@ -3,6 +3,15 @@
   "speaker": "gardien-ciel",
   "entries": [
     {
+      "requires": [
+        {
+          "quest": "asile",
+          "status": "active"
+        }
+      ],
+      "node": "asile"
+    },
+    {
       "node": "accueil"
     }
   ],
@@ -73,6 +82,110 @@
         },
         {
           "text": "Merci.",
+          "next": "fin"
+        }
+      ]
+    },
+    "asile": {
+      "text": "La Gardienne soupire. — Holger Brandt. Le commis dit voleur, Brandt dit persécuté. La Charte me demande de choisir sans savoir. Si vous savez quelque chose, dites-le.",
+      "options": [
+        {
+          "text": "Lisez la page vous-même.",
+          "requires": [
+            {
+              "flag": "page-vue"
+            }
+          ],
+          "next": "defendu"
+        },
+        {
+          "text": "Il est persécuté : il a sorti des noms volés.",
+          "next": "defendu",
+          "roll": {
+            "skill": "diplomacy",
+            "difficulty": 15
+          },
+          "failNext": "doute"
+        },
+        {
+          "text": "C’est un voleur.",
+          "next": "livre"
+        },
+        {
+          "text": "Autre chose.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "doute": {
+      "text": "— Des mots. J’en entends toute la journée, et des deux côtés. Apportez-moi quelque chose que je puisse lire.",
+      "options": [
+        {
+          "text": "Lisez la page vous-même.",
+          "requires": [
+            {
+              "flag": "page-vue"
+            }
+          ],
+          "next": "defendu"
+        },
+        {
+          "text": "Je reviendrai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "defendu": {
+      "text": "La Gardienne lit, longtemps. — Droit d’asile. Le commis repartira par le prochain dirigeable, sans lui. Elle te rend la page. — Ferros s’en souviendra. Nous aussi.",
+      "effects": [
+        {
+          "setFlag": "holger-defendu"
+        },
+        {
+          "setFlag": "asile-reglee"
+        },
+        {
+          "giveXp": 40
+        },
+        {
+          "completeQuest": "asile"
+        },
+        {
+          "setFlag": "fin-asile-defendu"
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci.",
+          "next": "fin"
+        }
+      ]
+    },
+    "livre": {
+      "text": "— Bien. Elle fait signe au commis. Le soir, deux Gardiens du Ciel montent au Nid des Nuées et en redescendent avec un homme maigre qui serre une sacoche. Il ne se débat pas. Le commis te glisse cinquante Fers.",
+      "effects": [
+        {
+          "setFlag": "holger-livre"
+        },
+        {
+          "setFlag": "asile-reglee"
+        },
+        {
+          "giveFers": 50
+        },
+        {
+          "giveXp": 20
+        },
+        {
+          "completeQuest": "asile"
+        },
+        {
+          "setFlag": "fin-asile-livre"
+        }
+      ],
+      "options": [
+        {
+          "text": "Partir.",
           "next": "fin"
         }
       ]

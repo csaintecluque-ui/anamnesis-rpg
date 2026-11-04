@@ -108,7 +108,7 @@ pour la fin du jeu.
 | 1 | Tuiles, cartes, lieux ; le dirigeable sur la carte du monde (premier vol payé par Hesper, puis 30 Fers, un jour) | en ligne |
 | 2 | « Les noms qui montent » : quatre fins ; la caisse de Zephyria au fil ; le ruban (fragment du chapitre 6, la nuit après) ; la lettre d'Ilyane chez Assel | en ligne |
 | 3 | Les voiles à attraper et à lâcher ; le mystère du Lâcher (Bastien) ; le Récit « La septième voile » | en ligne |
-| 4 | Les sept quêtes de la ville, les deux guildes | à faire |
+| 4 | Six quêtes de la ville (la soute était déjà faite) et les deux guildes, avec leur quête d'adhésion | en ligne |
 | 5 | Passants, phrases spontanées, veillée du Nid des Nuées, habitants qui écoutent un Récit | à faire |
 
 Au montage : la remontée se fait toujours par le Calme ; avec deux cristaux (Ossiane, Vessin) on passe, avec Ravel il
@@ -117,3 +117,13 @@ cristal, et cale dans le Calme : on l'aide (une corde, ou un second cristal) ou 
 La quête se termine à la Halte, au choix de la caisse ; la remontée vient après. Le premier pas d'Edda : elle a
 recopié les six noms au Registre, et les recopiait le soir au Nid (Assel). Le chapitre est joué de bout en bout par
 le test de parcours (deux routes : Vessin et la corde ; Ossiane et les noms lâchés au vent).
+
+Étape 4, au montage : « Les onze états » (le carnet du Perchoir prêté, volé ou mérité ; l'état juste au Conseil, au
+vent ou gardé), « Le second cristal » (quatre fins, dont Céleste tombée, repêchée vivante, qui ne volera plus),
+« Les voiles dormantes » (la liste de l'an cinquante cousue dans la doublure du dôme du Temple : lâchée, confiée à
+Bastien ou au Registre), « L'asile » (la page de Holger : des plans d'Ouvriers signés par des Techniciens, dont le
+masque de Tam), « L'hirondelle de Siffrin » (l'oiseleur et le mot « Nuit. Quai. Grêle. »), « Le convoi de pain »
+(l'adhésion à la Compagnie Vire-Nuée : la Veuve Grêle combattue, effrayée, payée d'un quart, ou laissée faire),
+« La course des îlots » (l'adhésion aux Ailes Noires : deux sauts contre Ravel). Une Plume descend sans payer ; un
+Passager vole à moitié prix. Les deuxièmes quêtes de chaque guilde viendront plus tard. **À valider** : la doublure du
+dôme, Pointe, la Veuve Grêle et ses grêlons, le mot sous la cage.

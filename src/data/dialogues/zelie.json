@@ -3,6 +3,18 @@
   "speaker": "zelie",
   "entries": [
     {
+      "requires": [
+        {
+          "quest": "voiles-dormantes",
+          "status": "active"
+        },
+        {
+          "notFlag": "dome-indice"
+        }
+      ],
+      "node": "listes"
+    },
+    {
       "node": "accueil"
     }
   ],
@@ -69,6 +81,29 @@
       "options": [
         {
           "text": "Remercier Zélie.",
+          "next": "fin"
+        }
+      ]
+    },
+    "listes": {
+      "text": "Zélie lève les yeux vers le dôme. — Les listes de la Pluie ? On les lisait, autrefois, les soirs de grand vent, pour que chaque nom entre dans le Courant. On a cessé quand les familles ont cessé de venir. Les tissus usés, on les cousait dans la doublure.",
+      "effects": [
+        {
+          "setFlag": "dome-indice"
+        }
+      ],
+      "options": [
+        {
+          "text": "Je peux chercher ?",
+          "next": "chercher"
+        }
+      ]
+    },
+    "chercher": {
+      "text": "— Rien ne se jette, sous le vent. Cherchez. Au-dessus de la stèle, là où le tissu est le plus vieux.",
+      "options": [
+        {
+          "text": "Merci, Zélie.",
           "next": "fin"
         }
       ]

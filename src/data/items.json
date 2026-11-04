@@ -489,5 +489,40 @@
     "description": "Un carré de toile fine et blanche, de la Voilerie Clairvol, pour recopier une voile.",
     "weightKg": 0.1,
     "price": 5
+  },
+  {
+    "id": "carnet-perchoir",
+    "name": "Le carnet du Perchoir",
+    "description": "Un carnet de cuir noir, gras de doigts. Chaque traversée du Calme y est notée : le pilote, l’heure, la vitesse qu’il avait en tête, et s’il est revenu.",
+    "weightKg": 0.3,
+    "price": 0,
+    "quest": true
+  },
+  {
+    "id": "voile-septieme",
+    "name": "La septième voile, l’état juste",
+    "description": "La règle du Calme recopiée par Évrard Tiédevent, d’après le carnet du Perchoir : les vitesses minimales de ceux qui sont revenus.",
+    "weightKg": 0.1,
+    "price": 0,
+    "quest": true,
+    "lore": "« Ceci n’est pas beau. » Aerys Haute-Foudre"
+  },
+  {
+    "id": "liste-an-cinquante",
+    "name": "La liste de l’an cinquante",
+    "description": "Un tissu long, décousu de la doublure du Temple : « Et pour l’an cinquante », et trois cent douze noms en colonnes serrées.",
+    "weightKg": 0.4,
+    "price": 0,
+    "quest": true
+  },
+  {
+    "id": "cuir-ailes-noires",
+    "name": "Cuir des Ailes Noires",
+    "description": "Le cuir noir des pilotes sans contrat : léger, serré aux poignets, fait pour le vent.",
+    "weightKg": 3,
+    "price": 110,
+    "slot": "armure",
+    "armorBonus": 2,
+    "lore": "Les Ailes Noires ne le vendent pas : le vent le donne, disent-elles."
   }
 ]

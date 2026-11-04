@@ -1533,3 +1533,11 @@ TILES.push({
     '<path d="M24 76 L40 70 M36 66 L42 70 L36 74" stroke="#6ab4e0" stroke-width="2.5" fill="none" stroke-linecap="round"/>' +
     '<path d="M20 70 Q26 66 30 68 M38 60 Q44 58 48 62" stroke="#f4f7f9" stroke-width="1.5" fill="none" opacity="0.8"/>',
 });
+
+// Les gens des quêtes d'Aetherhaven (chapitre 5) : un commis de Ferros, un oiseleur, la Veuve Grêle et ses pirates.
+TILES.push(
+  npcTile('agent-ferros', { body: '#6a6a6a', hair: '#2a2a2a', skin: '#d0b8a0', accent: '#a0402a', extra: '<rect x="38" y="58" width="11" height="13" fill="#3a3238" stroke="#1B1512" stroke-width="0.8"/>' }),
+  npcTile('oiselier', { body: '#6a5a3a', hair: '#8a6a3c', skin: '#d8c0a0', accent: '#e2cf8a', extra: '<rect x="40" y="48" width="12" height="14" fill="none" stroke="#a07a48" stroke-width="1.5"/><path d="M43 48 L43 62 M46 48 L46 62 M49 48 L49 62" stroke="#a07a48" stroke-width="1"/><path d="M44 56 l4 -2 l-1 3 Z" fill="#3a4a5a"/>' }),
+  npcTile('veuve-grele', { body: '#3a3a40', hair: '#c8c8c8', skin: '#c8b8a8', accent: '#8a8a94', extra: '<circle cx="20" cy="66" r="2.5" fill="#a8a29a"/><circle cx="44" cy="66" r="2.5" fill="#a8a29a"/><circle cx="21" cy="72" r="2.5" fill="#a8a29a"/><circle cx="43" cy="72" r="2.5" fill="#a8a29a"/>' }),
+  npcTile('pirate-air', { body: '#4a3a2a', hair: '#1a1410', skin: '#b89878', accent: '#8a2a2a', extra: '<path d="M22 44 L42 44 L40 40 L24 40 Z" fill="#8a2a2a"/><path d="M46 56 Q54 60 50 70" stroke="#a8a29a" stroke-width="2.5" fill="none"/>' }),
+);

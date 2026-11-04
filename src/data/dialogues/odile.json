@@ -1,0 +1,98 @@
+{
+  "id": "odile",
+  "speaker": "odile",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "second-cristal",
+          "status": "done"
+        },
+        {
+          "flag": "celeste-tombee"
+        }
+      ],
+      "node": "merci-tombee"
+    },
+    {
+      "requires": [
+        {
+          "quest": "second-cristal",
+          "status": "done"
+        }
+      ],
+      "node": "merci"
+    },
+    {
+      "requires": [
+        {
+          "quest": "second-cristal",
+          "status": "active"
+        }
+      ],
+      "node": "attente"
+    },
+    {
+      "node": "demande"
+    }
+  ],
+  "nodes": {
+    "demande": {
+      "text": "Une femme en laine crème serre ses mains l’une contre l’autre. — Vous allez vers le Quai ? Ma fille, Céleste. Dix-sept ans. Demain, elle passe le Calme avec un seul cristal, pour entrer aux Ailes Noires. Je ne peux pas le lui interdire. Personne ne peut.",
+      "options": [
+        {
+          "text": "Je vais lui parler.",
+          "next": "merci-avant",
+          "effects": [
+            {
+              "startQuest": "second-cristal"
+            },
+            {
+              "setFlag": "odile-parlee"
+            }
+          ]
+        },
+        {
+          "text": "Ce n’est pas mon affaire.",
+          "next": "fin"
+        }
+      ]
+    },
+    "merci-avant": {
+      "text": "— Elle ne vous écoutera pas. Elle n’écoute personne, c’est de mon côté. Parlez-lui quand même. Sur le Quai, près de la passerelle du Perchoir.",
+      "options": [
+        {
+          "text": "J’y vais.",
+          "next": "fin"
+        }
+      ]
+    },
+    "attente": {
+      "text": "Odile regarde vers le Quai sans le voir. — Elle part à l’aube. Vous lui avez parlé ?",
+      "options": [
+        {
+          "text": "Pas encore.",
+          "next": "fin"
+        }
+      ]
+    },
+    "merci": {
+      "text": "— Elle est rentrée. Elle a dit que c’était facile. Odile rit, et pleure en même temps, ce qui ne lui ressemble pas. — Merci. Je ne sais pas ce que vous lui avez dit, et je ne veux pas le savoir.",
+      "options": [
+        {
+          "text": "Au revoir, Odile.",
+          "next": "fin"
+        }
+      ]
+    },
+    "merci-tombee": {
+      "text": "Odile tricote, au marché, comme avant. Elle lève les yeux. — Elle est vivante. Elle ne volera plus. Elle dit que c’est sa faute, et je lui dis que non, et c’est la première fois qu’on se parle depuis des mois. Merci d’avoir essayé.",
+      "options": [
+        {
+          "text": "Au revoir, Odile.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

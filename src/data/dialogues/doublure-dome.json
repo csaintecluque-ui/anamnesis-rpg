@@ -1,0 +1,83 @@
+{
+  "id": "doublure-dome",
+  "speaker": "doublure-dome",
+  "entries": [
+    {
+      "requires": [
+        {
+          "flag": "dome-indice"
+        },
+        {
+          "notFlag": "liste-trouvee"
+        }
+      ],
+      "node": "doublure"
+    },
+    {
+      "node": "ordinaire"
+    }
+  ],
+  "nodes": {
+    "ordinaire": {
+      "text": "Au-dessus de la stèle, des dizaines de vieux tissus cousus ensemble tapissent le dôme, bleus d’âge. Le vent les fait respirer.",
+      "options": [
+        {
+          "text": "Laisser la doublure.",
+          "next": "fin"
+        }
+      ]
+    },
+    "doublure": {
+      "text": "Des dizaines de vieux tissus cousus ensemble, au-dessus de la stèle. Des prières, des listes, des poèmes, des voiles de deuil. Les coutures ont cinq siècles, ou plus.",
+      "options": [
+        {
+          "text": "Chercher « Et pour l’an cinquante ».",
+          "next": "trouvee",
+          "roll": {
+            "skill": "lore",
+            "difficulty": 14
+          },
+          "failNext": "rien"
+        },
+        {
+          "text": "Laisser la doublure.",
+          "next": "fin"
+        }
+      ]
+    },
+    "rien": {
+      "text": "Des noms, des noms, des noms. Tes yeux se brouillent avant d’avoir tout lu. Il faudra revenir avec un regard frais.",
+      "effects": [
+        {
+          "blesser": 1
+        }
+      ],
+      "options": [
+        {
+          "text": "Laisser la doublure.",
+          "next": "fin"
+        }
+      ]
+    },
+    "trouvee": {
+      "text": "Entre deux voiles de prière, un tissu plus long que les autres, couturé de noms en colonnes serrées. En haut : « Et pour l’an cinquante ». Trois cent douze noms. Zélie le décout pour toi, sans un mot.",
+      "effects": [
+        {
+          "giveItem": "liste-an-cinquante"
+        },
+        {
+          "setFlag": "liste-trouvee"
+        },
+        {
+          "giveXp": 20
+        }
+      ],
+      "options": [
+        {
+          "text": "Le prendre.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

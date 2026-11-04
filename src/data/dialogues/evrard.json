@@ -3,6 +3,30 @@
   "speaker": "evrard",
   "entries": [
     {
+      "requires": [
+        {
+          "quest": "onze-etats",
+          "status": "active"
+        },
+        {
+          "item": "carnet-perchoir"
+        }
+      ],
+      "node": "compare"
+    },
+    {
+      "requires": [
+        {
+          "quest": "onze-etats",
+          "status": "active"
+        },
+        {
+          "flag": "septieme-juste"
+        }
+      ],
+      "node": "choix"
+    },
+    {
       "node": "accueil"
     }
   ],
@@ -17,6 +41,16 @@
         {
           "text": "Le Calme, c’est quoi, au juste ?",
           "next": "calme"
+        },
+        {
+          "text": "Je peux vous aider ?",
+          "requires": [
+            {
+              "quest": "onze-etats",
+              "status": "none"
+            }
+          ],
+          "next": "aide"
         },
         {
           "text": "Au revoir.",
@@ -38,12 +72,8 @@
       ]
     },
     "conseil": {
-      "text": "— Le débat est prévu pour six ans. Arrêter une version, c’est faire un livre, disent-ils, et Aerys a refusé le livre. En attendant, un quart des vols privés passent le Calme avec la mauvaise vitesse en tête.",
+      "text": "— Six ans. Cinq, peut-être, si je crie assez fort. Il range la voile dans un étui de cuir, avec un soin de notaire. — Au moins, il y aura une version sur leur table. Quelqu’un finira par la lire.",
       "options": [
-        {
-          "text": "Autre chose.",
-          "next": "accueil"
-        },
         {
           "text": "Au revoir.",
           "next": "fin"
@@ -70,6 +100,109 @@
           "text": "Autre chose.",
           "next": "accueil"
         },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "aide": {
+      "text": "— Les Ailes Noires tiennent un carnet, au Perchoir : chaque traversée du Calme, la vitesse en tête, et qui est revenu. Avec lui, je saurai quel état ramène les gens. Ravel ne me le prêtera jamais : pour lui, je suis une règle qui marche.",
+      "effects": [
+        {
+          "startQuest": "onze-etats"
+        },
+        {
+          "setFlag": "onze-carnet-demande"
+        }
+      ],
+      "options": [
+        {
+          "text": "Je vais le chercher.",
+          "next": "fin"
+        },
+        {
+          "text": "Je verrai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "compare": {
+      "text": "Évrard ouvre le carnet comme un livre saint et compare, ligne à ligne, les traversées et les onze états. Il pâlit, puis sourit. — Le neuvième. Ceux qui l’avaient en tête sont revenus. Les trois courts, eux, ont des croix.",
+      "effects": [
+        {
+          "takeItem": "carnet-perchoir"
+        },
+        {
+          "giveItem": "voile-septieme"
+        },
+        {
+          "setFlag": "septieme-juste"
+        },
+        {
+          "giveXp": 30
+        }
+      ],
+      "options": [
+        {
+          "text": "Et maintenant ?",
+          "next": "choix"
+        }
+      ]
+    },
+    "choix": {
+      "text": "— J’ai recopié l’état juste sur une voile, pour vous. Le Conseil en débattrait six ans, mais il saurait. Ou vous la lâchez au garde-fou du Lâcher, à la manière d’Aerys. Ou vous la gardez. Je rendrai le carnet moi-même, sans un mot.",
+      "options": [
+        {
+          "text": "Au Conseil des Vents.",
+          "next": "conseil",
+          "effects": [
+            {
+              "setFlag": "onze-conseil"
+            },
+            {
+              "completeQuest": "onze-etats"
+            },
+            {
+              "setFlag": "fin-onze-etats-conseil"
+            }
+          ]
+        },
+        {
+          "text": "Je la lâcherai au vent.",
+          "next": "lache",
+          "effects": [
+            {
+              "setFlag": "onze-a-lacher"
+            }
+          ]
+        },
+        {
+          "text": "Je la garde.",
+          "next": "garde",
+          "effects": [
+            {
+              "completeQuest": "onze-etats"
+            },
+            {
+              "setFlag": "fin-onze-etats-garde"
+            }
+          ]
+        }
+      ]
+    },
+    "lache": {
+      "text": "— Au garde-fou du Lâcher, alors. Quiconque l’attrapera l’aura, et personne ne la lui aura imposée. Évrard rit, un peu faux. — Aerys serait contente. Moi, je préfère les livres. C’est sans doute pour ça qu’on ne m’écoute pas.",
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "garde": {
+      "text": "Évrard ne dit rien, longtemps. — Elle est à vous. Aerys aurait dit pareil. Je ne suis pas sûr qu’elle aurait eu raison.",
+      "options": [
         {
           "text": "Au revoir.",
           "next": "fin"

@@ -1,0 +1,91 @@
+{
+  "id": "holger",
+  "speaker": "holger",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "asile",
+          "status": "done"
+        }
+      ],
+      "node": "defendu"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Un homme maigre, en manteau d’encre râpé, serre une sacoche contre lui. — Vous venez de Ferros ? Non ? Tant mieux. Holger Brandt. J’étais archiviste, Niveau Trois. Un commis de Ferros attend au Quai que la Gardienne me rende.",
+      "options": [
+        {
+          "text": "Pourquoi vous rendre ?",
+          "next": "pourquoi"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "pourquoi": {
+      "text": "— J’ai pris une page. Une seule. Le registre des Innovations du Puits Trois : les plans qu’ont inventés des Ouvriers, et les Techniciens qui les ont signés à leur place. Vingt ans de noms échangés. Ferros appelle ça un vol.",
+      "effects": [
+        {
+          "startQuest": "asile"
+        }
+      ],
+      "options": [
+        {
+          "text": "Montrez-la-moi.",
+          "next": "page"
+        },
+        {
+          "text": "La Charte vous protège.",
+          "next": "charte"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "page": {
+      "text": "Il hésite, puis ouvre la sacoche. Une page de registre, au sceau de Ferros. Deux colonnes : « inventé par », « signé par ». À gauche, des noms d’Ouvriers. À droite, d’autres noms. Tout en bas, une Innovation : « masque de feutre et de charbon ».",
+      "options": [
+        {
+          "text": "Je parlerai à la Gardienne.",
+          "next": "fin",
+          "effects": [
+            {
+              "setFlag": "page-vue"
+            }
+          ]
+        }
+      ]
+    },
+    "charte": {
+      "text": "— La Charte protège les persécutés. Le commis dit que je suis un voleur. La Gardienne doit trancher, et elle écoute ceux qui parlent fort. Je n’ai jamais su parler fort. J’étais archiviste.",
+      "options": [
+        {
+          "text": "Montrez-moi la page.",
+          "next": "page"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "defendu": {
+      "text": "Holger range ses papiers sur la table du Nid, comme s’il ouvrait un bureau. — Ysolde m’a proposé une place au Registre. Compter les passages. Je crois que je vais aimer ça : ici, personne ne signe à la place de personne.",
+      "options": [
+        {
+          "text": "Au revoir, Holger.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

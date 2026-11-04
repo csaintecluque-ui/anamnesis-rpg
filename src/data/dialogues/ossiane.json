@@ -5,6 +5,57 @@
     {
       "requires": [
         {
+          "quest": "convoi-pain",
+          "status": "active"
+        },
+        {
+          "flag": "raid-laisse"
+        }
+      ],
+      "node": "raid-perdu"
+    },
+    {
+      "requires": [
+        {
+          "quest": "convoi-pain",
+          "status": "active"
+        },
+        {
+          "flag": "raid-regle"
+        },
+        {
+          "flag": "membre-ailes-noires"
+        }
+      ],
+      "node": "raid-merci"
+    },
+    {
+      "requires": [
+        {
+          "quest": "convoi-pain",
+          "status": "active"
+        },
+        {
+          "flag": "raid-negocie"
+        }
+      ],
+      "node": "raid-quart"
+    },
+    {
+      "requires": [
+        {
+          "quest": "convoi-pain",
+          "status": "active"
+        },
+        {
+          "flag": "raid-regle"
+        }
+      ],
+      "node": "raid-sauve"
+    },
+    {
+      "requires": [
+        {
           "quest": "noms-qui-montent",
           "status": "active"
         },
@@ -47,6 +98,19 @@
             }
           ],
           "next": "bas"
+        },
+        {
+          "text": "Les pirates frappent votre convoi cette nuit.",
+          "requires": [
+            {
+              "flag": "raid-annonce"
+            },
+            {
+              "quest": "convoi-pain",
+              "status": "none"
+            }
+          ],
+          "next": "raid"
         },
         {
           "text": "Au revoir.",
@@ -154,6 +218,113 @@
         },
         {
           "text": "Pas encore.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raid": {
+      "text": "Ossiane pose ses lunettes. — Le convoi de pain. Deux tonnes de farine d’en bas, pour tout le Marché. Si vous dites vrai, je veux quelqu’un sur le quai cette nuit, en plus de mes pilotes. Si vous êtes encore là demain, vous êtes de la Compagnie.",
+      "options": [
+        {
+          "text": "J’y serai.",
+          "next": "fin",
+          "effects": [
+            {
+              "startQuest": "convoi-pain"
+            },
+            {
+              "setFlag": "convoi-attendu"
+            }
+          ]
+        },
+        {
+          "text": "Pas moi.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raid-sauve": {
+      "text": "— La farine est là, et personne de chez moi n’est blessé. Ossiane te tend une broche de cuivre : une plume dans un cercle. — Passager de la Compagnie Vire-Nuée. C’est le premier rang. Les autres se méritent.",
+      "effects": [
+        {
+          "setFlag": "membre-compagnie-vire-nuee"
+        },
+        {
+          "giveXp": 40
+        },
+        {
+          "completeQuest": "convoi-pain"
+        },
+        {
+          "setFlag": "fin-convoi-pain-sauve"
+        }
+      ],
+      "options": [
+        {
+          "text": "La prendre.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raid-quart": {
+      "text": "— Un quart. Ossiane fait le compte, les lèvres serrées. — C’est un quart de trop, et personne n’est mort. Je ne sais pas quoi en penser. Elle te tend quand même la broche. — Passager. Ne refaites pas ça.",
+      "effects": [
+        {
+          "setFlag": "membre-compagnie-vire-nuee"
+        },
+        {
+          "giveXp": 30
+        },
+        {
+          "completeQuest": "convoi-pain"
+        },
+        {
+          "setFlag": "fin-convoi-pain-quart"
+        }
+      ],
+      "options": [
+        {
+          "text": "La prendre.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raid-merci": {
+      "text": "— La farine est là. Ossiane regarde la plume noire à ton épaule. — Une Aile Noire qui garde un convoi de la Compagnie. On racontera ça au Nid, et personne ne le croira. Merci.",
+      "effects": [
+        {
+          "giveXp": 40
+        },
+        {
+          "completeQuest": "convoi-pain"
+        },
+        {
+          "setFlag": "fin-convoi-pain-sauve"
+        }
+      ],
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raid-perdu": {
+      "text": "— Tout ? Ossiane ne crie pas. — Alors vous n’êtes pas de la Compagnie. Le pain coûtera le double au Marché, et ce sera votre faute autant que la leur.",
+      "effects": [
+        {
+          "giveXp": 10
+        },
+        {
+          "completeQuest": "convoi-pain"
+        },
+        {
+          "setFlag": "fin-convoi-pain-perdu"
+        }
+      ],
+      "options": [
+        {
+          "text": "Partir.",
           "next": "fin"
         }
       ]

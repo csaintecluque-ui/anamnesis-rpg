@@ -1,0 +1,33 @@
+{
+  "id": "agent-ferros",
+  "speaker": "agent-ferros",
+  "entries": [
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Un commis de Ferros, gris de la tête aux pieds, un registre sous le bras. — Holger Brandt a volé un bien de l’Empire. La Confédération rend les voleurs ; elle ne rend pas les persécutés. Je suis ici pour qu’elle fasse la différence.",
+      "options": [
+        {
+          "text": "Que contient la page ?",
+          "next": "page"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "page": {
+      "text": "— Un registre de transferts. Rien qui vous regarde. Ferros classe tout, et ce qui est classé ne sort pas. Il sourit, sans les yeux. — Ferros n’oublie pas ceux qui l’aident. Ferros n’oublie rien.",
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

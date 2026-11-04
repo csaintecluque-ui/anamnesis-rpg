@@ -1,0 +1,76 @@
+{
+  "id": "carnet-perchoir",
+  "speaker": "carnet-perchoir",
+  "entries": [
+    {
+      "node": "carnet"
+    }
+  ],
+  "nodes": {
+    "carnet": {
+      "text": "Un carnet de cuir noir, sur la table, gras de doigts. Chaque traversée du Calme, la vitesse qu’on avait en tête, et une croix pour ceux qui ne sont pas revenus. Ravel ne le quitte jamais des yeux, le jour.",
+      "options": [
+        {
+          "text": "Le prendre, quand tout le monde dort.",
+          "requires": [
+            {
+              "quest": "onze-etats",
+              "status": "active"
+            },
+            {
+              "moment": "nuit"
+            },
+            {
+              "notFlag": "perchoir-guette"
+            }
+          ],
+          "next": "pris",
+          "roll": {
+            "skill": "stealth",
+            "difficulty": 15
+          },
+          "failNext": "surpris"
+        },
+        {
+          "text": "Le laisser.",
+          "next": "fin"
+        }
+      ]
+    },
+    "pris": {
+      "text": "Les hamacs ronflent. Tu glisses le carnet sous ta chemise. Demain, Ravel verra la table vide, et il saura. Le Perchoir ne pose pas de questions ; il se souvient.",
+      "effects": [
+        {
+          "giveItem": "carnet-perchoir"
+        },
+        {
+          "setFlag": "onze-carnet"
+        },
+        {
+          "setFlag": "carnet-vole"
+        }
+      ],
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "surpris": {
+      "text": "Une Aile Noire ouvre un œil, dans un hamac. — Le carnet reste sur la table. Va dormir ailleurs.",
+      "effects": [
+        {
+          "setFlagFor": "perchoir-guette",
+          "days": 1
+        }
+      ],
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

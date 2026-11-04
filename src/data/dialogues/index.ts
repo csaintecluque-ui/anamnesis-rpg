@@ -140,6 +140,14 @@ import voileNom2 from './voile-nom-2.json';
 import lacher from './lacher.json';
 import voileLacher from './voile-lacher.json';
 import bastien from './bastien.json';
+import odile from './odile.json';
+import celeste from './celeste.json';
+import holger from './holger.json';
+import agentFerros from './agent-ferros.json';
+import oiselier from './oiselier.json';
+import veuveGrele from './veuve-grele.json';
+import carnetPerchoir from './carnet-perchoir.json';
+import doublureDome from './doublure-dome.json';
 
 /** Dialogue files by object name (PNJ, Écho or object) of the maps. */
 export const DIALOGUES: Record<string, Dialogue> = {
@@ -286,6 +294,15 @@ export const DIALOGUES: Record<string, Dialogue> = {
   lacher: lacher as Dialogue,
   'voile-lacher': voileLacher as Dialogue,
   bastien: bastien as Dialogue,
+  // Chapitre 5 : les quêtes de la ville et les deux guildes.
+  odile: odile as Dialogue,
+  celeste: celeste as Dialogue,
+  holger: holger as Dialogue,
+  'agent-ferros': agentFerros as Dialogue,
+  oiselier: oiselier as Dialogue,
+  'veuve-grele': veuveGrele as Dialogue,
+  'carnet-perchoir': carnetPerchoir as Dialogue,
+  'doublure-dome': doublureDome as Dialogue,
   // Le Livre des Échos (docs/gdd/echos.md) : one dialogue per Écho, built from src/data/echos.json.
   ...echoDialogues(),
 };

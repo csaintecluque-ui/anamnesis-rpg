@@ -885,5 +885,45 @@
     "id": "voile-nom-2",
     "name": "Une voile",
     "role": "Dans le vent d’Aetherhaven"
+  },
+  {
+    "id": "celeste",
+    "name": "Céleste Fend-l’Air",
+    "role": "Apprentie des Ailes Noires"
+  },
+  {
+    "id": "odile",
+    "name": "Odile",
+    "role": "Mère de Céleste"
+  },
+  {
+    "id": "holger",
+    "name": "Holger Brandt",
+    "role": "Archiviste de Ferros en fuite"
+  },
+  {
+    "id": "agent-ferros",
+    "name": "Un commis de Ferros",
+    "role": "Le Quai des Dirigeables"
+  },
+  {
+    "id": "oiselier",
+    "name": "Un oiseleur",
+    "role": "Les Îles-Marchés"
+  },
+  {
+    "id": "veuve-grele",
+    "name": "La Veuve Grêle",
+    "role": "Pirate de l’air"
+  },
+  {
+    "id": "carnet-perchoir",
+    "name": "Le carnet du Perchoir",
+    "role": "Le Perchoir"
+  },
+  {
+    "id": "doublure-dome",
+    "name": "La doublure du dôme",
+    "role": "Temple du Grand Courant"
   }
 ]

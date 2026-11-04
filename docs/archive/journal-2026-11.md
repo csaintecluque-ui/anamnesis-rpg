@@ -1164,3 +1164,5 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   au-dessus des nuages, onze intérieurs, trois cartes en bas), le dirigeable sur la carte du monde, « Les noms qui
   montent » (quatre fins, la caisse de Zephyria au fil, le ruban, la lettre d'Ilyane), les voiles à attraper et à
   lâcher, le mystère du Lâcher et le Récit « La septième voile ». 811 tests ; vérifié dans Chromium.
+- Aetherhaven, étape 4, en ligne : six quêtes de la ville et les deux guildes (adhésions : le convoi de pain, la
+  course des îlots). 828 tests, dont `aetherhaven.test.ts` ; vérifié dans Chromium.

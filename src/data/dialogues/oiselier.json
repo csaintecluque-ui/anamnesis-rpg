@@ -1,0 +1,156 @@
+{
+  "id": "oiselier",
+  "speaker": "oiselier",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "hirondelle",
+          "status": "active"
+        },
+        {
+          "notFlag": "pointe-libre"
+        }
+      ],
+      "node": "pointe"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Un homme aux doigts bagués, des cages pendues partout. — Des hirondelles du Zénith, toutes fraîches : elles disent le temps. Trente Fers la pièce. Je ne demande pas d’où vous venez, si vous ne me demandez pas d’où elles viennent.",
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "pointe": {
+      "text": "Dans une cage du fond, une hirondelle porte une bague bleue à la patte. — Celle-là ? Trente Fers, comme les autres. Une bague, des bagues, elles en ont toutes.",
+      "options": [
+        {
+          "text": "Payer trente Fers.",
+          "requires": [
+            {
+              "fers": 30
+            }
+          ],
+          "next": "rachetee",
+          "effects": [
+            {
+              "giveFers": -30
+            }
+          ]
+        },
+        {
+          "text": "Rends-la, ou la Gardienne saura d’où elles viennent.",
+          "next": "cede",
+          "roll": {
+            "skill": "command",
+            "difficulty": 15
+          },
+          "failNext": "refus"
+        },
+        {
+          "text": "Ouvrir la cage pendant qu’il compte ses Fers.",
+          "next": "volee",
+          "roll": {
+            "skill": "stealth",
+            "difficulty": 15
+          },
+          "failNext": "refus"
+        },
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "refus": {
+      "text": "— Dehors. Et ne revenez qu’avec vos Fers. Il se plante devant la cage, les bras croisés.",
+      "options": [
+        {
+          "text": "Payer trente Fers.",
+          "requires": [
+            {
+              "fers": 30
+            }
+          ],
+          "next": "rachetee",
+          "effects": [
+            {
+              "giveFers": -30
+            }
+          ]
+        },
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "rachetee": {
+      "text": "Il ouvre la cage, et l’hirondelle saute sur ton doigt. Sous le papier de la cage, un mot plié, qu’il n’a pas vu : « Nuit. Quai. Grêle. »",
+      "effects": [
+        {
+          "setFlag": "pointe-libre"
+        },
+        {
+          "setFlag": "raid-annonce"
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "Garder le mot.",
+          "next": "fin"
+        }
+      ]
+    },
+    "cede": {
+      "text": "Il pâlit, ouvre la cage, et l’hirondelle saute sur ton doigt. — Je ne savais pas qu’elle était à quelqu’un. Sous le papier de la cage, un mot plié tombe : « Nuit. Quai. Grêle. » Il fait semblant de ne pas le voir.",
+      "effects": [
+        {
+          "setFlag": "pointe-libre"
+        },
+        {
+          "setFlag": "raid-annonce"
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "Garder le mot.",
+          "next": "fin"
+        }
+      ]
+    },
+    "volee": {
+      "text": "Le loquet cède sans bruit. L’hirondelle file dans ta manche. Sous le papier de la cage, un mot plié : « Nuit. Quai. Grêle. » L’oiseleur compte toujours ses Fers.",
+      "effects": [
+        {
+          "setFlag": "pointe-libre"
+        },
+        {
+          "setFlag": "raid-annonce"
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "Garder le mot.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

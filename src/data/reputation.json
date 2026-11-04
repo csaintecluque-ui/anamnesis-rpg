@@ -269,6 +269,14 @@
     {
       "quest": "ce-qui-se-souvient",
       "points": -5
+    },
+    {
+      "flag": "holger-livre",
+      "points": 10
+    },
+    {
+      "flag": "holger-defendu",
+      "points": -10
     }
   ],
   "sept-portes": [
@@ -317,6 +325,90 @@
     {
       "flag": "voiles-lachees-2",
       "points": 4
+    },
+    {
+      "quest": "onze-etats",
+      "points": 5
+    },
+    {
+      "flag": "onze-lache",
+      "points": 5
+    },
+    {
+      "quest": "second-cristal",
+      "points": 5
+    },
+    {
+      "flag": "celeste-tombee",
+      "points": -5
+    },
+    {
+      "quest": "voiles-dormantes",
+      "points": 5
+    },
+    {
+      "flag": "liste-lachee",
+      "points": 10
+    },
+    {
+      "flag": "holger-defendu",
+      "points": 10
+    },
+    {
+      "flag": "holger-livre",
+      "points": -10
+    },
+    {
+      "quest": "hirondelle",
+      "points": 5
+    },
+    {
+      "quest": "convoi-pain",
+      "points": 5
+    },
+    {
+      "flag": "raid-laisse",
+      "points": -10
+    }
+  ],
+  "compagnie-vire-nuee": [
+    {
+      "quest": "convoi-pain",
+      "points": 15
+    },
+    {
+      "flag": "fin-convoi-pain-sauve",
+      "points": 10
+    },
+    {
+      "flag": "onze-conseil",
+      "points": 10
+    },
+    {
+      "flag": "celeste-deux",
+      "points": 5
+    }
+  ],
+  "ailes-noires": [
+    {
+      "quest": "course-ilots",
+      "points": 15
+    },
+    {
+      "flag": "onze-lache",
+      "points": 10
+    },
+    {
+      "flag": "celeste-voile",
+      "points": 10
+    },
+    {
+      "flag": "carnet-vole",
+      "points": -15
+    },
+    {
+      "flag": "onze-conseil",
+      "points": -5
     }
   ]
 }

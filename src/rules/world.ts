@@ -160,9 +160,11 @@ export function flightSky(state: TravelState, from: { x: number; y: number }, pl
   return knownPlaces(state.flags, state.quests).find((p) => p.dirigeable && distanceBetween(from, p) <= AT_PLACE);
 }
 
-/** The fare: the first flight is paid by Hesper. */
+/** The fare: the first flight is paid by Hesper ; a member of the Compagnie Vire-Nuée pays half. */
 export function flightFare(state: TravelState, sky: WorldPlace): number {
-  return state.flags[FIRST_FLIGHT_FLAG] ? (sky.dirigeable?.fers ?? 0) : 0;
+  if (!state.flags[FIRST_FLIGHT_FLAG]) return 0;
+  const fare = sky.dirigeable?.fers ?? 0;
+  return state.flags['membre-compagnie-vire-nuee'] ? Math.floor(fare / 2) : fare;
 }
 
 /** « un jour en dirigeable » : how long a flight lasts. */

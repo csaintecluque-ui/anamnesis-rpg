@@ -5,6 +5,36 @@
     {
       "requires": [
         {
+          "quest": "course-ilots",
+          "status": "none"
+        },
+        {
+          "flag": "membre-compagnie-vire-nuee"
+        },
+        {
+          "flag": "ravel-course-demandee"
+        }
+      ],
+      "node": "course-close"
+    },
+    {
+      "requires": [
+        {
+          "quest": "onze-etats",
+          "status": "active"
+        },
+        {
+          "notFlag": "onze-carnet"
+        },
+        {
+          "notFlag": "onze-carnet-refus"
+        }
+      ],
+      "node": "carnet"
+    },
+    {
+      "requires": [
+        {
           "quest": "noms-qui-montent",
           "status": "active"
         },
@@ -44,6 +74,22 @@
             }
           ],
           "next": "bas"
+        },
+        {
+          "text": "Je veux entrer aux Ailes Noires.",
+          "requires": [
+            {
+              "quest": "course-ilots",
+              "status": "none"
+            },
+            {
+              "notFlag": "course-perdue"
+            },
+            {
+              "notFlag": "membre-compagnie-vire-nuee"
+            }
+          ],
+          "next": "course"
         },
         {
           "text": "Au revoir.",
@@ -110,6 +156,15 @@
           ]
         },
         {
+          "text": "Je suis une Plume. Le vent paie.",
+          "requires": [
+            {
+              "flag": "membre-ailes-noires"
+            }
+          ],
+          "next": "bas-membre"
+        },
+        {
           "text": "Que voulait la dame en gris ?",
           "next": "edda"
         },
@@ -169,6 +224,199 @@
           "text": "Partir maintenant.",
           "next": "fin",
           "effects": [
+            {
+              "setFlag": "descente-ailes"
+            },
+            {
+              "setFlag": "au-bas"
+            },
+            {
+              "avancer": 1
+            },
+            {
+              "goTo": "bas-cendres"
+            }
+          ]
+        },
+        {
+          "text": "Pas encore.",
+          "next": "fin"
+        }
+      ]
+    },
+    "carnet": {
+      "text": "— Le carnet ? Pour qu’un aéromancien en fasse une loi ? Ce carnet, ce sont nos morts, et ceux qui sont revenus. Il ne sort pas d’ici.",
+      "options": [
+        {
+          "text": "Personne n’imposera rien. Évrard veut que la bonne vitesse circule, c’est tout.",
+          "next": "carnet-prete",
+          "roll": {
+            "skill": "diplomacy",
+            "difficulty": 15
+          },
+          "failNext": "carnet-non"
+        },
+        {
+          "text": "Je suis des vôtres. Prête-le-moi.",
+          "requires": [
+            {
+              "flag": "membre-ailes-noires"
+            }
+          ],
+          "next": "carnet-prete"
+        },
+        {
+          "text": "Autre chose.",
+          "next": "accueil"
+        },
+        {
+          "text": "Tant pis.",
+          "next": "fin"
+        }
+      ]
+    },
+    "carnet-prete": {
+      "text": "Ravel pousse le carnet sur la table, du bout de sa botte. — Qu’il le lise. Qu’il le rende. Et s’il en tire une règle, qu’il ne vienne pas me l’apprendre.",
+      "effects": [
+        {
+          "giveItem": "carnet-perchoir"
+        },
+        {
+          "setFlag": "onze-carnet"
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Ravel.",
+          "next": "fin"
+        }
+      ]
+    },
+    "carnet-non": {
+      "text": "— Non. Et ne reviens pas me le demander.",
+      "effects": [
+        {
+          "setFlag": "onze-carnet-refus"
+        }
+      ],
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "course": {
+      "text": "Ravel se lève, pour la première fois. — Les Ailes Noires ne prennent personne. Le vent prend qui il veut. Une course : du Perchoir au Nid des Nuées, d’îlot en îlot, sans les ponts. Arrive avant moi, et tu as une plume.",
+      "effects": [
+        {
+          "setFlag": "ravel-course-demandee"
+        }
+      ],
+      "options": [
+        {
+          "text": "Courir.",
+          "next": "saut-1",
+          "effects": [
+            {
+              "startQuest": "course-ilots"
+            }
+          ]
+        },
+        {
+          "text": "Pas aujourd’hui.",
+          "next": "fin"
+        }
+      ]
+    },
+    "saut-1": {
+      "text": "Vous partez ensemble. Le premier vide arrive vite : trois pas de nuages entre le Perchoir et le Quai. Ravel saute sans regarder.",
+      "options": [
+        {
+          "text": "Sauter.",
+          "next": "saut-2",
+          "roll": {
+            "skill": "athletics",
+            "difficulty": 15
+          },
+          "failNext": "course-perdue"
+        }
+      ]
+    },
+    "saut-2": {
+      "text": "Tu retombes sur le Quai en roulant. Ravel est déjà au pont, qu’il ne prend pas : il saute par-dessus la corde, vers les Îles-Marchés. Le vide est plus large, ici.",
+      "options": [
+        {
+          "text": "Sauter encore.",
+          "next": "course-gagnee",
+          "roll": {
+            "skill": "athletics",
+            "difficulty": 15
+          },
+          "failNext": "course-perdue"
+        }
+      ]
+    },
+    "course-gagnee": {
+      "text": "Tu touches l’îlot du Nid une seconde avant lui. Ravel s’assoit dans l’herbe pâle et rit, essoufflé. Il détache une plume noire de sa manche et te la tend. — Plume des Ailes Noires. Rien ne doit entraver le vent : surtout pas toi.",
+      "effects": [
+        {
+          "completeQuest": "course-ilots"
+        },
+        {
+          "setFlag": "membre-ailes-noires"
+        },
+        {
+          "giveXp": 40
+        }
+      ],
+      "options": [
+        {
+          "text": "La prendre.",
+          "next": "fin"
+        }
+      ]
+    },
+    "course-perdue": {
+      "text": "Ton pied manque le bord. Tu te rattrapes à une corde de pont, et tu remontes, les paumes en sang, pendant que Ravel attend de l’autre côté sans rien dire. — Demain, si tu veux. Le vent est patient.",
+      "effects": [
+        {
+          "blesser": 3
+        },
+        {
+          "setFlagFor": "course-perdue",
+          "days": 1
+        }
+      ],
+      "options": [
+        {
+          "text": "Demain.",
+          "next": "fin"
+        }
+      ]
+    },
+    "course-close": {
+      "text": "Ravel regarde la broche de cuivre à ton col. — Vire-Nuée. On ne court pas avec les gens à contrat. Tu peux boire, si tu veux. Le vin n’a pas de contrat.",
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "bas-membre": {
+      "text": "— Une Plume qui veut descendre ? Ravel décroise les pieds. — Pour toi, c’est le vent qui paie. La machine est dehors.",
+      "options": [
+        {
+          "text": "Partir maintenant.",
+          "next": "fin",
+          "effects": [
+            {
+              "setFlag": "ravel-paye"
+            },
             {
               "setFlag": "descente-ailes"
             },

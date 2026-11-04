@@ -5,6 +5,33 @@
     {
       "requires": [
         {
+          "quest": "hirondelle",
+          "status": "active"
+        },
+        {
+          "flag": "pointe-libre"
+        }
+      ],
+      "node": "retour"
+    },
+    {
+      "requires": [
+        {
+          "quest": "hirondelle",
+          "status": "none"
+        },
+        {
+          "flag": "bande-vue"
+        },
+        {
+          "notFlag": "siffle-avec-siffrin-triste"
+        }
+      ],
+      "node": "pointe"
+    },
+    {
+      "requires": [
+        {
           "quest": "noms-qui-montent",
           "status": "none"
         },
@@ -101,6 +128,19 @@
           "next": "bandes"
         },
         {
+          "text": "Pointe est revenue ?",
+          "requires": [
+            {
+              "flag": "siffle-avec-siffrin-triste"
+            },
+            {
+              "quest": "hirondelle",
+              "status": "none"
+            }
+          ],
+          "next": "pointe"
+        },
+        {
           "text": "À bientôt.",
           "next": "fin"
         }
@@ -146,6 +186,46 @@
       "options": [
         {
           "text": "Merci, Siffrin.",
+          "next": "fin"
+        }
+      ]
+    },
+    "pointe": {
+      "text": "Siffrin ne siffle pas. — Pointe ne revient plus. Ma meilleure, celle qui sent les tempêtes. Trois jours. Les vieux disent que les pirates attrapent les hirondelles du Zénith, pour savoir quand frapper les convois. Au marché, un oiseleur en vend, des fois.",
+      "options": [
+        {
+          "text": "Je vais voir l’oiseleur.",
+          "next": "fin",
+          "effects": [
+            {
+              "startQuest": "hirondelle"
+            }
+          ]
+        },
+        {
+          "text": "Elle reviendra.",
+          "next": "fin",
+          "effects": [
+            {
+              "setFlag": "siffle-avec-siffrin-triste"
+            }
+          ]
+        }
+      ]
+    },
+    "retour": {
+      "text": "Siffrin siffle deux notes. L’hirondelle quitte ta main et se pose sur son épaule, comme si elle n’était jamais partie. Il ne dit rien. Il pleure un peu, et il fait semblant que c’est le vent.",
+      "effects": [
+        {
+          "completeQuest": "hirondelle"
+        },
+        {
+          "giveXp": 20
+        }
+      ],
+      "options": [
+        {
+          "text": "Au revoir, Siffrin.",
           "next": "fin"
         }
       ]

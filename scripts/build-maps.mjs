@@ -1276,6 +1276,14 @@ function aetherhavenQuai() {
   m.object('vers-marches', 'sortie', 27, 11, { cible: 'aetherhaven-marches', arrivee: 'depuis-quai', libelle: 'Le pont des Îles-Marchés' });
   m.object('depuis-marches', 'arrivee', 24, 11);
   voiles(m, [['voile-quai-1', 9, 13], ['voile-quai-2', 15, 10], ['voile-quai-3', 18, 13]]);
+  // Les quêtes de la ville : Céleste et sa machine à un cristal ; le commis de Ferros qui attend qu'on lui rende Holger ;
+  // la nuit du convoi, la Veuve Grêle et ses pirates sur le quai de bois.
+  m.object('celeste', 'pnj', 19, 8, { disparaitSi: 'celeste-tombee' });
+  m.object('agent-ferros', 'pnj', 8, 12, { disparaitSi: 'asile-reglee' });
+  const raid = { moment: 'nuit', apparaitSi: 'convoi-attendu', disparaitSi: 'raid-regle' };
+  m.object('veuve-grele', 'ennemi', 3, 7, { ...raid, ennemi: 'veuve-grele', dialogue: 'veuve-grele', texte: 'La Veuve Grêle.' });
+  m.object('pirate-quai-1', 'ennemi', 3, 9, { ...raid, ennemi: 'pirate-air', dialogue: 'veuve-grele', texte: 'Un pirate de l’air.' });
+  m.object('pirate-quai-2', 'ennemi', 4, 13, { ...raid, ennemi: 'pirate-air', dialogue: 'veuve-grele', texte: 'Un pirate de l’air.' });
   return m.toTiled();
 }
 
@@ -1316,6 +1324,8 @@ function aetherhavenMarches() {
   m.object('carcasse-ilot', 'coffre', 22, 3, { disparaitSi: 'carcasse-fouillee' });
   m.setObstacle(6, 15, 'panneau');
   m.object('panneau-marches', 'panneau', 6, 15, { texte: 'Les Îles-Marchés. Au nord, le Nid des Nuées ; au sud, le Registre des Voiles ; à l’est, la Haute-Île.' });
+  m.object('odile', 'pnj', 15, 11);
+  m.object('oiselier', 'pnj', 12, 15);
   voiles(m, [['voile-marches-1', 13, 10], ['voile-marches-2', 16, 13], ['voile-marches-3', 2, 14], ['voile-marches-4', 15, 22], ['voile-nom-1', 9, 4, { apparaitSi: 'rouleau-lache' }]]);
   return m.toTiled();
 }
@@ -1361,7 +1371,7 @@ Object.assign(INTERIORS, {
   'aetherhaven-perchoir': interior('aetherhaven-perchoir', {
     outside: 'aetherhaven-quai',
     furniture: [[1, 1, 'tonneaux'], [6, 1, 'cristal-veille'], [1, 4, 'hamac'], [4, 3, 'table'], [6, 4, 'table']],
-    objects: [['ravel', 'pnj', 3, 2]],
+    objects: [['ravel', 'pnj', 3, 2], ['carnet-perchoir', 'objet', 4, 3, { disparaitSi: 'onze-carnet' }]],
   }),
   'aetherhaven-soute': interior('aetherhaven-soute', {
     outside: 'aetherhaven-quai',
@@ -1374,7 +1384,7 @@ Object.assign(INTERIORS, {
     h: 6,
     outside: 'aetherhaven-marches',
     furniture: [[1, 2, 'hamac'], [1, 4, 'hamac'], [7, 1, 'cristal-veille'], [3, 3, 'comptoir'], [4, 3, 'comptoir'], [7, 4, 'table'], [5, 5, 'table']],
-    objects: [['assel', 'pnj', 4, 2]],
+    objects: [['assel', 'pnj', 4, 2], ['holger', 'pnj', 6, 3, { disparaitSi: 'holger-livre' }]],
   }),
   'aetherhaven-moulin': interior('aetherhaven-moulin', {
     outside: 'aetherhaven-marches',
@@ -1405,7 +1415,7 @@ Object.assign(INTERIORS, {
     outside: 'aetherhaven-haute-ile',
     floor: 'dalles-azur',
     furniture: [[2, 1, 'cristal-azur'], [6, 1, 'cristal-azur'], [4, 1, 'stele'], [1, 4, 'jardin-suspendu'], [7, 4, 'jardin-suspendu']],
-    objects: [['zelie', 'pnj', 4, 3], ['shass', 'pnj', 6, 2]],
+    objects: [['zelie', 'pnj', 4, 3], ['shass', 'pnj', 6, 2], ['doublure-dome', 'objet', 4, 1]],
   }),
   'aetherhaven-observatoire': interior('aetherhaven-observatoire', {
     outside: 'aetherhaven-haute-ile',

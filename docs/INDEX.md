@@ -68,7 +68,7 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `fil-directeur.md` : le fil directeur de Sept-Portes à la fin (sept caisses, la dame en gris, l'urgence) ; validé.
 - `jalon-3.md` : le jalon 3, le cœur du jeu complet (combat, compagnons, Échos, veillées, ruines, contrats…) et son bilan ; fait et en ligne.
 - `jalon-4.md` : le jalon 4, l'histoire principale continue ; chapitre 4 (Sept-Portes) en ligne.
-- `chapitre-5.md` : chapitre 5, Aetherhaven : « Les noms qui montent », sept quêtes de ville, deux guildes ; validé, étapes 1 à 3 en ligne.
+- `chapitre-5.md` : chapitre 5, Aetherhaven : « Les noms qui montent », sept quêtes de ville, deux guildes ; validé, étapes 1 à 4 en ligne.
 - `histoire-prenante.md` : rendre l'histoire prenante (diagnostic, sept leviers, questions à Cyril) ; nourrit les chantiers 1 et 4.
 - `feuille-de-route.md` : analyse et feuille de route de Cyril (2026-11-03) : sept chantiers avant tout nouveau chapitre ; en ligne.
 - `etude-2026-11-03.md` : l'étude complète de Cyril (87 améliorations, trois vagues) vérifiée contre le code ; la vague 1 faite, l'ordre de la vague 2, les questions ; en cours.

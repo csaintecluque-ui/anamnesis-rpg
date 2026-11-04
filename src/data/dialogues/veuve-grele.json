@@ -1,0 +1,122 @@
+{
+  "id": "veuve-grele",
+  "speaker": "veuve-grele",
+  "entries": [
+    {
+      "node": "quai"
+    }
+  ],
+  "nodes": {
+    "quai": {
+      "text": "Une femme sèche, un manteau de toile cirée, des grêlons de fer cousus aux manches. Derrière elle, deux pirates sur le pont du convoi. — Tiens. Quelqu’un qui ne dort pas. On prend la farine, et personne ne saigne. Ou l’inverse.",
+      "options": [
+        {
+          "text": "Alors l’inverse.",
+          "next": "fin",
+          "effects": [
+            {
+              "startCombat": "raid-quai"
+            }
+          ]
+        },
+        {
+          "text": "Vous avez faim. Prenez le quart, pour vos familles, et partez.",
+          "next": "negocie",
+          "roll": {
+            "skill": "diplomacy",
+            "difficulty": 15
+          },
+          "failNext": "refus"
+        },
+        {
+          "text": "La Gardienne du Ciel arrive. Elle est juste derrière moi.",
+          "next": "fuite",
+          "roll": {
+            "skill": "subterfuge",
+            "difficulty": 15
+          },
+          "failNext": "refus"
+        },
+        {
+          "text": "Prenez tout.",
+          "next": "laisse"
+        }
+      ]
+    },
+    "refus": {
+      "text": "— Le quart ? On n’a pas monté jusqu’ici pour un quart. Elle fait tourner une chaîne de grêlons au bout de son bras.",
+      "options": [
+        {
+          "text": "Alors on se bat.",
+          "next": "fin",
+          "effects": [
+            {
+              "startCombat": "raid-quai"
+            }
+          ]
+        },
+        {
+          "text": "Prenez tout.",
+          "next": "laisse"
+        }
+      ]
+    },
+    "negocie": {
+      "text": "Elle te regarde comme on regarde le temps qu’il fera. — Le quart. Elle siffle ; ses pirates chargent quatre sacs, pas un de plus, et leur machine noire s’éloigne sous le quai. — Dis à Vire-Nuée que la Grêle a été polie, cette fois.",
+      "effects": [
+        {
+          "setFlag": "raid-regle"
+        },
+        {
+          "setFlag": "raid-negocie"
+        },
+        {
+          "giveXp": 30
+        }
+      ],
+      "options": [
+        {
+          "text": "Les regarder partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "fuite": {
+      "text": "« La Gardienne ! » Ils ne vérifient pas. Ils sautent dans leur machine et filent sous le quai. La farine est sauve. Personne n’a vu ta main trembler.",
+      "effects": [
+        {
+          "setFlag": "raid-regle"
+        },
+        {
+          "setFlag": "raid-fuite"
+        },
+        {
+          "giveXp": 30
+        }
+      ],
+      "options": [
+        {
+          "text": "Respirer.",
+          "next": "fin"
+        }
+      ]
+    },
+    "laisse": {
+      "text": "Ils chargent tout, sans se presser. La Veuve Grêle te salue en passant. Demain, le pain coûtera le double au Marché.",
+      "effects": [
+        {
+          "setFlag": "raid-regle"
+        },
+        {
+          "setFlag": "raid-laisse"
+        }
+      ],
+      "options": [
+        {
+          "text": "Les regarder partir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

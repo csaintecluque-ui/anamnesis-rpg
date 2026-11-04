@@ -472,5 +472,79 @@
     ],
     "description": "Un pilote des Ailes Noires, loué pour une descente. Il vole sans contrat, et se bat de même.",
     "source": "jeu (les Ailes Noires : canon, « La Septième Voile »)"
+  },
+  {
+    "id": "pirate-air",
+    "tile": "pirate-air",
+    "name": "Pirate de l’air",
+    "hp": 15,
+    "defense": 13,
+    "attackBonus": 3,
+    "damage": {
+      "count": 1,
+      "sides": 6
+    },
+    "actionPoints": 7,
+    "initiativeBonus": 2,
+    "xp": 20,
+    "capacites": [
+      "meute",
+      "fuite"
+    ],
+    "resistance": 1,
+    "defeatText": "Le pirate lâche son crochet. — Pas pour de la farine ! Pas pour de la farine…",
+    "fleeText": "Le pirate saute du quai, et une machine noire le cueille sous les nuages.",
+    "butin": [
+      {
+        "fers": [
+          3,
+          10
+        ],
+        "chance": 1
+      }
+    ],
+    "description": "Un pirate de l’air (canon : les seuls ennemis de la Confédération). Celui-ci a faim, comme ceux qui l’attendent sous les nuages.",
+    "source": "Notion, « Confédération Libre de Zephyria — fiche complète »"
+  },
+  {
+    "id": "veuve-grele",
+    "tile": "veuve-grele",
+    "name": "La Veuve Grêle",
+    "hp": 26,
+    "defense": 14,
+    "attackBonus": 4,
+    "damage": {
+      "count": 1,
+      "sides": 8
+    },
+    "actionPoints": 7,
+    "initiativeBonus": 3,
+    "xp": 45,
+    "capacites": [
+      "charge",
+      "fuite"
+    ],
+    "resistance": 2,
+    "defeatText": "La Veuve Grêle recule jusqu’au bord du quai, une main sur le flanc. — Garde ta farine. Le ciel est grand. Elle se laisse tomber en arrière, et sa machine la rattrape.",
+    "fleeText": "La Veuve Grêle siffle ; sa machine noire remonte sous le quai, et elle saute dedans sans se retourner.",
+    "phases": [
+      {
+        "seuil": 0.5,
+        "texte": "La Veuve Grêle arrache les grêlons de ses manches et les fait tournoyer au bout d’une chaîne.",
+        "attackBonus": 1,
+        "actionPoints": 1
+      }
+    ],
+    "butin": [
+      {
+        "fers": [
+          15,
+          30
+        ],
+        "chance": 1
+      }
+    ],
+    "description": "Capitaine des pirates de l’air qui prennent les convois de nourriture. Des grêlons de fer cousus aux manches.",
+    "source": "jeu (pirates aériens : canon)"
   }
 ]

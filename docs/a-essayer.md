@@ -286,6 +286,10 @@ En ligne le 2026-11-03 (tes textes du 3 novembre) :
       (Ossiane et sa Compagnie, Ravel des Ailes Noires, la machine de Vessin avec un second cristal), la Voie du Bas,
       la dame en gris à la Halte des Cendres, le Calme à la remontée. Les quatre fins se valent-elles ?
 - [ ] **Le mystère du Lâcher** : la voile du garde-fou, et la nuit, celui qui la change. Le Récit « La septième voile ».
+- [ ] **Les quêtes de la ville** : Évrard et les onze états, Odile et Céleste, Bastien et la liste de l'an cinquante,
+      Holger et le commis de Ferros, Siffrin et son hirondelle, puis la nuit du convoi de pain.
+- [ ] **Les deux guildes** : la Compagnie Vire-Nuée (par le convoi) ou les Ailes Noires (la course contre Ravel), pas
+      les deux.
 - Remarques :
 
 ## Déjà en ligne, pas encore essayé sur PC

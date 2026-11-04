@@ -159,5 +159,32 @@
         "giveXp": 30
       }
     ]
+  },
+  {
+    "id": "raid-quai",
+    "center": "veuve-grele",
+    "enemies": [
+      {
+        "id": "veuve-grele",
+        "object": "veuve-grele"
+      },
+      {
+        "id": "pirate-air",
+        "object": "pirate-quai-1"
+      },
+      {
+        "id": "pirate-air",
+        "object": "pirate-quai-2"
+      }
+    ],
+    "victoryFlag": "raid-quai-vaincu",
+    "victoryEffects": [
+      {
+        "setFlag": "raid-regle"
+      },
+      {
+        "giveXp": 40
+      }
+    ]
   }
 ]

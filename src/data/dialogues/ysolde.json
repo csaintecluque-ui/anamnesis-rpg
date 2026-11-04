@@ -5,6 +5,18 @@
     {
       "requires": [
         {
+          "quest": "voiles-dormantes",
+          "status": "active"
+        },
+        {
+          "item": "liste-an-cinquante"
+        }
+      ],
+      "node": "liste"
+    },
+    {
+      "requires": [
+        {
           "quest": "noms-qui-montent",
           "status": "active"
         },
@@ -221,6 +233,42 @@
           "text": "Autre chose.",
           "next": "questions"
         },
+        {
+          "text": "Merci, Ysolde.",
+          "next": "fin"
+        }
+      ]
+    },
+    "liste": {
+      "text": "Ysolde déplie la liste avec des gants. — L’an cinquante. Le Registre la gardera à l’abri. Elle ne passera plus, mais elle ne s’effacera pas non plus. C’est ce que nous savons faire de mieux.",
+      "options": [
+        {
+          "text": "La lui confier.",
+          "next": "liste-gardee",
+          "effects": [
+            {
+              "takeItem": "liste-an-cinquante"
+            },
+            {
+              "giveXp": 30
+            },
+            {
+              "completeQuest": "voiles-dormantes"
+            },
+            {
+              "setFlag": "fin-voiles-dormantes-registre"
+            }
+          ]
+        },
+        {
+          "text": "Pas encore.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "liste-gardee": {
+      "text": "Elle la range dans un tiroir à part, sans étiquette. — Je n’écrirai rien dessus. Ceux qui la chercheront sauront.",
+      "options": [
         {
           "text": "Merci, Ysolde.",
           "next": "fin"

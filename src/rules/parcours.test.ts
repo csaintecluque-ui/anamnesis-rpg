@@ -147,8 +147,10 @@ const questItems = (state: GameState) => QUEST_ITEMS.filter((id) => ownedCount(s
  * Quests left undone. The adhesion quests of the factions of Ferros exclude one another (rivals, docs/gdd/factions.md)
  * and ask for a descent into a sleeping line: they have their own tests (factions.test.ts).
  */
-const ADHESIONS = ['lanterne-triage', 'fonds-echos', 'ce-qui-se-souvient'];
-const unfinished = (state: GameState) => QUESTS.filter((q) => !ADHESIONS.includes(q.id) && state.quests[q.id] !== 'done').map((q) => q.id);
+const ADHESIONS = ['lanterne-triage', 'fonds-echos', 'ce-qui-se-souvient', 'course-ilots', 'convoi-pain'];
+/** The quests of the city of Aetherhaven, played on their own (aetherhaven.test.ts). */
+const AETHERHAVEN = ['onze-etats', 'second-cristal', 'voiles-dormantes', 'asile', 'hirondelle'];
+const unfinished = (state: GameState) => QUESTS.filter((q) => !ADHESIONS.includes(q.id) && !AETHERHAVEN.includes(q.id) && state.quests[q.id] !== 'done').map((q) => q.id);
 
 // --- Balayages : gains répétables, entrées de dialogue qui en cachent une autre -------------------------------------
 

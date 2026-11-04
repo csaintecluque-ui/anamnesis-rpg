@@ -11,7 +11,7 @@
  "tilewidth": 64,
  "tileheight": 32,
  "nextlayerid": 4,
- "nextobjectid": 20,
+ "nextobjectid": 25,
  "layers": [
   {
    "id": 1,
@@ -1694,6 +1694,176 @@
        "value": "voile-quai-3-attrapee"
       }
      ]
+    },
+    {
+     "id": 20,
+     "name": "celeste",
+     "type": "pnj",
+     "x": 624,
+     "y": 272,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": [
+      {
+       "name": "disparaitSi",
+       "type": "string",
+       "value": "celeste-tombee"
+      }
+     ]
+    },
+    {
+     "id": 21,
+     "name": "agent-ferros",
+     "type": "pnj",
+     "x": 272,
+     "y": 400,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": [
+      {
+       "name": "disparaitSi",
+       "type": "string",
+       "value": "asile-reglee"
+      }
+     ]
+    },
+    {
+     "id": 22,
+     "name": "veuve-grele",
+     "type": "ennemi",
+     "x": 112,
+     "y": 240,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": [
+      {
+       "name": "moment",
+       "type": "string",
+       "value": "nuit"
+      },
+      {
+       "name": "apparaitSi",
+       "type": "string",
+       "value": "convoi-attendu"
+      },
+      {
+       "name": "disparaitSi",
+       "type": "string",
+       "value": "raid-regle"
+      },
+      {
+       "name": "ennemi",
+       "type": "string",
+       "value": "veuve-grele"
+      },
+      {
+       "name": "dialogue",
+       "type": "string",
+       "value": "veuve-grele"
+      },
+      {
+       "name": "texte",
+       "type": "string",
+       "value": "La Veuve Grêle."
+      }
+     ]
+    },
+    {
+     "id": 23,
+     "name": "pirate-quai-1",
+     "type": "ennemi",
+     "x": 112,
+     "y": 304,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": [
+      {
+       "name": "moment",
+       "type": "string",
+       "value": "nuit"
+      },
+      {
+       "name": "apparaitSi",
+       "type": "string",
+       "value": "convoi-attendu"
+      },
+      {
+       "name": "disparaitSi",
+       "type": "string",
+       "value": "raid-regle"
+      },
+      {
+       "name": "ennemi",
+       "type": "string",
+       "value": "pirate-air"
+      },
+      {
+       "name": "dialogue",
+       "type": "string",
+       "value": "veuve-grele"
+      },
+      {
+       "name": "texte",
+       "type": "string",
+       "value": "Un pirate de l’air."
+      }
+     ]
+    },
+    {
+     "id": 24,
+     "name": "pirate-quai-2",
+     "type": "ennemi",
+     "x": 144,
+     "y": 432,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": [
+      {
+       "name": "moment",
+       "type": "string",
+       "value": "nuit"
+      },
+      {
+       "name": "apparaitSi",
+       "type": "string",
+       "value": "convoi-attendu"
+      },
+      {
+       "name": "disparaitSi",
+       "type": "string",
+       "value": "raid-regle"
+      },
+      {
+       "name": "ennemi",
+       "type": "string",
+       "value": "pirate-air"
+      },
+      {
+       "name": "dialogue",
+       "type": "string",
+       "value": "veuve-grele"
+      },
+      {
+       "name": "texte",
+       "type": "string",
+       "value": "Un pirate de l’air."
+      }
+     ]
     }
    ]
   }
@@ -1708,7 +1878,7 @@
    "tilewidth": 64,
    "tileheight": 96,
    "columns": 8,
-   "tilecount": 252,
+   "tilecount": 256,
    "margin": 0,
    "spacing": 0,
    "tiles": [
@@ -7994,6 +8164,106 @@
        "name": "nom",
        "type": "string",
        "value": "saut"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 252,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "agent-ferros"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 253,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "oiselier"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 254,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "veuve-grele"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 255,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "pirate-air"
       },
       {
        "name": "bloquant",

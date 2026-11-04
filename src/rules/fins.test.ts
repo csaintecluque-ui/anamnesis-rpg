@@ -18,12 +18,17 @@ const effectLists = (): Effect[][] => [
 describe('les fins vues (étude B11)', () => {
   const withEndings = QUESTS.filter((q) => (q.fins ?? []).length >= 2);
 
-  it('les quêtes principales à plusieurs issues les déclarent', () => {
+  it('les quêtes à plusieurs issues les déclarent', () => {
     expect(withEndings.map((q) => [q.id, q.fins!.length])).toEqual([
       ['dernier-train', 7],
       ['cle-rouille-bleue', 3],
       ['memoires-monde-perdu', 3],
       ['noms-qui-montent', 4],
+      ['onze-etats', 3],
+      ['second-cristal', 4],
+      ['voiles-dormantes', 3],
+      ['asile', 2],
+      ['convoi-pain', 3],
     ]);
   });
 

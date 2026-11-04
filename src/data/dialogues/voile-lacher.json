@@ -20,6 +20,38 @@
           "failNext": "rien"
         },
         {
+          "text": "Lâcher l’état juste de la septième voile.",
+          "requires": [
+            {
+              "item": "voile-septieme"
+            },
+            {
+              "flag": "onze-a-lacher"
+            },
+            {
+              "quest": "onze-etats",
+              "status": "active"
+            }
+          ],
+          "next": "etat"
+        },
+        {
+          "text": "Recopier la liste de l’an cinquante, et la lâcher.",
+          "requires": [
+            {
+              "item": "liste-an-cinquante"
+            },
+            {
+              "item": "tissu-voile"
+            },
+            {
+              "quest": "voiles-dormantes",
+              "status": "active"
+            }
+          ],
+          "next": "liste-lachee"
+        },
+        {
           "text": "La laisser au vent.",
           "next": "fin"
         }
@@ -44,6 +76,64 @@
       "options": [
         {
           "text": "La laisser au vent.",
+          "next": "fin"
+        }
+      ]
+    },
+    "etat": {
+      "text": "Tu attaches l’état juste au garde-fou, à côté de la voile de Bastien, et tu ouvres le nœud. Le vent l’arrache d’un coup. Quelque part, un pilote la lira avant de passer le Calme. Personne ne la lui aura imposée.",
+      "effects": [
+        {
+          "takeItem": "voile-septieme"
+        },
+        {
+          "setFlag": "onze-lache"
+        },
+        {
+          "giveXp": 20
+        },
+        {
+          "completeQuest": "onze-etats"
+        },
+        {
+          "setFlag": "fin-onze-etats-lache"
+        }
+      ],
+      "options": [
+        {
+          "text": "Rester un peu.",
+          "next": "fin"
+        }
+      ]
+    },
+    "liste-lachee": {
+      "text": "Tu recopies les trois cent douze noms, un par un, toute une journée. Bastien te regarde faire, sans un mot. Puis tu ouvres la main, et la liste de l’an cinquante part avec le vent. Demain, le Registre la comptera : elle ne dort plus.",
+      "effects": [
+        {
+          "takeItem": "liste-an-cinquante"
+        },
+        {
+          "takeItem": "tissu-voile"
+        },
+        {
+          "avancer": 4
+        },
+        {
+          "setFlag": "liste-lachee"
+        },
+        {
+          "giveXp": 40
+        },
+        {
+          "completeQuest": "voiles-dormantes"
+        },
+        {
+          "setFlag": "fin-voiles-dormantes-lachee"
+        }
+      ],
+      "options": [
+        {
+          "text": "Rester un peu.",
           "next": "fin"
         }
       ]

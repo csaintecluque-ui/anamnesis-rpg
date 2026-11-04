@@ -396,5 +396,162 @@
         "titre": "Les six noms lâchés au vent"
       }
     ]
+  },
+  {
+    "id": "onze-etats",
+    "name": "Les onze états",
+    "summary": "Évrard Tiédevent, aéromancien de Cumulus, est sûr que trois des onze états de la septième voile donnent des vitesses trop basses. Pour savoir lequel est juste, il lui faut le carnet du Perchoir, où les Ailes Noires notent qui revient du Calme.",
+    "etapes": [
+      {
+        "si": "onze-carnet-demande",
+        "texte": "Ravel ne prêtera pas le carnet du Perchoir à un aéromancien. Le convaincre, le prendre la nuit, ou mériter sa confiance."
+      },
+      {
+        "si": "onze-carnet",
+        "texte": "J’ai le carnet du Perchoir. Le porter à Évrard, à l’Observatoire des vents, sur la Haute-Île."
+      },
+      {
+        "si": "septieme-juste",
+        "texte": "Évrard a recopié l’état juste. Le porter au Conseil des Vents, le lâcher moi-même au garde-fou du Lâcher, ou le garder."
+      }
+    ],
+    "fins": [
+      {
+        "id": "conseil",
+        "titre": "L’état juste porté au Conseil des Vents"
+      },
+      {
+        "id": "lache",
+        "titre": "L’état juste lâché au vent"
+      },
+      {
+        "id": "garde",
+        "titre": "L’état juste gardé pour soi"
+      }
+    ]
+  },
+  {
+    "id": "second-cristal",
+    "name": "Le second cristal",
+    "summary": "Odile voudrait qu’on empêche sa fille, Céleste, dix-sept ans, de passer le Calme avec un seul cristal pour entrer aux Ailes Noires. La Charte interdit de l’interdire.",
+    "etapes": [
+      {
+        "si": "odile-parlee",
+        "texte": "Céleste prépare sa machine sur le Quai des Dirigeables. Lui parler avant l’aube."
+      }
+    ],
+    "fins": [
+      {
+        "id": "persuadee",
+        "titre": "Céleste convaincue"
+      },
+      {
+        "id": "cristal",
+        "titre": "Un second cristal donné"
+      },
+      {
+        "id": "voile",
+        "titre": "La bonne vitesse en tête"
+      },
+      {
+        "id": "tombee",
+        "titre": "Céleste tombée"
+      }
+    ]
+  },
+  {
+    "id": "voiles-dormantes",
+    "name": "Les voiles dormantes",
+    "summary": "Bastien Basse-Corniche change chaque nuit la voile du garde-fou : le début de la quatrième liste de la Pluie, « Et pour l’an cinquante ». Si une copie entière dort encore quelque part, elle pourrait repasser.",
+    "etapes": [
+      {
+        "si": "dome-indice",
+        "texte": "Zélie : au Temple, on cousait les tissus usés dans la doublure du dôme. Y chercher la liste."
+      },
+      {
+        "si": "liste-trouvee",
+        "texte": "J’ai la liste de l’an cinquante. La recopier et la lâcher au garde-fou du Lâcher, la confier à Bastien, la nuit, ou au Registre des Voiles."
+      }
+    ],
+    "fins": [
+      {
+        "id": "lachee",
+        "titre": "La liste réveillée"
+      },
+      {
+        "id": "bastien",
+        "titre": "La liste confiée à Bastien"
+      },
+      {
+        "id": "registre",
+        "titre": "La liste confiée au Registre"
+      }
+    ]
+  },
+  {
+    "id": "asile",
+    "name": "L’asile",
+    "summary": "Holger Brandt, archiviste de Ferros, a fui avec une page du registre des Innovations du Puits Trois. Un commis de Ferros attend au Quai que la Gardienne du Ciel le rende. La Charte garantit l’asile aux persécutés, pas aux voleurs.",
+    "etapes": [
+      {
+        "si": "page-vue",
+        "texte": "La page de Holger : vingt ans de plans d’Ouvriers signés par des Techniciens. Parler à la Gardienne du Ciel, au Quai."
+      }
+    ],
+    "fins": [
+      {
+        "id": "defendu",
+        "titre": "Holger défendu"
+      },
+      {
+        "id": "livre",
+        "titre": "Holger rendu à Ferros"
+      }
+    ]
+  },
+  {
+    "id": "hirondelle",
+    "name": "L’hirondelle de Siffrin",
+    "summary": "Pointe, la meilleure hirondelle du Zénith de Siffrin, ne revient plus. Les pirates de l’air en attrapent, pour savoir quand frapper les convois ; un oiseleur en vend au marché.",
+    "etapes": [
+      {
+        "si": "pointe-libre",
+        "texte": "J’ai Pointe. La rendre à Siffrin, au Quai le jour, à la maison-moulin la nuit."
+      }
+    ]
+  },
+  {
+    "id": "convoi-pain",
+    "name": "Le convoi de pain",
+    "summary": "Un mot glissé sous une cage : « Nuit, quai, Grêle. » La Veuve Grêle et ses pirates de l’air veulent le convoi de farine de la Compagnie Vire-Nuée. Ossiane veut quelqu’un sur le quai.",
+    "etapes": [
+      {
+        "si": "convoi-attendu",
+        "texte": "Attendre la nuit sur le Quai des Dirigeables, près du convoi."
+      },
+      {
+        "si": "raid-regle",
+        "texte": "Retourner voir Ossiane, au comptoir de la Compagnie."
+      }
+    ],
+    "fins": [
+      {
+        "id": "sauve",
+        "titre": "La farine sauvée"
+      },
+      {
+        "id": "quart",
+        "titre": "Un quart pour les pirates"
+      },
+      {
+        "id": "perdu",
+        "titre": "Le convoi perdu"
+      }
+    ]
+  },
+  {
+    "id": "course-ilots",
+    "name": "La course des îlots",
+    "summary": "Les Ailes Noires ne prennent personne : le vent prend qui il veut. Une course contre Ravel, du Perchoir au Nid des Nuées, d’îlot en îlot, sans les ponts."
   }
 ]

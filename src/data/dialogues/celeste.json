@@ -1,0 +1,221 @@
+{
+  "id": "celeste",
+  "speaker": "celeste",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "second-cristal",
+          "status": "done"
+        }
+      ],
+      "node": "apres"
+    },
+    {
+      "requires": [
+        {
+          "quest": "second-cristal",
+          "status": "active"
+        }
+      ],
+      "node": "avant"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Une jeune femme en cuir noir resserre une sangle sur une machine légère. Un seul cristal, sous le cadre. — Tu regardes ma machine ? Demain, je passe le Calme avec. Et après, je suis des Ailes Noires.",
+      "options": [
+        {
+          "text": "Bonne chance.",
+          "next": "fin"
+        }
+      ]
+    },
+    "avant": {
+      "text": "Céleste ne lève pas les yeux de sa sangle. — Ma mère t’envoie. Elle envoie tout le monde. Je passe à l’aube. Ravel dit que si je reviens, je suis des leurs.",
+      "options": [
+        {
+          "text": "Prends un second cristal. Ça n’enlève rien au vol.",
+          "next": "persuadee",
+          "roll": {
+            "skill": "diplomacy",
+            "difficulty": 15
+          },
+          "failNext": "braquee"
+        },
+        {
+          "text": "Tiens. Un second cristal.",
+          "requires": [
+            {
+              "item": "cristal-second"
+            }
+          ],
+          "next": "donne",
+          "effects": [
+            {
+              "takeItem": "cristal-second"
+            }
+          ]
+        },
+        {
+          "text": "Voici l’état juste de la septième voile.",
+          "requires": [
+            {
+              "item": "voile-septieme"
+            }
+          ],
+          "next": "voile"
+        },
+        {
+          "text": "C’est ton vol.",
+          "next": "partie"
+        }
+      ]
+    },
+    "braquee": {
+      "text": "— Toi aussi ? Rien ne doit entraver le vent. Va le répéter à ma mère, si ça te chante.",
+      "options": [
+        {
+          "text": "Tiens. Un second cristal.",
+          "requires": [
+            {
+              "item": "cristal-second"
+            }
+          ],
+          "next": "donne",
+          "effects": [
+            {
+              "takeItem": "cristal-second"
+            }
+          ]
+        },
+        {
+          "text": "Voici l’état juste de la septième voile.",
+          "requires": [
+            {
+              "item": "voile-septieme"
+            }
+          ],
+          "next": "voile"
+        },
+        {
+          "text": "C’est ton vol.",
+          "next": "partie"
+        }
+      ]
+    },
+    "persuadee": {
+      "text": "Elle se tait longtemps. — Ravel va rire. Elle fixe quand même un second cristal, de travers, en jurant. — S’il rit, je lui dirai que c’est ma mère. Ce n’est pas vrai. Ne le dis à personne.",
+      "effects": [
+        {
+          "setFlag": "celeste-deux"
+        },
+        {
+          "giveXp": 30
+        },
+        {
+          "completeQuest": "second-cristal"
+        },
+        {
+          "setFlag": "fin-second-cristal-persuadee"
+        }
+      ],
+      "options": [
+        {
+          "text": "Bon vol, Céleste.",
+          "next": "fin"
+        }
+      ]
+    },
+    "donne": {
+      "text": "Elle tourne le cristal dans ses doigts. — Tu le donnes, comme ça ? Elle le fixe sous le cadre. — Ne le dis pas à Ravel. Dis-lui que je l’ai trouvé.",
+      "effects": [
+        {
+          "setFlag": "celeste-deux"
+        },
+        {
+          "giveXp": 30
+        },
+        {
+          "completeQuest": "second-cristal"
+        },
+        {
+          "setFlag": "fin-second-cristal-cristal"
+        }
+      ],
+      "options": [
+        {
+          "text": "Bon vol, Céleste.",
+          "next": "fin"
+        }
+      ]
+    },
+    "voile": {
+      "text": "Elle lit la voile deux fois, les lèvres serrées, et la recopie sur son avant-bras, à l’encre. — Un cristal, mais la bonne vitesse. Ça, Ravel ne pourra pas dire que c’est une entrave.",
+      "effects": [
+        {
+          "setFlag": "celeste-voile"
+        },
+        {
+          "giveXp": 30
+        },
+        {
+          "completeQuest": "second-cristal"
+        },
+        {
+          "setFlag": "fin-second-cristal-voile"
+        }
+      ],
+      "options": [
+        {
+          "text": "Bon vol, Céleste.",
+          "next": "fin"
+        }
+      ]
+    },
+    "partie": {
+      "text": "Elle sourit. — Merci. Tu es la première à le dire. À l’aube, sa machine quitte le Quai, file vers le bas, et disparaît dans les nuages.",
+      "options": [
+        {
+          "text": "Attendre.",
+          "next": "partie-2"
+        }
+      ]
+    },
+    "partie-2": {
+      "text": "Le soir, la Gardienne du Ciel passe au Nid : on a repêché Céleste au-dessus du Calme, vivante, les deux jambes brisées. Elle ne volera plus. Au marché, Odile ne t’en veut pas. Elle te remercie même d’avoir parlé à sa fille.",
+      "effects": [
+        {
+          "setFlag": "celeste-tombee"
+        },
+        {
+          "avancer": 2
+        },
+        {
+          "completeQuest": "second-cristal"
+        },
+        {
+          "setFlag": "fin-second-cristal-tombee"
+        }
+      ],
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "apres": {
+      "text": "Céleste, des plumes noires cousues à l’épaule, te salue d’un geste de pilote. — Le Calme, c’est rien. C’est le silence avant qui fait peur. Personne ne te le dit, ça.",
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

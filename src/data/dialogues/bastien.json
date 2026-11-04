@@ -3,6 +3,18 @@
   "speaker": "bastien",
   "entries": [
     {
+      "requires": [
+        {
+          "quest": "voiles-dormantes",
+          "status": "active"
+        },
+        {
+          "item": "liste-an-cinquante"
+        }
+      ],
+      "node": "liste"
+    },
+    {
       "node": "nuit"
     }
   ],
@@ -39,12 +51,72 @@
       ]
     },
     "entiere": {
-      "text": "— Le Registre n’en garde que les quatre premiers mots. Le reste, si une copie dort encore quelque part, c’est chez quelqu’un qui ne sait pas ce qu’il a. Moi, je suis trop vieux pour sauter d’un îlot à l’autre.",
+      "text": "— Le Registre n’en garde que les quatre premiers mots. Le reste, si une copie dort encore quelque part, c’est chez quelqu’un qui ne sait pas ce qu’il a. Moi, je suis trop vieux pour la chercher.",
       "effects": [
         {
           "setFlag": "bastien-entiere"
         }
       ],
+      "options": [
+        {
+          "text": "Je la chercherai.",
+          "requires": [
+            {
+              "quest": "voiles-dormantes",
+              "status": "none"
+            }
+          ],
+          "next": "fin",
+          "effects": [
+            {
+              "startQuest": "voiles-dormantes"
+            }
+          ]
+        },
+        {
+          "text": "Bonne nuit, Bastien.",
+          "next": "fin"
+        }
+      ]
+    },
+    "liste": {
+      "text": "Bastien voit le tissu dans tes mains, et la longue-vue lui glisse de l’épaule. — L’an cinquante. Tu l’as trouvée. Il ne la touche pas. — Trois cent douze. Mon aïeule les a comptés un par un, depuis sa corniche.",
+      "options": [
+        {
+          "text": "Gardez-la.",
+          "next": "garde",
+          "effects": [
+            {
+              "takeItem": "liste-an-cinquante"
+            },
+            {
+              "giveXp": 30
+            },
+            {
+              "completeQuest": "voiles-dormantes"
+            },
+            {
+              "setFlag": "fin-voiles-dormantes-bastien"
+            }
+          ]
+        },
+        {
+          "text": "Je vais la recopier et la lâcher.",
+          "next": "lacher-annonce"
+        }
+      ]
+    },
+    "garde": {
+      "text": "Il la plie contre sa poitrine. — Je la garderai. Je n’ai plus l’âge de la lâcher, et pas le cœur de la laisser partir. Quand je mourrai, quelqu’un la trouvera dans ma malle. Peut-être qu’il saura quoi en faire, lui.",
+      "options": [
+        {
+          "text": "Bonne nuit, Bastien.",
+          "next": "fin"
+        }
+      ]
+    },
+    "lacher-annonce": {
+      "text": "— Recopier trois cent douze noms ? Il rit, pour la première fois. — Ça prend une journée, et un tissu neuf. Fais-le au garde-fou, que je te regarde. Ça fait quarante ans que j’attends de voir ça.",
       "options": [
         {
           "text": "Bonne nuit, Bastien.",

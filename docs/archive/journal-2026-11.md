@@ -1172,3 +1172,4 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
 - Cyril : « 1 oui, 2 oui, 3 oui, 4 oui » : les six noms, les inventions du montage et les deux noms changés validés
   (Notion à jour). Sur la branche, à valider : les trois caisses du retour (Verdantis sous la Faille, Ferros à la
   Cendrière, Terminus au Fonds Muet), qui dépendent de la clé et de la ligne. 839 tests.
+- Cyril : « 1 oui, 2 oui, 3 oui, 4 oui » : les trois caisses du retour validées et mises en ligne ; la suite : Coralia.

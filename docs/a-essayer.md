@@ -294,7 +294,7 @@ En ligne le 2026-11-03 (tes textes du 3 novembre) :
       habitants qui écoutent un Récit. Des phrases qui sonnent faux ?
 - Remarques :
 
-## Les trois caisses du retour (sur la branche, à valider)
+## Les trois caisses du retour (en ligne le 2026-11-04)
 
 - [ ] **Après Aetherhaven** : Ilyane et les papiers de la prospection (la Faille de la Gare) ; Noam, la Veilleuse ou
       Kaelis, selon la clé (la Cendrière) ; Ambroise et la caisse sans main (le Fonds Muet).

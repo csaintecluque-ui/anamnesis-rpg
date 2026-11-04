@@ -78,7 +78,7 @@ reste des caisses et des alliances décide. Les fins sont celles de Cyril.
   principale en cours, puis « Zephyria · Aetherhaven » après Sept-Portes.
 - Les caisses ont leurs repères (`trouvee`, `prise`) à écrire avec chaque ville.
 
-## Les trois caisses des continents déjà joués (construites le 2026-11-04, sur la branche ; **à valider**)
+## Les trois caisses des continents déjà joués (construites et **validées par Cyril** le 2026-11-04 : « 1 oui, 2 oui, 3 oui, 4 oui » ; en ligne)
 
 Cyril (2026-11-04, « 4 oui ») : les trois quêtes de retour d'abord. Courtes, après « Les noms qui montent » ; ce qu'on
 a fait de la clé de rouille bleue et de la page du dernier départ décide.

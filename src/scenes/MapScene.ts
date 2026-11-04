@@ -41,6 +41,8 @@ import { momentOf, type Moment } from '../rules/time';
 import { findPlace } from '../rules/world';
 import { playSfx, playStep } from '../audio/sfx';
 import { MINI_MAP_SOURCE, type MiniMapSource, type MiniMarker } from '../ui/miniMap';
+import { BUBBLE_MS, labelScaleFor, speechBubble } from './speech';
+import { barkLines, findBarks } from '../rules/barks';
 
 /** Top of the drawn part of each obstacle frame (`texture:frame`), measured once for the whole game. */
 const DRAWN_TOPS = new Map<string, number>();
@@ -64,8 +66,14 @@ const RUN_STEP_MS = 80;
 /** Two clicks this close make a double click: the hero runs there. */
 const DOUBLE_CLICK_MS = 350;
 /** The free camera (étude, A1): the wheel zooms between these (× the map's base zoom), a drag moves the view. */
-const ZOOM_MIN = 1;
+/** Farther than before (Cyril, 2026-11-04 : « une vision plus reculée »), never farther than the whole place. */
+const ZOOM_MIN = 0.6;
 const ZOOM_MAX = MAP_ZOOM;
+const DEFAULT_ZOOM = HAS_MOUSE ? 1 : 1.2;
+/** People speak up on their own within this many cells of the hero, one at a time (docs/gdd/figurants.md). */
+const BARK_RADIUS = 3;
+const BARK_GAP_MS = 4500;
+const NPC_BARK_COOLDOWN_MS = 45000;
 const ZOOM_STEP = 0.1;
 /** A press that moves farther than this (logical px) is a drag, not a click. */
 const DRAG_THRESHOLD = 10;
@@ -134,7 +142,14 @@ export class MapScene extends Phaser.Scene {
   private running = false;
   private lastTap = { at: 0, col: -1, row: -1 };
   /** The free camera (étude, A1): its zoom (× RENDER_SCALE), the press being dragged, and whether it follows the hero. */
-  private zoom = MAP_ZOOM;
+  private zoom = DEFAULT_ZOOM;
+  /** The farthest view of this place: the whole of it, at most ZOOM_MIN. */
+  private minZoom = ZOOM_MIN;
+  /** How much names and bubbles grow at this zoom (src/scenes/speech.ts). */
+  private labelScale = 1;
+  /** Speaking up on their own (Fallout-like): when the next one may, and when each named NPC may again. */
+  private nextBarkAt = 0;
+  private npcBarkAt = new Map<string, number>();
   private drag: { x: number; y: number; scrollX: number; scrollY: number; moved: boolean } | null = null;
   private following = true;
   /** A red diamond where a click cannot lead (étude, A2). */
@@ -203,6 +218,7 @@ export class MapScene extends Phaser.Scene {
       walkable: (t) => this.walkable(t),
       heroTile: () => this.heroTile,
       story: () => this.state,
+      labelScale: () => this.labelScale,
     });
     this.figurants.spawn(location.id);
     for (const tile of this.figurants.standingTiles()) this.occupied.add(tileKey(tile));
@@ -233,7 +249,11 @@ export class MapScene extends Phaser.Scene {
 
     const worldWidth = (this.map.width + this.map.height) * (TILE_WIDTH / 2);
     const worldHeight = (this.map.width + this.map.height) * (TILE_HEIGHT / 2) + TOP_MARGIN;
-    this.zoom = Phaser.Math.Clamp(this.registry.get('mapZoom') ?? MAP_ZOOM, ZOOM_MIN, ZOOM_MAX);
+    const fit = Math.min(GAME_WIDTH / worldWidth, GAME_HEIGHT / worldHeight);
+    this.minZoom = Phaser.Math.Clamp(fit, ZOOM_MIN, DEFAULT_ZOOM);
+    this.zoom = Phaser.Math.Clamp(this.registry.get('mapZoom') ?? DEFAULT_ZOOM, this.minZoom, ZOOM_MAX);
+    this.nextBarkAt = this.time.now + 1500;
+    this.npcBarkAt = new Map();
     this.drag = null;
     this.running = false;
     this.cameras.main.setBackgroundColor(COLORS.ink);
@@ -323,6 +343,7 @@ export class MapScene extends Phaser.Scene {
 
   update(_time: number, delta: number): void {
     if (this.state) this.state.playTimeSeconds += delta / 1000;
+    if (this.state && this.time.now >= this.nextBarkAt) this.speakUp();
     if (this.autoTalkAt !== null && !this.moving && this.time.now >= this.autoTalkAt) {
       this.autoTalkAt = null;
       const talk = autoTalk(this.state, DIALOGUES);
@@ -333,6 +354,41 @@ export class MapScene extends Phaser.Scene {
         this.scene.launch('Dialogue', { id: talk.id });
       }
     }
+  }
+
+  /**
+   * Fallout-like (Cyril, 2026-11-04 ; docs/gdd/figurants.md): the nearest passer-by or named NPC within BARK_RADIUS
+   * cells who has not spoken for a while says a line above their head, without a click; one at a time.
+   */
+  private speakUp(): void {
+    const now = this.time.now;
+    this.nextBarkAt = now + 400;
+    const hero = this.heroTile;
+    const passerBy = this.figurants.nearestReady(hero, BARK_RADIUS, now);
+    let npc: { object: MapObject; label: Phaser.GameObjects.Text; lines: string[]; distance: number } | null = null;
+    for (const { object, image, label } of this.interactables) {
+      if (object.type !== 'pnj' || !label || !image.visible || this.gone(object) || now < (this.npcBarkAt.get(object.name) ?? 0)) continue;
+      const def = findBarks(object.name);
+      if (!def) continue;
+      const distance = Math.max(Math.abs(object.col - hero.col), Math.abs(object.row - hero.row));
+      if (distance <= BARK_RADIUS && (!npc || distance < npc.distance)) npc = { object, label, lines: barkLines(def, this.state), distance };
+    }
+    if (!passerBy && !npc) return;
+    this.nextBarkAt = now + BARK_GAP_MS;
+    if (passerBy && (!npc || passerBy.distance <= npc.distance)) {
+      this.figurants.bark(passerBy.walker, now);
+      return;
+    }
+    const { object, label, lines } = npc!;
+    const said = this.npcBarkAt.has(object.name) ? 1 : 0;
+    this.npcBarkAt.set(object.name, now + NPC_BARK_COOLDOWN_MS);
+    const line = lines[(said + Math.floor(now / NPC_BARK_COOLDOWN_MS)) % lines.length];
+    const bubble = speechBubble(this, label.x, label.y - label.displayHeight - 4, npcName(object), line, this.labelScale);
+    label.setVisible(false);
+    this.time.delayedCall(BUBBLE_MS, () => {
+      bubble.destroy();
+      if (label.active) label.setVisible(true);
+    });
   }
 
   // --- Clavier et souris (feuille de route, chantier 0 : « PC d'abord ») ----------------------------
@@ -934,11 +990,14 @@ export class MapScene extends Phaser.Scene {
     this.cameras.main
       .setBounds((worldWidth - boundsWidth) / 2, (worldHeight - boundsHeight) / 2, boundsWidth, boundsHeight)
       .setZoom(this.zoom * RENDER_SCALE);
+    this.labelScale = labelScaleFor(this.zoom);
+    for (const { label } of this.interactables) label?.setScale(this.labelScale);
+    this.party?.setLabelScale(this.labelScale);
   }
 
   /** The wheel: closer or farther, kept for the next places (registry, not the save). */
   private zoomBy(step: number): void {
-    const zoom = Phaser.Math.Clamp(Math.round((this.zoom + step) * 10) / 10, ZOOM_MIN, ZOOM_MAX);
+    const zoom = Phaser.Math.Clamp(Math.round((this.zoom + step) * 10) / 10, this.minZoom, ZOOM_MAX);
     if (zoom === this.zoom) return;
     const camera = this.cameras.main;
     const center = { x: camera.midPoint.x, y: camera.midPoint.y };

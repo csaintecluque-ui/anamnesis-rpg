@@ -63,6 +63,11 @@ export class PartyLayer {
     });
   }
 
+  /** Names grow when the view is zoomed out, to stay readable (src/scenes/speech.ts). */
+  setLabelScale(scale: number): void {
+    for (const f of this.followers) f.label.setScale(scale);
+  }
+
   /** The hero leaves `from`: each follower moves to the cell the one before it (or the hero) just left. */
   heroStepped(from: Tile, durationMs: number): void {
     this.trail.unshift(from);

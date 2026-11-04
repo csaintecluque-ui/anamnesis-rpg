@@ -4,12 +4,12 @@ import type { Tile } from '../engine/iso';
 import { findPath } from '../engine/pathfinding';
 import { tileKey } from '../engine/tiledMap';
 import { figurantsAt, isStanding, walkSheetKey, type FigurantDef, figurantLines } from '../rules/figurants';
-import { fontPx } from '../settings';
-import { COLORS, CSS, FONT_SERIF } from '../ui/theme';
+import { BUBBLE_MS, speechBubble } from './speech';
 
 const STEP_MS = 430;
-const TALK_MS = 3800;
-const BUBBLE_WIDTH = 230;
+const TALK_MS = BUBBLE_MS;
+/** A passer-by who spoke up on their own waits this long before doing it again (docs/gdd/figurants.md). */
+const BARK_COOLDOWN_MS = 40000;
 /** Walk sheets: 64 px wide frames, one row per facing (docs/gdd/animation.md). */
 const WALK_FRAME_WIDTH = 64;
 const WALK_FPS = 12;
@@ -29,6 +29,8 @@ interface Walker {
   /** Next line to say. */
   line: number;
   bubble?: Phaser.GameObjects.Container;
+  /** No line on their own before this time (scene clock). */
+  nextBark: number;
 }
 
 export interface FigurantHost {
@@ -40,6 +42,8 @@ export interface FigurantHost {
   heroTile(): Tile;
   /** The story so far, for lines that follow it. */
   story(): { flags: Record<string, true>; quests: Record<string, 'active' | 'done'> };
+  /** How much bubbles grow when the view is zoomed out (src/scenes/speech.ts). */
+  labelScale(): number;
 }
 
 export class FigurantLayer {
@@ -60,7 +64,7 @@ export class FigurantLayer {
         .setOrigin(0.5, 1)
         .setDepth(f.y);
       const sheet = this.setUpWalk(def);
-      const walker: Walker = { def, image, sheet, facing: 's', tile, target: Math.min(1, def.path.length - 1), busyUntil: 0, line: 0 };
+      const walker: Walker = { def, image, sheet, facing: 's', tile, target: Math.min(1, def.path.length - 1), busyUntil: 0, line: 0, nextBark: 0 };
       this.walkers.push(walker);
       this.standStill(walker);
       if (!isStanding(def)) this.later(walker, Math.random() * 1500);
@@ -95,17 +99,7 @@ export class FigurantLayer {
     const line = lines[w.line % lines.length];
     w.line++;
     w.bubble?.destroy();
-    const name = this.scene.add.text(0, 0, w.def.name, { fontFamily: FONT_SERIF, fontSize: fontPx(11), color: CSS.copper, fontStyle: 'italic' });
-    const text = this.scene.add.text(0, name.height + 2, `« ${line} »`, {
-      fontFamily: FONT_SERIF,
-      fontSize: fontPx(12),
-      color: CSS.parchment,
-      wordWrap: { width: BUBBLE_WIDTH },
-    });
-    const width = Math.max(name.width, text.width) + 16;
-    const height = name.height + text.height + 12;
-    const frame = this.scene.add.rectangle(-8, -6, width, height, COLORS.ink, 0.9).setOrigin(0, 0).setStrokeStyle(1, COLORS.copper, 0.9);
-    const bubble = this.scene.add.container(w.image.x - width / 2 + 8, w.image.y - 70 - height, [frame, name, text]).setDepth(100001);
+    const bubble = speechBubble(this.scene, w.image.x, w.image.y - 72, w.def.name, line, this.host.labelScale());
     w.bubble = bubble;
     this.scene.time.delayedCall(TALK_MS, () => {
       if (w.bubble === bubble) {
@@ -113,6 +107,26 @@ export class FigurantLayer {
         w.bubble = undefined;
       }
     });
+  }
+
+  /**
+   * Fallout-like (Cyril, 2026-11-04): the nearest passer-by within `radius` cells of the hero who has not spoken up
+   * for a while says a line on their own. Returns their distance in cells, or null when nobody is ready.
+   */
+  nearestReady(hero: Tile, radius: number, now: number): { walker: Walker; distance: number } | null {
+    let best: { walker: Walker; distance: number } | null = null;
+    for (const w of this.walkers) {
+      if (w.bubble || now < w.nextBark || now < w.busyUntil) continue;
+      const distance = Math.max(Math.abs(w.tile.col - hero.col), Math.abs(w.tile.row - hero.row));
+      if (distance <= radius && (!best || distance < best.distance)) best = { walker: w, distance };
+    }
+    return best;
+  }
+
+  /** Says a line on their own, then keeps quiet for a while. */
+  bark(w: Walker, now: number): void {
+    w.nextBark = now + BARK_COOLDOWN_MS;
+    this.talk(w);
   }
 
   /** Cells taken by people who stand still: the hero walks around them. */

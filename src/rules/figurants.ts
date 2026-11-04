@@ -41,7 +41,7 @@ export const FIGURANTS = figurantData as FigurantDef[];
 
 /** What they say now: the story's latest echo in their mouth, or their usual lines. */
 export function figurantLines(
-  def: FigurantDef,
+  def: Pick<FigurantDef, 'lines' | 'reactions'>,
   state: { flags: Record<string, true>; quests: Record<string, 'active' | 'done'> },
 ): string[] {
   const holds = (r: FigurantReaction) =>

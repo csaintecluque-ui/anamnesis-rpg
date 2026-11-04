@@ -26,3 +26,15 @@ est réservé à son outil de jeux). Prévu : quatre ambiances de 2 minutes en b
 souterrain ; ≈ 17,4 crédits chacune, coût vérifié sans générer) et la berceuse de Maëlis fredonnée (≈ 1 min, ≈ 9
 crédits ; chantée, il faudrait ses paroles). Avant : une fiche de style sonore ; chaque génération consignée dans
 `docs/ASSETS.md`.
+
+## Sur téléphone (essai de Cyril, 2026-11-04 : « sur le tel, je n'ai pas entendu de son »)
+
+Le site servait bien les sons (vérifié) ; deux causes possibles côté téléphone, corrigées (`src/audio/mobile.ts`) :
+
+- **l'interrupteur silencieux de l'iPhone** coupe l'audio des pages web : le jeu se déclare désormais lecteur
+  (`navigator.audioSession.type = 'playback'`, Safari 16.4 et plus) ; il suit alors les boutons de volume, comme une
+  vidéo, et le volume des options reste le moyen de le faire taire ;
+- **l'audio en veille** : chaque toucher, clic ou touche le réveille, et le retour du jeu au premier plan aussi.
+
+Vérifié en émulation de téléphone dans Chromium (audio en veille avant le premier toucher, actif après) ; le
+comportement propre à l'iPhone ne peut se vérifier que sur l'appareil.

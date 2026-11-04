@@ -1102,3 +1102,5 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
 - Cyril : « Higgsfield à la fin, fais les bruitages » : huit bruitages fabriqués par le code (`npm run sfx`), branchés sur
   la carte, le combat, les dialogues, et le train de la Gare. 732 tests ; vérifié dans Chromium.
 - Cyril : « Oui pour essayer » : les bruitages mis en ligne, à l'essai.
+- Cyril : « Sur le tel, je n'ai pas entendu de son » : site vérifié (sons servis et mis en cache) ; correctif mobile
+  (interrupteur silencieux de l'iPhone, audio réveillé à chaque toucher et au retour au premier plan) mis en ligne.

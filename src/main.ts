@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { setUpMobileAudio } from './audio/mobile';
 import { BootScene } from './scenes/BootScene';
 import { CombatScene } from './scenes/CombatScene';
 import { CreationScene } from './scenes/CreationScene';
@@ -64,6 +65,8 @@ const game = new Phaser.Game({
 });
 
 game.sound.volume = getSettings().volume / 100;
+// Phones: the iPhone's silent switch, an audio left asleep until a touch (src/audio/mobile.ts).
+setUpMobileAudio(game);
 game.events.once(Phaser.Core.Events.READY, () => applyRenderScale(game));
 
 // Development only: lets browser checks locate things on screen. Never present in the published build.

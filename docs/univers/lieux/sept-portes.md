@@ -56,16 +56,16 @@ Muet »), « Histoire et lore » [NOTION].
 | **La veillée des Sept Routes** | des voyageurs de toutes les nations : ils aiment l'Ancien Monde et les mystères ; pas les chansons (« Ici, une légende ne se chante pas : elle s'achète. ») | NOTION (« À Terminus, une légende […] est achetée ») |
 | **Le tableau des contrats** | à la maison mère des Gardiens | gabarit des villes |
 
-## Vague 3, bloc B : ce qui reste à découvrir (propositions du 2026-11-04, **à valider**)
+## Vague 3, bloc B : ce qui reste à découvrir (propositions du 2026-11-04, **validées par Cyril** le 2026-11-04)
 
 Même modèle que les trois autres villes (validées) : un mystère, le Récit de la ville hors quête, des habitants qui
 écoutent.
 
 | Élément | Proposition | Ancrage | Statut |
 |---|---|---|---|
-| La dédicace | À la Grande Bibliothèque, sur un troisième lutrin, un recueil de poèmes venu de Marisol, ouvert à sa dédicace : « À Maryse, qui m'attendra. » Dans la marge, un crayon gommé ; Investigation (difficulté 13) : « Mariza », écrit, gommé, réécrit, « tant de fois que le papier en est devenu doux » | il est interdit de corriger une dédicace d'origine [NOTION] ; l'Ordre des Chroniqueurs | à valider |
-| **Le portier de nuit et Mariza** | La nuit, le portier avoue : sa mère s'appelait Mariza, son père lui a écrit ces poèmes, le copiste s'est trompé de nom ; il écrit le vrai nom à la troisième cloche. Chaque matin, un Chroniqueur, toujours le même, l'efface au crayon, en dernier : « Nous ne nous sommes jamais parlé. Chacun fait son métier. » Récit « La dédicace » (familles, mystères) : le Récit de Sept-Portes hors quête | le portier de nuit et sa ronde à la troisième cloche (validés) | à valider |
-| Arlo | Au Récit « L'échelle de Pim » : « Chez nous, la main s'arrête. Mais l'Anneau n'arrête pas les barreaux qui cassent, hein ? Maman dit que c'est ça, la phrase dangereuse. » | la doctrine (validée), l'Anneau [NOTION] | à valider |
-| Mina | À la berceuse de Maëlis, elle chante très faux, puis : « Les grands disent que les légendes, ça s'achète. Je te l'achète : tiens. » (deux Fers) | « À Terminus, une légende est achetée » [NOTION] | à valider |
-| Hesper | Au Récit « Odon Passe-Rive », elle écrit son nom dans un registre : « Il n'avait pas de papiers à donner : il avait des noms. C'est la même chose. » | — | à valider |
-| Lior | Au Récit « Un jeudi ordinaire » : « Sur mes cartes, toutes les lignes de l'Ancien Monde s'arrêtent le même jour. Je n'avais jamais pensé à demander quel temps il faisait. » | « un jeudi ordinaire » (canon) | à valider |
+| La dédicace | À la Grande Bibliothèque, sur un troisième lutrin, un recueil de poèmes venu de Marisol, ouvert à sa dédicace : « À Maryse, qui m'attendra. » Dans la marge, un crayon gommé ; Investigation (difficulté 13) : « Mariza », écrit, gommé, réécrit, « tant de fois que le papier en est devenu doux » | il est interdit de corriger une dédicace d'origine [NOTION] ; l'Ordre des Chroniqueurs | validé (2026-11-04) |
+| **Le portier de nuit et Mariza** | La nuit, le portier avoue : sa mère s'appelait Mariza, son père lui a écrit ces poèmes, le copiste s'est trompé de nom ; il écrit le vrai nom à la troisième cloche. Chaque matin, un Chroniqueur, toujours le même, l'efface au crayon, en dernier : « Nous ne nous sommes jamais parlé. Chacun fait son métier. » Récit « La dédicace » (familles, mystères) : le Récit de Sept-Portes hors quête | le portier de nuit et sa ronde à la troisième cloche (validés) | validé (2026-11-04) |
+| Arlo | Au Récit « L'échelle de Pim » : « Chez nous, la main s'arrête. Mais l'Anneau n'arrête pas les barreaux qui cassent, hein ? Maman dit que c'est ça, la phrase dangereuse. » | la doctrine (validée), l'Anneau [NOTION] | validé (2026-11-04) |
+| Mina | À la berceuse de Maëlis, elle chante très faux, puis : « Les grands disent que les légendes, ça s'achète. Je te l'achète : tiens. » (deux Fers) | « À Terminus, une légende est achetée » [NOTION] | validé (2026-11-04) |
+| Hesper | Au Récit « Odon Passe-Rive », elle écrit son nom dans un registre : « Il n'avait pas de papiers à donner : il avait des noms. C'est la même chose. » | — | validé (2026-11-04) |
+| Lior | Au Récit « Un jeudi ordinaire » : « Sur mes cartes, toutes les lignes de l'Ancien Monde s'arrêtent le même jour. Je n'avais jamais pensé à demander quel temps il faisait. » | « un jeudi ordinaire » (canon) | validé (2026-11-04) |

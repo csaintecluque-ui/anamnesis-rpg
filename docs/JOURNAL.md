@@ -16,7 +16,7 @@ vérifiée contre le code (§ 1 : ce qui est exact, faux, non reproduit, en conf
 |---|---|---|
 | 1 · jouable | Caméra libre, case interdite, course, noms cliquables, combattants visibles, compagnons par l'IA, E1 + E2 (+ garde-fou en simulation), étal de Tobias, repos gratuit, mort à deux boutons | **en ligne** (2026-11-03), avec un don tous les deux niveaux ; partie de Cyril à faire |
 | 2 · tendu | Golem, premier combat, fiche et HUD, le dé, le héros qui a oublié, vitrines, voies, obstacles, E4/F3 | **finie, en ligne** (2026-11-04) ; E4 remplacé par un plafond au toucher des bêtes (+1), F3 : 5 PV par niveau |
-| 3 · vivant | Son, dialogues à une option, apartés seuls, mini-carte, carte des voies | **commencée** : bruitages, train, pont, marche à la souris **en ligne pour essai** ; **bloc A en ligne** ; **bloc B en cours** : veillée de nuit, Kael, Gardebois et Canopéa **en ligne** (validés) ; Ironheart et Sept-Portes à écrire ; puis C (Higgsfield) |
+| 3 · vivant | Son, dialogues à une option, apartés seuls, mini-carte, carte des voies | **commencée** : bruitages, train, pont, marche à la souris **en ligne pour essai** ; **bloc A en ligne** ; **bloc B fini, en ligne** (veillée de nuit, Kael, un mystère, un Récit et des habitants qui écoutent dans les quatre villes) ; puis C (Higgsfield) |
 
 Les chantiers 0 à 6 (`docs/gdd/feuille-de-route.md`) restent en ligne, leur partie sur PC à faire : la liste unique
 est `docs/a-essayer.md` (une section par chantier, et la vague 1).

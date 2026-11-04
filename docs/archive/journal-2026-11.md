@@ -1148,3 +1148,4 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
 - Cyril : « oui, fais Sept-Portes » : Ironheart validée. Sur la branche, **Sept-Portes** : la dédicace corrigée
   chaque nuit (« Mariza »), l'aveu du portier de nuit, le Récit « La dédicace » ; Arlo, Mina, Hesper et Lior
   écoutent un Récit. À valider (`univers/lieux/sept-portes.md`). 767 tests ; vérifié dans Chromium.
+- Cyril : « oui, mets en ligne » : Sept-Portes validée ; Ironheart et Sept-Portes mis en ligne. Le bloc B est fini.

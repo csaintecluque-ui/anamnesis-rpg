@@ -241,7 +241,7 @@ En ligne le 2026-11-03 (tes textes du 3 novembre) :
       partie sur le même appareil compte celles de la première. Ça donne envie de rejouer autrement ?
 - Remarques :
 
-## Étude du 3 novembre, vague 3, bloc B : l'écriture (en ligne le 2026-11-04 : veillée, Kael, Gardebois, Canopéa)
+## Étude du 3 novembre, vague 3, bloc B : l'écriture (en ligne le 2026-11-04)
 
 - [ ] **La première veillée, même la nuit** : arrive à la Racine la nuit, avec un Récit : quelques veilleurs restent
       pour une première fois.
@@ -253,10 +253,10 @@ En ligne le 2026-11-03 (tes textes du 3 novembre) :
       finie) écoutent un de tes Récits, une fois chacun ; chacun a sa réponse préférée.
 - [ ] **Canopéa, l'échelle aux rubans** : au bord sud du marché suspendu ; puis, au Bosquet des Échos, un petit nom
       gravé bas sur un arbre (Mémoire 3). Elouan, Aïlis, Tiven et Malo écoutent aussi un Récit.
-- [ ] **Ironheart, le Ferrôme au rebut** (sur la branche) : contre le mur de l'atelier Cendrefer, une main de métal
+- [ ] **Ironheart, le Ferrôme au rebut** : contre le mur de l'atelier Cendrefer, une main de métal
       qui compte ; Artisanat pour rebrancher sa voix (avec Boulon, c'est mieux). Varka, Kerta, Tam et Joss écoutent un
       Récit.
-- [ ] **Sept-Portes, la dédicace** (sur la branche) : à la Grande Bibliothèque, un recueil sur un lutrin, une marge
+- [ ] **Sept-Portes, la dédicace** : à la Grande Bibliothèque, un recueil sur un lutrin, une marge
       gommée (Investigation) ; puis, la nuit, le portier. Arlo, Mina, Hesper et Lior écoutent un Récit.
 - Remarques :
 

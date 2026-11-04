@@ -241,7 +241,7 @@ En ligne le 2026-11-03 (tes textes du 3 novembre) :
       partie sur le même appareil compte celles de la première. Ça donne envie de rejouer autrement ?
 - Remarques :
 
-## Étude du 3 novembre, vague 3, bloc B : l'écriture (sur la branche)
+## Étude du 3 novembre, vague 3, bloc B : l'écriture (en ligne le 2026-11-04 : veillée, Kael, Gardebois, Canopéa)
 
 - [ ] **La première veillée, même la nuit** : arrive à la Racine la nuit, avec un Récit : quelques veilleurs restent
       pour une première fois.

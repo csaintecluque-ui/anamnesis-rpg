@@ -1141,3 +1141,4 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   fois. Sur la branche, **Canopéa** : l'échelle aux rubans des Jeunes-Pousses (PIM), le nom de Pim gravé au Bosquet
   (Mémoire 3 : le souvenir de sa sœur), le Récit « L'échelle de Pim » ; Elouan, Aïlis, Tiven et Malo écoutent un
   Récit. À valider (`univers/lieux/canopee.md`). 758 tests ; vérifié dans Chromium.
+- Cyril : « 1 oui, 2 mets en ligne maintenant » : Canopéa validée ; la veillée de nuit, Kael, Gardebois et Canopéa mis en ligne.

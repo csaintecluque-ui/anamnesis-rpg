@@ -760,5 +760,131 @@
       "Je ne l’ai pas dit.",
       "Elle respirait. La faille respirait."
     ]
+  },
+  {
+    "id": "tam-ruu",
+    "lines": [
+      "La Halte ! Elle bouge, la soupe non.",
+      "Assieds-toi, les pieds d’abord."
+    ]
+  },
+  {
+    "id": "gardienne-eau",
+    "lines": [
+      "Ta ration.",
+      "Une, deux, trois. Elle compte sans bouger les lèvres."
+    ]
+  },
+  {
+    "id": "yel-dara",
+    "lines": [
+      "Je ne verse pas. J’entends.",
+      "Mille quatre cents jours. Et le reste, de bouche en bouche."
+    ]
+  },
+  {
+    "id": "daru-khen",
+    "lines": [
+      "L’eau choisit. Nous suivons.",
+      "On ne revient pas, l’étranger."
+    ]
+  },
+  {
+    "id": "varo-ssin",
+    "lines": [
+      "Un mètre vingt, rien d’écrit.",
+      "Le four est content, ce matin."
+    ]
+  },
+  {
+    "id": "hiran-amra",
+    "lines": [
+      "Tout se pèse. Même le verre vivant.",
+      "Sept chariots sur dix."
+    ]
+  },
+  {
+    "id": "shal-vera",
+    "lines": [
+      "Le Désert t’a senti venir.",
+      "Ce que tu cherches ne se trouve pas assis."
+    ]
+  },
+  {
+    "id": "marcheuse-souffle",
+    "lines": [
+      "Chaque pas laisse une trace.",
+      "Derrière soi : le seul endroit où l’on ne va pas."
+    ]
+  },
+  {
+    "id": "saal-ema",
+    "lines": [
+      "Assieds-toi, petit pied.",
+      "La bête marche pour moi, maintenant."
+    ]
+  },
+  {
+    "id": "nes-mira",
+    "lines": [
+      "Doucement. Elle sent tes pas.",
+      "Elle est lasse, aujourd’hui."
+    ]
+  },
+  {
+    "id": "ish-lenne",
+    "lines": [
+      "Une halte par soir.",
+      "Ailleurs qu’à sa halte, ce n’est que du bruit."
+    ]
+  },
+  {
+    "id": "keo-sa",
+    "lines": [
+      "Chut, il dort.",
+      "Troisième, quatre. Neuvième, quarante et un."
+    ]
+  },
+  {
+    "id": "ahm-ras",
+    "lines": [
+      "Il manque deux nombres. Je les ai.",
+      "Cela ne prouve rien, dit la halte."
+    ]
+  },
+  {
+    "id": "eskil",
+    "lines": [
+      "Ne dis pas mon nom trop fort.",
+      "Cinq ans que je marche."
+    ]
+  },
+  {
+    "id": "oss-amar",
+    "lines": [
+      "C’est ici qu’elle est morte.",
+      "Qui s’arrête meurt. Je sais."
+    ]
+  },
+  {
+    "id": "dova-ren",
+    "lines": [
+      "Elle dort. Ne la réveille pas.",
+      "Je ne la donnerai pas au Désert."
+    ]
+  },
+  {
+    "id": "ysha-ren",
+    "lines": [
+      "Je marche dans le verre, et je n’ai pas soif.",
+      "Personne ne me demande rien."
+    ]
+  },
+  {
+    "id": "edda-marche",
+    "lines": [
+      "Le lendemain matin, elle était dans un nombre.",
+      "J’ai soif. Ça passera."
+    ]
   }
 ]

@@ -1982,6 +1982,7 @@ Commence par : « coffre-quete » _(si quête « Ce qui n’a plus lieu » en co
 
 > Les pierres d’eau, une par puits, dans l’ordre du cercle ; quelque part là-dedans, la piste de demain, et le jalon qu’elle frôle. À trois pas, Daru’Khen somnole, son bâton sur les genoux.
 
+- _(si repère « rumeur-coffre-guides »)_ **🎲 Discrétion 13** « Soulever le couvercle pendant qu’il dort. » → lu, ✗ → surpris
 - **🎲 Discrétion 16** « Les lire du bout des doigts, sans un bruit. » → lu, ✗ → surpris
 - **🎲 Artisanat 16** « Défaire le nœud du coffre sans le trahir. » → lu, ✗ → surpris
 - « Refermer le coffre. » → **fin**
@@ -3608,6 +3609,7 @@ Commence par : « choix » _(si quête « Le Forage Noir » en cours)_ _(si rep�
 > Un homme pâle sous une toile de Marcheur, des mains d’ouvrier. Il parle bas, avec l’accent d’Ironheart. — Ne dis pas mon nom trop fort. Eskil Kolm. J’étais sur la foreuse, en 2995. Le seul qui n’était pas dedans quand les dragons sont arrivés.
 
 - « Et depuis ? » → depuis
+- _(sans repère « raconte-eskil »)_ « Je te raconte une histoire ? » → raconte-neutre 📖 raconter un Récit : matricule-4-17 → raconte-special ; machines, familles → raconte-touche ; autres → raconte-neutre
 - « Je n’ai rien entendu. » → **fin**
 
 ### depuis
@@ -3661,6 +3663,30 @@ _Effet : lance la quête « Le Forage Noir », retient « forage-commence »._
 > Eskil porte une toile de Marcheur, sans rien dessous qui rappelle Ferros. Il marche à côté des chariots, pieds nus, et il a appris à ne plus compter les kilomètres.
 
 - « Bonne route. » → **fin**
+
+### raconte-special
+
+_Effet : retient « raconte-eskil », +15 XP._
+
+> Eskil écoute sans bouger. À la fin : — Quatre-dix-sept. Chez nous, j’étais un numéro de foreuse. Ici, personne ne m’en a donné. Il essuie ses yeux avec le pouce. — Merci.
+
+- « Merci, Eskil. » → **fin**
+
+### raconte-touche
+
+_Effet : retient « raconte-eskil », +10 XP._
+
+> — Une histoire de chez moi. Ça fait du bien, et ça fait mal. Les deux.
+
+- « Merci, Eskil. » → **fin**
+
+### raconte-neutre
+
+_Effet : retient « raconte-eskil », +5 XP._
+
+> — Merci. Parle doucement, quand même.
+
+- « Merci, Eskil. » → **fin**
 
 ## Euria Sel-Doux
 
@@ -5499,6 +5525,7 @@ Commence par : « merci » _(si repère « episode-dit »)_ _(sans repère « is
 
 - « Et les haltes mortes ? » → mortes
 - « Pourquoi ne rien écrire ? » → ecrire
+- _(sans repère « raconte-ish-lenne »)_ « Je voudrais vous dire une histoire de chez moi. » → raconte-neutre 📖 raconter un Récit : la-septieme-voile → raconte-special ; familles, morts → raconte-touche ; autres → raconte-neutre
 - « Je reviendrai à la halte. » → **fin**
 
 ### mortes
@@ -5648,6 +5675,30 @@ _Effet : retient « thryn-3 », retient « thryn-soir » pour 1 jours, termine l
 _Effet : retient le Récit « Thryn’vek »._
 
 > — Au point vingt-quatre, elle a obtenu que le compte ait deux têtes : une qui verse, une qui entend. Son motif tient en six mots. « Pour qu’on ne puisse plus demander. » — Ish’Lenne te regarde. — Tu l’as entendu à sa place. Il est à toi, maintenant.
+
+- « Merci, Ish’Lenne. » → **fin**
+
+### raconte-special
+
+_Effet : retient « raconte-ish-lenne », +15 XP._
+
+> Ish’Lenne t’écoute les yeux fermés. — Une femme qui recopie la septième voile, chaque jour, sans rien imposer. Elle sourit. — Neth’Sara lui aurait plu. Les deux ont dit ce qu’il fallait, et laissé les autres décider.
+
+- « Merci, Ish’Lenne. » → **fin**
+
+### raconte-touche
+
+_Effet : retient « raconte-ish-lenne », +10 XP._
+
+> — Une histoire sans halte. Elle tient debout toute seule, c’est rare. Je la garderai, sans la dire.
+
+- « Merci, Ish’Lenne. » → **fin**
+
+### raconte-neutre
+
+_Effet : retient « raconte-ish-lenne », +5 XP._
+
+> — Merci. Ailleurs qu’à son lieu, une histoire reste une histoire. Ce n’est pas rien.
 
 - « Merci, Ish’Lenne. » → **fin**
 
@@ -6199,6 +6250,7 @@ Commence par : « nombres » _(si quête « La halte muette » en cours)_ _(sans
 > Une fillette de neuf ans, une écaille rouge au cou, accroupie devant un dragonnet qui ne la regarde pas. — Chut. Il ne mange plus depuis que son Lien est mort. Moi, je lui parle quand même. On n’a pas le droit de se lier avant quinze ans. Lui, il ne le sait pas.
 
 - « Comment tu lui parles ? » → parler
+- _(sans repère « raconte-keo-sa »)_ « Tu veux une histoire ? » → raconte-neutre 📖 raconter un Récit : echelle-de-pim → raconte-special ; familles → raconte-touche ; autres → raconte-neutre
 - _(si quête « Le dragonnet » pas commencée)_ « Je peux t’aider ? » → aider
 - « Je te laisse. » → **fin**
 
@@ -6229,6 +6281,30 @@ _Effet : lance la quête « Le dragonnet », retient « dragonnet-commence »._
 > Kéo’Sa caresse le dragonnet du bout des doigts. — Tu as vu grand-mère ? Elle dit toujours non, d’abord. Après, elle réfléchit.
 
 - « Je reviens. » → **fin**
+
+### raconte-special
+
+_Effet : retient « raconte-keo-sa », +15 XP._
+
+> Kéo’Sa ne dit rien pendant longtemps. Puis, au dragonnet, tout bas : — Elle est tombée, Pim. Mais elle avait des rubans. Moi, j’aurai des écailles.
+
+- « Merci, Kéo’Sa. » → **fin**
+
+### raconte-touche
+
+_Effet : retient « raconte-keo-sa », +10 XP._
+
+> Kéo’Sa écoute en grattant le dragonnet entre les yeux. — Encore une ! Il aime bien, lui aussi.
+
+- « Merci, Kéo’Sa. » → **fin**
+
+### raconte-neutre
+
+_Effet : retient « raconte-keo-sa », +5 XP._
+
+> — Elle était bien. Mais il n’y avait pas de dragon dedans.
+
+- « Merci, Kéo’Sa. » → **fin**
 
 ## Kerta Orvel
 
@@ -7408,6 +7484,7 @@ Commence par : « porte » _(si repère « fin-plus-lieu-longue-ombre »)_ _(san
 
 > — Tu veux savoir ce qu’elle regarde, à chaque tour, au même endroit ? Pose ta main sur sa tête, près de l’œil, et ne pense à rien. Si elle te laisse entrer, tu le sauras. Si elle ne veut pas, n’insiste pas.
 
+- _(si repère « rumeur-longue-ombre-boit »)_ **🎲 Survie 13** « Attendre qu’elle ait bu, puis poser la main. » → vision, ✗ → refus
 - **🎲 Survie 16** « Poser la main près de son œil. » → vision, ✗ → refus
 - « Plus tard. » → **fin**
 
@@ -9104,6 +9181,7 @@ Commence par : « nombres » _(si quête « La halte muette » en cours)_ _(sans
 
 - « Parle-moi de Longue-Ombre. » → bete
 - « Ça ne te manque pas, de marcher ? » → marcher
+- _(sans repère « raconte-saal-ema »)_ « Je vous raconte une histoire d’ailleurs ? » → raconte-neutre 📖 raconter un Récit : odon-passe-rive → raconte-special ; familles, morts → raconte-touche ; autres → raconte-neutre
 - « Je te laisse. » → **fin**
 
 ### bete
@@ -9135,6 +9213,30 @@ _Effet : retient « saal-dragonnet »._
 > — Un lien à neuf ans, c’est un lien qu’on portera toute sa vie, et qu’on ne choisit pas encore. S’il casse, elle cassera avec. Les Liens-Dragons du Cœur pourraient le prendre, un adulte. Mais lui ne voudra peut-être pas.
 
 - « Je comprends. » → **fin**
+
+### raconte-special
+
+_Effet : retient « raconte-saal-ema », +15 XP._
+
+> Saal’Ema hoche la tête longtemps. — Un passeur qui comptait les enfants. Chez nous, ce sont les Gardiennes qui comptent. Elle pose la main sur la carapace. — Personne ne compte les vieux qu’on porte. La bête, peut-être.
+
+- « Merci, Saal’Ema. » → **fin**
+
+### raconte-touche
+
+_Effet : retient « raconte-saal-ema », +10 XP._
+
+> — Une histoire qui n’a pas de lieu. Je l’aime bien quand même. À mon âge, on n’a plus de lieu non plus.
+
+- « Merci, Saal’Ema. » → **fin**
+
+### raconte-neutre
+
+_Effet : retient « raconte-saal-ema », +5 XP._
+
+> — Merci, petit pied. Elle était courte : c’est une qualité.
+
+- « Merci, Saal’Ema. » → **fin**
 
 ## La sacoche des Nacelliers
 
@@ -9756,6 +9858,7 @@ Commence par : « lettre-prise » _(si quête « Ce qui n’a plus lieu » termi
 
 - « Manger ou dormir ? » → servir
 - « Comment vit la Marche ? » → nouvelles
+- « Raconter un Récit à la veillée. » → **fin** _(ouvre la veillée « halte »)_
 - « Au revoir. » → **fin**
 
 ### accueil-2
@@ -9764,6 +9867,7 @@ Commence par : « lettre-prise » _(si quête « Ce qui n’a plus lieu » termi
 
 - « Manger ou dormir ? » → servir
 - « Comment vit la Marche ? » → nouvelles
+- « Raconter un Récit à la veillée. » → **fin** _(ouvre la veillée « halte »)_
 - « Au revoir. » → **fin**
 
 ### accueil-3
@@ -9772,6 +9876,7 @@ Commence par : « lettre-prise » _(si quête « Ce qui n’a plus lieu » termi
 
 - « Manger ou dormir ? » → servir
 - « Comment vit la Marche ? » → nouvelles
+- « Raconter un Récit à la veillée. » → **fin** _(ouvre la veillée « halte »)_
 - « Au revoir. » → **fin**
 
 ### servir
@@ -10610,6 +10715,7 @@ Commence par : « accueil »
 > Un homme dont la peau, par plaques, est devenue du verre ; on voit dessous la lueur du four. — Je coule les jalons. Un mètre vingt, du verre de la Mer de Verre, rien d’écrit dessus. Un jalon ne dit pas ce qui s’est passé : il dit que c’était là.
 
 - « Tu as soif, parfois ? » → soif
+- _(sans repère « raconte-varo-ssin »)_ « Je vous raconte une histoire, pendant que le four chauffe ? » → raconte-neutre 📖 raconter un Récit : jeudi-ordinaire → raconte-special ; ancien-monde → raconte-touche ; autres → raconte-neutre
 - « La Mer de Verre ? » → mer
 - « Je te laisse travailler. » → **fin**
 
@@ -10626,6 +10732,30 @@ Commence par : « accueil »
 
 - « Tu as soif, parfois ? » → soif
 - « Je te laisse travailler. » → **fin**
+
+### raconte-special
+
+_Effet : retient « raconte-varo-ssin », +15 XP._
+
+> Varo’Ssin pose sa canne de verrier. — Un jour comme les autres, dans l’Ancien Monde, juste avant. Il regarde ses mains de verre. — La Mer de Verre, c’était ça aussi, un jeudi. Je coulerai un jalon pour ton histoire. Sans rien dessus.
+
+- « Merci, Varo’Ssin. » → **fin**
+
+### raconte-touche
+
+_Effet : retient « raconte-varo-ssin », +10 XP._
+
+> — Elle a de la tenue, ton histoire. Elle refroidirait droit.
+
+- « Merci, Varo’Ssin. » → **fin**
+
+### raconte-neutre
+
+_Effet : retient « raconte-varo-ssin », +5 XP._
+
+> — Hm. Le verre écoute mieux que moi.
+
+- « Merci, Varo’Ssin. » → **fin**
 
 ## La Veilleuse du Rail
 

@@ -36,6 +36,25 @@
           "next": "parler"
         },
         {
+          "text": "Tu veux une histoire ?",
+          "requires": [
+            {
+              "notFlag": "raconte-keo-sa"
+            }
+          ],
+          "next": "raconte-neutre",
+          "raconter": {
+            "aime": [
+              "familles"
+            ],
+            "recits": {
+              "echelle-de-pim": "raconte-special"
+            },
+            "touche": "raconte-touche",
+            "neutre": "raconte-neutre"
+          }
+        },
+        {
           "text": "Je peux t’aider ?",
           "requires": [
             {
@@ -96,6 +115,57 @@
       "options": [
         {
           "text": "Je reviens.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-special": {
+      "text": "Kéo’Sa ne dit rien pendant longtemps. Puis, au dragonnet, tout bas : — Elle est tombée, Pim. Mais elle avait des rubans. Moi, j’aurai des écailles.",
+      "effects": [
+        {
+          "setFlag": "raconte-keo-sa"
+        },
+        {
+          "giveXp": 15
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Kéo’Sa.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-touche": {
+      "text": "Kéo’Sa écoute en grattant le dragonnet entre les yeux. — Encore une ! Il aime bien, lui aussi.",
+      "effects": [
+        {
+          "setFlag": "raconte-keo-sa"
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Kéo’Sa.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-neutre": {
+      "text": "— Elle était bien. Mais il n’y avait pas de dragon dedans.",
+      "effects": [
+        {
+          "setFlag": "raconte-keo-sa"
+        },
+        {
+          "giveXp": 5
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Kéo’Sa.",
           "next": "fin"
         }
       ]

@@ -77,6 +77,15 @@
           "next": "nouvelles"
         },
         {
+          "text": "Raconter un Récit à la veillée.",
+          "next": "fin",
+          "effects": [
+            {
+              "veillee": "halte"
+            }
+          ]
+        },
+        {
           "text": "Au revoir.",
           "next": "fin"
         }
@@ -94,6 +103,15 @@
           "next": "nouvelles"
         },
         {
+          "text": "Raconter un Récit à la veillée.",
+          "next": "fin",
+          "effects": [
+            {
+              "veillee": "halte"
+            }
+          ]
+        },
+        {
           "text": "Au revoir.",
           "next": "fin"
         }
@@ -109,6 +127,15 @@
         {
           "text": "Comment vit la Marche ?",
           "next": "nouvelles"
+        },
+        {
+          "text": "Raconter un Récit à la veillée.",
+          "next": "fin",
+          "effects": [
+            {
+              "veillee": "halte"
+            }
+          ]
         },
         {
           "text": "Au revoir.",

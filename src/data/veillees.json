@@ -208,5 +208,40 @@
         "texte": "Un matelot du Bel-Écart, à mi-voix : « La cargaison qu’on a perdue ? Doucenet l’a vendue à Terminus, et il nous a dit que la mer l’avait prise. »"
       }
     ]
+  },
+  {
+    "id": "halte",
+    "lieu": "marche-halte",
+    "hote": "tam-ruu",
+    "ville": "marche-mere",
+    "nom": "La Halte",
+    "public": "Des Marcheurs aux pieds bandés, deux verriers qui sentent encore le four, une porteuse d’eau qui écoute debout, et un enfant qui récite les nombres de la Sèche à mi-voix.",
+    "gouts": "Les légendes de la Communion ont leur lieu : ici, on veut des histoires d’ailleurs, de familles et de l’Ancien Monde, dont on garde les ruines sans y toucher. Les histoires de machines, beaucoup moins : depuis le Forage Noir, elles sentent la foreuse.",
+    "aime": [
+      "familles",
+      "ancien-monde"
+    ],
+    "deteste": [
+      "machines"
+    ],
+    "reactions": {
+      "triomphe": "À la fin, personne ne dit rien. Puis la porteuse d’eau te tend sa jarre, et tout le monde boit après toi. Dans la Communion, c’est plus qu’un salut. Tam’Ruu fait passer une écuelle, et elle revient pleine.",
+      "succes": "On t’écoute en mangeant debout. À la fin, un Marcheur dit : « Ça, ça n’a pas de halte. Tant mieux : on pourra le redire où on veut. » L’écuelle de Tam’Ruu fait le tour.",
+      "redite": "« Tu l’as déjà dite, celle-là, à la halte d’avant. » On l’écoute quand même : la piste est longue.",
+      "echec": "Tu la racontes bien, mais on attend la fin à la manière des haltes, et elle ne vient pas. Une verrière hausse les épaules : « Du bavardage. » On parle de l’eau de demain.",
+      "deteste": "Au premier engrenage, un verrier se lève et sort. Quelqu’un murmure : « La foreuse aussi tournait bien. »"
+    },
+    "rumeurs": [
+      {
+        "id": "coffre-guides",
+        "titre": "Le Coffre des routes",
+        "texte": "Un jeune guide, la bouche pleine : « Daru’Khen ? Il dort assis, le soir, à la deuxième heure. Et le coffre ne ferme pas : qui volerait une pierre d’eau ? »"
+      },
+      {
+        "id": "longue-ombre-boit",
+        "titre": "Ce que Longue-Ombre permet",
+        "texte": "Une femme du clan de Saal’Ema : « Longue-Ombre ne se laisse toucher qu’après avoir bu. Nes’Mira le sait, mais elle ne le dit pas aux étrangers. »"
+      }
+    ]
   }
 ]

@@ -43,6 +43,26 @@
           "next": "marcher"
         },
         {
+          "text": "Je vous raconte une histoire d’ailleurs ?",
+          "requires": [
+            {
+              "notFlag": "raconte-saal-ema"
+            }
+          ],
+          "next": "raconte-neutre",
+          "raconter": {
+            "aime": [
+              "familles",
+              "morts"
+            ],
+            "recits": {
+              "odon-passe-rive": "raconte-special"
+            },
+            "touche": "raconte-touche",
+            "neutre": "raconte-neutre"
+          }
+        },
+        {
           "text": "Je te laisse.",
           "next": "fin"
         }
@@ -98,6 +118,57 @@
       "options": [
         {
           "text": "Je comprends.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-special": {
+      "text": "Saal’Ema hoche la tête longtemps. — Un passeur qui comptait les enfants. Chez nous, ce sont les Gardiennes qui comptent. Elle pose la main sur la carapace. — Personne ne compte les vieux qu’on porte. La bête, peut-être.",
+      "effects": [
+        {
+          "setFlag": "raconte-saal-ema"
+        },
+        {
+          "giveXp": 15
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Saal’Ema.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-touche": {
+      "text": "— Une histoire qui n’a pas de lieu. Je l’aime bien quand même. À mon âge, on n’a plus de lieu non plus.",
+      "effects": [
+        {
+          "setFlag": "raconte-saal-ema"
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Saal’Ema.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-neutre": {
+      "text": "— Merci, petit pied. Elle était courte : c’est une qualité.",
+      "effects": [
+        {
+          "setFlag": "raconte-saal-ema"
+        },
+        {
+          "giveXp": 5
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Saal’Ema.",
           "next": "fin"
         }
       ]

@@ -15,6 +15,25 @@
           "next": "soif"
         },
         {
+          "text": "Je vous raconte une histoire, pendant que le four chauffe ?",
+          "requires": [
+            {
+              "notFlag": "raconte-varo-ssin"
+            }
+          ],
+          "next": "raconte-neutre",
+          "raconter": {
+            "aime": [
+              "ancien-monde"
+            ],
+            "recits": {
+              "jeudi-ordinaire": "raconte-special"
+            },
+            "touche": "raconte-touche",
+            "neutre": "raconte-neutre"
+          }
+        },
+        {
           "text": "La Mer de Verre ?",
           "next": "mer"
         },
@@ -46,6 +65,57 @@
         },
         {
           "text": "Je te laisse travailler.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-special": {
+      "text": "Varo’Ssin pose sa canne de verrier. — Un jour comme les autres, dans l’Ancien Monde, juste avant. Il regarde ses mains de verre. — La Mer de Verre, c’était ça aussi, un jeudi. Je coulerai un jalon pour ton histoire. Sans rien dessus.",
+      "effects": [
+        {
+          "setFlag": "raconte-varo-ssin"
+        },
+        {
+          "giveXp": 15
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Varo’Ssin.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-touche": {
+      "text": "— Elle a de la tenue, ton histoire. Elle refroidirait droit.",
+      "effects": [
+        {
+          "setFlag": "raconte-varo-ssin"
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Varo’Ssin.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-neutre": {
+      "text": "— Hm. Le verre écoute mieux que moi.",
+      "effects": [
+        {
+          "setFlag": "raconte-varo-ssin"
+        },
+        {
+          "giveXp": 5
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Varo’Ssin.",
           "next": "fin"
         }
       ]

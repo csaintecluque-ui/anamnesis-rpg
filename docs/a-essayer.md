@@ -313,7 +313,7 @@ En ligne le 2026-11-03 (tes textes du 3 novembre) :
       banc d'huîtres à marée basse).
 - Remarques :
 
-## Chapitre 7, Marche-Mère (en ligne le 2026-11-04, en construction)
+## Chapitre 7, Marche-Mère (en ligne le 2026-11-04)
 
 - [ ] **La caravane** : depuis la carte du monde, après Coralia ; la Marche n'est jamais au même endroit d'un jour à
       l'autre. **Coralia** apparaît aussi, maintenant, après Aetherhaven.
@@ -325,6 +325,8 @@ En ligne le 2026-11-03 (tes textes du 3 novembre) :
 - [ ] **Les haltes** : trois soirs chez Ish'Lenne ; au troisième, la halte muette (Kéo'Sa, Saal'Ema, Yel'Dara).
 - [ ] **Les quêtes de la ville** : Ahm'Ras (la nuit, près du feu), Eskil (convoi des verriers), Ysha'Ren et Dova'Ren,
       Oss'Amar, le dragonnet du Nid ; les guildes (Daru'Khen et le chariot perdu, Hiran'Amra et le lot de cristaux).
+- [ ] **La veillée de la Halte** (chez Tam'Ruu) et ses deux rumeurs ; raconter un Récit à Saal'Ema, Kéo'Sa, Varo'Ssin,
+      Eskil ou Ish'Lenne.
 - Remarques :
 
 ## Déjà en ligne, pas encore essayé sur PC

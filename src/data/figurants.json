@@ -2413,5 +2413,281 @@
       "Ce soir, je chante la Course des Sept Mers. Jamais pareil que la veille : c’est la règle.",
       "Un chant manque à chaque légende. On le laisse au fond. C’est sa place."
     ]
+  },
+  {
+    "id": "marcheur-camp",
+    "location": "marche-camp",
+    "name": "Un Marcheur",
+    "tile": "marcheur",
+    "path": [
+      [
+        6,
+        13
+      ],
+      [
+        14,
+        13
+      ]
+    ],
+    "lines": [
+      "L’eau qui stagne pourrit, le sable qui bouge vit. Mes pieds, eux, voudraient bien stagner un peu.",
+      "Trente kilomètres aujourd’hui. Demain aussi. Après-demain, pareil."
+    ]
+  },
+  {
+    "id": "porteuse-camp",
+    "location": "marche-camp",
+    "name": "Une porteuse d’eau",
+    "tile": "porteuse-eau",
+    "path": [
+      [
+        17,
+        12
+      ],
+      [
+        25,
+        12
+      ]
+    ],
+    "lines": [
+      "La jarre pèse plus lourd le soir. L’eau, elle, pèse pareil.",
+      "On ne refuse pas l’eau. Même à quelqu’un de Ferros. Surtout pas, d’ailleurs."
+    ],
+    "reactions": [
+      {
+        "quest": "chariot-perdu",
+        "lines": [
+          "Le convoyeur du chariot couché ? Il raconte partout qu’un étranger l’a ramené. Il exagère un peu."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "enfant-camp",
+    "location": "marche-camp",
+    "name": "Un enfant de la Marche",
+    "tile": "enfant-marche",
+    "path": [
+      [
+        10,
+        18
+      ],
+      [
+        14,
+        18
+      ]
+    ],
+    "lines": [
+      "Troisième, quatre. Neuvième, quarante et un. On l’apprend à l’école, en marchant.",
+      "Tu viens d’où ? D’un endroit qui ne bouge pas ? Ça doit être triste."
+    ]
+  },
+  {
+    "id": "convoyeur-camp",
+    "location": "marche-camp",
+    "name": "Un convoyeur",
+    "tile": "convoyeur",
+    "path": [
+      [
+        18,
+        13
+      ],
+      [
+        26,
+        13
+      ]
+    ],
+    "lines": [
+      "Mes bœufs sentent l’eau à trois kilomètres. Moi, je sens surtout mes bœufs.",
+      "Une roue cassée hors de la piste, c’est l’Année Errante pour un chariot entier."
+    ]
+  },
+  {
+    "id": "marcheuse-camp",
+    "location": "marche-camp",
+    "name": "Une Marcheuse",
+    "tile": "marcheuse",
+    "path": [
+      [
+        3,
+        15
+      ],
+      [
+        8,
+        15
+      ]
+    ],
+    "lines": [
+      "Le soir, on monte la tente en trente minutes. Le matin, en vingt : on a hâte.",
+      "Les jalons au loin ? Des haltes mortes. On ne les regarde pas trop longtemps."
+    ],
+    "reactions": [
+      {
+        "flag": "episode-dit",
+        "lines": [
+          "Il paraît qu’un étranger a redonné un épisode à une halte morte. Les conteuses n’en dorment plus."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "verrier-convoi",
+    "location": "marche-verriers",
+    "name": "Un verrier",
+    "tile": "verrier",
+    "path": [
+      [
+        3,
+        10
+      ],
+      [
+        10,
+        10
+      ]
+    ],
+    "lines": [
+      "Un mètre vingt, pas un pouce de plus. Un jalon trop grand, on le voit de trop loin.",
+      "La Mer de Verre ? On y va une fois l’an. On en revient avec moins de cheveux."
+    ]
+  },
+  {
+    "id": "convoyeuse-verriers",
+    "location": "marche-verriers",
+    "name": "Une convoyeuse",
+    "tile": "marcheuse",
+    "path": [
+      [
+        14,
+        11
+      ],
+      [
+        22,
+        11
+      ]
+    ],
+    "lines": [
+      "Le cristal fait rouler sept chariots sur dix. Les trois autres, c’est l’eau.",
+      "Ferros paierait le double. Ferros a aussi foré un cimetière. Je fais la moyenne."
+    ],
+    "reactions": [
+      {
+        "flag": "fin-forage-noir-livre",
+        "lines": [
+          "L’homme de Ferros est parti les mains liées. La Matriarche dit que c’est un geste. Un geste de quoi ?"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "marcheuse-coeur",
+    "location": "marche-coeur",
+    "name": "Une Marcheuse du Souffle",
+    "tile": "marcheuse",
+    "path": [
+      [
+        9,
+        11
+      ],
+      [
+        17,
+        11
+      ]
+    ],
+    "lines": [
+      "Chaque pas laisse une trace. Pieds nus, elle est plus nette.",
+      "La Reine écoute le Désert. Le Désert, lui, n’écoute personne."
+    ]
+  },
+  {
+    "id": "lien-dragon-coeur",
+    "location": "marche-coeur",
+    "name": "Une Lien-Dragon",
+    "tile": "marcheuse",
+    "path": [
+      [
+        13,
+        12
+      ],
+      [
+        13,
+        15
+      ]
+    ],
+    "lines": [
+      "Mon dragon a huit cents ans. Il me trouve jeune. Il a raison.",
+      "Rompre un lien, c’est le pire. Pire que tuer, disent certains. Moi, je dis : pareil."
+    ],
+    "reactions": [
+      {
+        "quest": "dragonnet",
+        "lines": [
+          "Le dragonnet du Nid remange. Kéo’Sa marche à côté de lui, fière, en se tenant très droite."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "enfant-longue-ombre",
+    "location": "marche-longue-ombre",
+    "name": "Un enfant du clan",
+    "tile": "enfant-marche",
+    "path": [
+      [
+        3,
+        7
+      ],
+      [
+        10,
+        7
+      ]
+    ],
+    "lines": [
+      "Longue-Ombre ronronne quand on lui gratte entre les plaques. Ne le dis pas à Nes’Mira.",
+      "Sur la bête, on ne marche pas. On a quand même mal aux jambes, à force de rester assis."
+    ]
+  },
+  {
+    "id": "clan-longue-ombre",
+    "location": "marche-longue-ombre",
+    "name": "Une femme du clan",
+    "tile": "marcheuse",
+    "path": [
+      [
+        10,
+        11
+      ],
+      [
+        16,
+        11
+      ]
+    ],
+    "lines": [
+      "Saal’Ema a marché quatre-vingts ans. On la porte. C’est le moins qu’on puisse faire.",
+      "La bête tourne la tête vers le sud, parfois. Nes’Mira dit qu’elle se souvient de quelque chose."
+    ],
+    "reactions": [
+      {
+        "quest": "arreter",
+        "lines": [
+          "Le vieil Oss’Amar ? Il regarde en arrière toute la journée. Au moins, il regarde."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "chanteur-halte",
+    "location": "marche-halte",
+    "name": "Un diseur de nouvelles",
+    "tile": "convoyeur",
+    "path": [
+      [
+        5,
+        4
+      ]
+    ],
+    "lines": [
+      "Ce soir, pas de légende : elles ont leur lieu. Ce soir, des nouvelles, des devinettes, et ce qu’on a vu sur la piste.",
+      "Une devinette : qu’est-ce qui marche avec nous depuis trois mille ans et n’a jamais soif ? Les jalons."
+    ]
   }
 ]

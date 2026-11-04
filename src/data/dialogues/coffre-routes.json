@@ -35,6 +35,20 @@
       "text": "Les pierres d’eau, une par puits, dans l’ordre du cercle ; quelque part là-dedans, la piste de demain, et le jalon qu’elle frôle. À trois pas, Daru’Khen somnole, son bâton sur les genoux.",
       "options": [
         {
+          "text": "Soulever le couvercle pendant qu’il dort.",
+          "requires": [
+            {
+              "flag": "rumeur-coffre-guides"
+            }
+          ],
+          "next": "lu",
+          "roll": {
+            "skill": "stealth",
+            "difficulty": 13
+          },
+          "failNext": "surpris"
+        },
+        {
           "text": "Les lire du bout des doigts, sans un bruit.",
           "next": "lu",
           "roll": {

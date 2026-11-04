@@ -415,3 +415,18 @@ describe('les quêtes de la Marche-Mère', () => {
     expect(flightFare({ ...tailleur, flags: { ...tailleur.flags, [FIRST_CARAVAN_FLAG]: true } }, findPlace('marche-mere')!)).toBe(17);
   });
 });
+
+describe('la vie de la Marche-Mère', () => {
+  it('la veillée de la Halte, chez Tam’Ruu ; ses deux rumeurs rendent plus faciles le Coffre et l’œil de Longue-Ombre', () => {
+    const state = game();
+    state.quests['plus-lieu'] = 'done';
+    expect(optionTexts(state, 'tam-ruu', 'accueil')).toContain('Raconter un Récit à la veillée.');
+    const active = game();
+    talk(active, 'tam-ruu');
+    expect(optionTexts(active, 'coffre-routes', 'coffre-quete')).not.toContain('Soulever le couvercle pendant qu’il dort.');
+    active.flags['rumeur-coffre-guides'] = true;
+    active.flags['rumeur-longue-ombre-boit'] = true;
+    expect(optionTexts(active, 'coffre-routes', 'coffre-quete')).toContain('Soulever le couvercle pendant qu’il dort.');
+    expect(optionTexts(active, 'nes-mira', 'tete')).toContain('Attendre qu’elle ait bu, puis poser la main.');
+  });
+});

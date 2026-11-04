@@ -92,6 +92,20 @@
       "text": "— Tu veux savoir ce qu’elle regarde, à chaque tour, au même endroit ? Pose ta main sur sa tête, près de l’œil, et ne pense à rien. Si elle te laisse entrer, tu le sauras. Si elle ne veut pas, n’insiste pas.",
       "options": [
         {
+          "text": "Attendre qu’elle ait bu, puis poser la main.",
+          "requires": [
+            {
+              "flag": "rumeur-longue-ombre-boit"
+            }
+          ],
+          "next": "vision",
+          "roll": {
+            "skill": "survival",
+            "difficulty": 13
+          },
+          "failNext": "refus"
+        },
+        {
           "text": "Poser la main près de son œil.",
           "next": "vision",
           "roll": {

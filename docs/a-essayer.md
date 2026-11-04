@@ -260,7 +260,7 @@ En ligne le 2026-11-03 (tes textes du 3 novembre) :
       gommée (Investigation) ; puis, la nuit, le portier. Arlo, Mina, Hesper et Lior écoutent un Récit.
 - Remarques :
 
-## Une vue plus reculée, et des gens qui parlent seuls (sur la branche)
+## Une vue plus reculée, et des gens qui parlent seuls (en ligne le 2026-11-04)
 
 - [ ] **La vue** s'ouvre plus loin ; la molette rapproche ou recule (jusqu'à voir tout le lieu). Les noms restent
       lisibles ?

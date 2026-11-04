@@ -64,7 +64,7 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `magie.md` : la magie (cristaux au cou, compétence Résonance, PR, trois pouvoirs, « Un prêt de la Terre ») ; validée.
 - `jalon-2.md` : le jalon 2 (phase 2, animation, avatars, contenu) ; fait et en ligne.
 - `jeu-complet.md` : le jeu complet (ligne directrice, factions, ennemis, quêtes, activités, feuille de route) ; validé.
-- `fil-directeur.md` : le fil directeur de Sept-Portes à la fin (sept caisses, la dame en gris, l'urgence) ; à valider.
+- `fil-directeur.md` : le fil directeur de Sept-Portes à la fin (sept caisses, la dame en gris, l'urgence) ; validé.
 - `jalon-3.md` : le jalon 3, le cœur du jeu complet (combat, compagnons, Échos, veillées, ruines, contrats…) et son bilan ; fait et en ligne.
 - `jalon-4.md` : le jalon 4, l'histoire principale continue ; chapitre 4 (Sept-Portes) en ligne.
 - `histoire-prenante.md` : rendre l'histoire prenante (diagnostic, sept leviers, questions à Cyril) ; nourrit les chantiers 1 et 4.

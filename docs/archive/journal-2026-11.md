@@ -1149,3 +1149,8 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
   chaque nuit (« Mariza »), l'aveu du portier de nuit, le Récit « La dédicace » ; Arlo, Mina, Hesper et Lior
   écoutent un Récit. À valider (`univers/lieux/sept-portes.md`). 767 tests ; vérifié dans Chromium.
 - Cyril : « oui, mets en ligne » : Sept-Portes validée ; Ironheart et Sept-Portes mis en ligne. Le bloc B est fini.
+- Cyril : la fin attendra toutes les villes, mais il faut un vrai fil directeur ; plus de PNJ « comme dans Fallout » ;
+  une vue plus reculée. Fait : zoom 1 par défaut (0,6 au plus loin), 35 passants de plus et des phrases spontanées
+  pour 52 habitants, une bulle à la fois. Proposé puis **validé** (« 1 oui, 2 oui, 3 c, 4 oui ») : le fil directeur
+  (sept caisses, une par continent ; la dame en gris ; la maladie qui s'étend ; chaque caisse, une pièce de la machine
+  et la liste de ceux qui voyageaient avec elle). Passants et phrases mis en ligne pour qu'il les juge en jouant.

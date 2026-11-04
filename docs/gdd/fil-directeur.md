@@ -1,4 +1,4 @@
-# Le fil directeur, de Sept-Portes à la fin (proposition du 2026-11-04, **à valider**)
+# Le fil directeur, de Sept-Portes à la fin (proposition du 2026-11-04, **validée par Cyril** le 2026-11-04 : « 2 oui, 3 c, 4 oui »)
 
 Demande de Cyril (2026-11-04) : « Pour la fin, on va attendre toutes les villes. Mais il faut un vrai fil
 directeur. » Le plan validé (`docs/gdd/jeu-complet.md`) donne la ligne (« Les voies endormies », les Réveilleurs, la
@@ -59,11 +59,11 @@ reste des caisses et des alliances décide. Les fins sont celles de Cyril.
 - **La carte du monde** marque les villes où une trace attend.
 - Les passants en parlent : « Une dame en gris a demandé la voie sept. »
 
-## Ce qui reste à Cyril
+## Décisions de Cyril (2026-11-04)
 
-1. La structure (sept caisses, une par continent, la course contre les Réveilleurs, la dame en gris en visage) : oui ?
-2. **Ce que contiennent les caisses** : (a) ce que l'Ancien Monde a éloigné de la Chute, la technologie que veulent les
-   Réveilleurs ; (b) le registre des voyageurs, les noms des enfants du train ; (c) les deux, chaque caisse une pièce
-   de la machine et la liste de ceux qui voyageaient avec elle. Recommandation : **(c)**.
-3. L'urgence (la maladie s'étend à chaque voie rouverte ; Ilyane oublie plus vite) : oui ?
-4. La page « Le fil » au journal et les marques sur la carte du monde : oui (avant Aetherhaven) ?
+1. La structure (sept caisses, une par continent, la course contre les Réveilleurs, la dame en gris en visage) : **oui**.
+2. **Ce que contiennent les caisses : (c)** : chaque caisse, une pièce de la machine que l'Ancien Monde a éloignée de
+   la Chute (ce que veulent les Réveilleurs) **et** la liste de ceux qui voyageaient avec elle (des enfants). Ce
+   qu'est la machine, et ce qu'elle fait, reste à Cyril ; le jeu ne l'explique pas avant la fin.
+3. L'urgence (la maladie s'étend à chaque voie rouverte ; Ilyane oublie plus vite) : **oui**.
+4. La page « Le fil » au journal et les marques sur la carte du monde, avant Aetherhaven : **oui**.

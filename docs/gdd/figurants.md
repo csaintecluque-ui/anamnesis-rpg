@@ -59,7 +59,7 @@ remplace ses répliques. Canopéa et Gardebois en ont onze (le vote du Conseil, 
 Bosquet qui se tait puis se réchauffe…). Trois figurants immobiles au Conseil (un Druide Vert, une députée des Racines,
 une Voix des Arbres) disent le canon du Conseil des Racines Profondes [NOTION].
 
-## Comme dans Fallout : ils parlent d'eux-mêmes (Cyril, 2026-11-04, propositions **à valider**)
+## Comme dans Fallout : ils parlent d'eux-mêmes (Cyril, 2026-11-04 ; en ligne pour qu'il les juge en jouant)
 
 « Il nous faut plus de PNJ. Comme dans Fallout, pas forcément avec des dialogues poussés, mais juste de petites
 phrases apparaissant au-dessus d'eux. » Et : « une vision plus reculée si on ajoute du monde ».

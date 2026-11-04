@@ -1,0 +1,83 @@
+{
+  "id": "livre-dedicace",
+  "speaker": "livre-dedicace",
+  "entries": [
+    {
+      "requires": [
+        {
+          "flag": "dedicace-lue"
+        }
+      ],
+      "node": "relu"
+    },
+    {
+      "node": "lutrin"
+    }
+  ],
+  "nodes": {
+    "lutrin": {
+      "text": "Sur un lutrin public, un vieux recueil de poèmes venu de Marisol, ouvert à sa dédicace : « À Maryse, qui m’attendra. » Dans la marge, une trace de crayon gommée : quelqu’un a écrit autre chose, et quelqu’un l’a effacé.",
+      "options": [
+        {
+          "text": "Déchiffrer ce qui a été gommé.",
+          "next": "nom",
+          "requires": [
+            {
+              "notFlag": "dedicace-floue"
+            }
+          ],
+          "roll": {
+            "skill": "investigation",
+            "difficulty": 13
+          },
+          "failNext": "floue"
+        },
+        {
+          "text": "Le laisser.",
+          "next": "fin"
+        }
+      ]
+    },
+    "floue": {
+      "text": "Le papier est usé à cet endroit, doux à force d’avoir été gommé. Tu ne lis rien. Avec un œil reposé, demain, peut-être.",
+      "effects": [
+        {
+          "setFlagFor": "dedicace-floue",
+          "days": 1
+        }
+      ],
+      "options": [
+        {
+          "text": "Le laisser.",
+          "next": "fin"
+        }
+      ]
+    },
+    "nom": {
+      "text": "Penché sous la lampe, tu lis le fantôme d’un mot : « Mariza ». Écrit, gommé, réécrit, tant de fois que le papier en est devenu doux. Quelqu’un corrige cette dédicace. À la Grande Bibliothèque, c’est interdit.",
+      "effects": [
+        {
+          "setFlag": "dedicace-lue"
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "Le laisser.",
+          "next": "fin"
+        }
+      ]
+    },
+    "relu": {
+      "text": "La dédicace dit toujours « Maryse ». Dans la marge, le crayon gommé a laissé une ombre que tu sais lire, maintenant : « Mariza ».",
+      "options": [
+        {
+          "text": "Le laisser.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

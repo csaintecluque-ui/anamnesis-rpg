@@ -11,7 +11,78 @@
       "text": "Un garçon aux cheveux presque blancs. — On a appris la doctrine, cette année ! « Si l’Anneau n’arrête pas, c’est permis. » Maman dit que c’est la phrase la plus triste du monde. Papa dit que c’est la plus juste. Ils se disputent, mais sans se taper.",
       "options": [
         {
+          "text": "Tu veux une histoire, Arlo ?",
+          "requires": [
+            {
+              "notFlag": "raconte-arlo"
+            }
+          ],
+          "next": "raconte-neutre",
+          "raconter": {
+            "aime": [
+              "mysteres",
+              "ancien-monde"
+            ],
+            "recits": {
+              "echelle-de-pim": "raconte-pim"
+            },
+            "touche": "raconte-touche",
+            "neutre": "raconte-neutre"
+          }
+        },
+        {
           "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-neutre": {
+      "text": "Arlo écoute en se balançant d’un pied sur l’autre. — Elle est longue. Mina la racontera mieux, elle invente la fin.",
+      "effects": [
+        {
+          "setFlag": "raconte-arlo"
+        },
+        {
+          "giveXp": 5
+        }
+      ],
+      "options": [
+        {
+          "text": "À bientôt, Arlo.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-touche": {
+      "text": "Arlo ouvre de grands yeux. — Et personne ne sait pourquoi ? C’est la meilleure sorte d’histoire. Je la vendrai à l’école.",
+      "effects": [
+        {
+          "setFlag": "raconte-arlo"
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "À bientôt, Arlo.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-pim": {
+      "text": "Arlo fronce les sourcils. — Chez nous, la main s’arrête. Mais l’Anneau n’arrête pas les barreaux qui cassent, hein ? Maman dit que c’est ça, la phrase dangereuse.",
+      "effects": [
+        {
+          "setFlag": "raconte-arlo"
+        },
+        {
+          "giveXp": 15
+        }
+      ],
+      "options": [
+        {
+          "text": "À bientôt, Arlo.",
           "next": "fin"
         }
       ]

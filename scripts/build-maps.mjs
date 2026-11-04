@@ -1138,13 +1138,15 @@ Object.assign(INTERIORS, {
         [2, 1, 'etagere'], [3, 1, 'etagere'], [4, 1, 'etagere'], [6, 1, 'etagere'], [7, 1, 'etagere'], [10, 1, 'etagere'],
         [1, 3, 'etagere'], [1, 4, 'etagere'], [1, 6, 'etagere'],
         [9, 0, 'renfoncement'],
-        [5, 4, 'lutrin'], [8, 5, 'comptoir'], [9, 5, 'comptoir'], [3, 7, 'lutrin'], [10, 7, 'cristal-veille'],
+        [5, 4, 'lutrin'], [8, 5, 'comptoir'], [9, 5, 'comptoir'], [3, 7, 'lutrin'], [10, 7, 'cristal-veille'], [7, 7, 'lutrin'],
       ],
       objects: [
         ['ambroise', 'pnj', 8, 4, { moment: 'jour' }],
         ['portier-nuit', 'pnj', 4, 8, { moment: 'nuit' }],
         ['registre-mains', 'objet', 5, 4],
         ['registre-consultations', 'objet', 3, 7],
+        // Une dédicace qu'on corrige chaque nuit, en cachette (étude du 2026-11-03, H4).
+        ['livre-dedicace', 'objet', 7, 7],
         ['verre-sacre', 'panneau', 10, 7, { texte: 'Sous verre sacré, les manuscrits de Kael : une écriture serrée, qui ne laisse aucune marge. Une main d’enfant, d’abord, puis celle d’un vieil homme.' }],
         ['porte-fonds-muet', 'porte', 9, 0, { cible: 'sept-portes-fonds-muet', arrivee: 'entree', libelle: 'Le Fonds Muet', verrou: 'fonds-muet-ouvert', dialogue: 'porte-fonds-muet' }],
         ['devant-sept-portes-fonds-muet', 'arrivee', 9, 1],

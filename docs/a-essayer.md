@@ -256,6 +256,8 @@ En ligne le 2026-11-03 (tes textes du 3 novembre) :
 - [ ] **Ironheart, le Ferrôme au rebut** (sur la branche) : contre le mur de l'atelier Cendrefer, une main de métal
       qui compte ; Artisanat pour rebrancher sa voix (avec Boulon, c'est mieux). Varka, Kerta, Tam et Joss écoutent un
       Récit.
+- [ ] **Sept-Portes, la dédicace** (sur la branche) : à la Grande Bibliothèque, un recueil sur un lutrin, une marge
+      gommée (Investigation) ; puis, la nuit, le portier. Arlo, Mina, Hesper et Lior écoutent un Récit.
 - Remarques :
 
 ## Déjà en ligne, pas encore essayé sur PC

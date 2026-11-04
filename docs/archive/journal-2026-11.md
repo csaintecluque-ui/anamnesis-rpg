@@ -1145,3 +1145,6 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
 - Sur la branche, **Ironheart** : le Ferrôme au rebut contre l'atelier Cendrefer (Artisanat), « Quatre-dix-sept »
   qui attend Irma Kessel depuis quarante ans, son Récit ; Varka, Kerta, Tam et Joss écoutent un Récit. À valider
   (`univers/lieux/ironheart.md`). 764 tests ; vérifié dans Chromium. Notion : la page du jeu reçoit le bloc B validé.
+- Cyril : « oui, fais Sept-Portes » : Ironheart validée. Sur la branche, **Sept-Portes** : la dédicace corrigée
+  chaque nuit (« Mariza »), l'aveu du portier de nuit, le Récit « La dédicace » ; Arlo, Mina, Hesper et Lior
+  écoutent un Récit. À valider (`univers/lieux/sept-portes.md`). 767 tests ; vérifié dans Chromium.

@@ -97,15 +97,15 @@ trains et les machines ; pas les histoires de puissants (« ici, on tient des li
   poste, ou vingt Fers dans son gant.
 - **Joss Brakel** peut mourir (les Marches) ou être livré au tribunal (le Bureau).
 
-## Vague 3, bloc B : ce qui reste à découvrir (propositions du 2026-11-04, **à valider**)
+## Vague 3, bloc B : ce qui reste à découvrir (propositions du 2026-11-04, **validées par Cyril** le 2026-11-04)
 
 Même modèle que Gardebois et Canopéa (validés) : un mystère, le Récit de la ville hors quête, des habitants qui écoutent.
 
 | Élément | Proposition | Ancrage | Statut |
 |---|---|---|---|
-| Le Ferrôme au rebut | Contre le mur de l'atelier Cendrefer, sous des tôles et des tuyaux rangés, une main de métal dont les doigts comptent jusqu'à quatre, sans fin. Artisanat (difficulté 12) pour rebrancher sa voix ; raté, une étincelle (2 PV), on reprend le lendemain | « la ville qui ne jetait jamais rien » [NOTION, roman] ; « Ferros ne brûle rien : Ferros classe » | à valider |
-| **Quatre-dix-sept** et **Irma Kessel** | « Matricule quatre-dix-sept, porteur. En attente de : Irma Kessel, riveteuse, Équipe Six. Elle a dit : attends-moi ici, je redescends. » Quatorze mille six cents relèves, quarante ans. Elle est montée aux Manufactures avec son Innovation. Récit « Quatre-dix-sept » (machines, familles, puissants) : le Récit d'Ironheart hors quête. Boulon, s'il est là : « On ne fond pas un Ferrôme : on le range. Moi, j'ai eu de la chance. » | l'Innovation qui fait monter, « ceux qui montent ne vous regardent plus pareil » [NOTION, roman] ; les Ferrômes au statut ambigu [NOTION] | à valider |
-| Varka | Au Récit « L'échelle de Pim » : « Un garde-corps pour ceux d'en haut, une échelle pour les petits. Chez nous, c'est pareil, en fer. » | — | à valider |
-| Kerta | Au Récit « Saule » : « C'est pour ça que je veux que Tam monte. Là-haut, au moins, on ne meurt pas sous les déblais. On y meurt autrement, peut-être. » | sa quête (validée) | à valider |
-| Tam | Au Récit « Le savant du dernier quai » : « Si mon masque réussit, ils le prendront là-haut et nous laisseront la toux. C'est ça qu'il voulait dire ? » | sa quête (validée) | à valider |
-| Joss | Au Récit « Le convoi sans conducteur » : « À l'aiguillage, on ne rit pas des trains qu'on n'a pas vus passer. On les note quand même, au cas où. » | — | à valider |
+| Le Ferrôme au rebut | Contre le mur de l'atelier Cendrefer, sous des tôles et des tuyaux rangés, une main de métal dont les doigts comptent jusqu'à quatre, sans fin. Artisanat (difficulté 12) pour rebrancher sa voix ; raté, une étincelle (2 PV), on reprend le lendemain | « la ville qui ne jetait jamais rien » [NOTION, roman] ; « Ferros ne brûle rien : Ferros classe » | validé (2026-11-04) |
+| **Quatre-dix-sept** et **Irma Kessel** | « Matricule quatre-dix-sept, porteur. En attente de : Irma Kessel, riveteuse, Équipe Six. Elle a dit : attends-moi ici, je redescends. » Quatorze mille six cents relèves, quarante ans. Elle est montée aux Manufactures avec son Innovation. Récit « Quatre-dix-sept » (machines, familles, puissants) : le Récit d'Ironheart hors quête. Boulon, s'il est là : « On ne fond pas un Ferrôme : on le range. Moi, j'ai eu de la chance. » | l'Innovation qui fait monter, « ceux qui montent ne vous regardent plus pareil » [NOTION, roman] ; les Ferrômes au statut ambigu [NOTION] | validé (2026-11-04) |
+| Varka | Au Récit « L'échelle de Pim » : « Un garde-corps pour ceux d'en haut, une échelle pour les petits. Chez nous, c'est pareil, en fer. » | — | validé (2026-11-04) |
+| Kerta | Au Récit « Saule » : « C'est pour ça que je veux que Tam monte. Là-haut, au moins, on ne meurt pas sous les déblais. On y meurt autrement, peut-être. » | sa quête (validée) | validé (2026-11-04) |
+| Tam | Au Récit « Le savant du dernier quai » : « Si mon masque réussit, ils le prendront là-haut et nous laisseront la toux. C'est ça qu'il voulait dire ? » | sa quête (validée) | validé (2026-11-04) |
+| Joss | Au Récit « Le convoi sans conducteur » : « À l'aiguillage, on ne rit pas des trains qu'on n'a pas vus passer. On les note quand même, au cas où. » | — | validé (2026-11-04) |

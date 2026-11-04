@@ -11,7 +11,52 @@
       "text": "Un homme à la lanterne sourde. — La Bibliothèque dort, et les livres aussi. Revenez quand le Conservateur sera au guichet.",
       "options": [
         {
+          "text": "Qui écrit « Mariza » dans la marge du lutrin ?",
+          "next": "aveu",
+          "requires": [
+            {
+              "flag": "dedicace-lue"
+            },
+            {
+              "notFlag": "portier-aveu"
+            }
+          ]
+        },
+        {
           "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "aveu": {
+      "text": "Le portier baisse sa lanterne. — Ma mère s’appelait Mariza. Mon père lui a écrit ces poèmes, et le copiste s’est trompé de nom. Il est interdit de corriger une dédicace d’origine : je l’écris quand même, à la troisième cloche.",
+      "options": [
+        {
+          "text": "Et le matin, quelqu’un l’efface.",
+          "next": "aveu-2"
+        }
+      ]
+    },
+    "aveu-2": {
+      "text": "— Un Chroniqueur, toujours le même. Il efface au crayon, jamais à l’encre, et toujours en dernier, après ses autres pages. Nous ne nous sommes jamais parlé. Chacun fait son métier.",
+      "effects": [
+        {
+          "setFlag": "portier-aveu"
+        },
+        {
+          "learnRecit": "la-dedicace"
+        },
+        {
+          "giveXp": 20
+        }
+      ],
+      "options": [
+        {
+          "text": "Je n’ai rien vu.",
+          "next": "fin"
+        },
+        {
+          "text": "Bonne ronde.",
           "next": "fin"
         }
       ]

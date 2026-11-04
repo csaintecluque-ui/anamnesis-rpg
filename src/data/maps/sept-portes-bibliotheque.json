@@ -11,7 +11,7 @@
  "tilewidth": 64,
  "tileheight": 32,
  "nextlayerid": 4,
- "nextobjectid": 10,
+ "nextobjectid": 11,
  "layers": [
   {
    "id": 1,
@@ -248,7 +248,7 @@
     0,
     0,
     0,
-    0,
+    172,
     0,
     0,
     45,
@@ -397,6 +397,19 @@
     },
     {
      "id": 7,
+     "name": "livre-dedicace",
+     "type": "objet",
+     "x": 240,
+     "y": 240,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": []
+    },
+    {
+     "id": 8,
      "name": "verre-sacre",
      "type": "panneau",
      "x": 336,
@@ -415,7 +428,7 @@
      ]
     },
     {
-     "id": 8,
+     "id": 9,
      "name": "porte-fonds-muet",
      "type": "porte",
      "x": 304,
@@ -454,7 +467,7 @@
      ]
     },
     {
-     "id": 9,
+     "id": 10,
      "name": "devant-sept-portes-fonds-muet",
      "type": "arrivee",
      "x": 304,

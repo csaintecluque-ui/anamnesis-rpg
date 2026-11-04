@@ -3,7 +3,8 @@ import { DIALOGUES } from '../data/dialogues';
 import { createNewGame, type GameState } from '../state/gameState';
 import { applyEffects, performRoll, raconterOption, visibleOptions } from './dialogue';
 import { addItem, ownedCount } from './inventory';
-import { knowsRecit, learnRecit } from './recits';
+import { RECITS, knowsRecit, learnRecit } from './recits';
+import { PUBLICS } from './veillees';
 import { choose, optionTexts, testCharacter } from './questTestKit';
 
 /** Étude du 2026-11-03, vague 3, bloc B : ce qui brille sous le pont, et les habitants qui écoutent (Gardebois). */
@@ -133,6 +134,41 @@ describe('les habitants d’Ironheart écoutent un Récit, une fois chacun (D3)'
       learnRecit(state.character!, recit);
       expect(tell(state, npc, node, recit), npc).toBe(special);
       expect(visibleOptions(DIALOGUES[npc].nodes[node], state).some((v) => v.option.raconter), npc).toBe(false);
+    }
+  });
+});
+
+describe('Sept-Portes : la dédicace qu’on corrige chaque nuit (H4, F4)', () => {
+  it('on déchiffre le nom gommé ; le portier de nuit avoue, et l’on gagne le Récit de Sept-Portes', () => {
+    const state = game();
+    expect(optionTexts(state, 'portier-nuit', 'accueil')).toEqual(['Au revoir.']);
+    applyEffects(state, DIALOGUES['livre-dedicace'].nodes.nom.effects);
+    choose(state, 'portier-nuit', 'accueil', 'Qui écrit « Mariza »');
+    choose(state, 'portier-nuit', 'aveu', 'Et le matin');
+    expect(knowsRecit(state.character!, 'la-dedicace')).toBe(true);
+    expect(optionTexts(state, 'portier-nuit', 'accueil')).toEqual(['Au revoir.']);
+  });
+});
+
+describe('les habitants de Sept-Portes écoutent un Récit, une fois chacun (D3)', () => {
+  it('Arlo, Mina, Hesper et Lior ont chacun leur Récit préféré', () => {
+    for (const [npc, node, recit, special] of [
+      ['arlo', 'accueil', 'echelle-de-pim', 'raconte-pim'],
+      ['mina', 'accueil', 'berceuse-de-maelis', 'raconte-berceuse'],
+      ['hesper', 'accueil', 'odon-passe-rive', 'raconte-odon'],
+      ['lior', 'accueil', 'jeudi-ordinaire', 'raconte-jeudi'],
+    ]) {
+      const state = game();
+      learnRecit(state.character!, recit);
+      expect(tell(state, npc, node, recit), npc).toBe(special);
+      expect(visibleOptions(DIALOGUES[npc].nodes[node], state).some((v) => v.option.raconter), npc).toBe(false);
+    }
+  });
+
+  it('chaque ville a son Récit hors quête, et chaque Récit nouveau plaît à au moins un public de veillée', () => {
+    for (const id of ['odon-passe-rive', 'echelle-de-pim', 'matricule-4-17', 'la-dedicace']) {
+      const recit = RECITS.find((r) => r.id === id)!;
+      expect(PUBLICS.some((p) => p.aime.some((t) => recit.themes.includes(t))), id).toBe(true);
     }
   });
 });

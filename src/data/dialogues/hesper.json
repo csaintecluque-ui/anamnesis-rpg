@@ -95,6 +95,27 @@
       "text": "Une vieille femme en cape couleur parchemin pose sa lanterne. — Un Gardien de Gardebois ? Ilyane t’a bien formé, à te voir. Repose-toi ici, et regarde le tableau : on y épingle ce qu’on nous demande.",
       "options": [
         {
+          "text": "Je voudrais vous confier une histoire.",
+          "requires": [
+            {
+              "notFlag": "raconte-hesper"
+            }
+          ],
+          "next": "raconte-neutre",
+          "raconter": {
+            "aime": [
+              "ancien-monde",
+              "mysteres",
+              "familles"
+            ],
+            "recits": {
+              "odon-passe-rive": "raconte-odon"
+            },
+            "touche": "raconte-touche",
+            "neutre": "raconte-neutre"
+          }
+        },
+        {
           "text": "Merci, Hesper.",
           "next": "fin"
         }
@@ -203,6 +224,27 @@
       "text": "— Les Gardiens te gardent une chambre, ici, quand tu veux. Et le tableau a toujours besoin de bras.",
       "options": [
         {
+          "text": "Je voudrais vous confier une histoire.",
+          "requires": [
+            {
+              "notFlag": "raconte-hesper"
+            }
+          ],
+          "next": "raconte-neutre",
+          "raconter": {
+            "aime": [
+              "ancien-monde",
+              "mysteres",
+              "familles"
+            ],
+            "recits": {
+              "odon-passe-rive": "raconte-odon"
+            },
+            "touche": "raconte-touche",
+            "neutre": "raconte-neutre"
+          }
+        },
+        {
           "text": "Au revoir.",
           "next": "fin"
         }
@@ -237,6 +279,57 @@
         {
           "text": "Et la clé de rouille bleue ?",
           "next": "cle"
+        }
+      ]
+    },
+    "raconte-neutre": {
+      "text": "Hesper écoute, les mains jointes sur sa lanterne. — Bien dite. Une histoire bien dite, c’est déjà une histoire gardée.",
+      "effects": [
+        {
+          "setFlag": "raconte-hesper"
+        },
+        {
+          "giveXp": 5
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Hesper.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-touche": {
+      "text": "Hesper ferme les yeux pour mieux l’entendre. — Celle-là, je la ferai recopier pour la maison mère. Avec ton nom en haut, comme Ilyane te l’a appris.",
+      "effects": [
+        {
+          "setFlag": "raconte-hesper"
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Hesper.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-odon": {
+      "text": "Hesper écrit le nom d’Odon dans un registre de cuir. — Les Gardiens gardent aussi ceux qui faisaient passer. Il n’avait pas de papiers à donner : il avait des noms. C’est la même chose.",
+      "effects": [
+        {
+          "setFlag": "raconte-hesper"
+        },
+        {
+          "giveXp": 15
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Hesper.",
+          "next": "fin"
         }
       ]
     }

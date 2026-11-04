@@ -34,6 +34,26 @@
           "next": "ironie"
         },
         {
+          "text": "J’ai une histoire, si elle vaut une carte.",
+          "requires": [
+            {
+              "notFlag": "raconte-lior"
+            }
+          ],
+          "next": "raconte-neutre",
+          "raconter": {
+            "aime": [
+              "ancien-monde",
+              "mysteres"
+            ],
+            "recits": {
+              "jeudi-ordinaire": "raconte-jeudi"
+            },
+            "touche": "raconte-touche",
+            "neutre": "raconte-neutre"
+          }
+        },
+        {
           "text": "Au revoir.",
           "next": "fin"
         }
@@ -74,6 +94,57 @@
         },
         {
           "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-neutre": {
+      "text": "Lior écoute en roulant et déroulant une carte. — Elle n’a pas de nord, ton histoire. Ce n’est pas un reproche : les meilleures n’en ont pas.",
+      "effects": [
+        {
+          "setFlag": "raconte-lior"
+        },
+        {
+          "giveXp": 5
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Lior.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-touche": {
+      "text": "Lior sort une plume. — Attends, je note où elle se passe. Une histoire sans lieu, ça se perd ; avec un lieu, ça devient une carte.",
+      "effects": [
+        {
+          "setFlag": "raconte-lior"
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Lior.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-jeudi": {
+      "text": "Lior déroule une vieille carte où toutes les voies s’arrêtent net. — Un jeudi. Sur mes cartes, toutes les lignes de l’Ancien Monde s’arrêtent le même jour. Je n’avais jamais pensé à demander quel temps il faisait.",
+      "effects": [
+        {
+          "setFlag": "raconte-lior"
+        },
+        {
+          "giveXp": 15
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Lior.",
           "next": "fin"
         }
       ]

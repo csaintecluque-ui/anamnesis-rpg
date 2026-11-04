@@ -79,8 +79,12 @@ renommée, rumeurs qui ouvrent des secrets). Chaque Récit porte ses thèmes (`t
   (familles, mystères ; « Odon Passe-Rive »), Malo (mystères, familles ; « L'échelle de Pim »).
 - **Un Récit par ville hors quête** (F4) : à Gardebois, « Odon Passe-Rive », par le mystère du pont et Sylvan ; à
   Canopéa, « L'échelle de Pim », par l'échelle aux rubans et le nom gravé au Bosquet (Mémoire 3) ; à Ironheart,
-  « Quatre-dix-sept », par le Ferrôme au rebut des Forges-Basses (Artisanat).
+  « Quatre-dix-sept », par le Ferrôme au rebut des Forges-Basses (Artisanat) ; à Sept-Portes, « La dédicace », par
+  le lutrin de la Grande Bibliothèque (Investigation) et le portier de nuit.
 - À Ironheart : Varka (trains, machines ; « L'échelle de Pim »), Kerta (familles ; « Saule »), Tam (machines,
   familles ; « Le savant du dernier quai »), Joss (trains, mystères ; « Le convoi sans conducteur »).
+- À Sept-Portes : Arlo (mystères, Ancien Monde ; « L'échelle de Pim »), Mina (chansons, mystères ; la berceuse :
+  deux Fers), Hesper (Ancien Monde, mystères, familles ; « Odon Passe-Rive »), Lior (Ancien Monde, mystères ; « Un
+  jeudi ordinaire »). Chaque nouveau Récit plaît à au moins un public de veillée (test).
 - **Le plafond reste Mémoire + 1** (l'étude proposait + 2 ; décision de Cyril, 2026-11-04) : avec plus de Récits à
   gagner, c'est le plafond qui rend l'oubli réel.

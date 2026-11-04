@@ -185,5 +185,14 @@
       "familles",
       "puissants"
     ]
+  },
+  {
+    "id": "la-dedicace",
+    "titre": "La dédicace",
+    "texte": "À Sept-Portes, il est interdit de corriger une dédicace d’origine. Chaque nuit, à la troisième cloche, le portier de la Grande Bibliothèque écrit au crayon, dans une marge, le vrai nom de sa mère, que le copiste avait mal écrit. Chaque matin, un Chroniqueur l’efface. Ils ne se sont jamais parlé.",
+    "themes": [
+      "familles",
+      "mysteres"
+    ]
   }
 ]

@@ -681,6 +681,11 @@
     "role": "Grande Bibliothèque"
   },
   {
+    "id": "livre-dedicace",
+    "name": "Un recueil sur un lutrin",
+    "role": "Grande Bibliothèque"
+  },
+  {
     "id": "porte-fonds-muet",
     "name": "La porte du Fonds Muet",
     "role": "Grande Bibliothèque"

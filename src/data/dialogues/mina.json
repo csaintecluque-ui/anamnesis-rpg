@@ -11,7 +11,81 @@
       "text": "— Moi, je sais ce que c’est, le raccompagnement : deux agents, une voiture, et on te pose au cent unième kilomètre. On y joue, dans la cour. C’est toujours Arlo qu’on raccompagne.",
       "options": [
         {
+          "text": "Tu veux une histoire, Mina ?",
+          "requires": [
+            {
+              "notFlag": "raconte-mina"
+            }
+          ],
+          "next": "raconte-neutre",
+          "raconter": {
+            "aime": [
+              "chansons",
+              "mysteres"
+            ],
+            "recits": {
+              "berceuse-de-maelis": "raconte-berceuse"
+            },
+            "touche": "raconte-touche",
+            "neutre": "raconte-neutre"
+          }
+        },
+        {
           "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-neutre": {
+      "text": "Mina écoute jusqu’au bout, sérieuse. — Je changerais la fin. Mais c’est la tienne, alors je ne dis rien.",
+      "effects": [
+        {
+          "setFlag": "raconte-mina"
+        },
+        {
+          "giveXp": 5
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Mina.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-touche": {
+      "text": "Mina tape dans ses mains. — Encore ! Non : demain. Il faut garder les bonnes pour demain.",
+      "effects": [
+        {
+          "setFlag": "raconte-mina"
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Mina.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-berceuse": {
+      "text": "Mina chante avec toi, très faux, puis s’arrête net. — Les grands disent que les légendes, ça s’achète. Je te l’achète : tiens. Elle te tend deux Fers tout chauds de sa main.",
+      "effects": [
+        {
+          "setFlag": "raconte-mina"
+        },
+        {
+          "giveXp": 15
+        },
+        {
+          "giveFers": 2
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Mina.",
           "next": "fin"
         }
       ]

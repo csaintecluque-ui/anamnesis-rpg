@@ -535,7 +535,32 @@ Commence par : « accueil »
 
 > Un garçon aux cheveux presque blancs. — On a appris la doctrine, cette année ! « Si l’Anneau n’arrête pas, c’est permis. » Maman dit que c’est la phrase la plus triste du monde. Papa dit que c’est la plus juste. Ils se disputent, mais sans se taper.
 
+- _(sans repère « raconte-arlo »)_ « Tu veux une histoire, Arlo ? » → raconte-neutre 📖 raconter un Récit : echelle-de-pim → raconte-pim ; mysteres, ancien-monde → raconte-touche ; autres → raconte-neutre
 - « Au revoir. » → **fin**
+
+### raconte-neutre
+
+_Effet : retient « raconte-arlo », +5 XP._
+
+> Arlo écoute en se balançant d’un pied sur l’autre. — Elle est longue. Mina la racontera mieux, elle invente la fin.
+
+- « À bientôt, Arlo. » → **fin**
+
+### raconte-touche
+
+_Effet : retient « raconte-arlo », +10 XP._
+
+> Arlo ouvre de grands yeux. — Et personne ne sait pourquoi ? C’est la meilleure sorte d’histoire. Je la vendrai à l’école.
+
+- « À bientôt, Arlo. » → **fin**
+
+### raconte-pim
+
+_Effet : retient « raconte-arlo », +15 XP._
+
+> Arlo fronce les sourcils. — Chez nous, la main s’arrête. Mais l’Anneau n’arrête pas les barreaux qui cassent, hein ? Maman dit que c’est ça, la phrase dangereuse.
+
+- « À bientôt, Arlo. » → **fin**
 
 ## Boulon
 
@@ -2470,6 +2495,7 @@ Commence par : « fin-vendue » _(si quête « Les Mémoires du Monde Perdu » e
 
 > Une vieille femme en cape couleur parchemin pose sa lanterne. — Un Gardien de Gardebois ? Ilyane t’a bien formé, à te voir. Repose-toi ici, et regarde le tableau : on y épingle ce qu’on nous demande.
 
+- _(sans repère « raconte-hesper »)_ « Je voudrais vous confier une histoire. » → raconte-neutre 📖 raconter un Récit : odon-passe-rive → raconte-odon ; ancien-monde, mysteres, familles → raconte-touche ; autres → raconte-neutre
 - « Merci, Hesper. » → **fin**
 
 ### appel
@@ -2523,6 +2549,7 @@ _Effet : termine la quête « Les Mémoires du Monde Perdu », retient « fin-me
 
 > — Les Gardiens te gardent une chambre, ici, quand tu veux. Et le tableau a toujours besoin de bras.
 
+- _(sans repère « raconte-hesper »)_ « Je voudrais vous confier une histoire. » → raconte-neutre 📖 raconter un Récit : odon-passe-rive → raconte-odon ; ancien-monde, mysteres, familles → raconte-touche ; autres → raconte-neutre
 - « Au revoir. » → **fin**
 
 ### fin-silence
@@ -2538,6 +2565,30 @@ _Effet : termine la quête « Les Mémoires du Monde Perdu », retient « fin-me
 > Hesper rit, sans se vexer. — Les vieilles parlent par énigmes parce que les jeunes n’écoutent que ça. Je recommence, plus simple : au Registre, quelqu’un ment. Trouve qui.
 
 - « Et la clé de rouille bleue ? » → cle
+
+### raconte-neutre
+
+_Effet : retient « raconte-hesper », +5 XP._
+
+> Hesper écoute, les mains jointes sur sa lanterne. — Bien dite. Une histoire bien dite, c’est déjà une histoire gardée.
+
+- « Merci, Hesper. » → **fin**
+
+### raconte-touche
+
+_Effet : retient « raconte-hesper », +10 XP._
+
+> Hesper ferme les yeux pour mieux l’entendre. — Celle-là, je la ferai recopier pour la maison mère. Avec ton nom en haut, comme Ilyane te l’a appris.
+
+- « Merci, Hesper. » → **fin**
+
+### raconte-odon
+
+_Effet : retient « raconte-hesper », +15 XP._
+
+> Hesper écrit le nom d’Odon dans un registre de cuir. — Les Gardiens gardent aussi ceux qui faisaient passer. Il n’avait pas de papiers à donner : il avait des noms. C’est la même chose.
+
+- « Merci, Hesper. » → **fin**
 
 ## L’huissier du Conseil
 
@@ -3875,6 +3926,7 @@ Commence par : « altavent » _(si quête « Les Mémoires du Monde Perdu » en 
 
 - « Où mènent-elles ? » → portes
 - « Un cartographe qui ne sait pas où mène la septième Porte. Rassurant. » → ironie
+- _(sans repère « raconte-lior »)_ « J’ai une histoire, si elle vaut une carte. » → raconte-neutre 📖 raconter un Récit : jeudi-ordinaire → raconte-jeudi ; ancien-monde, mysteres → raconte-touche ; autres → raconte-neutre
 - « Au revoir. » → **fin**
 
 ### portes
@@ -3897,6 +3949,30 @@ _Effet : retient « altavent-situe », +15 XP._
 
 - « Où mènent-elles ? » → portes
 - « Au revoir. » → **fin**
+
+### raconte-neutre
+
+_Effet : retient « raconte-lior », +5 XP._
+
+> Lior écoute en roulant et déroulant une carte. — Elle n’a pas de nord, ton histoire. Ce n’est pas un reproche : les meilleures n’en ont pas.
+
+- « Merci, Lior. » → **fin**
+
+### raconte-touche
+
+_Effet : retient « raconte-lior », +10 XP._
+
+> Lior sort une plume. — Attends, je note où elle se passe. Une histoire sans lieu, ça se perd ; avec un lieu, ça devient une carte.
+
+- « Merci, Lior. » → **fin**
+
+### raconte-jeudi
+
+_Effet : retient « raconte-lior », +15 XP._
+
+> Lior déroule une vieille carte où toutes les voies s’arrêtent net. — Un jeudi. Sur mes cartes, toutes les lignes de l’Ancien Monde s’arrêtent le même jour. Je n’avais jamais pensé à demander quel temps il faisait.
+
+- « Merci, Lior. » → **fin**
 
 ## Lisandre Ramelune
 
@@ -4021,6 +4097,41 @@ _Effet : retient « lisandre-flute-dit »._
 - « Quelles nouvelles ? » → nouvelles
 - « Raconter un Récit à la veillée. » → **fin** _(ouvre la veillée « nid »)_
 - « Au revoir. » → **fin**
+
+## Un recueil sur un lutrin
+
+_Grande Bibliothèque_
+
+Commence par : « relu » _(si repère « dedicace-lue »)_, sinon « lutrin »
+
+### lutrin
+
+> Sur un lutrin public, un vieux recueil de poèmes venu de Marisol, ouvert à sa dédicace : « À Maryse, qui m’attendra. » Dans la marge, une trace de crayon gommée : quelqu’un a écrit autre chose, et quelqu’un l’a effacé.
+
+- _(sans repère « dedicace-floue »)_ **🎲 Investigation 13** « Déchiffrer ce qui a été gommé. » → nom, ✗ → floue
+- « Le laisser. » → **fin**
+
+### floue
+
+_Effet : retient « dedicace-floue » pour 1 jours._
+
+> Le papier est usé à cet endroit, doux à force d’avoir été gommé. Tu ne lis rien. Avec un œil reposé, demain, peut-être.
+
+- « Le laisser. » → **fin**
+
+### nom
+
+_Effet : retient « dedicace-lue », +10 XP._
+
+> Penché sous la lampe, tu lis le fantôme d’un mot : « Mariza ». Écrit, gommé, réécrit, tant de fois que le papier en est devenu doux. Quelqu’un corrige cette dédicace. À la Grande Bibliothèque, c’est interdit.
+
+- « Le laisser. » → **fin**
+
+### relu
+
+> La dédicace dit toujours « Maryse ». Dans la marge, le crayon gommé a laissé une ombre que tu sais lire, maintenant : « Mariza ».
+
+- « Le laisser. » → **fin**
 
 ## Lyra Cœur-de-Sève
 
@@ -4256,7 +4367,32 @@ Commence par : « accueil »
 
 > — Moi, je sais ce que c’est, le raccompagnement : deux agents, une voiture, et on te pose au cent unième kilomètre. On y joue, dans la cour. C’est toujours Arlo qu’on raccompagne.
 
+- _(sans repère « raconte-mina »)_ « Tu veux une histoire, Mina ? » → raconte-neutre 📖 raconter un Récit : berceuse-de-maelis → raconte-berceuse ; chansons, mysteres → raconte-touche ; autres → raconte-neutre
 - « Au revoir. » → **fin**
+
+### raconte-neutre
+
+_Effet : retient « raconte-mina », +5 XP._
+
+> Mina écoute jusqu’au bout, sérieuse. — Je changerais la fin. Mais c’est la tienne, alors je ne dis rien.
+
+- « Merci, Mina. » → **fin**
+
+### raconte-touche
+
+_Effet : retient « raconte-mina », +10 XP._
+
+> Mina tape dans ses mains. — Encore ! Non : demain. Il faut garder les bonnes pour demain.
+
+- « Merci, Mina. » → **fin**
+
+### raconte-berceuse
+
+_Effet : retient « raconte-mina », +15 XP, +2 Fers._
+
+> Mina chante avec toi, très faux, puis s’arrête net. — Les grands disent que les légendes, ça s’achète. Je te l’achète : tiens. Elle te tend deux Fers tout chauds de sa main.
+
+- « Merci, Mina. » → **fin**
 
 ## Mirelle Doucebranche
 
@@ -4999,7 +5135,23 @@ Commence par : « accueil »
 
 > Un homme à la lanterne sourde. — La Bibliothèque dort, et les livres aussi. Revenez quand le Conservateur sera au guichet.
 
+- _(si repère « dedicace-lue »)_ _(sans repère « portier-aveu »)_ « Qui écrit « Mariza » dans la marge du lutrin ? » → aveu
 - « Au revoir. » → **fin**
+
+### aveu
+
+> Le portier baisse sa lanterne. — Ma mère s’appelait Mariza. Mon père lui a écrit ces poèmes, et le copiste s’est trompé de nom. Il est interdit de corriger une dédicace d’origine : je l’écris quand même, à la troisième cloche.
+
+- « Et le matin, quelqu’un l’efface. » → aveu-2
+
+### aveu-2
+
+_Effet : retient « portier-aveu », retient le Récit « La dédicace », +20 XP._
+
+> — Un Chroniqueur, toujours le même. Il efface au crayon, jamais à l’encre, et toujours en dernier, après ses autres pages. Nous ne nous sommes jamais parlé. Chacun fait son métier.
+
+- « Je n’ai rien vu. » → **fin**
+- « Bonne ronde. » → **fin**
 
 ## Sous le pont
 

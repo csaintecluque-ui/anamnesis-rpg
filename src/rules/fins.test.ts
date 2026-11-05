@@ -43,6 +43,7 @@ describe('les fins vues (étude B11)', () => {
       ['sept-nuits', 3],
       ['arreter', 3],
       ['dragonnet', 3],
+      ['glace-pris', 4],
     ]);
   });
 

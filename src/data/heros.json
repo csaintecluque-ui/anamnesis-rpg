@@ -53,6 +53,14 @@
       "titre": "La couverture",
       "texte": "Une couverture pour deux, parce qu’il n’y en avait qu’une. L’autre enfant me laissait le côté chaud.",
       "reve": "Cette nuit, tu as froid d’un côté seulement. De l’autre, quelqu’un de petit te laisse le côté chaud. Au réveil, tu as tiré la couverture vers toi, et il n’y a personne."
+    },
+    {
+      "id": "chaussures",
+      "flag": "heros-fragment-chaussures",
+      "chapitre": 9,
+      "titre": "Les chaussures",
+      "texte": "Le froid aux pieds, sur le quai. Mes chaussures étaient trop grandes : elles n’étaient pas à moi.",
+      "reve": "Cette nuit, tu as froid aux pieds, sur un quai que tu ne vois pas. Tu marches dans des chaussures trop grandes, et quelqu’un te dit de ne pas les perdre. Au réveil, tu regardes tes bottes : elles sont à ta taille."
     }
   ],
   "manque": "Il manque encore quelque chose. Un quai, peut-être."

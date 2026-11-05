@@ -120,6 +120,38 @@
     {
       "flag": "caisse-communion-prise",
       "texte": "La caisse de la Communion est partie vers le sud, sur le dos de la dame en gris."
+    },
+    {
+      "flag": "glace-pris-commencee",
+      "texte": "À Khrysos, le Collège des 9 Miroirs a signé une lacune il y a trente ans : une face brisée par une étrangère. Son intitulé : « Ce qui dort sur le quai du niveau douze »."
+    },
+    {
+      "flag": "glace-lacune",
+      "texte": "Au registre des prises du niveau douze, une face manque. Le Collège en a gardé l’auteur : « une étrangère, qui a dit son nom »."
+    },
+    {
+      "flag": "edda-khrysos-vue",
+      "texte": "Le nom de la lacune est celui de la mère de la dame en gris. « Elle a brisé un écho. Elle savait ce qu’on en ferait. »"
+    },
+    {
+      "flag": "caisse-glacialis-vue",
+      "texte": "La caisse de Glacialis, prise dans un cristal de crypte au bout de la voie sept : six noms encore, de la même main. Aksel, Mira, Tove, Elio, Ysé, Noam."
+    },
+    {
+      "flag": "fin-glace-pris-prise",
+      "texte": "J’ai laissé la caisse de Glacialis dans sa glace. Personne ne l’aura."
+    },
+    {
+      "flag": "fin-glace-pris-college",
+      "texte": "Le Collège des 9 Miroirs a consigné la caisse de Glacialis : une face neuve, à la suite de la lacune."
+    },
+    {
+      "flag": "briseur-echos",
+      "texte": "J’ai brisé la prise de la voie sept. Pour Khrysos, je suis un Briseur d’Échos."
+    },
+    {
+      "flag": "caisse-glacialis-prise",
+      "texte": "La caisse de Glacialis est partie dans les bras de la dame en gris, le cristal ouvert derrière elle."
     }
   ],
   "caisses": [
@@ -154,7 +186,9 @@
     },
     {
       "id": "glacialis",
-      "continent": "Glacialis"
+      "continent": "Glacialis",
+      "trouvee": "caisse-glacialis-trouvee",
+      "prise": "caisse-glacialis-prise"
     },
     {
       "id": "communion",
@@ -183,9 +217,21 @@
       "cible": "sept-portes"
     },
     {
+      "quest": "glace-pris",
+      "status": "done",
+      "texte": "Les sept caisses ont toutes un sort. Il reste la voie sept, jusqu’à Altavent : la suite du fil attend."
+    },
+    {
+      "quest": "glace-pris",
+      "status": "active",
+      "texte": "Khrysos : la Bibliothèque de Glace, au Niveau Royal ; puis le Niveau Douze, où l’on ne descend pas seul aux cryptes.",
+      "cible": "khrysos"
+    },
+    {
       "quest": "plus-lieu",
       "status": "done",
-      "texte": "Six caisses sur sept ont un sort. La septième dort à Glacialis : la suite du fil attend que ses villes s’ouvrent."
+      "texte": "Une lettre de Hesper, reçue au dernier relais : « Le Collège des 9 Miroirs, à Khrysos, a signé une lacune il y a trente ans : une face brisée par une étrangère. Son intitulé : Ce qui dort sur le quai du niveau douze. » Le train du Nord part d’Ironheart ; Hesper a payé le premier billet.",
+      "cible": "khrysos"
     },
     {
       "quest": "plus-lieu",

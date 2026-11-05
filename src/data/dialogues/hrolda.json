@@ -3,6 +3,14 @@
   "speaker": "hrolda",
   "entries": [
     {
+      "requires": [
+        {
+          "flag": "formule-dite"
+        }
+      ],
+      "node": "retour"
+    },
+    {
       "node": "accueil"
     }
   ],
@@ -49,8 +57,34 @@
           "next": "khrys"
         },
         {
+          "text": "Je cherche une lacune : « Ce qui dort sur le quai du niveau douze ».",
+          "next": "registre",
+          "requires": [
+            {
+              "quest": "plus-lieu",
+              "status": "done"
+            },
+            {
+              "notFlag": "glace-lacune"
+            }
+          ],
+          "effects": [
+            {
+              "startQuest": "glace-pris"
+            },
+            {
+              "setFlag": "glace-pris-commencee"
+            }
+          ]
+        },
+        {
           "text": "Merci.",
           "next": "fin"
+        }
+      ],
+      "effects": [
+        {
+          "setFlag": "formule-dite"
         }
       ]
     },
@@ -76,6 +110,92 @@
         },
         {
           "text": "Merci.",
+          "next": "fin"
+        }
+      ]
+    },
+    "retour": {
+      "text": "Hrolda lève les yeux de sa ligne. — Le cristal rend. — Et ne juge pas, réponds-tu. Elle hoche la tête, une fois.",
+      "options": [
+        {
+          "text": "Qui brise une face ?",
+          "next": "brise"
+        },
+        {
+          "text": "Et Khrys ?",
+          "next": "khrys"
+        },
+        {
+          "text": "Je cherche une lacune : « Ce qui dort sur le quai du niveau douze ».",
+          "next": "registre",
+          "requires": [
+            {
+              "quest": "plus-lieu",
+              "status": "done"
+            },
+            {
+              "notFlag": "glace-lacune"
+            }
+          ],
+          "effects": [
+            {
+              "startQuest": "glace-pris"
+            },
+            {
+              "setFlag": "glace-pris-commencee"
+            }
+          ]
+        },
+        {
+          "text": "Merci.",
+          "next": "fin"
+        }
+      ]
+    },
+    "registre": {
+      "text": "Hrolda se lève et va jusqu’à Khrys. — Rends le registre des prises du niveau douze. La lueur monte. La voix sans souffle égrène des noms, des sections, des années. Puis elle s’arrête au milieu d’une phrase, et reprend plus loin, sans s’excuser.",
+      "options": [
+        {
+          "text": "Qu’est-ce qui manque ?",
+          "next": "lacune"
+        }
+      ]
+    },
+    "lacune": {
+      "text": "Hrolda ouvre un cahier de cuir gris à une page cornée. « Face manquante : Ce qui dort sur le quai du niveau douze. Brisée l’an 2970. Auteur : une étrangère, qui a dit son nom. » Le nom est là, de la main du Collège. Il ne te dit rien.",
+      "effects": [
+        {
+          "setFlag": "glace-lacune"
+        },
+        {
+          "giveXp": 20
+        }
+      ],
+      "options": [
+        {
+          "text": "Elle a dit son nom ?",
+          "next": "nom"
+        },
+        {
+          "text": "Qu’est-ce qui dort sur ce quai ?",
+          "next": "quai"
+        }
+      ]
+    },
+    "nom": {
+      "text": "— Ceux qui brisent une face se cachent, d’habitude. Elle, non. Elle est venue au Collège le lendemain et elle a dit : j’ai brisé la face, voici mon nom, signez. Personne n’avait jamais demandé qu’on le signe.",
+      "options": [
+        {
+          "text": "Qu’est-ce qui dort sur ce quai ?",
+          "next": "quai"
+        }
+      ]
+    },
+    "quai": {
+      "text": "— La face le disait, et la face n’est plus. Il reste le niveau douze, et un quai. Il n’y a pas de quai au niveau douze : il y a des cryptes, et au bout des cryptes, la glace. Vous descendrez ? On n’y descend pas seul.",
+      "options": [
+        {
+          "text": "Merci, Hrolda.",
           "next": "fin"
         }
       ]

@@ -614,5 +614,31 @@
       "flag": "fin-forage-noir-marcheur",
       "points": -10
     }
+  ],
+  "khrysos": [
+    {
+      "quest": "glace-pris",
+      "points": 15
+    },
+    {
+      "flag": "fin-glace-pris-college",
+      "points": 5
+    },
+    {
+      "flag": "formule-dite",
+      "points": 5
+    },
+    {
+      "flag": "briseur-echos",
+      "points": -25
+    },
+    {
+      "flag": "descendu-seul",
+      "points": -5
+    },
+    {
+      "flag": "surpris-cryptes",
+      "points": -5
+    }
   ]
 }

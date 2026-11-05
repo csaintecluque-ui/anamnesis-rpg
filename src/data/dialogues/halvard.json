@@ -3,6 +3,14 @@
   "speaker": "halvard",
   "entries": [
     {
+      "requires": [
+        {
+          "lieu": "khrysos-voie-sept"
+        }
+      ],
+      "node": "quai"
+    },
+    {
       "node": "accueil"
     }
   ],
@@ -17,6 +25,30 @@
         {
           "text": "Que croient les Vigiles ?",
           "next": "croient"
+        },
+        {
+          "text": "Descends aux cryptes avec moi.",
+          "next": "second",
+          "requires": [
+            {
+              "quest": "glace-pris",
+              "status": "active"
+            },
+            {
+              "flag": "glace-lacune"
+            },
+            {
+              "notFlag": "halvard-refus"
+            },
+            {
+              "notFlag": "caisse-glacialis-reglee"
+            }
+          ],
+          "roll": {
+            "skill": "diplomacy",
+            "difficulty": 17
+          },
+          "failNext": "refus"
         },
         {
           "text": "Au revoir.",
@@ -42,6 +74,53 @@
       "options": [
         {
           "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "second": {
+      "text": "Halvard pose son gant à moitié recousu. — Les cryptes. On y descend pour les morts, d’habitude. Mais on n’y descend pas seul, et tu as l’air d’y aller quand même. Allons-y. Je regarderai tes mains.",
+      "effects": [
+        {
+          "setFlagFor": "cryptes-ouvertes",
+          "days": 1
+        },
+        {
+          "setFlag": "descendu-halvard"
+        }
+      ],
+      "options": [
+        {
+          "text": "Descendre.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "khrysos-cryptes",
+              "arrivee": "depuis-douze"
+            }
+          ]
+        }
+      ]
+    },
+    "refus": {
+      "text": "— Non. Les Vigiles ramènent les vivants de la surface. Les morts ont le Collège, et le Collège a ses cahiers. Trouve-toi un autre second.",
+      "effects": [
+        {
+          "setFlag": "halvard-refus"
+        }
+      ],
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "quai": {
+      "text": "Halvard reste au bord du quai, la lampe levée. — Je regarde tes mains. Ce que tu en fais, c’est ton affaire ; ce que je verrai, c’est la mienne.",
+      "options": [
+        {
+          "text": "Je sais.",
           "next": "fin"
         }
       ]

@@ -223,6 +223,8 @@ import porteCaveau from './porte-caveau.json';
 import murVoieSept from './mur-voie-sept.json';
 import priseNherKhal from './prise-nher-khal.json';
 import ennir from './ennir.json';
+import eddaKhrysos from './edda-khrysos.json';
+import caisseGlacialis from './caisse-glacialis.json';
 
 /** Dialogue files by object name (PNJ, Écho or object) of the maps. */
 export const DIALOGUES: Record<string, Dialogue> = {
@@ -461,6 +463,8 @@ export const DIALOGUES: Record<string, Dialogue> = {
   'mur-voie-sept': murVoieSept as Dialogue,
   'prise-nher-khal': priseNherKhal as Dialogue,
   ennir: ennir as Dialogue,
+  'edda-khrysos': eddaKhrysos as Dialogue,
+  'caisse-glacialis': caisseGlacialis as Dialogue,
   // Le Livre des Échos (docs/gdd/echos.md) : one dialogue per Écho, built from src/data/echos.json.
   ...echoDialogues(),
 };

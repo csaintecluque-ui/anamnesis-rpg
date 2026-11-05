@@ -11,7 +11,7 @@
  "tilewidth": 64,
  "tileheight": 32,
  "nextlayerid": 4,
- "nextobjectid": 8,
+ "nextobjectid": 9,
  "layers": [
   {
    "id": 1,
@@ -1477,6 +1477,45 @@
     },
     {
      "id": 7,
+     "name": "mur-voie-sept",
+     "type": "porte",
+     "x": 944,
+     "y": 368,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": [
+      {
+       "name": "cible",
+       "type": "string",
+       "value": "khrysos-voie-sept"
+      },
+      {
+       "name": "arrivee",
+       "type": "string",
+       "value": "depuis-cryptes"
+      },
+      {
+       "name": "libelle",
+       "type": "string",
+       "value": "La glace claire, au bout de l’allée"
+      },
+      {
+       "name": "verrou",
+       "type": "string",
+       "value": "voie-sept-ouverte"
+      },
+      {
+       "name": "dialogue",
+       "type": "string",
+       "value": "mur-voie-sept"
+      }
+     ]
+    },
+    {
+     "id": 8,
      "name": "devant-voie-sept",
      "type": "arrivee",
      "x": 880,

@@ -2091,6 +2091,8 @@ function khrysosDouze() {
   m.object('grille-cryptes', 'porte', 22, 12, { cible: 'khrysos-cryptes', arrivee: 'depuis-douze', libelle: 'Les cryptes', verrou: 'cryptes-ouvertes', dialogue: 'grille-cryptes' });
   m.object('devant-grille', 'arrivee', 21, 12);
   m.object('gardien-cryptes', 'pnj', 21, 10);
+  // La dame en gris attend au Puits : on ne descend pas seul (« Ce que la glace a pris »).
+  m.object('edda-khrysos', 'pnj', 7, 6, { apparaitSi: 'glace-lacune', disparaitSi: 'descendu-edda,caisse-glacialis-reglee' });
   // ★ Le Caveau des cristaux scellés : fermé à clé.
   m.setObstacle(28, 17, 'porte-glace');
   m.object('porte-khrysos-caveau', 'porte', 28, 17, { cible: 'khrysos-caveau', arrivee: 'entree', libelle: LOCATION_NAMES['khrysos-caveau'], verrou: 'caveau-ouvert', dialogue: 'porte-caveau' });
@@ -2113,7 +2115,9 @@ function khrysosCryptes() {
   m.object('panneau-section-neuf', 'panneau', 22, 7, { texte: 'Section neuf. Un nom gravé sous chaque cristal, à hauteur de main. Sous l’un d’eux, à la place du nom, la glace est lisse.' });
   m.setObstacle(5, 10, 'panneau');
   m.object('panneau-cryptes', 'panneau', 5, 10, { texte: 'Les cryptes. On ne brûle pas les morts, on ne les enterre pas : on les prend dans le cristal, intacts, pour toujours. « Le cristal rend, et ne juge pas. »' });
-  // Au bout de la dernière allée, la glace s'éclaircit (la voie sept, « Ce que la glace a pris »).
+  // Au bout de la dernière allée, la glace s'éclaircit : derrière, une voie de l'Ancien Monde (« Ce que la glace a pris »).
+  m.setObstacle(29, 11, 'mur-glace');
+  m.object('mur-voie-sept', 'porte', 29, 11, { cible: 'khrysos-voie-sept', arrivee: 'depuis-cryptes', libelle: 'La glace claire, au bout de l’allée', verrou: 'voie-sept-ouverte', dialogue: 'mur-voie-sept' });
   m.object('devant-voie-sept', 'arrivee', 27, 11);
   return m.toTiled();
 }
@@ -2132,9 +2136,11 @@ function khrysosVoieSept() {
   blocks(m, 'ruine', [[6, 6], [16, 6]]);
   blocks(m, 'butoir', [[20, 11]]);
   blocks(m, 'cristal-crypte', [[3, 3], [18, 3], [3, 13], [18, 13]]);
-  m.setObstacle(11, 6, 'caisse-glace');
-  m.object('caisse-glacialis', 'objet', 11, 6);
-  // L'Écho de la voie sept (src/data/echos.json) se pose en (8, 8).
+  m.object('caisse-glacialis', 'objet', 11, 6, { tuile: 'caisse-glace', disparaitSi: 'fin-glace-pris-brisee,fin-glace-pris-edda' });
+  // Le second de la descente, s'il est venu : la dame en gris, ou Halvard des Vigiles Blancs.
+  m.object('edda-khrysos', 'pnj', 12, 8, { apparaitSi: 'descendu-edda', disparaitSi: 'caisse-glacialis-reglee' });
+  m.object('halvard', 'pnj', 9, 7, { apparaitSi: 'descendu-halvard', disparaitSi: 'caisse-glacialis-reglee' });
+  // L'Écho de la voie sept (src/data/echos.json) se pose en (8, 9).
   m.setObstacle(14, 8, 'stele');
   m.object('panneau-halte-glaces', 'panneau', 14, 8, { texte: 'Une plaque de l’Ancien Monde, prise dans le givre : « Halte des Glaces — voie 7 ». La glace a monté jusqu’à la moitié des lettres.' });
   m.object('vers-cryptes', 'sortie', 0, 8, { cible: 'khrysos-cryptes', arrivee: 'devant-voie-sept', libelle: 'Revenir aux cryptes' });

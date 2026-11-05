@@ -195,5 +195,16 @@
     "si": "episode-dit",
     "texte": "Il y a très longtemps. Des Marcheurs arrivent à pied par le désert et trouvent, sur ce quai, une caisse de plomb, et personne. Ils s’assoient autour, et attendent un jour entier. Personne ne vient. Le soir, ils plantent une tige de verre près de la caisse, et repartent sans elle.",
     "don": "investigation"
+  },
+  {
+    "id": "glace-monte",
+    "titre": "La glace qui monte",
+    "lieu": "khrysos-voie-sept",
+    "col": 8,
+    "row": 9,
+    "type": "complet",
+    "xp": 20,
+    "texte": "Il y a très longtemps. Une caisse de plomb, seule sur un quai. La glace monte autour d’elle, d’un doigt par année, sans un bruit. Personne ne vient la chercher. Rien d’autre.",
+    "don": "lore"
   }
 ]

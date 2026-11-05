@@ -5,6 +5,46 @@
     {
       "requires": [
         {
+          "quest": "glace-pris",
+          "status": "done"
+        },
+        {
+          "flag": "caisse-glacialis-prise"
+        },
+        {
+          "notFlag": "ulga-lettre"
+        }
+      ],
+      "node": "lettre-prise"
+    },
+    {
+      "requires": [
+        {
+          "quest": "glace-pris",
+          "status": "done"
+        },
+        {
+          "notFlag": "ulga-lettre"
+        }
+      ],
+      "node": "lettre"
+    },
+    {
+      "requires": [
+        {
+          "quest": "plus-lieu",
+          "status": "done"
+        },
+        {
+          "quest": "glace-pris",
+          "status": "none"
+        }
+      ],
+      "node": "dame"
+    },
+    {
+      "requires": [
+        {
           "tousLes": 3,
           "decalage": 1
         }
@@ -190,6 +230,77 @@
         {
           "text": "Merci.",
           "next": "accueil"
+        }
+      ]
+    },
+    "dame": {
+      "text": "— Toi, tu viens pour la même chose que la dame en gris. Ça se voit au manteau : trop léger. Elle a dormi ici il y a trois nuits. Elle a demandé le Collège des 9 Miroirs, et une lacune de trente ans. Je ne sais pas ce que c’est. Elle non plus, je crois.",
+      "effects": [
+        {
+          "startQuest": "glace-pris"
+        },
+        {
+          "setFlag": "glace-pris-commencee"
+        }
+      ],
+      "options": [
+        {
+          "text": "Où trouver le Collège ?",
+          "next": "dame-ou"
+        },
+        {
+          "text": "Manger ou dormir ?",
+          "next": "servir"
+        },
+        {
+          "text": "Merci.",
+          "next": "fin"
+        }
+      ]
+    },
+    "dame-ou": {
+      "text": "— À la Bibliothèque de Glace, au Niveau Royal : prends le Puits d’Ascension. Et dis bien la formule à Hrolda Rochebrume, sinon elle te laissera debout jusqu’au soir.",
+      "options": [
+        {
+          "text": "Merci, Ulga.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "lettre": {
+      "text": "— Un pli pour toi, monté d’Ironheart avec le train. Il est froid : tout ce qui arrive ici est froid.",
+      "options": [
+        {
+          "text": "L’ouvrir.",
+          "next": "lettre-texte"
+        }
+      ]
+    },
+    "lettre-texte": {
+      "text": "L’écriture d’Ilyane, plus grande qu’avant, pour ne pas se perdre entre les lignes. « Il a neigé à Gardebois. Je crois que c’est la première fois. Nell dit que non, qu’il neige chaque hiver. Je la crois. Je crois tout le monde, maintenant. Reviens. »",
+      "effects": [
+        {
+          "setFlag": "ulga-lettre"
+        }
+      ],
+      "options": [
+        {
+          "text": "Plier la lettre.",
+          "next": "fin"
+        }
+      ]
+    },
+    "lettre-prise": {
+      "text": "— Un pli pour toi, monté avec le train. Ulga te le tend, et retourne à son feu. Trois lignes, d’une main qui tremble. « J’ai trouvé ton nom dans mes carnets. Je ne sais plus ton visage. Écris-moi qui tu es : je l’écrirai en grand. »",
+      "effects": [
+        {
+          "setFlag": "ulga-lettre"
+        }
+      ],
+      "options": [
+        {
+          "text": "Plier la lettre.",
+          "next": "fin"
         }
       ]
     }

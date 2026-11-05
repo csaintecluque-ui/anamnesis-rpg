@@ -3,6 +3,14 @@
   "speaker": "gardien-cryptes",
   "entries": [
     {
+      "requires": [
+        {
+          "flag": "briseur-echos"
+        }
+      ],
+      "node": "briseur"
+    },
+    {
       "node": "accueil"
     }
   ],
@@ -51,6 +59,15 @@
       "options": [
         {
           "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "briseur": {
+      "text": "Le gardien se lève quand tu approches, et met sa lampe entre vous deux. — Le Briseur d’Échos est revenu. Il a changé de visage. Ne descends plus, même à deux. Personne ne voudra être le second d’un Briseur.",
+      "options": [
+        {
+          "text": "S’éloigner.",
           "next": "fin"
         }
       ]

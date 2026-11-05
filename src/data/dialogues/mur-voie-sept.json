@@ -3,6 +3,14 @@
   "speaker": "mur-voie-sept",
   "entries": [
     {
+      "requires": [
+        {
+          "flag": "glace-lacune"
+        }
+      ],
+      "node": "claire"
+    },
+    {
       "node": "ferme"
     }
   ],
@@ -13,6 +21,39 @@
         {
           "text": "S’éloigner.",
           "next": "fin"
+        }
+      ]
+    },
+    "claire": {
+      "text": "Au bout de la dernière allée, la glace s’éclaircit. Derrière, très loin, une ombre droite : un rail. Quelqu’un a taillé un passage, il y a longtemps, et la glace l’a refermé à moitié. Il reste de quoi passer de profil.",
+      "options": [
+        {
+          "text": "Passer de profil.",
+          "next": "passe"
+        },
+        {
+          "text": "Pas maintenant.",
+          "next": "fin"
+        }
+      ]
+    },
+    "passe": {
+      "text": "Tu te glisses dans la fente. La glace te touche les deux épaules à la fois, et pendant un long moment tu n’entends que ton souffle. Puis l’air change. Un quai.",
+      "effects": [
+        {
+          "setFlag": "voie-sept-ouverte"
+        }
+      ],
+      "options": [
+        {
+          "text": "Avancer.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "khrysos-voie-sept",
+              "arrivee": "depuis-cryptes"
+            }
+          ]
         }
       ]
     }

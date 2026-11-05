@@ -340,6 +340,10 @@ En ligne le 2026-11-03 (tes textes du 3 novembre) :
       60 Fers) ; la neige qui tombe.
 - [ ] **Les cryptes** : la grille ne s'ouvre qu'à deux (Liane ou Boulon) ; seul·e, de nuit, en se cachant du gardien ;
       la prise sans nom de la section neuf. ★ Le Caveau des cristaux scellés : crocheter, bluffer, ou voler la clé.
+- [ ] **« Ce que la glace a pris »** : la lettre de Hesper (page « Le fil ») ; Ulga au Foyer ; Hrolda et la formule
+      (« Le cristal rend » / « et ne juge pas ») ; la lacune ; la dame en gris au Puits du Niveau Douze ; descendre avec
+      elle, avec Halvard (Vigiles Blancs), avec Liane ou Boulon, ou seul·e de nuit ; la glace claire au bout des
+      cryptes ; la caisse prise ; quatre fins ; la lettre d'Ilyane chez Ulga.
 - Remarques :
 
 ## Déjà en ligne, pas encore essayé sur PC

@@ -1,0 +1,273 @@
+{
+  "id": "caisse-glacialis",
+  "speaker": "caisse-glacialis",
+  "entries": [
+    {
+      "requires": [
+        {
+          "flag": "caisse-glacialis-reglee"
+        }
+      ],
+      "node": "vide"
+    },
+    {
+      "requires": [
+        {
+          "flag": "caisse-glacialis-vue"
+        }
+      ],
+      "node": "liste"
+    },
+    {
+      "node": "caisse"
+    }
+  ],
+  "nodes": {
+    "caisse": {
+      "text": "Au bout du quai, un cristal de crypte plus large que les autres. Dedans, à la place d’un mort, une caisse de plomb, prise debout. Les Glaciens l’ont prise il y a longtemps, puisque personne n’était venu la chercher. À travers la glace, on lit une liste.",
+      "effects": [
+        {
+          "setFlag": "caisse-glacialis-vue"
+        }
+      ],
+      "options": [
+        {
+          "text": "Lire la liste.",
+          "next": "liste"
+        }
+      ]
+    },
+    "liste": {
+      "text": "Six noms, de la même main que sur les autres. Aksel, sept ans ; Mira, cinq ans ; Tove, huit ans ; Elio, six ans ; Ysé, neuf ans ; Noam, quatre ans. La glace a monté jusqu’au dernier nom, et l’a gardé.",
+      "apartes": {
+        "liane": "Liane pose deux doigts sur la glace, à hauteur du dernier nom. — Quatre ans. Il n’a pas eu le temps d’avoir froid, lui.",
+        "boulon": "Boulon tapote le cristal. — Densité anormale. Cette glace est plus vieille que la ville. Il ne faudrait pas la casser."
+      },
+      "options": [
+        {
+          "text": "La laisser prise. Le froid la gardera.",
+          "next": "prise",
+          "effects": [
+            {
+              "setFlag": "caisse-glacialis-reglee"
+            },
+            {
+              "completeQuest": "glace-pris"
+            },
+            {
+              "setFlag": "fin-glace-pris-prise"
+            },
+            {
+              "giveXp": 60
+            },
+            {
+              "setFlag": "caisse-glacialis-trouvee"
+            }
+          ]
+        },
+        {
+          "text": "Briser la prise et emporter la pièce.",
+          "next": "brisee",
+          "effects": [
+            {
+              "setFlag": "caisse-glacialis-reglee"
+            },
+            {
+              "completeQuest": "glace-pris"
+            },
+            {
+              "setFlag": "fin-glace-pris-brisee"
+            },
+            {
+              "giveXp": 60
+            },
+            {
+              "setFlag": "caisse-glacialis-trouvee"
+            },
+            {
+              "setFlag": "briseur-echos"
+            },
+            {
+              "giveItem": "piece-glacialis"
+            }
+          ],
+          "roll": {
+            "skill": "athletics",
+            "difficulty": 18
+          },
+          "failNext": "tient"
+        },
+        {
+          "text": "La confier au Collège des 9 Miroirs.",
+          "next": "college",
+          "effects": [
+            {
+              "setFlag": "caisse-glacialis-reglee"
+            },
+            {
+              "completeQuest": "glace-pris"
+            },
+            {
+              "setFlag": "fin-glace-pris-college"
+            },
+            {
+              "giveXp": 60
+            },
+            {
+              "setFlag": "caisse-glacialis-trouvee"
+            }
+          ]
+        },
+        {
+          "text": "La laisser à la dame en gris.",
+          "next": "edda",
+          "requires": [
+            {
+              "flag": "descendu-edda"
+            }
+          ],
+          "effects": [
+            {
+              "setFlag": "caisse-glacialis-reglee"
+            },
+            {
+              "completeQuest": "glace-pris"
+            },
+            {
+              "setFlag": "fin-glace-pris-edda"
+            },
+            {
+              "giveXp": 60
+            },
+            {
+              "setFlag": "caisse-glacialis-prise"
+            }
+          ]
+        }
+      ]
+    },
+    "tient": {
+      "text": "Tu frappes. Le cristal sonne, longtemps, et ne cède pas. Une prise de crypte est faite pour durer plus longtemps que ceux qui la regardent.",
+      "options": [
+        {
+          "text": "La laisser prise. Le froid la gardera.",
+          "next": "prise",
+          "effects": [
+            {
+              "setFlag": "caisse-glacialis-reglee"
+            },
+            {
+              "completeQuest": "glace-pris"
+            },
+            {
+              "setFlag": "fin-glace-pris-prise"
+            },
+            {
+              "giveXp": 60
+            },
+            {
+              "setFlag": "caisse-glacialis-trouvee"
+            }
+          ]
+        },
+        {
+          "text": "La confier au Collège des 9 Miroirs.",
+          "next": "college",
+          "effects": [
+            {
+              "setFlag": "caisse-glacialis-reglee"
+            },
+            {
+              "completeQuest": "glace-pris"
+            },
+            {
+              "setFlag": "fin-glace-pris-college"
+            },
+            {
+              "giveXp": 60
+            },
+            {
+              "setFlag": "caisse-glacialis-trouvee"
+            }
+          ]
+        },
+        {
+          "text": "La laisser à la dame en gris.",
+          "next": "edda",
+          "requires": [
+            {
+              "flag": "descendu-edda"
+            }
+          ],
+          "effects": [
+            {
+              "setFlag": "caisse-glacialis-reglee"
+            },
+            {
+              "completeQuest": "glace-pris"
+            },
+            {
+              "setFlag": "fin-glace-pris-edda"
+            },
+            {
+              "giveXp": 60
+            },
+            {
+              "setFlag": "caisse-glacialis-prise"
+            }
+          ]
+        }
+      ]
+    },
+    "prise": {
+      "text": "Tu poses la main sur le cristal, longtemps. Le froid monte dans ton bras. Personne ne l’aura : ni les Réveilleurs, ni le Collège, ni toi. La glace a pris ce que le quai n’a pas voulu rendre.",
+      "options": [
+        {
+          "text": "Remonter.",
+          "next": "fin"
+        }
+      ]
+    },
+    "brisee": {
+      "text": "Tu frappes là où la glace est la plus mince. Le cristal se fend avec un bruit de cloche, et tout le Niveau Douze l’entend. Tu tires la pièce de la caisse : lourde, froide. Pour Khrysos, tu es un Briseur d’Échos, désormais.",
+      "options": [
+        {
+          "text": "Remonter avant qu’ils arrivent.",
+          "next": "fin"
+        }
+      ]
+    },
+    "college": {
+      "text": "Le lendemain, Hrolda descend avec deux greffiers. Elle lit la liste à voix haute, puis signe au bas d’une face neuve : « Une caisse de plomb, prise au niveau douze, voie sept. Six noms. » La lacune a trente ans ; elle a une suite, maintenant.",
+      "options": [
+        {
+          "text": "Remonter avec eux.",
+          "next": "fin",
+          "effects": [
+            {
+              "avancer": 2
+            }
+          ]
+        }
+      ]
+    },
+    "edda": {
+      "text": "La dame en gris sort un fil de cuivre, le chauffe à sa lampe, et l’appuie contre la glace, longtemps. Le cristal pleure, s’ouvre. Elle prend la caisse dans ses bras, sans un regard pour toi. Pour Khrysos, la Briseuse, ce sera elle. Elle le sait.",
+      "options": [
+        {
+          "text": "La regarder remonter.",
+          "next": "fin"
+        }
+      ]
+    },
+    "vide": {
+      "text": "Au bout du quai, le grand cristal de crypte. Ce que tu y as laissé, ou la place de ce que tu as pris. La glace, déjà, recommence à monter.",
+      "options": [
+        {
+          "text": "S’éloigner.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

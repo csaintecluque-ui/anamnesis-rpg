@@ -1323,5 +1323,20 @@
     "id": "ennir",
     "name": "Maître Ennir",
     "role": "Tisseur de Givre"
+  },
+  {
+    "id": "edda-khrysos",
+    "name": "La dame en gris",
+    "role": "Le Niveau Douze"
+  },
+  {
+    "id": "caisse-glacialis",
+    "name": "La caisse prise",
+    "role": "La voie sept"
+  },
+  {
+    "id": "echo-glace-monte",
+    "name": "Un Écho",
+    "role": "La voie sept"
   }
 ]

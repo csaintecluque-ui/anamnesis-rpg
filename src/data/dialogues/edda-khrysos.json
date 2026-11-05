@@ -1,0 +1,170 @@
+{
+  "id": "edda-khrysos",
+  "speaker": "edda-khrysos",
+  "entries": [
+    {
+      "requires": [
+        {
+          "lieu": "khrysos-voie-sept"
+        }
+      ],
+      "node": "quai"
+    },
+    {
+      "requires": [
+        {
+          "quest": "glace-pris",
+          "status": "active"
+        },
+        {
+          "notFlag": "edda-khrysos-vue"
+        }
+      ],
+      "node": "nom"
+    },
+    {
+      "requires": [
+        {
+          "quest": "glace-pris",
+          "status": "active"
+        }
+      ],
+      "node": "attend"
+    },
+    {
+      "node": "apres"
+    }
+  ],
+  "nodes": {
+    "nom": {
+      "text": "La dame en gris est assise sur un banc de glace, devant le Puits, une fourrure jetée sur son manteau gris. Elle ne se lève pas. — J’ai lu la lacune, moi aussi. Le nom, à la place de l’auteur, c’est celui de ma mère. Elle a brisé un écho. Elle savait ce qu’on en ferait.",
+      "effects": [
+        {
+          "setFlag": "edda-khrysos-vue"
+        }
+      ],
+      "options": [
+        {
+          "text": "Briser un écho ?",
+          "next": "echo"
+        },
+        {
+          "text": "Que faisait-elle ici ?",
+          "next": "ici"
+        },
+        {
+          "text": "Ce qu’on en ferait ? Tes Réveilleurs, par exemple ?",
+          "next": "reveilleurs"
+        },
+        {
+          "text": "Et maintenant ?",
+          "next": "attend"
+        }
+      ]
+    },
+    "echo": {
+      "text": "— C’est ce qu’ils disent, ici, quand quelqu’un détruit la preuve qui l’aurait sauvé, pour qu’on ne s’en serve pas. Elle a cassé la face qui disait où dormait la caisse. Puis elle est allée le dire au Collège, et elle a signé.",
+      "options": [
+        {
+          "text": "Que faisait-elle ici ?",
+          "next": "ici"
+        },
+        {
+          "text": "Et maintenant ?",
+          "next": "attend"
+        }
+      ]
+    },
+    "ici": {
+      "text": "— La même chose que moi. Elle suivait les caisses. Celle-ci, elle l’a trouvée, et elle l’a laissée. Elle a tout fait pour que personne ne la trouve après elle. Et me voilà, trente ans plus tard, à la chercher quand même.",
+      "options": [
+        {
+          "text": "Et maintenant ?",
+          "next": "attend"
+        }
+      ]
+    },
+    "reveilleurs": {
+      "text": "Elle te regarde enfin. — Par exemple. Ou toi. Ou le Collège, qui la consignerait et la laisserait pourrir dans un cahier. Ma mère ne faisait confiance à personne. Je commence à comprendre pourquoi.",
+      "options": [
+        {
+          "text": "Et maintenant ?",
+          "next": "attend"
+        }
+      ]
+    },
+    "attend": {
+      "text": "— On ne descend pas seul aux cryptes. Je n’ai personne d’autre que toi à qui le demander, et je déteste demander. Descends avec moi. Tu regarderas mes mains ; je regarderai les tiennes.",
+      "options": [
+        {
+          "text": "Descendons ensemble.",
+          "next": "descente",
+          "requires": [
+            {
+              "notFlag": "caisse-glacialis-reglee"
+            }
+          ]
+        },
+        {
+          "text": "Pas avec toi.",
+          "next": "pas-toi"
+        },
+        {
+          "text": "Plus tard.",
+          "next": "fin"
+        }
+      ]
+    },
+    "descente": {
+      "text": "Le gardien des cryptes vous compte, deux fois, et tourne la clé. La dame en gris passe la première. Elle ne regarde pas les cristaux. Elle compte les allées, à voix basse, jusqu’à sept.",
+      "effects": [
+        {
+          "setFlagFor": "cryptes-ouvertes",
+          "days": 1
+        },
+        {
+          "setFlag": "descendu-edda"
+        }
+      ],
+      "options": [
+        {
+          "text": "Descendre.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "khrysos-cryptes",
+              "arrivee": "depuis-douze"
+            }
+          ]
+        }
+      ]
+    },
+    "pas-toi": {
+      "text": "— Comme tu voudras. Elle croise les bras. — Trouve-toi un autre second, alors. Les Vigiles Blancs aiment rendre ce genre de service. Moi, j’attendrai que la grille reste ouverte assez longtemps.",
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "quai": {
+      "text": "La dame en gris s’est arrêtée devant le grand cristal, les mains dans les poches. — Elle l’a vue, elle aussi. Elle est restée là, à l’endroit où tu es. Et elle est remontée sans elle. Je ne sais pas si j’en serais capable.",
+      "options": [
+        {
+          "text": "Je te laisse un moment.",
+          "next": "fin"
+        }
+      ]
+    },
+    "apres": {
+      "text": "La dame en gris ne lève pas les yeux. — Il fait trop froid pour parler, Gardien. Et nous n’avons plus rien à nous dire, ici.",
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

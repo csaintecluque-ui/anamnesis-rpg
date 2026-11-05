@@ -1561,6 +1561,71 @@ _Effet : −2 PV._
 
 - « Partir. » → **fin**
 
+## La caisse prise
+
+_La voie sept_
+
+Commence par : « vide » _(si repère « caisse-glacialis-reglee »)_, sinon « liste » _(si repère « caisse-glacialis-vue »)_, sinon « caisse »
+
+### caisse
+
+_Effet : retient « caisse-glacialis-vue »._
+
+> Au bout du quai, un cristal de crypte plus large que les autres. Dedans, à la place d’un mort, une caisse de plomb, prise debout. Les Glaciens l’ont prise il y a longtemps, puisque personne n’était venu la chercher. À travers la glace, on lit une liste.
+
+- « Lire la liste. » → liste
+
+### liste
+
+> Six noms, de la même main que sur les autres. Aksel, sept ans ; Mira, cinq ans ; Tove, huit ans ; Elio, six ans ; Ysé, neuf ans ; Noam, quatre ans. La glace a monté jusqu’au dernier nom, et l’a gardé.
+
+_Si Liane voyage avec toi :_ Liane pose deux doigts sur la glace, à hauteur du dernier nom. — Quatre ans. Il n’a pas eu le temps d’avoir froid, lui.
+
+_Si Boulon voyage avec toi :_ Boulon tapote le cristal. — Densité anormale. Cette glace est plus vieille que la ville. Il ne faudrait pas la casser.
+
+- « La laisser prise. Le froid la gardera. » → prise _(retient « caisse-glacialis-reglee », termine la quête « Ce que la glace a pris », retient « fin-glace-pris-prise », +60 XP, retient « caisse-glacialis-trouvee »)_
+- **🎲 Athlétisme 18** « Briser la prise et emporter la pièce. » → brisee, ✗ → tient _(retient « caisse-glacialis-reglee », termine la quête « Ce que la glace a pris », retient « fin-glace-pris-brisee », +60 XP, retient « caisse-glacialis-trouvee », retient « briseur-echos », donne 1 × « Une pièce de la machine »)_
+- « La confier au Collège des 9 Miroirs. » → college _(retient « caisse-glacialis-reglee », termine la quête « Ce que la glace a pris », retient « fin-glace-pris-college », +60 XP, retient « caisse-glacialis-trouvee »)_
+- _(si repère « descendu-edda »)_ « La laisser à la dame en gris. » → edda _(retient « caisse-glacialis-reglee », termine la quête « Ce que la glace a pris », retient « fin-glace-pris-edda », +60 XP, retient « caisse-glacialis-prise »)_
+
+### tient
+
+> Tu frappes. Le cristal sonne, longtemps, et ne cède pas. Une prise de crypte est faite pour durer plus longtemps que ceux qui la regardent.
+
+- « La laisser prise. Le froid la gardera. » → prise _(retient « caisse-glacialis-reglee », termine la quête « Ce que la glace a pris », retient « fin-glace-pris-prise », +60 XP, retient « caisse-glacialis-trouvee »)_
+- « La confier au Collège des 9 Miroirs. » → college _(retient « caisse-glacialis-reglee », termine la quête « Ce que la glace a pris », retient « fin-glace-pris-college », +60 XP, retient « caisse-glacialis-trouvee »)_
+- _(si repère « descendu-edda »)_ « La laisser à la dame en gris. » → edda _(retient « caisse-glacialis-reglee », termine la quête « Ce que la glace a pris », retient « fin-glace-pris-edda », +60 XP, retient « caisse-glacialis-prise »)_
+
+### prise
+
+> Tu poses la main sur le cristal, longtemps. Le froid monte dans ton bras. Personne ne l’aura : ni les Réveilleurs, ni le Collège, ni toi. La glace a pris ce que le quai n’a pas voulu rendre.
+
+- « Remonter. » → **fin**
+
+### brisee
+
+> Tu frappes là où la glace est la plus mince. Le cristal se fend avec un bruit de cloche, et tout le Niveau Douze l’entend. Tu tires la pièce de la caisse : lourde, froide. Pour Khrysos, tu es un Briseur d’Échos, désormais.
+
+- « Remonter avant qu’ils arrivent. » → **fin**
+
+### college
+
+> Le lendemain, Hrolda descend avec deux greffiers. Elle lit la liste à voix haute, puis signe au bas d’une face neuve : « Une caisse de plomb, prise au niveau douze, voie sept. Six noms. » La lacune a trente ans ; elle a une suite, maintenant.
+
+- « Remonter avec eux. » → **fin** _(fait passer 2 moments)_
+
+### edda
+
+> La dame en gris sort un fil de cuivre, le chauffe à sa lampe, et l’appuie contre la glace, longtemps. Le cristal pleure, s’ouvre. Elle prend la caisse dans ses bras, sans un regard pour toi. Pour Khrysos, la Briseuse, ce sera elle. Elle le sait.
+
+- « La regarder remonter. » → **fin**
+
+### vide
+
+> Au bout du quai, le grand cristal de crypte. Ce que tu y as laissé, ou la place de ce que tu as pris. La glace, déjà, recommence à monter.
+
+- « S’éloigner. » → **fin**
+
 ## La caisse que la mer a rendue
 
 _L’Entrepôt des douanes_
@@ -3290,6 +3355,76 @@ _Effet : donne 1 × « Une pièce de la machine », retient « caisse-zephyria-t
 
 ## La dame en gris
 
+_Le Niveau Douze_
+
+Commence par : « quai » _(à « Sous les cryptes — la voie sept »)_, sinon « nom » _(si quête « Ce que la glace a pris » en cours)_ _(sans repère « edda-khrysos-vue »)_, sinon « attend » _(si quête « Ce que la glace a pris » en cours)_, sinon « apres »
+
+### nom
+
+_Effet : retient « edda-khrysos-vue »._
+
+> La dame en gris est assise sur un banc de glace, devant le Puits, une fourrure jetée sur son manteau gris. Elle ne se lève pas. — J’ai lu la lacune, moi aussi. Le nom, à la place de l’auteur, c’est celui de ma mère. Elle a brisé un écho. Elle savait ce qu’on en ferait.
+
+- « Briser un écho ? » → echo
+- « Que faisait-elle ici ? » → ici
+- « Ce qu’on en ferait ? Tes Réveilleurs, par exemple ? » → reveilleurs
+- « Et maintenant ? » → attend
+
+### echo
+
+> — C’est ce qu’ils disent, ici, quand quelqu’un détruit la preuve qui l’aurait sauvé, pour qu’on ne s’en serve pas. Elle a cassé la face qui disait où dormait la caisse. Puis elle est allée le dire au Collège, et elle a signé.
+
+- « Que faisait-elle ici ? » → ici
+- « Et maintenant ? » → attend
+
+### ici
+
+> — La même chose que moi. Elle suivait les caisses. Celle-ci, elle l’a trouvée, et elle l’a laissée. Elle a tout fait pour que personne ne la trouve après elle. Et me voilà, trente ans plus tard, à la chercher quand même.
+
+- « Et maintenant ? » → attend
+
+### reveilleurs
+
+> Elle te regarde enfin. — Par exemple. Ou toi. Ou le Collège, qui la consignerait et la laisserait pourrir dans un cahier. Ma mère ne faisait confiance à personne. Je commence à comprendre pourquoi.
+
+- « Et maintenant ? » → attend
+
+### attend
+
+> — On ne descend pas seul aux cryptes. Je n’ai personne d’autre que toi à qui le demander, et je déteste demander. Descends avec moi. Tu regarderas mes mains ; je regarderai les tiennes.
+
+- _(sans repère « caisse-glacialis-reglee »)_ « Descendons ensemble. » → descente
+- « Pas avec toi. » → pas-toi
+- « Plus tard. » → **fin**
+
+### descente
+
+_Effet : retient « cryptes-ouvertes » pour 1 jours, retient « descendu-edda »._
+
+> Le gardien des cryptes vous compte, deux fois, et tourne la clé. La dame en gris passe la première. Elle ne regarde pas les cristaux. Elle compte les allées, à voix basse, jusqu’à sept.
+
+- « Descendre. » → **fin** _(mène à « Khrysos — les cryptes »)_
+
+### pas-toi
+
+> — Comme tu voudras. Elle croise les bras. — Trouve-toi un autre second, alors. Les Vigiles Blancs aiment rendre ce genre de service. Moi, j’attendrai que la grille reste ouverte assez longtemps.
+
+- « Au revoir. » → **fin**
+
+### quai
+
+> La dame en gris s’est arrêtée devant le grand cristal, les mains dans les poches. — Elle l’a vue, elle aussi. Elle est restée là, à l’endroit où tu es. Et elle est remontée sans elle. Je ne sais pas si j’en serais capable.
+
+- « Je te laisse un moment. » → **fin**
+
+### apres
+
+> La dame en gris ne lève pas les yeux. — Il fait trop froid pour parler, Gardien. Et nous n’avons plus rien à nous dire, ici.
+
+- « Au revoir. » → **fin**
+
+## La dame en gris
+
 _La halte morte_
 
 Commence par : « soif » _(si quête « Ce qui n’a plus lieu » en cours)_ _(sans repère « edda-marche-vue »)_, sinon « caisse »
@@ -4297,7 +4432,7 @@ _Effet : retient « holger-livre », retient « asile-reglee », +50 Fers, +20 X
 
 _Le Niveau Douze_
 
-Commence par : « accueil »
+Commence par : « briseur » _(si repère « briseur-echos »)_, sinon « accueil »
 
 ### accueil
 
@@ -4325,6 +4460,12 @@ Commence par : « accueil »
 > — Alors tu attendras quelqu’un. Les Vigiles Blancs descendent, parfois. Et il y a toujours une famille qui cherche un second pour la Longue Nuit.
 
 - « Au revoir. » → **fin**
+
+### briseur
+
+> Le gardien se lève quand tu approches, et met sa lampe entre vous deux. — Le Briseur d’Échos est revenu. Il a changé de visage. Ne descends plus, même à deux. Personne ne voudra être le second d’un Briseur.
+
+- « S’éloigner. » → **fin**
 
 ## La Gardienne de l’Eau
 
@@ -4761,7 +4902,7 @@ Commence par : « halte »
 
 _Des Vigiles Blancs_
 
-Commence par : « accueil »
+Commence par : « quai » _(à « Sous les cryptes — la voie sept »)_, sinon « accueil »
 
 ### accueil
 
@@ -4769,6 +4910,7 @@ Commence par : « accueil »
 
 - « Ni l’un ni l’autre. » → vigiles
 - « Que croient les Vigiles ? » → croient
+- _(si quête « Ce que la glace a pris » en cours)_ _(si repère « glace-lacune »)_ _(sans repère « halvard-refus »)_ _(sans repère « caisse-glacialis-reglee »)_ **🎲 Diplomatie 17** « Descends aux cryptes avec moi. » → second, ✗ → refus
 - « Au revoir. » → **fin**
 
 ### vigiles
@@ -4783,6 +4925,28 @@ Commence par : « accueil »
 > — Que la clarté n’est pas une vertu. C’est un outil, et on peut s’en servir pour ne rien faire. Les héros des légendes y voyaient clair ; il leur manquait une passion. Nous, on compte nos années en vies sauvées.
 
 - « Au revoir. » → **fin**
+
+### second
+
+_Effet : retient « cryptes-ouvertes » pour 1 jours, retient « descendu-halvard »._
+
+> Halvard pose son gant à moitié recousu. — Les cryptes. On y descend pour les morts, d’habitude. Mais on n’y descend pas seul, et tu as l’air d’y aller quand même. Allons-y. Je regarderai tes mains.
+
+- « Descendre. » → **fin** _(mène à « Khrysos — les cryptes »)_
+
+### refus
+
+_Effet : retient « halvard-refus »._
+
+> — Non. Les Vigiles ramènent les vivants de la surface. Les morts ont le Collège, et le Collège a ses cahiers. Trouve-toi un autre second.
+
+- « Au revoir. » → **fin**
+
+### quai
+
+> Halvard reste au bord du quai, la lampe levée. — Je regarde tes mains. Ce que tu en fais, c’est ton affaire ; ce que je verrai, c’est la mienne.
+
+- « Je sais. » → **fin**
 
 ## Ragna Cendrefer
 
@@ -5109,7 +5273,7 @@ _Effet : lance la quête « L’asile »._
 
 _Du Collège des 9 Miroirs, gardienne de la Bibliothèque_
 
-Commence par : « accueil »
+Commence par : « retour » _(si repère « formule-dite »)_, sinon « accueil »
 
 ### accueil
 
@@ -5128,10 +5292,13 @@ Commence par : « accueil »
 
 ### parle
 
+_Effet : retient « formule-dite »._
+
 > — Bien. Ici dort ce que Glacialis se rappelle, découpé en faces. Quand une face manque, ce n’est jamais un oubli : quelqu’un a brisé quelque chose. Le Collège des 9 Miroirs consigne la lacune, sa date, et son auteur quand il le peut.
 
 - « Qui brise une face ? » → brise
 - « Et Khrys ? » → khrys
+- _(si quête « Ce qui n’a plus lieu » terminée)_ _(sans repère « glace-lacune »)_ « Je cherche une lacune : « Ce qui dort sur le quai du niveau douze ». » → registre _(lance la quête « Ce que la glace a pris », retient « glace-pris-commencee »)_
 - « Merci. » → **fin**
 
 ### brise
@@ -5147,6 +5314,42 @@ Commence par : « accueil »
 
 - « Qui brise une face ? » → brise
 - « Merci. » → **fin**
+
+### retour
+
+> Hrolda lève les yeux de sa ligne. — Le cristal rend. — Et ne juge pas, réponds-tu. Elle hoche la tête, une fois.
+
+- « Qui brise une face ? » → brise
+- « Et Khrys ? » → khrys
+- _(si quête « Ce qui n’a plus lieu » terminée)_ _(sans repère « glace-lacune »)_ « Je cherche une lacune : « Ce qui dort sur le quai du niveau douze ». » → registre _(lance la quête « Ce que la glace a pris », retient « glace-pris-commencee »)_
+- « Merci. » → **fin**
+
+### registre
+
+> Hrolda se lève et va jusqu’à Khrys. — Rends le registre des prises du niveau douze. La lueur monte. La voix sans souffle égrène des noms, des sections, des années. Puis elle s’arrête au milieu d’une phrase, et reprend plus loin, sans s’excuser.
+
+- « Qu’est-ce qui manque ? » → lacune
+
+### lacune
+
+_Effet : retient « glace-lacune », +20 XP._
+
+> Hrolda ouvre un cahier de cuir gris à une page cornée. « Face manquante : Ce qui dort sur le quai du niveau douze. Brisée l’an 2970. Auteur : une étrangère, qui a dit son nom. » Le nom est là, de la main du Collège. Il ne te dit rien.
+
+- « Elle a dit son nom ? » → nom
+- « Qu’est-ce qui dort sur ce quai ? » → quai
+
+### nom
+
+> — Ceux qui brisent une face se cachent, d’habitude. Elle, non. Elle est venue au Collège le lendemain et elle a dit : j’ai brisé la face, voici mon nom, signez. Personne n’avait jamais demandé qu’on le signe.
+
+- « Qu’est-ce qui dort sur ce quai ? » → quai
+
+### quai
+
+> — La face le disait, et la face n’est plus. Il reste le niveau douze, et un quai. Il n’y a pas de quai au niveau douze : il y a des cryptes, et au bout des cryptes, la glace. Vous descendrez ? On n’y descend pas seul.
+
+- « Merci, Hrolda. » → **fin**
 
 ## L’huissier du Conseil
 
@@ -7735,13 +7938,28 @@ _Effet : retient « mirelle-bosquet-dit »._
 
 _Au bout des cryptes_
 
-Commence par : « ferme »
+Commence par : « claire » _(si repère « glace-lacune »)_, sinon « ferme »
 
 ### ferme
 
 > Au bout de la dernière allée, la glace s’éclaircit. Derrière, très loin, une ombre droite : un rail, peut-être. La paroi a plusieurs mètres d’épaisseur, et rien ne dit qu’il y ait quelque chose à chercher.
 
 - « S’éloigner. » → **fin**
+
+### claire
+
+> Au bout de la dernière allée, la glace s’éclaircit. Derrière, très loin, une ombre droite : un rail. Quelqu’un a taillé un passage, il y a longtemps, et la glace l’a refermé à moitié. Il reste de quoi passer de profil.
+
+- « Passer de profil. » → passe
+- « Pas maintenant. » → **fin**
+
+### passe
+
+_Effet : retient « voie-sept-ouverte »._
+
+> Tu te glisses dans la fente. La glace te touche les deux épaules à la fois, et pendant un long moment tu n’entends que ton souffle. Puis l’air change. Un quai.
+
+- « Avancer. » → **fin** _(mène à « Sous les cryptes — la voie sept »)_
 
 ## Nell Lunelierre
 
@@ -10985,7 +11203,7 @@ _Effet : −3 PV._
 
 _Tient le Foyer_
 
-Commence par : « accueil-2 » _(un jour sur 3, le 2e)_, sinon « accueil-3 » _(un jour sur 3, le 3e)_, sinon « accueil »
+Commence par : « lettre-prise » _(si quête « Ce que la glace a pris » terminée)_ _(si repère « caisse-glacialis-prise »)_ _(sans repère « ulga-lettre »)_, sinon « lettre » _(si quête « Ce que la glace a pris » terminée)_ _(sans repère « ulga-lettre »)_, sinon « dame » _(si quête « Ce qui n’a plus lieu » terminée)_ _(si quête « Ce que la glace a pris » pas commencée)_, sinon « accueil-2 » _(un jour sur 3, le 2e)_, sinon « accueil-3 » _(un jour sur 3, le 3e)_, sinon « accueil »
 
 ### accueil
 
@@ -11052,6 +11270,44 @@ Commence par : « accueil-2 » _(un jour sur 3, le 2e)_, sinon « accueil-3 » _
 > — Moi ? Je tiens un feu. Un feu ne demande pas d’où tu viens. Ce que je pense du Conseil, je le dis à ma cheminée, et elle garde tout.
 
 - « Merci. » → accueil
+
+### dame
+
+_Effet : lance la quête « Ce que la glace a pris », retient « glace-pris-commencee »._
+
+> — Toi, tu viens pour la même chose que la dame en gris. Ça se voit au manteau : trop léger. Elle a dormi ici il y a trois nuits. Elle a demandé le Collège des 9 Miroirs, et une lacune de trente ans. Je ne sais pas ce que c’est. Elle non plus, je crois.
+
+- « Où trouver le Collège ? » → dame-ou
+- « Manger ou dormir ? » → servir
+- « Merci. » → **fin**
+
+### dame-ou
+
+> — À la Bibliothèque de Glace, au Niveau Royal : prends le Puits d’Ascension. Et dis bien la formule à Hrolda Rochebrume, sinon elle te laissera debout jusqu’au soir.
+
+- « Merci, Ulga. » → accueil
+
+### lettre
+
+> — Un pli pour toi, monté d’Ironheart avec le train. Il est froid : tout ce qui arrive ici est froid.
+
+- « L’ouvrir. » → lettre-texte
+
+### lettre-texte
+
+_Effet : retient « ulga-lettre »._
+
+> L’écriture d’Ilyane, plus grande qu’avant, pour ne pas se perdre entre les lignes. « Il a neigé à Gardebois. Je crois que c’est la première fois. Nell dit que non, qu’il neige chaque hiver. Je la crois. Je crois tout le monde, maintenant. Reviens. »
+
+- « Plier la lettre. » → **fin**
+
+### lettre-prise
+
+_Effet : retient « ulga-lettre »._
+
+> — Un pli pour toi, monté avec le train. Ulga te le tend, et retourne à son feu. Trois lignes, d’une main qui tremble. « J’ai trouvé ton nom dans mes carnets. Je ne sais plus ton visage. Écris-moi qui tu es : je l’écrirai en grand. »
+
+- « Plier la lettre. » → **fin**
 
 ## Vanel Lentefeuille
 

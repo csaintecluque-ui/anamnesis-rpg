@@ -620,5 +620,13 @@
     "price": 60,
     "usage": "À la surface de Glacialis, le froid ne te prend plus de PV tant que tu le portes.",
     "lore": "À Glacialis, on ne prête pas son manteau : on le donne, ou l’on sort avec."
+  },
+  {
+    "id": "piece-glacialis",
+    "name": "Une pièce de la machine",
+    "description": "Lourde, froide, emballée dans une toile que la glace n’a pas mordue. Elle sortait de la caisse prise dans un cristal de crypte, au bout de la voie sept, sous le Niveau Douze de Khrysos.",
+    "weightKg": 6,
+    "price": 0,
+    "quest": true
   }
 ]

@@ -994,5 +994,46 @@
         "texte": "Le lot est trié. Hiran’Amra attend."
       }
     ]
+  },
+  {
+    "id": "glace-pris",
+    "name": "Ce que la glace a pris",
+    "summary": "À Khrysos, le Collège des 9 Miroirs a signé une lacune il y a trente ans : une face brisée par une étrangère. Son intitulé : « Ce qui dort sur le quai du niveau douze ». Une dame en gris est passée par le Foyer il y a trois nuits.",
+    "etapes": [
+      {
+        "si": "glace-pris-commencee",
+        "texte": "Le Collège des 9 Miroirs garde le registre des prises du niveau douze, à la Bibliothèque de Glace (le Niveau Royal). Hrolda Rochebrume le fera rendre à qui dit la formule."
+      },
+      {
+        "si": "glace-lacune",
+        "texte": "Une face manque au registre : « Ce qui dort sur le quai du niveau douze ». Il faut descendre aux cryptes, au Niveau Douze, et on n’y descend pas seul."
+      },
+      {
+        "si": "edda-khrysos-vue",
+        "texte": "La dame en gris attend au Puits du Niveau Douze. Descendre avec elle, avec Halvard des Vigiles Blancs, avec un compagnon de route, ou seul·e, de nuit, contre la règle."
+      },
+      {
+        "si": "voie-sept-ouverte",
+        "texte": "Au bout des cryptes, la glace a mangé une voie de l’Ancien Monde : la voie sept, et son quai."
+      }
+    ],
+    "fins": [
+      {
+        "id": "prise",
+        "titre": "La caisse laissée prise"
+      },
+      {
+        "id": "brisee",
+        "titre": "La prise brisée"
+      },
+      {
+        "id": "college",
+        "titre": "La caisse confiée au Collège"
+      },
+      {
+        "id": "edda",
+        "titre": "La caisse laissée à la dame en gris"
+      }
+    ]
   }
 ]

@@ -156,7 +156,10 @@ const RETOURS = ['sous-la-faille', 'caisse-cendriere', 'caisse-sans-main'];
 const CORALIA = ['mer-rend', 'don-rendu', 'lune-rouge', 'cargo-noir', 'grotte-reflux'];
 /** Chapter 7, Marche-Mère, played on its own (marcheMere.test.ts). */
 const MARCHE = ['plus-lieu', 'halte-muette', 'deux-nombres', 'forage-noir', 'sept-nuits', 'arreter', 'dragonnet'];
-const unfinished = (state: GameState) => QUESTS.filter((q) => !ADHESIONS.includes(q.id) && !AETHERHAVEN.includes(q.id) && !RETOURS.includes(q.id) && !CORALIA.includes(q.id) && !MARCHE.includes(q.id) && state.quests[q.id] !== 'done').map((q) => q.id);
+/** Chapter 8, Khrysos, played on its own (khrysos.test.ts). */
+const KHRYSOS = ['glace-pris'];
+const unfinished = (state: GameState) =>
+  QUESTS.filter((q) => ![...ADHESIONS, ...AETHERHAVEN, ...RETOURS, ...CORALIA, ...MARCHE, ...KHRYSOS].includes(q.id) && state.quests[q.id] !== 'done').map((q) => q.id);
 
 // --- Balayages : gains répétables, entrées de dialogue qui en cachent une autre -------------------------------------
 

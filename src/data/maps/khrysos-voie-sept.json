@@ -11,7 +11,7 @@
  "tilewidth": 64,
  "tileheight": 32,
  "nextlayerid": 4,
- "nextobjectid": 6,
+ "nextobjectid": 8,
  "layers": [
   {
    "id": 1,
@@ -532,7 +532,7 @@
     0,
     0,
     0,
-    397,
+    0,
     0,
     0,
     0,
@@ -764,10 +764,69 @@
      "point": true,
      "rotation": 0,
      "visible": true,
-     "properties": []
+     "properties": [
+      {
+       "name": "tuile",
+       "type": "string",
+       "value": "caisse-glace"
+      },
+      {
+       "name": "disparaitSi",
+       "type": "string",
+       "value": "fin-glace-pris-brisee,fin-glace-pris-edda"
+      }
+     ]
     },
     {
      "id": 2,
+     "name": "edda-khrysos",
+     "type": "pnj",
+     "x": 400,
+     "y": 272,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": [
+      {
+       "name": "apparaitSi",
+       "type": "string",
+       "value": "descendu-edda"
+      },
+      {
+       "name": "disparaitSi",
+       "type": "string",
+       "value": "caisse-glacialis-reglee"
+      }
+     ]
+    },
+    {
+     "id": 3,
+     "name": "halvard",
+     "type": "pnj",
+     "x": 304,
+     "y": 240,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": [
+      {
+       "name": "apparaitSi",
+       "type": "string",
+       "value": "descendu-halvard"
+      },
+      {
+       "name": "disparaitSi",
+       "type": "string",
+       "value": "caisse-glacialis-reglee"
+      }
+     ]
+    },
+    {
+     "id": 4,
      "name": "panneau-halte-glaces",
      "type": "panneau",
      "x": 464,
@@ -786,7 +845,7 @@
      ]
     },
     {
-     "id": 3,
+     "id": 5,
      "name": "vers-cryptes",
      "type": "sortie",
      "x": 16,
@@ -815,7 +874,7 @@
      ]
     },
     {
-     "id": 4,
+     "id": 6,
      "name": "depuis-cryptes",
      "type": "arrivee",
      "x": 80,
@@ -828,7 +887,7 @@
      "properties": []
     },
     {
-     "id": 5,
+     "id": 7,
      "name": "entree",
      "type": "arrivee",
      "x": 80,

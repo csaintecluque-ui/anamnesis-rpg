@@ -11,7 +11,7 @@
  "tilewidth": 64,
  "tileheight": 32,
  "nextlayerid": 4,
- "nextobjectid": 10,
+ "nextobjectid": 11,
  "layers": [
   {
    "id": 1,
@@ -1494,6 +1494,30 @@
     },
     {
      "id": 8,
+     "name": "edda-khrysos",
+     "type": "pnj",
+     "x": 240,
+     "y": 208,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": [
+      {
+       "name": "apparaitSi",
+       "type": "string",
+       "value": "glace-lacune"
+      },
+      {
+       "name": "disparaitSi",
+       "type": "string",
+       "value": "descendu-edda,caisse-glacialis-reglee"
+      }
+     ]
+    },
+    {
+     "id": 9,
      "name": "porte-khrysos-caveau",
      "type": "porte",
      "x": 912,
@@ -1532,7 +1556,7 @@
      ]
     },
     {
-     "id": 9,
+     "id": 10,
      "name": "devant-khrysos-caveau",
      "type": "arrivee",
      "x": 880,

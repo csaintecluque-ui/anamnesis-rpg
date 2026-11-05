@@ -19,13 +19,47 @@ démarrage (`src/audio/sfx.ts`), gardés hors ligne. Le volume des options s'app
 | `objet` | un objet ou des Fers reçus (dialogue, butin d'un combat gagné) | 0,5 |
 | `train` | **le train qu'on entend avant de le voir** : en arrivant à la Gare Engloutie, tant qu'on n'a pas rencontré l'Écho du dernier train ; un grondement lointain qui monte, la vapeur qui s'accélère, un sifflet au loin (7 s) | 0,55 |
 
-## Plus tard : Higgsfield (≈ 80 crédits, à valider par Cyril au moment de générer)
+## Plus tard : Higgsfield — le plan (2026-11-05, **à valider par Cyril** ; rien n'est généré)
 
-Le connecteur sait faire de la musique (ElevenLabs Music) et des voix, **pas de bruitages** (son modèle de bruitages
-est réservé à son outil de jeux). Prévu : quatre ambiances de 2 minutes en boucle (forêt, industrie, pierre,
-souterrain ; ≈ 17,4 crédits chacune, coût vérifié sans générer) et la berceuse de Maëlis fredonnée (≈ 1 min, ≈ 9
-crédits ; chantée, il faudrait ses paroles). Avant : une fiche de style sonore ; chaque génération consignée dans
-`docs/ASSETS.md`.
+Le connecteur fait de la musique (ElevenLabs Music) et des voix, **pas de bruitages** (son modèle de bruitages est
+réservé à son outil de jeux) : les ambiances seront de la **musique d'ambiance**, avec des textures (vent, eau, cloches),
+pas des prises de son. Le premier plan (quatre ambiances et la berceuse, ≈ 80 crédits) date d'avant les chapitres 5 à
+8 ; il en faut maintenant une par famille de lieux.
+
+| Ambiance (boucle de 2 min) | Lieux | Ce qu'on entend |
+|---|---|---|
+| La forêt | Gardebois, Canopéa, le Sol des Racines, la route | flûte de bois, cordes graves, oiseaux lointains |
+| Les forges | Ironheart | enclumes au loin, cuivres graves, battement lent |
+| La pierre | Sept-Portes | cloches, harpe, rumeur de ville |
+| Le souterrain | la Gare Engloutie, les voies endormies, la Cendrière, les cryptes | drone grave, gouttes, résonance de métal |
+| Le ciel | Aetherhaven | vent, carillons, cordes aériennes |
+| La mer | Coralia | ressac, violoncelle, cloche de bouée |
+| Le désert | Marche-Mère | cordes pincées, flûte grave, vent de sable |
+| La glace | Khrysos | verre frotté, harmoniques de cristal, drone froid |
+| **La berceuse de Maëlis** (1 min) | Gardebois, l'Écho de la berceuse | fredonnée par une voix de femme, sans paroles |
+
+**Style commun** (la fiche de style sonore, reprise dans chaque prompt) : lent, sombre et chaleureux ; instruments
+acoustiques ; aucune voix (sauf la berceuse) ; aucune percussion forte ; une boucle sans début ni fin marqués ; mixé
+discret, sous les dialogues. Aucune musique d'une culture réelle reconnaissable (`docs/univers/ton.md`).
+
+**Coût vérifié sans générer** (le 2026-11-05, en crédits) :
+
+| | ElevenLabs Music v2 | ElevenLabs Music v2.5 |
+|---|---|---|
+| Une ambiance de 2 min | 7,68 | 17,44 |
+| Les huit ambiances | 61,44 | 139,52 |
+| La berceuse (1 min) | 3,84 | 8,72 |
+| **Total** | **65,28** | **148,24** |
+| Marge : trois reprises d'ambiance | + 23,04 | + 52,32 |
+
+**Recommandation** : d'abord la forêt dans les deux modèles (25,12 crédits), Cyril écoute et choisit ; puis le reste
+dans le modèle choisi. **Le compte Higgsfield est à 0 crédit** (formule gratuite) : il faut acheter des crédits avant
+toute génération.
+
+**Ce que fait le code ensuite (sans crédits)** : un lecteur de musique qui enchaîne en fondu l'ambiance de la famille
+du lieu ; un réglage « Musique » à part dans les Options ; les fichiers réduits en mono 96 kbit/s par ffmpeg (≈ 1,4 Mo
+par boucle), **mis en cache à la première écoute** plutôt qu'à l'installation (le cache hors ligne fait déjà 14 Mo) ;
+chaque génération consignée dans `docs/ASSETS.md`.
 
 ## Sur téléphone (essai de Cyril, 2026-11-04 : « sur le tel, je n'ai pas entendu de son »)
 

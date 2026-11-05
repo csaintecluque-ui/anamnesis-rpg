@@ -1254,7 +1254,32 @@ _Effet : retient « bjorn-refus »._
 
 > — Une voix sur neuf. Assez pour qu’on m’entende dire non. Trop peu pour que mon non l’emporte. Mais quand je dis non, ceux d’en bas savent qu’il y a eu un non.
 
+- _(sans repère « raconte-bjorn »)_ « Je te raconte une histoire ? » → raconte-neutre 📖 raconter un Récit : puits-trois → raconte-special ; puissants, familles → raconte-touche ; autres → raconte-neutre
 - « Au revoir. » → **fin**
+
+### raconte-special
+
+_Effet : retient « raconte-bjorn », +15 XP._
+
+> Bjorn écoute le Puits Trois les poings fermés. — Ferros fait la queue pour l’eau, et Khrysos pour le bois. On compte les castes autrement. On les compte quand même.
+
+- « Au revoir, Bjorn. » → **fin**
+
+### raconte-touche
+
+_Effet : retient « raconte-bjorn », +10 XP._
+
+> — Des gens d’en bas, et ceux d’en haut qui décident. Je la connais, cette histoire. Je la vis six voix contre trois.
+
+- « Au revoir, Bjorn. » → **fin**
+
+### raconte-neutre
+
+_Effet : retient « raconte-bjorn », +5 XP._
+
+> — Merci. Une voix sur neuf, et une histoire : ça ne pèse pas lourd, mais ça pèse.
+
+- « Au revoir, Bjorn. » → **fin**
 
 ## Boulon
 
@@ -4179,6 +4204,7 @@ Commence par : « choix » _(si quête « Les quatorze années de mesures » en 
 > Un homme maigre aux longs gants, du givre aux manches, penché sur un cristal qu’il fait chanter d’un doigt mouillé. — Maître Ennir, Tisseur de Givre. Je tisse le froid, pour qu’il tienne une forme. Ne touchez à rien de ce qui sonne.
 
 - « Qu’est-ce que tu tisses ? » → tisse
+- _(sans repère « raconte-ennir »)_ « Je te raconte une histoire ? » → raconte-neutre 📖 raconter un Récit : corvan → raconte-special ; ancien-monde, machines → raconte-touche ; autres → raconte-neutre
 - « Au revoir. » → **fin**
 
 ### tisse
@@ -4228,6 +4254,30 @@ _Effet : lance la quête « Les quatorze années de mesures », retient « carne
 > Ennir hésite, puis te tend le cristal. Tu le poses sur l’établi et tu frappes une fois. Quatorze ans de mesures, en éclats. — Il aurait compris, dit Ennir. C’est ce qu’il a fait, lui aussi. Briser un écho.
 
 - « Partir. » → **fin**
+
+### raconte-special
+
+_Effet : retient « raconte-ennir », +15 XP._
+
+> Ennir arrête son cristal. — Un savant que tout le monde a pris pour un fou. Je sais ce que c’est. Mon maître en connaissait un, et il a passé sa vie à ne pas prononcer son nom.
+
+- « Au revoir. » → **fin**
+
+### raconte-touche
+
+_Effet : retient « raconte-ennir », +10 XP._
+
+> — Une histoire de choses qui marchent sans qu’on sache pourquoi. Le givre aussi, quand on le tisse. Merci.
+
+- « Au revoir. » → **fin**
+
+### raconte-neutre
+
+_Effet : retient « raconte-ennir », +5 XP._
+
+> — Merci. Il retourne à son cristal, qui recommence à chanter.
+
+- « Au revoir. » → **fin**
 
 ## Eskil Kolm
 
@@ -4781,6 +4831,7 @@ Commence par : « face » _(si quête « Une lacune à signer » en cours)_ _(si
 > — Le Yéti ? Le marchand de Ferros jure que c’est lui. Personne n’a rien vu. J’ai ordre de le renvoyer demain : un Yéti aux Portes, ça se soupçonne mieux que ça ne se voit.
 
 - _(sans repère « fin-cristal-ecoute-brise »)_ « Faites rendre le cristal espion des Galeries : il a vu le marché. » → espion _(termine la quête « Le yéti des Portes », retient « fin-yeti-portes-espion », +50 XP, retient « yeti-portes-reglee »)_
+- _(si repère « rumeur-cocher-suif »)_ **🎲 Diplomatie 13** « Le cocher du marchand vend des bougies de suif au marché, à moitié prix. » → preuve-cocher, ✗ → cocher-non
 - « Je reviens avec mieux. » → **fin**
 - « Et la surface ? » → surface
 
@@ -4821,6 +4872,20 @@ _Effet : retient « garde-nie » pour 1 jours._
 > — Je ne sais pas de quoi vous parlez. Revenez demain si vous voulez : je dirai la même chose.
 
 - « À demain. » → **fin**
+
+### preuve-cocher
+
+_Effet : termine la quête « Le yéti des Portes », retient « fin-yeti-portes-innocent », +60 XP, retient « yeti-portes-reglee »._
+
+> La garde envoie quelqu’un au marché. Il revient avec une bougie de suif et un cocher de Ferros aux bottes ferrées, qui ne dit rien. — Le Yéti reste, dit-elle. Je n’aime pas avoir eu tort.
+
+- « Merci. » → **fin**
+
+### cocher-non
+
+> — Des bougies au marché ? Il y en a toujours. Ce n’est pas une preuve, c’est une rumeur de veillée. Apportez-moi mieux.
+
+- « Au revoir. » → **fin**
 
 ## Gardienne du Ciel
 
@@ -5169,6 +5234,7 @@ Commence par : « ferme »
 
 - « Descendre avec quelqu’un. » → second
 - _(la nuit)_ _(sans repère « grille-surprise »)_ **🎲 Discrétion 17** « Passer seul·e, cette nuit, quand le gardien dort. » → seul, ✗ → surpris
+- _(si repère « rumeur-gardien-dort »)_ _(la nuit)_ _(sans repère « grille-surprise »)_ **🎲 Discrétion 13** « Passer à la deuxième heure, pendant qu’il dort assis. » → seul, ✗ → surpris
 - « S’éloigner. » → **fin**
 
 ### deux
@@ -5390,6 +5456,7 @@ Commence par : « perdue » _(si repère « sigrun-perdue »)_ _(si quête « L�
 > — Ça viendra. Tout le monde finit par perdre quelqu’un dans le blizzard, ou par s’y perdre. Ce jour-là, viens me voir. Le Collège, lui, notera seulement la date.
 
 - « Que croient les Vigiles ? » → croient
+- _(sans repère « raconte-halvard »)_ « Je te raconte une histoire ? » → raconte-neutre 📖 raconter un Récit : thryn-vek → raconte-special ; morts, familles → raconte-touche ; autres → raconte-neutre
 - « Au revoir. » → **fin**
 
 ### croient
@@ -5450,6 +5517,30 @@ _Effet : termine la quête « L’égaré »._
 > Halvard ne lève pas la tête de son gant. — La fille de l’Épreuve. Les Vigiles l’ont ramenée, debout dans la neige, et tes traces à côté des siennes. Les Vigiles ne parlent pas à ceux qui laissent.
 
 - « Partir. » → **fin**
+
+### raconte-special
+
+_Effet : retient « raconte-halvard », +15 XP._
+
+> Halvard pose son gant. — Une Gardienne qui comptait les morts, chaque matin, à voix haute. Nous, on compte les vivants. Il faudrait peut-être quelqu’un pour faire les deux.
+
+- « Merci, Halvard. » → **fin**
+
+### raconte-touche
+
+_Effet : retient « raconte-halvard », +10 XP._
+
+> — Tu racontes ça avec une passion. C’est rare, au nord. Ne la perds pas en route : il fait froid, et elle part la première.
+
+- « Merci, Halvard. » → **fin**
+
+### raconte-neutre
+
+_Effet : retient « raconte-halvard », +5 XP._
+
+> — Merci. Les Vigiles écoutent tout, dehors : ça aide à rester éveillé.
+
+- « Merci, Halvard. » → **fin**
 
 ## Ragna Cendrefer
 
@@ -7516,6 +7607,7 @@ Commence par : « merci » _(si quête « Le yéti des Portes » terminée)_, si
 
 > — Parce qu’ils me touchent quand même, alors autant que ça rapporte. Depuis 2990, on a le droit de demander. Avant, on avait le droit de se taire.
 
+- _(sans repère « raconte-korvek »)_ « Je te raconte une histoire ? » → raconte-neutre 📖 raconter un Récit : premier-tri → raconte-special ; morts, familles → raconte-touche ; autres → raconte-neutre
 - « Je te laisse. » → **fin**
 
 ### accuse
@@ -7556,6 +7648,30 @@ _Effet : lance la quête « Le yéti des Portes », retient « yeti-commence ».
 > Korvek te tend le bras, cette fois. — Pour la chance. Gratuit, pour toi. Ne le dis à personne : ça ferait baisser les prix.
 
 - _(si quête « L’Épreuve du Blizzard » en cours)_ _(sans repère « sigrun-reperee »)_ « Il y a une fille dehors, Sigrun. Tu peux la trouver ? » → guide
+- « Merci, Korvek. » → **fin**
+
+### raconte-special
+
+_Effet : retient « raconte-korvek », +15 XP._
+
+> Korvek t’écoute jusqu’au bout sans bouger. — Vaelor. Il portait deux personnes à la fois. Un Yéti en porte trois. Personne n’a jamais gravé de cristal pour un Yéti qui portait.
+
+- « Merci, Korvek. » → **fin**
+
+### raconte-touche
+
+_Effet : retient « raconte-korvek », +10 XP._
+
+> — Une histoire de gens qui restent. Il hoche sa grosse tête. — Chez nous, on les raconte en marchant, pour ne pas geler. Celle-là marche bien.
+
+- « Merci, Korvek. » → **fin**
+
+### raconte-neutre
+
+_Effet : retient « raconte-korvek », +5 XP._
+
+> — Merci. Il te tend le bras. — Pour la chance. Celle-là, je ne la fais pas payer.
+
 - « Merci, Korvek. » → **fin**
 
 ## Kresh’Tal
@@ -10103,7 +10219,32 @@ Commence par : « accueil »
 
 > — Il ne l’est pas : on ne lui a encore rien confié. C’est le seul cristal de Khrysos qui puisse encore tout recevoir. Certains viennent lui dire ce qu’ils n’ont dit à personne. Il ne le rendra qu’à qui saura le demander.
 
+- _(sans repère « raconte-pretresse-hiver »)_ « Je te raconte une histoire ? » → raconte-neutre 📖 raconter un Récit : chant-qu-on-ne-chante-pas → raconte-special ; morts, mysteres → raconte-touche ; autres → raconte-neutre
 - « Au revoir. » → **fin**
+
+### raconte-special
+
+_Effet : retient « raconte-pretresse-hiver », +15 XP._
+
+> La prêtresse se tait longtemps. — Une conque qui se tait. Ici, ce sont les cristaux, maintenant. Ce qui ne pouvait pas oublier commence à oublier. Le froid ne garde plus.
+
+- « Merci. » → **fin**
+
+### raconte-touche
+
+_Effet : retient « raconte-pretresse-hiver », +10 XP._
+
+> — Le cristal vide l’a entendue, elle aussi. Il ne la rendra qu’à qui saura la demander. Merci de la lui avoir confiée.
+
+- « Merci. » → **fin**
+
+### raconte-neutre
+
+_Effet : retient « raconte-pretresse-hiver », +5 XP._
+
+> — Merci. Le cristal vide n’en retient rien. Il attendra une autre histoire.
+
+- « Merci. » → **fin**
 
 ## Une prise sans nom
 
@@ -12073,6 +12214,7 @@ Commence par : « lettre-prise » _(si quête « Ce que la glace a pris » termi
 
 - « Manger ou dormir ? » → servir
 - « Quelles nouvelles ? » → nouvelles
+- « Raconter un Récit à la veillée. » → **fin** _(ouvre la veillée « foyer »)_
 - « Au revoir. » → **fin**
 
 ### accueil-2
@@ -12081,6 +12223,7 @@ Commence par : « lettre-prise » _(si quête « Ce que la glace a pris » termi
 
 - « Manger ou dormir ? » → servir
 - « Quelles nouvelles ? » → nouvelles
+- « Raconter un Récit à la veillée. » → **fin** _(ouvre la veillée « foyer »)_
 - « Au revoir. » → **fin**
 
 ### accueil-3
@@ -12089,6 +12232,7 @@ Commence par : « lettre-prise » _(si quête « Ce que la glace a pris » termi
 
 - « Manger ou dormir ? » → servir
 - « Quelles nouvelles ? » → nouvelles
+- « Raconter un Récit à la veillée. » → **fin** _(ouvre la veillée « foyer »)_
 - « Au revoir. » → **fin**
 
 ### servir

@@ -886,5 +886,204 @@
       "Le lendemain matin, elle était dans un nombre.",
       "J’ai soif. Ça passera."
     ]
+  },
+  {
+    "id": "ulga",
+    "lines": [
+      "Assieds-toi près du feu. Les doigts d’abord.",
+      "Personne n’a jamais gelé chez moi."
+    ],
+    "reactions": [
+      {
+        "flag": "fin-laisses-dehors-ulga",
+        "lines": [
+          "Le mur chaud tient bien. Il ne dit rien, lui."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "korvek",
+    "lines": [
+      "Un Fer, pour la chance.",
+      "Ne siffle pas dans le blizzard."
+    ],
+    "reactions": [
+      {
+        "quest": "yeti-portes",
+        "status": "active",
+        "lines": [
+          "Personne n’a rien vu. Moi non plus."
+        ]
+      },
+      {
+        "flag": "fin-yeti-portes-innocent",
+        "lines": [
+          "Des bottes de Ferros. Pas des pieds de Yéti."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "brodd",
+    "lines": [
+      "Un cristal se taille selon son fil.",
+      "Fourrure dehors, laine dedans."
+    ],
+    "reactions": [
+      {
+        "flag": "fin-cristal-ecoute-brise",
+        "lines": [
+          "Le marché parle de nouveau. Fort, même."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "torka",
+    "lines": [
+      "Ne marche pas sur la queue.",
+      "Un renard par jour."
+    ],
+    "reactions": [
+      {
+        "quest": "epreuve-blizzard",
+        "status": "active",
+        "lines": [
+          "Elle est partie à l’est. À l’est."
+        ]
+      },
+      {
+        "flag": "sigrun-ramenee",
+        "lines": [
+          "Sigrun dort. Je finis son ours."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "hrolda",
+    "lines": [
+      "Le cristal rend.",
+      "Nous ne jugeons pas. Nous signons."
+    ],
+    "reactions": [
+      {
+        "quest": "cristal-hesite",
+        "status": "active",
+        "lines": [
+          "Un cristal ne s’arrête pas. Il ne devrait pas."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "crysta",
+    "lines": [
+      "Dites-le clairement.",
+      "Le froid garde tout."
+    ]
+  },
+  {
+    "id": "bjorn",
+    "lines": [
+      "Une voix sur neuf.",
+      "Le bois coûte plus cher que la viande."
+    ],
+    "reactions": [
+      {
+        "flag": "fin-laisses-dehors-bjorn",
+        "lines": [
+          "Une famille, une fois. C’est un début."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "halvard",
+    "lines": [
+      "On compte ce qu’on ramène.",
+      "Il manquait une passion aux héros."
+    ],
+    "reactions": [
+      {
+        "flag": "membre-vigiles-blancs",
+        "lines": [
+          "Tu ressors ? Prends une corde."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pretresse-hiver",
+    "lines": [
+      "Le froid n’endort pas. Il garde.",
+      "Le cristal vide attend."
+    ]
+  },
+  {
+    "id": "gardien-cryptes",
+    "lines": [
+      "On ne descend pas seul.",
+      "Onze millions de prises."
+    ],
+    "reactions": [
+      {
+        "flag": "briseur-echos",
+        "lines": [
+          "Le Briseur est revenu. Il a changé de visage."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ennir",
+    "lines": [
+      "Ne touchez à rien de ce qui sonne.",
+      "Le givre tient une forme, si on le tisse."
+    ]
+  },
+  {
+    "id": "garde-portes",
+    "lines": [
+      "Vous venez du train ? Bien.",
+      "La loi de 2995. Je n’y peux rien."
+    ],
+    "reactions": [
+      {
+        "flag": "garde-avoue",
+        "lines": [
+          "J’ai signé. Le Collège aussi."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "dagny",
+    "lines": [
+      "Les 4 611 demandent justice.",
+      "Ma mère est section quatre."
+    ]
+  },
+  {
+    "id": "oskarsen",
+    "lines": [
+      "Il y a trois nuits.",
+      "Le petit ne tremble plus."
+    ]
+  },
+  {
+    "id": "sigrun",
+    "lines": [
+      "C’est pas fini. Je compte.",
+      "Vingt-quatre heures."
+    ]
+  },
+  {
+    "id": "edda-khrysos",
+    "lines": [
+      "Elle a brisé un écho.",
+      "Je déteste demander."
+    ]
   }
 ]

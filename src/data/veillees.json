@@ -243,5 +243,40 @@
         "texte": "Une femme du clan de Saal’Ema : « Longue-Ombre ne se laisse toucher qu’après avoir bu. Nes’Mira le sait, mais elle ne le dit pas aux étrangers. »"
       }
     ]
+  },
+  {
+    "id": "foyer",
+    "lieu": "khrysos-foyer",
+    "hote": "ulga",
+    "ville": "khrysos",
+    "nom": "Le Foyer",
+    "public": "Des Glaciens qui ont retiré leurs gants, un Géant des Glaces assis par terre, deux Vigiles Blancs qui reviennent de la surface, et une Elfe de Givre qui écoute les yeux fermés, pour mieux compter les mots.",
+    "gouts": "Le cristal rend : au Foyer, on aime les récits exacts, sur les morts et sur ceux qui décident pour les autres. On déteste ce qui change d’une fois sur l’autre, et les chansons d’abord, qui ne sont jamais deux fois les mêmes.",
+    "aime": [
+      "morts",
+      "puissants"
+    ],
+    "deteste": [
+      "chansons"
+    ],
+    "reactions": {
+      "triomphe": "À la fin, personne n’applaudit. Une vieille Glacienne dit seulement : « Le cristal rend. » Toute la salle répond : « et ne juge pas. » Ulga fait passer une chope de cuivre, et elle revient lourde.",
+      "succes": "On t’écoute sans bouger, les mains autour des chopes. À la fin, un Nain de Glace hoche la tête : « Exact. Pas un mot de trop. » La chope de cuivre fait le tour.",
+      "redite": "« Tu l’as déjà rendue, celle-là. » On l’écoute quand même, mot pour mot, pour vérifier que tu n’en changes rien.",
+      "echec": "Au milieu, tu reprends une phrase autrement que la première fois. L’Elfe de Givre ouvre les yeux : « Tout à l’heure, tu as dit autre chose. » Plus personne n’écoute.",
+      "deteste": "Au premier refrain, la salle se raidit. Une chanson change chaque fois qu’on la chante : au Foyer, c’est presque un mensonge. Quelqu’un tousse, longtemps."
+    },
+    "rumeurs": [
+      {
+        "id": "gardien-dort",
+        "titre": "Le gardien des cryptes",
+        "texte": "Un Vigile Blanc, les pieds au feu : « Le vieux des cryptes ? Il dort assis, à la deuxième heure de la nuit, la lampe sur les genoux. Tout le Douze le sait. »"
+      },
+      {
+        "id": "cocher-suif",
+        "titre": "Les bougies de suif",
+        "texte": "Une marchande des Galeries, à mi-voix : « Des bougies de suif de Ferros, à moitié prix, au marché, depuis deux jours. Le cocher qui les vend porte des bottes ferrées. »"
+      }
+    ]
   }
 ]

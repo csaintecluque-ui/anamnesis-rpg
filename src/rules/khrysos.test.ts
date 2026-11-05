@@ -11,6 +11,9 @@ import { echoObjects } from './echos';
 import { filPage } from './fil';
 import { dreamFragment, FRAGMENTS } from './heros';
 import { reputationScore } from './reputation';
+import { findBarks } from './barks';
+import { FIGURANTS, figurantsAt } from './figurants';
+import { PUBLICS } from './veillees';
 import { DIALOGUES } from '../data/dialogues';
 import { crossingOf, findPlace, FIRST_TRAIN_FLAG, flightFare, flightSky, flightTimeLabel, knownPlaces, payFlight, trainStation, WORLD } from './world';
 
@@ -579,5 +582,38 @@ describe('les deux guildes de Khrysos', () => {
     const c = state.character!;
     addItem(c, 'manteau-vigile');
     expect(froid(c)).toBeNull();
+  });
+});
+
+describe('la vie de Khrysos', () => {
+  it('douze passants dans la ville, et des habitants qui parlent seuls', () => {
+    const passants = FIGURANTS.filter((f) => findLocation(f.location)?.place === 'khrysos');
+    expect(passants.length).toBeGreaterThanOrEqual(12);
+    for (const id of ['khrysos-portes', 'khrysos-galeries', 'khrysos-royal', 'khrysos-douze']) expect(figurantsAt(id).length, id).toBeGreaterThanOrEqual(2);
+    for (const id of ['ulga', 'korvek', 'brodd', 'torka', 'hrolda', 'halvard', 'garde-portes', 'edda-khrysos']) expect(findBarks(id), id).toBeDefined();
+  });
+
+  it('la veillée du Foyer, chez Ulga : on y aime les récits exacts ; ses deux rumeurs rendent plus faciles la grille et le Yéti', () => {
+    const state = game();
+    expect(optionTexts(state, 'ulga', 'accueil')).toContain('Raconter un Récit à la veillée.');
+    const foyer = PUBLICS.find((p) => p.id === 'foyer')!;
+    expect(foyer.deteste).toContain('chansons');
+    state.location = 'khrysos-douze';
+    state.time.phase = 3;
+    expect(optionTexts(state, 'grille-cryptes', 'ferme')).not.toContain('Passer à la deuxième heure, pendant qu’il dort assis.');
+    state.flags['rumeur-gardien-dort'] = true;
+    expect(optionTexts(state, 'grille-cryptes', 'ferme')).toContain('Passer à la deuxième heure, pendant qu’il dort assis.');
+    state.flags['rumeur-cocher-suif'] = true;
+    expect(optionTexts(state, 'garde-portes', 'yeti')).toContain('Le cocher du marchand vend des bougies de suif au marché, à moitié prix.');
+  });
+
+  it('cinq habitants écoutent un Récit : Korvek, Halvard, la Prêtresse, Bjorn, Maître Ennir', () => {
+    const state = game();
+    state.character!.recits.push('premier-tri');
+    for (const [id, node] of [['korvek', 'pourquoi'], ['halvard', 'vigiles'], ['pretresse-hiver', 'vide'], ['bjorn', 'change'], ['ennir', 'accueil']]) {
+      expect(optionTexts(state, id, node), id).toContain('Je te raconte une histoire ?');
+    }
+    const option = DIALOGUES.korvek.nodes.pourquoi.options.find((o) => o.raconter)!;
+    expect(option.raconter!.recits).toEqual({ 'premier-tri': 'raconte-special' });
   });
 });

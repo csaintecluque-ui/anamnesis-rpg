@@ -96,6 +96,26 @@
           "next": "croient"
         },
         {
+          "text": "Je te raconte une histoire ?",
+          "next": "raconte-neutre",
+          "requires": [
+            {
+              "notFlag": "raconte-halvard"
+            }
+          ],
+          "raconter": {
+            "aime": [
+              "morts",
+              "familles"
+            ],
+            "recits": {
+              "thryn-vek": "raconte-special"
+            },
+            "touche": "raconte-touche",
+            "neutre": "raconte-neutre"
+          }
+        },
+        {
           "text": "Au revoir.",
           "next": "fin"
         }
@@ -232,6 +252,57 @@
       "options": [
         {
           "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-special": {
+      "text": "Halvard pose son gant. — Une Gardienne qui comptait les morts, chaque matin, à voix haute. Nous, on compte les vivants. Il faudrait peut-être quelqu’un pour faire les deux.",
+      "effects": [
+        {
+          "setFlag": "raconte-halvard"
+        },
+        {
+          "giveXp": 15
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Halvard.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-touche": {
+      "text": "— Tu racontes ça avec une passion. C’est rare, au nord. Ne la perds pas en route : il fait froid, et elle part la première.",
+      "effects": [
+        {
+          "setFlag": "raconte-halvard"
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Halvard.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-neutre": {
+      "text": "— Merci. Les Vigiles écoutent tout, dehors : ça aide à rester éveillé.",
+      "effects": [
+        {
+          "setFlag": "raconte-halvard"
+        },
+        {
+          "giveXp": 5
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Halvard.",
           "next": "fin"
         }
       ]

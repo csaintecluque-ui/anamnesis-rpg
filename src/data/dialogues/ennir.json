@@ -27,6 +27,26 @@
           "next": "tisse"
         },
         {
+          "text": "Je te raconte une histoire ?",
+          "next": "raconte-neutre",
+          "requires": [
+            {
+              "notFlag": "raconte-ennir"
+            }
+          ],
+          "raconter": {
+            "aime": [
+              "ancien-monde",
+              "machines"
+            ],
+            "recits": {
+              "corvan": "raconte-special"
+            },
+            "touche": "raconte-touche",
+            "neutre": "raconte-neutre"
+          }
+        },
+        {
           "text": "Au revoir.",
           "next": "fin"
         }
@@ -154,6 +174,57 @@
       "options": [
         {
           "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-special": {
+      "text": "Ennir arrête son cristal. — Un savant que tout le monde a pris pour un fou. Je sais ce que c’est. Mon maître en connaissait un, et il a passé sa vie à ne pas prononcer son nom.",
+      "effects": [
+        {
+          "setFlag": "raconte-ennir"
+        },
+        {
+          "giveXp": 15
+        }
+      ],
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-touche": {
+      "text": "— Une histoire de choses qui marchent sans qu’on sache pourquoi. Le givre aussi, quand on le tisse. Merci.",
+      "effects": [
+        {
+          "setFlag": "raconte-ennir"
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-neutre": {
+      "text": "— Merci. Il retourne à son cristal, qui recommence à chanter.",
+      "effects": [
+        {
+          "setFlag": "raconte-ennir"
+        },
+        {
+          "giveXp": 5
+        }
+      ],
+      "options": [
+        {
+          "text": "Au revoir.",
           "next": "fin"
         }
       ]

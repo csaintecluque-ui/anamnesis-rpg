@@ -32,6 +32,26 @@
           "failNext": "surpris"
         },
         {
+          "text": "Passer à la deuxième heure, pendant qu’il dort assis.",
+          "next": "seul",
+          "requires": [
+            {
+              "flag": "rumeur-gardien-dort"
+            },
+            {
+              "moment": "nuit"
+            },
+            {
+              "notFlag": "grille-surprise"
+            }
+          ],
+          "roll": {
+            "skill": "stealth",
+            "difficulty": 13
+          },
+          "failNext": "surpris"
+        },
+        {
           "text": "S’éloigner.",
           "next": "fin"
         }

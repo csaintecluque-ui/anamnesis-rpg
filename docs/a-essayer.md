@@ -329,7 +329,7 @@ En ligne le 2026-11-03 (tes textes du 3 novembre) :
       Eskil ou Ish'Lenne.
 - Remarques :
 
-## Chapitre 8, Khrysos (en construction depuis le 2026-11-05)
+## Chapitre 8, Khrysos (en ligne le 2026-11-05)
 
 - [ ] **Le train du Nord** : après Marche-Mère, Khrysos au nord de la carte du monde, par la ligne du Nord ; on ne le
       prend qu'à Ironheart (le guichet de la gare, ou la carte du monde depuis Ironheart) ; le premier billet payé par
@@ -351,6 +351,8 @@ En ligne le 2026-11-03 (tes textes du 3 novembre) :
       au Palais ; Torka et Sigrun (la surface, à l'est ; Korvek guide) ; le cristal espion et Brodd ; Korvek accusé, le
       traîneau vide, la garde. **Les guildes** : Hrolda (« Qui brise une face ? ») et le registre des Portes ; Halvard
       (« Que croient les Vigiles ? ») et Sigrun.
+- [ ] **La veillée du Foyer** (chez Ulga) et ses deux rumeurs ; raconter un Récit à Korvek, Halvard, la Prêtresse, Bjorn
+      ou Maître Ennir ; les passants et ce que disent les habitants en passant.
 - Remarques :
 
 ## Déjà en ligne, pas encore essayé sur PC

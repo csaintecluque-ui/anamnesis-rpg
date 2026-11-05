@@ -94,6 +94,26 @@
       "text": "— Parce qu’ils me touchent quand même, alors autant que ça rapporte. Depuis 2990, on a le droit de demander. Avant, on avait le droit de se taire.",
       "options": [
         {
+          "text": "Je te raconte une histoire ?",
+          "next": "raconte-neutre",
+          "requires": [
+            {
+              "notFlag": "raconte-korvek"
+            }
+          ],
+          "raconter": {
+            "aime": [
+              "morts",
+              "familles"
+            ],
+            "recits": {
+              "premier-tri": "raconte-special"
+            },
+            "touche": "raconte-touche",
+            "neutre": "raconte-neutre"
+          }
+        },
+        {
           "text": "Je te laisse.",
           "next": "fin"
         }
@@ -253,6 +273,57 @@
             }
           ]
         },
+        {
+          "text": "Merci, Korvek.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-special": {
+      "text": "Korvek t’écoute jusqu’au bout sans bouger. — Vaelor. Il portait deux personnes à la fois. Un Yéti en porte trois. Personne n’a jamais gravé de cristal pour un Yéti qui portait.",
+      "effects": [
+        {
+          "setFlag": "raconte-korvek"
+        },
+        {
+          "giveXp": 15
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Korvek.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-touche": {
+      "text": "— Une histoire de gens qui restent. Il hoche sa grosse tête. — Chez nous, on les raconte en marchant, pour ne pas geler. Celle-là marche bien.",
+      "effects": [
+        {
+          "setFlag": "raconte-korvek"
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Korvek.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-neutre": {
+      "text": "— Merci. Il te tend le bras. — Pour la chance. Celle-là, je ne la fais pas payer.",
+      "effects": [
+        {
+          "setFlag": "raconte-korvek"
+        },
+        {
+          "giveXp": 5
+        }
+      ],
+      "options": [
         {
           "text": "Merci, Korvek.",
           "next": "fin"

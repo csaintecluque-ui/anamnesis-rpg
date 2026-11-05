@@ -77,6 +77,15 @@
           "next": "nouvelles"
         },
         {
+          "text": "Raconter un Récit à la veillée.",
+          "next": "fin",
+          "effects": [
+            {
+              "veillee": "foyer"
+            }
+          ]
+        },
+        {
           "text": "Au revoir.",
           "next": "fin"
         }
@@ -94,6 +103,15 @@
           "next": "nouvelles"
         },
         {
+          "text": "Raconter un Récit à la veillée.",
+          "next": "fin",
+          "effects": [
+            {
+              "veillee": "foyer"
+            }
+          ]
+        },
+        {
           "text": "Au revoir.",
           "next": "fin"
         }
@@ -109,6 +127,15 @@
         {
           "text": "Quelles nouvelles ?",
           "next": "nouvelles"
+        },
+        {
+          "text": "Raconter un Récit à la veillée.",
+          "next": "fin",
+          "effects": [
+            {
+              "veillee": "foyer"
+            }
+          ]
         },
         {
           "text": "Au revoir.",

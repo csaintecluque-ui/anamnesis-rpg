@@ -2689,5 +2689,297 @@
       "Ce soir, pas de légende : elles ont leur lieu. Ce soir, des nouvelles, des devinettes, et ce qu’on a vu sur la piste.",
       "Une devinette : qu’est-ce qui marche avec nous depuis trois mille ans et n’a jamais soif ? Les jalons."
     ]
+  },
+  {
+    "id": "glacien-portes",
+    "location": "khrysos-portes",
+    "name": "Un Glacien",
+    "tile": "glacien",
+    "path": [
+      [
+        14,
+        8
+      ],
+      [
+        22,
+        8
+      ]
+    ],
+    "lines": [
+      "Moins soixante, dehors. Moins cinq, ici. On appelle ça la saison chaude, au Foyer, pour faire rire les étrangers.",
+      "Le train du Nord monte du minerai et descend des réfugiés. Enfin, il en descendait."
+    ],
+    "reactions": [
+      {
+        "flag": "fin-laisses-dehors-bjorn",
+        "lines": [
+          "Une famille du sud, gardée au chaud par un vote du Conseil. Une seule. Bjorn appelle ça un début."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "enfant-portes",
+    "location": "khrysos-portes",
+    "name": "Un enfant des Portes",
+    "tile": "enfant-givre",
+    "path": [
+      [
+        16,
+        14
+      ],
+      [
+        20,
+        14
+      ]
+    ],
+    "lines": [
+      "Si tu croises le Yéti, touche-lui le bras. Ça porte chance. Moi, je l’ai touché trois fois.",
+      "Ne siffle pas dehors. Ma tante a sifflé une fois. On ne parle plus de ma tante."
+    ],
+    "reactions": [
+      {
+        "flag": "fin-yeti-portes-parti",
+        "lines": [
+          "Le Yéti est parti vers les Terres Sauvages. Maintenant, on n’a plus de chance du tout."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "geant-portes",
+    "location": "khrysos-portes",
+    "name": "Un Géant des Glaces",
+    "tile": "geant-glaces",
+    "path": [
+      [
+        24,
+        12
+      ]
+    ],
+    "lines": [
+      "Je garde la Porte quand la garde dort. Personne ne me l’a demandé. Personne ne m’a dit non.",
+      "Trois portes nord, et la troisième ne s’ouvre plus. On dit que les noms sont gravés dedans, à l’envers."
+    ]
+  },
+  {
+    "id": "marchande-galeries",
+    "location": "khrysos-galeries",
+    "name": "Une marchande des Galeries",
+    "tile": "glacienne",
+    "path": [
+      [
+        11,
+        11
+      ],
+      [
+        18,
+        11
+      ]
+    ],
+    "lines": [
+      "Je vends du poisson de la Mer Gelée, et je le vends sans parler. Le cristal, au plafond, écoute les prix.",
+      "Trois degrés au-dessus de zéro, au marché. On retire ses gants pour payer. On les remet pour se taire."
+    ],
+    "reactions": [
+      {
+        "flag": "fin-cristal-ecoute-brise",
+        "lines": [
+          "Le cristal du plafond est fendu. Quelqu’un a ri fort, hier. Moi aussi, un peu."
+        ]
+      },
+      {
+        "flag": "fin-cristal-ecoute-denonce",
+        "lines": [
+          "Il y en a deux, maintenant, des cristaux. Un au plafond, un sur la porte de Brodd. On vend encore plus bas."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "nain-galeries",
+    "location": "khrysos-galeries",
+    "name": "Un Nain de Glace",
+    "tile": "nain-glace",
+    "path": [
+      [
+        13,
+        6
+      ],
+      [
+        20,
+        6
+      ]
+    ],
+    "lines": [
+      "Un manteau de Brodd tient dix hivers. Le mien en a douze. Il me tient, maintenant.",
+      "Les Galeries sont chaudes à cause de la terre. La terre a chaud parce qu’elle est en dessous. Moi aussi, je suis en dessous."
+    ]
+  },
+  {
+    "id": "elfe-galeries",
+    "location": "khrysos-galeries",
+    "name": "Une Elfe de Givre",
+    "tile": "elfe-givre",
+    "path": [
+      [
+        22,
+        10
+      ],
+      [
+        22,
+        16
+      ]
+    ],
+    "lines": [
+      "Le cristal rend, et ne juge pas. Moi, je juge un peu. Ce manteau, par exemple.",
+      "J’ai deux cents ans. J’ai vu poser le cristal du plafond. On l’a applaudi. Je n’ai pas applaudi."
+    ],
+    "reactions": [
+      {
+        "flag": "fin-cristal-hesite-signee",
+        "lines": [
+          "Le Collège a signé une lacune sans auteur. Les cristaux oublient. Je ne sais plus quoi croire de ce que j’ai appris."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "yeti-galeries",
+    "location": "khrysos-galeries",
+    "name": "Un Yéti",
+    "tile": "yeti",
+    "path": [
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        10
+      ]
+    ],
+    "lines": [
+      "On me touche le bras, puis on change de trottoir. Les deux, chaque fois.",
+      "Korvek demande un Fer. Moi, je ne demande rien. On me touche quand même."
+    ]
+  },
+  {
+    "id": "elfe-royal",
+    "location": "khrysos-royal",
+    "name": "Un Elfe de Givre",
+    "tile": "elfe-givre",
+    "path": [
+      [
+        5,
+        10
+      ],
+      [
+        10,
+        10
+      ]
+    ],
+    "lines": [
+      "Le Palais monte à deux cents mètres de cristal. On dit que la Primus voit tout Khrysos d’en haut. Elle voit surtout le plafond.",
+      "La Clarté, c’est de penser froid. Ceux qui pensent chaud vont chez les Vigiles."
+    ]
+  },
+  {
+    "id": "garde-royal",
+    "location": "khrysos-royal",
+    "name": "Une garde du Palais",
+    "tile": "garde-portes",
+    "path": [
+      [
+        20,
+        10
+      ],
+      [
+        26,
+        10
+      ]
+    ],
+    "lines": [
+      "Le Conseil des Neuf siège aujourd’hui. Huit voix d’un côté, une de l’autre. Comme d’habitude.",
+      "Les pétitions de la dame en deuil ? On les range. On ne les jette pas : on n’a pas le droit."
+    ]
+  },
+  {
+    "id": "mineur-douze",
+    "location": "khrysos-douze",
+    "name": "Un mineur",
+    "tile": "nain-glace",
+    "path": [
+      [
+        12,
+        14
+      ],
+      [
+        20,
+        14
+      ]
+    ],
+    "lines": [
+      "Au Douze, il fait chaud, il fait noir, et on travaille à côté des morts. On ne se plaint pas : eux non plus.",
+      "Le gardien des cryptes dort assis. Personne n’ose le réveiller. C’est peut-être ça, son travail."
+    ],
+    "reactions": [
+      {
+        "flag": "briseur-echos",
+        "lines": [
+          "On a entendu un cristal se fendre, au bout des cryptes. Un bruit de cloche. Le Briseur est revenu, qu’ils disent."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "machiniste-douze",
+    "location": "khrysos-douze",
+    "name": "Une machiniste",
+    "tile": "machiniste",
+    "path": [
+      [
+        10,
+        6
+      ],
+      [
+        10,
+        12
+      ]
+    ],
+    "lines": [
+      "La géothermie, ça siffle, ça gronde, et ça chauffe trois millions de gens. On ne lui dit jamais merci.",
+      "Le Puits monte douze niveaux en quatre minutes. Il les descend en trois. Ne me demandez pas pourquoi."
+    ]
+  },
+  {
+    "id": "vigile-foyer",
+    "location": "khrysos-foyer",
+    "name": "Un Vigile Blanc",
+    "tile": "glacien",
+    "path": [
+      [
+        7,
+        2
+      ]
+    ],
+    "lines": [
+      "Ramené un chasseur, cette nuit. Vivant. Ulga m’offre la chope : on ne la refuse pas.",
+      "On ne compte pas ce qu’on laisse. On compte ce qu’on ramène. Sinon, on ne ressortirait jamais."
+    ],
+    "reactions": [
+      {
+        "flag": "sigrun-ramenee",
+        "lines": [
+          "La petite Sigrun, ramenée par un étranger. Ça fait un de plus. Halvard l’a noté, je l’ai vu."
+        ]
+      },
+      {
+        "flag": "abandon-froid",
+        "lines": [
+          "Il y a quelqu’un, en ville, qui a laissé une fille de seize ans dans la neige. On sait qui."
+        ]
+      }
+    ]
   }
 ]

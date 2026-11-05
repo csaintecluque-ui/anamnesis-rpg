@@ -116,6 +116,20 @@
           ]
         },
         {
+          "text": "Le cocher du marchand vend des bougies de suif au marché, à moitié prix.",
+          "next": "preuve-cocher",
+          "requires": [
+            {
+              "flag": "rumeur-cocher-suif"
+            }
+          ],
+          "roll": {
+            "skill": "diplomacy",
+            "difficulty": 13
+          },
+          "failNext": "cocher-non"
+        },
+        {
           "text": "Je reviens avec mieux.",
           "next": "fin"
         },
@@ -210,6 +224,38 @@
       "options": [
         {
           "text": "À demain.",
+          "next": "fin"
+        }
+      ]
+    },
+    "preuve-cocher": {
+      "text": "La garde envoie quelqu’un au marché. Il revient avec une bougie de suif et un cocher de Ferros aux bottes ferrées, qui ne dit rien. — Le Yéti reste, dit-elle. Je n’aime pas avoir eu tort.",
+      "effects": [
+        {
+          "completeQuest": "yeti-portes"
+        },
+        {
+          "setFlag": "fin-yeti-portes-innocent"
+        },
+        {
+          "giveXp": 60
+        },
+        {
+          "setFlag": "yeti-portes-reglee"
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci.",
+          "next": "fin"
+        }
+      ]
+    },
+    "cocher-non": {
+      "text": "— Des bougies au marché ? Il y en a toujours. Ce n’est pas une preuve, c’est une rumeur de veillée. Apportez-moi mieux.",
+      "options": [
+        {
+          "text": "Au revoir.",
           "next": "fin"
         }
       ]

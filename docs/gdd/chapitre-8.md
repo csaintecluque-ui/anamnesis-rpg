@@ -1,4 +1,4 @@
-# Chapitre 8 : Khrysos — **validé par Cyril** le 2026-11-05 (« Oui pour tout ») ; en construction
+# Chapitre 8 : Khrysos — **validé par Cyril** le 2026-11-05 (« Oui pour tout ») ; complet, en ligne
 
 Cyril (2026-11-04, « Oui pour les trois ») : après Marche-Mère, Glacialis, et la dernière caisse. Khrysos d'abord
 (l'ordre validé de `villes.md`). Le lieu, ses habitants et ce que dit le canon : `docs/univers/lieux/khrysos.md`. Le
@@ -78,6 +78,7 @@ et une réplique d'Ilyane. Après lui, les sept caisses ont toutes un sort ; la 
 | 2 | « Ce que la glace a pris » : la lettre de Hesper sur la page « Le fil » ; Ulga (la dame en gris est passée au Foyer) ou Hrolda l'ouvrent ; la lacune, rendue par Khrys à qui a dit la formule (« Brisée l'an 2970. Auteur : une étrangère, qui a dit son nom. » : le nom n'est jamais écrit à l'écran) ; la dame en gris au Puits du Niveau Douze et sa réplique ; trois seconds (elle, Halvard en Diplomatie 17, un compagnon de route) ou seul·e de nuit ; la glace claire au bout des cryptes, la voie sept et sa plaque ; la caisse prise et ses six noms ; quatre fins (laissée prise ; la prise brisée, Athlétisme 18, et l'on devient un Briseur d'Échos ; confiée au Collège ; laissée à la dame en gris, si elle est descendue) ; l'Écho « La glace qui monte » ; la caisse de Glacialis au fil ; les chaussures trop grandes (la nuit après) ; la lettre d'Ilyane chez Ulga ; la réputation de Khrysos | en ligne |
 | 3 | Les faces : à la Bibliothèque, trois cristaux d'archive rendent les trois légendes du canon, face par face, après la formule (« La Marche de Vaelor », neuf faces, la sixième brisée, la troisième seulement à qui a Mémoire 5 ; « L'Affaire des Cryptes », quatre faces sur onze ; « Cent Jours », sept faces, complètes) ; la Marche rendue jusqu'au bout donne le Récit « Le Premier Tri » ; « Le cristal qui hésite » : Cent Jours s'arrête à la face cinquième et rend « ouvrez » au lieu de « fermez » (le comparer : Investigation 17, ou Mémoire 6) ; Khrys rend le bon mot ; pas d'auteur à la lacune ; au ★ Caveau, cinq cristaux scellés qui ont hésité, de plus en plus rapprochés (« Ce qui ne pouvait pas oublier commence à oublier ») ; trois fins (la lacune signée « Auteur : personne », le cristal scellé avec les autres, le cristal brisé par Hrolda, qui signe de son nom) | en ligne |
 | 4 | « Les quatorze années de mesures » (Maître Ennir et le petit cristal de mesures d'un élève de Nher-Khal ; Dagny Ferme-Givre, des 4 611, de ceux qui paient pour savoir, Investigation 18 ; le donner, le cacher, le briser ; le jeu ne dit jamais si les morts sont conscients) ; « Ceux qu'on laisse dehors » (les Oskarsen devant la Porte ; Bjorn plaide au Conseil, convaincu par le Récit « Le Premier Tri », Commandement ou Diplomatie 18 ; ou le mur chaud du Foyer, Discrétion 18 ; ou le sud, avec ton manteau et trente Fers) ; « L'Épreuve du Blizzard » (Torka ; les traces, Survie 18, ou Korvek pour dix Fers ; Sigrun ramenée vivante par ton manteau, Médecine ou Athlétisme 18, sans deux doigts si le jet rate, ou laissée : l'abandon dans le froid) ; « Le cristal qui écoute » (Brodd, de l'Alliance pour la Justice Glaciale ; le briser au fil, Artisanat 18, sept ans de malheur ; le laisser ; dénoncer Brodd) ; « Le yéti des Portes » (les bottes de Ferros sous les traces, Investigation 18 ; le cristal espion qui rend la nuit du marché, s'il pend encore ; Korvek qui part vers les Terres Sauvages) ; le Collège des 9 Miroirs (« Une lacune à signer » : la face brisée du registre des Portes, la garde qui avoue, Investigation 18 ou Perception 6, et signer son nom) ; les Vigiles Blancs (« L'égaré » : ramener Sigrun vivante ; un Vigile descend aux cryptes avec toi ; le manteau blanc au sommet) | en ligne |
+| 5 | Douze passants (les Portes, les Galeries, le Niveau Royal, le Douze, le Foyer), les phrases spontanées de seize habitants, la veillée du Foyer (« Le cristal rend » : on y aime les récits exacts sur les morts et les puissants, on y déteste les chansons ; deux rumeurs : le gardien des cryptes qui dort assis à la deuxième heure, le cocher de Ferros et ses bougies de suif), cinq habitants qui écoutent un Récit (Korvek, Halvard, la Prêtresse de l'Hiver Éveillé, Bjorn, Maître Ennir) | en ligne |
 
 **Propositions de la construction (à valider)** : Maître Ennir et le petit cristal de mesures ; Dagny, de ceux qui
 paient pour savoir, sa mère dans une prise, section quatre ; les Oskarsen, une mère et un enfant, renvoyés il y a trois
@@ -96,4 +97,15 @@ laisse plus monter que ceux qu'on attend », la loi de 2995) ; le Puits d'Ascens
 cryptes ouverte pour la journée à qui vient à deux ; le Caveau des cristaux scellés au Niveau Douze, scellé par le
 Collège ; la Prêtresse de l'Hiver Éveillé et son cristal « vide », à qui l'on confie ce qu'on n'a dit à personne ;
 Korvek qui fait payer un Fer à qui touche son bras pour la chance.
+
+## Questions à Cyril (construction, 2026-11-05)
+
+1. **Les six noms** de la caisse de Glacialis : Aksel, sept ans ; Mira, cinq ans ; Tove, huit ans ; Elio, six ans ; Ysé,
+   neuf ans ; Noam, quatre ans ? (ma recommandation : oui, dans le ton des listes déjà validées).
+2. **Le cristal qui hésite** : Cent Jours rend « Puis ouvrez » au lieu de « Puis fermez », et le Collège scelle en secret,
+   depuis l'automne, les cristaux qui hésitent ? (oui : c'est la maladie des souvenirs au cœur de Glacialis, sans rien
+   toucher au canon des légendes).
+3. **Les habitants et les lieux ajoutés** : la ligne du Nord et son guichet à Ironheart ; le Puits d'Ascension et sa
+   machiniste ; le Caveau scellé par le Collège ; la garde des Portes qui a brisé la face où elle renvoyait les Oskarsen ;
+   Brodd de l'Alliance pour la Justice Glaciale ; Dagny, de ceux des 4 611 qui paient pour savoir ; Sigrun partie à l'est ?
 

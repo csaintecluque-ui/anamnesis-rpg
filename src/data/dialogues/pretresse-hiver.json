@@ -24,7 +24,78 @@
       "text": "— Il ne l’est pas : on ne lui a encore rien confié. C’est le seul cristal de Khrysos qui puisse encore tout recevoir. Certains viennent lui dire ce qu’ils n’ont dit à personne. Il ne le rendra qu’à qui saura le demander.",
       "options": [
         {
+          "text": "Je te raconte une histoire ?",
+          "next": "raconte-neutre",
+          "requires": [
+            {
+              "notFlag": "raconte-pretresse-hiver"
+            }
+          ],
+          "raconter": {
+            "aime": [
+              "morts",
+              "mysteres"
+            ],
+            "recits": {
+              "chant-qu-on-ne-chante-pas": "raconte-special"
+            },
+            "touche": "raconte-touche",
+            "neutre": "raconte-neutre"
+          }
+        },
+        {
           "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-special": {
+      "text": "La prêtresse se tait longtemps. — Une conque qui se tait. Ici, ce sont les cristaux, maintenant. Ce qui ne pouvait pas oublier commence à oublier. Le froid ne garde plus.",
+      "effects": [
+        {
+          "setFlag": "raconte-pretresse-hiver"
+        },
+        {
+          "giveXp": 15
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-touche": {
+      "text": "— Le cristal vide l’a entendue, elle aussi. Il ne la rendra qu’à qui saura la demander. Merci de la lui avoir confiée.",
+      "effects": [
+        {
+          "setFlag": "raconte-pretresse-hiver"
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-neutre": {
+      "text": "— Merci. Le cristal vide n’en retient rien. Il attendra une autre histoire.",
+      "effects": [
+        {
+          "setFlag": "raconte-pretresse-hiver"
+        },
+        {
+          "giveXp": 5
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci.",
           "next": "fin"
         }
       ]

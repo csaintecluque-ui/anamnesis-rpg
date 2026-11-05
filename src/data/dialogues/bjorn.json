@@ -113,7 +113,78 @@
       "text": "— Une voix sur neuf. Assez pour qu’on m’entende dire non. Trop peu pour que mon non l’emporte. Mais quand je dis non, ceux d’en bas savent qu’il y a eu un non.",
       "options": [
         {
+          "text": "Je te raconte une histoire ?",
+          "next": "raconte-neutre",
+          "requires": [
+            {
+              "notFlag": "raconte-bjorn"
+            }
+          ],
+          "raconter": {
+            "aime": [
+              "puissants",
+              "familles"
+            ],
+            "recits": {
+              "puits-trois": "raconte-special"
+            },
+            "touche": "raconte-touche",
+            "neutre": "raconte-neutre"
+          }
+        },
+        {
           "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-special": {
+      "text": "Bjorn écoute le Puits Trois les poings fermés. — Ferros fait la queue pour l’eau, et Khrysos pour le bois. On compte les castes autrement. On les compte quand même.",
+      "effects": [
+        {
+          "setFlag": "raconte-bjorn"
+        },
+        {
+          "giveXp": 15
+        }
+      ],
+      "options": [
+        {
+          "text": "Au revoir, Bjorn.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-touche": {
+      "text": "— Des gens d’en bas, et ceux d’en haut qui décident. Je la connais, cette histoire. Je la vis six voix contre trois.",
+      "effects": [
+        {
+          "setFlag": "raconte-bjorn"
+        },
+        {
+          "giveXp": 10
+        }
+      ],
+      "options": [
+        {
+          "text": "Au revoir, Bjorn.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raconte-neutre": {
+      "text": "— Merci. Une voix sur neuf, et une histoire : ça ne pèse pas lourd, mais ça pèse.",
+      "effects": [
+        {
+          "setFlag": "raconte-bjorn"
+        },
+        {
+          "giveXp": 5
+        }
+      ],
+      "options": [
+        {
+          "text": "Au revoir, Bjorn.",
           "next": "fin"
         }
       ]

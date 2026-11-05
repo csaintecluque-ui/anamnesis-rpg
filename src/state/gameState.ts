@@ -27,6 +27,10 @@ export interface LocationDef {
   sable?: boolean;
   /** Off the Marche, in the desert: the heat costs hit points to whoever has no water (src/rules/marche.ts). */
   soif?: boolean;
+  /** At the surface of Glacialis: the cold costs hit points to whoever has no coat (src/rules/glace.ts). */
+  froid?: boolean;
+  /** Snow falls over the map (the surface of Glacialis, src/scenes/MapScene.ts). */
+  neige?: boolean;
 }
 
 export const LOCATIONS = locationData as LocationDef[];

@@ -35,6 +35,7 @@ import { PartyLayer } from './Party';
 import { echoObjects, echoShows } from '../rules/echos';
 import { mareeBasse } from '../rules/marees';
 import { campDresse, chaleur, mapNow, sableDefile } from '../rules/marche';
+import { froid, froidMessage } from '../rules/glace';
 import { boardObjects } from '../rules/contrats';
 import { carriesLamp, descend, groupDialogueId, groupFlag, groupNear, leaveVoie, lightTraps, sneakFlag, springTrap, trapSeenFlag, voieGroupXp, voieLevel, voiePlan } from '../rules/voies';
 import { PENDING_NOTICE, type HudScene } from './HudScene';
@@ -103,6 +104,8 @@ export class MapScene extends Phaser.Scene {
   private momentVeil!: Phaser.GameObjects.Rectangle;
   /** The sand that runs under the Marche while it walks (src/rules/marche.ts). */
   private sandFlow: Phaser.GameObjects.TileSprite | null = null;
+  /** The snow that falls over the surface of Glacialis (src/rules/glace.ts). */
+  private snowFall: Phaser.GameObjects.TileSprite | null = null;
   private state!: GameState;
   private map!: GameMap;
   private originX = 0;
@@ -273,6 +276,7 @@ export class MapScene extends Phaser.Scene {
       .rectangle(worldWidth / 2, worldHeight / 2, (worldWidth + GAME_WIDTH) * 3, (worldHeight + GAME_HEIGHT) * 3, 0x000000, 0)
       .setDepth(MOMENT_VEIL_DEPTH);
     this.showMoment();
+    this.snowFall = location.neige ? this.makeSnowFall() : null;
     this.cameras.main.centerOn(start.x, start.y);
 
     // A press then a release is a click; a press that moves drags the view (the free camera, étude A1).
@@ -316,6 +320,8 @@ export class MapScene extends Phaser.Scene {
     if (arrived && location.camp) this.time.delayedCall(60, () => this.hud().toast(campDresse(state.time) ? 'Le soir : la Marche a dressé le camp.' : 'La Marche avance : le camp est plié dans les chariots, et le sable défile.'));
     // Off the Marche, the heat: water of the errance, or hit points.
     if (arrived && location.soif) this.time.delayedCall(70, () => this.sufferHeat());
+    // The surface of Glacialis (src/rules/glace.ts): the cold, without a coat, costs hit points.
+    if (arrived && location.froid && this.state.character) this.time.delayedCall(70, () => this.hud().toast(froidMessage(froid(this.state.character!))));
     // The Anneau (docs/univers/lieux/sept-portes.md): said once, on arriving at Sept-Portes.
     if (location.nexus && !state.flags['anneau-senti']) {
       state.flags['anneau-senti'] = true;
@@ -374,6 +380,21 @@ export class MapScene extends Phaser.Scene {
       .setDepth(-1e6);
   }
 
+  /** Flakes drawn once into a texture, and a sheet of them over the whole view, above the veil, that the update lets fall. */
+  private makeSnowFall(): Phaser.GameObjects.TileSprite {
+    if (!this.textures.exists('neige-tombe')) {
+      const g = this.make.graphics({ x: 0, y: 0 }, false);
+      const flakes = [[12, 20, 2], [70, 8, 1.5], [130, 40, 2.5], [200, 16, 1.5], [40, 90, 1.5], [100, 70, 2], [170, 100, 1.5], [230, 80, 2], [20, 150, 2.5], [90, 130, 1.5], [150, 170, 2], [220, 140, 1.5], [60, 210, 2], [120, 240, 1.5], [190, 220, 2.5], [240, 200, 1.5]];
+      for (const [x, y, r] of flakes) g.fillStyle(0xffffff, 0.85).fillCircle(x, y, r);
+      g.generateTexture('neige-tombe', 256, 256);
+      g.destroy();
+    }
+    return this.add
+      .tileSprite(GAME_WIDTH / 2, GAME_HEIGHT / 2, GAME_WIDTH * 2, GAME_HEIGHT * 2, 'neige-tombe')
+      .setScrollFactor(0)
+      .setDepth(MOMENT_VEIL_DEPTH + 1);
+  }
+
   /** The heat, off the Marche (src/rules/marche.ts): said, and paid in hit points without water. */
   private sufferHeat(): void {
     if (!this.state.character) return;
@@ -387,6 +408,10 @@ export class MapScene extends Phaser.Scene {
     if (this.sandFlow) {
       this.sandFlow.tilePositionX += delta * 0.045;
       this.sandFlow.tilePositionY += delta * 0.0225;
+    }
+    if (this.snowFall) {
+      this.snowFall.tilePositionX += delta * 0.02;
+      this.snowFall.tilePositionY -= delta * 0.06;
     }
     if (this.state && this.time.now >= this.nextBarkAt) this.speakUp();
     if (this.autoTalkAt !== null && !this.moving && this.time.now >= this.autoTalkAt) {

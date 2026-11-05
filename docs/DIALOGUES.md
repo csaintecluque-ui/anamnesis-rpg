@@ -1211,6 +1211,25 @@ _Effet : retient « bastien-entiere »._
 
 - « Bonne nuit, Bastien. » → **fin**
 
+## Bjorn Glaceforge
+
+_Le Cristal du Peuple_
+
+Commence par : « accueil »
+
+### accueil
+
+> Un forgeron, les bras nus malgré le froid, une barbe rousse prise de givre. Il se tient à l’écart des cristaux du Conseil. — Bjorn Glaceforge. Le Cristal du Peuple : on m’a élu pour qu’il y ait au Conseil quelqu’un qui sache ce que coûte le bois.
+
+- « Et ça change quelque chose ? » → change
+- « Au revoir. » → **fin**
+
+### change
+
+> — Une voix sur neuf. Assez pour qu’on m’entende dire non. Trop peu pour que mon non l’emporte. Mais quand je dis non, ceux d’en bas savent qu’il y a eu un non.
+
+- « Au revoir. » → **fin**
+
 ## Boulon
 
 _Ferrôme, porteur à la gare de l’Ouest_
@@ -1372,6 +1391,27 @@ _Effet : retient « raconte-brann », +15 XP._
 > Brann répète tout bas : « Même réussir peut tout détruire. » Il regarde ses mains noires de graisse. — Moi, je veux juste réussir une serrure. Maître Cendrefer dit que c’est déjà beaucoup.
 
 - « Bon courage, Brann. » → **fin**
+
+## Brodd Facettier
+
+_Tailleur de cristal_
+
+Commence par : « accueil »
+
+### accueil
+
+> Un homme trapu, une loupe vissée à l’œil, taille une facette sans te regarder. Autour de lui, des cristaux, et des manteaux pendus aux poutres. — Un cristal se taille selon son fil. Un client aussi. Tu viens pour quoi ?
+
+- « Voir ce que tu vends. » → **fin** _(ouvre le Troc)_
+- « Et ces manteaux ? » → manteaux
+- « Au revoir. » → **fin**
+
+### manteaux
+
+> — Fourrure dehors, laine dedans, et le col qui monte jusqu’au nez. Sans ça, la surface te mange. Soixante Fers. Le froid, lui, ne fait pas crédit.
+
+- « Voir ce que tu vends. » → **fin** _(ouvre le Troc)_
+- « Au revoir. » → **fin**
 
 ## Une boîte de fer
 
@@ -2349,6 +2389,25 @@ Commence par : « cristal »
 
 - « Se reposer un instant. » → **fin** _(+40 PV)_
 - « S’éloigner. » → **fin**
+
+## La Primus Crysta Frostborn
+
+_Conseil des Neuf Cristaux_
+
+Commence par : « accueil »
+
+### accueil
+
+> Une Elfe de Givre, la peau bleutée, les cheveux plus blancs que la neige. Cinq siècles et demi te regardent par ses yeux. — Un Gardien de Mémoire. Il en vient peu. Dites ce que vous voulez de Glacialis, et dites-le clairement.
+
+- « Je cherche ce que la glace garde. » → garde
+- « Rien, Primus. Je regardais. » → **fin**
+
+### garde
+
+> — Elle garde tout. C’est sa vertu et son crime. Le Collège vous dira ce qui manque ; moi, je vous dirai ce qui reste, si vous savez le demander. Revenez quand vous aurez une question qui mérite le Conseil.
+
+- « Merci, Primus. » → **fin**
 
 ## Daru’Khen
 
@@ -3598,6 +3657,25 @@ _Effet : retient « marques-rate » pour 1 jours._
 
 - « Partir. » → **fin**
 
+## Maître Ennir
+
+_Tisseur de Givre_
+
+Commence par : « accueil »
+
+### accueil
+
+> Un homme maigre aux longs gants, du givre aux manches, penché sur un cristal qu’il fait chanter d’un doigt mouillé. — Maître Ennir, Tisseur de Givre. Je tisse le froid, pour qu’il tienne une forme. Ne touchez à rien de ce qui sonne.
+
+- « Qu’est-ce que tu tisses ? » → tisse
+- « Au revoir. » → **fin**
+
+### tisse
+
+> — Des voûtes, des ponts de glace, des cristaux d’archive qui tiennent droit. J’ai appris d’un homme qui avait appris d’un autre. On ne prononce plus le nom du premier. Il était le meilleur de nous tous.
+
+- « Au revoir. » → **fin**
+
 ## Eskil Kolm
 
 _De Ferros, caché dans le convoi_
@@ -4117,6 +4195,34 @@ _Effet : retient « trappe-vue », lance la quête « Les Échos sous la Forge �
 
 - « Partir. » → **fin**
 
+## La garde des Portes
+
+_Les Portes de Glace_
+
+Commence par : « accueil »
+
+### accueil
+
+> Une garde en manteau gris-bleu, une lance de fer à pointe de glace. Elle te regarde des bottes jusqu’au col. — Vous venez du train. Bien. Ceux qui arrivent à pied, par la surface, je dois les renvoyer. La loi de 2995.
+
+- « Les renvoyer où ? » → ou
+- « Et la surface ? » → surface
+- « Je passe. » → **fin**
+
+### ou
+
+> — Dehors. Vers le sud, vers ce qui reste de chez eux. La Loi de Survie dit le contraire : refuser l’abri, c’est un crime. Alors on leur donne une nuit au tunnel chaud, et au matin on referme. Tout le monde a raison, et personne ne dort.
+
+- « Et la surface ? » → surface
+- « Je passe. » → **fin**
+
+### surface
+
+> — Moins soixante. Sans manteau, on y perd une main en une heure, et le reste dans la journée. Brodd Facettier en vend aux Galeries Chaudes. Et ne sifflez jamais dans le blizzard : ça appelle ce qu’on n’a pas envie de voir.
+
+- « Les renvoyer où ? » → ou
+- « Je passe. » → **fin**
+
 ## Gardienne du Ciel
 
 _Le Quai des Dirigeables_
@@ -4186,6 +4292,39 @@ _Effet : retient « holger-livre », retient « asile-reglee », +50 Fers, +20 X
 > — Bien. Elle fait signe au commis. Le soir, deux Gardiens du Ciel montent au Nid des Nuées et en redescendent avec un homme maigre qui serre une sacoche. Il ne se débat pas. Le commis te glisse cinquante Fers.
 
 - « Partir. » → **fin**
+
+## Le gardien des cryptes
+
+_Le Niveau Douze_
+
+Commence par : « accueil »
+
+### accueil
+
+> Un vieil homme en robe longue, une lampe de cristal à la main, assis devant la grille. — Les cryptes. Onze millions de prises. On n’y descend plus seul, depuis 2857 : il faut être deux, et que l’autre regarde ce que tu fais de tes mains.
+
+- « Pourquoi 2857 ? » → pourquoi
+- « Je n’ai personne. » → personne
+- « Au revoir. » → **fin**
+
+### pourquoi
+
+> — Le Briseur d’Échos. Nher-Khal. Il descendait seul, un marteau à glace à la main, et il a brisé quatre mille six cent onze cristaux parce qu’il croyait les morts conscients dedans. On l’a pris vivant. Sa prise est en bas, section neuf, sans nom.
+
+- « Il avait raison ? » → raison
+- « Au revoir. » → **fin**
+
+### raison
+
+> Il te regarde longtemps. — Le cristal rend, et ne juge pas. Moi non plus.
+
+- « Au revoir. » → **fin**
+
+### personne
+
+> — Alors tu attendras quelqu’un. Les Vigiles Blancs descendent, parfois. Et il y a toujours une famille qui cherche un second pour la Longue Nuit.
+
+- « Au revoir. » → **fin**
 
 ## La Gardienne de l’Eau
 
@@ -4413,6 +4552,45 @@ Commence par : « liste-edda » _(si repère « edda-raccompagnee »)_, sinon «
 
 - « Au revoir. » → **fin**
 
+## La grille des cryptes
+
+_Le Niveau Douze_
+
+Commence par : « ferme »
+
+### ferme
+
+> Une grille de fer noir, et derrière, des allées de cristal à perte de vue. Une plaque : « On ne descend plus seul aux cryptes. An 2857. » Le gardien lève sa lampe vers toi, puis vers qui t’accompagne.
+
+- _(si Liane suit le héros)_ « Liane descendra avec moi. » → deux
+- _(si Boulon suit le héros)_ « Boulon descendra avec moi. » → deux
+- _(la nuit)_ _(sans repère « grille-surprise »)_ **🎲 Discrétion 17** « Passer seul·e, cette nuit, quand le gardien dort. » → seul, ✗ → surpris
+- « S’éloigner. » → **fin**
+
+### deux
+
+_Effet : retient « cryptes-ouvertes » pour 1 jours._
+
+> Le gardien vous compte, deux fois, puis tourne la clé. — Deux. Que l’un regarde les mains de l’autre. La grille reste ouverte jusqu’au soir ; après, il faudra être deux de nouveau.
+
+- « Descendre. » → **fin** _(mène à « Khrysos — les cryptes »)_
+
+### seul
+
+_Effet : retient « cryptes-ouvertes » pour 1 jours, retient « descendu-seul »._
+
+> 🌙 Le gardien dort assis, la lampe sur les genoux. Le cadenas cède à la troisième tentative, sans un bruit. Personne ne regarde tes mains. C’est exactement ce que la règle voulait empêcher.
+
+- « Descendre. » → **fin** _(mène à « Khrysos — les cryptes »)_
+
+### surpris
+
+_Effet : retient « grille-surprise » pour 1 jours, retient « surpris-cryptes »._
+
+> 🌙 Le cadenas grince. La lampe du gardien se lève d’un coup. — Seul·e. De nuit. Tu sais ce que ça veut dire, à Khrysos ? Ça veut dire que demain, tout le Douze le saura. Remonte.
+
+- « Remonter. » → **fin**
+
 ## Le guichet du fond
 
 _Archives, caste Technique_
@@ -4431,6 +4609,40 @@ Commence par : « guichet »
 > — L’administration va partout. Même là où elle n’a rien à faire. Il tamponne une fiche, toujours sans te regarder.
 
 - « Partir. » → **fin**
+
+## Le guichetier de la ligne du Nord
+
+_La gare d’Ironheart_
+
+Commence par : « guichet » _(si quête « Ce qui n’a plus lieu » terminée)_, sinon « ferme »
+
+### ferme
+
+> Un guichet neuf, une affiche : « Ligne du Nord. Khrysos. » Le guichetier ne lève pas les yeux. — Le Dominion ne laisse plus monter que ceux qu’on attend là-haut. Une lettre, une invitation. Sinon, la loi de 2995 vous renvoie par le premier train.
+
+- « Pourquoi ? » → loi
+- « Au revoir. » → **fin**
+
+### loi
+
+> — Les réfugiés du climat. Ils montaient par wagons entiers, et Glacialis a fermé ses Portes. Nous, on vend les billets. Ce n’est pas nous qui refusons, c’est le froid qui décide, à ce qu’ils disent.
+
+- « Au revoir. » → **fin**
+
+### guichet
+
+> Guichet de la ligne du Nord. Le guichetier souffle dans ses mains. « Khrysos : un jour de voyage, des voitures chauffées, et au bout, trois cents mètres de descente sous la glace. » — Un billet ?
+
+- _(sans repère « premier-train-nord »)_ « Le billet que Hesper a payé. » → train _(retient « premier-train-nord »)_
+- _(si repère « premier-train-nord »)_ _(sans repère « rail-travailleurs »)_ **[45 Fers]** « Prendre un billet. » → train _(−45 Fers)_
+- _(si repère « premier-train-nord »)_ _(si repère « rail-travailleurs »)_ **[22 Fers]** « Prendre un billet : les cheminots te font un prix. » → train _(−22 Fers)_
+- « Pas aujourd’hui. » → **fin**
+
+### train
+
+> Le train du Nord quitte Ironheart à l’aube. La forêt s’éclaircit, puis disparaît ; il ne reste que la neige, et le soir, une bouche de glace où le train s’enfonce. Il descend longtemps. Quand les portes s’ouvrent, l’air a le goût du métal froid.
+
+- « Descendre sur le quai. » → **fin** _(fait passer 4 moments, mène à « Khrysos — les Portes de Glace »)_
 
 ## Le guichet de la ligne de l’Ouest
 
@@ -4544,6 +4756,33 @@ Commence par : « halte »
 > La Grande Nacelle te descend à la halte. Le train file sous la canopée, voitures à toit de verre ; puis la forêt s’arrête net, et commence la cendre. Une demi-journée plus tard, la gare de l’Ouest d’Ironheart.
 
 - « Descendre sur le quai. » → **fin** _(fait passer 2 moments, mène à « Ironheart — Les Forges-Basses »)_
+
+## Halvard Neigeclaire
+
+_Des Vigiles Blancs_
+
+Commence par : « accueil »
+
+### accueil
+
+> Un homme en manteau blanc, une corde enroulée à l’épaule, recoud un gant. — Halvard Neigeclaire. Vigiles Blancs. On ramène les égarés de la surface, vivants quand on peut. Tu t’es perdu·e, ou tu cherches quelqu’un ?
+
+- « Ni l’un ni l’autre. » → vigiles
+- « Que croient les Vigiles ? » → croient
+- « Au revoir. » → **fin**
+
+### vigiles
+
+> — Ça viendra. Tout le monde finit par perdre quelqu’un dans le blizzard, ou par s’y perdre. Ce jour-là, viens me voir. Le Collège, lui, notera seulement la date.
+
+- « Que croient les Vigiles ? » → croient
+- « Au revoir. » → **fin**
+
+### croient
+
+> — Que la clarté n’est pas une vertu. C’est un outil, et on peut s’en servir pour ne rien faire. Les héros des légendes y voyaient clair ; il leur manquait une passion. Nous, on compte nos années en vies sauvées.
+
+- « Au revoir. » → **fin**
 
 ## Ragna Cendrefer
 
@@ -4865,6 +5104,49 @@ _Effet : lance la quête « L’asile »._
 > Holger range ses papiers sur la table du Nid, comme s’il ouvrait un bureau. — Ysolde m’a proposé une place au Registre. Compter les passages. Je crois que je vais aimer ça : ici, personne ne signe à la place de personne.
 
 - « Au revoir, Holger. » → **fin**
+
+## Hrolda Rochebrume
+
+_Du Collège des 9 Miroirs, gardienne de la Bibliothèque_
+
+Commence par : « accueil »
+
+### accueil
+
+> Une femme grise, droite, neuf éclats de miroir cousus au col. Elle ne te salue pas : elle termine sa ligne, puis lève les yeux. — Le cristal rend. Vous répondez : « et ne juge pas ». Ensuite, nous pourrons parler.
+
+- « Et ne juge pas. » → parle
+- « Pourquoi cette formule ? » → formule
+- « Je reviendrai. » → **fin**
+
+### formule
+
+> — Parce qu’un cristal restitue mot pour mot ce qu’on lui a confié, sans rien ajouter, sans rien ôter. Ce que vous en pensez vous appartient ; ce qu’il rend appartient à tout le monde.
+
+- « Et ne juge pas. » → parle
+- « Je reviendrai. » → **fin**
+
+### parle
+
+> — Bien. Ici dort ce que Glacialis se rappelle, découpé en faces. Quand une face manque, ce n’est jamais un oubli : quelqu’un a brisé quelque chose. Le Collège des 9 Miroirs consigne la lacune, sa date, et son auteur quand il le peut.
+
+- « Qui brise une face ? » → brise
+- « Et Khrys ? » → khrys
+- « Merci. » → **fin**
+
+### brise
+
+> — Des lâches, des amants, des héritiers. Parfois quelqu’un qui savait ce qu’on ferait de la vérité. Nous ne jugeons pas, nous signons. Une lacune signée vaut mieux qu’un récit reconstitué.
+
+- « Et Khrys ? » → khrys
+- « Merci. » → **fin**
+
+### khrys
+
+> — L’Entité. Un cristal plus ancien que la ville, assez ancien pour rendre sans erreur. Il ne converse pas. Posez-lui une question : il vous rendra ce qu’on lui a confié, ou rien.
+
+- « Qui brise une face ? » → brise
+- « Merci. » → **fin**
 
 ## L’huissier du Conseil
 
@@ -6397,6 +6679,59 @@ _Effet : retient « raconte-kerta », +15 XP._
 
 - « Bon courage, Kerta. » → **fin**
 
+## Khrys
+
+_L’Entité de la Bibliothèque_
+
+Commence par : « rend »
+
+### rend
+
+> Le cristal, haut comme deux hommes, ne bouge pas. Quand tu approches, une lueur monte en lui, puis une voix sans souffle, qui ne vient de nulle part : « Le cristal rend. »
+
+- « Et ne juge pas. » → rend2
+- « Lui poser une question. » → question
+- « Reculer. » → **fin**
+
+### rend2
+
+> « Et ne juge pas. » La voix te rend ta réponse, exactement, avec ta propre voix. Puis la lueur s’éteint. Khrys rend ce qu’on lui confie, et tu ne lui as rien confié d’autre.
+
+- « Reculer. » → **fin**
+
+### question
+
+> Tu poses ta question. La lueur monte, retombe. Rien. Khrys ne converse pas : il rend ce qu’on lui a confié, et personne ne lui a confié la réponse.
+
+- « Reculer. » → **fin**
+
+## Korvek
+
+_Yéti, guide des glaces_
+
+Commence par : « accueil »
+
+### accueil
+
+> Un Yéti, deux têtes de plus que toi, la fourrure blanche grise de suie aux chevilles. Des cordes en bandoulière, un bâton de guide. Il parle bas, et lentement. — Korvek. Guide. Toucher mon bras pour la chance, c’est un Fer.
+
+- **[1 Fers]** « Un Fer pour la chance. » → chance _(−1 Fers)_
+- « Pourquoi un Fer ? » → pourquoi
+- « Je te laisse. » → **fin**
+
+### chance
+
+> Tu poses la main sur son bras. La fourrure est raide de givre, et dessous, très chaude. — Voilà. Croiser un Yéti porte chance, disent-ils. M’embaucher, beaucoup moins : ils préfèrent un guide humain, qui se perd plus souvent.
+
+- « Pourquoi un Fer ? » → pourquoi
+- « Merci, Korvek. » → **fin**
+
+### pourquoi
+
+> — Parce qu’ils me touchent quand même, alors autant que ça rapporte. Depuis 2990, on a le droit de demander. Avant, on avait le droit de se taire.
+
+- « Je te laisse. » → **fin**
+
 ## Kresh’Tal
 
 _Le dragon de la Reine_
@@ -7395,6 +7730,18 @@ _Effet : retient « mirelle-bosquet-dit »._
 > Les noms se réchauffent, au Bosquet. Les plus jeunes d’abord ; les vieux prendront leur temps. J’ai tout écrit à Ilyane : tu lui as donné de quoi être fière.
 
 - « Merci pour la nouvelle. » → accueil
+
+## La glace claire
+
+_Au bout des cryptes_
+
+Commence par : « ferme »
+
+### ferme
+
+> Au bout de la dernière allée, la glace s’éclaircit. Derrière, très loin, une ombre droite : un rail, peut-être. La paroi a plusieurs mètres d’épaisseur, et rien ne dit qu’il y ait quelque chose à chercher.
+
+- « S’éloigner. » → **fin**
 
 ## Nell Lunelierre
 
@@ -8574,6 +8921,69 @@ _Effet : −6 PV, fait passer 3 moments._
 
 - « Monter. » → **fin** _(mène à « Marche-Mère — le Camp »)_
 
+## Le Caveau des cristaux scellés
+
+_Le Niveau Douze_
+
+Commence par : « ferme »
+
+### ferme
+
+> Une porte de glace épaisse, cerclée de fer, sans poignée. Une serrure à trois gorges, et le sceau du Collège des 9 Miroirs, intact. Rien n’est écrit dessus. À Khrysos, ce qui n’est pas écrit est souvent le mieux gardé.
+
+- _(sans repère « caveau-rate »)_ **🎲 Artisanat 18** « Crocheter la serrure. » → ouvert, ✗ → rate
+- _(sans repère « caveau-bluff-rate »)_ **🎲 Subterfuge 18** « Dire au gardien que le Collège t’envoie chercher un cristal. » → bluff, ✗ → bluff-rate
+- _(sans repère « caveau-vol-rate »)_ **🎲 Discrétion 18** « Prendre la clé à la ceinture du gardien, pendant qu’il somnole. » → cle, ✗ → vol-rate
+- « S’éloigner. » → **fin**
+
+### ouvert
+
+_Effet : retient « caveau-ouvert », retient « sceau-caveau-brise »._
+
+> La première gorge cède, puis la deuxième. La troisième résiste, gelée ; tu la réchauffes de ton souffle, longtemps. Le sceau du Collège se fend sans bruit. La porte s’ouvre sur un froid plus vieux que celui du couloir.
+
+- « Entrer. » → **fin** _(mène à « Khrysos — le Caveau des cristaux scellés »)_
+
+### rate
+
+_Effet : retient « caveau-rate » pour 1 jours._
+
+> La troisième gorge est prise dans la glace. Ton crochet casse net à l’intérieur. Il faudra en tailler un autre, et attendre que le fer se réchauffe : demain.
+
+- « S’éloigner. » → **fin**
+
+### bluff
+
+_Effet : retient « caveau-ouvert »._
+
+> Le gardien fronce les sourcils, cherche dans sa mémoire un ordre du Collège qu’il aurait oublié, et finit par en trouver un. — Ils ne préviennent jamais. Il sort une clé de glace noire, ouvre, et retourne à sa lampe.
+
+- « Entrer. » → **fin** _(mène à « Khrysos — le Caveau des cristaux scellés »)_
+
+### bluff-rate
+
+_Effet : retient « caveau-bluff-rate »._
+
+> — Le Collège n’envoie personne au Caveau. Le Collège ne sait pas qu’il y a un Caveau. Le gardien se tait, comprend ce qu’il vient de dire, et ne te regarde plus.
+
+- « S’éloigner. » → **fin**
+
+### cle
+
+_Effet : retient « caveau-ouvert »._
+
+> La clé pend à une lanière de cuir, contre la robe. Tu la décroches entre deux souffles du gardien, tu ouvres, et tu la remets. Elle est restée tiède dans ta main : la seule chose tiède du Niveau Douze.
+
+- « Entrer. » → **fin** _(mène à « Khrysos — le Caveau des cristaux scellés »)_
+
+### vol-rate
+
+_Effet : retient « caveau-vol-rate »._
+
+> La lanière résiste. Le gardien ouvre les yeux, voit ta main, et la regarde sans colère. — Personne n’entre là. Même pas moi. Il serre la clé dans son poing, et ne la lâchera plus.
+
+- « S’éloigner. » → **fin**
+
 ## L’Entrepôt des douanes
 
 _Le Grand Port_
@@ -8781,6 +9191,106 @@ _Effet : retient « portier-aveu », retient le Récit « La dédicace », +20 X
 
 - « Je n’ai rien vu. » → **fin**
 - « Bonne ronde. » → **fin**
+
+## La Prêtresse de l’Hiver Éveillé
+
+_Le Temple de l’Hiver Éveillé_
+
+Commence par : « accueil »
+
+### accueil
+
+> Une prêtresse en étole bleue, devant un cristal qui ne rend rien : on le dit vide. — La Voie de l’Hiver Éveillé. Le froid n’endort pas, il garde. Nörvath est le principe de la mémoire, et chaque cristal en porte un éclat.
+
+- « Et ce cristal vide ? » → vide
+- « Au revoir. » → **fin**
+
+### vide
+
+> — Il ne l’est pas : on ne lui a encore rien confié. C’est le seul cristal de Khrysos qui puisse encore tout recevoir. Certains viennent lui dire ce qu’ils n’ont dit à personne. Il ne le rendra qu’à qui saura le demander.
+
+- « Au revoir. » → **fin**
+
+## Une prise sans nom
+
+_Les cryptes, section neuf_
+
+Commence par : « prise »
+
+### prise
+
+> Un cristal de crypte, pareil aux autres. Sous lui, à hauteur de main, la glace est lisse : pas de nom. Dedans, un homme, les yeux ouverts, un marteau à glace dans la main droite. On l’a pris vivant.
+
+- « Poser la main sur le cristal. » → main
+- « S’éloigner. » → **fin**
+
+### main
+
+> Le cristal est froid, comme les autres. Rien ne bouge derrière. Tu ne sauras pas si l’homme te voit ; personne, à Khrysos, ne le sait, et c’est pour cela qu’on descend à deux.
+
+- « S’éloigner. » → **fin**
+
+## Le Puits d’Ascension
+
+_Khrysos_
+
+Commence par : « portes » _(à « Khrysos — les Portes de Glace »)_, sinon « galeries » _(à « Khrysos — les Galeries Chaudes »)_, sinon « royal » _(à « Khrysos — le Niveau Royal »)_, sinon « douze »
+
+### portes
+
+> La cage du Puits d’Ascension, du cuivre et des câbles ; la vapeur siffle par en dessous. La machiniste, une clé à molette à la main, attend que tu choisisses. — Les Portes. On monte ou on descend ?
+
+- « Les Galeries Chaudes. » → **fin** _(mène à « Khrysos — les Galeries Chaudes »)_
+- « Le Niveau Royal. » → **fin** _(mène à « Khrysos — le Niveau Royal »)_
+- « Le Niveau Douze. » → **fin** _(mène à « Khrysos — le Niveau Douze »)_
+- « Rester ici. » → **fin**
+
+### galeries
+
+> La cage du Puits d’Ascension, du cuivre et des câbles ; la vapeur siffle par en dessous. La machiniste, une clé à molette à la main, attend que tu choisisses. — Les Galeries. Où ça ?
+
+- « Les Portes de Glace. » → **fin** _(mène à « Khrysos — les Portes de Glace »)_
+- « Le Niveau Royal. » → **fin** _(mène à « Khrysos — le Niveau Royal »)_
+- « Le Niveau Douze. » → **fin** _(mène à « Khrysos — le Niveau Douze »)_
+- « Rester ici. » → **fin**
+
+### royal
+
+> La cage du Puits d’Ascension, du cuivre et des câbles ; la vapeur siffle par en dessous. La machiniste, une clé à molette à la main, attend que tu choisisses. — Le Royal. On redescend ?
+
+- « Les Portes de Glace. » → **fin** _(mène à « Khrysos — les Portes de Glace »)_
+- « Les Galeries Chaudes. » → **fin** _(mène à « Khrysos — les Galeries Chaudes »)_
+- « Le Niveau Douze. » → **fin** _(mène à « Khrysos — le Niveau Douze »)_
+- « Rester ici. » → **fin**
+
+### douze
+
+> La cage du Puits d’Ascension, du cuivre et des câbles ; la vapeur siffle par en dessous. La machiniste, une clé à molette à la main, attend que tu choisisses. — Le Douze. Il fait plus chaud qu’en haut, et personne n’aime y rester. On remonte ?
+
+- « Les Portes de Glace. » → **fin** _(mène à « Khrysos — les Portes de Glace »)_
+- « Les Galeries Chaudes. » → **fin** _(mène à « Khrysos — les Galeries Chaudes »)_
+- « Le Niveau Royal. » → **fin** _(mène à « Khrysos — le Niveau Royal »)_
+- « Rester ici. » → **fin**
+
+## Le quai du train du Nord
+
+_Les Portes de Glace_
+
+Commence par : « quai »
+
+### quai
+
+> Le quai du train du Nord, au fond d’une Porte de Glace. Un employé de Ferros, emmitouflé jusqu’aux yeux, vend les billets du retour. — Ironheart : un jour. Le train remonte chaque matin.
+
+- _(sans repère « rail-travailleurs »)_ **[45 Fers]** « Prendre un billet pour Ironheart. » → retour _(−45 Fers)_
+- _(si repère « rail-travailleurs »)_ **[22 Fers]** « Prendre un billet : les cheminots te font un prix. » → retour _(−22 Fers)_
+- « Pas encore. » → **fin**
+
+### retour
+
+> Le train remonte la longue pente, sort de la glace dans un éblouissement, et file vers le sud. Au soir, les cheminées d’Ironheart.
+
+- « Descendre. » → **fin** _(fait passer 4 moments, mène à « Ironheart — Les Forges-Basses »)_
 
 ## Ravel Sans-Fil
 
@@ -10351,6 +10861,34 @@ _Effet : retient « raconte-tobias », +15 XP, +20 Fers._
 - « Parlons d’autre chose. » → accueil
 - « Au revoir. » → **fin**
 
+## Torka
+
+_Dix ans, sculpte des animaux dans la glace_
+
+Commence par : « accueil »
+
+### accueil
+
+> Une petite fille en bonnet rouge, à genoux devant un bloc de glace, gratte avec un couteau à lame courbe. Un renard en sort, puis un lièvre. — Ne marche pas sur la queue. Elle m’a pris deux jours.
+
+- « C’est beau. Qui t’a appris ? » → appris
+- « Tu en fais beaucoup ? » → beaucoup
+- « Je te laisse. » → **fin**
+
+### appris
+
+> — Ma sœur, Sigrun. Elle fait les ours, moi les renards. Elle dit que la glace sait déjà ce qu’il y a dedans, qu’il faut seulement enlever le reste.
+
+- « Tu en fais beaucoup ? » → beaucoup
+- « Je te laisse. » → **fin**
+
+### beaucoup
+
+> — Un par jour. Ils fondent pas : il fait moins cinq. Alors il y en a partout, dans la maison. Maman dit qu’on n’a plus de place pour s’asseoir.
+
+- « C’est beau. Qui t’a appris ? » → appris
+- « Je te laisse. » → **fin**
+
 ## Un trou de fouille
 
 _Objet_
@@ -10442,6 +10980,78 @@ _Effet : −3 PV._
 > Il te rattrape par le col et te jette sur le ballast. — La prochaine fois, j’appelle les autres.
 
 - « Reculer. » → **fin**
+
+## Ulga Brasegel
+
+_Tient le Foyer_
+
+Commence par : « accueil-2 » _(un jour sur 3, le 2e)_, sinon « accueil-3 » _(un jour sur 3, le 3e)_, sinon « accueil »
+
+### accueil
+
+> Une salle basse, une cheminée où l’on ferait rôtir un traîneau. Une femme aux joues rouges essuie une chope. — Le Foyer ! Assieds-toi près du feu, le temps de retrouver tes doigts. On mange, on dort, et on parle bas : il y a des gens qui dorment assis.
+
+- « Manger ou dormir ? » → servir
+- « Quelles nouvelles ? » → nouvelles
+- « Au revoir. » → **fin**
+
+### accueil-2
+
+> Ulga Brasegel remet une bûche, une vraie, montée d’Ironheart par le train. — Le bois coûte plus cher que la viande. Mais le feu, tout le monde y a droit, chez moi.
+
+- « Manger ou dormir ? » → servir
+- « Quelles nouvelles ? » → nouvelles
+- « Au revoir. » → **fin**
+
+### accueil-3
+
+> — Tu as encore de la neige dans les cils. Approche. Personne n’a jamais gelé dans mon Foyer, et ce n’est pas toi qui commenceras.
+
+- « Manger ou dormir ? » → servir
+- « Quelles nouvelles ? » → nouvelles
+- « Au revoir. » → **fin**
+
+### servir
+
+> — Un bouillon de racines de serre, du poisson de la Mer Gelée quand le train en monte, et des couchettes contre le mur chaud. Dix Fers le bol, dix Fers la nuit.
+
+- **[10 Fers]** « Un bouillon. » → mange _(−10 Fers, +15 PV)_
+- **[10 Fers]** « Une couchette jusqu’au matin. » → dodo _(−10 Fers, dort jusqu’au matin)_
+- **[10 Fers]** « Une couchette jusqu’au soir. » → dodo _(−10 Fers, dort jusqu’à le soir)_
+- « Rien, merci. » → accueil
+
+### mange
+
+> Un bouillon brûlant, salé, qui sent la racine et la fumée. À la table d’à côté, un Géant des Glaces mange assis par terre, pour ne pas casser le banc.
+
+- « Merci, Ulga. » → accueil
+
+### dodo
+
+> Une couchette contre le mur où passe la chaleur de la terre. Au-dessus de toi, trois cents mètres de glace, et le silence qu’ils font.
+
+- « Bonne nuit. » → **fin**
+
+### nouvelles
+
+> — La loi de 2995 renvoie encore des familles aux Portes. La Loi de Survie dit qu’on ne refuse pas l’abri à un voyageur ; le Conseil dit qu’un réfugié n’est pas un voyageur. Et au Douze, on ne descend plus seul aux cryptes.
+
+- « Pourquoi pas seul ? » → seul
+- « Et toi, qu’en penses-tu ? » → pense
+- « Merci. » → accueil
+
+### seul
+
+> — À cause du Briseur d’Échos. Il descendait seul, lui. Il a brisé quatre mille six cent onze cristaux de crypte avant qu’on le prenne. Depuis, on y va à deux, et l’autre regarde ce que tu fais de tes mains.
+
+- « Et toi, qu’en penses-tu ? » → pense
+- « Merci. » → accueil
+
+### pense
+
+> — Moi ? Je tiens un feu. Un feu ne demande pas d’où tu viens. Ce que je pense du Conseil, je le dis à ma cheminée, et elle garde tout.
+
+- « Merci. » → accueil
 
 ## Vanel Lentefeuille
 

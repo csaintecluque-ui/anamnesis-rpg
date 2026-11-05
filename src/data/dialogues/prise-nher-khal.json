@@ -1,0 +1,33 @@
+{
+  "id": "prise-nher-khal",
+  "speaker": "prise-nher-khal",
+  "entries": [
+    {
+      "node": "prise"
+    }
+  ],
+  "nodes": {
+    "prise": {
+      "text": "Un cristal de crypte, pareil aux autres. Sous lui, à hauteur de main, la glace est lisse : pas de nom. Dedans, un homme, les yeux ouverts, un marteau à glace dans la main droite. On l’a pris vivant.",
+      "options": [
+        {
+          "text": "Poser la main sur le cristal.",
+          "next": "main"
+        },
+        {
+          "text": "S’éloigner.",
+          "next": "fin"
+        }
+      ]
+    },
+    "main": {
+      "text": "Le cristal est froid, comme les autres. Rien ne bouge derrière. Tu ne sauras pas si l’homme te voit ; personne, à Khrysos, ne le sait, et c’est pour cela qu’on descend à deux.",
+      "options": [
+        {
+          "text": "S’éloigner.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

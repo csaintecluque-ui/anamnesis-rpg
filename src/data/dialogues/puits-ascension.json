@@ -1,0 +1,191 @@
+{
+  "id": "puits-ascension",
+  "speaker": "puits-ascension",
+  "entries": [
+    {
+      "requires": [
+        {
+          "lieu": "khrysos-portes"
+        }
+      ],
+      "node": "portes"
+    },
+    {
+      "requires": [
+        {
+          "lieu": "khrysos-galeries"
+        }
+      ],
+      "node": "galeries"
+    },
+    {
+      "requires": [
+        {
+          "lieu": "khrysos-royal"
+        }
+      ],
+      "node": "royal"
+    },
+    {
+      "node": "douze"
+    }
+  ],
+  "nodes": {
+    "portes": {
+      "text": "La cage du Puits d’Ascension, du cuivre et des câbles ; la vapeur siffle par en dessous. La machiniste, une clé à molette à la main, attend que tu choisisses. — Les Portes. On monte ou on descend ?",
+      "options": [
+        {
+          "text": "Les Galeries Chaudes.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "khrysos-galeries",
+              "arrivee": "depuis-puits"
+            }
+          ]
+        },
+        {
+          "text": "Le Niveau Royal.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "khrysos-royal",
+              "arrivee": "depuis-puits"
+            }
+          ]
+        },
+        {
+          "text": "Le Niveau Douze.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "khrysos-douze",
+              "arrivee": "depuis-puits"
+            }
+          ]
+        },
+        {
+          "text": "Rester ici.",
+          "next": "fin"
+        }
+      ]
+    },
+    "galeries": {
+      "text": "La cage du Puits d’Ascension, du cuivre et des câbles ; la vapeur siffle par en dessous. La machiniste, une clé à molette à la main, attend que tu choisisses. — Les Galeries. Où ça ?",
+      "options": [
+        {
+          "text": "Les Portes de Glace.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "khrysos-portes",
+              "arrivee": "depuis-puits"
+            }
+          ]
+        },
+        {
+          "text": "Le Niveau Royal.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "khrysos-royal",
+              "arrivee": "depuis-puits"
+            }
+          ]
+        },
+        {
+          "text": "Le Niveau Douze.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "khrysos-douze",
+              "arrivee": "depuis-puits"
+            }
+          ]
+        },
+        {
+          "text": "Rester ici.",
+          "next": "fin"
+        }
+      ]
+    },
+    "royal": {
+      "text": "La cage du Puits d’Ascension, du cuivre et des câbles ; la vapeur siffle par en dessous. La machiniste, une clé à molette à la main, attend que tu choisisses. — Le Royal. On redescend ?",
+      "options": [
+        {
+          "text": "Les Portes de Glace.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "khrysos-portes",
+              "arrivee": "depuis-puits"
+            }
+          ]
+        },
+        {
+          "text": "Les Galeries Chaudes.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "khrysos-galeries",
+              "arrivee": "depuis-puits"
+            }
+          ]
+        },
+        {
+          "text": "Le Niveau Douze.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "khrysos-douze",
+              "arrivee": "depuis-puits"
+            }
+          ]
+        },
+        {
+          "text": "Rester ici.",
+          "next": "fin"
+        }
+      ]
+    },
+    "douze": {
+      "text": "La cage du Puits d’Ascension, du cuivre et des câbles ; la vapeur siffle par en dessous. La machiniste, une clé à molette à la main, attend que tu choisisses. — Le Douze. Il fait plus chaud qu’en haut, et personne n’aime y rester. On remonte ?",
+      "options": [
+        {
+          "text": "Les Portes de Glace.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "khrysos-portes",
+              "arrivee": "depuis-puits"
+            }
+          ]
+        },
+        {
+          "text": "Les Galeries Chaudes.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "khrysos-galeries",
+              "arrivee": "depuis-puits"
+            }
+          ]
+        },
+        {
+          "text": "Le Niveau Royal.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "khrysos-royal",
+              "arrivee": "depuis-puits"
+            }
+          ]
+        },
+        {
+          "text": "Rester ici.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

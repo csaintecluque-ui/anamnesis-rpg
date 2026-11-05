@@ -1,0 +1,51 @@
+{
+  "id": "brodd",
+  "speaker": "brodd",
+  "entries": [
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Un homme trapu, une loupe vissée à l’œil, taille une facette sans te regarder. Autour de lui, des cristaux, et des manteaux pendus aux poutres. — Un cristal se taille selon son fil. Un client aussi. Tu viens pour quoi ?",
+      "options": [
+        {
+          "text": "Voir ce que tu vends.",
+          "next": "fin",
+          "effects": [
+            {
+              "openTrade": true
+            }
+          ]
+        },
+        {
+          "text": "Et ces manteaux ?",
+          "next": "manteaux"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "manteaux": {
+      "text": "— Fourrure dehors, laine dedans, et le col qui monte jusqu’au nez. Sans ça, la surface te mange. Soixante Fers. Le froid, lui, ne fait pas crédit.",
+      "options": [
+        {
+          "text": "Voir ce que tu vends.",
+          "next": "fin",
+          "effects": [
+            {
+              "openTrade": true
+            }
+          ]
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

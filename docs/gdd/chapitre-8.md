@@ -1,4 +1,4 @@
-# Chapitre 8 : Khrysos — **validé par Cyril** le 2026-11-05 (« Oui pour tout ») ; à construire
+# Chapitre 8 : Khrysos — **validé par Cyril** le 2026-11-05 (« Oui pour tout ») ; en construction
 
 Cyril (2026-11-04, « Oui pour les trois ») : après Marche-Mère, Glacialis, et la dernière caisse. Khrysos d'abord
 (l'ordre validé de `villes.md`). Le lieu, ses habitants et ce que dit le canon : `docs/univers/lieux/khrysos.md`. Le
@@ -69,3 +69,16 @@ et une réplique d'Ilyane. Après lui, les sept caisses ont toutes un sort ; la 
 3. **Le pas de la dame en gris** : sa mère a brisé la face qui disait où dormait la caisse (« Elle a brisé un écho. Elle
    savait ce qu'on en ferait. ») ; et le fragment, les chaussures trop grandes ?
 4. **Les deux guildes** : le Collège des 9 Miroirs (la clarté) contre les Vigiles Blancs (la passion) ?
+
+## Construit (2026-11-05)
+
+| Étape | Contenu | État |
+|---|---|---|
+| 1 | Le moteur : le froid de la surface (`src/rules/glace.ts` : 5 PV à chaque arrivée sans manteau, jamais le dernier ; la neige qui tombe) ; le manteau de fourrure de Brodd Facettier (60 Fers) ; le train du Nord (Khrysos au nord de la carte du monde après Marche-Mère, la ligne du Nord tracée depuis Ironheart ; on ne le prend qu'à Ironheart, au guichet de la gare ou sur la carte ; le premier billet payé par Hesper, puis 45 Fers, 22 pour les amis des cheminots ; le retour au quai des Portes de Glace) ; le Puits d'Ascension entre les quatre niveaux ; la règle des cryptes (la grille s'ouvre pour la journée à qui vient à deux, avec Liane ou Boulon ; seul·e, de nuit, Discrétion 17, et le Douze le saura) ; ★ le Caveau des cristaux scellés (crocheter, Artisanat 18 ; bluffer le gardien, Subterfuge 18 ; lui voler la clé, Discrétion 18) ; sept cartes (les Portes de Glace, la surface, les Galeries Chaudes, le Niveau Royal, le Niveau Douze, les cryptes, la voie sept) et dix intérieurs ; les habitants de base (Ulga, Korvek, Brodd, Torka, Hrolda, Khrys, Crysta Frostborn, Bjorn Glaceforge, Halvard, la Prêtresse de l'Hiver Éveillé, le gardien des cryptes, Maître Ennir, la garde des Portes) | en ligne |
+
+**Propositions de la construction (à valider)** : la ligne du Nord et son guichet à Ironheart (45 Fers ; « Le Dominion ne
+laisse plus monter que ceux qu'on attend », la loi de 2995) ; le Puits d'Ascension et sa machiniste ; la grille des
+cryptes ouverte pour la journée à qui vient à deux ; le Caveau des cristaux scellés au Niveau Douze, scellé par le
+Collège ; la Prêtresse de l'Hiver Éveillé et son cristal « vide », à qui l'on confie ce qu'on n'a dit à personne ;
+Korvek qui fait payer un Fer à qui touche son bras pour la chance.
+

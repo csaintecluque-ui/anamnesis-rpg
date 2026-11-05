@@ -1,0 +1,46 @@
+{
+  "id": "khrys",
+  "speaker": "khrys",
+  "entries": [
+    {
+      "node": "rend"
+    }
+  ],
+  "nodes": {
+    "rend": {
+      "text": "Le cristal, haut comme deux hommes, ne bouge pas. Quand tu approches, une lueur monte en lui, puis une voix sans souffle, qui ne vient de nulle part : « Le cristal rend. »",
+      "options": [
+        {
+          "text": "Et ne juge pas.",
+          "next": "rend2"
+        },
+        {
+          "text": "Lui poser une question.",
+          "next": "question"
+        },
+        {
+          "text": "Reculer.",
+          "next": "fin"
+        }
+      ]
+    },
+    "rend2": {
+      "text": "« Et ne juge pas. » La voix te rend ta réponse, exactement, avec ta propre voix. Puis la lueur s’éteint. Khrys rend ce qu’on lui confie, et tu ne lui as rien confié d’autre.",
+      "options": [
+        {
+          "text": "Reculer.",
+          "next": "fin"
+        }
+      ]
+    },
+    "question": {
+      "text": "Tu poses ta question. La lueur monte, retombe. Rien. Khrys ne converse pas : il rend ce qu’on lui a confié, et personne ne lui a confié la réponse.",
+      "options": [
+        {
+          "text": "Reculer.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

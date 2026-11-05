@@ -1,0 +1,123 @@
+{
+  "id": "guichet-nord",
+  "speaker": "guichet-nord",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "plus-lieu",
+          "status": "done"
+        }
+      ],
+      "node": "guichet"
+    },
+    {
+      "node": "ferme"
+    }
+  ],
+  "nodes": {
+    "ferme": {
+      "text": "Un guichet neuf, une affiche : « Ligne du Nord. Khrysos. » Le guichetier ne lève pas les yeux. — Le Dominion ne laisse plus monter que ceux qu’on attend là-haut. Une lettre, une invitation. Sinon, la loi de 2995 vous renvoie par le premier train.",
+      "options": [
+        {
+          "text": "Pourquoi ?",
+          "next": "loi"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "loi": {
+      "text": "— Les réfugiés du climat. Ils montaient par wagons entiers, et Glacialis a fermé ses Portes. Nous, on vend les billets. Ce n’est pas nous qui refusons, c’est le froid qui décide, à ce qu’ils disent.",
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "guichet": {
+      "text": "Guichet de la ligne du Nord. Le guichetier souffle dans ses mains. « Khrysos : un jour de voyage, des voitures chauffées, et au bout, trois cents mètres de descente sous la glace. » — Un billet ?",
+      "options": [
+        {
+          "text": "Le billet que Hesper a payé.",
+          "next": "train",
+          "requires": [
+            {
+              "notFlag": "premier-train-nord"
+            }
+          ],
+          "effects": [
+            {
+              "setFlag": "premier-train-nord"
+            }
+          ]
+        },
+        {
+          "text": "Prendre un billet.",
+          "next": "train",
+          "requires": [
+            {
+              "flag": "premier-train-nord"
+            },
+            {
+              "notFlag": "rail-travailleurs"
+            },
+            {
+              "fers": 45
+            }
+          ],
+          "effects": [
+            {
+              "giveFers": -45
+            }
+          ]
+        },
+        {
+          "text": "Prendre un billet : les cheminots te font un prix.",
+          "next": "train",
+          "requires": [
+            {
+              "flag": "premier-train-nord"
+            },
+            {
+              "flag": "rail-travailleurs"
+            },
+            {
+              "fers": 22
+            }
+          ],
+          "effects": [
+            {
+              "giveFers": -22
+            }
+          ]
+        },
+        {
+          "text": "Pas aujourd’hui.",
+          "next": "fin"
+        }
+      ]
+    },
+    "train": {
+      "text": "Le train du Nord quitte Ironheart à l’aube. La forêt s’éclaircit, puis disparaît ; il ne reste que la neige, et le soir, une bouche de glace où le train s’enfonce. Il descend longtemps. Quand les portes s’ouvrent, l’air a le goût du métal froid.",
+      "options": [
+        {
+          "text": "Descendre sur le quai.",
+          "next": "fin",
+          "effects": [
+            {
+              "avancer": 4
+            },
+            {
+              "goTo": "khrysos-portes",
+              "arrivee": "entree"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

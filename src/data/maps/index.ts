@@ -96,6 +96,23 @@ import marcheRouteJson from './marche-route.json';
 import marcheSaalEmaJson from './marche-saal-ema.json';
 import marcheTempleJson from './marche-temple.json';
 import marcheVerriersJson from './marche-verriers.json';
+import khrysosPortesJson from './khrysos-portes.json';
+import khrysosSurfaceJson from './khrysos-surface.json';
+import khrysosGaleriesJson from './khrysos-galeries.json';
+import khrysosRoyalJson from './khrysos-royal.json';
+import khrysosDouzeJson from './khrysos-douze.json';
+import khrysosCryptesJson from './khrysos-cryptes.json';
+import khrysosVoieSeptJson from './khrysos-voie-sept.json';
+import khrysosFoyerJson from './khrysos-foyer.json';
+import khrysosVigilesJson from './khrysos-vigiles.json';
+import khrysosFacettierJson from './khrysos-facettier.json';
+import khrysosTorkaJson from './khrysos-torka.json';
+import khrysosRelaisJson from './khrysos-relais.json';
+import khrysosEnnirJson from './khrysos-ennir.json';
+import khrysosBibliothequeJson from './khrysos-bibliotheque.json';
+import khrysosPalaisJson from './khrysos-palais.json';
+import khrysosTempleJson from './khrysos-temple.json';
+import khrysosCaveauJson from './khrysos-caveau.json';
 
 /** Tiled maps by id (`map` of src/data/locations.json). */
 export const MAPS: Record<string, TiledMapJson> = {
@@ -196,4 +213,21 @@ export const MAPS: Record<string, TiledMapJson> = {
   'marche-saal-ema': marcheSaalEmaJson as TiledMapJson,
   'marche-temple': marcheTempleJson as TiledMapJson,
   'marche-verriers': marcheVerriersJson as TiledMapJson,
+  'khrysos-portes': khrysosPortesJson as TiledMapJson,
+  'khrysos-surface': khrysosSurfaceJson as TiledMapJson,
+  'khrysos-galeries': khrysosGaleriesJson as TiledMapJson,
+  'khrysos-royal': khrysosRoyalJson as TiledMapJson,
+  'khrysos-douze': khrysosDouzeJson as TiledMapJson,
+  'khrysos-cryptes': khrysosCryptesJson as TiledMapJson,
+  'khrysos-voie-sept': khrysosVoieSeptJson as TiledMapJson,
+  'khrysos-foyer': khrysosFoyerJson as TiledMapJson,
+  'khrysos-vigiles': khrysosVigilesJson as TiledMapJson,
+  'khrysos-facettier': khrysosFacettierJson as TiledMapJson,
+  'khrysos-torka': khrysosTorkaJson as TiledMapJson,
+  'khrysos-relais': khrysosRelaisJson as TiledMapJson,
+  'khrysos-ennir': khrysosEnnirJson as TiledMapJson,
+  'khrysos-bibliotheque': khrysosBibliothequeJson as TiledMapJson,
+  'khrysos-palais': khrysosPalaisJson as TiledMapJson,
+  'khrysos-temple': khrysosTempleJson as TiledMapJson,
+  'khrysos-caveau': khrysosCaveauJson as TiledMapJson,
 };

@@ -1,0 +1,197 @@
+{
+  "id": "ulga",
+  "speaker": "ulga",
+  "entries": [
+    {
+      "requires": [
+        {
+          "tousLes": 3,
+          "decalage": 1
+        }
+      ],
+      "node": "accueil-2"
+    },
+    {
+      "requires": [
+        {
+          "tousLes": 3,
+          "decalage": 2
+        }
+      ],
+      "node": "accueil-3"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Une salle basse, une cheminée où l’on ferait rôtir un traîneau. Une femme aux joues rouges essuie une chope. — Le Foyer ! Assieds-toi près du feu, le temps de retrouver tes doigts. On mange, on dort, et on parle bas : il y a des gens qui dorment assis.",
+      "options": [
+        {
+          "text": "Manger ou dormir ?",
+          "next": "servir"
+        },
+        {
+          "text": "Quelles nouvelles ?",
+          "next": "nouvelles"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "accueil-2": {
+      "text": "Ulga Brasegel remet une bûche, une vraie, montée d’Ironheart par le train. — Le bois coûte plus cher que la viande. Mais le feu, tout le monde y a droit, chez moi.",
+      "options": [
+        {
+          "text": "Manger ou dormir ?",
+          "next": "servir"
+        },
+        {
+          "text": "Quelles nouvelles ?",
+          "next": "nouvelles"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "accueil-3": {
+      "text": "— Tu as encore de la neige dans les cils. Approche. Personne n’a jamais gelé dans mon Foyer, et ce n’est pas toi qui commenceras.",
+      "options": [
+        {
+          "text": "Manger ou dormir ?",
+          "next": "servir"
+        },
+        {
+          "text": "Quelles nouvelles ?",
+          "next": "nouvelles"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "servir": {
+      "text": "— Un bouillon de racines de serre, du poisson de la Mer Gelée quand le train en monte, et des couchettes contre le mur chaud. Dix Fers le bol, dix Fers la nuit.",
+      "options": [
+        {
+          "text": "Un bouillon.",
+          "next": "mange",
+          "requires": [
+            {
+              "fers": 10
+            }
+          ],
+          "effects": [
+            {
+              "giveFers": -10
+            },
+            {
+              "heal": 15
+            }
+          ]
+        },
+        {
+          "text": "Une couchette jusqu’au matin.",
+          "next": "dodo",
+          "requires": [
+            {
+              "fers": 10
+            }
+          ],
+          "effects": [
+            {
+              "giveFers": -10
+            },
+            {
+              "dormir": "matin"
+            }
+          ]
+        },
+        {
+          "text": "Une couchette jusqu’au soir.",
+          "next": "dodo",
+          "requires": [
+            {
+              "fers": 10
+            }
+          ],
+          "effects": [
+            {
+              "giveFers": -10
+            },
+            {
+              "dormir": "soir"
+            }
+          ]
+        },
+        {
+          "text": "Rien, merci.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "mange": {
+      "text": "Un bouillon brûlant, salé, qui sent la racine et la fumée. À la table d’à côté, un Géant des Glaces mange assis par terre, pour ne pas casser le banc.",
+      "options": [
+        {
+          "text": "Merci, Ulga.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "dodo": {
+      "text": "Une couchette contre le mur où passe la chaleur de la terre. Au-dessus de toi, trois cents mètres de glace, et le silence qu’ils font.",
+      "options": [
+        {
+          "text": "Bonne nuit.",
+          "next": "fin"
+        }
+      ]
+    },
+    "nouvelles": {
+      "text": "— La loi de 2995 renvoie encore des familles aux Portes. La Loi de Survie dit qu’on ne refuse pas l’abri à un voyageur ; le Conseil dit qu’un réfugié n’est pas un voyageur. Et au Douze, on ne descend plus seul aux cryptes.",
+      "options": [
+        {
+          "text": "Pourquoi pas seul ?",
+          "next": "seul"
+        },
+        {
+          "text": "Et toi, qu’en penses-tu ?",
+          "next": "pense"
+        },
+        {
+          "text": "Merci.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "seul": {
+      "text": "— À cause du Briseur d’Échos. Il descendait seul, lui. Il a brisé quatre mille six cent onze cristaux de crypte avant qu’on le prenne. Depuis, on y va à deux, et l’autre regarde ce que tu fais de tes mains.",
+      "options": [
+        {
+          "text": "Et toi, qu’en penses-tu ?",
+          "next": "pense"
+        },
+        {
+          "text": "Merci.",
+          "next": "accueil"
+        }
+      ]
+    },
+    "pense": {
+      "text": "— Moi ? Je tiens un feu. Un feu ne demande pas d’où tu viens. Ce que je pense du Conseil, je le dis à ma cheminée, et elle garde tout.",
+      "options": [
+        {
+          "text": "Merci.",
+          "next": "accueil"
+        }
+      ]
+    }
+  }
+}

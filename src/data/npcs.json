@@ -1210,5 +1210,118 @@
     "id": "chariot-perdu",
     "name": "Un chariot renversé",
     "role": "Hors de la Marche"
+  },
+  {
+    "id": "guichet-nord",
+    "name": "Le guichetier de la ligne du Nord",
+    "role": "La gare d’Ironheart"
+  },
+  {
+    "id": "quai-nord",
+    "name": "Le quai du train du Nord",
+    "role": "Les Portes de Glace"
+  },
+  {
+    "id": "puits-ascension",
+    "name": "Le Puits d’Ascension",
+    "role": "Khrysos"
+  },
+  {
+    "id": "ulga",
+    "name": "Ulga Brasegel",
+    "role": "Tient le Foyer"
+  },
+  {
+    "id": "garde-portes",
+    "name": "La garde des Portes",
+    "role": "Les Portes de Glace"
+  },
+  {
+    "id": "korvek",
+    "name": "Korvek",
+    "role": "Yéti, guide des glaces"
+  },
+  {
+    "id": "brodd",
+    "name": "Brodd Facettier",
+    "role": "Tailleur de cristal",
+    "place": "khrysos",
+    "sells": [
+      "manteau-givre",
+      "lampe-cristal",
+      "cristal-vie",
+      "cristal-forge",
+      "corde",
+      "bandage"
+    ],
+    "vitrine": {
+      "item": "manteau-givre",
+      "mot": "Sans lui, la surface te prend cinq PV à chaque pas qu’on y fait. Avec, elle te prend seulement le souffle."
+    }
+  },
+  {
+    "id": "torka",
+    "name": "Torka",
+    "role": "Dix ans, sculpte des animaux dans la glace"
+  },
+  {
+    "id": "hrolda",
+    "name": "Hrolda Rochebrume",
+    "role": "Du Collège des 9 Miroirs, gardienne de la Bibliothèque"
+  },
+  {
+    "id": "khrys",
+    "name": "Khrys",
+    "role": "L’Entité de la Bibliothèque"
+  },
+  {
+    "id": "crysta",
+    "name": "La Primus Crysta Frostborn",
+    "role": "Conseil des Neuf Cristaux"
+  },
+  {
+    "id": "bjorn",
+    "name": "Bjorn Glaceforge",
+    "role": "Le Cristal du Peuple"
+  },
+  {
+    "id": "halvard",
+    "name": "Halvard Neigeclaire",
+    "role": "Des Vigiles Blancs"
+  },
+  {
+    "id": "pretresse-hiver",
+    "name": "La Prêtresse de l’Hiver Éveillé",
+    "role": "Le Temple de l’Hiver Éveillé"
+  },
+  {
+    "id": "gardien-cryptes",
+    "name": "Le gardien des cryptes",
+    "role": "Le Niveau Douze"
+  },
+  {
+    "id": "grille-cryptes",
+    "name": "La grille des cryptes",
+    "role": "Le Niveau Douze"
+  },
+  {
+    "id": "porte-caveau",
+    "name": "Le Caveau des cristaux scellés",
+    "role": "Le Niveau Douze"
+  },
+  {
+    "id": "mur-voie-sept",
+    "name": "La glace claire",
+    "role": "Au bout des cryptes"
+  },
+  {
+    "id": "prise-nher-khal",
+    "name": "Une prise sans nom",
+    "role": "Les cryptes, section neuf"
+  },
+  {
+    "id": "ennir",
+    "name": "Maître Ennir",
+    "role": "Tisseur de Givre"
   }
 ]

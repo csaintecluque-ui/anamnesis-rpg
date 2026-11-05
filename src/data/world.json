@@ -161,6 +161,24 @@
         "jours": 30
       },
       "description": "La capitale de la Communion des Sables Vivants : huit cent mille personnes qui marchent autour de douze Léviathans, et ne s’arrêtent jamais. On la rejoint avec la caravane des verriers."
+    },
+    {
+      "id": "khrysos",
+      "auberge": "khrysos-foyer",
+      "name": "Khrysos",
+      "x": 500,
+      "y": 46,
+      "location": "khrysos-portes",
+      "entrance": "entree",
+      "revealedByQuest": "plus-lieu",
+      "revealedBy": "connait-khrysos",
+      "train": {
+        "fers": 45,
+        "moments": 4,
+        "gare": "ironheart",
+        "ligne": "train du Nord"
+      },
+      "description": "La capitale du Dominion Cristallin de Glacialis : une cité de douze niveaux, à trois cents mètres sous la calotte, des murs de glace transparente et une lumière bleue. On y monte par le train du Nord, depuis Ironheart."
     }
   ],
   "rails": [
@@ -168,6 +186,11 @@
       "from": "canopee",
       "to": "ironheart",
       "name": "Ligne de l’Ouest"
+    },
+    {
+      "from": "ironheart",
+      "to": "khrysos",
+      "name": "Ligne du Nord"
     }
   ],
   "distant": [
@@ -198,6 +221,13 @@
       "y": 590,
       "hint": "Au sud-est, une ville qui marche.",
       "remplacePar": "marche-mere"
+    },
+    {
+      "name": "Glacialis · Khrysos",
+      "x": 500,
+      "y": 40,
+      "hint": "Au nord, sous la glace, par le train d’Ironheart.",
+      "remplacePar": "khrysos"
     }
   ],
   "zones": [

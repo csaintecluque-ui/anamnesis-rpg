@@ -90,5 +90,22 @@
   { "id": "marche-pavillon", "name": "Marche-Mère — le Pavillon de la Reine", "scene": "Map", "map": "marche-pavillon", "entrance": "entree", "place": "marche-mere" },
   { "id": "marche-temple", "name": "Marche-Mère — le Temple du Désert-Vivant", "scene": "Map", "map": "marche-temple", "entrance": "entree", "place": "marche-mere" },
   { "id": "marche-nid", "name": "Marche-Mère — le Nid des dragonnets", "scene": "Map", "map": "marche-nid", "entrance": "entree", "place": "marche-mere" },
-  { "id": "marche-saal-ema", "name": "Marche-Mère — la tente de Saal’Ema", "scene": "Map", "map": "marche-saal-ema", "entrance": "entree", "place": "marche-mere" }
+  { "id": "marche-saal-ema", "name": "Marche-Mère — la tente de Saal’Ema", "scene": "Map", "map": "marche-saal-ema", "entrance": "entree", "place": "marche-mere" },
+  { "id": "khrysos-portes", "name": "Khrysos — les Portes de Glace", "scene": "Map", "map": "khrysos-portes", "entrance": "entree", "place": "khrysos", "fond": "#9cc4d8" },
+  { "id": "khrysos-surface", "name": "Glacialis — la surface", "scene": "Map", "map": "khrysos-surface", "entrance": "entree", "place": "khrysos", "froid": true, "neige": true, "fond": "#e8f0f4" },
+  { "id": "khrysos-galeries", "name": "Khrysos — les Galeries Chaudes", "scene": "Map", "map": "khrysos-galeries", "entrance": "entree", "place": "khrysos", "fond": "#9cc4d8" },
+  { "id": "khrysos-royal", "name": "Khrysos — le Niveau Royal", "scene": "Map", "map": "khrysos-royal", "entrance": "entree", "place": "khrysos", "fond": "#9cc4d8" },
+  { "id": "khrysos-douze", "name": "Khrysos — le Niveau Douze", "scene": "Map", "map": "khrysos-douze", "entrance": "entree", "place": "khrysos", "fond": "#3a5a78" },
+  { "id": "khrysos-cryptes", "name": "Khrysos — les cryptes", "scene": "Map", "map": "khrysos-cryptes", "entrance": "entree", "place": "khrysos", "fond": "#3a5a78" },
+  { "id": "khrysos-voie-sept", "name": "Sous les cryptes — la voie sept", "scene": "Map", "map": "khrysos-voie-sept", "entrance": "entree", "place": "khrysos", "fond": "#2a3a4a" },
+  { "id": "khrysos-foyer", "name": "Khrysos — le Foyer", "scene": "Map", "map": "khrysos-foyer", "entrance": "entree", "place": "khrysos" },
+  { "id": "khrysos-vigiles", "name": "Khrysos — le poste des Vigiles Blancs", "scene": "Map", "map": "khrysos-vigiles", "entrance": "entree", "place": "khrysos" },
+  { "id": "khrysos-facettier", "name": "Khrysos — l’Atelier Facettier", "scene": "Map", "map": "khrysos-facettier", "entrance": "entree", "place": "khrysos" },
+  { "id": "khrysos-torka", "name": "Khrysos — la maison de Torka", "scene": "Map", "map": "khrysos-torka", "entrance": "entree", "place": "khrysos" },
+  { "id": "khrysos-relais", "name": "Khrysos — le Relais des Gardiens de Mémoire", "scene": "Map", "map": "khrysos-relais", "entrance": "entree", "place": "khrysos" },
+  { "id": "khrysos-ennir", "name": "Khrysos — l’atelier de Maître Ennir", "scene": "Map", "map": "khrysos-ennir", "entrance": "entree", "place": "khrysos" },
+  { "id": "khrysos-bibliotheque", "name": "Khrysos — la Bibliothèque de Glace", "scene": "Map", "map": "khrysos-bibliotheque", "entrance": "entree", "place": "khrysos" },
+  { "id": "khrysos-palais", "name": "Khrysos — le Palais Glacé", "scene": "Map", "map": "khrysos-palais", "entrance": "entree", "place": "khrysos" },
+  { "id": "khrysos-temple", "name": "Khrysos — le Temple de l’Hiver Éveillé", "scene": "Map", "map": "khrysos-temple", "entrance": "entree", "place": "khrysos" },
+  { "id": "khrysos-caveau", "name": "Khrysos — le Caveau des cristaux scellés", "scene": "Map", "map": "khrysos-caveau", "entrance": "entree", "place": "khrysos" }
 ]

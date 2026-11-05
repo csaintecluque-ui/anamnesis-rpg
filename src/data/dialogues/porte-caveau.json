@@ -1,0 +1,168 @@
+{
+  "id": "porte-caveau",
+  "speaker": "porte-caveau",
+  "entries": [
+    {
+      "node": "ferme"
+    }
+  ],
+  "nodes": {
+    "ferme": {
+      "text": "Une porte de glace épaisse, cerclée de fer, sans poignée. Une serrure à trois gorges, et le sceau du Collège des 9 Miroirs, intact. Rien n’est écrit dessus. À Khrysos, ce qui n’est pas écrit est souvent le mieux gardé.",
+      "options": [
+        {
+          "text": "Crocheter la serrure.",
+          "next": "ouvert",
+          "requires": [
+            {
+              "notFlag": "caveau-rate"
+            }
+          ],
+          "roll": {
+            "skill": "crafting",
+            "difficulty": 18
+          },
+          "failNext": "rate"
+        },
+        {
+          "text": "Dire au gardien que le Collège t’envoie chercher un cristal.",
+          "next": "bluff",
+          "requires": [
+            {
+              "notFlag": "caveau-bluff-rate"
+            }
+          ],
+          "roll": {
+            "skill": "subterfuge",
+            "difficulty": 18
+          },
+          "failNext": "bluff-rate"
+        },
+        {
+          "text": "Prendre la clé à la ceinture du gardien, pendant qu’il somnole.",
+          "next": "cle",
+          "requires": [
+            {
+              "notFlag": "caveau-vol-rate"
+            }
+          ],
+          "roll": {
+            "skill": "stealth",
+            "difficulty": 18
+          },
+          "failNext": "vol-rate"
+        },
+        {
+          "text": "S’éloigner.",
+          "next": "fin"
+        }
+      ]
+    },
+    "ouvert": {
+      "text": "La première gorge cède, puis la deuxième. La troisième résiste, gelée ; tu la réchauffes de ton souffle, longtemps. Le sceau du Collège se fend sans bruit. La porte s’ouvre sur un froid plus vieux que celui du couloir.",
+      "effects": [
+        {
+          "setFlag": "caveau-ouvert"
+        },
+        {
+          "setFlag": "sceau-caveau-brise"
+        }
+      ],
+      "options": [
+        {
+          "text": "Entrer.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "khrysos-caveau",
+              "arrivee": "entree"
+            }
+          ]
+        }
+      ]
+    },
+    "rate": {
+      "text": "La troisième gorge est prise dans la glace. Ton crochet casse net à l’intérieur. Il faudra en tailler un autre, et attendre que le fer se réchauffe : demain.",
+      "effects": [
+        {
+          "setFlagFor": "caveau-rate",
+          "days": 1
+        }
+      ],
+      "options": [
+        {
+          "text": "S’éloigner.",
+          "next": "fin"
+        }
+      ]
+    },
+    "bluff": {
+      "text": "Le gardien fronce les sourcils, cherche dans sa mémoire un ordre du Collège qu’il aurait oublié, et finit par en trouver un. — Ils ne préviennent jamais. Il sort une clé de glace noire, ouvre, et retourne à sa lampe.",
+      "effects": [
+        {
+          "setFlag": "caveau-ouvert"
+        }
+      ],
+      "options": [
+        {
+          "text": "Entrer.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "khrysos-caveau",
+              "arrivee": "entree"
+            }
+          ]
+        }
+      ]
+    },
+    "bluff-rate": {
+      "text": "— Le Collège n’envoie personne au Caveau. Le Collège ne sait pas qu’il y a un Caveau. Le gardien se tait, comprend ce qu’il vient de dire, et ne te regarde plus.",
+      "effects": [
+        {
+          "setFlag": "caveau-bluff-rate"
+        }
+      ],
+      "options": [
+        {
+          "text": "S’éloigner.",
+          "next": "fin"
+        }
+      ]
+    },
+    "cle": {
+      "text": "La clé pend à une lanière de cuir, contre la robe. Tu la décroches entre deux souffles du gardien, tu ouvres, et tu la remets. Elle est restée tiède dans ta main : la seule chose tiède du Niveau Douze.",
+      "effects": [
+        {
+          "setFlag": "caveau-ouvert"
+        }
+      ],
+      "options": [
+        {
+          "text": "Entrer.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "khrysos-caveau",
+              "arrivee": "entree"
+            }
+          ]
+        }
+      ]
+    },
+    "vol-rate": {
+      "text": "La lanière résiste. Le gardien ouvre les yeux, voit ta main, et la regarde sans colère. — Personne n’entre là. Même pas moi. Il serre la clé dans son poing, et ne la lâchera plus.",
+      "effects": [
+        {
+          "setFlag": "caveau-vol-rate"
+        }
+      ],
+      "options": [
+        {
+          "text": "S’éloigner.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

@@ -2033,3 +2033,191 @@ TILES.push(
   { name: 'traces-pas', svg: '<path d="M18 80 q2 -3 4 0 q-2 3 -4 0 M26 76 q2 -3 4 0 q-2 3 -4 0 M34 82 q2 -3 4 0 q-2 3 -4 0 M42 78 q2 -3 4 0 q-2 3 -4 0" fill="#9a7444" opacity="0.8"/>' },
   npcTile('pilleur-sables', { body: '#2a2420', hair: '#1a1410', skin: '#a87850', accent: '#a0402a', extra: '<path d="M22 44 L42 44 L42 52 L22 52 Z" fill="#1a1410" opacity="0.85"/><path d="M46 52 L54 40" stroke="#8a8a8a" stroke-width="2.5"/>' }),
 );
+
+// Khrysos, le Cœur de Cristal (chapitre 8, docs/univers/lieux/khrysos.md) : provisoire. Canon [NOTION, Glacialis] : une
+// cité verticale à trois cents mètres sous la calotte, des murs de glace transparente, une lumière bleue, des cristaux
+// luminescents ; les Puits d'Ascension à vapeur ; les cryptes, où l'on prend les morts dans le cristal.
+const ICE = '#b8d4e0';
+const iceHall = (wall, roof, door = '#3a5a78') =>
+  diamond(ICE) +
+  shadow(26, 9) +
+  `<path d="M6 84 L6 46 L32 34 L58 46 L58 84 L32 96 Z" fill="${wall}" stroke="${INK}" stroke-width="1.2"/>` +
+  `<path d="M2 48 L32 14 L62 48 L32 36 Z" fill="${roof}" stroke="${INK}" stroke-width="1.2"/>` +
+  `<path d="M14 54 L14 80 M50 54 L50 80" stroke="#ffffff" stroke-width="1.5" opacity="0.5"/>` +
+  `<path d="M27 93 L27 72 Q32 66 37 72 L37 91 Z" fill="${door}" stroke="${INK}" stroke-width="1"/>`;
+TILES.push(
+  { name: 'glace-sol', svg: diamond(ICE) + '<path d="M14 80 L30 72 M34 88 L50 80 M24 86 L28 84" stroke="#e8f6fc" stroke-width="1.5" opacity="0.8"/>' },
+  { name: 'neige', svg: diamond('#e8f0f4') + '<path d="M12 80 Q20 77 28 80 M34 86 Q42 83 50 86" stroke="#c4d8e2" stroke-width="1.3" fill="none"/><circle cx="40" cy="74" r="1.2" fill="#c4d8e2"/>' },
+  { name: 'dalle-givre', svg: diamond('#9ab8c8') + '<path d="M16 72 L48 88 M16 88 L48 72" stroke="#c8e0ea" stroke-width="1" opacity="0.7"/>' },
+  { name: 'tapis-fourrure', svg: diamond('#9ab8c8') + '<path d="M32 70 L52 80 L32 90 L12 80 Z" fill="#8a6a50" stroke="#5a4634" stroke-width="1"/><path d="M22 80 l3 -2 M30 84 l3 -2 M38 78 l3 -2" stroke="#b89a7a" stroke-width="1.5"/>' },
+  // La glace sombre du Niveau Douze, où la chaleur de la terre remonte.
+  { name: 'glace-noire', svg: diamond('#5a7488') + '<path d="M14 80 L30 72 M34 88 L50 80" stroke="#8aa8bc" stroke-width="1.2" opacity="0.7"/>' },
+  { name: 'mur-glace', blocking: true, svg: '<path d="M32 5 L63 20 L63 80 L32 95 L1 80 L1 20 Z" fill="#9cc4d8" stroke="#1B1512" stroke-width="1" opacity="0.95"/><path d="M12 16 L12 84 M24 10 L24 90 M44 10 L44 90" stroke="#e8f6fc" stroke-width="1.5" opacity="0.6"/><path d="M50 30 L56 40" stroke="#ffffff" stroke-width="2" opacity="0.7"/>' },
+  {
+    // Un cristal luminescent [NOTION] : la lumière de Khrysos, bleue et pure.
+    name: 'cristal-lumineux',
+    blocking: true,
+    cover: 3,
+    svg: shadow(12, 5) + '<path d="M22 84 L20 50 L28 28 L34 50 Z" fill="#a8e0f8" stroke="#1B1512" stroke-width="1" opacity="0.92"/><path d="M30 84 L32 40 L38 18 L44 42 L42 84 Z" fill="#c8f0ff" stroke="#1B1512" stroke-width="1" opacity="0.92"/><circle cx="37" cy="46" r="6" fill="#ffffff" opacity="0.55"/>',
+  },
+  {
+    // Un cristal de crypte [NOTION] : un mort pris dedans, intact, pour toujours.
+    name: 'cristal-crypte',
+    blocking: true,
+    cover: 4,
+    svg: shadow(16, 6) + '<path d="M16 86 L14 34 L32 14 L50 34 L48 86 L32 94 Z" fill="#bfe0f0" stroke="#1B1512" stroke-width="1" opacity="0.88"/><path d="M28 80 L28 56 Q32 50 36 56 L36 80 Z" fill="#3a4a5a" opacity="0.55"/><circle cx="32" cy="46" r="4.5" fill="#3a4a5a" opacity="0.55"/><path d="M20 30 L24 70" stroke="#ffffff" stroke-width="1.5" opacity="0.6"/>',
+  },
+  {
+    // Un Puits d'Ascension [NOTION] : une cage d'ascenseur à vapeur, des câbles, un souffle blanc.
+    name: 'puits-ascension',
+    blocking: true,
+    cover: 3,
+    svg: diamond('#5a7488') + shadow(22, 8) + '<path d="M12 86 L12 30 L52 30 L52 86" fill="none" stroke="#3a3238" stroke-width="3"/><rect x="18" y="50" width="28" height="30" fill="#6a5a4a" stroke="#1B1512" stroke-width="1.2"/><path d="M24 50 L24 80 M32 50 L32 80 M40 50 L40 80" stroke="#c9804f" stroke-width="1.5"/><path d="M28 30 L28 50 M36 30 L36 50" stroke="#1B1512" stroke-width="1.2"/><circle cx="20" cy="22" r="7" fill="#ffffff" opacity="0.6"/><circle cx="30" cy="16" r="5" fill="#ffffff" opacity="0.45"/>',
+  },
+  {
+    // Une Porte de Glace [NOTION] : l'arche d'un tunnel chauffé, vers la surface.
+    name: 'porte-glace',
+    blocking: true,
+    cover: 4,
+    svg: '<path d="M2 86 L2 30 Q32 6 62 30 L62 86 L32 96 Z" fill="#9cc4d8" stroke="#1B1512" stroke-width="1.2"/><path d="M16 90 L16 44 Q32 28 48 44 L48 88 Z" fill="#2a3a4a" stroke="#1B1512" stroke-width="1"/><path d="M22 60 Q32 54 42 60" stroke="#f0a040" stroke-width="2" fill="none" opacity="0.8"/>',
+  },
+  // Le Foyer [NOTION : la cheminée] : une salle basse sous la neige, une cheminée géante qui fume.
+  { name: 'foyer-glace', blocking: true, cover: 4, svg: iceHall('#a87a5a', '#eef4f6', '#f0a040') + '<rect x="40" y="6" width="12" height="30" fill="#6a5a4a" stroke="#1B1512" stroke-width="1"/><circle cx="46" cy="4" r="6" fill="#d8d8d8" opacity="0.6"/>' },
+  { name: 'maison-glace', blocking: true, cover: 4, svg: iceHall('#8ab0c4', '#eef4f6') },
+  // L'Atelier Facettier : une façade de bois, un grand cristal taillé pour enseigne.
+  { name: 'atelier-facettier', blocking: true, cover: 4, svg: iceHall('#7a5a42', '#eef4f6') + '<path d="M44 40 L50 30 L56 40 L50 52 Z" fill="#c8f0ff" stroke="#1B1512" stroke-width="1"/>' },
+  // Le poste des Vigiles Blancs : un manteau blanc pendu en bannière.
+  { name: 'poste-vigiles', blocking: true, cover: 4, svg: iceHall('#d8e4ea', '#eef4f6') + '<path d="M10 40 L10 70 L18 66 L18 40 Z" fill="#ffffff" stroke="#1B1512" stroke-width="1"/>' },
+  {
+    // La Bibliothèque de Glace : une tour à facettes, des cristaux d'archive derrière la glace.
+    name: 'bibliotheque-glace',
+    blocking: true,
+    cover: 4,
+    svg: diamond(ICE) + shadow(26, 9) + '<path d="M6 86 L8 34 L32 18 L56 34 L58 86 L32 96 Z" fill="#a8d0e4" stroke="#1B1512" stroke-width="1.2" opacity="0.95"/><path d="M16 44 L16 76 M24 40 L24 80 M40 40 L40 80 M48 44 L48 76" stroke="#5a8aa8" stroke-width="2.5"/><path d="M27 93 L27 70 L37 70 L37 91 Z" fill="#3a5a78" stroke="#1B1512" stroke-width="1"/><path d="M32 18 L32 4" stroke="#1B1512" stroke-width="1.5"/><path d="M28 6 L32 2 L36 6 L32 10 Z" fill="#c8f0ff"/>',
+  },
+  {
+    // Le Palais Glacé [NOTION] : deux cents mètres de cristal ; ici, sa base et une flèche.
+    name: 'palais-glace',
+    blocking: true,
+    cover: 4,
+    svg: diamond(ICE) + shadow(28, 9) + '<path d="M4 86 L10 40 L22 30 L32 2 L42 30 L54 40 L60 86 L32 96 Z" fill="#c8e8f8" stroke="#1B1512" stroke-width="1.2" opacity="0.92"/><path d="M32 2 L32 90 M18 40 L22 86 M46 40 L42 86" stroke="#7aa8c8" stroke-width="1.5"/><path d="M26 93 L26 72 Q32 64 38 72 L38 91 Z" fill="#5a7ab0" stroke="#1B1512" stroke-width="1"/>',
+  },
+  {
+    // Le Temple de l'Hiver Éveillé : une coupole de neige, une étoile de givre au faîte.
+    name: 'temple-hiver',
+    blocking: true,
+    cover: 4,
+    svg: diamond(ICE) + shadow(24, 8) + '<path d="M8 84 L8 58 L56 58 L56 84 L32 94 Z" fill="#d8e8f0" stroke="#1B1512" stroke-width="1.2"/><path d="M6 58 Q32 20 58 58 Z" fill="#eef4f6" stroke="#1B1512" stroke-width="1.2"/><path d="M32 16 L32 34 M24 25 L40 25 M26 19 L38 31 M38 19 L26 31" stroke="#5a8aa8" stroke-width="2"/><path d="M27 92 L27 72 L37 72 L37 90 Z" fill="#3a5a78" stroke="#1B1512" stroke-width="1"/>',
+  },
+  {
+    // La géothermie du Niveau Douze : une bouche de vapeur cerclée de fer.
+    name: 'geyser',
+    blocking: true,
+    svg: diamond('#5a7488') + '<ellipse cx="32" cy="80" rx="14" ry="6" fill="#3a3238" stroke="#c9804f" stroke-width="2"/><circle cx="30" cy="62" r="9" fill="#ffffff" opacity="0.55"/><circle cx="36" cy="46" r="8" fill="#ffffff" opacity="0.4"/><circle cx="28" cy="32" r="6" fill="#ffffff" opacity="0.3"/>',
+  },
+  { name: 'congere', blocking: true, cover: 2, svg: diamond('#e8f0f4') + '<path d="M2 84 Q18 56 36 62 Q52 66 62 84 Z" fill="#f4f8fa" stroke="#b8ccd8" stroke-width="1"/><path d="M14 74 Q24 66 34 68" stroke="#ffffff" stroke-width="2" fill="none"/>' },
+  {
+    name: 'sapin-givre',
+    blocking: true,
+    cover: 4,
+    svg: diamond('#e8f0f4') + shadow(16, 6) + '<rect x="29" y="70" width="6" height="14" fill="#4a3524"/><path d="M32 14 L50 46 L40 44 L54 70 L10 70 L24 44 L14 46 Z" fill="#2f4a42" stroke="#1B1512" stroke-width="1"/><path d="M32 14 L40 30 L24 30 Z M22 46 L42 46 L36 40 L28 40 Z M16 66 L48 66 L44 60 L20 60 Z" fill="#f4f8fa"/>',
+  },
+  { name: 'rocher-glace', blocking: true, cover: 3, svg: diamond('#e8f0f4') + shadow(18, 6) + '<path d="M10 84 L14 62 L28 52 L46 56 L54 70 L50 86 Z" fill="#7a8a98" stroke="#1B1512" stroke-width="1.2"/><path d="M14 62 L28 52 L46 56 L36 62 Z" fill="#f4f8fa"/>' },
+  {
+    // Un animal de glace sculpté par Torka : un renard assis.
+    name: 'sculpture-glace',
+    blocking: true,
+    svg: shadow(12, 4) + '<path d="M22 84 Q20 66 30 62 L28 50 L34 56 L38 50 L38 62 Q46 68 44 84 Z" fill="#d8f0fc" stroke="#5a8aa8" stroke-width="1.2" opacity="0.9"/><path d="M44 82 Q54 78 52 68" stroke="#5a8aa8" stroke-width="3" fill="none" opacity="0.7"/>',
+  },
+  { name: 'grille-cryptes', blocking: true, cover: 2, svg: '<path d="M4 84 L4 30 L60 30 L60 84" fill="none" stroke="#3a3238" stroke-width="3"/><path d="M12 30 L12 86 M20 30 L20 88 M28 30 L28 90 M36 30 L36 90 M44 30 L44 88 M52 30 L52 86" stroke="#3a3238" stroke-width="2"/><path d="M4 40 L60 40" stroke="#3a3238" stroke-width="2"/>' },
+  {
+    // Un cristal d'archive de la Bibliothèque, sur son socle : il rend ce qu'on lui a confié, face par face.
+    name: 'cristal-archive',
+    blocking: true,
+    cover: 3,
+    svg: shadow(14, 5) + '<rect x="20" y="70" width="24" height="14" fill="#5a7488" stroke="#1B1512" stroke-width="1"/><path d="M22 70 L26 36 L32 24 L38 36 L42 70 Z" fill="#c8f0ff" stroke="#1B1512" stroke-width="1" opacity="0.9"/><path d="M26 36 L38 36 M24 52 L40 52" stroke="#7aa8c8" stroke-width="1.2"/>',
+  },
+  {
+    // Khrys, l'Entité de la Bibliothèque [NOTION : les Entités Cristallines] : un cristal plus vieux que la ville.
+    name: 'khrys',
+    blocking: true,
+    cover: 4,
+    svg: shadow(24, 8) + '<path d="M10 86 L8 50 L20 22 L32 6 L44 22 L56 50 L54 86 L32 96 Z" fill="#a8d8f0" stroke="#1B1512" stroke-width="1.2" opacity="0.9"/><path d="M20 22 L32 46 L44 22 M8 50 L32 46 L56 50 M32 46 L32 94" stroke="#ffffff" stroke-width="1.2" opacity="0.7"/><circle cx="32" cy="46" r="7" fill="#e8fcff" opacity="0.8"/>',
+  },
+  {
+    // Un cristal espion de la loi de 2998 [NOTION] : un œil de cristal sur une potence, contre le plafond de glace.
+    name: 'cristal-espion',
+    blocking: true,
+    svg: shadow(8, 3) + '<path d="M32 84 L32 30 L44 24" stroke="#3a3238" stroke-width="2.5" fill="none"/><path d="M40 24 L46 14 L52 24 L46 34 Z" fill="#c8f0ff" stroke="#1B1512" stroke-width="1"/><circle cx="46" cy="24" r="2" fill="#a0402a"/>',
+  },
+  { name: 'traineau', blocking: true, cover: 2, svg: diamond(ICE) + shadow(22, 6) + '<path d="M8 72 L44 72 L54 64 L54 70 L48 78 L10 78 Z" fill="#8a6a48" stroke="#1B1512" stroke-width="1.2"/><path d="M6 84 L50 84 Q58 84 58 78" stroke="#3a3238" stroke-width="2.5" fill="none"/><path d="M14 72 L14 84 M40 72 L40 84" stroke="#3a3238" stroke-width="2"/><rect x="14" y="60" width="22" height="12" fill="#c8b090" stroke="#1B1512" stroke-width="1"/>' },
+  {
+    // La septième caisse : le plomb, dans un bloc de cristal de crypte, comme un mort.
+    name: 'caisse-glace',
+    blocking: true,
+    cover: 4,
+    svg: diamond('#5a7488') + shadow(24, 8) + '<path d="M8 86 L8 40 L32 26 L56 40 L56 86 L32 96 Z" fill="#bfe0f0" stroke="#1B1512" stroke-width="1.2" opacity="0.85"/><path d="M16 66 L32 58 L48 66 L48 80 L32 88 L16 80 Z" fill="#5a5a62" stroke="#1B1512" stroke-width="1" opacity="0.8"/><path d="M16 66 L32 74 L48 66" stroke="#1B1512" stroke-width="1"/><path d="M14 36 L20 74" stroke="#ffffff" stroke-width="1.5" opacity="0.6"/>',
+  },
+  // L'entrée d'une mine du Niveau Douze : un trou boisé dans la glace noire.
+  { name: 'galerie-mine', blocking: true, cover: 4, svg: '<path d="M2 86 L2 34 L62 34 L62 86 L32 96 Z" fill="#5a7488" stroke="#1B1512" stroke-width="1.2"/><path d="M16 90 L16 50 L48 50 L48 88 Z" fill="#1B1512"/><path d="M12 50 L52 50 M16 50 L16 90 M48 50 L48 88" stroke="#6a4a32" stroke-width="4"/>' },
+);
+
+// Les habitants de Khrysos (provisoires). Canon [NOTION, Glacialis] : des fourrures, de la laine épaisse ; les Elfes de
+// Givre, la peau pâle et bleutée ; les Géants des Glaces ; les Nains de Glace ; les Yétis, couverts d'une fourrure blanche.
+const fur = (c) => `<path d="M18 60 Q32 52 46 60 L46 66 Q32 60 18 66 Z" fill="${c}" stroke="#1B1512" stroke-width="0.6"/>`;
+const hood = (c) => `<path d="M22 50 Q20 34 32 32 Q44 34 42 50 L40 46 Q32 38 24 46 Z" fill="${c}" stroke="#1B1512" stroke-width="0.8"/>`;
+/** A Yeti: a broad figure of white fur, taller than a man. */
+const yeti = (fur1, fur2, extra = '') =>
+  shadow(16, 5) +
+  `<path d="M14 84 Q10 54 32 40 Q54 54 50 84 Z" fill="${fur1}" stroke="#1B1512" stroke-width="1.5"/>` +
+  `<path d="M14 62 L6 78 M50 62 L58 78" stroke="${fur1}" stroke-width="7" stroke-linecap="round"/>` +
+  `<circle cx="32" cy="34" r="12" fill="${fur1}" stroke="#1B1512" stroke-width="1.5"/>` +
+  `<path d="M24 36 Q32 30 40 36 L38 42 Q32 46 26 42 Z" fill="${fur2}"/><circle cx="28" cy="36" r="1.5" fill="#1B1512"/><circle cx="36" cy="36" r="1.5" fill="#1B1512"/>` +
+  `<path d="M20 60 Q32 54 44 60 M18 70 Q32 64 46 70" stroke="#c8d0d8" stroke-width="1.5" fill="none"/>` +
+  extra;
+TILES.push(
+  // Ulga Brasegel, qui tient le Foyer : un tablier de cuir, les joues rouges de la cheminée.
+  npcTile('ulga', { body: '#a8603a', hair: '#e8c070', skin: '#e8b8a0', accent: '#eef4f6', extra: fur('#c8b090') + '<circle cx="27" cy="50" r="2" fill="#e07a6a" opacity="0.6"/><circle cx="37" cy="50" r="2" fill="#e07a6a" opacity="0.6"/>' }),
+  // Korvek, guide des glaces, Yéti [NOTION : les Yétis] : un bâton de guide, des cordes en bandoulière.
+  { name: 'korvek', sprite: true, svg: yeti('#eef0f2', '#8a9aa8', '<path d="M54 44 L56 86" stroke="#5a4634" stroke-width="2.5"/><path d="M20 50 L44 70" stroke="#c9804f" stroke-width="2.5"/>') },
+  // Hrolda Rochebrume, du Collège des 9 Miroirs : une robe grise, neuf éclats de miroir au col.
+  npcTile('hrolda', { body: '#5a6a78', hair: '#d8d0c4', skin: '#e0c8b8', accent: '#c8f0ff', extra: '<path d="M24 58 l2 -2 l2 2 M30 56 l2 -2 l2 2 M36 58 l2 -2 l2 2" stroke="#c8f0ff" stroke-width="1.5"/>' }),
+  // Brodd Facettier, tailleur de cristal : un tablier de cuir, une loupe à l'œil.
+  npcTile('brodd', { body: '#6a5a4a', hair: '#8a5a3a', skin: '#e0b898', accent: '#c8f0ff', extra: fur('#8a6a50') + '<circle cx="36" cy="47" r="3.5" fill="none" stroke="#c9804f" stroke-width="1.5"/>' }),
+  // Torka, dix ans : un bonnet de laine, un couteau à glace.
+  npcTile('torka', { small: true, body: '#3a6a8a', hair: '#e8d090', skin: '#f0d0b8', accent: '#eef4f6', extra: hood('#a0402a') }),
+  // Sigrun, seize ans, sa sœur : un manteau de fourrure trop grand, la capuche rabattue.
+  npcTile('sigrun', { body: '#8a7a6a', hair: '#e8d090', skin: '#f0d0b8', accent: '#eef4f6', extra: fur('#c8b090') }),
+  // La Primus Crysta Frostborn, Elfe de Givre [NOTION] : la peau bleutée, les cheveux blancs, une couronne de cristal.
+  npcTile('crysta', { body: '#d8e8f4', hair: '#f4f8fa', skin: '#c8dcec', accent: '#5a8aa8', extra: '<path d="M24 38 l3 -6 l3 6 l2 -7 l2 7 l3 -6 l3 6" stroke="#a8e0f8" stroke-width="1.5" fill="none"/><path d="M22 46 L18 40 M42 46 L46 40" stroke="#c8dcec" stroke-width="2"/>' }),
+  // Bjorn Glaceforge, le Cristal du Peuple [NOTION] : un forgeron, les bras nus malgré le froid.
+  npcTile('bjorn', { body: '#4a4a52', hair: '#a85a2a', skin: '#e0b090', accent: '#c9804f', extra: '<path d="M24 54 Q32 62 40 54" stroke="#a85a2a" stroke-width="3" fill="none"/>' }),
+  // Halvard Neigeclaire, des Vigiles Blancs : le manteau blanc, une corde enroulée.
+  npcTile('halvard', { body: '#eef4f6', hair: '#5a4634', skin: '#e0b898', accent: '#a0402a', extra: hood('#ffffff') + '<circle cx="44" cy="68" r="5" fill="none" stroke="#c9804f" stroke-width="2"/>' }),
+  // Maître Ennir, Tisseur de Givre : de longs gants, du givre aux manches.
+  npcTile('ennir', { body: '#3a4a6a', hair: '#e8e8f0', skin: '#d8c8c0', accent: '#a8e0f8', extra: '<path d="M16 74 l-3 5 M48 74 l3 5" stroke="#a8e0f8" stroke-width="3"/>' }),
+  // Dagny Ferme-Givre, de l'association des 4 611 : un brassard noir.
+  npcTile('dagny', { body: '#5a5a62', hair: '#2a1a10', skin: '#e0c0a8', accent: '#1B1512', extra: '<rect x="15" y="64" width="6" height="5" fill="#1B1512"/>' }),
+  // Les Oskarsen, réfugiés : la mère, un enfant contre elle, des couvertures sur les épaules.
+  npcTile('oskarsen', { body: '#6a5a4a', hair: '#8a6a40', skin: '#d8b8a0', accent: '#8a7a6a', extra: hood('#7a6a5a') + '<circle cx="48" cy="70" r="5" fill="#d8b8a0" stroke="#1B1512" stroke-width="1"/><path d="M42 84 Q42 74 48 74 Q54 74 54 84 Z" fill="#7a6a5a" stroke="#1B1512" stroke-width="1"/>' }),
+  // La garde des Portes : un manteau d'uniforme gris-bleu, une lance.
+  npcTile('garde-portes', { body: '#4a5a6a', hair: '#3a2a1c', skin: '#e0c0a8', accent: '#c9804f', extra: hood('#4a5a6a') + '<path d="M48 30 L48 84" stroke="#5a4634" stroke-width="2"/><path d="M45 32 L48 22 L51 32 Z" fill="#c8d0d8"/>' }),
+  // La machiniste du Puits d'Ascension : une salopette de cuir, une clé à molette.
+  npcTile('machiniste', { body: '#5a4634', hair: '#2a1a10', skin: '#e0c0a8', accent: '#c9804f', extra: '<path d="M44 58 L52 50" stroke="#8a8a8a" stroke-width="3"/>' }),
+  // Le gardien des cryptes : une robe longue, une lampe de cristal.
+  npcTile('gardien-cryptes', { body: '#3a3a48', hair: '#d8d8d8', skin: '#d0c0b8', accent: '#a8e0f8', extra: '<circle cx="48" cy="66" r="4" fill="#c8f0ff" stroke="#1B1512" stroke-width="0.8"/>' }),
+  // La Prêtresse de l'Hiver Éveillé : une étole bleue, une étoile de givre.
+  npcTile('pretresse-hiver', { body: '#eef4f6', hair: '#1a1410', skin: '#e0c8b8', accent: '#5a8aa8', extra: '<path d="M26 58 L32 74 L38 58" stroke="#5a8aa8" stroke-width="3" fill="none"/>' }),
+  // Le guichetier de la ligne du Nord, à Ironheart : la casquette de Ferros, une écharpe de laine.
+  npcTile('guichet-nord', { body: '#3a3a42', hair: '#3a2a1c', skin: '#e0c0a8', accent: '#eef4f6', extra: '<path d="M24 41 L40 41 L38 37 L26 37 Z" fill="#1B1512"/>' }),
+  // La dame en gris, à Khrysos : le même manteau, une fourrure sur les épaules, du givre aux cils.
+  npcTile('edda-khrysos', { body: '#6a6a70', hair: '#1a1614', skin: '#d9b8a0', accent: '#3a3a40', extra: fur('#c8c0b8') }),
+  // Des passants : un Glacien, une Glacienne, un Géant des Glaces, une Elfe de Givre, un Nain de Glace, un enfant, un Yéti.
+  npcTile('glacien', { body: '#5a6a78', hair: '#8a5a3a', skin: '#e0b898', accent: '#eef4f6', extra: fur('#c8b090') }),
+  npcTile('glacienne', { body: '#7a4a5a', hair: '#e8d090', skin: '#f0d0b8', accent: '#eef4f6', extra: hood('#c8b090') }),
+  { name: 'geant-glaces', sprite: true, svg: shadow(16, 5) + '<path d="M12 84 Q8 40 32 30 Q56 40 52 84 Z" fill="#5a6a78" stroke="#1B1512" stroke-width="1.5"/><circle cx="32" cy="22" r="11" fill="#d8c0b0" stroke="#1B1512" stroke-width="1.5"/><path d="M22 26 Q32 40 42 26 L42 30 Q32 44 22 30 Z" fill="#e8e8f0"/>' + fur('#c8b090') },
+  npcTile('elfe-givre', { body: '#c8dcec', hair: '#f4f8fa', skin: '#c8dcec', accent: '#5a8aa8', extra: '<path d="M22 46 L18 40 M42 46 L46 40" stroke="#c8dcec" stroke-width="2"/>' }),
+  npcTile('nain-glace', { small: true, body: '#6a4a3a', hair: '#e8e8f0', skin: '#e0b898', accent: '#c9804f', extra: '<path d="M26 54 Q32 72 38 54 Z" fill="#e8e8f0"/>' }),
+  npcTile('enfant-givre', { small: true, body: '#a0402a', hair: '#e8d090', skin: '#f0d0b8', accent: '#eef4f6', extra: hood('#3a6a8a') }),
+  { name: 'yeti', sprite: true, svg: yeti('#e4e8ec', '#7a8a98') },
+);

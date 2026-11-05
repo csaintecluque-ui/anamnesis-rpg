@@ -1,0 +1,54 @@
+{
+  "id": "torka",
+  "speaker": "torka",
+  "entries": [
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Une petite fille en bonnet rouge, à genoux devant un bloc de glace, gratte avec un couteau à lame courbe. Un renard en sort, puis un lièvre. — Ne marche pas sur la queue. Elle m’a pris deux jours.",
+      "options": [
+        {
+          "text": "C’est beau. Qui t’a appris ?",
+          "next": "appris"
+        },
+        {
+          "text": "Tu en fais beaucoup ?",
+          "next": "beaucoup"
+        },
+        {
+          "text": "Je te laisse.",
+          "next": "fin"
+        }
+      ]
+    },
+    "appris": {
+      "text": "— Ma sœur, Sigrun. Elle fait les ours, moi les renards. Elle dit que la glace sait déjà ce qu’il y a dedans, qu’il faut seulement enlever le reste.",
+      "options": [
+        {
+          "text": "Tu en fais beaucoup ?",
+          "next": "beaucoup"
+        },
+        {
+          "text": "Je te laisse.",
+          "next": "fin"
+        }
+      ]
+    },
+    "beaucoup": {
+      "text": "— Un par jour. Ils fondent pas : il fait moins cinq. Alors il y en a partout, dans la maison. Maman dit qu’on n’a plus de place pour s’asseoir.",
+      "options": [
+        {
+          "text": "C’est beau. Qui t’a appris ?",
+          "next": "appris"
+        },
+        {
+          "text": "Je te laisse.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

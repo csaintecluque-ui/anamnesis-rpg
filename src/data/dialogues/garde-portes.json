@@ -1,0 +1,54 @@
+{
+  "id": "garde-portes",
+  "speaker": "garde-portes",
+  "entries": [
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Une garde en manteau gris-bleu, une lance de fer à pointe de glace. Elle te regarde des bottes jusqu’au col. — Vous venez du train. Bien. Ceux qui arrivent à pied, par la surface, je dois les renvoyer. La loi de 2995.",
+      "options": [
+        {
+          "text": "Les renvoyer où ?",
+          "next": "ou"
+        },
+        {
+          "text": "Et la surface ?",
+          "next": "surface"
+        },
+        {
+          "text": "Je passe.",
+          "next": "fin"
+        }
+      ]
+    },
+    "ou": {
+      "text": "— Dehors. Vers le sud, vers ce qui reste de chez eux. La Loi de Survie dit le contraire : refuser l’abri, c’est un crime. Alors on leur donne une nuit au tunnel chaud, et au matin on referme. Tout le monde a raison, et personne ne dort.",
+      "options": [
+        {
+          "text": "Et la surface ?",
+          "next": "surface"
+        },
+        {
+          "text": "Je passe.",
+          "next": "fin"
+        }
+      ]
+    },
+    "surface": {
+      "text": "— Moins soixante. Sans manteau, on y perd une main en une heure, et le reste dans la journée. Brodd Facettier en vend aux Galeries Chaudes. Et ne sifflez jamais dans le blizzard : ça appelle ce qu’on n’a pas envie de voir.",
+      "options": [
+        {
+          "text": "Les renvoyer où ?",
+          "next": "ou"
+        },
+        {
+          "text": "Je passe.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

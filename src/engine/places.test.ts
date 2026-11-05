@@ -3,7 +3,7 @@ import { DIALOGUES } from '../data/dialogues';
 import { MAPS } from '../data/maps';
 import npcData from '../data/npcs.json';
 import { ENEMIES } from '../rules/combat';
-import { RENCONTRES, WORLD, WORLD_MAP_TARGET, encounterObjects, placeOfLocation } from '../rules/world';
+import { RENCONTRES, WORLD, WORLD_MAP_TARGET, encounterObjects, findPlace, placeOfLocation } from '../rules/world';
 import { VOIE_PLANS } from '../rules/voies';
 import { LOCATIONS, findLocation } from '../state/gameState';
 import type { Tile } from './iso';
@@ -62,7 +62,10 @@ describe('links between places', () => {
       for (const door of map.objects.filter((o) => o.type === 'porte' && o.properties.verrou && !o.properties.toujoursFermee)) {
         const dialogue = DIALOGUES[door.properties.dialogue];
         expect(dialogue, door.name).toBeDefined();
-        const opens = Object.values(dialogue.nodes).some((n) => n.effects?.some((e) => 'setFlag' in e && e.setFlag === door.properties.verrou));
+        // For good (setFlag), or for the day (setFlagFor: the crypts of Khrysos, open while one goes down two by two).
+        const opens = Object.values(dialogue.nodes).some((n) =>
+          n.effects?.some((e) => ('setFlag' in e && e.setFlag === door.properties.verrou) || ('setFlagFor' in e && e.setFlagFor === door.properties.verrou)),
+        );
         expect(opens, door.name).toBe(true);
       }
     }
@@ -191,7 +194,18 @@ describe('world map places', () => {
       // A sleeping line: every plan of its levels has its way back up (docs/gdd/voies.md).
       const own = place.voie ? VOIE_PLANS.map((p) => parseTiledMap(MAPS[p.id])) : LOCATIONS.filter((l) => l.place === place.id).map((l) => mapOf(l.id));
       const out = own.some((m) => m.objects.some((o) => o.properties.cible === WORLD_MAP_TARGET));
-      expect(out, place.id).toBe(true);
+      // A town reached only by train (Khrysos) is left by its train: a scene on its maps that goes to its station.
+      const station = place.train && findPlace(place.train.gare);
+      const byTrain =
+        !!station &&
+        own.some((m) =>
+          m.objects.some((o) =>
+            Object.values(DIALOGUES[o.name]?.nodes ?? {}).some((n) =>
+              n.options.some((opt) => opt.effects?.some((e) => 'goTo' in e && findLocation(e.goTo)?.place === station.id)),
+            ),
+          ),
+        );
+      expect(out || byTrain, place.id).toBe(true);
     }
   });
 });

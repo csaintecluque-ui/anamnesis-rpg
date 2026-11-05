@@ -1,0 +1,59 @@
+{
+  "id": "gardien-cryptes",
+  "speaker": "gardien-cryptes",
+  "entries": [
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Un vieil homme en robe longue, une lampe de cristal à la main, assis devant la grille. — Les cryptes. Onze millions de prises. On n’y descend plus seul, depuis 2857 : il faut être deux, et que l’autre regarde ce que tu fais de tes mains.",
+      "options": [
+        {
+          "text": "Pourquoi 2857 ?",
+          "next": "pourquoi"
+        },
+        {
+          "text": "Je n’ai personne.",
+          "next": "personne"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "pourquoi": {
+      "text": "— Le Briseur d’Échos. Nher-Khal. Il descendait seul, un marteau à glace à la main, et il a brisé quatre mille six cent onze cristaux parce qu’il croyait les morts conscients dedans. On l’a pris vivant. Sa prise est en bas, section neuf, sans nom.",
+      "options": [
+        {
+          "text": "Il avait raison ?",
+          "next": "raison"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "raison": {
+      "text": "Il te regarde longtemps. — Le cristal rend, et ne juge pas. Moi non plus.",
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "personne": {
+      "text": "— Alors tu attendras quelqu’un. Les Vigiles Blancs descendent, parfois. Et il y a toujours une famille qui cherche un second pour la Longue Nuit.",
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

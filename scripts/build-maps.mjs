@@ -718,6 +718,9 @@ function ironheartForges() {
   // Le guichet de la ligne de l'Ouest (le train pour Canopéa).
   m.setObstacle(6, 9, 'comptoir');
   m.object('guichet-ouest', 'objet', 6, 9);
+  // Le guichet de la ligne du Nord (le train pour Khrysos, chapitre 8 ; l'Alliance de Fer et Glace, canon).
+  m.setObstacle(6, 13, 'comptoir');
+  m.object('guichet-nord', 'pnj', 7, 13);
   // Les Forges-Basses : forges, tuyaux, réverbères à cristal rouge.
   for (const [c, r] of [[17, 3], [8, 3], [27, 6]]) m.setObstacle(c, r, 'forge');
   for (const [c, r] of [[10, 9], [13, 13], [18, 9], [22, 14], [6, 16], [25, 3]]) m.setObstacle(c, r, 'reverbere');
@@ -1956,6 +1959,240 @@ Object.assign(INTERIORS, {
   'marche-saal-ema': interior('marche-saal-ema', { ...TENT_ROOM, outside: 'marche-longue-ombre', furniture: [[1, 1, 'lit'], [6, 1, 'ballots'], [4, 3, 'table']], objects: [['saal-ema', 'pnj', 3, 2]] }),
 });
 
+// --- Khrysos, le Cœur de Cristal (chapitre 8, docs/univers/lieux/khrysos.md ; visuels provisoires) ----------------
+// Canon [NOTION, Glacialis] : une cité verticale de douze niveaux à trois cents mètres sous la calotte ; huit Portes de
+// Glace (des tunnels chauffés) ; des Puits d'Ascension à vapeur entre les niveaux ; le Niveau Royal et le Palais Glacé ;
+// le Niveau Profond (12) : mines, géothermie, prisons, et la moitié du niveau pour les cryptes. Dehors, −60 °C.
+
+Object.assign(LOCATION_NAMES, {
+  'khrysos-foyer': 'Le Foyer',
+  'khrysos-vigiles': 'Le poste des Vigiles Blancs',
+  'khrysos-facettier': 'L’Atelier Facettier',
+  'khrysos-torka': 'La maison de Torka',
+  'khrysos-relais': 'Relais des Gardiens de Mémoire',
+  'khrysos-ennir': 'L’atelier de Maître Ennir',
+  'khrysos-bibliotheque': 'La Bibliothèque de Glace',
+  'khrysos-palais': 'Le Palais Glacé',
+  'khrysos-temple': 'Le Temple de l’Hiver Éveillé',
+  'khrysos-caveau': 'Le Caveau des cristaux scellés',
+});
+
+/** A level of the city: a cavern of ice, its walls of clear ice, and the Puits d'Ascension that links it to the others. */
+function iceLevel(width, height, ground, [pc, pr], [ac, ar]) {
+  const m = cityBlock(width, height, ground, 'mur-glace');
+  m.setObstacle(pc, pr, 'puits-ascension');
+  m.object('puits-ascension', 'objet', pc, pr);
+  m.object('depuis-puits', 'arrivee', ac, ar);
+  return m;
+}
+
+/** Les Portes de Glace : le quai du train du Nord, le Foyer, les Vigiles Blancs, et la Porte qui ouvre sur la surface. */
+function khrysosPortes() {
+  const m = iceLevel(30, 22, 'glace-sol', [15, 19], [15, 18]);
+  // Le quai du train du Nord (la ligne d'Ironheart ; l'Alliance de Fer et Glace, canon) : on n'en part qu'en train.
+  m.rect(1, 6, 7, 10, 'quai');
+  m.line([1, 11], [9, 11], 'rail');
+  blocks(m, 'wagon', [[1, 11], [2, 11], [3, 11]]);
+  m.setObstacle(7, 6, 'comptoir');
+  m.object('quai-nord', 'objet', 7, 6);
+  m.object('entree', 'arrivee', 5, 8);
+  house(m, 'khrysos-foyer', 'foyer-glace', [11, 4], [11, 5]);
+  house(m, 'khrysos-vigiles', 'poste-vigiles', [19, 4], [19, 5]);
+  // La Porte de Glace : un tunnel chauffé, et au bout, la surface.
+  m.setObstacle(29, 11, 'porte-glace');
+  m.object('porte-surface', 'porte', 29, 11, { cible: 'khrysos-surface', arrivee: 'depuis-portes', libelle: 'La Porte de Glace : la surface' });
+  m.object('depuis-surface', 'arrivee', 27, 11);
+  m.object('garde-portes', 'pnj', 27, 9);
+  m.object('korvek', 'pnj', 23, 14);
+  blocks(m, 'traineau', [[22, 17], [24, 18]]);
+  blocks(m, 'cristal-lumineux', [[9, 2], [15, 2], [24, 2], [9, 17], [21, 20], [27, 5], [27, 16]]);
+  m.setObstacle(13, 11, 'panneau');
+  m.object('panneau-portes', 'panneau', 13, 11, { texte: 'Les Portes de Glace. Huit tunnels chauffés relient Khrysos à la surface, trois cents mètres plus haut. Dedans, −5 °C. Dehors, −60. « Dans le froid, nous trouvons la clarté. »' });
+  return m.toTiled();
+}
+
+/** La surface, devant une Porte de Glace : la toundra, la neige qui tombe, et le froid qui tue (src/rules/glace.ts). */
+function khrysosSurface() {
+  const m = new MapBuilder(28, 20);
+  m.ground.fill(gid('neige'));
+  const rng = mulberry32(8100);
+  for (let col = 0; col < 28; col++) {
+    m.setObstacle(col, 0, 'congere');
+    m.setObstacle(col, 19, 'congere');
+  }
+  for (let row = 0; row < 20; row++) m.setObstacle(27, row, 'congere');
+  for (let row = 0; row < 20; row++) m.setObstacle(0, row, 'mur-glace');
+  m.setObstacle(0, 10, 'porte-glace');
+  m.object('porte-portes', 'porte', 0, 10, { cible: 'khrysos-portes', arrivee: 'depuis-surface', libelle: 'La Porte de Glace : rentrer' });
+  m.object('depuis-portes', 'arrivee', 2, 10);
+  m.object('entree', 'arrivee', 2, 10);
+  const keep = new Set(['1,9', '1,10', '1,11', '2,9', '2,10', '2,11', '3,10', '3,11', '4,13', '5,13', '4,12', '20,6', '21,6', '21,7']);
+  for (let row = 1; row < 19; row++) {
+    for (let col = 1; col < 27; col++) {
+      if (keep.has(`${col},${row}`)) continue;
+      const roll = rng();
+      if (roll < 0.05) m.setObstacle(col, row, 'sapin-givre');
+      else if (roll < 0.08) m.setObstacle(col, row, 'congere');
+      else if (roll < 0.1) m.setObstacle(col, row, 'rocher-glace');
+    }
+  }
+  m.setObstacle(3, 8, 'panneau');
+  m.object('panneau-surface', 'panneau', 3, 8, { texte: 'Une perche plantée dans la neige, une corde nouée dessus. Les guides disent : « Tant que tu vois la perche, tu peux rentrer. »' });
+  return m.toTiled();
+}
+
+/** Les Galeries Chaudes, les niveaux marchands : le marché couvert, l'Atelier Facettier, la maison de Torka. */
+function khrysosGaleries() {
+  const m = iceLevel(30, 22, 'glace-sol', [4, 18], [5, 17]);
+  m.object('entree', 'arrivee', 5, 17);
+  m.rect(9, 8, 20, 14, 'dalle-givre');
+  blocks(m, 'etal', [[10, 9], [12, 9], [17, 9], [19, 9], [10, 13], [19, 13]]);
+  blocks(m, 'caisses', [[11, 9], [18, 13]]);
+  house(m, 'khrysos-facettier', 'atelier-facettier', [8, 4], [8, 5]);
+  house(m, 'khrysos-torka', 'maison-glace', [16, 3], [16, 4]);
+  house(m, 'khrysos-relais', 'maison-glace', [24, 4], [24, 5]);
+  house(m, 'khrysos-ennir', 'maison-glace', [25, 18], [25, 17]);
+  // Torka sculpte des animaux dans la glace, devant chez elle.
+  blocks(m, 'sculpture-glace', [[11, 18], [12, 19], [14, 19]]);
+  m.object('torka', 'pnj', 13, 17);
+  blocks(m, 'geyser', [[27, 11], [2, 11]]);
+  blocks(m, 'cristal-lumineux', [[6, 8], [23, 8], [6, 14], [23, 14]]);
+  m.setObstacle(21, 11, 'panneau');
+  m.object('panneau-galeries', 'panneau', 21, 11, { texte: 'Les Galeries Chaudes. La chaleur de la terre monte par des bouches de fer, et le marché couvert tient à trois degrés au-dessus de zéro. On y retire ses gants pour payer.' });
+  return m.toTiled();
+}
+
+/** Le Niveau Royal : la Bibliothèque de Glace, le Palais Glacé et le Temple de l'Hiver Éveillé, sous un puits de lumière. */
+function khrysosRoyal() {
+  const m = iceLevel(30, 22, 'glace-sol', [15, 19], [15, 18]);
+  m.object('entree', 'arrivee', 15, 18);
+  m.line([15, 4], [15, 18], 'dalle-givre');
+  house(m, 'khrysos-bibliotheque', 'bibliotheque-glace', [8, 6], [8, 7]);
+  house(m, 'khrysos-palais', 'palais-glace', [15, 3], [15, 4]);
+  house(m, 'khrysos-temple', 'temple-hiver', [23, 6], [23, 7]);
+  blocks(m, 'cristal-lumineux', [[12, 8], [18, 8], [12, 12], [18, 12], [12, 16], [18, 16], [4, 3], [27, 3]]);
+  m.setObstacle(14, 14, 'panneau');
+  m.object('panneau-royal', 'panneau', 14, 14, { texte: 'Le Niveau Royal. Au-dessus du Palais, deux cents mètres de cristal ; plus haut encore, un puits de lumière où l’on fait descendre l’aurore. Le soir, la glace des murs vire au vert.' });
+  return m.toTiled();
+}
+
+/** Le Niveau Douze, le Niveau Profond : la géothermie, les mines, les prisons ; la grille des cryptes ; ★ le Caveau. */
+function khrysosDouze() {
+  const m = iceLevel(30, 22, 'glace-noire', [4, 4], [5, 5]);
+  m.object('entree', 'arrivee', 5, 5);
+  blocks(m, 'geyser', [[10, 3], [14, 6], [8, 10], [20, 4]]);
+  blocks(m, 'galerie-mine', [[26, 1], [28, 7]]);
+  // Les prisons du Niveau Profond.
+  blocks(m, 'grille-cryptes', [[6, 20], [8, 20], [10, 20]]);
+  m.setObstacle(8, 18, 'panneau');
+  m.object('panneau-prisons', 'panneau', 8, 18, { texte: 'Les prisons du Niveau Profond. Derrière les grilles, il fait plus chaud qu’au Palais : la géothermie passe sous les cellules. C’est la seule douceur qu’on y accorde.' });
+  // Les cryptes : on n'y descend plus seul depuis 2857 (« Ce que les cristaux retiennent », canon).
+  m.setObstacle(22, 12, 'grille-cryptes');
+  m.object('grille-cryptes', 'porte', 22, 12, { cible: 'khrysos-cryptes', arrivee: 'depuis-douze', libelle: 'Les cryptes', verrou: 'cryptes-ouvertes', dialogue: 'grille-cryptes' });
+  m.object('devant-grille', 'arrivee', 21, 12);
+  m.object('gardien-cryptes', 'pnj', 21, 10);
+  // ★ Le Caveau des cristaux scellés : fermé à clé.
+  m.setObstacle(28, 17, 'porte-glace');
+  m.object('porte-khrysos-caveau', 'porte', 28, 17, { cible: 'khrysos-caveau', arrivee: 'entree', libelle: LOCATION_NAMES['khrysos-caveau'], verrou: 'caveau-ouvert', dialogue: 'porte-caveau' });
+  m.object('devant-khrysos-caveau', 'arrivee', 27, 17);
+  blocks(m, 'cristal-lumineux', [[16, 16], [24, 8], [3, 14]]);
+  return m.toTiled();
+}
+
+/** Les cryptes : des rangées de cristaux, onze millions de prises ; la section neuf ; au bout, la glace qui a mangé une voie. */
+function khrysosCryptes() {
+  const m = cityBlock(30, 22, 'dalle-givre', 'mur-glace');
+  for (const row of [3, 6, 9, 13, 16, 19]) for (let col = 3; col <= 26; col++) if (![8, 14, 20].includes(col)) m.setObstacle(col, row, 'cristal-crypte');
+  m.setObstacle(0, 11, null);
+  m.object('vers-douze', 'sortie', 0, 11, { cible: 'khrysos-douze', arrivee: 'devant-grille', libelle: 'Remonter au Niveau Douze' });
+  m.object('depuis-douze', 'arrivee', 2, 11);
+  m.object('entree', 'arrivee', 2, 11);
+  // La section neuf, une prise sans nom (Nher-Khal, le Briseur d'Échos, pris vivant).
+  m.object('prise-nher-khal', 'objet', 24, 6);
+  m.setObstacle(22, 7, 'panneau');
+  m.object('panneau-section-neuf', 'panneau', 22, 7, { texte: 'Section neuf. Un nom gravé sous chaque cristal, à hauteur de main. Sous l’un d’eux, à la place du nom, la glace est lisse.' });
+  m.setObstacle(5, 10, 'panneau');
+  m.object('panneau-cryptes', 'panneau', 5, 10, { texte: 'Les cryptes. On ne brûle pas les morts, on ne les enterre pas : on les prend dans le cristal, intacts, pour toujours. « Le cristal rend, et ne juge pas. »' });
+  // Au bout de la dernière allée, la glace s'éclaircit (la voie sept, « Ce que la glace a pris »).
+  m.object('devant-voie-sept', 'arrivee', 27, 11);
+  return m.toTiled();
+}
+
+/** La voie sept, sous la glace : un quai de l'Ancien Monde, une plaque, et une caisse prise dans un cristal de crypte. */
+function khrysosVoieSept() {
+  const m = new MapBuilder(22, 16);
+  m.ground.fill(gid('glace-noire'));
+  for (let col = 0; col < 22; col++) {
+    m.setObstacle(col, 0, 'mur-glace');
+    m.setObstacle(col, 15, 'mur-glace');
+  }
+  for (let row = 0; row < 16; row++) m.setObstacle(21, row, 'mur-glace');
+  m.line([1, 11], [20, 11], 'rail');
+  m.rect(5, 6, 16, 9, 'quai');
+  blocks(m, 'ruine', [[6, 6], [16, 6]]);
+  blocks(m, 'butoir', [[20, 11]]);
+  blocks(m, 'cristal-crypte', [[3, 3], [18, 3], [3, 13], [18, 13]]);
+  m.setObstacle(11, 6, 'caisse-glace');
+  m.object('caisse-glacialis', 'objet', 11, 6);
+  // L'Écho de la voie sept (src/data/echos.json) se pose en (8, 8).
+  m.setObstacle(14, 8, 'stele');
+  m.object('panneau-halte-glaces', 'panneau', 14, 8, { texte: 'Une plaque de l’Ancien Monde, prise dans le givre : « Halte des Glaces — voie 7 ». La glace a monté jusqu’à la moitié des lettres.' });
+  m.object('vers-cryptes', 'sortie', 0, 8, { cible: 'khrysos-cryptes', arrivee: 'devant-voie-sept', libelle: 'Revenir aux cryptes' });
+  m.object('depuis-cryptes', 'arrivee', 2, 8);
+  m.object('entree', 'arrivee', 2, 8);
+  return m.toTiled();
+}
+
+const ICE_ROOM = { floor: 'dalle-givre', wall: 'mur-glace' };
+Object.assign(INTERIORS, {
+  'khrysos-foyer': interior('khrysos-foyer', {
+    floor: 'tapis-fourrure', wall: 'mur-glace', w: 9, h: 7, outside: 'khrysos-portes',
+    furniture: [[3, 0, 'cheminee'], [4, 0, 'cheminee'], [5, 0, 'cheminee'], [1, 1, 'tonneaux'], [1, 2, 'tonneaux'], [3, 3, 'comptoir'], [4, 3, 'comptoir'], [2, 5, 'table'], [7, 4, 'table'], [8, 1, 'etagere']],
+    objects: [['ulga', 'pnj', 4, 2]],
+  }),
+  'khrysos-vigiles': interior('khrysos-vigiles', {
+    ...ICE_ROOM, outside: 'khrysos-portes',
+    furniture: [[1, 1, 'lit'], [6, 1, 'etagere'], [4, 3, 'table'], [1, 4, 'caisses']],
+    objects: [['halvard', 'pnj', 3, 2]],
+  }),
+  'khrysos-facettier': interior('khrysos-facettier', {
+    ...ICE_ROOM, outside: 'khrysos-galeries',
+    furniture: [[2, 1, 'etabli'], [3, 1, 'etabli'], [6, 1, 'cristal-lumineux'], [1, 4, 'etagere'], [6, 4, 'caisses']],
+    objects: [['brodd', 'pnj', 4, 3]],
+  }),
+  'khrysos-torka': interior('khrysos-torka', {
+    ...ICE_ROOM, outside: 'khrysos-galeries',
+    furniture: [[1, 1, 'lit'], [2, 1, 'lit'], [6, 1, 'cheminee'], [4, 3, 'table'], [6, 4, 'sculpture-glace']],
+    objects: [],
+  }),
+  'khrysos-relais': interior('khrysos-relais', { ...ICE_ROOM, outside: 'khrysos-galeries', furniture: [[2, 1, 'etagere'], [3, 1, 'etagere'], [5, 4, 'table']], objects: [] }),
+  'khrysos-ennir': interior('khrysos-ennir', {
+    ...ICE_ROOM, outside: 'khrysos-galeries',
+    furniture: [[2, 1, 'etagere'], [5, 1, 'cristal-archive'], [1, 4, 'etabli'], [6, 4, 'table']],
+    objects: [['ennir', 'pnj', 4, 2]],
+  }),
+  'khrysos-bibliotheque': interior('khrysos-bibliotheque', {
+    ...ICE_ROOM, w: 10, h: 8, outside: 'khrysos-royal',
+    furniture: [[5, 1, 'khrys'], [2, 3, 'cristal-archive'], [8, 3, 'cristal-archive'], [2, 6, 'cristal-archive'], [8, 6, 'cristal-archive'], [9, 1, 'etagere']],
+    objects: [['hrolda', 'pnj', 4, 4], ['khrys', 'objet', 5, 1]],
+  }),
+  'khrysos-palais': interior('khrysos-palais', {
+    ...ICE_ROOM, w: 9, h: 7, outside: 'khrysos-royal',
+    furniture: [[2, 1, 'cristal-lumineux'], [7, 1, 'cristal-lumineux'], [1, 5, 'cristal-lumineux'], [8, 5, 'cristal-lumineux']],
+    objects: [['crysta', 'pnj', 5, 2], ['bjorn', 'pnj', 3, 3]],
+  }),
+  'khrysos-temple': interior('khrysos-temple', {
+    ...ICE_ROOM, w: 8, h: 6, outside: 'khrysos-royal',
+    furniture: [[2, 1, 'cristal-lumineux'], [6, 1, 'cristal-lumineux'], [1, 4, 'cristal-archive']],
+    objects: [['pretresse-hiver', 'pnj', 4, 2]],
+  }),
+  'khrysos-caveau': interior('khrysos-caveau', {
+    floor: 'glace-noire', wall: 'mur-glace', w: 8, h: 6, outside: 'khrysos-douze',
+    furniture: [[2, 1, 'cristal-archive'], [4, 1, 'cristal-archive'], [6, 1, 'cristal-archive'], [2, 3, 'cristal-archive'], [6, 3, 'cristal-archive']],
+    objects: [],
+  }),
+});
+
 // Les voies endormies à explorer (docs/gdd/voies.md, jalon 3, étape 6) : une réserve de plans de l'Ancien Monde. Chaque
 // niveau d'une voie en tire un, puis le jeu le garnit au hasard sur ses points d'apparition : bêtes (`ennemi-1..3`),
 // caisses (`coffre-1..3`), pièges (`piege-1..4`), un Écho (`echo-1`), l'objet d'un contrat (`contrat`), la descente.
@@ -2113,6 +2350,13 @@ for (const [id, map] of Object.entries({
   'marche-longue-ombre': marcheLongueOmbre(),
   'marche-desert': marcheDesert(),
   'marche-halte-morte': marcheHalteMorte(),
+  'khrysos-portes': khrysosPortes(),
+  'khrysos-surface': khrysosSurface(),
+  'khrysos-galeries': khrysosGaleries(),
+  'khrysos-royal': khrysosRoyal(),
+  'khrysos-douze': khrysosDouze(),
+  'khrysos-cryptes': khrysosCryptes(),
+  'khrysos-voie-sept': khrysosVoieSept(),
   ...ENCOUNTER_MAPS,
   ...VOIE_MAPS,
 })) {

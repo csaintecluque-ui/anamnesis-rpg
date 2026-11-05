@@ -1,0 +1,33 @@
+{
+  "id": "bjorn",
+  "speaker": "bjorn",
+  "entries": [
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Un forgeron, les bras nus malgré le froid, une barbe rousse prise de givre. Il se tient à l’écart des cristaux du Conseil. — Bjorn Glaceforge. Le Cristal du Peuple : on m’a élu pour qu’il y ait au Conseil quelqu’un qui sache ce que coûte le bois.",
+      "options": [
+        {
+          "text": "Et ça change quelque chose ?",
+          "next": "change"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "change": {
+      "text": "— Une voix sur neuf. Assez pour qu’on m’entende dire non. Trop peu pour que mon non l’emporte. Mais quand je dis non, ceux d’en bas savent qu’il y a eu un non.",
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

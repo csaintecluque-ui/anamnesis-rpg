@@ -1,0 +1,50 @@
+{
+  "id": "halvard",
+  "speaker": "halvard",
+  "entries": [
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Un homme en manteau blanc, une corde enroulée à l’épaule, recoud un gant. — Halvard Neigeclaire. Vigiles Blancs. On ramène les égarés de la surface, vivants quand on peut. Tu t’es perdu·e, ou tu cherches quelqu’un ?",
+      "options": [
+        {
+          "text": "Ni l’un ni l’autre.",
+          "next": "vigiles"
+        },
+        {
+          "text": "Que croient les Vigiles ?",
+          "next": "croient"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "vigiles": {
+      "text": "— Ça viendra. Tout le monde finit par perdre quelqu’un dans le blizzard, ou par s’y perdre. Ce jour-là, viens me voir. Le Collège, lui, notera seulement la date.",
+      "options": [
+        {
+          "text": "Que croient les Vigiles ?",
+          "next": "croient"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "croient": {
+      "text": "— Que la clarté n’est pas une vertu. C’est un outil, et on peut s’en servir pour ne rien faire. Les héros des légendes y voyaient clair ; il leur manquait une passion. Nous, on compte nos années en vies sauvées.",
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

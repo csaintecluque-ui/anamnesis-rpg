@@ -1266,11 +1266,11 @@
    "name": "tiles",
    "image": "../../../public/tiles/tiles.png",
    "imagewidth": 512,
-   "imageheight": 4512,
+   "imageheight": 5088,
    "tilewidth": 64,
    "tileheight": 96,
    "columns": 8,
-   "tilecount": 369,
+   "tilecount": 423,
    "margin": 0,
    "spacing": 0,
    "tiles": [
@@ -10481,6 +10481,1356 @@
        "name": "nom",
        "type": "string",
        "value": "pilleur-sables"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 369,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "glace-sol"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 370,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "neige"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 371,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "dalle-givre"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 372,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "tapis-fourrure"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 373,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "glace-noire"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 374,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "mur-glace"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 375,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "cristal-lumineux"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 3
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 376,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "cristal-crypte"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 4
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 377,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "puits-ascension"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 3
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 378,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "porte-glace"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 4
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 379,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "foyer-glace"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 4
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 380,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "maison-glace"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 4
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 381,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "atelier-facettier"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 4
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 382,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "poste-vigiles"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 4
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 383,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "bibliotheque-glace"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 4
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 384,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "palais-glace"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 4
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 385,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "temple-hiver"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 4
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 386,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "geyser"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 387,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "congere"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 2
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 388,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "sapin-givre"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 4
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 389,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "rocher-glace"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 3
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 390,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "sculpture-glace"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 391,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "grille-cryptes"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 2
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 392,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "cristal-archive"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 3
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 393,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "khrys"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 4
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 394,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "cristal-espion"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 395,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "traineau"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 2
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 396,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "caisse-glace"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 4
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 397,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "galerie-mine"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 4
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 398,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "ulga"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 399,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "korvek"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 400,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "hrolda"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 401,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "brodd"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 402,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "torka"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 403,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "sigrun"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 404,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "crysta"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 405,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "bjorn"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 406,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "halvard"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 407,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "ennir"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 408,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "dagny"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 409,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "oskarsen"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 410,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "garde-portes"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 411,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "machiniste"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 412,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "gardien-cryptes"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 413,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "pretresse-hiver"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 414,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "guichet-nord"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 415,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "edda-khrysos"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 416,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "glacien"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 417,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "glacienne"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 418,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "geant-glaces"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 419,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "elfe-givre"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 420,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "nain-glace"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 421,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "enfant-givre"
+      },
+      {
+       "name": "bloquant",
+       "type": "bool",
+       "value": false
+      },
+      {
+       "name": "couverture",
+       "type": "int",
+       "value": 0
+      },
+      {
+       "name": "grand",
+       "type": "bool",
+       "value": false
+      }
+     ]
+    },
+    {
+     "id": 422,
+     "properties": [
+      {
+       "name": "nom",
+       "type": "string",
+       "value": "yeti"
       },
       {
        "name": "bloquant",

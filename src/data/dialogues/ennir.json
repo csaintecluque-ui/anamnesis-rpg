@@ -1,0 +1,33 @@
+{
+  "id": "ennir",
+  "speaker": "ennir",
+  "entries": [
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Un homme maigre aux longs gants, du givre aux manches, penché sur un cristal qu’il fait chanter d’un doigt mouillé. — Maître Ennir, Tisseur de Givre. Je tisse le froid, pour qu’il tienne une forme. Ne touchez à rien de ce qui sonne.",
+      "options": [
+        {
+          "text": "Qu’est-ce que tu tisses ?",
+          "next": "tisse"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "tisse": {
+      "text": "— Des voûtes, des ponts de glace, des cristaux d’archive qui tiennent droit. J’ai appris d’un homme qui avait appris d’un autre. On ne prononce plus le nom du premier. Il était le meilleur de nous tous.",
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

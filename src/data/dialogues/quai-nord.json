@@ -1,0 +1,72 @@
+{
+  "id": "quai-nord",
+  "speaker": "quai-nord",
+  "entries": [
+    {
+      "node": "quai"
+    }
+  ],
+  "nodes": {
+    "quai": {
+      "text": "Le quai du train du Nord, au fond d’une Porte de Glace. Un employé de Ferros, emmitouflé jusqu’aux yeux, vend les billets du retour. — Ironheart : un jour. Le train remonte chaque matin.",
+      "options": [
+        {
+          "text": "Prendre un billet pour Ironheart.",
+          "next": "retour",
+          "requires": [
+            {
+              "notFlag": "rail-travailleurs"
+            },
+            {
+              "fers": 45
+            }
+          ],
+          "effects": [
+            {
+              "giveFers": -45
+            }
+          ]
+        },
+        {
+          "text": "Prendre un billet : les cheminots te font un prix.",
+          "next": "retour",
+          "requires": [
+            {
+              "flag": "rail-travailleurs"
+            },
+            {
+              "fers": 22
+            }
+          ],
+          "effects": [
+            {
+              "giveFers": -22
+            }
+          ]
+        },
+        {
+          "text": "Pas encore.",
+          "next": "fin"
+        }
+      ]
+    },
+    "retour": {
+      "text": "Le train remonte la longue pente, sort de la glace dans un éblouissement, et file vers le sud. Au soir, les cheminées d’Ironheart.",
+      "options": [
+        {
+          "text": "Descendre.",
+          "next": "fin",
+          "effects": [
+            {
+              "avancer": 4
+            },
+            {
+              "goTo": "ironheart-forges",
+              "arrivee": "entree"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "id": "crysta",
+  "speaker": "crysta",
+  "entries": [
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Une Elfe de Givre, la peau bleutée, les cheveux plus blancs que la neige. Cinq siècles et demi te regardent par ses yeux. — Un Gardien de Mémoire. Il en vient peu. Dites ce que vous voulez de Glacialis, et dites-le clairement.",
+      "options": [
+        {
+          "text": "Je cherche ce que la glace garde.",
+          "next": "garde"
+        },
+        {
+          "text": "Rien, Primus. Je regardais.",
+          "next": "fin"
+        }
+      ]
+    },
+    "garde": {
+      "text": "— Elle garde tout. C’est sa vertu et son crime. Le Collège vous dira ce qui manque ; moi, je vous dirai ce qui reste, si vous savez le demander. Revenez quand vous aurez une question qui mérite le Conseil.",
+      "options": [
+        {
+          "text": "Merci, Primus.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

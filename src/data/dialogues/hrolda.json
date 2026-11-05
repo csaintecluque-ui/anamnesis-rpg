@@ -1,0 +1,84 @@
+{
+  "id": "hrolda",
+  "speaker": "hrolda",
+  "entries": [
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Une femme grise, droite, neuf éclats de miroir cousus au col. Elle ne te salue pas : elle termine sa ligne, puis lève les yeux. — Le cristal rend. Vous répondez : « et ne juge pas ». Ensuite, nous pourrons parler.",
+      "options": [
+        {
+          "text": "Et ne juge pas.",
+          "next": "parle"
+        },
+        {
+          "text": "Pourquoi cette formule ?",
+          "next": "formule"
+        },
+        {
+          "text": "Je reviendrai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "formule": {
+      "text": "— Parce qu’un cristal restitue mot pour mot ce qu’on lui a confié, sans rien ajouter, sans rien ôter. Ce que vous en pensez vous appartient ; ce qu’il rend appartient à tout le monde.",
+      "options": [
+        {
+          "text": "Et ne juge pas.",
+          "next": "parle"
+        },
+        {
+          "text": "Je reviendrai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "parle": {
+      "text": "— Bien. Ici dort ce que Glacialis se rappelle, découpé en faces. Quand une face manque, ce n’est jamais un oubli : quelqu’un a brisé quelque chose. Le Collège des 9 Miroirs consigne la lacune, sa date, et son auteur quand il le peut.",
+      "options": [
+        {
+          "text": "Qui brise une face ?",
+          "next": "brise"
+        },
+        {
+          "text": "Et Khrys ?",
+          "next": "khrys"
+        },
+        {
+          "text": "Merci.",
+          "next": "fin"
+        }
+      ]
+    },
+    "brise": {
+      "text": "— Des lâches, des amants, des héritiers. Parfois quelqu’un qui savait ce qu’on ferait de la vérité. Nous ne jugeons pas, nous signons. Une lacune signée vaut mieux qu’un récit reconstitué.",
+      "options": [
+        {
+          "text": "Et Khrys ?",
+          "next": "khrys"
+        },
+        {
+          "text": "Merci.",
+          "next": "fin"
+        }
+      ]
+    },
+    "khrys": {
+      "text": "— L’Entité. Un cristal plus ancien que la ville, assez ancien pour rendre sans erreur. Il ne converse pas. Posez-lui une question : il vous rendra ce qu’on lui a confié, ou rien.",
+      "options": [
+        {
+          "text": "Qui brise une face ?",
+          "next": "brise"
+        },
+        {
+          "text": "Merci.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

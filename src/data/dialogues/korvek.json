@@ -1,0 +1,60 @@
+{
+  "id": "korvek",
+  "speaker": "korvek",
+  "entries": [
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Un Yéti, deux têtes de plus que toi, la fourrure blanche grise de suie aux chevilles. Des cordes en bandoulière, un bâton de guide. Il parle bas, et lentement. — Korvek. Guide. Toucher mon bras pour la chance, c’est un Fer.",
+      "options": [
+        {
+          "text": "Un Fer pour la chance.",
+          "next": "chance",
+          "requires": [
+            {
+              "fers": 1
+            }
+          ],
+          "effects": [
+            {
+              "giveFers": -1
+            }
+          ]
+        },
+        {
+          "text": "Pourquoi un Fer ?",
+          "next": "pourquoi"
+        },
+        {
+          "text": "Je te laisse.",
+          "next": "fin"
+        }
+      ]
+    },
+    "chance": {
+      "text": "Tu poses la main sur son bras. La fourrure est raide de givre, et dessous, très chaude. — Voilà. Croiser un Yéti porte chance, disent-ils. M’embaucher, beaucoup moins : ils préfèrent un guide humain, qui se perd plus souvent.",
+      "options": [
+        {
+          "text": "Pourquoi un Fer ?",
+          "next": "pourquoi"
+        },
+        {
+          "text": "Merci, Korvek.",
+          "next": "fin"
+        }
+      ]
+    },
+    "pourquoi": {
+      "text": "— Parce qu’ils me touchent quand même, alors autant que ça rapporte. Depuis 2990, on a le droit de demander. Avant, on avait le droit de se taire.",
+      "options": [
+        {
+          "text": "Je te laisse.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

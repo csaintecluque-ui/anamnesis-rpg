@@ -18,6 +18,7 @@ import {
   walkTheMarches,
   pickTerrain,
   rollEncounter,
+  trainStation,
   storyRencontre,
   travelTimeLabel,
   waitOut,
@@ -219,6 +220,12 @@ export class WorldMapScene extends Phaser.Scene {
       const p = this.screen({ x, y });
       g.fillStyle([0xd8b47a, 0xc9a46a, 0xe2c48e][Math.floor(dunes() * 3)], 0.7).fillEllipse(p.x, p.y, (24 + dunes() * 30) * SCALE, (8 + dunes() * 8) * SCALE);
     }
+    // The ice of Glacialis, to the north (Khrysos, under the cap): white fields over the edge of the map.
+    const ice = seeded(3008);
+    for (let i = 0; i < 40; i++) {
+      const p = this.screen({ x: 400 + ice() * 230, y: 8 + ice() * 64 });
+      g.fillStyle([0xeef4f6, 0xd8e8f0, 0xc4dce8][Math.floor(ice() * 3)], 0.8).fillEllipse(p.x, p.y, (26 + ice() * 30) * SCALE, (8 + ice() * 8) * SCALE);
+    }
     // Lands beyond: written at the edge, not reachable yet.
     const known = new Set(knownPlaces(this.state.flags, this.state.quests).map((p) => p.id));
     for (const far of WORLD.distant.filter((d) => !d.remplacePar || !known.has(d.remplacePar))) {
@@ -260,8 +267,8 @@ export class WorldMapScene extends Phaser.Scene {
     }
     // Railway lines (« Voyager autrement ») : a rail with its sleepers, and its name halfway.
     for (const rail of WORLD.rails ?? []) {
-      const from = places.find((p) => p.id === rail.from);
-      const to = places.find((p) => p.id === rail.to);
+      const from = all.find((p) => p.id === rail.from);
+      const to = all.find((p) => p.id === rail.to);
       if (!from || !to) continue;
       const a = this.screen(from);
       const b = this.screen(to);
@@ -291,6 +298,12 @@ export class WorldMapScene extends Phaser.Scene {
             g.lineStyle(1.5, INK, 1).strokeCircle(x, p.y - 17, 3.5);
           }
         }
+      } else if (place.train) {
+        // A town under the ice, reached by train: an ice-blue mark, and a small star of frost beside it.
+        g.fillStyle(0xc4dce8, 1).fillCircle(p.x, p.y, 11);
+        g.lineStyle(3, INK, 1).strokeCircle(p.x, p.y, 11);
+        g.lineStyle(2.5, 0x3a5a78, 1);
+        for (const [dx, dy] of [[0, 9], [8, 5], [8, -5]]) g.lineBetween(p.x - 26 - dx, p.y - 12 - dy, p.x - 26 + dx, p.y - 12 + dy);
       } else if (place.caravane) {
         // A town that walks: a sand-coloured mark, and a small covered wagon beside it.
         g.fillStyle(0xd8b47a, 1).fillCircle(p.x, p.y, 11);
@@ -453,6 +466,15 @@ export class WorldMapScene extends Phaser.Scene {
   }
 
   private offerTrip(place: WorldPlace, resumed: boolean): void {
+    // The train du Nord (chapitre 8) leaves from Ironheart only: one goes there first.
+    const station = trainStation(this.pos, place);
+    if (station) {
+      this.showPanel(`${place.name} — ${place.description}\nLe ${place.train!.ligne} part d’${station.name} : il faut d’abord y aller (${travelTimeLabel(distanceBetween(this.pos, station))}).`, [
+        [`Partir pour ${station.name}`, () => this.depart(station)],
+        ['Choisir un autre lieu', () => this.clearPanel()],
+      ], place);
+      return;
+    }
     const sky = flightSky(this.state, this.pos, place);
     if (sky) {
       this.offerFlight(place, sky);
@@ -480,7 +502,7 @@ export class WorldMapScene extends Phaser.Scene {
       return;
     }
     this.showPanel(text, [
-      [{ navire: 'Embarquer', dirigeable: 'Prendre le dirigeable', caravane: 'Partir avec la caravane' }[crossingOf(sky)?.moyen ?? 'dirigeable'], () => {
+      [{ navire: 'Embarquer', dirigeable: 'Prendre le dirigeable', caravane: 'Partir avec la caravane', train: 'Prendre le train du Nord' }[crossingOf(sky)?.moyen ?? 'dirigeable'], () => {
         if (!payFlight(this.state, sky)) return;
         this.clearPanel();
         const crossing = crossingOf(sky);

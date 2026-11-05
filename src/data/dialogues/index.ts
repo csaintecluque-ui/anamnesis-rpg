@@ -203,6 +203,26 @@ import yshaRen from './ysha-ren.json';
 import ossAmar from './oss-amar.json';
 import chariotPerdu from './chariot-perdu.json';
 import lotCristaux from './lot-cristaux.json';
+import guichetNord from './guichet-nord.json';
+import quaiNord from './quai-nord.json';
+import puitsAscension from './puits-ascension.json';
+import gardePortes from './garde-portes.json';
+import brodd from './brodd.json';
+import crysta from './crysta.json';
+import bjorn from './bjorn.json';
+import pretresseHiver from './pretresse-hiver.json';
+import ulga from './ulga.json';
+import korvek from './korvek.json';
+import torka from './torka.json';
+import hrolda from './hrolda.json';
+import khrys from './khrys.json';
+import halvard from './halvard.json';
+import gardienCryptes from './gardien-cryptes.json';
+import grilleCryptes from './grille-cryptes.json';
+import porteCaveau from './porte-caveau.json';
+import murVoieSept from './mur-voie-sept.json';
+import priseNherKhal from './prise-nher-khal.json';
+import ennir from './ennir.json';
 
 /** Dialogue files by object name (PNJ, Écho or object) of the maps. */
 export const DIALOGUES: Record<string, Dialogue> = {
@@ -420,6 +440,27 @@ export const DIALOGUES: Record<string, Dialogue> = {
   'oss-amar': ossAmar as Dialogue,
   'chariot-perdu': chariotPerdu as Dialogue,
   'lot-cristaux': lotCristaux as Dialogue,
+  // Khrysos (chapitre 8, docs/gdd/chapitre-8.md)
+  'guichet-nord': guichetNord as Dialogue,
+  'quai-nord': quaiNord as Dialogue,
+  'puits-ascension': puitsAscension as Dialogue,
+  'garde-portes': gardePortes as Dialogue,
+  brodd: brodd as Dialogue,
+  crysta: crysta as Dialogue,
+  bjorn: bjorn as Dialogue,
+  'pretresse-hiver': pretresseHiver as Dialogue,
+  ulga: ulga as Dialogue,
+  korvek: korvek as Dialogue,
+  torka: torka as Dialogue,
+  hrolda: hrolda as Dialogue,
+  khrys: khrys as Dialogue,
+  halvard: halvard as Dialogue,
+  'gardien-cryptes': gardienCryptes as Dialogue,
+  'grille-cryptes': grilleCryptes as Dialogue,
+  'porte-caveau': porteCaveau as Dialogue,
+  'mur-voie-sept': murVoieSept as Dialogue,
+  'prise-nher-khal': priseNherKhal as Dialogue,
+  ennir: ennir as Dialogue,
   // Le Livre des Échos (docs/gdd/echos.md) : one dialogue per Écho, built from src/data/echos.json.
   ...echoDialogues(),
 };

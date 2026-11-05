@@ -611,5 +611,14 @@
     "weightKg": 0.2,
     "price": 0,
     "quest": true
+  },
+  {
+    "id": "manteau-givre",
+    "name": "Manteau de fourrure de Khrysos",
+    "description": "Une fourrure épaisse doublée de laine, cousue à l’Atelier Facettier, le col assez haut pour cacher la bouche.",
+    "weightKg": 4,
+    "price": 60,
+    "usage": "À la surface de Glacialis, le froid ne te prend plus de PV tant que tu le portes.",
+    "lore": "À Glacialis, on ne prête pas son manteau : on le donne, ou l’on sort avec."
   }
 ]

@@ -1,0 +1,120 @@
+{
+  "id": "grille-cryptes",
+  "speaker": "grille-cryptes",
+  "entries": [
+    {
+      "node": "ferme"
+    }
+  ],
+  "nodes": {
+    "ferme": {
+      "text": "Une grille de fer noir, et derrière, des allées de cristal à perte de vue. Une plaque : « On ne descend plus seul aux cryptes. An 2857. » Le gardien lève sa lampe vers toi, puis vers qui t’accompagne.",
+      "options": [
+        {
+          "text": "Liane descendra avec moi.",
+          "next": "deux",
+          "requires": [
+            {
+              "compagnon": "liane"
+            }
+          ]
+        },
+        {
+          "text": "Boulon descendra avec moi.",
+          "next": "deux",
+          "requires": [
+            {
+              "compagnon": "boulon"
+            }
+          ]
+        },
+        {
+          "text": "Passer seul·e, cette nuit, quand le gardien dort.",
+          "next": "seul",
+          "requires": [
+            {
+              "moment": "nuit"
+            },
+            {
+              "notFlag": "grille-surprise"
+            }
+          ],
+          "roll": {
+            "skill": "stealth",
+            "difficulty": 17
+          },
+          "failNext": "surpris"
+        },
+        {
+          "text": "S’éloigner.",
+          "next": "fin"
+        }
+      ]
+    },
+    "deux": {
+      "text": "Le gardien vous compte, deux fois, puis tourne la clé. — Deux. Que l’un regarde les mains de l’autre. La grille reste ouverte jusqu’au soir ; après, il faudra être deux de nouveau.",
+      "effects": [
+        {
+          "setFlagFor": "cryptes-ouvertes",
+          "days": 1
+        }
+      ],
+      "options": [
+        {
+          "text": "Descendre.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "khrysos-cryptes",
+              "arrivee": "depuis-douze"
+            }
+          ]
+        }
+      ]
+    },
+    "seul": {
+      "text": "Le gardien dort assis, la lampe sur les genoux. Le cadenas cède à la troisième tentative, sans un bruit. Personne ne regarde tes mains. C’est exactement ce que la règle voulait empêcher.",
+      "night": true,
+      "effects": [
+        {
+          "setFlagFor": "cryptes-ouvertes",
+          "days": 1
+        },
+        {
+          "setFlag": "descendu-seul"
+        }
+      ],
+      "options": [
+        {
+          "text": "Descendre.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "khrysos-cryptes",
+              "arrivee": "depuis-douze"
+            }
+          ]
+        }
+      ]
+    },
+    "surpris": {
+      "text": "Le cadenas grince. La lampe du gardien se lève d’un coup. — Seul·e. De nuit. Tu sais ce que ça veut dire, à Khrysos ? Ça veut dire que demain, tout le Douze le saura. Remonte.",
+      "night": true,
+      "effects": [
+        {
+          "setFlagFor": "grille-surprise",
+          "days": 1
+        },
+        {
+          "setFlag": "surpris-cryptes"
+        }
+      ],
+      "options": [
+        {
+          "text": "Remonter.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

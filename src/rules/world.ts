@@ -34,19 +34,25 @@ export interface WorldPlace {
   /** A town across the desert (Marche-Mère): reached and left only with the glassmakers' caravan, likewise. */
   caravane?: { fers: number; moments: number };
   /**
+   * A town reached only by train from one station (Khrysos, by the train du Nord from Ironheart ; docs/gdd/chapitre-8.md):
+   * the fare and length of the trip, the world-map place it leaves from (`gare`), and the line's name.
+   */
+  train?: { fers: number; moments: number; gare: string; ligne: string };
+  /**
    * A town that walks (Marche-Mère, docs/gdd/chapitre-7.md): it goes round these points, one lap in this many days,
    * and its mark on the world map moves with the days (`walkTheMarches`).
    */
   marche?: { points: [number, number][]; jours: number };
 }
 
-export type Moyen = 'dirigeable' | 'navire' | 'caravane';
+export type Moyen = 'dirigeable' | 'navire' | 'caravane' | 'train';
 
-/** How a town beyond the roads is reached: by airship, ship or caravan, its fare and its length; nothing for the others. */
+/** How a town beyond the roads is reached: by airship, ship, caravan or train, its fare and its length; nothing for the others. */
 export function crossingOf(place: WorldPlace): { moyen: Moyen; fers: number; moments: number } | undefined {
   if (place.dirigeable) return { moyen: 'dirigeable', ...place.dirigeable };
   if (place.navire) return { moyen: 'navire', ...place.navire };
   if (place.caravane) return { moyen: 'caravane', ...place.caravane };
+  if (place.train) return { moyen: 'train', fers: place.train.fers, moments: place.train.moments };
   return undefined;
 }
 
@@ -194,12 +200,15 @@ export const FIRST_FLIGHT_FLAG = 'premier-vol';
 export const FIRST_CROSSING_FLAG = 'premiere-traversee';
 /** Set once the first journey with the caravan is taken: Hesper has paid for it as well (chapitre 7). */
 export const FIRST_CARAVAN_FLAG = 'premiere-caravane';
-const firstFlag = (moyen: Moyen) => ({ dirigeable: FIRST_FLIGHT_FLAG, navire: FIRST_CROSSING_FLAG, caravane: FIRST_CARAVAN_FLAG })[moyen];
-/** The guild whose members travel at half price, for each kind of crossing. */
+/** Set once the first ticket of the train du Nord is used: the last one Hesper pays (chapitre 8, the guichets too). */
+export const FIRST_TRAIN_FLAG = 'premier-train-nord';
+const firstFlag = (moyen: Moyen) => ({ dirigeable: FIRST_FLIGHT_FLAG, navire: FIRST_CROSSING_FLAG, caravane: FIRST_CARAVAN_FLAG, train: FIRST_TRAIN_FLAG })[moyen];
+/** Who travels at half price, for each kind of crossing: a guild's members ; on the train, the railwaymen's friends. */
 const HALF_PRICE: Record<Moyen, string> = {
   dirigeable: 'membre-compagnie-vire-nuee',
   navire: 'membre-confrerie-brisants',
   caravane: 'membre-matriarches-cristaux',
+  train: 'rail-travailleurs',
 };
 
 type TravelState = Pick<GameState, 'flags' | 'quests' | 'character'>;
@@ -209,8 +218,20 @@ type TravelState = Pick<GameState, 'flags' | 'quests' | 'character'>;
  * every town. The sky town whose airship it is, or nothing for a walk.
  */
 export function flightSky(state: TravelState, from: { x: number; y: number }, place: WorldPlace): WorldPlace | undefined {
+  // The train du Nord leaves from its station only (trainStation says where to go first).
+  if (place.train) return atStation(from, place) ? place : undefined;
   if (crossingOf(place)) return place;
-  return knownPlaces(state.flags, state.quests).find((p) => crossingOf(p) && distanceBetween(from, p) <= AT_PLACE);
+  return knownPlaces(state.flags, state.quests).find((p) => crossingOf(p) && !p.train && distanceBetween(from, p) <= AT_PLACE);
+}
+
+const atStation = (from: { x: number; y: number }, place: WorldPlace) => {
+  const gare = place.train && findPlace(place.train.gare);
+  return !!gare && distanceBetween(from, gare) <= AT_PLACE;
+};
+
+/** A town reached only by train, picked away from its station: the station to go to first (Ironheart, for Khrysos). */
+export function trainStation(from: { x: number; y: number }, place: WorldPlace): WorldPlace | undefined {
+  return place.train && !atStation(from, place) ? findPlace(place.train.gare) : undefined;
 }
 
 /**
@@ -224,7 +245,7 @@ export function flightFare(state: TravelState, sky: WorldPlace): number {
 }
 
 const DAYS = ['', 'un jour', 'deux jours', 'trois jours', 'quatre jours', 'cinq jours'];
-/** « un jour en dirigeable », « deux jours en navire », « trois jours en caravane » : how long a crossing lasts. */
+/** « un jour en dirigeable », « deux jours en navire », « trois jours en caravane », « un jour en train » : how long a crossing lasts. */
 export function flightTimeLabel(sky: WorldPlace): string {
   const crossing = crossingOf(sky);
   const moments = crossing?.moments ?? 4;

@@ -1,0 +1,33 @@
+{
+  "id": "pretresse-hiver",
+  "speaker": "pretresse-hiver",
+  "entries": [
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Une prêtresse en étole bleue, devant un cristal qui ne rend rien : on le dit vide. — La Voie de l’Hiver Éveillé. Le froid n’endort pas, il garde. Nörvath est le principe de la mémoire, et chaque cristal en porte un éclat.",
+      "options": [
+        {
+          "text": "Et ce cristal vide ?",
+          "next": "vide"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "vide": {
+      "text": "— Il ne l’est pas : on ne lui a encore rien confié. C’est le seul cristal de Khrysos qui puisse encore tout recevoir. Certains viennent lui dire ce qu’ils n’ont dit à personne. Il ne le rendra qu’à qui saura le demander.",
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

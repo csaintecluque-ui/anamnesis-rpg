@@ -1,0 +1,20 @@
+{
+  "id": "mur-voie-sept",
+  "speaker": "mur-voie-sept",
+  "entries": [
+    {
+      "node": "ferme"
+    }
+  ],
+  "nodes": {
+    "ferme": {
+      "text": "Au bout de la dernière allée, la glace s’éclaircit. Derrière, très loin, une ombre droite : un rail, peut-être. La paroi a plusieurs mètres d’épaisseur, et rien ne dit qu’il y ait quelque chose à chercher.",
+      "options": [
+        {
+          "text": "S’éloigner.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

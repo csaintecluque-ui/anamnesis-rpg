@@ -329,6 +329,19 @@ En ligne le 2026-11-03 (tes textes du 3 novembre) :
       Eskil ou Ish'Lenne.
 - Remarques :
 
+## Chapitre 8, Khrysos (en construction depuis le 2026-11-05)
+
+- [ ] **Le train du Nord** : après Marche-Mère, Khrysos au nord de la carte du monde, par la ligne du Nord ; on ne le
+      prend qu'à Ironheart (le guichet de la gare, ou la carte du monde depuis Ironheart) ; le premier billet payé par
+      Hesper. Le retour : le quai des Portes de Glace.
+- [ ] **La cité sous la glace** : les Portes de Glace, les Galeries Chaudes, le Niveau Royal, le Niveau Douze, par le
+      Puits d'Ascension ; dix intérieurs.
+- [ ] **Le froid** : la surface, par la Porte de Glace ; −5 PV à chaque arrivée sans manteau (Brodd Facettier en vend un,
+      60 Fers) ; la neige qui tombe.
+- [ ] **Les cryptes** : la grille ne s'ouvre qu'à deux (Liane ou Boulon) ; seul·e, de nuit, en se cachant du gardien ;
+      la prise sans nom de la section neuf. ★ Le Caveau des cristaux scellés : crocheter, bluffer, ou voler la clé.
+- Remarques :
+
 ## Déjà en ligne, pas encore essayé sur PC
 
 - [ ] **Chapitre 4, Sept-Portes** sans le mode surpuissant : l'arrivée par la Porte du sud, le Registre, l'une des trois

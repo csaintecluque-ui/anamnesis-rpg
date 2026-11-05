@@ -1338,5 +1338,25 @@
     "id": "echo-glace-monte",
     "name": "Un Écho",
     "role": "La voie sept"
+  },
+  {
+    "id": "cristal-tri",
+    "name": "Un cristal d’archive",
+    "role": "La Marche de Vaelor"
+  },
+  {
+    "id": "cristal-cent-jours",
+    "name": "Un cristal d’archive",
+    "role": "Cent Jours"
+  },
+  {
+    "id": "cristal-cryptes",
+    "name": "Un cristal d’archive",
+    "role": "L’Affaire des Cryptes"
+  },
+  {
+    "id": "cristaux-scelles",
+    "name": "Les cristaux scellés",
+    "role": "Le Caveau"
   }
 ]

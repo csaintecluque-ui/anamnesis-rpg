@@ -44,6 +44,7 @@ describe('les fins vues (étude B11)', () => {
       ['arreter', 3],
       ['dragonnet', 3],
       ['glace-pris', 4],
+      ['cristal-hesite', 3],
     ]);
   });
 

@@ -225,6 +225,10 @@ import priseNherKhal from './prise-nher-khal.json';
 import ennir from './ennir.json';
 import eddaKhrysos from './edda-khrysos.json';
 import caisseGlacialis from './caisse-glacialis.json';
+import cristalTri from './cristal-tri.json';
+import cristalCryptes from './cristal-cryptes.json';
+import cristalCentJours from './cristal-cent-jours.json';
+import cristauxScelles from './cristaux-scelles.json';
 
 /** Dialogue files by object name (PNJ, Écho or object) of the maps. */
 export const DIALOGUES: Record<string, Dialogue> = {
@@ -465,6 +469,10 @@ export const DIALOGUES: Record<string, Dialogue> = {
   ennir: ennir as Dialogue,
   'edda-khrysos': eddaKhrysos as Dialogue,
   'caisse-glacialis': caisseGlacialis as Dialogue,
+  'cristal-tri': cristalTri as Dialogue,
+  'cristal-cryptes': cristalCryptes as Dialogue,
+  'cristal-cent-jours': cristalCentJours as Dialogue,
+  'cristaux-scelles': cristauxScelles as Dialogue,
   // Le Livre des Échos (docs/gdd/echos.md) : one dialogue per Écho, built from src/data/echos.json.
   ...echoDialogues(),
 };

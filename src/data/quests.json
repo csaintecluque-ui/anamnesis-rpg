@@ -1035,5 +1035,42 @@
         "titre": "La caisse laissée à la dame en gris"
       }
     ]
+  },
+  {
+    "id": "cristal-hesite",
+    "name": "Le cristal qui hésite",
+    "summary": "À la Bibliothèque de Glace, le cristal de Cent Jours, le seul récit complet de Glacialis, s’est arrêté au milieu d’une face. Un cristal rend, ou il est brisé. Hrolda Rochebrume demande à un Gardien de Mémoire de l’écouter.",
+    "etapes": [
+      {
+        "si": "hesite-commencee",
+        "texte": "Écouter Cent Jours à la Bibliothèque, jusqu’à la face cinquième, et comparer ce qu’il rend."
+      },
+      {
+        "si": "cent-jours-erreur",
+        "texte": "Le cristal a rendu deux mots différents pour la même face. Le dire à Hrolda."
+      },
+      {
+        "si": "hesite-confirme",
+        "texte": "Le Collège scelle les cristaux fêlés au Caveau, au Niveau Douze. Le gardien des cryptes en a la clé, et ne l’ouvre à personne."
+      },
+      {
+        "si": "caveau-vu",
+        "texte": "Au Caveau, cinq cristaux qui ont hésité, de plus en plus rapprochés. Revenir à Hrolda."
+      }
+    ],
+    "fins": [
+      {
+        "id": "signee",
+        "titre": "La lacune sans auteur, signée"
+      },
+      {
+        "id": "scelle",
+        "titre": "Le cristal scellé avec les autres"
+      },
+      {
+        "id": "brise",
+        "titre": "Le cristal brisé par Hrolda"
+      }
+    ]
   }
 ]

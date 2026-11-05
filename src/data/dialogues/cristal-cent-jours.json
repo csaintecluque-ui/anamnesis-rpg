@@ -1,0 +1,203 @@
+{
+  "id": "cristal-cent-jours",
+  "speaker": "cristal-cent-jours",
+  "entries": [
+    {
+      "requires": [
+        {
+          "flag": "fin-cristal-hesite-scelle"
+        }
+      ],
+      "node": "neuf"
+    },
+    {
+      "node": "rend"
+    }
+  ],
+  "nodes": {
+    "rend": {
+      "text": "Un cristal d’archive. L’étiquette : « Cent Jours. Sept faces, complètes. » Le seul grand récit de Glacialis dont aucune face ne manque. La lueur monte, plus lente que celle des autres. « Le cristal rend. »",
+      "options": [
+        {
+          "text": "Et ne juge pas.",
+          "next": "c1"
+        },
+        {
+          "text": "Reculer.",
+          "next": "fin"
+        }
+      ]
+    },
+    "neuf": {
+      "text": "Un cristal d’archive plus jeune, à la place de l’autre, la même étiquette : « Cent Jours. Sept faces, complètes. » Il rend la face cinquième sans s’arrêter : « Encore ceux-là. Puis fermez. » Il n’hésite pas. Pas encore.",
+      "options": [
+        {
+          "text": "Reculer.",
+          "next": "fin"
+        }
+      ]
+    },
+    "c1": {
+      "text": "« Face première. En 2750, le soleil ne s’est pas levé sur Glacialis pendant cent jours. Quatre-vingt-quatorze degrés sous zéro à la surface. Et quelque chose est monté du nord. Je ne l’ai pas vu, dit Skarn Hal’vek. J’ai vu ce que ça laissait. »",
+      "options": [
+        {
+          "text": "Face suivante.",
+          "next": "c2"
+        },
+        {
+          "text": "Reculer.",
+          "next": "fin"
+        }
+      ]
+    },
+    "c2": {
+      "text": "« Face deuxième. Skarn Hal’vek, Géante des Glaces, Cristal Guerrier, prit la surface avec onze mille soldats et la tint cent jours dans le noir. Ce qui montait laissait des corps vidés de leur chaleur, debout. Au quarante-sixième jour, elle tua le Dragon. »",
+      "options": [
+        {
+          "text": "Face suivante.",
+          "next": "c3"
+        },
+        {
+          "text": "Reculer.",
+          "next": "fin"
+        }
+      ]
+    },
+    "c3": {
+      "text": "« Face troisième. L’Heure d’Hal’vek : un Dragon du Givre de quarante mètres, une lance de cristal plantée sous la mâchoire. Trente-quatre des quarante sont morts ; elle y laissa un bras et la moitié du visage. La nation hurla de joie. Le silence dura onze jours. »",
+      "options": [
+        {
+          "text": "Face suivante.",
+          "next": "c4"
+        },
+        {
+          "text": "Reculer.",
+          "next": "fin"
+        }
+      ]
+    },
+    "c4": {
+      "text": "« Face quatrième. Au soixante-dixième jour, la ligne du nord n’existait plus. Le Dragon ne descendait pas sur Glacialis : il occupait le nord, il retenait ce qui montait. J’ai eu raison avec ce que je savais. Je n’avais pas assez. Notez-le. »",
+      "options": [
+        {
+          "text": "Face suivante.",
+          "next": "c5"
+        },
+        {
+          "text": "Reculer.",
+          "next": "fin"
+        }
+      ]
+    },
+    "c5": {
+      "text": "« Face cinquième. Il restait dehors quarante à soixante mille personnes. Elle fit murer les trois portes nord, du bon côté, et nota les noms. Trois fois, elle fit arrêter les maçons. Sa seule phrase, à la porte : Encore ceux-là. Puis » La voix s’arrête. Longtemps. « ouvrez. »",
+      "effects": [
+        {
+          "setFlag": "hesitation-entendue"
+        }
+      ],
+      "options": [
+        {
+          "text": "Faire rendre la face une seconde fois, et comparer.",
+          "next": "c5-bis",
+          "requires": [
+            {
+              "notFlag": "cent-jours-erreur"
+            },
+            {
+              "notFlag": "cent-jours-flou"
+            }
+          ],
+          "roll": {
+            "skill": "investigation",
+            "difficulty": 17
+          },
+          "failNext": "c5-flou"
+        },
+        {
+          "text": "Retenir chaque mot, et redemander la face.",
+          "next": "c5-bis",
+          "requires": [
+            {
+              "notFlag": "cent-jours-erreur"
+            },
+            {
+              "attribute": "memory",
+              "min": 6
+            }
+          ]
+        },
+        {
+          "text": "Face suivante.",
+          "next": "c6"
+        },
+        {
+          "text": "Reculer.",
+          "next": "fin"
+        }
+      ]
+    },
+    "c5-bis": {
+      "text": "Tu demandes la face cinquième, encore. La lueur monte. Cette fois, la voix ne s’arrête pas : « Encore ceux-là. Puis fermez. » Le même cristal, la même face, et deux mots différents. Un cristal rend, ou il est brisé. Celui-ci n’est pas brisé.",
+      "effects": [
+        {
+          "setFlag": "cent-jours-erreur"
+        },
+        {
+          "giveXp": 20
+        }
+      ],
+      "options": [
+        {
+          "text": "Face suivante.",
+          "next": "c6"
+        },
+        {
+          "text": "Reculer.",
+          "next": "fin"
+        }
+      ]
+    },
+    "c5-flou": {
+      "text": "Tu fais rendre la face une seconde fois. La voix est la même, la lueur aussi, et tu ne sais plus ce qu’elle avait dit la première fois. Il faudrait revenir demain, l’oreille fraîche.",
+      "effects": [
+        {
+          "setFlagFor": "cent-jours-flou",
+          "days": 1
+        }
+      ],
+      "options": [
+        {
+          "text": "Face suivante.",
+          "next": "c6"
+        },
+        {
+          "text": "Reculer.",
+          "next": "fin"
+        }
+      ]
+    },
+    "c6": {
+      "text": "« Face sixième. Le cent unième jour, le soleil s’est levé. On ne sait pas pourquoi. On a rouvert deux portes nord. La troisième, jamais. Les colonnes envoyées au nord n’ont trouvé personne. Le nord était propre et vide. »",
+      "options": [
+        {
+          "text": "Face suivante.",
+          "next": "c7"
+        },
+        {
+          "text": "Reculer.",
+          "next": "fin"
+        }
+      ]
+    },
+    "c7": {
+      "text": "« Face septième. À soixante-dix-sept ans, on lui demanda ce qu’elle regrettait. D’avoir demandé qu’on s’arrête trois fois. C’était pour moi. C’est la seule chose de ces cent jours dont j’aie honte. » La lueur s’éteint.",
+      "options": [
+        {
+          "text": "Reculer.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

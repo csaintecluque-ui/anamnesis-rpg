@@ -5,6 +5,48 @@
     {
       "requires": [
         {
+          "quest": "cristal-hesite",
+          "status": "active"
+        },
+        {
+          "flag": "hesite-confirme"
+        },
+        {
+          "flag": "caveau-vu"
+        }
+      ],
+      "node": "choix"
+    },
+    {
+      "requires": [
+        {
+          "quest": "cristal-hesite",
+          "status": "active"
+        },
+        {
+          "flag": "cent-jours-erreur"
+        },
+        {
+          "notFlag": "hesite-confirme"
+        }
+      ],
+      "node": "erreur"
+    },
+    {
+      "requires": [
+        {
+          "flag": "formule-dite"
+        },
+        {
+          "quest": "cristal-hesite",
+          "status": "none"
+        }
+      ],
+      "node": "hesite"
+    },
+    {
+      "requires": [
+        {
           "flag": "formule-dite"
         }
       ],
@@ -196,6 +238,155 @@
       "options": [
         {
           "text": "Merci, Hrolda.",
+          "next": "fin"
+        }
+      ]
+    },
+    "hesite": {
+      "text": "Hrolda ne termine pas sa ligne, cette fois. — Le cristal rend. — Et ne juge pas. — Un cristal a hésité. Cent Jours, le seul récit complet du pays : il s’est arrêté au milieu d’une face, puis il a repris. Un cristal ne s’arrête pas. Écoutez-le, Gardien.",
+      "effects": [
+        {
+          "startQuest": "cristal-hesite"
+        },
+        {
+          "setFlag": "hesite-commencee"
+        }
+      ],
+      "options": [
+        {
+          "text": "J’écouterai.",
+          "next": "fin"
+        },
+        {
+          "text": "Je cherche une lacune : « Ce qui dort sur le quai du niveau douze ».",
+          "next": "registre",
+          "requires": [
+            {
+              "quest": "plus-lieu",
+              "status": "done"
+            },
+            {
+              "notFlag": "glace-lacune"
+            }
+          ],
+          "effects": [
+            {
+              "startQuest": "glace-pris"
+            },
+            {
+              "setFlag": "glace-pris-commencee"
+            }
+          ]
+        },
+        {
+          "text": "Qui brise une face ?",
+          "next": "brise"
+        }
+      ]
+    },
+    "erreur": {
+      "text": "— Deux mots différents ? Hrolda va jusqu’à Khrys. « Rends Cent Jours, face cinquième. » Khrys rend : fermez, sans s’arrêter. — Le Collège va chercher l’auteur de cette lacune. Il n’y en a pas. Il n’y a personne à signer.",
+      "effects": [
+        {
+          "setFlag": "hesite-confirme"
+        },
+        {
+          "giveXp": 20
+        }
+      ],
+      "options": [
+        {
+          "text": "Ça s’est déjà produit ?",
+          "next": "deja"
+        }
+      ]
+    },
+    "deja": {
+      "text": "Elle hésite, elle aussi. — Le Collège scelle les cristaux fêlés au Caveau, au Niveau Douze. On m’a demandé, cet automne, d’y faire descendre trois cristaux de la Bibliothèque. Je n’ai pas demandé pourquoi. Le gardien des cryptes a la clé ; il ne l’ouvre à personne.",
+      "options": [
+        {
+          "text": "J’irai voir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "choix": {
+      "text": "Hrolda t’écoute jusqu’au bout, puis referme son cahier. — Si on le dit, plus personne à Glacialis ne croira ce que rend un cristal. Si on se tait, je signe des faces que je sais fausses. Que feriez-vous, Gardien ?",
+      "options": [
+        {
+          "text": "Signer la lacune : sans auteur. Que tout le monde le sache.",
+          "next": "signee",
+          "effects": [
+            {
+              "completeQuest": "cristal-hesite"
+            },
+            {
+              "setFlag": "fin-cristal-hesite-signee"
+            },
+            {
+              "giveXp": 60
+            }
+          ]
+        },
+        {
+          "text": "Sceller celui-ci avec les autres. Personne n’a besoin de savoir.",
+          "next": "scelle",
+          "effects": [
+            {
+              "completeQuest": "cristal-hesite"
+            },
+            {
+              "setFlag": "fin-cristal-hesite-scelle"
+            },
+            {
+              "giveXp": 60
+            }
+          ]
+        },
+        {
+          "text": "Le briser, avant qu’il ne rende une face fausse à un enfant.",
+          "next": "brise-hrolda",
+          "effects": [
+            {
+              "completeQuest": "cristal-hesite"
+            },
+            {
+              "setFlag": "fin-cristal-hesite-brise"
+            },
+            {
+              "giveXp": 60
+            }
+          ]
+        },
+        {
+          "text": "Je ne sais pas encore.",
+          "next": "fin"
+        }
+      ]
+    },
+    "signee": {
+      "text": "Hrolda trempe sa plume. « Lacune : Cent Jours, face cinquième, un mot. Auteur : personne. La maladie des souvenirs. » Elle souffle sur l’encre. — Demain, tout Khrysos le saura, et ne saura pas quoi en faire. Ce n’est pas notre affaire. Notre affaire, c’est de signer.",
+      "options": [
+        {
+          "text": "Merci, Hrolda.",
+          "next": "fin"
+        }
+      ]
+    },
+    "scelle": {
+      "text": "Le soir même, Hrolda descend le cristal au Caveau et colle l’étiquette : « A hésité. Scellé. Ne pas rendre. » Elle remonte sans te regarder. Un cristal plus jeune rendra Cent Jours, à la Bibliothèque, jusqu’à ce qu’il hésite à son tour.",
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "brise-hrolda": {
+      "text": "Hrolda frappe une fois, du plat de la main, là où passe le fil. Le cristal se fend. Elle signe la lacune de son nom, de la date, et du motif : « Pour qu’on ne s’en serve pas. » — J’ai brisé un écho. Celui-là, au moins, je sais pourquoi.",
+      "options": [
+        {
+          "text": "Au revoir.",
           "next": "fin"
         }
       ]

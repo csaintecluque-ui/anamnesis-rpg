@@ -2180,7 +2180,11 @@ Object.assign(INTERIORS, {
   'khrysos-bibliotheque': interior('khrysos-bibliotheque', {
     ...ICE_ROOM, w: 10, h: 8, outside: 'khrysos-royal',
     furniture: [[5, 1, 'khrys'], [2, 3, 'cristal-archive'], [8, 3, 'cristal-archive'], [2, 6, 'cristal-archive'], [8, 6, 'cristal-archive'], [9, 1, 'etagere']],
-    objects: [['hrolda', 'pnj', 4, 4], ['khrys', 'objet', 5, 1]],
+    objects: [
+      ['hrolda', 'pnj', 4, 4], ['khrys', 'objet', 5, 1],
+      // Les faces : trois légendes, rendues mot pour mot ; celle de Cent Jours hésite (« Le cristal qui hésite »).
+      ['cristal-tri', 'objet', 2, 3], ['cristal-cent-jours', 'objet', 8, 3, { disparaitSi: 'fin-cristal-hesite-brise' }], ['cristal-cryptes', 'objet', 2, 6],
+    ],
   }),
   'khrysos-palais': interior('khrysos-palais', {
     ...ICE_ROOM, w: 9, h: 7, outside: 'khrysos-royal',
@@ -2195,7 +2199,7 @@ Object.assign(INTERIORS, {
   'khrysos-caveau': interior('khrysos-caveau', {
     floor: 'glace-noire', wall: 'mur-glace', w: 8, h: 6, outside: 'khrysos-douze',
     furniture: [[2, 1, 'cristal-archive'], [4, 1, 'cristal-archive'], [6, 1, 'cristal-archive'], [2, 3, 'cristal-archive'], [6, 3, 'cristal-archive']],
-    objects: [],
+    objects: [['cristaux-scelles', 'objet', 4, 1]],
   }),
 });
 

@@ -1,0 +1,43 @@
+{
+  "id": "cristaux-scelles",
+  "speaker": "cristaux-scelles",
+  "entries": [
+    {
+      "node": "scelles"
+    }
+  ],
+  "nodes": {
+    "scelles": {
+      "text": "Cinq cristaux d’archive, alignés dans le froid. Sous chacun, une étiquette de la main du Collège : « A hésité. Scellé. Ne pas rendre. » La plus ancienne date de l’automne dernier. La plus récente, de la semaine passée. Elles se rapprochent.",
+      "effects": [
+        {
+          "setFlag": "caveau-vu"
+        }
+      ],
+      "options": [
+        {
+          "text": "En faire rendre un.",
+          "next": "rendre"
+        },
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "rendre": {
+      "text": "Tu dis la formule. La lueur monte, retombe, remonte. « Le cristal rend. Le cristal. Le. » Puis rien. Ce qui ne pouvait pas oublier commence à oublier. La maladie des souvenirs est descendue jusqu’ici, sous trois cents mètres de glace.",
+      "effects": [
+        {
+          "setFlag": "maladie-cristaux"
+        }
+      ],
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

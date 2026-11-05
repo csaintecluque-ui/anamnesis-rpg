@@ -117,7 +117,7 @@
       ]
     },
     "bluff-rate": {
-      "text": "— Le Collège n’envoie personne au Caveau. Le Collège ne sait pas qu’il y a un Caveau. Le gardien se tait, comprend ce qu’il vient de dire, et ne te regarde plus.",
+      "text": "— Le Collège n’envoie plus personne au Caveau, depuis qu’il l’a scellé. Il y fait descendre des cristaux, et personne ne remonte avec. Le gardien se tait, comprend ce qu’il vient de dire, et ne te regarde plus.",
       "effects": [
         {
           "setFlag": "caveau-bluff-rate"

@@ -2442,6 +2442,221 @@ Commence par : « accueil »
 
 - « Descendre du chariot. » → **fin** _(attend à midi, attend le soir, mène à « Ironheart — Les Forges-Basses »)_
 
+## Un cristal d’archive
+
+_Cent Jours_
+
+Commence par : « neuf » _(si repère « fin-cristal-hesite-scelle »)_, sinon « rend »
+
+### rend
+
+> Un cristal d’archive. L’étiquette : « Cent Jours. Sept faces, complètes. » Le seul grand récit de Glacialis dont aucune face ne manque. La lueur monte, plus lente que celle des autres. « Le cristal rend. »
+
+- « Et ne juge pas. » → c1
+- « Reculer. » → **fin**
+
+### neuf
+
+> Un cristal d’archive plus jeune, à la place de l’autre, la même étiquette : « Cent Jours. Sept faces, complètes. » Il rend la face cinquième sans s’arrêter : « Encore ceux-là. Puis fermez. » Il n’hésite pas. Pas encore.
+
+- « Reculer. » → **fin**
+
+### c1
+
+> « Face première. En 2750, le soleil ne s’est pas levé sur Glacialis pendant cent jours. Quatre-vingt-quatorze degrés sous zéro à la surface. Et quelque chose est monté du nord. Je ne l’ai pas vu, dit Skarn Hal’vek. J’ai vu ce que ça laissait. »
+
+- « Face suivante. » → c2
+- « Reculer. » → **fin**
+
+### c2
+
+> « Face deuxième. Skarn Hal’vek, Géante des Glaces, Cristal Guerrier, prit la surface avec onze mille soldats et la tint cent jours dans le noir. Ce qui montait laissait des corps vidés de leur chaleur, debout. Au quarante-sixième jour, elle tua le Dragon. »
+
+- « Face suivante. » → c3
+- « Reculer. » → **fin**
+
+### c3
+
+> « Face troisième. L’Heure d’Hal’vek : un Dragon du Givre de quarante mètres, une lance de cristal plantée sous la mâchoire. Trente-quatre des quarante sont morts ; elle y laissa un bras et la moitié du visage. La nation hurla de joie. Le silence dura onze jours. »
+
+- « Face suivante. » → c4
+- « Reculer. » → **fin**
+
+### c4
+
+> « Face quatrième. Au soixante-dixième jour, la ligne du nord n’existait plus. Le Dragon ne descendait pas sur Glacialis : il occupait le nord, il retenait ce qui montait. J’ai eu raison avec ce que je savais. Je n’avais pas assez. Notez-le. »
+
+- « Face suivante. » → c5
+- « Reculer. » → **fin**
+
+### c5
+
+_Effet : retient « hesitation-entendue »._
+
+> « Face cinquième. Il restait dehors quarante à soixante mille personnes. Elle fit murer les trois portes nord, du bon côté, et nota les noms. Trois fois, elle fit arrêter les maçons. Sa seule phrase, à la porte : Encore ceux-là. Puis » La voix s’arrête. Longtemps. « ouvrez. »
+
+- _(sans repère « cent-jours-erreur »)_ _(sans repère « cent-jours-flou »)_ **🎲 Investigation 17** « Faire rendre la face une seconde fois, et comparer. » → c5-bis, ✗ → c5-flou
+- _(sans repère « cent-jours-erreur »)_ **[Mémoire 6]** « Retenir chaque mot, et redemander la face. » → c5-bis
+- « Face suivante. » → c6
+- « Reculer. » → **fin**
+
+### c5-bis
+
+_Effet : retient « cent-jours-erreur », +20 XP._
+
+> Tu demandes la face cinquième, encore. La lueur monte. Cette fois, la voix ne s’arrête pas : « Encore ceux-là. Puis fermez. » Le même cristal, la même face, et deux mots différents. Un cristal rend, ou il est brisé. Celui-ci n’est pas brisé.
+
+- « Face suivante. » → c6
+- « Reculer. » → **fin**
+
+### c5-flou
+
+_Effet : retient « cent-jours-flou » pour 1 jours._
+
+> Tu fais rendre la face une seconde fois. La voix est la même, la lueur aussi, et tu ne sais plus ce qu’elle avait dit la première fois. Il faudrait revenir demain, l’oreille fraîche.
+
+- « Face suivante. » → c6
+- « Reculer. » → **fin**
+
+### c6
+
+> « Face sixième. Le cent unième jour, le soleil s’est levé. On ne sait pas pourquoi. On a rouvert deux portes nord. La troisième, jamais. Les colonnes envoyées au nord n’ont trouvé personne. Le nord était propre et vide. »
+
+- « Face suivante. » → c7
+- « Reculer. » → **fin**
+
+### c7
+
+> « Face septième. À soixante-dix-sept ans, on lui demanda ce qu’elle regrettait. D’avoir demandé qu’on s’arrête trois fois. C’était pour moi. C’est la seule chose de ces cent jours dont j’aie honte. » La lueur s’éteint.
+
+- « Reculer. » → **fin**
+
+## Un cristal d’archive
+
+_L’Affaire des Cryptes_
+
+Commence par : « rend »
+
+### rend
+
+> Un cristal d’archive. L’étiquette : « L’Affaire des Cryptes. Onze faces ; quatre subsistent. Les sept autres, brisées par l’accusé lui-même, une par nuit, pendant son procès. » La lueur monte. « Le cristal rend. »
+
+- « Et ne juge pas. » → a1
+- « Reculer. » → **fin**
+
+### a1
+
+> « Face première. À Glacialis, on ne brûle pas les morts et on ne les enterre pas : on les prend. Le cristal se referme sur le corps en quelques heures, et il reste ainsi, intact, pour toujours. Personne, en deux mille ans, n’y avait rien trouvé à redire. »
+
+- « Face suivante. » → a2
+- « Reculer. » → **fin**
+
+### a2
+
+> « Face deuxième. Nher-Khal, Tisseur de Givre, demanda au Collège : un cristal de crypte reçoit un corps entier, cerveau compris. Quelqu’un a-t-il déjà établi qu’il ne fait pas ce que fait un cristal d’archive ? Il n’y eut pas de réponse. »
+
+- « Faces troisième à neuvième. » → a3
+- « Reculer. » → **fin**
+
+### a3
+
+> Sept silences. Puis la voix rend seulement les intitulés : Les quatorze années de mesures. Ce que rendit la première crypte ouverte. Le second protocole, et les neuf témoins. Le refus du Collège. La nuit du niveau douze. Le compte des cristaux brisés. Les familles.
+
+- « Face suivante. » → a10
+- « Reculer. » → **fin**
+
+### a10
+
+> « Face dixième. Si je me trompe, j’ai profané quatre mille six cent onze tombes. Si j’ai raison, chacun de vous a un parent éveillé dans le noir depuis deux cents ans. Dites-moi lequel des deux risques vous auriez pris. » Un juge s’est levé et est sorti.
+
+- « Face suivante. » → a11
+- « Reculer. » → **fin**
+
+### a11
+
+> « Face onzième. Pourquoi avoir brisé vos mesures ? Elles étaient tout ce qui pouvait vous convaincre. Si vous êtes convaincus, vous ouvrirez les onze millions de prises, mal, et toutes. Je préfère qu’on me tienne pour un fou. » La lueur s’éteint.
+
+- « Reculer. » → **fin**
+
+## Un cristal d’archive
+
+_La Marche de Vaelor_
+
+Commence par : « rend »
+
+### rend
+
+> Un cristal d’archive sur son socle. L’étiquette, de la main du Collège : « La Marche de Vaelor. Neuf faces, la sixième manque. » Quand tu approches, une lueur monte en lui. « Le cristal rend. »
+
+- « Et ne juge pas. » → f1
+- « Reculer. » → **fin**
+
+### f1
+
+> « Face première. Il y eut un hiver qui ne s’arrêta pas : onze ans sans dégel. Au septième, on comptait les vivants d’un pouce, comme on compte des outils. Et il y avait Vaelor. Il portait les autres, deux à la fois, sur des lieues, dans la neige. »
+
+- « Face suivante. » → f2
+- « Reculer. » → **fin**
+
+### f2
+
+> « Face deuxième. Au neuvième hiver, Vaelor descendit dans les Grottes. Il y resta trente et un jours. Il remonta sans manteau, torse nu, par quarante degrés sous zéro, sans trembler. Le froid ne le trouvait plus. »
+
+- **[Mémoire 5]** « Écouter la face troisième : trente et un jours, ligne après ligne. » → f3
+- « Passer à la face quatrième. » → f4
+- « Reculer. » → **fin**
+
+### f3
+
+_Effet : retient « face-trois-entendue »._
+
+> « Face troisième. » Ce que Vaelor a vu dans le cristal, trente et un jours, ligne après ligne, sans un seul événement. Ta mémoire tient jusqu’au bout. Tu comprends pourquoi les initiés la récitent pendant la Veille du Givre : elle ne se laisse pas résumer.
+
+- « Face suivante. » → f4
+- « Reculer. » → **fin**
+
+### f4
+
+> « Face quatrième. Onze mille personnes : c’est ce qu’il ramena vivant. Il perça une paroi de glace à mains nues ; il fit reculer un Colosse Hivernal : reculer, le cristal insiste sur le mot. Chacun de nous descend de quelqu’un qu’il a porté. »
+
+- « Continuer, au-delà de la Veille du Givre. » → f5
+- « Reculer. » → **fin**
+
+### f5
+
+> « Face cinquième. À la fin du dixième hiver, il commença à trier. Un convoi de trois cents ; quarante et un qui ne tiendraient pas. Il fit le calcul à voix haute, exact. Ceux-là restent. Je ne les tuerai pas. Je ne les porterai pas. Tous les autres arrivèrent. »
+
+- « Face suivante. » → f6
+- « Reculer. » → **fin**
+
+### f6
+
+> « Face sixième. » Rien. Puis un fragment, quatorze mots : « … la troisième fois, et cette fois-là personne ne demanda plus rien, parce que … » Une lacune plus vieille que le Collège. Personne ne sait qui l’a brisée.
+
+- « Face suivante. » → f7
+- « Reculer. » → **fin**
+
+### f7
+
+> « Face septième. La fonte revint ; on creusa ce qui allait devenir Khrysos, et Vaelor repartait vers le nord. Une femme qu’il avait portée enfant dit : Il nous regarde comme on regarde un chargement. Il a raison chaque fois. Je ne veux plus qu’il me touche. »
+
+- « Face suivante. » → f8
+- « Reculer. » → **fin**
+
+### f8
+
+> « Face huitième. Ils ont voté. Il a parlé : Vous êtes onze mille. J’ai laissé quatre cents. Faites le compte, et dites-moi lequel d’entre vous voulait le faire à ma place. À une voix près, on l’a figé. Il a trouvé leur calcul correct. »
+
+- « Face suivante. » → f9
+- « Reculer. » → **fin**
+
+### f9
+
+> « Face neuvième. La statue est aux Grottes de Nörvath. Elle mesure ce qu’il mesurait. Elle est intacte après trente siècles. Il n’a pas fermé les yeux. » La lueur s’éteint. Le cristal a tout rendu, et ne juge pas.
+
+- _(sans repère « vaelor-entendu »)_ « Garder la légende en mémoire. » → **fin** _(retient le Récit « Le Premier Tri », retient « vaelor-entendu », +30 XP)_
+- « Reculer. » → **fin**
+
 ## Cristal de veille
 
 _Objet_
@@ -2454,6 +2669,29 @@ Commence par : « cristal »
 
 - « Se reposer un instant. » → **fin** _(+40 PV)_
 - « S’éloigner. » → **fin**
+
+## Les cristaux scellés
+
+_Le Caveau_
+
+Commence par : « scelles »
+
+### scelles
+
+_Effet : retient « caveau-vu »._
+
+> Cinq cristaux d’archive, alignés dans le froid. Sous chacun, une étiquette de la main du Collège : « A hésité. Scellé. Ne pas rendre. » La plus ancienne date de l’automne dernier. La plus récente, de la semaine passée. Elles se rapprochent.
+
+- « En faire rendre un. » → rendre
+- « Partir. » → **fin**
+
+### rendre
+
+_Effet : retient « maladie-cristaux »._
+
+> Tu dis la formule. La lueur monte, retombe, remonte. « Le cristal rend. Le cristal. Le. » Puis rien. Ce qui ne pouvait pas oublier commence à oublier. La maladie des souvenirs est descendue jusqu’ici, sous trois cents mètres de glace.
+
+- « Partir. » → **fin**
 
 ## La Primus Crysta Frostborn
 
@@ -4444,7 +4682,7 @@ Commence par : « briseur » _(si repère « briseur-echos »)_, sinon « accuei
 
 ### pourquoi
 
-> — Le Briseur d’Échos. Nher-Khal. Il descendait seul, un marteau à glace à la main, et il a brisé quatre mille six cent onze cristaux parce qu’il croyait les morts conscients dedans. On l’a pris vivant. Sa prise est en bas, section neuf, sans nom.
+> — Le Briseur d’Échos. Nher-Khal. Il descendait seul, la nuit, avec un maillet de son invention qui ne faisait presque pas de bruit. Quatre mille six cent onze cristaux, parce que les morts y sont peut-être conscients. On l’a pris. Section neuf, sans nom.
 
 - « Il avait raison ? » → raison
 - « Au revoir. » → **fin**
@@ -5273,7 +5511,7 @@ _Effet : lance la quête « L’asile »._
 
 _Du Collège des 9 Miroirs, gardienne de la Bibliothèque_
 
-Commence par : « retour » _(si repère « formule-dite »)_, sinon « accueil »
+Commence par : « choix » _(si quête « Le cristal qui hésite » en cours)_ _(si repère « hesite-confirme »)_ _(si repère « caveau-vu »)_, sinon « erreur » _(si quête « Le cristal qui hésite » en cours)_ _(si repère « cent-jours-erreur »)_ _(sans repère « hesite-confirme »)_, sinon « hesite » _(si repère « formule-dite »)_ _(si quête « Le cristal qui hésite » pas commencée)_, sinon « retour » _(si repère « formule-dite »)_, sinon « accueil »
 
 ### accueil
 
@@ -5350,6 +5588,57 @@ _Effet : retient « glace-lacune », +20 XP._
 > — La face le disait, et la face n’est plus. Il reste le niveau douze, et un quai. Il n’y a pas de quai au niveau douze : il y a des cryptes, et au bout des cryptes, la glace. Vous descendrez ? On n’y descend pas seul.
 
 - « Merci, Hrolda. » → **fin**
+
+### hesite
+
+_Effet : lance la quête « Le cristal qui hésite », retient « hesite-commencee »._
+
+> Hrolda ne termine pas sa ligne, cette fois. — Le cristal rend. — Et ne juge pas. — Un cristal a hésité. Cent Jours, le seul récit complet du pays : il s’est arrêté au milieu d’une face, puis il a repris. Un cristal ne s’arrête pas. Écoutez-le, Gardien.
+
+- « J’écouterai. » → **fin**
+- _(si quête « Ce qui n’a plus lieu » terminée)_ _(sans repère « glace-lacune »)_ « Je cherche une lacune : « Ce qui dort sur le quai du niveau douze ». » → registre _(lance la quête « Ce que la glace a pris », retient « glace-pris-commencee »)_
+- « Qui brise une face ? » → brise
+
+### erreur
+
+_Effet : retient « hesite-confirme », +20 XP._
+
+> — Deux mots différents ? Hrolda va jusqu’à Khrys. « Rends Cent Jours, face cinquième. » Khrys rend : fermez, sans s’arrêter. — Le Collège va chercher l’auteur de cette lacune. Il n’y en a pas. Il n’y a personne à signer.
+
+- « Ça s’est déjà produit ? » → deja
+
+### deja
+
+> Elle hésite, elle aussi. — Le Collège scelle les cristaux fêlés au Caveau, au Niveau Douze. On m’a demandé, cet automne, d’y faire descendre trois cristaux de la Bibliothèque. Je n’ai pas demandé pourquoi. Le gardien des cryptes a la clé ; il ne l’ouvre à personne.
+
+- « J’irai voir. » → **fin**
+
+### choix
+
+> Hrolda t’écoute jusqu’au bout, puis referme son cahier. — Si on le dit, plus personne à Glacialis ne croira ce que rend un cristal. Si on se tait, je signe des faces que je sais fausses. Que feriez-vous, Gardien ?
+
+- « Signer la lacune : sans auteur. Que tout le monde le sache. » → signee _(termine la quête « Le cristal qui hésite », retient « fin-cristal-hesite-signee », +60 XP)_
+- « Sceller celui-ci avec les autres. Personne n’a besoin de savoir. » → scelle _(termine la quête « Le cristal qui hésite », retient « fin-cristal-hesite-scelle », +60 XP)_
+- « Le briser, avant qu’il ne rende une face fausse à un enfant. » → brise-hrolda _(termine la quête « Le cristal qui hésite », retient « fin-cristal-hesite-brise », +60 XP)_
+- « Je ne sais pas encore. » → **fin**
+
+### signee
+
+> Hrolda trempe sa plume. « Lacune : Cent Jours, face cinquième, un mot. Auteur : personne. La maladie des souvenirs. » Elle souffle sur l’encre. — Demain, tout Khrysos le saura, et ne saura pas quoi en faire. Ce n’est pas notre affaire. Notre affaire, c’est de signer.
+
+- « Merci, Hrolda. » → **fin**
+
+### scelle
+
+> Le soir même, Hrolda descend le cristal au Caveau et colle l’étiquette : « A hésité. Scellé. Ne pas rendre. » Elle remonte sans te regarder. Un cristal plus jeune rendra Cent Jours, à la Bibliothèque, jusqu’à ce qu’il hésite à son tour.
+
+- « Au revoir. » → **fin**
+
+### brise-hrolda
+
+> Hrolda frappe une fois, du plat de la main, là où passe le fil. Le cristal se fend. Elle signe la lacune de son nom, de la date, et du motif : « Pour qu’on ne s’en serve pas. » — J’ai brisé un écho. Celui-là, au moins, je sais pourquoi.
+
+- « Au revoir. » → **fin**
 
 ## L’huissier du Conseil
 
@@ -9182,7 +9471,7 @@ _Effet : retient « caveau-ouvert »._
 
 _Effet : retient « caveau-bluff-rate »._
 
-> — Le Collège n’envoie personne au Caveau. Le Collège ne sait pas qu’il y a un Caveau. Le gardien se tait, comprend ce qu’il vient de dire, et ne te regarde plus.
+> — Le Collège n’envoie plus personne au Caveau, depuis qu’il l’a scellé. Il y fait descendre des cristaux, et personne ne remonte avec. Le gardien se tait, comprend ce qu’il vient de dire, et ne te regarde plus.
 
 - « S’éloigner. » → **fin**
 
@@ -9437,7 +9726,7 @@ Commence par : « prise »
 
 ### prise
 
-> Un cristal de crypte, pareil aux autres. Sous lui, à hauteur de main, la glace est lisse : pas de nom. Dedans, un homme, les yeux ouverts, un marteau à glace dans la main droite. On l’a pris vivant.
+> Un cristal de crypte, pareil aux autres. Sous lui, à hauteur de main, la glace est lisse : un numéro seul, et aucun nom. Dedans, un elfe maigre, les yeux ouverts, les mains vides. On l’a pris vivant, le lendemain de son procès.
 
 - « Poser la main sur le cristal. » → main
 - « S’éloigner. » → **fin**

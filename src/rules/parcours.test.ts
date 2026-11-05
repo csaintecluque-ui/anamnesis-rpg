@@ -157,7 +157,7 @@ const CORALIA = ['mer-rend', 'don-rendu', 'lune-rouge', 'cargo-noir', 'grotte-re
 /** Chapter 7, Marche-Mère, played on its own (marcheMere.test.ts). */
 const MARCHE = ['plus-lieu', 'halte-muette', 'deux-nombres', 'forage-noir', 'sept-nuits', 'arreter', 'dragonnet'];
 /** Chapter 8, Khrysos, played on its own (khrysos.test.ts). */
-const KHRYSOS = ['glace-pris'];
+const KHRYSOS = ['glace-pris', 'cristal-hesite'];
 const unfinished = (state: GameState) =>
   QUESTS.filter((q) => ![...ADHESIONS, ...AETHERHAVEN, ...RETOURS, ...CORALIA, ...MARCHE, ...KHRYSOS].includes(q.id) && state.quests[q.id] !== 'done').map((q) => q.id);
 

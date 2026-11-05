@@ -11,7 +11,7 @@
  "tilewidth": 64,
  "tileheight": 32,
  "nextlayerid": 4,
- "nextobjectid": 3,
+ "nextobjectid": 4,
  "layers": [
   {
    "id": 1,
@@ -210,6 +210,19 @@
      "type": "arrivee",
      "x": 144,
      "y": 176,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": []
+    },
+    {
+     "id": 3,
+     "name": "cristaux-scelles",
+     "type": "objet",
+     "x": 144,
+     "y": 48,
      "width": 0,
      "height": 0,
      "point": true,

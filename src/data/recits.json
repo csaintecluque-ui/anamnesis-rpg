@@ -220,5 +220,14 @@
       "morts",
       "familles"
     ]
+  },
+  {
+    "id": "premier-tri",
+    "titre": "Le Premier Tri",
+    "texte": "Pendant l’Hiver Long, Vaelor Cœur-Blanc a porté onze mille personnes jusqu’aux Grottes : le froid ne le trouvait plus. Puis il a trié. Un convoi, quarante et un qui ne tiendraient pas : « Ceux-là restent. » Tous les autres sont arrivés. On a voté contre lui, à une voix près, et on l’a figé. Il n’a pas fermé les yeux. Le tabou de l’abandon dans le froid est écrit contre lui.",
+    "themes": [
+      "morts",
+      "puissants"
+    ]
   }
 ]

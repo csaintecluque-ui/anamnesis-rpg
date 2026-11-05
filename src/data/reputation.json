@@ -639,6 +639,14 @@
     {
       "flag": "surpris-cryptes",
       "points": -5
+    },
+    {
+      "quest": "cristal-hesite",
+      "points": 10
+    },
+    {
+      "flag": "vaelor-entendu",
+      "points": 3
     }
   ]
 }

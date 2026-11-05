@@ -1,0 +1,85 @@
+{
+  "id": "cristal-cryptes",
+  "speaker": "cristal-cryptes",
+  "entries": [
+    {
+      "node": "rend"
+    }
+  ],
+  "nodes": {
+    "rend": {
+      "text": "Un cristal d’archive. L’étiquette : « L’Affaire des Cryptes. Onze faces ; quatre subsistent. Les sept autres, brisées par l’accusé lui-même, une par nuit, pendant son procès. » La lueur monte. « Le cristal rend. »",
+      "options": [
+        {
+          "text": "Et ne juge pas.",
+          "next": "a1"
+        },
+        {
+          "text": "Reculer.",
+          "next": "fin"
+        }
+      ]
+    },
+    "a1": {
+      "text": "« Face première. À Glacialis, on ne brûle pas les morts et on ne les enterre pas : on les prend. Le cristal se referme sur le corps en quelques heures, et il reste ainsi, intact, pour toujours. Personne, en deux mille ans, n’y avait rien trouvé à redire. »",
+      "options": [
+        {
+          "text": "Face suivante.",
+          "next": "a2"
+        },
+        {
+          "text": "Reculer.",
+          "next": "fin"
+        }
+      ]
+    },
+    "a2": {
+      "text": "« Face deuxième. Nher-Khal, Tisseur de Givre, demanda au Collège : un cristal de crypte reçoit un corps entier, cerveau compris. Quelqu’un a-t-il déjà établi qu’il ne fait pas ce que fait un cristal d’archive ? Il n’y eut pas de réponse. »",
+      "options": [
+        {
+          "text": "Faces troisième à neuvième.",
+          "next": "a3"
+        },
+        {
+          "text": "Reculer.",
+          "next": "fin"
+        }
+      ]
+    },
+    "a3": {
+      "text": "Sept silences. Puis la voix rend seulement les intitulés : Les quatorze années de mesures. Ce que rendit la première crypte ouverte. Le second protocole, et les neuf témoins. Le refus du Collège. La nuit du niveau douze. Le compte des cristaux brisés. Les familles.",
+      "options": [
+        {
+          "text": "Face suivante.",
+          "next": "a10"
+        },
+        {
+          "text": "Reculer.",
+          "next": "fin"
+        }
+      ]
+    },
+    "a10": {
+      "text": "« Face dixième. Si je me trompe, j’ai profané quatre mille six cent onze tombes. Si j’ai raison, chacun de vous a un parent éveillé dans le noir depuis deux cents ans. Dites-moi lequel des deux risques vous auriez pris. » Un juge s’est levé et est sorti.",
+      "options": [
+        {
+          "text": "Face suivante.",
+          "next": "a11"
+        },
+        {
+          "text": "Reculer.",
+          "next": "fin"
+        }
+      ]
+    },
+    "a11": {
+      "text": "« Face onzième. Pourquoi avoir brisé vos mesures ? Elles étaient tout ce qui pouvait vous convaincre. Si vous êtes convaincus, vous ouvrirez les onze millions de prises, mal, et toutes. Je préfère qu’on me tienne pour un fou. » La lueur s’éteint.",
+      "options": [
+        {
+          "text": "Reculer.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

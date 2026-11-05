@@ -83,3 +83,14 @@ Elles portent ce que le canon oppose dans les légendes : la Clarté contre la p
 **Le cristal qui hésite** : à la Bibliothèque, un cristal d'archive rend une légende avec une hésitation, puis un mot
 de travers. C'est impossible : un cristal rend ou il est brisé. Le Collège cherche l'auteur de la lacune ; il n'y en a
 pas. La maladie des souvenirs atteint ce qui ne pouvait pas oublier.
+
+## Relu pour la construction (2026-11-05)
+
+Pages lues : « Le Premier Tri », « Les Portes du Nord », « Ce que les cristaux retiennent ». Ce que le jeu en reprend,
+mot pour mot quand le cristal rend (les cristaux portent la même légende partout, canon) : **La Marche de Vaelor** (neuf
+faces, la sixième brisée, quatorze mots lisibles ; la Veille du Givre s'arrête à la quatrième), **Cent Jours** (sept
+faces, complètes, Skarn Hal'vek), **L'Affaire des Cryptes** (quatre faces sur onze ; les sept intitulés conservés).
+Nher-Khal brisait les cristaux au maillet de son invention, de nuit, seul ; il est allé se déclarer, et on l'a pris
+après son procès : sa prise, section neuf, porte un numéro seul. Le jeu ne dit jamais ce qu'il y avait dans la face
+sixième, ni qui l'a brisée (le conte de Kaldrin le dit ; il reste à Cyril).
+

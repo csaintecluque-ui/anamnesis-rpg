@@ -1,0 +1,172 @@
+{
+  "id": "cristal-tri",
+  "speaker": "cristal-tri",
+  "entries": [
+    {
+      "node": "rend"
+    }
+  ],
+  "nodes": {
+    "rend": {
+      "text": "Un cristal d’archive sur son socle. L’étiquette, de la main du Collège : « La Marche de Vaelor. Neuf faces, la sixième manque. » Quand tu approches, une lueur monte en lui. « Le cristal rend. »",
+      "options": [
+        {
+          "text": "Et ne juge pas.",
+          "next": "f1"
+        },
+        {
+          "text": "Reculer.",
+          "next": "fin"
+        }
+      ]
+    },
+    "f1": {
+      "text": "« Face première. Il y eut un hiver qui ne s’arrêta pas : onze ans sans dégel. Au septième, on comptait les vivants d’un pouce, comme on compte des outils. Et il y avait Vaelor. Il portait les autres, deux à la fois, sur des lieues, dans la neige. »",
+      "options": [
+        {
+          "text": "Face suivante.",
+          "next": "f2"
+        },
+        {
+          "text": "Reculer.",
+          "next": "fin"
+        }
+      ]
+    },
+    "f2": {
+      "text": "« Face deuxième. Au neuvième hiver, Vaelor descendit dans les Grottes. Il y resta trente et un jours. Il remonta sans manteau, torse nu, par quarante degrés sous zéro, sans trembler. Le froid ne le trouvait plus. »",
+      "options": [
+        {
+          "text": "Écouter la face troisième : trente et un jours, ligne après ligne.",
+          "next": "f3",
+          "requires": [
+            {
+              "attribute": "memory",
+              "min": 5
+            }
+          ]
+        },
+        {
+          "text": "Passer à la face quatrième.",
+          "next": "f4"
+        },
+        {
+          "text": "Reculer.",
+          "next": "fin"
+        }
+      ]
+    },
+    "f3": {
+      "text": "« Face troisième. » Ce que Vaelor a vu dans le cristal, trente et un jours, ligne après ligne, sans un seul événement. Ta mémoire tient jusqu’au bout. Tu comprends pourquoi les initiés la récitent pendant la Veille du Givre : elle ne se laisse pas résumer.",
+      "effects": [
+        {
+          "setFlag": "face-trois-entendue"
+        }
+      ],
+      "options": [
+        {
+          "text": "Face suivante.",
+          "next": "f4"
+        },
+        {
+          "text": "Reculer.",
+          "next": "fin"
+        }
+      ]
+    },
+    "f4": {
+      "text": "« Face quatrième. Onze mille personnes : c’est ce qu’il ramena vivant. Il perça une paroi de glace à mains nues ; il fit reculer un Colosse Hivernal : reculer, le cristal insiste sur le mot. Chacun de nous descend de quelqu’un qu’il a porté. »",
+      "options": [
+        {
+          "text": "Continuer, au-delà de la Veille du Givre.",
+          "next": "f5"
+        },
+        {
+          "text": "Reculer.",
+          "next": "fin"
+        }
+      ]
+    },
+    "f5": {
+      "text": "« Face cinquième. À la fin du dixième hiver, il commença à trier. Un convoi de trois cents ; quarante et un qui ne tiendraient pas. Il fit le calcul à voix haute, exact. Ceux-là restent. Je ne les tuerai pas. Je ne les porterai pas. Tous les autres arrivèrent. »",
+      "options": [
+        {
+          "text": "Face suivante.",
+          "next": "f6"
+        },
+        {
+          "text": "Reculer.",
+          "next": "fin"
+        }
+      ]
+    },
+    "f6": {
+      "text": "« Face sixième. » Rien. Puis un fragment, quatorze mots : « … la troisième fois, et cette fois-là personne ne demanda plus rien, parce que … » Une lacune plus vieille que le Collège. Personne ne sait qui l’a brisée.",
+      "options": [
+        {
+          "text": "Face suivante.",
+          "next": "f7"
+        },
+        {
+          "text": "Reculer.",
+          "next": "fin"
+        }
+      ]
+    },
+    "f7": {
+      "text": "« Face septième. La fonte revint ; on creusa ce qui allait devenir Khrysos, et Vaelor repartait vers le nord. Une femme qu’il avait portée enfant dit : Il nous regarde comme on regarde un chargement. Il a raison chaque fois. Je ne veux plus qu’il me touche. »",
+      "options": [
+        {
+          "text": "Face suivante.",
+          "next": "f8"
+        },
+        {
+          "text": "Reculer.",
+          "next": "fin"
+        }
+      ]
+    },
+    "f8": {
+      "text": "« Face huitième. Ils ont voté. Il a parlé : Vous êtes onze mille. J’ai laissé quatre cents. Faites le compte, et dites-moi lequel d’entre vous voulait le faire à ma place. À une voix près, on l’a figé. Il a trouvé leur calcul correct. »",
+      "options": [
+        {
+          "text": "Face suivante.",
+          "next": "f9"
+        },
+        {
+          "text": "Reculer.",
+          "next": "fin"
+        }
+      ]
+    },
+    "f9": {
+      "text": "« Face neuvième. La statue est aux Grottes de Nörvath. Elle mesure ce qu’il mesurait. Elle est intacte après trente siècles. Il n’a pas fermé les yeux. » La lueur s’éteint. Le cristal a tout rendu, et ne juge pas.",
+      "options": [
+        {
+          "text": "Garder la légende en mémoire.",
+          "next": "fin",
+          "requires": [
+            {
+              "notFlag": "vaelor-entendu"
+            }
+          ],
+          "effects": [
+            {
+              "learnRecit": "premier-tri"
+            },
+            {
+              "setFlag": "vaelor-entendu"
+            },
+            {
+              "giveXp": 30
+            }
+          ]
+        },
+        {
+          "text": "Reculer.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

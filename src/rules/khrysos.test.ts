@@ -6,7 +6,7 @@ import { createNewGame, findLocation, LOCATIONS, type GameState } from '../state
 import { FROID_PV, froid, MANTEAU } from './glace';
 import { addItem, merchantCatalogue, ownedCount } from './inventory';
 import { choose, optionTexts, testCharacter } from './questTestKit';
-import { applyEffects, startNode } from './dialogue';
+import { applyEffects, startNode, visibleOptions } from './dialogue';
 import { echoObjects } from './echos';
 import { filPage } from './fil';
 import { dreamFragment, FRAGMENTS } from './heros';
@@ -247,7 +247,8 @@ describe('« Ce que la glace a pris »', () => {
     expect(state.flags['glace-lacune']).toBe(true);
     expect(DIALOGUES.hrolda.nodes.lacune.text).toContain('une étrangère, qui a dit son nom');
     // Le nom de la mère n'est jamais écrit.
-    expect(talk(state, 'hrolda')).toBe('retour');
+    // La fois suivante, Hrolda parle d'abord du cristal qui hésite ; la lacune est lue, elle ne se redemande pas.
+    expect(talk(state, 'hrolda')).toBe('hesite');
     expect(optionTexts(state, 'hrolda', 'retour')).not.toContain('Je cherche une lacune : « Ce qui dort sur le quai du niveau douze ».');
   });
 
@@ -340,5 +341,77 @@ describe('« Ce que la glace a pris »', () => {
     // Les fragments des chapitres d'avant sont déjà revenus.
     for (const f of FRAGMENTS.filter((x) => x.chapitre < 9)) state.flags[f.flag] = true;
     expect(dreamFragment(state)).toMatch(/chaussures trop grandes/);
+  });
+});
+
+// --- Les faces, et le cristal qui hésite ---------------------------------------------------------------------------
+
+describe('les faces de la Bibliothèque', () => {
+  it('trois légendes du canon, rendues face par face : la Marche de Vaelor, l’Affaire des Cryptes, Cent Jours', () => {
+    const bibliotheque = parseTiledMap(MAPS['khrysos-bibliotheque']);
+    for (const name of ['cristal-tri', 'cristal-cryptes', 'cristal-cent-jours']) expect(findObject(bibliotheque, name), name).toBeDefined();
+    expect(DIALOGUES['cristal-tri'].nodes.f6.text).toContain('la troisième fois, et cette fois-là personne ne demanda plus rien, parce que');
+  });
+
+  it('la face troisième de la Marche de Vaelor ne se rend qu’à qui a bonne Mémoire', () => {
+    const weak = createNewGame(testCharacter({ memory: 4 }));
+    expect(visibleOptions(DIALOGUES['cristal-tri'].nodes.f2, weak).find((v) => v.option.next === 'f3')!.enabled).toBe(false);
+    const strong = game();
+    expect(visibleOptions(DIALOGUES['cristal-tri'].nodes.f2, strong).find((v) => v.option.next === 'f3')!.enabled).toBe(true);
+  });
+
+  it('rendue jusqu’à la face neuvième, la légende devient le Récit « Le Premier Tri », une fois', () => {
+    const state = game();
+    for (const [node, text] of [['rend', 'Et ne juge pas'], ['f1', 'Face suivante'], ['f2', 'Passer à la face quatrième'], ['f4', 'Continuer'], ['f5', 'Face suivante'], ['f6', 'Face suivante'], ['f7', 'Face suivante'], ['f8', 'Face suivante']]) choose(state, 'cristal-tri', node, text);
+    const xp = state.character!.xp;
+    choose(state, 'cristal-tri', 'f9', 'Garder la légende');
+    expect(state.character!.recits).toContain('premier-tri');
+    expect(state.character!.xp).toBeGreaterThan(xp);
+    expect(optionTexts(state, 'cristal-tri', 'f9')).toEqual(['Reculer.']);
+  });
+});
+
+describe('« Le cristal qui hésite »', () => {
+  const asked = (): GameState => {
+    const state = game();
+    choose(state, 'hrolda', 'accueil', 'Et ne juge pas');
+    expect(talk(state, 'hrolda')).toBe('hesite');
+    expect(state.quests['cristal-hesite']).toBe('active');
+    return state;
+  };
+
+  it('Cent Jours, le seul récit complet, s’arrête à la face cinquième ; une seconde fois, il rend un autre mot', () => {
+    const state = asked();
+    expect(DIALOGUES['cristal-cent-jours'].nodes.c5.text).toMatch(/Encore ceux-là\. Puis » La voix s’arrête\. Longtemps\. « ouvrez\. »/);
+    choose(state, 'cristal-cent-jours', 'c5', 'Faire rendre la face une seconde fois');
+    expect(state.flags['cent-jours-erreur']).toBe(true);
+    // Raté, on y revient le lendemain ; avec une Mémoire de 6, on retient chaque mot.
+    const blurred = asked();
+    expect(fail(blurred, 'cristal-cent-jours', 'c5', 'Faire rendre')).toBe('c5-flou');
+    expect(optionTexts(blurred, 'cristal-cent-jours', 'c5')).not.toContain('Faire rendre la face une seconde fois, et comparer.');
+    const sharp = createNewGame(testCharacter({ memory: 6 }));
+    expect(optionTexts(sharp, 'cristal-cent-jours', 'c5')).toContain('Retenir chaque mot, et redemander la face.');
+  });
+
+  it('Hrolda : Khrys rend le bon mot ; il n’y a pas d’auteur ; le Caveau ; trois fins', () => {
+    for (const [text, fin] of [['Signer la lacune', 'signee'], ['Sceller celui-ci', 'scelle'], ['Le briser', 'brise']]) {
+      const state = asked();
+      choose(state, 'cristal-cent-jours', 'c5', 'Faire rendre la face une seconde fois');
+      expect(talk(state, 'hrolda')).toBe('erreur');
+      choose(state, 'hrolda', 'erreur', 'Ça s’est déjà produit');
+      expect(talk(state, 'cristaux-scelles')).toBe('scelles');
+      expect(talk(state, 'hrolda')).toBe('choix');
+      choose(state, 'hrolda', 'choix', text);
+      expect(state.quests['cristal-hesite'], fin).toBe('done');
+      expect(state.flags[`fin-cristal-hesite-${fin}`], fin).toBe(true);
+    }
+    const sealed = asked();
+    sealed.flags['fin-cristal-hesite-scelle'] = true;
+    expect(talk(sealed, 'cristal-cent-jours')).toBe('neuf');
+  });
+
+  it('le Caveau garde cinq cristaux qui ont hésité : la maladie des souvenirs atteint ce qui ne pouvait pas oublier', () => {
+    expect(findObject(parseTiledMap(MAPS['khrysos-caveau']), 'cristaux-scelles')).toBeDefined();
+    expect(DIALOGUES['cristaux-scelles'].nodes.rendre.text).toContain('Ce qui ne pouvait pas oublier commence à oublier');
   });
 });

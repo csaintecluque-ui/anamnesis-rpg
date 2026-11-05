@@ -344,6 +344,9 @@ En ligne le 2026-11-03 (tes textes du 3 novembre) :
       (« Le cristal rend » / « et ne juge pas ») ; la lacune ; la dame en gris au Puits du Niveau Douze ; descendre avec
       elle, avec Halvard (Vigiles Blancs), avec Liane ou Boulon, ou seul·e de nuit ; la glace claire au bout des
       cryptes ; la caisse prise ; quatre fins ; la lettre d'Ilyane chez Ulga.
+- [ ] **Les faces** : à la Bibliothèque, les trois cristaux (la formule d'abord) ; la Marche de Vaelor jusqu'à la face
+      neuvième donne le Récit « Le Premier Tri ». **Le cristal qui hésite** : Hrolda, Cent Jours face cinquième, la
+      comparer, Khrys, le Caveau (★), trois fins.
 - Remarques :
 
 ## Déjà en ligne, pas encore essayé sur PC

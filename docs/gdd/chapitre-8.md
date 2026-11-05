@@ -1,4 +1,4 @@
-# Chapitre 8 : Khrysos — **validé par Cyril** le 2026-11-05 (« Oui pour tout ») ; complet, en ligne
+# Chapitre 8 : Khrysos — **validé par Cyril** le 2026-11-05 (« Oui pour tout ») ; complet, en ligne ; inventions validées (« Oui pour les trois »)
 
 Cyril (2026-11-04, « Oui pour les trois ») : après Marche-Mère, Glacialis, et la dernière caisse. Khrysos d'abord
 (l'ordre validé de `villes.md`). Le lieu, ses habitants et ce que dit le canon : `docs/univers/lieux/khrysos.md`. Le
@@ -80,7 +80,7 @@ et une réplique d'Ilyane. Après lui, les sept caisses ont toutes un sort ; la 
 | 4 | « Les quatorze années de mesures » (Maître Ennir et le petit cristal de mesures d'un élève de Nher-Khal ; Dagny Ferme-Givre, des 4 611, de ceux qui paient pour savoir, Investigation 18 ; le donner, le cacher, le briser ; le jeu ne dit jamais si les morts sont conscients) ; « Ceux qu'on laisse dehors » (les Oskarsen devant la Porte ; Bjorn plaide au Conseil, convaincu par le Récit « Le Premier Tri », Commandement ou Diplomatie 18 ; ou le mur chaud du Foyer, Discrétion 18 ; ou le sud, avec ton manteau et trente Fers) ; « L'Épreuve du Blizzard » (Torka ; les traces, Survie 18, ou Korvek pour dix Fers ; Sigrun ramenée vivante par ton manteau, Médecine ou Athlétisme 18, sans deux doigts si le jet rate, ou laissée : l'abandon dans le froid) ; « Le cristal qui écoute » (Brodd, de l'Alliance pour la Justice Glaciale ; le briser au fil, Artisanat 18, sept ans de malheur ; le laisser ; dénoncer Brodd) ; « Le yéti des Portes » (les bottes de Ferros sous les traces, Investigation 18 ; le cristal espion qui rend la nuit du marché, s'il pend encore ; Korvek qui part vers les Terres Sauvages) ; le Collège des 9 Miroirs (« Une lacune à signer » : la face brisée du registre des Portes, la garde qui avoue, Investigation 18 ou Perception 6, et signer son nom) ; les Vigiles Blancs (« L'égaré » : ramener Sigrun vivante ; un Vigile descend aux cryptes avec toi ; le manteau blanc au sommet) | en ligne |
 | 5 | Douze passants (les Portes, les Galeries, le Niveau Royal, le Douze, le Foyer), les phrases spontanées de seize habitants, la veillée du Foyer (« Le cristal rend » : on y aime les récits exacts sur les morts et les puissants, on y déteste les chansons ; deux rumeurs : le gardien des cryptes qui dort assis à la deuxième heure, le cocher de Ferros et ses bougies de suif), cinq habitants qui écoutent un Récit (Korvek, Halvard, la Prêtresse de l'Hiver Éveillé, Bjorn, Maître Ennir) | en ligne |
 
-**Propositions de la construction (à valider)** : Maître Ennir et le petit cristal de mesures ; Dagny, de ceux qui
+**Propositions de la construction (validées le 2026-11-05, « Oui pour les trois »)** : Maître Ennir et le petit cristal de mesures ; Dagny, de ceux qui
 paient pour savoir, sa mère dans une prise, section quatre ; les Oskarsen, une mère et un enfant, renvoyés il y a trois
 nuits ; Bjorn battu six voix à trois sur la loi de 2995, et l'exception « une famille, une fois » ; la remise derrière le
 mur chaud du Foyer ; Sigrun partie à l'est, vers la perche des guides, dans le manteau de son père ; Brodd membre de
@@ -98,7 +98,7 @@ cryptes ouverte pour la journée à qui vient à deux ; le Caveau des cristaux s
 Collège ; la Prêtresse de l'Hiver Éveillé et son cristal « vide », à qui l'on confie ce qu'on n'a dit à personne ;
 Korvek qui fait payer un Fer à qui touche son bras pour la chance.
 
-## Questions à Cyril (construction, 2026-11-05)
+## Questions à Cyril (construction, 2026-11-05) — **réponse : « Oui pour les trois »**
 
 1. **Les six noms** de la caisse de Glacialis : Aksel, sept ans ; Mira, cinq ans ; Tove, huit ans ; Elio, six ans ; Ysé,
    neuf ans ; Noam, quatre ans ? (ma recommandation : oui, dans le ton des listes déjà validées).

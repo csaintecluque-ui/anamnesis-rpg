@@ -74,7 +74,7 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `chapitre-5.md` : chapitre 5, Aetherhaven : « Les noms qui montent », sept quêtes de ville, deux guildes ; validé, complet et en ligne.
 - `chapitre-6.md` : chapitre 6, Coralia : « Ce que la mer rend », six quêtes de ville, deux guildes, les marées ; validé, complet et en ligne.
 - `chapitre-7.md` : chapitre 7, Marche-Mère : « Ce qui n'a plus lieu », six quêtes de ville, deux guildes, la Marche et ses haltes ; validé, complet et en ligne.
-- `chapitre-8.md` : chapitre 8, Khrysos : « Ce que la glace a pris » (la septième caisse), six quêtes de ville, deux guildes ; validé, complet et en ligne ; inventions de la construction à valider.
+- `chapitre-8.md` : chapitre 8, Khrysos : « Ce que la glace a pris » (la septième caisse), six quêtes de ville, deux guildes ; validé, complet et en ligne ; inventions validées.
 - `histoire-prenante.md` : rendre l'histoire prenante (diagnostic, sept leviers, questions à Cyril) ; nourrit les chantiers 1 et 4.
 - `feuille-de-route.md` : analyse et feuille de route de Cyril (2026-11-03) : sept chantiers avant tout nouveau chapitre ; en ligne.
 - `etude-2026-11-03.md` : l'étude complète de Cyril (87 améliorations, trois vagues) vérifiée contre le code ; la vague 1 faite, l'ordre de la vague 2, les questions ; en cours.

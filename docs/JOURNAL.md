@@ -13,15 +13,15 @@
 | Vague | État |
 |---|---|
 | 1 · jouable, 2 · tendu | **finies, en ligne** (2026-11-03 et 04) ; partie de Cyril sur PC à faire |
-| 3 · vivant | son, dialogues, passants et phrases spontanées **en ligne** ; **fil directeur** et page « Le fil » **en ligne** ; chapitres 5 (`gdd/chapitre-5.md`), 6 (`gdd/chapitre-6.md`) et 7 (`gdd/chapitre-7.md`) **validés, complets, en ligne**, inventions validées ; les trois caisses du retour **en ligne** ; **Khrysos** (`gdd/chapitre-8.md`) **complet, en ligne** (2026-11-05), ses inventions à valider ; puis C (Higgsfield) |
+| 3 · vivant | son, dialogues, passants et phrases spontanées **en ligne** ; **fil directeur** et page « Le fil » **en ligne** ; chapitres 5 (`gdd/chapitre-5.md`), 6 (`gdd/chapitre-6.md`) et 7 (`gdd/chapitre-7.md`) **validés, complets, en ligne**, inventions validées ; les trois caisses du retour **en ligne** ; **Khrysos** (`gdd/chapitre-8.md`) **complet, en ligne** (2026-11-05), inventions validées, Notion à jour ; puis C (Higgsfield) |
 
 Les chantiers 0 à 6 (`docs/gdd/feuille-de-route.md`) restent en ligne, leur partie sur PC à faire : la liste unique
 est `docs/a-essayer.md`.
 
 ## Prochaine étape
 
-- **Cyril valide les inventions de Khrysos** (`gdd/chapitre-8.md`, « Questions à Cyril (construction) » : les six noms,
-  le cristal qui hésite, les habitants ajoutés) ; puis la page Notion « Khrysos » (le validé seulement), et C (Higgsfield).
+- **C (Higgsfield)** : le dernier bloc de la vague 3, les ambiances et la berceuse (`gdd/son.md`, « Plus tard :
+  Higgsfield », ≈ 80 crédits) ; présenter d'abord le plan et son coût, et attendre le feu vert de Cyril.
 
 ## Points ouverts
 

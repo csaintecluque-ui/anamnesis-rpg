@@ -252,7 +252,7 @@ Cloudrest, Mistral (Zephyria) [E3, N1, N3]. Crystallis est écartée : son nom e
 
 ## 8. Marche-Mère, la ville qui marche — Solarix (Communion des Sables Vivants)
 
-Fiche relue contre le canon le 2026-11-04 (proposition, à valider) : `lieux/marche-mere.md`.
+Fiche relue contre le canon le 2026-11-04, validée par Cyril : `lieux/marche-mere.md`.
 
 - **Canon** : capitale de la Communion, ville-caravane ; matriarcat symbiotique, Reine des Sables [N5] ; un Léviathan
   mesure jusqu'à 300 m et porte **un clan** (quelques centaines de personnes, tentes sur la plate-forme dorsale) ; la
@@ -283,7 +283,7 @@ Fiche relue contre le canon le 2026-11-04 (proposition, à valider) : `lieux/mar
 
 ## 9. Khrysos, la cité de cristal — Glacialis
 
-Fiche relue contre le canon le 2026-11-04 (proposition, à valider) : `lieux/khrysos.md`.
+Fiche relue contre le canon le 2026-11-04, validée par Cyril le 2026-11-05 : `lieux/khrysos.md`.
 
 - **Canon** : capitale du Dominion Cristallin (Conseil des Neuf Cristaux) ; nom Khrysos [NOTION : arbitrage] [E3, N6] ; Bibliothèques de Glace, Mer Gelée [E3, N6] ; Enfants du Givre, Entités cristallines [E7-5] ;
   la Voie de l'Hiver Éveillé, Nörvath principe de mémoire, les cristaux « portent la mémoire du monde » [R5] ; la

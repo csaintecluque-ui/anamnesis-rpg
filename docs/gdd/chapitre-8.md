@@ -1,4 +1,4 @@
-# Chapitre 8 : Khrysos — **proposition, à valider** (2026-11-04)
+# Chapitre 8 : Khrysos — **validé par Cyril** le 2026-11-05 (« Oui pour tout ») ; à construire
 
 Cyril (2026-11-04, « Oui pour les trois ») : après Marche-Mère, Glacialis, et la dernière caisse. Khrysos d'abord
 (l'ordre validé de `villes.md`). Le lieu, ses habitants et ce que dit le canon : `docs/univers/lieux/khrysos.md`. Le

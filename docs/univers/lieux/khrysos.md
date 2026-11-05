@@ -1,4 +1,4 @@
-# Khrysos, le Cœur de Cristal (Glacialis) — **proposition, à valider** (2026-11-04)
+# Khrysos, le Cœur de Cristal (Glacialis) — **validé par Cyril** le 2026-11-05 (« Oui pour tout »)
 
 Le chapitre 8 et ses quêtes : `docs/gdd/chapitre-8.md`. Le plan de départ : `villes.md` §9.
 

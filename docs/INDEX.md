@@ -30,7 +30,7 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `lieux/aetherhaven.md` : Aetherhaven, la cité flottante (chapitre 5) : canon relu (voiles, Calme, Ailes Noires), lieux, habitants, guildes ; validé, construit.
 - `lieux/coralia.md` : Coralia, la cité du corail (chapitre 6) : canon relu (Thalassocratie, légendes, Profondeurs Chuchotantes), lieux, habitants, guildes ; validé, construit.
 - `lieux/marche-mere.md` : Marche-Mère, la ville qui marche (chapitre 7) : canon relu (fiche de la Communion, légendes, Thryn'vek), lieux, habitants, guildes, les haltes ; validé, construit.
-- `lieux/khrysos.md` : Khrysos, le Cœur de Cristal (chapitre 8) : canon relu (fiche de Glacialis, légendes, « Ce que les cristaux retiennent »), lieux, habitants, guildes, le froid et les faces ; à valider.
+- `lieux/khrysos.md` : Khrysos, le Cœur de Cristal (chapitre 8) : canon relu (fiche de Glacialis, légendes, « Ce que les cristaux retiennent »), lieux, habitants, guildes, le froid et les faces ; validé, à construire.
 - `factions.md` : organisations, alliances, conflits en cours ; factions et guildes du jeu (validées).
 - `objets.md` : ce qu'on dit des objets (lignes de lore de l'inventaire) ; validé.
 - `quetes.md` : histoire principale « Les voies endormies » et quêtes des villes ; validé.
@@ -74,7 +74,7 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `chapitre-5.md` : chapitre 5, Aetherhaven : « Les noms qui montent », sept quêtes de ville, deux guildes ; validé, complet et en ligne.
 - `chapitre-6.md` : chapitre 6, Coralia : « Ce que la mer rend », six quêtes de ville, deux guildes, les marées ; validé, complet et en ligne.
 - `chapitre-7.md` : chapitre 7, Marche-Mère : « Ce qui n'a plus lieu », six quêtes de ville, deux guildes, la Marche et ses haltes ; validé, complet et en ligne.
-- `chapitre-8.md` : chapitre 8, Khrysos : « Ce que la glace a pris » (la septième caisse), six quêtes de ville, deux guildes ; à valider.
+- `chapitre-8.md` : chapitre 8, Khrysos : « Ce que la glace a pris » (la septième caisse), six quêtes de ville, deux guildes ; validé, à construire.
 - `histoire-prenante.md` : rendre l'histoire prenante (diagnostic, sept leviers, questions à Cyril) ; nourrit les chantiers 1 et 4.
 - `feuille-de-route.md` : analyse et feuille de route de Cyril (2026-11-03) : sept chantiers avant tout nouveau chapitre ; en ligne.
 - `etude-2026-11-03.md` : l'étude complète de Cyril (87 améliorations, trois vagues) vérifiée contre le code ; la vague 1 faite, l'ordre de la vague 2, les questions ; en cours.

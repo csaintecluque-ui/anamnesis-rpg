@@ -5,6 +5,38 @@
     {
       "requires": [
         {
+          "flag": "sigrun-perdue"
+        },
+        {
+          "quest": "egare",
+          "status": "active"
+        }
+      ],
+      "node": "perdue"
+    },
+    {
+      "requires": [
+        {
+          "flag": "sigrun-perdue"
+        }
+      ],
+      "node": "perdue-2"
+    },
+    {
+      "requires": [
+        {
+          "quest": "egare",
+          "status": "active"
+        },
+        {
+          "flag": "sigrun-ramenee"
+        }
+      ],
+      "node": "veilleur"
+    },
+    {
+      "requires": [
+        {
           "lieu": "khrysos-voie-sept"
         }
       ],
@@ -73,6 +105,22 @@
       "text": "— Que la clarté n’est pas une vertu. C’est un outil, et on peut s’en servir pour ne rien faire. Les héros des légendes y voyaient clair ; il leur manquait une passion. Nous, on compte nos années en vies sauvées.",
       "options": [
         {
+          "text": "Je veux entrer chez les Vigiles Blancs.",
+          "next": "adhesion",
+          "requires": [
+            {
+              "quest": "egare",
+              "status": "none"
+            },
+            {
+              "notFlag": "membre-college-miroirs"
+            },
+            {
+              "notFlag": "sigrun-perdue"
+            }
+          ]
+        },
+        {
           "text": "Au revoir.",
           "next": "fin"
         }
@@ -121,6 +169,69 @@
       "options": [
         {
           "text": "Je sais.",
+          "next": "fin"
+        }
+      ]
+    },
+    "adhesion": {
+      "text": "— Les Vigiles prennent qui a ramené quelqu’un. Il y a une fille dehors, justement, depuis trop longtemps : Sigrun, la sœur de la petite Torka. Ramène-la vivante, et tu seras des nôtres.",
+      "effects": [
+        {
+          "startQuest": "egare"
+        },
+        {
+          "startQuest": "epreuve-blizzard"
+        },
+        {
+          "setFlag": "blizzard-commencee"
+        }
+      ],
+      "options": [
+        {
+          "text": "J’y vais.",
+          "next": "fin"
+        }
+      ]
+    },
+    "veilleur": {
+      "text": "Halvard pose son gant. — Sigrun. Vivante. Il te tend un brassard blanc. — Veilleur·se des Vigiles Blancs. On ne compte pas ce qu’on laisse : on compte ce qu’on ramène. Un. C’est un bon début.",
+      "effects": [
+        {
+          "completeQuest": "egare"
+        },
+        {
+          "setFlag": "membre-vigiles-blancs"
+        },
+        {
+          "giveXp": 40
+        }
+      ],
+      "options": [
+        {
+          "text": "Le prendre.",
+          "next": "fin"
+        }
+      ]
+    },
+    "perdue": {
+      "text": "Halvard ne lève pas la tête de son gant. — Les Vigiles l’ont ramenée, debout dans la neige. Ils ont trouvé tes traces à côté des siennes. Ne reviens pas ici.",
+      "effects": [
+        {
+          "completeQuest": "egare"
+        }
+      ],
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "perdue-2": {
+      "text": "Halvard ne lève pas la tête de son gant. — La fille de l’Épreuve. Les Vigiles l’ont ramenée, debout dans la neige, et tes traces à côté des siennes. Les Vigiles ne parlent pas à ceux qui laissent.",
+      "options": [
+        {
+          "text": "Partir.",
           "next": "fin"
         }
       ]

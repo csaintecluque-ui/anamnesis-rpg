@@ -1,0 +1,195 @@
+{
+  "id": "oskarsen",
+  "speaker": "oskarsen",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "laisses-dehors",
+          "status": "none"
+        }
+      ],
+      "node": "dehors"
+    },
+    {
+      "node": "attend"
+    }
+  ],
+  "nodes": {
+    "dehors": {
+      "text": "Une femme, un enfant contre elle, sous trois couvertures, adossés à la glace près de la Porte. Ils ne tremblent plus, ce qui est mauvais signe. — Les Oskarsen. On vient du sud, de ce qui fondait. La loi nous a donné une nuit au tunnel chaud. Il y a trois nuits.",
+      "effects": [
+        {
+          "startQuest": "laisses-dehors"
+        },
+        {
+          "setFlag": "oskarsen-vus"
+        }
+      ],
+      "options": [
+        {
+          "text": "Je vais parler pour vous au Conseil.",
+          "next": "fin"
+        },
+        {
+          "text": "Vous cacher au Foyer, chez Ulga.",
+          "next": "cache",
+          "requires": [
+            {
+              "notFlag": "cache-rate"
+            }
+          ],
+          "effects": [
+            {
+              "completeQuest": "laisses-dehors"
+            },
+            {
+              "setFlag": "fin-laisses-dehors-ulga"
+            },
+            {
+              "giveXp": 60
+            },
+            {
+              "setFlag": "oskarsen-reglee"
+            }
+          ],
+          "roll": {
+            "skill": "stealth",
+            "difficulty": 18
+          },
+          "failNext": "renvoyes"
+        },
+        {
+          "text": "Vous donner de quoi repartir vers le sud.",
+          "next": "sud-q"
+        },
+        {
+          "text": "Je reviendrai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "attend": {
+      "text": "Les Oskarsen n’ont pas bougé. L’enfant dort, ou fait semblant. La mère te regarde arriver sans espoir, ce qui lui épargne la déception. — Alors ?",
+      "options": [
+        {
+          "text": "Je vais parler pour vous au Conseil.",
+          "next": "fin"
+        },
+        {
+          "text": "Vous cacher au Foyer, chez Ulga.",
+          "next": "cache",
+          "requires": [
+            {
+              "notFlag": "cache-rate"
+            }
+          ],
+          "effects": [
+            {
+              "completeQuest": "laisses-dehors"
+            },
+            {
+              "setFlag": "fin-laisses-dehors-ulga"
+            },
+            {
+              "giveXp": 60
+            },
+            {
+              "setFlag": "oskarsen-reglee"
+            }
+          ],
+          "roll": {
+            "skill": "stealth",
+            "difficulty": 18
+          },
+          "failNext": "renvoyes"
+        },
+        {
+          "text": "Vous donner de quoi repartir vers le sud.",
+          "next": "sud-q"
+        },
+        {
+          "text": "Je reviendrai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "sud-q": {
+      "text": "— Le sud ? Neuf jours de traîneau jusqu’à ce qui reste de chez nous. Sans manteau pour le petit, on n’en fera pas trois.",
+      "options": [
+        {
+          "text": "Mon manteau pour l’enfant, et trente Fers.",
+          "next": "sud",
+          "requires": [
+            {
+              "item": "manteau-givre"
+            },
+            {
+              "fers": 30
+            }
+          ],
+          "effects": [
+            {
+              "completeQuest": "laisses-dehors"
+            },
+            {
+              "setFlag": "fin-laisses-dehors-sud"
+            },
+            {
+              "giveXp": 40
+            },
+            {
+              "takeItem": "manteau-givre"
+            },
+            {
+              "giveFers": -30
+            },
+            {
+              "setFlag": "oskarsen-reglee"
+            }
+          ]
+        },
+        {
+          "text": "Je n’ai rien à vous donner.",
+          "next": "attend"
+        }
+      ]
+    },
+    "cache": {
+      "text": "La nuit, par le tunnel de service, derrière les traîneaux. Ulga ouvre sa porte sans poser de question, et la referme. Au Foyer, il y a un mur chaud, et derrière le mur chaud, une remise. La loi de 2995 ne sait pas qu’elle existe.",
+      "options": [
+        {
+          "text": "Repartir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "renvoyes": {
+      "text": "La garde des Portes vous voit au coin du tunnel. Elle ne crie pas. Elle raccompagne les Oskarsen à la Porte, et toi avec. — Pas comme ça. La prochaine fois, je devrai le noter.",
+      "effects": [
+        {
+          "setFlagFor": "cache-rate",
+          "days": 2
+        },
+        {
+          "setFlag": "surpris-portes"
+        }
+      ],
+      "options": [
+        {
+          "text": "Attendre.",
+          "next": "fin"
+        }
+      ]
+    },
+    "sud": {
+      "text": "La mère prend le manteau sans te remercier, et le boutonne sur l’enfant. Les trente Fers, elle les compte. Ils partent vers le sud, sur la piste des traîneaux. Tu ne sauras jamais s’ils sont arrivés.",
+      "options": [
+        {
+          "text": "Les regarder partir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

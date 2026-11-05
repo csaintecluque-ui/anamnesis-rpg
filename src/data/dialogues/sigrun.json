@@ -1,0 +1,223 @@
+{
+  "id": "sigrun",
+  "speaker": "sigrun",
+  "entries": [
+    {
+      "requires": [
+        {
+          "flag": "sigrun-ramenee"
+        }
+      ],
+      "node": "maison"
+    },
+    {
+      "node": "trouvee"
+    }
+  ],
+  "nodes": {
+    "trouvee": {
+      "text": "Une fille de seize ans, assise contre un rocher, dans un manteau d’homme. Les lèvres bleues. — C’est pas fini. Vingt-quatre heures. Je compte. Elle compte mal : elle est dehors depuis trente heures, et elle ne sent plus ses mains.",
+      "apartes": {
+        "liane": "Liane est déjà à genoux dans la neige, les mains de la fille entre les siennes. — Ne discute pas avec elle. Ramène-la."
+      },
+      "options": [
+        {
+          "text": "Lui donner ton manteau.",
+          "next": "manteau",
+          "requires": [
+            {
+              "item": "manteau-givre"
+            }
+          ],
+          "effects": [
+            {
+              "takeItem": "manteau-givre"
+            },
+            {
+              "blesser": 5
+            },
+            {
+              "setFlag": "sigrun-ramenee"
+            },
+            {
+              "completeQuest": "epreuve-blizzard"
+            },
+            {
+              "setFlag": "fin-epreuve-blizzard-vivante"
+            },
+            {
+              "giveXp": 60
+            }
+          ]
+        },
+        {
+          "text": "Lui frictionner les mains, la soigner ici.",
+          "next": "soignee",
+          "effects": [
+            {
+              "setFlag": "sigrun-ramenee"
+            },
+            {
+              "completeQuest": "epreuve-blizzard"
+            },
+            {
+              "setFlag": "fin-epreuve-blizzard-vivante"
+            },
+            {
+              "giveXp": 60
+            }
+          ],
+          "roll": {
+            "skill": "medicine",
+            "difficulty": 18
+          },
+          "failNext": "doigts"
+        },
+        {
+          "text": "La porter jusqu’à la Porte.",
+          "next": "portee",
+          "effects": [
+            {
+              "setFlag": "sigrun-ramenee"
+            },
+            {
+              "completeQuest": "epreuve-blizzard"
+            },
+            {
+              "setFlag": "fin-epreuve-blizzard-vivante"
+            },
+            {
+              "giveXp": 60
+            }
+          ],
+          "roll": {
+            "skill": "athletics",
+            "difficulty": 18
+          },
+          "failNext": "doigts"
+        },
+        {
+          "text": "La laisser. C’est son Épreuve.",
+          "next": "abandonnee",
+          "effects": [
+            {
+              "setFlag": "sigrun-perdue"
+            },
+            {
+              "setFlag": "abandon-froid"
+            },
+            {
+              "completeQuest": "epreuve-blizzard"
+            },
+            {
+              "setFlag": "fin-epreuve-blizzard-abandonnee"
+            },
+            {
+              "giveXp": 0
+            },
+            {
+              "avis": "liane",
+              "delta": -3
+            },
+            {
+              "avis": "boulon",
+              "delta": -2
+            }
+          ]
+        }
+      ]
+    },
+    "manteau": {
+      "text": "Tu lui passes ton manteau par-dessus le sien. Elle proteste, puis plus. Le retour jusqu’à la Porte, toi sans manteau, prend une heure et te prend quelque chose. Elle marche. Elle rentre.",
+      "options": [
+        {
+          "text": "Rentrer.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "khrysos-portes",
+              "arrivee": "depuis-surface"
+            }
+          ]
+        }
+      ]
+    },
+    "soignee": {
+      "text": "Tu frottes ses mains dans la neige, puis contre ta peau, longtemps, jusqu’à ce qu’elle crie de douleur : bon signe. Elle se lève. Vous rentrez ensemble, au pas, en comptant pour de vrai.",
+      "options": [
+        {
+          "text": "Rentrer.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "khrysos-portes",
+              "arrivee": "depuis-surface"
+            }
+          ]
+        }
+      ]
+    },
+    "portee": {
+      "text": "Tu la charges sur ton dos. Elle ne pèse rien, ce qui t’inquiète. Une heure de vent de face, la perche, puis la Porte. Elle vit.",
+      "options": [
+        {
+          "text": "Rentrer.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "khrysos-portes",
+              "arrivee": "depuis-surface"
+            }
+          ]
+        }
+      ]
+    },
+    "doigts": {
+      "text": "Tu la ramènes, mais trop tard pour deux doigts de sa main gauche. À la Porte, le médecin des Vigiles les lui prend, proprement. Elle ne pleure pas. Elle dit : j’ai réussi l’Épreuve, alors.",
+      "effects": [
+        {
+          "setFlag": "sigrun-ramenee"
+        },
+        {
+          "completeQuest": "epreuve-blizzard"
+        },
+        {
+          "setFlag": "fin-epreuve-blizzard-doigts"
+        },
+        {
+          "giveXp": 40
+        }
+      ],
+      "options": [
+        {
+          "text": "Rentrer.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "khrysos-portes",
+              "arrivee": "depuis-surface"
+            }
+          ]
+        }
+      ]
+    },
+    "abandonnee": {
+      "text": "Tu repars vers la perche. Derrière toi, elle compte encore, à voix basse. Le lendemain, les Vigiles Blancs la ramènent, debout dans un bloc de neige. À Khrysos, ce que tu as fait a un nom : l’abandon dans le froid.",
+      "options": [
+        {
+          "text": "Rentrer.",
+          "next": "fin"
+        }
+      ]
+    },
+    "maison": {
+      "text": "Sigrun, roulée dans trois couvertures devant la cheminée. — Je comptais mal. Je croyais qu’il restait deux heures. Tu sais ce qui est bête ? Je n’avais plus froid. C’est ça qui aurait dû me faire peur.",
+      "options": [
+        {
+          "text": "Repose-toi.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

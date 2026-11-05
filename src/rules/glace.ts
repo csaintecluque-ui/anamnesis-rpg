@@ -9,12 +9,14 @@ import { ownedCount } from './inventory';
 
 /** The fur coat of Khrysos (src/data/items.json): who carries it does not suffer from the cold. */
 export const MANTEAU = 'manteau-givre';
+/** Every coat that keeps the cold off: Brodd's, and the white one of the Vigiles Blancs. */
+export const MANTEAUX = [MANTEAU, 'manteau-vigile'];
 /** What the cold of the surface (`froid`) costs to whoever has no coat: these hit points, on each arrival. */
 export const FROID_PV = 5;
 
 /** The cold, at the surface: null if a coat keeps it off, otherwise the hit points it took (never the last one). */
 export function froid(character: Character): number | null {
-  if (ownedCount(character, MANTEAU) > 0) return null;
+  if (MANTEAUX.some((id) => ownedCount(character, id) > 0)) return null;
   const lost = Math.min(FROID_PV, Math.max(0, character.hp - 1));
   character.hp -= lost;
   return lost;

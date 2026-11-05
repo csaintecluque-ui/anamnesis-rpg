@@ -229,6 +229,13 @@ import cristalTri from './cristal-tri.json';
 import cristalCryptes from './cristal-cryptes.json';
 import cristalCentJours from './cristal-cent-jours.json';
 import cristauxScelles from './cristaux-scelles.json';
+import dagny from './dagny.json';
+import oskarsen from './oskarsen.json';
+import tracesSigrun from './traces-sigrun.json';
+import sigrun from './sigrun.json';
+import cristalEspion from './cristal-espion.json';
+import traineauVole from './traineau-vole.json';
+import registrePortes from './registre-portes.json';
 
 /** Dialogue files by object name (PNJ, Écho or object) of the maps. */
 export const DIALOGUES: Record<string, Dialogue> = {
@@ -473,6 +480,13 @@ export const DIALOGUES: Record<string, Dialogue> = {
   'cristal-cryptes': cristalCryptes as Dialogue,
   'cristal-cent-jours': cristalCentJours as Dialogue,
   'cristaux-scelles': cristauxScelles as Dialogue,
+  dagny: dagny as Dialogue,
+  oskarsen: oskarsen as Dialogue,
+  'traces-sigrun': tracesSigrun as Dialogue,
+  sigrun: sigrun as Dialogue,
+  'cristal-espion': cristalEspion as Dialogue,
+  'traineau-vole': traineauVole as Dialogue,
+  'registre-portes': registrePortes as Dialogue,
   // Le Livre des Échos (docs/gdd/echos.md) : one dialogue per Écho, built from src/data/echos.json.
   ...echoDialogues(),
 };

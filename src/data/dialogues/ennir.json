@@ -3,6 +3,18 @@
   "speaker": "ennir",
   "entries": [
     {
+      "requires": [
+        {
+          "quest": "quatorze-annees",
+          "status": "active"
+        },
+        {
+          "flag": "dagny-vue"
+        }
+      ],
+      "node": "choix"
+    },
+    {
       "node": "accueil"
     }
   ],
@@ -24,7 +36,124 @@
       "text": "— Des voûtes, des ponts de glace, des cristaux d’archive qui tiennent droit. J’ai appris d’un homme qui avait appris d’un autre. On ne prononce plus le nom du premier. Il était le meilleur de nous tous.",
       "options": [
         {
+          "text": "Le premier, c’était Nher-Khal ?",
+          "next": "carnet",
+          "requires": [
+            {
+              "quest": "quatorze-annees",
+              "status": "none"
+            }
+          ]
+        },
+        {
           "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "carnet": {
+      "text": "Ennir pose un doigt mouillé sur le cristal, qui se tait. — Mon maître avait appris de son élève. Il a laissé ceci. Un petit cristal de mesures : des températures, des dates, des numéros de prise. Quatorze ans. Tout va dans le même sens. Rien ne conclut.",
+      "effects": [
+        {
+          "startQuest": "quatorze-annees"
+        },
+        {
+          "setFlag": "carnet-connu"
+        }
+      ],
+      "options": [
+        {
+          "text": "Qui le veut ?",
+          "next": "dagny-q"
+        }
+      ]
+    },
+    "dagny-q": {
+      "text": "— Dagny Ferme-Givre, des 4 611 : les familles dont il a brisé les morts. Elle vient chaque semaine. Elle dit qu’elle veut le faire condamner pour de bon. Elle est bien riche, pour quelqu’un qui veut seulement une condamnation.",
+      "options": [
+        {
+          "text": "Je vais lui parler.",
+          "next": "fin"
+        }
+      ]
+    },
+    "choix": {
+      "text": "— Vous l’avez vue. Ennir tient le petit cristal dans son gant, sans le serrer. — Je ne peux pas le garder toute ma vie, ni le donner à n’importe qui. Il a brisé les siennes pour qu’on n’ouvre pas les prises. Décidez, vous : moi, je n’y arrive pas.",
+      "options": [
+        {
+          "text": "Le donner à Dagny.",
+          "next": "donne",
+          "effects": [
+            {
+              "completeQuest": "quatorze-annees"
+            },
+            {
+              "setFlag": "fin-quatorze-annees-dagny"
+            },
+            {
+              "giveXp": 60
+            }
+          ]
+        },
+        {
+          "text": "Le cacher. Personne ne doit l’avoir.",
+          "next": "cache",
+          "effects": [
+            {
+              "completeQuest": "quatorze-annees"
+            },
+            {
+              "setFlag": "fin-quatorze-annees-garde"
+            },
+            {
+              "giveXp": 60
+            }
+          ]
+        },
+        {
+          "text": "Le briser, comme il a brisé les siennes.",
+          "next": "brise",
+          "effects": [
+            {
+              "completeQuest": "quatorze-annees"
+            },
+            {
+              "setFlag": "fin-quatorze-annees-brise"
+            },
+            {
+              "giveXp": 60
+            }
+          ]
+        },
+        {
+          "text": "Je ne sais pas encore.",
+          "next": "fin"
+        }
+      ]
+    },
+    "donne": {
+      "text": "Ennir enveloppe le cristal dans un gant et te le confie. Le soir, Dagny le reçoit sans un mot, et sourit pour la première fois. Chez les 4 611, il y a ceux qui veulent une condamnation, et ceux qui veulent ouvrir les prises pour savoir.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "cache": {
+      "text": "Ennir glisse le cristal sous une dalle de son atelier, et pousse l’établi dessus. — Il attendra. Les mesures ne pourrissent pas. Un jour, quelqu’un saura peut-être les lire sans ouvrir personne.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "brise": {
+      "text": "Ennir hésite, puis te tend le cristal. Tu le poses sur l’établi et tu frappes une fois. Quatorze ans de mesures, en éclats. — Il aurait compris, dit Ennir. C’est ce qu’il a fait, lui aussi. Briser un écho.",
+      "options": [
+        {
+          "text": "Partir.",
           "next": "fin"
         }
       ]

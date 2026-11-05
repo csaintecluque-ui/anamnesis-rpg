@@ -1,0 +1,43 @@
+{
+  "id": "registre-portes",
+  "speaker": "registre-portes",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "face-signee",
+          "status": "active"
+        }
+      ],
+      "node": "nuit"
+    },
+    {
+      "node": "registre"
+    }
+  ],
+  "nodes": {
+    "registre": {
+      "text": "Le registre des Portes : un cristal sur un socle, près de la garde. Il rend qui entre, qui sort, et qui est renvoyé, nuit après nuit, mot pour mot.",
+      "options": [
+        {
+          "text": "Passer.",
+          "next": "fin"
+        }
+      ]
+    },
+    "nuit": {
+      "text": "Tu fais rendre les nuits, une à une. La veille, intacte ; le lendemain, intact. Entre les deux, rien : une face manque. Sur le socle, une poussière de cristal que personne n’a balayée.",
+      "effects": [
+        {
+          "setFlag": "face-portes-vue"
+        }
+      ],
+      "options": [
+        {
+          "text": "Regarder la garde.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

@@ -1358,5 +1358,40 @@
     "id": "cristaux-scelles",
     "name": "Les cristaux scellés",
     "role": "Le Caveau"
+  },
+  {
+    "id": "dagny",
+    "name": "Dagny Ferme-Givre",
+    "role": "Des 4 611"
+  },
+  {
+    "id": "oskarsen",
+    "name": "Les Oskarsen",
+    "role": "Réfugiés, devant la Porte de Glace"
+  },
+  {
+    "id": "sigrun",
+    "name": "Sigrun",
+    "role": "Seize ans, la sœur de Torka"
+  },
+  {
+    "id": "traces-sigrun",
+    "name": "Des traces dans la neige",
+    "role": "La surface"
+  },
+  {
+    "id": "traineau-vole",
+    "name": "Un traîneau de Ferros",
+    "role": "Les Portes de Glace"
+  },
+  {
+    "id": "cristal-espion",
+    "name": "Un cristal espion",
+    "role": "Les Galeries Chaudes"
+  },
+  {
+    "id": "registre-portes",
+    "name": "Le registre des Portes",
+    "role": "Les Portes de Glace"
   }
 ]

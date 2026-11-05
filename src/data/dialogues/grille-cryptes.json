@@ -11,22 +11,8 @@
       "text": "Une grille de fer noir, et derrière, des allées de cristal à perte de vue. Une plaque : « On ne descend plus seul aux cryptes. An 2857. » Le gardien lève sa lampe vers toi, puis vers qui t’accompagne.",
       "options": [
         {
-          "text": "Liane descendra avec moi.",
-          "next": "deux",
-          "requires": [
-            {
-              "compagnon": "liane"
-            }
-          ]
-        },
-        {
-          "text": "Boulon descendra avec moi.",
-          "next": "deux",
-          "requires": [
-            {
-              "compagnon": "boulon"
-            }
-          ]
+          "text": "Descendre avec quelqu’un.",
+          "next": "second"
         },
         {
           "text": "Passer seul·e, cette nuit, quand le gardien dort.",
@@ -112,6 +98,42 @@
       "options": [
         {
           "text": "Remonter.",
+          "next": "fin"
+        }
+      ]
+    },
+    "second": {
+      "text": "Le gardien attend, la lampe levée. — Qui regardera tes mains ?",
+      "options": [
+        {
+          "text": "Liane descendra avec moi.",
+          "next": "deux",
+          "requires": [
+            {
+              "compagnon": "liane"
+            }
+          ]
+        },
+        {
+          "text": "Boulon descendra avec moi.",
+          "next": "deux",
+          "requires": [
+            {
+              "compagnon": "boulon"
+            }
+          ]
+        },
+        {
+          "text": "Un Vigile Blanc descendra avec moi.",
+          "next": "deux",
+          "requires": [
+            {
+              "flag": "membre-vigiles-blancs"
+            }
+          ]
+        },
+        {
+          "text": "Personne, finalement.",
           "next": "fin"
         }
       ]

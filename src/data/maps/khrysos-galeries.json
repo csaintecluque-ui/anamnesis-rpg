@@ -11,7 +11,7 @@
  "tilewidth": 64,
  "tileheight": 32,
  "nextlayerid": 4,
- "nextobjectid": 14,
+ "nextobjectid": 15,
  "layers": [
   {
    "id": 1,
@@ -1591,6 +1591,30 @@
     },
     {
      "id": 13,
+     "name": "cristal-espion",
+     "type": "objet",
+     "x": 496,
+     "y": 240,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": [
+      {
+       "name": "tuile",
+       "type": "string",
+       "value": "cristal-espion"
+      },
+      {
+       "name": "disparaitSi",
+       "type": "string",
+       "value": "fin-cristal-ecoute-brise"
+      }
+     ]
+    },
+    {
+     "id": 14,
      "name": "panneau-galeries",
      "type": "panneau",
      "x": 688,

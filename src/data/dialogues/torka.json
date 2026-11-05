@@ -3,6 +3,49 @@
   "speaker": "torka",
   "entries": [
     {
+      "requires": [
+        {
+          "flag": "sigrun-perdue"
+        }
+      ],
+      "node": "perdue"
+    },
+    {
+      "requires": [
+        {
+          "flag": "fin-epreuve-blizzard-doigts"
+        }
+      ],
+      "node": "doigts"
+    },
+    {
+      "requires": [
+        {
+          "quest": "epreuve-blizzard",
+          "status": "done"
+        }
+      ],
+      "node": "rentree"
+    },
+    {
+      "requires": [
+        {
+          "quest": "epreuve-blizzard",
+          "status": "active"
+        }
+      ],
+      "node": "attend"
+    },
+    {
+      "requires": [
+        {
+          "quest": "epreuve-blizzard",
+          "status": "none"
+        }
+      ],
+      "node": "sigrun"
+    },
+    {
       "node": "accueil"
     }
   ],
@@ -46,6 +89,80 @@
         },
         {
           "text": "Je te laisse.",
+          "next": "fin"
+        }
+      ]
+    },
+    "sigrun": {
+      "text": "Une petite fille en bonnet rouge, à genoux devant un ours de glace à moitié taillé. Elle ne gratte plus. — C’est l’ours de Sigrun. Elle devait le finir en rentrant de l’Épreuve du Blizzard. Vingt-quatre heures seule dehors. Ça fait trente.",
+      "effects": [
+        {
+          "startQuest": "epreuve-blizzard"
+        },
+        {
+          "setFlag": "blizzard-commencee"
+        }
+      ],
+      "options": [
+        {
+          "text": "Je vais la chercher.",
+          "next": "fin"
+        },
+        {
+          "text": "Les Vigiles Blancs ne la cherchent pas ?",
+          "next": "vigiles"
+        },
+        {
+          "text": "Qui t’a appris à sculpter ?",
+          "next": "appris"
+        }
+      ]
+    },
+    "vigiles": {
+      "text": "— Ils cherchent au nord. Sigrun est partie à l’est. Elle me l’a dit, à moi, et à personne d’autre : elle voulait voir la perche des guides, en sortant par la Porte.",
+      "options": [
+        {
+          "text": "Je vais la chercher.",
+          "next": "fin"
+        }
+      ]
+    },
+    "attend": {
+      "text": "Torka gratte l’ours de Sigrun, sans le finir. — À l’est. La perche des guides. Elle a pris le manteau de Papa, il est trop grand pour elle.",
+      "options": [
+        {
+          "text": "Je vais la chercher.",
+          "next": "fin"
+        },
+        {
+          "text": "Je te laisse.",
+          "next": "fin"
+        }
+      ]
+    },
+    "rentree": {
+      "text": "— Sigrun est rentrée ! Elle dort depuis deux jours. Maman dit qu’elle a raté l’Épreuve. Sigrun dit que non, qu’elle a appris ce qu’il fallait apprendre. Torka a fini l’ours. Il sourit, ce qui ne se fait pas pour un ours.",
+      "options": [
+        {
+          "text": "Je te laisse.",
+          "next": "fin"
+        }
+      ]
+    },
+    "doigts": {
+      "text": "Torka a fini l’ours. Il a une patte de travers. — C’est Sigrun qui l’a fini, avec sa main d’après. Elle dit que l’ours lui ressemble, maintenant. Moi, je trouve qu’il est mieux.",
+      "options": [
+        {
+          "text": "Je te laisse.",
+          "next": "fin"
+        }
+      ]
+    },
+    "perdue": {
+      "text": "Torka ne sculpte plus. Un bloc de glace intact devant elle. — On dit que tu l’as vue. Que tu es reparti·e. Elle ne lève pas les yeux. — À Khrysos, il y a un mot pour ça. Maman ne veut pas que je le dise.",
+      "options": [
+        {
+          "text": "Partir.",
           "next": "fin"
         }
       ]

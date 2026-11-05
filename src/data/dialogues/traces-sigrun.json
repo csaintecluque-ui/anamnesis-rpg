@@ -1,0 +1,80 @@
+{
+  "id": "traces-sigrun",
+  "speaker": "traces-sigrun",
+  "entries": [
+    {
+      "requires": [
+        {
+          "notFlag": "sigrun-reperee"
+        }
+      ],
+      "node": "traces"
+    },
+    {
+      "node": "vide"
+    }
+  ],
+  "nodes": {
+    "traces": {
+      "text": "Sous la neige fraîche, des pas de bottes trop grandes pour celle qui les porte, vers l’est. Le vent les efface à mesure qu’on les regarde.",
+      "options": [
+        {
+          "text": "Les suivre avant qu’elles disparaissent.",
+          "next": "suivies",
+          "requires": [
+            {
+              "notFlag": "traces-rate"
+            }
+          ],
+          "roll": {
+            "skill": "survival",
+            "difficulty": 18
+          },
+          "failNext": "perdues"
+        },
+        {
+          "text": "Aller chercher Korvek, aux Portes.",
+          "next": "fin"
+        }
+      ]
+    },
+    "suivies": {
+      "text": "Tu suis les pas, de creux en creux, la tête baissée contre le vent. Puis, entre deux rafales, une silhouette assise contre un rocher, à l’est.",
+      "effects": [
+        {
+          "setFlag": "sigrun-reperee"
+        }
+      ],
+      "options": [
+        {
+          "text": "Y aller.",
+          "next": "fin"
+        }
+      ]
+    },
+    "perdues": {
+      "text": "Les pas se perdent dans une congère, puis plus rien. Le vent a gagné. Demain, la neige aura bougé ; ou demande à un guide qui sait lire le blizzard.",
+      "effects": [
+        {
+          "setFlagFor": "traces-rate",
+          "days": 1
+        }
+      ],
+      "options": [
+        {
+          "text": "Rentrer.",
+          "next": "fin"
+        }
+      ]
+    },
+    "vide": {
+      "text": "Des pas, à moitié effacés.",
+      "options": [
+        {
+          "text": "Passer.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

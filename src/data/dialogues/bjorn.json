@@ -15,6 +15,95 @@
           "next": "change"
         },
         {
+          "text": "Une famille attend dehors, aux Portes. Les Oskarsen.",
+          "next": "oskarsen",
+          "requires": [
+            {
+              "quest": "laisses-dehors",
+              "status": "active"
+            },
+            {
+              "notFlag": "oskarsen-reglee"
+            },
+            {
+              "notFlag": "bjorn-refus"
+            }
+          ]
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "oskarsen": {
+      "text": "Bjorn regarde ses mains. — La loi de 2995. J’ai voté contre, et j’ai perdu, six voix à trois. Si je porte une famille devant le Conseil, je perds encore, et ils restent dehors quand même, avec mon nom en plus.",
+      "options": [
+        {
+          "text": "Le tabou de l’abandon a été écrit contre Vaelor. Contre votre fondateur.",
+          "next": "oui",
+          "requires": [
+            {
+              "recit": "premier-tri"
+            }
+          ]
+        },
+        {
+          "text": "Vous êtes le Cristal du Peuple. Alors soyez-le.",
+          "next": "oui",
+          "roll": {
+            "skill": "command",
+            "difficulty": 18
+          },
+          "failNext": "non"
+        },
+        {
+          "text": "Une voix sur neuf suffit pour dire non. Dites-le.",
+          "next": "oui",
+          "roll": {
+            "skill": "diplomacy",
+            "difficulty": 18
+          },
+          "failNext": "non"
+        },
+        {
+          "text": "Je comprends.",
+          "next": "fin"
+        }
+      ]
+    },
+    "oui": {
+      "text": "Bjorn se lève. Le lendemain, il parle quatre heures devant le Conseil des Neuf Cristaux. On lui accorde une exception : une famille, une fois. La Primus fait noter : un précédent. Les Oskarsen dorment au chaud, leur nom au registre des Portes.",
+      "effects": [
+        {
+          "setFlag": "oskarsen-reglee"
+        },
+        {
+          "completeQuest": "laisses-dehors"
+        },
+        {
+          "setFlag": "fin-laisses-dehors-bjorn"
+        },
+        {
+          "giveXp": 60
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Bjorn.",
+          "next": "fin"
+        }
+      ]
+    },
+    "non": {
+      "text": "— Non. Je ne gagnerai pas, et ce sont eux qui paieront ma défaite. Trouvez autre chose, ou laissez-moi tranquille.",
+      "effects": [
+        {
+          "setFlag": "bjorn-refus"
+        }
+      ],
+      "options": [
+        {
           "text": "Au revoir.",
           "next": "fin"
         }

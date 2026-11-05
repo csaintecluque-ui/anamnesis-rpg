@@ -347,6 +347,10 @@ En ligne le 2026-11-03 (tes textes du 3 novembre) :
 - [ ] **Les faces** : à la Bibliothèque, les trois cristaux (la formule d'abord) ; la Marche de Vaelor jusqu'à la face
       neuvième donne le Récit « Le Premier Tri ». **Le cristal qui hésite** : Hrolda, Cent Jours face cinquième, la
       comparer, Khrys, le Caveau (★), trois fins.
+- [ ] **Les quêtes de la ville** : Maître Ennir (Galeries) et Dagny (Niveau Royal) ; les Oskarsen devant la Porte, Bjorn
+      au Palais ; Torka et Sigrun (la surface, à l'est ; Korvek guide) ; le cristal espion et Brodd ; Korvek accusé, le
+      traîneau vide, la garde. **Les guildes** : Hrolda (« Qui brise une face ? ») et le registre des Portes ; Halvard
+      (« Que croient les Vigiles ? ») et Sigrun.
 - Remarques :
 
 ## Déjà en ligne, pas encore essayé sur PC

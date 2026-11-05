@@ -5,6 +5,18 @@
     {
       "requires": [
         {
+          "quest": "face-signee",
+          "status": "active"
+        },
+        {
+          "flag": "garde-avoue"
+        }
+      ],
+      "node": "signer"
+    },
+    {
+      "requires": [
+        {
           "quest": "cristal-hesite",
           "status": "active"
         },
@@ -136,6 +148,19 @@
         {
           "text": "Et Khrys ?",
           "next": "khrys"
+        },
+        {
+          "text": "Je veux entrer au Collège des 9 Miroirs.",
+          "next": "adhesion",
+          "requires": [
+            {
+              "quest": "face-signee",
+              "status": "none"
+            },
+            {
+              "notFlag": "membre-vigiles-blancs"
+            }
+          ]
         },
         {
           "text": "Merci.",
@@ -384,6 +409,62 @@
     },
     "brise-hrolda": {
       "text": "Hrolda frappe une fois, du plat de la main, là où passe le fil. Le cristal se fend. Elle signe la lacune de son nom, de la date, et du motif : « Pour qu’on ne s’en serve pas. » — J’ai brisé un écho. Celui-là, au moins, je sais pourquoi.",
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "adhesion": {
+      "text": "— Le Collège prend qui sait trouver un auteur. Une lacune récente : le registre des Portes, une face, il y a trois nuits. Sans auteur. Trouvez qui, et signez. Au Collège, c’est celui qui trouve qui signe.",
+      "effects": [
+        {
+          "startQuest": "face-signee"
+        }
+      ],
+      "options": [
+        {
+          "text": "J’y vais.",
+          "next": "fin"
+        }
+      ]
+    },
+    "signer": {
+      "text": "— Vous avez un nom ? Hrolda trempe la plume et te la tend. Le cahier est ouvert à la page du registre des Portes. Il reste une ligne.",
+      "options": [
+        {
+          "text": "Signer : la garde des Portes, de sa main, pour ne plus s’entendre.",
+          "next": "lecteur",
+          "effects": [
+            {
+              "completeQuest": "face-signee"
+            },
+            {
+              "setFlag": "membre-college-miroirs"
+            },
+            {
+              "giveXp": 40
+            }
+          ]
+        },
+        {
+          "text": "Je ne signerai pas son nom.",
+          "next": "pas-signer"
+        }
+      ]
+    },
+    "lecteur": {
+      "text": "Hrolda signe sous ta ligne, puis détache un éclat de miroir de son col et te le donne. — Lecteur·rice du Collège des 9 Miroirs. Vous ne jugerez pas. Vous signerez. Le reste n’est pas notre affaire.",
+      "options": [
+        {
+          "text": "Merci, Hrolda.",
+          "next": "fin"
+        }
+      ]
+    },
+    "pas-signer": {
+      "text": "— Alors vous n’êtes pas des nôtres. Le Collège ne protège personne, pas même par pitié. Revenez quand vous saurez signer ce qui vous déplaît.",
       "options": [
         {
           "text": "Au revoir.",

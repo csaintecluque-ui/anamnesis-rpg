@@ -2003,8 +2003,13 @@ function khrysosPortes() {
   m.object('porte-surface', 'porte', 29, 11, { cible: 'khrysos-surface', arrivee: 'depuis-portes', libelle: 'La Porte de Glace : la surface' });
   m.object('depuis-surface', 'arrivee', 27, 11);
   m.object('garde-portes', 'pnj', 27, 9);
-  m.object('korvek', 'pnj', 23, 14);
+  m.object('korvek', 'pnj', 23, 14, { disparaitSi: 'fin-yeti-portes-parti' });
   blocks(m, 'traineau', [[22, 17], [24, 18]]);
+  // « Le yéti des Portes » : le traîneau vidé du marchand de Ferros.
+  m.object('traineau-vole', 'objet', 22, 17);
+  // Le registre des Portes : qui entre, qui sort, qui est renvoyé (« Une lacune à signer »).
+  m.setObstacle(26, 7, 'cristal-archive');
+  m.object('registre-portes', 'objet', 26, 7);
   blocks(m, 'cristal-lumineux', [[9, 2], [15, 2], [24, 2], [9, 17], [21, 20], [27, 5], [27, 16]]);
   m.setObstacle(13, 11, 'panneau');
   m.object('panneau-portes', 'panneau', 13, 11, { texte: 'Les Portes de Glace. Huit tunnels chauffés relient Khrysos à la surface, trois cents mètres plus haut. Dedans, −5 °C. Dehors, −60. « Dans le froid, nous trouvons la clarté. »' });
@@ -2026,7 +2031,7 @@ function khrysosSurface() {
   m.object('porte-portes', 'porte', 0, 10, { cible: 'khrysos-portes', arrivee: 'depuis-surface', libelle: 'La Porte de Glace : rentrer' });
   m.object('depuis-portes', 'arrivee', 2, 10);
   m.object('entree', 'arrivee', 2, 10);
-  const keep = new Set(['1,9', '1,10', '1,11', '2,9', '2,10', '2,11', '3,10', '3,11', '4,13', '5,13', '4,12', '20,6', '21,6', '21,7']);
+  const keep = new Set(['1,9', '1,10', '1,11', '2,9', '2,10', '2,11', '3,10', '3,11', '4,13', '5,13', '4,12', '20,6', '21,6', '21,7', '6,10', '6,11', '5,10']);
   for (let row = 1; row < 19; row++) {
     for (let col = 1; col < 27; col++) {
       if (keep.has(`${col},${row}`)) continue;
@@ -2036,6 +2041,12 @@ function khrysosSurface() {
       else if (roll < 0.1) m.setObstacle(col, row, 'rocher-glace');
     }
   }
+  // « Ceux qu'on laisse dehors » : les Oskarsen, renvoyés par la loi de 2995, contre la glace près de la Porte.
+  m.object('oskarsen', 'pnj', 4, 12, { disparaitSi: 'oskarsen-reglee' });
+  // « L'Épreuve du Blizzard » : des traces vers l'est, et Sigrun contre un rocher.
+  m.object('traces-sigrun', 'objet', 6, 10, { tuile: 'traces-pas', apparaitSi: 'blizzard-commencee', disparaitSi: 'sigrun-reperee' });
+  m.setObstacle(22, 6, 'rocher-glace');
+  m.object('sigrun', 'pnj', 21, 6, { apparaitSi: 'sigrun-reperee', disparaitSi: 'sigrun-ramenee,sigrun-perdue' });
   m.setObstacle(3, 8, 'panneau');
   m.object('panneau-surface', 'panneau', 3, 8, { texte: 'Une perche plantée dans la neige, une corde nouée dessus. Les guides disent : « Tant que tu vois la perche, tu peux rentrer. »' });
   return m.toTiled();
@@ -2055,6 +2066,8 @@ function khrysosGaleries() {
   // Torka sculpte des animaux dans la glace, devant chez elle.
   blocks(m, 'sculpture-glace', [[11, 18], [12, 19], [14, 19]]);
   m.object('torka', 'pnj', 13, 17);
+  // « Le cristal qui écoute » : un cristal espion de la loi de 2998, au-dessus du marché couvert.
+  m.object('cristal-espion', 'objet', 15, 7, { tuile: 'cristal-espion', disparaitSi: 'fin-cristal-ecoute-brise' });
   blocks(m, 'geyser', [[27, 11], [2, 11]]);
   blocks(m, 'cristal-lumineux', [[6, 8], [23, 8], [6, 14], [23, 14]]);
   m.setObstacle(21, 11, 'panneau');
@@ -2071,6 +2084,8 @@ function khrysosRoyal() {
   house(m, 'khrysos-palais', 'palais-glace', [15, 3], [15, 4]);
   house(m, 'khrysos-temple', 'temple-hiver', [23, 6], [23, 7]);
   blocks(m, 'cristal-lumineux', [[12, 8], [18, 8], [12, 12], [18, 12], [12, 16], [18, 16], [4, 3], [27, 3]]);
+  // Dagny Ferme-Givre, des 4 611, et ses pétitions, devant le Palais.
+  m.object('dagny', 'pnj', 19, 6);
   m.setObstacle(14, 14, 'panneau');
   m.object('panneau-royal', 'panneau', 14, 14, { texte: 'Le Niveau Royal. Au-dessus du Palais, deux cents mètres de cristal ; plus haut encore, un puits de lumière où l’on fait descendre l’aurore. Le soir, la glace des murs vire au vert.' });
   return m.toTiled();
@@ -2169,7 +2184,7 @@ Object.assign(INTERIORS, {
   'khrysos-torka': interior('khrysos-torka', {
     ...ICE_ROOM, outside: 'khrysos-galeries',
     furniture: [[1, 1, 'lit'], [2, 1, 'lit'], [6, 1, 'cheminee'], [4, 3, 'table'], [6, 4, 'sculpture-glace']],
-    objects: [],
+    objects: [['sigrun', 'pnj', 5, 2, { apparaitSi: 'sigrun-ramenee' }]],
   }),
   'khrysos-relais': interior('khrysos-relais', { ...ICE_ROOM, outside: 'khrysos-galeries', furniture: [[2, 1, 'etagere'], [3, 1, 'etagere'], [5, 4, 'table']], objects: [] }),
   'khrysos-ennir': interior('khrysos-ennir', {

@@ -1,0 +1,84 @@
+{
+  "id": "traineau-vole",
+  "speaker": "traineau-vole",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "yeti-portes",
+          "status": "active"
+        },
+        {
+          "notFlag": "traces-bottes"
+        }
+      ],
+      "node": "vide"
+    },
+    {
+      "node": "traineau"
+    }
+  ],
+  "nodes": {
+    "traineau": {
+      "text": "Un traîneau de Ferros, des caisses de bougies de suif sanglées dessus.",
+      "options": [
+        {
+          "text": "Passer.",
+          "next": "fin"
+        }
+      ]
+    },
+    "vide": {
+      "text": "Le traîneau du marchand de Ferros, vidé : les sangles coupées, les caisses parties. Autour, la neige tassée par cent pieds et dix traîneaux.",
+      "options": [
+        {
+          "text": "Examiner les traces, sous les autres.",
+          "next": "bottes",
+          "requires": [
+            {
+              "notFlag": "traineau-rate"
+            }
+          ],
+          "roll": {
+            "skill": "investigation",
+            "difficulty": 18
+          },
+          "failNext": "pietine"
+        },
+        {
+          "text": "Laisser.",
+          "next": "fin"
+        }
+      ]
+    },
+    "bottes": {
+      "text": "Les sangles ont été coupées net, au couteau, à hauteur d’homme. Dans la neige, sous les autres, des bottes ferrées de Ferros. Un Yéti n’en porte pas : il n’en trouve pas à sa taille.",
+      "effects": [
+        {
+          "setFlag": "traces-bottes"
+        }
+      ],
+      "options": [
+        {
+          "text": "Aller voir la garde.",
+          "next": "fin"
+        }
+      ]
+    },
+    "pietine": {
+      "text": "Trop de pieds, trop de traîneaux. Demain, la neige fraîche aura recouvert le reste, ou montré autre chose.",
+      "effects": [
+        {
+          "setFlagFor": "traineau-rate",
+          "days": 1
+        }
+      ],
+      "options": [
+        {
+          "text": "Laisser.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

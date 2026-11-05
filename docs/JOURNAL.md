@@ -13,7 +13,7 @@
 | Vague | État |
 |---|---|
 | 1 · jouable, 2 · tendu | **finies, en ligne** (2026-11-03 et 04) ; partie de Cyril sur PC à faire |
-| 3 · vivant | son, dialogues, passants et phrases spontanées **en ligne** ; **fil directeur** et page « Le fil » **en ligne** ; chapitres 5 (`gdd/chapitre-5.md`), 6 (`gdd/chapitre-6.md`) et 7 (`gdd/chapitre-7.md`) **validés, complets, en ligne**, inventions validées ; les trois caisses du retour **en ligne** ; **Khrysos validé** (« Oui pour tout », 2026-11-05 ; `gdd/chapitre-8.md`), **en construction** (étapes 1 à 3 en ligne) ; puis C (Higgsfield) |
+| 3 · vivant | son, dialogues, passants et phrases spontanées **en ligne** ; **fil directeur** et page « Le fil » **en ligne** ; chapitres 5 (`gdd/chapitre-5.md`), 6 (`gdd/chapitre-6.md`) et 7 (`gdd/chapitre-7.md`) **validés, complets, en ligne**, inventions validées ; les trois caisses du retour **en ligne** ; **Khrysos validé** (« Oui pour tout », 2026-11-05 ; `gdd/chapitre-8.md`), **en construction** (étapes 1 à 4 en ligne) ; puis C (Higgsfield) |
 
 Les chantiers 0 à 6 (`docs/gdd/feuille-de-route.md`) restent en ligne, leur partie sur PC à faire : la liste unique
 est `docs/a-essayer.md`.

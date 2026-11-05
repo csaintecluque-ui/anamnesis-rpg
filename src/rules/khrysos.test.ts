@@ -166,9 +166,10 @@ describe('la règle des cryptes (on ne descend plus seul, 2857)', () => {
 
   it('ouvre la grille pour la journée à qui vient avec un compagnon de route', () => {
     const state = atGrille();
-    expect(optionTexts(state, 'grille-cryptes', 'ferme')).toEqual(['S’éloigner.']);
+    expect(optionTexts(state, 'grille-cryptes', 'second')).toEqual(['Personne, finalement.']);
     state.groupe.push({ id: 'liane' } as GameState['groupe'][number]);
-    choose(state, 'grille-cryptes', 'ferme', 'Liane descendra');
+    choose(state, 'grille-cryptes', 'ferme', 'Descendre avec quelqu’un');
+    choose(state, 'grille-cryptes', 'second', 'Liane descendra');
     expect(state.flags['cryptes-ouvertes']).toBe(true);
     expect(state.expirations?.['cryptes-ouvertes']).toBe(state.time.day);
   });
@@ -413,5 +414,170 @@ describe('« Le cristal qui hésite »', () => {
   it('le Caveau garde cinq cristaux qui ont hésité : la maladie des souvenirs atteint ce qui ne pouvait pas oublier', () => {
     expect(findObject(parseTiledMap(MAPS['khrysos-caveau']), 'cristaux-scelles')).toBeDefined();
     expect(DIALOGUES['cristaux-scelles'].nodes.rendre.text).toContain('Ce qui ne pouvait pas oublier commence à oublier');
+  });
+});
+
+// --- Les quêtes de Khrysos, et les deux guildes -------------------------------------------------------------------------
+
+describe('les quêtes de Khrysos', () => {
+  it('les quatorze années de mesures : Ennir, Dagny (des seconds, Investigation 18), trois fins ; le jeu ne dit pas si les morts sont conscients', () => {
+    for (const [text, fin] of [['Le donner à Dagny', 'dagny'], ['Le cacher', 'garde'], ['Le briser', 'brise']]) {
+      const state = game();
+      choose(state, 'ennir', 'accueil', 'Qu’est-ce que tu tisses');
+      choose(state, 'ennir', 'tisse', 'Le premier, c’était Nher-Khal');
+      expect(state.quests['quatorze-annees']).toBe('active');
+      expect(talk(state, 'dagny')).toBe('carnet');
+      expect(talk(state, 'ennir')).toBe('choix');
+      choose(state, 'ennir', 'choix', text);
+      expect(state.flags[`fin-quatorze-annees-${fin}`], fin).toBe(true);
+    }
+    const state = game();
+    state.quests['quatorze-annees'] = 'active';
+    choose(state, 'dagny', 'carnet', 'Ou que c’était un savant');
+    expect(state.flags['dagny-courant']).toBe(true);
+    const all = JSON.stringify(['ennir', 'dagny', 'prise-nher-khal', 'cristal-cryptes'].map((id) => DIALOGUES[id]));
+    expect(all).not.toMatch(/(ils|les morts) (sont|étaient) conscients/);
+  });
+
+  it('ceux qu’on laisse dehors : Bjorn convaincu par « Le Premier Tri », le mur chaud d’Ulga, ou le sud', () => {
+    const bjorn = game();
+    expect(talk(bjorn, 'oskarsen')).toBe('dehors');
+    expect(bjorn.quests['laisses-dehors']).toBe('active');
+    expect(optionTexts(bjorn, 'bjorn', 'oskarsen')).not.toContain('Le tabou de l’abandon a été écrit contre Vaelor. Contre votre fondateur.');
+    bjorn.character!.recits.push('premier-tri');
+    choose(bjorn, 'bjorn', 'accueil', 'Une famille attend dehors');
+    choose(bjorn, 'bjorn', 'oskarsen', 'Le tabou de l’abandon');
+    expect(bjorn.flags['fin-laisses-dehors-bjorn']).toBe(true);
+    expect(findObject(parseTiledMap(MAPS['khrysos-surface']), 'oskarsen')!.properties.disparaitSi).toBe('oskarsen-reglee');
+
+    const cache = game();
+    talk(cache, 'oskarsen');
+    choose(cache, 'oskarsen', 'dehors', 'Vous cacher au Foyer');
+    expect(cache.flags['fin-laisses-dehors-ulga']).toBe(true);
+    const vu = game();
+    talk(vu, 'oskarsen');
+    expect(fail(vu, 'oskarsen', 'dehors', 'Vous cacher')).toBe('renvoyes');
+    expect(optionTexts(vu, 'oskarsen', 'attend')).not.toContain('Vous cacher au Foyer, chez Ulga.');
+
+    const sud = game();
+    talk(sud, 'oskarsen');
+    expect(optionTexts(sud, 'oskarsen', 'sud-q')).toEqual(['Je n’ai rien à vous donner.']);
+    addItem(sud.character!, 'manteau-givre');
+    sud.character!.fers = 50;
+    choose(sud, 'oskarsen', 'sud-q', 'Mon manteau');
+    expect(sud.flags['fin-laisses-dehors-sud']).toBe(true);
+    expect(ownedCount(sud.character!, 'manteau-givre')).toBe(0);
+  });
+
+  it('l’Épreuve du Blizzard : Torka, les traces ou Korvek, Sigrun ; vivante, sans deux doigts, ou laissée', () => {
+    const state = game();
+    expect(talk(state, 'torka')).toBe('sigrun');
+    expect(state.quests['epreuve-blizzard']).toBe('active');
+    choose(state, 'traces-sigrun', 'traces', 'Les suivre');
+    expect(state.flags['sigrun-reperee']).toBe(true);
+    choose(state, 'sigrun', 'trouvee', 'Lui frictionner les mains');
+    expect(state.flags['fin-epreuve-blizzard-vivante']).toBe(true);
+    expect(talk(state, 'sigrun')).toBe('maison');
+    expect(talk(state, 'torka')).toBe('rentree');
+
+    const guide = game();
+    talk(guide, 'torka');
+    guide.character!.fers = 20;
+    choose(guide, 'korvek', 'accueil', 'Il y a une fille dehors');
+    choose(guide, 'korvek', 'guide', 'Dix Fers');
+    expect(guide.flags['korvek-guide']).toBe(true);
+    expect(fail(guide, 'sigrun', 'trouvee', 'La porter')).toBe('doigts');
+    expect(guide.flags['fin-epreuve-blizzard-doigts']).toBe(true);
+    expect(talk(guide, 'torka')).toBe('doigts');
+
+    const laissee = game();
+    talk(laissee, 'torka');
+    choose(laissee, 'sigrun', 'trouvee', 'La laisser');
+    expect(laissee.flags['abandon-froid']).toBe(true);
+    expect(reputationScore(laissee, 'khrysos')).toBeLessThan(0);
+    expect(talk(laissee, 'torka')).toBe('perdue');
+  });
+
+  it('le cristal qui écoute : Brodd et l’Alliance ; le briser (sept ans de malheur), le laisser, ou dénoncer Brodd', () => {
+    for (const [text, fin] of [['Le frapper', 'brise'], ['Le laisser', 'laisse'], ['Dire à la garde', 'denonce']]) {
+      const state = game();
+      choose(state, 'brodd', 'accueil', 'Et ce cristal');
+      expect(talk(state, 'cristal-espion')).toBe('fil');
+      choose(state, 'cristal-espion', 'fil', text);
+      expect(state.flags[`fin-cristal-ecoute-${fin}`], fin).toBe(true);
+    }
+    const loud = game();
+    choose(loud, 'brodd', 'accueil', 'Et ce cristal');
+    expect(fail(loud, 'cristal-espion', 'fil', 'Le frapper')).toBe('fracas');
+    expect(loud.flags['fin-cristal-ecoute-brise']).toBe(true);
+    expect(loud.flags['malheur-sept-ans']).toBe(true);
+    const denonce = game();
+    choose(denonce, 'brodd', 'accueil', 'Et ce cristal');
+    choose(denonce, 'cristal-espion', 'fil', 'Dire à la garde');
+    expect(talk(denonce, 'brodd')).toBe('froid');
+  });
+
+  it('le yéti des Portes : les bottes de Ferros, le cristal espion (s’il pend encore), ou le départ de Korvek', () => {
+    const traces = game();
+    traces.flags['glace-pris-commencee'] = true;
+    expect(talk(traces, 'korvek')).toBe('accuse');
+    choose(traces, 'traineau-vole', 'vide', 'Examiner les traces');
+    expect(talk(traces, 'garde-portes')).toBe('preuve');
+    expect(traces.flags['fin-yeti-portes-innocent']).toBe(true);
+
+    const espion = game();
+    espion.flags['glace-pris-commencee'] = true;
+    talk(espion, 'korvek');
+    expect(optionTexts(espion, 'garde-portes', 'yeti')).toContain('Faites rendre le cristal espion des Galeries : il a vu le marché.');
+    espion.flags['fin-cristal-ecoute-brise'] = true;
+    expect(optionTexts(espion, 'garde-portes', 'yeti')).not.toContain('Faites rendre le cristal espion des Galeries : il a vu le marché.');
+
+    const parti = game();
+    parti.flags['glace-pris-commencee'] = true;
+    talk(parti, 'korvek');
+    choose(parti, 'korvek', 'accuse', 'Pars avant');
+    expect(parti.flags['fin-yeti-portes-parti']).toBe(true);
+    expect(findObject(parseTiledMap(MAPS['khrysos-portes']), 'korvek')!.properties.disparaitSi).toBe('fin-yeti-portes-parti');
+  });
+});
+
+describe('les deux guildes de Khrysos', () => {
+  it('le Collège des 9 Miroirs : trouver qui a brisé la face du registre des Portes, et signer son nom', () => {
+    const state = game();
+    choose(state, 'hrolda', 'accueil', 'Et ne juge pas');
+    choose(state, 'hrolda', 'parle', 'Qui brise une face');
+    choose(state, 'hrolda', 'brise', 'Je veux entrer au Collège');
+    expect(state.quests['face-signee']).toBe('active');
+    expect(talk(state, 'registre-portes')).toBe('nuit');
+    expect(talk(state, 'garde-portes')).toBe('face');
+    choose(state, 'garde-portes', 'face', 'Vous étiez seule');
+    expect(state.flags['garde-avoue']).toBe(true);
+    expect(talk(state, 'hrolda')).toBe('signer');
+    choose(state, 'hrolda', 'signer', 'Signer');
+    expect(state.flags['membre-college-miroirs']).toBe(true);
+    expect(optionTexts(state, 'halvard', 'croient')).not.toContain('Je veux entrer chez les Vigiles Blancs.');
+    // Raté, la garde nie : on revient le lendemain.
+    const nie = game();
+    nie.quests['face-signee'] = 'active';
+    nie.flags['face-portes-vue'] = true;
+    expect(fail(nie, 'garde-portes', 'face', 'Vous étiez seule')).toBe('nie');
+    expect(talk(nie, 'garde-portes')).toBe('accueil');
+  });
+
+  it('les Vigiles Blancs : ramener un égaré vivant (Sigrun) ; un Vigile descend aux cryptes avec toi ; le manteau blanc garde du froid', () => {
+    const state = game();
+    choose(state, 'halvard', 'accueil', 'Que croient les Vigiles');
+    choose(state, 'halvard', 'croient', 'Je veux entrer chez les Vigiles');
+    expect(state.quests['egare']).toBe('active');
+    expect(state.quests['epreuve-blizzard']).toBe('active');
+    choose(state, 'traces-sigrun', 'traces', 'Les suivre');
+    choose(state, 'sigrun', 'trouvee', 'Lui frictionner');
+    expect(talk(state, 'halvard')).toBe('veilleur');
+    expect(state.flags['membre-vigiles-blancs']).toBe(true);
+    expect(optionTexts(state, 'grille-cryptes', 'second')).toContain('Un Vigile Blanc descendra avec moi.');
+    expect(optionTexts(state, 'hrolda', 'brise')).not.toContain('Je veux entrer au Collège des 9 Miroirs.');
+    const c = state.character!;
+    addItem(c, 'manteau-vigile');
+    expect(froid(c)).toBeNull();
   });
 });

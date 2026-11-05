@@ -1072,5 +1072,168 @@
         "titre": "Le cristal brisé par Hrolda"
       }
     ]
+  },
+  {
+    "id": "quatorze-annees",
+    "name": "Les quatorze années de mesures",
+    "summary": "Maître Ennir, Tisseur de Givre, garde un petit cristal de mesures laissé par un élève de Nher-Khal : quatorze ans de températures et de numéros de prise. Tout va dans le même sens ; rien ne conclut. Dagny Ferme-Givre, des 4 611, le veut.",
+    "etapes": [
+      {
+        "si": "carnet-connu",
+        "texte": "Parler à Dagny Ferme-Givre, devant le Palais Glacé, au Niveau Royal."
+      },
+      {
+        "si": "dagny-vue",
+        "texte": "Revenir chez Maître Ennir, aux Galeries Chaudes : le donner, le cacher, ou le briser."
+      }
+    ],
+    "fins": [
+      {
+        "id": "dagny",
+        "titre": "Les mesures données aux 4 611"
+      },
+      {
+        "id": "garde",
+        "titre": "Les mesures cachées sous une dalle"
+      },
+      {
+        "id": "brise",
+        "titre": "Les mesures brisées"
+      }
+    ]
+  },
+  {
+    "id": "laisses-dehors",
+    "name": "Ceux qu’on laisse dehors",
+    "summary": "Les Oskarsen, une mère et son enfant, réfugiés du sud, attendent devant une Porte de Glace : la loi de 2995 les a renvoyés après une nuit au tunnel chaud. La Loi de Survie et le tabou de l’abandon disent le contraire.",
+    "etapes": [
+      {
+        "si": "oskarsen-vus",
+        "texte": "Bjorn Glaceforge, le Cristal du Peuple, au Palais Glacé, a voté contre la loi de 2995. Ou le Foyer d’Ulga, et son mur chaud. Ou de quoi repartir vers le sud."
+      }
+    ],
+    "fins": [
+      {
+        "id": "bjorn",
+        "titre": "Une exception, plaidée par Bjorn"
+      },
+      {
+        "id": "ulga",
+        "titre": "Cachés derrière le mur chaud du Foyer"
+      },
+      {
+        "id": "sud",
+        "titre": "Repartis vers le sud"
+      }
+    ]
+  },
+  {
+    "id": "epreuve-blizzard",
+    "name": "L’Épreuve du Blizzard",
+    "summary": "Sigrun, seize ans, la sœur de Torka, est partie pour ses vingt-quatre heures seule dans la toundra. Ça fait trente. Les Vigiles Blancs la cherchent au nord ; elle est partie à l’est.",
+    "etapes": [
+      {
+        "si": "blizzard-commencee",
+        "texte": "Sortir par la Porte de Glace, vers l’est et la perche des guides. Des traces, ou Korvek, qui sait lire le blizzard."
+      },
+      {
+        "si": "sigrun-reperee",
+        "texte": "Sigrun est à l’est, contre un rocher, dans le manteau de son père."
+      }
+    ],
+    "fins": [
+      {
+        "id": "vivante",
+        "titre": "Sigrun ramenée vivante"
+      },
+      {
+        "id": "doigts",
+        "titre": "Sigrun ramenée, sans deux doigts"
+      },
+      {
+        "id": "abandonnee",
+        "titre": "Sigrun laissée dans le froid"
+      }
+    ]
+  },
+  {
+    "id": "egare",
+    "name": "L’égaré",
+    "summary": "Les Vigiles Blancs prennent qui a ramené quelqu’un vivant de la surface. Halvard Neigeclaire a un nom à te donner : Sigrun.",
+    "etapes": [
+      {
+        "si": "blizzard-commencee",
+        "texte": "Ramener Sigrun vivante, puis revenir au poste des Vigiles Blancs, aux Portes de Glace."
+      }
+    ]
+  },
+  {
+    "id": "cristal-ecoute",
+    "name": "Le cristal qui écoute",
+    "summary": "Au plafond des Galeries Chaudes, un cristal espion de la loi de 2998 rend tout ce qui se dit au marché, à qui le Conseil veut. Brodd Facettier, de l’Alliance pour la Justice Glaciale, sait où passe son fil.",
+    "etapes": [
+      {
+        "si": "ecoute-commencee",
+        "texte": "Le cristal espion pend au-dessus du marché couvert. Le briser, le laisser, ou dénoncer Brodd."
+      }
+    ],
+    "fins": [
+      {
+        "id": "brise",
+        "titre": "Le cristal espion brisé"
+      },
+      {
+        "id": "laisse",
+        "titre": "Le cristal espion laissé"
+      },
+      {
+        "id": "denonce",
+        "titre": "Brodd dénoncé"
+      }
+    ]
+  },
+  {
+    "id": "yeti-portes",
+    "name": "Le yéti des Portes",
+    "summary": "Korvek, guide yéti, est accusé d’avoir vidé le traîneau d’un marchand de Ferros devant les Portes de Glace. Personne n’a rien vu. La garde le renvoie demain.",
+    "etapes": [
+      {
+        "si": "yeti-commence",
+        "texte": "Le traîneau vide est devant les Portes. La garde des Portes attend une preuve, ou le départ du Yéti."
+      },
+      {
+        "si": "traces-bottes",
+        "texte": "Des bottes ferrées de Ferros sous les autres traces : le dire à la garde."
+      }
+    ],
+    "fins": [
+      {
+        "id": "innocent",
+        "titre": "Korvek blanchi par les traces"
+      },
+      {
+        "id": "espion",
+        "titre": "Korvek blanchi par le cristal espion"
+      },
+      {
+        "id": "parti",
+        "titre": "Korvek parti vers les Terres Sauvages"
+      }
+    ]
+  },
+  {
+    "id": "face-signee",
+    "name": "Une lacune à signer",
+    "summary": "Le Collège des 9 Miroirs prend qui sait trouver un auteur. Une face du registre des Portes a été brisée il y a trois nuits, sans auteur. Au Collège, c’est celui qui trouve qui signe.",
+    "etapes": [
+      {
+        "si": "face-portes-vue",
+        "texte": "Une poussière de cristal sur le socle du registre, près de la garde des Portes."
+      },
+      {
+        "si": "garde-avoue",
+        "texte": "La garde des Portes a brisé la face. Le dire à Hrolda, et signer."
+      }
+    ]
   }
 ]

@@ -3,6 +3,45 @@
   "speaker": "garde-portes",
   "entries": [
     {
+      "requires": [
+        {
+          "quest": "face-signee",
+          "status": "active"
+        },
+        {
+          "flag": "face-portes-vue"
+        },
+        {
+          "notFlag": "garde-avoue"
+        },
+        {
+          "notFlag": "garde-nie"
+        }
+      ],
+      "node": "face"
+    },
+    {
+      "requires": [
+        {
+          "quest": "yeti-portes",
+          "status": "active"
+        },
+        {
+          "flag": "traces-bottes"
+        }
+      ],
+      "node": "preuve"
+    },
+    {
+      "requires": [
+        {
+          "quest": "yeti-portes",
+          "status": "active"
+        }
+      ],
+      "node": "yeti"
+    },
+    {
       "node": "accueil"
     }
   ],
@@ -46,6 +85,131 @@
         },
         {
           "text": "Je passe.",
+          "next": "fin"
+        }
+      ]
+    },
+    "yeti": {
+      "text": "— Le Yéti ? Le marchand de Ferros jure que c’est lui. Personne n’a rien vu. J’ai ordre de le renvoyer demain : un Yéti aux Portes, ça se soupçonne mieux que ça ne se voit.",
+      "options": [
+        {
+          "text": "Faites rendre le cristal espion des Galeries : il a vu le marché.",
+          "next": "espion",
+          "requires": [
+            {
+              "notFlag": "fin-cristal-ecoute-brise"
+            }
+          ],
+          "effects": [
+            {
+              "completeQuest": "yeti-portes"
+            },
+            {
+              "setFlag": "fin-yeti-portes-espion"
+            },
+            {
+              "giveXp": 50
+            },
+            {
+              "setFlag": "yeti-portes-reglee"
+            }
+          ]
+        },
+        {
+          "text": "Je reviens avec mieux.",
+          "next": "fin"
+        },
+        {
+          "text": "Et la surface ?",
+          "next": "surface"
+        }
+      ]
+    },
+    "espion": {
+      "text": "Elle hésite, puis envoie un garde. Le cristal espion rend la nuit du marché : le cocher du marchand, qui vend des bougies de suif à moitié prix. Korvek est libre. Le cristal a servi, et ce qui sert, on en pose d’autres.",
+      "options": [
+        {
+          "text": "Bien.",
+          "next": "fin"
+        }
+      ]
+    },
+    "preuve": {
+      "text": "Tu lui montres les bottes, sous les autres. Elle s’accroupit, longtemps. — Ferros. Le cocher du marchand. Elle se relève. — Le Yéti reste. Je n’aime pas avoir eu tort, et j’aime encore moins le dire à un Yéti.",
+      "effects": [
+        {
+          "completeQuest": "yeti-portes"
+        },
+        {
+          "setFlag": "fin-yeti-portes-innocent"
+        },
+        {
+          "giveXp": 60
+        },
+        {
+          "setFlag": "yeti-portes-reglee"
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci.",
+          "next": "fin"
+        }
+      ]
+    },
+    "face": {
+      "text": "Tu parles de la face brisée du registre. La garde ne bouge pas. — Une face qui manque, ça arrive. Le froid, la fatigue du cristal.",
+      "options": [
+        {
+          "text": "Il y a de la poussière de cristal sur vos gants.",
+          "next": "avoue",
+          "requires": [
+            {
+              "attribute": "perception",
+              "min": 6
+            }
+          ]
+        },
+        {
+          "text": "Vous étiez seule de garde, cette nuit-là.",
+          "next": "avoue",
+          "roll": {
+            "skill": "investigation",
+            "difficulty": 18
+          },
+          "failNext": "nie"
+        },
+        {
+          "text": "Je me suis trompé·e.",
+          "next": "fin"
+        }
+      ]
+    },
+    "avoue": {
+      "text": "Elle retire ses gants, lentement. — Cette nuit-là, j’ai renvoyé une famille. Une mère, un enfant. Le registre l’a rendu en entier, et j’ai entendu ma voix leur dire de partir. Alors j’ai brisé la face. Signez mon nom. Je ne me cacherai pas.",
+      "effects": [
+        {
+          "setFlag": "garde-avoue"
+        }
+      ],
+      "options": [
+        {
+          "text": "Je le dirai au Collège.",
+          "next": "fin"
+        }
+      ]
+    },
+    "nie": {
+      "text": "— Je ne sais pas de quoi vous parlez. Revenez demain si vous voulez : je dirai la même chose.",
+      "effects": [
+        {
+          "setFlagFor": "garde-nie",
+          "days": 1
+        }
+      ],
+      "options": [
+        {
+          "text": "À demain.",
           "next": "fin"
         }
       ]

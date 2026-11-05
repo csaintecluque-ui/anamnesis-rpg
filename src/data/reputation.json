@@ -647,6 +647,106 @@
     {
       "flag": "vaelor-entendu",
       "points": 3
+    },
+    {
+      "quest": "laisses-dehors",
+      "points": 5
+    },
+    {
+      "flag": "fin-laisses-dehors-bjorn",
+      "points": 10
+    },
+    {
+      "quest": "epreuve-blizzard",
+      "points": 5
+    },
+    {
+      "flag": "sigrun-ramenee",
+      "points": 10
+    },
+    {
+      "flag": "abandon-froid",
+      "points": -30
+    },
+    {
+      "flag": "fin-yeti-portes-innocent",
+      "points": 5
+    },
+    {
+      "flag": "espion-fracas",
+      "points": -5
+    },
+    {
+      "flag": "surpris-portes",
+      "points": -5
+    }
+  ],
+  "college-miroirs": [
+    {
+      "quest": "face-signee",
+      "points": 15
+    },
+    {
+      "flag": "fin-cristal-hesite-signee",
+      "points": 15
+    },
+    {
+      "flag": "fin-glace-pris-college",
+      "points": 10
+    },
+    {
+      "flag": "vaelor-entendu",
+      "points": 5
+    },
+    {
+      "flag": "fin-quatorze-annees-garde",
+      "points": 5
+    },
+    {
+      "flag": "fin-quatorze-annees-brise",
+      "points": -10
+    },
+    {
+      "flag": "fin-cristal-hesite-brise",
+      "points": -5
+    },
+    {
+      "flag": "briseur-echos",
+      "points": -20
+    }
+  ],
+  "vigiles-blancs": [
+    {
+      "quest": "egare",
+      "points": 15
+    },
+    {
+      "flag": "fin-epreuve-blizzard-vivante",
+      "points": 10
+    },
+    {
+      "flag": "fin-laisses-dehors-bjorn",
+      "points": 10
+    },
+    {
+      "flag": "fin-laisses-dehors-ulga",
+      "points": 5
+    },
+    {
+      "flag": "fin-yeti-portes-innocent",
+      "points": 5
+    },
+    {
+      "flag": "descendu-halvard",
+      "points": 5
+    },
+    {
+      "flag": "abandon-froid",
+      "points": -40
+    },
+    {
+      "flag": "fin-cristal-ecoute-denonce",
+      "points": -5
     }
   ]
 }

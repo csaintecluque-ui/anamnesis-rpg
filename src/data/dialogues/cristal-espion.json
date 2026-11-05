@@ -1,0 +1,144 @@
+{
+  "id": "cristal-espion",
+  "speaker": "cristal-espion",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "cristal-ecoute",
+          "status": "active"
+        }
+      ],
+      "node": "fil"
+    },
+    {
+      "node": "voit"
+    }
+  ],
+  "nodes": {
+    "voit": {
+      "text": "Sur une potence de fer, contre le plafond de glace, un œil de cristal taillé, une pointe rouge au cœur. Il ne bouge pas. Il n’a pas besoin de bouger.",
+      "options": [
+        {
+          "text": "S’éloigner.",
+          "next": "fin"
+        }
+      ]
+    },
+    "fil": {
+      "text": "L’œil de cristal, sur sa potence. De près, on voit le fil dont parlait Brodd : une ligne plus claire, de biais, à deux doigts de la pointe rouge. Le marché, en dessous, vend en silence.",
+      "options": [
+        {
+          "text": "Le frapper à l’endroit du fil.",
+          "next": "brise",
+          "effects": [
+            {
+              "completeQuest": "cristal-ecoute"
+            },
+            {
+              "setFlag": "fin-cristal-ecoute-brise"
+            },
+            {
+              "giveXp": 60
+            },
+            {
+              "setFlag": "malheur-sept-ans"
+            }
+          ],
+          "roll": {
+            "skill": "crafting",
+            "difficulty": 18
+          },
+          "failNext": "fracas"
+        },
+        {
+          "text": "Le laisser. Ce n’est pas mon pays.",
+          "next": "laisse",
+          "effects": [
+            {
+              "completeQuest": "cristal-ecoute"
+            },
+            {
+              "setFlag": "fin-cristal-ecoute-laisse"
+            },
+            {
+              "giveXp": 20
+            }
+          ]
+        },
+        {
+          "text": "Dire à la garde qui veut le briser.",
+          "next": "denonce",
+          "effects": [
+            {
+              "completeQuest": "cristal-ecoute"
+            },
+            {
+              "setFlag": "fin-cristal-ecoute-denonce"
+            },
+            {
+              "giveXp": 40
+            }
+          ]
+        },
+        {
+          "text": "Plus tard.",
+          "next": "fin"
+        }
+      ]
+    },
+    "brise": {
+      "text": "Un coup sec, là où Brodd l’a dit. Le cristal se fend en deux, sans un bruit, et la pointe rouge s’éteint. Le lendemain, au marché, quelqu’un rit fort pour la première fois depuis deux ans. Sept ans de malheur, dit-on. On verra.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "fracas": {
+      "text": "Le cristal éclate d’un coup, en mille éclats, avec un bruit de cloche fêlée. Tout le marché se retourne. La garde arrive ; tu es déjà loin, mais elle a vu ton manteau. Il est brisé quand même. Sept ans de malheur.",
+      "effects": [
+        {
+          "completeQuest": "cristal-ecoute"
+        },
+        {
+          "setFlag": "fin-cristal-ecoute-brise"
+        },
+        {
+          "giveXp": 40
+        },
+        {
+          "setFlag": "malheur-sept-ans"
+        },
+        {
+          "setFlag": "espion-fracas"
+        }
+      ],
+      "options": [
+        {
+          "text": "Partir vite.",
+          "next": "fin"
+        }
+      ]
+    },
+    "laisse": {
+      "text": "Tu le laisses à son plafond. Brodd ne te reparle plus de rien, et te vend ses manteaux sans un mot de trop.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "denonce": {
+      "text": "Tu dis à la garde des Portes qui veut briser le cristal des Galeries. Elle note, sans te regarder. Le lendemain, Brodd paie trois mois de ventes d’amende, et un second cristal espion pend au-dessus de sa porte.",
+      "options": [
+        {
+          "text": "Partir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

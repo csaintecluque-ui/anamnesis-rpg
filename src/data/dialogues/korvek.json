@@ -3,6 +3,36 @@
   "speaker": "korvek",
   "entries": [
     {
+      "requires": [
+        {
+          "quest": "yeti-portes",
+          "status": "done"
+        }
+      ],
+      "node": "merci"
+    },
+    {
+      "requires": [
+        {
+          "quest": "yeti-portes",
+          "status": "active"
+        }
+      ],
+      "node": "accuse-attend"
+    },
+    {
+      "requires": [
+        {
+          "flag": "glace-pris-commencee"
+        },
+        {
+          "quest": "yeti-portes",
+          "status": "none"
+        }
+      ],
+      "node": "accuse"
+    },
+    {
       "node": "accueil"
     }
   ],
@@ -29,6 +59,19 @@
           "next": "pourquoi"
         },
         {
+          "text": "Il y a une fille dehors, Sigrun. Tu peux la trouver ?",
+          "next": "guide",
+          "requires": [
+            {
+              "quest": "epreuve-blizzard",
+              "status": "active"
+            },
+            {
+              "notFlag": "sigrun-reperee"
+            }
+          ]
+        },
+        {
           "text": "Je te laisse.",
           "next": "fin"
         }
@@ -52,6 +95,166 @@
       "options": [
         {
           "text": "Je te laisse.",
+          "next": "fin"
+        }
+      ]
+    },
+    "accuse": {
+      "text": "Korvek ne tend pas le bras, cette fois. — Un traîneau de Ferros a été vidé cette nuit, devant les Portes. Le marchand dit que c’est moi. Personne n’a rien vu. Mais un Yéti, ça se voit toujours, même quand il n’est pas là. La garde me renvoie demain.",
+      "effects": [
+        {
+          "startQuest": "yeti-portes"
+        },
+        {
+          "setFlag": "yeti-commence"
+        }
+      ],
+      "options": [
+        {
+          "text": "Je vais trouver qui c’est.",
+          "next": "fin"
+        },
+        {
+          "text": "Pars avant qu’ils te renvoient.",
+          "next": "parti",
+          "effects": [
+            {
+              "completeQuest": "yeti-portes"
+            },
+            {
+              "setFlag": "fin-yeti-portes-parti"
+            },
+            {
+              "giveXp": 20
+            },
+            {
+              "setFlag": "yeti-portes-reglee"
+            }
+          ]
+        },
+        {
+          "text": "Il y a une fille dehors, Sigrun. Tu peux la trouver ?",
+          "next": "guide",
+          "requires": [
+            {
+              "quest": "epreuve-blizzard",
+              "status": "active"
+            },
+            {
+              "notFlag": "sigrun-reperee"
+            }
+          ]
+        },
+        {
+          "text": "Je te laisse.",
+          "next": "fin"
+        }
+      ]
+    },
+    "accuse-attend": {
+      "text": "— La garde attend que je parte. Le traîneau est toujours là, vide, devant les Portes. Les sangles pendent.",
+      "options": [
+        {
+          "text": "Je vais trouver qui c’est.",
+          "next": "fin"
+        },
+        {
+          "text": "Pars avant qu’ils te renvoient.",
+          "next": "parti",
+          "effects": [
+            {
+              "completeQuest": "yeti-portes"
+            },
+            {
+              "setFlag": "fin-yeti-portes-parti"
+            },
+            {
+              "giveXp": 20
+            },
+            {
+              "setFlag": "yeti-portes-reglee"
+            }
+          ]
+        },
+        {
+          "text": "Il y a une fille dehors, Sigrun. Tu peux la trouver ?",
+          "next": "guide",
+          "requires": [
+            {
+              "quest": "epreuve-blizzard",
+              "status": "active"
+            },
+            {
+              "notFlag": "sigrun-reperee"
+            }
+          ]
+        },
+        {
+          "text": "Je te laisse.",
+          "next": "fin"
+        }
+      ]
+    },
+    "guide": {
+      "text": "— Sigrun ? La grande sœur des renards de glace. Dix Fers. Personne ne paie un Yéti, alors je fais payer. Il prend son bâton et sa corde.",
+      "options": [
+        {
+          "text": "Dix Fers. Allons-y.",
+          "next": "fin",
+          "requires": [
+            {
+              "fers": 10
+            }
+          ],
+          "effects": [
+            {
+              "giveFers": -10
+            },
+            {
+              "setFlag": "sigrun-reperee"
+            },
+            {
+              "setFlag": "korvek-guide"
+            },
+            {
+              "goTo": "khrysos-surface",
+              "arrivee": "depuis-portes"
+            }
+          ]
+        },
+        {
+          "text": "Pas maintenant.",
+          "next": "fin"
+        }
+      ]
+    },
+    "parti": {
+      "text": "— Tu as raison. Il ramasse ses cordes. — Croiser un Yéti porte chance. Le garder, beaucoup moins. Il passe la Porte sans se retourner, vers les Terres Sauvages, au nord, où personne ne demande rien à personne.",
+      "options": [
+        {
+          "text": "Le regarder partir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "merci": {
+      "text": "Korvek te tend le bras, cette fois. — Pour la chance. Gratuit, pour toi. Ne le dis à personne : ça ferait baisser les prix.",
+      "options": [
+        {
+          "text": "Il y a une fille dehors, Sigrun. Tu peux la trouver ?",
+          "next": "guide",
+          "requires": [
+            {
+              "quest": "epreuve-blizzard",
+              "status": "active"
+            },
+            {
+              "notFlag": "sigrun-reperee"
+            }
+          ]
+        },
+        {
+          "text": "Merci, Korvek.",
           "next": "fin"
         }
       ]

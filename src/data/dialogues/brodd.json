@@ -3,6 +3,14 @@
   "speaker": "brodd",
   "entries": [
     {
+      "requires": [
+        {
+          "flag": "fin-cristal-ecoute-denonce"
+        }
+      ],
+      "node": "froid"
+    },
+    {
       "node": "accueil"
     }
   ],
@@ -24,6 +32,16 @@
           "next": "manteaux"
         },
         {
+          "text": "Et ce cristal, au plafond du marché ?",
+          "next": "espion",
+          "requires": [
+            {
+              "quest": "cristal-ecoute",
+              "status": "none"
+            }
+          ]
+        },
+        {
           "text": "Au revoir.",
           "next": "fin"
         }
@@ -31,6 +49,50 @@
     },
     "manteaux": {
       "text": "— Fourrure dehors, laine dedans, et le col qui monte jusqu’au nez. Sans ça, la surface te mange. Soixante Fers. Le froid, lui, ne fait pas crédit.",
+      "options": [
+        {
+          "text": "Voir ce que tu vends.",
+          "next": "fin",
+          "effects": [
+            {
+              "openTrade": true
+            }
+          ]
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "espion": {
+      "text": "Brodd baisse sa loupe. — Un cristal espion. Loi de 2998 : il rend ce qui se dit au marché, à qui le Conseil veut. Depuis qu’il est là, on vend en silence. L’Alliance pour la Justice Glaciale veut qu’il tombe. Moi, je suis tailleur : je sais où passe son fil.",
+      "effects": [
+        {
+          "startQuest": "cristal-ecoute"
+        },
+        {
+          "setFlag": "ecoute-commencee"
+        }
+      ],
+      "options": [
+        {
+          "text": "Et tu veux que je le brise.",
+          "next": "demande"
+        }
+      ]
+    },
+    "demande": {
+      "text": "— Il me voit, moi. Toi, il ne te connaît pas encore. Un coup sec, à l’endroit du fil, et il se fend sans bruit. On dit que casser de la glace bleue porte malheur sept ans. Sept ans, ça se porte.",
+      "options": [
+        {
+          "text": "J’y penserai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "froid": {
+      "text": "Brodd ne lève pas sa loupe. Au-dessus de sa porte pend un cristal espion neuf. — Tu viens acheter, ou tu viens écouter ?",
       "options": [
         {
           "text": "Voir ce que tu vends.",

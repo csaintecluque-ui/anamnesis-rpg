@@ -11,7 +11,7 @@
  "tilewidth": 64,
  "tileheight": 32,
  "nextlayerid": 4,
- "nextobjectid": 3,
+ "nextobjectid": 4,
  "layers": [
   {
    "id": 1,
@@ -202,6 +202,25 @@
      "rotation": 0,
      "visible": true,
      "properties": []
+    },
+    {
+     "id": 3,
+     "name": "sigrun",
+     "type": "pnj",
+     "x": 176,
+     "y": 80,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": [
+      {
+       "name": "apparaitSi",
+       "type": "string",
+       "value": "sigrun-ramenee"
+      }
+     ]
     }
    ]
   }

@@ -1222,6 +1222,32 @@ Commence par : « accueil »
 > Un forgeron, les bras nus malgré le froid, une barbe rousse prise de givre. Il se tient à l’écart des cristaux du Conseil. — Bjorn Glaceforge. Le Cristal du Peuple : on m’a élu pour qu’il y ait au Conseil quelqu’un qui sache ce que coûte le bois.
 
 - « Et ça change quelque chose ? » → change
+- _(si quête « Ceux qu’on laisse dehors » en cours)_ _(sans repère « oskarsen-reglee »)_ _(sans repère « bjorn-refus »)_ « Une famille attend dehors, aux Portes. Les Oskarsen. » → oskarsen
+- « Au revoir. » → **fin**
+
+### oskarsen
+
+> Bjorn regarde ses mains. — La loi de 2995. J’ai voté contre, et j’ai perdu, six voix à trois. Si je porte une famille devant le Conseil, je perds encore, et ils restent dehors quand même, avec mon nom en plus.
+
+- _(si Récit « Le Premier Tri » connu)_ « Le tabou de l’abandon a été écrit contre Vaelor. Contre votre fondateur. » → oui
+- **🎲 Commandement 18** « Vous êtes le Cristal du Peuple. Alors soyez-le. » → oui, ✗ → non
+- **🎲 Diplomatie 18** « Une voix sur neuf suffit pour dire non. Dites-le. » → oui, ✗ → non
+- « Je comprends. » → **fin**
+
+### oui
+
+_Effet : retient « oskarsen-reglee », termine la quête « Ceux qu’on laisse dehors », retient « fin-laisses-dehors-bjorn », +60 XP._
+
+> Bjorn se lève. Le lendemain, il parle quatre heures devant le Conseil des Neuf Cristaux. On lui accorde une exception : une famille, une fois. La Primus fait noter : un précédent. Les Oskarsen dorment au chaud, leur nom au registre des Portes.
+
+- « Merci, Bjorn. » → **fin**
+
+### non
+
+_Effet : retient « bjorn-refus »._
+
+> — Non. Je ne gagnerai pas, et ce sont eux qui paieront ma défaite. Trouvez autre chose, ou laissez-moi tranquille.
+
 - « Au revoir. » → **fin**
 
 ### change
@@ -1396,7 +1422,7 @@ _Effet : retient « raconte-brann », +15 XP._
 
 _Tailleur de cristal_
 
-Commence par : « accueil »
+Commence par : « froid » _(si repère « fin-cristal-ecoute-denonce »)_, sinon « accueil »
 
 ### accueil
 
@@ -1404,11 +1430,33 @@ Commence par : « accueil »
 
 - « Voir ce que tu vends. » → **fin** _(ouvre le Troc)_
 - « Et ces manteaux ? » → manteaux
+- _(si quête « Le cristal qui écoute » pas commencée)_ « Et ce cristal, au plafond du marché ? » → espion
 - « Au revoir. » → **fin**
 
 ### manteaux
 
 > — Fourrure dehors, laine dedans, et le col qui monte jusqu’au nez. Sans ça, la surface te mange. Soixante Fers. Le froid, lui, ne fait pas crédit.
+
+- « Voir ce que tu vends. » → **fin** _(ouvre le Troc)_
+- « Au revoir. » → **fin**
+
+### espion
+
+_Effet : lance la quête « Le cristal qui écoute », retient « ecoute-commencee »._
+
+> Brodd baisse sa loupe. — Un cristal espion. Loi de 2998 : il rend ce qui se dit au marché, à qui le Conseil veut. Depuis qu’il est là, on vend en silence. L’Alliance pour la Justice Glaciale veut qu’il tombe. Moi, je suis tailleur : je sais où passe son fil.
+
+- « Et tu veux que je le brise. » → demande
+
+### demande
+
+> — Il me voit, moi. Toi, il ne te connaît pas encore. Un coup sec, à l’endroit du fil, et il se fend sans bruit. On dit que casser de la glace bleue porte malheur sept ans. Sept ans, ça se porte.
+
+- « J’y penserai. » → **fin**
+
+### froid
+
+> Brodd ne lève pas sa loupe. Au-dessus de sa porte pend un cristal espion neuf. — Tu viens acheter, ou tu viens écouter ?
 
 - « Voir ce que tu vends. » → **fin** _(ouvre le Troc)_
 - « Au revoir. » → **fin**
@@ -2578,6 +2626,53 @@ Commence par : « rend »
 
 - « Reculer. » → **fin**
 
+## Un cristal espion
+
+_Les Galeries Chaudes_
+
+Commence par : « fil » _(si quête « Le cristal qui écoute » en cours)_, sinon « voit »
+
+### voit
+
+> Sur une potence de fer, contre le plafond de glace, un œil de cristal taillé, une pointe rouge au cœur. Il ne bouge pas. Il n’a pas besoin de bouger.
+
+- « S’éloigner. » → **fin**
+
+### fil
+
+> L’œil de cristal, sur sa potence. De près, on voit le fil dont parlait Brodd : une ligne plus claire, de biais, à deux doigts de la pointe rouge. Le marché, en dessous, vend en silence.
+
+- **🎲 Artisanat 18** « Le frapper à l’endroit du fil. » → brise, ✗ → fracas _(termine la quête « Le cristal qui écoute », retient « fin-cristal-ecoute-brise », +60 XP, retient « malheur-sept-ans »)_
+- « Le laisser. Ce n’est pas mon pays. » → laisse _(termine la quête « Le cristal qui écoute », retient « fin-cristal-ecoute-laisse », +20 XP)_
+- « Dire à la garde qui veut le briser. » → denonce _(termine la quête « Le cristal qui écoute », retient « fin-cristal-ecoute-denonce », +40 XP)_
+- « Plus tard. » → **fin**
+
+### brise
+
+> Un coup sec, là où Brodd l’a dit. Le cristal se fend en deux, sans un bruit, et la pointe rouge s’éteint. Le lendemain, au marché, quelqu’un rit fort pour la première fois depuis deux ans. Sept ans de malheur, dit-on. On verra.
+
+- « Partir. » → **fin**
+
+### fracas
+
+_Effet : termine la quête « Le cristal qui écoute », retient « fin-cristal-ecoute-brise », +40 XP, retient « malheur-sept-ans », retient « espion-fracas »._
+
+> Le cristal éclate d’un coup, en mille éclats, avec un bruit de cloche fêlée. Tout le marché se retourne. La garde arrive ; tu es déjà loin, mais elle a vu ton manteau. Il est brisé quand même. Sept ans de malheur.
+
+- « Partir vite. » → **fin**
+
+### laisse
+
+> Tu le laisses à son plafond. Brodd ne te reparle plus de rien, et te vend ses manteaux sans un mot de trop.
+
+- « Partir. » → **fin**
+
+### denonce
+
+> Tu dis à la garde des Portes qui veut briser le cristal des Galeries. Elle note, sans te regarder. Le lendemain, Brodd paie trois mois de ventes d’amende, et un second cristal espion pend au-dessus de sa porte.
+
+- « Partir. » → **fin**
+
 ## Un cristal d’archive
 
 _La Marche de Vaelor_
@@ -2711,6 +2806,49 @@ Commence par : « accueil »
 > — Elle garde tout. C’est sa vertu et son crime. Le Collège vous dira ce qui manque ; moi, je vous dirai ce qui reste, si vous savez le demander. Revenez quand vous aurez une question qui mérite le Conseil.
 
 - « Merci, Primus. » → **fin**
+
+## Dagny Ferme-Givre
+
+_Des 4 611_
+
+Commence par : « carnet » _(si quête « Les quatorze années de mesures » en cours)_, sinon « apres » _(si quête « Les quatorze années de mesures » terminée)_, sinon « accueil »
+
+### accueil
+
+> Une femme en manteau de deuil, un brassard noir, attend devant le Palais avec un rouleau de pétitions. — Dagny Ferme-Givre, des 4 611 : les familles dont il a brisé les morts. Nous demandons qu’on le juge une seconde fois, et qu’on le condamne, enfin.
+
+- « Au revoir. » → **fin**
+
+### carnet
+
+_Effet : retient « dagny-vue »._
+
+> — Ennir vous a parlé du carnet. Ses mesures. Rapportez-le-moi. Avec ça, le Conseil ne pourra plus dire que c’était un fou : il faudra dire que c’était un profanateur, et qu’il savait ce qu’il faisait.
+
+- _(sans repère « dagny-ferme »)_ **🎲 Investigation 18** « Ou que c’était un savant, et qu’il avait raison ? » → courant, ✗ → ferme
+- « J’y réfléchirai. » → **fin**
+
+### courant
+
+_Effet : retient « dagny-courant »._
+
+> Elle se tait une seconde de trop. — Il y a deux courants, chez les 4 611. Ceux qui veulent qu’on le condamne, et ceux qui veulent savoir. Les seconds paient les pétitions des premiers. Je suis des seconds. Ma mère est dans une prise, section quatre.
+
+- « Je comprends. » → **fin**
+
+### ferme
+
+_Effet : retient « dagny-ferme »._
+
+> — Il avait tort. C’est tout ce qu’il y a à savoir. Elle reprend ses pétitions, et ne te regarde plus.
+
+- « Au revoir. » → **fin**
+
+### apres
+
+> Dagny compte ses pétitions, une à une, comme on compte des noms. — Les morts ne se plaignent pas. C’est pour ça qu’il faut quelqu’un pour le faire à leur place.
+
+- « Au revoir. » → **fin**
 
 ## Daru’Khen
 
@@ -4034,7 +4172,7 @@ _Effet : retient « marques-rate » pour 1 jours._
 
 _Tisseur de Givre_
 
-Commence par : « accueil »
+Commence par : « choix » _(si quête « Les quatorze années de mesures » en cours)_ _(si repère « dagny-vue »)_, sinon « accueil »
 
 ### accueil
 
@@ -4047,7 +4185,49 @@ Commence par : « accueil »
 
 > — Des voûtes, des ponts de glace, des cristaux d’archive qui tiennent droit. J’ai appris d’un homme qui avait appris d’un autre. On ne prononce plus le nom du premier. Il était le meilleur de nous tous.
 
+- _(si quête « Les quatorze années de mesures » pas commencée)_ « Le premier, c’était Nher-Khal ? » → carnet
 - « Au revoir. » → **fin**
+
+### carnet
+
+_Effet : lance la quête « Les quatorze années de mesures », retient « carnet-connu »._
+
+> Ennir pose un doigt mouillé sur le cristal, qui se tait. — Mon maître avait appris de son élève. Il a laissé ceci. Un petit cristal de mesures : des températures, des dates, des numéros de prise. Quatorze ans. Tout va dans le même sens. Rien ne conclut.
+
+- « Qui le veut ? » → dagny-q
+
+### dagny-q
+
+> — Dagny Ferme-Givre, des 4 611 : les familles dont il a brisé les morts. Elle vient chaque semaine. Elle dit qu’elle veut le faire condamner pour de bon. Elle est bien riche, pour quelqu’un qui veut seulement une condamnation.
+
+- « Je vais lui parler. » → **fin**
+
+### choix
+
+> — Vous l’avez vue. Ennir tient le petit cristal dans son gant, sans le serrer. — Je ne peux pas le garder toute ma vie, ni le donner à n’importe qui. Il a brisé les siennes pour qu’on n’ouvre pas les prises. Décidez, vous : moi, je n’y arrive pas.
+
+- « Le donner à Dagny. » → donne _(termine la quête « Les quatorze années de mesures », retient « fin-quatorze-annees-dagny », +60 XP)_
+- « Le cacher. Personne ne doit l’avoir. » → cache _(termine la quête « Les quatorze années de mesures », retient « fin-quatorze-annees-garde », +60 XP)_
+- « Le briser, comme il a brisé les siennes. » → brise _(termine la quête « Les quatorze années de mesures », retient « fin-quatorze-annees-brise », +60 XP)_
+- « Je ne sais pas encore. » → **fin**
+
+### donne
+
+> Ennir enveloppe le cristal dans un gant et te le confie. Le soir, Dagny le reçoit sans un mot, et sourit pour la première fois. Chez les 4 611, il y a ceux qui veulent une condamnation, et ceux qui veulent ouvrir les prises pour savoir.
+
+- « Partir. » → **fin**
+
+### cache
+
+> Ennir glisse le cristal sous une dalle de son atelier, et pousse l’établi dessus. — Il attendra. Les mesures ne pourrissent pas. Un jour, quelqu’un saura peut-être les lire sans ouvrir personne.
+
+- « Partir. » → **fin**
+
+### brise
+
+> Ennir hésite, puis te tend le cristal. Tu le poses sur l’établi et tu frappes une fois. Quatorze ans de mesures, en éclats. — Il aurait compris, dit Ennir. C’est ce qu’il a fait, lui aussi. Briser un écho.
+
+- « Partir. » → **fin**
 
 ## Eskil Kolm
 
@@ -4572,7 +4752,7 @@ _Effet : retient « trappe-vue », lance la quête « Les Échos sous la Forge �
 
 _Les Portes de Glace_
 
-Commence par : « accueil »
+Commence par : « face » _(si quête « Une lacune à signer » en cours)_ _(si repère « face-portes-vue »)_ _(sans repère « garde-avoue »)_ _(sans repère « garde-nie »)_, sinon « preuve » _(si quête « Le yéti des Portes » en cours)_ _(si repère « traces-bottes »)_, sinon « yeti » _(si quête « Le yéti des Portes » en cours)_, sinon « accueil »
 
 ### accueil
 
@@ -4595,6 +4775,52 @@ Commence par : « accueil »
 
 - « Les renvoyer où ? » → ou
 - « Je passe. » → **fin**
+
+### yeti
+
+> — Le Yéti ? Le marchand de Ferros jure que c’est lui. Personne n’a rien vu. J’ai ordre de le renvoyer demain : un Yéti aux Portes, ça se soupçonne mieux que ça ne se voit.
+
+- _(sans repère « fin-cristal-ecoute-brise »)_ « Faites rendre le cristal espion des Galeries : il a vu le marché. » → espion _(termine la quête « Le yéti des Portes », retient « fin-yeti-portes-espion », +50 XP, retient « yeti-portes-reglee »)_
+- « Je reviens avec mieux. » → **fin**
+- « Et la surface ? » → surface
+
+### espion
+
+> Elle hésite, puis envoie un garde. Le cristal espion rend la nuit du marché : le cocher du marchand, qui vend des bougies de suif à moitié prix. Korvek est libre. Le cristal a servi, et ce qui sert, on en pose d’autres.
+
+- « Bien. » → **fin**
+
+### preuve
+
+_Effet : termine la quête « Le yéti des Portes », retient « fin-yeti-portes-innocent », +60 XP, retient « yeti-portes-reglee »._
+
+> Tu lui montres les bottes, sous les autres. Elle s’accroupit, longtemps. — Ferros. Le cocher du marchand. Elle se relève. — Le Yéti reste. Je n’aime pas avoir eu tort, et j’aime encore moins le dire à un Yéti.
+
+- « Merci. » → **fin**
+
+### face
+
+> Tu parles de la face brisée du registre. La garde ne bouge pas. — Une face qui manque, ça arrive. Le froid, la fatigue du cristal.
+
+- **[Perception 6]** « Il y a de la poussière de cristal sur vos gants. » → avoue
+- **🎲 Investigation 18** « Vous étiez seule de garde, cette nuit-là. » → avoue, ✗ → nie
+- « Je me suis trompé·e. » → **fin**
+
+### avoue
+
+_Effet : retient « garde-avoue »._
+
+> Elle retire ses gants, lentement. — Cette nuit-là, j’ai renvoyé une famille. Une mère, un enfant. Le registre l’a rendu en entier, et j’ai entendu ma voix leur dire de partir. Alors j’ai brisé la face. Signez mon nom. Je ne me cacherai pas.
+
+- « Je le dirai au Collège. » → **fin**
+
+### nie
+
+_Effet : retient « garde-nie » pour 1 jours._
+
+> — Je ne sais pas de quoi vous parlez. Revenez demain si vous voulez : je dirai la même chose.
+
+- « À demain. » → **fin**
 
 ## Gardienne du Ciel
 
@@ -4941,8 +5167,7 @@ Commence par : « ferme »
 
 > Une grille de fer noir, et derrière, des allées de cristal à perte de vue. Une plaque : « On ne descend plus seul aux cryptes. An 2857. » Le gardien lève sa lampe vers toi, puis vers qui t’accompagne.
 
-- _(si Liane suit le héros)_ « Liane descendra avec moi. » → deux
-- _(si Boulon suit le héros)_ « Boulon descendra avec moi. » → deux
+- « Descendre avec quelqu’un. » → second
 - _(la nuit)_ _(sans repère « grille-surprise »)_ **🎲 Discrétion 17** « Passer seul·e, cette nuit, quand le gardien dort. » → seul, ✗ → surpris
 - « S’éloigner. » → **fin**
 
@@ -4969,6 +5194,15 @@ _Effet : retient « grille-surprise » pour 1 jours, retient « surpris-cryptes 
 > 🌙 Le cadenas grince. La lampe du gardien se lève d’un coup. — Seul·e. De nuit. Tu sais ce que ça veut dire, à Khrysos ? Ça veut dire que demain, tout le Douze le saura. Remonte.
 
 - « Remonter. » → **fin**
+
+### second
+
+> Le gardien attend, la lampe levée. — Qui regardera tes mains ?
+
+- _(si Liane suit le héros)_ « Liane descendra avec moi. » → deux
+- _(si Boulon suit le héros)_ « Boulon descendra avec moi. » → deux
+- _(si repère « membre-vigiles-blancs »)_ « Un Vigile Blanc descendra avec moi. » → deux
+- « Personne, finalement. » → **fin**
 
 ## Le guichet du fond
 
@@ -5140,7 +5374,7 @@ Commence par : « halte »
 
 _Des Vigiles Blancs_
 
-Commence par : « quai » _(à « Sous les cryptes — la voie sept »)_, sinon « accueil »
+Commence par : « perdue » _(si repère « sigrun-perdue »)_ _(si quête « L’égaré » en cours)_, sinon « perdue-2 » _(si repère « sigrun-perdue »)_, sinon « veilleur » _(si quête « L’égaré » en cours)_ _(si repère « sigrun-ramenee »)_, sinon « quai » _(à « Sous les cryptes — la voie sept »)_, sinon « accueil »
 
 ### accueil
 
@@ -5162,6 +5396,7 @@ Commence par : « quai » _(à « Sous les cryptes — la voie sept »)_, sinon 
 
 > — Que la clarté n’est pas une vertu. C’est un outil, et on peut s’en servir pour ne rien faire. Les héros des légendes y voyaient clair ; il leur manquait une passion. Nous, on compte nos années en vies sauvées.
 
+- _(si quête « L’égaré » pas commencée)_ _(sans repère « membre-college-miroirs »)_ _(sans repère « sigrun-perdue »)_ « Je veux entrer chez les Vigiles Blancs. » → adhesion
 - « Au revoir. » → **fin**
 
 ### second
@@ -5185,6 +5420,36 @@ _Effet : retient « halvard-refus »._
 > Halvard reste au bord du quai, la lampe levée. — Je regarde tes mains. Ce que tu en fais, c’est ton affaire ; ce que je verrai, c’est la mienne.
 
 - « Je sais. » → **fin**
+
+### adhesion
+
+_Effet : lance la quête « L’égaré », lance la quête « L’Épreuve du Blizzard », retient « blizzard-commencee »._
+
+> — Les Vigiles prennent qui a ramené quelqu’un. Il y a une fille dehors, justement, depuis trop longtemps : Sigrun, la sœur de la petite Torka. Ramène-la vivante, et tu seras des nôtres.
+
+- « J’y vais. » → **fin**
+
+### veilleur
+
+_Effet : termine la quête « L’égaré », retient « membre-vigiles-blancs », +40 XP._
+
+> Halvard pose son gant. — Sigrun. Vivante. Il te tend un brassard blanc. — Veilleur·se des Vigiles Blancs. On ne compte pas ce qu’on laisse : on compte ce qu’on ramène. Un. C’est un bon début.
+
+- « Le prendre. » → **fin**
+
+### perdue
+
+_Effet : termine la quête « L’égaré »._
+
+> Halvard ne lève pas la tête de son gant. — Les Vigiles l’ont ramenée, debout dans la neige. Ils ont trouvé tes traces à côté des siennes. Ne reviens pas ici.
+
+- « Partir. » → **fin**
+
+### perdue-2
+
+> Halvard ne lève pas la tête de son gant. — La fille de l’Épreuve. Les Vigiles l’ont ramenée, debout dans la neige, et tes traces à côté des siennes. Les Vigiles ne parlent pas à ceux qui laissent.
+
+- « Partir. » → **fin**
 
 ## Ragna Cendrefer
 
@@ -5511,7 +5776,7 @@ _Effet : lance la quête « L’asile »._
 
 _Du Collège des 9 Miroirs, gardienne de la Bibliothèque_
 
-Commence par : « choix » _(si quête « Le cristal qui hésite » en cours)_ _(si repère « hesite-confirme »)_ _(si repère « caveau-vu »)_, sinon « erreur » _(si quête « Le cristal qui hésite » en cours)_ _(si repère « cent-jours-erreur »)_ _(sans repère « hesite-confirme »)_, sinon « hesite » _(si repère « formule-dite »)_ _(si quête « Le cristal qui hésite » pas commencée)_, sinon « retour » _(si repère « formule-dite »)_, sinon « accueil »
+Commence par : « signer » _(si quête « Une lacune à signer » en cours)_ _(si repère « garde-avoue »)_, sinon « choix » _(si quête « Le cristal qui hésite » en cours)_ _(si repère « hesite-confirme »)_ _(si repère « caveau-vu »)_, sinon « erreur » _(si quête « Le cristal qui hésite » en cours)_ _(si repère « cent-jours-erreur »)_ _(sans repère « hesite-confirme »)_, sinon « hesite » _(si repère « formule-dite »)_ _(si quête « Le cristal qui hésite » pas commencée)_, sinon « retour » _(si repère « formule-dite »)_, sinon « accueil »
 
 ### accueil
 
@@ -5544,6 +5809,7 @@ _Effet : retient « formule-dite »._
 > — Des lâches, des amants, des héritiers. Parfois quelqu’un qui savait ce qu’on ferait de la vérité. Nous ne jugeons pas, nous signons. Une lacune signée vaut mieux qu’un récit reconstitué.
 
 - « Et Khrys ? » → khrys
+- _(si quête « Une lacune à signer » pas commencée)_ _(sans repère « membre-vigiles-blancs »)_ « Je veux entrer au Collège des 9 Miroirs. » → adhesion
 - « Merci. » → **fin**
 
 ### khrys
@@ -5637,6 +5903,33 @@ _Effet : retient « hesite-confirme », +20 XP._
 ### brise-hrolda
 
 > Hrolda frappe une fois, du plat de la main, là où passe le fil. Le cristal se fend. Elle signe la lacune de son nom, de la date, et du motif : « Pour qu’on ne s’en serve pas. » — J’ai brisé un écho. Celui-là, au moins, je sais pourquoi.
+
+- « Au revoir. » → **fin**
+
+### adhesion
+
+_Effet : lance la quête « Une lacune à signer »._
+
+> — Le Collège prend qui sait trouver un auteur. Une lacune récente : le registre des Portes, une face, il y a trois nuits. Sans auteur. Trouvez qui, et signez. Au Collège, c’est celui qui trouve qui signe.
+
+- « J’y vais. » → **fin**
+
+### signer
+
+> — Vous avez un nom ? Hrolda trempe la plume et te la tend. Le cahier est ouvert à la page du registre des Portes. Il reste une ligne.
+
+- « Signer : la garde des Portes, de sa main, pour ne plus s’entendre. » → lecteur _(termine la quête « Une lacune à signer », retient « membre-college-miroirs », +40 XP)_
+- « Je ne signerai pas son nom. » → pas-signer
+
+### lecteur
+
+> Hrolda signe sous ta ligne, puis détache un éclat de miroir de son col et te le donne. — Lecteur·rice du Collège des 9 Miroirs. Vous ne jugerez pas. Vous signerez. Le reste n’est pas notre affaire.
+
+- « Merci, Hrolda. » → **fin**
+
+### pas-signer
+
+> — Alors vous n’êtes pas des nôtres. Le Collège ne protège personne, pas même par pitié. Revenez quand vous saurez signer ce qui vous déplaît.
 
 - « Au revoir. » → **fin**
 
@@ -7201,7 +7494,7 @@ Commence par : « rend »
 
 _Yéti, guide des glaces_
 
-Commence par : « accueil »
+Commence par : « merci » _(si quête « Le yéti des Portes » terminée)_, sinon « accuse-attend » _(si quête « Le yéti des Portes » en cours)_, sinon « accuse » _(si repère « glace-pris-commencee »)_ _(si quête « Le yéti des Portes » pas commencée)_, sinon « accueil »
 
 ### accueil
 
@@ -7209,6 +7502,7 @@ Commence par : « accueil »
 
 - **[1 Fers]** « Un Fer pour la chance. » → chance _(−1 Fers)_
 - « Pourquoi un Fer ? » → pourquoi
+- _(si quête « L’Épreuve du Blizzard » en cours)_ _(sans repère « sigrun-reperee »)_ « Il y a une fille dehors, Sigrun. Tu peux la trouver ? » → guide
 - « Je te laisse. » → **fin**
 
 ### chance
@@ -7223,6 +7517,46 @@ Commence par : « accueil »
 > — Parce qu’ils me touchent quand même, alors autant que ça rapporte. Depuis 2990, on a le droit de demander. Avant, on avait le droit de se taire.
 
 - « Je te laisse. » → **fin**
+
+### accuse
+
+_Effet : lance la quête « Le yéti des Portes », retient « yeti-commence »._
+
+> Korvek ne tend pas le bras, cette fois. — Un traîneau de Ferros a été vidé cette nuit, devant les Portes. Le marchand dit que c’est moi. Personne n’a rien vu. Mais un Yéti, ça se voit toujours, même quand il n’est pas là. La garde me renvoie demain.
+
+- « Je vais trouver qui c’est. » → **fin**
+- « Pars avant qu’ils te renvoient. » → parti _(termine la quête « Le yéti des Portes », retient « fin-yeti-portes-parti », +20 XP, retient « yeti-portes-reglee »)_
+- _(si quête « L’Épreuve du Blizzard » en cours)_ _(sans repère « sigrun-reperee »)_ « Il y a une fille dehors, Sigrun. Tu peux la trouver ? » → guide
+- « Je te laisse. » → **fin**
+
+### accuse-attend
+
+> — La garde attend que je parte. Le traîneau est toujours là, vide, devant les Portes. Les sangles pendent.
+
+- « Je vais trouver qui c’est. » → **fin**
+- « Pars avant qu’ils te renvoient. » → parti _(termine la quête « Le yéti des Portes », retient « fin-yeti-portes-parti », +20 XP, retient « yeti-portes-reglee »)_
+- _(si quête « L’Épreuve du Blizzard » en cours)_ _(sans repère « sigrun-reperee »)_ « Il y a une fille dehors, Sigrun. Tu peux la trouver ? » → guide
+- « Je te laisse. » → **fin**
+
+### guide
+
+> — Sigrun ? La grande sœur des renards de glace. Dix Fers. Personne ne paie un Yéti, alors je fais payer. Il prend son bâton et sa corde.
+
+- **[10 Fers]** « Dix Fers. Allons-y. » → **fin** _(−10 Fers, retient « sigrun-reperee », retient « korvek-guide », mène à « Glacialis — la surface »)_
+- « Pas maintenant. » → **fin**
+
+### parti
+
+> — Tu as raison. Il ramasse ses cordes. — Croiser un Yéti porte chance. Le garder, beaucoup moins. Il passe la Porte sans se retourner, vers les Terres Sauvages, au nord, où personne ne demande rien à personne.
+
+- « Le regarder partir. » → **fin**
+
+### merci
+
+> Korvek te tend le bras, cette fois. — Pour la chance. Gratuit, pour toi. Ne le dis à personne : ça ferait baisser les prix.
+
+- _(si quête « L’Épreuve du Blizzard » en cours)_ _(sans repère « sigrun-reperee »)_ « Il y a une fille dehors, Sigrun. Tu peux la trouver ? » → guide
+- « Merci, Korvek. » → **fin**
 
 ## Kresh’Tal
 
@@ -8919,6 +9253,59 @@ _Effet : retient « raconte-ondine », +5 XP._
 
 - « Merci, Ondine. » → **fin**
 
+## Les Oskarsen
+
+_Réfugiés, devant la Porte de Glace_
+
+Commence par : « dehors » _(si quête « Ceux qu’on laisse dehors » pas commencée)_, sinon « attend »
+
+### dehors
+
+_Effet : lance la quête « Ceux qu’on laisse dehors », retient « oskarsen-vus »._
+
+> Une femme, un enfant contre elle, sous trois couvertures, adossés à la glace près de la Porte. Ils ne tremblent plus, ce qui est mauvais signe. — Les Oskarsen. On vient du sud, de ce qui fondait. La loi nous a donné une nuit au tunnel chaud. Il y a trois nuits.
+
+- « Je vais parler pour vous au Conseil. » → **fin**
+- _(sans repère « cache-rate »)_ **🎲 Discrétion 18** « Vous cacher au Foyer, chez Ulga. » → cache, ✗ → renvoyes _(termine la quête « Ceux qu’on laisse dehors », retient « fin-laisses-dehors-ulga », +60 XP, retient « oskarsen-reglee »)_
+- « Vous donner de quoi repartir vers le sud. » → sud-q
+- « Je reviendrai. » → **fin**
+
+### attend
+
+> Les Oskarsen n’ont pas bougé. L’enfant dort, ou fait semblant. La mère te regarde arriver sans espoir, ce qui lui épargne la déception. — Alors ?
+
+- « Je vais parler pour vous au Conseil. » → **fin**
+- _(sans repère « cache-rate »)_ **🎲 Discrétion 18** « Vous cacher au Foyer, chez Ulga. » → cache, ✗ → renvoyes _(termine la quête « Ceux qu’on laisse dehors », retient « fin-laisses-dehors-ulga », +60 XP, retient « oskarsen-reglee »)_
+- « Vous donner de quoi repartir vers le sud. » → sud-q
+- « Je reviendrai. » → **fin**
+
+### sud-q
+
+> — Le sud ? Neuf jours de traîneau jusqu’à ce qui reste de chez nous. Sans manteau pour le petit, on n’en fera pas trois.
+
+- _(si l’on porte « Manteau de fourrure de Khrysos »)_ **[30 Fers]** « Mon manteau pour l’enfant, et trente Fers. » → sud _(termine la quête « Ceux qu’on laisse dehors », retient « fin-laisses-dehors-sud », +40 XP, reprend 1 × « Manteau de fourrure de Khrysos », −30 Fers, retient « oskarsen-reglee »)_
+- « Je n’ai rien à vous donner. » → attend
+
+### cache
+
+> La nuit, par le tunnel de service, derrière les traîneaux. Ulga ouvre sa porte sans poser de question, et la referme. Au Foyer, il y a un mur chaud, et derrière le mur chaud, une remise. La loi de 2995 ne sait pas qu’elle existe.
+
+- « Repartir. » → **fin**
+
+### renvoyes
+
+_Effet : retient « cache-rate » pour 2 jours, retient « surpris-portes »._
+
+> La garde des Portes vous voit au coin du tunnel. Elle ne crie pas. Elle raccompagne les Oskarsen à la Porte, et toi avec. — Pas comme ça. La prochaine fois, je devrai le noter.
+
+- « Attendre. » → **fin**
+
+### sud
+
+> La mère prend le manteau sans te remercier, et le boutonne sur l’enfant. Les trente Fers, elle les compte. Ils partent vers le sud, sur la piste des traîneaux. Tu ne sauras jamais s’ils sont arrivés.
+
+- « Les regarder partir. » → **fin**
+
 ## Oss’Amar
 
 _Quatre-vingts ans, en deuil_
@@ -10036,6 +10423,26 @@ Commence par : « livre »
 
 - « … » → **fin**
 
+## Le registre des Portes
+
+_Les Portes de Glace_
+
+Commence par : « nuit » _(si quête « Une lacune à signer » en cours)_, sinon « registre »
+
+### registre
+
+> Le registre des Portes : un cristal sur un socle, près de la garde. Il rend qui entre, qui sort, et qui est renvoyé, nuit après nuit, mot pour mot.
+
+- « Passer. » → **fin**
+
+### nuit
+
+_Effet : retient « face-portes-vue »._
+
+> Tu fais rendre les nuits, une à une. La veille, intacte ; le lendemain, intact. Entre les deux, rien : une face manque. Sur le socle, une poussière de cristal que personne n’a balayée.
+
+- « Regarder la garde. » → **fin**
+
 ## Un renfoncement sans enseigne
 
 _Entre deux fonderies éteintes_
@@ -10623,6 +11030,61 @@ _Effet : retient « raconte-siffrin », +5 XP._
 > Siffrin écoute en surveillant le ciel. — C’est bien. Mais il manquait un oiseau.
 
 - « Merci, Siffrin. » → **fin**
+
+## Sigrun
+
+_Seize ans, la sœur de Torka_
+
+Commence par : « maison » _(si repère « sigrun-ramenee »)_, sinon « trouvee »
+
+### trouvee
+
+> Une fille de seize ans, assise contre un rocher, dans un manteau d’homme. Les lèvres bleues. — C’est pas fini. Vingt-quatre heures. Je compte. Elle compte mal : elle est dehors depuis trente heures, et elle ne sent plus ses mains.
+
+_Si Liane voyage avec toi :_ Liane est déjà à genoux dans la neige, les mains de la fille entre les siennes. — Ne discute pas avec elle. Ramène-la.
+
+- _(si l’on porte « Manteau de fourrure de Khrysos »)_ « Lui donner ton manteau. » → manteau _(reprend 1 × « Manteau de fourrure de Khrysos », −5 PV, retient « sigrun-ramenee », termine la quête « L’Épreuve du Blizzard », retient « fin-epreuve-blizzard-vivante », +60 XP)_
+- **🎲 Médecine 18** « Lui frictionner les mains, la soigner ici. » → soignee, ✗ → doigts _(retient « sigrun-ramenee », termine la quête « L’Épreuve du Blizzard », retient « fin-epreuve-blizzard-vivante », +60 XP)_
+- **🎲 Athlétisme 18** « La porter jusqu’à la Porte. » → portee, ✗ → doigts _(retient « sigrun-ramenee », termine la quête « L’Épreuve du Blizzard », retient « fin-epreuve-blizzard-vivante », +60 XP)_
+- « La laisser. C’est son Épreuve. » → abandonnee _(retient « sigrun-perdue », retient « abandon-froid », termine la quête « L’Épreuve du Blizzard », retient « fin-epreuve-blizzard-abandonnee », +0 XP, avis de Liane −3, avis de Boulon −2)_
+
+### manteau
+
+> Tu lui passes ton manteau par-dessus le sien. Elle proteste, puis plus. Le retour jusqu’à la Porte, toi sans manteau, prend une heure et te prend quelque chose. Elle marche. Elle rentre.
+
+- « Rentrer. » → **fin** _(mène à « Khrysos — les Portes de Glace »)_
+
+### soignee
+
+> Tu frottes ses mains dans la neige, puis contre ta peau, longtemps, jusqu’à ce qu’elle crie de douleur : bon signe. Elle se lève. Vous rentrez ensemble, au pas, en comptant pour de vrai.
+
+- « Rentrer. » → **fin** _(mène à « Khrysos — les Portes de Glace »)_
+
+### portee
+
+> Tu la charges sur ton dos. Elle ne pèse rien, ce qui t’inquiète. Une heure de vent de face, la perche, puis la Porte. Elle vit.
+
+- « Rentrer. » → **fin** _(mène à « Khrysos — les Portes de Glace »)_
+
+### doigts
+
+_Effet : retient « sigrun-ramenee », termine la quête « L’Épreuve du Blizzard », retient « fin-epreuve-blizzard-doigts », +40 XP._
+
+> Tu la ramènes, mais trop tard pour deux doigts de sa main gauche. À la Porte, le médecin des Vigiles les lui prend, proprement. Elle ne pleure pas. Elle dit : j’ai réussi l’Épreuve, alors.
+
+- « Rentrer. » → **fin** _(mène à « Khrysos — les Portes de Glace »)_
+
+### abandonnee
+
+> Tu repars vers la perche. Derrière toi, elle compte encore, à voix basse. Le lendemain, les Vigiles Blancs la ramènent, debout dans un bloc de neige. À Khrysos, ce que tu as fait a un nom : l’abandon dans le froid.
+
+- « Rentrer. » → **fin**
+
+### maison
+
+> Sigrun, roulée dans trois couvertures devant la cheminée. — Je comptais mal. Je croyais qu’il restait deux heures. Tu sais ce qui est bête ? Je n’avais plus froid. C’est ça qui aurait dû me faire peur.
+
+- « Repose-toi. » → **fin**
 
 ## Sorn
 
@@ -11372,7 +11834,7 @@ _Effet : retient « raconte-tobias », +15 XP, +20 Fers._
 
 _Dix ans, sculpte des animaux dans la glace_
 
-Commence par : « accueil »
+Commence par : « perdue » _(si repère « sigrun-perdue »)_, sinon « doigts » _(si repère « fin-epreuve-blizzard-doigts »)_, sinon « rentree » _(si quête « L’Épreuve du Blizzard » terminée)_, sinon « attend » _(si quête « L’Épreuve du Blizzard » en cours)_, sinon « sigrun » _(si quête « L’Épreuve du Blizzard » pas commencée)_, sinon « accueil »
 
 ### accueil
 
@@ -11395,6 +11857,47 @@ Commence par : « accueil »
 
 - « C’est beau. Qui t’a appris ? » → appris
 - « Je te laisse. » → **fin**
+
+### sigrun
+
+_Effet : lance la quête « L’Épreuve du Blizzard », retient « blizzard-commencee »._
+
+> Une petite fille en bonnet rouge, à genoux devant un ours de glace à moitié taillé. Elle ne gratte plus. — C’est l’ours de Sigrun. Elle devait le finir en rentrant de l’Épreuve du Blizzard. Vingt-quatre heures seule dehors. Ça fait trente.
+
+- « Je vais la chercher. » → **fin**
+- « Les Vigiles Blancs ne la cherchent pas ? » → vigiles
+- « Qui t’a appris à sculpter ? » → appris
+
+### vigiles
+
+> — Ils cherchent au nord. Sigrun est partie à l’est. Elle me l’a dit, à moi, et à personne d’autre : elle voulait voir la perche des guides, en sortant par la Porte.
+
+- « Je vais la chercher. » → **fin**
+
+### attend
+
+> Torka gratte l’ours de Sigrun, sans le finir. — À l’est. La perche des guides. Elle a pris le manteau de Papa, il est trop grand pour elle.
+
+- « Je vais la chercher. » → **fin**
+- « Je te laisse. » → **fin**
+
+### rentree
+
+> — Sigrun est rentrée ! Elle dort depuis deux jours. Maman dit qu’elle a raté l’Épreuve. Sigrun dit que non, qu’elle a appris ce qu’il fallait apprendre. Torka a fini l’ours. Il sourit, ce qui ne se fait pas pour un ours.
+
+- « Je te laisse. » → **fin**
+
+### doigts
+
+> Torka a fini l’ours. Il a une patte de travers. — C’est Sigrun qui l’a fini, avec sa main d’après. Elle dit que l’ours lui ressemble, maintenant. Moi, je trouve qu’il est mieux.
+
+- « Je te laisse. » → **fin**
+
+### perdue
+
+> Torka ne sculpte plus. Un bloc de glace intact devant elle. — On dit que tu l’as vue. Que tu es reparti·e. Elle ne lève pas les yeux. — À Khrysos, il y a un mot pour ça. Maman ne veut pas que je le dise.
+
+- « Partir. » → **fin**
 
 ## Un trou de fouille
 
@@ -11435,6 +11938,76 @@ _Effet : retient « fouille-vue », retient « fouille-marches »._
 > Des pelles de Ferros, et une étiquette de marchand, à l’encre : « Lot douze, reliques. À livrer au Marché des Cendres. »
 
 - « Garder ça en mémoire. » → **fin**
+
+## Des traces dans la neige
+
+_La surface_
+
+Commence par : « traces » _(sans repère « sigrun-reperee »)_, sinon « vide »
+
+### traces
+
+> Sous la neige fraîche, des pas de bottes trop grandes pour celle qui les porte, vers l’est. Le vent les efface à mesure qu’on les regarde.
+
+- _(sans repère « traces-rate »)_ **🎲 Survie 18** « Les suivre avant qu’elles disparaissent. » → suivies, ✗ → perdues
+- « Aller chercher Korvek, aux Portes. » → **fin**
+
+### suivies
+
+_Effet : retient « sigrun-reperee »._
+
+> Tu suis les pas, de creux en creux, la tête baissée contre le vent. Puis, entre deux rafales, une silhouette assise contre un rocher, à l’est.
+
+- « Y aller. » → **fin**
+
+### perdues
+
+_Effet : retient « traces-rate » pour 1 jours._
+
+> Les pas se perdent dans une congère, puis plus rien. Le vent a gagné. Demain, la neige aura bougé ; ou demande à un guide qui sait lire le blizzard.
+
+- « Rentrer. » → **fin**
+
+### vide
+
+> Des pas, à moitié effacés.
+
+- « Passer. » → **fin**
+
+## Un traîneau de Ferros
+
+_Les Portes de Glace_
+
+Commence par : « vide » _(si quête « Le yéti des Portes » en cours)_ _(sans repère « traces-bottes »)_, sinon « traineau »
+
+### traineau
+
+> Un traîneau de Ferros, des caisses de bougies de suif sanglées dessus.
+
+- « Passer. » → **fin**
+
+### vide
+
+> Le traîneau du marchand de Ferros, vidé : les sangles coupées, les caisses parties. Autour, la neige tassée par cent pieds et dix traîneaux.
+
+- _(sans repère « traineau-rate »)_ **🎲 Investigation 18** « Examiner les traces, sous les autres. » → bottes, ✗ → pietine
+- « Laisser. » → **fin**
+
+### bottes
+
+_Effet : retient « traces-bottes »._
+
+> Les sangles ont été coupées net, au couteau, à hauteur d’homme. Dans la neige, sous les autres, des bottes ferrées de Ferros. Un Yéti n’en porte pas : il n’en trouve pas à sa taille.
+
+- « Aller voir la garde. » → **fin**
+
+### pietine
+
+_Effet : retient « traineau-rate » pour 1 jours._
+
+> Trop de pieds, trop de traîneaux. Demain, la neige fraîche aura recouvert le reste, ou montré autre chose.
+
+- « Laisser. » → **fin**
 
 ## Le guetteur du tunnel
 

@@ -45,6 +45,11 @@ describe('les fins vues (étude B11)', () => {
       ['dragonnet', 3],
       ['glace-pris', 4],
       ['cristal-hesite', 3],
+      ['quatorze-annees', 3],
+      ['laisses-dehors', 3],
+      ['epreuve-blizzard', 3],
+      ['cristal-ecoute', 3],
+      ['yeti-portes', 3],
     ]);
   });
 

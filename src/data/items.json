@@ -628,5 +628,16 @@
     "weightKg": 6,
     "price": 0,
     "quest": true
+  },
+  {
+    "id": "manteau-vigile",
+    "name": "Manteau des Vigiles Blancs",
+    "description": "Un long manteau blanc doublé de fourrure, une corde cousue à l’épaule, que les Vigiles Blancs donnent à qui a ramené assez de vivants.",
+    "weightKg": 5,
+    "price": 160,
+    "slot": "armure",
+    "armorBonus": 2,
+    "usage": "À la surface de Glacialis, le froid ne te prend plus de PV tant que tu le portes.",
+    "lore": "On ne compte pas ce qu’on laisse : on compte ce qu’on ramène."
   }
 ]

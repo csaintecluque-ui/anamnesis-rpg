@@ -1,0 +1,103 @@
+{
+  "id": "dagny",
+  "speaker": "dagny",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "quatorze-annees",
+          "status": "active"
+        }
+      ],
+      "node": "carnet"
+    },
+    {
+      "requires": [
+        {
+          "quest": "quatorze-annees",
+          "status": "done"
+        }
+      ],
+      "node": "apres"
+    },
+    {
+      "node": "accueil"
+    }
+  ],
+  "nodes": {
+    "accueil": {
+      "text": "Une femme en manteau de deuil, un brassard noir, attend devant le Palais avec un rouleau de pétitions. — Dagny Ferme-Givre, des 4 611 : les familles dont il a brisé les morts. Nous demandons qu’on le juge une seconde fois, et qu’on le condamne, enfin.",
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "carnet": {
+      "text": "— Ennir vous a parlé du carnet. Ses mesures. Rapportez-le-moi. Avec ça, le Conseil ne pourra plus dire que c’était un fou : il faudra dire que c’était un profanateur, et qu’il savait ce qu’il faisait.",
+      "effects": [
+        {
+          "setFlag": "dagny-vue"
+        }
+      ],
+      "options": [
+        {
+          "text": "Ou que c’était un savant, et qu’il avait raison ?",
+          "next": "courant",
+          "requires": [
+            {
+              "notFlag": "dagny-ferme"
+            }
+          ],
+          "roll": {
+            "skill": "investigation",
+            "difficulty": 18
+          },
+          "failNext": "ferme"
+        },
+        {
+          "text": "J’y réfléchirai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "courant": {
+      "text": "Elle se tait une seconde de trop. — Il y a deux courants, chez les 4 611. Ceux qui veulent qu’on le condamne, et ceux qui veulent savoir. Les seconds paient les pétitions des premiers. Je suis des seconds. Ma mère est dans une prise, section quatre.",
+      "effects": [
+        {
+          "setFlag": "dagny-courant"
+        }
+      ],
+      "options": [
+        {
+          "text": "Je comprends.",
+          "next": "fin"
+        }
+      ]
+    },
+    "ferme": {
+      "text": "— Il avait tort. C’est tout ce qu’il y a à savoir. Elle reprend ses pétitions, et ne te regarde plus.",
+      "effects": [
+        {
+          "setFlag": "dagny-ferme"
+        }
+      ],
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "apres": {
+      "text": "Dagny compte ses pétitions, une à une, comme on compte des noms. — Les morts ne se plaignent pas. C’est pour ça qu’il faut quelqu’un pour le faire à leur place.",
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

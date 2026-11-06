@@ -100,9 +100,9 @@ export class PauseScene extends Phaser.Scene {
   }
 
   /**
-   * A free night where the hero stands, the PV raised to half (src/rules/repos.ts); refused under the ground, on the
-   * road, and before the evening after another such night. Outside the towns, something may come in the night: the
-   * map is rebuilt for the night, and the fight starts there. Otherwise it is rebuilt for the morning.
+   * A free night where the hero stands, the PV raised to half, one a day (src/rules/repos.ts); refused under the
+   * ground and on the road. Outside the towns, something may come in the night: the map is rebuilt for the night, and
+   * the fight starts there. Otherwise it is rebuilt for the morning.
    */
   private rest(): void {
     const state = this.registry.get('game') as GameState;

@@ -39,14 +39,16 @@ describe('a free night', () => {
     expect(notice).toMatch(/moitié/);
   });
 
-  it('one a day: after a night outside, not again before the evening', () => {
+  it('one a day: who lies down again the morning after waits for the evening, and a whole day passes', () => {
     const state = hurt();
     restUntilMorning(state);
-    expect(restRefusal(state)).toMatch(/avant ce soir/);
-    state.time.phase = 1;
-    expect(restRefusal(state)).toMatch(/avant ce soir/);
-    state.time.phase = 2;
+    expect(state.time).toEqual({ day: 2, phase: 0 });
     expect(restRefusal(state)).toBeNull();
+    expect(restUntilMorning(state)).toMatch(/^Tu as déjà dormi dehors cette nuit/);
+    expect(state.time).toEqual({ day: 3, phase: 0 });
+    state.time.phase = 2;
+    expect(restUntilMorning(state)).toMatch(/^Tu dors mal/);
+    expect(state.time).toEqual({ day: 4, phase: 0 });
   });
 
   it('not under the ground, nor on the road', () => {

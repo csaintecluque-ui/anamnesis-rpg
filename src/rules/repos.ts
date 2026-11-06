@@ -14,8 +14,8 @@ import { findPlace } from './world';
  * 2026-11-03 : « deux boutons à la mort »).
  * - Le repos gratuit : jusqu'au matin, les PV remontés à la moitié au plus (l'auberge les rend tous, avec les PR) ;
  *   jamais sous terre ni sur la route. Il n'y avait aucun soin gratuit : à moins de 6 Fers et blessé, on restait bloqué.
- *   Depuis le test du 2026-11-06 (décision de Cyril) : une nuit par jour (après une nuit dehors, pas d'autre avant le
- *   soir), et hors des villes (un lieu qui dit qui rôde : `nuit`), un risque d'être attaqué dans la nuit, tiré d'une
+ *   Depuis le test du 2026-11-06 (décision de Cyril) : une nuit par jour (réveillé·e d'une nuit dehors, qui se recouche
+ *   avant le soir attend d'abord que la journée passe), et hors des villes (un lieu qui dit qui rôde : `nuit`), un risque d'être attaqué dans la nuit, tiré d'une
  *   graine (le jour, le lieu, le héros) : recharger n'y change rien.
  * - Le réveil : à l'auberge de la dernière ville, guéri, contre un Récit ordinaire (le plus ancien) ; sans Récit,
  *   10 Fers ; sans Fers, rien.
@@ -37,9 +37,6 @@ export function restRefusal(state: GameState): string | null {
   const location = findLocation(state.location);
   if (state.voie || location?.voie) return 'Pas ici : sous terre, rien ne dort longtemps. Remonte d’abord.';
   if (location?.encounter) return 'Pas ici, sur la route : trouve un abri, ou une auberge.';
-  if (state.reposLibre === state.time.day && state.time.phase < EVENING) {
-    return 'Tu as dormi dehors cette nuit : pas d’autre repos avant ce soir. Une auberge t’accueille à toute heure.';
-  }
   return null;
 }
 
@@ -55,12 +52,23 @@ export function nightAttack(state: GameState): string[] | null {
   return [...location.nuit[Math.floor(rng() * location.nuit.length)]];
 }
 
+/**
+ * One night outside a day: who woke from one today and lies down again before the evening waits for the day to pass.
+ * Returns what is told of it.
+ */
+function waitForTheEvening(state: GameState): string {
+  if (state.reposLibre !== state.time.day || state.time.phase >= EVENING) return '';
+  waitUntil(state.time, 'soir');
+  return 'Tu as déjà dormi dehors cette nuit : la journée passe à attendre le soir. ';
+}
+
 /** The night falls on the hero lying there, and something comes: the moment is the night. Returns the notice. */
 export function beginNightAttack(state: GameState): string {
+  const wait = waitForTheEvening(state);
   waitUntil(state.time, 'nuit');
   state.flags[NIGHT_FLAG] = true;
   state.expirations = { ...state.expirations, [NIGHT_FLAG]: state.time.day };
-  return 'Tu t’allonges à même le sol, loin de tout mur. Au cœur de la nuit, un bruit te réveille : on vient.';
+  return `${wait}Tu t’allonges à même le sol, loin de tout mur. Au cœur de la nuit, un bruit te réveille : on vient.`;
 }
 
 /** Experience for the beasts of the night: half of what they are worth, like those of the road. */
@@ -76,6 +84,7 @@ const restedHp = (hp: number, max: number): number => Math.max(hp, Math.min(max,
  * Returns the notice.
  */
 export function restUntilMorning(state: GameState): string {
+  const wait = waitForTheEvening(state);
   sleepUntil(state.time, 'matin');
   state.reposLibre = state.time.day;
   let healed = 0;
@@ -88,7 +97,7 @@ export function restUntilMorning(state: GameState): string {
   for (const m of state.groupe) m.hp = restedHp(m.hp, findCompanion(m.id)?.hp ?? m.hp);
   fadeSouvenirs(state.flags);
   const pv = healed > 0 ? ` : +${healed} PV` : '';
-  return `Tu dors mal, d’un œil, sans toit ni lit${pv}. Le jour se lève. Nous sommes ${formatDate(state.time)}. Le sol ne rend pas plus de la moitié des forces : une auberge t’aurait tout rendu.`;
+  return `${wait}Tu dors mal, d’un œil, sans toit ni lit${pv}. Le jour se lève. Nous sommes ${formatDate(state.time)}. Le sol ne rend pas plus de la moitié des forces : une auberge t’aurait tout rendu.`;
 }
 
 /** The town the hero wakes up in: the one of the place of the fall, else the last one walked in. */

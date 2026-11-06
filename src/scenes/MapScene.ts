@@ -404,7 +404,6 @@ export class MapScene extends Phaser.Scene {
   }
 
   update(_time: number, delta: number): void {
-    if (this.state) this.state.playTimeSeconds += delta / 1000;
     if (this.sandFlow) {
       this.sandFlow.tilePositionX += delta * 0.045;
       this.sandFlow.tilePositionY += delta * 0.0225;

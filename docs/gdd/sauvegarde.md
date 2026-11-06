@@ -14,6 +14,11 @@ Code : `src/save/codec.ts` (format, validation, migrations), `src/save/store.ts`
 - **Export** : sur écran tactile, la feuille de partage (iPhone : « Enregistrer dans Fichiers ») ;
   ailleurs, un téléchargement. Nom du fichier : `anamnesis-emplacement-1-AAAA-MM-JJ-HHMM.json`.
 - **Import** : sélecteur de fichiers, dans l'emplacement choisi.
+- **Le temps de jeu** affiché sur chaque emplacement (corrigé le 2026-11-06 : il ne comptait que la marche, pas les
+  dialogues ni les combats) : une seule horloge sur la boucle du jeu (`src/state/playTime.ts`), qui compte toute la
+  partie (carte, carte du monde, dialogues, combats, journal, troc, veillées) ; pas l'écran titre, les emplacements, la
+  pause ni les options ; et plus rien après cinq minutes sans un geste. Les sauvegardes d'avant la correction gardent
+  le temps qu'elles avaient (trop bas).
 - **Confirmations** : écraser, importer par-dessus ou supprimer une sauvegarde demande un second appui
   (« Confirmer ? », 3 secondes).
 - **Chaque changement de forme** de l'état passe par une nouvelle version et sa migration.

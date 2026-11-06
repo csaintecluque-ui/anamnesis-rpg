@@ -20,6 +20,8 @@ import { OubliScene } from './scenes/OubliScene';
 import { AtelierScene } from './scenes/AtelierScene';
 import { WorldMapScene } from './scenes/WorldMapScene';
 import { getSettings } from './settings';
+import type { GameState } from './state/gameState';
+import { playTimeStep } from './state/playTime';
 import { COLORS, GAME_HEIGHT, GAME_WIDTH } from './ui/theme';
 import { RENDER_SCALE, applyRenderScale } from './ui/viewport';
 
@@ -68,6 +70,23 @@ game.sound.volume = getSettings().volume / 100;
 // Phones: the iPhone's silent switch, an audio left asleep until a touch (src/audio/mobile.ts).
 setUpMobileAudio(game);
 game.events.once(Phaser.Core.Events.READY, () => applyRenderScale(game));
+
+// The play time (src/state/playTime.ts): one clock on the game loop, whatever scene is running, that stops in the
+// menus and when nobody touches anything.
+let lastInput = performance.now();
+for (const type of ['pointerdown', 'pointermove', 'keydown', 'wheel', 'touchstart']) {
+  window.addEventListener(type, () => (lastInput = performance.now()), { passive: true });
+}
+// The frame's own timestamp, not Phaser's delta: that one is smoothed, and fell short of the real time.
+let lastFrame = 0;
+game.events.on(Phaser.Core.Events.STEP, (time: number) => {
+  const delta = lastFrame ? time - lastFrame : 0;
+  lastFrame = time;
+  const state = game.registry.get('game') as GameState | undefined;
+  if (!state?.character) return;
+  const active = game.scene.getScenes(true).map((s) => s.scene.key);
+  state.playTimeSeconds += playTimeStep(delta, active, performance.now() - lastInput);
+});
 
 // Development only: lets browser checks locate things on screen. Never present in the published build.
 if (import.meta.env.DEV) (window as unknown as { __anamnesis: Phaser.Game }).__anamnesis = game;

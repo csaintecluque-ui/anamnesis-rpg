@@ -132,7 +132,6 @@ export class WorldMapScene extends Phaser.Scene {
   }
 
   update(_time: number, delta: number): void {
-    this.state.playTimeSeconds += delta / 1000;
     if (!this.trip) return;
     const { place } = this.trip;
     const step = ((this.trip.flight ? 3 : 1) * WORLD.travel.pixelsPerSecond * delta) / 1000;

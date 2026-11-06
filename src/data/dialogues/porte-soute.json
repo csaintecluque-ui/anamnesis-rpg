@@ -46,7 +46,7 @@
       "text": "Le cadenas résiste, et l’homme d’équipage remue dans son sommeil.",
       "options": [
         {
-          "text": "Réessayer.",
+          "text": "Chercher un autre moyen.",
           "next": "verrouillee"
         },
         {

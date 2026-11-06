@@ -70,7 +70,7 @@
       "text": "La serrure résiste. Une passerelle grince non loin : mieux vaut ne pas s’acharner trop longtemps.",
       "options": [
         {
-          "text": "Réessayer.",
+          "text": "Chercher un autre moyen.",
           "next": "verrouillee"
         },
         {

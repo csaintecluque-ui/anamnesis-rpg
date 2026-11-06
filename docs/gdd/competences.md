@@ -98,3 +98,20 @@ Perception…) restent des seuils : ils disent qui est le héros, pas ce qu'il t
   bonus de chaque compétence et sa chance sur un test normal.
 - **Garde-fous** (`dialogue.test.ts`) : plus aucun seuil de compétence ; chaque jet a une suite d'échec différente de
   sa réussite ; la courbe par chapitre (`competences.test.ts`) tient toujours.
+
+## Test du 6 novembre : le dé ne se recharge plus (décision de Cyril)
+
+Le testeur relançait 41 jets ratés en reparlant au PNJ, et rechargeait pour changer le dé (`Math.random` au moment du
+choix). Désormais (`rollOption`, `src/rules/dialogue.ts` ; `src/rules/graine.ts` ; garde-fous `jets.test.ts`) :
+
+- **le dé vient d'une graine**, comme les voies endormies : le jour, la réplique (dialogue, nœud, option), le nombre
+  d'essais du jour, le héros. Recharger rend le même dé ; un autre jour, un autre dé. Le compte des essais du jour est
+  dans la sauvegarde (`jets`). « Contourner » une rencontre de la carte du monde se tire de même (le jour, la rencontre,
+  le héros) ;
+- **un jet raté pour rien attend le lendemain**, dans le moteur, pour tous les dialogues (et ceux à venir) : l'option
+  reste visible, grisée, « Raté aujourd'hui : réessaie demain. » (repère d'un jour `jet-rate-…`). Les 33 jets qui
+  disaient déjà « demain » et les 38 qui ne se retentent pas ne changent pas ;
+- **un échec qui coûte se repaie** (une blessure, du temps, un objet, un combat : 21 jets, la nage, les sauts, l'échelle
+  du Calme…) : « Réessayer » reste, et chaque essai payé tire un nouveau dé ;
+- si plus rien n'est possible dans une réplique, « Revenir demain. » la ferme ; « Réessayer » de la serrure du
+  grenier et du cadenas de la soute devient « Chercher un autre moyen. » (l'autre voie, payante, reste ouverte).

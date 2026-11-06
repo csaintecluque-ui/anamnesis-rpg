@@ -3,7 +3,7 @@ import { playSfx } from '../audio/sfx';
 import type { Effect } from '../rules/dialogue';
 import { DIALOGUES } from '../data/dialogues';
 import npcData from '../data/npcs.json';
-import { END, applyEffects, expireFlags, goesTo, nodeApartes, opensAtelier, opensTrade, opensVeillee, performRoll, raconterChoices, raconterOption, startNode, startsCombat, visibleOptions, type Dialogue, type DialogueOption, type OptionView } from '../rules/dialogue';
+import { END, applyEffects, expireFlags, goesTo, nodeApartes, opensAtelier, opensTrade, opensVeillee, raconterChoices, raconterOption, rollOption, startNode, startsCombat, visibleOptions, type Dialogue, type DialogueOption, type NodePlace, type OptionView } from '../rules/dialogue';
 import { fontPx, textScale } from '../settings';
 import type { GameState } from '../state/gameState';
 import type { MapScene } from './MapScene';
@@ -38,6 +38,8 @@ const savesProgress = (effects?: Effect[]): boolean => !!effects?.some((e) => 'd
 
 export class DialogueScene extends Phaser.Scene {
   private dialogue!: Dialogue;
+  /** The node shown: with the dialogue, it names the rolls made there (seeded dice, one try a day). */
+  private nodeId = '';
   private state!: GameState;
   private layer!: Phaser.GameObjects.Container;
   private backdrop!: Phaser.GameObjects.Rectangle;
@@ -115,6 +117,7 @@ export class DialogueScene extends Phaser.Scene {
     if (nodeId === RACONTER_MORE && this.raconter) return this.showRaconter(this.raconter.option, this.raconter.page + 1);
     this.raconter = null;
     const node = this.dialogue.nodes[nodeId];
+    this.nodeId = nodeId;
     this.notices.push(...applyEffects(this.state, node.effects));
     if (gives(node.effects)) playSfx(this, 'objet');
     if (savesProgress(node.effects)) writeAuto(this.registry, this.state, 'progres');
@@ -180,7 +183,9 @@ export class DialogueScene extends Phaser.Scene {
     }
 
     // Options are stacked from the bottom, each as tall as its (possibly wrapped) text needs.
-    const views = visibleOptions(node, this.state);
+    const views = visibleOptions(node, this.state, this.place());
+    // Every way on failed today (a roll is tried once a day): one can always leave, and come back tomorrow.
+    if (views.length > 0 && views.every((v) => !v.enabled)) views.push({ option: { text: 'Revenir demain.', next: END }, index: -1, enabled: true, tags: [] });
     this.choices = [];
     let bottom = OPTIONS_BOTTOM;
     for (let i = views.length - 1; i >= 0; i--) bottom = this.addOption(views[i], i + 1, bottom) - OPTION_GAP;
@@ -224,7 +229,8 @@ export class DialogueScene extends Phaser.Scene {
       // An option with a roll only has its effects when the roll succeeds (a failed lie starts nothing).
       const roll = view.option.roll;
       if (roll) {
-        const outcome = performRoll(this.state, roll);
+        // The die comes from a seed: reloading changes nothing ; failed for nothing, it waits for tomorrow (test du 2026-11-06).
+        const outcome = rollOption(this.state, this.dialogue, this.place(), view.index);
         this.rollNotice = outcome.notice;
         if (!outcome.success) {
           this.show(view.option.failNext!);
@@ -301,10 +307,14 @@ export class DialogueScene extends Phaser.Scene {
     const options: DialogueOption[] = ids.slice(at * RACONTER_PAGE, (at + 1) * RACONTER_PAGE).map((id) => raconterOption(def, id));
     if (pages > 1) options.push({ text: 'Autres histoires…', next: RACONTER_MORE });
     options.push({ text: 'Aucun, finalement.', next: option.next });
-    const views: OptionView[] = options.map((o) => ({ option: o, enabled: true, tags: [] }));
+    const views: OptionView[] = options.map((o, index) => ({ option: o, index, enabled: true, tags: [] }));
     this.choices = [];
     let bottom = OPTIONS_BOTTOM;
     for (let i = views.length - 1; i >= 0; i--) bottom = this.addOption(views[i], i + 1, bottom) - OPTION_GAP;
+  }
+
+  private place(): NodePlace {
+    return { dialogue: this.dialogue.id, node: this.nodeId };
   }
 
   private close(): void {

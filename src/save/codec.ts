@@ -191,8 +191,19 @@ function validateState(state: unknown): string | null {
     return 'dernière ville invalide.';
   }
   if (state.reposLibre !== undefined && (!Number.isInteger(state.reposLibre) || (state.reposLibre as number) < 1)) return 'jour du dernier repos invalide.';
+  if (state.jets !== undefined && !isJets(state.jets)) return 'jets du jour invalides.';
   if (state.character !== null) return characterError(state.character);
   return null;
+}
+
+/** The rolls tried today: a day, and a count per roll. */
+function isJets(value: unknown): boolean {
+  return (
+    isRecord(value) &&
+    Number.isInteger(value.jour) &&
+    isRecord(value.essais) &&
+    Object.values(value.essais).every((n) => Number.isInteger(n) && (n as number) > 0)
+  );
 }
 
 /** A sleeping line under way: a known site of the world map, a draw, a level within the line's depth. */

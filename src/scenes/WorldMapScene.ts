@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { heroKey, rngFor } from '../rules/graine';
 import { performRoll, rollChance } from '../rules/dialogue';
 import { SKILLS } from '../rules/attributes';
 import {
@@ -558,7 +559,8 @@ export class WorldMapScene extends Phaser.Scene {
         // The roll's own skill (Survie, Discrétion, Subterfuge…), not always Survie.
         `Contourner (${SKILLS.find((s) => s.id === avoid.skill)?.name ?? avoid.skill} ${chance} %)`,
         () => {
-          const outcome = performRoll(this.state, avoid);
+          // The die comes from a seed (the day, the encounter, the hero): reloading changes nothing (test du 2026-11-06).
+          const outcome = performRoll(this.state, avoid, rngFor('contourner', this.state.time.day, r.id, heroKey(this.state.character)));
           if (outcome.success) this.showPanel(`Tu t’éloignes sans bruit.\n${outcome.notice}`, [['Continuer', goOn]]);
           else this.showPanel(`Repéré ! Impossible de les éviter.\n${outcome.notice}`, [['Se défendre', () => this.startEncounter(r, destination)]]);
         },

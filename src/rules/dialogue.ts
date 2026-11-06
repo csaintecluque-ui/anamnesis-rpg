@@ -3,6 +3,7 @@ import veilleeData from '../data/veillees.json';
 import { findLocation, type GameState } from '../state/gameState';
 import { ATTRIBUTES, SKILLS, attributeModifier, skillScoreOf, type AttributeId, type SkillId } from './attributes';
 import { resolveCheck, rollD20, successChance, type Rng } from './checks';
+import { heroKey, rngFor } from './graine';
 import { characterStats } from './character';
 import { ENCOUNTERS, GOLEM_FIGHT, GOLEM_QUEST_FIGHT, VOIE_FIGHT } from './combat';
 import { dreamFragment } from './heros';
@@ -275,6 +276,8 @@ export function testLabel(c: Condition): string | null {
 
 export interface OptionView {
   option: DialogueOption;
+  /** Its place among the node's options: with the dialogue and the node, it names a roll (rollLockFlag). */
+  index: number;
   enabled: boolean;
   /** Test tags such as "Perception 4" or "Discrétion 65 %", shown whether or not they are met. */
   tags: string[];
@@ -282,10 +285,64 @@ export interface OptionView {
   missing?: string;
 }
 
-/** Visible options for the current state: hidden when a story condition fails, greyed when a test fails. */
-export function visibleOptions(node: DialogueNode, state: GameState): OptionView[] {
+/** Where a node stands: its dialogue and its id, which name the rolls made there (test du 2026-11-06). */
+export interface NodePlace {
+  dialogue: string;
+  node: string;
+}
+
+/** A roll, by where it stands: the dialogue, the node, its place among the options. */
+const rollKey = (place: NodePlace, index: number): string => `${place.dialogue}-${place.node}-${index}`;
+
+/**
+ * The flag that holds a roll failed today for nothing (test du 2026-11-06, décision de Cyril): one try a day, as the
+ * thirty rolls that already said « demain » did. It lasts until the end of the day (`expirations`).
+ */
+export const rollLockFlag = (place: NodePlace, index: number): string => `jet-rate-${rollKey(place, index)}`;
+
+/** What a failure can cost: a wound, time, a thing, a fight. A failure that costs one of them can be tried again. */
+const PRICES = ['blesser', 'avancer', 'attendre', 'dormir', 'takeItem', 'startCombat'];
+
+/** True when failing the option costs nothing: then it waits for tomorrow. */
+export function failureIsFree(dialogue: Dialogue, option: DialogueOption): boolean {
+  const effects = (option.failNext && dialogue.nodes[option.failNext]?.effects) || [];
+  return !effects.some((e) => PRICES.some((price) => price in e) || ('giveFers' in e && e.giveFers < 0));
+}
+
+/** How many times a roll was tried today. */
+function attemptsToday(state: Pick<GameState, 'time' | 'jets'>, key: string): number {
+  return state.jets?.jour === state.time.day ? (state.jets.essais[key] ?? 0) : 0;
+}
+
+/**
+ * Rolls a dialogue's option (test du 2026-11-06, décision de Cyril). The die comes from a seed, as in the sleeping
+ * lines: the day, the roll, how many times it was tried today, the hero ; reloading gives the same die. A failure that
+ * costs nothing waits for tomorrow ; one that costs (a wound, time) can be paid again, for another die.
+ */
+export function rollOption(state: GameState, dialogue: Dialogue, place: NodePlace, index: number): RollOutcome {
+  const option = dialogue.nodes[place.node].options[index];
+  const key = rollKey(place, index);
+  const tries = attemptsToday(state, key);
+  const outcome = performRoll(state, option.roll!, rngFor('jet', state.time.day, key, tries, heroKey(state.character)));
+  const today = state.jets?.jour === state.time.day ? state.jets.essais : {};
+  state.jets = { jour: state.time.day, essais: { ...today, [key]: tries + 1 } };
+  if (!outcome.success && failureIsFree(dialogue, option)) {
+    const flag = rollLockFlag(place, index);
+    state.flags[flag] = true;
+    state.expirations = { ...state.expirations, [flag]: state.time.day };
+  }
+  return outcome;
+}
+
+const TRY_TOMORROW = 'Raté aujourd’hui : réessaie demain.';
+
+/**
+ * Visible options for the current state: hidden when a story condition fails, greyed when a test fails, or when its
+ * roll failed today (given where the node stands).
+ */
+export function visibleOptions(node: DialogueNode, state: GameState, place?: NodePlace): OptionView[] {
   const views: OptionView[] = [];
-  for (const option of node.options) {
+  for (const [index, option] of node.options.entries()) {
     const conditions = option.requires ?? [];
     if (!conditions.filter((c) => !isTest(c)).every((c) => conditionMet(state, c))) continue;
     // Nothing to tell (or to give away): the option is not there.
@@ -296,8 +353,9 @@ export function visibleOptions(node: DialogueNode, state: GameState): OptionView
     if (option.roll) tags.push(`${skillName(option.roll.skill)} ${Math.round(rollChance(state, option.roll) * 100)} %`);
     const spell = castView(state, option);
     if (spell) tags.push(spell.tag);
-    const missing = failed.length ? `Il te faut ${failed.map((c) => testLabel(c)).join(' et ')}.` : spell?.missing;
-    views.push({ option, enabled: !missing, tags, missing });
+    const locked = option.roll && place && state.flags[rollLockFlag(place, index)] ? TRY_TOMORROW : undefined;
+    const missing = failed.length ? `Il te faut ${failed.map((c) => testLabel(c)).join(' et ')}.` : (spell?.missing ?? locked);
+    views.push({ option, index, enabled: !missing, tags, missing });
   }
   return views;
 }

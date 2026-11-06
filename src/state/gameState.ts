@@ -83,6 +83,8 @@ export interface GameState {
   derniereVille?: string;
   /** The day the hero last woke from a night outside an inn (src/rules/repos.ts): one such night a day. */
   reposLibre?: number;
+  /** The rolls of the dialogues tried today, and how many times (src/rules/dialogue.ts, rollOption): part of the seed. */
+  jets?: { jour: number; essais: Record<string, number> };
 }
 
 /** A sleeping line under way: its site on the world map, the draw of its levels, and how deep the hero is. */

@@ -10,7 +10,7 @@ import { FADED_ALPHA, bodyBox, obstacleBox, overlaps, type Box } from '../engine
 import { findPath } from '../engine/pathfinding';
 import { bigBlock, findObject, isBigAnchor, isWalkable, parseTiledMap, tileKey, type GameMap, type MapObject } from '../engine/tiledMap';
 import { DEFAULT_AVATAR } from '../rules/character';
-import { ENCOUNTERS, GOLEM_FIGHT, GOLEM_VICTORY_EFFECTS, VOIE_FIGHT, findEnemy, storyChapter } from '../rules/combat';
+import { ENCOUNTERS, GOLEM_FIGHT, GOLEM_QUEST_FIGHT, GOLEM_VICTORY_EFFECTS, VOIE_FIGHT, findEnemy, storyChapter } from '../rules/combat';
 import { autoTalk, expireFlags, hasStoryEntry, type Effect } from '../rules/dialogue';
 import {
   ENCOUNTER_VICTORY_FLAG,
@@ -21,7 +21,6 @@ import {
   rencontreXp,
   type RencontreDef,
 } from '../rules/world';
-import { saveStore } from '../save/browser';
 import { findLocation, type GameState } from '../state/gameState';
 import { onKeys } from '../ui/keys';
 import { COLORS, CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
@@ -46,6 +45,7 @@ import { playSfx, playStep } from '../audio/sfx';
 import { MINI_MAP_SOURCE, type MiniMapSource, type MiniMarker } from '../ui/miniMap';
 import { BUBBLE_MS, labelScaleFor, speechBubble } from './speech';
 import { barkLines, findBarks } from '../rules/barks';
+import { writeAuto } from '../save/autosave';
 
 /** Top of the drawn part of each obstacle frame (`texture:frame`), measured once for the whole game. */
 const DRAWN_TOPS = new Map<string, number>();
@@ -154,6 +154,8 @@ export class MapScene extends Phaser.Scene {
   private minZoom = ZOOM_MIN;
   /** How much names and bubbles grow at this zoom (src/scenes/speech.ts). */
   private labelScale = 1;
+  /** The names of the ways out, written beside their marks (drawExits). */
+  private exitLabels: Phaser.GameObjects.Text[] = [];
   /** Speaking up on their own (Fallout-like): when the next one may, and when each named NPC may again. */
   private nextBarkAt = 0;
   private npcBarkAt = new Map<string, number>();
@@ -235,6 +237,7 @@ export class MapScene extends Phaser.Scene {
     // Above the trees and walls (a click on one), under the veil of the moment and the names.
     this.blockedMarker = this.add.graphics().setDepth(MOMENT_VEIL_DEPTH - 1).setAlpha(0);
     this.trapMarks = this.add.graphics().setDepth(2);
+    this.drawExits();
 
     // Arriving through a way in (not a map rebuilt where the hero stands).
     const arrived = !!this.state.entrance;
@@ -243,9 +246,9 @@ export class MapScene extends Phaser.Scene {
     this.state.entrance = null;
     // Where one wakes up after a fall (src/rules/repos.ts): the last town walked in.
     if (location.place && findPlace(location.place)?.auberge) this.state.derniereVille = location.place;
-    // A save at every place (docs/gdd/jalon-3.md): death sends the hero back to the last one, never far.
-    const saved = saveStore.write('auto', this.state);
-    if (!saved.ok) console.warn('Sauvegarde auto impossible :', saved.error);
+    // A save at every place (docs/gdd/jalon-3.md): death sends the hero back to the last one, never far. A map rebuilt
+    // just after a save was loaded leaves the auto save as it was (src/save/autosave.ts).
+    writeAuto(this.registry, this.state, arrived ? 'progres' : 'rafraichir');
     const start = this.walkerFeet(this.heroTile);
     this.hero = this.add.sprite(start.x, start.y, 'tiles', this.map.frames.heros).setOrigin(0.5, 1).setDepth(start.y);
     this.revealThings();
@@ -640,6 +643,39 @@ export class MapScene extends Phaser.Scene {
     this.scene.launch('Oubli', { mode: 'plein', from: 'Map' });
   }
 
+  /**
+   * The ways out of a place, marked on the ground (test du 2026-11-06 : six minutes à chercher la sortie de Gardebois,
+   * une case révélée seulement au survol) : a copper diamond and an arrow towards the outside, breathing slowly.
+   */
+  private drawExits(): void {
+    // Above the trees of the edge, under the veil of the moment.
+    const marks = this.add.graphics().setDepth(MOMENT_VEIL_DEPTH - 2);
+    this.exitLabels = [];
+    const [w, h] = [TILE_WIDTH / 2 - 8, TILE_HEIGHT / 2 - 4];
+    for (const exit of this.map.objects.filter((o) => o.type === 'sortie' && !this.gone(o))) {
+      const c = this.center(exit);
+      marks.lineStyle(3, COLORS.copper, 0.85).strokePoints([{ x: c.x, y: c.y - h }, { x: c.x + w, y: c.y }, { x: c.x, y: c.y + h }, { x: c.x - w, y: c.y }], true);
+      // Towards the edge it stands on (a door at the foot of a room: downwards).
+      const dc = exit.col === 0 ? -1 : exit.col === this.map.width - 1 ? 1 : 0;
+      const dr = exit.row === 0 ? -1 : exit.row === this.map.height - 1 || dc === 0 ? 1 : 0;
+      const [vx, vy] = [((dc - dr) * TILE_WIDTH) / 2, ((dc + dr) * TILE_HEIGHT) / 2];
+      const length = Math.hypot(vx, vy) || 1;
+      const [ux, uy] = [vx / length, vy / length];
+      const tip = { x: c.x + ux * 12, y: c.y + uy * 12 };
+      const back = { x: c.x - ux * 4, y: c.y - uy * 4 };
+      marks.lineStyle(3, COLORS.copper, 0.95).lineBetween(tip.x, tip.y, back.x - uy * 7, back.y + ux * 7).lineBetween(tip.x, tip.y, back.x + uy * 7, back.y - ux * 7);
+      if (exit.properties.libelle) {
+        const label = this.add
+          .text(c.x, c.y - h - 4, exit.properties.libelle, { fontFamily: FONT_SERIF, fontSize: HAS_MOUSE ? '13px' : '17px', color: CSS.copper, stroke: CSS.ink, strokeThickness: 3 })
+          .setOrigin(0.5, 1)
+          .setDepth(100000)
+          .setScale(this.labelScale);
+        this.exitLabels.push(label);
+      }
+    }
+    this.tweens.add({ targets: marks, alpha: 0.45, duration: 1200, yoyo: true, repeat: -1, ease: 'Sine.easeInOut' });
+  }
+
   /** The lamp shows the traps two steps away; seen, they are marked, and the walk goes round them when it can. */
   private lightTraps(announce = true): void {
     if (!this.state.voie) return;
@@ -765,9 +801,9 @@ export class MapScene extends Phaser.Scene {
     // A group of a sleeping line, attacked from its dialogue (chantier 3).
     if (id.startsWith(VOIE_FIGHT)) return this.fightVoieGroup(id.slice(VOIE_FIGHT.length));
     // The Golem, struck after the yard was stopped (étude, E11).
-    if (id === GOLEM_FIGHT) {
+    if (id === GOLEM_FIGHT || id === GOLEM_QUEST_FIGHT) {
       const golem = this.map.objects.find((o) => o.type === 'golem');
-      if (golem) this.golemFight(golem, true);
+      if (golem) this.golemFight(golem, id === GOLEM_FIGHT);
       return;
     }
     const encounter = ENCOUNTERS.find((e) => e.id === id);
@@ -916,6 +952,9 @@ export class MapScene extends Phaser.Scene {
     const double = now - this.lastTap.at < DOUBLE_CLICK_MS && this.lastTap.col === tile.col && this.lastTap.row === tile.row;
     this.lastTap = { at: now, col: tile.col, row: tile.row };
     this.running = double || !!(pointer.event as MouseEvent | undefined)?.shiftKey;
+    // A new click is a new intent: what the hero meant to do on arriving (enter a door…) is forgotten (test du
+    // 2026-11-06 : un clic sur Tobias, pendant la marche vers la Réserve, faisait entrer dans la Réserve).
+    this.arrival = null;
     const companion = this.party.hit(pointer.worldX, pointer.worldY);
     if (companion && DIALOGUES[`compagnon-${companion}`]) {
       this.scene.pause();
@@ -1071,6 +1110,7 @@ export class MapScene extends Phaser.Scene {
       .setZoom(this.zoom * RENDER_SCALE);
     this.labelScale = labelScaleFor(this.zoom);
     for (const { label } of this.interactables) label?.setScale(this.labelScale);
+    for (const label of this.exitLabels) label.setScale(this.labelScale);
     this.party?.setLabelScale(this.labelScale);
   }
 
@@ -1215,7 +1255,7 @@ export class MapScene extends Phaser.Scene {
       return;
     }
     if (target.type === 'golem') {
-      this.startGolemFight(target);
+      this.startGolemFight();
       return;
     }
     if (target.type === 'porte') {
@@ -1270,7 +1310,7 @@ export class MapScene extends Phaser.Scene {
     this.hud().toast(npc ? `${npc.name} — ${npc.role}.` : '…');
   }
 
-  private startGolemFight(golem: MapObject): void {
+  private startGolemFight(): void {
     if (this.state.flags['golem-vaincu']) {
       this.hud().toast('Le Golem de Ferraille gît immobile, silencieux.');
       return;
@@ -1286,7 +1326,9 @@ export class MapScene extends Phaser.Scene {
       this.hud().toast('Le Golem de Ferraille ne bouge plus.');
       return;
     }
-    this.golemFight(golem, false);
+    // During the quest: a warning first, then the fight if one insists (test du 2026-11-06).
+    this.scene.pause();
+    this.scene.launch('Dialogue', { id: GOLEM_FIGHT });
   }
 
   /**

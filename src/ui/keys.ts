@@ -7,10 +7,19 @@ import { HAS_MOUSE } from './viewport';
  */
 export const SHOW_KEY_HINTS = HAS_MOUSE;
 
-/** Phaser key names (keydown-<NAME>); a listener is removed with its scene. */
+const REPEATABLE = new Set(['UP', 'DOWN', 'LEFT', 'RIGHT']);
+
+/**
+ * Phaser key names (keydown-<NAME>); a listener is removed with its scene. A key held down does not repeat the action
+ * (test du 2026-11-06 : Entrée maintenue avalait les répliques à une seule option).
+ */
 export function onKeys(scene: Phaser.Scene, keys: string[], handler: () => void): void {
+  const once = (event?: KeyboardEvent) => {
+    if (!event?.repeat) handler();
+  };
   for (const key of keys) {
-    scene.input.keyboard?.on(`keydown-${key}`, handler);
+    // The arrows may repeat: held down, they still run through a list.
+    scene.input.keyboard?.on(`keydown-${key}`, REPEATABLE.has(key) ? handler : once);
     // Tab picks things in the game (a place, an enemy, a tab): the browser must not move the focus away.
     if (key === 'TAB') scene.input.keyboard?.addCapture(key);
   }

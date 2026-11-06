@@ -4,7 +4,7 @@ import { crystalWear, repair, repairCost, wearOf } from '../rules/usure';
 import { combinedDiscount, deName, merchantPlace, reputationLevel, reputationPrices, reputationSells, heroDiscount } from '../rules/reputation';
 import { findPlace } from '../rules/world';
 import { characterStats, wearPenalty, type Character, type Slot } from '../rules/character';
-import { armorBonus, buy, buyPrice, carriedWeightKg, equip, merchantCatalogue, merchantDiscount, merchantShowcase, ownedCount, sell, SELL_RATIO, tradeItems, unequip, useConsumable, type ItemDef } from '../rules/inventory';
+import { armorBonus, buy, buyPrice, carriedWeightKg, equip, merchantCatalogue, merchantDiscount, merchantShowcase, ownedCount, sell, sellPrice, SELL_RATIO, tradeItems, unequip, useConsumable, type ItemDef } from '../rules/inventory';
 import { castOutsideCombat, combatPower, resonanceMax, useResonanceSap, wornCrystal } from '../rules/magic';
 import { marquesBorne } from '../rules/marques';
 import { CATEGORIES, categoryOf, itemUses, itemValue, itemsOf, type ItemCategory } from '../rules/objets';
@@ -54,6 +54,8 @@ export class TradeScene extends Phaser.Scene {
   private npcId: string | undefined;
   private layer!: Phaser.GameObjects.Container;
   private message = '';
+  /** An item worn or held, whose sale waits for a second press. */
+  private pendingSale: string | null = null;
   private tab: ItemCategory = 'equipement';
   private selected: string | null = null;
   private page = 0;
@@ -65,6 +67,7 @@ export class TradeScene extends Phaser.Scene {
   }
 
   create(data: { npcId?: string }): void {
+    this.pendingSale = null;
     this.state = this.registry.get('game') as GameState;
     this.npcId = data.npcId;
     this.message = '';
@@ -378,7 +381,9 @@ export class TradeScene extends Phaser.Scene {
     const equippedIn = this.equippedSlot(item.id);
     // A town that honours the hero buys at a better price (chantier 6).
     const ratio = SELL_RATIO + (this.npcId ? reputationSells(this.state, this.npcId) : 0);
-    const sellPrice = Math.floor(item.price * ratio);
+    // Never as much as the trader sells it back: no Fers out of nothing (test du 2026-11-06).
+    const resale = this.npcId && merchantCatalogue(this.npcId).some((i) => i.id === item.id) ? buyPrice(item, this.discount()) : undefined;
+    const price = sellPrice(item, ratio, resale);
 
     // The worn crystal of Vie heals here too: Guérison naturelle on oneself, outside a fight.
     const power = equippedIn === 'cristal' ? combatPower(this.character()) : undefined;
@@ -425,8 +430,22 @@ export class TradeScene extends Phaser.Scene {
       const cost = repairCost(this.character(), item.id);
       actions.push([`Réparer (${cost})`, () => this.act(() => (repair(this.character(), item.id) ? true : this.fail('Pas assez de Fers.')), `Comme neuf : ${item.name}.`)]);
     }
-    if (owned > 0 && !item.quest) {
-      actions.push([`Vendre (${sellPrice})`, () => this.act(() => (sell(this.character(), item.id, 1, ratio) ? null : true), `Tu vends : ${item.name}.`)]);
+    // Only to a trader (test du 2026-11-06 : a dagger sold from the bag, on one key, in the middle of a forest) ; what
+    // the hero wears or holds asks a second press.
+    if (this.npcId && owned > 0 && !item.quest) {
+      const worn = !!equippedIn && owned === 1;
+      if (worn && this.pendingSale !== item.id) {
+        actions.push([`Vendre (${price})`, () => {
+          this.pendingSale = item.id;
+          this.message = `Tu le portes. Le vendre quand même pour ${price} Fers ? Appuie encore sur « Vendre ».`;
+          this.redraw();
+        }]);
+      } else {
+        actions.push([`Vendre (${price})`, () => this.act(() => {
+          this.pendingSale = null;
+          return sell(this.character(), item.id, 1, ratio, resale) ? null : true;
+        }, `Tu vends : ${item.name}.`)]);
+      }
     }
     if (this.npcId && merchantCatalogue(this.npcId).some((i) => i.id === item.id)) {
       actions.push([`Acheter (${buyPrice(item, this.discount())})`, () => this.act(() => {

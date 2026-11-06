@@ -12,6 +12,7 @@ import { findLocation, type GameState } from '../state/gameState';
 import { addTextButton, type TextButton } from '../ui/button';
 import { onKeys, withKeyHint } from '../ui/keys';
 import { CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
+import { AUTO_LOCK } from '../save/autosave';
 
 export interface SlotsSceneData {
   mode: 'load' | 'save';
@@ -147,6 +148,8 @@ export class SlotsScene extends Phaser.Scene {
       return;
     }
     this.registry.set('game', state);
+    // The auto save keeps the game it held until this one moves on (src/save/autosave.ts).
+    this.registry.set(AUTO_LOCK, true);
     this.scene.start(location.scene);
   }
 

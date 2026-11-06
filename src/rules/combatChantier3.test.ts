@@ -238,3 +238,19 @@ describe('a hero of words, simulated (étude, E3)', () => {
     expect(winRate(parleur(2, [], ['golem-ferraille', 'rodeur-epine', 'rodeur-epine'], 1), 'corps', RUNS)).toBeLessThan(0.3);
   }, 60000);
 });
+
+describe('a hero with no free cell beside him (test du 2026-11-06)', () => {
+  it('the enemies who cannot reach him come as close as they can, instead of waiting', () => {
+    const ctx = (all: Combatant[]): AiContext => arenaContext(PLAIN_ARENA, all);
+    const hero = makeHeroCombatant(armed('dague'), at(0, 0));
+    const blockers = [at(1, 0), at(0, 1), at(1, 1)].map((t, i) => enemy('rodeur-epine', t, i));
+    const late = enemy('rodeur-epine', at(8, 6), 9);
+    startTurn(late);
+    const action = nextEnemyAction(late, ctx([hero, ...blockers, late]));
+    expect(action.kind).toBe('move');
+    if (action.kind !== 'move') return;
+    const end = action.path[action.path.length - 1];
+    const d = (t: Tile) => Math.max(Math.abs(t.col), Math.abs(t.row));
+    expect(d(end)).toBeLessThan(d(at(8, 6)));
+  });
+});

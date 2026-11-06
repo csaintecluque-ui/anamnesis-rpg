@@ -1,7 +1,6 @@
 import Phaser from 'phaser';
 import { addTestFers, restoreFullHp, TEST_FERS } from '../rules/testTools';
 import { openDevPanel } from '../ui/devPanel';
-import { saveStore } from '../save/browser';
 import { getSettings } from '../settings';
 import type { GameState } from '../state/gameState';
 import { addTextButton } from '../ui/button';
@@ -10,6 +9,7 @@ import { COLORS, CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
 import { HAS_MOUSE } from '../ui/viewport';
 import { restRefusal, restUntilMorning } from '../rules/repos';
 import { PENDING_NOTICE, type HudScene } from './HudScene';
+import { writeAuto } from '../save/autosave';
 
 /** Finger-sized on touch screens, compact with a mouse (docs/gdd/interface.md). */
 const LAYOUT = HAS_MOUSE
@@ -128,8 +128,7 @@ export class PauseScene extends Phaser.Scene {
   }
 
   private backToTitle(): void {
-    const result = saveStore.write('auto', this.registry.get('game') as GameState);
-    if (!result.ok) console.warn('Sauvegarde auto impossible :', result.error);
+    writeAuto(this.registry, this.registry.get('game') as GameState, 'rafraichir');
     this.leaveMap('Title');
   }
 

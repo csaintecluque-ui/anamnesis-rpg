@@ -145,6 +145,11 @@ export const VOIE_FIGHT = 'voie:';
  * `startCombat: 'golem-gare'` from its warning (src/data/dialogues/golem-gare.json).
  */
 export const GOLEM_FIGHT = 'golem-gare';
+/**
+ * The Golem struck during « Le Dernier Train », after its warning (test du 2026-11-06 : un clic lançait un combat très
+ * dur au niveau 1, sans prévenir) : beating it then ends the quest (GOLEM_VICTORY_EFFECTS).
+ */
+export const GOLEM_QUEST_FIGHT = 'golem-gare-quete';
 /** Beating the Golem before any word with Ingrid ends « Le Dernier Train » (docs/gdd/combat.md), as the words do. */
 export const GOLEM_VICTORY_EFFECTS: Effect[] = [{ setFlag: 'chantier-arrete' }, { completeQuest: 'dernier-train' }, { setFlag: 'fin-dernier-train-golem' }, { giveXp: 70 }, { giveFers: 30 }];
 

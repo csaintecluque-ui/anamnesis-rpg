@@ -7,9 +7,14 @@ export function xpForLevel(level: number): number {
   return 50 * level * (level - 1);
 }
 
+/** The level an amount of experience gives: solved, not counted up (a huge amount used to freeze the game). */
 export function levelForXp(xp: number): number {
-  let level = 1;
-  while (xp >= xpForLevel(level + 1)) level++;
+  if (!Number.isFinite(xp) || xp < xpForLevel(2)) return 1;
+  // 50 · L · (L − 1) ≤ xp ; then set right any rounding of the square root.
+  let level = Math.floor((1 + Math.sqrt(1 + (4 * xp) / 50)) / 2);
+  // At most a step either way: past 2^53, level + 1 is level again, and a loop would never end.
+  if (level > 1 && xpForLevel(level) > xp) level--;
+  else if (xpForLevel(level + 1) <= xp) level++;
   return level;
 }
 

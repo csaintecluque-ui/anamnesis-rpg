@@ -29,6 +29,7 @@ import { createNewGame, findLocation, type GameState } from '../state/gameState'
 import { addTextButton } from '../ui/button';
 import { COLORS, CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
 import { HAS_MOUSE } from '../ui/viewport';
+import { AUTO_LOCK } from '../save/autosave';
 
 export interface CreationSceneData {
   draft?: CharacterDraft;
@@ -151,6 +152,7 @@ export class CreationScene extends Phaser.Scene {
     const character = finalizeCharacter(this.draft);
     const state: GameState = this.resume ? { ...this.resume, character } : createNewGame(character);
     this.registry.set('game', state);
+    this.registry.set(AUTO_LOCK, false);
     this.scene.start(findLocation(state.location)?.scene ?? 'Map');
   }
 
@@ -407,7 +409,7 @@ export class CreationScene extends Phaser.Scene {
     text(860, 195, 'Valeurs', 26, CSS.copper);
     [
       `Points de vie : ${stats.maxHp}`,
-      `Points de résistance : ${stats.resistance}`,
+      `Résistance aux effets : ${stats.resistance >= 0 ? '+' : ''}${stats.resistance}`,
       `Défense : ${stats.defense}`,
       `Points d’action : ${stats.actionPoints}`,
       `Charge : ${stats.carryKg} kg`,

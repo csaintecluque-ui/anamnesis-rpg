@@ -21,7 +21,9 @@ Règles : `src/rules/inventory.ts` ; écran : `TradeScene`.
   emplacement qu'il occupait. L'Armure équipée ajoute son bonus à la Défense — **y compris en combat** (`combat.ts`
   lit `armorBonus`). Les armes en main sont celles du combat (`docs/gdd/combat.md`, « Armes ») : une arme achetée
   mais rangée dans le sac ne sert pas.
-- **Troc** : acheter dépense des Fers ; vendre rapporte la moitié du prix, arrondi à l'entier inférieur.
+- **Troc** : acheter dépense des Fers ; vendre rapporte la moitié du prix, arrondi à l'entier inférieur, et jamais autant que
+  ce que le marchand le revend lui-même (test du 2026-11-06 : acheter puis revendre créait des Fers). On ne vend qu'à un
+  marchand ; ce qu'on porte demande un second appui.
   Les **objets de quête** (`quest: true` : la branche et la flûte d'Anselme…) ne se vendent pas ; un dialogue les reprend
   (`takeItem`) quand on les remet.
 - **Catalogue par marchand** (depuis le 2026-11-01) : chaque marchand a sa liste (`sells` dans `src/data/npcs.json`,
@@ -39,7 +41,7 @@ Règles : `src/rules/inventory.ts` ; écran : `TradeScene`.
   - **Graines-lumière** (30 Fers) : le sac qu'on peut voler au grenier des semences de Canopéa
     (`docs/univers/lieux/canopee.md`).
 - **Écran** : `TradeScene`, ouvert soit depuis le bouton « Inventaire » du HUD (seulement les objets portés, sans achat :
-  consulter/équiper/utiliser/vendre), soit depuis un dialogue dont une option porte l'effet
+  consulter/équiper/utiliser ; plus de vente sans marchand depuis le test du 2026-11-06), soit depuis un dialogue dont une option porte l'effet
   `openTrade` (Tobias : « Voir l'étal. »), avec achat en plus.
 
 ## Le sac rangé (demande de Cyril, 2026-11-03)

@@ -1,8 +1,8 @@
 import avatarData from '../data/avatars.json';
 import featData from '../data/feats.json';
 import traitData from '../data/traits.json';
-import { ATTRIBUTES, CREATION_SKILLS, SKILLS, SKILL_RANK_MAX, type AttributeId, type Attributes, type SkillId } from './attributes';
-import { actionPoints, carryCapacityKg, defense, maxHitPoints, resistancePoints, talesRetained } from './derived';
+import { ATTRIBUTES, CREATION_SKILLS, SKILLS, SKILL_RANK_MAX, attributeModifier, type AttributeId, type Attributes, type SkillId } from './attributes';
+import { actionPoints, carryCapacityKg, defense, maxHitPoints, talesRetained } from './derived';
 
 export type FeatId =
   | 'tough'
@@ -276,6 +276,11 @@ export function combatWarning(skills: Pick<SkillRanks, 'melee' | 'ranged'>): str
   return 'Ce héros évitera les combats ; il y en a qu’on n’évite pas. Un rang de Mêlée ou de Tir, ou une compagne qui soigne, l’y aideront.';
 }
 
+/** The highest level and experience a save may hold (validation): far above what the whole game gives. */
+export const MAX_LEVEL = 100;
+/** The experience of that level (50 · 100 · 99, src/rules/leveling.ts): a valid save never levels up past it. */
+export const MAX_XP = 495_000;
+
 export function finalSkills(d: CharacterDraft): SkillRanks {
   const feat = d.feat ? findFeat(d.feat) : undefined;
   const trait = findTrait(d.trait);
@@ -313,11 +318,22 @@ export function draftErrors(d: CharacterDraft): { name: string[]; attributes: st
   if (ranks > 0) skills.push(`Il reste ${ranks} rang${ranks > 1 ? 's' : ''} de compétence à répartir.`);
 
   const name = nameError(d.name);
+  const feat = d.feat ? [] : ['Choisis un don.'];
+  // A trait's price must be paid (test du 2026-11-06 : « Main lourde » ne coûtait rien sans rang de Diplomatie, le
+  // malus tombait sous zéro) : the ranks it takes must be there.
+  const trait = findTrait(d.trait);
+  for (const [skill, malus] of Object.entries(trait?.effects.skills ?? {}) as [SkillId, number][]) {
+    const ranks = d.skillRanks[skill] + (d.feat ? (findFeat(d.feat)?.effects.skills?.[skill] ?? 0) : 0);
+    if (malus < 0 && ranks < -malus) {
+      const skillName = SKILLS.find((s) => s.id === skill)?.name ?? skill;
+      feat.push(`« ${trait!.name} » coûte ${-malus} rangs de ${skillName} : il t’en faut au moins ${-malus} pour le prendre, sinon il ne coûte rien.`);
+    }
+  }
   return {
     name: name ? [name] : [],
     attributes,
     skills,
-    feat: d.feat ? [] : ['Choisis un don.'],
+    feat,
   };
 }
 
@@ -377,7 +393,9 @@ export function characterStats(c: Pick<Character, 'attributes' | 'feat' | 'level
   const hpAttrs = { ...attrs, vigor: attrs.vigor + sum('hpVigorBonus') };
   return {
     maxHp: Math.max(1, maxHitPoints(hpAttrs, c.level) + sum('hpPerLevelBonus') * (c.level - 1) + sum('hpBonus')),
-    resistance: resistancePoints(attrs),
+    // What the combat really uses against stun, bleeding and burns (src/rules/combat.ts) ; the old « Points de
+    // résistance » (Vigueur + Présence) served nowhere (test du 2026-11-06).
+    resistance: attributeModifier(attrs.vigor) + sum('resistanceBonus'),
     defense: defense(attrs) + sum('defenseBonus'),
     actionPoints: actionPoints(attrs),
     carryKg: carryCapacityKg(attrs) + sum('carryBonusKg'),
@@ -395,8 +413,10 @@ export function characterError(raw: unknown): string | null {
   if (typeof c.feat !== 'string' || !findFeat(c.feat)) return 'don inconnu.';
   if (c.dons !== undefined && (!Array.isArray(c.dons) || c.dons.some((d) => typeof d !== 'string' || !findFeat(d)))) return 'dons de niveau inconnus.';
   if (c.trait !== undefined && (typeof c.trait !== 'string' || !findTrait(c.trait))) return 'trait inconnu.';
-  if (!Number.isInteger(c.level) || (c.level as number) < 1) return 'niveau invalide.';
-  if (typeof c.xp !== 'number' || !(c.xp >= 0)) return 'expérience invalide.';
+  // Bounded (test du 2026-11-06 : une sauvegarde à 1e300 points d'expérience gelait l'onglet). The whole game gives a
+  // few thousand ; these bounds leave a hundred times that.
+  if (!Number.isInteger(c.level) || (c.level as number) < 1 || (c.level as number) > MAX_LEVEL) return 'niveau invalide.';
+  if (typeof c.xp !== 'number' || !Number.isFinite(c.xp) || !(c.xp >= 0) || c.xp > MAX_XP) return 'expérience invalide.';
   if (!Number.isInteger(c.hp) || (c.hp as number) < 0) return 'points de vie invalides.';
   if (!Number.isInteger(c.resonance) || (c.resonance as number) < 0) return 'points de Résonance invalides.';
   const attrs = c.attributes as Record<string, unknown> | undefined;

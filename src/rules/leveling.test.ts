@@ -111,3 +111,16 @@ describe('applyLevelUp', () => {
     expect(characterStats(c).maxHp).toBeGreaterThan(before);
   });
 });
+
+describe('the level of a huge experience (test du 2026-11-06)', () => {
+  it('is solved at once, and matches the thresholds exactly', () => {
+    for (let level = 1; level <= 60; level++) {
+      expect(levelForXp(xpForLevel(level)), `${level}`).toBe(level);
+      if (level > 1) expect(levelForXp(xpForLevel(level) - 1), `${level} − 1`).toBe(level - 1);
+    }
+    const start = performance.now();
+    expect(levelForXp(1e300)).toBeGreaterThan(1e140);
+    expect(performance.now() - start).toBeLessThan(50);
+    expect(levelForXp(Number.POSITIVE_INFINITY)).toBe(1);
+  });
+});

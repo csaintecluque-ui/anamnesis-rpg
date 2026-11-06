@@ -214,13 +214,7 @@
      "point": true,
      "rotation": 0,
      "visible": true,
-     "properties": [
-      {
-       "name": "disparaitSi",
-       "type": "string",
-       "value": "aio-plonge-seul"
-      }
-     ]
+     "properties": []
     },
     {
      "id": 4,

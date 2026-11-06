@@ -50,6 +50,15 @@
           ]
         },
         {
+          "text": "Je n’ai pas quinze Fers.",
+          "next": "sans-fers",
+          "requires": [
+            {
+              "notFlag": "membre-compagnie-lisieres"
+            }
+          ]
+        },
+        {
           "text": "Une autre fois.",
           "next": "accueil"
         }
@@ -73,6 +82,15 @@
               "arrivee": "entree"
             }
           ]
+        }
+      ]
+    },
+    "sans-fers": {
+      "text": "Il hausse les épaules. — Alors la Grande Nacelle te redescend pour rien, juste là, au bord de la plate-forme. En bas, la route est à toi : un jour de marche jusqu’à Gardebois, si les Loups n’ont pas faim. Sévane, au Comptoir de la Sève, paie bien pour des herbes.",
+      "options": [
+        {
+          "text": "Merci.",
+          "next": "fin"
         }
       ]
     }

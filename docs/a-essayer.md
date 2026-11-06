@@ -355,6 +355,17 @@ En ligne le 2026-11-03 (tes textes du 3 novembre) :
       ou Maître Ennir ; les passants et ce que disent les habitants en passant.
 - Remarques :
 
+## Le test du 2026-11-06 (corrections en ligne le 2026-11-06)
+
+- [ ] **Les sorties** : chaque sortie de carte est marquée au sol et porte son nom (Gardebois : « Vers la Gare
+      Engloutie »).
+- [ ] **Le Golem** : pendant « Le Dernier Train », un avertissement avant le combat ; les Rôdeurs avancent.
+- [ ] **La sauvegarde auto** : charger un emplacement ne l'écrase plus ; elle s'écrit après une victoire, une quête finie,
+      et en fermant l'onglet.
+- [ ] **Le troc** : on ne vend qu'à un marchand ; un objet porté demande un second appui.
+- [ ] **Canopéa sans Fers** : le chef de caravane parle de la Grande Nacelle, gratuite.
+- Remarques :
+
 ## Déjà en ligne, pas encore essayé sur PC
 
 - [ ] **Chapitre 4, Sept-Portes** sans le mode surpuissant : l'arrivée par la Porte du sud, le Registre, l'une des trois

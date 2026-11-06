@@ -10,9 +10,9 @@ import type { MapScene } from './MapScene';
 import { DIGIT_KEYS, onKeys } from '../ui/keys';
 import { COLORS, CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
 import { HAS_MOUSE } from '../ui/viewport';
-import { saveStore } from '../save/browser';
 import { optionHint } from '../rules/hints';
 import { Tooltip } from '../ui/tooltip';
+import { writeAuto } from '../save/autosave';
 
 const MARGIN = 60;
 /** Side of the speaker's portrait, at the top left of the panel; name and text move right of it. */
@@ -33,6 +33,9 @@ const PANEL_ALPHA = 0.94;
 const PANEL_ALPHA_OVER_ILLUSTRATION = 0.78;
 
 /** Conversation overlay above the map (which is paused meanwhile). */
+/** A night's sleep or a quest finished: the auto save is written at once (docs/gdd/temps.md ; test du 2026-11-06). */
+const savesProgress = (effects?: Effect[]): boolean => !!effects?.some((e) => 'dormir' in e || 'completeQuest' in e);
+
 export class DialogueScene extends Phaser.Scene {
   private dialogue!: Dialogue;
   private state!: GameState;
@@ -114,6 +117,7 @@ export class DialogueScene extends Phaser.Scene {
     const node = this.dialogue.nodes[nodeId];
     this.notices.push(...applyEffects(this.state, node.effects));
     if (gives(node.effects)) playSfx(this, 'objet');
+    if (savesProgress(node.effects)) writeAuto(this.registry, this.state, 'progres');
     this.layer.removeAll(true);
     if (node.night) this.backdrop.setFillStyle(NIGHT, 0.82);
     else this.backdrop.setFillStyle(COLORS.ink, 0.45);
@@ -229,11 +233,8 @@ export class DialogueScene extends Phaser.Scene {
       }
       this.notices.push(...applyEffects(this.state, view.option.effects));
       if (gives(view.option.effects)) playSfx(this, 'objet');
-      // Sleeping at an inn saves the game (docs/gdd/temps.md).
-      if (view.option.effects?.some((e) => 'dormir' in e)) {
-        const saved = saveStore.write('auto', this.state);
-        if (!saved.ok) console.warn('Sauvegarde auto impossible :', saved.error);
-      }
+      // Sleeping at an inn saves the game (docs/gdd/temps.md) ; a quest finished too (test du 2026-11-06).
+      if (savesProgress(view.option.effects)) writeAuto(this.registry, this.state, 'progres');
       if (opensTrade(view.option.effects)) {
         this.scene.stop();
         this.scene.launch('Trade', { npcId: this.dialogue.speaker });

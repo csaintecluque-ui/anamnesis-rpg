@@ -3,6 +3,18 @@
   "speaker": "golem-gare",
   "entries": [
     {
+      "requires": [
+        {
+          "quest": "dernier-train",
+          "status": "active"
+        },
+        {
+          "notFlag": "chantier-arrete"
+        }
+      ],
+      "node": "quete"
+    },
+    {
       "node": "garde"
     }
   ],
@@ -28,6 +40,24 @@
         },
         {
           "text": "Le laisser à sa garde.",
+          "next": "fin"
+        }
+      ]
+    },
+    "quete": {
+      "text": "Le Golem de Ferraille garde la Faille : trois mètres de métal rapiécé, un cœur de cristal qui gronde dans sa poitrine. Dans les fougères, deux Rôdeurs-Épine attendent qu’il se batte. Le frapper, c’est un combat très dur pour qui débute.",
+      "options": [
+        {
+          "text": "L’attaquer quand même.",
+          "next": "fin",
+          "effects": [
+            {
+              "startCombat": "golem-gare-quete"
+            }
+          ]
+        },
+        {
+          "text": "Reculer, et chercher une autre façon d’arrêter le chantier.",
           "next": "fin"
         }
       ]

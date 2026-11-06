@@ -1710,7 +1710,7 @@ Object.assign(INTERIORS, {
     furniture: [[1, 1, 'tonneaux'], [1, 2, 'tonneaux'], [7, 1, 'lanterne-coquillage'], [3, 3, 'comptoir'], [4, 3, 'comptoir'], [2, 5, 'table'], [7, 4, 'table']],
     objects: [['noea', 'pnj', 4, 2]],
   }),
-  'coralia-coquelune': interior('coralia-coquelune', { ...CORAL_ROOM, outside: 'coralia-canaux', furniture: [[1, 1, 'lit'], [6, 1, 'etagere'], [4, 3, 'table'], [1, 4, 'filet-peche']], objects: [['aio', 'pnj', 3, 2, { disparaitSi: 'aio-plonge-seul' }], ['iris-coquelune', 'pnj', 2, 2]] }),
+  'coralia-coquelune': interior('coralia-coquelune', { ...CORAL_ROOM, outside: 'coralia-canaux', furniture: [[1, 1, 'lit'], [6, 1, 'etagere'], [4, 3, 'table'], [1, 4, 'filet-peche']], objects: [['aio', 'pnj', 3, 2], ['iris-coquelune', 'pnj', 2, 2]] }),
   'coralia-relais': interior('coralia-relais', { ...CORAL_ROOM, outside: 'coralia-canaux', furniture: [[2, 1, 'etagere'], [3, 1, 'etagere'], [6, 1, 'lanterne-coquillage'], [5, 4, 'table']], objects: [] }),
   'coralia-plongeurs': interior('coralia-plongeurs', { ...CORAL_ROOM, outside: 'coralia-canaux', furniture: [[1, 1, 'filet-peche'], [6, 1, 'conque'], [4, 3, 'table'], [1, 4, 'tonneaux']], objects: [['ondine', 'pnj', 3, 2]] }),
   'coralia-palais': interior('coralia-palais', {

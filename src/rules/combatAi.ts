@@ -102,12 +102,32 @@ export function nextEnemyAction(enemy: Combatant, ctx: AiContext): AiAction {
     }
   }
   const nearest = [...heroes].sort((a, b) => distance(enemy.tile, a.tile) - distance(enemy.tile, b.tile))[0];
-  const path = pathNextTo(enemy.tile, nearest.tile, walk);
+  const path = pathNextTo(enemy.tile, nearest.tile, walk) ?? closerTo(enemy.tile, nearest.tile, cells);
   if (!path || path.length === 0) return { kind: 'end' };
   // A shooter stops as soon as it has the target in range.
   const stop = attack.range > 1 ? path.findIndex((t) => distance(t, nearest.tile) <= attack.range) : -1;
   const steps = (stop >= 0 ? path.slice(0, stop + 1) : path).slice(0, enemy.actionPoints);
   return steps.length ? { kind: 'move', path: steps } : { kind: 'end' };
+}
+
+/**
+ * Every cell next to the target is taken (a hero backed against the trees, the Golem beside him): rather than wait,
+ * the enemy comes as close as it can, ready to strike if a place opens (test du 2026-11-06 : les deux Rôdeurs du
+ * Golem ne bougeaient plus de tout le combat). Null when no reachable cell is closer than where it stands.
+ */
+function closerTo(from: Tile, target: Tile, cells: Map<string, Tile[]>): Tile[] | null {
+  let best: Tile[] | null = null;
+  let bestDistance = distance(from, target);
+  for (const p of cells.values()) {
+    const end = p[p.length - 1];
+    if (!end) continue;
+    const d = distance(end, target);
+    if (d < bestDistance || (best && d === bestDistance && p.length < best.length)) {
+      best = p;
+      bestDistance = d;
+    }
+  }
+  return best;
 }
 
 /** The shortest path to a cell next to `target` ([] when already there, null when there is none). */

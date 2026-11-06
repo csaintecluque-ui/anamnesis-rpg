@@ -54,6 +54,7 @@ import { COLORS, CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
 import { HAS_MOUSE } from '../ui/viewport';
 import { Tooltip } from '../ui/tooltip';
 import type { HudScene } from './HudScene';
+import { writeAuto } from '../save/autosave';
 
 const TOP = 70;
 
@@ -637,6 +638,8 @@ export class CombatScene extends Phaser.Scene {
   }
 
   private nextTurn(): void {
+    // The tip of a fighter hovered before the turn changed does not stay on screen (test du 2026-11-06).
+    this.tooltip.hide();
     if (this.checkOutcome()) return;
     if (this.turnIndex >= 0) endTurn(this.current());
     do {
@@ -1070,6 +1073,8 @@ export class CombatScene extends Phaser.Scene {
     const notices = [...hurt, ...picked, ...applyEffects(this.state, [...this.config.victoryEffects, ...lootEffects])];
     if (lootEffects.length) playSfx(this, 'objet');
     this.state.flags[this.config.victoryFlag] = true;
+    // A fight won is saved at once (test du 2026-11-06 : la progression se perdait à la fermeture de l'onglet).
+    writeAuto(this.registry, this.state, 'progres');
     this.closeAfter(false, (hud) => {
       if (notices.length) hud.toast(notices.join('   ·   '));
     });

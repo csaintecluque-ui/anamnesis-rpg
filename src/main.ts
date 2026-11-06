@@ -24,6 +24,7 @@ import type { GameState } from './state/gameState';
 import { playTimeStep } from './state/playTime';
 import { COLORS, GAME_HEIGHT, GAME_WIDTH } from './ui/theme';
 import { RENDER_SCALE, applyRenderScale } from './ui/viewport';
+import { writeAuto } from './save/autosave';
 
 const game = new Phaser.Game({
   type: Phaser.AUTO,
@@ -70,6 +71,17 @@ game.sound.volume = getSettings().volume / 100;
 // Phones: the iPhone's silent switch, an audio left asleep until a touch (src/audio/mobile.ts).
 setUpMobileAudio(game);
 game.events.once(Phaser.Core.Events.READY, () => applyRenderScale(game));
+
+// Leaving the page (a tab closed, the app sent to the background on a phone): the auto save is written, unless a save
+// was just loaded and has not moved on (src/save/autosave.ts ; test du 2026-11-06 : la progression se perdait).
+const saveOnLeave = (): void => {
+  if (game.scene.isActive('Title') || game.scene.isActive('Boot')) return;
+  writeAuto(game.registry, game.registry.get('game') as GameState | undefined, 'rafraichir');
+};
+window.addEventListener('pagehide', saveOnLeave);
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'hidden') saveOnLeave();
+});
 
 // The play time (src/state/playTime.ts): one clock on the game loop, whatever scene is running, that stops in the
 // menus and when nobody touches anything.

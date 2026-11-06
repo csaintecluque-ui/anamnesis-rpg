@@ -47,7 +47,7 @@ export function characterFiche(state: GameState): Fiche | null {
     { label: 'Points de vie', value: `${c.hp} / ${stats.maxHp}` },
     { label: 'Défense', value: String(stats.defense) },
     { label: 'Points d’action', value: String(stats.actionPoints) },
-    { label: 'Résistance', value: String(stats.resistance) },
+    { label: 'Résistance aux effets', value: `${stats.resistance >= 0 ? '+' : ''}${stats.resistance}` },
     { label: 'Récits retenus', value: `${c.recits.length} (jusqu’à ${stats.tales} ordinaires)` },
     ...(crystal ? [{ label: 'Résonance', value: `${c.resonance} / ${resonanceMax(c)} PR` }] : []),
   ];

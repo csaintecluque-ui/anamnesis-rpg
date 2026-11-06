@@ -130,13 +130,23 @@ export function buy(character: Character, itemId: string, count = 1, discount = 
   return null;
 }
 
-export function sell(character: Character, itemId: string, count = 1, ratio = SELL_RATIO): TradeError | null {
+/**
+ * What a trader pays for one item: half its price, more where the town honours the hero (chantier 6) ; but never as
+ * much as he sells it back (`resale`, when he sells it too): buying and selling again made Fers out of nothing (test du
+ * 2026-11-06 : une armure achetée 58 Fers, revendue 62).
+ */
+export function sellPrice(item: ItemDef, ratio = SELL_RATIO, resale?: number): number {
+  const price = Math.floor(item.price * ratio);
+  return resale === undefined ? price : Math.max(0, Math.min(price, resale - 1));
+}
+
+export function sell(character: Character, itemId: string, count = 1, ratio = SELL_RATIO, resale?: number): TradeError | null {
   const item = findItem(itemId);
   if (!item) return 'inconnu';
   if (ownedCount(character, itemId) < count) return 'pas-en-stock';
   if (item.quest) return 'objet-de-quete';
   removeItem(character, itemId, count);
-  character.fers += Math.floor(item.price * ratio) * count;
+  character.fers += sellPrice(item, ratio, resale) * count;
   return null;
 }
 

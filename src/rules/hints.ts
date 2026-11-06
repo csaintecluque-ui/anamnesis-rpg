@@ -35,7 +35,7 @@ export function mapObjectHint(o: MapObject, state: Pick<GameState, 'flags'>): st
     case 'panneau':
       return 'Lire';
     case 'golem':
-      return 'Golem de Ferraille';
+      return state.flags['golem-vaincu'] ? 'Golem de Ferraille' : 'Golem de Ferraille — attaquer (combat difficile)';
     case 'ennemi':
       return `${findEnemy(p.ennemi ?? '')?.name ?? 'Un ennemi'} — combattre`;
     case 'descente':

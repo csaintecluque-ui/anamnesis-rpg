@@ -4,7 +4,7 @@ import { findLocation, type GameState } from '../state/gameState';
 import { ATTRIBUTES, SKILLS, attributeModifier, skillScoreOf, type AttributeId, type SkillId } from './attributes';
 import { resolveCheck, rollD20, successChance, type Rng } from './checks';
 import { characterStats } from './character';
-import { ENCOUNTERS, GOLEM_FIGHT, VOIE_FIGHT } from './combat';
+import { ENCOUNTERS, GOLEM_FIGHT, GOLEM_QUEST_FIGHT, VOIE_FIGHT } from './combat';
 import { dreamFragment } from './heros';
 import { addItem, findItem, ownedCount, removeItem } from './inventory';
 import { collectedEchos, easeEmprise, empriseMalus, ECHOS, fadeSouvenirs, relive, souvenirBonus } from './echos';
@@ -585,7 +585,7 @@ export function dialogueProblems(d: Dialogue): string[] {
       if ('learnRecit' in e && !knownRecits.has(e.learnRecit)) problems.push(`${where} : récit inconnu ${e.learnRecit}`);
       if ('giveItem' in e && !findItem(e.giveItem)) problems.push(`${where} : objet inconnu ${e.giveItem}`);
       if ('takeItem' in e && !findItem(e.takeItem)) problems.push(`${where} : objet inconnu ${e.takeItem}`);
-      if ('startCombat' in e && !e.startCombat.startsWith(VOIE_FIGHT) && e.startCombat !== GOLEM_FIGHT && !ENCOUNTERS.some((x) => x.id === e.startCombat)) problems.push(`${where} : combat inconnu ${e.startCombat}`);
+      if ('startCombat' in e && !e.startCombat.startsWith(VOIE_FIGHT) && e.startCombat !== GOLEM_FIGHT && e.startCombat !== GOLEM_QUEST_FIGHT && !ENCOUNTERS.some((x) => x.id === e.startCombat)) problems.push(`${where} : combat inconnu ${e.startCombat}`);
       if ('goTo' in e && !findLocation(e.goTo)) problems.push(`${where} : lieu inconnu ${e.goTo}`);
       if ('lancer' in e && !POWERS.some((p) => p.id === e.lancer)) problems.push(`${where} : pouvoir inconnu ${e.lancer}`);
       if ('apprendre' in e && !knownSkills.has(e.apprendre)) problems.push(`${where} : compétence inconnue ${e.apprendre}`);

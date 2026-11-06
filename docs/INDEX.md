@@ -77,6 +77,7 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `chapitre-8.md` : chapitre 8, Khrysos : « Ce que la glace a pris » (la septième caisse), six quêtes de ville, deux guildes ; validé, complet et en ligne ; inventions validées.
 - `histoire-prenante.md` : rendre l'histoire prenante (diagnostic, sept leviers, questions à Cyril) ; nourrit les chantiers 1 et 4.
 - `feuille-de-route.md` : analyse et feuille de route de Cyril (2026-11-03) : sept chantiers avant tout nouveau chapitre ; en ligne.
+- `test-2026-11-06.md` : le test en navigateur du 2026-11-06 : quinze bogues vérifiés et corrigés, cinq décisions pour Cyril (repos, dés, combat, rythme, le fil).
 - `etude-2026-11-03.md` : l'étude complète de Cyril (87 améliorations, trois vagues) vérifiée contre le code ; la vague 1 faite, l'ordre de la vague 2, les questions ; en cours.
 - `compagnons.md` : les compagnons (suivi, avis, départ), Liane et Boulon, leurs quêtes ; validé ; les apartés et les échanges du chantier 4.
 - `veillees.md` : les veillées du conteur (publics, goûts, jet, chapeau, renommée, rumeurs et secrets) ; validé.

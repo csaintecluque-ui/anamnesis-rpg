@@ -2136,6 +2136,7 @@ Commence par : « accueil »
 
 - _(si repère « membre-compagnie-lisieres »)_ « Montrer ta marque de la Compagnie. » → trajet-gardebois
 - _(sans repère « membre-compagnie-lisieres »)_ **[15 Fers]** « Payer le voyage. » → trajet-gardebois _(−15 Fers)_
+- _(sans repère « membre-compagnie-lisieres »)_ « Je n’ai pas quinze Fers. » → sans-fers
 - « Une autre fois. » → accueil
 
 ### trajet-gardebois
@@ -2143,6 +2144,12 @@ Commence par : « accueil »
 > La caravane roule sans hâte, de borne en borne. Le soir, les lanternes du Marché des Lisières s’allument une à une entre les arbres : Gardebois.
 
 - « Descendre du chariot. » → **fin** _(attend à midi, attend le soir, mène à « Gardebois — Marché des Lisières »)_
+
+### sans-fers
+
+> Il hausse les épaules. — Alors la Grande Nacelle te redescend pour rien, juste là, au bord de la plate-forme. En bas, la route est à toi : un jour de marche jusqu’à Gardebois, si les Loups n’ont pas faim. Sévane, au Comptoir de la Sève, paie bien pour des herbes.
+
+- « Merci. » → **fin**
 
 ## Le Coffre des routes
 
@@ -5145,7 +5152,7 @@ _Effet : retient « gris-garrik »._
 
 _Objet_
 
-Commence par : « garde »
+Commence par : « quete » _(si quête « Le Dernier Train » en cours)_ _(sans repère « chantier-arrete »)_, sinon « garde »
 
 ### garde
 
@@ -5153,6 +5160,13 @@ Commence par : « garde »
 
 - « Le frapper quand même. » → **fin** _(retient « golem-attaque-apres », avis de Liane −1, lance le combat « golem-gare »)_
 - « Le laisser à sa garde. » → **fin**
+
+### quete
+
+> Le Golem de Ferraille garde la Faille : trois mètres de métal rapiécé, un cœur de cristal qui gronde dans sa poitrine. Dans les fougères, deux Rôdeurs-Épine attendent qu’il se batte. Le frapper, c’est un combat très dur pour qui débute.
+
+- « L’attaquer quand même. » → **fin** _(lance le combat « golem-gare-quete »)_
+- « Reculer, et chercher une autre façon d’arrêter le chantier. » → **fin**
 
 ## Sacs de graines-lumière
 

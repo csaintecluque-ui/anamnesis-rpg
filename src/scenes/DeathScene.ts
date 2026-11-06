@@ -10,6 +10,7 @@ import { characterStats } from '../rules/character';
 import { reveilLabel, reveilPrice, wakeUpAtInn } from '../rules/repos';
 import type { GameState } from '../state/gameState';
 import { PENDING_NOTICE } from './HudScene';
+import { AUTO_LOCK } from '../save/autosave';
 
 export interface DeathSceneData {
   /** The hero's name, and how the fight ended. */
@@ -57,6 +58,7 @@ export class DeathScene extends Phaser.Scene {
         const location = findLocation(save.state.location);
         if (!location || !save.state.character) return this.scene.start('Title');
         this.registry.set('game', structuredClone(save.state));
+        this.registry.set(AUTO_LOCK, true);
         this.scene.start(location.scene);
       };
       addTextButton(this, cx, y, withKeyHint('Reprendre à la dernière sauvegarde', 'Entrée'), resume, button);

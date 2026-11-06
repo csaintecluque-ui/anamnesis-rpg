@@ -24,10 +24,27 @@ describe('le fil directeur au journal', () => {
     expect(page.piste?.cible).toBe('aetherhaven');
   });
 
-  it('compte sept caisses, une par continent, toutes inconnues pour l’instant', () => {
-    const page = filPage(createNewGame(testCharacter()));
-    expect(page.caisses.map((c) => c.continent)).toHaveLength(7);
-    expect(page.caisses.every((c) => c.etat === 'inconnue')).toBe(true);
+  it('compte sept caisses, une par continent, mais n’en montre une qu’une fois sa trace connue (test du 2026-11-06)', () => {
+    expect(FIL.caisses).toHaveLength(7);
+    const state = createNewGame(testCharacter());
+    expect(filPage(state)).toMatchObject({ caisses: [], sept: false, inconnues: 7 });
+    // The page of the last departure: seven crates, none traced yet.
+    state.flags['page-lue'] = true;
+    expect(filPage(state)).toMatchObject({ caisses: [], sept: true, inconnues: 7 });
+    // Ilyane sends the hero under the Faille: the crate of Verdantis is on its track.
+    state.quests['sous-la-faille'] = 'active';
+    expect(filPage(state)).toMatchObject({ caisses: [{ continent: 'Verdantis', etat: 'inconnue' }], inconnues: 6 });
+    state.flags['caisse-verdantis-trouvee'] = true;
+    state.quests['sous-la-faille'] = 'done';
+    expect(filPage(state).caisses).toEqual([{ continent: 'Verdantis', etat: 'trouvee' }]);
+    // A fate written without its quest (a flag set another way) shows the crate too.
+    state.flags['caisse-ferros-prise'] = true;
+    expect(filPage(state).caisses.map((c) => c.continent)).toEqual(['Verdantis', 'Ferros']);
+  });
+
+  it('chaque caisse a sa trace : une quête qui existe', () => {
+    const quests = new Set(QUESTS.map((q) => q.id));
+    for (const c of FIL.caisses) expect(quests.has(c.trace), c.id).toBe(true);
   });
 
   it('ne parle que de quêtes qui existent, et ne vise que des lieux de la carte du monde', () => {

@@ -158,43 +158,50 @@
     {
       "id": "verdantis",
       "continent": "Verdantis",
-      "trouvee": "caisse-verdantis-trouvee"
+      "trouvee": "caisse-verdantis-trouvee",
+      "trace": "sous-la-faille"
     },
     {
       "id": "ferros",
       "continent": "Ferros",
       "trouvee": "caisse-ferros-trouvee",
-      "prise": "caisse-ferros-prise"
+      "prise": "caisse-ferros-prise",
+      "trace": "caisse-cendriere"
     },
     {
       "id": "terminus",
       "continent": "Terminus",
       "trouvee": "caisse-terminus-trouvee",
-      "prise": "caisse-terminus-prise"
+      "prise": "caisse-terminus-prise",
+      "trace": "caisse-sans-main"
     },
     {
       "id": "zephyria",
       "continent": "Zephyria",
       "trouvee": "caisse-zephyria-trouvee",
-      "prise": "caisse-zephyria-prise"
+      "prise": "caisse-zephyria-prise",
+      "trace": "noms-qui-montent"
     },
     {
       "id": "marisol",
       "continent": "Marisol",
       "trouvee": "caisse-marisol-trouvee",
-      "prise": "caisse-marisol-prise"
+      "prise": "caisse-marisol-prise",
+      "trace": "mer-rend"
     },
     {
       "id": "glacialis",
       "continent": "Glacialis",
       "trouvee": "caisse-glacialis-trouvee",
-      "prise": "caisse-glacialis-prise"
+      "prise": "caisse-glacialis-prise",
+      "trace": "glace-pris"
     },
     {
       "id": "communion",
       "continent": "la Communion",
       "trouvee": "caisse-communion-trouvee",
-      "prise": "caisse-communion-prise"
+      "prise": "caisse-communion-prise",
+      "trace": "plus-lieu"
     }
   ],
   "pistes": [

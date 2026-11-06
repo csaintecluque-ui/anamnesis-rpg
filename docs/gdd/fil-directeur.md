@@ -73,7 +73,12 @@ reste des caisses et des alliances décide. Les fins sont celles de Cyril.
 - **La page « Le fil »**, deuxième onglet du journal (`src/rules/fil.ts`, données `src/data/fil.json`) : la question
   (une fois la page du dernier départ lue), « Ce que je sais » (une ligne par pas de l'histoire : la foreuse, les
   fouilleurs, la clé et son sort, la main d'Edda Varn, la page, les caisses dispersées), « La piste », et les sept
-  caisses (○ pas encore, ● trouvée, ✕ prise par d'autres). Avant tout : « Ilyane t'a envoyé·e à la Gare Engloutie… ».
+  caisses (○ sur sa trace, ● trouvée, ✕ prise par d'autres). Avant tout : « Ilyane t'a envoyé·e à la Gare Engloutie… ».
+  **Depuis le test du 2026-11-06 (décision de Cyril)**, une caisse n'apparaît qu'une fois **sa trace connue** : la
+  quête qui y mène commencée (`trace` dans `fil.json` : « Sous la Faille », « La Cendrière », « La caisse sans main »,
+  « Les noms qui montent », « La mer rend », « Ce qui n'a plus lieu », « Ce que la glace a pris »), ou son sort écrit.
+  La page du dernier départ lue, le titre devient « Les sept caisses » et les autres sont comptées (« 6 autres : on ne
+  sait où. ») ; avant, ni titre ni liste. Le testeur voyait les sept continents dès la première minute.
 - **La carte du monde** entoure la piste d'un anneau cuivré qui respire (« La piste ») : le lieu de la quête
   principale en cours, puis « Zephyria · Aetherhaven » après Sept-Portes.
 - Les caisses ont leurs repères (`trouvee`, `prise`) à écrire avec chaque ville.

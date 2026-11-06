@@ -199,15 +199,23 @@ export class JournalScene extends Phaser.Scene {
       const t = this.text(LIST_X, y + 30, fil.piste.texte, 19, CSS.parchment, knownWidth);
       y += 30 + t.height;
     }
-    // The seven crates, on the right: found, taken by others, or not yet.
+    // The crates, on the right, once their trace is known (test du 2026-11-06): found, taken by others, or not yet ;
+    // the others only counted, once the hero knows there were seven.
+    if (!fil.caisses.length && !fil.sept) return;
     const x = LIST_X + knownWidth + 50;
-    this.text(x, top, 'Les sept caisses', 20, CSS.copper);
+    this.text(x, top, fil.sept ? 'Les sept caisses' : 'Les caisses du dernier train', 20, CSS.copper);
     const marks = { inconnue: '○', trouvee: '●', prise: '✕' } as const;
     fil.caisses.forEach((c, i) => {
       const color = c.etat === 'inconnue' ? CSS.muted : c.etat === 'trouvee' ? CSS.parchment : CSS.copper;
       this.text(x, top + 34 + i * 30, `${marks[c.etat]}  ${c.continent}`, 19, color);
     });
-    this.text(x, top + 34 + 7 * 30 + 8, '● trouvée · ✕ prise par d’autres · ○ pas encore', 15, CSS.muted, GAME_WIDTH - x - 30);
+    let below = top + 34 + fil.caisses.length * 30;
+    if (fil.sept && fil.inconnues > 0) {
+      const others = fil.inconnues === 1 ? 'Une autre : on ne sait où.' : `${fil.inconnues} autres : on ne sait où.`;
+      this.text(x, below, `?  ${others}`, 19, CSS.muted, GAME_WIDTH - x - 30);
+      below += 30;
+    }
+    this.text(x, below + 8, '● trouvée · ✕ prise par d’autres · ○ sur sa trace', 15, CSS.muted, GAME_WIDTH - x - 30);
   }
 
   private drawFiche(): void {

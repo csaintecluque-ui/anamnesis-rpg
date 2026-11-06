@@ -25,7 +25,7 @@ export interface FeatEffects {
   talesBonus?: number;
   revealsHiddenPlaces?: boolean;
   /** Applied once combat exists. */
-  combat?: { rangeMultiplier?: number; rangedDamage?: number; meleeHit?: number; meleeDamage?: number };
+  combat?: { rangeBonus?: number; rangedDamage?: number; meleeHit?: number; meleeDamage?: number };
   // Chantier 6 : the level feats and the traits.
   defenseBonus?: number;
   resistanceBonus?: number;

@@ -118,6 +118,11 @@ export interface RencontreDef {
   /** Hostile encounters can be skirted with a roll (Survie): the d20 against this difficulty. */
   avoid?: { skill: SkillId; difficulty: number };
   /**
+   * The way out of a hero of words (test du 2026-11-06, décision de Cyril) : parley with people (Diplomatie), lure the
+   * beasts away (Subterfuge). `label` names the choice, `texte` tells it when it works ; failed, the fight comes.
+   */
+  parler?: { skill: SkillId; difficulty: number; label: string; texte: string };
+  /**
    * Story encounter, never drawn at random: met at the first check of a journey while `quest` is active and `flag`
    * is not set; meeting it sets `flag` (« La caravane de midi » : les Loups de Rouille).
    */

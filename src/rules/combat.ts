@@ -26,6 +26,11 @@ export interface WeaponDef {
   apCost?: number;
   /** PA more to aim at a zone, when not AIM_AP_EXTRA (a dagger: none). */
   aimExtra?: number;
+  /**
+   * Added to its damage (test du 2026-11-06, décision de Cyril): a heavy weapon, slower than a dagger, strikes harder.
+   * Without it the dagger, three blows a turn, beat every weapon one buys.
+   */
+  bonus?: number;
 }
 
 /** An effect a blow can leave (docs/gdd/combat.md, « Effets ») : the lingering ones hurt at the start of each turn. */
@@ -309,7 +314,7 @@ export function heroAttacks(character: Character): AttackProfile[] {
     meleeHit: combats.reduce((n, e) => n + (e.meleeHit ?? 0), 0),
     meleeDamage: combats.reduce((n, e) => n + (e.meleeDamage ?? 0), 0),
     rangedDamage: combats.reduce((n, e) => n + (e.rangedDamage ?? 0), 0),
-    rangeMultiplier: Math.max(1, ...combats.map((e) => e.rangeMultiplier ?? 1)),
+    rangeBonus: combats.reduce((n, e) => n + (e.rangeBonus ?? 0), 0),
   };
   return heldWeapons(character).map((weapon) => {
     const rank = character.skills[weapon.skill];
@@ -319,11 +324,11 @@ export function heroAttacks(character: Character): AttackProfile[] {
     return {
       weaponId: weapon.id,
       label: weapon.name,
-      range: isRanged ? weapon.range * (feat.rangeMultiplier ?? 1) : weapon.range,
+      range: isRanged ? weapon.range + feat.rangeBonus : weapon.range,
       // A dulled weapon misses more (src/rules/usure.ts ; chantier 6).
       toHitBonus: HERO_HIT_BONUS + mod + rank + hitBonus - wearPenalty(character, weapon.id),
       damage: weapon.damage,
-      damageBonus: mod + rankDamage(rank) + (isRanged ? (feat.rangedDamage ?? 0) : (feat.meleeDamage ?? 0)),
+      damageBonus: mod + rankDamage(rank) + (weapon.bonus ?? 0) + (isRanged ? (feat.rangedDamage ?? 0) : (feat.meleeDamage ?? 0)),
       apCost: weapon.apCost ?? ATTACK_AP_COST,
       aimExtra: weapon.aimExtra,
       munition: weapon.munition,
@@ -429,6 +434,14 @@ export const CHAPTER_QUESTS = ['dernier-train', 'audience', 'cle-rouille-bleue',
 
 export function storyChapter(quests: Record<string, string>): number {
   return 1 + CHAPTER_QUESTS.filter((q) => quests[q] === 'done').length;
+}
+
+/**
+ * The strength of the road and of the sleeping lines: the story's chapter, or the hero's level less one when it is
+ * higher (test du 2026-11-06, décision de Cyril) : before, a hero who had grown faster than the story won every fight.
+ */
+export function roadMenace(quests: Record<string, string>, level: number): number {
+  return Math.max(storyChapter(quests), level - 1);
 }
 
 /** Per chapter after the first: this share of PV more; from the third, +1 to hit (at most MENACE_HIT_MAX) and +1 Défense. */

@@ -224,7 +224,7 @@ describe('exploring', () => {
 });
 
 describe('the voie pacifiste (feuille de route, chantier 3)', () => {
-  it('every group can be slipped past (Discrétion), fled from once seen (Athlétisme), or attacked', () => {
+  it('every group can be slipped past (Discrétion), lured away (Subterfuge) or soothed (Échos), fled from once seen (Athlétisme), or attacked', () => {
     for (const site of SITES) {
       for (let depth = 1; depth <= VOIE_DEPTH; depth++) {
         const state = inVoie({ site: site.id, seed: 11 * depth, depth });
@@ -238,6 +238,8 @@ describe('the voie pacifiste (feuille de route, chantier 3)', () => {
           expect(sneak.roll).toEqual({ skill: 'stealth', difficulty: 9 + level.tier });
           expect(d.nodes.face.options.some((o) => o.effects?.some((e) => 'startCombat' in e && e.startCombat === `voie:${g}`))).toBe(true);
           expect(d.nodes.repere.options.some((o) => o.roll?.skill === 'athletics')).toBe(true);
+          // A hero of words has a way out of every fight (test du 2026-11-06).
+          expect(d.nodes.face.options.some((o) => o.roll?.skill === 'subterfuge' || o.raconter)).toBe(true);
         }
       }
     }

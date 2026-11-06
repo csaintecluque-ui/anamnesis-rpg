@@ -11,10 +11,10 @@
   {
     "id": "marksman",
     "name": "Tireur d’Élite",
-    "description": "Portée doublée et +2 dégâts au Tir.",
+    "description": "Portée +2 cases et +2 dégâts au Tir.",
     "effects": {
       "combat": {
-        "rangeMultiplier": 2,
+        "rangeBonus": 2,
         "rangedDamage": 2
       }
     }

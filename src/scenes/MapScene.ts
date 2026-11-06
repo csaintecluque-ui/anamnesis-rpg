@@ -10,7 +10,7 @@ import { FADED_ALPHA, bodyBox, obstacleBox, overlaps, type Box } from '../engine
 import { findPath } from '../engine/pathfinding';
 import { bigBlock, findObject, isBigAnchor, isWalkable, parseTiledMap, tileKey, type GameMap, type MapObject } from '../engine/tiledMap';
 import { DEFAULT_AVATAR } from '../rules/character';
-import { ENCOUNTERS, GOLEM_FIGHT, GOLEM_QUEST_FIGHT, GOLEM_VICTORY_EFFECTS, VOIE_FIGHT, findEnemy, storyChapter } from '../rules/combat';
+import { ENCOUNTERS, GOLEM_FIGHT, GOLEM_QUEST_FIGHT, GOLEM_VICTORY_EFFECTS, VOIE_FIGHT, findEnemy, roadMenace } from '../rules/combat';
 import { autoTalk, expireFlags, hasStoryEntry, type Effect } from '../rules/dialogue';
 import {
   ENCOUNTER_VICTORY_FLAG,
@@ -868,7 +868,7 @@ export class MapScene extends Phaser.Scene {
       row: Math.round(all.reduce((sum, t) => sum + t.row, 0) / all.length),
     };
     const xp = rencontreXp(rencontre);
-    this.launchFight(center, enemies.map((o) => o.properties.ennemi), enemies, ENCOUNTER_VICTORY_FLAG, xp > 0 ? [{ giveXp: xp }] : [], storyChapter(this.state.quests));
+    this.launchFight(center, enemies.map((o) => o.properties.ennemi), enemies, ENCOUNTER_VICTORY_FLAG, xp > 0 ? [{ giveXp: xp }] : [], this.menace());
   }
 
   // --- Sleeping lines (docs/gdd/voies.md) ---------------------------------------------------------
@@ -940,7 +940,12 @@ export class MapScene extends Phaser.Scene {
       col: Math.round(all.reduce((sum, t) => sum + t.col, 0) / all.length),
       row: Math.round(all.reduce((sum, t) => sum + t.row, 0) / all.length),
     };
-    this.launchFight(center, ids, spots, NIGHT_FLAG, [{ giveXp: nightXp(ids) }], storyChapter(this.state.quests), undefined, true);
+    this.launchFight(center, ids, spots, NIGHT_FLAG, [{ giveXp: nightXp(ids) }], this.menace(), undefined, true);
+  }
+
+  /** The strength of the beasts of the road, of the night and of the sleeping lines (src/rules/combat.ts). */
+  private menace(): number {
+    return roadMenace(this.state.quests, this.state.character?.level ?? 1);
   }
 
   /** A group of a sleeping line attacks: the fight takes place right here. */
@@ -955,7 +960,7 @@ export class MapScene extends Phaser.Scene {
     this.fought.add(group);
     const ids = enemies.map((o) => o.properties.ennemi);
     const effects: Effect[] = [{ giveXp: voieGroupXp(this.state, ids) }, ...(enemies[0].properties.contrat ? [{ contrat: 'fait' as const }] : [])];
-    this.launchFight(center, ids, enemies, groupFlag(group), effects, storyChapter(this.state.quests));
+    this.launchFight(center, ids, enemies, groupFlag(group), effects, this.menace());
   }
 
   private drawNpcs(): void {

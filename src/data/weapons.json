@@ -46,7 +46,8 @@
     "damage": {
       "count": 1,
       "sides": 8
-    }
+    },
+    "bonus": 2
   },
   {
     "id": "epee-trempee",
@@ -57,7 +58,8 @@
     "damage": {
       "count": 1,
       "sides": 10
-    }
+    },
+    "bonus": 3
   },
   {
     "id": "arc",
@@ -69,7 +71,8 @@
       "count": 1,
       "sides": 8
     },
-    "munition": "fleches"
+    "munition": "fleches",
+    "bonus": 1
   },
   {
     "id": "marteau-forge",
@@ -80,7 +83,8 @@
     "damage": {
       "count": 1,
       "sides": 10
-    }
+    },
+    "bonus": 4
   },
   {
     "id": "arbalete-ferros",
@@ -92,6 +96,7 @@
       "count": 1,
       "sides": 10
     },
-    "munition": "carreaux"
+    "munition": "carreaux",
+    "bonus": 2
   }
 ]

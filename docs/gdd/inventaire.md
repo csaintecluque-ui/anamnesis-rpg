@@ -71,8 +71,8 @@ Ragna Cendrefer vend aussi ses propres pièces, entre 70 et 120 Fers :
 
 | Objet | Prix | Effet |
 |---|---|---|
-| Marteau de forge | 70 | arme de mêlée, 1d10 (Épée longue : 1d8), 5 kg |
-| Arbalète de Ferros | 80 | arme de tir, portée 6, 1d10 (Arc : 1d8), 4 kg |
+| Marteau de forge | 70 | arme de mêlée, 1d10 + 4 (Épée longue : 1d8 + 2, trempée : 1d10 + 3), 5 kg |
+| Arbalète de Ferros | 80 | arme de tir, portée 6, 1d10 + 2 (Arc : 1d8 + 1), 4 kg |
 | Cuirasse rivetée | 120 | armure, +3 en Défense (ferraille : +2), 18 kg |
 
 ## Le laissez-passer de Tobias (décision de Cyril, 2026-11-02)

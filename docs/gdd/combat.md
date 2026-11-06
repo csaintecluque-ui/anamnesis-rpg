@@ -4,7 +4,9 @@ Règles : `src/rules/combat.ts` ; écran : `src/scenes/CombatScene.ts` ; donnée
 
 - **Déroulement** : tour par tour sur grille iso, dans l'ordre d'initiative. Se déplacer coûte 1 PA par case ; attaquer, 2 PA (dague, mains nues) ou 3 PA (les autres armes) depuis le chantier 3.
 - **Toucher** : d20 + mod. (Corps en mêlée, Agilité à distance) + rang ≥ Défense de la cible. [JDR]
-- **Dégâts** : selon l'arme, avec les valeurs du JDR (dague 1d4 + Corps, épée longue 1d8 + Corps, arc 1d8 + Agilité).
+- **Dégâts** : selon l'arme, avec les valeurs du JDR (dague 1d4 + Corps, épée longue 1d8 + Corps, arc 1d8 + Agilité),
+  plus le bonus propre de l'arme depuis le test du 2026-11-06 (épée longue +2, épée trempée +3, marteau +4, arc +1,
+  arbalète +2 ; section en fin de fichier).
   - Armes de la tranche : lames, arcs, arbalètes.
   - La poudre reste rare et réglementée [E9]. Les armes du JDR comme le fusil d'assaut sont écartées (zone floue n° 18, `docs/univers/zones-floues.md`).
 - **Visée par zone** : tête −2, bras −2, jambes −1 (avant le chantier 3 : −4, −2, −2), avec des effets propres (étourdi, désarmé, ralenti), qui demandent désormais un jet de résistance ; viser coûte 1 PA de plus (pas à la dague).
@@ -158,7 +160,7 @@ suivait pas l'histoire, et les voies endormies n'étaient que des combats.
 | Rebouteuse des Marches | Soins · Fuite |
 
 - **L'IA** : sous le tiers de ses PV, un ennemi qui a Fuite court vers le bord et quitte le combat (sans butin) ; une
-  soigneuse soigne un allié sous 60 % ; sinon l'ennemi **achève les blessés** (de ceux qu'il peut frapper, le plus
+  soigneuse soigne un allié sous 60 % (75 % depuis le test du 2026-11-06) ; sinon l'ennemi **achève les blessés** (de ceux qu'il peut frapper, le plus
   faible), marche pour frapper ce tour-ci si possible, et un tireur choisit une case à portée **à couvert** de sa cible.
 - **La force suit l'histoire** : les bêtes et les bandes de la route et des voies endormies gagnent 40 % de PV par
   chapitre après le premier, puis, à partir du chapitre 3, +1 au toucher par chapitre et +1 en Défense. Le chapitre est
@@ -319,3 +321,40 @@ Lecture :
 **Appliqué (accord de Cyril)** : `MENACE_HIT_MAX = 1` (`combat.ts`) et `HP_PER_LEVEL = 5` (`derived.ts`). **Recommandation de Claude : plafond +1 et F3 (+1 PV par niveau)** : le chapitre 4 redevient aussi tendu que le 3, pas
 plus facile ; les groupes dangereux le restent ; le héros sent un peu plus chaque niveau. Le parleur, lui, reste fait
 pour éviter les meutes : avec Liane, la parole, la fuite ou la Discrétion.
+
+## Test du 6 novembre : l'équilibre revu (décision de Cyril, 2026-11-06)
+
+Le testeur : « la dague à 2 PA écrase tout, une arme achetée est une perte » ; « un guerrier gagne 98-100 % dès le
+niveau 3, un parleur en perd 90-100 % ». Revérifié d'abord par la simulation du projet (`combatSim.ts`, 150 combats par
+case, guerrier Corps 6 + Maître d'Armes, parleur Présence 6 à la dague, archer Agilité 6 + Tireur d'Élite) : c'était
+vrai. Appliqué :
+
+- **un bonus de dégâts par arme** (`bonus`, `weapons.json`) : épée longue +2, épée trempée +3, marteau de forge +4, arc
+  +1, arbalète +2. La fiche d'un objet le dit (« 1d8 + 2 de dégâts, 3 PA le coup »). Garde-fou : à tout bonus de héros
+  de 0 à 6, l'épée longue frappe autant par tour que la dague (à 1 près), la trempée et le marteau davantage
+  (`combat20261106.test.ts`) ;
+- **les bêtes de la route, de la nuit et des voies suivent aussi le niveau du héros** : la menace est le chapitre, ou
+  le niveau − 1 s'il est plus haut (`roadMenace`). Le bonus au toucher reste plafonné à +1 (accord du 2026-11-04 : à +2,
+  la simulation donnait moins de 1 point d'écart de victoires, et 3 points de PV en moins) ;
+- **Tireur d'Élite : +2 cases de portée** au lieu du double (12 cases à l'arc : toute l'arène) ;
+- **une issue sans combat à chaque rencontre hostile** : sur la carte du monde, « Parlementer » (Diplomatie, les
+  pilleurs) ou « Les leurrer » (Subterfuge, les bêtes), à la difficulté du détour ; dans les voies, « Les attirer
+  ailleurs » (Subterfuge) à côté de la Discrétion, sauf devant les Échos furieux, qu'on apaise d'un Récit ;
+- **Liane soigne sous 75 % des PV** d'un allié (60 % avant).
+
+Ce que la simulation donne (victoires, avant → après) :
+
+| Cas | Avant | Après |
+|---|---|---|
+| Guerrier, chapitre 6 (deux Abyssaux), niveaux 2 / 3 : dague | 86 / 97 % | 86 / 97 % |
+| … épée longue | 57 / 82 % | 82 / 94 % |
+| … épée trempée | 72 / 89 % | 91 / 97 % |
+| … marteau de forge | 72 / 89 % | 93 / 97 % |
+| Archer à l'arbalète, chapitre 6, niveau 2 | 80 % | 90 % |
+| Parleur + Liane, chapitre 5, niveaux 1 / 2 / 3 | 31 / 46 / 48 % | 42 / 49 / 57 % |
+| Guerrier à l'épée, chapitre 2, niveau 6 : PV restants après la victoire | 81 % | 56 % |
+| Parleur + Liane, chapitre 2, niveau 6 | 79 % | 1 % : il passe par la parole |
+
+Un guerrier à son niveau gagne toujours presque tout : la tension vient désormais de ce qu'il perd (PV restants 54 à
+73 % aux chapitres 3 à 6), puisque le repos dehors ne rend plus que la moitié des PV (`temps.md`).
+

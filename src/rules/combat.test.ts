@@ -275,21 +275,23 @@ describe('heroAttacks', () => {
     expect(heldWeapons(armed(hero())).map((w) => w.id)).toEqual(['epee-longue', 'arc']);
   });
 
-  it('builds Épée longue and Arc from Corps/Agilité and the matching skill ranks (+2 to hit, + half the rank to damage)', () => {
+  it('builds Épée longue and Arc from Corps/Agilité and the matching skill ranks (+2 to hit, + half the rank and the weapon to damage)', () => {
     const c = armed(hero('tough'));
     const attacks = heroAttacks(c);
     const sword = attacks.find((a) => a.weaponId === 'epee-longue')!;
     const bow = attacks.find((a) => a.weaponId === 'arc')!;
     expect(sword.toHitBonus).toBe(HERO_HIT_BONUS + c.attributes.body - 3 + c.skills.melee);
     expect(bow.toHitBonus).toBe(HERO_HIT_BONUS + c.attributes.agility - 3 + c.skills.ranged);
-    expect(sword.damageBonus).toBe(c.attributes.body - 3 + Math.floor(c.skills.melee / 2));
+    // The weapon's own bonus (test du 2026-11-06): +2 for a long sword, +1 for a bow.
+    expect(sword.damageBonus).toBe(c.attributes.body - 3 + Math.floor(c.skills.melee / 2) + 2);
+    expect(bow.damageBonus).toBe(c.attributes.agility - 3 + Math.floor(c.skills.ranged / 2) + 1);
     expect(sword.range).toBe(1);
   });
 
-  it('Tireur d’Élite doubles the bow range and adds ranged damage', () => {
+  it('Tireur d’Élite adds two cells to the bow range (test du 2026-11-06 : no more doubling), and ranged damage', () => {
     const base = heroAttacks(armed(hero('tough'))).find((a) => a.weaponId === 'arc')!;
     const marksman = heroAttacks(armed(hero('marksman'))).find((a) => a.weaponId === 'arc')!;
-    expect(marksman.range).toBe(base.range * 2);
+    expect(marksman.range).toBe(base.range + 2);
     expect(marksman.damageBonus).toBe(base.damageBonus + 2);
   });
 

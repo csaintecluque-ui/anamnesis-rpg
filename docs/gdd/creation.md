@@ -9,7 +9,7 @@
 | Don | Effet | Origine |
 |---|---|---|
 | Dur à Cuire | +2 Vigueur au calcul des PV, +2 PV par niveau | JDR (+2 Vigueur, +1d8 PV/niveau), adapté |
-| Tireur d'Élite | portée doublée, +2 dégâts au Tir | JDR |
+| Tireur d'Élite | portée +2 cases (doublée avant le test du 2026-11-06), +2 dégâts au Tir | JDR, adapté |
 | Maître d'Armes | +1 au toucher et +1 aux dégâts en Mêlée | JDR |
 | Mémoire de Kael | +2 rangs en Érudition, +1 Récit retenu | expression canon [E4] |
 | Esprit d'Amira | +2 rangs en Survie, repère les lieux cachés sur la carte | expression canon [E4] |

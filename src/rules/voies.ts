@@ -388,6 +388,8 @@ function groupDialogue(group: string, enemies: string[], tier: number, yieldShar
   const xp = Math.round((groupXp(enemies) * yieldShare) / 2);
   const options: DialogueOption[] = [{ text: 'Passer dans leur ombre, sans un bruit.', roll: { skill: 'stealth', difficulty: 9 + tier }, next: 'passe', failNext: 'repere' }];
   if (echoes) options.push({ text: 'Leur raconter une histoire, pour qu’ils se souviennent d’autre chose.', next: 'apaise', raconter: { neutre: 'apaise' } });
+  // A hero of words has a way out of every fight (test du 2026-11-06, décision de Cyril): a lure, by Subterfuge.
+  else options.push({ text: 'Les attirer ailleurs : une pierre lancée au loin, dans le noir.', roll: { skill: 'subterfuge', difficulty: 9 + tier }, next: 'leurre', failNext: 'repere' });
   options.push(fight, { text: 'Reculer.', next: 'fin' });
   return {
     id: groupDialogueId(group),
@@ -405,6 +407,15 @@ function groupDialogue(group: string, enemies: string[], tier: number, yieldShar
         options: [fight, { text: 'Fuir en courant, avant qu’ils ne soient sur toi.', roll: { skill: 'athletics', difficulty: 9 + tier }, next: 'fin', failNext: 'rattrape' }],
       },
       rattrape: { text: 'Ils sont plus rapides que toi.', options: [{ text: 'Se défendre.', effects: [{ startCombat: `${VOIE_FIGHT}${group}` }], next: 'fin' }] },
+      ...(echoes
+        ? {}
+        : {
+            leurre: {
+              text: 'La pierre roule au fond du couloir. Les têtes se tournent, les corps suivent, et tu passes derrière eux.',
+              effects: [{ setFlag: sneakFlag(group) }, { giveXp: xp }],
+              options: [{ text: 'Continuer.', next: 'fin' }],
+            },
+          }),
       ...(echoes
         ? {
             apaise: {

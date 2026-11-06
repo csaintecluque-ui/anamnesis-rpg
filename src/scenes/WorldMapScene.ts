@@ -551,20 +551,37 @@ export class WorldMapScene extends Phaser.Scene {
     }
     const avoid = { skill: r.avoid.skill, difficulty: r.avoid.difficulty };
     const chance = Math.round(rollChance(this.state, avoid) * 100);
+    const skillName = (id: string) => SKILLS.find((s) => s.id === id)?.name ?? id;
+    // The die comes from a seed (the day, the encounter, what is tried, the hero): reloading changes nothing.
+    const die = (what: string) => rngFor(what, this.state.time.day, r.id, heroKey(this.state.character));
+    const caught = (notice: string) => this.showPanel(`Repéré ! Impossible de les éviter.\n${notice}`, [['Se défendre', () => this.startEncounter(r, destination)]]);
+    // A hero of words has a way out of every fight of the road (test du 2026-11-06, décision de Cyril).
+    const talk: [string, () => void][] = r.parler
+      ? [
+          [
+            `${r.parler.label} (${skillName(r.parler.skill)} ${Math.round(rollChance(this.state, r.parler) * 100)} %)`,
+            () => {
+              const outcome = performRoll(this.state, r.parler!, die('parler'));
+              if (outcome.success) this.showPanel(`${r.parler!.texte}\n${outcome.notice}`, [['Continuer', goOn]]);
+              else caught(outcome.notice);
+            },
+          ],
+        ]
+      : [];
     // A free way out for any hero, at the cost of time (étude H2) ; last, so that Échap picks it.
     const wait: [string, () => void][] = canWaitOut(r) ? [['Attendre qu’ils passent', () => this.showPanel(waitOut(this.state), [['Continuer', goOn]])]] : [];
     this.showPanel(r.intro, [
       ['Approcher', () => this.startEncounter(r, destination)],
       [
         // The roll's own skill (Survie, Discrétion, Subterfuge…), not always Survie.
-        `Contourner (${SKILLS.find((s) => s.id === avoid.skill)?.name ?? avoid.skill} ${chance} %)`,
+        `Contourner (${skillName(avoid.skill)} ${chance} %)`,
         () => {
-          // The die comes from a seed (the day, the encounter, the hero): reloading changes nothing (test du 2026-11-06).
-          const outcome = performRoll(this.state, avoid, rngFor('contourner', this.state.time.day, r.id, heroKey(this.state.character)));
+          const outcome = performRoll(this.state, avoid, die('contourner'));
           if (outcome.success) this.showPanel(`Tu t’éloignes sans bruit.\n${outcome.notice}`, [['Continuer', goOn]]);
-          else this.showPanel(`Repéré ! Impossible de les éviter.\n${outcome.notice}`, [['Se défendre', () => this.startEncounter(r, destination)]]);
+          else caught(outcome.notice);
         },
       ],
+      ...talk,
       ...wait,
     ]);
   }

@@ -23,10 +23,11 @@ describe('the tabs of the bag', () => {
 describe('what an item is good for', () => {
   it('says the damage of a weapon, the Défense of an armour, the powers of a crystal', () => {
     expect(itemUses(item('epee-longue'))).toEqual([
-      'Arme de corps à corps : 1d8 de dégâts, +1 par deux rangs de Mêlée.',
+      'Arme de corps à corps : 1d8 + 2 de dégâts, 3 PA le coup, +1 par deux rangs de Mêlée.',
       'Entre dans Épée trempée : la forge de Ragna, à Ironheart.',
     ]);
-    expect(itemUses(item('arbalete-ferros'))[0]).toMatch(/^Arme de tir, portée 6 : 1d10 de dégâts/);
+    expect(itemUses(item('arbalete-ferros'))[0]).toMatch(/^Arme de tir, portée 6 : 1d10 \+ 2 de dégâts/);
+    expect(itemUses(item('dague'))[0]).toBe('Arme de corps à corps : 1d4 de dégâts, 2 PA le coup, +1 par deux rangs de Mêlée.');
     expect(itemUses(item('cuirasse-rivetee'))[0]).toBe('Armure : +3 en Défense, en route comme en combat.');
     expect(itemUses(item('cristal-forge'))[0]).toBe('Se porte au cou : Flammes forgées et la Lueur, avec des Points de Résonance.');
   });

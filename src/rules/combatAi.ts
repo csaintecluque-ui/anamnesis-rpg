@@ -38,8 +38,8 @@ export type AiAction =
   | { kind: 'flee' }
   | { kind: 'end' };
 
-/** A healer tends an ally under this share of its PV. */
-export const HEAL_UNDER = 0.6;
+/** A healer tends an ally under this share of its PV (test du 2026-11-06 : 75 %, d'abord 60 % ; Liane soignait trop tard). */
+export const HEAL_UNDER = 0.75;
 
 const same = (a: Tile, b: Tile) => a.col === b.col && a.row === b.row;
 

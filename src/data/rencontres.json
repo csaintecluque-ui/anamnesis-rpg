@@ -19,6 +19,12 @@
     "avoid": {
       "skill": "survival",
       "difficulty": 11
+    },
+    "parler": {
+      "skill": "subterfuge",
+      "difficulty": 11,
+      "label": "Les leurrer",
+      "texte": "Tu fais craquer une branche plus loin, sur l’autre sentier. Les Rôdeurs s’y engouffrent, et tu passes derrière eux."
     }
   },
   {
@@ -38,6 +44,12 @@
     "avoid": {
       "skill": "survival",
       "difficulty": 10
+    },
+    "parler": {
+      "skill": "subterfuge",
+      "difficulty": 10,
+      "label": "Le leurrer",
+      "texte": "Tu lances ta gourde dans les fougères, du côté du vent. L’Ours-Mousse va flairer l’odeur de l’eau, et tu passes."
     }
   },
   {
@@ -59,6 +71,12 @@
     "avoid": {
       "skill": "survival",
       "difficulty": 13
+    },
+    "parler": {
+      "skill": "subterfuge",
+      "difficulty": 13,
+      "label": "Les leurrer",
+      "texte": "Un cri de bête blessée, imité derrière les ronces : la meute part en chasse, du mauvais côté."
     }
   },
   {
@@ -189,6 +207,12 @@
     "avoid": {
       "skill": "survival",
       "difficulty": 13
+    },
+    "parler": {
+      "skill": "subterfuge",
+      "difficulty": 13,
+      "label": "La leurrer",
+      "texte": "Tu laisses une fausse piste, ta veste traînée dans la boue jusqu’au ruisseau. La Griffe-Sylve la suit, et le chemin est libre."
     }
   },
   {
@@ -211,6 +235,12 @@
     "avoid": {
       "skill": "stealth",
       "difficulty": 12
+    },
+    "parler": {
+      "skill": "subterfuge",
+      "difficulty": 12,
+      "label": "Les enfumer",
+      "texte": "Une poignée de feuilles humides sur un brandon : la fumée monte, et l’essaim s’écarte du chemin, engourdi."
     }
   },
   {
@@ -231,6 +261,12 @@
     "avoid": {
       "skill": "athletics",
       "difficulty": 11
+    },
+    "parler": {
+      "skill": "subterfuge",
+      "difficulty": 11,
+      "label": "Les leurrer",
+      "texte": "Un bout de métal chauffé au soleil, jeté sur les rails : les Geckos-Soudeurs s’y jettent, et tu passes."
     }
   },
   {
@@ -252,6 +288,12 @@
     "avoid": {
       "skill": "subterfuge",
       "difficulty": 13
+    },
+    "parler": {
+      "skill": "diplomacy",
+      "difficulty": 13,
+      "label": "Parlementer",
+      "texte": "Tu leur parles de la route du nord, des patrouilles de Ferros, d’un convoi plus gras que toi. Ils se regardent, puis s’écartent."
     }
   }
 ]

@@ -24,7 +24,7 @@ interface Recette {
   ingredients: { item: string; count: number }[];
 }
 const RECETTES = recetteData as Recette[];
-const WEAPONS = weaponData as { id: string; name: string; skill: string; range: number; damage: { count: number; sides: number }; munition?: string }[];
+const WEAPONS = weaponData as { id: string; name: string; skill: string; range: number; damage: { count: number; sides: number }; munition?: string; apCost?: number; bonus?: number }[];
 const POWERS = powerData as { id: string; name: string }[];
 
 /** Where each workshop is, in a sentence (src/rules/artisanat.ts). */
@@ -53,7 +53,9 @@ export function itemUses(item: ItemDef): string[] {
   if (weapon) {
     const skill = SKILLS.find((s) => s.id === weapon.skill)?.name ?? weapon.skill;
     const kind = weapon.range > 1 ? `Arme de tir, portée ${weapon.range}` : 'Arme de corps à corps';
-    lines.push(`${kind} : ${weapon.damage.count}d${weapon.damage.sides} de dégâts, +1 par deux rangs de ${skill}.`);
+    const bonus = weapon.bonus ? ` + ${weapon.bonus}` : '';
+    const pace = `, ${weapon.apCost ?? 3} PA le coup`;
+    lines.push(`${kind} : ${weapon.damage.count}d${weapon.damage.sides}${bonus} de dégâts${pace}, +1 par deux rangs de ${skill}.`);
     const ammo = weapon.munition ? findItem(weapon.munition) : undefined;
     if (ammo) lines.push(`Tire des ${ammo.name.toLowerCase()} : une par tir ; après un combat gagné, on en ramasse la moitié.`);
   }

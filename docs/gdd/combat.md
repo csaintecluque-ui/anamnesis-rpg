@@ -334,8 +334,8 @@ vrai. Appliqué :
   de 0 à 6, l'épée longue frappe autant par tour que la dague (à 1 près), la trempée et le marteau davantage
   (`combat20261106.test.ts`) ;
 - **les bêtes de la route, de la nuit et des voies suivent aussi le niveau du héros** : la menace est le chapitre, ou
-  le niveau − 1 s'il est plus haut (`roadMenace`). Le bonus au toucher reste plafonné à +1 (accord du 2026-11-04 : à +2,
-  la simulation donnait moins de 1 point d'écart de victoires, et 3 points de PV en moins) ;
+  le niveau − 1 s'il est plus haut (`roadMenace`). Le bonus au toucher reste plafonné à +1 (accord du 2026-11-04 ; à +2,
+  la simulation ne bougeait les victoires que de 0 à 2 points, et les PV restants de 2 à 3) ;
 - **Tireur d'Élite : +2 cases de portée** au lieu du double (12 cases à l'arc : toute l'arène) ;
 - **une issue sans combat à chaque rencontre hostile** : sur la carte du monde, « Parlementer » (Diplomatie, les
   pilleurs) ou « Les leurrer » (Subterfuge, les bêtes), à la difficulté du détour ; dans les voies, « Les attirer

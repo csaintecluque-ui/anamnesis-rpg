@@ -8,6 +8,7 @@ import { applyEffects, performRoll, type Dialogue, type DialogueOption, type Eff
 import { findItem, ownedCount } from './inventory';
 import { advance } from './time';
 import { findPlace, type WorldPlace } from './world';
+import { seededRng } from './graine';
 
 /**
  * Les voies endormies à explorer (docs/gdd/voies.md, jalon 3, étape 6) : des ruines de l'Ancien Monde sur la carte du
@@ -78,16 +79,7 @@ const ECHO_FLAG = 'voie-echo-ecoute';
 const CONTRACT_FLAG = 'voie-contrat-pris';
 const QUEST_FLAG = 'voie-quete-pris';
 
-/** Same generator as scripts/build-maps.mjs: a seed gives always the same draw. */
-export function seededRng(seed: number): Rng {
-  let s = seed | 0;
-  return () => {
-    s = (s + 0x6d2b79f5) | 0;
-    let t = Math.imul(s ^ (s >>> 15), 1 | s);
-    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  };
-}
+export { seededRng } from './graine';
 
 const pick = <T>(rng: Rng, list: readonly T[]): T => list[Math.floor(rng() * list.length)];
 const between = (rng: Rng, min: number, max: number): number => min + Math.floor(rng() * (max - min + 1));

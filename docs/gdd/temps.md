@@ -45,9 +45,16 @@ Entrer dans une maison ou changer de quartier ne fait pas passer le temps.
 - Canon des prix : un repas coûte ⓕ 15 à 30 (7,5 à 15 Fers) : le repas d’auberge est à 8 Fers ; aucun prix de nuit dans le canon.
 
 - **Se reposer sans auberge** (étude du 2026-11-03, G2 ; `src/rules/repos.ts`) : dans le menu Pause, « Se reposer
-  jusqu'au matin », gratuit, n'importe où sauf sous terre (voies) et sur la route : la moitié des PV rendus (héros et
-  compagnons), sans les PR ni l'emprise ; « une auberge t'aurait tout rendu ». Avant, blessé et à moins de 6 Fers, on
-  ne pouvait plus se soigner.
+  jusqu'au matin », gratuit, n'importe où sauf sous terre (voies) et sur la route, sans les PR ni l'emprise ; « une
+  auberge t'aurait tout rendu ». Avant, blessé et à moins de 6 Fers, on ne pouvait plus se soigner.
+  **Depuis le test du 2026-11-06 (décision de Cyril)** : les PV (héros et compagnons) remontent **à la moitié au plus**
+  (au-dessus, la nuit ne rend rien) ; **une nuit par jour** (réveillé·e d'une nuit dehors, pas d'autre avant le soir) ;
+  **hors des villes**, une nuit sur trois, quelque chose vient : la nuit tombe, le combat a lieu sur place, et gagné, on
+  se rendort jusqu'au matin (moitié de l'XP des bêtes, comme sur la route). Le tirage se fait d'une graine (le jour, le
+  lieu, le héros) : recharger n'y change rien ; qui se recouche la même nuit dort en paix. Lieux « hors des villes » et
+  qui y rôde (`nuit` dans `src/data/locations.json`) : la Gare Engloutie (Rôdeurs-Épines, Loups de Rouille), le Sol des
+  Racines (Ours-Mousse, Griffe-Sylve), sous les nuages (Mante-ailes), la voie noyée et la grotte de Coralia (Abyssal),
+  le désert et la halte morte (Pilleur des sables). À l'auberge, rien ne change.
 
 ## Dialogues
 

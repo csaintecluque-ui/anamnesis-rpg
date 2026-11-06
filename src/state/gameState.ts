@@ -31,6 +31,11 @@ export interface LocationDef {
   froid?: boolean;
   /** Snow falls over the map (the surface of Glacialis, src/scenes/MapScene.ts). */
   neige?: boolean;
+  /**
+   * Outside the towns: who may come in the night when the hero rests here (groups of enemies, one drawn ; src/rules/
+   * repos.ts, test du 2026-11-06).
+   */
+  nuit?: string[][];
 }
 
 export const LOCATIONS = locationData as LocationDef[];
@@ -76,6 +81,8 @@ export interface GameState {
    * étude du 2026-11-03, I1). Absent in older saves: Gardebois.
    */
   derniereVille?: string;
+  /** The day the hero last woke from a night outside an inn (src/rules/repos.ts): one such night a day. */
+  reposLibre?: number;
 }
 
 /** A sleeping line under way: its site on the world map, the draw of its levels, and how deep the hero is. */

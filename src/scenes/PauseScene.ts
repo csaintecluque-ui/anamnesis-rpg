@@ -7,8 +7,8 @@ import { addTextButton } from '../ui/button';
 import { onKeys, withKeyHint } from '../ui/keys';
 import { COLORS, CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
 import { HAS_MOUSE } from '../ui/viewport';
-import { restRefusal, restUntilMorning } from '../rules/repos';
-import { PENDING_NOTICE, type HudScene } from './HudScene';
+import { beginNightAttack, nightAttack, restRefusal, restUntilMorning } from '../rules/repos';
+import { PENDING_NIGHT_ATTACK, PENDING_NOTICE, type HudScene } from './HudScene';
 import { writeAuto } from '../save/autosave';
 
 /** Finger-sized on touch screens, compact with a mouse (docs/gdd/interface.md). */
@@ -100,8 +100,9 @@ export class PauseScene extends Phaser.Scene {
   }
 
   /**
-   * A free night where the hero stands, half the PV back (src/rules/repos.ts); refused under the ground and on the
-   * road. The map is rebuilt for the morning, with the word of the night.
+   * A free night where the hero stands, the PV raised to half (src/rules/repos.ts); refused under the ground, on the
+   * road, and before the evening after another such night. Outside the towns, something may come in the night: the
+   * map is rebuilt for the night, and the fight starts there. Otherwise it is rebuilt for the morning.
    */
   private rest(): void {
     const state = this.registry.get('game') as GameState;
@@ -111,7 +112,11 @@ export class PauseScene extends Phaser.Scene {
       (this.scene.get('Hud') as HudScene).toast(refusal);
       return;
     }
-    this.registry.set(PENDING_NOTICE, restUntilMorning(state));
+    const attack = nightAttack(state);
+    if (attack) {
+      this.registry.set(PENDING_NIGHT_ATTACK, attack);
+      this.registry.set(PENDING_NOTICE, beginNightAttack(state));
+    } else this.registry.set(PENDING_NOTICE, restUntilMorning(state));
     state.entrance = null; // back where the hero stood
     this.leaveMap('Map');
   }

@@ -17,6 +17,8 @@ import { MINI_MAP_SOURCE, MiniMap, type MiniMapSource } from '../ui/miniMap';
 const TOAST_MS = 4000;
 /** Registry key: a word to show on the map once it is (re)built, from a screen that sent the hero there. */
 export const PENDING_NOTICE = 'pendingNotice';
+/** Who comes in the night where the hero lay down (src/rules/repos.ts): the map starts the fight once rebuilt. */
+export const PENDING_NIGHT_ATTACK = 'pendingNightAttack';
 /** Free band between the Menu button (left) and the Journal and Inventaire buttons (right). */
 const HEADER_MAX_WIDTH = HAS_MOUSE ? 600 : 470;
 /** The place's small map, bottom right (étude du 2026-11-03, A7). */

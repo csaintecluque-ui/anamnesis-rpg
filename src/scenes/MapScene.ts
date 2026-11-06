@@ -37,7 +37,9 @@ import { campDresse, chaleur, mapNow, sableDefile } from '../rules/marche';
 import { froid, froidMessage } from '../rules/glace';
 import { boardObjects } from '../rules/contrats';
 import { carriesLamp, descend, groupDialogueId, groupFlag, groupNear, leaveVoie, lightTraps, sneakFlag, springTrap, trapSeenFlag, voieGroupXp, voieLevel, voiePlan } from '../rules/voies';
-import { PENDING_NOTICE, type HudScene } from './HudScene';
+import { PENDING_NIGHT_ATTACK, PENDING_NOTICE, type HudScene } from './HudScene';
+import { NIGHT_FLAG, nightXp } from '../rules/repos';
+import { rngFor } from '../rules/graine';
 import type { WorldMapStartData } from './WorldMapScene';
 import { momentOf, type Moment } from '../rules/time';
 import { findPlace, walkTheMarches } from '../rules/world';
@@ -345,6 +347,12 @@ export class MapScene extends Phaser.Scene {
     if (pending) {
       this.registry.remove(PENDING_NOTICE);
       this.time.delayedCall(60, () => this.hud().toast(pending));
+    }
+    // Something came in the night where the hero lay down (src/rules/repos.ts, test du 2026-11-06).
+    const night = this.registry.get(PENDING_NIGHT_ATTACK) as string[] | undefined;
+    if (night) {
+      this.registry.remove(PENDING_NIGHT_ATTACK);
+      this.time.delayedCall(AMBUSH_DELAY_MS * 2, () => this.fightNight(night));
     }
     this.time.delayedCall(120, () => this.checkOubli());
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => this.scene.stop('Hud'));
@@ -813,8 +821,11 @@ export class MapScene extends Phaser.Scene {
     this.launchFight(center, encounter.enemies.map((e) => e.id), enemyObjects, encounter.victoryFlag, encounter.victoryEffects, undefined, encounter.intro);
   }
 
-  /** `menace`: the story's chapter, for the beasts of the road and of the sleeping lines (chantier 3, strengthen). */
-  private launchFight(center: Tile, enemyIds: string[], enemyObjects: Tile[], victoryFlag: string, victoryEffects: Effect[], menace?: number, intro?: string): void {
+  /**
+   * `menace`: the story's chapter, for the beasts of the road and of the sleeping lines (chantier 3, strengthen).
+   * `nuit`: a fight in the night of a rest, which goes on until the morning once won.
+   */
+  private launchFight(center: Tile, enemyIds: string[], enemyObjects: Tile[], victoryFlag: string, victoryEffects: Effect[], menace?: number, intro?: string, nuit?: boolean): void {
     const arena = carveArena(this.map, center, ARENA_COLS, ARENA_ROWS, enemyObjects);
     this.registry.set('tileFrames', this.map.frames);
     this.scene.pause();
@@ -828,6 +839,7 @@ export class MapScene extends Phaser.Scene {
       enemyTiles: enemyObjects.map((o) => toArena(arena, o)),
       menace,
       intro,
+      nuit,
     } satisfies CombatStartData);
   }
 
@@ -902,6 +914,33 @@ export class MapScene extends Phaser.Scene {
     this.moving = false;
     this.standStill();
     this.marker.clear();
+  }
+
+  /**
+   * The beasts of the night come at the hero lying there (src/rules/repos.ts): they appear three or four steps away,
+   * where one can walk to them, and the fight takes place right here.
+   */
+  private fightNight(enemyIds: string[]): void {
+    const hero = this.heroTile;
+    const near: Tile[] = [];
+    for (let dr = -3; dr <= 3; dr++) {
+      for (let dc = -4; dc <= 4; dc++) {
+        const tile = { col: hero.col + dc, row: hero.row + dr };
+        if (Math.max(Math.abs(dc), Math.abs(dr)) < 3 || !this.walkable(tile)) continue;
+        if (findPath(hero, tile, this.walkable)) near.push(tile);
+      }
+    }
+    const rng = rngFor('nuit-places', this.state.time.day, this.state.location);
+    const spots: Tile[] = [];
+    while (spots.length < enemyIds.length && near.length > 0) spots.push(near.splice(Math.floor(rng() * near.length), 1)[0]);
+    const ids = enemyIds.slice(0, spots.length);
+    if (ids.length === 0) return;
+    const all = [hero, ...spots];
+    const center = {
+      col: Math.round(all.reduce((sum, t) => sum + t.col, 0) / all.length),
+      row: Math.round(all.reduce((sum, t) => sum + t.row, 0) / all.length),
+    };
+    this.launchFight(center, ids, spots, NIGHT_FLAG, [{ giveXp: nightXp(ids) }], storyChapter(this.state.quests), undefined, true);
   }
 
   /** A group of a sleeping line attacks: the fight takes place right here. */

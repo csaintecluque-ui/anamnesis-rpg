@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { createNewGame } from '../state/gameState';
 import { characterStats } from './character';
-import { REVEIL_FERS, restRefusal, restUntilMorning, reveilLabel, reveilPrice, reveilTown, wakeUpAtInn } from './repos';
+import { NIGHT_FLAG, REVEIL_FERS, beginNightAttack, nightAttack, nightXp, restRefusal, restUntilMorning, reveilLabel, reveilPrice, reveilTown, wakeUpAtInn } from './repos';
+import { expireFlags } from './dialogue';
 import { testCharacter } from './questTestKit';
 
 /** Le repos gratuit et le réveil à l'auberge (étude du 2026-11-03, G2 et I1 ; src/rules/repos.ts). */
@@ -15,25 +16,37 @@ function hurt(location = 'gardebois') {
 }
 
 describe('a free night', () => {
-  it('gives half the PV back by the morning, for the hero and the companions, without an inn', () => {
+  it('raises the PV to half by the morning, for the hero and the companions, without an inn', () => {
     const state = hurt();
     state.groupe = [{ id: 'liane', hp: 2 }];
     const max = characterStats(state.character!).maxHp;
     expect(restRefusal(state)).toBeNull();
     const notice = restUntilMorning(state);
-    expect(state.character!.hp).toBe(3 + Math.ceil(max / 2));
-    expect(state.groupe[0].hp).toBe(2 + 12);
+    expect(state.character!.hp).toBe(Math.ceil(max / 2));
+    expect(state.groupe[0].hp).toBe(12);
     expect(state.time.phase).toBe(0);
     expect(state.time.day).toBe(2);
-    expect(notice).toContain(`+${Math.ceil(max / 2)} PV`);
+    expect(notice).toContain(`+${Math.ceil(max / 2) - 3} PV`);
   });
 
-  it('never above the maximum', () => {
+  it('never more than half: above it, the night gives nothing (test du 2026-11-06)', () => {
     const state = hurt();
     const max = characterStats(state.character!).maxHp;
     state.character!.hp = max - 1;
+    const notice = restUntilMorning(state);
+    expect(state.character!.hp).toBe(max - 1);
+    expect(notice).not.toMatch(/PV\./);
+    expect(notice).toMatch(/moitié/);
+  });
+
+  it('one a day: after a night outside, not again before the evening', () => {
+    const state = hurt();
     restUntilMorning(state);
-    expect(state.character!.hp).toBe(max);
+    expect(restRefusal(state)).toMatch(/avant ce soir/);
+    state.time.phase = 1;
+    expect(restRefusal(state)).toMatch(/avant ce soir/);
+    state.time.phase = 2;
+    expect(restRefusal(state)).toBeNull();
   });
 
   it('not under the ground, nor on the road', () => {
@@ -41,6 +54,50 @@ describe('a free night', () => {
     voie.voie = { site: 'halte-fougeres', seed: 1, depth: 1 };
     expect(restRefusal(voie)).toMatch(/sous terre/);
     expect(restRefusal(hurt('rencontre-route'))).toMatch(/sur la route/);
+  });
+});
+
+describe('a night outside the towns (test du 2026-11-06)', () => {
+  it('never in a town', () => {
+    for (let day = 1; day <= 30; day++) {
+      const state = hurt('gardebois');
+      state.time.day = day;
+      expect(nightAttack(state)).toBeNull();
+    }
+  });
+
+  it('about one night in three at the Gare Engloutie, the same draw when one reloads', () => {
+    let attacks = 0;
+    for (let day = 1; day <= 300; day++) {
+      const state = hurt('gare-engloutie');
+      state.time.day = day;
+      const first = nightAttack(state);
+      expect(nightAttack(state)).toEqual(first);
+      if (first) {
+        attacks++;
+        expect([['rodeur-epine', 'rodeur-epine'], ['loup-rouille', 'loup-rouille']]).toContainEqual(first);
+      }
+    }
+    expect(attacks).toBeGreaterThan(70);
+    expect(attacks).toBeLessThan(130);
+  });
+
+  it('the attack falls in the night; the hero who lies down again that night sleeps in peace', () => {
+    const state = hurt('gare-engloutie');
+    let day = 1;
+    for (state.time.day = day; !nightAttack(state); state.time.day = ++day);
+    const notice = beginNightAttack(state);
+    expect(notice).toMatch(/on vient/);
+    expect(state.time).toEqual({ day, phase: 3 });
+    expect(state.flags[NIGHT_FLAG]).toBe(true);
+    expect(nightAttack(state)).toBeNull();
+    restUntilMorning(state);
+    expireFlags(state);
+    expect(state.flags[NIGHT_FLAG]).toBeUndefined();
+  });
+
+  it('the beasts of the night give half their worth, like those of the road', () => {
+    expect(nightXp(['rodeur-epine', 'rodeur-epine'])).toBe(15);
   });
 });
 

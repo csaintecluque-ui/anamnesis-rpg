@@ -190,6 +190,7 @@ function validateState(state: unknown): string | null {
   if (state.derniereVille !== undefined && (typeof state.derniereVille !== 'string' || !findPlace(state.derniereVille)?.auberge)) {
     return 'dernière ville invalide.';
   }
+  if (state.reposLibre !== undefined && (!Number.isInteger(state.reposLibre) || (state.reposLibre as number) < 1)) return 'jour du dernier repos invalide.';
   if (state.character !== null) return characterError(state.character);
   return null;
 }

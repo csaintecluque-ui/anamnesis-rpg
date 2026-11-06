@@ -4,20 +4,30 @@ import { findCompanion, restParty } from './companions';
 import { fadeSouvenirs } from './echos';
 import { restoreResonance } from './magic';
 import { findRecit, forgetRecit, ordinaryRecits } from './recits';
-import { formatDate, sleepUntil } from './time';
+import { findEnemy } from './combat';
+import { heroKey, rngFor } from './graine';
+import { MOMENTS, formatDate, sleepUntil, waitUntil } from './time';
 import { findPlace } from './world';
 
 /**
  * Se reposer sans auberge, et se réveiller après une chute (étude du 2026-11-03, G2 et I1 ; décision de Cyril du
  * 2026-11-03 : « deux boutons à la mort »).
- * - Le repos gratuit : jusqu'au matin, la moitié des PV rendus (l'auberge les rend tous, avec les PR) ; jamais sous
- *   terre ni sur la route. Il n'y avait aucun soin gratuit : à moins de 6 Fers et blessé, on restait bloqué.
+ * - Le repos gratuit : jusqu'au matin, les PV remontés à la moitié au plus (l'auberge les rend tous, avec les PR) ;
+ *   jamais sous terre ni sur la route. Il n'y avait aucun soin gratuit : à moins de 6 Fers et blessé, on restait bloqué.
+ *   Depuis le test du 2026-11-06 (décision de Cyril) : une nuit par jour (après une nuit dehors, pas d'autre avant le
+ *   soir), et hors des villes (un lieu qui dit qui rôde : `nuit`), un risque d'être attaqué dans la nuit, tiré d'une
+ *   graine (le jour, le lieu, le héros) : recharger n'y change rien.
  * - Le réveil : à l'auberge de la dernière ville, guéri, contre un Récit ordinaire (le plus ancien) ; sans Récit,
  *   10 Fers ; sans Fers, rien.
  */
 
-/** Share of the PV a night outside an inn gives back. */
+/** A night outside an inn raises the PV to this share of the maximum, never more (test du 2026-11-06). */
 export const REST_SHARE = 0.5;
+/** The chance of an attack in the night, outside the towns. */
+export const NIGHT_ATTACK_CHANCE = 1 / 3;
+/** Set for the night of an attack (it expires the next day): the hero who rests again sleeps in peace. */
+export const NIGHT_FLAG = 'nuit-agitee';
+const EVENING = MOMENTS.indexOf('soir');
 /** What waking up at the inn costs when the hero carries no ordinary Récit. */
 export const REVEIL_FERS = 10;
 const DEFAULT_TOWN = 'gardebois';
@@ -27,26 +37,58 @@ export function restRefusal(state: GameState): string | null {
   const location = findLocation(state.location);
   if (state.voie || location?.voie) return 'Pas ici : sous terre, rien ne dort longtemps. Remonte d’abord.';
   if (location?.encounter) return 'Pas ici, sur la route : trouve un abri, ou une auberge.';
+  if (state.reposLibre === state.time.day && state.time.phase < EVENING) {
+    return 'Tu as dormi dehors cette nuit : pas d’autre repos avant ce soir. Une auberge t’accueille à toute heure.';
+  }
   return null;
 }
 
-/** A free night where one stands: the morning, half the PV back for the hero and the companions. Returns the notice. */
+/**
+ * Who comes in the night, if anyone, where the hero lies down: outside the towns only (a location that says who prowls
+ * there), one night in three, the same draw for the same night, the same place and the same hero.
+ */
+export function nightAttack(state: GameState): string[] | null {
+  const location = findLocation(state.location);
+  if (!location?.nuit?.length || state.flags[NIGHT_FLAG]) return null;
+  const rng = rngFor('nuit', state.time.day, location.id, heroKey(state.character));
+  if (rng() >= NIGHT_ATTACK_CHANCE) return null;
+  return [...location.nuit[Math.floor(rng() * location.nuit.length)]];
+}
+
+/** The night falls on the hero lying there, and something comes: the moment is the night. Returns the notice. */
+export function beginNightAttack(state: GameState): string {
+  waitUntil(state.time, 'nuit');
+  state.flags[NIGHT_FLAG] = true;
+  state.expirations = { ...state.expirations, [NIGHT_FLAG]: state.time.day };
+  return 'Tu t’allonges à même le sol, loin de tout mur. Au cœur de la nuit, un bruit te réveille : on vient.';
+}
+
+/** Experience for the beasts of the night: half of what they are worth, like those of the road. */
+export function nightXp(enemyIds: string[]): number {
+  return Math.round(enemyIds.reduce((sum, id) => sum + (findEnemy(id)?.xp ?? 0), 0) / 2);
+}
+
+/** The PV a night outside raises to: half the maximum, or what one has if it is more. */
+const restedHp = (hp: number, max: number): number => Math.max(hp, Math.min(max, Math.ceil(max * REST_SHARE)));
+
+/**
+ * A free night where one stands: the morning, the PV of the hero and the companions raised to half, never more.
+ * Returns the notice.
+ */
 export function restUntilMorning(state: GameState): string {
   sleepUntil(state.time, 'matin');
+  state.reposLibre = state.time.day;
   let healed = 0;
   const hero = state.character;
   if (hero) {
-    const max = characterStats(hero).maxHp;
     const before = hero.hp;
-    hero.hp = Math.min(max, hero.hp + Math.ceil(max * REST_SHARE));
+    hero.hp = restedHp(hero.hp, characterStats(hero).maxHp);
     healed = hero.hp - before;
   }
-  for (const m of state.groupe) {
-    const max = findCompanion(m.id)?.hp ?? m.hp;
-    m.hp = Math.min(max, m.hp + Math.ceil(max * REST_SHARE));
-  }
+  for (const m of state.groupe) m.hp = restedHp(m.hp, findCompanion(m.id)?.hp ?? m.hp);
   fadeSouvenirs(state.flags);
-  return `Tu dors mal, d’un œil, sans toit ni lit : +${healed} PV. Le jour se lève. Nous sommes ${formatDate(state.time)}. Une auberge t’aurait tout rendu.`;
+  const pv = healed > 0 ? ` : +${healed} PV` : '';
+  return `Tu dors mal, d’un œil, sans toit ni lit${pv}. Le jour se lève. Nous sommes ${formatDate(state.time)}. Le sol ne rend pas plus de la moitié des forces : une auberge t’aurait tout rendu.`;
 }
 
 /** The town the hero wakes up in: the one of the place of the fall, else the last one walked in. */

@@ -12,7 +12,7 @@
     },
     "actionPoints": 5,
     "initiativeBonus": -1,
-    "xp": 50,
+    "xp": 100,
     "capacites": [
       "emballement",
       "charge"
@@ -49,7 +49,7 @@
     },
     "actionPoints": 5,
     "initiativeBonus": 2,
-    "xp": 15,
+    "xp": 30,
     "capacites": [
       "saigner",
       "epines"
@@ -82,7 +82,7 @@
     },
     "actionPoints": 5,
     "initiativeBonus": 0,
-    "xp": 35,
+    "xp": 70,
     "capacites": [
       "charge",
       "fuite"
@@ -112,7 +112,7 @@
     },
     "actionPoints": 8,
     "initiativeBonus": 3,
-    "xp": 15,
+    "xp": 30,
     "capacites": [
       "saigner",
       "meute"
@@ -145,7 +145,7 @@
     },
     "actionPoints": 6,
     "initiativeBonus": 0,
-    "xp": 20,
+    "xp": 40,
     "capacites": [
       "charge",
       "fuite"
@@ -178,7 +178,7 @@
     },
     "actionPoints": 6,
     "initiativeBonus": 1,
-    "xp": 15,
+    "xp": 30,
     "capacites": [
       "meute",
       "fuite"
@@ -211,7 +211,7 @@
     },
     "actionPoints": 6,
     "initiativeBonus": 1,
-    "xp": 15,
+    "xp": 30,
     "capacites": [
       "ralentir",
       "epines"
@@ -238,7 +238,7 @@
     },
     "actionPoints": 7,
     "initiativeBonus": 3,
-    "xp": 20,
+    "xp": 40,
     "capacites": [
       "saigner",
       "charge"
@@ -271,7 +271,7 @@
     },
     "actionPoints": 8,
     "initiativeBonus": 4,
-    "xp": 6,
+    "xp": 12,
     "capacites": [
       "ralentir",
       "meute"
@@ -304,7 +304,7 @@
     },
     "actionPoints": 6,
     "initiativeBonus": 1,
-    "xp": 12,
+    "xp": 24,
     "capacites": [
       "bruler",
       "tir"
@@ -338,7 +338,7 @@
     },
     "actionPoints": 6,
     "initiativeBonus": 1,
-    "xp": 15,
+    "xp": 30,
     "capacites": [
       "tir",
       "visee"
@@ -376,7 +376,7 @@
     },
     "actionPoints": 6,
     "initiativeBonus": 0,
-    "xp": 15,
+    "xp": 30,
     "capacites": [
       "soigner",
       "fuite"
@@ -420,7 +420,7 @@
     },
     "actionPoints": 7,
     "initiativeBonus": 3,
-    "xp": 24,
+    "xp": 48,
     "capacites": [
       "saigner",
       "charge"
@@ -453,7 +453,7 @@
     },
     "actionPoints": 6,
     "initiativeBonus": 2,
-    "xp": 22,
+    "xp": 44,
     "capacites": [
       "meute",
       "fuite"
@@ -486,7 +486,7 @@
     },
     "actionPoints": 7,
     "initiativeBonus": 2,
-    "xp": 20,
+    "xp": 40,
     "capacites": [
       "meute",
       "fuite"
@@ -519,7 +519,7 @@
     },
     "actionPoints": 7,
     "initiativeBonus": 3,
-    "xp": 45,
+    "xp": 90,
     "capacites": [
       "charge",
       "fuite"
@@ -560,7 +560,7 @@
     },
     "actionPoints": 7,
     "initiativeBonus": 2,
-    "xp": 24,
+    "xp": 48,
     "capacites": [
       "meute",
       "saigner"
@@ -596,7 +596,7 @@
     },
     "actionPoints": 7,
     "initiativeBonus": 2,
-    "xp": 26,
+    "xp": 52,
     "capacites": [
       "meute",
       "saigner"

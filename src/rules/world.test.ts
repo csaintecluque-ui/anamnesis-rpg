@@ -98,7 +98,7 @@ describe('world map (docs/gdd/carte-du-monde.md)', () => {
   });
 
   it('pays half of what the enemies are worth', () => {
-    expect(rencontreXp(findRencontre('rodeurs')!)).toBe(15);
+    expect(rencontreXp(findRencontre('rodeurs')!)).toBe(30); // the beasts' worth doubled (test du 2026-11-06)
     expect(rencontreXp(findRencontre('colporteuse')!)).toBe(0);
   });
 

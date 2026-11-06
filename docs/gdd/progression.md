@@ -25,3 +25,19 @@ Règles : `src/rules/leveling.ts` ; écran : `LevelUpScene`.
 ## Chantier 6 (2026-11-03)
 
 Un don tous les deux niveaux (2, 4, 6… ; décision de Cyril du 2026-11-03), et un trait facultatif à la création : `docs/gdd/economie.md`.
+
+## Test du 6 novembre : le rythme (décision de Cyril, 2026-11-06)
+
+Le testeur : le premier niveau arrive trop tard, et les combats ne rapportent presque rien. Appliqué
+(`rythme.test.ts`) :
+
+- **l'expérience des combats doublée** : la valeur de chaque bête (`enemies.json`, un Rôdeur-Épine 30) et celle des
+  combats écrits (`encounters.json`, le premier combat 30). La route, la nuit et les voies en donnent la moitié, comme
+  avant : doublées elles aussi ;
+- **le niveau 2 avant la fin de Gardebois**, par le seul chemin principal : Ilyane 20, Tobias 25, le Rôdeur du sentier
+  30, l'Écho du dernier train 25 à 30 (10 à 15 avant) : 100 XP et plus avant la foreuse ;
+- **les fins de quêtes principales à 120 ou 150 XP** (50 à 90 avant), leur ordre gardé : chapitres 1 à 4 de 100 à 140
+  (la fin la moins bonne 100, la meilleure 140 ; le Golem vaincu 120), chapitres 5 à 8 de 130 à 150 ;
+- **la marche plus rapide** : 120 ms par case (160 avant ; la course reste à 80).
+
+Repère : chapitres 1 à 5, tout fait, sans un combat de route, niveau 6 (5 avant).

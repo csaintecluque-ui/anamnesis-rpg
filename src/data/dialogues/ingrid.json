@@ -249,7 +249,7 @@
           "setFlag": "fin-dernier-train-rapport"
         },
         {
-          "giveXp": 80
+          "giveXp": 130
         },
         {
           "giveFers": 30
@@ -275,7 +275,7 @@
           "setFlag": "fin-dernier-train-corvan"
         },
         {
-          "giveXp": 90
+          "giveXp": 140
         },
         {
           "giveFers": 30
@@ -616,7 +616,7 @@
           "setFlag": "fin-dernier-train-menace"
         },
         {
-          "giveXp": 60
+          "giveXp": 110
         },
         {
           "giveFers": 50
@@ -642,7 +642,7 @@
           "setFlag": "fin-dernier-train-quai"
         },
         {
-          "giveXp": 90
+          "giveXp": 140
         },
         {
           "giveFers": 30

@@ -146,7 +146,7 @@
               "setFlag": "fin-dernier-train-chaudiere"
             },
             {
-              "giveXp": 50
+              "giveXp": 100
             },
             {
               "giveFers": 30
@@ -180,7 +180,7 @@
           "setFlag": "fin-dernier-train-sabotage"
         },
         {
-          "giveXp": 70
+          "giveXp": 120
         },
         {
           "giveFers": 30

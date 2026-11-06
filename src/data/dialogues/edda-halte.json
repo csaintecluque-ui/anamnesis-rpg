@@ -119,7 +119,7 @@
           "setFlag": "fin-noms-qui-montent-partage"
         },
         {
-          "giveXp": 60
+          "giveXp": 150
         }
       ],
       "options": [
@@ -215,7 +215,7 @@
           "setFlag": "fin-noms-qui-montent-tout"
         },
         {
-          "giveXp": 60
+          "giveXp": 150
         }
       ],
       "options": [
@@ -253,7 +253,7 @@
           "setFlag": "fin-noms-qui-montent-tout"
         },
         {
-          "giveXp": 60
+          "giveXp": 150
         }
       ],
       "options": [
@@ -285,7 +285,7 @@
           "setFlag": "fin-noms-qui-montent-laissee"
         },
         {
-          "giveXp": 40
+          "giveXp": 130
         }
       ],
       "options": [
@@ -334,7 +334,7 @@
           "setFlag": "fin-noms-qui-montent-lache"
         },
         {
-          "giveXp": 60
+          "giveXp": 150
         }
       ],
       "options": [

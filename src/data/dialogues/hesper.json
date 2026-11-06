@@ -180,7 +180,7 @@
           "setFlag": "fin-memoires-monde-perdu-vendue"
         },
         {
-          "giveXp": 60
+          "giveXp": 120
         },
         {
           "setFlag": "piste-zephyria"
@@ -207,7 +207,7 @@
           "setFlag": "fin-memoires-monde-perdu-denoncee"
         },
         {
-          "giveXp": 80
+          "giveXp": 140
         },
         {
           "setFlag": "piste-zephyria"
@@ -260,7 +260,7 @@
           "setFlag": "fin-memoires-monde-perdu-silence"
         },
         {
-          "giveXp": 80
+          "giveXp": 140
         },
         {
           "setFlag": "piste-zephyria"

@@ -65,7 +65,7 @@ const INTERACTIVE_OBSTACLES = new Set(['panneau', 'echo', 'golem', 'coffre', 'fo
 /** Room above the top row for tall tiles (frames are 96 px high for a 32 px diamond). */
 const TOP_MARGIN = 80;
 
-const STEP_MS = 160;
+const STEP_MS = 120;
 /** Running (Maj held, or a double click): twice as fast (étude du 2026-11-03, A3). */
 const RUN_STEP_MS = 80;
 /** Two clicks this close make a double click: the hero runs there. */

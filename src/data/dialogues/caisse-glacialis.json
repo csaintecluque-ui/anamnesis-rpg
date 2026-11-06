@@ -58,7 +58,7 @@
               "setFlag": "fin-glace-pris-prise"
             },
             {
-              "giveXp": 60
+              "giveXp": 150
             },
             {
               "setFlag": "caisse-glacialis-trouvee"
@@ -79,7 +79,7 @@
               "setFlag": "fin-glace-pris-brisee"
             },
             {
-              "giveXp": 60
+              "giveXp": 150
             },
             {
               "setFlag": "caisse-glacialis-trouvee"
@@ -111,7 +111,7 @@
               "setFlag": "fin-glace-pris-college"
             },
             {
-              "giveXp": 60
+              "giveXp": 150
             },
             {
               "setFlag": "caisse-glacialis-trouvee"
@@ -137,7 +137,7 @@
               "setFlag": "fin-glace-pris-edda"
             },
             {
-              "giveXp": 60
+              "giveXp": 150
             },
             {
               "setFlag": "caisse-glacialis-prise"
@@ -163,7 +163,7 @@
               "setFlag": "fin-glace-pris-prise"
             },
             {
-              "giveXp": 60
+              "giveXp": 150
             },
             {
               "setFlag": "caisse-glacialis-trouvee"
@@ -184,7 +184,7 @@
               "setFlag": "fin-glace-pris-college"
             },
             {
-              "giveXp": 60
+              "giveXp": 150
             },
             {
               "setFlag": "caisse-glacialis-trouvee"
@@ -210,7 +210,7 @@
               "setFlag": "fin-glace-pris-edda"
             },
             {
-              "giveXp": 60
+              "giveXp": 150
             },
             {
               "setFlag": "caisse-glacialis-prise"

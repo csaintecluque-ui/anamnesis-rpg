@@ -323,7 +323,7 @@ describe('Parcours complet, d’une traite', () => {
   it('La Gare : l’Écho, la caisse de prospection, puis la foreuse sabotée de nuit', () => {
     walk(s, 'gare-engloutie');
     expect(talk(s, 'echo-dernier-train')).toBe('approche');
-    expect(gained(s, () => say(s, 'echo-dernier-train', 'approche', 'Entrer dans l’Écho'))).toEqual({ xp: 15, fers: 0 });
+    expect(gained(s, () => say(s, 'echo-dernier-train', 'approche', 'Entrer dans l’Écho'))).toEqual({ xp: 30, fers: 0 });
     expect(knowsRecit(s.character, 'savant-corvan')).toBe(true);
     expect(talk(s, 'caisse-prospection')).toBe('pleine');
     expect(gained(s, () => say(s, 'caisse-prospection', 'pleine', 'Prendre la bourse'))).toEqual({ xp: 0, fers: 25 });
@@ -332,7 +332,7 @@ describe('Parcours complet, d’une traite', () => {
     expect(talk(s, 'foreuse')).toBe('jour');
     say(s, 'foreuse', 'jour', 'Attendre la nuit');
     say(s, 'foreuse', 'nuit', 'Se glisser');
-    expect(gained(s, () => say(s, 'foreuse', 'au-pied', 'Saboter'))).toEqual({ xp: 70, fers: 30 });
+    expect(gained(s, () => say(s, 'foreuse', 'au-pied', 'Saboter'))).toEqual({ xp: 120, fers: 30 });
     expect(s.quests['dernier-train']).toBe('done');
     expect(talk(s, 'foreuse')).toBe('faussee');
     expect(talk(s, 'ingrid')).toBe('apres-sabotage');
@@ -604,7 +604,7 @@ describe('Parcours complet, d’une traite', () => {
     say(s, 'kael-marchevent', 'rapport-suite', 'Ils cherchent');
     say(s, 'kael-marchevent', 'cle', 'Que va faire');
     expect(gained(s, () => say(s, 'kael-marchevent', 'choix', 'Le sol est sacré'))).toEqual({ xp: 15, fers: 0 });
-    expect(gained(s, () => say(s, 'kael-marchevent', 'fin-accord', 'Et moi'))).toEqual({ xp: 60, fers: 0 });
+    expect(gained(s, () => say(s, 'kael-marchevent', 'fin-accord', 'Et moi'))).toEqual({ xp: 120, fers: 0 });
     expect(s.quests.audience).toBe('done');
     expect(s.quests['cle-rouille-bleue']).toBe('active');
     expect(questItems(s)).toEqual(['sauf-conduit']);
@@ -733,7 +733,7 @@ describe('Parcours complet, d’une traite', () => {
     walk(s, 'ironheart-manufactures');
     walk(s, 'ironheart-archives');
     expect(talk(s, 'noam')).toBe('cle');
-    expect(gained(s, () => say(s, 'noam', 'cle', 'La lui confier'))).toEqual({ xp: 70, fers: 0 });
+    expect(gained(s, () => say(s, 'noam', 'cle', 'La lui confier'))).toEqual({ xp: 130, fers: 0 });
     expect(s.quests['cle-rouille-bleue']).toBe('done');
     expect(questItems(s)).toEqual(['cristal-vanel', 'sauf-conduit']);
     expect(reputationScore(s, 'ironheart')).toBe(10);
@@ -970,7 +970,7 @@ describe('Parcours complet, d’une traite', () => {
     expect(s.flags.raccompagne).toBeUndefined();
     walk(s, 'sept-portes-parvis');
     walk(s, 'sept-portes-gardiens');
-    expect(gained(s, () => expect(talk(s, 'hesper')).toBe('fin-denonce'))).toEqual({ xp: 80, fers: 0 });
+    expect(gained(s, () => expect(talk(s, 'hesper')).toBe('fin-denonce'))).toEqual({ xp: 140, fers: 0 });
     expect(s.quests['memoires-monde-perdu']).toBe('done');
     expect(s.flags['piste-zephyria']).toBe(true);
     expect(talk(s, 'hesper')).toBe('apres');
@@ -1045,7 +1045,7 @@ describe('Parcours complet, d’une traite', () => {
     expect(journalQuests(s).every((q) => q.done)).toBe(true);
     expect(questItems(s)).toEqual(['cristal-vanel', 'piece-zephyria', 'sauf-conduit']);
     expect(s.character!.fers).toBe(20);
-    expect(levelForXp(s.character!.xp)).toBe(5);
+    expect(levelForXp(s.character!.xp)).toBe(6); // chapitres 1 à 5, tout fait, sans combat de route : niveau 6 (5 avant le test du 2026-11-06)
     expect(reputations(s)).toEqual({
       gardebois: 40,
       canopee: 55,
@@ -1089,7 +1089,7 @@ describe('Variante : Ironheart avant les quêtes annexes (parole, combats, autre
     // Ingrid résiste (feuille de route, chantier 5) : une preuve, puis une issue pour elle.
     say(s, 'ingrid', 'cause', 'Arrêtez le forage');
     say(s, 'ingrid', 'resiste', 'Ils dorment, oui');
-    expect(gained(s, () => say(s, 'ingrid', 'resiste-2', 'Alors écrivez à Ferros'))).toEqual({ xp: 80, fers: 30 });
+    expect(gained(s, () => say(s, 'ingrid', 'resiste-2', 'Alors écrivez à Ferros'))).toEqual({ xp: 130, fers: 30 });
     expect(s.flags['ingrid-rapport']).toBe(true);
     expect(s.quests['dernier-train']).toBe('done');
     expect(talk(s, 'foreuse')).toBe('arretee');
@@ -1205,7 +1205,7 @@ describe('Variante : Ironheart avant les quêtes annexes (parole, combats, autre
     walk(s, 'ironheart-forges');
     walk(s, 'ironheart-marche');
     expect(talk(s, 'kaelis')).toBe('offre');
-    expect(gained(s, () => say(s, 'kaelis', 'offre', 'La lui vendre'))).toEqual({ xp: 60, fers: 100 });
+    expect(gained(s, () => say(s, 'kaelis', 'offre', 'La lui vendre'))).toEqual({ xp: 120, fers: 100 });
     expect(s.quests['cle-rouille-bleue']).toBe('done');
     expect(questItems(s)).toEqual(['branche-anselme', 'sauf-conduit']);
     expect(talk(s, 'kaelis')).toBe('apres-vente');
@@ -1510,7 +1510,7 @@ describe('Variante : Ironheart avant les quêtes annexes (parole, combats, autre
     walk(s, 'sept-portes');
     walk(s, 'sept-portes-parvis');
     walk(s, 'sept-portes-gardiens');
-    expect(gained(s, () => expect(talk(s, 'hesper')).toBe('fin-vendue'))).toEqual({ xp: 60, fers: 0 });
+    expect(gained(s, () => expect(talk(s, 'hesper')).toBe('fin-vendue'))).toEqual({ xp: 120, fers: 0 });
     expect(s.quests['memoires-monde-perdu']).toBe('done');
     expect(reputationScore(s, 'sept-portes')).toBe(15);
   });
@@ -1720,7 +1720,7 @@ describe('Variante : « Le Rail des Cendres » avant « La Clé de Rouille Bleue
     walk(s, 'ironheart-forges');
     expect(talk(s, 'veilleuse')).toBe('avec-cle');
     say(s, 'veilleuse', 'avec-cle', 'L’étudier d’abord');
-    expect(gained(s, () => say(s, 'veilleuse', 'etude', 'Te la rendre'))).toEqual({ xp: 60, fers: 0 });
+    expect(gained(s, () => say(s, 'veilleuse', 'etude', 'Te la rendre'))).toEqual({ xp: 120, fers: 0 });
     expect(s.quests['cle-rouille-bleue']).toBe('done');
     expect(talk(s, 'veilleuse')).toBe('rendue-apres');
     walk(s, 'ironheart-marche');
@@ -1879,7 +1879,7 @@ describe('Cas limites', () => {
     say(s, 'foreuse', 'nuit', 'Se glisser');
     expect(optionTexts(s, 'foreuse', 'au-pied')).toEqual(['Saboter le mécanisme.', 'Ouvrir la chaudière en grand, et courir.', 'Repartir sans rien toucher.']);
     // Une mort n'est pas une solution : moins d'XP (feuille de route, chantier 5).
-    expect(gained(s, () => say(s, 'foreuse', 'au-pied', 'Ouvrir la chaudière'))).toEqual({ xp: 50, fers: 30 });
+    expect(gained(s, () => say(s, 'foreuse', 'au-pied', 'Ouvrir la chaudière'))).toEqual({ xp: 100, fers: 30 });
     expect(s.quests['dernier-train']).toBe('done');
     expect(talk(s, 'foreuse')).toBe('explosee');
     expect(talk(s, 'ingrid')).toBe('apres-explosion');

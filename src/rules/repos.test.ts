@@ -99,7 +99,7 @@ describe('a night outside the towns (test du 2026-11-06)', () => {
   });
 
   it('the beasts of the night give half their worth, like those of the road', () => {
-    expect(nightXp(['rodeur-epine', 'rodeur-epine'])).toBe(15);
+    expect(nightXp(['rodeur-epine', 'rodeur-epine'])).toBe(30);
   });
 });
 

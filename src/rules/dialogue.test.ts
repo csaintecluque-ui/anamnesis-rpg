@@ -211,7 +211,8 @@ describe('dialogue files', () => {
       sabotage: xpOf(foreuse.sabotee.effects),
       explosion: xpOf(explosion.effects),
     };
-    expect(rewards).toEqual({ parole: 80, menace: 60, recit: 90, sabotage: 70, explosion: 50 });
+    // The ends of the main quests at 120 to 150 XP (test du 2026-11-06, décision de Cyril), their order kept.
+    expect(rewards).toEqual({ parole: 130, menace: 110, recit: 140, sabotage: 120, explosion: 100 });
     for (const effects of [ingrid.convaincue.effects, ingrid['convaincue-peur'].effects, ingrid['convaincue-quai'].effects, foreuse.sabotee.effects, explosion.effects]) {
       expect(effects).toContainEqual({ setFlag: 'chantier-arrete' });
       expect(effects).toContainEqual({ completeQuest: 'dernier-train' });

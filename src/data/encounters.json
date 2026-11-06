@@ -15,7 +15,7 @@
     "victoryFlag": "rodeurs-caisse-vaincus",
     "victoryEffects": [
       {
-        "giveXp": 20
+        "giveXp": 40
       }
     ]
   },
@@ -31,7 +31,7 @@
     "victoryFlag": "rodeur-sentier-vaincu",
     "victoryEffects": [
       {
-        "giveXp": 15
+        "giveXp": 30
       }
     ],
     "intro": "Ton premier combat. Les cases bleues : où tu peux marcher (1 PA la case). 2 prend ta dague, puis clique le Rôdeur. Espace finit ton tour. Ses épines blessent qui le frappe de près."
@@ -48,7 +48,7 @@
     "victoryFlag": "ours-sol-vaincu",
     "victoryEffects": [
       {
-        "giveXp": 15
+        "giveXp": 30
       }
     ]
   },
@@ -73,7 +73,7 @@
         "setFlag": "cle-mentionnee"
       },
       {
-        "giveXp": 20
+        "giveXp": 40
       }
     ]
   },
@@ -93,7 +93,7 @@
     "victoryFlag": "pilleurs-vaincus",
     "victoryEffects": [
       {
-        "giveXp": 20
+        "giveXp": 40
       }
     ]
   },
@@ -116,7 +116,7 @@
         "completeQuest": "echos-forge"
       },
       {
-        "giveXp": 20
+        "giveXp": 40
       }
     ]
   },
@@ -136,7 +136,7 @@
     "victoryFlag": "mantes-voie-vaincues",
     "victoryEffects": [
       {
-        "giveXp": 30
+        "giveXp": 60
       }
     ]
   },
@@ -156,7 +156,7 @@
     "victoryFlag": "escorte-edda-vaincue",
     "victoryEffects": [
       {
-        "giveXp": 30
+        "giveXp": 60
       }
     ]
   },
@@ -183,7 +183,7 @@
         "setFlag": "raid-regle"
       },
       {
-        "giveXp": 40
+        "giveXp": 80
       }
     ]
   },
@@ -207,7 +207,7 @@
     "victoryFlag": "abyssaux-vaincus",
     "victoryEffects": [
       {
-        "giveXp": 40
+        "giveXp": 80
       }
     ]
   },
@@ -231,7 +231,7 @@
     "victoryFlag": "pilleurs-vaincus",
     "victoryEffects": [
       {
-        "giveXp": 40
+        "giveXp": 80
       }
     ]
   }

@@ -61,6 +61,26 @@ du lieu ; un réglage « Musique » à part dans les Options ; les fichiers réd
 par boucle), **mis en cache à la première écoute** plutôt qu'à l'installation (le cache hors ligne fait déjà 14 Mo) ;
 chaque génération consignée dans `docs/ASSETS.md`.
 
+## Le plan « max » (demande de Cyril, 2026-11-06 : « je veux le max, pour que ce soit fou ») — **prix à valider**
+
+Le meilleur modèle (ElevenLabs Music v2.5), des boucles de 3 minutes (moins de répétition), chaque lieu **le jour et la
+nuit**, des thèmes pour les grands moments, des notes courtes pour les récompenses, et **quatre variantes par morceau**
+(le maximum par demande) pour garder la meilleure. Prix vérifiés sans générer : 0,1453 crédit la seconde, une variante.
+
+| Lot | Contenu | Durée | 1 variante | 4 variantes |
+|---|---|---|---|---|
+| A · Les lieux, jour et nuit | Gardebois, Canopéa, Ironheart, Sept-Portes, Aetherhaven, Coralia, Marche-Mère, Khrysos, le souterrain (la Gare, les voies, les cryptes), la route (carte du monde) : 20 boucles de 3 min | 60 min | 523,20 | 2 092,80 |
+| B · Les thèmes | le thème principal (écran titre, 3 min) ; le combat ; le combat contre un gardien (le Golem) ; la veillée ; les Échos ; la dame en gris ; les sept caisses (2 min chacun) ; la chute (1 min) | 16 min | 139,52 | 558,08 |
+| C · Les notes courtes | quête terminée, Récit retenu, niveau gagné, Écho recueilli, caisse trouvée, veillée réussie (10 s chacune) | 1 min | 8,72 | 34,88 |
+| D · La berceuse de Maëlis | fredonnée (1 min) ; chantée (1 min, **avec les paroles de Cyril**) | 2 min | 17,44 | 69,76 |
+| **Total** | **34 morceaux** | **79 min** | **688,88** | **2 755,52** |
+
+Le compte est à 0 crédit : il faut le pack de 4 000 crédits (les packs : 500, 1 000, 2 000, 4 000). Entre les deux :
+deux variantes par morceau, 1 377,76 crédits. Avec quatre variantes, 136 morceaux à écouter : une page d'écoute dans le
+jeu (mode test) pour comparer et choisir vite. Côté code, sans crédits : un chef d'orchestre (le lieu, le moment, le
+combat, les fondus), un réglage « Musique », les notes courtes sur les récompenses, la musique mise en cache à la
+première écoute (≈ 55 Mo en mono 96 kbit/s, trop pour l'installation hors ligne).
+
 ## Sur téléphone (essai de Cyril, 2026-11-04 : « sur le tel, je n'ai pas entendu de son »)
 
 Le site servait bien les sons (vérifié) ; deux causes possibles côté téléphone, corrigées (`src/audio/mobile.ts`) :

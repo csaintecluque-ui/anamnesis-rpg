@@ -1656,18 +1656,18 @@ _Si Liane voyage avec toi :_ Liane pose deux doigts sur la glace, à hauteur du 
 
 _Si Boulon voyage avec toi :_ Boulon tapote le cristal. — Densité anormale. Cette glace est plus vieille que la ville. Il ne faudrait pas la casser.
 
-- « La laisser prise. Le froid la gardera. » → prise _(retient « caisse-glacialis-reglee », termine la quête « Ce que la glace a pris », retient « fin-glace-pris-prise », +60 XP, retient « caisse-glacialis-trouvee »)_
-- **🎲 Athlétisme 18** « Briser la prise et emporter la pièce. » → brisee, ✗ → tient _(retient « caisse-glacialis-reglee », termine la quête « Ce que la glace a pris », retient « fin-glace-pris-brisee », +60 XP, retient « caisse-glacialis-trouvee », retient « briseur-echos », donne 1 × « Une pièce de la machine »)_
-- « La confier au Collège des 9 Miroirs. » → college _(retient « caisse-glacialis-reglee », termine la quête « Ce que la glace a pris », retient « fin-glace-pris-college », +60 XP, retient « caisse-glacialis-trouvee »)_
-- _(si repère « descendu-edda »)_ « La laisser à la dame en gris. » → edda _(retient « caisse-glacialis-reglee », termine la quête « Ce que la glace a pris », retient « fin-glace-pris-edda », +60 XP, retient « caisse-glacialis-prise »)_
+- « La laisser prise. Le froid la gardera. » → prise _(retient « caisse-glacialis-reglee », termine la quête « Ce que la glace a pris », retient « fin-glace-pris-prise », +150 XP, retient « caisse-glacialis-trouvee »)_
+- **🎲 Athlétisme 18** « Briser la prise et emporter la pièce. » → brisee, ✗ → tient _(retient « caisse-glacialis-reglee », termine la quête « Ce que la glace a pris », retient « fin-glace-pris-brisee », +150 XP, retient « caisse-glacialis-trouvee », retient « briseur-echos », donne 1 × « Une pièce de la machine »)_
+- « La confier au Collège des 9 Miroirs. » → college _(retient « caisse-glacialis-reglee », termine la quête « Ce que la glace a pris », retient « fin-glace-pris-college », +150 XP, retient « caisse-glacialis-trouvee »)_
+- _(si repère « descendu-edda »)_ « La laisser à la dame en gris. » → edda _(retient « caisse-glacialis-reglee », termine la quête « Ce que la glace a pris », retient « fin-glace-pris-edda », +150 XP, retient « caisse-glacialis-prise »)_
 
 ### tient
 
 > Tu frappes. Le cristal sonne, longtemps, et ne cède pas. Une prise de crypte est faite pour durer plus longtemps que ceux qui la regardent.
 
-- « La laisser prise. Le froid la gardera. » → prise _(retient « caisse-glacialis-reglee », termine la quête « Ce que la glace a pris », retient « fin-glace-pris-prise », +60 XP, retient « caisse-glacialis-trouvee »)_
-- « La confier au Collège des 9 Miroirs. » → college _(retient « caisse-glacialis-reglee », termine la quête « Ce que la glace a pris », retient « fin-glace-pris-college », +60 XP, retient « caisse-glacialis-trouvee »)_
-- _(si repère « descendu-edda »)_ « La laisser à la dame en gris. » → edda _(retient « caisse-glacialis-reglee », termine la quête « Ce que la glace a pris », retient « fin-glace-pris-edda », +60 XP, retient « caisse-glacialis-prise »)_
+- « La laisser prise. Le froid la gardera. » → prise _(retient « caisse-glacialis-reglee », termine la quête « Ce que la glace a pris », retient « fin-glace-pris-prise », +150 XP, retient « caisse-glacialis-trouvee »)_
+- « La confier au Collège des 9 Miroirs. » → college _(retient « caisse-glacialis-reglee », termine la quête « Ce que la glace a pris », retient « fin-glace-pris-college », +150 XP, retient « caisse-glacialis-trouvee »)_
+- _(si repère « descendu-edda »)_ « La laisser à la dame en gris. » → edda _(retient « caisse-glacialis-reglee », termine la quête « Ce que la glace a pris », retient « fin-glace-pris-edda », +150 XP, retient « caisse-glacialis-prise »)_
 
 ### prise
 
@@ -1716,10 +1716,10 @@ Commence par : « caisse »
 
 > Dedans, une pièce lourde et froide, et une liste que l’eau a gardée, dans une boîte de verre : Ilan, sept ans ; Naïs, six ans ; Corin, huit ans ; Sela, cinq ans ; Timo, neuf ans ; Rhéa, six ans. La même main, encore.
 
-- _(si repère « euria-don »)_ « La rendre à la mer, avec les Murmureurs. » → rendue _(retient « caisse-marisol-trouvee », fait passer 2 moments, retient « caisse-marisol-reglee », termine la quête « Ce que la mer rend », retient « fin-mer-rend-rendue », +60 XP)_
-- « Prendre la pièce. » → gardee _(donne 1 × « Une pièce de la machine », retient « caisse-marisol-trouvee », retient « caisse-marisol-reglee », termine la quête « Ce que la mer rend », retient « fin-mer-rend-gardee », +60 XP)_
-- « La laisser à l’Amirauté. » → amiraute _(retient « caisse-marisol-trouvee », retient « caisse-marisol-reglee », termine la quête « Ce que la mer rend », retient « fin-mer-rend-amiraute », +60 XP)_
-- _(si repère « edda-conque-vue »)_ « La laisser à la dame en gris. » → edda _(retient « caisse-marisol-prise », retient « caisse-marisol-reglee », termine la quête « Ce que la mer rend », retient « fin-mer-rend-edda », +60 XP)_
+- _(si repère « euria-don »)_ « La rendre à la mer, avec les Murmureurs. » → rendue _(retient « caisse-marisol-trouvee », fait passer 2 moments, retient « caisse-marisol-reglee », termine la quête « Ce que la mer rend », retient « fin-mer-rend-rendue », +150 XP)_
+- « Prendre la pièce. » → gardee _(donne 1 × « Une pièce de la machine », retient « caisse-marisol-trouvee », retient « caisse-marisol-reglee », termine la quête « Ce que la mer rend », retient « fin-mer-rend-gardee », +150 XP)_
+- « La laisser à l’Amirauté. » → amiraute _(retient « caisse-marisol-trouvee », retient « caisse-marisol-reglee », termine la quête « Ce que la mer rend », retient « fin-mer-rend-amiraute », +150 XP)_
+- _(si repère « edda-conque-vue »)_ « La laisser à la dame en gris. » → edda _(retient « caisse-marisol-prise », retient « caisse-marisol-reglee », termine la quête « Ce que la mer rend », retient « fin-mer-rend-edda », +150 XP)_
 
 ### rendue
 
@@ -3475,8 +3475,8 @@ Commence par : « apaise » _(si repère « echo-dernier-train-vu »)_, sinon «
 
 > Le quai tremble sous tes pieds. Des silhouettes de l’Ancien Monde se dessinent dans la lumière : une foule se presse vers un train, les mains levées. Des enfants rient à une fenêtre. Un sifflet déchire l’air, trois mille ans trop tôt.
 
-- **[Mémoire 4]** « Entrer dans l’Écho. » → interieur _(retient « echo-dernier-train-vu », +15 XP)_
-- « Observer sans s’approcher. » → observe _(retient « echo-dernier-train-vu », +10 XP)_
+- **[Mémoire 4]** « Entrer dans l’Écho. » → interieur _(retient « echo-dernier-train-vu », +30 XP)_
+- « Observer sans s’approcher. » → observe _(retient « echo-dernier-train-vu », +25 XP)_
 - « Lui donner une de tes histoires, pour qu’il te laisse entrer. » → approche 📖 donner un Récit : autres → don-entree
 - « S’éloigner. » → **fin**
 
@@ -3513,7 +3513,7 @@ _Effet : retient « heros-enfant »._
 
 ### don-entree
 
-_Effet : retient « echo-dernier-train-vu », +15 XP._
+_Effet : retient « echo-dernier-train-vu », +30 XP._
 
 > Tu racontes, à voix basse, sur le quai qui tremble. Les silhouettes s’arrêtent pour écouter ; à une fenêtre, une main d’enfant s’agite. Quand tu as fini, l’histoire n’est plus à toi : le train l’a prise, et l’Écho s’ouvre.
 
@@ -3698,7 +3698,7 @@ _Effet : retient « edda-ecriture »._
 
 ### halte-partage
 
-_Effet : donne 1 × « Une pièce de la machine », retient « caisse-zephyria-trouvee », retient « edda-partage », retient « caisse-zephyria-reglee », retient « edda-halte-reglee », termine la quête « Les noms qui montent », retient « fin-noms-qui-montent-partage », +60 XP._
+_Effet : donne 1 × « Une pièce de la machine », retient « caisse-zephyria-trouvee », retient « edda-partage », retient « caisse-zephyria-reglee », retient « edda-halte-reglee », termine la quête « Les noms qui montent », retient « fin-noms-qui-montent-partage », +150 XP._
 
 > Elle te regarde longtemps, puis pousse la pièce vers toi du bout du pied, sans lâcher le rouleau. — Ceux qui me paient seront déçus. Je leur dirai que vous étiez là avant moi. C’est presque vrai.
 
@@ -3723,7 +3723,7 @@ _Effet : donne 1 × « Une pièce de la machine », retient « caisse-zephyria-t
 
 ### halte-cede
 
-_Effet : donne 1 × « Une pièce de la machine », retient « caisse-zephyria-trouvee », donne 1 × « Le rouleau des six noms », retient « edda-depouillee », retient « caisse-zephyria-reglee », retient « edda-halte-reglee », termine la quête « Les noms qui montent », retient « fin-noms-qui-montent-tout », +60 XP._
+_Effet : donne 1 × « Une pièce de la machine », retient « caisse-zephyria-trouvee », donne 1 × « Le rouleau des six noms », retient « edda-depouillee », retient « caisse-zephyria-reglee », retient « edda-halte-reglee », termine la quête « Les noms qui montent », retient « fin-noms-qui-montent-tout », +150 XP._
 
 > Elle tend le rouleau, et ses doigts ne le lâchent qu’au dernier moment. Puis la pièce. — Vous ne savez même pas ce que c’est. Moi non plus. Ça fait au moins une chose qu’on partage.
 
@@ -3731,7 +3731,7 @@ _Effet : donne 1 × « Une pièce de la machine », retient « caisse-zephyria-t
 
 ### halte-vaincue
 
-_Effet : donne 1 × « Une pièce de la machine », retient « caisse-zephyria-trouvee », donne 1 × « Le rouleau des six noms », retient « edda-depouillee », retient « caisse-zephyria-reglee », retient « edda-halte-reglee », termine la quête « Les noms qui montent », retient « fin-noms-qui-montent-tout », +60 XP._
+_Effet : donne 1 × « Une pièce de la machine », retient « caisse-zephyria-trouvee », donne 1 × « Le rouleau des six noms », retient « edda-depouillee », retient « caisse-zephyria-reglee », retient « edda-halte-reglee », termine la quête « Les noms qui montent », retient « fin-noms-qui-montent-tout », +150 XP._
 
 > Les deux Ailes Noires ont reculé jusqu’à leur machine. La dame en gris n’a pas bougé. Elle tend le rouleau, puis la pièce. — Vous avez gagné. Je ne sais pas quoi, mais vous avez gagné.
 
@@ -3739,7 +3739,7 @@ _Effet : donne 1 × « Une pièce de la machine », retient « caisse-zephyria-t
 
 ### halte-laissee
 
-_Effet : retient « caisse-zephyria-prise », retient « edda-tout », retient « caisse-zephyria-reglee », retient « edda-halte-reglee », termine la quête « Les noms qui montent », retient « fin-noms-qui-montent-laissee », +40 XP._
+_Effet : retient « caisse-zephyria-prise », retient « edda-tout », retient « caisse-zephyria-reglee », retient « edda-halte-reglee », termine la quête « Les noms qui montent », retient « fin-noms-qui-montent-laissee », +130 XP._
 
 > — Vraiment ? Elle charge la pièce sur l’épaule d’un des pilotes et garde le rouleau contre elle. — Ceux qui me paient vous remercieraient, s’ils savaient remercier. Moi, je vous remercie.
 
@@ -3755,7 +3755,7 @@ _Effet : retient « rouleau-lache »._
 
 ### halte-lache-2
 
-_Effet : donne 1 × « Une pièce de la machine », retient « caisse-zephyria-trouvee », retient « edda-lache », retient « caisse-zephyria-reglee », retient « edda-halte-reglee », termine la quête « Les noms qui montent », retient « fin-noms-qui-montent-lache », +60 XP._
+_Effet : donne 1 × « Une pièce de la machine », retient « caisse-zephyria-trouvee », retient « edda-lache », retient « caisse-zephyria-reglee », retient « edda-halte-reglee », termine la quête « Les noms qui montent », retient « fin-noms-qui-montent-lache », +150 XP._
 
 > Elle regarde le tissu disparaître. — C’était tout ce que j’avais d’elle. Elle se lève, et époussette son manteau. — Prenez la pièce. Je n’ai plus rien à porter.
 
@@ -3869,19 +3869,19 @@ _Effet : retient « edda-marche-vue »._
 
 > Dans la caisse, une pièce de la machine, emballée dans une toile que le sable n’a pas mangée, et une liste : Inès, six ans ; Pavel, huit ans ; Lila, cinq ans ; Oren, sept ans ; Nadia, neuf ans ; Sacha, six ans. La même main que sur les autres.
 
-- « La laisser ici, à sa halte. » → halte _(retient « caisse-communion-trouvee », retient « caisse-communion-reglee », termine la quête « Ce qui n’a plus lieu », retient « fin-plus-lieu-halte », +60 XP)_
-- « Prendre la pièce. » → gardee _(donne 1 × « Une pièce de la machine », retient « caisse-communion-trouvee », retient « caisse-communion-reglee », termine la quête « Ce qui n’a plus lieu », retient « fin-plus-lieu-gardee », +60 XP)_
-- **🎲 Athlétisme 16** « La rapporter à la Marche, à Longue-Ombre. » → longue-ombre, ✗ → trop-lourde _(retient « caisse-communion-trouvee », fait passer 2 moments, retient « caisse-communion-reglee », termine la quête « Ce qui n’a plus lieu », retient « fin-plus-lieu-longue-ombre », +60 XP)_
-- _(sans repère « edda-marchandee »)_ « La laisser à la dame en gris. » → edda _(retient « caisse-communion-prise », retient « caisse-communion-reglee », termine la quête « Ce qui n’a plus lieu », retient « fin-plus-lieu-edda », +60 XP)_
+- « La laisser ici, à sa halte. » → halte _(retient « caisse-communion-trouvee », retient « caisse-communion-reglee », termine la quête « Ce qui n’a plus lieu », retient « fin-plus-lieu-halte », +150 XP)_
+- « Prendre la pièce. » → gardee _(donne 1 × « Une pièce de la machine », retient « caisse-communion-trouvee », retient « caisse-communion-reglee », termine la quête « Ce qui n’a plus lieu », retient « fin-plus-lieu-gardee », +150 XP)_
+- **🎲 Athlétisme 16** « La rapporter à la Marche, à Longue-Ombre. » → longue-ombre, ✗ → trop-lourde _(retient « caisse-communion-trouvee », fait passer 2 moments, retient « caisse-communion-reglee », termine la quête « Ce qui n’a plus lieu », retient « fin-plus-lieu-longue-ombre », +150 XP)_
+- _(sans repère « edda-marchandee »)_ « La laisser à la dame en gris. » → edda _(retient « caisse-communion-prise », retient « caisse-communion-reglee », termine la quête « Ce qui n’a plus lieu », retient « fin-plus-lieu-edda », +150 XP)_
 
 ### trop-lourde
 
 > Tu la soulèves d’un pouce, et tu la reposes. Neuf kilomètres de sable, avec ça sur le dos : tu ne les feras pas. La dame en gris te regarde sans rien dire.
 
-- _(si repère « membre-guides-eau »)_ « Les guides ont des chariots. » → longue-ombre _(retient « caisse-communion-trouvee », fait passer 2 moments, retient « caisse-communion-reglee », termine la quête « Ce qui n’a plus lieu », retient « fin-plus-lieu-longue-ombre », +60 XP)_
-- « La laisser ici, à sa halte. » → halte _(retient « caisse-communion-trouvee », retient « caisse-communion-reglee », termine la quête « Ce qui n’a plus lieu », retient « fin-plus-lieu-halte », +60 XP)_
-- « Prendre la pièce, seulement. » → gardee _(donne 1 × « Une pièce de la machine », retient « caisse-communion-trouvee », retient « caisse-communion-reglee », termine la quête « Ce qui n’a plus lieu », retient « fin-plus-lieu-gardee », +60 XP)_
-- _(sans repère « edda-marchandee »)_ « La laisser à la dame en gris. » → edda _(retient « caisse-communion-prise », retient « caisse-communion-reglee », termine la quête « Ce qui n’a plus lieu », retient « fin-plus-lieu-edda », +60 XP)_
+- _(si repère « membre-guides-eau »)_ « Les guides ont des chariots. » → longue-ombre _(retient « caisse-communion-trouvee », fait passer 2 moments, retient « caisse-communion-reglee », termine la quête « Ce qui n’a plus lieu », retient « fin-plus-lieu-longue-ombre », +150 XP)_
+- « La laisser ici, à sa halte. » → halte _(retient « caisse-communion-trouvee », retient « caisse-communion-reglee », termine la quête « Ce qui n’a plus lieu », retient « fin-plus-lieu-halte », +150 XP)_
+- « Prendre la pièce, seulement. » → gardee _(donne 1 × « Une pièce de la machine », retient « caisse-communion-trouvee », retient « caisse-communion-reglee », termine la quête « Ce qui n’a plus lieu », retient « fin-plus-lieu-gardee », +150 XP)_
+- _(sans repère « edda-marchandee »)_ « La laisser à la dame en gris. » → edda _(retient « caisse-communion-prise », retient « caisse-communion-reglee », termine la quête « Ce qui n’a plus lieu », retient « fin-plus-lieu-edda », +150 XP)_
 
 ### halte
 
@@ -4656,12 +4656,12 @@ _Si Liane voyage avec toi :_ Liane s’est arrêtée au bord du quai. — Chaque
 > 🌙 Te voilà au pied de la foreuse, dans l’odeur d’huile et de pierre chaude. Personne n’a rien vu.
 
 - **🎲 Artisanat 10** « Saboter le mécanisme. » → sabotee, ✗ → bruit
-- « Ouvrir la chaudière en grand, et courir. » → chaudiere _(retient « foreuse-sabotee », retient « foreuse-explosee », retient « chantier-arrete », termine la quête « Le Dernier Train », retient « fin-dernier-train-chaudiere », +50 XP, +30 Fers, avis de Liane −2)_
+- « Ouvrir la chaudière en grand, et courir. » → chaudiere _(retient « foreuse-sabotee », retient « foreuse-explosee », retient « chantier-arrete », termine la quête « Le Dernier Train », retient « fin-dernier-train-chaudiere », +100 XP, +30 Fers, avis de Liane −2)_
 - « Repartir sans rien toucher. » → **fin**
 
 ### sabotee
 
-_Effet : retient « foreuse-sabotee », retient « chantier-arrete », termine la quête « Le Dernier Train », retient « fin-dernier-train-sabotage », +70 XP, +30 Fers._
+_Effet : retient « foreuse-sabotee », retient « chantier-arrete », termine la quête « Le Dernier Train », retient « fin-dernier-train-sabotage », +120 XP, +30 Fers._
 
 > 🌙 Une goupille retirée, un engrenage faussé : la foreuse ne repartira pas avant longtemps. Tu regagnes l’ombre sans un bruit.
 
@@ -5701,7 +5701,7 @@ _Si Boulon voyage avec toi :_ Boulon s’incline, et le plancher grince. — On 
 
 ### fin-vendue
 
-_Effet : termine la quête « Les Mémoires du Monde Perdu », retient « fin-memoires-monde-perdu-vendue », +60 XP, retient « piste-zephyria », avis de Liane −1._
+_Effet : termine la quête « Les Mémoires du Monde Perdu », retient « fin-memoires-monde-perdu-vendue », +120 XP, retient « piste-zephyria », avis de Liane −1._
 
 > Hesper écoute, et sa lanterne baisse. — Tu as vendu une ligne. Ici, c’est un métier honnête. Chez les Gardiens, on transmet ; on ne vend pas. Altavent, sous les Hauts de Zephyria. Ils y seront avant toi. Alors cours.
 
@@ -5709,7 +5709,7 @@ _Effet : termine la quête « Les Mémoires du Monde Perdu », retient « fin-me
 
 ### fin-denonce
 
-_Effet : termine la quête « Les Mémoires du Monde Perdu », retient « fin-memoires-monde-perdu-denoncee », +80 XP, retient « piste-zephyria »._
+_Effet : termine la quête « Les Mémoires du Monde Perdu », retient « fin-memoires-monde-perdu-denoncee », +140 XP, retient « piste-zephyria »._
 
 > — Raccompagnée. Personne ne l’a touchée, et elle est au cent unième kilomètre. C’est la seule justice qu’on ait ici : elle est propre, et elle est terrible. Altavent, sous les Hauts de Zephyria. La piste est à toi.
 
@@ -5724,7 +5724,7 @@ _Effet : termine la quête « Les Mémoires du Monde Perdu », retient « fin-me
 
 ### fin-silence
 
-_Effet : termine la quête « Les Mémoires du Monde Perdu », retient « fin-memoires-monde-perdu-silence », +80 XP, retient « piste-zephyria »._
+_Effet : termine la quête « Les Mémoires du Monde Perdu », retient « fin-memoires-monde-perdu-silence », +140 XP, retient « piste-zephyria »._
 
 > — Tu t’es tue, et elle te suivra : les routes sont longues. Altavent, sous les Hauts de Zephyria. La Porte de Zephyria ne s’ouvre qu’avec un sauf-conduit de la Confédération : il faudra le trouver.
 
@@ -6472,7 +6472,7 @@ _Effet : retient « ingrid-braquee »._
 
 ### convaincue
 
-_Effet : retient « chantier-arrete », retient « ingrid-rapport », termine la quête « Le Dernier Train », retient « fin-dernier-train-rapport », +80 XP, +30 Fers._
+_Effet : retient « chantier-arrete », retient « ingrid-rapport », termine la quête « Le Dernier Train », retient « fin-dernier-train-rapport », +130 XP, +30 Fers._
 
 > Ingrid se tait longtemps, puis plie ses papiers en quatre. — J’écrirai à Ferros que la Faille est instable. C’est peut-être même vrai. J’arrête la foreuse. Dites à vos Gardiens que Ferros reviendra, avec ou sans moi.
 
@@ -6480,7 +6480,7 @@ _Effet : retient « chantier-arrete », retient « ingrid-rapport », termine la
 
 ### convaincue-recit
 
-_Effet : retient « chantier-arrete », termine la quête « Le Dernier Train », retient « fin-dernier-train-corvan », +90 XP, +30 Fers._
+_Effet : retient « chantier-arrete », termine la quête « Le Dernier Train », retient « fin-dernier-train-corvan », +140 XP, +30 Fers._
 
 > — Corvan ? Je connais l’histoire, oui, et vous avez raison : il a réussi, et ça ne l’a pas sauvé. J’arrête la foreuse. On ne commet pas deux fois la même faute.
 
@@ -6633,7 +6633,7 @@ _Effet : retient « ingrid-defie »._
 
 ### convaincue-peur
 
-_Effet : retient « chantier-arrete », retient « ingrid-rancune », avis de Liane −1, termine la quête « Le Dernier Train », retient « fin-dernier-train-menace », +60 XP, +50 Fers._
+_Effet : retient « chantier-arrete », retient « ingrid-rancune », avis de Liane −1, termine la quête « Le Dernier Train », retient « fin-dernier-train-menace », +110 XP, +50 Fers._
 
 > Ingrid te dévisage, et ses lèvres blanchissent. — Très bien. J’arrête. Elle te lance une bourse. — Pour votre garde. Qu’elle regarde ailleurs, le jour où Ferros reviendra.
 
@@ -6641,7 +6641,7 @@ _Effet : retient « chantier-arrete », retient « ingrid-rancune », avis de Li
 
 ### convaincue-quai
 
-_Effet : retient « chantier-arrete », termine la quête « Le Dernier Train », retient « fin-dernier-train-quai », +90 XP, +30 Fers._
+_Effet : retient « chantier-arrete », termine la quête « Le Dernier Train », retient « fin-dernier-train-quai », +140 XP, +30 Fers._
 
 > Ingrid écoute, les yeux sur la foreuse. — « Même réussir peut tout détruire. » Il savait de quoi il parlait, celui-là. Bien. J’arrête. Pour lui ; pas pour vos Gardiens.
 
@@ -7231,7 +7231,7 @@ _Si Liane voyage avec toi :_ Liane, au fond des gradins, serre sa besace contre 
 
 ### envoi
 
-_Effet : donne 1 × « Sauf-conduit du Triumvirat », termine la quête « L’audience », lance la quête « La Clé de Rouille Bleue », retient le Récit « Le Triumvirat Vert », +60 XP, reprend 1 × « Lettre d’Ilyane »._
+_Effet : donne 1 × « Sauf-conduit du Triumvirat », termine la quête « L’audience », lance la quête « La Clé de Rouille Bleue », retient le Récit « Le Triumvirat Vert », +120 XP, reprend 1 × « Lettre d’Ilyane »._
 
 > Kael te tend un sauf-conduit scellé d’une feuille d’émeraude. — Les Marches des Cendres tiennent marché à Ironheart, en Ferros. Va voir qui paie, et pourquoi. Le Triumvirat Vert te le demande.
 
@@ -7315,7 +7315,7 @@ _Si Liane voyage avec toi :_ Liane recule d’un pas. — Si tu la lui vends, je
 
 _Si Boulon voyage avec toi :_ Boulon se place entre toi et le comptoir. — Une archive vivante ne se vend pas. C’est toi qui l’as dit, chez Noam. Je l’ai retenu.
 
-- « La lui vendre, pour cent Fers. » → vendue _(reprend 1 × « Clé de rouille bleue », +100 Fers, retient « cle-vendue », termine la quête « La Clé de Rouille Bleue », retient « fin-cle-rouille-bleue-vendue », +60 XP, avis de Boulon −2, avis de Liane −1)_
+- « La lui vendre, pour cent Fers. » → vendue _(reprend 1 × « Clé de rouille bleue », +100 Fers, retient « cle-vendue », termine la quête « La Clé de Rouille Bleue », retient « fin-cle-rouille-bleue-vendue », +120 XP, avis de Boulon −2, avis de Liane −1)_
 - « Qu’ouvre-t-elle ? » → ouvre
 - « Cent Fers. Tu paies les souvenirs au prix des os. » → offre-ironie
 - « Non, pas à toi. » → **fin**
@@ -8886,7 +8886,7 @@ _Effet : retient « fonds-zero-connu »._
 
 > Noam ôte ses lunettes. Pour la première fois, il parle sans note. — Donnez-la-moi. Je vous ouvre le Fonds Zéro, et vos yeux seront les premiers à voir ce qu’il contient depuis la fondation de la ville.
 
-- « La lui confier. » → ouverture _(reprend 1 × « Clé de rouille bleue », retient « cle-archives », termine la quête « La Clé de Rouille Bleue », retient « fin-cle-rouille-bleue-confiee », +70 XP, retient le Récit « Le carnet du dernier train »)_
+- « La lui confier. » → ouverture _(reprend 1 × « Clé de rouille bleue », retient « cle-archives », termine la quête « La Clé de Rouille Bleue », retient « fin-cle-rouille-bleue-confiee », +130 XP, retient le Récit « Le carnet du dernier train »)_
 - « Pas encore. » → **fin**
 
 ### ouverture
@@ -10120,7 +10120,7 @@ _Effet : retient « grenier-deverrouille »._
 
 > La serrure résiste. Une passerelle grince non loin : mieux vaut ne pas s’acharner trop longtemps.
 
-- « Réessayer. » → verrouillee
+- « Chercher un autre moyen. » → verrouillee
 - « Partir. » → **fin**
 
 ### nichoir
@@ -10168,7 +10168,7 @@ Commence par : « verrouillee »
 
 > Le cadenas résiste, et l’homme d’équipage remue dans son sommeil.
 
-- « Réessayer. » → verrouillee
+- « Chercher un autre moyen. » → verrouillee
 - « Partir. » → **fin**
 
 ### reveil
@@ -12715,7 +12715,7 @@ _Effet : donne 1 × « Clé de rouille bleue », retient « cle-obtenue », +25 
 
 > — Alors, cette clé ? Elle chante encore ?
 
-- « Te la rendre : sa place est sur la ligne. » → rendue _(reprend 1 × « Clé de rouille bleue », retient « cle-veilleuse », termine la quête « La Clé de Rouille Bleue », retient « fin-cle-rouille-bleue-rendue », +60 XP)_
+- « Te la rendre : sa place est sur la ligne. » → rendue _(reprend 1 × « Clé de rouille bleue », retient « cle-veilleuse », termine la quête « La Clé de Rouille Bleue », retient « fin-cle-rouille-bleue-rendue », +120 XP)_
 - _(sans repère « cle-etudiee »)_ _(sans repère « cle-etude-ratee »)_ **🎲 Érudition 12** « L’étudier d’abord avec toi. » → etude, ✗ → etude-ratee
 - _(si quête « Le Rail des Cendres » en cours)_ _(sans repère « indice-veilleuse »)_ « Les convois du triage, qui partent seuls la nuit ? » → convois-triage
 - « Pas encore. » → **fin**
@@ -12735,7 +12735,7 @@ _Effet : retient « cle-etudiee », +10 XP._
 
 > Sous la rouille bleue, à la loupe de la Veilleuse, un numéro apparaît : un sceau des Archives de Ferros, et deux mots, « Fonds Zéro ». La clé ouvre un coffre des Archives Centrales.
 
-- « Te la rendre. » → rendue _(reprend 1 × « Clé de rouille bleue », retient « cle-veilleuse », termine la quête « La Clé de Rouille Bleue », retient « fin-cle-rouille-bleue-rendue », +60 XP)_
+- « Te la rendre. » → rendue _(reprend 1 × « Clé de rouille bleue », retient « cle-veilleuse », termine la quête « La Clé de Rouille Bleue », retient « fin-cle-rouille-bleue-rendue », +120 XP)_
 - « La garder encore un peu. » → **fin**
 
 ### rendue

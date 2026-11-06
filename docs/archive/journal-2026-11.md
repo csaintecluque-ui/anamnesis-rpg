@@ -1194,3 +1194,29 @@ Le passage au jalon suivant attend le feu vert de Cyril (`CLAUDE.md` §4).
 - Cyril : « Oui pour les trois, mets Notion à jour » : les six noms, le cristal qui hésite et les ajouts de la construction de Khrysos validés ; Notion : page « Khrysos » à jour (le validé, ce qui vient du canon).
 - Cyril demande le plan Higgsfield « max » (34 morceaux, 79 min, quatre variantes : 2 755,52 crédits, `gdd/son.md`), puis le temps pour finir le jeu : estimé à ≈ 6 h pour l'histoire, ≈ 15 h avec tout l'annexe (mesuré sur le contenu, pas sur un joueur). Le compteur de temps de jeu ne comptait que la marche : corrigé (une seule horloge, dialogues et combats compris, pause et inactivité exclues). 1 005 tests ; vérifié dans Chromium.
 - Test en navigateur transmis par Cyril (6/10 ; 8 fabrication, 4 tension) : les quinze bogues vérifiés dans le code et corrigés (gel à 1e300 XP, auto écrasée au chargement, progression perdue à la fermeture, Rôdeurs immobiles, Golem sans avertissement, vente sans marchand et argent infini, sorties invisibles, Canopéa sans Fers, Main lourde gratuite, clic qui entrait dans la mauvaise porte, infobulle figée, touche répétée, Aïo, téléphone à la verticale) ; la résistance affichée est enfin celle du combat. Cinq décisions posées à Cyril (`gdd/test-2026-11-06.md`). 1 015 tests ; vérifié dans Chromium.
+
+## 2026-11-06 (suite) : les cinq décisions du test appliquées
+
+Cyril : « Oui pour les cinq, applique-les. » Fait, une étape et un commit par décision :
+
+1. **Le repos** : PV remontés à la moitié au plus ; une nuit dehors par jour (d'abord un refus avant le soir, changé
+   en « la journée passe à attendre le soir » : sans moyen d'attendre en ville, le refus pouvait bloquer) ; neuf lieux
+   hors des villes (`nuit` dans `locations.json`) où une nuit sur trois une bête vient, tirée d'une graine (le jour, le
+   lieu, le héros). Le combat de nuit gagné reconstruit la carte au matin (`CombatStartData.nuit`).
+2. **Les jets** : `rollOption` (dialogue.ts) tire le dé d'une graine (`graine.ts`, où `seededRng` a déménagé depuis
+   voies.ts) avec le compte des essais du jour (`GameState.jets`, validé par le codec) ; un échec sans prix
+   (`failureIsFree` : ni blessure, ni temps, ni objet, ni combat) pose `jet-rate-…` pour la journée. Le compte du
+   testeur (41) se retrouve : 72 jets relançables pour rien, 21 qui coûtent (gardent « Réessayer »), 68 déjà tenus par
+   les données. Serrure du grenier et cadenas de la soute : « Chercher un autre moyen. ».
+3. **Le combat** : mesuré d'abord (grille guerrier / archer / parleur, niveaux 1 à 7, chapitres 1 à 7) ; le testeur
+   avait raison (dague ≥ épée partout, parleur 0 % hors du chapitre 1). Bonus d'arme, `roadMenace` (variantes niveau − 1,
+   niveau − 2 et +1 au toucher comparées : niveau − 1 retenu, toucher inchangé), Tireur d'Élite +2, parole sur la carte
+   du monde et dans les voies, Liane à 75 %. Le panneau à quatre boutons débordait : boutons rétrécis.
+4. **Le rythme** : XP des bêtes et des combats écrits doublée ; fins de quêtes principales 100 à 150 (ordre gardé) ;
+   l'Écho du dernier train 25 à 30 : niveau 2 avant la foreuse par le seul chemin principal ; marche 120 ms. Le parcours
+   complet des chapitres 1 à 5 finit niveau 6 (5 avant).
+5. **Le fil** : `trace` par caisse (`fil.json`) ; la page ne montre que les caisses tracées, puis compte les autres une
+   fois la page du dernier départ lue.
+
+1035 tests ; build ; vérifié dans Chromium (nuit à la Gare, cadenas grisé, panneau de rencontre, page du fil).
+

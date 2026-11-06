@@ -366,6 +366,18 @@ En ligne le 2026-11-03 (tes textes du 3 novembre) :
 - [ ] **Canopéa sans Fers** : le chef de caravane parle de la Grande Nacelle, gratuite.
 - Remarques :
 
+## Les cinq décisions du test du 2026-11-06 (en ligne le 2026-11-06)
+
+- [ ] **Le repos** (Échap, « Se reposer jusqu'au matin ») : dehors, les PV ne remontent qu'à la moitié ; se recoucher le
+      matin fait passer la journée. À la Gare Engloutie (ou au Sol des Racines, sous les nuages, dans le désert), une
+      nuit sur trois, quelque chose vient : le combat, puis le matin.
+- [ ] **Les jets** : un jet raté pour rien se grise jusqu'au lendemain ; recharger la partie ne change pas le dé.
+- [ ] **Le combat** : une épée longue achetée vaut la dague ; sur la route, « Parlementer » ou « Les leurrer » ; dans une
+      voie, « Les attirer ailleurs » ; les bêtes plus solides quand le héros a pris de l'avance.
+- [ ] **Le rythme** : le niveau 2 avant la fin de « Le Dernier Train » ; la marche plus vive.
+- [ ] **Le fil** : au début, aucune caisse ; elles apparaissent une à une.
+- Remarques :
+
 ## Déjà en ligne, pas encore essayé sur PC
 
 - [ ] **Chapitre 4, Sept-Portes** sans le mode surpuissant : l'arrivée par la Porte du sud, le Registre, l'une des trois

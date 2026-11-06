@@ -19,9 +19,9 @@ Chantiers 0 à 6 (`gdd/feuille-de-route.md`) en ligne ; ce qu'il reste à essaye
 
 ## Prochaine étape
 
-- **Le test du 2026-11-06** (`gdd/test-2026-11-06.md`) : bogues corrigés et en ligne ; **cinq décisions de Cyril**
-  (repos, dés, combat, rythme, le fil), puis les appliquer et les vérifier par la simulation. Ensuite C (Higgsfield,
-  plan « max » chiffré dans `gdd/son.md`, en attente de crédits).
+- **Le test du 2026-11-06** (`gdd/test-2026-11-06.md`) : bogues corrigés ; les **cinq décisions de Cyril** (repos,
+  dés, combat, rythme, le fil) **appliquées, simulées, en ligne**. À essayer sur PC (`a-essayer.md`). Ensuite C
+  (Higgsfield, plan « max » chiffré dans `gdd/son.md`, en attente de crédits).
 
 ## Points ouverts
 

@@ -435,14 +435,15 @@ export class WorldMapScene extends Phaser.Scene {
     this.panel.push(frame, label, ring);
     this.panelActions = buttons.map(([, action]) => action);
     this.tooltip?.hide();
-    const w = LAYOUT.button.width;
     const gap = 30;
+    // Four choices (a talk out of an encounter, test du 2026-11-06) must hold inside the frame: narrower buttons.
+    const w = Math.min(LAYOUT.button.width, Math.floor((GAME_WIDTH - 100 - (buttons.length - 1) * gap) / buttons.length));
     const total = buttons.length * w + (buttons.length - 1) * gap;
     buttons.forEach(([caption, action], i) => {
       // On PC, the keys that press them: Enter for the first button, Escape for the last.
       const key = i === 0 ? 'Entrée' : i === buttons.length - 1 ? 'Échap' : '';
       const label = key ? withKeyHint(caption, key) : caption;
-      const button = addTextButton(this, GAME_WIDTH / 2 - total / 2 + w / 2 + i * (w + gap), y + h / 2 - LAYOUT.button.height / 2 - 12, label, action, LAYOUT.button);
+      const button = addTextButton(this, GAME_WIDTH / 2 - total / 2 + w / 2 + i * (w + gap), y + h / 2 - LAYOUT.button.height / 2 - 12, label, action, { ...LAYOUT.button, width: w });
       button.container.setDepth(22);
       this.panel.push(button.container);
     });

@@ -39,6 +39,7 @@ import {
   type AttackProfile,
   type Combatant,
   type Zone,
+  MOVE_AP_COST_PER_TILE,
 } from '../rules/combat';
 import { nextEnemyAction, type AiContext } from '../rules/combatAi';
 import { wearEquipment } from '../rules/usure';
@@ -429,7 +430,9 @@ export class CombatScene extends Phaser.Scene {
     if (!heroTurn) this.hint.setText('');
     else if (this.mode === 'soin') this.hint.setText('Choisis un allié en vert à soigner (3 PA).');
     else if (this.mode === 'move') {
-      this.hint.setText(this.reach.size > 0 ? 'Choisis une case bleue pour t’y rendre (1 PA par case).' : 'Plus assez de PA pour te déplacer.');
+      // No cell: out of PA, or hemmed in (trees, a foe at your side) with PA left.
+      const stuck = hero.actionPoints >= MOVE_AP_COST_PER_TILE ? 'Aucune case libre autour de toi : frappe, ou finis ton tour.' : 'Plus assez de PA pour te déplacer.';
+      this.hint.setText(this.reach.size > 0 ? 'Choisis une case bleue pour t’y rendre (1 PA par case).' : stuck);
     } else {
       const attack = this.currentAttack()!;
       const pr = this.mode === 'pouvoir' && this.power ? `, ${this.power.cost} PR` : '';

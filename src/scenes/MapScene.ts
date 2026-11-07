@@ -828,6 +828,7 @@ export class MapScene extends Phaser.Scene {
   private launchFight(center: Tile, enemyIds: string[], enemyObjects: Tile[], victoryFlag: string, victoryEffects: Effect[], menace?: number, intro?: string, nuit?: boolean): void {
     const arena = carveArena(this.map, center, ARENA_COLS, ARENA_ROWS, enemyObjects);
     this.registry.set('tileFrames', this.map.frames);
+    this.hud().hideToast();
     this.scene.pause();
     this.scene.pause('Hud');
     this.scene.launch('Combat', {
@@ -1386,6 +1387,7 @@ export class MapScene extends Phaser.Scene {
     const golemTile = toArena(arena, golem);
     const [rodeur1, rodeur2] = farEdgeTiles(arena, heroTile, [heroTile, golemTile]);
     this.registry.set('tileFrames', this.map.frames);
+    this.hud().hideToast();
     this.scene.pause();
     this.scene.pause('Hud');
     this.scene.launch('Combat', {

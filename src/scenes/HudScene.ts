@@ -238,6 +238,16 @@ export class HudScene extends Phaser.Scene {
     });
   }
 
+  /**
+   * Clears the toast at once: a fight opens over the map, and the word of the map must not show under its own help
+   * (test du 2026-11-06 : l'embuscade de la Gare sous le tutoriel du premier combat).
+   */
+  hideToast(): void {
+    this.toastTimer?.remove();
+    this.toastText.setVisible(false);
+    this.toastBg.setVisible(false);
+  }
+
   /** Overlays (pause menu, inventory, level-up) freeze the map underneath; each one resumes it when it closes. */
   openOverlay(key: string, data?: object): void {
     this.scene.pause('Map');

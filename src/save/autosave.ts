@@ -22,6 +22,8 @@ export type AutoReason = 'progres' | 'rafraichir';
 /** Writes the auto save, unless a save just loaded has not moved on yet. Returns whether it was written. */
 export function writeAuto(registry: Registry, state: GameState | undefined, reason: AutoReason): boolean {
   if (!state?.character) return false;
+  // « Le dernier passager » (chapitre 9) is not written: the auto save keeps the moment before the choice.
+  if (state.flags['fin-voie-sept-monte']) return false;
   if (reason === 'progres') registry.set(AUTO_LOCK, false);
   else if (registry.get(AUTO_LOCK)) return false;
   const saved = saveStore.write('auto', state);

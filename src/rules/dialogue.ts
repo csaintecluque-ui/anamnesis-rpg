@@ -4,6 +4,7 @@ import { findLocation, type GameState } from '../state/gameState';
 import { ATTRIBUTES, SKILLS, attributeModifier, skillScoreOf, type AttributeId, type SkillId } from './attributes';
 import { resolveCheck, rollD20, successChance, type Rng } from './checks';
 import { heroKey, rngFor } from './graine';
+import { finAction, finCondition, type FinAction, type FinCondition } from './fin';
 import { characterStats } from './character';
 import { ENCOUNTERS, GOLEM_FIGHT, GOLEM_QUEST_FIGHT, VOIE_FIGHT } from './combat';
 import { dreamFragment } from './heros';
@@ -55,7 +56,9 @@ export type Condition =
   /** At least this many Échos gathered in the Livre des Échos (docs/gdd/echos.md): a test, shown greyed when unmet. */
   | { echos: number }
   /** The worn crystal has been cast at least this many times since it was tuned (chantier 6). A story condition. */
-  | { usureCristal: number };
+  | { usureCristal: number }
+  /** A question of the finale (src/rules/fin.ts): the pieces, the dame en gris, the lists, Ilyane. A story condition. */
+  | { fin: FinCondition };
 
 export type Effect =
   | { setFlag: string }
@@ -112,7 +115,11 @@ export type Effect =
   /** A Druide Vert takes back the marks of the crystal, and a rank of Résonance with them (src/rules/marques.ts). */
   | { effacerMarques: true }
   /** No state change: tells DialogueScene to open this workshop (docs/gdd/artisanat.md): « forge » or « herbes ». */
-  | { atelier: string };
+  | { atelier: string }
+  /** An action of the finale (src/rules/fin.ts): pieces handed back, taken back, given, the train called. */
+  | { finale: FinAction }
+  /** No state change: tells DialogueScene to close and open the epilogue (src/rules/epilogue.ts). */
+  | { epilogue: true };
 
 /** An action rolled with the d20 (docs/gdd/competences.md): the chance is shown, then `next` or `failNext` follows. */
 export interface Roll {
@@ -248,6 +255,7 @@ export function conditionMet(state: GameState, c: Condition): boolean {
   if ('tousLes' in c) return (state.time.day - 1) % c.tousLes === c.decalage;
   if ('cristal' in c) return !!state.character && !!wornCrystal(state.character) === c.cristal;
   if ('compagnon' in c) return inParty(state, c.compagnon);
+  if ('fin' in c) return finCondition(state, c.fin);
   if ('usureCristal' in c) return !!state.character?.equipment.cristal && (state.character.usureCristal ?? 0) >= c.usureCristal;
   if ('avis' in c) return avisOf(state, c.avis) >= (c.min ?? -Infinity) && avisOf(state, c.avis) <= (c.max ?? Infinity);
   if ('lieu' in c) return state.location === c.lieu;
@@ -542,6 +550,8 @@ export function applyEffects(state: GameState, effects: Effect[] = []): string[]
         state.contrats.actif.fait = true;
         notices.push('Contrat rempli : retourne au tableau des Gardiens');
       }
+    } else if ('finale' in effect) {
+      notices.push(...finAction(state, effect.finale));
     } else if ('blesser' in effect) {
       if (state.character) {
         const lost = Math.min(effect.blesser, state.character.hp - 1);
@@ -569,6 +579,8 @@ export function applyEffects(state: GameState, effects: Effect[] = []): string[]
         state.character.fers = Math.max(0, state.character.fers + effect.giveFers);
         notices.push(`${effect.giveFers >= 0 ? '+' : '−'}${Math.abs(effect.giveFers)} Fers`);
       }
+    } else if ('epilogue' in effect) {
+      // Nothing to change: DialogueScene opens the epilogue.
     } else if (state.character) {
       state.character.xp += effect.giveXp;
       notices.push(`+${effect.giveXp} points d’expérience`);
@@ -591,6 +603,11 @@ export function opensTrade(effects?: Effect[]): boolean {
 }
 
 /** The public whose veillée an option opens, if any (src/data/veillees.json). */
+/** The epilogue (src/rules/epilogue.ts), after an end of « La voie sept ». */
+export function opensEpilogue(effects?: Effect[]): boolean {
+  return !!effects?.some((e) => 'epilogue' in e);
+}
+
 export function opensVeillee(effects?: Effect[]): string | null {
   const effect = effects?.find((e) => 'veillee' in e);
   return effect && 'veillee' in effect ? effect.veillee : null;

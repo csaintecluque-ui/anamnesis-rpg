@@ -17,6 +17,7 @@ import { TradeScene } from './scenes/TradeScene';
 import { VeilleeScene } from './scenes/VeilleeScene';
 import { ContratsScene } from './scenes/ContratsScene';
 import { OubliScene } from './scenes/OubliScene';
+import { EpilogueScene } from './scenes/EpilogueScene';
 import { AtelierScene } from './scenes/AtelierScene';
 import { WorldMapScene } from './scenes/WorldMapScene';
 import { getSettings } from './settings';
@@ -59,6 +60,7 @@ const game = new Phaser.Game({
     AtelierScene,
     JournalScene,
     OubliScene,
+    EpilogueScene,
     LevelUpScene,
     CombatScene,
     PauseScene,

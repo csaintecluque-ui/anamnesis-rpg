@@ -3,7 +3,7 @@ import { playSfx } from '../audio/sfx';
 import type { Effect } from '../rules/dialogue';
 import { DIALOGUES } from '../data/dialogues';
 import npcData from '../data/npcs.json';
-import { END, applyEffects, expireFlags, goesTo, nodeApartes, opensAtelier, opensTrade, opensVeillee, raconterChoices, raconterOption, rollOption, startNode, startsCombat, visibleOptions, type Dialogue, type DialogueOption, type NodePlace, type OptionView } from '../rules/dialogue';
+import { END, applyEffects, expireFlags, goesTo, nodeApartes, opensAtelier, opensEpilogue, opensTrade, opensVeillee, raconterChoices, raconterOption, rollOption, startNode, startsCombat, visibleOptions, type Dialogue, type DialogueOption, type NodePlace, type OptionView } from '../rules/dialogue';
 import { fontPx, textScale } from '../settings';
 import type { GameState } from '../state/gameState';
 import type { MapScene } from './MapScene';
@@ -244,6 +244,12 @@ export class DialogueScene extends Phaser.Scene {
       if (opensTrade(view.option.effects)) {
         this.scene.stop();
         this.scene.launch('Trade', { npcId: this.dialogue.speaker });
+        return;
+      }
+      // The epilogue (src/rules/epilogue.ts), after an end of « La voie sept »: its own screen, over the paused map.
+      if (opensEpilogue(view.option.effects)) {
+        this.scene.stop();
+        this.scene.launch('Epilogue');
         return;
       }
       // The veillée of the inn (docs/gdd/veillees.md): its own screen, over the paused map.

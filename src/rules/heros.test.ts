@@ -72,9 +72,18 @@ describe('the fragments come back in the order of the return: the steam, the han
     state.flags['heros-fragment-voix'] = true;
     const page = herosPage(state)!;
     expect(page.titre).toBe('Ce qui n’est pas à moi');
-    expect(page.lignes.map((l) => l.titre)).toEqual(['L’enfant à la fenêtre', 'La vapeur', 'La main', 'La voix qui compte', 'Le ruban', 'L’air', 'La couverture', 'Les chaussures']);
-    expect(page.lignes.map((l) => !!l.texte)).toEqual([false, false, false, true, false, false, false, false]);
+    expect(page.lignes.map((l) => l.titre)).toEqual(['L’enfant à la fenêtre', 'La vapeur', 'La main', 'La voix qui compte', 'Le ruban', 'L’air', 'La couverture', 'Les chaussures', 'Le quai']);
+    expect(page.lignes.map((l) => !!l.texte)).toEqual([false, false, false, true, false, false, false, false, false]);
     expect(page.manque).toMatch(/Un quai/);
+  });
+
+  it('the quai comes back last, in the train to Altavent (chapitre 9): then nothing is missing', () => {
+    const state = createNewGame(testCharacter());
+    state.flags['heros-fragment-quai'] = true;
+    const page = herosPage(state)!;
+    expect(page.lignes.at(-1)).toMatchObject({ titre: 'Le quai' });
+    expect(page.lignes.at(-1)!.texte).toMatch(/J’ai lâché sa main/);
+    expect(page.manque).toBeNull();
   });
 });
 

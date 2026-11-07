@@ -2117,6 +2117,80 @@ _Effet : retient « chariot-ramene », retient « chariot-laisse »._
 
 - « Passer. » → **fin**
 
+## Le châssis
+
+_La machine_
+
+Commence par : « apres » _(si quête « La voie sept » terminée)_, sinon « appele » _(si repère « train-appele »)_, sinon « libre-complet » _(si repère « quai-sept-libre »)_ _(fin du jeu : « complet »)_, sinon « libre-manque » _(si repère « quai-sept-libre »)_, sinon « pris »
+
+### pris
+
+> Un châssis de fer de l’Ancien Monde, posé sur deux traverses. Les hommes au chèche noir ne te laissent pas en approcher.
+
+- « Parler à celui qui les paie. » → pris-parler
+- « S’éloigner. » → **fin**
+
+### pris-parler
+
+> Le mandataire est juste à côté, ses gants croisés sur le ventre. Il t’a vu·e venir.
+
+- « … » → **fin**
+
+### libre-complet
+
+_Effet : retient « machine-comprise »._
+
+> Le châssis est à toi. Tu y montes les pièces une à une : elles s’emboîtent sans un bruit, comme si elles s’attendaient. Sept. Il n’en manque aucune. Hesper les compte avec toi, à voix basse.
+
+- « Appeler le train. » → appel
+- « La jeter dans la Faille. » → jeter
+- « Pas encore. » → **fin**
+
+### libre-manque
+
+_Effet : retient « machine-comprise »._
+
+> Le châssis est à toi. Tu y montes ce que tu as : des pièces s’emboîtent, des places restent vides. Hesper les compte avec toi. — Ce qui manque, la Faille le donnera. Elle le prendra dans les Échos de la Lisière, à Ilyane, à d’autres. Elle prend toujours.
+
+- « Appeler le train quand même. » → appel
+- « La jeter dans la Faille. » → jeter
+- « Pas encore. » → **fin**
+
+### appel
+
+_Effet : fin du jeu : « appeler », retient « train-appele »._
+
+> Tu abaisses le levier. Le châssis tire sur la Faille, longuement ; l’air se refroidit, les lanternes pâlissent. Au fond de la voûte, une lumière, puis un sifflet, trois mille ans trop tard. Le train entre en gare. Pour la première fois, il s’arrête.
+
+- « Le train attend. » → **fin**
+
+### jeter
+
+> Tu soulèves le châssis jusqu’au bord de la Faille. Hesper ne dit rien. En bas, elle respire.
+
+- « La jeter. » → jetee
+- « Non. Pas ça. » → **fin**
+
+### jetee
+
+_Effet : retient « fin-voie-sept-jetee », termine la quête « La voie sept », +150 XP, fin du jeu : « jeter »._
+
+> La machine tombe longtemps. Tu n’entends pas le fond. Au-dessus de toi, quelque part, un train passe, et ne ralentit pas. Hesper ferme son carnet. — Plus personne ne l’appellera. Ni eux, ni toi.
+
+- « … » → **fin** _(ouvre l’épilogue)_
+
+### appele
+
+> Le châssis est froid. Les pièces n’y bougent plus. Le train attend, porte ouverte.
+
+- « … » → **fin**
+
+### apres
+
+> Le châssis est froid, et vide.
+
+- « … » → **fin**
+
 ## Le chef de caravane
 
 _Compagnie des Lisières_
@@ -3909,6 +3983,112 @@ _Effet : retient « edda-marche-vue »._
 
 ## La dame en gris
 
+_Le quai sept_
+
+Commence par : « apres » _(si quête « La voie sept » terminée)_, sinon « alliee » _(si repère « edda-quai-alliee »)_, sinon « seule » _(si repère « quai-sept-libre »)_, sinon « quai-proche » _(fin du jeu : « edda-alliee »)_, sinon « quai-loin »
+
+### quai-proche
+
+> La dame en gris se tient à l’écart, près de l’échelle, ses gants à la main. — Tu es venu·e. Moi, j’ai livré ce qu’on m’a payé. Ils veulent les tiennes. Je ne sais toujours pas pour quoi faire, et je crois qu’eux non plus.
+
+- « Et toi, que veux-tu ? » → veut
+- « À tout à l’heure. » → **fin**
+
+### veut
+
+> — La liste. Je te l’ai dit à la halte : les pièces, je les laissais à ceux qui paient. Ma mère a écrit leurs noms partout, sur chaque caisse. Je veux savoir pourquoi elle n’a jamais écrit le mien.
+
+- « Tu le sauras peut-être. » → **fin**
+- « À tout à l’heure. » → **fin**
+
+### quai-loin
+
+> La dame en gris ne te regarde pas. — Ne compte pas sur moi. Tu as fait tes choix, de ville en ville. J’ai fait les miens. Je suis payée pour livrer, et j’ai livré.
+
+- « Comme tu voudras. » → **fin**
+
+### alliee
+
+> Elle tient la liste contre elle, roulée. — Je n’ai plus personne pour me payer. C’est reposant, finalement. Si ton train vient, je voudrais voir où il va. Ma mère y est montée.
+
+- « Viens avec moi, quand il viendra. » → **fin**
+- « On verra. » → **fin**
+
+### seule
+
+> Ceux qui la payaient sont partis. La dame en gris est restée, assise sur une caisse, à regarder les rails. — Je n’ai plus rien à livrer. Je reste voir passer le train. C’est tout ce qu’il me reste de ma mère : un train qui ne s’arrête pas.
+
+- « Au revoir. » → **fin**
+
+### apres
+
+> La dame en gris n’est plus là.
+
+- « … » → **fin**
+
+## Edda Varn
+
+_Un Écho, au registre_
+
+Commence par : « encore » _(si repère « edda-mere-retrouvee »)_, sinon « avec-fille » _(si repère « edda-altavent »)_, sinon « encore » _(si repère « edda-varn-parlee »)_, sinon « seule »
+
+### seule
+
+_Effet : retient « edda-varn-parlee »._
+
+> Une femme en manteau gris clair se tient au pupitre, une plume sèche à la main, faite de la même lumière que le train. — Vous venez de Gardebois ? Alors c’est vous, l’enfant du quai. Ils ont beaucoup parlé de vous, dans le train.
+
+- « Vous êtes Edda Varn. » → nom
+- « Votre fille vous cherche. » → fille
+- « Qui a parlé de moi ? » → parle
+- « Au revoir. » → **fin**
+
+### nom
+
+> — Je l’étais. Les noms, maintenant, ne me servent que pour les autres. J’ai suivi les caisses, j’ai recopié les leurs. Il fallait bien que quelqu’un les reçoive, puisque personne n’était venu.
+
+- « Votre fille vous cherche. » → fille
+- « Au revoir. » → **fin**
+
+### fille
+
+_Effet : retient « nom-fille-confie »._
+
+> Elle pose la plume. — Je sais. J’ai écrit son nom en dernier, en bas du registre : le seul que je n’avais pas peur d’oublier. Dites-le-lui, si vous la revoyez. Elle croit que je l’ai oubliée. C’est le contraire.
+
+- « Je le lui dirai. » → **fin**
+
+### parle
+
+> — Celui qui attend à la fenêtre. Il dit que vous aviez peur du sifflet, et qu’il vous laissait le côté chaud de la couverture. Il dit que vous viendriez. Il le dit depuis des années.
+
+- « Votre fille vous cherche. » → fille
+- « Au revoir. » → **fin**
+
+### avec-fille
+
+_Effet : retient « edda-varn-parlee »._
+
+> La dame en gris s’arrête net. Au pupitre, une femme en manteau gris clair écrit, faite de la même lumière que le train. Elle lève les yeux, et dit un prénom. Tu ne l’entends pas : il n’est pas à toi. La dame en gris, si.
+
+- « Les laisser. » → laisser
+
+### laisser
+
+_Effet : retient « edda-mere-retrouvee »._
+
+> Tu t’éloignes vers le train. Derrière toi, deux voix basses. La plus jeune pleure, puis rit, puis se tait. Quand tu te retournes, la dame en gris est seule au pupitre, et elle lit le dernier nom du registre.
+
+- « … » → **fin**
+
+### encore
+
+> Edda Varn écrit sur le registre, sans encre. Elle ne lève pas les yeux.
+
+- « … » → **fin**
+
+## La dame en gris
+
 _Une courtière de Ferros_
 
 Commence par : « offre » _(si quête « Les Mémoires du Monde Perdu » en cours)_ _(si repère « page-lue »)_ _(sans repère « edda-reglee »)_, sinon « accueil »
@@ -4199,6 +4379,56 @@ _Effet : retient « marques-rate » pour 1 jours._
 > Gravées à froid, avec soin, comme on signe un serment. Sous les mains, un seul mot, presque effacé, dans la même langue inconnue que la berceuse.
 
 - « Partir. » → **fin**
+
+## L’enfant à la fenêtre
+
+_Le dernier train_
+
+Commence par : « apres » _(si quête « La voie sept » terminée)_, sinon « fenetre »
+
+### fenetre
+
+> À la dernière fenêtre du train, un enfant. Le même. Il n’a pas grandi. Il pose la main contre la vitre, les doigts écartés. — Tu es venu·e. Le train repart bientôt. Il manque quelqu’un, depuis le quai.
+
+- « Lui rendre la main. » → monter-confirm
+- « Rester. Signer le registre. » → rester-confirm
+- « Pas encore. » → **fin**
+
+### monter-confirm
+
+> Si tu montes, le train partira complet, et ne reviendra plus. La maladie des souvenirs s’arrêtera avec lui : Ilyane retrouvera tout, d’autres aussi. Toi, tu ne reviendras pas.
+
+- « Monter. » → monte
+- « Pas encore. » → **fin**
+
+### monte
+
+_Effet : retient « fin-voie-sept-monte », termine la quête « La voie sept », +150 XP._
+
+> 🌙 Tu montes. L’enfant te prend la main sans un mot, comme s’il ne l’avait jamais lâchée. Le sifflet. Le quai d’Altavent glisse derrière la vitre, puis la cendre, puis la nuit.
+
+- « … » → **fin** _(ouvre l’épilogue)_
+
+### rester-confirm
+
+> Si tu restes, tu signes : « Reçu ». Les enfants des haltes seront reçus, enfin. Le train repartira vide, pour la dernière fois. Ce que la maladie a pris restera pris.
+
+- « Signer. » → recu
+- « Pas encore. » → **fin**
+
+### recu
+
+_Effet : retient « fin-voie-sept-recu », termine la quête « La voie sept », +150 XP._
+
+> Tu prends la plume sèche. Sous « Reçu : personne », tu écris ton nom. L’enfant te regarde faire, puis il sourit, et retire sa main de la vitre. Le train repart, vide, sans sifflet. Tu restes sur le quai, avec ce que tu sais.
+
+- « … » → **fin** _(ouvre l’épilogue)_
+
+### apres
+
+> Les rails s’arrêtent au butoir. Le train n’est plus là.
+
+- « … » → **fin**
 
 ## Maître Ennir
 
@@ -4525,7 +4755,7 @@ _Effet : reprend 1 × « Le carnet du Perchoir », donne 1 × « La septième vo
 
 _Gare Engloutie_
 
-Commence par : « bord » _(si quête « Ce que cherchait la foreuse » en cours)_, sinon « faille »
+Commence par : « echelle » _(si quête « La voie sept » en cours)_, sinon « echelle-apres » _(si quête « La voie sept » terminée)_, sinon « bord » _(si quête « Ce que cherchait la foreuse » en cours)_, sinon « faille »
 
 ### faille
 
@@ -4583,6 +4813,20 @@ _Effet : retient « faille-quai-sept »._
 > Tu refermes ce qui reste du bois sur la pièce. La Faille l’a gardée jusqu’ici ; elle la gardera encore. Tu remontes sans elle.
 
 - « Remonter. » → **fin**
+
+### echelle
+
+> Une échelle de Ferros, neuve, pend dans la Faille, attachée au bâti de la foreuse. En bas, une lueur de lanterne, des voix basses, et l’eau qui goutte.
+
+- « Descendre au quai sept. » → **fin** _(mène à « Sous la Faille — le quai sept »)_
+- « S’éloigner du bord. » → **fin**
+
+### echelle-apres
+
+> La Faille respire doucement, au pied de la foreuse. L’échelle de Ferros est toujours là.
+
+- « Descendre au quai sept. » → **fin** _(mène à « Sous la Faille — le quai sept »)_
+- « S’éloigner du bord. » → **fin**
 
 ## Un Ferrôme au rebut
 
@@ -5659,7 +5903,7 @@ Commence par : « colere » _(si repère « echos-dissipes »)_, sinon « apres 
 
 _Doyenne des Gardiens de Mémoire_
 
-Commence par : « fin-vendue » _(si quête « Les Mémoires du Monde Perdu » en cours)_ _(si repère « edda-reglee »)_ _(si repère « ligne-vendue »)_, sinon « fin-denonce » _(si quête « Les Mémoires du Monde Perdu » en cours)_ _(si repère « edda-reglee »)_ _(si repère « edda-raccompagnee »)_, sinon « fin-silence » _(si quête « Les Mémoires du Monde Perdu » en cours)_ _(si repère « edda-reglee »)_, sinon « page » _(si quête « Les Mémoires du Monde Perdu » en cours)_ _(si repère « page-lue »)_, sinon « appel » _(si quête « Les Mémoires du Monde Perdu » en cours)_ _(sans repère « hesper-vue »)_, sinon « en-cours » _(si quête « Les Mémoires du Monde Perdu » en cours)_, sinon « apres » _(si quête « Les Mémoires du Monde Perdu » terminée)_, sinon « accueil »
+Commence par : « quai » _(à « Sous la Faille — le quai sept »)_, sinon « gardebois-pieces » _(à « Gardebois — Maison d’Ilyane »)_ _(si quête « La voie sept » en cours)_ _(sans repère « hesper-pieces »)_ _(fin du jeu : « pieces-a-rendre »)_, sinon « gardebois-rien » _(à « Gardebois — Maison d’Ilyane »)_ _(si quête « La voie sept » en cours)_ _(sans repère « hesper-pieces »)_, sinon « gardebois-apres » _(à « Gardebois — Maison d’Ilyane »)_, sinon « fin-vendue » _(si quête « Les Mémoires du Monde Perdu » en cours)_ _(si repère « edda-reglee »)_ _(si repère « ligne-vendue »)_, sinon « fin-denonce » _(si quête « Les Mémoires du Monde Perdu » en cours)_ _(si repère « edda-reglee »)_ _(si repère « edda-raccompagnee »)_, sinon « fin-silence » _(si quête « Les Mémoires du Monde Perdu » en cours)_ _(si repère « edda-reglee »)_, sinon « page » _(si quête « Les Mémoires du Monde Perdu » en cours)_ _(si repère « page-lue »)_, sinon « appel » _(si quête « Les Mémoires du Monde Perdu » en cours)_ _(sans repère « hesper-vue »)_, sinon « en-cours » _(si quête « Les Mémoires du Monde Perdu » en cours)_, sinon « apres » _(si quête « Les Mémoires du Monde Perdu » terminée)_, sinon « accueil »
 
 ### accueil
 
@@ -5757,6 +6001,50 @@ _Effet : retient « raconte-hesper », +10 XP._
 _Effet : retient « raconte-hesper », +15 XP._
 
 > Hesper écrit le nom d’Odon dans un registre de cuir. — Les Gardiens gardent aussi ceux qui faisaient passer. Il n’avait pas de papiers à donner : il avait des noms. C’est la même chose.
+
+- « Merci, Hesper. » → **fin**
+
+### gardebois-pieces
+
+_Effet : retient « hesper-pieces », fin du jeu : « rendre-pieces »._
+
+> Hesper a posé sa canne contre la cheminée d’Ilyane. — Ceux à qui tu avais confié les pièces me les ont envoyées. Ils disent qu’elles te reviennent, et qu’ils ne veulent plus dormir à côté. Ceux qui paient sont au quai sept avec les leurs. Il leur manque les tiennes.
+
+- « Que font-ils, avec ? » → gardebois-regle
+- « J’y descends. » → **fin**
+
+### gardebois-rien
+
+_Effet : retient « hesper-pieces »._
+
+> Hesper a posé sa canne contre la cheminée d’Ilyane. — Personne n’a rien gardé pour toi : tu as tout porté, ou tout laissé. Ceux qui paient sont au quai sept avec ce qu’ils ont acheté. Il leur manque le reste.
+
+- « Que font-ils, avec ? » → gardebois-regle
+- « J’y descends. » → **fin**
+
+### gardebois-regle
+
+> — Je ne sais pas. Eux non plus, je crois : ils paient pour savoir. Un Gardien ne sait pas toujours. Un Gardien reçoit : c’est tout ce que nous faisons, et c’est tout ce qu’ils n’ont jamais su faire.
+
+- « Reçoit quoi ? » → gardebois-recoit
+- « J’y descends. » → **fin**
+
+### gardebois-recoit
+
+> — Ce qu’on lui donne. Une histoire, un nom, un mort. On écrit « reçu », et on le porte. Elle te regarde par-dessus ses lunettes. — Ce n’est pas rien, de porter. Va.
+
+- « J’y vais. » → **fin**
+
+### gardebois-apres
+
+> — La Faille respire plus fort ce soir. Va, avant qu’ils ne décident de faire sans toi.
+
+- _(si quête « La voie sept » en cours)_ « Reçoit quoi, un Gardien ? » → gardebois-recoit
+- « J’y vais. » → **fin**
+
+### quai
+
+> Hesper s’est assise sur une caisse renversée, face au châssis. — Je reste. Personne n’y touchera, ni pour l’appeler, ni pour le jeter. Décide quand tu veux : la Faille, elle, n’est pas pressée.
 
 - « Merci, Hesper. » → **fin**
 
@@ -6129,7 +6417,7 @@ _Effet : retient « mensonge-huissier »._
 
 _Gardienne de Mémoire de Gardebois_
 
-Commence par : « echo-lettre » _(si repère « echos-confies »)_ _(sans repère « ilyane-echo-lu »)_, sinon « carnet » _(si quête « Le carnet de chansons » en cours)_ _(si l’on porte « Carnet de chansons d’Ilyane »)_, sinon « appel-veilleuse » _(si quête « La Clé de Rouille Bleue » terminée)_ _(si quête « Les Mémoires du Monde Perdu » pas commencée)_ _(si repère « cle-veilleuse »)_, sinon « appel-archives » _(si quête « La Clé de Rouille Bleue » terminée)_ _(si quête « Les Mémoires du Monde Perdu » pas commencée)_ _(si repère « cle-archives »)_, sinon « appel-vendue » _(si quête « La Clé de Rouille Bleue » terminée)_ _(si quête « Les Mémoires du Monde Perdu » pas commencée)_ _(si repère « cle-vendue »)_, sinon « appel-sept-portes » _(si quête « La Clé de Rouille Bleue » terminée)_ _(si quête « Les Mémoires du Monde Perdu » pas commencée)_, sinon « papiers-prospection » _(si quête « Les noms qui montent » terminée)_ _(si quête « Ce que cherchait la foreuse » pas commencée)_, sinon « oubli-3 » _(si repère « porte-sud-connue »)_ _(sans repère « ilyane-oubli-3 »)_, sinon « oubli-2 » _(si quête « L’audience » terminée)_ _(sans repère « ilyane-oubli-2 »)_ _(sans repère « ilyane-oubli-3 »)_, sinon « remarque-enfant » _(si repère « heros-enfant »)_ _(sans repère « ilyane-remarque-enfant »)_, sinon « remarque-vapeur » _(si repère « heros-fragment-vapeur »)_ _(sans repère « ilyane-remarque-vapeur »)_, sinon « remarque-main » _(si repère « heros-fragment-main »)_ _(sans repère « ilyane-remarque-main »)_, sinon « remarque-voix » _(si repère « heros-fragment-voix »)_ _(sans repère « ilyane-remarque-voix »)_, sinon « nouvelles-canopee » _(si quête « L’audience » terminée)_, sinon « pell-vivant » _(si repère « foreuse-explosee »)_ _(si repère « pell-sauve »)_ _(sans repère « ilyane-sait-pell »)_, sinon « pell » _(si repère « foreuse-explosee »)_ _(sans repère « ilyane-sait-pell »)_, sinon « oubli-1 » _(si quête « L’audience » en cours)_ _(sans repère « ilyane-oubli-1 »)_ _(sans repère « ilyane-oubli-2 »)_ _(sans repère « ilyane-oubli-3 »)_, sinon « resolu » _(si quête « Le Dernier Train » terminée)_, sinon « en-cours » _(si quête « Le Dernier Train » en cours)_, sinon « accueil »
+Commence par : « finale-intacte » _(si quête « Ce que la glace a pris » terminée)_ _(si quête « La voie sept » pas commencée)_ _(fin du jeu : « pret »)_ _(fin du jeu : « ilyane-intacte »)_, sinon « finale-entamee » _(si quête « Ce que la glace a pris » terminée)_ _(si quête « La voie sept » pas commencée)_ _(fin du jeu : « pret »)_ _(fin du jeu : « ilyane-entamee »)_, sinon « finale-perdue » _(si quête « Ce que la glace a pris » terminée)_ _(si quête « La voie sept » pas commencée)_ _(fin du jeu : « pret »)_, sinon « finale-attendre » _(si quête « Ce que la glace a pris » terminée)_ _(si quête « La voie sept » pas commencée)_, sinon « finale-pendant » _(si quête « La voie sept » en cours)_, sinon « apres-fin-intacte » _(si quête « La voie sept » terminée)_ _(fin du jeu : « ilyane-intacte »)_, sinon « apres-fin-entamee » _(si quête « La voie sept » terminée)_ _(fin du jeu : « ilyane-entamee »)_, sinon « apres-fin-perdue » _(si quête « La voie sept » terminée)_, sinon « echo-lettre » _(si repère « echos-confies »)_ _(sans repère « ilyane-echo-lu »)_, sinon « carnet » _(si quête « Le carnet de chansons » en cours)_ _(si l’on porte « Carnet de chansons d’Ilyane »)_, sinon « appel-veilleuse » _(si quête « La Clé de Rouille Bleue » terminée)_ _(si quête « Les Mémoires du Monde Perdu » pas commencée)_ _(si repère « cle-veilleuse »)_, sinon « appel-archives » _(si quête « La Clé de Rouille Bleue » terminée)_ _(si quête « Les Mémoires du Monde Perdu » pas commencée)_ _(si repère « cle-archives »)_, sinon « appel-vendue » _(si quête « La Clé de Rouille Bleue » terminée)_ _(si quête « Les Mémoires du Monde Perdu » pas commencée)_ _(si repère « cle-vendue »)_, sinon « appel-sept-portes » _(si quête « La Clé de Rouille Bleue » terminée)_ _(si quête « Les Mémoires du Monde Perdu » pas commencée)_, sinon « papiers-prospection » _(si quête « Les noms qui montent » terminée)_ _(si quête « Ce que cherchait la foreuse » pas commencée)_, sinon « oubli-3 » _(si repère « porte-sud-connue »)_ _(sans repère « ilyane-oubli-3 »)_, sinon « oubli-2 » _(si quête « L’audience » terminée)_ _(sans repère « ilyane-oubli-2 »)_ _(sans repère « ilyane-oubli-3 »)_, sinon « remarque-enfant » _(si repère « heros-enfant »)_ _(sans repère « ilyane-remarque-enfant »)_, sinon « remarque-vapeur » _(si repère « heros-fragment-vapeur »)_ _(sans repère « ilyane-remarque-vapeur »)_, sinon « remarque-main » _(si repère « heros-fragment-main »)_ _(sans repère « ilyane-remarque-main »)_, sinon « remarque-voix » _(si repère « heros-fragment-voix »)_ _(sans repère « ilyane-remarque-voix »)_, sinon « nouvelles-canopee » _(si quête « L’audience » terminée)_, sinon « pell-vivant » _(si repère « foreuse-explosee »)_ _(si repère « pell-sauve »)_ _(sans repère « ilyane-sait-pell »)_, sinon « pell » _(si repère « foreuse-explosee »)_ _(sans repère « ilyane-sait-pell »)_, sinon « oubli-1 » _(si quête « L’audience » en cours)_ _(sans repère « ilyane-oubli-1 »)_ _(sans repère « ilyane-oubli-2 »)_ _(sans repère « ilyane-oubli-3 »)_, sinon « resolu » _(si quête « Le Dernier Train » terminée)_, sinon « en-cours » _(si quête « Le Dernier Train » en cours)_, sinon « accueil »
 
 ### resolu
 
@@ -6416,6 +6704,89 @@ _Effet : retient « ilyane-remarque-voix »._
 
 - « Oui. Je vais à la Gare. » → **fin** _(lance la quête « Ce que cherchait la foreuse »)_
 - « Plus tard, Ilyane. » → **fin**
+
+### finale-intacte
+
+_Effet : lance la quête « La voie sept », retient « voie-sept-commencee »._
+
+> Ilyane t’attendait sur le seuil, un carnet contre la poitrine. — La Faille respire. La nuit, j’entends le train depuis mon lit, et il ne repart plus : il attend, au quai sept. Hesper est arrivée ce matin. Elle dit que tu sais pourquoi.
+
+- « Je sais ce qu’ils veulent. » → finale-savoir
+- _(fin du jeu : « verdantis-confiee »)_ « La pièce, sous ton lit. » → finale-piece
+- « J’y descends. » → **fin**
+
+### finale-entamee
+
+_Effet : lance la quête « La voie sept », retient « voie-sept-commencee »._
+
+> Ilyane te regarde longtemps avant de sourire. — Toi. Je t’ai reconnu·e à ta façon de frapper. Le reste… il y a des trous. La Faille respire, la nuit, et le train ne repart plus : il attend, au quai sept. Hesper est là. Elle sait mieux que moi, maintenant.
+
+- « Je sais ce qu’ils veulent. » → finale-savoir
+- _(fin du jeu : « verdantis-confiee »)_ « La pièce, sous ton lit. » → finale-piece
+- « J’y descends. » → **fin**
+
+### finale-perdue
+
+_Effet : lance la quête « La voie sept », retient « voie-sept-commencee »._
+
+> Une femme aux cheveux blancs t’ouvre, un carnet à la main. Elle lit une page, te regarde, relit. — C’est écrit en grand : « Si quelqu’un frappe et connaît mon nom, dis-lui que la Faille respire. » Tu connais mon nom ? Hesper dit que oui.
+
+- « Ilyane. » → finale-nom
+- _(fin du jeu : « verdantis-confiee »)_ « La pièce, sous ton lit. » → finale-piece
+- « J’y descends. » → **fin**
+
+### finale-nom
+
+> Elle sourit, soulagée, et ne sait pas pourquoi. — Alors c’est toi. Le train ne repart plus : il attend, au quai sept, sous la Faille. Je l’entends la nuit. Je ne sais plus qui il attend, mais je sais qu’il attend.
+
+- _(fin du jeu : « verdantis-confiee »)_ « La pièce, sous ton lit. » → finale-piece
+- « J’y descends. » → **fin**
+
+### finale-savoir
+
+> — Les pièces ? Elle pose sa main sur la tienne. — Moi, je ne sais plus ce qu’il y avait dedans. Mais je sais ce que font les Gardiens : ils descendent écouter. Va écouter, et reviens me raconter.
+
+- _(fin du jeu : « verdantis-confiee »)_ « La pièce, sous ton lit. » → finale-piece
+- « Je reviendrai. » → **fin**
+
+### finale-piece
+
+_Effet : fin du jeu : « rendre-verdantis »._
+
+> Elle s’agenouille, tire la caisse de sous le lit, et te tend la pièce dans sa toile. — Je ne savais pas ce que c’était. Je savais que tu me l’avais confiée. C’était assez. Ça ne l’est plus.
+
+- « Merci, Ilyane. » → **fin**
+
+### finale-attendre
+
+> Ilyane relit la lettre de Hesper. — La Faille respire, oui. Mais Hesper dit qu’il reste des caisses dont personne ne sait le sort. Tant qu’elles dorment quelque part, ceux qui paient ne descendront pas. Ta page du fil te dira lesquelles.
+
+- « J’y vais. » → **fin**
+
+### finale-pendant
+
+> Ilyane est à sa fenêtre, du côté de la Gare. — Il est encore passé cette nuit. Il ralentit, maintenant, au quai sept. On dirait qu’il cherche quelqu’un.
+
+- _(fin du jeu : « verdantis-confiee »)_ « La pièce, sous ton lit. » → finale-piece
+- « J’y retourne. » → **fin**
+
+### apres-fin-intacte
+
+> Ilyane te sert la soupe sans rien demander. — Le train ne passe plus. Je dors, la nuit, maintenant. Raconte-moi, si tu veux. Ou ne raconte rien : je vois bien que tu l’as entendu, cette fois.
+
+- « Plus tard, Ilyane. » → **fin**
+
+### apres-fin-entamee
+
+> Ilyane a écrit ton nom sur la première page de son carnet, en grand. Elle le lit avant de t’ouvrir. — Toi. Assieds-toi. Raconte-moi la fin : je la recopierai. J’ai perdu le début.
+
+- « Il y avait un train… » → **fin**
+
+### apres-fin-perdue
+
+> Une femme aux cheveux blancs t’ouvre la porte du relais. — Un voyageur ? Entre, il fait froid. Raconte-moi d’où tu viens : j’aime les histoires, ces temps-ci. On dirait que j’en manque.
+
+- « Je viens de Gardebois. » → **fin**
 
 ## Ingrid Brisefer
 
@@ -8341,6 +8712,138 @@ _Effet : retient « raconte-malo », +15 XP._
 > Malo baisse les yeux. — Pim ? Il me courait après sur les passerelles. Il voulait être coursier, plus tard. Sa sœur noue un ruban à l’échelle chaque matin, avant le marché.
 
 - « À bientôt, Malo. » → **fin**
+
+## Le mandataire
+
+_Pour ceux qui paient_
+
+Commence par : « parti » _(si quête « La voie sept » terminée)_, sinon « face-vide » _(fin du jeu : « prises-aucune »)_, sinon « face-peu » _(fin du jeu : « prises-peu »)_, sinon « face-moitie » _(fin du jeu : « prises-moitie »)_, sinon « face-toutes »
+
+### face-vide
+
+_Effet : retient « mandataire-vu »._
+
+> Un homme en manteau de pluie se tient devant un châssis de fer, sous une lanterne. Il ne donne pas son nom ; on ne voit que ses gants, très clairs. Le châssis est vide. — Nous n’avons rien. Vous avez tout, ou vous l’avez laissé. C’est pour ça qu’on vous attendait.
+
+- _(fin du jeu : « edda-alliee »)_ « Demande-lui, à elle. » → edda-se-retourne
+- « Écoutez-moi d’abord. » → parler
+- « Prenez-les, alors. » → donner
+- « Personne ne les aura. » → combat
+
+### face-peu
+
+_Effet : retient « mandataire-vu »._
+
+> Un homme en manteau de pluie se tient devant un châssis de fer, sous une lanterne. Il ne donne pas son nom ; on ne voit que ses gants, très clairs. Sur le châssis, une ou deux pièces, dans leur toile. — Il nous manque les vôtres. Ceux qui paient sont patients. Moi, moins.
+
+- _(fin du jeu : « edda-alliee »)_ « Demande-lui, à elle. » → edda-se-retourne
+- « Écoutez-moi d’abord. » → parler
+- « Prenez-les, alors. » → donner
+- « Personne ne les aura. » → combat
+
+### face-moitie
+
+_Effet : retient « mandataire-vu »._
+
+> Un homme en manteau de pluie se tient devant un châssis de fer, sous une lanterne. On ne voit que ses gants, très clairs. Sur le châssis, la moitié des pièces, montées avec soin. — Vous arrivez tard, Gardien. Il nous manque les vôtres, et la Faille fera le reste s’il le faut.
+
+- _(fin du jeu : « edda-alliee »)_ « Demande-lui, à elle. » → edda-se-retourne
+- « Écoutez-moi d’abord. » → parler
+- « Prenez-les, alors. » → donner
+- « Personne ne les aura. » → combat
+
+### face-toutes
+
+_Effet : retient « mandataire-vu »._
+
+> Un homme en manteau de pluie se tient devant un châssis de fer presque plein. On ne voit que ses gants, très clairs. — Vous avez laissé les gants fins passer avant vous, ville après ville. Il nous manque si peu. La Faille fera le reste, avec ou sans vous.
+
+- _(fin du jeu : « edda-alliee »)_ « Demande-lui, à elle. » → edda-se-retourne
+- « Écoutez-moi d’abord. » → parler
+- « Prenez-les, alors. » → donner
+- « Personne ne les aura. » → combat
+
+### parler
+
+> Le mandataire croise ses gants. — Je vous écoute. On m’a dit que les Gardiens parlaient bien. On m’a dit aussi qu’ils parlaient longtemps.
+
+- _(fin du jeu : « listes »)_ **🎲 Diplomatie 19** « Il n’y a rien à Altavent. Rien que des noms. » → verite, ✗ → verite-non
+- **🎲 Subterfuge 19** « Les Gardiens de l’Équilibre descendent l’échelle. » → bluff, ✗ → bluff-non
+- « Rien. Laissez-moi réfléchir. » → **fin**
+
+### verite
+
+_Effet : retient « quai-sept-libre », fin du jeu : « reprendre-pieces », retient « reveilleurs-convaincus »._
+
+> Tu leur dis Altavent : un quai, un registre, « Reçu : personne ». Tu leur dis les noms, ceux que tu sais, un par un. Les hommes au chèche noir se regardent. L’un d’eux crache. — On ne descend pas sous terre pour des enfants morts. Ils remontent. Le mandataire hésite, puis les suit.
+
+- « Le châssis est à moi. » → **fin**
+
+### verite-non
+
+> — De belles histoires. Le mandataire sourit sous son col. — On nous en raconte depuis Sept-Portes. Celle-là, je ne la paierai pas.
+
+- « Personne ne les aura. » → combat
+- « Reculer. » → **fin**
+
+### bluff
+
+_Effet : retient « quai-sept-libre », fin du jeu : « reprendre-pieces »._
+
+> — L’Équilibre ? Le mandataire lève les yeux vers la Faille. Là-haut, des pas sur les graviers : des cheminots, sans doute, mais il ne le sait pas. Il ne prend pas le risque. — Gardez votre quai. Ils remontent par l’échelle, sans courir, et sans se retourner.
+
+- « Le châssis est à moi. » → **fin**
+
+### bluff-non
+
+> Le mandataire ne lève même pas les yeux. — L’Équilibre ne descend pas pour si peu. Il a mieux à sceller.
+
+- « Personne ne les aura. » → combat
+- « Reculer. » → **fin**
+
+### edda-se-retourne
+
+_Effet : retient « quai-sept-libre », fin du jeu : « reprendre-pieces », retient « edda-quai-alliee »._
+
+> La dame en gris s’avance jusqu’au châssis. Elle décroche les pièces une à une, sans hâte, et les pose à tes pieds. — Moi, je voulais la liste. Les hommes regardent le mandataire, qui regarde ses gants. Plus personne n’est payé pour rien, sous la Faille. Ils remontent.
+
+- « Merci. » → **fin**
+
+### donner
+
+> Tu poses la main sur ce que tu portes. Les pièces sont froides, et elles le restent. Le mandataire tend ses gants. — Sans vous, la Faille prendra davantage. Avec vous, un peu moins. C’est tout ce que je peux vous promettre.
+
+- « Les lui donner. » → appel-reveilleurs _(fin du jeu : « donner-pieces »)_
+- « Non. Pas comme ça. » → **fin**
+
+### appel-reveilleurs
+
+> Il monte tes pièces avec les siennes. Il en manque encore. Il abaisse un levier. Le châssis tire sur la Faille, qui gémit. Au fond de la voûte, une lumière, un sifflet : le train passe, les vitres pleines de mains, et ne s’arrête pas. Il ne les attendait pas.
+
+- « Le regarder partir. » → dechiree
+
+### dechiree
+
+_Effet : retient « fin-voie-sept-dechiree », termine la quête « La voie sept », +150 XP, retient « quai-sept-libre »._
+
+> La Faille, forcée, a pris ce qui manquait dans les Échos de la voie sept. Le mandataire regarde ses gants. Ses hommes ramassent le châssis sans un mot. Ils ont payé pour rien, et tu as donné pour rien. Le quai sept est vide.
+
+- « … » → **fin** _(ouvre l’épilogue)_
+
+### combat
+
+> Les hommes au chèche noir posent la main sur leurs lames. Le mandataire recule derrière le châssis.
+
+- _(fin du jeu : « combat-2 »)_ « Se battre. » → **fin** _(lance le combat « quai-sept-2 »)_
+- _(fin du jeu : « combat-3 »)_ « Se battre. » → **fin** _(lance le combat « quai-sept-3 »)_
+- _(fin du jeu : « combat-4 »)_ « Se battre. » → **fin** _(lance le combat « quai-sept-4 »)_
+- « Reculer. » → **fin**
+
+### parti
+
+> Il n’y a plus personne ici, que des marques de bottes dans la boue du quai.
+
+- « … » → **fin**
 
 ## Des Mantes-ailes
 
@@ -10499,6 +11002,31 @@ _Effet : donne 1 × « La boîte du passeur », retient « boite-odon-prise », 
 
 - « Garder la boîte. » → **fin**
 
+## Le registre d’Altavent
+
+_Objet_
+
+Commence par : « signe » _(si repère « fin-voie-sept-recu »)_, sinon « registre »
+
+### registre
+
+> Un registre de l’Ancien Monde, ouvert sur un lutrin, sous la cendre. La dernière ligne : « Dernier départ, voie sept. Reçu : personne. » En dessous, d’une autre main, plus récente : quarante-deux noms recopiés avec soin, et un quarante-troisième, tout en bas.
+
+- « Lire le dernier nom. » → dernier-nom
+- « Laisser le registre. » → **fin**
+
+### dernier-nom
+
+> Un prénom de femme, que tu ne connais pas, d’une écriture qui tremble. Sous lui, rien. On a laissé la place d’une ligne, pour une signature.
+
+- « Laisser le registre. » → **fin**
+
+### signe
+
+> « Dernier départ, voie sept. Reçu : personne. » Et dessous, d’une encre qui ne sèche pas : ton nom.
+
+- « … » → **fin**
+
 ## Le registre des consultations
 
 _Grande Bibliothèque_
@@ -12128,6 +12656,96 @@ _Effet : retient « traces-rate » pour 1 jours._
 > Des pas, à moitié effacés.
 
 - « Passer. » → **fin**
+
+## Le dernier train
+
+_Quai sept_
+
+Commence par : « apres » _(si quête « La voie sept » terminée)_, sinon « monter »
+
+### monter
+
+> Le train attend, porte ouverte. Dedans, il fait tiède, et ça sent la vapeur, chaude, un peu sucrée. Les banquettes sont vides.
+
+- _(si repère « edda-quai-alliee »)_ « Monter, avec la dame en gris. » → depart-edda _(retient « edda-altavent »)_
+- « Monter. » → depart
+- « Pas encore. » → **fin**
+
+### depart
+
+> 🌙 Le train s’ébranle sans un bruit. Sur le quai sept, six enfants restent près d’une caisse de plomb : les plus petits. Un adulte leur dit d’attendre, que quelqu’un viendra. Leurs noms, l’eau les a bus. Il te reste leurs âges.
+
+- « Dire leurs âges : sept, six, huit, cinq, six, neuf. » → halte-ferros _(retient « recu-verdantis »)_
+- « Les regarder rester. » → halte-ferros
+
+### depart-edda
+
+> 🌙 Le train s’ébranle sans un bruit. La dame en gris s’est assise en face de toi, la liste sur les genoux. Sur le quai sept, six enfants restent près d’une caisse de plomb : les plus petits. Leurs noms, l’eau les a bus. Il te reste leurs âges.
+
+- « Dire leurs âges : sept, six, huit, cinq, six, neuf. » → halte-ferros _(retient « recu-verdantis »)_
+- « Les regarder rester. » → halte-ferros
+
+### halte-ferros
+
+> 🌙 Une halte dans la cendre, sous des cheminées qui n’existent pas encore. Six enfants descendent, une caisse de plomb entre eux ; la plus grande tient les autres par la manche. Un adulte reste sur le marchepied : « Quelqu’un viendra. » La porte se referme.
+
+- _(fin du jeu : « liste-ferros »)_ « Dire leurs noms : Oda, Tilo, Mara, Jens, Ruth, Anouk. » → halte-terminus _(retient « recu-ferros »)_
+- « Les regarder descendre. » → halte-terminus
+
+### halte-terminus
+
+> 🌙 Un monte-charge, au bout d’un quai de pierre, sous une ville qui n’a pas encore de bibliothèque. Six enfants y montent avec leur caisse. Le plus petit fait au revoir de la main, à personne en particulier.
+
+- _(fin du jeu : « liste-terminus »)_ « Dire leurs noms : Aldo, Nour, Tess, Sven, Lou, Mirko. » → halte-communion _(retient « recu-terminus »)_
+- « Les regarder descendre. » → halte-communion
+
+### halte-communion
+
+> 🌙 Du sable, déjà, contre les rails. « Halte des Sables — voie 7 ». Six enfants descendent dans la chaleur. L’adulte leur laisse une gourde, une seule. « Quelqu’un viendra. » La porte se referme.
+
+- _(fin du jeu : « liste-communion »)_ « Dire leurs noms : Inès, Pavel, Lila, Oren, Nadia, Sacha. » → halte-marisol _(retient « recu-communion »)_
+- « Les regarder descendre. » → halte-marisol
+
+### halte-marisol
+
+> 🌙 Le train longe la mer. À une halte noyée de sel, six enfants descendent avec une caisse que les vagues lèchent déjà. L’un d’eux ramasse un coquillage et le met dans sa poche, pour plus tard.
+
+- _(fin du jeu : « liste-marisol »)_ « Dire leurs noms : Ilan, Naïs, Corin, Sela, Timo, Rhéa. » → halte-glacialis _(retient « recu-marisol »)_
+- « Les regarder descendre. » → halte-glacialis
+
+### halte-glacialis
+
+> 🌙 Le froid entre par la porte ouverte. « Halte des Glaces — voie 7 ». Six enfants descendent sur la glace, serrés les uns contre les autres. Le plus jeune a quatre ans. Il ne pleure pas : il compte.
+
+- _(fin du jeu : « liste-glacialis »)_ « Dire leurs noms : Aksel, Mira, Tove, Elio, Ysé, Noam. » → halte-zephyria _(retient « recu-glacialis »)_
+- « Les regarder descendre. » → halte-zephyria
+
+### halte-zephyria
+
+> 🌙 La dernière halte avant le terminus, sous des nuages qui ne sont pas encore des nuages. « Halte — voie 7 — ne pas stationner ». Six enfants descendent avec la dernière caisse. Le train repart vide.
+
+- _(fin du jeu : « liste-zephyria »)_ « Dire leurs noms : Ama, Joran, Sefi, Nilo, Brune, Hélie. » → memoire _(retient « recu-zephyria »)_
+- « Les regarder descendre. » → memoire
+
+### memoire
+
+_Effet : retient « heros-fragment-quai »._
+
+> 🌙 Le train roule vide. Dans la vitre, ton visage, et derrière lui un autre quai : la Gare Engloutie, la nuit, il y a des années. Deux enfants. Une main dans la tienne. Le sifflet. L’autre monte. Tu lâches. Tu sais, maintenant.
+
+- « … » → arrivee
+
+### arrivee
+
+> 🌙 Le train ralentit. Une gare sous la cendre, et très haut au-dessus, une lumière qui flotte : les Hauts de Zephyria, et Aetherhaven. Altavent. Le train s’arrête au butoir. Il n’y a personne sur le quai pour le recevoir.
+
+- « Descendre. » → **fin** _(retient « altavent-vu », mène à « Altavent — le terminus de la voie sept »)_
+
+### apres
+
+> Les rails sont froids. Le train ne reviendra pas.
+
+- « … » → **fin**
 
 ## Un traîneau de Ferros
 

@@ -50,6 +50,7 @@ describe('les fins vues (étude B11)', () => {
       ['epreuve-blizzard', 3],
       ['cristal-ecoute', 3],
       ['yeti-portes', 3],
+      ['voie-sept', 4],
     ]);
   });
 

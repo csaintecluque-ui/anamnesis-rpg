@@ -236,6 +236,13 @@ import sigrun from './sigrun.json';
 import cristalEspion from './cristal-espion.json';
 import traineauVole from './traineau-vole.json';
 import registrePortes from './registre-portes.json';
+import mandataire from './mandataire.json';
+import eddaQuai from './edda-quai.json';
+import chassis from './chassis.json';
+import trainQuai from './train-quai.json';
+import registreAltavent from './registre-altavent.json';
+import eddaVarn from './edda-varn.json';
+import enfantFenetre from './enfant-fenetre.json';
 
 /** Dialogue files by object name (PNJ, Écho or object) of the maps. */
 export const DIALOGUES: Record<string, Dialogue> = {
@@ -487,6 +494,14 @@ export const DIALOGUES: Record<string, Dialogue> = {
   'cristal-espion': cristalEspion as Dialogue,
   'traineau-vole': traineauVole as Dialogue,
   'registre-portes': registrePortes as Dialogue,
+  // La fin (chapitre 9, docs/gdd/chapitre-9.md)
+  mandataire: mandataire as Dialogue,
+  'edda-quai': eddaQuai as Dialogue,
+  chassis: chassis as Dialogue,
+  'train-quai': trainQuai as Dialogue,
+  'registre-altavent': registreAltavent as Dialogue,
+  'edda-varn': eddaVarn as Dialogue,
+  'enfant-fenetre': enfantFenetre as Dialogue,
   // Le Livre des Échos (docs/gdd/echos.md) : one dialogue per Écho, built from src/data/echos.json.
   ...echoDialogues(),
 };

@@ -1,0 +1,189 @@
+{
+  "id": "chassis",
+  "speaker": "chassis",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "voie-sept",
+          "status": "done"
+        }
+      ],
+      "node": "apres"
+    },
+    {
+      "requires": [
+        {
+          "flag": "train-appele"
+        }
+      ],
+      "node": "appele"
+    },
+    {
+      "requires": [
+        {
+          "flag": "quai-sept-libre"
+        },
+        {
+          "fin": "complet"
+        }
+      ],
+      "node": "libre-complet"
+    },
+    {
+      "requires": [
+        {
+          "flag": "quai-sept-libre"
+        }
+      ],
+      "node": "libre-manque"
+    },
+    {
+      "node": "pris"
+    }
+  ],
+  "nodes": {
+    "pris": {
+      "text": "Un châssis de fer de l’Ancien Monde, posé sur deux traverses. Les hommes au chèche noir ne te laissent pas en approcher.",
+      "options": [
+        {
+          "text": "Parler à celui qui les paie.",
+          "next": "pris-parler"
+        },
+        {
+          "text": "S’éloigner.",
+          "next": "fin"
+        }
+      ]
+    },
+    "pris-parler": {
+      "text": "Le mandataire est juste à côté, ses gants croisés sur le ventre. Il t’a vu·e venir.",
+      "options": [
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ]
+    },
+    "libre-complet": {
+      "text": "Le châssis est à toi. Tu y montes les pièces une à une : elles s’emboîtent sans un bruit, comme si elles s’attendaient. Sept. Il n’en manque aucune. Hesper les compte avec toi, à voix basse.",
+      "effects": [
+        {
+          "setFlag": "machine-comprise"
+        }
+      ],
+      "options": [
+        {
+          "text": "Appeler le train.",
+          "next": "appel"
+        },
+        {
+          "text": "La jeter dans la Faille.",
+          "next": "jeter"
+        },
+        {
+          "text": "Pas encore.",
+          "next": "fin"
+        }
+      ]
+    },
+    "libre-manque": {
+      "text": "Le châssis est à toi. Tu y montes ce que tu as : des pièces s’emboîtent, des places restent vides. Hesper les compte avec toi. — Ce qui manque, la Faille le donnera. Elle le prendra dans les Échos de la Lisière, à Ilyane, à d’autres. Elle prend toujours.",
+      "effects": [
+        {
+          "setFlag": "machine-comprise"
+        }
+      ],
+      "options": [
+        {
+          "text": "Appeler le train quand même.",
+          "next": "appel"
+        },
+        {
+          "text": "La jeter dans la Faille.",
+          "next": "jeter"
+        },
+        {
+          "text": "Pas encore.",
+          "next": "fin"
+        }
+      ]
+    },
+    "appel": {
+      "text": "Tu abaisses le levier. Le châssis tire sur la Faille, longuement ; l’air se refroidit, les lanternes pâlissent. Au fond de la voûte, une lumière, puis un sifflet, trois mille ans trop tard. Le train entre en gare. Pour la première fois, il s’arrête.",
+      "effects": [
+        {
+          "finale": "appeler"
+        },
+        {
+          "setFlag": "train-appele"
+        }
+      ],
+      "options": [
+        {
+          "text": "Le train attend.",
+          "next": "fin"
+        }
+      ]
+    },
+    "jeter": {
+      "text": "Tu soulèves le châssis jusqu’au bord de la Faille. Hesper ne dit rien. En bas, elle respire.",
+      "options": [
+        {
+          "text": "La jeter.",
+          "next": "jetee"
+        },
+        {
+          "text": "Non. Pas ça.",
+          "next": "fin"
+        }
+      ]
+    },
+    "jetee": {
+      "text": "La machine tombe longtemps. Tu n’entends pas le fond. Au-dessus de toi, quelque part, un train passe, et ne ralentit pas. Hesper ferme son carnet. — Plus personne ne l’appellera. Ni eux, ni toi.",
+      "effects": [
+        {
+          "setFlag": "fin-voie-sept-jetee"
+        },
+        {
+          "completeQuest": "voie-sept"
+        },
+        {
+          "giveXp": 150
+        },
+        {
+          "finale": "jeter"
+        }
+      ],
+      "options": [
+        {
+          "text": "…",
+          "next": "fin",
+          "effects": [
+            {
+              "epilogue": true
+            }
+          ]
+        }
+      ]
+    },
+    "appele": {
+      "text": "Le châssis est froid. Les pièces n’y bougent plus. Le train attend, porte ouverte.",
+      "options": [
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ]
+    },
+    "apres": {
+      "text": "Le châssis est froid, et vide.",
+      "options": [
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

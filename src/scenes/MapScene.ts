@@ -842,7 +842,7 @@ export class MapScene extends Phaser.Scene {
     const center = encounter && findObject(this.map, encounter.center);
     if (!encounter || !center) return;
     const enemyObjects = encounter.enemies.map((e) => findObject(this.map, e.object)!);
-    this.launchFight(center, encounter.enemies.map((e) => e.id), enemyObjects, encounter.victoryFlag, encounter.victoryEffects, undefined, encounter.intro);
+    this.launchFight(center, encounter.enemies.map((e) => e.id), enemyObjects, encounter.victoryFlag, encounter.victoryEffects, encounter.menace, encounter.intro);
   }
 
   /**

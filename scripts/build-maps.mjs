@@ -346,6 +346,8 @@ function gareEngloutie() {
   m.object('foreuse', 'foreuse', 19, 8);
   // La Faille, au pied de la foreuse : dessous, le quai sept (« Ce que cherchait la foreuse », après le chapitre 5).
   m.object('faille-descente', 'objet', 20, 9);
+  // Le retour du quai sept (la fin, chapitre 9) : l'échelle remonte au bord de la Faille.
+  m.object('depuis-quai', 'arrivee', 19, 10);
   m.object('panneau-gare', 'panneau', 2, 8, {
     texte: 'Gare Engloutie — la forêt a repris ce que les hommes avaient laissé.',
   });
@@ -386,7 +388,8 @@ function interior(id, { w = 7, h = 6, outside = 'gardebois', floor = 'parquet', 
 const INTERIORS = {
   'maison-ilyane': interior('maison-ilyane', {
     furniture: [[2, 1, 'etagere'], [3, 1, 'etagere'], [6, 1, 'cheminee'], [4, 3, 'cristal-veille'], [1, 5, 'lit'], [6, 4, 'table']],
-    objects: [['carnets-ilyane', 'objet', 2, 1], ['cristal-veille', 'objet', 4, 3]],
+    // Hesper, venue de Sept-Portes pour la fin (chapitre 9, « La voie sept »).
+    objects: [['carnets-ilyane', 'objet', 2, 1], ['cristal-veille', 'objet', 4, 3], ['hesper', 'pnj', 5, 3, { apparaitSi: 'voie-sept-commencee', disparaitSi: 'quai-sept-libre' }]],
   }),
   'auberge-racine': interior('auberge-racine', {
     furniture: [[1, 1, 'tonneaux'], [1, 2, 'tonneaux'], [6, 1, 'cheminee'], [3, 3, 'comptoir'], [4, 3, 'comptoir'], [2, 5, 'table'], [6, 4, 'table']],
@@ -1517,6 +1520,8 @@ function halteCendres() {
   m.object('vers-voie', 'sortie', 0, 7, { cible: 'voie-du-bas', arrivee: 'depuis-halte', libelle: 'Repartir par la voie' });
   m.object('depuis-voie', 'arrivee', 2, 7);
   m.object('entree', 'arrivee', 2, 7);
+  // Le retour d'Altavent (la fin, chapitre 9), au bout de la voie.
+  m.object('depuis-altavent', 'arrivee', 14, 7);
   m.setObstacle(11, 4, 'caisse-ouverte');
   m.object('caisse-zephyria', 'objet', 11, 4);
   // La dame en gris est arrivée la première, avec deux Ailes Noires payées pour la descente.
@@ -2164,6 +2169,73 @@ function khrysosVoieSept() {
   return m.toTiled();
 }
 
+// --- La fin (chapitre 9, docs/gdd/chapitre-9.md) : le quai sept sous la Faille, et Altavent sous les Hauts --------
+
+/** Le quai sept, sous la Faille de la Gare Engloutie : le châssis des Réveilleurs, leurs hommes, la dame en gris. */
+function quaiSept() {
+  const m = new MapBuilder(24, 14);
+  m.ground.fill(gid('dalles'));
+  for (let col = 0; col < 24; col++) {
+    m.setObstacle(col, 0, 'mur-brique');
+    m.setObstacle(col, 13, 'mur-brique');
+  }
+  for (let row = 0; row < 14; row++) m.setObstacle(23, row, 'mur-brique');
+  for (let row = 1; row < 13; row++) if (row !== 6) m.setObstacle(0, row, 'mur-brique');
+  m.rect(3, 4, 19, 7, 'quai');
+  m.line([1, 9], [22, 9], 'rail');
+  blocks(m, 'reverbere', [[4, 4], [18, 4]]);
+  blocks(m, 'caisses', [[20, 5], [20, 6]]);
+  m.setObstacle(2, 5, 'echelle-corde');
+  m.object('vers-gare', 'sortie', 0, 6, { cible: 'gare-engloutie', arrivee: 'depuis-quai', libelle: 'Remonter par l’échelle' });
+  m.object('depuis-faille', 'arrivee', 2, 6);
+  m.object('entree', 'arrivee', 2, 6);
+  // Le châssis : les pièces prises par les Réveilleurs, montées sur un bâti de l'Ancien Monde.
+  m.setObstacle(11, 5, 'ferraille');
+  m.object('chassis', 'objet', 11, 5);
+  // La caisse de Verdantis, si on l'avait laissée sous la Faille (sa pièce compte pour l'appel).
+  m.object('caisse-quai-sept', 'objet', 21, 8, { tuile: 'caisse-plomb', apparaitSi: 'fin-sous-la-faille-laissee' });
+  m.setObstacle(15, 4, 'stele');
+  m.object('panneau-quai-sept', 'panneau', 15, 4, { texte: 'Une plaque de l’Ancien Monde : « Quai 7 — voie 7 ». Sous « Départs », une seule ligne, grattée jusqu’au métal.' });
+  // Le mandataire et ses hommes au chèche noir : toucher l'un d'eux, c'est lui parler.
+  m.object('mandataire', 'pnj', 12, 6, { disparaitSi: 'quai-sept-libre,pieces-donnees' });
+  const agent = { dialogue: 'mandataire', disparaitSi: 'quai-sept-libre,pieces-donnees', texte: 'Un homme au chèche noir, payé pour garder le châssis.' };
+  m.object('agent-1', 'ennemi', 13, 5, { ...agent, ennemi: 'pilleur-sables' });
+  m.object('agent-2', 'ennemi', 14, 7, { ...agent, ennemi: 'arbaletrier-cendres' });
+  m.object('agent-3', 'ennemi', 9, 7, { ...agent, ennemi: 'pilleur-sables' });
+  m.object('agent-4', 'ennemi', 16, 6, { ...agent, ennemi: 'pilleur-sables' });
+  m.object('edda-quai', 'pnj', 6, 5, { disparaitSi: 'fin-voie-sept-recu,fin-voie-sept-monte,fin-voie-sept-jetee,fin-voie-sept-dechiree' });
+  m.object('hesper', 'pnj', 8, 4, { apparaitSi: 'quai-sept-libre' });
+  // Le train, une fois appelé.
+  m.object('train-quai', 'objet', 12, 9, { tuile: 'wagon', apparaitSi: 'train-appele', disparaitSi: 'fin-voie-sept-recu,fin-voie-sept-monte' });
+  m.object('train-quai-2', 'decor', 13, 9, { tuile: 'wagon', apparaitSi: 'train-appele', disparaitSi: 'fin-voie-sept-recu,fin-voie-sept-monte' });
+  m.object('train-quai-3', 'decor', 14, 9, { tuile: 'wagon', apparaitSi: 'train-appele', disparaitSi: 'fin-voie-sept-recu,fin-voie-sept-monte' });
+  return m.toTiled();
+}
+
+/** Altavent, le terminus de la voie sept, sous les Hauts de Zephyria : le quai, le registre, le train. */
+function altavent() {
+  const m = ashLand(22, 14, 7900, (c, r) => r >= 4 && r <= 10);
+  m.rect(3, 4, 17, 6, 'quai');
+  m.line([1, 8], [18, 8], 'rail');
+  blocks(m, 'butoir', [[19, 8]]);
+  blocks(m, 'reverbere', [[4, 4], [16, 4]]);
+  m.setObstacle(9, 4, 'lutrin');
+  m.object('registre-altavent', 'objet', 9, 4);
+  m.object('edda-varn', 'pnj', 9, 5);
+  // Le train arrêté, et l'enfant à la dernière fenêtre.
+  m.object('enfant-fenetre', 'objet', 14, 8, { tuile: 'wagon', disparaitSi: 'fin-voie-sept-recu,fin-voie-sept-monte' });
+  m.object('train-altavent-2', 'decor', 13, 8, { tuile: 'wagon', disparaitSi: 'fin-voie-sept-recu,fin-voie-sept-monte' });
+  m.object('train-altavent-3', 'decor', 12, 8, { tuile: 'wagon', disparaitSi: 'fin-voie-sept-recu,fin-voie-sept-monte' });
+  m.setObstacle(6, 4, 'stele');
+  m.object('panneau-altavent', 'panneau', 6, 4, { texte: 'Sur une plaque, sous la cendre : « Altavent — terminus. Tous les voyageurs descendent. »' });
+  m.object('quai', 'arrivee', 13, 6);
+  m.object('entree', 'arrivee', 13, 6);
+  // Le chemin du retour, une fois le registre signé : vers la Halte des Cendres, et l'échelle d'Aetherhaven.
+  m.setObstacle(0, 7, null);
+  m.object('vers-halte', 'sortie', 0, 7, { cible: 'halte-cendres', arrivee: 'depuis-altavent', libelle: 'Remonter vers la Halte des Cendres', apparaitSi: 'fin-voie-sept-recu' });
+  return m.toTiled();
+}
+
 const ICE_ROOM = { floor: 'dalle-givre', wall: 'mur-glace' };
 Object.assign(INTERIORS, {
   'khrysos-foyer': interior('khrysos-foyer', {
@@ -2382,6 +2454,8 @@ for (const [id, map] of Object.entries({
   'khrysos-douze': khrysosDouze(),
   'khrysos-cryptes': khrysosCryptes(),
   'khrysos-voie-sept': khrysosVoieSept(),
+  'quai-sept': quaiSept(),
+  altavent: altavent(),
   ...ENCOUNTER_MAPS,
   ...VOIE_MAPS,
 })) {

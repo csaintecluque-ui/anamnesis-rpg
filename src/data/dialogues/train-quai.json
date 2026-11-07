@@ -1,0 +1,272 @@
+{
+  "id": "train-quai",
+  "speaker": "train-quai",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "voie-sept",
+          "status": "done"
+        }
+      ],
+      "node": "apres"
+    },
+    {
+      "node": "monter"
+    }
+  ],
+  "nodes": {
+    "monter": {
+      "text": "Le train attend, porte ouverte. Dedans, il fait tiède, et ça sent la vapeur, chaude, un peu sucrée. Les banquettes sont vides.",
+      "options": [
+        {
+          "text": "Monter, avec la dame en gris.",
+          "next": "depart-edda",
+          "requires": [
+            {
+              "flag": "edda-quai-alliee"
+            }
+          ],
+          "effects": [
+            {
+              "setFlag": "edda-altavent"
+            }
+          ]
+        },
+        {
+          "text": "Monter.",
+          "next": "depart"
+        },
+        {
+          "text": "Pas encore.",
+          "next": "fin"
+        }
+      ]
+    },
+    "depart": {
+      "text": "Le train s’ébranle sans un bruit. Sur le quai sept, six enfants restent près d’une caisse de plomb : les plus petits. Un adulte leur dit d’attendre, que quelqu’un viendra. Leurs noms, l’eau les a bus. Il te reste leurs âges.",
+      "night": true,
+      "options": [
+        {
+          "text": "Dire leurs âges : sept, six, huit, cinq, six, neuf.",
+          "next": "halte-ferros",
+          "effects": [
+            {
+              "setFlag": "recu-verdantis"
+            }
+          ]
+        },
+        {
+          "text": "Les regarder rester.",
+          "next": "halte-ferros"
+        }
+      ]
+    },
+    "depart-edda": {
+      "text": "Le train s’ébranle sans un bruit. La dame en gris s’est assise en face de toi, la liste sur les genoux. Sur le quai sept, six enfants restent près d’une caisse de plomb : les plus petits. Leurs noms, l’eau les a bus. Il te reste leurs âges.",
+      "night": true,
+      "options": [
+        {
+          "text": "Dire leurs âges : sept, six, huit, cinq, six, neuf.",
+          "next": "halte-ferros",
+          "effects": [
+            {
+              "setFlag": "recu-verdantis"
+            }
+          ]
+        },
+        {
+          "text": "Les regarder rester.",
+          "next": "halte-ferros"
+        }
+      ]
+    },
+    "halte-ferros": {
+      "text": "Une halte dans la cendre, sous des cheminées qui n’existent pas encore. Six enfants descendent, une caisse de plomb entre eux ; la plus grande tient les autres par la manche. Un adulte reste sur le marchepied : « Quelqu’un viendra. » La porte se referme.",
+      "night": true,
+      "options": [
+        {
+          "text": "Dire leurs noms : Oda, Tilo, Mara, Jens, Ruth, Anouk.",
+          "next": "halte-terminus",
+          "requires": [
+            {
+              "fin": "liste-ferros"
+            }
+          ],
+          "effects": [
+            {
+              "setFlag": "recu-ferros"
+            }
+          ]
+        },
+        {
+          "text": "Les regarder descendre.",
+          "next": "halte-terminus"
+        }
+      ]
+    },
+    "halte-terminus": {
+      "text": "Un monte-charge, au bout d’un quai de pierre, sous une ville qui n’a pas encore de bibliothèque. Six enfants y montent avec leur caisse. Le plus petit fait au revoir de la main, à personne en particulier.",
+      "night": true,
+      "options": [
+        {
+          "text": "Dire leurs noms : Aldo, Nour, Tess, Sven, Lou, Mirko.",
+          "next": "halte-communion",
+          "requires": [
+            {
+              "fin": "liste-terminus"
+            }
+          ],
+          "effects": [
+            {
+              "setFlag": "recu-terminus"
+            }
+          ]
+        },
+        {
+          "text": "Les regarder descendre.",
+          "next": "halte-communion"
+        }
+      ]
+    },
+    "halte-communion": {
+      "text": "Du sable, déjà, contre les rails. « Halte des Sables — voie 7 ». Six enfants descendent dans la chaleur. L’adulte leur laisse une gourde, une seule. « Quelqu’un viendra. » La porte se referme.",
+      "night": true,
+      "options": [
+        {
+          "text": "Dire leurs noms : Inès, Pavel, Lila, Oren, Nadia, Sacha.",
+          "next": "halte-marisol",
+          "requires": [
+            {
+              "fin": "liste-communion"
+            }
+          ],
+          "effects": [
+            {
+              "setFlag": "recu-communion"
+            }
+          ]
+        },
+        {
+          "text": "Les regarder descendre.",
+          "next": "halte-marisol"
+        }
+      ]
+    },
+    "halte-marisol": {
+      "text": "Le train longe la mer. À une halte noyée de sel, six enfants descendent avec une caisse que les vagues lèchent déjà. L’un d’eux ramasse un coquillage et le met dans sa poche, pour plus tard.",
+      "night": true,
+      "options": [
+        {
+          "text": "Dire leurs noms : Ilan, Naïs, Corin, Sela, Timo, Rhéa.",
+          "next": "halte-glacialis",
+          "requires": [
+            {
+              "fin": "liste-marisol"
+            }
+          ],
+          "effects": [
+            {
+              "setFlag": "recu-marisol"
+            }
+          ]
+        },
+        {
+          "text": "Les regarder descendre.",
+          "next": "halte-glacialis"
+        }
+      ]
+    },
+    "halte-glacialis": {
+      "text": "Le froid entre par la porte ouverte. « Halte des Glaces — voie 7 ». Six enfants descendent sur la glace, serrés les uns contre les autres. Le plus jeune a quatre ans. Il ne pleure pas : il compte.",
+      "night": true,
+      "options": [
+        {
+          "text": "Dire leurs noms : Aksel, Mira, Tove, Elio, Ysé, Noam.",
+          "next": "halte-zephyria",
+          "requires": [
+            {
+              "fin": "liste-glacialis"
+            }
+          ],
+          "effects": [
+            {
+              "setFlag": "recu-glacialis"
+            }
+          ]
+        },
+        {
+          "text": "Les regarder descendre.",
+          "next": "halte-zephyria"
+        }
+      ]
+    },
+    "halte-zephyria": {
+      "text": "La dernière halte avant le terminus, sous des nuages qui ne sont pas encore des nuages. « Halte — voie 7 — ne pas stationner ». Six enfants descendent avec la dernière caisse. Le train repart vide.",
+      "night": true,
+      "options": [
+        {
+          "text": "Dire leurs noms : Ama, Joran, Sefi, Nilo, Brune, Hélie.",
+          "next": "memoire",
+          "requires": [
+            {
+              "fin": "liste-zephyria"
+            }
+          ],
+          "effects": [
+            {
+              "setFlag": "recu-zephyria"
+            }
+          ]
+        },
+        {
+          "text": "Les regarder descendre.",
+          "next": "memoire"
+        }
+      ]
+    },
+    "memoire": {
+      "text": "Le train roule vide. Dans la vitre, ton visage, et derrière lui un autre quai : la Gare Engloutie, la nuit, il y a des années. Deux enfants. Une main dans la tienne. Le sifflet. L’autre monte. Tu lâches. Tu sais, maintenant.",
+      "night": true,
+      "effects": [
+        {
+          "setFlag": "heros-fragment-quai"
+        }
+      ],
+      "options": [
+        {
+          "text": "…",
+          "next": "arrivee"
+        }
+      ]
+    },
+    "arrivee": {
+      "text": "Le train ralentit. Une gare sous la cendre, et très haut au-dessus, une lumière qui flotte : les Hauts de Zephyria, et Aetherhaven. Altavent. Le train s’arrête au butoir. Il n’y a personne sur le quai pour le recevoir.",
+      "night": true,
+      "options": [
+        {
+          "text": "Descendre.",
+          "next": "fin",
+          "effects": [
+            {
+              "setFlag": "altavent-vu"
+            },
+            {
+              "goTo": "altavent",
+              "arrivee": "quai"
+            }
+          ]
+        }
+      ]
+    },
+    "apres": {
+      "text": "Les rails sont froids. Le train ne reviendra pas.",
+      "options": [
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

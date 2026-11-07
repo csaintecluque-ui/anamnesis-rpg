@@ -1,0 +1,50 @@
+{
+  "id": "registre-altavent",
+  "speaker": "registre-altavent",
+  "entries": [
+    {
+      "requires": [
+        {
+          "flag": "fin-voie-sept-recu"
+        }
+      ],
+      "node": "signe"
+    },
+    {
+      "node": "registre"
+    }
+  ],
+  "nodes": {
+    "registre": {
+      "text": "Un registre de l’Ancien Monde, ouvert sur un lutrin, sous la cendre. La dernière ligne : « Dernier départ, voie sept. Reçu : personne. » En dessous, d’une autre main, plus récente : quarante-deux noms recopiés avec soin, et un quarante-troisième, tout en bas.",
+      "options": [
+        {
+          "text": "Lire le dernier nom.",
+          "next": "dernier-nom"
+        },
+        {
+          "text": "Laisser le registre.",
+          "next": "fin"
+        }
+      ]
+    },
+    "dernier-nom": {
+      "text": "Un prénom de femme, que tu ne connais pas, d’une écriture qui tremble. Sous lui, rien. On a laissé la place d’une ligne, pour une signature.",
+      "options": [
+        {
+          "text": "Laisser le registre.",
+          "next": "fin"
+        }
+      ]
+    },
+    "signe": {
+      "text": "« Dernier départ, voie sept. Reçu : personne. » Et dessous, d’une encre qui ne sèche pas : ton nom.",
+      "options": [
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

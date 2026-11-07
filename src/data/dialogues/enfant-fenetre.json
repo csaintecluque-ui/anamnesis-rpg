@@ -1,0 +1,123 @@
+{
+  "id": "enfant-fenetre",
+  "speaker": "enfant-fenetre",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "voie-sept",
+          "status": "done"
+        }
+      ],
+      "node": "apres"
+    },
+    {
+      "node": "fenetre"
+    }
+  ],
+  "nodes": {
+    "fenetre": {
+      "text": "À la dernière fenêtre du train, un enfant. Le même. Il n’a pas grandi. Il pose la main contre la vitre, les doigts écartés. — Tu es venu·e. Le train repart bientôt. Il manque quelqu’un, depuis le quai.",
+      "options": [
+        {
+          "text": "Lui rendre la main.",
+          "next": "monter-confirm"
+        },
+        {
+          "text": "Rester. Signer le registre.",
+          "next": "rester-confirm"
+        },
+        {
+          "text": "Pas encore.",
+          "next": "fin"
+        }
+      ]
+    },
+    "monter-confirm": {
+      "text": "Si tu montes, le train partira complet, et ne reviendra plus. La maladie des souvenirs s’arrêtera avec lui : Ilyane retrouvera tout, d’autres aussi. Toi, tu ne reviendras pas.",
+      "options": [
+        {
+          "text": "Monter.",
+          "next": "monte"
+        },
+        {
+          "text": "Pas encore.",
+          "next": "fin"
+        }
+      ]
+    },
+    "monte": {
+      "text": "Tu montes. L’enfant te prend la main sans un mot, comme s’il ne l’avait jamais lâchée. Le sifflet. Le quai d’Altavent glisse derrière la vitre, puis la cendre, puis la nuit.",
+      "night": true,
+      "effects": [
+        {
+          "setFlag": "fin-voie-sept-monte"
+        },
+        {
+          "completeQuest": "voie-sept"
+        },
+        {
+          "giveXp": 150
+        }
+      ],
+      "options": [
+        {
+          "text": "…",
+          "next": "fin",
+          "effects": [
+            {
+              "epilogue": true
+            }
+          ]
+        }
+      ]
+    },
+    "rester-confirm": {
+      "text": "Si tu restes, tu signes : « Reçu ». Les enfants des haltes seront reçus, enfin. Le train repartira vide, pour la dernière fois. Ce que la maladie a pris restera pris.",
+      "options": [
+        {
+          "text": "Signer.",
+          "next": "recu"
+        },
+        {
+          "text": "Pas encore.",
+          "next": "fin"
+        }
+      ]
+    },
+    "recu": {
+      "text": "Tu prends la plume sèche. Sous « Reçu : personne », tu écris ton nom. L’enfant te regarde faire, puis il sourit, et retire sa main de la vitre. Le train repart, vide, sans sifflet. Tu restes sur le quai, avec ce que tu sais.",
+      "effects": [
+        {
+          "setFlag": "fin-voie-sept-recu"
+        },
+        {
+          "completeQuest": "voie-sept"
+        },
+        {
+          "giveXp": 150
+        }
+      ],
+      "options": [
+        {
+          "text": "…",
+          "next": "fin",
+          "effects": [
+            {
+              "epilogue": true
+            }
+          ]
+        }
+      ]
+    },
+    "apres": {
+      "text": "Les rails s’arrêtent au butoir. Le train n’est plus là.",
+      "options": [
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

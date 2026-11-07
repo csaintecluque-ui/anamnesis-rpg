@@ -22,7 +22,12 @@ interface FragmentDef {
   reve: string;
 }
 
-const HEROS = herosData as { page: string; enfant: { flag: string; titre: string; texte: string }; fragments: FragmentDef[]; manque: string };
+interface Line {
+  flag: string;
+  titre: string;
+  texte: string;
+}
+const HEROS = herosData as { page: string; enfant: Line; fragments: FragmentDef[]; manque: string; quai: Line };
 export const FRAGMENTS = HEROS.fragments;
 
 export function findFragment(id: string): FragmentDef | undefined {
@@ -49,14 +54,16 @@ export interface HerosPage {
 /** The page « Ce qui n'est pas à moi », once something has come back; null before. */
 export function herosPage(state: Pick<GameState, 'flags'>): HerosPage | null {
   const known = (flag: string) => !!state.flags[flag];
-  if (!known(HEROS.enfant.flag) && !FRAGMENTS.some((f) => known(f.flag))) return null;
+  if (!known(HEROS.enfant.flag) && !known(HEROS.quai.flag) && !FRAGMENTS.some((f) => known(f.flag))) return null;
   return {
     titre: HEROS.page,
     lignes: [
       { titre: HEROS.enfant.titre, texte: known(HEROS.enfant.flag) ? HEROS.enfant.texte : null },
       ...FRAGMENTS.map((f) => ({ titre: f.titre, texte: known(f.flag) ? f.texte : null })),
+      // The quai comes back at the end only, in the train to Altavent (chapitre 9): the hero knows, then.
+      { titre: HEROS.quai.titre, texte: known(HEROS.quai.flag) ? HEROS.quai.texte : null },
     ],
     // The quai comes back at Altavent only (chapter 5): until then, something is always missing.
-    manque: HEROS.manque,
+    manque: known(HEROS.quai.flag) ? null : HEROS.manque,
   };
 }

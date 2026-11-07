@@ -11,7 +11,7 @@
  "tilewidth": 64,
  "tileheight": 32,
  "nextlayerid": 4,
- "nextobjectid": 9,
+ "nextobjectid": 10,
  "layers": [
   {
    "id": 1,
@@ -666,6 +666,19 @@
     },
     {
      "id": 4,
+     "name": "depuis-altavent",
+     "type": "arrivee",
+     "x": 464,
+     "y": 240,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": []
+    },
+    {
+     "id": 5,
      "name": "caisse-zephyria",
      "type": "objet",
      "x": 368,
@@ -678,7 +691,7 @@
      "properties": []
     },
     {
-     "id": 5,
+     "id": 6,
      "name": "edda-halte",
      "type": "pnj",
      "x": 336,
@@ -697,7 +710,7 @@
      ]
     },
     {
-     "id": 6,
+     "id": 7,
      "name": "aile-gage-1",
      "type": "ennemi",
      "x": 432,
@@ -726,7 +739,7 @@
      ]
     },
     {
-     "id": 7,
+     "id": 8,
      "name": "aile-gage-2",
      "type": "ennemi",
      "x": 464,
@@ -755,7 +768,7 @@
      ]
     },
     {
-     "id": 8,
+     "id": 9,
      "name": "panneau-halte",
      "type": "panneau",
      "x": 240,

@@ -234,5 +234,89 @@
         "giveXp": 80
       }
     ]
+  },
+  {
+    "id": "quai-sept-2",
+    "center": "chassis",
+    "enemies": [
+      {
+        "id": "pilleur-sables",
+        "object": "agent-1"
+      },
+      {
+        "id": "arbaletrier-cendres",
+        "object": "agent-2"
+      }
+    ],
+    "victoryFlag": "agents-quai-vaincus",
+    "victoryEffects": [
+      {
+        "setFlag": "quai-sept-libre"
+      },
+      {
+        "finale": "reprendre-pieces"
+      }
+    ],
+    "menace": 9
+  },
+  {
+    "id": "quai-sept-3",
+    "center": "chassis",
+    "enemies": [
+      {
+        "id": "pilleur-sables",
+        "object": "agent-1"
+      },
+      {
+        "id": "arbaletrier-cendres",
+        "object": "agent-2"
+      },
+      {
+        "id": "pilleur-sables",
+        "object": "agent-3"
+      }
+    ],
+    "victoryFlag": "agents-quai-vaincus",
+    "victoryEffects": [
+      {
+        "setFlag": "quai-sept-libre"
+      },
+      {
+        "finale": "reprendre-pieces"
+      }
+    ],
+    "menace": 9
+  },
+  {
+    "id": "quai-sept-4",
+    "center": "chassis",
+    "enemies": [
+      {
+        "id": "pilleur-sables",
+        "object": "agent-1"
+      },
+      {
+        "id": "arbaletrier-cendres",
+        "object": "agent-2"
+      },
+      {
+        "id": "pilleur-sables",
+        "object": "agent-3"
+      },
+      {
+        "id": "pilleur-sables",
+        "object": "agent-4"
+      }
+    ],
+    "victoryFlag": "agents-quai-vaincus",
+    "victoryEffects": [
+      {
+        "setFlag": "quai-sept-libre"
+      },
+      {
+        "finale": "reprendre-pieces"
+      }
+    ],
+    "menace": 9
   }
 ]

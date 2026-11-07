@@ -1,0 +1,398 @@
+{
+  "id": "mandataire",
+  "speaker": "mandataire",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "voie-sept",
+          "status": "done"
+        }
+      ],
+      "node": "parti"
+    },
+    {
+      "requires": [
+        {
+          "fin": "prises-aucune"
+        }
+      ],
+      "node": "face-vide"
+    },
+    {
+      "requires": [
+        {
+          "fin": "prises-peu"
+        }
+      ],
+      "node": "face-peu"
+    },
+    {
+      "requires": [
+        {
+          "fin": "prises-moitie"
+        }
+      ],
+      "node": "face-moitie"
+    },
+    {
+      "node": "face-toutes"
+    }
+  ],
+  "nodes": {
+    "face-vide": {
+      "text": "Un homme en manteau de pluie se tient devant un châssis de fer, sous une lanterne. Il ne donne pas son nom ; on ne voit que ses gants, très clairs. Le châssis est vide. — Nous n’avons rien. Vous avez tout, ou vous l’avez laissé. C’est pour ça qu’on vous attendait.",
+      "effects": [
+        {
+          "setFlag": "mandataire-vu"
+        }
+      ],
+      "options": [
+        {
+          "text": "Demande-lui, à elle.",
+          "next": "edda-se-retourne",
+          "requires": [
+            {
+              "fin": "edda-alliee"
+            }
+          ]
+        },
+        {
+          "text": "Écoutez-moi d’abord.",
+          "next": "parler"
+        },
+        {
+          "text": "Prenez-les, alors.",
+          "next": "donner"
+        },
+        {
+          "text": "Personne ne les aura.",
+          "next": "combat"
+        }
+      ]
+    },
+    "face-peu": {
+      "text": "Un homme en manteau de pluie se tient devant un châssis de fer, sous une lanterne. Il ne donne pas son nom ; on ne voit que ses gants, très clairs. Sur le châssis, une ou deux pièces, dans leur toile. — Il nous manque les vôtres. Ceux qui paient sont patients. Moi, moins.",
+      "effects": [
+        {
+          "setFlag": "mandataire-vu"
+        }
+      ],
+      "options": [
+        {
+          "text": "Demande-lui, à elle.",
+          "next": "edda-se-retourne",
+          "requires": [
+            {
+              "fin": "edda-alliee"
+            }
+          ]
+        },
+        {
+          "text": "Écoutez-moi d’abord.",
+          "next": "parler"
+        },
+        {
+          "text": "Prenez-les, alors.",
+          "next": "donner"
+        },
+        {
+          "text": "Personne ne les aura.",
+          "next": "combat"
+        }
+      ]
+    },
+    "face-moitie": {
+      "text": "Un homme en manteau de pluie se tient devant un châssis de fer, sous une lanterne. On ne voit que ses gants, très clairs. Sur le châssis, la moitié des pièces, montées avec soin. — Vous arrivez tard, Gardien. Il nous manque les vôtres, et la Faille fera le reste s’il le faut.",
+      "effects": [
+        {
+          "setFlag": "mandataire-vu"
+        }
+      ],
+      "options": [
+        {
+          "text": "Demande-lui, à elle.",
+          "next": "edda-se-retourne",
+          "requires": [
+            {
+              "fin": "edda-alliee"
+            }
+          ]
+        },
+        {
+          "text": "Écoutez-moi d’abord.",
+          "next": "parler"
+        },
+        {
+          "text": "Prenez-les, alors.",
+          "next": "donner"
+        },
+        {
+          "text": "Personne ne les aura.",
+          "next": "combat"
+        }
+      ]
+    },
+    "face-toutes": {
+      "text": "Un homme en manteau de pluie se tient devant un châssis de fer presque plein. On ne voit que ses gants, très clairs. — Vous avez laissé les gants fins passer avant vous, ville après ville. Il nous manque si peu. La Faille fera le reste, avec ou sans vous.",
+      "effects": [
+        {
+          "setFlag": "mandataire-vu"
+        }
+      ],
+      "options": [
+        {
+          "text": "Demande-lui, à elle.",
+          "next": "edda-se-retourne",
+          "requires": [
+            {
+              "fin": "edda-alliee"
+            }
+          ]
+        },
+        {
+          "text": "Écoutez-moi d’abord.",
+          "next": "parler"
+        },
+        {
+          "text": "Prenez-les, alors.",
+          "next": "donner"
+        },
+        {
+          "text": "Personne ne les aura.",
+          "next": "combat"
+        }
+      ]
+    },
+    "parler": {
+      "text": "Le mandataire croise ses gants. — Je vous écoute. On m’a dit que les Gardiens parlaient bien. On m’a dit aussi qu’ils parlaient longtemps.",
+      "options": [
+        {
+          "text": "Il n’y a rien à Altavent. Rien que des noms.",
+          "next": "verite",
+          "requires": [
+            {
+              "fin": "listes"
+            }
+          ],
+          "roll": {
+            "skill": "diplomacy",
+            "difficulty": 19
+          },
+          "failNext": "verite-non"
+        },
+        {
+          "text": "Les Gardiens de l’Équilibre descendent l’échelle.",
+          "next": "bluff",
+          "roll": {
+            "skill": "subterfuge",
+            "difficulty": 19
+          },
+          "failNext": "bluff-non"
+        },
+        {
+          "text": "Rien. Laissez-moi réfléchir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "verite": {
+      "text": "Tu leur dis Altavent : un quai, un registre, « Reçu : personne ». Tu leur dis les noms, ceux que tu sais, un par un. Les hommes au chèche noir se regardent. L’un d’eux crache. — On ne descend pas sous terre pour des enfants morts. Ils remontent. Le mandataire hésite, puis les suit.",
+      "effects": [
+        {
+          "setFlag": "quai-sept-libre"
+        },
+        {
+          "finale": "reprendre-pieces"
+        },
+        {
+          "setFlag": "reveilleurs-convaincus"
+        }
+      ],
+      "options": [
+        {
+          "text": "Le châssis est à moi.",
+          "next": "fin"
+        }
+      ]
+    },
+    "verite-non": {
+      "text": "— De belles histoires. Le mandataire sourit sous son col. — On nous en raconte depuis Sept-Portes. Celle-là, je ne la paierai pas.",
+      "options": [
+        {
+          "text": "Personne ne les aura.",
+          "next": "combat"
+        },
+        {
+          "text": "Reculer.",
+          "next": "fin"
+        }
+      ]
+    },
+    "bluff": {
+      "text": "— L’Équilibre ? Le mandataire lève les yeux vers la Faille. Là-haut, des pas sur les graviers : des cheminots, sans doute, mais il ne le sait pas. Il ne prend pas le risque. — Gardez votre quai. Ils remontent par l’échelle, sans courir, et sans se retourner.",
+      "effects": [
+        {
+          "setFlag": "quai-sept-libre"
+        },
+        {
+          "finale": "reprendre-pieces"
+        }
+      ],
+      "options": [
+        {
+          "text": "Le châssis est à moi.",
+          "next": "fin"
+        }
+      ]
+    },
+    "bluff-non": {
+      "text": "Le mandataire ne lève même pas les yeux. — L’Équilibre ne descend pas pour si peu. Il a mieux à sceller.",
+      "options": [
+        {
+          "text": "Personne ne les aura.",
+          "next": "combat"
+        },
+        {
+          "text": "Reculer.",
+          "next": "fin"
+        }
+      ]
+    },
+    "edda-se-retourne": {
+      "text": "La dame en gris s’avance jusqu’au châssis. Elle décroche les pièces une à une, sans hâte, et les pose à tes pieds. — Moi, je voulais la liste. Les hommes regardent le mandataire, qui regarde ses gants. Plus personne n’est payé pour rien, sous la Faille. Ils remontent.",
+      "effects": [
+        {
+          "setFlag": "quai-sept-libre"
+        },
+        {
+          "finale": "reprendre-pieces"
+        },
+        {
+          "setFlag": "edda-quai-alliee"
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci.",
+          "next": "fin"
+        }
+      ]
+    },
+    "donner": {
+      "text": "Tu poses la main sur ce que tu portes. Les pièces sont froides, et elles le restent. Le mandataire tend ses gants. — Sans vous, la Faille prendra davantage. Avec vous, un peu moins. C’est tout ce que je peux vous promettre.",
+      "options": [
+        {
+          "text": "Les lui donner.",
+          "next": "appel-reveilleurs",
+          "effects": [
+            {
+              "finale": "donner-pieces"
+            }
+          ]
+        },
+        {
+          "text": "Non. Pas comme ça.",
+          "next": "fin"
+        }
+      ]
+    },
+    "appel-reveilleurs": {
+      "text": "Il monte tes pièces avec les siennes. Il en manque encore. Il abaisse un levier. Le châssis tire sur la Faille, qui gémit. Au fond de la voûte, une lumière, un sifflet : le train passe, les vitres pleines de mains, et ne s’arrête pas. Il ne les attendait pas.",
+      "options": [
+        {
+          "text": "Le regarder partir.",
+          "next": "dechiree"
+        }
+      ]
+    },
+    "dechiree": {
+      "text": "La Faille, forcée, a pris ce qui manquait dans les Échos de la voie sept. Le mandataire regarde ses gants. Ses hommes ramassent le châssis sans un mot. Ils ont payé pour rien, et tu as donné pour rien. Le quai sept est vide.",
+      "effects": [
+        {
+          "setFlag": "fin-voie-sept-dechiree"
+        },
+        {
+          "completeQuest": "voie-sept"
+        },
+        {
+          "giveXp": 150
+        },
+        {
+          "setFlag": "quai-sept-libre"
+        }
+      ],
+      "options": [
+        {
+          "text": "…",
+          "next": "fin",
+          "effects": [
+            {
+              "epilogue": true
+            }
+          ]
+        }
+      ]
+    },
+    "combat": {
+      "text": "Les hommes au chèche noir posent la main sur leurs lames. Le mandataire recule derrière le châssis.",
+      "options": [
+        {
+          "text": "Se battre.",
+          "next": "fin",
+          "requires": [
+            {
+              "fin": "combat-2"
+            }
+          ],
+          "effects": [
+            {
+              "startCombat": "quai-sept-2"
+            }
+          ]
+        },
+        {
+          "text": "Se battre.",
+          "next": "fin",
+          "requires": [
+            {
+              "fin": "combat-3"
+            }
+          ],
+          "effects": [
+            {
+              "startCombat": "quai-sept-3"
+            }
+          ]
+        },
+        {
+          "text": "Se battre.",
+          "next": "fin",
+          "requires": [
+            {
+              "fin": "combat-4"
+            }
+          ],
+          "effects": [
+            {
+              "startCombat": "quai-sept-4"
+            }
+          ]
+        },
+        {
+          "text": "Reculer.",
+          "next": "fin"
+        }
+      ]
+    },
+    "parti": {
+      "text": "Il n’y a plus personne ici, que des marques de bottes dans la boue du quai.",
+      "options": [
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "id": "edda-varn",
+  "speaker": "edda-varn",
+  "entries": [
+    {
+      "requires": [
+        {
+          "flag": "edda-mere-retrouvee"
+        }
+      ],
+      "node": "encore"
+    },
+    {
+      "requires": [
+        {
+          "flag": "edda-altavent"
+        }
+      ],
+      "node": "avec-fille"
+    },
+    {
+      "requires": [
+        {
+          "flag": "edda-varn-parlee"
+        }
+      ],
+      "node": "encore"
+    },
+    {
+      "node": "seule"
+    }
+  ],
+  "nodes": {
+    "seule": {
+      "text": "Une femme en manteau gris clair se tient au pupitre, une plume sèche à la main, faite de la même lumière que le train. — Vous venez de Gardebois ? Alors c’est vous, l’enfant du quai. Ils ont beaucoup parlé de vous, dans le train.",
+      "effects": [
+        {
+          "setFlag": "edda-varn-parlee"
+        }
+      ],
+      "options": [
+        {
+          "text": "Vous êtes Edda Varn.",
+          "next": "nom"
+        },
+        {
+          "text": "Votre fille vous cherche.",
+          "next": "fille"
+        },
+        {
+          "text": "Qui a parlé de moi ?",
+          "next": "parle"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "nom": {
+      "text": "— Je l’étais. Les noms, maintenant, ne me servent que pour les autres. J’ai suivi les caisses, j’ai recopié les leurs. Il fallait bien que quelqu’un les reçoive, puisque personne n’était venu.",
+      "options": [
+        {
+          "text": "Votre fille vous cherche.",
+          "next": "fille"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "fille": {
+      "text": "Elle pose la plume. — Je sais. J’ai écrit son nom en dernier, en bas du registre : le seul que je n’avais pas peur d’oublier. Dites-le-lui, si vous la revoyez. Elle croit que je l’ai oubliée. C’est le contraire.",
+      "effects": [
+        {
+          "setFlag": "nom-fille-confie"
+        }
+      ],
+      "options": [
+        {
+          "text": "Je le lui dirai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "parle": {
+      "text": "— Celui qui attend à la fenêtre. Il dit que vous aviez peur du sifflet, et qu’il vous laissait le côté chaud de la couverture. Il dit que vous viendriez. Il le dit depuis des années.",
+      "options": [
+        {
+          "text": "Votre fille vous cherche.",
+          "next": "fille"
+        },
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "avec-fille": {
+      "text": "La dame en gris s’arrête net. Au pupitre, une femme en manteau gris clair écrit, faite de la même lumière que le train. Elle lève les yeux, et dit un prénom. Tu ne l’entends pas : il n’est pas à toi. La dame en gris, si.",
+      "effects": [
+        {
+          "setFlag": "edda-varn-parlee"
+        }
+      ],
+      "options": [
+        {
+          "text": "Les laisser.",
+          "next": "laisser"
+        }
+      ]
+    },
+    "laisser": {
+      "text": "Tu t’éloignes vers le train. Derrière toi, deux voix basses. La plus jeune pleure, puis rit, puis se tait. Quand tu te retournes, la dame en gris est seule au pupitre, et elle lit le dernier nom du registre.",
+      "effects": [
+        {
+          "setFlag": "edda-mere-retrouvee"
+        }
+      ],
+      "options": [
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ]
+    },
+    "encore": {
+      "text": "Edda Varn écrit sur le registre, sans encre. Elle ne lève pas les yeux.",
+      "options": [
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

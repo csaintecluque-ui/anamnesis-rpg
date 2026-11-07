@@ -5,6 +5,24 @@
     {
       "requires": [
         {
+          "quest": "voie-sept",
+          "status": "active"
+        }
+      ],
+      "node": "echelle"
+    },
+    {
+      "requires": [
+        {
+          "quest": "voie-sept",
+          "status": "done"
+        }
+      ],
+      "node": "echelle-apres"
+    },
+    {
+      "requires": [
+        {
           "quest": "sous-la-faille",
           "status": "active"
         }
@@ -169,6 +187,44 @@
       "options": [
         {
           "text": "Remonter.",
+          "next": "fin"
+        }
+      ]
+    },
+    "echelle": {
+      "text": "Une échelle de Ferros, neuve, pend dans la Faille, attachée au bâti de la foreuse. En bas, une lueur de lanterne, des voix basses, et l’eau qui goutte.",
+      "options": [
+        {
+          "text": "Descendre au quai sept.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "quai-sept",
+              "arrivee": "depuis-faille"
+            }
+          ]
+        },
+        {
+          "text": "S’éloigner du bord.",
+          "next": "fin"
+        }
+      ]
+    },
+    "echelle-apres": {
+      "text": "La Faille respire doucement, au pied de la foreuse. L’échelle de Ferros est toujours là.",
+      "options": [
+        {
+          "text": "Descendre au quai sept.",
+          "next": "fin",
+          "effects": [
+            {
+              "goTo": "quai-sept",
+              "arrivee": "depuis-faille"
+            }
+          ]
+        },
+        {
+          "text": "S’éloigner du bord.",
           "next": "fin"
         }
       ]

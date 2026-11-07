@@ -144,6 +144,10 @@ export type FinCondition =
   | 'prises-moitie'
   | 'prises-toutes'
   | 'pieces-a-rendre'
+  | 'verdantis-confiee'
+  | 'combat-2'
+  | 'combat-3'
+  | 'combat-4'
   | 'complet'
   | 'manque'
   | 'ilyane-intacte'
@@ -173,6 +177,14 @@ export function finCondition(state: GameState, key: FinCondition): boolean {
       return prises >= 5;
     case 'pieces-a-rendre':
       return CONTINENTS.some((c) => c !== 'verdantis' && pieceWhere(state, c) === 'confiee');
+    case 'combat-2':
+      return prises <= 1;
+    case 'combat-3':
+      return prises >= 2 && prises <= 4;
+    case 'combat-4':
+      return prises >= 5;
+    case 'verdantis-confiee':
+      return pieceWhere(state, 'verdantis') === 'confiee';
     case 'complet':
       return piecesAtHand(state).length === CONTINENTS.length;
     case 'manque':
@@ -188,7 +200,7 @@ export function finCondition(state: GameState, key: FinCondition): boolean {
   }
 }
 
-export type FinAction = 'rendre-verdantis' | 'rendre-pieces' | 'reprendre-pieces' | 'donner-pieces' | 'appeler';
+export type FinAction = 'rendre-verdantis' | 'rendre-pieces' | 'reprendre-pieces' | 'donner-pieces' | 'appeler' | 'jeter';
 
 /** Applies an action of the finale; returns what is told of it (notices). */
 export function finAction(state: GameState, action: FinAction): string[] {
@@ -218,6 +230,10 @@ export function finAction(state: GameState, action: FinAction): string[] {
       for (const c of CONTINENTS) removeItem(hero, pieceItem(c), ownedCount(hero, pieceItem(c)));
       state.flags[GIVEN_FLAG] = true;
       return ['Les pièces de la machine, données'];
+    }
+    case 'jeter': {
+      for (const c of CONTINENTS) removeItem(hero, pieceItem(c), ownedCount(hero, pieceItem(c)));
+      return ['La machine, jetée dans la Faille'];
     }
     case 'appeler': {
       const missing = CONTINENTS.length - piecesAtHand(state).length;

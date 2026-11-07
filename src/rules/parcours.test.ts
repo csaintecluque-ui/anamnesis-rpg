@@ -158,8 +158,10 @@ const CORALIA = ['mer-rend', 'don-rendu', 'lune-rouge', 'cargo-noir', 'grotte-re
 const MARCHE = ['plus-lieu', 'halte-muette', 'deux-nombres', 'forage-noir', 'sept-nuits', 'arreter', 'dragonnet'];
 /** Chapter 8, Khrysos, played on its own (khrysos.test.ts). */
 const KHRYSOS = ['glace-pris', 'cristal-hesite', 'quatorze-annees', 'laisses-dehors', 'epreuve-blizzard', 'egare', 'cristal-ecoute', 'yeti-portes', 'face-signee'];
+/** The end, « La voie sept », played on its own (finale.test.ts). */
+const FIN_DU_JEU = ['voie-sept'];
 const unfinished = (state: GameState) =>
-  QUESTS.filter((q) => ![...ADHESIONS, ...AETHERHAVEN, ...RETOURS, ...CORALIA, ...MARCHE, ...KHRYSOS].includes(q.id) && state.quests[q.id] !== 'done').map((q) => q.id);
+  QUESTS.filter((q) => ![...ADHESIONS, ...AETHERHAVEN, ...RETOURS, ...CORALIA, ...MARCHE, ...KHRYSOS, ...FIN_DU_JEU].includes(q.id) && state.quests[q.id] !== 'done').map((q) => q.id);
 
 // --- Balayages : gains répétables, entrées de dialogue qui en cachent une autre -------------------------------------
 

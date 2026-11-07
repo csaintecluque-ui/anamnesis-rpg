@@ -1,0 +1,110 @@
+{
+  "id": "edda-quai",
+  "speaker": "edda-quai",
+  "entries": [
+    {
+      "requires": [
+        {
+          "quest": "voie-sept",
+          "status": "done"
+        }
+      ],
+      "node": "apres"
+    },
+    {
+      "requires": [
+        {
+          "flag": "edda-quai-alliee"
+        }
+      ],
+      "node": "alliee"
+    },
+    {
+      "requires": [
+        {
+          "flag": "quai-sept-libre"
+        }
+      ],
+      "node": "seule"
+    },
+    {
+      "requires": [
+        {
+          "fin": "edda-alliee"
+        }
+      ],
+      "node": "quai-proche"
+    },
+    {
+      "node": "quai-loin"
+    }
+  ],
+  "nodes": {
+    "quai-proche": {
+      "text": "La dame en gris se tient à l’écart, près de l’échelle, ses gants à la main. — Tu es venu·e. Moi, j’ai livré ce qu’on m’a payé. Ils veulent les tiennes. Je ne sais toujours pas pour quoi faire, et je crois qu’eux non plus.",
+      "options": [
+        {
+          "text": "Et toi, que veux-tu ?",
+          "next": "veut"
+        },
+        {
+          "text": "À tout à l’heure.",
+          "next": "fin"
+        }
+      ]
+    },
+    "veut": {
+      "text": "— La liste. Je te l’ai dit à la halte : les pièces, je les laissais à ceux qui paient. Ma mère a écrit leurs noms partout, sur chaque caisse. Je veux savoir pourquoi elle n’a jamais écrit le mien.",
+      "options": [
+        {
+          "text": "Tu le sauras peut-être.",
+          "next": "fin"
+        },
+        {
+          "text": "À tout à l’heure.",
+          "next": "fin"
+        }
+      ]
+    },
+    "quai-loin": {
+      "text": "La dame en gris ne te regarde pas. — Ne compte pas sur moi. Tu as fait tes choix, de ville en ville. J’ai fait les miens. Je suis payée pour livrer, et j’ai livré.",
+      "options": [
+        {
+          "text": "Comme tu voudras.",
+          "next": "fin"
+        }
+      ]
+    },
+    "alliee": {
+      "text": "Elle tient la liste contre elle, roulée. — Je n’ai plus personne pour me payer. C’est reposant, finalement. Si ton train vient, je voudrais voir où il va. Ma mère y est montée.",
+      "options": [
+        {
+          "text": "Viens avec moi, quand il viendra.",
+          "next": "fin"
+        },
+        {
+          "text": "On verra.",
+          "next": "fin"
+        }
+      ]
+    },
+    "seule": {
+      "text": "Ceux qui la payaient sont partis. La dame en gris est restée, assise sur une caisse, à regarder les rails. — Je n’ai plus rien à livrer. Je reste voir passer le train. C’est tout ce qu’il me reste de ma mère : un train qui ne s’arrête pas.",
+      "options": [
+        {
+          "text": "Au revoir.",
+          "next": "fin"
+        }
+      ]
+    },
+    "apres": {
+      "text": "La dame en gris n’est plus là.",
+      "options": [
+        {
+          "text": "…",
+          "next": "fin"
+        }
+      ]
+    }
+  }
+}

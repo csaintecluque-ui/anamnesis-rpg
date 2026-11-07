@@ -5,6 +5,55 @@
     {
       "requires": [
         {
+          "lieu": "quai-sept"
+        }
+      ],
+      "node": "quai"
+    },
+    {
+      "requires": [
+        {
+          "lieu": "maison-ilyane"
+        },
+        {
+          "quest": "voie-sept",
+          "status": "active"
+        },
+        {
+          "notFlag": "hesper-pieces"
+        },
+        {
+          "fin": "pieces-a-rendre"
+        }
+      ],
+      "node": "gardebois-pieces"
+    },
+    {
+      "requires": [
+        {
+          "lieu": "maison-ilyane"
+        },
+        {
+          "quest": "voie-sept",
+          "status": "active"
+        },
+        {
+          "notFlag": "hesper-pieces"
+        }
+      ],
+      "node": "gardebois-rien"
+    },
+    {
+      "requires": [
+        {
+          "lieu": "maison-ilyane"
+        }
+      ],
+      "node": "gardebois-apres"
+    },
+    {
+      "requires": [
+        {
           "quest": "memoires-monde-perdu",
           "status": "active"
         },
@@ -326,6 +375,95 @@
           "giveXp": 15
         }
       ],
+      "options": [
+        {
+          "text": "Merci, Hesper.",
+          "next": "fin"
+        }
+      ]
+    },
+    "gardebois-pieces": {
+      "text": "Hesper a posé sa canne contre la cheminée d’Ilyane. — Ceux à qui tu avais confié les pièces me les ont envoyées. Ils disent qu’elles te reviennent, et qu’ils ne veulent plus dormir à côté. Ceux qui paient sont au quai sept avec les leurs. Il leur manque les tiennes.",
+      "effects": [
+        {
+          "setFlag": "hesper-pieces"
+        },
+        {
+          "finale": "rendre-pieces"
+        }
+      ],
+      "options": [
+        {
+          "text": "Que font-ils, avec ?",
+          "next": "gardebois-regle"
+        },
+        {
+          "text": "J’y descends.",
+          "next": "fin"
+        }
+      ]
+    },
+    "gardebois-rien": {
+      "text": "Hesper a posé sa canne contre la cheminée d’Ilyane. — Personne n’a rien gardé pour toi : tu as tout porté, ou tout laissé. Ceux qui paient sont au quai sept avec ce qu’ils ont acheté. Il leur manque le reste.",
+      "effects": [
+        {
+          "setFlag": "hesper-pieces"
+        }
+      ],
+      "options": [
+        {
+          "text": "Que font-ils, avec ?",
+          "next": "gardebois-regle"
+        },
+        {
+          "text": "J’y descends.",
+          "next": "fin"
+        }
+      ]
+    },
+    "gardebois-regle": {
+      "text": "— Je ne sais pas. Eux non plus, je crois : ils paient pour savoir. Un Gardien ne sait pas toujours. Un Gardien reçoit : c’est tout ce que nous faisons, et c’est tout ce qu’ils n’ont jamais su faire.",
+      "options": [
+        {
+          "text": "Reçoit quoi ?",
+          "next": "gardebois-recoit"
+        },
+        {
+          "text": "J’y descends.",
+          "next": "fin"
+        }
+      ]
+    },
+    "gardebois-recoit": {
+      "text": "— Ce qu’on lui donne. Une histoire, un nom, un mort. On écrit « reçu », et on le porte. Elle te regarde par-dessus ses lunettes. — Ce n’est pas rien, de porter. Va.",
+      "options": [
+        {
+          "text": "J’y vais.",
+          "next": "fin"
+        }
+      ]
+    },
+    "gardebois-apres": {
+      "text": "— La Faille respire plus fort ce soir. Va, avant qu’ils ne décident de faire sans toi.",
+      "options": [
+        {
+          "text": "Reçoit quoi, un Gardien ?",
+          "next": "gardebois-recoit",
+          "requires": [
+            {
+              "quest": "voie-sept",
+              "status": "active"
+            }
+          ]
+        },
+        {
+          "text": "J’y vais.",
+          "next": "fin"
+        }
+      ]
+    },
+    "quai": {
+      "text": "Hesper s’est assise sur une caisse renversée, face au châssis. — Je reste. Personne n’y touchera, ni pour l’appeler, ni pour le jeter. Décide quand tu veux : la Faille, elle, n’est pas pressée.",
       "options": [
         {
           "text": "Merci, Hesper.",

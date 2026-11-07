@@ -11,7 +11,7 @@
  "tilewidth": 64,
  "tileheight": 32,
  "nextlayerid": 4,
- "nextobjectid": 5,
+ "nextobjectid": 6,
  "layers": [
   {
    "id": 1,
@@ -228,6 +228,30 @@
      "rotation": 0,
      "visible": true,
      "properties": []
+    },
+    {
+     "id": 5,
+     "name": "hesper",
+     "type": "pnj",
+     "x": 176,
+     "y": 112,
+     "width": 0,
+     "height": 0,
+     "point": true,
+     "rotation": 0,
+     "visible": true,
+     "properties": [
+      {
+       "name": "apparaitSi",
+       "type": "string",
+       "value": "voie-sept-commencee"
+      },
+      {
+       "name": "disparaitSi",
+       "type": "string",
+       "value": "quai-sept-libre"
+      }
+     ]
     }
    ]
   }

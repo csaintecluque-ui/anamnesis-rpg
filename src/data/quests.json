@@ -1235,5 +1235,54 @@
         "texte": "La garde des Portes a brisé la face. Le dire à Hrolda, et signer."
       }
     ]
+  },
+  {
+    "id": "voie-sept",
+    "name": "La voie sept",
+    "summary": "Une lettre de Hesper : la Faille de la Gare Engloutie respire de nouveau. Des hommes descendent au quai sept la nuit, avec des caisses. Ilyane demande après toi.",
+    "etapes": [
+      {
+        "si": "voie-sept-commencee",
+        "texte": "Hesper attend chez Ilyane, à Gardebois, avec ce que d’autres ont gardé pour toi."
+      },
+      {
+        "si": "hesper-pieces",
+        "texte": "Le quai sept, sous la Faille de la Gare Engloutie : ceux qui paient la dame en gris y montent les pièces qu’ils ont prises."
+      },
+      {
+        "si": "mandataire-vu",
+        "texte": "Un homme sans nom, des gants, un châssis de l’Ancien Monde. Il lui manque tes pièces. La dame en gris est là."
+      },
+      {
+        "si": "quai-sept-libre",
+        "texte": "Le quai sept est à toi. Le châssis attend : appeler le train, ou jeter la machine dans la Faille."
+      },
+      {
+        "si": "train-appele",
+        "texte": "Le train s’est arrêté pour toi. Il descend la voie sept, jusqu’à Altavent."
+      },
+      {
+        "si": "altavent-vu",
+        "texte": "Altavent, sous les Hauts de Zephyria : le registre, et l’enfant à la fenêtre. Monter, ou rester."
+      }
+    ],
+    "fins": [
+      {
+        "id": "monte",
+        "titre": "Le dernier passager"
+      },
+      {
+        "id": "recu",
+        "titre": "Reçu"
+      },
+      {
+        "id": "jetee",
+        "titre": "Le train ne s’arrêtera plus"
+      },
+      {
+        "id": "dechiree",
+        "titre": "La voie déchirée"
+      }
+    ]
   }
 ]

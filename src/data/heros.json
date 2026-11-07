@@ -63,5 +63,10 @@
       "reve": "Cette nuit, tu as froid aux pieds, sur un quai que tu ne vois pas. Tu marches dans des chaussures trop grandes, et quelqu’un te dit de ne pas les perdre. Au réveil, tu regardes tes bottes : elles sont à ta taille."
     }
   ],
-  "manque": "Il manque encore quelque chose. Un quai, peut-être."
+  "manque": "Il manque encore quelque chose. Un quai, peut-être.",
+  "quai": {
+    "flag": "heros-fragment-quai",
+    "titre": "Le quai",
+    "texte": "La nuit du dernier passage, sur le quai de la Gare Engloutie, nous étions deux. L’autre est monté. J’ai lâché sa main : par peur, ou parce qu’on m’a tiré en arrière, je ne le saurai jamais. Le matin, je ne me souvenais de rien. Je l’avais effacé moi-même."
+  }
 }

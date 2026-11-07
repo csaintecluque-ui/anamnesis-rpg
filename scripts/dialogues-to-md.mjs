@@ -39,6 +39,7 @@ function condition(c) {
   if ('lieu' in c) return `_(à « ${nameOf(locations, c.lieu)} »)_`;
   if ('usureCristal' in c) return `_(si le cristal porté a servi ${c.usureCristal} fois ou plus sans être réaccordé)_`;
   if ('echos' in c) return `_(${c.echos} Échos recueillis ou plus)_`;
+  if ('fin' in c) return `_(fin du jeu : « ${c.fin} »)_`;
   if ('marques' in c) return `_(${c.marques} marque${c.marques > 1 ? 's' : ''} du cristal ou plus${c.max !== undefined ? `, ${c.max} au plus` : ''})_`;
   if ('quest' in c) {
     const status = { none: 'pas commencée', active: 'en cours', done: 'terminée' }[c.status];
@@ -77,6 +78,8 @@ function effect(e) {
   if ('blesser' in e) return `−${e.blesser} PV`;
   if ('effacerMarques' in e) return 'efface les marques du cristal (et un rang de Résonance)';
   if ('giveXp' in e) return `+${e.giveXp} XP`;
+  if ('finale' in e) return `fin du jeu : « ${e.finale} »`;
+  if ('epilogue' in e) return 'ouvre l’épilogue';
   throw new Error(`effet inconnu : ${JSON.stringify(e)}`);
 }
 

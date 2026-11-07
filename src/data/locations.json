@@ -107,5 +107,7 @@
   { "id": "khrysos-bibliotheque", "name": "Khrysos — la Bibliothèque de Glace", "scene": "Map", "map": "khrysos-bibliotheque", "entrance": "entree", "place": "khrysos" },
   { "id": "khrysos-palais", "name": "Khrysos — le Palais Glacé", "scene": "Map", "map": "khrysos-palais", "entrance": "entree", "place": "khrysos" },
   { "id": "khrysos-temple", "name": "Khrysos — le Temple de l’Hiver Éveillé", "scene": "Map", "map": "khrysos-temple", "entrance": "entree", "place": "khrysos" },
-  { "id": "khrysos-caveau", "name": "Khrysos — le Caveau des cristaux scellés", "scene": "Map", "map": "khrysos-caveau", "entrance": "entree", "place": "khrysos" }
+  { "id": "khrysos-caveau", "name": "Khrysos — le Caveau des cristaux scellés", "scene": "Map", "map": "khrysos-caveau", "entrance": "entree", "place": "khrysos" },
+  { "id": "quai-sept", "name": "Sous la Faille — le quai sept", "scene": "Map", "map": "quai-sept", "entrance": "entree", "place": "gardebois" },
+  { "id": "altavent", "name": "Altavent — le terminus de la voie sept", "scene": "Map", "map": "altavent", "entrance": "entree", "place": "aetherhaven", "fond": "#2b2826" }
 ]

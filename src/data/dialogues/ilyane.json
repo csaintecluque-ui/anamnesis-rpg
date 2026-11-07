@@ -5,6 +5,115 @@
     {
       "requires": [
         {
+          "quest": "glace-pris",
+          "status": "done"
+        },
+        {
+          "quest": "voie-sept",
+          "status": "none"
+        },
+        {
+          "fin": "pret"
+        },
+        {
+          "fin": "ilyane-intacte"
+        }
+      ],
+      "node": "finale-intacte"
+    },
+    {
+      "requires": [
+        {
+          "quest": "glace-pris",
+          "status": "done"
+        },
+        {
+          "quest": "voie-sept",
+          "status": "none"
+        },
+        {
+          "fin": "pret"
+        },
+        {
+          "fin": "ilyane-entamee"
+        }
+      ],
+      "node": "finale-entamee"
+    },
+    {
+      "requires": [
+        {
+          "quest": "glace-pris",
+          "status": "done"
+        },
+        {
+          "quest": "voie-sept",
+          "status": "none"
+        },
+        {
+          "fin": "pret"
+        }
+      ],
+      "node": "finale-perdue"
+    },
+    {
+      "requires": [
+        {
+          "quest": "glace-pris",
+          "status": "done"
+        },
+        {
+          "quest": "voie-sept",
+          "status": "none"
+        }
+      ],
+      "node": "finale-attendre"
+    },
+    {
+      "requires": [
+        {
+          "quest": "voie-sept",
+          "status": "active"
+        }
+      ],
+      "node": "finale-pendant"
+    },
+    {
+      "requires": [
+        {
+          "quest": "voie-sept",
+          "status": "done"
+        },
+        {
+          "fin": "ilyane-intacte"
+        }
+      ],
+      "node": "apres-fin-intacte"
+    },
+    {
+      "requires": [
+        {
+          "quest": "voie-sept",
+          "status": "done"
+        },
+        {
+          "fin": "ilyane-entamee"
+        }
+      ],
+      "node": "apres-fin-entamee"
+    },
+    {
+      "requires": [
+        {
+          "quest": "voie-sept",
+          "status": "done"
+        }
+      ],
+      "node": "apres-fin-perdue"
+    },
+    {
+      "requires": [
+        {
           "flag": "echos-confies"
         },
         {
@@ -854,6 +963,200 @@
         },
         {
           "text": "Plus tard, Ilyane.",
+          "next": "fin"
+        }
+      ]
+    },
+    "finale-intacte": {
+      "text": "Ilyane t’attendait sur le seuil, un carnet contre la poitrine. — La Faille respire. La nuit, j’entends le train depuis mon lit, et il ne repart plus : il attend, au quai sept. Hesper est arrivée ce matin. Elle dit que tu sais pourquoi.",
+      "effects": [
+        {
+          "startQuest": "voie-sept"
+        },
+        {
+          "setFlag": "voie-sept-commencee"
+        }
+      ],
+      "options": [
+        {
+          "text": "Je sais ce qu’ils veulent.",
+          "next": "finale-savoir"
+        },
+        {
+          "text": "La pièce, sous ton lit.",
+          "next": "finale-piece",
+          "requires": [
+            {
+              "fin": "verdantis-confiee"
+            }
+          ]
+        },
+        {
+          "text": "J’y descends.",
+          "next": "fin"
+        }
+      ]
+    },
+    "finale-entamee": {
+      "text": "Ilyane te regarde longtemps avant de sourire. — Toi. Je t’ai reconnu·e à ta façon de frapper. Le reste… il y a des trous. La Faille respire, la nuit, et le train ne repart plus : il attend, au quai sept. Hesper est là. Elle sait mieux que moi, maintenant.",
+      "effects": [
+        {
+          "startQuest": "voie-sept"
+        },
+        {
+          "setFlag": "voie-sept-commencee"
+        }
+      ],
+      "options": [
+        {
+          "text": "Je sais ce qu’ils veulent.",
+          "next": "finale-savoir"
+        },
+        {
+          "text": "La pièce, sous ton lit.",
+          "next": "finale-piece",
+          "requires": [
+            {
+              "fin": "verdantis-confiee"
+            }
+          ]
+        },
+        {
+          "text": "J’y descends.",
+          "next": "fin"
+        }
+      ]
+    },
+    "finale-perdue": {
+      "text": "Une femme aux cheveux blancs t’ouvre, un carnet à la main. Elle lit une page, te regarde, relit. — C’est écrit en grand : « Si quelqu’un frappe et connaît mon nom, dis-lui que la Faille respire. » Tu connais mon nom ? Hesper dit que oui.",
+      "effects": [
+        {
+          "startQuest": "voie-sept"
+        },
+        {
+          "setFlag": "voie-sept-commencee"
+        }
+      ],
+      "options": [
+        {
+          "text": "Ilyane.",
+          "next": "finale-nom"
+        },
+        {
+          "text": "La pièce, sous ton lit.",
+          "next": "finale-piece",
+          "requires": [
+            {
+              "fin": "verdantis-confiee"
+            }
+          ]
+        },
+        {
+          "text": "J’y descends.",
+          "next": "fin"
+        }
+      ]
+    },
+    "finale-nom": {
+      "text": "Elle sourit, soulagée, et ne sait pas pourquoi. — Alors c’est toi. Le train ne repart plus : il attend, au quai sept, sous la Faille. Je l’entends la nuit. Je ne sais plus qui il attend, mais je sais qu’il attend.",
+      "options": [
+        {
+          "text": "La pièce, sous ton lit.",
+          "next": "finale-piece",
+          "requires": [
+            {
+              "fin": "verdantis-confiee"
+            }
+          ]
+        },
+        {
+          "text": "J’y descends.",
+          "next": "fin"
+        }
+      ]
+    },
+    "finale-savoir": {
+      "text": "— Les pièces ? Elle pose sa main sur la tienne. — Moi, je ne sais plus ce qu’il y avait dedans. Mais je sais ce que font les Gardiens : ils descendent écouter. Va écouter, et reviens me raconter.",
+      "options": [
+        {
+          "text": "La pièce, sous ton lit.",
+          "next": "finale-piece",
+          "requires": [
+            {
+              "fin": "verdantis-confiee"
+            }
+          ]
+        },
+        {
+          "text": "Je reviendrai.",
+          "next": "fin"
+        }
+      ]
+    },
+    "finale-piece": {
+      "text": "Elle s’agenouille, tire la caisse de sous le lit, et te tend la pièce dans sa toile. — Je ne savais pas ce que c’était. Je savais que tu me l’avais confiée. C’était assez. Ça ne l’est plus.",
+      "effects": [
+        {
+          "finale": "rendre-verdantis"
+        }
+      ],
+      "options": [
+        {
+          "text": "Merci, Ilyane.",
+          "next": "fin"
+        }
+      ]
+    },
+    "finale-attendre": {
+      "text": "Ilyane relit la lettre de Hesper. — La Faille respire, oui. Mais Hesper dit qu’il reste des caisses dont personne ne sait le sort. Tant qu’elles dorment quelque part, ceux qui paient ne descendront pas. Ta page du fil te dira lesquelles.",
+      "options": [
+        {
+          "text": "J’y vais.",
+          "next": "fin"
+        }
+      ]
+    },
+    "finale-pendant": {
+      "text": "Ilyane est à sa fenêtre, du côté de la Gare. — Il est encore passé cette nuit. Il ralentit, maintenant, au quai sept. On dirait qu’il cherche quelqu’un.",
+      "options": [
+        {
+          "text": "La pièce, sous ton lit.",
+          "next": "finale-piece",
+          "requires": [
+            {
+              "fin": "verdantis-confiee"
+            }
+          ]
+        },
+        {
+          "text": "J’y retourne.",
+          "next": "fin"
+        }
+      ]
+    },
+    "apres-fin-intacte": {
+      "text": "Ilyane te sert la soupe sans rien demander. — Le train ne passe plus. Je dors, la nuit, maintenant. Raconte-moi, si tu veux. Ou ne raconte rien : je vois bien que tu l’as entendu, cette fois.",
+      "options": [
+        {
+          "text": "Plus tard, Ilyane.",
+          "next": "fin"
+        }
+      ]
+    },
+    "apres-fin-entamee": {
+      "text": "Ilyane a écrit ton nom sur la première page de son carnet, en grand. Elle le lit avant de t’ouvrir. — Toi. Assieds-toi. Raconte-moi la fin : je la recopierai. J’ai perdu le début.",
+      "options": [
+        {
+          "text": "Il y avait un train…",
+          "next": "fin"
+        }
+      ]
+    },
+    "apres-fin-perdue": {
+      "text": "Une femme aux cheveux blancs t’ouvre la porte du relais. — Un voyageur ? Entre, il fait froid. Raconte-moi d’où tu viens : j’aime les histoires, ces temps-ci. On dirait que j’en manque.",
+      "options": [
+        {
+          "text": "Je viens de Gardebois.",
           "next": "fin"
         }
       ]

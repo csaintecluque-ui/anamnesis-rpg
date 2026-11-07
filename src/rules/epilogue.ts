@@ -81,7 +81,7 @@ const CAISSES: { continent: string; quest: string; lines: Record<string, string>
     },
   },
   {
-    continent: 'la Communion',
+    continent: 'La Communion',
     quest: 'plus-lieu',
     lines: {
       halte: 'Inès, Pavel, Lila, Oren, Nadia, Sacha. La halte a de nouveau lieu ; la Marche s’y arrête, une nuit par an.',

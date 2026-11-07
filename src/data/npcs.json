@@ -1393,5 +1393,40 @@
     "id": "registre-portes",
     "name": "Le registre des Portes",
     "role": "Les Portes de Glace"
+  },
+  {
+    "id": "mandataire",
+    "name": "Le mandataire",
+    "role": "Pour ceux qui paient"
+  },
+  {
+    "id": "edda-quai",
+    "name": "La dame en gris",
+    "role": "Le quai sept"
+  },
+  {
+    "id": "edda-varn",
+    "name": "Edda Varn",
+    "role": "Un Écho, au registre"
+  },
+  {
+    "id": "chassis",
+    "name": "Le châssis",
+    "role": "La machine"
+  },
+  {
+    "id": "train-quai",
+    "name": "Le dernier train",
+    "role": "Quai sept"
+  },
+  {
+    "id": "registre-altavent",
+    "name": "Le registre d’Altavent",
+    "role": "Objet"
+  },
+  {
+    "id": "enfant-fenetre",
+    "name": "L’enfant à la fenêtre",
+    "role": "Le dernier train"
   }
 ]

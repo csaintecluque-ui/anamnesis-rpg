@@ -152,6 +152,34 @@
     {
       "flag": "caisse-glacialis-prise",
       "texte": "La caisse de Glacialis est partie dans les bras de la dame en gris, le cristal ouvert derrière elle."
+    },
+    {
+      "flag": "voie-sept-commencee",
+      "texte": "La Faille de la Gare Engloutie respire de nouveau. Ceux qui paient la dame en gris sont descendus au quai sept avec les pièces qu’ils ont prises."
+    },
+    {
+      "flag": "mandataire-vu",
+      "texte": "Au quai sept, un homme sans nom monte les pièces sur un châssis de l’Ancien Monde. Il lui manque les miennes."
+    },
+    {
+      "flag": "machine-comprise",
+      "texte": "Montée entière, la machine appelle le dernier train. Les adultes l’avaient donnée aux enfants, un septième par halte, pour qu’ils le rappellent une fois le feu passé."
+    },
+    {
+      "flag": "altavent-vu",
+      "texte": "Le dernier train n’a déposé personne à Altavent. Il a laissé six enfants et une caisse à chaque halte, avec une seule phrase : « Quelqu’un viendra. »"
+    },
+    {
+      "flag": "fin-voie-sept-recu",
+      "texte": "J’ai signé le registre d’Altavent. Reçu."
+    },
+    {
+      "flag": "fin-voie-sept-jetee",
+      "texte": "La machine est au fond de la Faille. Personne n’appellera plus le train."
+    },
+    {
+      "flag": "fin-voie-sept-dechiree",
+      "texte": "Le train est passé sans s’arrêter pour ceux qui l’appelaient. La Faille a pris le reste dans les Échos."
     }
   ],
   "caisses": [
@@ -206,6 +234,30 @@
   ],
   "pistes": [
     {
+      "quest": "voie-sept",
+      "status": "done",
+      "texte": "La voie sept dort. Il reste le monde, et ce que tu en portes."
+    },
+    {
+      "quest": "voie-sept",
+      "status": "active",
+      "flag": "altavent-vu",
+      "texte": "Altavent, sous les Hauts de Zephyria : le registre, et l’enfant à la fenêtre."
+    },
+    {
+      "quest": "voie-sept",
+      "status": "active",
+      "flag": "quai-sept-libre",
+      "texte": "Gardebois : le quai sept, sous la Faille. Le châssis attend, avec Hesper.",
+      "cible": "gardebois"
+    },
+    {
+      "quest": "voie-sept",
+      "status": "active",
+      "texte": "Gardebois : la Gare Engloutie, et le quai sept sous la Faille. Ceux qui paient la dame en gris y sont descendus.",
+      "cible": "gardebois"
+    },
+    {
       "quest": "sous-la-faille",
       "status": "active",
       "texte": "Gardebois : la Faille de la Gare Engloutie, et le quai sept dessous.",
@@ -226,7 +278,8 @@
     {
       "quest": "glace-pris",
       "status": "done",
-      "texte": "Les sept caisses ont toutes un sort. Il reste la voie sept, jusqu’à Altavent : la suite du fil attend."
+      "texte": "Une lettre de Hesper, reçue au dernier relais : « La Faille de la Gare Engloutie respire de nouveau. Les cheminots de Tobias disent que des hommes descendent au quai sept, la nuit, avec des caisses. Ilyane demande après toi. Je pars pour Gardebois. »",
+      "cible": "gardebois"
     },
     {
       "quest": "glace-pris",

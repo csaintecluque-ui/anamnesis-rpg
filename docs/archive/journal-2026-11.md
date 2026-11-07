@@ -1220,3 +1220,25 @@ Cyril : « Oui pour les cinq, applique-les. » Fait, une étape et un commit par
 
 1035 tests ; build ; vérifié dans Chromium (nuit à la Gare, cadenas grisé, panneau de rencontre, page du fil).
 
+
+## 2026-11-07 : la fin, et le reste tranché
+
+Cyril : « je te laisse tout trancher en fonction de ce que tu recommandes, ça me laissera des surprises. Et on attaque
+la fin. » Fait, dans l'ordre :
+
+1. **Le premier combat** vérifié à l'écran : le mot de l'embuscade restait sous le tutoriel (le message de la carte
+   s'efface désormais à l'ouverture d'un combat) ; « Aucune case libre autour de toi » quand le héros encerclé a ses PA.
+2. **Les cartes ville par ville** (`src/data/maps/load.ts`) : 2,3 Mo au démarrage au lieu de 11,4 ; « Chargement… » la
+   première fois ; le décor large listé à part (`bigArt.json`, tenu par un test) ; l'index de toutes les cartes réservé
+   aux tests (attention : le cache de Vitest garde la liste des fichiers ; vider `node_modules/.vitest-cache` après
+   avoir ajouté une carte).
+3. **`npm audit`** : alertes de l'outillage de build seulement ; laissé (le correctif rétrograde le plugin PWA).
+4. **La fin** (`gdd/chapitre-9.md`) : la vérité du train (six enfants et une caisse par halte, arrivé vide à Altavent),
+   la machine qui appelle le train, le mandataire, Edda Varn au registre, l'enfant à la fenêtre ; quatre fins
+   (Reçu, Le dernier passager, Le train ne s'arrêtera plus, La voie déchirée) et un épilogue d'une page par fil. Règles
+   dans `fin.ts`, épilogue dans `epilogue.ts`, deux cartes (`quai-sept`, `altavent`), dix dialogues (outil d'écriture
+   dans le bloc-notes, comme pour Khrysos), une carte qui se reconstruit quand un objet y apparaît.
+5. **Zones floues** 6 à 13 et 33 à 37 tranchées par délégation : le jeu garde sa règle.
+
+1058 tests (dont `finale.test.ts` : les quatre fins jouées par les dialogues) ; build ; vérifié dans Chromium.
+Le Notion ne reçoit rien de la fin avant que Cyril l'ait jouée.

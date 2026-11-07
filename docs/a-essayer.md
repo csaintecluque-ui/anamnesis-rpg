@@ -366,6 +366,13 @@ En ligne le 2026-11-03 (tes textes du 3 novembre) :
 - [ ] **Canopéa sans Fers** : le chef de caravane parle de la Grande Nacelle, gratuite.
 - Remarques :
 
+## La fin (en ligne le 2026-11-07) — sans rien dévoiler
+
+- [ ] Après « Ce que la glace a pris », et une fois les sept caisses réglées : la lettre de Hesper. Va à Gardebois.
+- [ ] Joue-la comme tu veux : il y a quatre fins, et l'épilogue reprend tout ce que tu as fait depuis Gardebois.
+- [ ] Le démarrage : les cartes se chargent ville par ville (« Chargement… » la première fois qu'on entre dans une ville).
+- Remarques :
+
 ## Les cinq décisions du test du 2026-11-06 (en ligne le 2026-11-06)
 
 - [ ] **Le repos** (Échap, « Se reposer jusqu'au matin ») : dehors, les PV ne remontent qu'à la moitié ; se recoucher le

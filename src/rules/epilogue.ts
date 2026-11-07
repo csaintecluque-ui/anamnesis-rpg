@@ -153,14 +153,18 @@ const TOI: Record<Ending, string> = {
     'Tu as donné ce que tu portais, et le train ne s’est pas arrêté. L’enfant à la fenêtre ne s’est pas retourné, cette fois. Il reste de lui une odeur de vapeur, et un poing qui se ferme sur rien.',
 };
 
+const NUMBERS = ['zéro', 'une', 'deux', 'trois', 'quatre', 'cinq', 'six', 'sept'];
+
 /** The pages of the epilogue, in order; empty before an ending of « La voie sept ». */
 export function epiloguePages(state: Pick<GameState, 'flags'>): EpiloguePage[] {
   const ending = endingOf(state);
   if (!ending) return [];
   const pages: EpiloguePage[] = [{ titre: 'La voie sept', texte: VOIE[ending] }];
   const missing = missingAtCall(state);
-  if (missing > 0 && ending !== 'dechiree')
-    pages[0].texte += ` Pour l’appeler, la Faille a pris ${missing === 1 ? 'une pièce' : `${missing} pièces`} dans les Échos de la Lisière : des souvenirs sont partis avec.`;
+  const pieces = missing === 1 ? 'une pièce' : `${NUMBERS[missing]} pièces`;
+  if (missing > 0 && ending === 'monte')
+    pages[0].texte += ` Pour l’appeler, la Faille avait pris ${pieces} dans les Échos de la Lisière ; ce qu’elle avait pris est revenu quand le train est parti complet.`;
+  else if (missing > 0 && ending !== 'dechiree') pages[0].texte += ` Pour l’appeler, la Faille a pris ${pieces} dans les Échos de la Lisière : des souvenirs sont partis avec.`;
   if (piecesPrises(state) > 0 && ending !== 'dechiree')
     pages[0].texte += ' Les Réveilleurs sont retournés à l’ombre, sans visage, avec la honte de ceux qui ont payé pour rien.';
   pages.push({ titre: 'Les sept caisses', texte: caissesPage(state) });

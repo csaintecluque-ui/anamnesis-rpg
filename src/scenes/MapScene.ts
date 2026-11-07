@@ -169,6 +169,8 @@ export class MapScene extends Phaser.Scene {
   private blockedMarker!: Phaser.GameObjects.Graphics;
   /** The map of this place is on its way (waitForMap): nothing is built yet, nothing must run. */
   private loading = false;
+  /** The objects hidden when the map was built (apparaitSi not met yet). */
+  private hiddenAtBuild: MapObject[] = [];
 
   constructor() {
     super('Map');
@@ -252,6 +254,9 @@ export class MapScene extends Phaser.Scene {
     this.drawExits();
 
     // Arriving through a way in (not a map rebuilt where the hero stands).
+    // What the map does not show yet (a train not called, a guardian not come): if a dialogue or a fight makes it
+    // appear, the map is rebuilt on resuming (the end, chapitre 9: the train called on the quai sept).
+    this.hiddenAtBuild = this.map.objects.filter((o) => this.gone(o));
     const arrived = !!this.state.entrance;
     this.heroTile = this.startTile(location.entrance);
     this.state.position = { ...this.heroTile };
@@ -369,7 +374,8 @@ export class MapScene extends Phaser.Scene {
     // A dialogue or a fight may have picked a herb or sent enemies away. Scene events outlive a restart: unhook.
     const onResume = () => {
       // Someone joined or left the party (a dialogue): the map is rebuilt where the hero stands.
-      if (this.state.groupe.map((m) => m.id).join(',') !== this.partyIds || momentOf(this.state.time) !== this.builtAt) {
+      const appeared = this.hiddenAtBuild.some((o) => !this.gone(o));
+      if (appeared || this.state.groupe.map((m) => m.id).join(',') !== this.partyIds || momentOf(this.state.time) !== this.builtAt) {
         this.state.entrance = null;
         this.scene.restart();
         return;

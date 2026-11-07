@@ -75,6 +75,7 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `chapitre-6.md` : chapitre 6, Coralia : « Ce que la mer rend », six quêtes de ville, deux guildes, les marées ; validé, complet et en ligne.
 - `chapitre-7.md` : chapitre 7, Marche-Mère : « Ce qui n'a plus lieu », six quêtes de ville, deux guildes, la Marche et ses haltes ; validé, complet et en ligne.
 - `chapitre-8.md` : chapitre 8, Khrysos : « Ce que la glace a pris » (la septième caisse), six quêtes de ville, deux guildes ; validé, complet et en ligne ; inventions validées.
+- `chapitre-9.md` : la fin du jeu, « La voie sept » (le quai sept, Altavent, quatre fins, l'épilogue) ; tranchée par délégation de Cyril, construite, en ligne. **À ne pas lire avant d'avoir joué.**
 - `histoire-prenante.md` : rendre l'histoire prenante (diagnostic, sept leviers, questions à Cyril) ; nourrit les chantiers 1 et 4.
 - `feuille-de-route.md` : analyse et feuille de route de Cyril (2026-11-03) : sept chantiers avant tout nouveau chapitre ; en ligne.
 - `test-2026-11-06.md` : le test en navigateur du 2026-11-06 : quinze bogues vérifiés et corrigés, cinq décisions pour Cyril (repos, dés, combat, rythme, le fil).

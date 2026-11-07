@@ -48,6 +48,11 @@ Ces décisions valent **pour le jeu**. Le dossier `docs/Lore/` reste inchangé.
 
 ## Chronologie
 
+**Tranché par délégation de Cyril (2026-11-07, « je te laisse tout trancher »), points 6 à 13** : le jeu garde sa règle,
+aucune date ni aucun bilan contesté n'y figure ; il n'emploie que ce que le Notion a déjà arbitré (An 0, Guerre du Rail
+1380-1400, les 100 Jours de Ténèbres en 2750). Si un chapitre en a un jour besoin, la version du Notion « Canon » fait
+foi, puis la plus récente.
+
 6. **Grande Famine Verte** : 1205 à 1210 AN, 80 millions de morts [E3, WEB] ; ou 1044 AN, 2 millions de morts [E4].
 7. **Déluge de Sang** : 2 millions de morts [E3] ou 800 000 [E4].
 8. **Guerre du Rail** : 500 000 morts [E3] ou 800 000 [E4] ; N1 la date de 2301 AN.
@@ -137,6 +142,10 @@ Ces décisions valent **pour le jeu**. Le dossier `docs/Lore/` reste inchangé.
     Cyril, 2026-11-03)** : l'Écho donne désormais « Le savant du dernier quai » (d'avant la Chute) ; l'histoire de
     Corvan (d'après la Chute) devient un Récit ordinaire, à lire dans les carnets d'Ilyane. Le roman parle
     aussi de « caste Technique » (V.1) et de « Classe Technique » (IV.6) : le jeu emploie les deux.
+
+**Points 33 à 37, tranchés par délégation de Cyril (2026-11-07)** : le jeu garde ce qu'il fait déjà (pas de titre pour
+Kael ; l'Écho des Trois Cents ne compte pas les revenus ; les pièces « sans main » au Fonds Muet au sens de [FM] ; six
+Portes nommées et la septième sans destination ; à Terminus, la main s'arrête et le jeu ne donne aucun chiffre).
 
 Relevés à la lecture des pages de Terminus pour le chapitre 4 (2026-11-03). Sources : [F] la fiche « Terminus »,
 [HL] « Histoire et lore », [S] la légende « Le siège », [FM] la légende « Le Fonds Muet ». Rien n'est tranché par le jeu.

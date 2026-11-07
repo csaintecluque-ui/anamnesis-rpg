@@ -239,7 +239,7 @@ export function finAction(state: GameState, action: FinAction): string[] {
       const missing = CONTINENTS.length - piecesAtHand(state).length;
       state.flags[missingFlag(missing)] = true;
       for (const c of CONTINENTS) removeItem(hero, pieceItem(c), ownedCount(hero, pieceItem(c)));
-      return missing ? [`La Faille a pris ${missing === 1 ? 'une pièce' : `${missing} pièces`} dans les Échos`] : [];
+      return missing ? [`La Faille a pris ${missing === 1 ? 'une pièce' : `${missing} pièces`} dans les Échos`] : ['Sept pièces : la Faille n’a rien pris'];
     }
   }
 }

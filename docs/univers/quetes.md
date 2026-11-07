@@ -312,3 +312,23 @@ Détail : `docs/gdd/factions.md`.
 - **« Le fonds des Échos »** (Noam, Archives de Ferros) : faire classer cinq Échos recueillis ; on devient correspondant.
 - **« Ce qui se souvient »** (Kaelis, Marches des Cendres) : lui rapporter une plaque émaillée du tunnel de la Combe
   (deuxième niveau) ; quarante Fers et un nom chez les Marches.
+
+## La fin : « La voie sept » (**décidée par Claude sur délégation de Cyril**, 2026-11-07 ; à revoir après qu'il l'aura jouée)
+
+> Cyril : à ne pas lire avant d'avoir joué la fin.
+
+Détail et raisons : `docs/gdd/chapitre-9.md`. Inventions du jeu (rien du canon n'y est contredit ; le pourquoi des
+Surgeons reste sans explication) :
+
+- **Le dernier train** est parti du quai sept de la Gare Engloutie la nuit de la Chute ; à chaque halte de la voie
+  sept, six enfants et une caisse sont descendus (« Quelqu'un viendra ») ; il est arrivé vide à **Altavent**, sous les
+  Hauts de Zephyria : « Reçu : personne ».
+- **La machine** : montée entière, elle appelle le dernier train ; les adultes l'avaient confiée aux enfants pour
+  qu'ils le rappellent une fois le feu passé. Elle tire sur une Faille ; ce qui manque, la Faille le prend dans les
+  Échos.
+- **Le mandataire** des Réveilleurs : un homme sans nom, des gants très clairs (les Réveilleurs restent sans visage).
+- **Edda Varn**, la mère de la dame en gris : son Écho au registre d'Altavent, où elle a recopié les quarante-deux noms
+  et, en dernier, celui de sa fille (jamais lu par le joueur).
+- **Le train ne s'arrête que pour ceux qu'il attend** ; la maladie des souvenirs s'arrête quand il part complet
+  (« Le dernier passager »).
+

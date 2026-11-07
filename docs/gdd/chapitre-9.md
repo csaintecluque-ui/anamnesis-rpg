@@ -85,3 +85,21 @@ rien avant que Cyril ait joué la fin** (pour garder la surprise).
 Points 6 à 13 (chronologie) et 33 à 37 (Terminus) : le jeu garde sa règle (aucune date ni aucun bilan contesté ; il
 n'emploie pas le titre de Kael ; l'Écho des Trois Cents ne compte pas les revenus ; les pièces sans main au Fonds
 Muet au sens de [FM] ; six Portes nommées, la septième sans destination). La fin n'en a besoin d'aucun.
+
+## Construit (2026-11-07)
+
+| Quoi | Où |
+|---|---|
+| Règles de la finale (pièces, dame en gris, listes, Ilyane) ; conditions `{ fin: … }`, effets `{ finale: … }` | `src/rules/fin.ts`, `src/rules/dialogue.ts` |
+| L'épilogue composé (une page par fil) et son écran ; « Le dernier passager » ramène au titre sans écrire la sauvegarde auto | `src/rules/epilogue.ts`, `src/scenes/EpilogueScene.ts`, `src/save/autosave.ts` |
+| La quête « La voie sept » (quatre fins), la lettre de Hesper, les pistes et ce qu'on sait | `quests.json`, `fil.json` |
+| Ilyane (trois états), Hesper à Gardebois et au quai, l'échelle de la Faille | `ilyane.json`, `hesper.json`, `faille-descente.json` |
+| Le quai sept : le mandataire, la dame en gris, le châssis, trois combats possibles (force du chapitre 9) | carte `quai-sept`, `mandataire.json`, `edda-quai.json`, `chassis.json`, `encounters.json` |
+| Le voyage et Altavent : le train, sept haltes, le quai retrouvé ; le registre, Edda Varn, l'enfant à la fenêtre | `train-quai.json`, carte `altavent`, `registre-altavent.json`, `edda-varn.json`, `enfant-fenetre.json` |
+| « Le quai », dernier fragment du héros, sur la page « Ce qui n'est pas à moi » | `heros.json`, `src/rules/heros.ts` |
+| Une carte se reconstruit quand un objet y apparaît (le train appelé, Hesper) | `src/scenes/MapScene.ts` |
+
+Tests : `fin.test.ts` (règles, épilogue), `finale.test.ts` (les quatre fins jouées par les dialogues). Vérifié dans
+Chromium : Ilyane, Hesper, le quai sept, le mandataire, le train qui apparaît, Altavent, l'enfant, l'épilogue, le
+retour au titre.
+

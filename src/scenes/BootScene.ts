@@ -1,9 +1,8 @@
 import Phaser from 'phaser';
 import sealUrl from '../../assets/brand/logo-seal.svg?url';
 import { DIALOGUES } from '../data/dialogues';
-import { MAPS } from '../data/maps';
+import bigArt from '../data/bigArt.json';
 import npcData from '../data/npcs.json';
-import { parseTiledMap } from '../engine/tiledMap';
 import { AVATARS } from '../rules/character';
 import { FIGURANTS, walkSheetKey } from '../rules/figurants';
 import { loadSfx } from '../audio/sfx';
@@ -17,9 +16,9 @@ export class BootScene extends Phaser.Scene {
     this.load.svg('seal', sealUrl, { width: 256, height: 256 });
     // Tiles (npm run tiles), 64 × 96 frames in the order of scripts/tiles-def.mjs.
     this.load.spritesheet('tiles', 'tiles/tiles.png', { frameWidth: 64, frameHeight: 96 });
-    // Large decor drawn over several cells (npm run art), as named in the maps' tileset.
-    const big = new Set(Object.values(MAPS).flatMap((m) => Object.values(parseTiledMap(m).big)));
-    for (const name of big) this.load.image(`decor-${name}`, `decor/${name}.png`);
+    // Large decor drawn over several cells (npm run art), as named in the maps' tileset: listed apart, since the maps
+    // are loaded town by town (src/data/bigArt.test.ts keeps the list right).
+    for (const name of bigArt) this.load.image(`decor-${name}`, `decor/${name}.png`);
     // Each look of the hero (src/data/avatars.json): portrait, and walk sheet of 64 × 96 frames (npm run walk).
     for (const avatar of AVATARS) {
       this.load.image(`avatar-${avatar.id}`, avatar.portrait);

@@ -5,6 +5,7 @@ import { QUESTS } from '../rules/dialogue';
 import { ITEMS, addItem, ownedCount, removeItem } from '../rules/inventory';
 import { FACTIONS } from '../rules/reputation';
 import { RECITS } from '../rules/recits';
+import { loadAllMaps } from '../data/maps/load';
 import { allFlags, cycleQuest, makeOverpowered, restoreFullHp, restoreFullResonance, revealWorld, toggleFlag, type QuestState } from '../rules/testTools';
 import { resonanceMax } from '../rules/magic';
 import { COMPANIONS, findCompanion, inParty, joinParty, leaveParty } from '../rules/companions';
@@ -212,6 +213,8 @@ export function openDevPanel(state: GameState, onClose: (result: DevPanelResult)
         .filter((f) => f.includes(flagFilter.trim()))
         .map((f) => row(f, [button(state.flags[f] ? 'oui' : 'non', () => (toggleFlag(state, f), list.replaceChildren(...flagRows())), state.flags[f] ? 'on' : '')]));
     list.replaceChildren(...flagRows());
+    // The flags the maps wait for: once every map has come (they load town by town).
+    void loadAllMaps().then(() => list.replaceChildren(...flagRows()));
     main.append(el('p', 'Les repères d’histoire : cocher, c’est faire comme si c’était arrivé.', 'note'), search, list);
   }
 

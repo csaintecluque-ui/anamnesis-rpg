@@ -1,5 +1,5 @@
 import { DIALOGUES } from '../data/dialogues';
-import { MAPS } from '../data/maps';
+import { cachedMaps } from '../data/maps/load';
 import { parseTiledMap } from '../engine/tiledMap';
 import type { GameState } from '../state/gameState';
 import { ATTRIBUTES, SKILLS, SKILL_RANK_MAX } from './attributes';
@@ -111,7 +111,8 @@ export function allFlags(): string[] {
   walk(RENCONTRES.map((r) => r.story ?? {}));
   for (const q of QUESTS) for (const e of q.etapes ?? []) add(e.si);
   for (const e of ENCOUNTERS) add(e.victoryFlag);
-  for (const json of Object.values(MAPS)) {
+  // The maps fetched so far (the panel fetches them all first: src/ui/devPanel.ts).
+  for (const json of cachedMaps()) {
     for (const o of parseTiledMap(json).objects) {
       add(o.properties.apparaitSi);
       add(o.properties.disparaitSi);

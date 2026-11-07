@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import { DIALOGUES } from '../data/dialogues';
-import { MAPS } from '../data/maps';
+import { cachedMap, loadMap } from '../data/maps/load';
 import npcData from '../data/npcs.json';
 import { TILE_HEIGHT, TILE_WIDTH, screenToTile, tileToScreen, type Tile } from '../engine/iso';
 import { carveArena, farEdgeTiles, toArena } from '../engine/arena';
@@ -167,12 +167,15 @@ export class MapScene extends Phaser.Scene {
   private following = true;
   /** A red diamond where a click cannot lead (étude, A2). */
   private blockedMarker!: Phaser.GameObjects.Graphics;
+  /** The map of this place is on its way (waitForMap): nothing is built yet, nothing must run. */
+  private loading = false;
 
   constructor() {
     super('Map');
   }
 
   create(): void {
+    this.loading = false;
     const state = this.registry.get('game') as GameState | undefined;
     const location = state && findLocation(state.location);
     if (!state?.character || !location) {
@@ -189,7 +192,14 @@ export class MapScene extends Phaser.Scene {
       this.scene.restart();
       return;
     }
-    this.map = parseTiledMap(MAPS[location.voie && state.voie ? voiePlan(state.voie) : mapNow(location, state.time)]);
+    // The maps come town by town (src/data/maps/load.ts): the first time here, fetch it, then build the scene again.
+    const mapId = location.voie && state.voie ? voiePlan(state.voie) : mapNow(location, state.time);
+    const json = cachedMap(mapId);
+    if (!json) {
+      this.waitForMap(mapId);
+      return;
+    }
+    this.map = parseTiledMap(json);
     const level = location.voie && state.voie ? voieLevel(state, this.map) : null;
     if (level) {
       this.map.objects.push(...level.objects);
@@ -415,6 +425,7 @@ export class MapScene extends Phaser.Scene {
   }
 
   update(_time: number, delta: number): void {
+    if (this.loading) return;
     if (this.sandFlow) {
       this.sandFlow.tilePositionX += delta * 0.045;
       this.sandFlow.tilePositionY += delta * 0.0225;
@@ -802,6 +813,19 @@ export class MapScene extends Phaser.Scene {
       }
       if (o.type !== 'decor') this.interactables.push({ object: o, image });
     }
+  }
+
+  /** « Chargement… » on the ink, while the map of a town not yet visited arrives; then the scene starts again. */
+  private waitForMap(id: string): void {
+    this.loading = true;
+    this.cameras.main.setBackgroundColor(COLORS.ink);
+    const label = this.add
+      .text(GAME_WIDTH / 2, GAME_HEIGHT / 2, 'Chargement…', { fontFamily: FONT_SERIF, fontSize: '28px', color: CSS.parchment })
+      .setOrigin(0.5)
+      .setScrollFactor(0);
+    loadMap(id)
+      .then(() => this.scene.restart())
+      .catch(() => label.setText('Cette carte ne se charge pas. Vérifie la connexion, puis recharge la page.'));
   }
 
   /** A fight started from a dialogue: the arena is carved around the encounter's centre object. */

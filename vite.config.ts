@@ -35,7 +35,7 @@ export default defineConfig({
           // One chunk per town (the name's first word: canopee, coralia, marche…), so none ever gets too big.
           // The index that lists them stays out of any group: a group takes its module's imports with it, and the
           // index's group swallowed the maps of half the towns (5.4 MB, close to the 8 MB of the offline cache).
-          if (id.includes('/src/data/maps/index.')) return undefined;
+          if (id.includes('/src/data/maps/index.') || id.includes('/src/data/maps/load.')) return undefined;
           if (id.includes('/src/data/maps/')) return `cartes-${id.split('/src/data/maps/')[1].split(/[-.]/)[0]}`;
           if (id.includes('/src/data/dialogues/')) return 'dialogues';
           if (id.includes('/src/data/')) return 'donnees';

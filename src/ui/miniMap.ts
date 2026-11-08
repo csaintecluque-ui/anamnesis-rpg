@@ -2,6 +2,7 @@ import Phaser from 'phaser';
 import type { Tile } from '../engine/iso';
 import { cellKinds, miniLayout, miniLength, miniPoint, miniTile, type CellKind, type MiniLayout } from '../engine/miniMap';
 import type { GameMap } from '../engine/tiledMap';
+import tileColors from '../data/tile-colors.json';
 import { COLORS } from './theme';
 
 /**
@@ -137,12 +138,22 @@ export class MiniMap {
     const { map } = this.source;
     const s = this.layout.scale;
     const g = this.cells;
+    const painted = tileColors as (string | null)[];
+    const colorOf = (frame: number): number | null => {
+      const hex = frame >= 0 ? painted[frame] : null;
+      return hex ? Number.parseInt(hex.slice(1), 16) : null;
+    };
     kinds.forEach((kind, i) => {
       if (kind === 'void') return;
       const p = this.at(miniPoint(this.layout, { col: i % map.width, row: Math.floor(i / map.width) }));
-      const { color, alpha } = CELL_COLORS[kind];
-      // A hair larger than the cell, so that no seam shows between neighbours.
-      g.fillStyle(color, alpha).fillPoints([{ x: p.x, y: p.y - s / 2 - 0.3 }, { x: p.x + s + 0.4, y: p.y }, { x: p.x, y: p.y + s / 2 + 0.3 }, { x: p.x - s - 0.4, y: p.y }], true);
+      // The cell's own colours (mise en beauté, 2026-11-08): what stands on it, else its ground; the four kinds of
+      // the first mini-map only when a frame has no colour.
+      const standing = map.obstacles[i] >= 0 ? colorOf(map.obstacles[i]) : null;
+      const ground = colorOf(map.ground[i]);
+      const color = standing ?? ground ?? CELL_COLORS[kind].color;
+      const diamond = [{ x: p.x, y: p.y - s / 2 - 0.3 }, { x: p.x + s + 0.4, y: p.y }, { x: p.x, y: p.y + s / 2 + 0.3 }, { x: p.x - s - 0.4, y: p.y }];
+      // A hair larger than the cell, so that no seam shows between neighbours; what stands is a shade darker.
+      g.fillStyle(standing !== null ? Phaser.Display.Color.ValueToColor(color).darken(18).color : color, 1).fillPoints(diamond, true);
     });
   }
 

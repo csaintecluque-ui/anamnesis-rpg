@@ -27,3 +27,23 @@ const outDir = new URL('../public/tiles/', import.meta.url);
 mkdirSync(outDir, { recursive: true });
 writeFileSync(new URL('tiles.png', outDir), png);
 console.log(`tiles.png ${COLUMNS * W}×${rows * H}, ${TILES.length} tuiles dont ${art.length} peintes`);
+
+// The mean colour of each frame, for the place's small map (src/ui/miniMap.ts): a ground tile by its diamond (the
+// bottom 32 px), anything standing by its visible pixels. Written as hex, frame by frame, in src/data/tile-colors.json.
+const { data, info } = await sharp(png).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
+const hex = (n) => Math.round(n).toString(16).padStart(2, '0');
+const colors = TILES.map((t, i) => {
+  const { left, top } = position(i);
+  const ground = t.art?.kind === 'ground' || (!t.art && !t.blocking && !t.sprite);
+  let r = 0, g = 0, b = 0, n = 0;
+  for (let y = ground ? 64 : 0; y < H; y++) {
+    for (let x = 0; x < W; x++) {
+      const k = ((top + y) * info.width + left + x) * 4;
+      const a = data[k + 3];
+      if (a < 200) continue;
+      r += data[k]; g += data[k + 1]; b += data[k + 2]; n++;
+    }
+  }
+  return n ? `#${hex(r / n)}${hex(g / n)}${hex(b / n)}` : null;
+});
+writeFileSync(new URL('../src/data/tile-colors.json', import.meta.url), `${JSON.stringify(colors)}\n`);

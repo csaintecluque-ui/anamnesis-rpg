@@ -426,15 +426,96 @@ morceaux : seuls leur durée, leur volume au fil du temps (régulier, sans mont�
 redescend comme demandé) et leur format sont vérifiés. À vérifier à l'oreille : ni voix ni percussion forte dans les
 ambiances, et la berceuse chantée qui dit bien les paroles, en français.
 
+## Plan des images de la mise en beauté (2026-11-08) — **à valider par Cyril, rien n'est généré**
+
+Décision du 2026-11-08 (section suivante) : tout le jeu peint, portraits pour les importants seulement. Inventaire fait
+dans le code le 2026-11-08 : **423 tuiles, 56 peintes, 367 encore dessinées par le code** ; 9 portraits de dialogue ;
+124 passants, tous sur un trajet, dont 2 seulement avec une marche peinte (les autres glissent). Prix revérifiés le
+2026-11-08 sans générer (`get_cost`, `gpt_image_2_6`, les mêmes pour `gpt_image_2_5`) : **0,5** une image moyenne 1k
+(tuile, décor, personnage en pied, une direction de marche), **1,5** un portrait (haute 1k), **2,75** une illustration
+(haute 2k). Solde après la musique : **2 145,36**.
+
+| Poste | Nombre | Réglage | Prix | Crédits |
+|---|---|---|---|---|
+| Portraits de dialogue des personnages importants (liste ci-dessous) | 45 | haute 1k, opaque, 1:1, le personnage en pied en référence | 1,5 | 67,50 |
+| Personnages nommés en pied (carte et combat), tous ceux encore dessinés par le code ; la dame en gris une seule fois pour ses cinq tuiles | 110 | moyenne 1k, transparent, 2:3 | 0,5 | 55,00 |
+| Passants en pied (une tuile par allure ; 124 passants pour 76 allures) | 76 | idem | 0,5 | 38,00 |
+| Passants qui marchent : planche de marche (5 directions) pour **deux par ville** (sept villes ; Gardebois en a déjà deux) | 14 | moyenne 1k, transparent, 21:9, le passant en référence | 2,5 | 35,00 |
+| Ennemis et créatures (ours, loups, guêpes, mantes, Abyssaux, pilleurs, la Veuve Grêle…) | 16 | moyenne 1k, transparent | 0,5 | 8,00 |
+| Sols (plates-formes, passerelles, pavés, dalles, sable, corail, glace, neige…), méthode de la texture vue de dessus | 30 | moyenne 1k, opaque, 1:1 | 0,5 | 15,00 |
+| Décors (maisons, tentes, palais, temples, forges, bateaux, dirigeable, cristaux, Léviathan…) | 129 | moyenne 1k, transparent | 0,5 | 64,50 |
+| Illustrations : la carte du monde peinte ; une scène d'arrivée par ville (Canopéa à Khrysos, sept) ; une par fin (quatre, sans rien en dévoiler ici) | 12 | haute 2k, 16:9 | 2,75 | 33,00 |
+| Fonds peints sous la carte (au lieu de la couleur unie) : les huit villes, « sous la terre », « sous les nuages » | 10 | haute 1k | 1,5 | 15,00 |
+| **Sous-total** | **442 images** | | | **331,00** |
+| Reprises (20 % ; presque tout est passé au premier essai jusqu'ici) | | | | 66,20 |
+| **Total** | | | | **≈ 397** |
+
+**Options** (à choisir) : refaire les **9 portraits existants** dans le style révisé, pour qu'ils aillent avec les
+nouveaux (13,50) ; refaire l'**écran titre** (2,75) ; **deux passants qui marchent de plus** par ville (35,00). Avec
+toutes les options : **≈ 448**. Il resterait **≈ 1 700 crédits** sur le compte (≈ 1 750 sans les options).
+
+**Les 45 portraits** (les 9 existants : Ilyane, Tobias, Ingrid, Sylvan, Maëlis, Nell, Liane, Brann, l'Écho du dernier
+train ; total 54). Choisis par l'histoire : compagnons, fil principal, personnages qui donnent ou ferment une quête,
+les plus longs dialogues.
+
+| Où | Personnages |
+|---|---|
+| Le fil (3) | Boulon (compagnon) ; la dame en gris (une seule image pour toutes ses apparitions) ; Hesper Mille-Récits |
+| La fin (3) | trois personnages du chapitre 9, non nommés ici pour ne rien dévoiler (`gdd/chapitre-9.md`) |
+| Gardebois (2) | Elouan Chante-Bois ; Ragna Cendrefer (la forge) |
+| Canopéa (7) | Véline Nacelière ; Kael Marchevent ; Mirelle Doucebranche ; Vanel Lentefeuille ; Malo et Aïlis Feuillevent ; Kaelis |
+| Ironheart (6) | l'archiviste Noam ; Varka ; la Veilleuse du Rail ; Tam et Kerta Orvel ; Joss Brakel |
+| Sept-Portes (3) | Ambroise Encrelune ; Holger Brandt ; Lior Rose-des-Vents |
+| Aetherhaven (6) | Siffrin Plume-Vive ; Ysolde Cent-Plis ; Ravel Sans-Fil ; Ossiane Vire-Nuée ; Céleste Fend-l'Air ; la Veuve Grêle |
+| Coralia (5) | Matteo Marée-Haute ; Aïo Coquelune ; Euria Sel-Doux ; la Grande Amiral Marina Azurios ; Gunnar |
+| Marche-Mère (5) | Ish'Lenne ; Tam'Ruu ; Ahm'Ras ; Hiran'Amra ; la Reine Shal'Vera |
+| Khrysos (5) | Hrolda Rochebrume ; Halvard Neigeclaire ; Maître Ennir ; Korvek ; Torka |
+
+Sans portrait (en pied seulement, comme aujourd'hui) : les aubergistes, marchands, gardes, guides et les autres
+personnages d'une ou deux scènes (65 environ), les passants, les Échos du Livre.
+
+**Les passants qui marchent** (proposition, deux par ville, les plus vus) : Canopéa, la marchande de fleurs et le
+messager ; Ironheart, un ouvrier des forges et le porteur de charbon ; Sept-Portes, le porteur des Halles et
+l'étudiante ; Aetherhaven, la pilote et l'attrapeur du quai ; Coralia, le pêcheur et la marchande de poisson ;
+Marche-Mère, un marcheur et une porteuse d'eau du Camp ; Khrysos, la marchande des Galeries et le mineur du Niveau
+Douze. Les autres gardent leur trajet, sur une seule image.
+
+**Code à prévoir** (sans crédits) : `npm run art` et `npm run tiles` pour les 365 tuiles (méthode éprouvée) ; un champ
+`portrait` pour 45 PNJ ; `npm run walk` pour les 14 planches ; l'illustration d'arrivée sur le premier dialogue de
+chaque ville, la carte peinte sous la carte du monde, une illustration par fin à l'épilogue ; les fonds peints à la
+place du champ `fond` des lieux. Poids : ≈ 10 Mo de plus (tuiles ≈ 2, planches de marche ≈ 1,7, portraits ≈ 1, illustrations ≈ 3,
+fonds ≈ 2) ; recommandé : les illustrations et les fonds mis en cache à la première vue, comme la musique, pour que
+l'installation hors ligne passe de 14,6 à ≈ 19,5 Mo seulement.
+
+**Le style** : `docs/STYLE.md` demandait d'être revu « avant la mise en beauté » (il disait encore « 8–15 ans »).
+Proposition de révision dans `STYLE.md` (« Révision proposée pour la mise en beauté ») : la même peinture lisible à
+64 px, une humeur dark fantasy adulte (lumière basse, matières usées, palette plus sourde), jamais gratuite.
+
+### Le pilote proposé (8,25 crédits) : avant tout le reste
+
+Sept images, toutes de Canopéa sauf deux, pour juger le style révisé à côté de ce qui est déjà peint, à la taille du jeu :
+
+| Image | Réglage | Pourquoi | Crédits |
+|---|---|---|---|
+| Hesper Mille-Récits, en pied, puis son portrait (en pied en référence) | moyenne 1k + haute 1k | un nouveau personnage important, la chaîne complète en pied → portrait | 0,5 + 1,5 |
+| Ilyane, portrait refait dans le style révisé (l'actuel en référence) | haute 1k | comparer avec l'ancien : faut-il refaire les 9 ? | 1,5 |
+| La marchande de fleurs (passant, Canopéa) | moyenne 1k | un passant à côté des passants peints de Gardebois | 0,5 |
+| La maison-cosse (décor) et la plate-forme (sol) de Canopéa | moyenne 1k | la ville la plus vue après Gardebois | 0,5 + 0,5 |
+| La Griffe-Sylve (ennemi) | moyenne 1k | un ennemi en combat, à côté du Rôdeur-Épine | 0,5 |
+| Canopéa, l'illustration d'arrivée (la Grande Nacelle qui monte dans les Arbres-Titans) | haute 2k | une illustration dans le style révisé | 2,75 |
+
+Ensuite, montrées à Cyril dans le jeu (captures), avant de lancer le reste par lots (un lot par ville). Les apparences
+de Hesper et des autres sont des **propositions** (le canon donne leur rôle, pas leur visage), consignées avec chaque
+lot dans `docs/univers/personnages/` au statut « à valider ».
+
 ## Décision du 2026-11-08 (Cyril) : la mise en beauté, portraits pour les importants seulement
 
 Budget du compte : 3 000 crédits (formule Ultra), dont ≈ 854 pour la musique (`docs/gdd/son.md`). Les images : **tout le
 jeu actuel** (chapitres 1 à 8 et la fin) en sprites et décors peints, **portraits de dialogue pour les personnages
 importants seulement** (une cinquantaine), passants, ennemis, tuiles encore dessinées par le code, illustrations et un
 fond peint par ville. Estimation à l'échelle (prix revérifiés le 2026-11-08 sans générer : 0,25 une image basse 1k,
-0,5 moyenne 1k, 1,5 haute 1k, 2,75 haute 2k ; `gpt_image_2_6`) : **≈ 500 crédits**. **À faire avant de générer** : la
-liste précise (quels personnages ont un portrait, quelles tuiles, combien de marcheurs), son coût exact, un pilote, et
-le feu vert de Cyril. Fiche de style : `docs/STYLE.md`.
+0,5 moyenne 1k, 1,5 haute 1k, 2,75 haute 2k ; `gpt_image_2_6`) : **≈ 500 crédits**. **La liste précise, son coût exact
+(≈ 397 crédits, ≈ 448 avec les options) et un pilote (8,25)** : section précédente, en attente du feu vert de Cyril. Fiche de style : `docs/STYLE.md`.
 
 ## Mise en beauté complète : estimation (2026-11-02, demandée par Cyril)
 

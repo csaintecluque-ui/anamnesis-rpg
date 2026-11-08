@@ -73,3 +73,31 @@ Le canon donne leur rôle, pas leur apparence. Tout ce qui suit est une **propos
 - **Rôdeur-Épine** [E8 : canidé recouvert d'épines flexibles, rapide] : canidé élancé, épines souples vert-brun le long
   du dos, allure vive, pas de crocs sanglants.
 - **Écho du dernier train** : foule de voyageurs translucides sur le quai, bleu pâle bordé d'or (voir « Palette »).
+
+## Révision proposée pour la mise en beauté (2026-11-08) — **à valider par Cyril** (le pilote la met à l'épreuve)
+
+Le jeu est une dark fantasy pour adultes depuis le 2026-11-02 (`docs/univers/ton.md` : « le côté image fantasy, mais
+dans un univers sombre », jamais gratuit ni nihiliste). Ce qui change, ce qui reste :
+
+- **Reste** : la peinture numérique, les formes simples et lisibles à 64 px, les contours légèrement marqués, la vue
+  isométrique 2:1, la lumière du haut à gauche, la palette du sceau pour l'interface, les cristaux cyan, les Échos bleu
+  pâle bordés d'or, le monde néo-industriel, aucun nom d'artiste, de studio ou de jeu.
+- **Change** : plus de « public 8–15 ans », plus de « family-friendly », plus de « hopeful » ; une lumière plus basse
+  (lanternes, braises, crépuscule), des ombres plus froides, une palette plus sourde, des matières usées (cuir élimé,
+  rouille, suie, cicatrices, fatigue sur les visages). Toujours : pas de gore, pas de sang complaisant, rien de
+  sexualisé ; les créatures inquiétantes mais lisibles.
+- **Sur la carte**, la différence reste douce : les sprites doivent aller avec ce qui est déjà peint (Gardebois) ;
+  c'est dans les portraits et les illustrations que l'humeur change vraiment.
+
+**Bloc de prompt commun proposé** (remplacerait celui du haut) :
+
+> painterly digital illustration, dark fantasy for adults, muted earthy palette lit by warm lantern light against cool
+> shadows, low-key light from the upper left, weathered materials and tired faces, melancholic and poetic mood, clean
+> readable shapes, slightly defined outlines, neo-industrial world of steam, crystals and brass, no modern technology
+
+À éviter dans tous les prompts : `text, letters, logo, watermark, gore, gratuitous blood, sexualized, modern firearms,
+screens, photorealistic`. Pour les tuiles, décors et personnages, inchangé : `isometric 2:1 view, single object
+centered, isolated on a plain background`, sans sol ni ombre (ajoutée par le script).
+
+**Modèle** : `gpt_image_2_6` (le modèle par défaut aujourd'hui, même prix que `gpt_image_2_5` qui a peint le reste,
+fond transparent natif) ; le pilote dit s'il va avec l'existant, sinon on garde `gpt_image_2_5`.

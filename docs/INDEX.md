@@ -7,7 +7,7 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `JOURNAL.md` : état actuel, jalon en cours, prochaine étape (court). Historique : `archive/journal-AAAA-MM.md`.
 - `a-essayer.md` : la liste de Cyril, ce qu'il aura à essayer sur PC, chantier par chantier.
 - `qualite.md` : vérification qualité de tout le jeu (2026-11-02) : ce qui a été testé, corrigé, laissé, à trancher.
-- `STYLE.md` : fiche de style des visuels de la phase 2 (direction, palette, formats, prompt commun) ; validée.
+- `STYLE.md` : fiche de style des visuels de la phase 2 (direction, palette, formats, prompt commun) ; validée ; révision dark fantasy proposée le 2026-11-08 (à valider).
 - `ASSETS.md` : plan des images de la phase 2 et journal de chaque génération (date, outil, prompt, coût, fichier) ; la musique (2026-11-08) ; le plan des images de la mise en beauté (2026-11-08).
 - `DIALOGUES.md` : textes de tous les dialogues, générés par `npm run dialogues` (ne pas éditer à la main).
 - `Lore/` : ancienne version du lore de Cyril (le Notion « ANAMNESIS » fait foi), local seulement (jamais publié). Ouvrir le fichier précis

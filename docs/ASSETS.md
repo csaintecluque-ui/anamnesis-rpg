@@ -906,6 +906,146 @@ préréglages : `scripts/art/ironheart.json` ; traités par `npm run art`, `npm 
   Pension, l'accueil de Boulon avec l'illustration et son portrait, Kaelis et Varka avec le leur, les deux marcheurs, un
   combat contre les trois des Marches et un Loup de Rouille ; aucune autre erreur ; typecheck et 1079 tests passent.
 
+## Lot Sept-Portes (2026-11-08, 41 images, 26,75 crédits, solde 1 991,11)
+
+Le troisième lot de la mise en beauté (décision de Cyril : « Nouvelle Ilyane, refais les 9, et lance les lots »). Le
+solde est celui du compte après le lot (2 023,86 avant) ; un autre lot tournait en même temps sur le même compte : les
+26,75 crédits sont comptés tâche par tâche (tableau) ; prévu 26,25 (40 images), plus 0,5 de reprise (1 image), plafond
+33. Outil : Higgsfield MCP, `gpt_image_2_6`, six tâches en cours au plus. Bruts : `assets/raw/sept-portes/` (local) ;
+tailles et préréglages : `scripts/art/sept-portes.json` ; traités par `npm run art`, `npm run tiles`, `npm run lots`.
+
+**Réglages communs** (le prompt entier = ces blocs + le sujet du tableau) :
+- **Bloc commun** du style révisé en tête de tous (sauf le sol et les planches de marche), et « No text, no letters, no
+  logo, no watermark, no gore, nothing sexualized, no modern firearms, no screens, not photorealistic. » à la fin de tous.
+- **Personnages** : « Isometric 2:1 view, single character centered, isolated on a transparent background. Full-body
+  character, three-quarter front view, standing: <sujet>. Simple readable silhouette for a small game sprite. He/She
+  stands directly on the bottom of the image: no ground, no base, no cast shadow on the ground. » ; **décors** : de même
+  avec « single object centered, isolated on a transparent background: <sujet>. Simple readable shape for a small game
+  sprite. It stands directly on the bottom of the image… ».
+- **Sol** (la mosaïque) : « Painterly digital illustration, muted earthy palette, weathered materials, clean readable
+  shapes. Seamless tileable ground texture, flat top-down orthographic view looking straight down from above, filling
+  the entire square edge to edge: <sujet>. Perfectly even, uniform lighting across the whole image, no vignette, no
+  light spot, no cast shadows, no perspective, no horizon. No objects. »
+- **Portraits** : « Bust portrait for a dialogue panel, three-quarter view: the same <man/woman> as in the reference
+  image, <sujet>, same face, same hair, same clothes, lit by warm lantern light from the upper left with cool shadow on
+  the other side. Plain uniform dark ink background color #1B1512. »
+- **Planches de marche** : « Sprite sheet for a 2D isometric game, on a transparent background: the same character as in
+  the reference image (<tenue>), full body, seen from slightly above at a 30 degree angle, <direction>. Exactly 6 frames
+  of a smooth walking cycle side by side in one single horizontal row, evenly spaced, every frame the same size and the
+  same scale, feet on the same baseline, the character identical in every frame except the legs, arms and <robe/coat>
+  moving with the steps. No ground, no shadow, no grid lines, no frame borders. » ; les directions comme au lot Canopéa.
+- **Illustration** : le bloc commun, puis le sujet du tableau (qui finit par la phrase du tiers bas sombre).
+- **Fond** : « Painted backdrop for the empty edges around an isometric game map: <sujet>; no buildings or figures in
+  the center, no focal subject, soft and slightly blurred, darker toward the edges. »
+
+| Fichier (`assets/raw/sept-portes/`) | Tâche | Réglage | Sujet du prompt | Crédits |
+|---|---|---|---|---|
+| `edda.png` | `6e00ff9e` | moyenne 1k, transparent, 2:3 | « a woman of about forty, a broker from an industrial nation, slender and upright, pale skin, black hair pinned up in a neat low knot with a few loose strands, a composed, guarded, tired face with shadows under her dark eyes, a long well-cut mid-grey wool travelling coat buttoned high, a grey scarf at her throat, fine thin dark grey leather gloves, dark trousers and worn dark boots, gloved hands empty at her sides, holding nothing » | 0,5 |
+| `ambroise.png` | `32b242aa` | moyenne 1k, transparent, 2:3 | « Ambroise Encrelune, the Curator of a great library, a lean dignified man in his sixties with short silver-white hair combed back, a clean-shaven lined face, dry, attentive, precise eyes, a long ink-black scholar's robe with a high collar, wide sleeves and thin dull gold trim, ink-stained fingers, a small iron key hanging on a cord around his neck, a heavy leather-bound register held under one arm and a quill pen in his other hand » | 0,5 |
+| `lior.png` | `44361375` | moyenne 1k, transparent, 2:3 | « Lior Rose-des-Vents, a cartographer, a thin wiry man in his forties with untidy auburn-brown hair and short stubble, a narrow thoughtful face, curious searching eyes, a long slate-blue coat with many pockets over a cream shirt, a brass compass hanging on a chain around his neck, a rolled map held under one arm » | 0,5 |
+| `pelerin.png` | `4fc33f14` | moyenne 1k, transparent, 2:3 | « a pilgrim come early for a festival of remembrance, a man in his fifties with greying brown hair and a weathered patient face, a long dusty undyed brown travelling robe with the hood lowered on his shoulders, a simple cord belt, a tall plain wooden walking staff in his right hand, a small cloth bundle slung on his back, worn leather sandals » | 0,5 |
+| `guide.png` | `d17d21b2` | moyenne 1k, transparent, 2:3 | « a guide for pilgrims, a lively wiry man in his thirties with short straw-blond hair, a cheerful hoarse-voiced face, a short teal-blue coat over a cream shirt, a leather satchel at his hip, holding up a short wooden stick with a small plain red pennant to gather his group » | 0,5 |
+| `josse.png` | `9ed55408` | moyenne 1k, transparent, 2:3 | « Olmo Sept-Routes, the innkeeper of an inn at the crossroads of the world, a round, stout, jovial man in his fifties, a sun-browned weathered face with a broad warm smile and crinkled laughing eyes, short dark brown hair and a short beard, a scarf striped in six faded colours knotted at his neck, a linen shirt with rolled sleeves, a brown leather apron over his round belly, a dishcloth over one shoulder, sturdy boots » | 0,5 |
+| `arlo.png` | `557a1a83` | moyenne 1k, transparent, 2:3 | « Arlo, a boy of nine, almost white pale blond hair, light olive-brown skin, bright curious eyes, a simple sea-blue tunic over grey trousers, soft leather shoes, rocking from one foot to the other, simple child's clothes » | 0,5 |
+| `mina.png` | `a5376a57` | moyenne 1k, transparent, 2:3 | « Mina, a girl of nine, Arlo's twin sister, almost white pale blond hair in two short braids, light olive-brown skin, a serious, mischievous look, a simple pale blue tunic dress over grey leggings, soft leather shoes, simple child's clothes » | 0,5 |
+| `greffiere.png` | `05a0a88e` | moyenne 1k, transparent, 2:3 | « the clerk of a council of seven nations, a composed woman in her fifties, dark brown hair streaked with grey in a tight low bun, a calm unreadable face, a long pearl-grey high-collared robe, a slim silver quill pen in one hand, a long narrow ledger held against her side » | 0,5 |
+| `portier-nuit.png` | `e89b6033` | moyenne 1k, transparent, 2:3 | « the night porter of a great library, a tall gaunt man in his fifties with greying dark hair and grey stubble, tired melancholic eyes, a long dark navy-blue coat buttoned up, a ring of heavy iron keys at his belt, holding a small shuttered dark lantern that lets out a narrow beam of warm light » | 0,5 |
+| `marchande-nations.png` (écarté) | `af2a88c0` | moyenne 1k, transparent, 2:3 | « a merchant of a market of all nations, a shrewd woman in her forties with brown skin and black hair wrapped in a patterned headscarf, a sly knowing smile, layered clothes of fabrics from many lands: a plum-coloured vest, a saffron sash, a striped shawl, several bracelets, a belt hung with little pouches and small stoppered vials, a small glowing crystal held up between two fingers » | 0,5 |
+| `eprouveur.png` | `a69cad79` | moyenne 1k, transparent, 2:3 | « a Tester of the Ring, a lean calm man in his forties with short dark hair, an impassive weathered face that no longer flinches, a plain off-white close-fitting uniform tunic and trousers, a white armband on his left arm, a small notebook tucked in his belt, bare fists loosely clenched at his sides » | 0,5 |
+| `portrait-edda.png` | `e46c8dd0` | haute 1k, opaque, 1:1, `edda.png` (`6e00ff9e`) en référence | « the lady in grey, a broker from an industrial nation, a composed, guarded half-smile that does not reach her eyes, a cool unreadable gaze hiding a deep weariness » | 1,5 |
+| `portrait-ambroise.png` | `b4ae66b0` | haute 1k, opaque, 1:1, `ambroise.png` (`32b242aa`) en référence | « Ambroise Encrelune, the Curator of the Great Library, the small iron key on a cord at his neck, a dry, precise, faintly ironic look, a scholar who records and never searches » | 1,5 |
+| `portrait-lior.png` | `99e31429` | haute 1k, opaque, 1:1, `lior.png` (`44361375`) en référence | « Lior Rose-des-Vents, the cartographer, the brass compass at his neck, a curious, wry half-smile and searching eyes » | 1,5 |
+| `marche-pelerin-souvenir/s.png` | `b59d2885` | moyenne 1k, transparent, 21:9, `pelerin.png` (`4fc33f14`) en référence | « vers le spectateur ; tenue : a man in his fifties with greying brown hair, a long dusty undyed brown hooded robe with the hood lowered, a cord belt, a small cloth bundle slung on his back, worn leather sandals, a tall plain wooden walking staff in his right hand, same face, same proportions and colors ; « legs, arms and robe moving » » | 0,5 |
+| `marche-pelerin-souvenir/se.png` | `7a9a2ca8` | moyenne 1k, transparent, 21:9, `pelerin.png` (`4fc33f14`) en référence | « bas-droite, trois quarts face ; tenue : a man in his fifties with greying brown hair, a long dusty undyed brown hooded robe with the hood lowered, a cord belt, a small cloth bundle slung on his back, worn leather sandals, a tall plain wooden walking staff in his right hand, same face, same proportions and colors ; « legs, arms and robe moving » » | 0,5 |
+| `marche-pelerin-souvenir/e.png` | `fc0bcb6f` | moyenne 1k, transparent, 21:9, `pelerin.png` (`4fc33f14`) en référence | « profil vers la droite ; tenue : a man in his fifties with greying brown hair, a long dusty undyed brown hooded robe with the hood lowered, a cord belt, a small cloth bundle slung on his back, worn leather sandals, a tall plain wooden walking staff in his right hand, same face, same proportions and colors ; « legs, arms and robe moving » » | 0,5 |
+| `marche-pelerin-souvenir/ne.png` | `130d9251` | moyenne 1k, transparent, 21:9, `pelerin.png` (`4fc33f14`) en référence | « haut-droite, trois quarts dos ; tenue : a man in his fifties with greying brown hair, a long dusty undyed brown hooded robe with the hood lowered, a cord belt, a small cloth bundle slung on his back, worn leather sandals, a tall plain wooden walking staff in his right hand, same face, same proportions and colors ; « legs, arms and robe moving » » | 0,5 |
+| `marche-pelerin-souvenir/n.png` | `991d84dc` | moyenne 1k, transparent, 21:9, `pelerin.png` (`4fc33f14`) en référence | « de dos ; tenue : a man in his fifties with greying brown hair, a long dusty undyed brown hooded robe with the hood lowered, a cord belt, a small cloth bundle slung on his back, worn leather sandals, a tall plain wooden walking staff in his right hand, same face, same proportions and colors ; « legs, arms and robe moving » » | 0,5 |
+| `marche-guide/s.png` | `f80fb462` | moyenne 1k, transparent, 21:9, `guide.png` (`d17d21b2`) en référence | « vers le spectateur ; tenue : a wiry man with short straw-blond hair, a short teal-blue coat over a cream shirt, a red neckerchief, brown trousers and brown boots, a leather satchel and a small lantern at his hip, holding up a short wooden stick with a small plain red pennant, same face, same proportions and colors ; « legs, arms and coat moving » » | 0,5 |
+| `voyageuse-zephyria.png` | `723c0f63` | moyenne 1k, transparent, 2:3 | « a traveller from a nation of sky cities, a woman in her thirties with wind-tousled pale blond hair, a fair wind-burnt face, a fitted pale sky-blue travelling jacket with brass buttons, a long white scarf fluttering in the wind, grey trousers tucked into tall soft boots, flight goggles pushed up on her forehead, a small leather travel bag at her hip » | 0,5 |
+| `marin-marisol.png` | `00b3e3aa` | moyenne 1k, transparent, 2:3 | « a sailor from a sea nation, a broad-shouldered man in his thirties with dark brown skin, short black curly hair and a short beard, a deep navy-blue sailor's jacket over a cream striped shirt, wide trousers rolled at the calves, a few seashells held in one open hand » | 0,5 |
+| `nomade-sables.png` | `879abe68` | moyenne 1k, transparent, 2:3 | « a woman of the desert nomads, in her thirties, dark sun-weathered skin, black hair tied back under a loose sand-coloured hood, wary eyes, a long layered sand-coloured travelling coat with a rust-red sash, a scarf wound loosely around her neck, dusty worn leather boots » | 0,5 |
+| `marche-guide/se.png` | `cb23e4df` | moyenne 1k, transparent, 21:9, `guide.png` (`d17d21b2`) en référence | « bas-droite, trois quarts face ; tenue : a wiry man with short straw-blond hair, a short teal-blue coat over a cream shirt, a red neckerchief, brown trousers and brown boots, a leather satchel and a small lantern at his hip, holding up a short wooden stick with a small plain red pennant, same face, same proportions and colors ; « legs, arms and coat moving » » | 0,5 |
+| `marche-guide/e.png` | `20c2c766` | moyenne 1k, transparent, 21:9, `guide.png` (`d17d21b2`) en référence | « profil vers la droite ; tenue : a wiry man with short straw-blond hair, a short teal-blue coat over a cream shirt, a red neckerchief, brown trousers and brown boots, a leather satchel and a small lantern at his hip, holding up a short wooden stick with a small plain red pennant, same face, same proportions and colors ; « legs, arms and coat moving » » | 0,5 |
+| `marche-guide/ne.png` | `016c74a9` | moyenne 1k, transparent, 21:9, `guide.png` (`d17d21b2`) en référence | « haut-droite, trois quarts dos ; tenue : a wiry man with short straw-blond hair, a short teal-blue coat over a cream shirt, a red neckerchief, brown trousers and brown boots, a leather satchel and a small lantern at his hip, holding up a short wooden stick with a small plain red pennant, same face, same proportions and colors ; « legs, arms and coat moving » » | 0,5 |
+| `marche-guide/n.png` | `7aba2848` | moyenne 1k, transparent, 21:9, `guide.png` (`d17d21b2`) en référence | « de dos ; tenue : a wiry man with short straw-blond hair, a short teal-blue coat over a cream shirt, a red neckerchief, brown trousers and brown boots, a leather satchel and a small lantern at his hip, holding up a short wooden stick with a small plain red pennant, same face, same proportions and colors ; « legs, arms and coat moving » » | 0,5 |
+| `glacien.png` | `f4102be3` | moyenne 1k, transparent, 2:3 | « a man of the frozen north in his sixties, pale weathered skin reddened by the cold, white hair and a short white-streaked beard, a long heavy padded slate-blue wool coat with a thick pale fur collar and fur cuffs, a grey knitted scarf, fur-lined boots, gloved hands » | 0,5 |
+| `changeur.png` | `42c0f193` | moyenne 1k, transparent, 2:3 | « a money changer, a sharp-eyed man in his fifties with neatly combed black hair and a thin moustache, a long plum-coloured coat with dull gold buttons, a small brass pair of balance scales hanging from his belt next to several coin purses, weighing a few coins in his open palm » | 0,5 |
+| `fruitiere.png` | `a8644829` | moyenne 1k, transparent, 2:3 | « a fruit seller of a market in a great crater, a sturdy woman in her forties with dark brown skin and black hair tied up in a cloth, a practical earth-brown dress with rolled sleeves and a cream apron, a wide shallow wicker basket of pears, dates and pale frosted apples held on her hip » | 0,5 |
+| `chroniqueur.png` | `35e23a4b` | moyenne 1k, transparent, 2:3 | « a Chronicler of a great library, an austere man in his sixties with thin grey hair, a pale ascetic face, a long ink-black robe with a deep violet stole, a thick ledger under one arm and a pencil in his hand » | 0,5 |
+| `etudiante.png` | `8a52b1cb` | moyenne 1k, transparent, 2:3 | « a young woman student of a great library, about twenty, auburn hair in a loose braid, a pale studious face with a small ink smudge on her cheek, a dark plum-violet scholar's robe over a cream blouse, a satchel strap across her chest, a book held against her chest » | 0,5 |
+| `marchande-nations-v2.png` | `d98622a1` | moyenne 1k, transparent, 2:3 | « a shrewd market trader of a market of all nations, a woman in her forties with brown skin and black hair in a thick practical braid, a sly knowing smile, a long patchwork coat sewn from panels of plain fabrics from many different lands (plum, saffron, teal, rust), a leather belt hung with little pouches and small stoppered vials, sturdy boots, no jewellery, no headscarf, a small glowing crystal held up between two fingers » | 0,5 |
+| `porte-nexus.png` | `ffd9f7a1` | moyenne 1k, transparent, 2:3 | « one of the Seven Gates of a city at the centre of the world, a tall permanent portal: a monumental pointed archway of pale weathered sandstone blocks with worn carved geometric bands, the opening inside the arch filled with a shimmering translucent veil of pale cyan-green light like standing water, a small copper keystone at the top » | 0,5 |
+| `dome.png` | `7618b857` | moyenne 1k, transparent, 2:3 | « a small domed building of pale cream stone: a squat square base with a low dark arched wooden door, a broad copper band running around it, topped by a smooth round stone dome with a small copper finial, a few weathering stains » | 0,5 |
+| `stele.png` | `3bc1646b` | moyenne 1k, transparent, 2:3 | « a tall upright stele of pale weathered stone with a rounded top, its face carved with many neat rows of tiny abstract notches and dashes like a long list, moss in the cracks of its base » | 0,5 |
+| `lutrin.png` | `32c28233` | moyenne 1k, transparent, 2:3 | « a tall reading lectern of dark carved wood on a single sturdy column and a cross-shaped foot, a very large old book lying open on its slanted top, cream parchment pages with faint illegible lines, a thin ribbon bookmark hanging down » | 0,5 |
+| `mosaique.png` | `1a7a4483` | moyenne 1k, opaque, 1:1, vue de dessus | « an old mosaic pavement of small square tesserae, cream and pale sand with scattered faded ochre and copper-brown tesserae, crossed by thin straight bands of darker copper-brown tesserae, worn smooth by countless feet, a few chipped tesserae » | 0,5 |
+| `sept-portes-arrivee.png` | `1bca8b0c` | haute 2k, opaque, 16:9 | « The arrival in a great walled city at the exact centre of the world, at dusk: seen from just in front of the tall stone archway gate the traveller has come through, a vast square paved with pale worn stone and a faded mosaic of seven rays at its centre; across the square, six other monumental stone archway gates stand in a row in the far city wall, each filled with a faint veil of light of a different soft colour; around the square, tall old houses of many different styles (brick, pale stone domes, timber on stilts) with warm lit windows, market stalls under awnings, street lamps, and small figures of travellers from many lands; beyond the roofs, the massive silhouette of a great library with a long colonnaded facade and a dark green copper dome; a violet dusk sky with the first stars. Small figures only, no one in the foreground. The lower third is darker, calm shadow, leaving room for a dialogue panel. » | 2,75 |
+| `fond-sept-portes.png` | `5657b4f0` | haute 1k, opaque, 16:9 | « the pale stone rooftops of a vast ancient walled city seen from very high above at dusk, a maze of weathered stone and slate roofs, narrow shadowed streets and a few green copper domes dissolving into soft haze toward the center; along the edges, stretches of a great city wall with tall archway gates glowing faintly with pale light; faint warm lamplight in a few windows » | 1,5 |
+
+**Dans le jeu** : 29 tuiles (25 images : une seule pour les cinq tuiles de la dame en gris), 8 portraits (Ambroise,
+Lior, et un seul pour les six PNJ de la dame en gris : `edda`, `edda-halte`, `edda-coralia`, `edda-marche`,
+`edda-khrysos`, `edda-quai`), les planches de marche du pèlerin de la Fête du Souvenir et du guide des Halles
+(`public/sprites/figurant-{pelerin-souvenir,guide}.png`, `src/data/figurants.json`), le fond
+`public/fonds/sept-portes.jpg` (la place, le parvis, les Halles Basses), l'illustration
+`public/illustrations/sept-portes-arrivee.jpg` sur le premier mot de Hesper à Sept-Portes (`hesper.json`, nœud `appel` :
+« Te voilà. Ilyane m'a écrit que tu écoutais bien… »).
+
+**Bilan** :
+- **Reprise (1, 0,5 crédit)** : la marchande des nations, sortie avec un foulard à motifs, de grands anneaux d'oreilles
+  et des châles superposés, l'image toute faite d'une « diseuse de bonne aventure » qui renvoie à un peuple réel
+  (interdit par le brief) : refaite en long manteau cousu d'étoffes de plusieurs pays, une tresse, sans bijoux ni
+  foulard. La voyageuse de Zephyria est sortie avec un halo blanc : traitée par `"matte": true`, sans nouvelle image
+  (vérifié sur fond gris et dans le jeu).
+- **L'illustration** est sur le nœud `appel` de Hesper (son premier mot quand la quête « Les Mémoires du Monde Perdu »
+  est active, avant le drapeau `hesper-vue`), pas sur un accueil de la place : à l'arrivée par la Porte du sud, aucun
+  PNJ ne reçoit (la place n'a que la marchande des nations, qui vend) ; c'est Hesper qui fait venir le héros
+  (`gdd/jalon-4.md` : « on arrive par la Porte du sud, sur la place des Sept Portes. Hesper explique le Registre des
+  Mains »), et le fil du journal y envoie d'abord (« Sept-Portes : Hesper Mille-Récits, et la Grande Bibliothèque »). Ce
+  nœud ne sert qu'à Sept-Portes (à Gardebois et au quai sept, ses entrées par lieu passent avant).
+- **Sortes vérifiées** : `porte-nexus` et `dome` en `batiment` (le dôme sert aussi de maison dans l'enceinte des trois
+  quartiers) ; `stele` en `haut`, réduite à la taille du dessin provisoire ; `lutrin` en `meuble` ; `mosaique` en `sol`.
+- **Tuiles partagées** (une image par allure, sans détail propre à une seule ville) : la stèle sert aussi au temple
+  d'Aetherhaven, à la halte morte, au quai sept, à la statue d'Aldara et au monument des Trois Cents : des marques
+  abstraites en colonnes, aucune lettre ; le lutrin sert aussi à Aetherhaven et à Khrysos ; `changeur` sert aussi aux
+  deux « marchands de Ferros » d'Aetherhaven et de Coralia : un changeur sans signe de ville (manteau prune, petite
+  balance, bourses) ; `etudiante` sert aussi à l'étudiante de l'Académie d'Aetherhaven ; `voyageuse-zephyria` sert aussi
+  à la pilote de Zephyria de l'auberge (d'où les lunettes de vol relevées) ; `eprouveur` sert à l'Éprouveur et à
+  l'Éprouveuse de la même paire : un homme en uniforme blanc cassé et brassard blanc (à séparer plus tard si Cyril le
+  souhaite).
+- **Souci, `glacien` défini deux fois** dans `scripts/tiles-def.mjs` (Sept-Portes, l. 1180, et Khrysos, l. 2227) : le
+  lot peint la première (`TILES.find`), mais le jeu prend la dernière (`frames[nom]`, `src/engine/tiledMap.ts`). Le
+  Glacien de la place, celui des Portes de Khrysos et le Vigile Blanc restent donc dessinés par le code tant que le
+  doublon n'est pas réglé (script partagé, non touché ici). L'image est prête et vaut pour les trois (un homme du Nord,
+  la soixantaine, manteau rembourré à col de fourrure).
+- **À valider par Cyril (inventions visuelles ; le canon donne les rôles, pas les visages)** : la dame en gris (la
+  quarantaine, puisqu'elle était enfant il y a trente ans ; peau claire, cheveux noirs en chignon bas, long manteau gris
+  boutonné haut, écharpe grise, gants fins gris, mains vides : ni rouleau, ni conque, ni rien de ses scènes, qui ne la
+  montrent qu'en manteau gris et gants fins) ; Ambroise (la soixantaine, cheveux blanc d'argent, robe d'encre à liseré
+  d'or, clé de fer au cou, registre et plume, comme son texte) ; Olmo (rond, la cinquantaine, barbe courte, foulard à
+  six couleurs, tablier de cuir) ; Lior (maigre, la quarantaine, cheveux châtain-roux en bataille, manteau bleu ardoise,
+  boussole au cou, rouleau sous le bras, comme son texte) ; Arlo et Mina (neuf ans, cheveux presque blancs comme le dit
+  le texte d'Arlo, peau olivâtre : une mère de Marisol, un père de Glacialis) ; la greffière (la cinquantaine, robe gris
+  perle, plume d'argent, registre) ; le portier de nuit (grand et maigre, manteau bleu nuit, trousseau de clés, lanterne
+  sourde) ; la marchande des nations ; l'Éprouveur ; la voyageuse de Zephyria (veste bleu ciel, écharpe blanche au
+  vent) ; le marin de Marisol (peau brune, veste bleu marine, coquillages dans la main) ; la nomade des Sables (capuche et
+  manteau couleur sable, ceinture rouille) ; le Glacien ; le pèlerin (robe de bure, bâton, baluchon) ; le changeur ; la
+  marchande de fruits (poires, dattes, pommes givrées) ; le guide (veste bleu-vert, fanion rouge du dessin provisoire) ;
+  le Chroniqueur (robe d'encre, étole violette, registre, crayon) ; l'étudiante (robe prune, tresse auburn, livre).
+  Décors : les Portes en arche de pierre claire, voile de lumière vert-cyan, deux lanternes et deux cristaux en
+  pinacles ; le dôme (pierre crème, bandeau de cuivre) ; un petit emblème de cristal et d'engrenage au sommet de la stèle ; une
+  lampe à flamme sur le lutrin ; la mosaïque en carreaux crème quadrillés de bandes de cuivre. L'illustration : la place
+  au crépuscule vue sous l'arche de la Porte du sud, les six autres Portes au fond, chacune d'une couleur, la Grande
+  Bibliothèque à colonnade et dôme de cuivre vert, des maisons de tous les styles, des bannières à rose des vents ; **la
+  mosaïque y a huit rayons, pas sept** (le dessin provisoire en voulait sept, aucun texte du jeu ne le dit : gardée ;
+  2,75 crédits pour la refaire si Cyril le souhaite). Le fond : les toits et les dômes vus de haut, de la brume au
+  centre, deux Portes de l'enceinte allumées aux coins.
+- **Vu au passage** : beaucoup de passants portent une petite lanterne à la ceinture (le bloc commun), et le Glacien en
+  tient une sans texte qui la lui donne ; le feu n'est pas exclu à Sept-Portes. Sur la place, la mosaïque peinte est
+  nettement plus claire que les pavés (comme le dessin provisoire). Dans le jeu (Chromium) : la place, le parvis, les
+  Halles Basses, l'auberge (Olmo, la dame en gris), la Bibliothèque (Ambroise, les lutrins), l'échoppe (Lior), la maison
+  des jumeaux, le Conseil ; les dialogues de Hesper (avec l'illustration), de la dame en gris, d'Ambroise et de Lior,
+  avec leur portrait ; les deux marcheurs ; aucune erreur ; typecheck et 1079 tests passent.
+
 ## Décision du 2026-11-08 (Cyril) : la mise en beauté, portraits pour les importants seulement
 
 Budget du compte : 3 000 crédits (formule Ultra), dont ≈ 854 pour la musique (`docs/gdd/son.md`). Les images : **tout le

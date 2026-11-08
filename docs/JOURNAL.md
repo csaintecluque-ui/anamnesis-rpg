@@ -22,7 +22,8 @@ Ce qu'il reste à essayer sur PC : `docs/a-essayer.md` (dont la fin, sans rien d
 - **Partie de Cyril sur PC**, jusqu'à la fin ; ses remarques, puis les retouches (équilibre, textes de la fin).
 - **Notion** : rien de la fin n'y est publié avant que Cyril l'ait jouée (la surprise) ; ensuite, la page « Anamnesis —
   le jeu ».
-- Ensuite C (Higgsfield, plan « max » dans `gdd/son.md`) : il faut les crédits et les paroles de la berceuse.
+- **Higgsfield (décision du 2026-11-08)** : 3 000 crédits sur le compte. Musique : plan « recommandé » **validé**
+  (≈ 854 crédits, `gdd/son.md`) ; images : portraits pour les importants seulement (≈ 500, liste à présenter avant).
 
 ## Points ouverts
 

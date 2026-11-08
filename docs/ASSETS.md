@@ -350,6 +350,16 @@ Deux demandes refusées à l'envoi par Higgsfield (limite de débit, 429), sans 
 `npm run walk -- 2d anim2d/<nom> figurant-<nom> [hauteur]` ; le garçon à 42 px au lieu de 54, c'est un enfant).
 Vérifié dans le jeu : les deux marcheurs animés dans Gardebois, les trois autres immobiles, bulle du client.
 
+## Décision du 2026-11-08 (Cyril) : la mise en beauté, portraits pour les importants seulement
+
+Budget du compte : 3 000 crédits (formule Ultra), dont ≈ 854 pour la musique (`docs/gdd/son.md`). Les images : **tout le
+jeu actuel** (chapitres 1 à 8 et la fin) en sprites et décors peints, **portraits de dialogue pour les personnages
+importants seulement** (une cinquantaine), passants, ennemis, tuiles encore dessinées par le code, illustrations et un
+fond peint par ville. Estimation à l'échelle (prix revérifiés le 2026-11-08 sans générer : 0,25 une image basse 1k,
+0,5 moyenne 1k, 1,5 haute 1k, 2,75 haute 2k ; `gpt_image_2_6`) : **≈ 500 crédits**. **À faire avant de générer** : la
+liste précise (quels personnages ont un portrait, quelles tuiles, combien de marcheurs), son coût exact, un pilote, et
+le feu vert de Cyril. Fiche de style : `docs/STYLE.md`.
+
 ## Mise en beauté complète : estimation (2026-11-02, demandée par Cyril)
 
 Prix mesurés (`gpt_image_2_5`) : **0,5** crédit une image moyenne 1k (tuile, décor, personnage en pied, une direction de

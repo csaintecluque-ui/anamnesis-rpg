@@ -61,6 +61,26 @@ du lieu ; un réglage « Musique » à part dans les Options ; les fichiers réd
 par boucle), **mis en cache à la première écoute** plutôt qu'à l'installation (le cache hors ligne fait déjà 14 Mo) ;
 chaque génération consignée dans `docs/ASSETS.md`.
 
+## La décision (Cyril, 2026-11-08) : le plan « recommandé », **validé, à lancer**
+
+Le « max » (2 755,52 crédits) laissait trop peu pour les images (3 000 crédits sur le compte, formule Ultra). Retenu :
+**les 34 morceaux du plan « max »** (tableau plus bas), en **ElevenLabs Music v2.5** (`elevenlabs_music_v2_5`,
+`batch_size` = nombre de variantes), mais **une seule variante pour les 20 ambiances** et **deux** pour le reste :
+
+| Lot | Variantes | Durée | Crédits |
+|---|---|---|---|
+| A · les 20 ambiances (10 lieux, jour et nuit, 3 min) | 1 | 60 min | 523,08 |
+| B · les 8 thèmes | 2 | 16 min | 278,98 |
+| C · les 6 notes courtes | 2 | 1 min | 17,44 |
+| D · la berceuse, fredonnée et chantée (paroles ci-dessous) | 2 | 2 min | 34,87 |
+| **Total** | | **79 min** | **≈ 854,4** |
+
+Une ambiance qui ne plaît pas se refait seule (≈ 26 crédits). Le reste du compte va aux images (`docs/ASSETS.md`,
+« Décision du 2026-11-08 »). Ce qui reste à faire autour : les prompts (fiche de style sonore ci-dessus), chaque
+génération consignée dans `docs/ASSETS.md`, les fichiers réduits (mono 96 kbit/s, ffmpeg), mis en cache à la première
+écoute ; le chef d'orchestre (le lieu, le moment, le combat, les fondus), le réglage « Musique » des options, les notes
+courtes sur les récompenses ; une page d'écoute en mode test pour choisir entre les deux variantes.
+
 ## Le plan « max » (demande de Cyril, 2026-11-06 : « je veux le max, pour que ce soit fou ») — **prix à valider**
 
 Le meilleur modèle (ElevenLabs Music v2.5), des boucles de 3 minutes (moins de répétition), chaque lieu **le jour et la

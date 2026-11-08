@@ -1,0 +1,262 @@
+{
+  "gardebois-jour": {
+    "v": "575e99f2",
+    "duree": 180.1,
+    "octets": 2161416
+  },
+  "gardebois-nuit": {
+    "v": "f5c14bd1",
+    "duree": 179.7,
+    "octets": 2157027
+  },
+  "canopee-jour": {
+    "v": "c59553b3",
+    "duree": 180.1,
+    "octets": 2161416
+  },
+  "canopee-nuit": {
+    "v": "be0a2b08",
+    "duree": 180.1,
+    "octets": 2161103
+  },
+  "ironheart-jour": {
+    "v": "6271c788",
+    "duree": 180.1,
+    "octets": 2161416
+  },
+  "ironheart-nuit": {
+    "v": "5d20429f",
+    "duree": 180.1,
+    "octets": 2161103
+  },
+  "sept-portes-jour": {
+    "v": "302f057b",
+    "duree": 180.1,
+    "octets": 2161416
+  },
+  "sept-portes-nuit": {
+    "v": "2dbdb4df",
+    "duree": 180.1,
+    "octets": 2161416
+  },
+  "aetherhaven-jour": {
+    "v": "1bd989c4",
+    "duree": 180.1,
+    "octets": 2161416
+  },
+  "aetherhaven-nuit": {
+    "v": "aa4ddfaf",
+    "duree": 179.8,
+    "octets": 2158281
+  },
+  "coralia-jour": {
+    "v": "b97b05ef",
+    "duree": 180.1,
+    "octets": 2161416
+  },
+  "coralia-nuit": {
+    "v": "aa241484",
+    "duree": 180.1,
+    "octets": 2161416
+  },
+  "marche-mere-jour": {
+    "v": "54647a73",
+    "duree": 180,
+    "octets": 2159849
+  },
+  "marche-mere-nuit": {
+    "v": "a726968b",
+    "duree": 180.1,
+    "octets": 2161416
+  },
+  "khrysos-jour": {
+    "v": "8a71b375",
+    "duree": 179.7,
+    "octets": 2157027
+  },
+  "khrysos-nuit": {
+    "v": "fe7084b6",
+    "duree": 179.9,
+    "octets": 2158908
+  },
+  "souterrain-jour": {
+    "v": "48e84da1",
+    "duree": 180.1,
+    "octets": 2161103
+  },
+  "souterrain-nuit": {
+    "v": "166c59cc",
+    "duree": 179.3,
+    "octets": 2152325
+  },
+  "route-jour": {
+    "v": "361242f2",
+    "duree": 180.1,
+    "octets": 2161416
+  },
+  "route-nuit": {
+    "v": "e74f6a05",
+    "duree": 180.1,
+    "octets": 2161416
+  },
+  "theme-principal-a": {
+    "v": "9094ef10",
+    "duree": 177.4,
+    "octets": 2128815
+  },
+  "theme-principal-b": {
+    "v": "8c93d44b",
+    "duree": 178.4,
+    "octets": 2141040
+  },
+  "combat-a": {
+    "v": "adfcaa18",
+    "duree": 120.1,
+    "octets": 1441377
+  },
+  "combat-b": {
+    "v": "33010381",
+    "duree": 120.1,
+    "octets": 1441377
+  },
+  "combat-gardien-a": {
+    "v": "d731ba25",
+    "duree": 120.1,
+    "octets": 1441377
+  },
+  "combat-gardien-b": {
+    "v": "fbc0a365",
+    "duree": 120.1,
+    "octets": 1441377
+  },
+  "veillee-a": {
+    "v": "52437ebb",
+    "duree": 120.1,
+    "octets": 1441377
+  },
+  "veillee-b": {
+    "v": "eeacc306",
+    "duree": 120.1,
+    "octets": 1441377
+  },
+  "echos-a": {
+    "v": "3eaf7dac",
+    "duree": 120.1,
+    "octets": 1441377
+  },
+  "echos-b": {
+    "v": "13401d9a",
+    "duree": 120.1,
+    "octets": 1441377
+  },
+  "dame-en-gris-a": {
+    "v": "a697ec89",
+    "duree": 120.1,
+    "octets": 1441377
+  },
+  "dame-en-gris-b": {
+    "v": "a2150dee",
+    "duree": 120.1,
+    "octets": 1441377
+  },
+  "sept-caisses-a": {
+    "v": "8dcf09a3",
+    "duree": 120.1,
+    "octets": 1441377
+  },
+  "sept-caisses-b": {
+    "v": "4dc39c85",
+    "duree": 120.1,
+    "octets": 1441377
+  },
+  "chute-a": {
+    "v": "af4537a3",
+    "duree": 57.6,
+    "octets": 691558
+  },
+  "chute-b": {
+    "v": "aa787e21",
+    "duree": 58,
+    "octets": 696574
+  },
+  "quete-terminee-a": {
+    "v": "b2db6fed",
+    "duree": 9.3,
+    "octets": 111640
+  },
+  "quete-terminee-b": {
+    "v": "3902ea62",
+    "duree": 8.5,
+    "octets": 101922
+  },
+  "recit-retenu-a": {
+    "v": "94309db8",
+    "duree": 9.5,
+    "octets": 114461
+  },
+  "recit-retenu-b": {
+    "v": "d7d26be8",
+    "duree": 8.9,
+    "octets": 106624
+  },
+  "niveau-gagne-a": {
+    "v": "35c06cc6",
+    "duree": 9.8,
+    "octets": 118536
+  },
+  "niveau-gagne-b": {
+    "v": "751b13b0",
+    "duree": 9.2,
+    "octets": 111013
+  },
+  "echo-recueilli-a": {
+    "v": "26f900fd",
+    "duree": 9.1,
+    "octets": 110072
+  },
+  "echo-recueilli-b": {
+    "v": "ccb9ca25",
+    "duree": 9.3,
+    "octets": 112267
+  },
+  "caisse-trouvee-a": {
+    "v": "8dbbee19",
+    "duree": 9.4,
+    "octets": 113207
+  },
+  "caisse-trouvee-b": {
+    "v": "a5117493",
+    "duree": 9.7,
+    "octets": 116342
+  },
+  "veillee-reussie-a": {
+    "v": "8e42b28f",
+    "duree": 8.3,
+    "octets": 100355
+  },
+  "veillee-reussie-b": {
+    "v": "50c6b9ef",
+    "duree": 9.8,
+    "octets": 117909
+  },
+  "berceuse-fredonnee-a": {
+    "v": "23c0b7b7",
+    "duree": 59.9,
+    "octets": 719143
+  },
+  "berceuse-fredonnee-b": {
+    "v": "a558379d",
+    "duree": 58.3,
+    "octets": 700335
+  },
+  "berceuse-chantee-a": {
+    "v": "527a3846",
+    "duree": 59.1,
+    "octets": 709426
+  },
+  "berceuse-chantee-b": {
+    "v": "4076e6fe",
+    "duree": 59.2,
+    "octets": 711307
+  }
+}

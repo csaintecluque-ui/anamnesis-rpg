@@ -1,0 +1,70 @@
+{
+  "pistes": [
+    { "id": "gardebois-jour", "titre": "Gardebois, le jour", "lot": "A", "genre": "ambiance", "boucle": true },
+    { "id": "gardebois-nuit", "titre": "Gardebois, la nuit", "lot": "A", "genre": "ambiance", "boucle": true },
+    { "id": "canopee-jour", "titre": "Canopéa, le jour", "lot": "A", "genre": "ambiance", "boucle": true },
+    { "id": "canopee-nuit", "titre": "Canopéa, la nuit", "lot": "A", "genre": "ambiance", "boucle": true },
+    { "id": "ironheart-jour", "titre": "Ironheart, le jour", "lot": "A", "genre": "ambiance", "boucle": true },
+    { "id": "ironheart-nuit", "titre": "Ironheart, la nuit", "lot": "A", "genre": "ambiance", "boucle": true },
+    { "id": "sept-portes-jour", "titre": "Sept-Portes, le jour", "lot": "A", "genre": "ambiance", "boucle": true },
+    { "id": "sept-portes-nuit", "titre": "Sept-Portes, la nuit", "lot": "A", "genre": "ambiance", "boucle": true },
+    { "id": "aetherhaven-jour", "titre": "Aetherhaven, le jour", "lot": "A", "genre": "ambiance", "boucle": true },
+    { "id": "aetherhaven-nuit", "titre": "Aetherhaven, la nuit", "lot": "A", "genre": "ambiance", "boucle": true },
+    { "id": "coralia-jour", "titre": "Coralia, le jour", "lot": "A", "genre": "ambiance", "boucle": true },
+    { "id": "coralia-nuit", "titre": "Coralia, la nuit", "lot": "A", "genre": "ambiance", "boucle": true },
+    { "id": "marche-mere-jour", "titre": "Marche-Mère, le jour", "lot": "A", "genre": "ambiance", "boucle": true },
+    { "id": "marche-mere-nuit", "titre": "Marche-Mère, la nuit", "lot": "A", "genre": "ambiance", "boucle": true },
+    { "id": "khrysos-jour", "titre": "Khrysos, le jour", "lot": "A", "genre": "ambiance", "boucle": true },
+    { "id": "khrysos-nuit", "titre": "Khrysos, la nuit", "lot": "A", "genre": "ambiance", "boucle": true },
+    { "id": "souterrain-jour", "titre": "Sous la terre (la Gare, les voies, les cryptes), le jour", "lot": "A", "genre": "ambiance", "boucle": true },
+    { "id": "souterrain-nuit", "titre": "Sous la terre (la Gare, les voies, les cryptes), la nuit", "lot": "A", "genre": "ambiance", "boucle": true },
+    { "id": "route-jour", "titre": "La route (carte du monde, rencontres), le jour", "lot": "A", "genre": "ambiance", "boucle": true },
+    { "id": "route-nuit", "titre": "La route (carte du monde, rencontres), la nuit", "lot": "A", "genre": "ambiance", "boucle": true },
+
+    { "id": "theme-principal", "titre": "Le thème principal (écran titre, création, épilogue)", "lot": "B", "genre": "theme", "boucle": true, "variantes": ["a", "b"] },
+    { "id": "combat", "titre": "Le combat", "lot": "B", "genre": "combat", "boucle": true, "variantes": ["a", "b"] },
+    { "id": "combat-gardien", "titre": "Le combat contre un gardien (le Golem, la Veuve Grêle)", "lot": "B", "genre": "combat", "boucle": true, "variantes": ["a", "b"] },
+    { "id": "veillee", "titre": "La veillée", "lot": "B", "genre": "theme", "boucle": true, "variantes": ["a", "b"] },
+    { "id": "echos", "titre": "Les Échos", "lot": "B", "genre": "theme", "boucle": true, "variantes": ["a", "b"] },
+    { "id": "dame-en-gris", "titre": "La dame en gris", "lot": "B", "genre": "theme", "boucle": true, "variantes": ["a", "b"] },
+    { "id": "sept-caisses", "titre": "Les sept caisses", "lot": "B", "genre": "theme", "boucle": true, "variantes": ["a", "b"] },
+    { "id": "chute", "titre": "La chute (la mort du héros)", "lot": "B", "genre": "theme", "boucle": false, "variantes": ["a", "b"] },
+
+    { "id": "quete-terminee", "titre": "Quête terminée", "lot": "C", "genre": "note", "boucle": false, "variantes": ["a", "b"] },
+    { "id": "recit-retenu", "titre": "Récit retenu", "lot": "C", "genre": "note", "boucle": false, "variantes": ["a", "b"] },
+    { "id": "niveau-gagne", "titre": "Niveau gagné", "lot": "C", "genre": "note", "boucle": false, "variantes": ["a", "b"] },
+    { "id": "echo-recueilli", "titre": "Écho recueilli", "lot": "C", "genre": "note", "boucle": false, "variantes": ["a", "b"] },
+    { "id": "caisse-trouvee", "titre": "Caisse trouvée", "lot": "C", "genre": "note", "boucle": false, "variantes": ["a", "b"] },
+    { "id": "veillee-reussie", "titre": "Veillée réussie", "lot": "C", "genre": "note", "boucle": false, "variantes": ["a", "b"] },
+
+    { "id": "berceuse-fredonnee", "titre": "La berceuse de Maëlis, fredonnée (l’Écho de la berceuse)", "lot": "D", "genre": "berceuse", "boucle": true, "variantes": ["a", "b"] },
+    { "id": "berceuse-chantee", "titre": "La berceuse de Maëlis, chantée (Nell)", "lot": "D", "genre": "berceuse", "boucle": false, "variantes": ["a", "b"] }
+  ],
+  "niveaux": { "ambiance": 0.5, "theme": 0.55, "combat": 0.5, "note": 0.75, "berceuse": 0.8 },
+  "familles": {
+    "souterrain": [
+      "gare-engloutie", "quai-sept", "voie-endormie", "ironheart-cendriere", "khrysos-cryptes", "khrysos-voie-sept",
+      "coralia-voie-noyee", "coralia-grotte", "bas-cendres", "voie-du-bas", "halte-cendres", "altavent"
+    ],
+    "route": ["rencontre-clairiere", "rencontre-route", "rencontre-ruines"]
+  },
+  "momentsNuit": ["nuit"],
+  "scenes": { "Title": "theme-principal", "Creation": "theme-principal", "Epilogue": "theme-principal", "Veillee": "veillee", "Death": "chute" },
+  "dialogues": {
+    "exacts": {
+      "echo-berceuse": "berceuse-fredonnee",
+      "voie-echo": "echos",
+      "train-quai": "echos",
+      "enfant-fenetre": "echos",
+      "achats-edda": "sept-caisses",
+      "chassis": "sept-caisses"
+    },
+    "prefixes": { "echo-": "echos", "edda": "dame-en-gris", "caisse-": "sept-caisses" },
+    "noeuds": {
+      "nell:souvenir": "berceuse-chantee",
+      "nell:raconte-touche": "berceuse-chantee",
+      "nell:raconte-berceuse": "berceuse-chantee"
+    }
+  },
+  "recompenses": ["niveau-gagne", "caisse-trouvee", "quete-terminee", "echo-recueilli", "veillee-reussie", "recit-retenu"]
+}

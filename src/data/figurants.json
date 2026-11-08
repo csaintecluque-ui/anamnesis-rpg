@@ -721,7 +721,8 @@
     "lines": [
       "Le tramway a quarante secondes de retard. C’est noté.",
       "Ici, l’air se respire. En bas, il se mâche. Nous l’avons mérité, voilà tout. Les Archives ? Au bout de l’avenue."
-    ]
+    ],
+    "walk": "sprites/figurant-employe-gris-clair.png"
   },
   {
     "id": "horloger",
@@ -1620,6 +1621,7 @@
       "Les convois ne roulent plus la nuit. Les Marches, si.",
       "Un aiguillage, ça se graisse tous les matins. Une colère, ça se garde au chaud."
     ],
+    "walk": "sprites/figurant-cheminote.png",
     "reactions": [
       {
         "flag": "rail-travailleurs",

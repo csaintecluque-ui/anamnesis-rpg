@@ -296,7 +296,8 @@
   {
     "id": "boulon",
     "name": "Boulon",
-    "role": "Ferrôme, porteur à la gare de l’Ouest"
+    "role": "Ferrôme, porteur à la gare de l’Ouest",
+    "portrait": "portraits/boulon.jpg"
   },
   {
     "id": "patrouilleur",
@@ -316,7 +317,8 @@
   {
     "id": "kaelis",
     "name": "Kaelis",
-    "role": "Marchand d’ossements, Marches des Cendres"
+    "role": "Marchand d’ossements, Marches des Cendres",
+    "portrait": "portraits/kaelis.jpg"
   },
   {
     "id": "guichet-cendres",
@@ -326,7 +328,8 @@
   {
     "id": "veilleuse",
     "name": "La Veilleuse du Rail",
-    "role": "Travailleurs du Rail"
+    "role": "Travailleurs du Rail",
+    "portrait": "portraits/veilleuse.jpg"
   },
   {
     "id": "vieille-machine",
@@ -336,12 +339,14 @@
   {
     "id": "noam",
     "name": "L’archiviste Noam",
-    "role": "Archives Centrales de Ferros"
+    "role": "Archives Centrales de Ferros",
+    "portrait": "portraits/noam.jpg"
   },
   {
     "id": "hedda",
     "name": "Ragna Cendrefer",
     "role": "Atelier Cendrefer",
+    "portrait": "portraits/hedda.jpg",
     "place": "ironheart",
     "sells": [
       "dague",
@@ -381,22 +386,26 @@
   {
     "id": "varka",
     "name": "Varka",
-    "role": "Cheffe d’équipe, Travailleurs du Rail"
+    "role": "Cheffe d’équipe, Travailleurs du Rail",
+    "portrait": "portraits/varka.jpg"
   },
   {
     "id": "joss",
     "name": "Joss Brakel",
-    "role": "Aiguilleur de nuit"
+    "role": "Aiguilleur de nuit",
+    "portrait": "portraits/joss.jpg"
   },
   {
     "id": "kerta",
     "name": "Kerta Orvel",
-    "role": "Fondeuse des Forges-Basses"
+    "role": "Fondeuse des Forges-Basses",
+    "portrait": "portraits/kerta.jpg"
   },
   {
     "id": "tam",
     "name": "Tam Orvel",
-    "role": "Riveteur des Forges-Basses"
+    "role": "Riveteur des Forges-Basses",
+    "portrait": "portraits/tam.jpg"
   },
   {
     "id": "dask",

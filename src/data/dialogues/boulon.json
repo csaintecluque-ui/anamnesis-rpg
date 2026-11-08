@@ -41,6 +41,7 @@
   ],
   "nodes": {
     "accueil-quete": {
+      "illustration": "ironheart-arrivee",
       "text": "Un Ferrôme de deux mètres, tout en rivets, soulève trois malles d’une seule main. — Bienvenue à Ironheart. Je m’appelle Boulon. Un sceau d’émeraude à ta ceinture ? Les Verts ne viennent pas souvent. Tu cherches quelque chose, ou quelqu’un ?",
       "effects": [
         {

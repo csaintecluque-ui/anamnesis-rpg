@@ -2260,10 +2260,11 @@ export const ART_LOTS = existsSync(ART_DIR)
   : [];
 for (const lot of ART_LOTS) {
   for (const [name, entry] of Object.entries(lot.tiles ?? {})) {
-    const tile = TILES.find((t) => t.name === name);
-    if (!tile) throw new Error(`scripts/art/${lot.lot}.json : tuile inconnue « ${name} »`);
+    // A name may be defined twice (`glacien`): every frame of that name gets the art, so the map's gid finds it.
+    const tiles = TILES.filter((t) => t.name === name);
+    if (!tiles.length) throw new Error(`scripts/art/${lot.lot}.json : tuile inconnue « ${name} »`);
     const { preset, ...rest } = entry;
     if (preset && !ART_PRESETS[preset]) throw new Error(`scripts/art/${lot.lot}.json : préréglage inconnu « ${preset} »`);
-    tile.art = { ...(preset ? ART_PRESETS[preset] : {}), ...rest };
+    for (const tile of tiles) tile.art = { ...(preset ? ART_PRESETS[preset] : {}), ...rest };
   }
 }

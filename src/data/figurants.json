@@ -1892,7 +1892,8 @@
     "lines": [
       "Une voile au-dessus du Quai, ça ne reste pas. Il faut l’attraper avant le pont.",
       "J’en ai attrapé quarante mille. Pas une n’était pour moi."
-    ]
+    ],
+    "walk": "sprites/figurant-attrapeur-quai.png"
   },
   {
     "id": "pilote-quai",
@@ -1960,7 +1961,8 @@
     "lines": [
       "Mon collier chante quand il y a du vent. Écoute ! Non, attends. Là !",
       "Papa dit que les enfants d’avant faisaient pareil, avec les cristaux."
-    ]
+    ],
+    "walk": "sprites/figurant-enfant-collier.png"
   },
   {
     "id": "gardien-patrouille",
@@ -2270,7 +2272,8 @@
     "lines": [
       "L’air sec me fatigue. Je redescendrai ce soir, à la marée.",
       "Vous respirez fort, vous autres. On vous entend à trente pas, sous l’eau."
-    ]
+    ],
+    "walk": "sprites/figurant-selenide-port.png"
   },
   {
     "id": "plongeuse-canaux",
@@ -2310,7 +2313,8 @@
     "lines": [
       "Sous le canal, quelque chose respire. Ce n’est pas le canal.",
       "Ne mentez jamais en mer. Ni sur les canaux : c’est de la mer aussi."
-    ]
+    ],
+    "walk": "sprites/figurant-murmureur-canaux.png"
   },
   {
     "id": "enfant-canaux",

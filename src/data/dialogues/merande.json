@@ -20,6 +20,7 @@
   ],
   "nodes": {
     "accueil": {
+      "illustration": "coralia-arrivee",
       "text": "Une capitaine en veste azur, galons d’or, compte des caisses sur une ardoise. — Douanes de l’Amirauté. Rien à déclarer, j’espère ? Ne mentez jamais en mer : le quai, c’est déjà la mer.",
       "options": [
         {

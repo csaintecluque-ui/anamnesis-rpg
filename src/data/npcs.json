@@ -728,7 +728,8 @@
   {
     "id": "siffrin",
     "name": "Siffrin Plume-Vive",
-    "role": "Guetteur du Quai"
+    "role": "Guetteur du Quai",
+    "portrait": "portraits/siffrin.jpg"
   },
   {
     "id": "vessin",
@@ -744,12 +745,14 @@
   {
     "id": "ossiane",
     "name": "Ossiane Vire-Nuée",
-    "role": "Capitaine de la Compagnie Vire-Nuée"
+    "role": "Capitaine de la Compagnie Vire-Nuée",
+    "portrait": "portraits/ossiane.jpg"
   },
   {
     "id": "ravel",
     "name": "Ravel Sans-Fil",
-    "role": "Des Ailes Noires"
+    "role": "Des Ailes Noires",
+    "portrait": "portraits/ravel.jpg"
   },
   {
     "id": "assel",
@@ -759,7 +762,8 @@
   {
     "id": "ysolde",
     "name": "Ysolde Cent-Plis",
-    "role": "Greffière du Registre des Voiles"
+    "role": "Greffière du Registre des Voiles",
+    "portrait": "portraits/ysolde.jpg"
   },
   {
     "id": "zelie",
@@ -910,7 +914,8 @@
   {
     "id": "celeste",
     "name": "Céleste Fend-l’Air",
-    "role": "Apprentie des Ailes Noires"
+    "role": "Apprentie des Ailes Noires",
+    "portrait": "portraits/celeste.jpg"
   },
   {
     "id": "odile",
@@ -920,7 +925,8 @@
   {
     "id": "holger",
     "name": "Holger Brandt",
-    "role": "Archiviste de Ferros en fuite"
+    "role": "Archiviste de Ferros en fuite",
+    "portrait": "portraits/holger.jpg"
   },
   {
     "id": "agent-ferros",
@@ -935,7 +941,8 @@
   {
     "id": "veuve-grele",
     "name": "La Veuve Grêle",
-    "role": "Pirate de l’air"
+    "role": "Pirate de l’air",
+    "portrait": "portraits/veuve-grele.jpg"
   },
   {
     "id": "carnet-perchoir",
@@ -970,12 +977,14 @@
   {
     "id": "marina-azurios",
     "name": "Marina Azurios",
-    "role": "Grande Amiral de Marisol"
+    "role": "Grande Amiral de Marisol",
+    "portrait": "portraits/marina-azurios.jpg"
   },
   {
     "id": "euria",
     "name": "Euria Sel-Doux",
-    "role": "Murmureuse des Profondeurs Chuchotantes"
+    "role": "Murmureuse des Profondeurs Chuchotantes",
+    "portrait": "portraits/euria.jpg"
   },
   {
     "id": "oaina",
@@ -1001,12 +1010,14 @@
   {
     "id": "matteo",
     "name": "Matteo Marée-Haute",
-    "role": "Confrérie des Brisants"
+    "role": "Confrérie des Brisants",
+    "portrait": "portraits/matteo.jpg"
   },
   {
     "id": "aio",
     "name": "Aïo Coquelune",
-    "role": "Plongeur de perles, dix ans"
+    "role": "Plongeur de perles, dix ans",
+    "portrait": "portraits/aio.jpg"
   },
   {
     "id": "ondine",
@@ -1056,7 +1067,8 @@
   {
     "id": "gunnar",
     "name": "Gunnar",
-    "role": "Second du Cargo Noir, sur parole"
+    "role": "Second du Cargo Noir, sur parole",
+    "portrait": "portraits/gunnar.jpg"
   },
   {
     "id": "doucenet",

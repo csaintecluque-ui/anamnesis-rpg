@@ -17,6 +17,7 @@
   ],
   "nodes": {
     "accueil": {
+      "illustration": "aetherhaven-arrivee",
       "text": "Une femme en uniforme bleu d’orage, un brassard turquoise ; sa peau luit un peu, d’un reflet de foudre. — Bienvenue à Aetherhaven. Je ne demanderai pas d’où vous venez : ça ne se fait pas, chez nous. Il vous faut quelque chose ?",
       "options": [
         {

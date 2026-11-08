@@ -1,0 +1,68 @@
+{
+  "tiles": {
+    "corail-dalles": { "src": "coralia/corail-dalles.png", "preset": "sol" },
+    "sable-mouille": { "src": "coralia/sable-mouille.png", "preset": "sol" },
+    "rail-noye": { "src": "coralia/rail-noye.png", "preset": "sol-voie", "seam": "horizontal" },
+    "pont-arche-c": { "src": "coralia/pont-arche-c.png", "preset": "sol-voie" },
+    "pont-arche-r": { "src": "coralia/pont-arche-r.png", "preset": "sol-voie", "seam": "horizontal" },
+    "maison-corail": { "src": "coralia/maison-corail.png", "preset": "batiment", "maxWidth": 62 },
+    "maison-corail-bleue": { "src": "coralia/maison-corail-bleue.png", "preset": "batiment", "maxWidth": 62 },
+    "palais-nacre": { "src": "coralia/palais-nacre.png", "preset": "batiment", "maxWidth": 62 },
+    "temple-abysse": { "src": "coralia/temple-abysse.png", "preset": "batiment", "maxWidth": 60 },
+    "salle-conques": { "src": "coralia/salle-conques.png", "preset": "batiment", "maxWidth": 62 },
+    "entrepot": { "src": "coralia/entrepot.png", "preset": "batiment", "maxWidth": 64 },
+    "bateau": { "src": "coralia/bateau.png", "preset": "objet", "maxWidth": 58, "maxHeight": 70, "foot": 88, "shadow": false },
+    "maison-bateau": { "src": "coralia/maison-bateau.png", "preset": "objet", "maxWidth": 62, "maxHeight": 60, "foot": 88, "shadow": false },
+    "chantier": { "src": "coralia/chantier.png", "preset": "objet", "maxWidth": 60, "maxHeight": 38, "foot": 90 },
+    "filet-peche": { "src": "coralia/filet-peche.png", "preset": "objet", "maxWidth": 46, "maxHeight": 52, "foot": 88, "shadow": { "rx": 18, "ry": 6 } },
+    "autel-corail": { "src": "coralia/autel-corail.png", "preset": "objet", "maxWidth": 36, "maxHeight": 40, "foot": 86, "shadow": { "rx": 14, "ry": 5 } },
+    "lanterne-coquillage": { "src": "coralia/lanterne-coquillage.png", "preset": "haut", "maxHeight": 66 },
+    "conque": { "src": "coralia/conque.png", "preset": "objet", "maxWidth": 34, "maxHeight": 42, "foot": 86, "shadow": { "rx": 10, "ry": 4 } },
+    "vitre-mer": { "src": "coralia/vitre-mer.png", "kind": "wall", "height": 60 },
+    "caisse-plomb": { "src": "coralia/caisse-plomb.png", "preset": "meuble", "maxWidth": 44, "maxHeight": 40, "foot": 90, "shadow": { "rx": 20, "ry": 7 } },
+    "noea": { "src": "coralia/noea.png", "preset": "personnage" },
+    "aio": { "src": "coralia/aio.png", "preset": "enfant" },
+    "aureo": { "src": "coralia/aureo.png", "preset": "personnage" },
+    "oaina": { "src": "coralia/oaina.png", "preset": "personnage" },
+    "euria": { "src": "coralia/euria.png", "preset": "personnage" },
+    "merande": { "src": "coralia/merande.png", "preset": "personnage" },
+    "matteo": { "src": "coralia/matteo.png", "preset": "personnage" },
+    "ondine": { "src": "coralia/ondine.png", "preset": "personnage" },
+    "marina-azurios": { "src": "coralia/marina-azurios.png", "preset": "personnage", "matte": true },
+    "pecheur": { "src": "coralia/pecheur.png", "preset": "personnage" },
+    "marchande-poisson": { "src": "coralia/marchande-poisson.png", "preset": "personnage" },
+    "selenide": { "src": "coralia/selenide.png", "preset": "personnage" },
+    "matelot": { "src": "coralia/matelot.png", "preset": "personnage" },
+    "plongeuse": { "src": "coralia/plongeuse-v2.png", "preset": "personnage" },
+    "murmureur": { "src": "coralia/murmureur.png", "preset": "personnage" },
+    "cargo-noir": { "src": "coralia/cargo-noir.png", "preset": "objet", "maxWidth": 64, "maxHeight": 66, "foot": 88, "shadow": false },
+    "grotte": { "src": "coralia/grotte.png", "preset": "batiment", "maxWidth": 62, "maxHeight": 70 },
+    "banc-perles": { "src": "coralia/banc-perles.png", "preset": "petit", "maxWidth": 36, "maxHeight": 26, "foot": 88 },
+    "rocher-mouille": { "src": "coralia/rocher-mouille.png", "preset": "objet", "maxWidth": 56, "maxHeight": 46, "foot": 90, "shadow": { "rx": 20, "ry": 7 } },
+    "amande": { "src": "coralia/amande.png", "preset": "personnage" },
+    "tadeo": { "src": "coralia/tadeo.png", "preset": "personnage", "matte": true },
+    "iris-coquelune": { "src": "coralia/iris-coquelune.png", "preset": "personnage" },
+    "gunnar": { "src": "coralia/gunnar.png", "preset": "personnage" },
+    "doucenet": { "src": "coralia/doucenet.png", "preset": "personnage" },
+    "basile": { "src": "coralia/basile.png", "preset": "personnage" },
+    "lio": { "src": "coralia/lio.png", "preset": "enfant" },
+    "abyssal": { "src": "coralia/abyssal.png", "preset": "personnage" }
+  },
+  "portraits": {
+    "matteo": "coralia/portrait-matteo.png",
+    "aio": "coralia/portrait-aio.png",
+    "euria": "coralia/portrait-euria.png",
+    "marina-azurios": "coralia/portrait-marina-azurios.png",
+    "gunnar": "coralia/portrait-gunnar.png"
+  },
+  "walks": {
+    "murmureur-canaux": { "dir": "coralia/marche-murmureur-canaux", "height": 54 },
+    "selenide-port": { "dir": "coralia/marche-selenide-port", "height": 54 }
+  },
+  "illustrations": {
+    "coralia-arrivee": "coralia/coralia-arrivee.png"
+  },
+  "fonds": {
+    "coralia": "coralia/fond-coralia.png"
+  }
+}

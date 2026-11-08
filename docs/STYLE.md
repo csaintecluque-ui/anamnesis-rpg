@@ -74,7 +74,7 @@ Le canon donne leur rôle, pas leur apparence. Tout ce qui suit est une **propos
   du dos, allure vive, pas de crocs sanglants.
 - **Écho du dernier train** : foule de voyageurs translucides sur le quai, bleu pâle bordé d'or (voir « Palette »).
 
-## Révision proposée pour la mise en beauté (2026-11-08) — **à valider par Cyril** (le pilote la met à l'épreuve)
+## Révision pour la mise en beauté (2026-11-08) — **validée par Cyril** (« Oui pour le pilote et le style révisé ») ; éprouvée par le pilote (`docs/ASSETS.md`)
 
 Le jeu est une dark fantasy pour adultes depuis le 2026-11-02 (`docs/univers/ton.md` : « le côté image fantasy, mais
 dans un univers sombre », jamais gratuit ni nihiliste). Ce qui change, ce qui reste :
@@ -89,7 +89,7 @@ dans un univers sombre », jamais gratuit ni nihiliste). Ce qui change, ce qui r
 - **Sur la carte**, la différence reste douce : les sprites doivent aller avec ce qui est déjà peint (Gardebois) ;
   c'est dans les portraits et les illustrations que l'humeur change vraiment.
 
-**Bloc de prompt commun proposé** (remplacerait celui du haut) :
+**Bloc de prompt commun** (remplace celui du haut pour toutes les nouvelles images) :
 
 > painterly digital illustration, dark fantasy for adults, muted earthy palette lit by warm lantern light against cool
 > shadows, low-key light from the upper left, weathered materials and tired faces, melancholic and poetic mood, clean
@@ -101,3 +101,15 @@ centered, isolated on a plain background`, sans sol ni ombre (ajoutée par le sc
 
 **Modèle** : `gpt_image_2_6` (le modèle par défaut aujourd'hui, même prix que `gpt_image_2_5` qui a peint le reste,
 fond transparent natif) ; le pilote dit s'il va avec l'existant, sinon on garde `gpt_image_2_5`.
+
+**Leçons du pilote** : relire les dialogues d'un personnage avant d'écrire son prompt (Hesper a dû être refaite pour
+porter la cape parchemin que dit son texte) ; une créature camouflée se traite plus grande et éclaircie (`lift` dans
+`scripts/tiles-def.mjs`) pour se lire sur l'herbe.
+
+**Apparences proposées par le pilote** (à valider ; le canon donne le rôle, pas le visage) :
+
+- **Hesper Mille-Récits** : grande et maigre, plus de soixante-dix ans, longs cheveux blancs en tresse lâche, doigts
+  tachés d'encre, longue cape à capuche couleur parchemin (celle des Gardiens) sur des habits sombres, registre de
+  cuir sous le bras, petite lanterne de laiton à lueur cyan tenue à deux mains.
+- **La marchande de fleurs de Canopéa** : quarante ans, peau tannée, robe vert mousse rapiécée, châle effiloché, panier
+  plat de fleurs de lune pâles à la hanche.

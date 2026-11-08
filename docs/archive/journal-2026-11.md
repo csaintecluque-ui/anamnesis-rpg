@@ -1263,3 +1263,12 @@ Décision de Cyril : le plan « recommandé » de `gdd/son.md`, 3 000 crédits s
    « Musique » dans les Options ; les notes courtes comptées sur l'état ; la page d'écoute (mode test).
 5. **Vérifié** dans Chromium (le serveur de dev pour le chef d'orchestre, la version publiée pour le hors-ligne) ;
    1076 tests ; build (cache hors ligne inchangé, 14,6 Mo).
+
+## 2026-11-08 (suite) — Le pilote des images
+
+Cyril : « Oui pour le pilote et le style révisé, lance. » Dix images (`gpt_image_2_6`, style révisé de `STYLE.md`) :
+Hesper en pied et en portrait, Ilyane refaite (pour comparer, pas mise dans le jeu), la marchande de fleurs, la
+maison-cosse et la plate-forme de Canopéa, la Griffe-Sylve, l'illustration d'arrivée à Canopéa (sur l'accueil de
+Véline). Hesper refaite une fois : son texte dit « cape couleur parchemin », la première version portait un manteau
+sombre (la règle : relire les dialogues avant le prompt). La Griffe-Sylve éclaircie et agrandie par le script (`lift`).
+10,25 crédits ; solde 2 135,11. Vérifié dans Chromium ; 1076 tests ; build.

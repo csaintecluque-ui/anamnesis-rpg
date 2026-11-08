@@ -426,7 +426,7 @@ morceaux : seuls leur durée, leur volume au fil du temps (régulier, sans mont�
 redescend comme demandé) et leur format sont vérifiés. À vérifier à l'oreille : ni voix ni percussion forte dans les
 ambiances, et la berceuse chantée qui dit bien les paroles, en français.
 
-## Plan des images de la mise en beauté (2026-11-08) — **à valider par Cyril, rien n'est généré**
+## Plan des images de la mise en beauté (2026-11-08) — pilote fait (section suivante), le reste attend le feu vert
 
 Décision du 2026-11-08 (section suivante) : tout le jeu peint, portraits pour les importants seulement. Inventaire fait
 dans le code le 2026-11-08 : **423 tuiles, 56 peintes, 367 encore dessinées par le code** ; 9 portraits de dialogue ;
@@ -507,6 +507,48 @@ Sept images, toutes de Canopéa sauf deux, pour juger le style révisé à côt�
 Ensuite, montrées à Cyril dans le jeu (captures), avant de lancer le reste par lots (un lot par ville). Les apparences
 de Hesper et des autres sont des **propositions** (le canon donne leur rôle, pas leur visage), consignées avec chaque
 lot dans `docs/univers/personnages/` au statut « à valider ».
+
+## Pilote de la mise en beauté (2026-11-08, feu vert de Cyril : « Oui pour le pilote et le style révisé, lance ») : 10 images, 10,25 crédits, solde 2 135,11
+
+Outil : Higgsfield MCP, `gpt_image_2_6`. Bloc commun : le style révisé (`docs/STYLE.md`), « Painterly digital illustration, dark fantasy for adults, muted earthy palette lit by warm lantern light against cool shadows, low-key light from the upper left, weathered materials and tired faces, melancholic and poetic mood, clean readable shapes, slightly defined outlines, neo-industrial world of steam, crystals and brass, no modern technology. » À éviter : « no
+text, no letters, no logo, no watermark, no gore, nothing sexualized, no modern firearms, no screens, not
+photorealistic ». Personnages, décors et créatures : « Isometric 2:1 view, single … centered, isolated on a transparent
+background », sans sol ni ombre (ajoutée par le script). Bruts : `assets/raw/pilote2/` (local) ; traités par
+`npm run art` puis `npm run tiles` (les images des lots précédents, dont les bruts ne sont pas dans cette session,
+gardent leur frame : rien d'autre n'a bougé).
+
+| Fichier (`assets/raw/pilote2/`) | Tâche | Réglage | Sujet du prompt | Crédits |
+|---|---|---|---|---|
+| `hesper-v1-manteau-sombre.png` (écarté) | `d678ff16` | moyenne 1k, transparent, 2:3 | Hesper, doyenne des Gardiens, « a heavy dark travelling coat with many small pockets… », lanterne à la ceinture | 0,5 |
+| `portrait-hesper-v1-manteau-sombre.png` (écarté) | `bdec210b` | haute 1k, opaque, 1:1, la v1 en référence | le même buste | 1,5 |
+| `hesper.png` | `f5bff015` | moyenne 1k, transparent, 2:3 | refait pour suivre son texte (« Une vieille femme en cape couleur parchemin pose sa lanterne », « les mains jointes sur sa lanterne ») : « a tall thin old woman in her seventies, long white hair in a loose braid, a lined, tired but piercing face, ink-stained fingers, a long weathered parchment-coloured hooded cape over dark layered clothes, a worn leather-bound register tucked under one arm, both hands joined around a small brass lantern with a faint cyan glow held at her chest » | 0,5 |
+| `portrait-hesper.png` | `0c27e242` | haute 1k, opaque, 1:1, `hesper.png` en référence | « Bust portrait for a dialogue panel, three-quarter view: the same old woman as in the reference image… same weathered parchment-coloured hooded cape, both ink-stained hands joined around her small brass lantern… a lined, tired but piercing gaze that has read too many names… Plain uniform dark ink background color #1B1512 » | 1,5 |
+| `portrait-ilyane-v2.png` | `e2d69727` | haute 1k, opaque, 1:1, le portrait actuel en référence (téléversé, `8050cebc`) | « the same woman as in the reference image, Ilyane… same face, same braided greying hair with small leaves, same cloak patterned with bark and leaves… a little older and wearier, faint lines of worry around her eyes, a quiet sorrow behind her kind gaze » | 1,5 |
+| `fleuriste.png` | `6b6806e8` | moyenne 1k, transparent, 2:3 | « a flower seller of a city built high in the canopy of giant trees, a lean woman in her forties with sun-weathered skin, a patched moss-green dress and a frayed brown shawl, a wide shallow wicker basket of pale moon-flowers… a guarded, tired smile » | 0,5 |
+| `maison-cosse.png` | `a72cd24f` | moyenne 1k, transparent, 2:3 | « a large rounded seed-pod-shaped house woven from bark strips and living branches, a round wooden door and a small round window glowing with warm lantern light, a curved roof of overlapping dark leaves, moss and lichen… » | 0,5 |
+| `plateforme.png` | `94842475` | moyenne 1k, opaque, 1:1, texture vue de dessus | « the floor of a wooden platform high in the canopy of giant trees, exactly four wide weathered planks of equal width running vertically… a few patches of moss, two or three fallen leaves, worn nail holes » (lumière uniforme, comme les sols du lot 1) | 0,5 |
+| `griffe-sylve.png` | `7521ffe4` | moyenne 1k, transparent, 1:1 | « a Griffe-Sylve, a lean green feline predator of the deep forest with plant-like camouflage, its fur patterned like leaves, moss and bark, long curved claws, slitted amber eyes, low stalking crouch, mouth closed » | 0,5 |
+| `canopee-arrivee.png` | `6856b44a` | haute 2k, opaque, 16:9 | « the arrival in a city built high in the canopy of colossal Titan trees… at dusk, a large wooden gondola hoisted by braided ropes and a water counterweight rises out of the misty forest… toward a vast suspended market of wooden platforms, rope bridges and rounded seed-pod houses lit by warm lanterns… The lower third is darker, calm mist and shadow, leaving room for a dialogue panel » | 2,75 |
+
+**Dans le jeu** : la plate-forme, la maison-cosse et la marchande de fleurs à la Grande Nacelle ; l'illustration derrière
+l'accueil de Véline (« Bienvenue à Canopéa ! ») ; Hesper en pied et son portrait à la maison mère de Sept-Portes ; la
+Griffe-Sylve en combat. Le nouveau portrait d'Ilyane **n'est pas mis dans le jeu** : il attend le choix de Cyril (refaire
+ou non les neuf anciens). Vérifié dans Chromium, sans erreur ; 1076 tests ; build (cache hors ligne 14,9 Mo).
+
+**Bilan** :
+- Tout est sorti propre au premier essai (fond transparent net, formes lisibles à 64 px). Le style révisé donne des
+  visages fatigués, une lumière de lanterne, des matières usées ; sur la carte, les nouvelles images vont avec celles de
+  Gardebois.
+- **Hesper refaite** (2 crédits, pris sur les reprises prévues) : la première version portait un manteau sombre, alors
+  que son texte validé dit « cape couleur parchemin » et la montre la lanterne en main. Règle pour la suite : **relire
+  les dialogues d'un personnage avant d'écrire son prompt**.
+- **La Griffe-Sylve** se perdait dans l'herbe (son camouflage est canon) : traitée plus grande (54 × 42 au lieu de
+  48 × 38) et éclaircie de 30 % par le script (option `lift` de `scripts/process-art.mjs`), sans nouvelle image.
+- Vu au passage : à la maison mère, Hesper se tient juste derrière le cristal de veille, qui la voile un peu ; à reprendre
+  avec le lot de Sept-Portes (placement sur la carte, pas l'image).
+- **À valider par Cyril (inventions visuelles)** : l'illustration montre des maisons en dômes de laiton et de verre
+  suspendues, des bannières à motif de feuille, des cristaux au marché et une cheminée qui fume ; la cape parchemin de
+  Hesper reprend celle des Gardiens (le héros la porte aussi).
 
 ## Décision du 2026-11-08 (Cyril) : la mise en beauté, portraits pour les importants seulement
 

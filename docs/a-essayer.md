@@ -230,6 +230,15 @@ En ligne le 2026-11-03 (tes textes du 3 novembre) :
 - [ ] **Hors ligne** : un morceau déjà entendu se rejoue sans réseau ; la première fois, il lui faut un instant.
 - Remarques :
 
+## Le pilote des images (en ligne le 2026-11-08)
+
+- [ ] **Canopéa, la Grande Nacelle** : la plate-forme, les maisons-cosses, la marchande de fleurs, et l'illustration
+      derrière l'accueil de Véline. Le style révisé (plus sombre, visages fatigués) te va ?
+- [ ] **Hesper** à la maison mère des Gardiens (Sept-Portes) : en pied et en portrait.
+- [ ] **La Griffe-Sylve** en combat (Sol des Racines, la nuit) : se lit-elle bien ?
+- [ ] **Ilyane** : l'ancien portrait ou le nouveau (dans mon message) ? Selon ta réponse, on refait ou non les neuf.
+- Remarques :
+
 ## Le pont de Gardebois et la marche à la souris (en ligne pour essai le 2026-11-04)
 
 - [ ] **Traverse le pont** (Gardebois, à l'est du village) : le héros marche sur le tablier, derrière la rambarde de

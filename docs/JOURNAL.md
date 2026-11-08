@@ -22,7 +22,7 @@
 - **Partie de Cyril sur PC**, jusqu'à la fin ; ses remarques, puis les retouches (équilibre, textes de la fin).
 - **Notion** : rien de la fin avant que Cyril l'ait jouée (la surprise) ; ensuite, la page « Anamnesis — le jeu ».
 - **Musique** : Cyril choisit A ou B pour les 16 morceaux à deux versions (page d'écoute), puis on les fixe.
-- **Images** : liste, coût (≈ 397, ≈ 448 avec options) et pilote (8,25) présentés (`ASSETS.md`) ; attend le feu vert.
+- **Images** : pilote fait et dans le jeu (10,25 crédits, solde 2 135,11, `ASSETS.md`) ; l'avis de Cyril, puis les lots.
 
 ## Points ouverts
 

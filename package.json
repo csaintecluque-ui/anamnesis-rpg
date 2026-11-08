@@ -20,7 +20,8 @@
     "maps": "node scripts/build-maps.mjs",
     "dialogues": "node scripts/dialogues-to-md.mjs",
     "sfx": "node scripts/generate-sfx.mjs",
-    "music": "node scripts/process-music.mjs"
+    "music": "node scripts/process-music.mjs",
+    "lots": "node scripts/apply-art-lots.mjs"
   },
   "repository": {
     "type": "git",

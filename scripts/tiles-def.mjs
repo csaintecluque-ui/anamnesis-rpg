@@ -5,6 +5,8 @@
 // `art`: generated image that replaces the placeholder drawing (scripts/process-art.mjs, docs/ASSETS.md).
 // `big`: large decor covering a block of cells, drawn from public/decor/<name>.png (width × height).
 // `cover`: Défense bonus for a combatant sheltering behind this obstacle (docs/gdd/combat.md).
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
+
 export const W = 64;
 export const H = 96;
 export const COLUMNS = 8;
@@ -2230,3 +2232,38 @@ TILES.push(
   npcTile('enfant-givre', { small: true, body: '#a0402a', hair: '#e8d090', skin: '#f0d0b8', accent: '#eef4f6', extra: hood('#3a6a8a') }),
   { name: 'yeti', sprite: true, svg: yeti('#e4e8ec', '#7a8a98') },
 );
+
+// Mise en beauté (décision de Cyril du 2026-11-08, docs/ASSETS.md) : the painted art of each lot lives in
+// scripts/art/<lot>.json, applied here to the tiles still drawn by code. One data file per lot, so the lots never
+// edit this file. A tile entry is { src, preset, ...options }: the preset gives the usual size of its kind.
+export const ART_PRESETS = {
+  personnage: { kind: 'standing', maxWidth: 44, maxHeight: 54, foot: 84, shadow: { rx: 10, ry: 4 } },
+  enfant: { kind: 'standing', maxWidth: 44, maxHeight: 40, foot: 84, shadow: { rx: 10, ry: 4 } },
+  colosse: { kind: 'standing', maxWidth: 56, maxHeight: 66, foot: 86, shadow: { rx: 18, ry: 6 } },
+  creature: { kind: 'standing', maxWidth: 48, maxHeight: 40, foot: 86, shadow: { rx: 16, ry: 5 } },
+  echo: { kind: 'standing', maxWidth: 48, maxHeight: 58, foot: 86, opacity: 0.7 },
+  batiment: { kind: 'standing', maxHeight: 92, foot: 88, shadow: { rx: 22, ry: 8 }, matte: true },
+  objet: { kind: 'standing', maxWidth: 52, maxHeight: 56, foot: 90, shadow: { rx: 22, ry: 8 } },
+  meuble: { kind: 'standing', maxWidth: 56, maxHeight: 48, foot: 88, shadow: { rx: 22, ry: 8 } },
+  haut: { kind: 'standing', maxWidth: 30, maxHeight: 88, foot: 84, shadow: { rx: 8, ry: 3 } },
+  petit: { kind: 'standing', maxWidth: 40, maxHeight: 30, foot: 86 },
+  sol: { kind: 'ground' },
+  'sol-voie': { kind: 'ground', seam: 'vertical' },
+  'sol-unique': { kind: 'ground', seam: 'none' },
+};
+const ART_DIR = new URL('./art/', import.meta.url);
+export const ART_LOTS = existsSync(ART_DIR)
+  ? readdirSync(ART_DIR)
+      .filter((f) => f.endsWith('.json'))
+      .sort()
+      .map((f) => ({ lot: f.replace(/\.json$/, ''), ...JSON.parse(readFileSync(new URL(f, ART_DIR), 'utf8')) }))
+  : [];
+for (const lot of ART_LOTS) {
+  for (const [name, entry] of Object.entries(lot.tiles ?? {})) {
+    const tile = TILES.find((t) => t.name === name);
+    if (!tile) throw new Error(`scripts/art/${lot.lot}.json : tuile inconnue « ${name} »`);
+    const { preset, ...rest } = entry;
+    if (preset && !ART_PRESETS[preset]) throw new Error(`scripts/art/${lot.lot}.json : préréglage inconnu « ${preset} »`);
+    tile.art = { ...(preset ? ART_PRESETS[preset] : {}), ...rest };
+  }
+}

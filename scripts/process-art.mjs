@@ -5,7 +5,7 @@
 import { existsSync, mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
-import { H, TILES, W } from './tiles-def.mjs';
+import { ART_LOTS, H, TILES, W } from './tiles-def.mjs';
 
 const RAW = new URL('../assets/raw/', import.meta.url);
 const OUT = new URL('../assets/tiles/', import.meta.url);
@@ -199,6 +199,8 @@ const PORTRAITS = {
   'avatar-etoiles': 'avatars/portrait-etoiles.png',
   'avatar-roux': 'avatars/portrait-roux.png',
 };
+// The lots of the mise en beauté (scripts/art/<lot>.json) add theirs, and may replace an older one (the nine redone).
+for (const lot of ART_LOTS) Object.assign(PORTRAITS, lot.portraits ?? {});
 const PORTRAIT_SIZE = 320;
 // Full-screen illustrations (public/illustrations/): the title screen, and dialogue nodes' `illustration`.
 const ILLUSTRATIONS = {
@@ -275,6 +277,7 @@ for (const [id, src] of Object.entries(PORTRAITS)) {
   console.log(`portrait ${id} ← ${src}`);
 }
 
+for (const lot of ART_LOTS) for (const [id, entry] of Object.entries(lot.illustrations ?? {})) ILLUSTRATIONS[id] = typeof entry === 'string' ? entry : entry.src;
 const ILLUSTRATION_OUT = new URL('../public/illustrations/', import.meta.url);
 mkdirSync(ILLUSTRATION_OUT, { recursive: true });
 for (const [id, src] of Object.entries(ILLUSTRATIONS)) {
@@ -288,4 +291,22 @@ for (const [id, src] of Object.entries(ILLUSTRATIONS)) {
     .jpeg({ quality: 82, mozjpeg: true })
     .toFile(fileURLToPath(new URL(`${id}.jpg`, ILLUSTRATION_OUT)));
   console.log(`illustration ${id} ← ${src}`);
+}
+
+// Painted backgrounds under the maps (mise en beauté, scripts/art/<lot>.json « fonds »): public/fonds/<id>.jpg.
+const FOND_OUT = new URL('../public/fonds/', import.meta.url);
+for (const lot of ART_LOTS) {
+  for (const [id, src] of Object.entries(lot.fonds ?? {})) {
+    const srcUrl = new URL(src, RAW);
+    if (!existsSync(srcUrl)) {
+      console.warn(`fond ${id} : image brute absente (${src}), inchangé`);
+      continue;
+    }
+    mkdirSync(FOND_OUT, { recursive: true });
+    await sharp(fileURLToPath(srcUrl))
+      .resize(1600, 900, { fit: 'cover', kernel: 'lanczos3' })
+      .jpeg({ quality: 78, mozjpeg: true })
+      .toFile(fileURLToPath(new URL(`${id}.jpg`, FOND_OUT)));
+    console.log(`fond ${id} ← ${src}`);
+  }
 }

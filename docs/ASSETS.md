@@ -550,6 +550,26 @@ ou non les neuf anciens). Vérifié dans Chromium, sans erreur ; 1076 tests ; bu
   suspendues, des bannières à motif de feuille, des cristaux au marché et une cheminée qui fume ; la cape parchemin de
   Hesper reprend celle des Gardiens (le héros la porte aussi).
 
+## Les neuf portraits refaits (2026-11-08, Cyril : « Nouvelle Ilyane, refais les 9 ») : 8 images, 12 crédits, solde 2 123,11
+
+Le nouveau portrait d'Ilyane est celui du pilote (`e2d69727`). Les huit autres : `gpt_image_2_6`, haute 1k, opaque,
+1:1, **le portrait actuel en référence** (importé depuis le site, `media_import_url`), bloc commun du style révisé, puis
+« Bust portrait for a dialogue panel, three-quarter view: the same <man/woman> as in the reference image, <nom, rôle>,
+same face, same hair, same clothes… ; in this darker style, <ce qui change> … Plain uniform dark ink background color
+#1B1512 ». Bruts : `assets/raw/portraits-v2/` ; branchés par `scripts/art/portraits-v2.json` (ils remplacent les
+anciens dans `public/portraits/`). Tous gardés au premier essai.
+
+| Portrait | Tâche | Ce qui change (le reste : « same face, same hair, same clothes ») | Crédits |
+|---|---|---|---|
+| Tobias | `792bb68a` | « a little wearier, soot in the creases of his hands, a friendly but calculating smile », la lampe au cristal | 1,5 |
+| Ingrid | `08a547ae` | « oil and soot on her cheek, tired eyes, a defiant, stubborn gaze », lunettes de laiton, plans | 1,5 |
+| L'Écho du dernier train | `9154f823` | « more sorrowful and haunting, the child's gaze patient and sad, the figures fraying at the edges like smoke » | 1,5 |
+| Sylvan | `1b53e7a8` | « a little wearier, warm hearth light on his face, a kind but tired smile » (traits gardés tels quels : la question des oreilles reste ouverte, zone floue 2) | 1,5 |
+| Maëlis | `72fd05d3` | « shadows of sleepless nights under her eyes, a tender, worried gaze » | 1,5 |
+| Nell | `912cf344` | « a shy, solemn, searching look as if trying to remember a song », l'oiseau de bois | 1,5 |
+| Liane | `706af765` | « road dust and fatigue, a calm, steady, watchful gaze » | 1,5 |
+| Brann | `fc708572` | « soot on his hands, an eager but uneasy look » | 1,5 |
+
 ## Décision du 2026-11-08 (Cyril) : la mise en beauté, portraits pour les importants seulement
 
 Budget du compte : 3 000 crédits (formule Ultra), dont ≈ 854 pour la musique (`docs/gdd/son.md`). Les images : **tout le

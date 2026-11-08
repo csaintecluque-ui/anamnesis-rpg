@@ -132,12 +132,14 @@
   {
     "id": "veline",
     "name": "Véline Nacelière",
-    "role": "Passeuse de la Grande Nacelle"
+    "role": "Passeuse de la Grande Nacelle",
+    "portrait": "portraits/veline.jpg"
   },
   {
     "id": "malo",
     "name": "Malo Feuillevent",
-    "role": "Coursier des passerelles"
+    "role": "Coursier des passerelles",
+    "portrait": "portraits/malo.jpg"
   },
   {
     "id": "lisandre",
@@ -164,17 +166,20 @@
   {
     "id": "elouan",
     "name": "Elouan Chante-Bois",
-    "role": "Luthier"
+    "role": "Luthier",
+    "portrait": "portraits/elouan.jpg"
   },
   {
     "id": "ailis",
     "name": "Aïlis Feuillevent",
-    "role": "Grand-mère de Malo"
+    "role": "Grand-mère de Malo",
+    "portrait": "portraits/ailis.jpg"
   },
   {
     "id": "mirelle",
     "name": "Mirelle Doucebranche",
-    "role": "Gardienne de Mémoire de Canopéa"
+    "role": "Gardienne de Mémoire de Canopéa",
+    "portrait": "portraits/mirelle.jpg"
   },
   {
     "id": "huissier",
@@ -260,7 +265,8 @@
   {
     "id": "kael-marchevent",
     "name": "Kael Marchevent",
-    "role": "Gardien de la Canopée"
+    "role": "Gardien de la Canopée",
+    "portrait": "portraits/kael-marchevent.jpg"
   },
   {
     "id": "lyra",
@@ -486,7 +492,8 @@
   {
     "id": "vanel",
     "name": "Vanel Lentefeuille",
-    "role": "Druide Vert, au Bosquet des Échos"
+    "role": "Druide Vert, au Bosquet des Échos",
+    "portrait": "portraits/vanel.jpg"
   },
   {
     "id": "tiven",

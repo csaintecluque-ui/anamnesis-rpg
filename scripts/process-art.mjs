@@ -22,7 +22,8 @@ const smoothstep = (t) => (t <= 0 ? 0 : t >= 1 ? 1 : t * t * (3 - 2 * t));
 
 // Blends the texture with a copy shifted by half its size, whose edges wrap seamlessly: the centre keeps the
 // original, the borders take the shifted copy. 'vertical' only shifts along y, for tracks and bridges that must
-// stay centred across the tile; 'none' for a one-off feature such as the Faille.
+// stay centred across the tile; 'horizontal' only along x, for those running left to right in the texture (along the
+// map's rows, such as Canopéa's passerelle-r); 'none' for a one-off feature such as the Faille.
 function makeTileable(img, seam) {
   if (seam === 'none') return img;
   const { data, width: n } = img;
@@ -30,9 +31,9 @@ function makeTileable(img, seam) {
   const border = (t) => smoothstep(Math.min(t, n - 1 - t) / (n / 4));
   for (let y = 0; y < n; y++) {
     for (let x = 0; x < n; x++) {
-      const w = seam === 'vertical' ? border(y) : border(x) * border(y);
+      const w = seam === 'vertical' ? border(y) : seam === 'horizontal' ? border(x) : border(x) * border(y);
       const sx = seam === 'vertical' ? x : (x + n / 2) % n;
-      const sy = (y + n / 2) % n;
+      const sy = seam === 'horizontal' ? y : (y + n / 2) % n;
       const i = (y * n + x) * 4;
       const j = (sy * n + sx) * 4;
       for (let c = 0; c < 4; c++) out[i + c] = Math.round(data[i + c] * w + data[j + c] * (1 - w));

@@ -26,6 +26,7 @@
       "Des fleurs de lune, cueillies ce matin au bout des branches ! Elles ne s’ouvrent que la nuit.",
       "Une sur trois reste à l’arbre : c’est la règle de la Sève. Qui la casse est banni, et les bannis, la forêt ne les garde pas."
     ],
+    "walk": "sprites/figurant-fleuriste.png",
     "reactions": [
       {
         "quest": "graines",
@@ -184,6 +185,7 @@
       "Pardon, pardon ! Message urgent pour le Conseil. Ils le sont tous.",
       "Une audience ? Apporte de la patience. Et un coussin."
     ],
+    "walk": "sprites/figurant-messager.png",
     "reactions": [
       {
         "quest": "audience",

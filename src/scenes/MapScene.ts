@@ -48,6 +48,7 @@ import { MINI_MAP_SOURCE, type MiniMapSource, type MiniMarker } from '../ui/mini
 import { BUBBLE_MS, labelScaleFor, speechBubble } from './speech';
 import { barkLines, findBarks } from '../rules/barks';
 import { writeAuto } from '../save/autosave';
+import { coverScale, fondOf } from '../engine/fonds';
 
 /** Top of the drawn part of each obstacle frame (`texture:frame`), measured once for the whole game. */
 const DRAWN_TOPS = new Map<string, number>();
@@ -108,6 +109,9 @@ export class MapScene extends Phaser.Scene {
   private sandFlow: Phaser.GameObjects.TileSprite | null = null;
   /** The snow that falls over the surface of Glacialis (src/rules/glace.ts). */
   private snowFall: Phaser.GameObjects.TileSprite | null = null;
+  /** The painted background under the map (src/engine/fonds.ts), once loaded. */
+  private backdrop: Phaser.GameObjects.Image | null = null;
+  private backdropToken = 0;
   private state!: GameState;
   private map!: GameMap;
   private originX = 0;
@@ -287,6 +291,7 @@ export class MapScene extends Phaser.Scene {
     this.drag = null;
     this.running = false;
     this.cameras.main.setBackgroundColor(location.fond ?? COLORS.ink);
+    this.paintBackdrop(location.id);
     this.sandFlow = sableDefile(location, state.time) ? this.makeSandFlow() : null;
     this.fitCamera();
     this.following = true;
@@ -430,7 +435,38 @@ export class MapScene extends Phaser.Scene {
     else this.hud().toast(lost > 0 ? `La chaleur, et pas une goutte d’eau : tu perds ${lost} PV.` : 'La chaleur. Tu tiens debout, à peine.');
   }
 
+  /**
+   * The painted background of an open-air place (mise en beauté), behind everything, fixed to the camera. Loaded the
+   * first time it is seen (the colour of the place shows until then); a missing file keeps the colour.
+   */
+  private paintBackdrop(locationId: string): void {
+    this.backdrop = null;
+    const token = ++this.backdropToken;
+    const id = fondOf(locationId);
+    if (!id) return;
+    const key = `fond-${id}`;
+    const place = (): void => {
+      if (token !== this.backdropToken || !this.textures.exists(key)) return;
+      this.backdrop = this.add.image(0, 0, key).setScrollFactor(0).setDepth(-1e7);
+      this.fitBackdrop();
+      this.backdrop.setAlpha(0);
+      this.tweens.add({ targets: this.backdrop, alpha: 1, duration: 500 });
+    };
+    if (this.textures.exists(key)) return place();
+    this.load.image(key, `fonds/${id}.jpg`);
+    this.load.once(Phaser.Loader.Events.COMPLETE, place);
+    this.load.start();
+  }
+
+  private fitBackdrop(): void {
+    const b = this.backdrop;
+    if (!b) return;
+    const cam = this.cameras.main;
+    b.setScale(coverScale(b.width, b.height, cam.width, cam.height, cam.zoom)).setPosition(cam.width / 2, cam.height / 2);
+  }
+
   update(_time: number, delta: number): void {
+    this.fitBackdrop();
     if (this.loading) return;
     if (this.sandFlow) {
       this.sandFlow.tilePositionX += delta * 0.045;

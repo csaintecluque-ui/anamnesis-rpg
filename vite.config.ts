@@ -70,12 +70,19 @@ export default defineConfig({
         // The music (≈ 67 MB) is not installed with the game: each track is cached the first time it is heard
         // (src/audio/music.ts puts a whole copy in « anamnesis-musique »), then served from there, piece by piece as an
         // audio player asks (range requests), offline too.
-        globIgnores: ['**/audio/musique/**'],
+        // Likewise the illustrations and the painted backgrounds (≈ 250 Ko each, mise en beauté): cached when first
+        // seen, not at install.
+        globIgnores: ['**/audio/musique/**', '**/illustrations/**', '**/fonds/**'],
         runtimeCaching: [
           {
             urlPattern: /\/audio\/musique\/[^/]+\.mp3/,
             handler: 'CacheFirst',
             options: { cacheName: 'anamnesis-musique', rangeRequests: true, cacheableResponse: { statuses: [200] } },
+          },
+          {
+            urlPattern: /\/(illustrations|fonds)\/[^/]+\.jpg/,
+            handler: 'CacheFirst',
+            options: { cacheName: 'anamnesis-images', cacheableResponse: { statuses: [200] } },
           },
         ],
         // Phaser alone weighs ~1.2 MB; leave room for game data and audio.

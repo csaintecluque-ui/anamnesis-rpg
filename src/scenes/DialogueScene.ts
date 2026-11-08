@@ -78,6 +78,17 @@ export class DialogueScene extends Phaser.Scene {
     // Swallows taps so nothing reaches the map or the HUD below.
     this.backdrop = this.add.rectangle(0, 0, GAME_WIDTH, GAME_HEIGHT, COLORS.ink, 0.45).setOrigin(0, 0).setInteractive();
     this.illustration = this.add.image(0, 0, '__DEFAULT').setOrigin(0, 0).setVisible(false);
+    // Illustrations are loaded when a dialogue that has some opens (not at start-up: ≈ 250 Ko each), then kept.
+    let missing = 0;
+    for (const n of Object.values(this.dialogue.nodes)) {
+      if (!n.illustration || this.textures.exists(`illustration-${n.illustration}`)) continue;
+      this.load.image(`illustration-${n.illustration}`, `illustrations/${n.illustration}.jpg`);
+      missing++;
+    }
+    if (missing) {
+      this.load.once(Phaser.Loader.Events.COMPLETE, () => this.showIllustration(true));
+      this.load.start();
+    }
     this.panel = this.add
       .rectangle(0, this.panelTop, GAME_WIDTH, GAME_HEIGHT - this.panelTop, COLORS.ink, PANEL_ALPHA)
       .setOrigin(0, 0)
@@ -124,11 +135,7 @@ export class DialogueScene extends Phaser.Scene {
     this.layer.removeAll(true);
     if (node.night) this.backdrop.setFillStyle(NIGHT, 0.82);
     else this.backdrop.setFillStyle(COLORS.ink, 0.45);
-    const illustration = `illustration-${node.illustration}`;
-    const illustrated = node.illustration !== undefined && this.textures.exists(illustration);
-    if (illustrated) this.illustration.setTexture(illustration).setDisplaySize(GAME_WIDTH, GAME_HEIGHT);
-    this.illustration.setVisible(illustrated);
-    this.panel.setFillStyle(COLORS.ink, illustrated ? PANEL_ALPHA_OVER_ILLUSTRATION : PANEL_ALPHA);
+    this.showIllustration(false);
 
     let textTop = this.panelTop + 74 * textScale();
     // What was just gained: on the name's line when it fits there, else on lines of its own under the name.
@@ -317,6 +324,21 @@ export class DialogueScene extends Phaser.Scene {
     this.choices = [];
     let bottom = OPTIONS_BOTTOM;
     for (let i = views.length - 1; i >= 0; i--) bottom = this.addOption(views[i], i + 1, bottom) - OPTION_GAP;
+  }
+
+  /** The current node's illustration, if it has one and it is loaded (`fade`: it just arrived). */
+  private showIllustration(fade: boolean): void {
+    if (!this.scene.isActive() && !this.scene.isPaused()) return;
+    const node = this.dialogue.nodes[this.nodeId];
+    const key = `illustration-${node?.illustration}`;
+    const illustrated = !!node?.illustration && this.textures.exists(key);
+    if (illustrated) this.illustration.setTexture(key).setDisplaySize(GAME_WIDTH, GAME_HEIGHT);
+    if (illustrated && fade && !this.illustration.visible) {
+      this.illustration.setAlpha(0);
+      this.tweens.add({ targets: this.illustration, alpha: 1, duration: 400 });
+    } else this.illustration.setAlpha(1);
+    this.illustration.setVisible(illustrated);
+    this.panel.setFillStyle(COLORS.ink, illustrated ? PANEL_ALPHA_OVER_ILLUSTRATION : PANEL_ALPHA);
   }
 
   private place(): NodePlace {

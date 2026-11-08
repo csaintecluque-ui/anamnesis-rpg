@@ -1,0 +1,12 @@
+{
+  "gardebois": ["gardebois", "sol-racines", "rencontre-clairiere", "rencontre-route", "rencontre-ruines"],
+  "canopee": ["canopee-nacelle", "canopee-ramures", "canopee-aieux"],
+  "ironheart": ["ironheart-forges", "ironheart-marche", "ironheart-manufactures", "ironheart-triage"],
+  "sept-portes": ["sept-portes", "sept-portes-parvis", "sept-portes-halles"],
+  "aetherhaven": ["aetherhaven-quai", "aetherhaven-marches", "aetherhaven-haute-ile"],
+  "nuages": ["bas-cendres", "voie-du-bas", "halte-cendres", "altavent"],
+  "coralia": ["coralia-port", "coralia-canaux", "coralia-amiraute", "coralia-voie-noyee"],
+  "marche-mere": ["marche-camp", "marche-verriers", "marche-coeur", "marche-longue-ombre", "marche-desert", "marche-halte-morte"],
+  "khrysos": ["khrysos-portes", "khrysos-surface", "khrysos-galeries", "khrysos-royal", "khrysos-douze"],
+  "souterrain": ["gare-engloutie", "quai-sept", "voie-endormie", "ironheart-cendriere", "coralia-grotte", "khrysos-cryptes", "khrysos-voie-sept"]
+}

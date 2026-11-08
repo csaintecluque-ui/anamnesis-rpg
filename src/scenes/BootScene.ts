@@ -1,6 +1,5 @@
 import Phaser from 'phaser';
 import sealUrl from '../../assets/brand/logo-seal.svg?url';
-import { DIALOGUES } from '../data/dialogues';
 import bigArt from '../data/bigArt.json';
 import npcData from '../data/npcs.json';
 import { AVATARS } from '../rules/character';
@@ -28,10 +27,8 @@ export class BootScene extends Phaser.Scene {
     for (const f of FIGURANTS) if (f.walk) this.load.spritesheet(walkSheetKey(f), f.walk, { frameWidth: 64, frameHeight: 96 });
     // Dialogue portraits (npm run art).
     for (const npc of npcData) if ('portrait' in npc) this.load.image(`portrait-${npc.id}`, npc.portrait);
-    // Illustrations (npm run art): the title screen's, and those of dialogue nodes.
-    const illustrations = new Set(['titre']);
-    for (const d of Object.values(DIALOGUES)) for (const n of Object.values(d.nodes)) if (n.illustration) illustrations.add(n.illustration);
-    for (const id of illustrations) this.load.image(`illustration-${id}`, `illustrations/${id}.jpg`);
+    // The title screen's illustration (npm run art); those of dialogue nodes load when their dialogue opens.
+    this.load.image('illustration-titre', 'illustrations/titre.jpg');
     // Sound effects (npm run sfx).
     loadSfx(this.load);
   }

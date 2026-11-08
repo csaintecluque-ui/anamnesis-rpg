@@ -215,6 +215,21 @@ En ligne le 2026-11-03 (tes textes du 3 novembre) :
       téléphone. Toujours rien ? Dis-moi si c'est l'iPhone ou la Samsung, et si l'interrupteur silencieux était mis.
 - Remarques :
 
+## La musique (en ligne le 2026-11-08)
+
+- [ ] **Choisir les versions** : sur l'écran titre, touche cinq fois le numéro de version (le mode test), puis
+      « Écouter la musique ». Pour les 16 morceaux à deux versions : ▶ A, ▶ B, puis « Garder A » ou « Garder B » ; à la
+      fin, « Copier mes choix » et colle-les dans ton message. Les 20 ambiances n'ont qu'une version : dis-moi celles qui
+      ne vont pas (une ambiance se refait seule, 26 crédits).
+- [ ] **En jouant** : le thème sur l'écran titre ; chaque ville la sienne, **le jour et la nuit** ; la Gare, les voies
+      et les cryptes « sous la terre » ; la route sur la carte du monde ; le combat (et le Golem, à part) ; la veillée ;
+      les Échos, la dame en gris, les caisses ; la berceuse (l'Écho de Maëlis, puis Nell) ; la chute à la mort.
+- [ ] **Les notes courtes** : une quête terminée, un Récit retenu, un niveau, un Écho recueilli, une caisse trouvée,
+      une veillée réussie : la musique s'efface le temps de la note.
+- [ ] **Le réglage « Musique »** (Options, sous Volume) : trop fort, trop discret sous les dialogues ?
+- [ ] **Hors ligne** : un morceau déjà entendu se rejoue sans réseau ; la première fois, il lui faut un instant.
+- Remarques :
+
 ## Le pont de Gardebois et la marche à la souris (en ligne pour essai le 2026-11-04)
 
 - [ ] **Traverse le pont** (Gardebois, à l'est du village) : le héros marche sur le tablier, derrière la rambarde de

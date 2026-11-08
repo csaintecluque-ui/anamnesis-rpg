@@ -8,7 +8,7 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `a-essayer.md` : la liste de Cyril, ce qu'il aura à essayer sur PC, chantier par chantier.
 - `qualite.md` : vérification qualité de tout le jeu (2026-11-02) : ce qui a été testé, corrigé, laissé, à trancher.
 - `STYLE.md` : fiche de style des visuels de la phase 2 (direction, palette, formats, prompt commun) ; validée.
-- `ASSETS.md` : plan des images de la phase 2 et journal de chaque génération (date, outil, prompt, coût, fichier).
+- `ASSETS.md` : plan des images de la phase 2 et journal de chaque génération (date, outil, prompt, coût, fichier) ; la musique (2026-11-08) ; le plan des images de la mise en beauté (2026-11-08).
 - `DIALOGUES.md` : textes de tous les dialogues, générés par `npm run dialogues` (ne pas éditer à la main).
 - `Lore/` : ancienne version du lore de Cyril (le Notion « ANAMNESIS » fait foi), local seulement (jamais publié). Ouvrir le fichier précis
   indiqué par un code source ([E2], [N1]…) de `univers/sources.md`, pas le dossier entier.
@@ -90,5 +90,5 @@ Une ligne par fichier. Ne lis que ce qui sert à la tâche du jour.
 - `figurants.md` : passants qui marchent et habitants à une ou deux répliques ; validé.
 - `reputation.md` : réputation par ville (paliers, prix, conditions de dialogue) ; paliers validés.
 - `factions.md` : réputation de faction, adhésion aux guildes ; rangs, sommets, rivalités, quêtes d'adhésion de Ferros, rangs des Gardiens (étape 7) ; validé.
-- `son.md` : le son : les bruitages fabriqués par le code (pas, coups, soin, dialogue, objet, le train de la Gare) ; les ambiances Higgsfield prévues.
+- `son.md` : le son : les bruitages fabriqués par le code ; **la musique** (36 morceaux Higgsfield, faite et en ligne le 2026-11-08) : réduction, cache à la première écoute, chef d'orchestre, réglage, notes courtes, page d'écoute.
 - `artisanat.md` : la forge de Ragna et les herbes de Sévane, les recettes ; validé.

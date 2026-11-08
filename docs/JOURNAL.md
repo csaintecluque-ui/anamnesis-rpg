@@ -13,16 +13,16 @@
 ## En cours
 
 - La fin (chapitre 9) **construite, en ligne** (2026-11-07) ; la vague 3 de l'étude est finie, sauf C (Higgsfield).
-
-Ce qu'il reste à essayer sur PC : `docs/a-essayer.md` (dont la fin, sans rien dévoiler).
+- **La musique, en ligne (2026-11-08)** : 36 morceaux Higgsfield (854,64 crédits, solde 2 145,36), chef d'orchestre,
+  réglage « Musique », notes courtes, cache à la première écoute (`gdd/son.md`). Page d'écoute : mode test, titre.
+- À essayer sur PC : `docs/a-essayer.md` (dont la fin, sans rien dévoiler, et la musique).
 
 ## Prochaine étape
 
 - **Partie de Cyril sur PC**, jusqu'à la fin ; ses remarques, puis les retouches (équilibre, textes de la fin).
-- **Notion** : rien de la fin n'y est publié avant que Cyril l'ait jouée (la surprise) ; ensuite, la page « Anamnesis —
-  le jeu ».
-- **Higgsfield (décision du 2026-11-08)** : 3 000 crédits sur le compte. Musique : plan « recommandé » **validé**
-  (≈ 854 crédits, `gdd/son.md`) ; images : portraits pour les importants seulement (≈ 500, liste à présenter avant).
+- **Notion** : rien de la fin avant que Cyril l'ait jouée (la surprise) ; ensuite, la page « Anamnesis — le jeu ».
+- **Musique** : Cyril choisit A ou B pour les 16 morceaux à deux versions (page d'écoute), puis on les fixe.
+- **Images** (≈ 500 crédits, portraits des importants seulement) : la liste et le pilote à présenter, rien de généré.
 
 ## Points ouverts
 

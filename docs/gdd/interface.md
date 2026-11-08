@@ -7,8 +7,9 @@
 - **Menu pause** (`PauseScene`, depuis « Menu ») : Reprendre, Sauvegarder, Options, Retour au titre (avec sauvegarde
   auto). La carte est figée tant qu'il est ouvert.
 - **Options** (`OptionsScene`, depuis l'écran titre ou le menu pause) :
-  - **Volume** de 0 à 100 %, par pas de 10. Le jeu n'a pas encore de sons : le réglage est enregistré et appliqué
-    au moteur audio, il servira dès leur arrivée.
+  - **Volume** de 0 à 100 %, par pas de 10 : tout le son (bruitages et musique).
+  - **Musique** de 0 à 100 %, par pas de 10, 70 par défaut (2026-11-08) : la musique seule, sous le volume ; 0 : sans
+    musique (`docs/gdd/son.md`).
   - **Taille du texte** : Normale ou Grande (× 1,15). S'applique aux dialogues (texte, options, nom du PNJ, messages)
     et aux messages du HUD. En taille Grande, le panneau de dialogue remonte jusque sous la barre du HUD, et chaque
     option prend la hauteur que son texte demande.
@@ -67,6 +68,9 @@ Pour essayer le jeu sans tout rejouer (demande de Cyril, 2026-11-01).
 - **Activer / désactiver** : sur l'écran titre, toucher **5 fois de suite** (en moins de 3 secondes) le numéro de
   version, en bas à gauche. « · mode test » s'affiche alors en cuivre à côté de la version.
 - **Outils** : dans le menu pause, sous les boutons habituels, **+50 Fers** et **PV au max** (`src/rules/testTools.ts`).
+- **Écouter la musique** (2026-11-08) : en mode test, une entrée de plus sur l'écran titre ouvre la page d'écoute
+  (`src/ui/listeningPanel.ts`) : chaque morceau, ses versions A et B, « Garder A / B », « Copier mes choix »
+  (`docs/gdd/son.md`).
 - Le réglage est propre à l'appareil (`settings.testMode`, comme les options), pas à la sauvegarde. Il n'apparaît
   dans aucun menu : un joueur ne le trouve pas par hasard.
 - **Mode développeur** (demande de Cyril, 2026-11-02) : en mode test, le bouton **Outils de dev** du menu pause ouvre

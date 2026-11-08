@@ -1242,3 +1242,24 @@ la fin. » Fait, dans l'ordre :
 
 1058 tests (dont `finale.test.ts` : les quatre fins jouées par les dialogues) ; build ; vérifié dans Chromium.
 Le Notion ne reçoit rien de la fin avant que Cyril l'ait jouée.
+
+
+## 2026-11-08 — La musique (Higgsfield), en ligne
+
+Décision de Cyril : le plan « recommandé » de `gdd/son.md`, 3 000 crédits sur le compte. Fait :
+
+1. **Les prompts** d'après la fiche de style sonore (lent, sombre, chaleureux, acoustique, sans voix, sans percussion
+   forte, en boucle, discret sous les dialogues, aucune tradition réelle reconnaissable) ; le coût de chaque lot vérifié
+   sans générer, puis un essai (Gardebois, le jour) pour vérifier toute la chaîne avant le reste.
+2. **La génération** : 36 morceaux (le tableau en comptait 36, son titre disait 34 par erreur), 52 fichiers,
+   854,64 crédits, tout au premier essai ; solde 2 145,36. Higgsfield crée une tâche par variante : la seconde se
+   retrouve dans l'historique. Chaque prompt et chaque tâche : `ASSETS.md`.
+3. **La réduction** (`npm run music`) : mono 96 kbit/s, −20 LUFS en deux passes, silences retirés ; 67 Mo ; un
+   manifeste avec l'empreinte de chaque fichier (la clé du cache).
+4. **Le code** : le lecteur (`audio/music.ts`, éléments audio dans le graphe Web Audio de Phaser, fondus, boucles en
+   fondu enchaîné, reprise là où l'ambiance en était) ; le cache à la première écoute (d'abord en lisant le fichier en
+   mémoire : 6 s quand la carte charge ; refait en flux, la copie en arrière-plan, le service worker la sert par
+   morceaux, hors ligne aussi) ; le chef d'orchestre (`audio/conductor.ts`, règles testées dans `musicRules.ts`) ;
+   « Musique » dans les Options ; les notes courtes comptées sur l'état ; la page d'écoute (mode test).
+5. **Vérifié** dans Chromium (le serveur de dev pour le chef d'orchestre, la version publiée pour le hors-ligne) ;
+   1076 tests ; build (cache hors ligne inchangé, 14,6 Mo).

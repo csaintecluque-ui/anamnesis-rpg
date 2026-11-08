@@ -1,4 +1,4 @@
-# Visuels générés — plan et journal
+# Visuels et musique générés — plan et journal
 
 Style imposé à chaque prompt : `docs/STYLE.md`. Aucune génération sans le feu vert de Cyril (`CLAUDE.md` §5).
 
@@ -349,6 +349,82 @@ Deux demandes refusées à l'envoi par Higgsfield (limite de débit, 429), sans 
 `public/sprites/figurant-commis-ferros.png` et `figurant-garcon-curieux.png` (8 directions × 6 images,
 `npm run walk -- 2d anim2d/<nom> figurant-<nom> [hauteur]` ; le garçon à 42 px au lieu de 54, c'est un enfant).
 Vérifié dans le jeu : les deux marcheurs animés dans Gardebois, les trois autres immobiles, bulle du client.
+
+## Musique (2026-11-08) : 36 morceaux, 52 fichiers, 854,64 crédits, solde 2 145,36
+
+Plan « recommandé » validé par Cyril le 2026-11-08 (`docs/gdd/son.md`). Outil : Higgsfield MCP, **ElevenLabs Music v2.5**
+(`elevenlabs_music_v2_5`), `force_instrumental` sauf la berceuse, `batch_size` = nombre de variantes (Higgsfield crée une
+tâche par variante : la seconde se retrouve dans l'historique, même prompt). Coût de chaque lot vérifié sans générer
+(`get_cost`) avant l'envoi : une variante coûte 0,1453 crédit la seconde (26,16 les 3 min, 17,44 les 2 min, 8,72 la minute,
+1,46 les 10 s). Un essai d'abord (Gardebois, le jour) pour vérifier la chaîne, puis le reste. Tout gardé au premier essai.
+Un envoi refusé par Higgsfield (limite de débit, 429), sans tâche ni débit, relancé une fois les premiers finis.
+Bruts : `assets/raw/musique/<fichier>.mp3` (local, MP3 stéréo 128 kbit/s) ; réduits par `npm run music` dans
+`public/audio/musique/` (mono 96 kbit/s, −20 LUFS).
+
+**Fiche de style sonore**, ajoutée à la fin de chaque prompt du lot A : « Dark fantasy role-playing game soundtrack, original. Slow, dark and warm; acoustic instruments only; no vocals; no loud percussion; soft steady dynamics with no build-up, no marked intro and no ending, so it can loop; mixed soft and discreet, made to sit under spoken dialogue; poetic and melancholic, about memory and remembrance. Not in the style of any recognizable real-world folk tradition. » Les thèmes, les notes et la berceuse en reprennent l'esprit dans leur propre prompt (en entier ci-dessous).
+
+### Lot A · les ambiances (20 × 3 min, une variante, 26,16 crédits chacune : 523,20)
+
+| Fichier | Tâche | Prompt (avant la fiche de style) |
+|---|---|---|
+| `gardebois-jour.mp3` | `73ce6a2c` | Daytime ambience for a forest market at the foot of colossal ancient trees, lanterns hanging from the roots: a gentle wooden flute melody, warm low strings, soft plucked harp, faint birdsong-like woodwind trills, rustling leaves texture. Around 60 BPM. |
+| `gardebois-nuit.mp3` | `5b8f80eb` | Night ambience for the same forest market, lanterns glowing among giant roots, the stalls closed: a low cello drone, a sparse and tender wooden flute, soft glass chimes, night insects texture, quiet and intimate. Around 50 BPM. |
+| `canopee-jour.mp3` | `bd74d383` | Daytime ambience for a city built high in the canopy of giant trees, where nothing touches the ground: hanging bridges, gondolas, wind in the leaves. Airy high strings, wooden flutes, very soft wooden mallet tones, harp, a sense of height and light. Around 64 BPM. |
+| `canopee-nuit.mp3` | `d6d1096c` | Night ambience for a city high in the canopy of giant trees, where the memory of the dead passes into the trees: reverent and solemn, bowed glass, low strings, a distant wooden flute, soft wind through leaves, starlight. Around 50 BPM. |
+| `ironheart-jour.mp3` | `25db9bde` | Daytime ambience for a vast industrial capital of forges and foundries under a persistent industrial fog, iron, brass and steam, weary workers: low brass chords, a slow deep cello ostinato, distant muffled anvil strikes as a slow regular pulse, metallic resonances, soft steam hiss texture. Heavy and weary but warm. Around 56 BPM. |
+| `ironheart-nuit.mp3` | `26119225` | Night ambience for an industrial city of forges glowing in the fog, the night shift at work: a lonely muted brass melody, a low drone, faraway metallic clanks, embers, slow and sad. Around 48 BPM. |
+| `sept-portes-jour.mp3` | `232f3343` | Daytime ambience for an ancient stone city of seven gates, crossroads of every people, with a great library and the house of the memory keepers: slow distant bells, harp arpeggios, warm strings, a faint murmur of a crowd, scholarly and solemn. Around 60 BPM. |
+| `sept-portes-nuit.mp3` | `43e72170` | Night ambience for quiet stone streets and a candlelit library in an ancient city of seven gates: a single distant bell now and then, a soft harp, low strings, a sense of old secrets. Around 50 BPM. |
+| `aetherhaven-jour.mp3` | `995dbf0c` | Daytime ambience for a city of islands floating among the clouds, airships and sails, a spiral tower of blue crystal: airy wind texture, gentle wind chimes, high sustained strings, a soft flute, open sky and a hint of vertigo. Around 62 BPM. |
+| `aetherhaven-nuit.mp3` | `05b8aae5` | Night ambience above the clouds, cold wind and stars, the dark ash country far below: soft chimes, a lonely viola, a thin airy drone, fragile and suspended. Around 50 BPM. |
+| `coralia-jour.mp3` | `3e60436e` | Daytime ambience for a city of coral on the sea, canals, a great harbor and a fleet: gentle sea swell texture, a warm cello melody, a distant buoy bell, plucked strings like lapping water. Around 58 BPM. |
+| `coralia-nuit.mp3` | `f52509f3` | Night ambience for a coral city at high tide, whispering depths under the water: a low cello, a deep drone, a far buoy bell, soft swell, mysterious and melancholic. Around 48 BPM. |
+| `marche-mere-jour.mp3` | `38dac526` | Daytime ambience for a city that walks across the desert on the backs of giant creatures, never stopping: plucked strings, a low wooden flute, sand wind texture, a very slow soft low pulse like enormous footsteps far below, hot and vast. Around 56 BPM. |
+| `marche-mere-nuit.mp3` | `5983126f` | Night ambience in a cold desert under the stars, a city still walking on the backs of giant creatures: sparse plucked strings, a low breathy flute, wind, a slow giant heartbeat far below, lonely and immense. Around 48 BPM. |
+| `khrysos-jour.mp3` | `c86db6a4` | Ambience for a city of crystal three hundred meters under an ice cap, warm galleries carved in the ice: rubbed glass tones, crystal harmonics, a cold sustained drone, a slow fragile shimmering melody. Around 54 BPM. |
+| `khrysos-nuit.mp3` | `00cb4477` | Night ambience deep under the ice, a city of crystal asleep, cold silence and old crypts: single crystal tones, a cold low drone, faint creaking ice, very sparse. Around 44 BPM. |
+| `souterrain-jour.mp3` | `cb202d65` | Ambience for an underground ruin: a sunken railway station, sleeping rail tunnels and crypts from a lost ancient world: a deep drone, slow water drops, resonating metal, faint distant rail creaks, mournful and oppressive. Around 50 BPM. |
+| `souterrain-nuit.mp3` | `e57e0fbf` | Darker ambience for underground rail tunnels and crypts at night, where old memories tear apart: a very low drone, distant metallic groans, water drops, cold string harmonics, a slow uneasy pulse, menacing but restrained. Around 44 BPM. |
+| `route-jour.mp3` | `90f235f3` | Travel music for crossing a wide wild world on foot between distant cities: a gentle walking pace, warm strings and woodwinds, an unhurried melody, open landscape, bittersweet hope. Around 72 BPM. |
+| `route-nuit.mp3` | `fbe9e0e8` | Night travel music, a camp under the stars on a long road: sparse plucked strings, a low flute, soft wind, a quiet melody, lonely and tender. Around 56 BPM. |
+
+### Lot B · les thèmes (8, deux variantes : 279,04)
+
+| Fichiers | Tâches (A / B) | Durée | Crédits | Prompt |
+|---|---|---|---|---|
+| `theme-principal-a.mp3`, `theme-principal-b.mp3` | `75d85f53` / `8c250bb2` | 3 min | 52,32 | Main theme for a dark fantasy role-playing game about memory and remembrance, played on the title screen: a melancholic, poetic main melody introduced on solo cello, answered by a wooden flute, slowly swelling with warm strings, soft horns and harp, emotional and bittersweet, grand but intimate, then settling back to calm. Acoustic orchestra, original melody, no vocals, no loud percussion, slow tempo around 66 BPM. Not in the style of any recognizable real-world folk tradition. |
+| `combat-a.mp3`, `combat-b.mp3` | `76618d21` / `6b3c6b51` | 2 min | 34,88 | Turn-based battle music for a dark fantasy role-playing game: tense and driving but measured, a low strings ostinato, frame drums and low toms at moderate level, short brass stabs, dark and urgent, steady intensity throughout with no intro and no ending so it can loop, mixed so that sound effects stay audible. Acoustic orchestra, original, no vocals, around 120 BPM. Not in the style of any recognizable real-world folk tradition. |
+| `combat-gardien-a.mp3`, `combat-gardien-b.mp3` | `be671761` / `e673af58` | 2 min | 34,88 | Battle music against an ancient guardian, a huge automaton of rusty scrap iron with veins of cyan light: heavy and menacing, low brass, metallic percussion and anvil hits, driving strings, dark and epic, steady intensity with no intro and no ending so it can loop, mixed so that sound effects stay audible. Acoustic orchestra, original, no vocals, around 110 BPM. Not in the style of any recognizable real-world folk tradition. |
+| `veillee-a.mp3`, `veillee-b.mp3` | `7b9bd258` / `efab3eb2` | 2 min | 34,88 | Music for an evening gathering around a fire, where a storyteller tells tales to an audience at an inn: warm plucked strings, a soft wooden flute, a gentle cello, intimate and hopeful, discreet under the spoken story, soft steady dynamics with no marked intro or ending so it can loop. Acoustic, original, no vocals, no loud percussion, around 70 BPM. Not in the style of any recognizable real-world folk tradition. |
+| `echos-a.mp3`, `echos-b.mp3` | `8992e35a` / `b190511e` | 2 min | 34,88 | Music for entering a living memory of the past, a ghostly vision in pale blue and gold of people long gone: ethereal and dreamlike, celesta, bowed glass, shimmering high strings, a distant soft piano, lots of reverb, nostalgia, a fading memory, soft steady dynamics with no marked intro or ending so it can loop. Original, no vocals, no percussion, slow, around 56 BPM. |
+| `dame-en-gris-a.mp3`, `dame-en-gris-b.mp3` | `8cbbd8c3` / `62a7106c` | 2 min | 34,88 | Theme for a mysterious woman in grey, a rival who crosses the hero's path in every city while searching for her lost mother: elegant and melancholic, a solo viola melody over low pizzicato strings and a soft clarinet, restrained tension, a secret grief, never villainous, soft steady dynamics with no marked intro or ending so it can loop. Acoustic, original, no vocals, no loud percussion, around 64 BPM. |
+| `sept-caisses-a.mp3`, `sept-caisses-b.mp3` | `d7781206` / `610c7b63` | 2 min | 34,88 | Theme for a quest across seven continents to find seven ancient crates lost for three thousand years at the end of sleeping railways: mystery and investigation, a slow steady pulse of low pizzicato strings, a questioning clarinet and harp motif, a quiet sense of urgency, no marked intro or ending so it can loop. Acoustic orchestra, original, no vocals, no loud percussion, around 76 BPM. |
+| `chute-a.mp3`, `chute-b.mp3` | `cf469d4d` / `d8ed9d8b` | 1 min | 17,44 | Music for the death of the hero in a dark fantasy role-playing game: a slow, grave lament, solo cello over a low string drone, a few soft harp notes, sorrowful but not hopeless, fading out at the end. Acoustic, original, no vocals, no percussion, around 50 BPM. |
+
+### Lot C · les notes courtes (6 × 10 s, deux variantes, 2,92 crédits chacune : 17,52)
+
+Prompt : « A short 10-second musical cue for <le moment> in a dark fantasy role-playing game: <ce qu'on entend>. Acoustic, original, no vocals, no drums. » (l'Écho recueilli : sans « Acoustic »).
+
+| Fichiers | Tâches (A / B) | Le moment : ce qu'on entend |
+|---|---|---|
+| `quete-terminee-a.mp3`, `quete-terminee-b.mp3` | `c417c99d` / `34b2269c` | completing a quest : warm strings and soft horns rising to a resolved chord, satisfying and bittersweet, then ringing out. |
+| `recit-retenu-a.mp3`, `recit-retenu-b.mp3` | `a642217e` / `e2f7e780` | keeping a story in memory : a tender harp arpeggio and a wooden flute phrase, a soft resolved chord, intimate and poetic, then ringing out. |
+| `niveau-gagne-a.mp3`, `niveau-gagne-b.mp3` | `e0c3bde4` / `fb35b49f` | gaining a level : rising harp and strings, a bright warm horn chord, uplifting but understated, then ringing out. |
+| `echo-recueilli-a.mp3`, `echo-recueilli-b.mp3` | `ef365638` / `d1a9f347` | gathering a ghostly memory of the past : shimmering celesta and bowed glass, a soft rising chord with reverb, ethereal and nostalgic, then fading out. |
+| `caisse-trouvee-a.mp3`, `caisse-trouvee-b.mp3` | `0a8efcef` / `61e53ec3` | finding a long-lost ancient crate : a low mysterious string chord, a deep bell, then a solemn brass swell resolving, a sense of discovery and weight. |
+| `veillee-reussie-a.mp3`, `veillee-reussie-b.mp3` | `620372f9` / `fc881c3e` | a storytelling evening that won over its audience at an inn : warm plucked strings and a wooden flute flourish, a joyful resolved chord, cosy, then ringing out. |
+
+### Lot D · la berceuse de Maëlis (2 × 1 min, deux variantes, 17,44 crédits chacune : 34,88)
+
+| Fichiers | Tâches (A / B) | Prompt |
+|---|---|---|
+| `berceuse-fredonnee-a.mp3`, `-b.mp3` | `ff9eb53d` / `325b59b4` | (voix permise, sans paroles) « A lullaby hummed softly by a gentle young woman's voice, humming only with closed lips, no words, slow and tender in three-four time, almost a whisper, with a single gently plucked string instrument; intimate, warm and melancholic, a mother humming to her child under giant trees at night. Original melody, simple and memorable. No drums. » |
+| `berceuse-chantee-a.mp3`, `-b.mp3` | `3c1ba184` / `5f058b95` | « A tender lullaby sung in French by a soft, gentle young woman's voice, slow, almost spoken, intimate, in three-four time, with a single gently plucked string instrument; warm and melancholic, a mother singing to her child under giant trees at night. The same simple melody for every verse. Original, no drums. » ; paroles (`lyrics`) : les trois couplets de `docs/gdd/son.md` |
+
+**À écouter et choisir** (Cyril) : la page d'écoute du jeu (mode test, `docs/gdd/son.md`). Claude n'entend pas les
+morceaux : seuls leur durée, leur volume au fil du temps (régulier, sans montée, sauf le thème principal qui monte et
+redescend comme demandé) et leur format sont vérifiés. À vérifier à l'oreille : ni voix ni percussion forte dans les
+ambiances, et la berceuse chantée qui dit bien les paroles, en français.
 
 ## Décision du 2026-11-08 (Cyril) : la mise en beauté, portraits pour les importants seulement
 

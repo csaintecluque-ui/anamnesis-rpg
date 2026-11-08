@@ -1,6 +1,6 @@
 # Le son
 
-Étude du 2026-11-03, vague 3 (J1 à J3). Décision de Cyril (2026-11-04) : **les bruitages d'abord, fabriqués par le
+**La musique est faite et en ligne** (2026-11-08) : section « La musique, faite ». Étude du 2026-11-03, vague 3 (J1 à J3). Décision de Cyril (2026-11-04) : **les bruitages d'abord, fabriqués par le
 code** ; les ambiances et la berceuse viendront **à la fin, de Higgsfield**, avec le reste des générations.
 
 ## Les bruitages (faits)
@@ -61,10 +61,10 @@ du lieu ; un réglage « Musique » à part dans les Options ; les fichiers réd
 par boucle), **mis en cache à la première écoute** plutôt qu'à l'installation (le cache hors ligne fait déjà 14 Mo) ;
 chaque génération consignée dans `docs/ASSETS.md`.
 
-## La décision (Cyril, 2026-11-08) : le plan « recommandé », **validé, à lancer**
+## La décision (Cyril, 2026-11-08) : le plan « recommandé », **validé, fait le jour même** (section suivante)
 
 Le « max » (2 755,52 crédits) laissait trop peu pour les images (3 000 crédits sur le compte, formule Ultra). Retenu :
-**les 34 morceaux du plan « max »** (tableau plus bas), en **ElevenLabs Music v2.5** (`elevenlabs_music_v2_5`,
+**les 36 morceaux du plan « max »** (tableau plus bas ; le premier compte disait 34 par erreur), en **ElevenLabs Music v2.5** (`elevenlabs_music_v2_5`,
 `batch_size` = nombre de variantes), mais **une seule variante pour les 20 ambiances** et **deux** pour le reste :
 
 | Lot | Variantes | Durée | Crédits |
@@ -81,6 +81,74 @@ génération consignée dans `docs/ASSETS.md`, les fichiers réduits (mono 96 kb
 écoute ; le chef d'orchestre (le lieu, le moment, le combat, les fondus), le réglage « Musique » des options, les notes
 courtes sur les récompenses ; une page d'écoute en mode test pour choisir entre les deux variantes.
 
+## La musique, faite (2026-11-08) : générée, réduite, dans le jeu, en ligne
+
+**Générée** le 2026-11-08 (Higgsfield, ElevenLabs Music v2.5) : **36 morceaux** (le tableau ci-dessus en compte bien
+20 + 8 + 6 + 2 ; « 34 » était une erreur de compte, les 79 minutes et le prix étaient justes), **52 fichiers** avec les
+variantes, **854,64 crédits** (vérifiés lot par lot avant l'envoi : A 523,20, B 279,04, C 17,52, D 34,88) ; solde
+2 145,36. Prompts, tâches et fichiers : `docs/ASSETS.md`, « Musique ». Tout est passé au premier essai.
+
+**Réduite** par `npm run music` (`scripts/process-music.mjs`) : les bruts restent en local (`assets/raw/musique/`),
+`public/audio/musique/` reçoit des MP3 **mono 96 kbit/s**, 44,1 kHz, silences du début et de la fin retirés, tous
+ramenés au même volume (−20 LUFS, deux passes ; les bruts allaient de −12 à −37 LUFS) ; **67 Mo** en tout (2,1 Mo
+une ambiance de 3 min, 110 Ko une note). Le script écrit `src/data/musique-fichiers.json` (empreinte, durée, poids de
+chaque fichier) : l'empreinte entre dans l'adresse, un morceau refait ne sort donc jamais d'un ancien cache.
+
+**Mise en cache à la première écoute** (`src/audio/music.ts`) : la musique n'est pas installée avec le jeu (le cache
+hors ligne reste à 14,6 Mo). Un morceau se joue depuis son adresse, en flux (il part tout de suite) ; une fois qu'il
+joue, une copie entière va dans le cache « anamnesis-musique », en arrière-plan ; ensuite le service worker l'y sert,
+par morceaux comme le demande un lecteur audio (`vite.config.ts`, `rangeRequests`), hors ligne aussi. Hors ligne, un
+morceau jamais entendu ne remplace pas celui qui joue. Vérifié : réponse 206 depuis le cache, lecture et saut à 2 min
+hors ligne, jeu rechargé hors ligne.
+
+**Le chef d'orchestre** (`src/audio/conductor.ts`, règles dans `src/audio/musicRules.ts`, données dans
+`src/data/musique.json`) : quatre fois par seconde, il regarde les scènes ouvertes, le lieu, l'heure, le combat et le
+dialogue, et demande le morceau voulu, en fondu enchaîné (2,5 s). Dans l'ordre :
+
+| Ce qui est à l'écran | Morceau |
+|---|---|
+| la mort du héros | la chute (une fois) |
+| un combat | le combat ; **le combat contre un gardien** si un ennemi a des phases (le Golem, la Veuve Grêle) |
+| une veillée | la veillée |
+| l'épilogue | le thème principal |
+| un dialogue d'Écho (`echo-…`, le voyage du train, l'enfant à la fenêtre) | les Échos |
+| un dialogue de la dame en gris (`edda…`) | la dame en gris |
+| une caisse (`caisse-…`, les achats d'Edda, le châssis) | les sept caisses |
+| l'Écho de la berceuse ; Nell qui chante (nœuds `souvenir`, `raconte-touche`, `raconte-berceuse`) | la berceuse fredonnée ; la berceuse chantée (une fois) |
+| un lieu, ou un autre dialogue | l'ambiance de sa famille, **le jour** (matin, midi, soir) **ou la nuit** |
+| la carte du monde, les rencontres en route | la route |
+| l'écran titre, la création | le thème principal |
+| un menu seul (sauvegardes) | rien ne change |
+
+Les familles : chaque ville la sienne (Canopéa avec le Sol des Racines) ; **sous la terre** : la Gare Engloutie, le quai
+sept, les voies endormies, la Cendrière, les cryptes et la voie sept de Khrysos, la voie noyée et la grotte de Coralia,
+le pays de cendre sous les nuages, Altavent. Une boucle se relance sur elle-même en fondu de 6 s ; une ambiance quittée
+pour un combat ou un dialogue **reprend où elle en était** (dans les cinq minutes).
+
+**Les notes courtes** : le chef d'orchestre compte les quêtes terminées, les Récits, le niveau, les Échos du Livre,
+les caisses trouvées et les veillées réussies ; quand l'un augmente, il joue sa note (une seule à la fois, la plus
+importante : niveau, caisse, quête, Écho, veillée, Récit) et la musique s'efface à 30 % le temps de la note. Une
+partie chargée ou neuve repart de zéro sans note. Les six notes sont mises en cache dès la première carte.
+
+**Les réglages** : « Musique » dans les Options, sous « Volume » (de 0 à 100 %, 70 par défaut ; 0 : sans musique) ; le
+volume général s'applique à la musique comme aux bruitages.
+
+**La page d'écoute** (mode test) : sur l'écran titre, « Écouter la musique » (le mode test s'active en touchant cinq
+fois le numéro de version). Les 36 morceaux, un à la fois, avec leur durée ; pour les 16 à deux versions, ▶ A, ▶ B,
+« Garder A » ou « Garder B » : le jeu joue aussitôt la version gardée, sur cet appareil ; « Copier mes choix » donne
+la liste à m'envoyer, pour qu'elle vaille pour tout le monde (champ `choix` de `src/data/musique.json`). Sans choix,
+le jeu joue la A.
+
+**Vérifié** dans Chromium : le thème de l'écran titre, Gardebois le jour puis la nuit, l'Écho du dernier train puis le
+retour à l'ambiance là où elle en était, la dame en gris, la note d'un Récit, la Gare, le combat contre le Golem, la
+page d'écoute (versions, choix gardés, retour du thème à la fermeture), sans erreur. Tests :
+`src/audio/musicRules.test.ts` (chaque lieu a son ambiance de jour et de nuit, les règles ci-dessus, les fichiers
+publiés et déclarés, les notes et leurs priorités, la version jouée).
+
+**Ce qui reste** : les choix de Cyril entre A et B ; une ambiance qui ne plaît pas se refait seule (26,16 crédits).
+Sur un téléphone, Safari ne laisse partir un lecteur audio que pendant un toucher : la musique peut attendre le
+toucher suivant (à essayer sur l'appareil).
+
 ## Le plan « max » (demande de Cyril, 2026-11-06 : « je veux le max, pour que ce soit fou ») — **prix à valider**
 
 Le meilleur modèle (ElevenLabs Music v2.5), des boucles de 3 minutes (moins de répétition), chaque lieu **le jour et la
@@ -93,7 +161,7 @@ nuit**, des thèmes pour les grands moments, des notes courtes pour les récompe
 | B · Les thèmes | le thème principal (écran titre, 3 min) ; le combat ; le combat contre un gardien (le Golem) ; la veillée ; les Échos ; la dame en gris ; les sept caisses (2 min chacun) ; la chute (1 min) | 16 min | 139,52 | 558,08 |
 | C · Les notes courtes | quête terminée, Récit retenu, niveau gagné, Écho recueilli, caisse trouvée, veillée réussie (10 s chacune) | 1 min | 8,72 | 34,88 |
 | D · La berceuse de Maëlis | fredonnée (1 min) ; chantée (1 min, avec les paroles ci-dessous) | 2 min | 17,44 | 69,76 |
-| **Total** | **34 morceaux** | **79 min** | **688,88** | **2 755,52** |
+| **Total** | **36 morceaux** (« 34 » par erreur à l’origine) | **79 min** | **688,88** | **2 755,52** |
 
 **Les paroles de la berceuse** (Cyril : « je ne suis pas bon en paroles de berceuse » ; écrites par Claude le
 2026-11-07, sur délégation). Le premier couplet est celui que le jeu donne déjà (le Récit « La berceuse de Maëlis ») ;

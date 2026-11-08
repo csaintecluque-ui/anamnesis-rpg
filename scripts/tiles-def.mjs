@@ -470,6 +470,8 @@ TILES.push(
   { name: 'feuillage', blocking: true, svg: leafSea },
   {
     name: 'plateforme',
+    // Pilote de la mise en beauté (2026-11-08, docs/ASSETS.md).
+    art: { src: 'pilote2/plateforme.png', kind: 'ground' },
     svg:
       diamond('#a88456') +
       '<path d="M8 80 Q32 70 56 80 M14 86 Q32 78 50 86 M20 74 Q32 68 44 74" stroke="#7d5f3b" stroke-width="1.3" fill="none"/>',
@@ -492,7 +494,13 @@ TILES.push(
       '<path d="M48 72 L16 88 M50 78 L42 74 M40 83 L32 79 M30 88 L22 84" stroke="#6b4a32" stroke-width="1.2"/>' +
       '<path d="M58 74 L26 90 M38 66 L6 82" stroke="#d9c49a" stroke-width="1" opacity="0.7"/>',
   },
-  { name: 'maison-cosse', blocking: true, cover: 4, svg: pod('#8a6a42', '#4d6b3a') },
+  {
+    name: 'maison-cosse',
+    art: { src: 'pilote2/maison-cosse.png', kind: 'standing', maxHeight: 92, foot: 88, shadow: { rx: 22, ry: 8 }, matte: true },
+    blocking: true,
+    cover: 4,
+    svg: pod('#8a6a42', '#4d6b3a'),
+  },
   { name: 'salle-conseil', blocking: true, cover: 4, svg: pod('#9a7a4a', '#5f8a45', '#e2c27a') + `<circle cx="32" cy="16" r="5" fill="#9fe0a0" opacity="0.8"/>` },
   { name: 'grenier', blocking: true, cover: 4, svg: pod('#7a5a3c', '#46603a', '#6a6058') + `<circle cx="38" cy="74" r="2" fill="${COPPER}"/>` },
   {
@@ -633,11 +641,11 @@ TILES.push(
       '<circle cx="20" cy="78" r="6" fill="none" stroke="#3a2a1c" stroke-width="3"/><circle cx="44" cy="78" r="6" fill="none" stroke="#3a2a1c" stroke-width="3"/>',
   },
   // --- Passants et habitants « de remplissage » (docs/gdd/figurants.md) : une ou deux répliques, sans quête. ---
-  npcTile('fleuriste', {
+  withArt('pilote2/fleuriste.png', 54, npcTile('fleuriste', {
     body: '#b0679a',
     hair: '#3a2a1c',
     extra: '<path d="M38 74 Q46 70 50 76 L46 82 L38 80 Z" fill="#8a6a42" stroke="#1B1512"/><circle cx="42" cy="71" r="2.5" fill="#f0e0ff"/><circle cx="47" cy="72" r="2.5" fill="#ffd27a"/>',
-  }),
+  })),
   npcTile('porteur', {
     body: '#7a6a4a',
     hair: '#2a2018',
@@ -1037,6 +1045,7 @@ TILES.push(
   {
     name: 'griffe-sylve',
     sprite: true,
+    art: { src: 'pilote2/griffe-sylve.png', kind: 'standing', maxWidth: 54, maxHeight: 42, foot: 86, shadow: { rx: 17, ry: 5 }, lift: 1.3 },
     svg:
       shadow(16, 5) +
       `<path d="M10 80 Q14 66 26 64 Q38 60 46 64 L52 56 L56 64 L50 70 L50 80 L44 80 L42 72 L22 72 L18 80 Z" fill="#3e6a34" stroke="${INK}" stroke-width="1.5"/>` +
@@ -1144,7 +1153,7 @@ TILES.push(
   // Ambroise Encrelune, Conservateur : robe d'encre, doigts tachés, un registre sous le bras.
   npcTile('ambroise', { body: '#2e2a3a', hair: '#d8d4cc', accent: '#c9a24a', extra: '<rect x="38" y="58" width="12" height="9" fill="#efe6cf" stroke="#1B1512" stroke-width="0.8"/>' }),
   // Hesper Mille-Récits, doyenne des Gardiens : cape couleur parchemin, une lanterne.
-  npcTile('hesper', { body: '#a8956a', hair: '#e8e4dc', skin: '#c9a07e', accent: '#C9804F', extra: '<circle cx="48" cy="64" r="4" fill="#ffd27a" stroke="#1B1512" stroke-width="0.8"/>' }),
+  withArt('pilote2/hesper.png', 56, npcTile('hesper', { body: '#a8956a', hair: '#e8e4dc', skin: '#c9a07e', accent: '#C9804F', extra: '<circle cx="48" cy="64" r="4" fill="#ffd27a" stroke="#1B1512" stroke-width="0.8"/>' })),
   // Josse Sept-Routes, aubergiste : tablier, foulard de toutes les couleurs.
   npcTile('josse', { body: '#7a5a3c', hair: '#3a2a1c', accent: '#d8504a', extra: '<path d="M24 54 L40 54 L36 60 L28 60 Z" fill="#3a8ab0"/>' }),
   // Lior Rose-des-Vents, cartographe : un rouleau, une boussole au cou.

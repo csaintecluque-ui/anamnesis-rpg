@@ -616,7 +616,8 @@
   {
     "id": "hesper",
     "name": "Hesper Mille-Récits",
-    "role": "Doyenne des Gardiens de Mémoire"
+    "role": "Doyenne des Gardiens de Mémoire",
+    "portrait": "portraits/hesper.jpg"
   },
   {
     "id": "josse",

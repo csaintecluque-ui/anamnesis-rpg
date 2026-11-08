@@ -123,6 +123,7 @@
   ],
   "nodes": {
     "accueil": {
+      "illustration": "canopee-arrivee",
       "text": "Bienvenue à Canopéa ! Je suis Véline, passeuse de la Grande Nacelle. Ici, rien ne touche le sol, pas même les bavards. Je demande à chaque personne qui monte : qui es-tu ?",
       "options": [
         {

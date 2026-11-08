@@ -153,7 +153,10 @@ async function standingFrame(src, opts) {
   if (fixShadow) img = inkShadow(img);
   if (opacity < 1) for (let i = 3; i < img.data.length; i += 4) img.data[i] = Math.round(img.data[i] * opacity);
   const raw = { width: img.width, height: img.height, channels: 4 };
-  const trimmed = await sharp(img.data, { raw }).trim({ threshold: 16 }).png().toBuffer();
+  let trimming = sharp(img.data, { raw }).trim({ threshold: 16 });
+  // `lift`: a creature lost in its own camouflage, a little lighter, so it reads on the ground (the Griffe-Sylve).
+  if (opts.lift) trimming = sharp(await trimming.png().toBuffer()).modulate({ brightness: opts.lift, saturation: opts.lift });
+  const trimmed = await trimming.png().toBuffer();
   const fitted = await sharp(trimmed)
     .resize({ width: maxWidth, height: maxHeight, fit: 'inside', kernel: 'lanczos3' })
     .png()
@@ -186,6 +189,8 @@ const PORTRAITS = {
   nell: 'contenu/portrait-nell.png',
   liane: 'contenu/portrait-liane.png',
   brann: 'contenu/portrait-brann.png',
+  // Pilote de la mise en beauté (2026-11-08, docs/ASSETS.md) : le style révisé.
+  hesper: 'pilote2/portrait-hesper.png',
   // The hero's looks (src/data/avatars.json), chosen at creation.
   'avatar-apprenti': 'avatars/portrait-apprenti.png',
   'avatar-lisiere': 'avatars/portrait-lisiere.png',
@@ -199,6 +204,8 @@ const PORTRAIT_SIZE = 320;
 const ILLUSTRATIONS = {
   titre: 'lot5/titre.png',
   'echo-dernier-train': 'lot5/echo-dernier-train.png',
+  // L'arrivée à Canopéa (pilote du 2026-11-08), sur l'accueil de Véline.
+  'canopee-arrivee': 'pilote2/canopee-arrivee.png',
 };
 
 /**

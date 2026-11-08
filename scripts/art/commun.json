@@ -1,0 +1,32 @@
+{
+  "tiles": {
+    "ouvrier": { "src": "commun/ouvrier.png", "preset": "personnage" },
+    "caravaniere": { "src": "commun/caravaniere.png", "preset": "personnage" },
+    "cueilleuse": { "src": "commun/cueilleuse.png", "preset": "personnage" },
+    "garde-vert": { "src": "commun/garde-vert.png", "preset": "personnage" },
+    "vieille": { "src": "commun/vieille.png", "preset": "personnage" },
+    "geometre": { "src": "commun/geometre.png", "preset": "personnage" },
+    "convoyeuse": { "src": "commun/convoyeuse.png", "preset": "personnage" },
+    "colporteuse": { "src": "commun/colporteuse.png", "preset": "personnage" },
+    "voyageur-egare": { "src": "commun/voyageur-egare.png", "preset": "personnage" },
+    "echo-furieux": { "src": "commun/echo-furieux.png", "preset": "echo" },
+    "charrette": { "src": "commun/charrette.png", "preset": "objet" },
+    "carriole": { "src": "commun/carriole.png", "preset": "objet" }
+  },
+  "portraits": {
+    "edda-varn": "commun/portrait-edda-varn.png",
+    "enfant-fenetre": "commun/portrait-enfant-fenetre.png",
+    "mandataire": "commun/portrait-mandataire.png"
+  },
+  "illustrations": {
+    "carte-du-monde": "commun/carte-du-monde.png",
+    "fin-monte": "commun/fin-monte.png",
+    "fin-recu": "commun/fin-recu.png",
+    "fin-jetee": "commun/fin-jetee.png",
+    "fin-dechiree": "commun/fin-dechiree.png"
+  },
+  "fonds": {
+    "gardebois": "commun/fond-gardebois.png",
+    "souterrain": "commun/fond-souterrain.png"
+  }
+}

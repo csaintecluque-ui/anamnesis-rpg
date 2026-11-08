@@ -2442,7 +2442,8 @@
     "lines": [
       "L’eau qui stagne pourrit, le sable qui bouge vit. Mes pieds, eux, voudraient bien stagner un peu.",
       "Trente kilomètres aujourd’hui. Demain aussi. Après-demain, pareil."
-    ]
+    ],
+    "walk": "sprites/figurant-marcheur-camp.png"
   },
   {
     "id": "porteuse-camp",
@@ -2463,6 +2464,7 @@
       "La jarre pèse plus lourd le soir. L’eau, elle, pèse pareil.",
       "On ne refuse pas l’eau. Même à quelqu’un de Ferros. Surtout pas, d’ailleurs."
     ],
+    "walk": "sprites/figurant-porteuse-camp.png",
     "reactions": [
       {
         "quest": "chariot-perdu",
@@ -2791,6 +2793,7 @@
       "Je vends du poisson de la Mer Gelée, et je le vends sans parler. Le cristal, au plafond, écoute les prix.",
       "Trois degrés au-dessus de zéro, au marché. On retire ses gants pour payer. On les remet pour se taire."
     ],
+    "walk": "sprites/figurant-marchande-galeries.png",
     "reactions": [
       {
         "flag": "fin-cristal-ecoute-brise",
@@ -2933,6 +2936,7 @@
       "Au Douze, il fait chaud, il fait noir, et on travaille à côté des morts. On ne se plaint pas : eux non plus.",
       "Le gardien des cryptes dort assis. Personne n’ose le réveiller. C’est peut-être ça, son travail."
     ],
+    "walk": "sprites/figurant-mineur-douze.png",
     "reactions": [
       {
         "flag": "briseur-echos",

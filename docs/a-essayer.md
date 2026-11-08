@@ -230,6 +230,16 @@ En ligne le 2026-11-03 (tes textes du 3 novembre) :
 - [ ] **Hors ligne** : un morceau déjà entendu se rejoue sans réseau ; la première fois, il lui faut un instant.
 - Remarques :
 
+## La mise en beauté (en ligne le 2026-11-08)
+
+- [ ] **Toutes les villes peintes** : Canopéa, Ironheart, Sept-Portes, Aetherhaven (et le pays sous les nuages),
+      Coralia, Marche-Mère, Khrysos ; les passants, les bêtes, les décors, les sols, les fonds peints autour des cartes.
+- [ ] **Les illustrations d'arrivée** (une par ville, sur le premier accueil) et **la carte du monde peinte**.
+- [ ] **Les 58 portraits** de dialogue (les neuf anciens refaits, Ilyane comprise).
+- [ ] **Les inventions visuelles** à valider : la liste est dans le bilan de chaque lot (`docs/ASSETS.md`).
+- [ ] La fin a ses images aussi (sans rien en dire ici).
+- Remarques :
+
 ## Le pilote des images (en ligne le 2026-11-08)
 
 - [ ] **Canopéa, la Grande Nacelle** : la plate-forme, les maisons-cosses, la marchande de fleurs, et l'illustration

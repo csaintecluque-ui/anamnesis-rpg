@@ -176,7 +176,8 @@ export class WorldMapScene extends Phaser.Scene {
   }
 
   private drawMap(): void {
-    this.add.graphics().fillStyle(INK, 1).fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
+    // Depths: the ink (−2), the painted map once loaded (−1), everything else (0).
+    this.add.graphics().fillStyle(INK, 1).fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT).setDepth(-2);
     // The land itself (parchment, forests, mountains, dunes, ice): replaced by the painted map once it is loaded.
     const g = this.add.graphics();
     g.fillStyle(PARCHMENT, 1).fillRect(MAP_X, MAP_Y, WORLD.width * SCALE, WORLD.height * SCALE);
@@ -248,8 +249,7 @@ export class WorldMapScene extends Phaser.Scene {
     const key = 'illustration-carte-du-monde';
     const place = (): void => {
       if (!this.textures.exists(key) || !this.scene.isActive()) return;
-      const image = this.add.image(MAP_X, MAP_Y, key).setOrigin(0, 0).setDisplaySize(WORLD.width * SCALE, WORLD.height * SCALE);
-      this.children.moveAbove(image, land);
+      this.add.image(MAP_X, MAP_Y, key).setOrigin(0, 0).setDisplaySize(WORLD.width * SCALE, WORLD.height * SCALE).setDepth(-1);
       land.setVisible(false);
     };
     if (this.textures.exists(key)) return place();

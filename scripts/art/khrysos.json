@@ -1,0 +1,72 @@
+{
+  "tiles": {
+    "glace-sol": { "src": "khrysos/glace-sol.png", "preset": "sol" },
+    "neige": { "src": "khrysos/neige.png", "preset": "sol" },
+    "dalle-givre": { "src": "khrysos/dalle-givre.png", "preset": "sol" },
+    "tapis-fourrure": { "src": "khrysos/tapis-fourrure.png", "preset": "sol" },
+    "glace-noire": { "src": "khrysos/glace-noire.png", "preset": "sol" },
+    "mur-glace": { "src": "khrysos/mur-glace.png", "kind": "wall", "height": 60 },
+    "cristal-lumineux": { "src": "khrysos/cristal-lumineux.png", "preset": "objet", "maxWidth": 44, "maxHeight": 64 },
+    "cristal-crypte": { "src": "khrysos/cristal-crypte.png", "preset": "objet", "maxWidth": 50, "maxHeight": 80 },
+    "puits-ascension": { "src": "khrysos/puits-ascension.png", "preset": "batiment" },
+    "porte-glace": { "src": "khrysos/porte-glace.png", "preset": "batiment" },
+    "foyer-glace": { "src": "khrysos/foyer-glace.png", "preset": "batiment" },
+    "maison-glace": { "src": "khrysos/maison-glace.png", "preset": "batiment" },
+    "atelier-facettier": { "src": "khrysos/atelier-facettier.png", "preset": "batiment" },
+    "poste-vigiles": { "src": "khrysos/poste-vigiles.png", "preset": "batiment" },
+    "bibliotheque-glace": { "src": "khrysos/bibliotheque-glace.png", "preset": "batiment" },
+    "palais-glace": { "src": "khrysos/palais-glace.png", "preset": "batiment" },
+    "temple-hiver": { "src": "khrysos/temple-hiver.png", "preset": "batiment" },
+    "geyser": { "src": "khrysos/geyser.png", "preset": "objet" },
+    "congere": { "src": "khrysos/congere.png", "preset": "meuble", "maxWidth": 62, "maxHeight": 40 },
+    "sapin-givre": { "src": "khrysos/sapin-givre.png", "preset": "objet", "maxWidth": 46, "maxHeight": 84 },
+    "rocher-glace": { "src": "khrysos/rocher-glace.png", "preset": "objet", "maxHeight": 48 },
+    "sculpture-glace": { "src": "khrysos/sculpture-glace.png", "preset": "petit", "maxWidth": 34, "maxHeight": 38 },
+    "grille-cryptes": { "src": "khrysos/grille-cryptes.png", "preset": "objet", "maxWidth": 58 },
+    "cristal-archive": { "src": "khrysos/cristal-archive.png", "preset": "objet", "maxHeight": 62 },
+    "khrys": { "src": "khrysos/khrys.png", "preset": "objet", "maxWidth": 58, "maxHeight": 88, "foot": 88 },
+    "cristal-espion": { "src": "khrysos/cristal-espion.png", "preset": "haut" },
+    "traineau": { "src": "khrysos/traineau.png", "preset": "meuble" },
+    "caisse-glace": { "src": "khrysos/caisse-glace.png", "preset": "objet", "maxWidth": 56, "maxHeight": 60 },
+    "galerie-mine": { "src": "khrysos/galerie-mine.png", "preset": "batiment" },
+    "ulga": { "src": "khrysos/ulga.png", "preset": "personnage" },
+    "korvek": { "src": "khrysos/korvek.png", "preset": "colosse" },
+    "hrolda": { "src": "khrysos/hrolda.png", "preset": "personnage" },
+    "brodd": { "src": "khrysos/brodd.png", "preset": "personnage" },
+    "torka": { "src": "khrysos/torka.png", "preset": "enfant" },
+    "sigrun": { "src": "khrysos/sigrun.png", "preset": "personnage" },
+    "crysta": { "src": "khrysos/crysta.png", "preset": "personnage" },
+    "bjorn": { "src": "khrysos/bjorn.png", "preset": "personnage" },
+    "halvard": { "src": "khrysos/halvard.png", "preset": "personnage" },
+    "ennir": { "src": "khrysos/ennir.png", "preset": "personnage" },
+    "dagny": { "src": "khrysos/dagny.png", "preset": "personnage", "matte": true },
+    "oskarsen": { "src": "khrysos/oskarsen.png", "preset": "personnage", "maxWidth": 48 },
+    "garde-portes": { "src": "khrysos/garde-portes.png", "preset": "personnage" },
+    "machiniste": { "src": "khrysos/machiniste.png", "preset": "personnage" },
+    "gardien-cryptes": { "src": "khrysos/gardien-cryptes.png", "preset": "personnage" },
+    "pretresse-hiver": { "src": "khrysos/pretresse-hiver.png", "preset": "personnage" },
+    "glacienne": { "src": "khrysos/glacienne.png", "preset": "personnage" },
+    "geant-glaces": { "src": "khrysos/geant-glaces.png", "preset": "colosse" },
+    "elfe-givre": { "src": "khrysos/elfe-givre.png", "preset": "personnage" },
+    "nain-glace": { "src": "khrysos/nain-glace.png", "preset": "enfant", "maxHeight": 44 },
+    "enfant-givre": { "src": "khrysos/enfant-givre.png", "preset": "enfant" },
+    "yeti": { "src": "khrysos/yeti.png", "preset": "colosse" }
+  },
+  "portraits": {
+    "hrolda": "khrysos/portrait-hrolda.png",
+    "halvard": "khrysos/portrait-halvard.png",
+    "ennir": "khrysos/portrait-ennir.png",
+    "korvek": "khrysos/portrait-korvek.png",
+    "torka": "khrysos/portrait-torka.png"
+  },
+  "walks": {
+    "mineur-douze": { "dir": "khrysos/marche-mineur-douze", "height": 44 },
+    "marchande-galeries": { "dir": "khrysos/marche-marchande-galeries", "height": 54 }
+  },
+  "illustrations": {
+    "khrysos-arrivee": "khrysos/khrysos-arrivee.png"
+  },
+  "fonds": {
+    "khrysos": "khrysos/fond-khrysos.png"
+  }
+}

@@ -113,3 +113,7 @@ porter la cape parchemin que dit son texte) ; une créature camouflée se traite
   cuir sous le bras, petite lanterne de laiton à lueur cyan tenue à deux mains.
 - **La marchande de fleurs de Canopéa** : quarante ans, peau tannée, robe vert mousse rapiécée, châle effiloché, panier
   plat de fleurs de lune pâles à la hanche.
+
+**Les apparences proposées par les lots** (2026-11-08, à valider) : chaque personnage peint suit ses dialogues ; les
+prompts (donc les apparences) et les inventions à valider sont dans les sections « Lot <Ville> » et « Lot commun » de
+`docs/ASSETS.md`.

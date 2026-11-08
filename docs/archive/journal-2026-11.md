@@ -1272,3 +1272,22 @@ maison-cosse et la plate-forme de Canopéa, la Griffe-Sylve, l'illustration d'ar
 Véline). Hesper refaite une fois : son texte dit « cape couleur parchemin », la première version portait un manteau
 sombre (la règle : relire les dialogues avant le prompt). La Griffe-Sylve éclaircie et agrandie par le script (`lift`).
 10,25 crédits ; solde 2 135,11. Vérifié dans Chromium ; 1076 tests ; build.
+
+## 2026-11-08 (fin) — La mise en beauté, faite
+
+Cyril : « Nouvelle Ilyane, refais les 9, et lance les lots », puis « continue jusqu'à la fin ». Fait :
+
+1. **Les neuf portraits** refaits d'après les anciens (la nouvelle Ilyane, et huit autres).
+2. **L'outillage** : un fichier de données par lot (`scripts/art/<lot>.json`, préréglages de taille dans `tiles-def.mjs`,
+   portraits, marches, illustrations, fonds ; `npm run lots`) ; les fonds peints sous la carte (`src/data/fonds.json`) ;
+   les illustrations chargées à l'ouverture de leur dialogue et mises en cache à la première vue.
+3. **Sept lots de ville** confiés tour à tour à des agents (deux à la fois, six tâches Higgsfield chacun), chacun relu
+   (planches de tuiles et de portraits, l'illustration) avant d'être publié ; un brief commun, enrichi des leçons de
+   chaque lot (lanternes de cristal là où le feu est exclu, bêtes sauvages, halos, tuiles partagées).
+4. **Le lot commun** (Claude) : les derniers passants, la route, l'Écho furieux, trois portraits de la fin, la carte du
+   monde peinte d'après la carte dessinée (mêmes forêts, monts, glace et désert), une illustration par fin sous
+   l'épilogue, les fonds de Gardebois et du souterrain.
+5. Corrigés en route : une tuile définie deux fois (le Glacien) ; l'illustration d'arrivée qui ne revenait pas à la
+   réouverture d'un dialogue ; la carte peinte qui passait devant les lieux.
+
+521 images, 357,75 crédits ; solde 1 787,61. 1079 tests ; build (cache hors ligne 18,4 Mo) ; vérifié dans Chromium.

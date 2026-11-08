@@ -328,7 +328,9 @@ export class DialogueScene extends Phaser.Scene {
 
   /** The current node's illustration, if it has one and it is loaded (`fade`: it just arrived). */
   private showIllustration(fade: boolean): void {
-    if (!this.scene.isActive() && !this.scene.isPaused()) return;
+    // `fade`: called by the loader once the picture arrives; the dialogue may have closed in the meantime. Called from
+    // show() (create included, when the scene is not yet « active »), the scene is always there.
+    if (fade && !this.sys.isActive() && !this.sys.isPaused()) return;
     const node = this.dialogue.nodes[this.nodeId];
     const key = `illustration-${node?.illustration}`;
     const illustrated = !!node?.illustration && this.textures.exists(key);

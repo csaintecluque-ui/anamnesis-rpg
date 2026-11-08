@@ -47,6 +47,7 @@
   ],
   "nodes": {
     "accueil": {
+      "illustration": "khrysos-arrivee",
       "text": "Une garde en manteau gris-bleu, une lance de fer à pointe de glace. Elle te regarde des bottes jusqu’au col. — Vous venez du train. Bien. Ceux qui arrivent à pied, par la surface, je dois les renvoyer. La loi de 2995.",
       "options": [
         {

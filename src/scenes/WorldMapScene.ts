@@ -176,8 +176,9 @@ export class WorldMapScene extends Phaser.Scene {
   }
 
   private drawMap(): void {
+    this.add.graphics().fillStyle(INK, 1).fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
+    // The land itself (parchment, forests, mountains, dunes, ice): replaced by the painted map once it is loaded.
     const g = this.add.graphics();
-    g.fillStyle(INK, 1).fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
     g.fillStyle(PARCHMENT, 1).fillRect(MAP_X, MAP_Y, WORLD.width * SCALE, WORLD.height * SCALE);
     // Forests of Verdantis: soft green clumps, from a fixed seed so the map never changes.
     const rng = seeded(3000);
@@ -191,10 +192,11 @@ export class WorldMapScene extends Phaser.Scene {
       const p = this.screen({ x, y });
       g.fillStyle(shade, 0.55).fillCircle(p.x, p.y, r * SCALE);
     }
-    // The border of Ferros (the lisière zone), dashed, and mountains beyond it.
+    // The border of Ferros (the lisière zone), dashed, and mountains beyond it. The line stays over the painted map.
     const lisiere = WORLD.zones.find((z) => z.id === 'lisiere');
+    const border = this.add.graphics();
     if (lisiere) {
-      g.lineStyle(2, COPPER, 0.9);
+      border.lineStyle(2, COPPER, 0.9);
       const a = this.screen({ x: lisiere.x0, y: lisiere.y0 });
       const b = this.screen({ x: lisiere.x1, y: lisiere.y1 });
       for (let t = 0; t < 1; t += 0.04) {
@@ -202,7 +204,7 @@ export class WorldMapScene extends Phaser.Scene {
         const y0 = a.y + (b.y - a.y) * t * t;
         const x1 = a.x + (b.x - a.x) * (t + 0.02);
         const y1 = a.y + (b.y - a.y) * (t + 0.02) * (t + 0.02);
-        g.lineBetween(x0, y0, x1, y1);
+        border.lineBetween(x0, y0, x1, y1);
       }
       for (let i = 0; i < 8; i++) {
         const p = this.screen({ x: 820 + i * 46, y: 44 + (i % 2) * 24 });
@@ -232,8 +234,28 @@ export class WorldMapScene extends Phaser.Scene {
       const p = this.screen(far);
       this.label(p.x, p.y, `${far.name}\n${far.hint}`, '#5a4a38');
     }
-    g.lineStyle(3, INK, 1).strokeRect(MAP_X, MAP_Y, WORLD.width * SCALE, WORLD.height * SCALE);
-    g.lineStyle(1, COPPER, 0.8).strokeRect(MAP_X + 6, MAP_Y + 6, WORLD.width * SCALE - 12, WORLD.height * SCALE - 12);
+    border.lineStyle(3, INK, 1).strokeRect(MAP_X, MAP_Y, WORLD.width * SCALE, WORLD.height * SCALE);
+    border.lineStyle(1, COPPER, 0.8).strokeRect(MAP_X + 6, MAP_Y + 6, WORLD.width * SCALE - 12, WORLD.height * SCALE - 12);
+    this.paintMap(g);
+  }
+
+  /**
+   * The painted map (mise en beauté, docs/ASSETS.md : illustrations/carte-du-monde.jpg), painted over the drawn one so
+   * the land sits where the game puts its places; loaded the first time the map opens. The places, the trail, the
+   * names and the border of Ferros stay drawn by the game, above it.
+   */
+  private paintMap(land: Phaser.GameObjects.Graphics): void {
+    const key = 'illustration-carte-du-monde';
+    const place = (): void => {
+      if (!this.textures.exists(key) || !this.scene.isActive()) return;
+      const image = this.add.image(MAP_X, MAP_Y, key).setOrigin(0, 0).setDisplaySize(WORLD.width * SCALE, WORLD.height * SCALE);
+      this.children.moveAbove(image, land);
+      land.setVisible(false);
+    };
+    if (this.textures.exists(key)) return place();
+    this.load.image(key, 'illustrations/carte-du-monde.jpg');
+    this.load.once(Phaser.Loader.Events.COMPLETE, place);
+    this.load.start();
   }
 
   /** An italic note on a parchment patch, readable over the forests. */

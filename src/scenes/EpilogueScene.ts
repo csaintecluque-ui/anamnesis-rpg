@@ -31,10 +31,31 @@ export class EpilogueScene extends Phaser.Scene {
     this.pages = epiloguePages(state);
     if (this.last) this.pages.push({ titre: 'Anamnesis', texte: 'Merci d’avoir joué jusqu’au bout de la voie sept.\n\nAnamnesis · CSC' });
     this.index = 0;
-    this.add.rectangle(0, 0, GAME_WIDTH, GAME_HEIGHT, COLORS.ink, 1).setOrigin(0, 0).setInteractive();
+    this.add.rectangle(0, 0, GAME_WIDTH, GAME_HEIGHT, COLORS.ink, 1).setOrigin(0, 0).setInteractive().setDepth(-3);
+    this.paintEnding(endingOf(state));
     this.layer = this.add.container(0, 0);
     onKeys(this, ['ENTER', 'SPACE', 'RIGHT'], () => this.next());
     this.show();
+  }
+
+  /**
+   * The ending's illustration (mise en beauté, docs/ASSETS.md : illustrations/fin-<fin>.jpg), behind the pages under a
+   * veil of ink, loaded when the epilogue opens; without it, the ink alone, as before.
+   */
+  private paintEnding(ending: string | null): void {
+    if (!ending) return;
+    const key = `illustration-fin-${ending}`;
+    const place = (): void => {
+      if (!this.textures.exists(key) || !this.scene.isActive()) return;
+      // Depths: the ink (−3), the picture (−2), its veil (−1), the pages (0).
+      const image = this.add.image(0, 0, key).setOrigin(0, 0).setDisplaySize(GAME_WIDTH, GAME_HEIGHT).setAlpha(0).setDepth(-2);
+      this.add.rectangle(0, 0, GAME_WIDTH, GAME_HEIGHT, COLORS.ink, 0.62).setOrigin(0, 0).setDepth(-1);
+      this.tweens.add({ targets: image, alpha: 1, duration: 1200 });
+    };
+    if (this.textures.exists(key)) return place();
+    this.load.image(key, `illustrations/fin-${ending}.jpg`);
+    this.load.once(Phaser.Loader.Events.COMPLETE, place);
+    this.load.start();
   }
 
   private show(): void {

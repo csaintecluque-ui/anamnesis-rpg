@@ -627,7 +627,8 @@
   {
     "id": "ambroise",
     "name": "Ambroise Encrelune",
-    "role": "Conservateur de la Grande Bibliothèque"
+    "role": "Conservateur de la Grande Bibliothèque",
+    "portrait": "portraits/ambroise.jpg"
   },
   {
     "id": "hesper",
@@ -643,7 +644,8 @@
   {
     "id": "lior",
     "name": "Lior Rose-des-Vents",
-    "role": "Cartographe"
+    "role": "Cartographe",
+    "portrait": "portraits/lior.jpg"
   },
   {
     "id": "arlo",
@@ -668,7 +670,8 @@
   {
     "id": "edda",
     "name": "La dame en gris",
-    "role": "Une courtière de Ferros"
+    "role": "Une courtière de Ferros",
+    "portrait": "portraits/edda.jpg"
   },
   {
     "id": "marchande-nations",
@@ -821,7 +824,8 @@
   {
     "id": "edda-halte",
     "name": "La dame en gris",
-    "role": "Halte des Cendres"
+    "role": "Halte des Cendres",
+    "portrait": "portraits/edda-halte.jpg"
   },
   {
     "id": "echo-la-pluie",
@@ -981,7 +985,8 @@
   {
     "id": "edda-coralia",
     "name": "La dame en gris",
-    "role": "Salle des Conques"
+    "role": "Salle des Conques",
+    "portrait": "portraits/edda-coralia.jpg"
   },
   {
     "id": "noea",
@@ -1161,7 +1166,8 @@
   {
     "id": "edda-marche",
     "name": "La dame en gris",
-    "role": "La halte morte"
+    "role": "La halte morte",
+    "portrait": "portraits/edda-marche.jpg"
   },
   {
     "id": "caisse-communion",
@@ -1344,7 +1350,8 @@
   {
     "id": "edda-khrysos",
     "name": "La dame en gris",
-    "role": "Le Niveau Douze"
+    "role": "Le Niveau Douze",
+    "portrait": "portraits/edda-khrysos.jpg"
   },
   {
     "id": "caisse-glacialis",
@@ -1419,7 +1426,8 @@
   {
     "id": "edda-quai",
     "name": "La dame en gris",
-    "role": "Le quai sept"
+    "role": "Le quai sept",
+    "portrait": "portraits/edda-quai.jpg"
   },
   {
     "id": "edda-varn",

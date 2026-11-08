@@ -1701,7 +1701,8 @@
     "lines": [
       "Je viens pour la Fête du Souvenir. J’ai trois mois d’avance : je voulais être sûr.",
       "On dit que Kael écrivait sans laisser de marge. Il avait peur d’oublier quelque chose."
-    ]
+    ],
+    "walk": "sprites/figurant-pelerin-souvenir.png"
   },
   {
     "id": "changeur",
@@ -1806,7 +1807,8 @@
     "lines": [
       "La statue d’Aldara, cinquante mètres ! Les Trois Cents, à droite ! Le pourboire, à la fin.",
       "Je raconte le siège douze fois par jour. Je ne sais plus si je m’en souviens, ou si je le récite."
-    ]
+    ],
+    "walk": "sprites/figurant-guide.png"
   },
   {
     "id": "chroniqueur-registre",

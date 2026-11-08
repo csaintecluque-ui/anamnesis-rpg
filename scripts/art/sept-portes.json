@@ -1,0 +1,53 @@
+{
+  "tiles": {
+    "porte-nexus": { "src": "sept-portes/porte-nexus.png", "preset": "batiment", "maxWidth": 58 },
+    "dome": { "src": "sept-portes/dome.png", "preset": "batiment", "maxWidth": 60 },
+    "stele": { "src": "sept-portes/stele.png", "preset": "haut", "maxWidth": 28, "maxHeight": 62, "foot": 86, "shadow": { "rx": 12, "ry": 4 } },
+    "lutrin": { "src": "sept-portes/lutrin.png", "preset": "meuble", "maxWidth": 40, "maxHeight": 46, "shadow": { "rx": 14, "ry": 5 } },
+    "mosaique": { "src": "sept-portes/mosaique.png", "preset": "sol" },
+    "ambroise": { "src": "sept-portes/ambroise.png", "preset": "personnage" },
+    "josse": { "src": "sept-portes/josse.png", "preset": "personnage" },
+    "lior": { "src": "sept-portes/lior.png", "preset": "personnage" },
+    "arlo": { "src": "sept-portes/arlo.png", "preset": "enfant" },
+    "mina": { "src": "sept-portes/mina.png", "preset": "enfant" },
+    "greffiere": { "src": "sept-portes/greffiere.png", "preset": "personnage" },
+    "portier-nuit": { "src": "sept-portes/portier-nuit.png", "preset": "personnage" },
+    "edda": { "src": "sept-portes/edda.png", "preset": "personnage" },
+    "edda-halte": { "src": "sept-portes/edda.png", "preset": "personnage" },
+    "edda-coralia": { "src": "sept-portes/edda.png", "preset": "personnage" },
+    "edda-marche": { "src": "sept-portes/edda.png", "preset": "personnage" },
+    "edda-khrysos": { "src": "sept-portes/edda.png", "preset": "personnage" },
+    "marchande-nations": { "src": "sept-portes/marchande-nations-v2.png", "preset": "personnage" },
+    "eprouveur": { "src": "sept-portes/eprouveur.png", "preset": "personnage" },
+    "voyageuse-zephyria": { "src": "sept-portes/voyageuse-zephyria.png", "preset": "personnage", "matte": true },
+    "marin-marisol": { "src": "sept-portes/marin-marisol.png", "preset": "personnage" },
+    "nomade-sables": { "src": "sept-portes/nomade-sables.png", "preset": "personnage" },
+    "glacien": { "src": "sept-portes/glacien.png", "preset": "personnage" },
+    "pelerin": { "src": "sept-portes/pelerin.png", "preset": "personnage" },
+    "changeur": { "src": "sept-portes/changeur.png", "preset": "personnage" },
+    "fruitiere": { "src": "sept-portes/fruitiere.png", "preset": "personnage" },
+    "guide": { "src": "sept-portes/guide.png", "preset": "personnage" },
+    "chroniqueur": { "src": "sept-portes/chroniqueur.png", "preset": "personnage" },
+    "etudiante": { "src": "sept-portes/etudiante.png", "preset": "personnage" }
+  },
+  "portraits": {
+    "ambroise": "sept-portes/portrait-ambroise.png",
+    "lior": "sept-portes/portrait-lior.png",
+    "edda": "sept-portes/portrait-edda.png",
+    "edda-halte": "sept-portes/portrait-edda.png",
+    "edda-coralia": "sept-portes/portrait-edda.png",
+    "edda-marche": "sept-portes/portrait-edda.png",
+    "edda-khrysos": "sept-portes/portrait-edda.png",
+    "edda-quai": "sept-portes/portrait-edda.png"
+  },
+  "walks": {
+    "pelerin-souvenir": { "dir": "sept-portes/marche-pelerin-souvenir", "height": 54 },
+    "guide": { "dir": "sept-portes/marche-guide", "height": 54 }
+  },
+  "illustrations": {
+    "sept-portes-arrivee": "sept-portes/sept-portes-arrivee.png"
+  },
+  "fonds": {
+    "sept-portes": "sept-portes/fond-sept-portes.png"
+  }
+}

@@ -323,6 +323,11 @@ export class DialogueScene extends Phaser.Scene {
     return { dialogue: this.dialogue.id, node: this.nodeId };
   }
 
+  /** The dialogue and node on screen, for the music (src/audio/conductor.ts : the Échos, the lady in grey…). */
+  musicPlace(): NodePlace {
+    return this.place();
+  }
+
   private close(): void {
     this.scene.resume('Map');
     this.scene.stop();

@@ -1,7 +1,9 @@
 /** Player preferences: per device, not part of a save (a save file moved to another device keeps that device's options). */
 export interface Settings {
-  /** 0 to 100. */
+  /** 0 to 100: everything (sound effects and music). */
   volume: number;
+  /** 0 to 100, under the general volume: the music alone (docs/gdd/son.md). */
+  music: number;
   textSize: TextSize;
   /** Hidden testing tools in the pause menu (docs/gdd/interface.md, « Mode test »). */
   testMode: boolean;
@@ -16,16 +18,18 @@ export const TEXT_SIZES: { id: TextSize; label: string; scale: number }[] = [
   { id: 'grande', label: 'Grande', scale: 1.15 },
 ];
 
-export const DEFAULT_SETTINGS: Settings = { volume: 80, textSize: 'normale', testMode: false, miniMap: true };
+export const DEFAULT_SETTINGS: Settings = { volume: 80, music: 70, textSize: 'normale', testMode: false, miniMap: true };
 const KEY = 'anamnesis.settings';
 
 export function parseSettings(raw: string | null): Settings {
   if (!raw) return { ...DEFAULT_SETTINGS };
   try {
     const value = JSON.parse(raw) as Partial<Settings>;
-    const volume = Number.isInteger(value.volume) ? Math.min(100, Math.max(0, value.volume as number)) : DEFAULT_SETTINGS.volume;
+    const percent = (v: unknown, fallback: number): number => (Number.isInteger(v) ? Math.min(100, Math.max(0, v as number)) : fallback);
+    const volume = percent(value.volume, DEFAULT_SETTINGS.volume);
+    const music = percent(value.music, DEFAULT_SETTINGS.music);
     const textSize = TEXT_SIZES.some((t) => t.id === value.textSize) ? (value.textSize as TextSize) : DEFAULT_SETTINGS.textSize;
-    return { volume, textSize, testMode: value.testMode === true, miniMap: value.miniMap !== false };
+    return { volume, music, textSize, testMode: value.testMode === true, miniMap: value.miniMap !== false };
   } catch {
     return { ...DEFAULT_SETTINGS };
   }

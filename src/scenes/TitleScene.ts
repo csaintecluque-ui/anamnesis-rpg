@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import { onKeys } from '../ui/keys';
 import { getSettings, saveSettings } from '../settings';
+import { openListeningPanel } from '../ui/listeningPanel';
 import { COLORS, CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
 import { HAS_MOUSE } from '../ui/viewport';
 
@@ -51,6 +52,8 @@ export class TitleScene extends Phaser.Scene {
       { label: 'Charger', enabled: true, action: () => this.scene.start('Slots', { mode: 'load' }) },
       { label: 'Options', enabled: true, action: () => this.scene.launch('Options') },
     ];
+    // Test mode: the listening page, to choose between the two takes of each track (docs/gdd/son.md).
+    if (getSettings().testMode) entries.push({ label: 'Écouter la musique', enabled: true, action: () => openListeningPanel(this) });
 
     const items: { text: Phaser.GameObjects.Text; action?: () => void }[] = [];
     entries.forEach((entry, i) => {
@@ -121,7 +124,8 @@ export class TitleScene extends Phaser.Scene {
       taps = [];
       const settings = getSettings();
       saveSettings({ ...settings, testMode: !settings.testMode });
-      version.setText(label()).setColor(getSettings().testMode ? CSS.copper : CSS.muted);
+      // Redrawn: the test mode adds « Écouter la musique » to the menu.
+      this.scene.restart();
     });
     if (getSettings().testMode) version.setColor(CSS.copper);
   }

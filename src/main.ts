@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import { setUpMobileAudio } from './audio/mobile';
+import { musicLog, musicPlaying, musicPosition, startConductor } from './audio/conductor';
 import { BootScene } from './scenes/BootScene';
 import { CombatScene } from './scenes/CombatScene';
 import { CreationScene } from './scenes/CreationScene';
@@ -72,6 +73,8 @@ const game = new Phaser.Game({
 game.sound.volume = getSettings().volume / 100;
 // Phones: the iPhone's silent switch, an audio left asleep until a touch (src/audio/mobile.ts).
 setUpMobileAudio(game);
+// The music (docs/gdd/son.md): the conductor follows the place, the hour, the fights and the rewards.
+game.events.once(Phaser.Core.Events.READY, () => startConductor(game));
 game.events.once(Phaser.Core.Events.READY, () => applyRenderScale(game));
 
 // Leaving the page (a tab closed, the app sent to the background on a phone): the auto save is written, unless a save
@@ -103,7 +106,10 @@ game.events.on(Phaser.Core.Events.STEP, (time: number) => {
 });
 
 // Development only: lets browser checks locate things on screen. Never present in the published build.
-if (import.meta.env.DEV) (window as unknown as { __anamnesis: Phaser.Game }).__anamnesis = game;
+if (import.meta.env.DEV) {
+  (window as unknown as { __anamnesis: Phaser.Game }).__anamnesis = game;
+  (window as unknown as { __musique: object }).__musique = { log: musicLog, playing: musicPlaying, position: musicPosition };
+}
 
 // Phaser's FIT mode re-centres on resize but keeps the old display size (seen on rotation); force a full refresh.
 let pendingRefresh = 0;

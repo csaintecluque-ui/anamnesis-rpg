@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import { TEXT_SIZES, fontPx, getSettings, saveSettings, type Settings } from '../settings';
+import { setMusicVolume } from '../audio/conductor';
 import { addTextButton } from '../ui/button';
 import { SHOW_KEY_HINTS, onKeys, withKeyHint } from '../ui/keys';
 import { COLORS, CSS, FONT_SERIF, GAME_HEIGHT, GAME_WIDTH } from '../ui/theme';
@@ -31,6 +32,7 @@ export class OptionsScene extends Phaser.Scene {
     const next = { ...getSettings(), ...change };
     saveSettings(next);
     this.sound.volume = next.volume / 100;
+    setMusicVolume(next.music);
     this.redraw();
   }
 
@@ -43,30 +45,26 @@ export class OptionsScene extends Phaser.Scene {
       return t;
     };
 
-    // Volume
-    label(260, 160, 'Volume');
-    this.layer.add(
-      addTextButton(this, 640, 160, '−', () => this.applyChange({ volume: Math.max(0, settings.volume - VOLUME_STEP) }), {
-        ...SMALL,
-        enabled: settings.volume > 0,
-      }).container,
-    );
-    this.layer.add(
-      this.add.text(740, 160, `${settings.volume} %`, { fontFamily: FONT_SERIF, fontSize: '28px', color: CSS.parchment }).setOrigin(0.5),
-    );
-    this.layer.add(
-      addTextButton(this, 840, 160, '+', () => this.applyChange({ volume: Math.min(100, settings.volume + VOLUME_STEP) }), {
-        ...SMALL,
-        enabled: settings.volume < 100,
-      }).container,
-    );
-    label(260, 204, 'Les bruitages : les pas, les coups, les dialogues, le train de la Gare.', CSS.muted).setFontSize(18);
+    // Volume, then the music alone under it (docs/gdd/son.md).
+    const percentRow = (y: number, name: string, value: number, change: (v: number) => Partial<Settings>): void => {
+      label(260, y, name);
+      this.layer.add(
+        addTextButton(this, 640, y, '−', () => this.applyChange(change(Math.max(0, value - VOLUME_STEP))), { ...SMALL, enabled: value > 0 }).container,
+      );
+      this.layer.add(this.add.text(740, y, `${value} %`, { fontFamily: FONT_SERIF, fontSize: '28px', color: CSS.parchment }).setOrigin(0.5));
+      this.layer.add(
+        addTextButton(this, 840, y, '+', () => this.applyChange(change(Math.min(100, value + VOLUME_STEP))), { ...SMALL, enabled: value < 100 }).container,
+      );
+    };
+    percentRow(150, 'Volume', settings.volume, (volume) => ({ volume }));
+    percentRow(218, 'Musique', settings.music, (music) => ({ music }));
+    label(260, 260, 'Le volume règle tout ; la musique se règle à part, sous lui (0 % : sans musique).', CSS.muted).setFontSize(18);
 
     // Text size
-    label(260, 270, 'Taille du texte');
+    label(260, 318, 'Taille du texte');
     TEXT_SIZES.forEach((size, i) => {
       this.layer.add(
-        addTextButton(this, 690 + i * 200, 270, size.label, () => this.applyChange({ textSize: size.id }), {
+        addTextButton(this, 690 + i * 200, 318, size.label, () => this.applyChange({ textSize: size.id }), {
           width: 180,
           height: 64,
           fontSize: 24,
@@ -76,7 +74,7 @@ export class OptionsScene extends Phaser.Scene {
     });
     this.layer.add(
       this.add
-        .text(GAME_WIDTH / 2, 344, 'Aperçu : « Te voilà. Les Gardiens de Mémoire m’ont annoncé ta venue. »', {
+        .text(GAME_WIDTH / 2, 384, 'Aperçu : « Te voilà. Les Gardiens de Mémoire m’ont annoncé ta venue. »', {
           fontFamily: FONT_SERIF,
           fontSize: fontPx(26),
           color: CSS.parchment,
@@ -85,16 +83,16 @@ export class OptionsScene extends Phaser.Scene {
         })
         .setOrigin(0.5),
     );
-    label(260, 392, 'S’applique aux dialogues et aux messages du jeu.', CSS.muted).setFontSize(18);
+    label(260, 424, 'S’applique aux dialogues et aux messages du jeu.', CSS.muted).setFontSize(18);
 
     // The place's small map (étude A7).
-    label(260, 456, 'Mini-carte');
+    label(260, 480, 'Mini-carte');
     [
       { label: 'Affichée', on: true },
       { label: 'Masquée', on: false },
     ].forEach((choice, i) => {
       this.layer.add(
-        addTextButton(this, 690 + i * 200, 456, choice.label, () => this.applyChange({ miniMap: choice.on }), {
+        addTextButton(this, 690 + i * 200, 480, choice.label, () => this.applyChange({ miniMap: choice.on }), {
           width: 180,
           height: 64,
           fontSize: 24,
@@ -102,20 +100,20 @@ export class OptionsScene extends Phaser.Scene {
         }).container,
       );
     });
-    if (SHOW_KEY_HINTS) label(260, 496, 'La touche M l’affiche ou la masque sur la carte.', CSS.muted).setFontSize(18);
+    if (SHOW_KEY_HINTS) label(260, 516, 'La touche M l’affiche ou la masque sur la carte.', CSS.muted).setFontSize(18);
 
     // Full screen (PC, Android). Safari on iPhone has no full-screen API: the installed app already fills the screen.
     if (this.scale.fullscreen.available) {
-      label(260, 560, 'Plein écran');
+      label(260, 568, 'Plein écran');
       const on = this.scale.isFullscreen;
       this.layer.add(
-        addTextButton(this, 790, 560, on ? 'Quitter le plein écran' : 'Passer en plein écran', () => this.toggleFullscreen(), {
+        addTextButton(this, 790, 568, on ? 'Quitter le plein écran' : 'Passer en plein écran', () => this.toggleFullscreen(), {
           width: 380,
           height: 64,
           fontSize: 24,
         }).container,
       );
-      if (SHOW_KEY_HINTS) label(260, 598, 'La touche F11 du navigateur fonctionne aussi.', CSS.muted).setFontSize(18);
+      if (SHOW_KEY_HINTS) label(260, 604, 'La touche F11 du navigateur fonctionne aussi.', CSS.muted).setFontSize(18);
     }
   }
 
